@@ -2181,6 +2181,14 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Storage management help</source>
         <translation>Aide à la gestion du stockage</translation>
     </message>
+    <message>
+        <source>Import URL</source>
+        <translation>Importer une URL</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Saisir une URL ci-dessous pour télécharger et importer le projet ou le jeu de données :</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
@@ -2603,6 +2611,46 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>centroid</source>
         <translation>centroïde</translation>
+    </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Erreur : le fichier zip &apos;%1&apos; n&apos;existe pas.</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Erreur : le nom du fichier zip est vide</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Erreur : le répertoire de destination &apos;%1&apos; n&apos;existe pas</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Erreur : le répertoire de destination &apos;%1&apos; n&apos;en est pas un</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Erreur : le répertoire de destination &apos;%1&apos; n&apos;est pas modifiable</translation>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Échec à la création du sous-répertoire %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Impossible d&apos;écrire sur %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Erreur de lecture du fichier &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Erreur à l&apos;obtention des fichiers &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Erreur à l&apos;ouverture de l&apos;archive zip &apos;%1&apos; (code d&apos;erreur : %2)</translation>
     </message>
 </context>
 <context>
@@ -3537,6 +3585,14 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Le canevas suit la localisation et l&apos;orientation de la boussole</translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>Importation de %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>L&apos;import de l&apos;URL a échoué</translation>
     </message>
 </context>
 <context>

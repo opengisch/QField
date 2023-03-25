@@ -2181,6 +2181,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Storage management help</source>
         <translation>存储管理帮助</translation>
     </message>
+    <message>
+        <source>Import URL</source>
+        <translation>导入URL</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>在下面键入URL，下载并导入工程或数据集：</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
@@ -2604,6 +2612,46 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>centroid</source>
         <translation>质心</translation>
+    </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>错误，ZIP文件不存在: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>错误，ZIP文件名为空</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>错误，输出目录不存在: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>错误，输出目录不是目录: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>错误，输出目录不可写: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>无法创建子目录 %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>无法写入 %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>读取文件时出错: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>获取文件时出错: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>打开ZIP归档文件时出错: &apos;%1&apos; (错误代码: %2)</translation>
     </message>
 </context>
 <context>
@@ -3536,6 +3584,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>地图遵循位置和指南针方向</translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>导入 %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>导入URL失败</translation>
     </message>
 </context>
 <context>

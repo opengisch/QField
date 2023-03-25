@@ -2181,6 +2181,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Storage management help</source>
         <translation>Pomoć oko upravljanja pohranom</translation>
     </message>
+    <message>
+        <source>Import URL</source>
+        <translation>Uvezi URL</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Ispod upiši URL za preuzimanje i uvoz projekta ili seta podataka:</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
@@ -2604,6 +2612,46 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>centroid</source>
         <translation>centroid</translation>
+    </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Greška - zip datoteka ne postoji: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Greška - naziv zip datoteke je prazan</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Greška - izlazna mapa ne postoji: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Greška - izlazna mapa nije direktorij: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Greška - nije moguće pisati u izlaznu mapu: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Nije uspjelo stvaranje podmape %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Nije moguće pisati na %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Greška prilikom čitanja datoteke: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Greška pri dohvaćanju datoteka: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Greška - otvaranje zip arhiva: &apos;%1&apos; (Kôd greške: %2)</translation>
     </message>
 </context>
 <context>
@@ -3536,6 +3584,14 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Okvir karte prati lokaciju i smjer kompasa</translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>Uvozim %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>Uvoz URL-a nije uspio</translation>
     </message>
 </context>
 <context>

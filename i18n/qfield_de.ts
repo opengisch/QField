@@ -57,11 +57,11 @@
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Die aktuelle Transformation “&lt;i&gt;%1&lt;/i&gt;” hat eine Genauigkeit von %2 Metern, während die bevorzugte Transformation “&lt;i&gt;%3&lt;/i&gt;” eine Genauigkeit von %4 Metern hat.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Die aktuelle Transformation “&lt;i&gt;%1&lt;/i&gt;” hat eine unbekannte Genauigkeit, während die bevorzugte Transformation “&lt;i&gt;%2&lt;/i&gt;” eine Genauigkeit von %3 Metern hat.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
@@ -457,7 +457,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation type="unfinished"/>
+        <translation>Nicht erkannter Status &quot;%1&quot; für $%2</translation>
     </message>
 </context>
 <context>
@@ -617,11 +617,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>Eine Anzahl an Features wird aufgenommen, beende das Aufzeichnen um diese zu vereinen</translation>
+        <translation>Eine Anzahl an Objekten wird aufgenommen, beende das Aufzeichnen um diese zu vereinen</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Ausgewählte Features erfolgreich dupliziert, Liste aktualisiert um neu erstellte Features anzuzeigen</translation>
+        <translation>Ausgewählte Objekte erfolgreich dupliziert, Liste aktualisiert um neu erstellte Features anzuzeigen</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -910,7 +910,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Featureliste anzeigen</translation>
+        <translation>Objektliste anzeigen</translation>
     </message>
     <message>
         <source>The layer has no features</source>
@@ -938,7 +938,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Liste sichtbarer Features anzeigen</translation>
+        <translation>Liste sichtbarer Objekte anzeigen</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
@@ -1175,15 +1175,15 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Drucke Atlas-Objekt(e) als Bild</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Drucke Atlas-Objekt als Bild</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Drucke Atlas-Objekt(e)</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -1253,7 +1253,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation>Objektreihenfolge kann nicht geändert werden</translation>
+        <translation>Reihenfolge der Objekte kann nicht geändert werden</translation>
     </message>
 </context>
 <context>
@@ -1692,7 +1692,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Einige Ebenen wurden nicht korrekt in QFieldCloud verpackt. Diese Ebenen könnten falsch konfiguriert sein oder ihre Datenquelle ist vom QFieldCloud-Server nicht zugänglich. Bitte prüfen Sie die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Website.</translation>
     </message>
 </context>
 <context>
@@ -1763,7 +1763,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation type="unfinished"/>
+        <translation>Das lokal gespeicherte Cloud-Projekt ist beschädigt worden</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -1779,7 +1779,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Sparen Sie Internet-Bandbreite, indem Sie nur die lokalen Merkmale und Bilder in die Cloud verschieben, ohne das gesamte Projekt zu aktualisieren.</translation>
+        <translation>Sparen Sie Internet-Bandbreite, indem Sie nur die lokalen Objekte und Bilder in die Cloud verschieben, ohne das gesamte Projekt zu aktualisieren.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
@@ -1791,11 +1791,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>Alle geänderten Features in den lokalen Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
+        <translation>Alle geänderten Objekte in den lokalen Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Alle geänderten Features in den lokalen Cloud-Ebenen rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
+        <translation type="vanished">Alle geänderten Objekte in den lokalen Cloud-Ebenen rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1880,21 +1880,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Der gepackte Layer &apos;%1&apos; ist nicht gültig: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Temporäre Datei für &quot;%1&quot; konnte nicht geöffnet werden, Grund:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Das Hochladen des Anhangs, der unter &quot;%1&quot; gespeichert ist, ist fehlgeschlagen, Grund: %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Dateidownload gescheitert &quot;%1&quot;, Grund:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
@@ -1954,7 +1955,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Fehler in der Datenstruktur des letzten Pakets.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
@@ -2032,7 +2033,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation type="unfinished"/>
+        <translation>Herunterladen, %1% abgerufen...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
@@ -2052,19 +2053,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>Lokal verfügbar, fehlt in der Cloud</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation type="unfinished"/>
+        <translation>In der Cloud verfügbar, fehlt im lokalen Ordner</translation>
     </message>
     <message>
         <source>Available locally</source>
-        <translation type="unfinished"/>
+        <translation>Lokal verfügbar</translation>
     </message>
     <message>
         <source>Has changes. </source>
-        <translation type="unfinished"/>
+        <translation>Änderungen vorhanden.</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
@@ -2177,6 +2178,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Storage management help</source>
         <translation>Speicherverwaltung Hilfe</translation>
     </message>
+    <message>
+        <source>Import URL</source>
+        <translation>Import von URL</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
@@ -2202,7 +2211,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Wenn diese Funktion eingeschaltet ist, werden Koordinateninformationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Elemente oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
+        <translation>Wenn diese Funktion eingeschaltet ist, werden Koordinateninformationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Objekte oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -2587,11 +2596,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>Cloud User Info</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte warten, QField schliesst die Installation ab.</translation>
     </message>
     <message>
         <source>averaged</source>
@@ -2600,6 +2609,46 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>centroid</source>
         <translation>Zentroid</translation>
+    </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2653,7 +2702,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Autonomous</source>
-        <translation type="unfinished"/>
+        <translation>Autonom</translation>
     </message>
     <message>
         <source>Invalid</source>
@@ -2946,7 +2995,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Um die Messfunktion zu aktivieren, stellen Sie sicher, dass der Geometrietyp der für die Trackingsitzung verwendeten Vektorebene eine M-Dimension hat.</translation>
     </message>
 </context>
 <context>
@@ -3183,7 +3232,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="unfinished"/>
+        <translation>Hinzufügen abbrechen</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
@@ -3203,11 +3252,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>Cursor an aktueller Position fixiert</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Cursor wieder freigegeben</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -3483,7 +3532,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="unfinished"/>
+        <translation>Projektdownload %1 fehlgeschlagen</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
@@ -3531,6 +3580,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>Import %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
         <translation type="unfinished"/>
     </message>
 </context>

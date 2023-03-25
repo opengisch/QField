@@ -2183,6 +2183,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Storage management help</source>
         <translation>Ayuda sobre gestión de almacenamiento</translation>
     </message>
+    <message>
+        <source>Import URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
@@ -2606,6 +2614,46 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>centroid</source>
         <translation>centroide</translation>
+    </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3538,6 +3586,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>El lienzo sigue la ubicación y la orientación de la brújula</translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
