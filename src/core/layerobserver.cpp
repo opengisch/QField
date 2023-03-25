@@ -188,7 +188,7 @@ void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayer
 
   qInfo() << "LayerObserver::onCommittedAttributeValuesChanges: sourcePkAttrPair=" << sourcePkAttrPair << " sourceLayerId=" << sourceLayerId << " changedAttributesValuesFids=" << changedAttributesValuesFids;
 
-  for ( const QgsFeatureId &fid : changedAttributesValuesFids )
+  for ( const QgsFeatureId fid : changedAttributesValuesFids )
   {
     if ( patchedFids.contains( fid ) )
       continue;
@@ -237,7 +237,7 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
     QgsFeature oldFeature = changedFeatures.take( fid );
     QgsFeature newFeature = vl->getFeature( fid );
 
-    qInfo() << "LayerObserver::onCommittedGeometriesChanges: adding patch delta... FID=" << fid;
+    qInfo() << "  LayerObserver::onCommittedGeometriesChanges: adding patch delta... FID=" << fid;
 
     mDeltaFileWrapper->addPatch( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
   }
