@@ -20,6 +20,7 @@
 #include "utils/fileutils.h"
 #include "utils/qfieldcloudutils.h"
 
+#include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QUuid>

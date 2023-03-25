@@ -18,6 +18,7 @@
 #include "layerobserver.h"
 #include "qfieldcloudutils.h"
 
+#include <QDebug>
 #include <QDir>
 #include <qgsfeature.h>
 #include <qgsfeatureiterator.h>
