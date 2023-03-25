@@ -19,6 +19,7 @@
 #include <QTimer>
 #include <qgsdistancearea.h>
 #include <qgsproject.h>
+#include <qgssensormanager.h>
 
 Tracker::Tracker( QgsVectorLayer *layer, bool visible )
   : mLayer( layer ), mVisible( visible )
@@ -45,8 +46,10 @@ void Tracker::trackPosition()
   }
 
   model()->addVertex();
+
   mTimeIntervalFulfilled = false;
   mMinimumDistanceFulfilled = false;
+  mSensorCaptureFulfilled = false;
 }
 
 void Tracker::positionReceived()
@@ -70,13 +73,15 @@ void Tracker::positionReceived()
     if ( distanceArea.measureLine( flatPoints ) > mMinimumDistance )
     {
       mMinimumDistanceFulfilled = true;
-      if ( !mConjunction || mTimeIntervalFulfilled )
-        trackPosition();
     }
   }
   else
   {
-    // No constraints declared, every position received is tracked
+    mMinimumDistanceFulfilled = true;
+  }
+
+  if ( !mConjunction || ( mTimeIntervalFulfilled && mSensorCaptureFulfilled ) )
+  {
     trackPosition();
   }
 }
@@ -84,8 +89,21 @@ void Tracker::positionReceived()
 void Tracker::timeReceived()
 {
   mTimeIntervalFulfilled = true;
-  if ( !mConjunction || mMinimumDistanceFulfilled )
+
+  if ( !mConjunction || ( mMinimumDistanceFulfilled && mSensorCaptureFulfilled ) )
+  {
     trackPosition();
+  }
+}
+
+void Tracker::sensorDataReceived()
+{
+  mSensorCaptureFulfilled = true;
+
+  if ( !mConjunction || ( mMinimumDistanceFulfilled && mSensorCaptureFulfilled ) )
+  {
+    trackPosition();
+  }
 }
 
 void Tracker::start()
@@ -95,9 +113,30 @@ void Tracker::start()
     connect( &mTimer, &QTimer::timeout, this, &Tracker::timeReceived );
     mTimer.start( mTimeInterval * 1000 );
   }
+  else
+  {
+    mTimeIntervalFulfilled = true;
+  }
   if ( mMinimumDistance > 0 || qgsDoubleNear( mTimeInterval, 0.0 ) )
   {
     connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
+  }
+  else
+  {
+    mMinimumDistanceFulfilled = true;
+  }
+  if ( mSensorCapture )
+  {
+    connect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &Tracker::sensorDataReceived );
+  }
+  else
+  {
+    mSensorCaptureFulfilled = true;
+    if ( mTimeInterval > 0 || mSensorCapture )
+    {
+      // Other constraints will guide verdex addition
+      return;
+    }
   }
 
   //set the start time
@@ -125,5 +164,9 @@ void Tracker::stop()
   if ( mMinimumDistance > 0 )
   {
     disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
+  }
+  if ( mSensorCapture )
+  {
+    disconnect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &Tracker::sensorDataReceived );
   }
 }
