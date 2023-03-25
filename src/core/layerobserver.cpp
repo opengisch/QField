@@ -138,7 +138,7 @@ void LayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const
 
   for ( const QgsFeature &newFeature : addedFeatures )
   {
-    qInfo() << "  LayerObserver::onCommittedFeaturesAdded: adding create delta... FEATURE=" << newFeature;
+    qInfo() << "  LayerObserver::onCommittedFeaturesAdded: adding create delta... FID=" << newFeature.id();
 
     mDeltaFileWrapper->addCreate( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, newFeature );
   }
@@ -164,7 +164,7 @@ void LayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, con
 
     QgsFeature oldFeature = changedFeatures.take( fid );
 
-    qInfo() << "LayerObserver::onCommittedFeaturesRemoved: adding delete delta... FID=" << fid;
+    qInfo() << "  LayerObserver::onCommittedFeaturesRemoved: adding delete delta... FID=" << fid;
 
     mDeltaFileWrapper->addDelete( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature );
   }
@@ -202,7 +202,7 @@ void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayer
 
     qInfo() << "LayerObserver::onCommittedAttributeValuesChanges: adding patch delta... FID=" << fid;
 
-    if ( localPkAttrPair.second == sourcePkAttrPair.second )
+    if ( vl->fields().index( "fid_1" ) != -1 && localPkAttrPair.second == sourcePkAttrPair.second && newFeature.attribute( "fid" ) != newFeature.attribute( "fid_1" ) )
     {
       mLocalAndSourcePkAttrAreEqual = true;
     }
@@ -243,7 +243,7 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
 
     qInfo() << "  LayerObserver::onCommittedGeometriesChanges: adding patch delta... FID=" << fid;
 
-    if ( localPkAttrPair.second == sourcePkAttrPair.second )
+    if ( vl->fields().index( "fid_1" ) != -1 && localPkAttrPair.second == sourcePkAttrPair.second && newFeature.attribute( "fid" ) != newFeature.attribute( "fid_1" ) )
     {
       mLocalAndSourcePkAttrAreEqual = true;
     }
