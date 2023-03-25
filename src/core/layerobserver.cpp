@@ -202,7 +202,7 @@ void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayer
 
     qInfo() << "LayerObserver::onCommittedAttributeValuesChanges: adding patch delta... FID=" << fid;
 
-    if ( vl->fields().index( "fid_1" ) != -1 && localPkAttrPair.second == sourcePkAttrPair.second && newFeature.attribute( "fid" ) != newFeature.attribute( "fid_1" ) )
+    if ( vl->fields().indexOf( "fid_1" ) != -1 && localPkAttrPair.second == sourcePkAttrPair.second && newFeature.attribute( "fid" ) != newFeature.attribute( "fid_1" ) )
     {
       mLocalAndSourcePkAttrAreEqual = true;
     }
@@ -243,7 +243,7 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
 
     qInfo() << "  LayerObserver::onCommittedGeometriesChanges: adding patch delta... FID=" << fid;
 
-    if ( vl->fields().index( "fid_1" ) != -1 && localPkAttrPair.second == sourcePkAttrPair.second && newFeature.attribute( "fid" ) != newFeature.attribute( "fid_1" ) )
+    if ( vl->fields().indexOf( "fid_1" ) != -1 && localPkAttrPair.second == sourcePkAttrPair.second && newFeature.attribute( "fid" ) != newFeature.attribute( "fid_1" ) )
     {
       mLocalAndSourcePkAttrAreEqual = true;
     }
