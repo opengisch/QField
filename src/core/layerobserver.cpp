@@ -202,6 +202,10 @@ void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayer
 
     qInfo() << "LayerObserver::onCommittedAttributeValuesChanges: adding patch delta... FID=" << fid;
 
+    if ( localPkAttrPair.second == sourcePkAttrPair.second )
+    {
+      mLocalAndSourcePkAttrAreEqual = true;
+    }
     mDeltaFileWrapper->addPatch( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
   }
 
@@ -239,6 +243,10 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
 
     qInfo() << "  LayerObserver::onCommittedGeometriesChanges: adding patch delta... FID=" << fid;
 
+    if ( localPkAttrPair.second == sourcePkAttrPair.second )
+    {
+      mLocalAndSourcePkAttrAreEqual = true;
+    }
     mDeltaFileWrapper->addPatch( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
   }
 
@@ -261,7 +269,11 @@ void LayerObserver::onEditingStopped()
     QgsMessageLog::logMessage( QStringLiteral( "Failed writing JSON file" ) );
   }
 
-  AppInterface::instance()->sendLog( QStringLiteral( "Called LayerObserver::onEditingStopped!" ) );
+  if ( vl->source().contains( QStringLiteral( "data.gpkg" ) ) && mLocalAndSourcePkAttrAreEqual )
+  {
+    AppInterface::instance()->sendLog( QStringLiteral( "Called LayerObserver::onEditingStopped!" ) );
+    mLocalAndSourcePkAttrAreEqual = false;
+  }
 
   emit layerEdited( layerId );
 }
