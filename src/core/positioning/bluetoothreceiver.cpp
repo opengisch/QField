@@ -40,6 +40,7 @@ BluetoothReceiver::~BluetoothReceiver()
 {
   disconnect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 
+  mSocket->disconnectFromService();
   mSocket->deleteLater();
   mSocket = nullptr;
 }
@@ -75,47 +76,28 @@ void BluetoothReceiver::handleConnectDevice()
 
 void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
 {
+  mLastError = QStringLiteral( "%1 (%2)" ).arg( mSocket->errorString(), QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
+
   switch ( error )
   {
     case QBluetoothSocket::SocketError::HostNotFoundError:
-      mLastError = tr( "Could not find the remote host" );
-      break;
-    case QBluetoothSocket::SocketError::ServiceNotFoundError:
-      mLastError = tr( "Could not find the service UUID on remote host" );
-      break;
-    case QBluetoothSocket::SocketError::NetworkError:
-      mLastError = tr( "Attempt to read or write from socket returned an error" );
-      break;
-    case QBluetoothSocket::SocketError::UnsupportedProtocolError:
-      mLastError = tr( "The protocol is not supported on this platform" );
-      break;
-    case QBluetoothSocket::SocketError::OperationError:
-      mLastError = tr( "An operation was attempted while the socket was in a state that did not permit it" );
-      break;
     case QBluetoothSocket::SocketError::RemoteHostClosedError:
-      mLastError = tr( "The remote host closed the connection" );
-      break;
+    case QBluetoothSocket::SocketError::ServiceNotFoundError:
+    case QBluetoothSocket::SocketError::NetworkError:
+    case QBluetoothSocket::SocketError::UnsupportedProtocolError:
+    case QBluetoothSocket::SocketError::OperationError:
     case QBluetoothSocket::SocketError::UnknownSocketError:
     default:
-      mLastError = tr( "Unknown error" );
       break;
   }
+
   qInfo() << QStringLiteral( "BluetoothReceiver: Error: %1" ).arg( mLastError );
-
-  if ( mSocket->state() != QBluetoothSocket::SocketState::ConnectedState )
-  {
-    handleDisconnectDevice();
-  }
-
   emit lastErrorChanged( mLastError );
 }
 
 void BluetoothReceiver::doConnectDevice()
 {
   mConnectOnDisconnect = false;
-
-  // provide a connecting state from the get go
-  setSocketState( QBluetoothSocket::SocketState::ServiceLookupState );
 
 #ifdef Q_OS_LINUX
   // repairing only needed in the linux (not android) environment
