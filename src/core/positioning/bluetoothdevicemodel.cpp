@@ -21,7 +21,8 @@
 #include <qgis.h>
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
-  : QAbstractListModel( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
+  : QAbstractListModel( parent )
+  , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
