@@ -881,29 +881,15 @@ public class QFieldActivity extends QtActivity {
             PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.ACCESS_MEDIA_LOCATION);
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            if (ContextCompat.checkSelfPermission(
-                    QFieldActivity.this, Manifest.permission.BLUETOOTH_SCAN) ==
-                PackageManager.PERMISSION_DENIED) {
-                permissionsList.add(Manifest.permission.BLUETOOTH_SCAN);
-            }
-            if (ContextCompat.checkSelfPermission(
-                    QFieldActivity.this,
-                    Manifest.permission.BLUETOOTH_CONNECT) ==
-                PackageManager.PERMISSION_DENIED) {
-                permissionsList.add(Manifest.permission.BLUETOOTH_CONNECT);
-            }
-        } else {
-            if (ContextCompat.checkSelfPermission(
-                    QFieldActivity.this, Manifest.permission.BLUETOOTH) ==
-                PackageManager.PERMISSION_DENIED) {
-                permissionsList.add(Manifest.permission.BLUETOOTH);
-            }
-            if (ContextCompat.checkSelfPermission(
-                    QFieldActivity.this, Manifest.permission.BLUETOOTH_ADMIN) ==
-                PackageManager.PERMISSION_DENIED) {
-                permissionsList.add(Manifest.permission.BLUETOOTH_ADMIN);
-            }
+        if (ContextCompat.checkSelfPermission(QFieldActivity.this,
+                                              Manifest.permission.BLUETOOTH) ==
+            PackageManager.PERMISSION_DENIED) {
+            permissionsList.add(Manifest.permission.BLUETOOTH);
+        }
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this, Manifest.permission.BLUETOOTH_ADMIN) ==
+            PackageManager.PERMISSION_DENIED) {
+            permissionsList.add(Manifest.permission.BLUETOOTH_ADMIN);
         }
         if (permissionsList.size() > 0) {
             String[] permissions = new String[permissionsList.size()];
