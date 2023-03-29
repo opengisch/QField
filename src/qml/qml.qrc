@@ -30,6 +30,7 @@
         <file>QFieldAudioRecorder.qml</file>
         <file>QFieldSettings.qml</file>
         <file>ScaleBar.qml</file>
+        <file>SensorInformationView.qml</file>
         <file>TcpDeviceChooser.qml</file>
         <file>UdpDeviceChooser.qml</file>
         <file>VariableEditor.qml</file>

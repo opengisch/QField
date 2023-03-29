@@ -37,13 +37,14 @@ class TrackingModel : public QAbstractItemModel
       DisplayString = Qt::UserRole,
       VectorLayer,            //! the layer in the current tracking session
       RubberModel,            //! the rubberbandmodel used in the current tracking session
-      TimeInterval,           //! the (minimum) time interval between setting trackpoints
-      MinimumDistance,        //! the minimum distance between setting trackpoints
-      Conjunction,            //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
+      TimeInterval,           //! the (minimum) time interval constraint between setting trackpoints
+      MinimumDistance,        //! the minimum distance constraint between setting trackpoints
+      Conjunction,            //! if TRUE, all constraints needs to be fulfilled before setting trackpoints
       Visible,                //! if the layer and so the tracking components like rubberband is visible
       Feature,                //! the feature in the current tracking session
       StartPositionTimestamp, //! the timestamp when the current tracking session started
-      MeasureType             //! the measurement type used to set the measure value
+      MeasureType,            //! the measurement type used to set the measure value
+      SensorCapture,          //! if TRUE, newly captured sensor data constraint required between setting trackpoints
     };
 
     QHash<int, QByteArray> roleNames() const override;

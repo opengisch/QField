@@ -44,6 +44,8 @@ QtObject {
     readonly property color navigationColorSemiOpaque: "#99984ea3"
     readonly property color navigationBackgroundColor: "#33984ea3"
 
+    readonly property color sensorBackgroundColor: "#33999999"
+
     readonly property color bookmarkDefault: "#80cc28"
     readonly property color bookmarkOrange: "orange"
     readonly property color bookmarkRed: "#c0392b"

@@ -59,6 +59,11 @@ class Tracker : public QObject
     //! the minimum distance between setting trackpoints
     void setMinimumDistance( const double minimumDistance ) { mMinimumDistance = minimumDistance; };
 
+    //! Returns if TRUE, newly captured sensor data is needed before setting trackpoints
+    bool sensorCapture() const { return mSensorCapture; }
+    //! Sets whether newly captured sensor data is needed before setting trackpoints
+    void setSensorCapture( const bool capture ) { mSensorCapture = capture; }
+
     //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
     bool conjunction() const { return mConjunction; }
     //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
@@ -94,6 +99,7 @@ class Tracker : public QObject
   private slots:
     void positionReceived();
     void timeReceived();
+    void sensorDataReceived();
 
   private:
     RubberbandModel *mRubberbandModel = nullptr;
@@ -101,9 +107,11 @@ class Tracker : public QObject
     QTimer mTimer;
     double mTimeInterval = 0;
     double mMinimumDistance = 0;
+    bool mSensorCapture = false;
     bool mConjunction = true;
     bool mTimeIntervalFulfilled = false;
     bool mMinimumDistanceFulfilled = false;
+    bool mSensorCaptureFulfilled = false;
 
     QPointer<QgsVectorLayer> mLayer;
     QgsFeature mFeature;

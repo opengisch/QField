@@ -90,6 +90,7 @@ set(QFIELD_CORE_SRCS
     rubberbandmodel.cpp
     scalebarmeasurement.cpp
     screendimmer.cpp
+    sensorlistmodel.cpp
     settings.cpp
     sgrubberband.cpp
     snappingresult.cpp
@@ -194,6 +195,7 @@ set(QFIELD_CORE_HDRS
     rubberbandmodel.h
     scalebarmeasurement.h
     screendimmer.h
+    sensorlistmodel.h
     settings.h
     sgrubberband.h
     snappingresult.h

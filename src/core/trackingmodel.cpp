@@ -40,6 +40,7 @@ QHash<int, QByteArray> TrackingModel::roleNames() const
   roles[Visible] = "visible";
   roles[StartPositionTimestamp] = "startPositionTimestamp";
   roles[MeasureType] = "measureType";
+  roles[SensorCapture] = "sensorCapture";
 
   return roles;
 }
@@ -115,6 +116,10 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
       break;
     case MeasureType:
       currentTracker->setMeasureType( static_cast<Tracker::MeasureType>( value.toInt() ) );
+      break;
+    case SensorCapture:
+      currentTracker->setSensorCapture( value.toBool() );
+      break;
     default:
       return false;
   }

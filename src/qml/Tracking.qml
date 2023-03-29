@@ -382,12 +382,34 @@ Item {
             }
 
             Label {
-              text: qsTr("Record when both active constraints are met")
+              text: qsTr("Activate sensor constraint")
               font: Theme.defaultFont
               wrapMode: Text.WordWrap
               Layout.fillWidth: true
-              enabled: timeInterval.checked && minimumDistance.checked
-              visible: timeInterval.checked && minimumDistance.checked
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: sensorCapture.toggle()
+              }
+            }
+
+            QfSwitch {
+              id: sensorCapture
+              Layout.preferredWidth: implicitContentWidth
+              Layout.alignment: Qt.AlignTop
+              checked: positioningSettings.trackerSensorCaptureConstraint
+              onCheckedChanged: {
+                positioningSettings.trackerSensorCaptureConstraint = checked
+              }
+            }
+
+            Label {
+              text: qsTr("Record when all active constraints are met")
+              font: Theme.defaultFont
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+              enabled: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
+              visible: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
 
               MouseArea {
                 anchors.fill: parent
@@ -399,8 +421,8 @@ Item {
               id: allConstraints
               Layout.preferredWidth: implicitContentWidth
               Layout.alignment: Qt.AlignTop
-              enabled: timeInterval.checked && minimumDistance.checked
-              visible: timeInterval.checked && minimumDistance.checked
+              enabled: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
+              visible: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
               checked: positioningSettings.trackerMeetAllConstraints
               onCheckedChanged: {
                 positioningSettings.trackerMeetAllConstraints = checked
@@ -408,19 +430,21 @@ Item {
             }
 
             Label {
-              text: qsTr( "When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
+              text: qsTr( "When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
               font: Theme.tipFont
               color: Theme.secondaryTextColor
               textFormat: Qt.RichText
               wrapMode: Text.WordWrap
               Layout.fillWidth: true
-              enabled: timeInterval.checked && minimumDistance.checked
-              visible: timeInterval.checked && minimumDistance.checked
+              enabled: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
+              visible: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
             }
 
 
             Label {
-              text: qsTr( "When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device." )
+              text: sensorCapture.checked
+                    ? qsTr( "When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data." )
+                    : qsTr( "When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device." )
               font: Theme.tipFont
               color: Theme.secondaryTextColor
               textFormat: Qt.RichText
@@ -508,7 +532,8 @@ Item {
               onClicked: {
                 track.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
                 track.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
-                track.conjunction = timeInterval.checked && minimumDistance.checked && allConstraints.checked
+                track.sensorCapture = sensorCapture.checked
+                track.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked
                 track.rubberModel = rubberbandModel
                 track.measureType = measureComboBox.currentIndex
                 rubberbandModel.measureType = track.measureType

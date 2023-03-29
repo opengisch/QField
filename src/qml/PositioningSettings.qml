@@ -34,6 +34,7 @@ LabSettings.Settings {
     property double trackerTimeInterval: 30
     property bool trackerMinimumDistanceConstraint: false
     property double trackerMinimumDistance: 30
+    property bool trackerSensorCaptureConstraint: false
     property bool trackerMeetAllConstraints: false
 
     property int trackerMeasureType: 0

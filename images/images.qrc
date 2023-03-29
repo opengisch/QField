@@ -139,6 +139,8 @@
         <file>themes/qfield/xhdpi/ic_sd_card_gray_48dp.png</file>
         <file>themes/qfield/xxhdpi/ic_sd_card_gray_48dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_sd_card_gray_48dp.png</file>
+        <file>themes/qfield/nodpi/ic_sensor_on_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_sensor_off_black_24dp.svg</file>
         <file>themes/qfield/hdpi/ic_merge_features_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_merge_features_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_merge_features_white_24dp.png</file>
