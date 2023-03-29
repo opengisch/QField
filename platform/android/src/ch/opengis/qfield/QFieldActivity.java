@@ -893,6 +893,12 @@ public class QFieldActivity extends QtActivity {
                 PackageManager.PERMISSION_DENIED) {
                 permissionsList.add(Manifest.permission.BLUETOOTH_CONNECT);
             }
+            if (ContextCompat.checkSelfPermission(
+                    QFieldActivity.this,
+                    Manifest.permission.BLUETOOTH_ADVERTISE) ==
+                PackageManager.PERMISSION_DENIED) {
+                permissionsList.add(Manifest.permission.BLUETOOTH_ADVERTISE);
+            }
         } else {
             if (ContextCompat.checkSelfPermission(
                     QFieldActivity.this, Manifest.permission.BLUETOOTH) ==
