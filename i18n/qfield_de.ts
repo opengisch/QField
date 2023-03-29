@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Die bevorzugte Transformation zwischen &lt;i&gt;%1&lt;/i&gt; und &lt;i&gt;%2&lt;/i&gt; ist nicht zur Nutzung auf dem System verfügbar.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
@@ -3560,7 +3560,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Bildschrim sperren</translation>
+        <translation>Bildschirm sperren</translation>
     </message>
     <message>
         <source>Print to Image</source>
