@@ -66,6 +66,7 @@ class BluetoothReceiver : public NmeaGnssReceiver
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     QBluetoothSocket *mSocket = nullptr;
 
+    bool mPoweringOn = false;
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;
 };
