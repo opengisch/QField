@@ -2942,11 +2942,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>Tallenna jos molemmat aktiiviset rajoitteet toteutuvat</translation>
+        <translation type="vanished">Tallenna jos molemmat aktiiviset rajoitteet toteutuvat</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Kun sallittu, taitepisteet tallennetaan ainoastaan kun molemmat aktiiviset rajoitusehdot täyttyvät. Jos asetusta ei ole sallittu, yksittäisen rajoitusehdon täyttyminen aiheuttaa taitepisteen lisäyksen.</translation>
+        <translation type="vanished">Kun sallittu, taitepisteet tallennetaan ainoastaan kun molemmat aktiiviset rajoitusehdot täyttyvät. Jos asetusta ei ole sallittu, yksittäisen rajoitusehdon täyttyminen aiheuttaa taitepisteen lisäyksen.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2958,7 +2958,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Kun molemmat rajoitukset on poistettu käytöstä, taitepisteiden lisäyksiä tapahtuu yhtä usein kuin paikannuslaite toimittaa sijainteja.</translation>
+        <translation type="vanished">Kun molemmat rajoitukset on poistettu käytöstä, taitepisteiden lisäyksiä tapahtuu yhtä usein kuin paikannuslaite toimittaa sijainteja.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3003,6 +3003,26 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>Aktivoi mittaustoiminto varmistamalla, että jäljitysistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3595,6 +3615,22 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
         <translation type="unfinished"/>
     </message>
 </context>

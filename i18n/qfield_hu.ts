@@ -2934,11 +2934,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>Rögzítse, ha mindkét aktív korlátozás teljesül</translation>
+        <translation type="vanished">Rögzítse, ha mindkét aktív korlátozás teljesül</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Ha engedélyezve van, a csúcsok csak akkor rögzíthetők, ha mindkét aktív korlátozás teljesül. Ha nincs engedélyezve, már egy korlátozás teljesítése csúcsösszeadást vált ki.</translation>
+        <translation type="vanished">Ha engedélyezve van, a csúcsok csak akkor rögzíthetők, ha mindkét aktív korlátozás teljesül. Ha nincs engedélyezve, már egy korlátozás teljesítése csúcsösszeadást vált ki.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2950,7 +2950,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Ha mindkét megszorítás le van tiltva, a töréspont hozzáadás olyan gyakran történik, ahogy az eszköz pozíciót küld.</translation>
+        <translation type="vanished">Ha mindkét megszorítás le van tiltva, a töréspont hozzáadás olyan gyakran történik, ahogy az eszköz pozíciót küld.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -2994,6 +2994,26 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3587,6 +3607,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
         <translation type="unfinished"/>
     </message>
 </context>

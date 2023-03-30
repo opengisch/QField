@@ -2937,11 +2937,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>Enregistrer lorsque les deux contraintes sont actives simultanément</translation>
+        <translation type="vanished">Enregistrer lorsque les deux contraintes sont actives simultanément</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Les sommets ne seront enregistrés que lorsque toutes les contraintes actives sont respectées lorsque ce paramètre est activé. S&apos;il est désactivé, les contraintes individuelles rencontrées entraîneront la création d&apos;un sommet.</translation>
+        <translation type="vanished">Les sommets ne seront enregistrés que lorsque toutes les contraintes actives sont respectées lorsque ce paramètre est activé. S&apos;il est désactivé, les contraintes individuelles rencontrées entraîneront la création d&apos;un sommet.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2953,7 +2953,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Lorsque les deux contraintes sont désactivées, les ajouts de sommets se produiront aussi fréquemment que fournis par le dispositif de positionnement.</translation>
+        <translation type="vanished">Lorsque les deux contraintes sont désactivées, les ajouts de sommets se produiront aussi fréquemment que fournis par le dispositif de positionnement.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -2998,6 +2998,26 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>Pour activer la fonctionnalité de mesure, assurez-vous que le type de géométrie de couche vectorielle utilisé pour la session de suivi a une dimension M.</translation>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3593,6 +3613,22 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Import URL failed</source>
         <translation>L&apos;import de l&apos;URL a échoué</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

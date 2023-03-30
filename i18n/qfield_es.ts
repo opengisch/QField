@@ -2940,11 +2940,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>Registrar cuando se cumplan las dos restricciones activas</translation>
+        <translation type="vanished">Registrar cuando se cumplan las dos restricciones activas</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Cuando está activo, solo se registrarán los vértices cuando se cumplan las dos restricciones activas. Si se desactiva, el cumplimiento de una sola de las restricciones desencadenará la adición del vértice.</translation>
+        <translation type="vanished">Cuando está activo, solo se registrarán los vértices cuando se cumplan las dos restricciones activas. Si se desactiva, el cumplimiento de una sola de las restricciones desencadenará la adición del vértice.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2956,7 +2956,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Cuando ambas restricciones están desactivadas, las adiciones de vértices se producirán con la frecuencia que proporcione el dispositivo de posicionamiento.</translation>
+        <translation type="vanished">Cuando ambas restricciones están desactivadas, las adiciones de vértices se producirán con la frecuencia que proporcione el dispositivo de posicionamiento.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3001,6 +3001,26 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>Para activar la función de medición, asegúrese de que el tipo de geometría de la capa vectorial utilizada para la sesión de seguimiento tenga una dimensión M.</translation>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3593,6 +3613,22 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
         <translation type="unfinished"/>
     </message>
 </context>

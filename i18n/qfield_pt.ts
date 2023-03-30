@@ -2942,11 +2942,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>Registar quando ambas restrições ativas forem atendidas</translation>
+        <translation type="vanished">Registar quando ambas restrições ativas forem atendidas</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Quando ativo, os vértices só serão gravados quando ambas restrições forem válidas. Se a configuração está desativada, as restrições individuais válidas irão ativar a adição de vértices.</translation>
+        <translation type="vanished">Quando ativo, os vértices só serão gravados quando ambas restrições forem válidas. Se a configuração está desativada, as restrições individuais válidas irão ativar a adição de vértices.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2958,7 +2958,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Quando ambas as restrições estiverem desligadas, as adições de vértices ocorrem com a mesma frequência que são fornecidas pelo posicionamento do dispositivo.</translation>
+        <translation type="vanished">Quando ambas as restrições estiverem desligadas, as adições de vértices ocorrem com a mesma frequência que são fornecidas pelo posicionamento do dispositivo.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3003,6 +3003,26 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>Para ativar a funcionalidade de medição, garante que o tipo de geometria da camada vetorial usada para a sessão rastreamento tem a dimensão M.</translation>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3595,6 +3615,22 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
         <translation type="unfinished"/>
     </message>
 </context>

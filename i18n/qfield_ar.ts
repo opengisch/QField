@@ -2936,11 +2936,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>التسجيل عند وقوع ضمن الحدود الفعّالة</translation>
+        <translation type="vanished">التسجيل عند وقوع ضمن الحدود الفعّالة</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>عند التمكين ، يتم تسجيل الرؤوس فقط عند استيفاء القيود النشطة. إذا تم تعطيل الإعداد ، ستؤدي القيود الفردية التي تم الوفاء بها إلى تشغيل إضافة قمة.</translation>
+        <translation type="vanished">عند التمكين ، يتم تسجيل الرؤوس فقط عند استيفاء القيود النشطة. إذا تم تعطيل الإعداد ، ستؤدي القيود الفردية التي تم الوفاء بها إلى تشغيل إضافة قمة.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2996,6 +2996,26 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3589,6 +3609,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
         <translation type="unfinished"/>
     </message>
 </context>

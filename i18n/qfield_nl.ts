@@ -2940,11 +2940,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>Opnemen wanneer aan beide actieve beperkingen is voldaan</translation>
+        <translation type="vanished">Opnemen wanneer aan beide actieve beperkingen is voldaan</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Indien ingeschakeld, worden knooppunten alleen geregistreerd als aan beide actieve beperkingen is voldaan. Als de instelling is uitgeschakeld, zullen individuele beperkingen waaraan wordt voldaan een knooppunt-toevoeging activeren.</translation>
+        <translation type="vanished">Indien ingeschakeld, worden knooppunten alleen geregistreerd als aan beide actieve beperkingen is voldaan. Als de instelling is uitgeschakeld, zullen individuele beperkingen waaraan wordt voldaan een knooppunt-toevoeging activeren.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3000,6 +3000,26 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3593,6 +3613,22 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
         <translation type="unfinished"/>
     </message>
 </context>

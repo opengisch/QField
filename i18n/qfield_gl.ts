@@ -2940,11 +2940,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>Rexistrar cando se estean activadas ámbalas restricións</translation>
+        <translation type="vanished">Rexistrar cando se estean activadas ámbalas restricións</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Cando se activa, os vértices só se rexistrarán cando estean activadas ámbalas restricións. Se a configuración está desactivada, as restricións individuais dadas desencadearán unha adición de vértice.</translation>
+        <translation type="vanished">Cando se activa, os vértices só se rexistrarán cando estean activadas ámbalas restricións. Se a configuración está desactivada, as restricións individuais dadas desencadearán unha adición de vértice.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2956,7 +2956,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Cando ámbalas restricións se desactivan, a adición de vértices ocorrerá tan frecuentemente como se envíen dende o dispositivo de posicionamento.</translation>
+        <translation type="vanished">Cando ámbalas restricións se desactivan, a adición de vértices ocorrerá tan frecuentemente como se envíen dende o dispositivo de posicionamento.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3001,6 +3001,26 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>Para activar a funcionalidade de medida, asegúrate de que o tipo de xeometría das capas vectoriais utilizadas para a sesión de trazado teña unha dimensión M.</translation>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3594,6 +3614,22 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Import URL failed</source>
         <translation>Produciuse un erro na importación do URL</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

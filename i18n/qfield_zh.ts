@@ -2938,11 +2938,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>当同时激活两个约束时开始记录</translation>
+        <translation type="vanished">当同时激活两个约束时开始记录</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>启用后，只有在同时激活两个约束时才会记录顶点；如果禁用，满足单个约束将触发增加顶点。</translation>
+        <translation type="vanished">启用后，只有在同时激活两个约束时才会记录顶点；如果禁用，满足单个约束将触发增加顶点。</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2954,7 +2954,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>当两个约束都被禁用时，顶点添加的频率将与定位设备提供的频率相同。</translation>
+        <translation type="vanished">当两个约束都被禁用时，顶点添加的频率将与定位设备提供的频率相同。</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -2999,6 +2999,26 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>要激活测量功能，请确保用于跟踪会话矢量图层的几何图形类型具有M维度。</translation>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation>激活传感器约束</translation>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation>当所有活动约束都满足时进行记录</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation>启用时，只有满足所有活动约束时才会记录顶点。如果禁用该设置，满足某个约束将触发顶点添加。</translation>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>当单独激活传感器约束时，只要传感器捕捉到新数据，就会进行顶点添加。</translation>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>当禁用所有约束时，顶点添加的频率将与定位设备提供的频率相同。</translation>
     </message>
 </context>
 <context>
@@ -3592,6 +3612,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Import URL failed</source>
         <translation>导入URL失败</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>传感器</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>请选择传感器</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>断开传感器 &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>连接传感器 &apos;%1&apos;...</translation>
     </message>
 </context>
 <context>

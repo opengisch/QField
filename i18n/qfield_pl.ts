@@ -1339,7 +1339,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Pliki dźwiękowe (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1544,7 +1544,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Dyktafon</translation>
     </message>
 </context>
 <context>
@@ -2180,11 +2180,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Importuj URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Wprowadź poniżej URL, aby pobrać i zaimportować projekt lub zestaw danych:</translation>
     </message>
 </context>
 <context>
@@ -2485,39 +2485,39 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Wygląd interfejsu użytkownika:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Użyj ustawień systemowych</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Styl jasny</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Styl ciemny</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Rozmiar czcionki interfejsu użytkownika:</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Mały</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normalny</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Duży</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Bardzo duży</translation>
     </message>
 </context>
 <context>
@@ -2612,11 +2612,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Błąd, plik zip nie istnieje: &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Błąd, nazwa pliku zip jest pusta</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
@@ -2632,19 +2632,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się utworzyć podkatalogu %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zapisać do %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Błąd odczytu pliku: &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Błąd pobierania plików: &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
@@ -2935,11 +2935,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation>Rejestruj, gdy oba aktywne ograniczenia są spełnione</translation>
+        <translation type="vanished">Rejestruj, gdy oba aktywne ograniczenia są spełnione</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Gdy ta opcja jest włączona, wierzchołki są rejestrowane tylko wtedy, gdy spełnione są oba aktywne ograniczenia. Jeśli to ustawienie jest wyłączone, spełnienie poszczególnego ograniczenia wywoła dodawanie wierzchołków.</translation>
+        <translation type="vanished">Gdy ta opcja jest włączona, wierzchołki są rejestrowane tylko wtedy, gdy spełnione są oba aktywne ograniczenia. Jeśli to ustawienie jest wyłączone, spełnienie poszczególnego ograniczenia wywoła dodawanie wierzchołków.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2995,6 +2995,26 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3584,11 +3604,27 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Importowanie %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Czujniki</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>Wybierz czujnik poniżej</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>Rozłączanie czujnika &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>Łączenie z czujnikiem &quot;%1&quot;...</translation>
     </message>
 </context>
 <context>
