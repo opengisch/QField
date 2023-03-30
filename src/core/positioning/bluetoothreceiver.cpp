@@ -31,6 +31,14 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
 #endif
 
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::hostModeStateChanged, this, [=]() {
+    if ( mPoweringOn )
+    {
+      mPoweringOn = false;
+      doConnectDevice();
+    }
+  } );
+
   initNmeaConnection( mSocket );
 
   setValid( !mAddress.isEmpty() );
@@ -40,7 +48,6 @@ BluetoothReceiver::~BluetoothReceiver()
 {
   disconnect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 
-  mSocket->disconnectFromService();
   mSocket->deleteLater();
   mSocket = nullptr;
 }
@@ -98,6 +105,16 @@ void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
 void BluetoothReceiver::doConnectDevice()
 {
   mConnectOnDisconnect = false;
+
+  if ( mLocalDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff )
+  {
+    emit mLastError = QStringLiteral( "POWERING ON!" );
+    emit lastErrorChanged( mLastError );
+
+    mPoweringOn = true;
+    mLocalDevice->setHostMode( QBluetoothLocalDevice::HostConnectable );
+    return;
+  }
 
 #ifdef Q_OS_LINUX
   // repairing only needed in the linux (not android) environment
