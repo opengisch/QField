@@ -31,6 +31,17 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
 #endif
 
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, [=]( QBluetoothLocalDevice::Error error ) {
+#else
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::error, [=]( QBluetoothLocalDevice::Error error ) {
+#endif
+    mLastError = QStringLiteral( "BluetoothLocalDevice error: %1 (%2)" ).arg( mAddress, QMetaEnum::fromType<QBluetoothLocalDevice::Error>().valueToKey( error ) );
+    emit lastErrorChanged( mLastError );
+  } );
+
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::hostModeStateChanged, this, [=]() {
     if ( mPoweringOn )
     {
@@ -38,6 +49,11 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
       doConnectDevice();
     }
   } );
+
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+  // Pairing confirmation is gone in Qt 6
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
+#endif
 
   initNmeaConnection( mSocket );
 
@@ -106,6 +122,8 @@ void BluetoothReceiver::doConnectDevice()
 {
   mConnectOnDisconnect = false;
 
+  setSocketState( QBluetoothSocket::SocketState::ServiceLookupState );
+
   if ( mLocalDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff )
   {
     emit mLastError = QStringLiteral( "POWERING ON!" );
@@ -165,23 +183,8 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
   emit socketStateStringChanged( mSocketStateString );
 }
 
-#ifdef Q_OS_LINUX
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
 {
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, [=]( QBluetoothLocalDevice::Error error ) {
-#else
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::error, [=]( QBluetoothLocalDevice::Error error ) {
-#endif
-    qDebug() << "BluetoothReceiver (not android): Re-pairing device " << address.toString() << " failed:" << error;
-  } );
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  // Pairing confirmation is gone in Qt 6
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
-#endif
-
   if ( mLocalDevice->pairingStatus( address ) == QBluetoothLocalDevice::Paired )
   {
     mLocalDevice->requestPairing( address, QBluetoothLocalDevice::Unpaired );
@@ -203,25 +206,35 @@ void BluetoothReceiver::confirmPairing( const QBluetoothAddress &address, QStrin
 
 void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status )
 {
-  if ( status == QBluetoothLocalDevice::Paired )
+  if ( QBluetoothAddress( mAddress ) == address )
   {
-    qDebug() << "BluetoothReceiver (not android): Paired device " << address.toString();
-    disconnect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished );
-    connectService( address );
-  }
-  else
-  {
-    qDebug() << "BluetoothReceiver (not android): Unpaired device " << address.toString();
-    repairDevice( address );
+    switch ( status )
+    {
+      case QBluetoothLocalDevice::Paired:
+      case QBluetoothLocalDevice::AuthorizedPaired:
+      {
+        emit mLastError = QStringLiteral( "PAIRED!" );
+        emit lastErrorChanged( mLastError );
+        qDebug() << "BluetoothReceiver): Paired device " << address.toString();
+        connectService( address );
+        break;
+      }
+
+      case QBluetoothLocalDevice::Unpaired:
+      {
+        emit mLastError = QStringLiteral( "UNPAIRED!" );
+        emit lastErrorChanged( mLastError );
+        qDebug() << "BluetoothReceive: Unpaired device " << address.toString();
+#ifdef Q_OS_LINUX
+        repairDevice( address );
+#endif
+        break;
+      }
+    }
   }
 }
 
 void BluetoothReceiver::connectService( const QBluetoothAddress &address )
 {
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
   mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
-#else
-  mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::SerialPort ), QBluetoothSocket::ReadOnly );
-#endif
 }
-#endif
