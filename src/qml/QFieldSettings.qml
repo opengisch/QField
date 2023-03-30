@@ -557,50 +557,32 @@ Page {
                             highlighted: positioningDeviceComboBox.highlightedIndex === index
                           }
 
-                          contentItem: Item {
+                          contentItem: MenuItem {
                             width: positioningDeviceComboBox.width
                             height: 36
 
-                            Image {
-                              id: itemImage
-                              anchors.left: parent.left
-                              anchors.leftMargin: 10
-                              anchors.verticalCenter: parent.verticalCenter
-                              width: 24
-                              height: 24
-                              source: {
-                                switch(positioningDeviceComboBox.currentValue) {
-                                  case PositioningDeviceModel.InternalDevice:
-                                    return Theme.getThemeVectorIcon('ic_internal_receiver_black_24dp')
-                                  case PositioningDeviceModel.BluetoothDevice:
-                                    return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
-                                  case PositioningDeviceModel.TcpDevice:
-                                    return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
-                                  case PositioningDeviceModel.UdpDevice:
-                                    return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
-                                  case PositioningDeviceModel.SerialPortDevice:
-                                    return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
-                                }
-                                return '';
+                            icon.source: {
+                              switch(positioningDeviceComboBox.currentValue) {
+                              case PositioningDeviceModel.InternalDevice:
+                                return Theme.getThemeVectorIcon('ic_internal_receiver_black_24dp')
+                              case PositioningDeviceModel.BluetoothDevice:
+                                return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
+                              case PositioningDeviceModel.TcpDevice:
+                                return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
+                              case PositioningDeviceModel.UdpDevice:
+                                return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                              case PositioningDeviceModel.SerialPortDevice:
+                                return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
                               }
-                              sourceSize.width: 48
-                              sourceSize.height: 48
-                              fillMode: Image.PreserveAspectFit
+                              return '';
                             }
+                            icon.width: 24
+                            icon.height: 24
 
-                            Text {
-                              id: itemText
-                              anchors.left: itemImage.right
-                              anchors.leftMargin: 10
-                              anchors.right: parent.right
-                              anchors.verticalCenter: parent.verticalCenter
-                              text: positioningDeviceComboBox.currentText
-                              font: Theme.defaultFont
-                              color: Theme.mainTextColor
-                              horizontalAlignment: Text.AlignLeft
-                              verticalAlignment: Text.AlignVCenter
-                              elide: Text.ElideRight
-                            }
+                            text: positioningDeviceComboBox.currentText
+                            font: Theme.defaultFont
+
+                            onClicked: positioningDeviceComboBox.popup.open()
                           }
 
                           onCurrentIndexChanged: {
@@ -613,7 +595,6 @@ Page {
                               currentIndex = positioningDeviceModel.findIndexFromDeviceId(settings.value('positioningDevice',''))
                           }
                       }
-
                   }
 
                   RowLayout {
