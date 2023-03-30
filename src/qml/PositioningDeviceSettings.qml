@@ -102,80 +102,62 @@ Popup {
             }
 
             ComboBox {
-                id: positioningDeviceType
-                Layout.fillWidth: true
+              id: positioningDeviceType
+              Layout.fillWidth: true
+              font: Theme.defaultFont
+              popup.font: Theme.defaultFont
+
+              textRole: "name"
+              valueRole: "value"
+
+              delegate: ItemDelegate {
+                width: positioningDeviceType.width
+                height: 36
+                icon.source: {
+                  switch(value) {
+                  case PositioningDeviceModel.BluetoothDevice:
+                    return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
+                  case PositioningDeviceModel.TcpDevice:
+                    return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
+                  case PositioningDeviceModel.UdpDevice:
+                    return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                  case PositioningDeviceModel.SerialPortDevice:
+                    return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
+                  }
+                  return '';
+                }
+                icon.width: 24
+                icon.height: 24
+                text: name
                 font: Theme.defaultFont
-                popup.font: Theme.defaultFont
+                highlighted: positioningDeviceType.highlightedIndex === index
+              }
 
-                textRole: "name"
-                valueRole: "value"
+              contentItem: MenuItem {
+                width: positioningDeviceComboBox.width
+                height: 36
 
-                delegate: ItemDelegate {
-                  width: positioningDeviceType.width
-                  height: 36
-                  icon.source: {
-                    switch(value) {
-                      case PositioningDeviceModel.BluetoothDevice:
-                        return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
-                      case PositioningDeviceModel.TcpDevice:
-                        return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
-                      case PositioningDeviceModel.UdpDevice:
-                        return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
-                      case PositioningDeviceModel.SerialPortDevice:
-                        return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
-                    }
-                    return '';
+                icon.source: {
+                  switch(positioningDeviceType.currentValue) {
+                  case PositioningDeviceModel.BluetoothDevice:
+                    return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
+                  case PositioningDeviceModel.TcpDevice:
+                    return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
+                  case PositioningDeviceModel.UdpDevice:
+                    return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                  case PositioningDeviceModel.SerialPortDevice:
+                    return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
                   }
-                  icon.width: 24
-                  icon.height: 24
-                  text: name
-                  font: Theme.defaultFont
-                  highlighted: positioningDeviceType.highlightedIndex === index
+                  return '';
                 }
+                icon.width: 24
+                icon.height: 24
 
-                contentItem: Item {
-                  width: positioningDeviceType.width
-                  height: 36
+                text: positioningDeviceType.currentText
+                font: Theme.defaultFont
 
-                  Image {
-                    id: itemImage
-                    anchors.left: parent.left
-                    anchors.leftMargin: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: 24
-                    height: 24
-                    source: {
-                      switch(positioningDeviceType.currentValue) {
-                        case PositioningDeviceModel.BluetoothDevice:
-                          return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
-                        case PositioningDeviceModel.TcpDevice:
-                          return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
-                        case PositioningDeviceModel.UdpDevice:
-                          return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
-                        case PositioningDeviceModel.SerialPortDevice:
-                          return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
-                      }
-                      return '';
-                    }
-                    sourceSize.width: 48
-                    sourceSize.height: 48
-                    fillMode: Image.PreserveAspectFit
-                  }
-
-                  Text {
-                    id: itemText
-                    anchors.left: itemImage.right
-                    anchors.leftMargin: 10
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: positioningDeviceType.currentText
-                    font: Theme.defaultFont
-                    color: Theme.mainTextColor
-                    horizontalAlignment: Text.AlignLeft
-                    verticalAlignment: Text.AlignVCenter
-                    elide: Text.ElideRight
-                  }
-                }
+                onClicked: positioningDeviceType.popup.open()
+              }
             }
 
             ListModel {
