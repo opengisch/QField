@@ -69,7 +69,12 @@ class SensorListModel : public QSortFilterProxyModel
     //! Emitted when the show connected only filter has changed.
     void showConnectedOnlyChanged();
 
+    //! Emitted when a sensor error has occurred. An \a errorString provides details on the error.
+    void sensorErrorOccurred( const QString &errorString );
+
   private:
+    void handleSensorError( const QString &id );
+
     QgsProject *mProject = nullptr;
     QgsSensorModel *mSensorModel = nullptr;
 
