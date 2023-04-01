@@ -56,7 +56,7 @@ jobs:
           p12-file-base64: ${{ secrets.IOS_CERTIFICATES_FILE_BASE64_DEV }}
           p12-password: ${{ secrets.IOS_CERTIFICATES_PASSWORD_DEV }}
 
-      - uses: Apple-Actions/download-provisioning-profiles@v1
+      - uses: Apple-Actions/download-provisioning-profiles@v2
         with:
           bundle-id: ch.opengis.qfield
           issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
