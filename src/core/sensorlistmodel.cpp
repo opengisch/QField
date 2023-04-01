@@ -47,8 +47,15 @@ void SensorListModel::setProject( QgsProject *project )
   if ( mProject == project )
     return;
 
+  if ( mProject )
+  {
+    disconnect( mProject->sensorManager(), &QgsSensorManager::sensorErrorOccurred, this, &SensorListModel::handleSensorError );
+  }
+
   mProject = project;
   emit projectChanged();
+
+  connect( mProject->sensorManager(), &QgsSensorManager::sensorErrorOccurred, this, &SensorListModel::handleSensorError );
 
   if ( mSensorModel )
   {
@@ -92,5 +99,16 @@ void SensorListModel::disconnectSensorId( const QString &id ) const
   if ( mProject && mProject->sensorManager()->sensor( id ) )
   {
     mProject->sensorManager()->sensor( id )->disconnectSensor();
+  }
+}
+
+void SensorListModel::handleSensorError( const QString &id )
+{
+  if ( mProject )
+  {
+    if ( QgsAbstractSensor *sensor = mProject->sensorManager()->sensor( id ) )
+    {
+      emit sensorErrorOccurred( QStringLiteral( "%1: %2" ).arg( sensor->name(), sensor->errorString() ) );
+    }
   }
 }

@@ -2121,6 +2121,10 @@ ApplicationWindow {
 
       model: SensorListModel {
         project: qgisProject
+
+        onSensorErrorOccurred: (errorString) => {
+          displayToast(qsTr('Sensor error: %1').arg(errorString), 'error')
+        }
       }
 
       MenuItem {
