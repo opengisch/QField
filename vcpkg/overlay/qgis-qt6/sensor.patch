@@ -97,10 +97,10 @@ index 18af5ce928..ee42179d37 100644
      static QgsMessageLog *messageLog();
 diff --git a/python/core/auto_generated/sensor/qgsabstractsensor.sip.in b/python/core/auto_generated/sensor/qgsabstractsensor.sip.in
 new file mode 100644
-index 0000000000..32c2b1607f
+index 0000000000..5ed514f8d3
 --- /dev/null
 +++ b/python/core/auto_generated/sensor/qgsabstractsensor.sip.in
-@@ -0,0 +1,198 @@
+@@ -0,0 +1,208 @@
 +/************************************************************************
 + * This file has been generated automatically from                      *
 + *                                                                      *
@@ -219,6 +219,11 @@ index 0000000000..32c2b1607f
 +Sets the latest captured data from the sensor.
 +%End
 +
++    QString errorString() const;
++%Docstring
++Returns the last error message.
++%End
++
 +    bool writeXml( QDomElement &parentElement, QDomDocument &document ) const;
 +%Docstring
 +Write generic sensor properties into a DOM element.
@@ -266,6 +271,11 @@ index 0000000000..32c2b1607f
 +    void dataChanged();
 +%Docstring
 +Emitted when the captured sensor data has changed.
++%End
++
++    void errorOccurred( const QString &errorString );
++%Docstring
++Emitted when an error has occurred. The ``errorString`` describes the error.
 +%End
 +
 +  protected:
@@ -559,10 +569,10 @@ index 0000000000..b3c892fca4
 + ************************************************************************/
 diff --git a/python/core/auto_generated/sensor/qgssensormanager.sip.in b/python/core/auto_generated/sensor/qgssensormanager.sip.in
 new file mode 100644
-index 0000000000..3a50064f4d
+index 0000000000..9773496e1a
 --- /dev/null
 +++ b/python/core/auto_generated/sensor/qgssensormanager.sip.in
-@@ -0,0 +1,144 @@
+@@ -0,0 +1,149 @@
 +/************************************************************************
 + * This file has been generated automatically from                      *
 + *                                                                      *
@@ -696,6 +706,11 @@ index 0000000000..3a50064f4d
 +    void sensorDataCaptured( const QString &id );
 +%Docstring
 +Emitted when newly captured data from a sensor has occurred.
++%End
++
++    void sensorErrorOccurred( const QString &id );
++%Docstring
++Emitted when a sensor error has occurred.
 +%End
 +
 +};
@@ -1437,10 +1452,10 @@ index 23fd3248a7..f775702c39 100644
        QgsTileDownloadManager *mTileDownloadManager = nullptr;
 diff --git a/src/core/sensor/qgsabstractsensor.cpp b/src/core/sensor/qgsabstractsensor.cpp
 new file mode 100644
-index 0000000000..eb55f55798
+index 0000000000..596bb64935
 --- /dev/null
 +++ b/src/core/sensor/qgsabstractsensor.cpp
-@@ -0,0 +1,113 @@
+@@ -0,0 +1,118 @@
 +/***************************************************************************
 +                             qgsabstractsensor.cpp
 +                             ---------------------------
@@ -1506,6 +1521,11 @@ index 0000000000..eb55f55798
 +  emit dataChanged();
 +}
 +
++QString QgsAbstractSensor::errorString() const
++{
++  return mErrorString;
++}
++
 +void QgsAbstractSensor::connectSensor()
 +{
 +  setStatus( Qgis::DeviceConnectionStatus::Connecting );
@@ -1556,10 +1576,10 @@ index 0000000000..eb55f55798
 +}
 diff --git a/src/core/sensor/qgsabstractsensor.h b/src/core/sensor/qgsabstractsensor.h
 new file mode 100644
-index 0000000000..c375c0562f
+index 0000000000..9474f3c88f
 --- /dev/null
 +++ b/src/core/sensor/qgsabstractsensor.h
-@@ -0,0 +1,211 @@
+@@ -0,0 +1,220 @@
 +/***************************************************************************
 +                             qgsabstractsensor.h
 +                             ---------------------------
@@ -1706,6 +1726,11 @@ index 0000000000..c375c0562f
 +    void setData( const QgsAbstractSensor::SensorData &data );
 +
 +    /**
++     * Returns the last error message.
++     */
++    QString errorString() const;
++
++    /**
 +     * Write generic sensor properties into a DOM element.
 +     * \param parentElement parent DOM element (e.g 'Sensors' element)
 +     * \param document DOM document
@@ -1744,6 +1769,9 @@ index 0000000000..c375c0562f
 +    //! Emitted when the captured sensor data has changed.
 +    void dataChanged();
 +
++    //! Emitted when an error has occurred. The \a errorString describes the error.
++    void errorOccurred( const QString &errorString );
++
 +  protected:
 +
 +    /**
@@ -1759,6 +1787,7 @@ index 0000000000..c375c0562f
 +    virtual void handleDisconnect() = 0;
 +
 +    QgsAbstractSensor::SensorData mData;
++    QString mErrorString;
 +
 +  private:
 +
@@ -1773,10 +1802,10 @@ index 0000000000..c375c0562f
 +#endif //QGSABSTRACTSENSOR_H
 diff --git a/src/core/sensor/qgsiodevicesensor.cpp b/src/core/sensor/qgsiodevicesensor.cpp
 new file mode 100644
-index 0000000000..dd2db758c4
+index 0000000000..8c28fb2c31
 --- /dev/null
 +++ b/src/core/sensor/qgsiodevicesensor.cpp
-@@ -0,0 +1,340 @@
+@@ -0,0 +1,423 @@
 +/***************************************************************************
 +                             qgsiodevicesensor.cpp
 +                             ---------------------------
@@ -1836,6 +1865,13 @@ index 0000000000..dd2db758c4
 +  , mTcpSocket( new QTcpSocket() )
 +{
 +  connect( mTcpSocket, &QAbstractSocket::stateChanged, this, &QgsTcpSocketSensor::socketStateChanged );
++
++#if QT_VERSION < QT_VERSION_CHECK( 5, 15, 0 )
++  connect( mTcpSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::error ), this, &QgsTcpSocketSensor::handleError );
++#else
++  connect( mTcpSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &QgsTcpSocketSensor::handleError );
++#endif
++
 +  initIODevice( mTcpSocket );
 +}
 +
@@ -1889,6 +1925,27 @@ index 0000000000..dd2db758c4
 +void QgsTcpSocketSensor::handleDisconnect()
 +{
 +  mTcpSocket->close();
++}
++
++void QgsTcpSocketSensor::handleError( QAbstractSocket::SocketError error )
++{
++  switch ( error )
++  {
++    case QAbstractSocket::HostNotFoundError:
++      mErrorString = tr( "Could not find the remote host" );
++      break;
++    case QAbstractSocket::NetworkError:
++      mErrorString = tr( "Attempt to read or write from socket returned an error" );
++      break;
++    case QAbstractSocket::ConnectionRefusedError:
++      mErrorString = tr( "The connection was refused by the remote host" );
++      break;
++    default:
++      mErrorString = tr( "%1" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
++      break;
++  }
++
++  emit errorOccurred( mErrorString );
 +}
 +
 +void QgsTcpSocketSensor::socketStateChanged( const QAbstractSocket::SocketState socketState )
@@ -1957,6 +2014,12 @@ index 0000000000..dd2db758c4
 +    }
 +  } );
 +
++#if QT_VERSION < QT_VERSION_CHECK( 5, 15, 0 )
++  connect( mUdpSocket.get(), qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::error ), this, &QgsUdpSocketSensor::handleError );
++#else
++  connect( mUdpSocket.get(), qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &QgsUdpSocketSensor::handleError );
++#endif
++
 +  initIODevice( mBuffer );
 +}
 +
@@ -2015,6 +2078,27 @@ index 0000000000..dd2db758c4
 +  mBuffer->close();
 +}
 +
++void QgsUdpSocketSensor::handleError( QAbstractSocket::SocketError error )
++{
++  switch ( error )
++  {
++    case QAbstractSocket::HostNotFoundError:
++      mErrorString = tr( "Could not find the remote host" );
++      break;
++    case QAbstractSocket::NetworkError:
++      mErrorString = tr( "Attempt to read or write from socket returned an error" );
++      break;
++    case QAbstractSocket::ConnectionRefusedError:
++      mErrorString = tr( "The connection was refused by the remote host" );
++      break;
++    default:
++      mErrorString = tr( "%1" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
++      break;
++  }
++
++  emit errorOccurred( mErrorString );
++}
++
 +void QgsUdpSocketSensor::socketStateChanged( const QAbstractSocket::SocketState socketState )
 +{
 +  switch ( socketState )
@@ -2058,6 +2142,8 @@ index 0000000000..dd2db758c4
 +  : QgsIODeviceSensor( parent )
 +  , mSerialPort( new QSerialPort() )
 +{
++  connect( mSerialPort, qOverload<QSerialPort::SerialPortError>( &QSerialPort::errorOccurred ), this, &QgsSerialPortSensor::handleError );
++
 +  initIODevice( mSerialPort );
 +}
 +
@@ -2103,6 +2189,32 @@ index 0000000000..dd2db758c4
 +  mSerialPort->close();
 +}
 +
++void QgsSerialPortSensor::handleError( QSerialPort::SerialPortError error )
++{
++  if ( error == QSerialPort::NoError )
++  {
++    return;
++  }
++
++  switch ( error )
++  {
++    case QSerialPort::DeviceNotFoundError:
++      mErrorString = tr( "Could not find the serial port device" );
++      break;
++    case QSerialPort::ReadError:
++      mErrorString = tr( "Attempt to read from the serial port returned an error" );
++      break;
++    case QSerialPort::PermissionError:
++      mErrorString = tr( "The connection was refused due to not having enough permission" );
++      break;
++    default:
++      mErrorString = tr( "%1" ).arg( QMetaEnum::fromType<QSerialPort::SerialPortError>().valueToKey( error ) );
++      break;
++  }
++
++  emit errorOccurred( mErrorString );
++}
++
 +bool QgsSerialPortSensor::writePropertiesToElement( QDomElement &element, QDomDocument & ) const
 +{
 +  element.setAttribute( QStringLiteral( "portName" ), mPortName );
@@ -2119,10 +2231,10 @@ index 0000000000..dd2db758c4
 +#endif
 diff --git a/src/core/sensor/qgsiodevicesensor.h b/src/core/sensor/qgsiodevicesensor.h
 new file mode 100644
-index 0000000000..86a8e3c93e
+index 0000000000..690b67f2dc
 --- /dev/null
 +++ b/src/core/sensor/qgsiodevicesensor.h
-@@ -0,0 +1,281 @@
+@@ -0,0 +1,287 @@
 +/***************************************************************************
 +                             qgsiodevicesensor.h
 +                             ---------------------------
@@ -2260,7 +2372,8 @@ index 0000000000..86a8e3c93e
 +
 +  private slots:
 +
-+    virtual void socketStateChanged( const QAbstractSocket::SocketState socketState );
++    void socketStateChanged( const QAbstractSocket::SocketState socketState );
++    void handleError( QAbstractSocket::SocketError error );
 +
 +  private:
 +
@@ -2330,7 +2443,8 @@ index 0000000000..86a8e3c93e
 +
 +  private slots:
 +
-+    virtual void socketStateChanged( const QAbstractSocket::SocketState socketState );
++    void socketStateChanged( const QAbstractSocket::SocketState socketState );
++    void handleError( QAbstractSocket::SocketError error );
 +
 +  private:
 +
@@ -2391,6 +2505,10 @@ index 0000000000..86a8e3c93e
 +    void handleConnect() override;
 +    void handleDisconnect() override;
 +
++  private slots:
++
++    void handleError( QSerialPort::SerialPortError error );
++
 +  private:
 +
 +    QSerialPort *mSerialPort = nullptr;
@@ -2406,10 +2524,10 @@ index 0000000000..86a8e3c93e
 +
 diff --git a/src/core/sensor/qgssensormanager.cpp b/src/core/sensor/qgssensormanager.cpp
 new file mode 100644
-index 0000000000..70e8dc2efa
+index 0000000000..ce1d50c283
 --- /dev/null
 +++ b/src/core/sensor/qgssensormanager.cpp
-@@ -0,0 +1,188 @@
+@@ -0,0 +1,198 @@
 +/***************************************************************************
 +    qgssensormanager.cpp
 +    ------------------
@@ -2500,6 +2618,7 @@ index 0000000000..70e8dc2efa
 +  connect( sensor, &QgsAbstractSensor::nameChanged, this, &QgsSensorManager::handleSensorNameChanged );
 +  connect( sensor, &QgsAbstractSensor::statusChanged, this, &QgsSensorManager::handleSensorStatusChanged );
 +  connect( sensor, &QgsAbstractSensor::dataChanged, this, &QgsSensorManager::captureSensorData );
++  connect( sensor, &QgsAbstractSensor::errorOccurred, this, &QgsSensorManager::handleSensorErrorOccurred );
 +  mSensors << sensor;
 +
 +  emit sensorAdded( sensor->id() );
@@ -2559,6 +2678,15 @@ index 0000000000..70e8dc2efa
 +  emit sensorDataCaptured( sensor->id() );
 +}
 +
++void QgsSensorManager::handleSensorErrorOccurred( const QString & )
++{
++  const QgsAbstractSensor *sensor = qobject_cast<QgsAbstractSensor *>( sender() );
++  if ( !sensor )
++    return;
++
++  emit sensorErrorOccurred( sensor->id() );
++}
++
 +bool QgsSensorManager::readXml( const QDomElement &element, const QDomDocument &document )
 +{
 +  clear();
@@ -2600,10 +2728,10 @@ index 0000000000..70e8dc2efa
 +}
 diff --git a/src/core/sensor/qgssensormanager.h b/src/core/sensor/qgssensormanager.h
 new file mode 100644
-index 0000000000..a77678625c
+index 0000000000..7bd48058e7
 --- /dev/null
 +++ b/src/core/sensor/qgssensormanager.h
-@@ -0,0 +1,147 @@
+@@ -0,0 +1,151 @@
 +/***************************************************************************
 +    qgssensormanager.h
 +    ------------------
@@ -2737,11 +2865,15 @@ index 0000000000..a77678625c
 +    //! Emitted when newly captured data from a sensor has occurred.
 +    void sensorDataCaptured( const QString &id );
 +
++    //! Emitted when a sensor error has occurred.
++    void sensorErrorOccurred( const QString &id );
++
 +  private slots:
 +
 +    void handleSensorNameChanged();
 +    void handleSensorStatusChanged();
 +    void captureSensorData();
++    void handleSensorErrorOccurred( const QString &errorMessage );
 +
 +  private:
 +
