@@ -1914,7 +1914,6 @@ ApplicationWindow {
 
     MenuItem {
       id: printItem
-      enabled: layoutListInstantiator.count > 0
       text: Qt.platform.os === "ios" ? qsTr( "Print to Image" ) : qsTr( "Print to PDF" )
 
       font: Theme.defaultFont
@@ -1941,7 +1940,7 @@ ApplicationWindow {
       }
 
       onTriggered: {
-        if (layoutListInstantiator.model.rowCount() > 1)
+        if (layoutListInstantiator.model.rowCount() !== 1)
         {
           printMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
         }
@@ -1958,7 +1957,6 @@ ApplicationWindow {
 
     MenuItem {
       id: sensorItem
-      enabled: sensorListInstantiator.count > 0
       text: qsTr( "Sensors" )
 
       font: Theme.defaultFont
@@ -2107,13 +2105,17 @@ ApplicationWindow {
     topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
-      text: qsTr( 'Select sensor below' )
+      text: sensorListInstantiator.count > 0
+            ? qsTr( 'Select sensor below' )
+            : qsTr( 'No sensor available, learn more' )
 
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
 
-      enabled: false
+      enabled: sensorListInstantiator.count == 0
+
+      onTriggered: Qt.openUrlExternally('https://docs.qfield.org/how-to/')
     }
 
     Instantiator {
@@ -2172,13 +2174,17 @@ ApplicationWindow {
     topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
-      text: qsTr( 'Select template below' )
+      text: layoutListInstantiator.count > 0
+            ? qsTr( 'Select layout below' )
+            : qsTr( 'No print layout available, learn more' )
 
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
 
-      enabled: false
+      enabled: layoutListInstantiator.count == 0
+
+      onTriggered: Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/')
     }
 
     Instantiator {
