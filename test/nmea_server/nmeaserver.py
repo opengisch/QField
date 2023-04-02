@@ -62,24 +62,22 @@ def work_thread(client):
 if args["type"] == "tcp":
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.bind((host, port))
-        sock.listen(5)  # we should never have more than one client
+        sock.listen()
         print(f"Listening on port {port}")
-
-        (
-            client,
-            addr,
-        ) = sock.accept()  # your script will block here waiting for a connection
-        t = threading.Thread(target=work_thread, args=(client,))
-        t.start()
+        while True:
+            (client, addr) = sock.accept()
+            print(f"Accepting new connection with address {addr}")
+            t = threading.Thread(target=work_thread, args=(client,))
+            t.start()
 else:
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    sock.settimeout(0.2)
-    i = 0
-    while True:
-        i = (i + 1) % len(lines)
-        data = lines[i]
-        sock.sendto(data, ("<broadcast>", port))
-        print(data)
-        time.sleep(args["interval"])
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP) as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+        sock.settimeout(0.2)
+        i = 0
+        while True:
+            i = (i + 1) % len(lines)
+            data = lines[i]
+            sock.sendto(data, ("<broadcast>", port))
+            print(data)
+            time.sleep(args["interval"])
