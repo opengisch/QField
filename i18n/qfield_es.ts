@@ -233,31 +233,31 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>No se pudo encontrar el host remoto</translation>
+        <translation type="vanished">No se pudo encontrar el host remoto</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>No se pudo encontrar el UUID del servicio en el host remoto</translation>
+        <translation type="vanished">No se pudo encontrar el UUID del servicio en el host remoto</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>El intento de leer o escribir desde el socket devolvió un error</translation>
+        <translation type="vanished">El intento de leer o escribir desde el socket devolvió un error</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>El protocolo no es compatible con esta plataforma.</translation>
+        <translation type="vanished">El protocolo no es compatible con esta plataforma.</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>Se intentó una operación mientras el socket estaba en un estado que no lo permitía</translation>
+        <translation type="vanished">Se intentó una operación mientras el socket estaba en un estado que no lo permitía</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>El host remoto cerró la conexión.</translation>
+        <translation type="vanished">El host remoto cerró la conexión.</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Error desconocido</translation>
+        <translation type="vanished">Error desconocido</translation>
     </message>
 </context>
 <context>
@@ -3361,7 +3361,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Seleccionar plantilla abajo</translation>
+        <translation type="vanished">Seleccionar plantilla abajo</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3629,6 +3629,18 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

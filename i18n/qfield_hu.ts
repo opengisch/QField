@@ -3355,7 +3355,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Válasszon sablont lent</translation>
+        <translation type="vanished">Válasszon sablont lent</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3623,6 +3623,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

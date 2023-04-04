@@ -233,31 +233,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>未找到远程主机</translation>
+        <translation type="vanished">未找到远程主机</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>在远程主机上未找到服务UUID</translation>
+        <translation type="vanished">在远程主机上未找到服务UUID</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>尝试从Socket读取或写入时返回错误</translation>
+        <translation type="vanished">尝试从Socket读取或写入时返回错误</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>此平台不支持该协议</translation>
+        <translation type="vanished">此平台不支持该协议</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>当Socket处于不允许的状态时尝试了操作</translation>
+        <translation type="vanished">当Socket处于不允许的状态时尝试了操作</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>远程主机已关闭连接</translation>
+        <translation type="vanished">远程主机已关闭连接</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>未知错误</translation>
+        <translation type="vanished">未知错误</translation>
     </message>
 </context>
 <context>
@@ -3359,7 +3359,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>请选择模板</translation>
+        <translation type="vanished">请选择模板</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3628,6 +3628,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
         <translation>连接传感器 &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation>无可用传感器，了解更多信息</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation>请选择布局</translation>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
+        <translation>无可用打印布局，了解更多信息</translation>
     </message>
 </context>
 <context>

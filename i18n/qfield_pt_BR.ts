@@ -233,31 +233,31 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Não foi possível encontrar o host remoto</translation>
+        <translation type="vanished">Não foi possível encontrar o host remoto</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Não foi possível encontrar o UUID de serviço no host remoto</translation>
+        <translation type="vanished">Não foi possível encontrar o UUID de serviço no host remoto</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Tentativa de ler ou escrever a partir do socket retornou um erro</translation>
+        <translation type="vanished">Tentativa de ler ou escrever a partir do socket retornou um erro</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>O protocolo não é suportado nesta plataforma</translation>
+        <translation type="vanished">O protocolo não é suportado nesta plataforma</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>Foi realizada uma tentativa de operação num momento em que não era permitido</translation>
+        <translation type="vanished">Foi realizada uma tentativa de operação num momento em que não era permitido</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>O host remoto fechou a conexão</translation>
+        <translation type="vanished">O host remoto fechou a conexão</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Erro desconhecido</translation>
+        <translation type="vanished">Erro desconhecido</translation>
     </message>
 </context>
 <context>
@@ -3352,7 +3352,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Selecione o modelo abaixo</translation>
+        <translation type="vanished">Selecione o modelo abaixo</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3620,6 +3620,18 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

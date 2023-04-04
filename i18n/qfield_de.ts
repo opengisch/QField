@@ -233,31 +233,31 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Kann den Remote Host nicht finden</translation>
+        <translation type="vanished">Kann den Remote Host nicht finden</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Kann den UUID Service auf dem Remote Host nicht finden</translation>
+        <translation type="vanished">Kann den UUID Service auf dem Remote Host nicht finden</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Fehler beim Lesen oder Schreiben an diesem Anschluss</translation>
+        <translation type="vanished">Fehler beim Lesen oder Schreiben an diesem Anschluss</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Das Protokoll wird auf dieser Plattform nicht unterstützt.</translation>
+        <translation type="vanished">Das Protokoll wird auf dieser Plattform nicht unterstützt.</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>Vorgang nicht möglich, weil der Anschluss nicht bereit war</translation>
+        <translation type="vanished">Vorgang nicht möglich, weil der Anschluss nicht bereit war</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>Der Remote Host hat die Verbindung beendet</translation>
+        <translation type="vanished">Der Remote Host hat die Verbindung beendet</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation type="vanished">Unbekannter Fehler</translation>
     </message>
 </context>
 <context>
@@ -3356,7 +3356,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Vorlage unten auswählen</translation>
+        <translation type="vanished">Vorlage unten auswählen</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3624,6 +3624,18 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

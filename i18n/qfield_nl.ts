@@ -245,7 +245,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Het protocol wordt op dit platform niet ondersteund</translation>
+        <translation type="vanished">Het protocol wordt op dit platform niet ondersteund</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -257,7 +257,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Onbekende fout</translation>
+        <translation type="vanished">Onbekende fout</translation>
     </message>
 </context>
 <context>
@@ -3361,7 +3361,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Selecteer hieronder een sjabloon</translation>
+        <translation type="vanished">Selecteer hieronder een sjabloon</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3629,6 +3629,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

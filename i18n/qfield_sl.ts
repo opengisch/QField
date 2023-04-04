@@ -232,7 +232,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Oddaljenega gostitelja ni bilo mogoče najti </translation>
+        <translation type="vanished">Oddaljenega gostitelja ni bilo mogoče najti </translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
@@ -244,7 +244,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Protokol ni podprt na tej platformi</translation>
+        <translation type="vanished">Protokol ni podprt na tej platformi</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -252,11 +252,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>Oddaljeni gostitelj je zaprl povezavo</translation>
+        <translation type="vanished">Oddaljeni gostitelj je zaprl povezavo</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Neznana napaka</translation>
+        <translation type="vanished">Neznana napaka</translation>
     </message>
 </context>
 <context>
@@ -3343,7 +3343,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Izberi predlogo spodaj</translation>
+        <translation type="vanished">Izberi predlogo spodaj</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3611,6 +3611,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

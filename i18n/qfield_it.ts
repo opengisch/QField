@@ -233,31 +233,31 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Impossibile trovare l&apos;host remoto</translation>
+        <translation type="vanished">Impossibile trovare l&apos;host remoto</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Impossibile trovare il UUID del servizio sull&apos;host remoto</translation>
+        <translation type="vanished">Impossibile trovare il UUID del servizio sull&apos;host remoto</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Il tentativo di leggere o scrivere sul socket ha ritornato un errore</translation>
+        <translation type="vanished">Il tentativo di leggere o scrivere sul socket ha ritornato un errore</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Il protocollo non è supportato su questa piattaforma</translation>
+        <translation type="vanished">Il protocollo non è supportato su questa piattaforma</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>È stata tentata un&apos;operazione mentre il socket era in uno stato che non gli permetteva di eseguirla</translation>
+        <translation type="vanished">È stata tentata un&apos;operazione mentre il socket era in uno stato che non gli permetteva di eseguirla</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>L&apos;host remoto ha chiuso la connessione</translation>
+        <translation type="vanished">L&apos;host remoto ha chiuso la connessione</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Errore sconosciuto</translation>
+        <translation type="vanished">Errore sconosciuto</translation>
     </message>
 </context>
 <context>
@@ -3366,7 +3366,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Seleziona il modello sottostante</translation>
+        <translation type="vanished">Seleziona il modello sottostante</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3634,6 +3634,18 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -234,31 +234,31 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Nu s-a putut găsi gazda la distanță</translation>
+        <translation type="vanished">Nu s-a putut găsi gazda la distanță</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Nu s-a putut determina UUID-ul serviciului de pe gazda aflată la distanță</translation>
+        <translation type="vanished">Nu s-a putut determina UUID-ul serviciului de pe gazda aflată la distanță</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+        <translation type="vanished">Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Protocolul nu este acceptat pe această platformă</translation>
+        <translation type="vanished">Protocolul nu este acceptat pe această platformă</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>S-a încercat o operațiune în timp ce socketul era într-o stare care nu permitea acest lucru</translation>
+        <translation type="vanished">S-a încercat o operațiune în timp ce socketul era într-o stare care nu permitea acest lucru</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>Gazda aflată la distanță a închis conexiunea</translation>
+        <translation type="vanished">Gazda aflată la distanță a închis conexiunea</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Eroare necunoscută</translation>
+        <translation type="vanished">Eroare necunoscută</translation>
     </message>
 </context>
 <context>
@@ -3365,7 +3365,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Seletează șablonul de mai jos</translation>
+        <translation type="vanished">Seletează șablonul de mai jos</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3633,6 +3633,18 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -232,31 +232,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Impossible de trouver l&apos;hôte distant</translation>
+        <translation type="vanished">Impossible de trouver l&apos;hôte distant</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Impossible de trouver l&apos;UUID du service sur l&apos;hôte distant</translation>
+        <translation type="vanished">Impossible de trouver l&apos;UUID du service sur l&apos;hôte distant</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Une tentative de lecture ou d&apos;écriture à partir du socket a renvoyé une erreur</translation>
+        <translation type="vanished">Une tentative de lecture ou d&apos;écriture à partir du socket a renvoyé une erreur</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Le protocole n&apos;est pas supporté sur cette plateforme</translation>
+        <translation type="vanished">Le protocole n&apos;est pas supporté sur cette plateforme</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>Une opération a été tentée alors que le socket était dans un état qui ne le permettait pas</translation>
+        <translation type="vanished">Une opération a été tentée alors que le socket était dans un état qui ne le permettait pas</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>L&apos;hôte distant a fermé la connexion</translation>
+        <translation type="vanished">L&apos;hôte distant a fermé la connexion</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Erreur inconnue</translation>
+        <translation type="vanished">Erreur inconnue</translation>
     </message>
 </context>
 <context>
@@ -3358,7 +3358,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Sélectionner un modèle ci-dessous</translation>
+        <translation type="vanished">Sélectionner un modèle ci-dessous</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3628,6 +3628,18 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -233,31 +233,31 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Nie można odnaleźć zdalnego serwera</translation>
+        <translation type="vanished">Nie można odnaleźć zdalnego serwera</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Nie można znaleźć UUID usługi na zdalnym serwerze</translation>
+        <translation type="vanished">Nie można znaleźć UUID usługi na zdalnym serwerze</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Błąd podczas próby odczytu lub zapisu do gniazda</translation>
+        <translation type="vanished">Błąd podczas próby odczytu lub zapisu do gniazda</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Ten protokół nie jest wspierany na tej platformie</translation>
+        <translation type="vanished">Ten protokół nie jest wspierany na tej platformie</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>Próba wykonania operacji, podczas gdy gniazdo było w stanie, który na to nie zezwalał</translation>
+        <translation type="vanished">Próba wykonania operacji, podczas gdy gniazdo było w stanie, który na to nie zezwalał</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>Zdalny serwer zakończył połączenie</translation>
+        <translation type="vanished">Zdalny serwer zakończył połączenie</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Nieznany błąd</translation>
+        <translation type="vanished">Nieznany błąd</translation>
     </message>
 </context>
 <context>
@@ -2999,11 +2999,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktywuj ograniczenie czujnika</translation>
     </message>
     <message>
         <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Rejestruj, gdy wszystkie aktywne ograniczenia są spełnione</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
@@ -3356,7 +3356,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Wybierz szablon poniżej</translation>
+        <translation type="vanished">Wybierz szablon poniżej</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3608,7 +3608,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Import URL nie powiódł się.</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -3625,6 +3625,18 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
         <translation>Łączenie z czujnikiem &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation>Brak dostępnego czujnika, dowiedz się więcej</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation>Wybierz układ wydruku poniżej</translation>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
+        <translation>Brak dostępnego układu wydruku, dowiedz się więcej</translation>
     </message>
 </context>
 <context>

@@ -233,31 +233,31 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Isäntälaitetta ei löytynyt</translation>
+        <translation type="vanished">Isäntälaitetta ei löytynyt</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Palvelun UUID ei löytynyt isäntälaitteesta</translation>
+        <translation type="vanished">Palvelun UUID ei löytynyt isäntälaitteesta</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
+        <translation type="vanished">Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Protokollaa ei tueta tällä alustalla</translation>
+        <translation type="vanished">Protokollaa ei tueta tällä alustalla</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>Leikkausta yritettiin, kun socketti oli tilassa, joka ei sallinut sitä</translation>
+        <translation type="vanished">Leikkausta yritettiin, kun socketti oli tilassa, joka ei sallinut sitä</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>Isäntälaite sulki yhteyden</translation>
+        <translation type="vanished">Isäntälaite sulki yhteyden</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Tuntematon virhe</translation>
+        <translation type="vanished">Tuntematon virhe</translation>
     </message>
 </context>
 <context>
@@ -3363,7 +3363,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Valitse malli alta</translation>
+        <translation type="vanished">Valitse malli alta</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3631,6 +3631,18 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

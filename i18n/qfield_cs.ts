@@ -233,31 +233,31 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Vzdálený hostitel nenalezen</translation>
+        <translation type="vanished">Vzdálený hostitel nenalezen</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Nenalezeno servisní UUID na vzdáleném hostiteli</translation>
+        <translation type="vanished">Nenalezeno servisní UUID na vzdáleném hostiteli</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Pokus o čtení nebo zápis z/do socketu vrátil chybu</translation>
+        <translation type="vanished">Pokus o čtení nebo zápis z/do socketu vrátil chybu</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Protokol není na této platformě podporován</translation>
+        <translation type="vanished">Protokol není na této platformě podporován</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>Požadavek na operaci, kterou stav socketu nedovoluje</translation>
+        <translation type="vanished">Požadavek na operaci, kterou stav socketu nedovoluje</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>Vzdálený hostitel ukončil spojení</translation>
+        <translation type="vanished">Vzdálený hostitel ukončil spojení</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Neznámá chyba</translation>
+        <translation type="vanished">Neznámá chyba</translation>
     </message>
 </context>
 <context>
@@ -3356,7 +3356,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Vyberte níže uvedenou šablonu</translation>
+        <translation type="vanished">Vyberte níže uvedenou šablonu</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3624,6 +3624,18 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

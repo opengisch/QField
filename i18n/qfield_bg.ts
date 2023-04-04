@@ -233,31 +233,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Отдалечения хост не е открит</translation>
+        <translation type="vanished">Отдалечения хост не е открит</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation>Услуг с такова UUID не може да бъде открита на отдалечения хост</translation>
+        <translation type="vanished">Услуг с такова UUID не може да бъде открита на отдалечения хост</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Грешка при четене или писане от сокета</translation>
+        <translation type="vanished">Грешка при четене или писане от сокета</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation>Протоколът не се поддържа на тази платформа</translation>
+        <translation type="vanished">Протоколът не се поддържа на тази платформа</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation>Състоянието на сокета не позволява опитаната операция</translation>
+        <translation type="vanished">Състоянието на сокета не позволява опитаната операция</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>Отдалечения хост затвори изградената връзка</translation>
+        <translation type="vanished">Отдалечения хост затвори изградената връзка</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Неразпозната грешка</translation>
+        <translation type="vanished">Неразпозната грешка</translation>
     </message>
 </context>
 <context>
@@ -3363,7 +3363,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Избери някой от шаблоните</translation>
+        <translation type="vanished">Избери някой от шаблоните</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3631,6 +3631,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available, learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>
