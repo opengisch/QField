@@ -548,12 +548,12 @@ Page {
                 property var stringUtilities: StringUtils
 
                 active: widget !== 'Hidden'
-                source: {
+                source: 'editorwidgets/TextEdit.qml'/*{
                   if ( widget === 'RelationEditor' ) {
                     return 'editorwidgets/relationeditors/' + ( RelationEditorWidget || 'relation_editor' ) + '.qml'
                   }
                   return 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
-                }
+                }*/
 
                 onLoaded: {
                     item.isLoaded = true;
