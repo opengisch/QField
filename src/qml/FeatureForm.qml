@@ -206,16 +206,6 @@ Page {
               contentHeight: content.height
               clip: true
 
-              ScrollBar.vertical: ScrollBar {
-                policy: content.height > contentView.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
-                width: 6
-                contentItem: Rectangle {
-                  implicitWidth: 6
-                  implicitHeight: 25
-                  color: Theme.mainColor
-                }
-              }
-
               /**
               * The main form content area
               */
@@ -548,12 +538,12 @@ Page {
                 property var stringUtilities: StringUtils
 
                 active: widget !== 'Hidden'
-                source: 'editorwidgets/TextEdit.qml'/*{
+                source: {
                   if ( widget === 'RelationEditor' ) {
                     return 'editorwidgets/relationeditors/' + ( RelationEditorWidget || 'relation_editor' ) + '.qml'
                   }
                   return 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
-                }*/
+                }
 
                 onLoaded: {
                     item.isLoaded = true;
