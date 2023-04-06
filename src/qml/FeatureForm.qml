@@ -198,7 +198,7 @@ Page {
             id: formPage
             property int currentIndex: index
 
-            Flickable {
+            /*Flickable {
               id: contentView
 
               anchors.fill: parent
@@ -206,12 +206,13 @@ Page {
               contentHeight: content.height
               clip: true
 
-              /**
-              * The main form content area
+              // The main form content area
               */
-              Flow {
+              ListView {
                 id: content
                 width: swipeView.width
+                anchors.fill: parent
+                clip: true
 
                 SubModel {
                   id: contentModel
@@ -219,7 +220,7 @@ Page {
                   rootIndex: form.model.index(form.model.hasTabs ? currentIndex : -1, 0)
                 }
 
-                Repeater {
+                //Repeater {
                   // Note: digitizing a child geometry will temporarily hide the feature form,
                   // we need to preserve items so signal connections are kept alive
                   model: form.visible || form.digitizingToolbar.geometryRequested
@@ -228,8 +229,8 @@ Page {
                            : form.model
                          : 0
                   delegate: fieldItem
-                }
-              }
+                //}
+              //}
             }
           }
         }
