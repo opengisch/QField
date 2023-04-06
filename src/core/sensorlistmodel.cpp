@@ -54,7 +54,7 @@ void SensorListModel::setProject( QgsProject *project )
   {
     mSensorModel->deleteLater();
   }
-  mSensorModel = new QgsSensorModel( mProject->sensorManager() );
+  mSensorModel = mProject ? new QgsSensorModel( mProject->sensorManager() ) : nullptr;
   setSourceModel( mSensorModel );
 }
 
