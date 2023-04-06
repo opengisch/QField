@@ -393,8 +393,6 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
-
     // QField has historically handled no viewer type as image, let's carry that on
     visible: (documentViewer == document_FILE || documentViewer == document_IMAGE) && isEnabled
 
@@ -424,8 +422,6 @@ EditorWidgetBase {
     id: cameraVideoButton
     width: visible ? 48 : 0
     height: 48
-
-    property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
 
     visible: documentViewer == document_VIDEO && isEnabled
 
