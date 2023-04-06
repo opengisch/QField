@@ -314,41 +314,49 @@ Page {
             property bool isVisible: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
 
             visible: isVisible
-            height: childrenRect.height
+            height: isVisible ? childrenRect.height : 0
             anchors {
               left: parent.left
               right: parent.right
             }
 
-            onIsVisibleChanged: {
-              if (isVisible) {
-                Qt.createQmlObject('import QtQuick 2.14; import org.qfield 1.0; Flow {
-              id: innerContainerContent
-              height: childrenRect.height
+            Loader {
+              id: innerContainerLoader
               anchors {
                 left: parent.left
                 right: parent.right
               }
-
-              Repeater {
-                model: SubModel {
-                  id: innerSubModel
-                  enabled: innerContainer.isVisible
-                  model: form.model
-                  rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
-                }
-                delegate: fieldItem
-              }
-            }', innerContainer)
-              }
+              sourceComponent: innerContainerComponent
+              active: innerContainer.isVisible
             }
 
-            Connections {
-              target: form.model
+            Component {
+              id: innerContainerComponent
 
-              function onModelReset() {
-                if (innerContainer.innerContainerContent !== undefined && GroupIndex !== undefined && innerContainer.isVisible) {
-                  innerContainer.innerContainerContent.innerSubModel.rootIndex = form.model.mapFromSource(GroupIndex)
+              Flow {
+                id: innerContainerContent
+                anchors {
+                  left: parent.left
+                  right: parent.right
+                }
+
+                Repeater {
+                  model: SubModel {
+                    id: innerSubModel
+                    model: form.model
+                    rootIndex: form.model.mapFromSource(GroupIndex)
+                  }
+                  delegate: fieldItem
+                }
+
+                Connections {
+                  target: form.model
+
+                  function onModelReset() {
+                    if (innerContainerContent !== undefined && GroupIndex !== undefined && innerContainer.isVisible) {
+                      innerContainerContent.innerSubModel.rootIndex = form.model.mapFromSource(GroupIndex)
+                    }
+                  }
                 }
               }
             }
