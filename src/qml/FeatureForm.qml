@@ -324,21 +324,22 @@ Page {
             Component {
               id: innerContainerComponent
 
-              Flow {
+              ListView {
                 id: innerContainerContent
                 anchors {
                   left: parent.left
                   right: parent.right
                 }
+                height: contentItem.childrenRect.height
 
-                Repeater {
+                //Repeater {
                   model: SubModel {
                     id: innerSubModel
                     model: form.model
                     rootIndex: form.model.mapFromSource(GroupIndex)
                   }
                   delegate: fieldItem
-                }
+                //}
 
                 Connections {
                   target: form.model
