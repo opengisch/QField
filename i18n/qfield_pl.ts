@@ -3638,6 +3638,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>No print layout available, learn more</source>
         <translation>Brak dostępnego układu wydruku, dowiedz się więcej</translation>
     </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

@@ -3631,7 +3631,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No sensor available, learn more</source>
-        <translation>无可用传感器，了解更多信息</translation>
+        <translation>无可用传感器，点击了解更多信息</translation>
     </message>
     <message>
         <source>Select layout below</source>
@@ -3639,7 +3639,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No print layout available, learn more</source>
-        <translation>无可用打印布局，了解更多信息</translation>
+        <translation>无可用打印布局，点击了解更多信息</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>传感器错误: %1</translation>
     </message>
 </context>
 <context>

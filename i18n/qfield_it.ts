@@ -3648,6 +3648,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

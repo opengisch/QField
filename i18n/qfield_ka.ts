@@ -3632,6 +3632,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

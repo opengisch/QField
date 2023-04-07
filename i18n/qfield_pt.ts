@@ -3635,15 +3635,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>No sensor available, learn more</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum sensor disponível, saber mais</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Seleciona a composição abaixo</translation>
     </message>
     <message>
         <source>No print layout available, learn more</source>
-        <translation type="unfinished"/>
+        <translation>Sem composição de impressão disponível, saber mais</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>Erro no sensor: %1</translation>
     </message>
 </context>
 <context>
