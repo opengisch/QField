@@ -1599,7 +1599,7 @@ ApplicationWindow {
         }
       }
       function followOrientation() {
-        if (magnetometer.hasValue && Math.abs(magnetometer.orientation - mapCanvas.mapSettings.rotation) > 10) {
+        if (magnetometer.hasValue && Math.abs(-magnetometer.orientation - mapCanvas.mapSettings.rotation) >= 10) {
           gnssButton.followActiveSkipRotationChanged = true
           mapCanvas.mapSettings.rotation = -magnetometer.orientation
         }
