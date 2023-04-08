@@ -46,6 +46,7 @@ Dialog {
         width: parent.width
         text: modelData
         font: Theme.resultFont
+        color: Theme.secondaryTextColor
         wrapMode: Text.WordWrap
       }
     }
