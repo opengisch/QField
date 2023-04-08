@@ -789,8 +789,14 @@ Page {
         }
       }
 
-      Label {
+      Text {
         id: titleLabel
+        Layout.fillWidth: true
+        Layout.preferredHeight: parent.height
+
+        font: Theme.strongFont
+        color: Theme.light
+
         text:
         {
           var currentLayer = model.featureModel.currentLayer
@@ -805,14 +811,12 @@ Page {
           else
             qsTr( 'View feature on %1' ).arg(layerName)
         }
-        font: Theme.strongFont
-        color: "#FFFFFF"
+
         fontSizeMode: Text.Fit
         wrapMode: Text.Wrap
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
-        Layout.fillWidth: true
       }
 
       QfToolButton {
