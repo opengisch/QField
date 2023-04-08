@@ -1307,7 +1307,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zapisać zasobu pliku</translation>
     </message>
     <message>
         <source>Select Image File</source>
@@ -1593,7 +1593,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Błąd logowania z powodu nieoczekiwanego przekierowania, proszę spróbuj ponownie później</translation>
     </message>
 </context>
 <context>
@@ -2620,15 +2620,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Błąd, katalog wyjściowy nie istnieje: &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Błąd, katalog wyjściowy nie jest katalogiem: &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Błąd, nie można zapisać w katalogu wyjściowym: &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -2648,7 +2648,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Błąd otwierania archiwum zip: &quot;%1&quot; (kod błędu: %2)</translation>
     </message>
 </context>
 <context>
@@ -3640,7 +3640,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Błąd czujnika: %1</translation>
     </message>
 </context>
 <context>
