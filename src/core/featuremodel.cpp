@@ -365,16 +365,7 @@ void FeatureModel::updateDefaultValues()
   if ( !mLayer )
     return;
 
-  QgsExpressionContext expressionContext = mLayer->createExpressionContext();
-  if ( mPositionInformation.isValid() )
-  {
-    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
-  }
-  if ( mTopSnappingResult.isValid() )
-  {
-    expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
-  }
-  expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+  QgsExpressionContext expressionContext = createExpressionContext();
   expressionContext.setFeature( mFeature );
 
   QgsFields fields = mLayer->fields();
@@ -394,6 +385,27 @@ void FeatureModel::updateDefaultValues()
       mFeature.setAttribute( i, value );
     }
   }
+}
+
+QgsExpressionContext FeatureModel::createExpressionContext() const
+{
+  QgsExpressionContext expressionContext;
+  if ( mLayer )
+  {
+    expressionContext = mLayer->createExpressionContext();
+  }
+
+  if ( mPositionInformation.isValid() )
+  {
+    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
+  }
+  if ( mTopSnappingResult.isValid() )
+  {
+    expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
+  }
+  expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+
+  return expressionContext;
 }
 
 bool FeatureModel::save()
@@ -535,17 +547,7 @@ void FeatureModel::resetAttributes( bool partialReset )
   if ( !mLayer )
     return;
 
-  QgsExpressionContext expressionContext = mLayer->createExpressionContext();
-  if ( mPositionInformation.isValid() )
-  {
-    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
-  }
-
-  //set snapping_results to ExpressionScope...
-  if ( mTopSnappingResult.isValid() )
-    expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
-
-  expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+  QgsExpressionContext expressionContext = createExpressionContext();
   expressionContext.setFeature( mFeature );
 
   QgsFields fields = mLayer->fields();
