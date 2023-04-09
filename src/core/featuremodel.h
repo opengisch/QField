@@ -254,6 +254,8 @@ class FeatureModel : public QAbstractListModel
     //! Sets the \a project used to find the digitizing logs layer
     void setProject( QgsProject *project );
 
+    QgsExpressionContext createExpressionContext() const;
+
   public slots:
     void applyGeometry();
     void removeLayer( QObject *layer );

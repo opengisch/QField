@@ -216,13 +216,12 @@ void AttributeFormModelBase::resetModel()
       QVector<QStandardItem *> dummy;
       buildForm( invisibleRootContainer(), invisibleRootItem(), QString(), dummy );
     }
-
-    mExpressionContext = mLayer->createExpressionContext();
   }
 }
 
 void AttributeFormModelBase::applyFeatureModel()
 {
+  mExpressionContext = mFeatureModel->createExpressionContext();
   for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
   {
     updateAttributeValue( invisibleRootItem()->child( i ) );
