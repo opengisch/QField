@@ -61,18 +61,16 @@ EditorWidgetBase {
   Rectangle {
     id: valueRelationList
 
-    visible: Number(config['AllowMulti']) === 1
-
-    height: Math.max( valueListView.height, itemHeight)
-
-    width: parent.width
-
     property int itemHeight: 32
 
-    border.color: 'lightgray'
+    visible: Number(config['AllowMulti']) === 1
+    width: parent.width
+    height: Math.max( valueListView.height, itemHeight)
+
+    color: Theme.controlBackgroundColor
+    border.color: Theme.controlBorderColor
     border.width: 1
 
-    //the list
     ListView {
       id: valueListView
       model: listModel
@@ -91,7 +89,6 @@ EditorWidgetBase {
         storedIndex = currentIndex
     }
 
-    //list components
     Component {
       id: listComponent
 
@@ -138,7 +135,7 @@ EditorWidgetBase {
             topPadding: 4
             bottomPadding: 4
             font: Theme.defaultFont
-            color: !isEnabled ? 'grey' : 'black'
+            color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
             text: model.displayString
             wrapMode: Text.WordWrap
           }
@@ -158,7 +155,7 @@ EditorWidgetBase {
           id: bottomLine
           anchors.bottom: parent.bottom
           height: 1
-          color: 'lightGray'
+          color: Theme.controlBorderColor
           width: parent.width
         }
       }
