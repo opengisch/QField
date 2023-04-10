@@ -21,6 +21,7 @@
 #include "vertexmodel.h"
 
 #include <QGeoPositionInfoSource>
+#include <QJSValue>
 #include <QMutex>
 #include <qgscurvepolygon.h>
 #include <qgsgeometrycollection.h>
@@ -320,6 +321,12 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
     {
       QVariant val( value );
       QgsField fld = mLayer->fields().at( index.row() );
+
+      // Objects and arrays coming from the QML realm are QJSValue objects, convert to QVariant
+      if ( val.canConvert<QJSValue>() )
+      {
+        val = val.value<QJSValue>().toVariant();
+      }
 
       if ( !fld.convertCompatible( val ) )
       {
