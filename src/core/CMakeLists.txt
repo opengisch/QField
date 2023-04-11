@@ -19,6 +19,7 @@ set(QFIELD_CORE_SRCS
     qgsquick/qgsquickmapsettings.cpp
     qgsquick/qgsquickmaptransform.cpp
     locator/bookmarklocatorfilter.cpp
+    locator/expressioncalculatorlocatorfilter.cpp
     locator/featureslocatorfilter.cpp
     locator/finlandlocatorfilter.cpp
     locator/gotolocatorfilter.cpp
@@ -122,6 +123,7 @@ set(QFIELD_CORE_HDRS
     qgsquick/qgsquickmapsettings.h
     qgsquick/qgsquickmaptransform.h
     locator/bookmarklocatorfilter.h
+    locator/expressioncalculatorlocatorfilter.h
     locator/featureslocatorfilter.h
     locator/finlandlocatorfilter.h
     locator/gotolocatorfilter.h
