@@ -1114,7 +1114,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Exportar Elemento(s) do Atlas para PDF</translation>
+        <translation>Imprimir Elemento(s) do Atlas para PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
@@ -1138,7 +1138,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Exportar Elemento do Atlas para PDF</translation>
+        <translation>Imprimir Elemento do Atlas para PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1170,11 +1170,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Exportando elemento(s) do atlas para PDF</translation>
+        <translation type="vanished">Imprimindo elemento(s) do atlas para PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Elemento(s) do Atlas foram exportados para PDF com sucesso para os seus documentos</translation>
+        <translation type="vanished">Elemento(s) do Atlas foram impressos para PDF com sucesso para os seus documentos</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
@@ -1182,7 +1182,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Exportar Elemento do Atlas para Imagem</translation>
+        <translation>Imprimir Elemento do Atlas para Imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -2619,7 +2619,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation>Erro, ficheiro de zip não existe: &apos;%1&apos;</translation>
+        <translation>Erro ficheiro de zip não existe: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
@@ -3331,7 +3331,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Exportar para PDF</translation>
+        <translation>Imprimir para PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3627,11 +3627,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation>Desconectar do sensor &apos;%1&apos;...</translation>
+        <translation>Desligar sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>Conectar ao sensor &apos;%1&apos;...</translation>
+        <translation>Ligar ao sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>No sensor available, learn more</source>
