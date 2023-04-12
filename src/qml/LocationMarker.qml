@@ -90,12 +90,12 @@ Item {
       strokeStyle: ShapePath.SolidLine
       fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin
-      startX: 10
+      startX: 13
       startY: 2
-      PathLine { x: 18; y: 22 }
-      PathLine { x: 10; y: 16 }
-      PathLine { x: 2; y: 22 }
-      PathLine { x: 10; y: 2 }
+      PathLine { x: 21; y: 22 }
+      PathLine { x: 13; y: 16 }
+      PathLine { x: 5; y: 22 }
+      PathLine { x: 13; y: 2 }
 
       SequentialAnimation on fillColor  {
         loops: Animation.Infinite
