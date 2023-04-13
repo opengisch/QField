@@ -157,6 +157,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Line;
     QPointer<QgsVectorLayer> mLayer;
     QgsCoordinateReferenceSystem mCrs;
+    double mMeasureValue = std::numeric_limits<double>::quiet_NaN();
     bool mFrozen = false;
 };
 
