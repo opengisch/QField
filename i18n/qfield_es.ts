@@ -521,6 +521,17 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
 </context>
 <context>
+    <name>ExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -1036,6 +1047,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Se han activado los filtros para sus búsquedas, personalice los resultados en el panel de configuración</translation>
+    </message>
+    <message>
+        <source>Returns the value of the expression typed in the search bar</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

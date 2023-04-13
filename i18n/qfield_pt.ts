@@ -521,6 +521,17 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
+    <name>ExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation>Copiar “%1” para a área de transferência</translation>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation>Calculadora</translation>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -1036,6 +1047,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Os filtros de pesquisa para os seus locais foi ativado, personalize os resultados no painel de configurações</translation>
+    </message>
+    <message>
+        <source>Returns the value of the expression typed in the search bar</source>
+        <translation>Devolve o valor da expressão escrita na barra de pesquisa</translation>
     </message>
 </context>
 <context>

@@ -521,6 +521,17 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
 </context>
 <context>
+    <name>ExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -1036,6 +1047,10 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>I filtri di ricerca basati sulla tua posizione sono stati attivati. Puoi personalizzare i risultati nel pannello delle impostazioni</translation>
+    </message>
+    <message>
+        <source>Returns the value of the expression typed in the search bar</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

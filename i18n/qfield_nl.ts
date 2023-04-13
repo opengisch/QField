@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentatie</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -393,7 +393,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -518,6 +518,17 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Rendering elevation profile…</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation>Rekenmachine</translation>
     </message>
 </context>
 <context>
@@ -1035,6 +1046,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Zoekfilters voor uw locaties zijn geactiveerd, pas de resultaten aan in het instellingenpaneel</translation>
     </message>
+    <message>
+        <source>Returns the value of the expression typed in the search bar</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LocatorItem</name>
@@ -1336,11 +1351,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Alle bestanden (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer Bestand</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
@@ -1433,7 +1448,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Naam:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
@@ -1445,23 +1460,23 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Seriële poort (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2106,7 +2121,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Geen projecten gevonden</translation>
     </message>
 </context>
 <context>
@@ -2125,7 +2140,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Projecten</translation>
     </message>
     <message>
         <source>Datasets</source>
@@ -2185,7 +2200,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Importeer URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>

@@ -521,6 +521,17 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>ExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -1036,6 +1047,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Filteri pretrage za vašu lokaciju su aktivirani, prilagođite rezultate u listi postavki</translation>
+    </message>
+    <message>
+        <source>Returns the value of the expression typed in the search bar</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

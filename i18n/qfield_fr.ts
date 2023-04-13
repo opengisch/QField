@@ -520,6 +520,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>ExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -1035,6 +1046,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Les filtres de recherche pour vos localisations ont été activés, les résultats peuvent être customisés dans le menu paramètres.</translation>
+    </message>
+    <message>
+        <source>Returns the value of the expression typed in the search bar</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

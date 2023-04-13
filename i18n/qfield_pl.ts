@@ -521,6 +521,17 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
+    <name>ExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation>Skopiuj “%1” do schowka</translation>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation>Kalkulator</translation>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -1029,6 +1040,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Filtry wyszukiwania dla twoich lokalizacji zostały aktywowane, dostosuj wyniki w panelu ustawień.</translation>
+    </message>
+    <message>
+        <source>Returns the value of the expression typed in the search bar</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

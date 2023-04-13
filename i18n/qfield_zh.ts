@@ -521,6 +521,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>ExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation>将“%1”复制到剪贴板</translation>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation>计算器</translation>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -1032,6 +1043,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>您所在位置的搜索过滤器已激活，请在设置面板自定义结果</translation>
+    </message>
+    <message>
+        <source>Returns the value of the expression typed in the search bar</source>
+        <translation>返回在搜索栏中键入的表达式的值</translation>
     </message>
 </context>
 <context>
