@@ -78,7 +78,7 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
 
     if ( QgsWkbTypes::hasZ( wkbType ) )
     {
-      p2.addMValue( QgsWkbTypes::hasZ( pt.wkbType() ) ? pt.z() : 0 );
+      p2.addZValue( QgsWkbTypes::hasZ( pt.wkbType() ) ? pt.z() : 0 );
     }
 
     sequence.append( p2 );
