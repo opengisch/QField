@@ -80,7 +80,7 @@ void Tracker::positionReceived()
     mMinimumDistanceFulfilled = true;
   }
 
-  if ( !mConjunction || ( mTimeIntervalFulfilled && mSensorCaptureFulfilled ) )
+  if ( ( !mConjunction && mMinimumDistanceFulfilled ) || ( mMinimumDistanceFulfilled && mTimeIntervalFulfilled && mSensorCaptureFulfilled ) )
   {
     trackPosition();
   }
@@ -100,7 +100,7 @@ void Tracker::sensorDataReceived()
 {
   mSensorCaptureFulfilled = true;
 
-  if ( !mConjunction || ( mMinimumDistanceFulfilled && mSensorCaptureFulfilled ) )
+  if ( !mConjunction || ( mMinimumDistanceFulfilled && mTimeIntervalFulfilled ) )
   {
     trackPosition();
   }

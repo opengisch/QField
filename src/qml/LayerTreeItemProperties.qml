@@ -28,7 +28,14 @@ Popup {
   y: (parent.height - height) / 2
   padding: 0
 
+  onClosed: {
+    index = undefined
+  }
+
   onIndexChanged: {
+    if (index === undefined)
+      return;
+
     updateTitle();
 
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
@@ -361,6 +368,9 @@ Popup {
       target: layerTree
 
       function onDataChanged(topleft, bottomright, roles) {
+          if (index === undefined)
+            return;
+
           if (roles.includes(FlatLayerTreeModel.FeatureCount)) {
             updateTitle();
           }
@@ -369,7 +379,7 @@ Popup {
 
   function updateTitle() {
       if (index === undefined)
-          return
+        return
 
       var title = layerTree.data(index, Qt.Name)
       var type = layerTree.data(index, FlatLayerTreeModel.Type)
