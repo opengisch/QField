@@ -55,14 +55,17 @@ void SensorListModel::setProject( QgsProject *project )
   mProject = project;
   emit projectChanged();
 
-  connect( mProject->sensorManager(), &QgsSensorManager::sensorErrorOccurred, this, &SensorListModel::handleSensorError );
-
-  if ( mSensorModel )
+  if ( mProject )
   {
-    mSensorModel->deleteLater();
+    connect( mProject->sensorManager(), &QgsSensorManager::sensorErrorOccurred, this, &SensorListModel::handleSensorError );
+    mSensorModel.reset( new QgsSensorModel( mProject->sensorManager() ) );
   }
-  mSensorModel = mProject ? new QgsSensorModel( mProject->sensorManager() ) : nullptr;
-  setSourceModel( mSensorModel );
+  else
+  {
+    mSensorModel.reset( nullptr );
+  }
+
+  setSourceModel( mSensorModel.get() );
 }
 
 void SensorListModel::setShowConnectedOnly( bool showConnectedOnly )

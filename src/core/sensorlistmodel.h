@@ -18,6 +18,7 @@
 #include "qgssensormodel.h"
 
 #include <QSortFilterProxyModel>
+#include <qobjectuniqueptr.h>
 
 class QgsProject;
 class QgsVectorLayer;
@@ -76,7 +77,7 @@ class SensorListModel : public QSortFilterProxyModel
     void handleSensorError( const QString &id );
 
     QgsProject *mProject = nullptr;
-    QgsSensorModel *mSensorModel = nullptr;
+    QObjectUniquePtr<QgsSensorModel> mSensorModel;
 
     bool mShowConnectedOnly = false;
 };
