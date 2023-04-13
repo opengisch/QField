@@ -232,11 +232,9 @@ Page {
                 Repeater {
                   // Note: digitizing a child geometry will temporarily hide the feature form,
                   // we need to preserve items so signal connections are kept alive
-                  model: form.visible || form.digitizingToolbar.geometryRequested
-                         ? form.model.hasTabs
-                           ? contentModel
-                           : form.model
-                         : 0
+                  model: form.model.hasTabs
+                         ? contentModel
+                         : form.model
                   delegate: fieldItem
                 }
               }
@@ -276,6 +274,14 @@ Page {
           height: GroupName !== '' ? childrenRect.height : 0
           color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.5) : Theme.controlBorderColor
 
+          Rectangle {
+            width: 5
+            height: parent.height
+            anchors.top: parent.top
+            anchors.left: parent.left
+            color: GroupColor ? GroupColor : "transparent"
+          }
+
           Text {
             leftPadding: 10
             rightPadding: 10
@@ -288,14 +294,6 @@ Page {
             text: GroupName || ''
             wrapMode: Text.WordWrap
           }
-        }
-
-        Rectangle {
-          width: 5
-          height: fieldGroupTitle.height
-          anchors.top: parent.top
-          anchors.left: parent.left
-          color: GroupColor ? GroupColor : "transparent"
         }
 
         Item {
@@ -320,35 +318,43 @@ Page {
               right: parent.right
             }
 
-            onIsVisibleChanged: {
-              if (isVisible) {
-                Qt.createQmlObject('import QtQuick 2.14; import org.qfield 1.0; Flow {
-              id: innerContainerContent
-              height: childrenRect.height
+            Loader {
+              id: innerContainerLoader
               anchors {
                 left: parent.left
                 right: parent.right
               }
-
-              Repeater {
-                model: SubModel {
-                  id: innerSubModel
-                  enabled: innerContainer.isVisible
-                  model: form.model
-                  rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
-                }
-                delegate: fieldItem
-              }
-            }', innerContainer)
-              }
+              sourceComponent: innerContainerComponent
+              active: innerContainer.isVisible
             }
 
-            Connections {
-              target: form.model
+            Component {
+              id: innerContainerComponent
 
-              function onModelReset() {
-                if (innerContainer.innerContainerContent !== undefined && GroupIndex !== undefined && innerContainer.isVisible) {
-                  innerContainer.innerContainerContent.innerSubModel.rootIndex = form.model.mapFromSource(GroupIndex)
+              Flow {
+                id: innerContainerContent
+                anchors {
+                  left: parent.left
+                  right: parent.right
+                }
+
+                Repeater {
+                  model: SubModel {
+                    id: innerSubModel
+                    model: form.model
+                    rootIndex: form.model.mapFromSource(GroupIndex)
+                  }
+                  delegate: fieldItem
+                }
+
+                Connections {
+                  target: form.model
+
+                  function onModelReset() {
+                    if (innerContainerContent !== undefined && GroupIndex !== undefined && innerContainer.isVisible) {
+                      innerContainerContent.innerSubModel.rootIndex = form.model.mapFromSource(GroupIndex)
+                    }
+                  }
                 }
               }
             }
@@ -357,7 +363,7 @@ Page {
           Item {
             id: qmlContainer
 
-            property bool isVisible: Type == 'qml' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
+            property bool isVisible: Type === 'qml' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
             property string qmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
 
             visible: isVisible
@@ -402,7 +408,7 @@ Page {
           Item {
             id: htmlContainer
 
-            property bool isVisible: Type == 'html' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
+            property bool isVisible: Type === 'html' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
             property string htmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
 
             visible: isVisible
