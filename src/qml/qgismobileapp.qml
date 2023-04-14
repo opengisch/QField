@@ -1927,7 +1927,7 @@ ApplicationWindow {
           y: (parent.height - height) / 2
           implicitWidth: 40
           implicitHeight: 40
-          opacity: parent.enabled ? 1 : 0
+          opacity: layoutListInstantiator.count > 1 ? 1 : 0
           onPaint: {
               var ctx = getContext("2d")
               ctx.strokeStyle = Theme.mainColor
@@ -1940,16 +1940,21 @@ ApplicationWindow {
       }
 
       onTriggered: {
-        if (layoutListInstantiator.model.rowCount() !== 1)
+        if (layoutListInstantiator.count > 1)
         {
           printMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
         }
-        else
+        else if (layoutListInstantiator.count == 1)
         {
           mainMenu.close();
           displayToast( qsTr( 'Printing...') )
           printMenu.printName =layoutListInstantiator.model.titleAt( 0 );
           printMenu.printTimer.restart();
+        }
+        else
+        {
+          mainMenu.close();
+          toast.show(qsTr('No print layout available'), 'info', qsTr('learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/') })
         }
         highlighted = false
       }
@@ -1970,7 +1975,7 @@ ApplicationWindow {
           y: (parent.height - height) / 2
           implicitWidth: 40
           implicitHeight: 40
-          opacity: parent.enabled ? 1 : 0
+          opacity: sensorListInstantiator.count > 0 ? 1 : 0
           onPaint: {
               var ctx = getContext("2d")
               ctx.strokeStyle = Theme.mainColor
@@ -1983,7 +1988,12 @@ ApplicationWindow {
       }
 
       onTriggered: {
-        sensorMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
+        if (sensorListInstantiator.count > 0) {
+          sensorMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
+        } else {
+          mainMenu.close();
+          toast.show(qsTr('No sensor available'), 'info', qsTr('learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/') })
+        }
         highlighted = false
       }
     }
@@ -2105,17 +2115,13 @@ ApplicationWindow {
     topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
-      text: sensorListInstantiator.count > 0
-            ? qsTr( 'Select sensor below' )
-            : qsTr( 'No sensor available, learn more' )
+      text: qsTr( 'Select sensor below' )
 
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
 
-      enabled: sensorListInstantiator.count == 0
-
-      onTriggered: Qt.openUrlExternally('https://docs.qfield.org/how-to/')
+      enabled: false
     }
 
     Instantiator {
@@ -2178,17 +2184,13 @@ ApplicationWindow {
     topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
-      text: layoutListInstantiator.count > 0
-            ? qsTr( 'Select layout below' )
-            : qsTr( 'No print layout available, learn more' )
+      text: qsTr( 'Select layout below' )
 
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
 
-      enabled: layoutListInstantiator.count == 0
-
-      onTriggered: Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/')
+      enabled: false
     }
 
     Instantiator {
