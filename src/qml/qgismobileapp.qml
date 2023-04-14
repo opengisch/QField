@@ -1927,7 +1927,7 @@ ApplicationWindow {
           y: (parent.height - height) / 2
           implicitWidth: 40
           implicitHeight: 40
-          opacity: parent.enabled ? 1 : 0
+          opacity: layoutListInstantiator.count > 1 ? 1 : 0
           onPaint: {
               var ctx = getContext("2d")
               ctx.strokeStyle = Theme.mainColor
@@ -1940,16 +1940,21 @@ ApplicationWindow {
       }
 
       onTriggered: {
-        if (layoutListInstantiator.model.rowCount() !== 1)
+        if (layoutListInstantiator.count > 1)
         {
           printMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
         }
-        else
+        else if (layoutListInstantiator.count == 1)
         {
           mainMenu.close();
           displayToast( qsTr( 'Printing...') )
           printMenu.printName =layoutListInstantiator.model.titleAt( 0 );
           printMenu.printTimer.restart();
+        }
+        else
+        {
+          mainMenu.close();
+          toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/') })
         }
         highlighted = false
       }
@@ -1970,7 +1975,7 @@ ApplicationWindow {
           y: (parent.height - height) / 2
           implicitWidth: 40
           implicitHeight: 40
-          opacity: parent.enabled ? 1 : 0
+          opacity: sensorListInstantiator.count > 0 ? 1 : 0
           onPaint: {
               var ctx = getContext("2d")
               ctx.strokeStyle = Theme.mainColor
@@ -1983,7 +1988,12 @@ ApplicationWindow {
       }
 
       onTriggered: {
-        sensorMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
+        if (sensorListInstantiator.count > 0) {
+          sensorMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
+        } else {
+          mainMenu.close();
+          toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/') })
+        }
         highlighted = false
       }
     }
@@ -2105,17 +2115,13 @@ ApplicationWindow {
     topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
-      text: sensorListInstantiator.count > 0
-            ? qsTr( 'Select sensor below' )
-            : qsTr( 'No sensor available, learn more' )
+      text: qsTr( 'Select sensor below' )
 
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
 
-      enabled: sensorListInstantiator.count == 0
-
-      onTriggered: Qt.openUrlExternally('https://docs.qfield.org/how-to/')
+      enabled: false
     }
 
     Instantiator {
@@ -2178,17 +2184,13 @@ ApplicationWindow {
     topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
-      text: layoutListInstantiator.count > 0
-            ? qsTr( 'Select layout below' )
-            : qsTr( 'No print layout available, learn more' )
+      text: qsTr( 'Select layout below' )
 
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
 
-      enabled: layoutListInstantiator.count == 0
-
-      onTriggered: Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/')
+      enabled: false
     }
 
     Instantiator {
@@ -3310,106 +3312,8 @@ ApplicationWindow {
     visible: settings && settings.value( "/QField/ChangelogVersion", "" ) !== appVersion && expireDate > new Date()
   }
 
-  // Toast
-  Popup {
-      id: toast
-      opacity: 0
-      height: 40;
-      width: parent.width
-      y: parent.height - 112
-      z: 10001
-      margins: 0
-      closePolicy: Popup.NoAutoClose
-
-      background: Rectangle { color: "transparent" }
-
-      function show(text, type) {
-          toastMessage.text = text
-          toastContent.type = type || 'info'
-          toast.open()
-          toastContent.visible = true
-          toast.opacity = 1
-          toastTimer.restart()
-      }
-
-      Behavior on opacity {
-        NumberAnimation { duration: 250 }
-      }
-
-      Rectangle {
-        id: toastContent
-        color: "#66212121"
-
-        property var type: 'info'
-
-        height: toastMessage.height
-        width: 30 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth > mainWindow.width
-               ? mainWindow.width - 16
-               : 30 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth
-
-        anchors.centerIn: parent
-
-        radius: 4
-
-        z: 1
-
-        Rectangle {
-          id: toastIndicator
-          anchors.left: parent.left
-          anchors.leftMargin: 6
-          anchors.verticalCenter: parent.verticalCenter
-          width:  10
-          height: 10
-          radius: 5
-          color: toastContent.type === 'error' ? Theme.errorColor : Theme.warningColor
-          visible: toastContent.type != 'info'
-        }
-
-        Text {
-          id: toastMessage
-          anchors.left: parent.left
-          anchors.right: parent.right
-          wrapMode: Text.Wrap
-          leftPadding: 18
-          rightPadding: 18
-          topPadding: 3
-          bottomPadding: 3
-          color: Theme.light
-
-          font: Theme.secondaryTitleFont
-          horizontalAlignment: Text.AlignHCenter
-        }
-      }
-
-      FontMetrics {
-          id: toastFontMetrics
-          font: toastMessage.font
-      }
-
-      // Visible only for 3 seconds
-      Timer {
-          id: toastTimer
-          interval: 3000
-          onTriggered: {
-              toast.opacity = 0
-          }
-      }
-
-      onOpacityChanged: {
-
-          if ( opacity == 0 ) {
-              toastContent.visible = false
-              toast.close()
-          }
-      }
-
-      MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            toast.close()
-            toast.opacity = 0
-        }
-      }
+  Toast {
+    id: toast
   }
 
   MouseArea {
