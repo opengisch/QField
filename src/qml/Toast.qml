@@ -28,44 +28,42 @@ Popup {
   Rectangle {
     id: toastContent
     z: 1
-    width: toastMessage.width + (toastAction.width > 0 ? toastAction.width + 40 : 0)
+    width: toastRow.width + 20
     height: toastMessage.height + 10
     anchors.centerIn: parent
 
     color: "#66212121"
     radius: 4
 
-    Rectangle {
-      id: toastIndicator
-      anchors.left: parent.left
-      anchors.leftMargin: 10
-      anchors.verticalCenter: parent.verticalCenter
-      width:  10
-      height: 10
-      radius: 5
-      color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
-      visible: toast.type != 'info'
-    }
-
     Row {
+      id: toastRow
       anchors.centerIn: parent
       spacing: 10
+
+      Rectangle {
+        id: toastIndicator
+        anchors.verticalCenter: parent.verticalCenter
+        width: 10
+        height: 10
+        radius: 5
+        color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
+        visible: toast.type != 'info'
+      }
 
       Text {
         id: toastMessage
 
-        property int absoluteWidth: toastFontMetrics.boundingRect(text).width + 20
+        property int absoluteWidth: toastFontMetrics.boundingRect(text).width + 10
 
-        width: ( 40 + absoluteWidth + toastAction.width ) > mainWindow.width
-               ? mainWindow.width - toastAction.width - 40
+        width: 40 + absoluteWidth + (toastIndicator.visible ? toastIndicator.width + 10 : 0) + (toastAction.visible ? toastAction.width + 10 : 0) > mainWindow.width
+               ? mainWindow.width - (toastIndicator.visible ? toastIndicator.width + 10 : 0) - (toastAction.visible ? toastAction.width + 10 : 0) - 40
                : absoluteWidth
-        leftPadding: toastAction.width > 0 && toast.type != 'info' ? 10 : 0
         wrapMode: Text.Wrap
         topPadding: 3
         bottomPadding: 3
         color: Theme.light
 
-        font: Theme.secondaryTitleFont
+        font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
       }
 
@@ -80,8 +78,7 @@ Popup {
         radius: 4
         bgcolor: "#99000000"
         color: Theme.mainColor
-        font.pointSize: Theme.defaultFont.pointSize
-        font.weight: Font.Bold
+        font.pointSize: Theme.tipFont.pointSize
 
         onClicked: {
           if (act !== undefined) {
@@ -125,7 +122,7 @@ Popup {
     toast.type = type || 'info'
 
     if (action_text !== undefined && action_function !== undefined) {
-      toastAction.text = action_text.toUpperCase()
+      toastAction.text = action_text
       toastAction.act = action_function
       toastTimer.interval = 5000
     } else {

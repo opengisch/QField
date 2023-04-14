@@ -1954,7 +1954,7 @@ ApplicationWindow {
         else
         {
           mainMenu.close();
-          toast.show(qsTr('No print layout available'), 'info', qsTr('learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/') })
+          toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/') })
         }
         highlighted = false
       }
@@ -1992,7 +1992,7 @@ ApplicationWindow {
           sensorMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
         } else {
           mainMenu.close();
-          toast.show(qsTr('No sensor available'), 'info', qsTr('learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/') })
+          toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/') })
         }
         highlighted = false
       }
