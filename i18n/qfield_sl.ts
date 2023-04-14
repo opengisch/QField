@@ -198,7 +198,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Iskanje naprav v bližini</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
@@ -523,11 +523,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Kopiraj “%1” v odložišče</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Kalkulator</translation>
     </message>
 </context>
 <context>
@@ -2837,11 +2837,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Naslov:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -3001,7 +3001,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviraj omejitev senzorja</translation>
     </message>
     <message>
         <source>Record when all active constraints are met</source>
@@ -3013,7 +3013,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Ko je aktivirana samo omejitev senzorja, se bodo dodajanja ogljišč zgodila vsakič, ko bo senzor zajel nove podatke.</translation>
     </message>
     <message>
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
@@ -3024,11 +3024,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Naslov:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -3614,23 +3614,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Senzorji</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Spodaj izberite senzor</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Odklop senzorja &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Povezovanje senzorja &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>No sensor available, learn more</source>
-        <translation type="unfinished"/>
+        <translation>Senzor ni na voljo, izvedi več</translation>
     </message>
     <message>
         <source>Select layout below</source>
@@ -3642,7 +3642,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Napaka senzorja: %1</translation>
     </message>
 </context>
 <context>

@@ -604,7 +604,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Terminar rastreamento deste elemento para editar atributos</translation>
+        <translation>Terminar tracking GPS deste elemento para editar atributos</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
@@ -624,7 +624,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>Um conjunto de elementos estão a ser rastreados, pare de os rastrear para os apagar</translation>
+        <translation>Um conjunto de elementos estão a ser recolhidos, pare o tracking GPS para os apagar</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
@@ -879,11 +879,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Terminar rastreamento</translation>
+        <translation>Terminar tracking GPS</translation>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>Configuração do rastreamento</translation>
+        <translation>Configuração do tracking GPS</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -2965,7 +2965,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>Iniciar rastreamento</translation>
+        <translation>Iniciar tracking GPS</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
@@ -2981,7 +2981,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation>Tempo decorrido (segundos desde o início do rastreamento)</translation>
+        <translation>Tempo decorrido (segundos desde o início do tracking GPS)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3017,7 +3017,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation>Para ativar a funcionalidade de medição, garante que o tipo de geometria da camada vetorial usada para a sessão rastreamento tem a dimensão M.</translation>
+        <translation>Para ativar a funcionalidade de medição, garante que o tipo de geometria da camada vetorial usada para a sessão de tracking GPS tem a dimensão M.</translation>
     </message>
     <message>
         <source>Activate sensor constraint</source>
