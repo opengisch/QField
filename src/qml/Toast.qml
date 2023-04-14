@@ -127,9 +127,11 @@ Popup {
     if (action_text !== undefined && action_function !== undefined) {
       toastAction.text = action_text.toUpperCase()
       toastAction.act = action_function
+      toastTimer.interval = 5000
     } else {
       toastAction.text = ''
       toastAction.act = undefined
+      toastTimer.interval = 3000
     }
 
     toastContent.visible = true
