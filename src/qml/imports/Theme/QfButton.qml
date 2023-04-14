@@ -10,6 +10,7 @@ Button {
 
   property color bgcolor: Theme.mainColor
   property color color: button.enabled ? Theme.controlBackgroundColor : Theme.mainTextDisabledColor
+  property alias radius: backgroundRectangle.radius
   property bool dropdown: false
 
   signal dropdownClicked
@@ -26,6 +27,7 @@ Button {
   font: Theme.defaultFont
 
   background: Rectangle {
+      id: backgroundRectangle
       anchors.fill: parent
       color: !button.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor
       radius: 12
