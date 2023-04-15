@@ -3642,20 +3642,24 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Łączenie z czujnikiem &quot;%1&quot;...</translation>
     </message>
     <message>
-        <source>No sensor available, learn more</source>
-        <translation>Brak dostępnego czujnika, dowiedz się więcej</translation>
-    </message>
-    <message>
         <source>Select layout below</source>
         <translation>Wybierz układ wydruku poniżej</translation>
     </message>
     <message>
-        <source>No print layout available, learn more</source>
-        <translation>Brak dostępnego układu wydruku, dowiedz się więcej</translation>
-    </message>
-    <message>
         <source>Sensor error: %1</source>
         <translation>Błąd czujnika: %1</translation>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

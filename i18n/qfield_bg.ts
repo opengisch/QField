@@ -3649,19 +3649,23 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>No sensor available, learn more</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Select layout below</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>No print layout available, learn more</source>
+        <source>Sensor error: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sensor error: %1</source>
+        <source>No print layout available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available</source>
         <translation type="unfinished"/>
     </message>
 </context>

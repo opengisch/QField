@@ -494,7 +494,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>Število zbranih položajev neizpolnjuje zahteve</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -1401,15 +1401,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
@@ -1435,7 +1435,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitev naprave za določanje položaja</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -1510,15 +1510,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="unfinished"/>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="unfinished"/>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="unfinished"/>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
@@ -1541,7 +1541,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Natančnost določanja položaja je prenizka za to raven natančnosti</translation>
     </message>
 </context>
 <context>
@@ -1907,7 +1907,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>prekinjeno</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
@@ -1939,7 +1939,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt je zaseden.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
@@ -1977,7 +1977,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Napaka omrežja. Prenos datoteke `%1` ni uspel.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
@@ -1993,7 +1993,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>Sistemsko sporočilo:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
@@ -2092,7 +2092,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="unfinished"/>
+        <translation>Pritisnite in pridržite nad projektom v oblaku za meni z dodatnimi možnostmi.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -2135,7 +2135,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Projektna datoteka</translation>
     </message>
     <message>
         <source>Vector dataset</source>
@@ -2159,7 +2159,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Pošlji stisnjeno mapo v...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -2179,15 +2179,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Pomoč za upravljanje shrambe</translation>
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Uvozi URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Za prenos in uvoz projekta alizbirke podatkov vnesite URL spodaj:</translation>
     </message>
 </context>
 <context>
@@ -2278,11 +2278,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation type="unfinished"/>
+        <translation>Prilagodi iskalno vrstico</translation>
     </message>
     <message>
         <source>User interface language:</source>
-        <translation type="unfinished"/>
+        <translation>Jezik uporabniškega vmesnika:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2290,7 +2290,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>system</source>
-        <translation type="unfinished"/>
+        <translation>sistem</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
@@ -2355,19 +2355,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation type="unfinished"/>
+        <translation>Aktivirajte indikator natančnosti</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation type="unfinished"/>
+        <translation>Slaba natančnost pod [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation type="unfinished"/>
+        <translation>Odlična natančnost nad [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Omogoči zahtevo po natančnosti</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
@@ -2379,7 +2379,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Najmanjše število zbranih položajev</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -2439,7 +2439,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Potovalna hitrost</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2455,15 +2455,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="unfinished"/>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="unfinished"/>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="unfinished"/>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
@@ -2696,7 +2696,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>PPS</source>
-        <translation type="unfinished"/>
+        <translation>PPS</translation>
     </message>
     <message>
         <source>DGPS</source>
@@ -2789,7 +2789,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Osveži seznam</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
@@ -2876,7 +2876,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Napaka sprejemnika UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -2933,7 +2933,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Najmanjša razdalja [%1]</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
@@ -2969,7 +2969,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Potovalna hitrost</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2985,15 +2985,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="unfinished"/>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="unfinished"/>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="unfinished"/>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
@@ -3063,7 +3063,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Napaka sprejemnika UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -3096,7 +3096,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>Žal nam je, da to slišim. Kliknite na spodnji gumb za komentar ali podporo.</translation>
     </message>
     <message>
         <source>Reach out</source>
@@ -3108,7 +3108,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="unfinished"/>
+        <translation>Odlično. Veseli bomo, če kliknete na spodnji gumb in pustite komentar v trgovini.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -3152,7 +3152,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt osnovne karte</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3274,11 +3274,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>Kazalec koordinat je sedaj zaklenjen na lokacijo</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Kazalec koordinat je odklenjen</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -3574,7 +3574,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Napaka pri določanju lokacije: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3598,7 +3598,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Napaka naprave za določanje lokacije: %1</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -3606,11 +3606,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Uvažam %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Uvoz URL ni uspel</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -3629,20 +3629,24 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Povezovanje senzorja &apos;%1&apos;...</translation>
     </message>
     <message>
-        <source>No sensor available, learn more</source>
-        <translation>Senzor ni na voljo, izvedi več</translation>
-    </message>
-    <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available, learn more</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Sensor error: %1</source>
         <translation>Napaka senzorja: %1</translation>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

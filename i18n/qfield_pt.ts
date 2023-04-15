@@ -3649,20 +3649,24 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Ligar ao sensor &apos;%1&apos;...</translation>
     </message>
     <message>
-        <source>No sensor available, learn more</source>
-        <translation>Nenhum sensor disponível, saber mais</translation>
-    </message>
-    <message>
         <source>Select layout below</source>
         <translation>Seleciona a composição abaixo</translation>
     </message>
     <message>
-        <source>No print layout available, learn more</source>
-        <translation>Sem composição de impressão disponível, saber mais</translation>
-    </message>
-    <message>
         <source>Sensor error: %1</source>
         <translation>Erro no sensor: %1</translation>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation>Sem layout de impressão disponível</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Saber mais</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation>Sem sensor disponível</translation>
     </message>
 </context>
 <context>

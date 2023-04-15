@@ -3645,20 +3645,24 @@ Cancel to make a minimal device scan instead.</source>
         <translation>连接传感器 &apos;%1&apos;...</translation>
     </message>
     <message>
-        <source>No sensor available, learn more</source>
-        <translation>无可用传感器，点击了解更多信息</translation>
-    </message>
-    <message>
         <source>Select layout below</source>
         <translation>请选择布局</translation>
     </message>
     <message>
-        <source>No print layout available, learn more</source>
-        <translation>无可用打印布局，点击了解更多信息</translation>
-    </message>
-    <message>
         <source>Sensor error: %1</source>
         <translation>传感器错误: %1</translation>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation>无可用打印布局</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>点击了解更多信息</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation>无可用传感器</translation>
     </message>
 </context>
 <context>
