@@ -3,8 +3,8 @@ message(WARNING "qtkeychain is a third-party extension to Qt and is not affiliat
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO frankosterfeld/qtkeychain
-    REF 8506d57e5df5ae2419a711f93bf93793776e5a11
-    SHA512 22e8efe326613eaa8d7cb80aaa92739416f64d6559a48240ad5eb7dea42078d4bfef5ff64c99b294b339e5f36571b15ce8f456e4f6cf20e9ce213abdfa463d77
+    REF 8bbaa6d8302cf0747d9786ace4dd13c7fb746502
+    SHA512 fdb9f36a37440bbfded98bc8dc67acb7ab9c856e38af1796ea173330f83cecff1c0feab4e30bf3b173279a3f030bf492e824ff99f453009b07b79bef8e93a0b0
     HEAD_REF master
 )
 
