@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        triplet: ['arm64-android', 'arm-android', 'x64-android', 'x86-android']
+        triplet: ['arm64-android', 'arm-android' ] #, 'x64-android', 'x86-android']
         # all_files_access: ['ON', 'OFF']
         all_files_access: ['OFF']
         # with_qt6: ['ON', 'OFF']
@@ -103,6 +103,7 @@ jobs:
                 -D SYSTEM_QT=$([ "${{ matrix.with_qt6 }}" = "OFF" ] && echo "ON" || echo "OFF") \
                 -D BUILD_WITH_QT6=${{ matrix.with_qt6 }} \
                 -D ANDROID_SDK=/usr/local/lib/android/sdk/ \
+                -D ANDROID_SDK_ROOT=/usr/local/lib/android/sdk/ \
                 -D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
                 -D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
