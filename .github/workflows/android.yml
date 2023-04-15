@@ -90,6 +90,8 @@ jobs:
         env:
           WORKSPACE: ${{ github.workspace }}
         run: |
+          echo "ANDROID_SDK_ROOT=/usr/local/lib/android/sdk/" >> $GITHUB_ENV
+
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
 
