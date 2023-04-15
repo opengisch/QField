@@ -67,7 +67,7 @@ jobs:
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
-          cmake -S "${{ github.workspace }}" \
+          xvfb-run --server-args="-screen 0 640x480x24" cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
