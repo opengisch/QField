@@ -3379,6 +3379,7 @@ ApplicationWindow {
 
   BusyOverlay {
     id: busyOverlay
+    state: iface.hasProjectOnLaunch() ? "visible" : "hidden"
   }
 
   property bool alreadyCloseRequested: false
