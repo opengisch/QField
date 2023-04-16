@@ -721,7 +721,6 @@ void QgisMobileapp::readProjectFile()
     }
   }
 
-  QList<QPair<QString, QString>> projects = recentProjects();
   QString title;
   if ( mProject->fileName().startsWith( QFieldCloudUtils::localCloudDirectory() ) )
   {
@@ -734,9 +733,16 @@ void QgisMobileapp::readProjectFile()
     title = mProject->title().isEmpty() ? mProjectFileName : mProject->title();
   }
 
+  QList<QPair<QString, QString>> projects = recentProjects();
+  for ( int idx = 0; idx < projects.count(); idx++ )
+  {
+    if ( projects.at( idx ).second == mProjectFilePath )
+    {
+      projects.removeAt( idx );
+      break;
+    }
+  }
   QPair<QString, QString> project = qMakePair( title, mProjectFilePath );
-  if ( projects.contains( project ) )
-    projects.removeAt( projects.indexOf( project ) );
   projects.insert( 0, project );
   saveRecentProjects( projects );
 
