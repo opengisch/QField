@@ -44,6 +44,7 @@ void RecentProjectListModel::reloadModel()
 {
   beginResetModel();
   mRecentProjects.clear();
+
   QSettings settings;
   settings.beginGroup( "/qgis/recentProjects" );
   const QStringList projectKeysList = settings.childGroups();
@@ -76,7 +77,8 @@ void RecentProjectListModel::reloadModel()
   }
   settings.endGroup();
 
-  // update sample projects
+  // add/update sample projects
+  const bool recentProjectsAdded = settings.value( QStringLiteral( "QField/recentProjectsAdded" ), false ).toBool();
   const QList<RecentProject> sampleProjects {
     RecentProject( LocalProject, QStringLiteral( "Bee Farming Sample Project" ), QStringLiteral( "/bees.qgz" ), true ),
     RecentProject( LocalProject, QStringLiteral( "Wasterwater Management Sample Project" ), QStringLiteral( "/wastewater.qgz" ), true ),
@@ -102,11 +104,20 @@ void RecentProjectListModel::reloadModel()
         break;
       }
     }
-    if ( !recentProjectsContainsSampleProject )
+    if ( !recentProjectsAdded && !recentProjectsContainsSampleProject )
     {
+      settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( mRecentProjects.count() ) );
+      settings.setValue( QStringLiteral( "title" ), sampleProject.title );
+      settings.setValue( QStringLiteral( "path" ), sampleProjectPath );
+      settings.endGroup();
+
       mRecentProjects << sampleProject;
       mRecentProjects.last().path = sampleProjectPath;
     }
+  }
+  if ( !recentProjectsAdded )
+  {
+    settings.setValue( QStringLiteral( "QField/recentProjectsAdded" ), true );
   }
 
   QMutableListIterator<RecentProject> recentProject( mRecentProjects );
