@@ -855,6 +855,12 @@ Page {
     }
 
     settings.setValue("/QField/RunCount",runCount + 1)
+
+    if (registry.defaultProject != '') {
+      if (!FileUtils.fileExists(registry.defaultProject)) {
+        registry.defaultProject = '';
+      }
+    }
   }
 
   onVisibleChanged: {
