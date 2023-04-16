@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Appareil de positionnement utilisé: </translation>
+        <translation type="vanished">Appareil de positionnement utilisé : </translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -310,7 +310,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Vous êtes sur le point de supprimer un signet, continuer?</translation>
+        <translation>Vous êtes sur le point de supprimer un signet, continuer ?</translation>
     </message>
 </context>
 <context>
@@ -523,11 +523,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Copier “%1” vers le presse-papiers</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Calculatrice</translation>
     </message>
 </context>
 <context>
@@ -592,11 +592,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Vous êtes sur le point de faire disparaître la nouvelle entité, continuer?</translation>
+        <translation>Vous êtes sur le point de faire disparaître la nouvelle entité, continuer ?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>Vous êtes sur le point de quitter le mode édition, tous les changements seront perdus. Continuer?</translation>
+        <translation>Vous êtes sur le point de quitter le mode édition, tous les changements seront perdus. Continuer ?</translation>
     </message>
 </context>
 <context>
@@ -1049,7 +1049,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Retourne la valeur de l&apos;expression saisie dans la barre de recherche</translation>
     </message>
 </context>
 <context>
@@ -2313,7 +2313,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Appareil de positionnement utilisé: </translation>
+        <translation>Appareil de positionnement utilisé : </translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3020,7 +3020,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Enregistrer lorsque toutes les contraintes actives sont respectées.</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
@@ -3631,19 +3631,19 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Capteurs</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner un capteur ci-dessous</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Déconnexion du capteur &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Connexion du capteur &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
@@ -3651,19 +3651,19 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de capteur : %1</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Pas de mise-en-page disponible</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>En savoir plus</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Pas de capteur disponible</translation>
     </message>
 </context>
 <context>

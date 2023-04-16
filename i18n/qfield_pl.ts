@@ -183,7 +183,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz urządzenie Bluetooth z poniższej listy:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
@@ -203,7 +203,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Brak wykrytych urządzeń Bluetooth, skanowanie w celu wykrycia pobliskich urządzeń.</translation>
     </message>
 </context>
 <context>
@@ -2825,7 +2825,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie zostało odrzucone z powodu braku wystarczających uprawnień</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
@@ -3651,15 +3651,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Brak dostępnego układu wydruku</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Dowiedz się więcej</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Brak dostępnego czujnika</translation>
     </message>
 </context>
 <context>
