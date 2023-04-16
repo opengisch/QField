@@ -587,9 +587,9 @@ Page {
                   for (var i = 0; i < count; ++i) {
                     var item = itemAt(i);
                     result = Math.max(item.contentItem.implicitWidth, result);
-                    padding = Math.max(item.padding, padding);
+                    padding = Math.max(item.leftPadding + item.rightPadding, padding);
                   }
-                  return Math.min( result + padding * 2,mainWindow.width - 20);
+                  return Math.min( result + padding, mainWindow.width - 20);
                 }
 
                 MenuItem {
