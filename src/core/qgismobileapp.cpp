@@ -621,31 +621,34 @@ void QgisMobileapp::onAfterFirstRendering()
 
   if ( mFirstRenderingFlag )
   {
-    if ( qApp->arguments().count() > 1 )
-    {
-      loadProjectFile( qApp->arguments().last() );
-    }
-    else if ( !PlatformUtilities::instance()->qgsProject().isNull() )
+    if ( !PlatformUtilities::instance()->qgsProject().isNull() )
     {
       PlatformUtilities::instance()->checkWriteExternalStoragePermissions();
       loadProjectFile( PlatformUtilities::instance()->qgsProject() );
+    }
+    else
+    {
+      if ( QSettings().value( "/reloadLastProjectOnLaunch", true ).toBool() )
+      {
+        const QString lastProjectFilePath = QSettings().value( QStringLiteral( "lastProjectFilePath" ), QString() ).toString();
+        if ( !lastProjectFilePath.isEmpty() && QFileInfo::exists( lastProjectFilePath ) )
+        {
+          loadProjectFile( lastProjectFilePath );
+        }
+      }
     }
     mFirstRenderingFlag = false;
   }
 }
 
-void QgisMobileapp::loadLastProject()
-{
-  QVariant lastProjectFile = QSettings().value( "/qgis/recentProjects/0/path" );
-  if ( lastProjectFile.isValid() )
-    loadProjectFile( lastProjectFile.toString() );
-}
-
-void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
+bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
 {
   QFileInfo fi( path );
   if ( !fi.exists() )
+  {
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
+    return false;
+  }
 
   const QString suffix = fi.suffix().toLower();
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
@@ -656,7 +659,10 @@ void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
     mProjectFileName = !name.isEmpty() ? name : fi.completeBaseName();
 
     emit loadProjectTriggered( mProjectFilePath, mProjectFileName );
+    return true;
   }
+
+  return false;
 }
 
 void QgisMobileapp::reloadProjectFile()
@@ -672,6 +678,8 @@ void QgisMobileapp::readProjectFile()
   QFileInfo fi( mProjectFilePath );
   if ( !fi.exists() )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( mProjectFilePath ), QStringLiteral( "QField" ), Qgis::Warning );
+
+  QSettings().setValue( QStringLiteral( "lastProjectFilePath" ), mProjectFilePath );
 
   const QString suffix = fi.suffix().toLower();
 

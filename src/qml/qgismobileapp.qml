@@ -3298,7 +3298,8 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        focusstack.addFocusTaker( this )
+      focusstack.addFocusTaker( this )
+      visible = !iface.hasProjectOnLaunch();
     }
   }
 
