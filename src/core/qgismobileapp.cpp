@@ -628,12 +628,21 @@ void QgisMobileapp::onAfterFirstRendering()
     }
     else
     {
-      if ( QSettings().value( "/reloadLastProjectOnLaunch", true ).toBool() )
+      if ( QSettings().value( "/QField/loadProjectOnLaunch", true ).toBool() )
       {
-        const QString lastProjectFilePath = QSettings().value( QStringLiteral( "lastProjectFilePath" ), QString() ).toString();
-        if ( !lastProjectFilePath.isEmpty() && QFileInfo::exists( lastProjectFilePath ) )
+        QSettings settings;
+        const QString defaultProject = settings.value( QStringLiteral( "QField/defaultProject" ), QString() ).toString();
+        if ( !defaultProject.isEmpty() && QFileInfo::exists( defaultProject ) )
         {
-          loadProjectFile( lastProjectFilePath );
+          loadProjectFile( defaultProject );
+        }
+        else
+        {
+          const QString lastProjectFilePath = settings.value( QStringLiteral( "QField/lastProjectFilePath" ), QString() ).toString();
+          if ( !lastProjectFilePath.isEmpty() && QFileInfo::exists( lastProjectFilePath ) )
+          {
+            loadProjectFile( lastProjectFilePath );
+          }
         }
       }
     }
@@ -679,7 +688,7 @@ void QgisMobileapp::readProjectFile()
   if ( !fi.exists() )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( mProjectFilePath ), QStringLiteral( "QField" ), Qgis::Warning );
 
-  QSettings().setValue( QStringLiteral( "lastProjectFilePath" ), mProjectFilePath );
+  QSettings().setValue( QStringLiteral( "QField/lastProjectFilePath" ), mProjectFilePath );
 
   const QString suffix = fi.suffix().toLower();
 

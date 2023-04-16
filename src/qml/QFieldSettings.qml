@@ -21,7 +21,6 @@ Page {
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
-  property alias reloadLastProjectOnLaunch: registry.reloadLastProjectOnLaunch
 
   Component.onCompleted: {
     if (settings.valueBool('nativeCameraLaunched', false)) {
@@ -41,7 +40,6 @@ Page {
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
     property bool enableInfoCollection: true
-    property bool reloadLastProjectOnLaunch: false
 
     onEnableInfoCollectionChanged: {
       if (enableInfoCollection) {

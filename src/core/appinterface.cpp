@@ -50,7 +50,7 @@ bool AppInterface::hasProjectOnLaunch() const
   }
   else
   {
-    if ( QSettings().value( "/reloadLastProjectOnLaunch", true ).toBool() )
+    if ( QSettings().value( "/QField/loadProjectOnLaunch", true ).toBool() )
     {
       const QString lastProjectFilePath = QSettings().value( QStringLiteral( "lastProjectFilePath" ), QString() ).toString();
       if ( !lastProjectFilePath.isEmpty() && QFileInfo::exists( lastProjectFilePath ) )

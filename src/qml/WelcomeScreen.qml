@@ -19,7 +19,10 @@ Page {
   Settings {
     id: registry
     category: 'QField'
+
     property string baseMapProject: ''
+    property string defaultProject: ''
+    property bool loadProjectOnLaunch: false
   }
 
   Rectangle {
@@ -502,6 +505,10 @@ Page {
                           if (!firstRun && firstShown === false) notes.push( qsTr( "Last session" ) );
                         }
 
+                        if ( ProjectPath === registry.defaultProject ) {
+                          notes.push( qsTr( "Default project" ) );
+                        }
+
                         if ( ProjectPath === registry.baseMapProject ) {
                           notes.push( qsTr( "Base map project" ) );
                         }
@@ -583,6 +590,22 @@ Page {
                 }
 
                 MenuItem {
+                  id: defaultProject
+                  visible: recentProjectActions.recentProjectType != 2;
+
+                  font: Theme.defaultFont
+                  width: parent.width
+                  height: visible ? 48: 0
+                  checkable: true
+                  checked: recentProjectActions.recentProjectPath === registry.defaultProject
+
+                  text: qsTr( "Default Project" )
+                  onTriggered: {
+                    registry.defaultProject = recentProjectActions.recentProjectPath === registry.defaultProject ? '' : recentProjectActions.recentProjectPath;
+                  }
+                }
+
+                MenuItem {
                   id: baseMapProject
                   visible: recentProjectActions.recentProjectType != 2;
 
@@ -592,7 +615,7 @@ Page {
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.baseMapProject
 
-                  text: qsTr( "Base Map Project" )
+                  text: qsTr( "Individual Datasets Base Map" )
                   onTriggered: {
                     registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
                   }
@@ -610,7 +633,7 @@ Page {
                   font: Theme.defaultFont
                   width: parent.width
                   height: visible ? 48: 0
-                  leftPadding: 10
+                  leftPadding: 50
 
                   text: qsTr( "Remove from Recent Projects" )
                   onTriggered: {
@@ -634,7 +657,9 @@ Page {
               wrapMode: Text.WordWrap
               color: reloadOnLaunch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
 
-              text: qsTr('Reload last opened project on launch')
+              text: registry.defaultProject != ''
+                    ? qsTr('Load default project on launch')
+                    : qsTr('Load last opened project on launch')
 
               MouseArea {
                 anchors.fill: parent
@@ -649,9 +674,9 @@ Page {
               width: implicitContentWidth
               small: true
 
-              checked: qfieldSettings.reloadLastProjectOnLaunch
+              checked: registry.loadProjectOnLaunch
               onCheckedChanged: {
-                qfieldSettings.reloadLastProjectOnLaunch = checked
+                registry.loadProjectOnLaunch = checked
               }
             }
           }
