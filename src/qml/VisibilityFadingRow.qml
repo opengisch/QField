@@ -4,6 +4,7 @@ Row {
   id: visibilityFadingRow
   property bool stateVisible: undefined
   visible: opacity > 0
+  opacity: 0
 
   states: [
       State { when: visibilityFadingRow.stateVisible;
