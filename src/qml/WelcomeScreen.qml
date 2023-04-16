@@ -466,7 +466,7 @@ Page {
                   spacing: 0
                   Image {
                     id: type
-                    anchors.verticalCenter: inner.verticalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     source: switch(ProjectType) {
                             case 0: return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
                             case 1: return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
@@ -480,6 +480,7 @@ Page {
                   }
                   ColumnLayout {
                     id: inner
+                    anchors.verticalCenter: parent.verticalCenter
                     width: rectangle.width - type.width - 20
                     clip: true
 
@@ -487,6 +488,7 @@ Page {
                       id: projectTitle
                       topPadding: 5
                       leftPadding: 3
+                      bottomPadding: projectNote.visible ? 0 : 5
                       text: ProjectTitle
                       font.pointSize: Theme.tipFont.pointSize
                       font.underline: true
@@ -497,6 +499,7 @@ Page {
                     Text {
                       id: projectNote
                       leftPadding: 3
+                      bottomPadding: 5
                       text: {
                         var notes = [];
 
@@ -510,7 +513,7 @@ Page {
                         }
 
                         if ( ProjectPath === registry.baseMapProject ) {
-                          notes.push( qsTr( "Base map project" ) );
+                          notes.push( qsTr( "Base map" ) );
                         }
 
                         if ( notes.length > 0 ) {
