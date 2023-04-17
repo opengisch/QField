@@ -649,31 +649,6 @@ Page {
                       }
                   }
 
-                  Label {
-                    text: qsTr("Use orthometric altitude from device")
-                    font: Theme.defaultFont
-                    color: Theme.mainTextColor
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
-
-                    MouseArea {
-                      anchors.fill: parent
-                      onClicked: reportOrthometricAltitude.toggle()
-                    }
-                  }
-
-                  QfSwitch {
-                    id: reportOrthometricAltitude
-                    Layout.preferredWidth: implicitContentWidth
-                    Layout.alignment: Qt.AlignTop
-                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
-                    checked: !positioningSettings.ellipsoidalElevation
-                    onCheckedChanged: {
-                      positioningSettings.ellipsoidalElevation = !checked
-                    }
-                  }
-
                   QfButton {
                     id: connectButton
                     Layout.fillWidth: true
@@ -1164,6 +1139,36 @@ Page {
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
+                  }
+
+                  Item {
+                      // empty cell in grid layout
+                      width: 1
+                  }
+
+                  Label {
+                    text: qsTr("Use orthometric altitude from device")
+                    font: Theme.defaultFont
+                    color: Theme.mainTextColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
+
+                    MouseArea {
+                      anchors.fill: parent
+                      onClicked: reportOrthometricAltitude.toggle()
+                    }
+                  }
+
+                  QfSwitch {
+                    id: reportOrthometricAltitude
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
+                    checked: !positioningSettings.ellipsoidalElevation
+                    onCheckedChanged: {
+                      positioningSettings.ellipsoidalElevation = !checked
+                    }
                   }
               }
 
