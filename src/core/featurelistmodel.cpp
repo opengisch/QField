@@ -336,14 +336,25 @@ void FeatureListModel::processFeatureList()
     entries.append( entry );
   }
 
-  if ( mOrderByValue )
+  if ( mOrderByValue || !mSearchTerm.isEmpty() )
   {
-    std::sort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
+    std::sort( entries.begin(), entries.end(), [=]( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() )
         return true;
 
       if ( entry2.key.isNull() )
         return false;
+
+      if ( !mSearchTerm.isEmpty() )
+      {
+        const bool entry1StartsWithSearchTerm = entry1.displayString.toLower().startsWith( mSearchTerm.toLower() );
+        const bool entry2StartsWithSearchTerm = entry2.displayString.toLower().startsWith( mSearchTerm.toLower() );
+        if ( entry1StartsWithSearchTerm && !entry2StartsWithSearchTerm )
+          return true;
+
+        if ( !entry1StartsWithSearchTerm && entry2StartsWithSearchTerm )
+          return false;
+      }
 
       return entry1.displayString.toLower() < entry2.displayString.toLower();
     } );
