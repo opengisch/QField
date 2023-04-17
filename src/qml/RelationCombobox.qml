@@ -168,7 +168,8 @@ Item {
 
             property int idx: index
             property string itemText: featureListModel.searchTerm != ''
-                                      ? displayString.replace(new RegExp('('+featureListModel.searchTerm+')', "i"), '<u>$1</u>')
+                                      ? displayString.replace(new RegExp('('+featureListModel.searchTerm+')', "i"),
+                                                              '<span style="text-decoration:underline;' + Theme.toInlineStyles({color:Theme.mainTextColor}) + '">$1</span>')
                                       : displayString
 
             anchors.margins: 10
@@ -199,7 +200,7 @@ Item {
                   verticalAlignment: Text.AlignVCenter
                   leftPadding: parent.indicator.width + parent.spacing
                   elide: Text.ElideRight
-                  color: Theme.mainTextColor
+                  color: featureListModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
                   textFormat: Text.RichText
                 }
               }
