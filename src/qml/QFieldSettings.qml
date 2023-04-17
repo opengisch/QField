@@ -655,7 +655,7 @@ Page {
                     color: Theme.mainTextColor
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
-                    visible: positioningSettings.positioningDevice !== ''
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
 
                     MouseArea {
                       anchors.fill: parent
@@ -667,7 +667,7 @@ Page {
                     id: reportOrthometricAltitude
                     Layout.preferredWidth: implicitContentWidth
                     Layout.alignment: Qt.AlignTop
-                    visible: positioningSettings.positioningDevice !== ''
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
                     checked: !positioningSettings.ellipsoidalElevation
                     onCheckedChanged: {
                       positioningSettings.ellipsoidalElevation = !checked

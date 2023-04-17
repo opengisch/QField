@@ -31,6 +31,15 @@ class AbstractGnssReceiver : public QObject
     Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
   public:
+    enum Capability
+    {
+      NoCapabilities = 0,      //!< No capabilities
+      OrthometricAltitude = 1, //!< Orthometric altitude support
+      Logging = 1 << 1,        //!< Logging support
+    };
+    Q_DECLARE_FLAGS( Capabilities, Capability )
+    Q_FLAGS( Capabilities )
+
     explicit AbstractGnssReceiver( QObject *parent = nullptr )
       : QObject( parent ) {}
     virtual ~AbstractGnssReceiver() = default;
@@ -46,6 +55,8 @@ class AbstractGnssReceiver : public QObject
     QAbstractSocket::SocketState socketState() const { return mSocketState; }
     QString socketStateString() const { return mSocketStateString; }
     QString lastError() const { return mLastError; }
+
+    Q_INVOKABLE virtual AbstractGnssReceiver::Capabilities capabilities() const { return NoCapabilities; }
 
   signals:
     void validChanged();
