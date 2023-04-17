@@ -54,202 +54,220 @@ Item {
     }
 
     Popup {
-        id: searchFeaturePopup
+      id: searchFeaturePopup
 
-        parent: ApplicationWindow.overlay
-        x: Theme.popupScreenEdgeMargin
-        y: Theme.popupScreenEdgeMargin
-        z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-        width: parent.width - Theme.popupScreenEdgeMargin * 2
-        height: parent.height - Theme.popupScreenEdgeMargin * 2
-        padding: 0
-        modal: true
-        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-        focus: visible
+      parent: ApplicationWindow.overlay
+      x: Theme.popupScreenEdgeMargin
+      y: Theme.popupScreenEdgeMargin
+      z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
+      width: parent.width - Theme.popupScreenEdgeMargin * 2
+      height: parent.height - Theme.popupScreenEdgeMargin * 2
+      padding: 0
+      modal: true
+      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+      focus: visible
 
-        onOpened: {
-            if (searchableText.typedFilter != '') {
-                searchField.text = searchableText.typedFilter
-            }
-
-            if (resultsList.contentHeight > resultsList.height) {
-                searchField.forceActiveFocus()
-            }
+      onOpened: {
+        if (searchableText.typedFilter != '') {
+          searchField.text = searchableText.typedFilter
         }
 
-        onClosed: {
-            searchField.text = ''
+        if (resultsList.contentHeight > resultsList.height) {
+          searchField.forceActiveFocus()
+        }
+      }
+
+      onClosed: {
+        searchField.text = ''
+      }
+
+      Page {
+        anchors.fill: parent
+
+        header: PageHeader {
+          title: fieldLabel
+          showBackButton: false
+          showApplyButton: false
+          showCancelButton: true
+          onCancel: searchFeaturePopup.close()
         }
 
-        Page {
+        TextField {
+          z: 1
+          id: searchField
+          anchors.left: parent.left
+          anchors.right: parent.right
+
+          placeholderText: qsTr("Search…")
+          placeholderTextColor: Theme.mainColor
+
+          height: fontMetrics.height * 2.5
+          padding: 24
+          bottomPadding: 9
+          font: Theme.defaultFont
+          selectByMouse: true
+          verticalAlignment: TextInput.AlignVCenter
+
+          inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
+
+          onDisplayTextChanged: {
+            featureListModel.searchTerm = searchField.displayText
+          }
+
+          Keys.onPressed: {
+            if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+              if (featureListModel.rowCount() === 1) {
+                resultsList.itemAtIndex(0).performClick()
+                searchFeaturePopup.close()
+              }
+            }
+          }
+        }
+
+        QfToolButton {
+          id: clearButton
+          z: 1
+          width: fontMetrics.height
+          height: fontMetrics.height
+          anchors { top: searchField.top; right: searchField.right; topMargin: height - 7; rightMargin: height - 7 }
+
+          padding: 0
+          iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
+          iconColor: Theme.mainTextColor
+          bgcolor: "transparent"
+
+          opacity: searchField.displayText.length > 0 ? 1 : 0.25
+
+          onClicked: {
+            searchField.text = '';
+          }
+        }
+
+        ListView {
+          id: resultsList
+          anchors.left: parent.left
+          anchors.right: parent.right
+          anchors.top: searchField.bottom
+          model: featureListModel
+          width: parent.width
+          height: searchFeaturePopup.height - searchField.height - 50
+          clip: true
+
+          ScrollBar.vertical: ScrollBar {
+            policy: ScrollBar.AsNeeded
+            width: 6
+            contentItem: Rectangle {
+              implicitWidth: 6
+              implicitHeight: 25
+              color: Theme.mainColor
+            }
+          }
+
+          delegate: Rectangle {
+            id: delegateRect
+
+            property int idx: index
+            property string itemText: featureListModel.searchTerm != ''
+                                      ? displayString.replace(new RegExp('('+featureListModel.searchTerm+')', "i"),
+                                                              '<span style="text-decoration:underline;' + Theme.toInlineStyles({color:Theme.mainTextColor}) + '">$1</span>')
+                                      : displayString
+
+            anchors.margins: 10
+            height: radioButton.visible ? radioButton.height : checkBoxButton.height
+            width: parent ? parent.width : undefined
+            color: model.checked ? Theme.mainColor : Theme.controlBackgroundAlternateColor
+
+            Row {
+              RadioButton {
+                id: radioButton
+
+                visible: !featureListModel.allowMulti
+                anchors.verticalCenter: parent.verticalCenter
+                width: resultsList.width - padding * 2
+                padding: 12
+
+                font.pointSize: Theme.defaultFont.pointSize
+                font.weight: model.checked ? Font.DemiBold : Font.Normal
+
+                checked: model.checked
+                indicator: Rectangle {}
+
+                text: itemText
+                contentItem: Text {
+                  text: parent.text
+                  font: parent.font
+                  width: parent.width
+                  verticalAlignment: Text.AlignVCenter
+                  leftPadding: parent.indicator.width + parent.spacing
+                  elide: Text.ElideRight
+                  color: featureListModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
+                  textFormat: Text.RichText
+                }
+              }
+
+              CheckBox {
+                id: checkBoxButton
+
+                visible: !!featureListModel.allowMulti
+                anchors.verticalCenter: parent.verticalCenter
+                width: resultsList.width - padding * 2
+                padding: 12
+
+                font.pointSize: Theme.defaultFont.pointSize
+                font.weight: model.checked ? Font.DemiBold : Font.Normal
+
+                text: itemText
+                contentItem: Text {
+                  text: parent.text
+                  font: parent.font
+                  width: parent.width
+                  verticalAlignment: Text.AlignVCenter
+                  leftPadding: parent.indicator.width + parent.spacing
+                  elide: Text.ElideRight
+                  color: Theme.mainTextColor
+                  textFormat: Text.RichText
+                }
+              }
+            }
+
+
+            /* bottom border */
+            Rectangle {
+              anchors.bottom: parent.bottom
+              height: 1
+              color: Theme.controlBorderColor
+              width: resultsList.width
+            }
+
+            function performClick() {
+              model.checked = true;
+            }
+          }
+
+          MouseArea {
             anchors.fill: parent
+            propagateComposedEvents: true
 
-            header: PageHeader {
-                title: fieldLabel
-                showBackButton: false
-                showApplyButton: false
-                showCancelButton: true
-                onCancel: searchFeaturePopup.close()
+            onClicked: {
+              var item = resultsList.itemAt(resultsList.contentX + mouse.x, resultsList.contentY + mouse.y)
+              if (!item)
+                return;
+
+              item.performClick()
+              model.checked = !model.checked
+
+              if (!resultsList.model.allowMulti) {
+                searchFeaturePopup.close()
+              }
             }
+          }
 
-            TextField {
-                z: 1
-                id: searchField
-                anchors.left: parent.left
-                anchors.right: parent.right
-
-                placeholderText: qsTr("Search…")
-                placeholderTextColor: Theme.mainColor
-
-                height: fontMetrics.height * 2.5
-                padding: 24
-                bottomPadding: 9
-                font: Theme.defaultFont
-                selectByMouse: true
-                verticalAlignment: TextInput.AlignVCenter
-
-                inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
-
-                onDisplayTextChanged: {
-                    featureListModel.searchTerm = searchField.displayText
-                }
-
-                Keys.onPressed: {
-                    if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-                        if (featureListModel.rowCount() === 1) {
-                            resultsList.itemAtIndex(0).performClick()
-                            searchFeaturePopup.close()
-                        }
-                    }
-                }
-            }
-
-            QfToolButton {
-                id: clearButton
-                z: 1
-                width: fontMetrics.height
-                height: fontMetrics.height
-                anchors { top: searchField.top; right: searchField.right; topMargin: height - 7; rightMargin: height - 7 }
-
-                padding: 0
-                iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
-                iconColor: Theme.mainTextColor
-                bgcolor: "transparent"
-
-                opacity: searchField.displayText.length > 0 ? 1 : 0.25
-
-                onClicked: {
-                    searchField.text = '';
-                }
-            }
-
-            ScrollView {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.top: searchField.bottom
-
-                padding: 0
-                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-                ScrollBar.vertical.policy: ScrollBar.AsNeeded
-                contentItem: resultsList
-                contentWidth: resultsList.width
-                contentHeight: resultsList.height
-                clip: true
-
-                ListView {
-                    id: resultsList
-                    anchors.top: parent.top
-                    model: featureListModel
-                    width: parent.width
-                    height: searchFeaturePopup.height - searchField.height - 50
-                    clip: true
-
-                    delegate: Rectangle {
-                        id: delegateRect
-
-                        property int idx: index
-
-                        anchors.margins: 10
-                        height: radioButton.visible ? radioButton.height : checkBoxButton.height
-                        width: parent ? parent.width : undefined
-                        color: model.checked ? Theme.mainColor : Theme.controlBackgroundAlternateColor
-
-                        Row {
-                            RadioButton {
-                                id: radioButton
-
-                                visible: !featureListModel.allowMulti
-                                checked: model.checked
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: displayString
-                                width: resultsList.width - padding * 2
-                                padding: 12
-                                ButtonGroup.group: buttonGroup
-                                font.weight: model.checked ? Font.DemiBold : Font.Normal
-
-                                indicator: Rectangle {}
-                                contentItem: Text {
-                                    text: parent.text
-                                    font: parent.font
-                                    width: parent.width
-                                    verticalAlignment: Text.AlignVCenter
-                                    leftPadding: parent.indicator.width + parent.spacing
-                                    elide: Text.ElideRight
-                                    color: model.checked ? Theme.light : Theme.mainTextColor
-                                }
-                            }
-
-                            CheckBox {
-                                id: checkBoxButton
-
-                                visible: !!featureListModel.allowMulti
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: displayString
-                                padding: 12
-                            }
-                        }
-
-
-                        /* bottom border */
-                        Rectangle {
-                            anchors.bottom: parent.bottom
-                            height: 1
-                            color: Theme.controlBorderColor
-                            width: resultsList.width
-                        }
-
-                        function performClick() {
-                            model.checked = true;
-                        }
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        propagateComposedEvents: true
-
-                        onClicked: {
-                            var item = resultsList.itemAt(resultsList.contentX + mouse.x, resultsList.contentY + mouse.y)
-                            if (!item)
-                                return;
-
-                            item.performClick()
-                            model.checked = !model.checked
-
-                            if (!resultsList.model.allowMulti) {
-                                searchFeaturePopup.close()
-                            }
-                        }
-                    }
-
-                    onMovementStarted: {
-                        Qt.inputMethod.hide()
-                    }
-                }
-            }
+          onMovementStarted: {
+            Qt.inputMethod.hide()
+          }
         }
+      }
     }
-
-    ButtonGroup { id: buttonGroup }
 
     RowLayout {
         anchors { left: parent.left; right: parent.right }
@@ -262,6 +280,8 @@ Item {
             property var _cachedCurrentValue
 
             model: featureListModel
+            textRole: 'display'
+            valueRole: 'keyFieldValue'
 
             onCurrentIndexChanged: {
                 var newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole)
@@ -297,13 +317,14 @@ Item {
                 comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
             }
 
-            textRole: 'display'
             font: Theme.defaultFont
             popup.font: Theme.defaultFont
             contentItem: Text {
                 leftPadding: enabled ? 5 : 0
                 height: fontMetrics.height + 20
-                text: comboBox.displayText
+                text: comboBox.currentIndex == -1 && value !== undefined
+                      ? '(' + value +')'
+                      : comboBox.currentText
                 font: comboBox.font
                 color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
                 horizontalAlignment: Text.AlignLeft
