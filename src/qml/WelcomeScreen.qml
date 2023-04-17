@@ -19,7 +19,10 @@ Page {
   Settings {
     id: registry
     category: 'QField'
+
     property string baseMapProject: ''
+    property string defaultProject: ''
+    property bool loadProjectOnLaunch: false
   }
 
   Rectangle {
@@ -48,580 +51,641 @@ Page {
     anchors.fill: parent
     clip: true
 
-  GridLayout {
-    id: welcomeGrid
-    columns: 1
-    rowSpacing: 4
+    GridLayout {
+      id: welcomeGrid
+      columns: 1
+      rowSpacing: 4
 
-    width: mainWindow.width
+      width: mainWindow.width
 
-    ImageDial{
-      id: imageDialLogo
-      value: 1
+      ImageDial{
+        id: imageDialLogo
+        value: 1
 
-      Layout.margins: 6
-      Layout.topMargin: 14
-      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.preferredWidth: Math.min( 138, mainWindow.height / 4 )
-      Layout.preferredHeight: Math.min( 138, mainWindow.height / 4 )
+        Layout.margins: 6
+        Layout.topMargin: 14
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.preferredWidth: Math.min( 138, mainWindow.height / 4 )
+        Layout.preferredHeight: Math.min( 138, mainWindow.height / 4 )
 
-      source: "qrc:/images/qfield_logo.svg"
-      rotationOffset: 220
-    }
+        source: "qrc:/images/qfield_logo.svg"
+        rotationOffset: 220
+      }
 
-    SwipeView {
-      id: feedbackView
-      visible: false
+      SwipeView {
+        id: feedbackView
+        visible: false
 
-      Layout.margins: 6
-      Layout.topMargin: 10
-      Layout.bottomMargin: 10
-      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.preferredWidth: Math.min( 410, mainWindow.width - 30 )
-      Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
-      clip: true
+        Layout.margins: 6
+        Layout.topMargin: 10
+        Layout.bottomMargin: 10
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.preferredWidth: Math.min( 410, mainWindow.width - 30 )
+        Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
+        clip: true
 
-      Behavior on Layout.preferredHeight {
+        Behavior on Layout.preferredHeight {
           NumberAnimation { duration: 100; easing.type: Easing.InQuad; }
-      }
-
-      interactive: false
-      currentIndex: 1
-      Item {
-        id: ohno
-
-        Rectangle {
-          anchors.fill: parent
-          gradient: Gradient  {
-            GradientStop  {
-              position: 0.0
-              color: "#4480cc28"
-            }
-            GradientStop  {
-              position: 0.88
-              color: "#0580cc28"
-            }
-          }
-
-          radius: 6
         }
 
-        ColumnLayout {
-          spacing: 0
-          anchors.centerIn: parent
+        interactive: false
+        currentIndex: 1
+        Item {
+          id: ohno
 
-          Text {
-            Layout.margins: 6
-            Layout.maximumWidth: feedbackView.width - 12
-            text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient  {
+              GradientStop  {
+                position: 0.0
+                color: "#4480cc28"
+              }
+              GradientStop  {
+                position: 0.88
+                color: "#0580cc28"
+              }
+            }
+
+            radius: 6
           }
 
-          RowLayout {
-            spacing: 6
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Layout.bottomMargin: 10
-            QfButton {
-              leftPadding: 20
-              rightPadding: 20
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
 
-              text: qsTr("Reach out")
-              icon.source: Theme.getThemeIcon( 'ic_create_white_24dp' )
+            Text {
+              Layout.margins: 6
+              Layout.maximumWidth: feedbackView.width - 12
+              text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
 
-              onClicked: {
-                Qt.openUrlExternally("https://www.qfield.org/")
-                feedbackView.Layout.preferredHeight = 0
+            RowLayout {
+              spacing: 6
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+              Layout.bottomMargin: 10
+              QfButton {
+                leftPadding: 20
+                rightPadding: 20
+
+                text: qsTr("Reach out")
+                icon.source: Theme.getThemeIcon( 'ic_create_white_24dp' )
+
+                onClicked: {
+                  Qt.openUrlExternally("https://www.qfield.org/")
+                  feedbackView.Layout.preferredHeight = 0
+                }
+              }
+            }
+          }
+        }
+
+        Item {
+          id: intro
+
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient  {
+              GradientStop  {
+                position: 0.0
+                color: "#4480cc28"
+              }
+              GradientStop  {
+                position: 0.88
+                color: "#0580cc28"
+              }
+            }
+
+            radius: 6
+          }
+
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.maximumWidth: feedbackView.width - 12
+              text: qsTr("Hey there, how do you like your experience with QField so far?")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
+            RowLayout {
+              spacing: 6
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+              Layout.bottomMargin: 10
+              QfToolButton {
+                iconSource: Theme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+                bgcolor: Theme.mainColor
+                round: true
+
+                onClicked: {
+                  feedbackView.currentIndex = 0
+                }
+              }
+              QfToolButton {
+                iconSource: Theme.getThemeVectorIcon('ic_satisfied_white_24dp')
+                bgcolor: Theme.mainColor
+                round: true
+
+                onClicked: {
+                  feedbackView.currentIndex = 2
+                }
+              }
+            }
+          }
+        }
+        Item {
+          id: ohyeah
+
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient  {
+              GradientStop  {
+                position: 0.0
+                color: "#4480cc28"
+              }
+              GradientStop  {
+                position: 0.88
+                color: "#0580cc28"
+              }
+            }
+
+            radius: 6
+          }
+
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.maximumWidth: feedbackView.width - 12
+              text: qsTr("That's great! We'd love for you to click on the button below and leave a comment on the store.")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
+            RowLayout {
+              spacing: 6
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+              Layout.margins: 6
+              Layout.bottomMargin: 10
+              QfButton {
+                leftPadding: 20
+                rightPadding: 20
+
+                text: qsTr("Rate us")
+                icon.source: Theme.getThemeVectorIcon( 'ic_star_white_24dp' )
+
+                onClicked: {
+                  Qt.openUrlExternally("market://details?id=ch.opengis.qfield")
+                  feedbackView.Layout.preferredHeight = 0
+                }
               }
             }
           }
         }
       }
 
-      Item {
-        id: intro
+      SwipeView {
+        id: collectionView
+        visible: false
 
-        Rectangle {
-          anchors.fill: parent
-          gradient: Gradient  {
-            GradientStop  {
-              position: 0.0
-              color: "#4480cc28"
-            }
-            GradientStop  {
-              position: 0.88
-              color: "#0580cc28"
-            }
-          }
+        Layout.margins: 0
+        Layout.topMargin: 10
+        Layout.bottomMargin: 10
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.preferredWidth: Math.min( 410, mainWindow.width - 20 )
+        Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
+        clip: true
 
-          radius: 6
-        }
-
-        ColumnLayout {
-          spacing: 0
-          anchors.centerIn: parent
-
-          Text {
-            Layout.margins: 6
-            Layout.maximumWidth: feedbackView.width - 12
-            text: qsTr("Hey there, how do you like your experience with QField so far?")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-          }
-
-          RowLayout {
-            spacing: 6
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Layout.bottomMargin: 10
-            QfToolButton {
-              iconSource: Theme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
-              bgcolor: Theme.mainColor
-              round: true
-
-              onClicked: {
-                feedbackView.currentIndex = 0
-              }
-            }
-            QfToolButton {
-              iconSource: Theme.getThemeVectorIcon('ic_satisfied_white_24dp')
-              bgcolor: Theme.mainColor
-              round: true
-
-              onClicked: {
-                feedbackView.currentIndex = 2
-              }
-            }
-          }
-        }
-      }
-      Item {
-        id: ohyeah
-
-        Rectangle {
-          anchors.fill: parent
-          gradient: Gradient  {
-            GradientStop  {
-              position: 0.0
-              color: "#4480cc28"
-            }
-            GradientStop  {
-              position: 0.88
-              color: "#0580cc28"
-            }
-          }
-
-          radius: 6
-        }
-
-        ColumnLayout {
-          spacing: 0
-          anchors.centerIn: parent
-
-          Text {
-            Layout.margins: 6
-            Layout.maximumWidth: feedbackView.width - 12
-            text: qsTr("That's great! We'd love for you to click on the button below and leave a comment on the store.")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-          }
-
-          RowLayout {
-            spacing: 6
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Layout.margins: 6
-            Layout.bottomMargin: 10
-            QfButton {
-              leftPadding: 20
-              rightPadding: 20
-
-              text: qsTr("Rate us")
-              icon.source: Theme.getThemeVectorIcon( 'ic_star_white_24dp' )
-
-              onClicked: {
-                Qt.openUrlExternally("market://details?id=ch.opengis.qfield")
-                feedbackView.Layout.preferredHeight = 0
-              }
-            }
-          }
-        }
-      }
-    }
-
-    SwipeView {
-      id: collectionView
-      visible: false
-
-      Layout.margins: 0
-      Layout.topMargin: 10
-      Layout.bottomMargin: 10
-      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.preferredWidth: Math.min( 410, mainWindow.width - 20 )
-      Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
-      clip: true
-
-      Behavior on Layout.preferredHeight {
+        Behavior on Layout.preferredHeight {
           NumberAnimation { duration: 100; easing.type: Easing.InQuad; }
-      }
-
-      interactive: false
-      currentIndex: 1
-      Item {
-        id: collectionOhno
-
-        Rectangle {
-          anchors.fill: parent
-          gradient: Gradient  {
-            GradientStop  {
-              position: 0.0
-              color: "#4480cc28"
-            }
-            GradientStop  {
-              position: 0.88
-              color: "#0580cc28"
-            }
-          }
-
-          radius: 6
         }
 
-        ColumnLayout {
-          spacing: 0
-          anchors.centerIn: parent
+        interactive: false
+        currentIndex: 1
+        Item {
+          id: collectionOhno
 
-          Text {
-            Layout.margins: 6
-            Layout.maximumWidth: collectionView.width - 12
-            text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-          }
-        }
-      }
-
-      Item {
-        id: collectionIntro
-
-        Rectangle {
-          anchors.fill: parent
-          gradient: Gradient  {
-            GradientStop  {
-              position: 0.0
-              color: "#4480cc28"
-            }
-            GradientStop  {
-              position: 0.88
-              color: "#0580cc28"
-            }
-          }
-
-          radius: 6
-        }
-
-        ColumnLayout {
-          spacing: 0
-          anchors.centerIn: parent
-
-          Text {
-            Layout.margins: 6
-            Layout.maximumWidth: collectionView.width - 12
-            text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-          }
-
-          RowLayout {
-            spacing: 6
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            Layout.bottomMargin: 10
-            QfButton {
-              text: qsTr('I agree')
-
-              onClicked: {
-                qfieldSettings.enableInfoCollection = true
-                collectionView.visible = false
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient  {
+              GradientStop  {
+                position: 0.0
+                color: "#4480cc28"
+              }
+              GradientStop  {
+                position: 0.88
+                color: "#0580cc28"
               }
             }
 
-            QfButton {
-              text: qsTr('I prefer not')
-              bgcolor: "transparent"
-              color: Theme.mainColor
+            radius: 6
+          }
 
-              onClicked: {
-                qfieldSettings.enableInfoCollection = false
-                collectionView.visible = false
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.maximumWidth: collectionView.width - 12
+              text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+          }
+        }
+
+        Item {
+          id: collectionIntro
+
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient  {
+              GradientStop  {
+                position: 0.0
+                color: "#4480cc28"
+              }
+              GradientStop  {
+                position: 0.88
+                color: "#0580cc28"
+              }
+            }
+
+            radius: 6
+          }
+
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.maximumWidth: collectionView.width - 12
+              text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
+            RowLayout {
+              spacing: 6
+              Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+              Layout.bottomMargin: 10
+              QfButton {
+                text: qsTr('I agree')
+
+                onClicked: {
+                  qfieldSettings.enableInfoCollection = true
+                  collectionView.visible = false
+                }
+              }
+
+              QfButton {
+                text: qsTr('I prefer not')
+                bgcolor: "transparent"
+                color: Theme.mainColor
+
+                onClicked: {
+                  qfieldSettings.enableInfoCollection = false
+                  collectionView.visible = false
+                }
               }
             }
           }
         }
       }
-    }
 
-    Text {
-      id: welcomeText
-      visible: !feedbackView.visible
-      Layout.leftMargin: 6
-      Layout.rightMargin: 6
-      Layout.topMargin: 2
-      Layout.bottomMargin: 2
-      Layout.fillWidth: true
-      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      text: ""
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
-      horizontalAlignment: Text.AlignHCenter
-      wrapMode: Text.WordWrap
-    }
+      Text {
+        id: welcomeText
+        visible: !feedbackView.visible
+        Layout.leftMargin: 6
+        Layout.rightMargin: 6
+        Layout.topMargin: 2
+        Layout.bottomMargin: 2
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        text: ""
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WordWrap
+      }
 
-    Rectangle {
-      Layout.leftMargin: 6
-      Layout.rightMargin: 6
-      Layout.topMargin: 2
-      Layout.bottomMargin: 2
-      Layout.fillWidth: true
-      Layout.maximumWidth: 410
-      Layout.preferredHeight: welcomeActions.height
-      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      color: "transparent"
+      Rectangle {
+        Layout.leftMargin: 6
+        Layout.rightMargin: 6
+        Layout.topMargin: 2
+        Layout.bottomMargin: 2
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
+        Layout.preferredHeight: welcomeActions.height
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        color: "transparent"
 
-      ColumnLayout {
-        id: welcomeActions
-        width: parent.width
-        spacing: 12
+        ColumnLayout {
+          id: welcomeActions
+          width: parent.width
+          spacing: 12
 
-        QfButton {
-          id: cloudProjectButton
-          Layout.fillWidth: true
-          text: qsTr( "QFieldCloud projects" )
-          onClicked: {
-            showQFieldCloudScreen()
+          QfButton {
+            id: cloudProjectButton
+            Layout.fillWidth: true
+            text: qsTr( "QFieldCloud projects" )
+            onClicked: {
+              showQFieldCloudScreen()
+            }
           }
-        }
-        QfButton {
-          id: localProjectButton
-          Layout.fillWidth: true
-          text: qsTr( "Open local file" )
-          onClicked: {
-            openLocalDataPicker()
+          QfButton {
+            id: localProjectButton
+            Layout.fillWidth: true
+            text: qsTr( "Open local file" )
+            onClicked: {
+              openLocalDataPicker()
+            }
           }
-        }
 
-        Text {
-          id: recentText
-          text: qsTr( "Recent Projects" )
-          font.pointSize: Theme.tipFont.pointSize
-          font.bold: true
-          color: Theme.mainTextColor
-          horizontalAlignment: Text.AlignHCenter
-          wrapMode: Text.WordWrap
-          Layout.fillWidth: true
-        }
+          Text {
+            id: recentText
+            text: qsTr( "Recent Projects" )
+            font.pointSize: Theme.tipFont.pointSize
+            font.bold: true
+            color: Theme.mainTextColor
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+          }
 
-        Rectangle {
+          Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: table.height
             color: "transparent"
             border.color: "transparent"
             border.width: 1
 
-        ListView {
-          id: table
-          ScrollBar.vertical: ScrollBar {}
-          flickableDirection: Flickable.VerticalFlick
-          boundsBehavior: Flickable.StopAtBounds
-          clip: true
-          width: parent.width
-          height: contentItem.childrenRect.height
-
-          delegate: Rectangle {
-            id: rectangle
-            objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
-            property string path: ProjectPath
-            property string title: ProjectTitle
-            property var type: ProjectType
-            width: parent ? parent.width : undefined
-            height: line.height
-            color: "transparent"
-
-            Row {
-              id: line
+            ListView {
+              id: table
+              ScrollBar.vertical: ScrollBar {}
+              flickableDirection: Flickable.VerticalFlick
+              boundsBehavior: Flickable.StopAtBounds
+              clip: true
               width: parent.width
-              leftPadding: 6
-              rightPadding: 10
-              topPadding: 9
-              bottomPadding: 3
-              spacing: 0
-              Image {
-                id: type
-                anchors.verticalCenter: inner.verticalCenter
-                source: switch(ProjectType) {
-                        case 0: return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
-                        case 1: return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
-                        case 2: return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
-                        default: return '';
+              height: contentItem.childrenRect.height
+
+              delegate: Rectangle {
+                id: rectangle
+                objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
+                property string path: ProjectPath
+                property string title: ProjectTitle
+                property var type: ProjectType
+                width: parent ? parent.width : undefined
+                height: line.height
+                color: "transparent"
+
+                Row {
+                  id: line
+                  width: parent.width
+                  leftPadding: 6
+                  rightPadding: 10
+                  topPadding: 9
+                  bottomPadding: 3
+                  spacing: 0
+                  Image {
+                    id: type
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: switch(ProjectType) {
+                            case 0: return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
+                            case 1: return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
+                            case 2: return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
+                            default: return '';
+                            }
+                    sourceSize.width: 80
+                    sourceSize.height: 80
+                    width: 40
+                    height: 40
+                  }
+                  ColumnLayout {
+                    id: inner
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: rectangle.width - type.width - 20
+                    clip: true
+
+                    Text {
+                      id: projectTitle
+                      topPadding: 5
+                      leftPadding: 3
+                      bottomPadding: projectNote.visible ? 0 : 5
+                      text: ProjectTitle
+                      font.pointSize: Theme.tipFont.pointSize
+                      font.underline: true
+                      color: Theme.mainColor
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                    }
+                    Text {
+                      id: projectNote
+                      leftPadding: 3
+                      bottomPadding: 5
+                      text: {
+                        var notes = [];
+
+                        if ( index == 0 ) {
+                          var firstRun = settings && !settings.value( "/QField/FirstRunFlag", false )
+                          if (!firstRun && firstShown === false) notes.push( qsTr( "Last session" ) );
                         }
-                sourceSize.width: 80
-                sourceSize.height: 80
-                width: 40
-                height: 40
-              }
-              ColumnLayout {
-                id: inner
-                width: rectangle.width - type.width - 10
-                Text {
-                  id: projectTitle
-                  topPadding: 5
-                  leftPadding: 3
-                  text: ProjectTitle
-                  font.pointSize: Theme.tipFont.pointSize
-                  font.underline: true
-                  color: Theme.mainColor
-                  wrapMode: Text.WordWrap
-                  Layout.fillWidth: true
-                }
-                Text {
-                  id: projectNote
-                  leftPadding: 3
-                  text: {
-                    var notes = [];
 
-                    if ( index == 0 ) {
-                        var firstRun = settings && !settings.value( "/QField/FirstRunFlag", false )
-                        if (!firstRun && firstShown === false) notes.push( qsTr( "Last session" ) );
-                    }
+                        if ( ProjectPath === registry.defaultProject ) {
+                          notes.push( qsTr( "Default project" ) );
+                        }
 
-                    if ( ProjectPath === registry.baseMapProject ) {
-                        notes.push( qsTr( "Base map project" ) );
-                    }
+                        if ( ProjectPath === registry.baseMapProject ) {
+                          notes.push( qsTr( "Base map" ) );
+                        }
 
-                    if ( notes.length > 0 ) {
-                        return notes.join( '; ' );
-                    } else {
-                        return "";
+                        if ( notes.length > 0 ) {
+                          return notes.join( '; ' );
+                        } else {
+                          return "";
+                        }
+                      }
+                      visible: text != ""
+                      font.pointSize: Theme.tipFont.pointSize - 2
+                      font.italic: true
+                      color: Theme.secondaryTextColor
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
                     }
                   }
-                  visible: text != ""
-                  font.pointSize: Theme.tipFont.pointSize - 2
-                  font.italic: true
-                  color: Theme.secondaryTextColor
-                  wrapMode: Text.WordWrap
-                  Layout.fillWidth: true
                 }
               }
-            }
-          }
-          MouseArea {
-            property Item pressedItem
-            anchors.fill: parent
-            onClicked: {
-              var item = table.itemAt(mouse.x, mouse.y)
-              if (item) {
-                if ( item.type == 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
-                  cloudConnection.login()
+              MouseArea {
+                property Item pressedItem
+                anchors.fill: parent
+                onClicked: {
+                  var item = table.itemAt(mouse.x, mouse.y)
+                  if (item) {
+                    if ( item.type == 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
+                      cloudConnection.login()
+                    }
+                    iface.loadFile(item.path,item.title)
+                  }
                 }
-                iface.loadFile(item.path,item.title)
-              }
-            }
-            onPressed: {
-              var item = table.itemAt(mouse.x, mouse.y)
-              if (item) {
-                pressedItem = item.children[0].children[1].children[0];
-                pressedItem.color = "#5a8725"
-              }
-            }
-            onCanceled: {
-              if (pressedItem) {
-                pressedItem.color = Theme.mainColor
-                pressedItem = null
-              }
-            }
-            onReleased: {
-              if (pressedItem) {
-                pressedItem.color = Theme.mainColor
-                pressedItem = null
-              }
-            }
-            onPressAndHold: {
-                var item = table.itemAt(mouse.x, mouse.y)
-                if (item) {
+                onPressed: {
+                  var item = table.itemAt(mouse.x, mouse.y)
+                  if (item) {
+                    pressedItem = item.children[0].children[1].children[0];
+                    pressedItem.color = "#5a8725"
+                  }
+                }
+                onCanceled: {
+                  if (pressedItem) {
+                    pressedItem.color = Theme.mainColor
+                    pressedItem = null
+                  }
+                }
+                onReleased: {
+                  if (pressedItem) {
+                    pressedItem.color = Theme.mainColor
+                    pressedItem = null
+                  }
+                }
+                onPressAndHold: {
+                  var item = table.itemAt(mouse.x, mouse.y)
+                  if (item) {
                     recentProjectActions.recentProjectPath = item.path;
                     recentProjectActions.recentProjectType = item.type;
                     recentProjectActions.popup(mouse.x, mouse.y)
+                  }
                 }
-            }
-          }
+              }
 
-          Menu {
-            id: recentProjectActions
+              Menu {
+                id: recentProjectActions
 
-            property string recentProjectPath: ''
-            property int recentProjectType: 0
+                property string recentProjectPath: ''
+                property int recentProjectType: 0
 
-            title: 'Recent Project Actions'
+                title: 'Recent Project Actions'
 
-            width: {
-                var result = 0;
-                var padding = 0;
-                for (var i = 0; i < count; ++i) {
+                width: {
+                  var result = 0;
+                  var padding = 0;
+                  for (var i = 0; i < count; ++i) {
                     var item = itemAt(i);
                     result = Math.max(item.contentItem.implicitWidth, result);
-                    padding = Math.max(item.padding, padding);
+                    padding = Math.max(item.leftPadding + item.rightPadding, padding);
+                  }
+                  return Math.min( result + padding, mainWindow.width - 20);
                 }
-                return Math.min( result + padding * 2,mainWindow.width - 20);
-            }
 
-            MenuItem {
-              id: baseMapProject
-              visible: recentProjectActions.recentProjectType != 2;
+                MenuItem {
+                  id: defaultProject
+                  visible: recentProjectActions.recentProjectType != 2;
 
-              font: Theme.defaultFont
-              width: parent.width
-              height: visible ? 48: 0
-              checkable: true
-              checked: recentProjectActions.recentProjectPath === registry.baseMapProject
+                  font: Theme.defaultFont
+                  width: parent.width
+                  height: visible ? 48: 0
+                  checkable: true
+                  checked: recentProjectActions.recentProjectPath === registry.defaultProject
 
-              text: qsTr( "Base Map Project" )
-              onTriggered: {
-                  registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
-              }
-            }
+                  text: qsTr( "Default Project" )
+                  onTriggered: {
+                    registry.defaultProject = recentProjectActions.recentProjectPath === registry.defaultProject ? '' : recentProjectActions.recentProjectPath;
+                  }
+                }
 
-            MenuSeparator {
-                visible: baseMapProject.visible
-                width: parent.width
-                height: visible ? undefined : 0
-            }
+                MenuItem {
+                  id: baseMapProject
+                  visible: recentProjectActions.recentProjectType != 2;
 
-            MenuItem {
-              id: removeProject
+                  font: Theme.defaultFont
+                  width: parent.width
+                  height: visible ? 48: 0
+                  checkable: true
+                  checked: recentProjectActions.recentProjectPath === registry.baseMapProject
 
-              font: Theme.defaultFont
-              width: parent.width
-              height: visible ? 48: 0
-              leftPadding: 10
+                  text: qsTr( "Individual Datasets Base Map" )
+                  onTriggered: {
+                    registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
+                  }
+                }
 
-              text: qsTr( "Remove from Recent Projects" )
-              onTriggered: {
-                  iface.removeRecentProject( recentProjectActions.recentProjectPath );
-                  model.reloadModel();
+                MenuSeparator {
+                  visible: baseMapProject.visible
+                  width: parent.width
+                  height: visible ? undefined : 0
+                }
+
+                MenuItem {
+                  id: removeProject
+
+                  font: Theme.defaultFont
+                  width: parent.width
+                  height: visible ? 48: 0
+                  leftPadding: 50
+
+                  text: qsTr( "Remove from Recent Projects" )
+                  onTriggered: {
+                    iface.removeRecentProject( recentProjectActions.recentProjectPath );
+                    model.reloadModel();
+                  }
+                }
               }
             }
           }
-        }
+
+          RowLayout {
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            Label {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
+              topPadding: 10
+              bottomPadding: 10
+              font: Theme.tipFont
+              wrapMode: Text.WordWrap
+              color: reloadOnLaunch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+
+              text: registry.defaultProject != ''
+                    ? qsTr('Load default project on launch')
+                    : qsTr('Load last opened project on launch')
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: reloadOnLaunch.checked = !reloadOnLaunch.checked
+              }
+            }
+
+            QfSwitch {
+              id: reloadOnLaunch
+              Layout.preferredWidth: implicitContentWidth
+              Layout.alignment: Qt.AlignVCenter
+              width: implicitContentWidth
+              small: true
+
+              checked: registry.loadProjectOnLaunch
+              onCheckedChanged: {
+                registry.loadProjectOnLaunch = checked
+              }
+            }
+          }
         }
       }
     }
-  }
   }
 
   QfToolButton {
@@ -712,10 +776,10 @@ Page {
       sizeVariation: 10
       maximumEmitted: 100
       velocity: AngleDirection {
-          angle: 0
-          angleVariation: 360
-          magnitude: 100
-          magnitudeVariation: 50
+        angle: 0
+        angleVariation: 360
+        magnitude: 100
+        magnitudeVariation: 50
       }
     }
 
@@ -730,10 +794,10 @@ Page {
       sizeVariation: 10
       maximumEmitted: 100
       velocity: AngleDirection {
-          angle: 90
-          angleVariation: 20
-          magnitude: 200
-          magnitudeVariation: 50
+        angle: 90
+        angleVariation: 20
+        magnitude: 200
+        magnitudeVariation: 50
       }
     }
   }
@@ -791,6 +855,12 @@ Page {
     }
 
     settings.setValue("/QField/RunCount",runCount + 1)
+
+    if (registry.defaultProject != '') {
+      if (!FileUtils.fileExists(registry.defaultProject)) {
+        registry.defaultProject = '';
+      }
+    }
   }
 
   onVisibleChanged: {

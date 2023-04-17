@@ -40,8 +40,8 @@ class AppInterface : public QObject
 
     Q_INVOKABLE void importUrl( const QString &url );
 
-    Q_INVOKABLE void loadLastProject();
-    Q_INVOKABLE void loadFile( const QString &path, const QString &name = QString() );
+    Q_INVOKABLE bool hasProjectOnLaunch() const;
+    Q_INVOKABLE bool loadFile( const QString &path, const QString &name = QString() );
     Q_INVOKABLE void reloadProject();
     Q_INVOKABLE void readProject();
     Q_INVOKABLE void removeRecentProject( const QString &path );

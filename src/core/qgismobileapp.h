@@ -86,18 +86,13 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     void removeRecentProject( const QString &path );
 
     /**
-     * When called loads the last project
-     */
-    void loadLastProject();
-
-    /**
      * Set the project or dataset file path to be loaded.
      *
      * \param path The project or dataset file to load
      * \param name The project name
      * \note The actual loading is done in readProjectFile
      */
-    void loadProjectFile( const QString &path, const QString &name = QString() );
+    bool loadProjectFile( const QString &path, const QString &name = QString() );
 
     /**
      * Reloads the current project

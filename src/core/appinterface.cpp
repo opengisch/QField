@@ -42,12 +42,27 @@ void AppInterface::removeRecentProject( const QString &path )
   return mApp->removeRecentProject( path );
 }
 
-void AppInterface::loadLastProject()
+bool AppInterface::hasProjectOnLaunch() const
 {
-  return mApp->loadLastProject();
+  if ( !PlatformUtilities::instance()->qgsProject().isNull() )
+  {
+    return true;
+  }
+  else
+  {
+    if ( QSettings().value( "/QField/loadProjectOnLaunch", true ).toBool() )
+    {
+      const QString lastProjectFilePath = QSettings().value( QStringLiteral( "QField/lastProjectFilePath" ), QString() ).toString();
+      if ( !lastProjectFilePath.isEmpty() && QFileInfo::exists( lastProjectFilePath ) )
+      {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
-void AppInterface::loadFile( const QString &path, const QString &name )
+bool AppInterface::loadFile( const QString &path, const QString &name )
 {
   const QUrl url( path );
   return mApp->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path(), name );

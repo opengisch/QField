@@ -3259,13 +3259,14 @@ ApplicationWindow {
   WelcomeScreen {
     id: welcomeScreen
     objectName: 'welcomeScreen'
+    visible: !iface.hasProjectOnLaunch()
+
     model: RecentProjectListModel {
       id: recentProjectListModel
     }
     property ProjectSource __projectSource
 
     anchors.fill: parent
-    visible: true
     focus: visible
 
     onOpenLocalDataPicker: {
@@ -3298,7 +3299,7 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        focusstack.addFocusTaker( this )
+      focusstack.addFocusTaker( this )
     }
   }
 
@@ -3378,6 +3379,7 @@ ApplicationWindow {
 
   BusyOverlay {
     id: busyOverlay
+    state: iface.hasProjectOnLaunch() ? "visible" : "hidden"
   }
 
   property bool alreadyCloseRequested: false

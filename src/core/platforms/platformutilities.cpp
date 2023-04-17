@@ -26,6 +26,7 @@
 #include "resourcesource.h"
 #include "stringutils.h"
 
+#include <QApplication>
 #include <QClipboard>
 #include <QDebug>
 #include <QDesktopServices>
@@ -135,7 +136,7 @@ QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) cons
 
 QString PlatformUtilities::qgsProject() const
 {
-  return QString();
+  return qApp->arguments().count() > 1 ? qApp->arguments().last() : QString();
 }
 
 QStringList PlatformUtilities::appDataDirs() const
