@@ -279,6 +279,8 @@ Item {
             property var _cachedCurrentValue
 
             model: featureListModel
+            textRole: 'display'
+            valueRole: 'keyFieldValue'
 
             onCurrentIndexChanged: {
                 var newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole)
@@ -314,13 +316,14 @@ Item {
                 comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
             }
 
-            textRole: 'display'
             font: Theme.defaultFont
             popup.font: Theme.defaultFont
             contentItem: Text {
                 leftPadding: enabled ? 5 : 0
                 height: fontMetrics.height + 20
-                text: comboBox.displayText
+                text: comboBox.currentIndex == -1 && value !== undefined
+                      ? '(' + value +')'
+                      : comboBox.currentText
                 font: comboBox.font
                 color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
                 horizontalAlignment: Text.AlignLeft
