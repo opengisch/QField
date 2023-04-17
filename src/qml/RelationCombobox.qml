@@ -168,6 +168,9 @@ Item {
                         id: delegateRect
 
                         property int idx: index
+                        property string itemText: featureListModel.searchTerm != ''
+                                                  ? displayString.replace(featureListModel.searchTerm, '<u>'+featureListModel.searchTerm+'</u>')
+                                                  : displayString
 
                         anchors.margins: 10
                         height: radioButton.visible ? radioButton.height : checkBoxButton.height
@@ -179,15 +182,17 @@ Item {
                                 id: radioButton
 
                                 visible: !featureListModel.allowMulti
-                                checked: model.checked
                                 anchors.verticalCenter: parent.verticalCenter
-                                text: displayString
                                 width: resultsList.width - padding * 2
                                 padding: 12
-                                ButtonGroup.group: buttonGroup
+
+                                font.pointSize: Theme.defaultFont.pointSize
                                 font.weight: model.checked ? Font.DemiBold : Font.Normal
 
+                                checked: model.checked
                                 indicator: Rectangle {}
+
+                                text: itemText
                                 contentItem: Text {
                                     text: parent.text
                                     font: parent.font
@@ -195,8 +200,11 @@ Item {
                                     verticalAlignment: Text.AlignVCenter
                                     leftPadding: parent.indicator.width + parent.spacing
                                     elide: Text.ElideRight
-                                    color: model.checked ? Theme.light : Theme.mainTextColor
+                                    color: Theme.mainTextColor
+                                    textFormat: Text.RichText
                                 }
+
+                                ButtonGroup.group: buttonGroup
                             }
 
                             CheckBox {
@@ -204,8 +212,23 @@ Item {
 
                                 visible: !!featureListModel.allowMulti
                                 anchors.verticalCenter: parent.verticalCenter
-                                text: displayString
+                                width: resultsList.width - padding * 2
                                 padding: 12
+
+                                font.pointSize: Theme.defaultFont.pointSize
+                                font.weight: model.checked ? Font.DemiBold : Font.Normal
+
+                                text: itemText
+                                contentItem: Text {
+                                    text: parent.text
+                                    font: parent.font
+                                    width: parent.width
+                                    verticalAlignment: Text.AlignVCenter
+                                    leftPadding: parent.indicator.width + parent.spacing
+                                    elide: Text.ElideRight
+                                    color: Theme.mainTextColor
+                                    textFormat: Text.RichText
+                                }
                             }
                         }
 
