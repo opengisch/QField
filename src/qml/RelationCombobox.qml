@@ -168,7 +168,7 @@ Item {
 
             property int idx: index
             property string itemText: featureListModel.searchTerm != ''
-                                      ? displayString.replace(featureListModel.searchTerm, '<u>'+featureListModel.searchTerm+'</u>')
+                                      ? displayString.replace(new RegExp('('+featureListModel.searchTerm+')', "i"), '<u>$1</u>')
                                       : displayString
 
             anchors.margins: 10
