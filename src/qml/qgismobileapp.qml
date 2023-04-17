@@ -210,6 +210,7 @@ ApplicationWindow {
     }
 
     ellipsoidalElevation: positioningSettings.ellipsoidalElevation
+    logging: positioningSettings.logging
 
     onProjectedPositionChanged: {
       if (active && gnssButton.followActive) {

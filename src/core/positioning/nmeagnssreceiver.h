@@ -19,6 +19,7 @@
 #include "abstractgnssreceiver.h"
 #include "qgsnmeaconnection.h"
 
+#include <QFile>
 #include <QObject>
 
 /**
@@ -44,9 +45,16 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
 
   private slots:
     void stateChanged( const QgsGpsInformation &info );
+    void nmeaSentenceReceived( const QString &substring );
 
   private:
+    void handleStartLogging() override;
+    void handleStopLogging() override;
+
     QTime mLastGnssPositionUtcTime;
+
+    QFile mLogFile;
+    QTextStream mLogStream;
 };
 
 #endif // NMEAGNSSRECEIVER_H

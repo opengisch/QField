@@ -50,6 +50,9 @@ class AbstractGnssReceiver : public QObject
     Q_INVOKABLE void connectDevice() { handleConnectDevice(); }
     Q_INVOKABLE void disconnectDevice() { handleDisconnectDevice(); }
 
+    Q_INVOKABLE void startLogging() { handleStartLogging(); }
+    Q_INVOKABLE void stopLogging() { handleStopLogging(); }
+
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
 
     QAbstractSocket::SocketState socketState() const { return mSocketState; }
@@ -75,6 +78,9 @@ class AbstractGnssReceiver : public QObject
 
     virtual void handleConnectDevice() {}
     virtual void handleDisconnectDevice() {}
+
+    virtual void handleStartLogging() {}
+    virtual void handleStopLogging() {}
 
     bool mValid = false;
     GnssPositionInformation mLastGnssPositionInformation;

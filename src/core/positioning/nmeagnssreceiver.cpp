@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "nmeagnssreceiver.h"
+#include "platformutilities.h"
 #include "positioning.h"
 
 #include <QSettings>
@@ -30,6 +31,7 @@ void NmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
 
   //QgsGpsConnection state changed (received location string)
   connect( mNmeaConnection.get(), &QgsGpsConnection::stateChanged, this, &NmeaGnssReceiver::stateChanged );
+  connect( mNmeaConnection.get(), &QgsGpsConnection::nmeaSentenceReceived, this, &NmeaGnssReceiver::nmeaSentenceReceived );
 }
 
 void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
@@ -58,4 +60,28 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
                                                           info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                           info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                           0, QStringLiteral( "nmea" ) );
+}
+
+void NmeaGnssReceiver::nmeaSentenceReceived( const QString &substring )
+{
+  if ( mLogFile.isOpen() )
+  {
+    mLogStream << substring << Qt::endl;
+  }
+}
+
+void NmeaGnssReceiver::handleStartLogging()
+{
+  const QStringList appDataDirs = PlatformUtilities::instance()->appDataDirs();
+  if ( !appDataDirs.isEmpty() )
+  {
+    mLogFile.setFileName( QStringLiteral( "%1/nmea-%2.log" ).arg( appDataDirs.at( 0 ), QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-ddThh:mm:ss" ) ) ) );
+    mLogFile.open( QIODevice::WriteOnly );
+    mLogStream.setDevice( &mLogFile );
+  }
+}
+
+void NmeaGnssReceiver::handleStopLogging()
+{
+  mLogFile.close();
 }
