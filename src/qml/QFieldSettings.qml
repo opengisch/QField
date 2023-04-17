@@ -1170,11 +1170,6 @@ Page {
                       positioningSettings.ellipsoidalElevation = !checked
                     }
                   }
-              }
-
-              ColumnLayout {
-                  Layout.fillWidth: true
-                  Layout.bottomMargin: 40
 
                   Label {
                       text: qsTr( "Vertical grid shift in use:" )
@@ -1183,10 +1178,12 @@ Page {
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
+                      Layout.columnSpan: 2
                   }
 
                   ComboBox {
                       Layout.fillWidth: true
+                      Layout.columnSpan: 2
                       model: [ qsTr( "None" ) ].concat( platformUtilities.availableGrids() );
                       font: Theme.defaultFont
                       popup.font: Theme.defaultFont
@@ -1209,6 +1206,32 @@ Page {
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
+                      Layout.columnSpan: 2
+                  }
+
+                  Label {
+                    text: qsTr("Log NMEA setences from device to file")
+                    font: Theme.defaultFont
+                    color: Theme.mainTextColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.Logging
+
+                    MouseArea {
+                      anchors.fill: parent
+                      onClicked: positionLogging.toggle()
+                    }
+                  }
+
+                  QfSwitch {
+                    id: positionLogging
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.Logging
+                    checked: positioningSettings.logging
+                    onCheckedChanged: {
+                      positioningSettings.logging = checked
+                    }
                   }
               }
 
@@ -1216,6 +1239,7 @@ Page {
                   // spacer item
                   Layout.fillWidth: true
                   Layout.fillHeight: true
+                  Layout.minimumHeight: 20
               }
             }
           }
