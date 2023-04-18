@@ -516,8 +516,7 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   {
     QStandardItem *item = constraintIterator.key();
     int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
-    const bool isNewFeature = mFeatureModel->feature().id() == FID_NULL;
-    if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || ( !isNewFeature && !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() ) )
+    if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
       continue;
 
     QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
