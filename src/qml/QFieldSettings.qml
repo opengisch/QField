@@ -1210,7 +1210,7 @@ Page {
                   }
 
                   Label {
-                    text: qsTr("Log NMEA setences from device to file")
+                    text: qsTr("Log NMEA sentences from device to file")
                     font: Theme.defaultFont
                     color: Theme.mainTextColor
                     wrapMode: Text.WordWrap
