@@ -106,7 +106,7 @@ int SnappingResult::vertexIndex() const
 
 QgsVectorLayer *SnappingResult::layer() const
 {
-  return mLayer;
+  return mLayer.data();
 }
 
 QgsFeatureId SnappingResult::featureId() const
