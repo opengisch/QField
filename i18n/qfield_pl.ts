@@ -3161,11 +3161,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation>Projekt bazowy</translation>
+        <translation type="vanished">Projekt bazowy</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation>Projekt bazowy</translation>
+        <translation type="vanished">Projekt bazowy</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3178,6 +3178,30 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Welcome back to QField.</source>
         <translation>Witaj ponownie w QField</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual Datasets Base Map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

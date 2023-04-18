@@ -3168,11 +3168,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation>Taustakarttaprojekti</translation>
+        <translation type="vanished">Taustakarttaprojekti</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation>Taustakarttaprojekti</translation>
+        <translation type="vanished">Taustakarttaprojekti</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3185,6 +3185,30 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Welcome back to QField.</source>
         <translation>Tervetuloa takaisin QFieldiin.</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual Datasets Base Map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

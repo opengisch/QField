@@ -3166,11 +3166,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Base map project</source>
-        <translation>Basiskaart project</translation>
+        <translation type="vanished">Basiskaart project</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation>Basiskaart project</translation>
+        <translation type="vanished">Basiskaart project</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3183,6 +3183,30 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Welcome back to QField.</source>
         <translation>Welkom terug bij QField.</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual Datasets Base Map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

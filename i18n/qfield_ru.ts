@@ -3165,11 +3165,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map project</source>
-        <translation>Базовый проект</translation>
+        <translation type="vanished">Базовый проект</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation>Базовый Проект</translation>
+        <translation type="vanished">Базовый Проект</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3182,6 +3182,30 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Welcome back to QField.</source>
         <translation>С возвращением в QField</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual Datasets Base Map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

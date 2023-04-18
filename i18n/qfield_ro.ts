@@ -3170,11 +3170,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation>Proiectul de bază al hărții</translation>
+        <translation type="vanished">Proiectul de bază al hărții</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation>Proiectul de bază al Hărții</translation>
+        <translation type="vanished">Proiectul de bază al Hărții</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3187,6 +3187,30 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Welcome back to QField.</source>
         <translation>Bine ați revenit pe QField.</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual Datasets Base Map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

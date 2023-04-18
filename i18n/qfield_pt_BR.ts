@@ -3157,11 +3157,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation>Projeto Mapa Base</translation>
+        <translation type="vanished">Projeto Mapa Base</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation>Projeto Mapa Base</translation>
+        <translation type="vanished">Projeto Mapa Base</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3174,6 +3174,30 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Welcome back to QField.</source>
         <translation>Bem-vindo de volta ao QField.</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual Datasets Base Map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
