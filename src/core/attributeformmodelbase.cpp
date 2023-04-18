@@ -81,13 +81,16 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
 
 bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
 {
+  QStandardItem *item = itemFromIndex( index );
+  if ( !item )
+    return false;
+
   if ( !qgsVariantEqual( data( index, role ), value ) )
   {
     switch ( role )
     {
       case AttributeFormModel::AttributeAllowEdit:
       {
-        QStandardItem *item = itemFromIndex( index );
         int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
         mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeAllowEdit );
         item->setData( value, AttributeFormModel::AttributeAllowEdit );
@@ -97,7 +100,6 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
 
       case AttributeFormModel::RememberValue:
       {
-        QStandardItem *item = itemFromIndex( index );
         int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
         mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::RememberAttribute );
         item->setData( value, AttributeFormModel::RememberValue );
@@ -106,7 +108,6 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
 
       case AttributeFormModel::AttributeValue:
       {
-        QStandardItem *item = itemFromIndex( index );
         int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
         bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
         if ( changed )
