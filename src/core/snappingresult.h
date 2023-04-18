@@ -90,7 +90,7 @@ class SnappingResult
     Type mType;
     double mDist;
     QgsPoint mPoint;
-    QgsVectorLayer *mLayer = nullptr;
+    QPointer<QgsVectorLayer> mLayer;
     QgsFeatureId mFid;
     int mVertexIndex; // e.g. vertex index
     QgsPoint mEdgePoints[2];
