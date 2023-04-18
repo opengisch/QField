@@ -81,6 +81,7 @@ void IosPlatformUtilities::afterUpdate() {
   appDir.mkpath(QStringLiteral("QField/auth"));
   appDir.mkpath(QStringLiteral("QField/fonts"));
   appDir.mkpath(QStringLiteral("QField/basemaps"));
+  appDir.mkpath(QStringLiteral("QField/logs"));
 }
 
 QString IosPlatformUtilities::systemSharedDataLocation() const {

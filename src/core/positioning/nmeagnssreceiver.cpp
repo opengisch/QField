@@ -75,7 +75,7 @@ void NmeaGnssReceiver::handleStartLogging()
   const QStringList appDataDirs = PlatformUtilities::instance()->appDataDirs();
   if ( !appDataDirs.isEmpty() )
   {
-    mLogFile.setFileName( QStringLiteral( "%1/nmea-%2.log" ).arg( appDataDirs.at( 0 ), QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-ddThh:mm:ss" ) ) ) );
+    mLogFile.setFileName( QStringLiteral( "%1/logs/nmea-%2.log" ).arg( appDataDirs.at( 0 ), QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-ddThh:mm:ss" ) ) ) );
     mLogFile.open( QIODevice::WriteOnly );
     mLogStream.setDevice( &mLogFile );
   }
