@@ -101,6 +101,28 @@ void Positioning::setAveragedPosition( bool averaged )
   emit averagedPositionChanged();
 }
 
+void Positioning::setLogging( bool logging )
+{
+  if ( mLogging == logging )
+    return;
+
+  mLogging = logging;
+
+  if ( mReceiver )
+  {
+    if ( mLogging )
+    {
+      mReceiver->startLogging();
+    }
+    else
+    {
+      mReceiver->stopLogging();
+    }
+  }
+
+  emit loggingChanged();
+}
+
 void Positioning::setEllipsoidalElevation( bool ellipsoidal )
 {
   if ( mEllipsoidalElevation == ellipsoidal )
@@ -132,6 +154,7 @@ void Positioning::setupDevice()
   if ( mReceiver )
   {
     mReceiver->disconnectDevice();
+    mReceiver->stopLogging();
     disconnect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
     mReceiver->deleteLater();
     mReceiver = nullptr;
@@ -178,6 +201,11 @@ void Positioning::setupDevice()
   setValid( mReceiver->valid() );
 
   emit deviceChanged();
+
+  if ( mLogging )
+  {
+    mReceiver->startLogging();
+  }
 
   if ( mActive )
   {

@@ -19,6 +19,7 @@
 #include "abstractgnssreceiver.h"
 #include "qgsnmeaconnection.h"
 
+#include <QFile>
 #include <QObject>
 
 /**
@@ -35,6 +36,8 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
 
     void initNmeaConnection( QIODevice *ioDevice );
 
+    AbstractGnssReceiver::Capabilities capabilities() const override { return Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging; }
+
   protected:
     std::unique_ptr<QgsNmeaConnection> mNmeaConnection;
 
@@ -42,9 +45,16 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
 
   private slots:
     void stateChanged( const QgsGpsInformation &info );
+    void nmeaSentenceReceived( const QString &substring );
 
   private:
+    void handleStartLogging() override;
+    void handleStopLogging() override;
+
     QTime mLastGnssPositionUtcTime;
+
+    QFile mLogFile;
+    QTextStream mLogStream;
 };
 
 #endif // NMEAGNSSRECEIVER_H

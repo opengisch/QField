@@ -649,31 +649,6 @@ Page {
                       }
                   }
 
-                  Label {
-                    text: qsTr("Use orthometric altitude from device")
-                    font: Theme.defaultFont
-                    color: Theme.mainTextColor
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    visible: positioningSettings.positioningDevice !== ''
-
-                    MouseArea {
-                      anchors.fill: parent
-                      onClicked: reportOrthometricAltitude.toggle()
-                    }
-                  }
-
-                  QfSwitch {
-                    id: reportOrthometricAltitude
-                    Layout.preferredWidth: implicitContentWidth
-                    Layout.alignment: Qt.AlignTop
-                    visible: positioningSettings.positioningDevice !== ''
-                    checked: !positioningSettings.ellipsoidalElevation
-                    onCheckedChanged: {
-                      positioningSettings.ellipsoidalElevation = !checked
-                    }
-                  }
-
                   QfButton {
                     id: connectButton
                     Layout.fillWidth: true
@@ -1165,11 +1140,36 @@ Page {
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
                   }
-              }
 
-              ColumnLayout {
-                  Layout.fillWidth: true
-                  Layout.bottomMargin: 40
+                  Item {
+                      // empty cell in grid layout
+                      width: 1
+                  }
+
+                  Label {
+                    text: qsTr("Use orthometric altitude from device")
+                    font: Theme.defaultFont
+                    color: Theme.mainTextColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
+
+                    MouseArea {
+                      anchors.fill: parent
+                      onClicked: reportOrthometricAltitude.toggle()
+                    }
+                  }
+
+                  QfSwitch {
+                    id: reportOrthometricAltitude
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
+                    checked: !positioningSettings.ellipsoidalElevation
+                    onCheckedChanged: {
+                      positioningSettings.ellipsoidalElevation = !checked
+                    }
+                  }
 
                   Label {
                       text: qsTr( "Vertical grid shift in use:" )
@@ -1178,10 +1178,12 @@ Page {
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
+                      Layout.columnSpan: 2
                   }
 
                   ComboBox {
                       Layout.fillWidth: true
+                      Layout.columnSpan: 2
                       model: [ qsTr( "None" ) ].concat( platformUtilities.availableGrids() );
                       font: Theme.defaultFont
                       popup.font: Theme.defaultFont
@@ -1204,6 +1206,32 @@ Page {
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
+                      Layout.columnSpan: 2
+                  }
+
+                  Label {
+                    text: qsTr("Log NMEA sentences from device to file")
+                    font: Theme.defaultFont
+                    color: Theme.mainTextColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.Logging
+
+                    MouseArea {
+                      anchors.fill: parent
+                      onClicked: positionLogging.toggle()
+                    }
+                  }
+
+                  QfSwitch {
+                    id: positionLogging
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.Logging
+                    checked: positioningSettings.logging
+                    onCheckedChanged: {
+                      positioningSettings.logging = checked
+                    }
                   }
               }
 
@@ -1211,6 +1239,7 @@ Page {
                   // spacer item
                   Layout.fillWidth: true
                   Layout.fillHeight: true
+                  Layout.minimumHeight: 20
               }
             }
           }

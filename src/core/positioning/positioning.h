@@ -52,6 +52,8 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool ellipsoidalElevation READ ellipsoidalElevation WRITE setEllipsoidalElevation NOTIFY ellipsoidalElevationChanged )
 
+    Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
+
   public:
     explicit Positioning( QObject *parent = nullptr );
 
@@ -141,9 +143,29 @@ class Positioning : public QObject
      */
     int averagedPositionCount() const { return mCollectedPositionInformations.size(); }
 
+    /**
+     * Returns whether GNSS devices will be asked to report ellipsoidal height.
+     * \note Requires a device type with ellipsoidal capability
+     */
     bool ellipsoidalElevation() const { return mEllipsoidalElevation; }
 
+    /**
+     * Sets whether GNSS devices will be asked to report ellipsoidal height.
+     * \note Requires a device type with ellipsoidal capability
+     */
     void setEllipsoidalElevation( bool ellipsoidal );
+
+    /**
+     * Returns whether GNSS devices will log their incoming position stream into a logfile.
+     * \note Requires a device type with logging capability
+     */
+    bool logging() const { return mLogging; }
+
+    /**
+     * Sets whether GNSS devices will log their incoming position stream into a logfile.
+     * \note Requires a device type with logging capability
+     */
+    void setLogging( bool logging );
 
   signals:
 
@@ -157,6 +179,7 @@ class Positioning : public QObject
     void averagedPositionCountChanged();
     void projectedPositionChanged();
     void ellipsoidalElevationChanged();
+    void loggingChanged();
 
   private slots:
 
@@ -186,6 +209,8 @@ class Positioning : public QObject
     bool mAveragedPosition = false;
 
     bool mEllipsoidalElevation = false;
+
+    bool mLogging = false;
 
     AbstractGnssReceiver *mReceiver = nullptr;
 };
