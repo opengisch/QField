@@ -125,6 +125,10 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     {
       req.addOrderBy( config.sortExpression(), config.sortOrder() == Qt::AscendingOrder );
     }
+    else if ( !layer->displayExpression().isEmpty() )
+    {
+      req.addOrderBy( layer->displayExpression() );
+    }
 
     QgsFeatureIterator fit = layer->getFeatures( req );
     QgsFeature f;

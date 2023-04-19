@@ -54,6 +54,10 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
     {
       request.addOrderBy( config.sortExpression(), config.sortOrder() == Qt::AscendingOrder );
     }
+    else if ( !vl->displayExpression().isEmpty() )
+    {
+      request.addOrderBy( vl->displayExpression() );
+    }
 
     QgsFeature feat;
     QgsFeatureIterator fit = vl->getFeatures( request );
