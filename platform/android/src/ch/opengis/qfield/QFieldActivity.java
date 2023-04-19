@@ -388,6 +388,7 @@ public class QFieldActivity extends QtActivity {
             new File(dataDir + "fonts/").mkdir();
             new File(dataDir + "proj/").mkdir();
             new File(dataDir + "auth/").mkdir();
+            new File(dataDir + "logs/").mkdirs();
 
             dataDirs.add(dataDir);
         }
@@ -403,6 +404,7 @@ public class QFieldActivity extends QtActivity {
             new File(rootDataDir + "fonts/").mkdir();
             new File(rootDataDir + "proj/").mkdir();
             new File(rootDataDir + "auth/").mkdir();
+            new File(rootDataDir + "logs/").mkdirs();
 
             dataDirs.add(rootDataDir);
         }
