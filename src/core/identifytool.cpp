@@ -120,6 +120,12 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     req.setLimit( QSettings().value( "/QField/identify/limit", 100 ).toInt() );
     req.setFlags( QgsFeatureRequest::ExactIntersect );
 
+    QgsAttributeTableConfig config = layer->attributeTableConfig();
+    if ( !config.sortExpression().isEmpty() )
+    {
+      req.addOrderBy( config.sortExpression(), config.sortOrder() == Qt::AscendingOrder );
+    }
+
     QgsFeatureIterator fit = layer->getFeatures( req );
     QgsFeature f;
     while ( fit.nextFeature( f ) )
