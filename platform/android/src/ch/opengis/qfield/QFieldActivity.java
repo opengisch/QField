@@ -109,6 +109,7 @@ public class QFieldActivity extends QtActivity {
     private float originalBrightness;
     private String pathsToExport;
     private double sceneTopMargin = 0;
+    private double sceneBottomMargin = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -137,6 +138,29 @@ public class QFieldActivity extends QtActivity {
             View decor = window.getDecorView();
             decor.setSystemUiVisibility(decor.getSystemUiVisibility() |
                                         View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+            resourceId = getResources().getIdentifier(
+                "config_navBarInteractionMode", "integer", "android");
+            if (resourceId > 0) {
+                // if the navigation bar is in gesture mode, draw under it
+                if (getResources().getInteger(resourceId) == 2) {
+                    resourceId = getResources().getIdentifier(
+                        "navigation_bar_height", "dimen", "android");
+                    if (resourceId > 0) {
+                        sceneBottomMargin =
+                            getResources().getDimension(resourceId);
+
+                        window.addFlags(WindowManager.LayoutParams
+                                            .FLAG_TRANSLUCENT_NAVIGATION);
+                        window.setNavigationBarColor(Color.TRANSPARENT);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            decor.setSystemUiVisibility(
+                                decor.getSystemUiVisibility() |
+                                View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -300,6 +324,10 @@ public class QFieldActivity extends QtActivity {
             }
         }
         return margin;
+    }
+
+    private double navigationBarMargin() {
+        return sceneBottomMargin;
     }
 
     private void dimBrightness() {
