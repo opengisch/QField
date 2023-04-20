@@ -547,6 +547,10 @@ Page {
     x: ( mainWindow.width - width ) / 2
     y: ( mainWindow.height - height - 80 ) / 2
 
+    onAboutToShow: {
+      importUrlInput.text = ''
+    }
+
     Column {
       width: childrenRect.width
       height: childrenRect.height
@@ -566,10 +570,10 @@ Page {
         font: Theme.defaultFont
         color: Theme.mainTextColor
       }
+
       QfTextField {
         id: importUrlInput
         width: importUrlLabel.width
-        focus: true
       }
     }
 
