@@ -314,7 +314,6 @@ void LayerObserver::addLayerListeners()
         qInfo() << "LayerObserver::addLayerListeners: vl->getLocalPkAttribute()=" << DeltaFileWrapper::getLocalPkAttribute( vl );
         qInfo() << "LayerObserver::addLayerListeners: vl->getSourcePkAttribute()=" << DeltaFileWrapper::getSourcePkAttribute( vl );
         qInfo() << "LayerObserver::addLayerListeners: vl->customProperties()=" << vl->customProperties().keys();
-        qInfo() << "LayerObserver::addLayerListeners: vl->originalXmlProperties()=" << vl->originalXmlProperties();
 
         disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &LayerObserver::onBeforeCommitChanges );
         disconnect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &LayerObserver::onCommittedFeaturesAdded );
