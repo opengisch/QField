@@ -44,12 +44,23 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
   for ( it = requests.constBegin(); it != requests.constEnd(); it++ )
   {
     QgsVectorLayer *vl = it.key();
+    QgsFeatureRequest request = it.value();
 
     if ( !vl || !vl->isValid() )
       continue;
 
+    QgsAttributeTableConfig config = vl->attributeTableConfig();
+    if ( !config.sortExpression().isEmpty() )
+    {
+      request.addOrderBy( config.sortExpression(), config.sortOrder() == Qt::AscendingOrder );
+    }
+    else if ( !vl->displayExpression().isEmpty() )
+    {
+      request.addOrderBy( vl->displayExpression() );
+    }
+
     QgsFeature feat;
-    QgsFeatureIterator fit = vl->getFeatures( it.value() );
+    QgsFeatureIterator fit = vl->getFeatures( request );
     while ( fit.nextFeature( feat ) )
     {
       mFeatures.append( QPair<QgsVectorLayer *, QgsFeature>( vl, feat ) );
