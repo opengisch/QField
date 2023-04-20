@@ -75,6 +75,7 @@ Drawer {
     visible: true
 
     topMargin: overlayFeatureFormDrawer.y == 0 ? mainWindow.sceneTopMargin : 0.0
+    bottomMargin: mainWindow.sceneBottomMargin
 
     property alias featureModel: attributeFormModel.featureModel
     property bool isSaved: false
