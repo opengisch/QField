@@ -477,6 +477,13 @@ Page {
                           onLinkActivated: Qt.openUrlExternally(link)
                       }
                   }
+
+                  Item {
+                      // spacer item
+                      Layout.fillWidth: true
+                      Layout.fillHeight: true
+                      Layout.minimumHeight: mainWindow.sceneBottomMargin + 20
+                  }
               }
           }
       }
@@ -1239,18 +1246,19 @@ Page {
                   // spacer item
                   Layout.fillWidth: true
                   Layout.fillHeight: true
-                  Layout.minimumHeight: 20
+                  Layout.minimumHeight: mainWindow.sceneBottomMargin + 20
               }
             }
           }
         }
 
       Item {
-          VariableEditor {
-              id: variableEditor
-              anchors.fill: parent
-              anchors.margins: 4
-          }
+        VariableEditor {
+            id: variableEditor
+            anchors.fill: parent
+            anchors.margins: 4
+            anchors.bottomMargin: mainWindow.sceneBottomMargin
+        }
       }
     }
   }
