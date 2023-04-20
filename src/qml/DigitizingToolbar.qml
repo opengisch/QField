@@ -40,6 +40,12 @@ VisibilityFadingRow {
       target: rubberbandModel
 
       function onVertexCountChanged() {
+          var extraVertexNeed = coordinateLocator && coordinateLocator.positionLocked
+                                && positioningSettings.averagedPositioning
+                                && positioningSettings.averagedPositioningMinimumCount > 1
+                                ? 1
+                                : 0
+
           // set geometry valid
           if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0)
           {
@@ -48,12 +54,12 @@ VisibilityFadingRow {
           else if (Number( rubberbandModel.geometryType ) === 1)
           {
             // Line: at least 2 points
-            geometryValid = rubberbandModel.vertexCount > 1
+            geometryValid = rubberbandModel.vertexCount > 1 + extraVertexNeed
           }
           else if (Number( rubberbandModel.geometryType ) === 2)
           {
             // Polygon: at least 3 points
-            geometryValid = rubberbandModel.vertexCount > 2
+            geometryValid = rubberbandModel.vertexCount > 2 + extraVertexNeed
           }
           else
           {
@@ -115,7 +121,6 @@ VisibilityFadingRow {
     bgcolor: Theme.mainColor
 
     onClicked: {
-      rubberbandModel.frozen = true
       confirm()
     }
   }
@@ -179,6 +184,7 @@ VisibilityFadingRow {
     ]
     transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
 
+    property bool lastAdditionAveraged: false
     property bool averagedPositionPressAndHeld: false
     property bool averagedPositionAutoRelease: false
     Connections {
@@ -223,11 +229,12 @@ VisibilityFadingRow {
           positionSource.averagedPosition = false;
           return;
         }
+
+        lastAdditionAveraged = true
+        addVertex()
         if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point ||
             Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
             confirm()
-        } else {
-            addVertex()
         }
         positionSource.averagedPosition = false;
       }
@@ -240,30 +247,31 @@ VisibilityFadingRow {
     }
 
     onClicked: {
-        if (!checkAccuracyRequirement()) {
-          return;
-        }
+      if (!checkAccuracyRequirement()) {
+        return;
+      }
 
-        if (coordinateLocator && coordinateLocator.positionLocked &&
-            positioningSettings.averagedPositioning &&
-            (positioningSettings.averagedPositioningMinimumCount > 1
-             || !positioningSettings.averagedPositioningAutomaticStop)) {
-          if (!positionSource.averagedPosition) {
-            averagedPositionAutoRelease = true;
-            positionSource.averagedPosition = true;
-          } else {
-            addVertexButton.averagedPositionPressAndHeld = true;
-            addVertexButton.released()
-          }
-          return;
-        }
-
-        if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point ||
-            Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
-            confirm()
+      if (coordinateLocator && coordinateLocator.positionLocked &&
+          positioningSettings.averagedPositioning &&
+          (positioningSettings.averagedPositioningMinimumCount > 1
+           || !positioningSettings.averagedPositioningAutomaticStop)) {
+        if (!positionSource.averagedPosition) {
+          averagedPositionAutoRelease = true;
+          positionSource.averagedPosition = true;
         } else {
-            addVertex()
+          addVertexButton.averagedPositionPressAndHeld = true;
+          addVertexButton.released()
         }
+        return;
+      }
+
+      lastAdditionAveraged = false
+      if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point ||
+          Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
+          confirm()
+      } else {
+          addVertex()
+      }
     }
   }
 
@@ -325,7 +333,13 @@ VisibilityFadingRow {
   }
 
   function confirm() {
-      digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
+      rubberbandModel.frozen = true
+      if (addVertexButton.lastAdditionAveraged) {
+        rubberbandModel.removeVertex();
+      } else {
+        digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
+      }
+
       confirmed()
   }
 }
