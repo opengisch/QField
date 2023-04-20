@@ -18,6 +18,7 @@ Item {
         id: aboutContainer
         anchors.fill: parent
         anchors.margins: 20
+        anchors.bottomMargin: mainWindow.sceneBottomMargin
 
         ScrollView {
             Layout.fillWidth: true

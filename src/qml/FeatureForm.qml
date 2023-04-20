@@ -38,6 +38,7 @@ Page {
   property bool featureCreated: false
 
   property double topMargin: 0.0
+  property double bottomMargin: 0.0
 
   function reset() {
     master.reset()
@@ -204,6 +205,7 @@ Page {
               anchors.fill: parent
               contentWidth: content.width
               contentHeight: content.height
+              bottomMargin: form.bottomMargin
               clip: true
 
               ScrollBar.vertical: ScrollBar {

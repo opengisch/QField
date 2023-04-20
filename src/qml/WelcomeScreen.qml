@@ -633,6 +633,7 @@ Page {
       topMargin: mainWindow.sceneTopMargin
     }
     iconSource: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {

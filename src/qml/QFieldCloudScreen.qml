@@ -575,6 +575,7 @@ Page {
       QfButton {
           id: refreshProjectsListBtn
           Layout.fillWidth: true
+          Layout.bottomMargin: mainWindow.sceneBottomMargin
           text: qsTr( "Refresh projects list" )
           enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn
                    && cloudConnection.state === QFieldCloudConnection.Idle

@@ -37,8 +37,6 @@ Page {
   ColumnLayout {
     id: files
     anchors.fill: parent
-    Layout.fillWidth: true
-    Layout.fillHeight: true
     spacing: 2
 
     RowLayout {
@@ -79,6 +77,7 @@ Page {
       Layout.fillHeight: true
       Layout.margins: 10
       Layout.topMargin: 0
+      Layout.bottomMargin: mainWindow.sceneBottomMargin
       color: Theme.controlBackgroundColor
       border.color: Theme.controlBorderColor
       border.width: 1
@@ -339,8 +338,8 @@ Page {
         iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
 
         onClicked: {
-          importMenu.popup(mainWindow.width - importMenu.width - 10,
-                           mainWindow.height - importMenu.height - 58)
+          importMenu.popup(importButton.x + importButton.width - importMenu.width + 10,
+                           importButton.y - importMenu.height)
         }
       }
     }
