@@ -2536,6 +2536,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Extra-large</source>
         <translation>Très grande</translation>
     </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Log des trames NMEA depuis l&apos;appareil vers un fichier.</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3183,7 +3187,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Projet par défaut</translation>
     </message>
     <message>
         <source>Base map</source>
@@ -3191,7 +3195,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Projet par défaut</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -3199,7 +3203,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Charger le projet par défaut au démarrage</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
@@ -3671,7 +3675,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner un modèle ci dessous</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>

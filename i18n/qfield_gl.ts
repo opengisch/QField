@@ -2539,6 +2539,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Extra-large</source>
         <translation>Extra grande</translation>
     </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>

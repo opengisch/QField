@@ -2534,6 +2534,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Extra-large</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>

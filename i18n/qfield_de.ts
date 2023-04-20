@@ -2534,6 +2534,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>Extra-large</source>
         <translation>Extra-groß</translation>
     </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>

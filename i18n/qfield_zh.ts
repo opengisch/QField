@@ -2537,6 +2537,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Extra-large</source>
         <translation>特大号</translation>
     </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>将日志NMEA语句从设备保存到文件</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3184,27 +3188,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>默认工程</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>底图</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>默认工程</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>单数据集底图</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>启动时加载默认工程</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>启动时加载上次打开的工程</translation>
     </message>
 </context>
 <context>

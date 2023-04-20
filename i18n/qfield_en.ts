@@ -2571,6 +2571,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Extra-large</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
