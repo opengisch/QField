@@ -769,6 +769,7 @@ ApplicationWindow {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
+    anchors.bottomMargin: mainWindow.sceneBottomMargin
     visible: navigation.isActive ||
              positioningSettings.showPositionInformation ||
              positioningPreciseView.visible ||
@@ -831,10 +832,10 @@ ApplicationWindow {
     }
 
     Rectangle {
-      visible: positioningInformationView.visible && sensorInformationView
+      visible: positioningInformationView.visible && sensorInformationView.visible
       width: parent.width
       height: 1
-      color: Theme.navigationBackgroundColor
+      color: Theme.sensorBackgroundColor
     }
 
     SensorInformationView {
@@ -961,7 +962,9 @@ ApplicationWindow {
     anchors.left: mapCanvas.left
     anchors.bottom: mapCanvas.bottom
     anchors.leftMargin: 4
-    anchors.bottomMargin: mainWindow.sceneBottomMargin + 56
+    anchors.bottomMargin: informationView.visible
+                          ? 54
+                          : mainWindow.sceneBottomMargin + 54
 
     round: true
     bgcolor: Theme.darkGraySemiOpaque
@@ -977,7 +980,9 @@ ApplicationWindow {
     anchors.left: mapCanvas.left
     anchors.bottom: mapCanvas.bottom
     anchors.leftMargin: 4
-    anchors.bottomMargin: mainWindow.sceneBottomMargin + 10
+    anchors.bottomMargin: informationView.visible
+                          ? 10
+                          : mainWindow.sceneBottomMargin + 10
   }
 
   QfDropShadow {
@@ -1372,7 +1377,9 @@ ApplicationWindow {
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
     anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: mainWindow.sceneBottomMargin + 4
+    anchors.bottomMargin: informationView.visible
+                          ? 4
+                          : mainWindow.sceneBottomMargin + 4
     spacing: 4
 
     QfToolButton {
