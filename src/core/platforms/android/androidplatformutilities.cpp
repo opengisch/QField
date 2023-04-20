@@ -672,13 +672,15 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
 
   const QAndroidJniObject activity = QtAndroid::androidActivity();
   double statusBarMargin = std::abs( static_cast<double>( activity.callMethod<jdouble>( "statusBarMargin" ) ) );
+  double navigationBarMargin = std::abs( static_cast<double>( activity.callMethod<jdouble>( "navigationBarMargin" ) ) );
 
   statusBarMargin /= QGuiApplication::primaryScreen()->devicePixelRatio();
+  navigationBarMargin /= QGuiApplication::primaryScreen()->devicePixelRatio();
 
   QVariantMap margins;
   margins[QLatin1String( "top" )] = statusBarMargin;
   margins[QLatin1String( "right" )] = 0.0;
-  margins[QLatin1String( "bottom" )] = 0.0;
+  margins[QLatin1String( "bottom" )] = navigationBarMargin;
   margins[QLatin1String( "left" )] = 0.0;
   return margins;
 }
