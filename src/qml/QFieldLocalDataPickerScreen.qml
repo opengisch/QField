@@ -332,15 +332,15 @@ Page {
 
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        anchors.bottomMargin: 10
+        anchors.bottomMargin: mainWindow.sceneBottomMargin + 10
         anchors.rightMargin: 10
 
         bgcolor: Theme.mainColor
         iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
 
         onClicked: {
-          importMenu.popup(mainWindow.width - importMenu.width - 10,
-                           mainWindow.height - importMenu.height - 58)
+          importMenu.popup(importButton.x + importButton.width - importMenu.width + 10,
+                           importButton.y - importMenu.height)
         }
       }
     }
