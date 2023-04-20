@@ -37,8 +37,6 @@ Page {
   ColumnLayout {
     id: files
     anchors.fill: parent
-    Layout.fillWidth: true
-    Layout.fillHeight: true
     spacing: 2
 
     RowLayout {
@@ -79,6 +77,7 @@ Page {
       Layout.fillHeight: true
       Layout.margins: 10
       Layout.topMargin: 0
+      Layout.bottomMargin: mainWindow.sceneBottomMargin
       color: Theme.controlBackgroundColor
       border.color: Theme.controlBorderColor
       border.width: 1
@@ -332,7 +331,7 @@ Page {
 
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        anchors.bottomMargin: mainWindow.sceneBottomMargin + 10
+        anchors.bottomMargin: 10
         anchors.rightMargin: 10
 
         bgcolor: Theme.mainColor
