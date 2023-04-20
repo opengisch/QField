@@ -1564,6 +1564,7 @@ ApplicationWindow {
       property int followLocationMinScale: 125
       property int followLocationMinMargin: 40
       property int followLocationScreenFraction: settings ? settings.value( "/QField/Positioning/FollowScreenFraction", 5 ) : 5
+
       function followLocation(forceRecenter) {
         var screenLocation = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
         if (navigation.isActive && navigationButton.followIncludeDestination) {
@@ -1588,10 +1589,10 @@ ApplicationWindow {
         } else {
           var threshold = Math.min( mainWindow.width, mainWindow.height ) / followLocationScreenFraction;
           if ( forceRecenter
-               || screenLocation.x < threshold
-               || screenLocation.x > mainWindow.width - threshold
-               || screenLocation.y < threshold
-               || screenLocation.y > mainWindow.height - threshold )
+               || screenLocation.x < mapCanvas.x + threshold
+               || screenLocation.x > mapCanvas.width - threshold
+               || screenLocation.y < mapCanvas.y + threshold
+               || screenLocation.y > mapCanvas.height - threshold )
           {
             gnssButton.followActiveSkipExtentChanged = true;
             mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
