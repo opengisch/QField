@@ -51,10 +51,38 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     void handleStartLogging() override;
     void handleStopLogging() override;
 
+    void handleIMUCorrection( const QString &sentence );
+
     QTime mLastGnssPositionUtcTime;
 
     QFile mLogFile;
     QTextStream mLogStream;
+
+    GnssPositionInformation mCurrentNmeaGnssPositionInformation;
+
+    struct IMUCorrectedPosition
+    {
+        bool valid;
+        QDateTime utcDateTime;
+        double latitude;
+        double longitude;
+        double altitude;
+        double speed;
+        double speedDown;
+        double direction;
+        double roll;
+        double pitch;
+        double heading;
+        double steering;
+        double accelerometerX;
+        double accelerometerY;
+        double accelerometerZ;
+        double gyroX;
+        double gyroY;
+        double gyroZ;
+        double steeringZ;
+    };
+    IMUCorrectedPosition mIMUCorrectedPosition;
 };
 
 #endif // NMEAGNSSRECEIVER_H

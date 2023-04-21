@@ -27,7 +27,8 @@
 GnssPositionInformation::GnssPositionInformation( double latitude, double longitude, double elevation, double speed, double direction,
                                                   const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
                                                   QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn,
-                                                  bool satInfoComplete, double verticalSpeed, double magneticVariation, int averagedCount, const QString &sourceName )
+                                                  bool satInfoComplete, double verticalSpeed, double magneticVariation, int averagedCount, const QString &sourceName,
+                                                  bool imuCorrection )
   : mLatitude( latitude )
   , mLongitude( longitude )
   , mElevation( elevation )
@@ -52,6 +53,7 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
   , mMagneticVariation( magneticVariation )
   , mAveragedCount( averagedCount )
   , mSourceName( sourceName )
+  , mIMUCorrection( imuCorrection )
 {
 }
 
@@ -121,38 +123,44 @@ GnssPositionInformation::FixStatus GnssPositionInformation::fixStatus() const
 
 QString GnssPositionInformation::qualityDescription() const
 {
+  QString quality;
   switch ( mQuality )
   {
     case 8:
-      return QCoreApplication::translate( "QgsGpsInformation", "Simulation mode" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "Simulation mode" );
 
     case 7:
-      return QCoreApplication::translate( "QgsGpsInformation", "Manual input mode" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "Manual input mode" );
 
     case 6:
-      return QCoreApplication::translate( "QgsGpsInformation", "Estimated" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "Estimated" );
 
     case 5:
-      return QCoreApplication::translate( "QgsGpsInformation", "Float RTK" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "Float RTK" );
 
     case 4:
-      return QCoreApplication::translate( "QgsGpsInformation", "Fixed RTK" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "Fixed RTK" );
 
     case 3:
-      return QCoreApplication::translate( "QgsGpsInformation", "PPS" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "PPS" );
 
     case 2:
-      return QCoreApplication::translate( "QgsGpsInformation", "DGPS" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "DGPS" );
 
     case 1:
-      return QCoreApplication::translate( "QgsGpsInformation", "Autonomous" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "Autonomous" );
 
     case 0:
-      return QCoreApplication::translate( "QgsGpsInformation", "Invalid" );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "Invalid" );
 
     default:
-      return QCoreApplication::translate( "QgsGpsInformation", "Unknown (%1)" ).arg( QString::number( mQuality ) );
+      quality = QCoreApplication::translate( "QgsGpsInformation", "Unknown (%1)" ).arg( QString::number( mQuality ) );
   }
+
+  if ( mIMUCorrection )
+    quality.append( QCoreApplication::translate( "QgsGpsInformation", " - IMU active" ) );
+
+  return quality;
 }
 
 QString GnssPositionInformation::fixStatusDescription() const
