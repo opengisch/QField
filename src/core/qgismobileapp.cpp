@@ -813,7 +813,7 @@ void QgisMobileapp::readProjectFile()
       filePath += QStringLiteral( "|option:DPI=300" );
     }
 
-    const QList<QgsProviderSublayerDetails> sublayers = QgsProviderRegistry::instance()->querySublayers( filePath );
+    const QList<QgsProviderSublayerDetails> sublayers = QgsProviderRegistry::instance()->querySublayers( filePath, Qgis::SublayerQueryFlags() | Qgis::SublayerQueryFlag::ResolveGeometryType );
     for ( const QgsProviderSublayerDetails &sublayer : sublayers )
     {
       std::unique_ptr<QgsMapLayer> layer( sublayer.toLayer( options ) );
