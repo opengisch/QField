@@ -2543,7 +2543,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Registar informação NMEA a partir do dispositivo para um ficheiro</translation>
     </message>
 </context>
 <context>
@@ -3192,27 +3192,27 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Projeto padrão</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa base</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Projeto padrão</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Conjunto de dados individuais de mapas base</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Abrir um projeto padrão no lançamento</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Abrir o último projeto aberto no lançamento</translation>
     </message>
 </context>
 <context>
