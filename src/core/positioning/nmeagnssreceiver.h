@@ -51,7 +51,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     void handleStartLogging() override;
     void handleStopLogging() override;
 
-    void handleIMUCorrection( const QString &sentence );
+    void processImuSentence( const QString &sentence );
 
     QTime mLastGnssPositionUtcTime;
 
@@ -60,7 +60,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
 
     GnssPositionInformation mCurrentNmeaGnssPositionInformation;
 
-    struct IMUCorrectedPosition
+    struct ImuPosition
     {
         bool valid;
         QDateTime utcDateTime;
@@ -82,7 +82,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
         double gyroZ;
         double steeringZ;
     };
-    IMUCorrectedPosition mIMUCorrectedPosition;
+    ImuPosition mImuPosition;
 };
 
 #endif // NMEAGNSSRECEIVER_H

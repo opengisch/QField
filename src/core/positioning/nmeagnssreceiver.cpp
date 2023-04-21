@@ -46,16 +46,16 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
   {
     mLastGnssPositionUtcTime = info.utcTime;
 
-    if ( mIMUCorrectedPosition.valid )
+    if ( mImuPosition.valid )
     {
-      mLastGnssPositionInformation = GnssPositionInformation( mIMUCorrectedPosition.latitude, mIMUCorrectedPosition.longitude,
-                                                              mIMUCorrectedPosition.altitude,
-                                                              mIMUCorrectedPosition.speed * 1000 / 60 / 60, mIMUCorrectedPosition.direction,
+      mLastGnssPositionInformation = GnssPositionInformation( mImuPosition.latitude, mImuPosition.longitude,
+                                                              mImuPosition.altitude,
+                                                              mImuPosition.speed * 1000 / 60 / 60, mImuPosition.direction,
                                                               info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                               info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                               info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                               0, QStringLiteral( "nmea" ),
-                                                              mIMUCorrectedPosition.valid );
+                                                              mImuPosition.valid );
     }
     else
       mLastGnssPositionInformation = mCurrentNmeaGnssPositionInformation;
@@ -86,7 +86,7 @@ void NmeaGnssReceiver::nmeaSentenceReceived( const QString &substring )
 
   if ( substring.startsWith( "$INS.NAVI" ) )
   {
-    handleIMUCorrection( substring );
+    processImuSentence( substring );
   }
 }
 
@@ -106,60 +106,59 @@ void NmeaGnssReceiver::handleStopLogging()
   mLogFile.close();
 }
 
-void NmeaGnssReceiver::handleIMUCorrection( const QString &sentence )
+void NmeaGnssReceiver::processImuSentence( const QString &sentence )
 {
-  static const int PARAMETER_STATUS = 19;
+  static const int PARAMETER_STATUS_INDEX = 19;
 
   static const int IMU_KQGEO_STATUS_OK = 1026;
   static const int IMU_KQGEO_STATUS_OK_NEW = 1967106;
 
   QStringList parameters = sentence.split( ',' );
-  if ( parameters.size() < PARAMETER_STATUS )
+  if ( parameters.size() <= PARAMETER_STATUS_INDEX )
     return;
 
   // Parse Status
   bool ok = false;
-  const int status = parameters[PARAMETER_STATUS].toInt( &ok );
+  const int status = parameters[PARAMETER_STATUS_INDEX].toInt( &ok );
   if ( ok == false )
   {
-    mIMUCorrectedPosition.valid = false;
+    mImuPosition.valid = false;
     return;
   }
 
   if ( status != IMU_KQGEO_STATUS_OK && status != IMU_KQGEO_STATUS_OK_NEW )
   {
-    mIMUCorrectedPosition.valid = false;
+    mImuPosition.valid = false;
     return;
   }
 
-  mIMUCorrectedPosition.valid = true;
+  mImuPosition.valid = true;
 
   // Parse other parameters
-
-  QDateTime utcDateTime = QDateTime::currentDateTime();
+  mImuPosition.utcDateTime = QDateTime::currentDateTime();
   QTime time = QTime::fromString( parameters[1], "hhmmss.zzz" );
   if ( time.isValid() )
-    utcDateTime.setTime( time );
+    mImuPosition.utcDateTime.setTime( time );
 
-  mIMUCorrectedPosition.latitude = parameters[2].toDouble();
-  mIMUCorrectedPosition.longitude = parameters[3].toDouble();
-  mIMUCorrectedPosition.altitude = parameters[4].toDouble();
+  mImuPosition.latitude = parameters[2].toDouble();
+  mImuPosition.longitude = parameters[3].toDouble();
+  mImuPosition.altitude = parameters[4].toDouble();
 
   double speedNorth = parameters[5].toDouble();
   double speedEast = parameters[6].toDouble();
-  mIMUCorrectedPosition.speed = sqrt( speedNorth * speedNorth + speedEast * speedEast );
-  mIMUCorrectedPosition.speedDown = parameters[7].toDouble();
-  mIMUCorrectedPosition.direction = atan( speedNorth / speedEast );
+  mImuPosition.speed = sqrt( speedNorth * speedNorth + speedEast * speedEast );
+  mImuPosition.speedDown = parameters[7].toDouble();
+  mImuPosition.direction = atan( speedNorth / speedEast );
 
-  mIMUCorrectedPosition.roll = parameters[8].toDouble();
-  mIMUCorrectedPosition.pitch = parameters[9].toDouble();
-  mIMUCorrectedPosition.heading = parameters[10].toDouble();
-  mIMUCorrectedPosition.steering = parameters[11].toDouble();
-  mIMUCorrectedPosition.accelerometerX = parameters[12].toDouble();
-  mIMUCorrectedPosition.accelerometerY = parameters[13].toDouble();
-  mIMUCorrectedPosition.accelerometerZ = parameters[14].toDouble();
-  mIMUCorrectedPosition.gyroX = parameters[15].toDouble();
-  mIMUCorrectedPosition.gyroY = parameters[16].toDouble();
-  mIMUCorrectedPosition.gyroZ = parameters[17].toDouble();
-  mIMUCorrectedPosition.steeringZ = parameters[18].toDouble();
+  mImuPosition.roll = parameters[8].toDouble();
+  mImuPosition.pitch = parameters[9].toDouble();
+  mImuPosition.heading = parameters[10].toDouble();
+  mImuPosition.steering = parameters[11].toDouble();
+  mImuPosition.accelerometerX = parameters[12].toDouble();
+  mImuPosition.accelerometerY = parameters[13].toDouble();
+  mImuPosition.accelerometerZ = parameters[14].toDouble();
+  mImuPosition.gyroX = parameters[15].toDouble();
+  mImuPosition.gyroY = parameters[16].toDouble();
+  mImuPosition.gyroZ = parameters[17].toDouble();
+  mImuPosition.steeringZ = parameters[18].toDouble();
 }

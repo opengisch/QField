@@ -53,7 +53,7 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
   , mMagneticVariation( magneticVariation )
   , mAveragedCount( averagedCount )
   , mSourceName( sourceName )
-  , mIMUCorrection( imuCorrection )
+  , mImuCorrection( imuCorrection )
 {
 }
 
@@ -157,8 +157,8 @@ QString GnssPositionInformation::qualityDescription() const
       quality = QCoreApplication::translate( "QgsGpsInformation", "Unknown (%1)" ).arg( QString::number( mQuality ) );
   }
 
-  if ( mIMUCorrection )
-    quality.append( QCoreApplication::translate( "QgsGpsInformation", " - IMU active" ) );
+  if ( mImuCorrection )
+    quality.append( QCoreApplication::translate( "QgsGpsInformation", " - IMU" ) );
 
   return quality;
 }

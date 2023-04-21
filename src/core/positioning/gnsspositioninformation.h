@@ -287,7 +287,7 @@ class GnssPositionInformation
     double mMagneticVariation = std::numeric_limits<double>::quiet_NaN();
     int mAveragedCount = 0;
     QString mSourceName;
-    bool mIMUCorrection;
+    bool mImuCorrection;
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )
