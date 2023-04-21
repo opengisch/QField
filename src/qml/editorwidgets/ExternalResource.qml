@@ -108,12 +108,16 @@ EditorWidgetBase {
     feature: currentFeature
     layer: currentLayer
     expressionText: {
-      if ( currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined ) {
-        var value =JSON.parse(currentLayer.customProperty('QFieldSync/attachment_naming'))[field.name];
+      var value;
+      if (currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
+        value = JSON.parse(currentLayer.customProperty('QFieldSync/attachment_naming'))[field.name];
         return value !== undefined ? value : ''
-      } else {
-        return ''
+      } else if (currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
+        // Fallback to old configuration key
+        value = JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name];
+        return value !== undefined ? value : ''
       }
+      return ''
     }
   }
 
