@@ -96,7 +96,7 @@ Popup {
                               Layout.fillWidth: true
                               topPadding: 5
                               bottomPadding: 5
-                              text: qsTr('Enable %1 locator by default').arg(Name)
+                              text: qsTr('Enable %1 locator by default').arg('<em>'+Name+'</em>')
                               font: Theme.tipFont
                               indicator.height: 16
                               indicator.width: 16
@@ -109,7 +109,7 @@ Popup {
                             Layout.fillWidth: true
                             leftPadding: 5
                             bottomPadding: 5
-                            text: tr('With the <em>%1</em> prefix this can also be triggered when disabled').arg(Prefix)
+                            text: qsTr('By typing the %1 prefix in the locator, this can still be triggered when disabled').arg('<em>'+Prefix+'</em>')
                             font: Theme.tipFont
                             color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
