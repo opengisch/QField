@@ -36,7 +36,7 @@ Popup {
             leftPadding: 48
             rightPadding: 48
             width: parent.width - 20
-            text: qsTr( "Search Settings" )
+            text: qsTr( "Search Bar Settings" )
             font: Theme.strongFont
             color: Theme.mainColor
             horizontalAlignment: Text.AlignHCenter
@@ -92,11 +92,20 @@ Popup {
                             color: Theme.mainTextColor
                             wrapMode: Text.WordWrap
                         }
+                        Text {
+                            Layout.fillWidth: true
+                            leftPadding: 5
+                            bottomPadding: 5
+                            text: Description
+                            font: Theme.tipFont
+                            color: Theme.secondaryTextColor
+                            wrapMode: Text.WordWrap
+                        }
                         CheckBox {
                               Layout.fillWidth: true
                               topPadding: 5
                               bottomPadding: 5
-                              text: qsTr('Enable %1 locator by default').arg('<em>'+Name+'</em>')
+                              text: qsTr('Enable %1 locator by default').arg('<b>'+Name+'</b>')
                               font: Theme.tipFont
                               indicator.height: 16
                               indicator.width: 16
@@ -106,19 +115,11 @@ Popup {
                               onCheckedChanged: Default = checked
                         }
                         Text {
+                            visible: Default ? false : true
                             Layout.fillWidth: true
                             leftPadding: 5
                             bottomPadding: 5
-                            text: qsTr('By typing the %1 prefix in the locator, this can still be triggered when disabled').arg('<em>'+Prefix+'</em>')
-                            font: Theme.tipFont
-                            color: Theme.secondaryTextColor
-                            wrapMode: Text.WordWrap
-                        }
-                        Text {
-                            Layout.fillWidth: true
-                            leftPadding: 5
-                            bottomPadding: 5
-                            text: Description
+                            text: qsTr('By typing the %1 prefix in the search bar, this locator filter can even be used when disabled').arg('<b>'+Prefix+'</b>')
                             font: Theme.tipFont
                             color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
