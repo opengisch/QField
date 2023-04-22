@@ -75,7 +75,7 @@ TestCase {
     }
 
     function test_05_happyIMU() {
-        nmeaTcpServer.setUdpTestFile('happyWithIMU.txt')
+        tcpUdpNmeaServer.setUdpTestFile('happyWithIMU.txt')
 
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = ''
