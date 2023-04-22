@@ -108,12 +108,16 @@ EditorWidgetBase {
     feature: currentFeature
     layer: currentLayer
     expressionText: {
-      if ( currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined ) {
-        var value =JSON.parse(currentLayer.customProperty('QFieldSync/attachment_naming'))[field.name];
+      var value;
+      if (currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
+        value = JSON.parse(currentLayer.customProperty('QFieldSync/attachment_naming'))[field.name];
         return value !== undefined ? value : ''
-      } else {
-        return ''
+      } else if (currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
+        // Fallback to old configuration key
+        value = JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name];
+        return value !== undefined ? value : ''
       }
+      return ''
     }
   }
 
@@ -547,8 +551,8 @@ EditorWidgetBase {
 
       onFinished: {
         var filepath = getResourceFilePath()
-        var extension = path.substring(path.lastIndexOf('.') + 1)
-        filepath = filepath.replace('{extension}', extension)
+        filepath = filepath.replace('{filename}', FileUtils.fileName(path))
+        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path))
         platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
         valueChangeRequested(filepath, false)
@@ -589,8 +593,8 @@ EditorWidgetBase {
 
       onFinished: {
         var filepath = getResourceFilePath()
-        var extension = path.substring(path.lastIndexOf('.') + 1)
-        filepath = filepath.replace('{extension}', extension)
+        filepath = filepath.replace('{filename}', FileUtils.fileName(path))
+        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path))
         platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
         if (!cameraLoader.isVideo) {

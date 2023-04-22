@@ -54,6 +54,7 @@ QVariant ExpressionEvaluator::evaluate()
                     << QgsExpressionContextUtils::projectScope( QgsProject::instance() )
                     << QgsExpressionContextUtils::layerScope( mLayer );
 
+  exp.prepare( &expressionContext );
   QVariant value = exp.evaluate( &expressionContext );
   return value.toString();
 }
