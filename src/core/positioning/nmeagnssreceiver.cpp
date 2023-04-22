@@ -23,6 +23,7 @@
 
 NmeaGnssReceiver::NmeaGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
+  , mImuPosition()
 {
 }
 
