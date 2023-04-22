@@ -31,23 +31,11 @@
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
-class Setup : public QObject
+class TcpUdpNmeaServer : public QObject
 {
     Q_OBJECT
 
-  private:
-    QProcess mTcpServerProcess;
-    QProcess mUdpServerProcess;
-    QString mDataDir;
-
-  public:
-    Setup()
-    {
-      Q_INIT_RESOURCE( qml );
-    }
-
-  public slots:
-    void applicationAvailable()
+    void start()
     {
       // start a UDP server streaming NMEA strings (used in tst_positioning.qml)
       const QStringList arguments = QCoreApplication::arguments();
@@ -72,23 +60,75 @@ class Setup : public QObject
                                                       << QStringLiteral( "tcp" )
                                                       << QStringLiteral( "--port" )
                                                       << QStringLiteral( "11111" )
-                                                      << QStringLiteral( "%1/happy.txt" ).arg( nmeaServer ) );
+                                                      << QStringLiteral( "%1/%2" ).arg( nmeaServer, mTcpTestFile ) );
         mTcpServerProcess.start();
 
         mUdpServerProcess.setProgram( QStringLiteral( "python3" ) );
         mUdpServerProcess.setArguments( QStringList() << QStringLiteral( "%1/nmeaserver.py" ).arg( nmeaServer )
                                                       << QStringLiteral( "--type" )
                                                       << QStringLiteral( "udp" )
-                                                      << QStringLiteral( "%1/TrimbleR1.txt" ).arg( nmeaServer ) );
+                                                      << QStringLiteral( "%1/%2" ).arg( nmeaServer, mUdpTestFile ) );
         mUdpServerProcess.start();
       }
+    }
+
+    void kill()
+    {
+      // kill the TCP and UDP server
+      mTcpServerProcess.kill();
+      mUdpServerProcess.kill();
+    }
+
+  public slots:
+
+    void setTcpTestFile( const QString &fileName )
+    {
+      mTcpTestFile = fileName;
+    }
+
+    void setUdpTestFile( const QString &fileName )
+    {
+      mUdpTestFile = fileName;
+    }
+
+  private:
+    QProcess mTcpServerProcess;
+    QString mTcpTestFile = "happy.txt";
+
+    QProcess mUdpServerProcess;
+    QString mUdpTestFile = "TrimbleR1.txt";
+};
+
+class Setup : public QObject
+{
+    Q_OBJECT
+
+  private:
+    QString mDataDir;
+    TcpUdpNmeaServer mTcpUdpNmeaServer;
+
+  public:
+    Setup()
+    {
+      Q_INIT_RESOURCE( qml );
+    }
+
+  public slots:
+
+    void qmlEngineAvailable( QQmlEngine *engine )
+    {
+      engine->rootContext->setContextProperty( "tcpUdpNmeaServer", mTcpUdpNmeaServer );
+    }
+
+    void applicationAvailable()
+    {
+      mTcpUdpNmeaServer.start();
     }
 
     void cleanupTestCase()
     {
       // kill the TCP and UDP server
-      mTcpServerProcess.kill();
-      mUdpServerProcess.kill();
+      mTcpUdpNmeaServer.kill();
     }
 
     void qmlEngineAvailable( QQmlEngine *engine )

@@ -73,4 +73,16 @@ TestCase {
         compare(Math.floor(positioning.positionInformation.hacc), 2)
         compare(Math.floor(positioning.positionInformation.vacc), 4)
     }
+
+    function test_05_happyIMU() {
+        nmeaTcpServer.setUdpTestFile('happyWithIMU.txt')
+
+        coordinateTransformer.deltaZ = 0
+        coordinateTransformer.verticalGrid = ''
+
+        // wait a few seconds so positioning can catch some NMEA strings
+        wait(2500)
+
+        compare(positioning.positionInformation.imuCorrection, true)
+    }
 }

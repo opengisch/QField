@@ -262,6 +262,11 @@ class GnssPositionInformation
      */
     QString fixStatusDescription() const;
 
+    /**
+     * Returns whether the IMU correction is active
+     */
+    bool imuCorrection() const { return mImuCorrection; }
+
   private:
     double mLatitude = std::numeric_limits<double>::quiet_NaN();
     double mLongitude = std::numeric_limits<double>::quiet_NaN();

@@ -44,6 +44,12 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
   }
   mLastGnssPositionValid = !std::isnan( info.latitude );
 
+  bool ellipsoidalElevation = false;
+  if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
+  {
+    ellipsoidalElevation = positioning->ellipsoidalElevation();
+  }
+
   if ( info.utcTime != mLastGnssPositionUtcTime )
   {
     mLastGnssPositionUtcTime = info.utcTime;
@@ -51,7 +57,7 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
     if ( mImuPosition.valid )
     {
       mLastGnssPositionInformation = GnssPositionInformation( mImuPosition.latitude, mImuPosition.longitude,
-                                                              mImuPosition.altitude,
+                                                              ellipsoidalElevation ? mImuPosition.altitude + info.elevation_diff : mImuPosition.altitude,
                                                               mImuPosition.speed * 1000 / 60 / 60, mImuPosition.direction,
                                                               info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                               info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType,
@@ -67,14 +73,9 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
     emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
   }
 
-  bool ellipsoidalElevation = false;
-  if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
-  {
-    ellipsoidalElevation = positioning->ellipsoidalElevation();
-  }
-
   // QgsGpsInformation's speed is served in km/h, translate to m/s
-  mCurrentNmeaGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, ellipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation,
+  mCurrentNmeaGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude,
+                                                                 ellipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation,
                                                                  info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                                  info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                                  info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
