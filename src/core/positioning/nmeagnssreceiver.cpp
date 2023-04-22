@@ -48,11 +48,17 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 
     if ( mImuPosition.valid )
     {
+      int quality = info.quality;
+      if ( mImuPosition.parseError )
+        quality = 0;
+
       mLastGnssPositionInformation = GnssPositionInformation( mImuPosition.latitude, mImuPosition.longitude,
                                                               mImuPosition.altitude,
                                                               mImuPosition.speed * 1000 / 60 / 60, mImuPosition.direction,
                                                               info.satellitesInView, info.pdop, info.hdop, info.vdop,
-                                                              info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
+                                                              info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType,
+                                                              quality,
+                                                              info.satellitesUsed, info.status,
                                                               info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                               0, QStringLiteral( "nmea" ),
                                                               mImuPosition.valid );
@@ -133,6 +139,7 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   }
 
   mImuPosition.valid = true;
+  mImuPosition.parseError = false;
 
   // Parse other parameters
   mImuPosition.utcDateTime = QDateTime::currentDateTime();
@@ -140,15 +147,29 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   if ( time.isValid() )
     mImuPosition.utcDateTime.setTime( time );
 
-  mImuPosition.latitude = parameters[2].toDouble();
-  mImuPosition.longitude = parameters[3].toDouble();
-  mImuPosition.altitude = parameters[4].toDouble();
+  mImuPosition.latitude = parameters[2].toDouble( &ok );
+  if ( !ok )
+    mImuPosition.parseError = true;
+
+  mImuPosition.longitude = parameters[3].toDouble( &ok );
+  if ( !ok )
+    mImuPosition.parseError = true;
+
+  mImuPosition.altitude = parameters[4].toDouble( &ok );
+  if ( !ok )
+    mImuPosition.parseError = true;
 
   double speedNorth = parameters[5].toDouble();
   double speedEast = parameters[6].toDouble();
   mImuPosition.speed = sqrt( speedNorth * speedNorth + speedEast * speedEast );
   mImuPosition.speedDown = parameters[7].toDouble();
-  mImuPosition.direction = atan( speedNorth / speedEast );
+  mImuPosition.direction = 0.0;
+  if ( speedEast != 0.0 )
+    mImuPosition.direction = atan( speedNorth / speedEast );
+  else if ( speedNorth > 0.0 )
+    mImuPosition.direction = M_PI_2;
+  else if ( speedNorth < 0.0 )
+    mImuPosition.direction = -M_PI_2;
 
   mImuPosition.roll = parameters[8].toDouble();
   mImuPosition.pitch = parameters[9].toDouble();

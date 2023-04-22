@@ -63,6 +63,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     struct ImuPosition
     {
         bool valid;
+        bool parseError;
         QDateTime utcDateTime;
         double latitude;
         double longitude;
