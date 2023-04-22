@@ -81,6 +81,7 @@ class GnssPositionInformation
     Q_PROPERTY( double magneticVariation READ magneticVariation )
     Q_PROPERTY( int averagedCount READ averagedCount )
     Q_PROPERTY( QString sourceName READ sourceName )
+    Q_PROPERTY( bool imuCorrection READ imuCorrection )
 
   public:
     /**

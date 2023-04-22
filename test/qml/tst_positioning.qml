@@ -83,6 +83,6 @@ TestCase {
         // wait a few seconds so positioning can catch some NMEA strings
         wait(2500)
 
-        compare(positioning.positionInformation.imuCorrection(), true)
+        compare(positioning.positionInformation.imuCorrection, true)
     }
 }
