@@ -128,31 +128,31 @@ QString GnssPositionInformation::qualityDescription() const
   {
     case 8:
       quality = QCoreApplication::translate( "QgsGpsInformation", "Simulation mode" );
-
+      break;
     case 7:
       quality = QCoreApplication::translate( "QgsGpsInformation", "Manual input mode" );
-
+      break;
     case 6:
       quality = QCoreApplication::translate( "QgsGpsInformation", "Estimated" );
-
+      break;
     case 5:
       quality = QCoreApplication::translate( "QgsGpsInformation", "Float RTK" );
-
+      break;
     case 4:
       quality = QCoreApplication::translate( "QgsGpsInformation", "Fixed RTK" );
-
+      break;
     case 3:
       quality = QCoreApplication::translate( "QgsGpsInformation", "PPS" );
-
+      break;
     case 2:
       quality = QCoreApplication::translate( "QgsGpsInformation", "DGPS" );
-
+      break;
     case 1:
       quality = QCoreApplication::translate( "QgsGpsInformation", "Autonomous" );
-
+      break;
     case 0:
       quality = QCoreApplication::translate( "QgsGpsInformation", "Invalid" );
-
+      break;
     default:
       quality = QCoreApplication::translate( "QgsGpsInformation", "Unknown (%1)" ).arg( QString::number( mQuality ) );
   }
