@@ -189,6 +189,7 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
+    bottomMargin: mainWindow.sceneBottomMargin
 
     property bool shown: false
 
@@ -350,6 +351,7 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
+    bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
 
     digitizingToolbar: featureForm.digitizingToolbar
