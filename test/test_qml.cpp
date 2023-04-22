@@ -49,6 +49,7 @@ class TcpUdpNmeaServer : public QObject
           {
             // the nmea server python script location, relative to the absolute input path
             nmeaServer = QString( "%1/../nmea_server" ).arg( arguments[i + 1] );
+            mDataDir = QString( "%1/../testdata" ).arg( arguments[i + 1] );
           }
         }
       }
@@ -79,6 +80,8 @@ class TcpUdpNmeaServer : public QObject
       mUdpServerProcess.kill();
     }
 
+    QString dataDir() const { return mDataDir; }
+
   public slots:
 
     void setTcpTestFile( const QString &fileName )
@@ -92,6 +95,8 @@ class TcpUdpNmeaServer : public QObject
     }
 
   private:
+    QString mDataDir;
+
     QProcess mTcpServerProcess;
     QString mTcpTestFile = "happy.txt";
 
@@ -138,6 +143,7 @@ class Setup : public QObject
 
       qmlInit( engine );
       engine->rootContext()->setContextProperty( QStringLiteral( "tcpUdpNmeaServer" ), &mTcpUdpNmeaServer );
+      engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mTcpUdpNmeaServer.dataDir() );
 
       qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
       qRegisterMetaType<QgsFeature>( "QgsFeature" );
