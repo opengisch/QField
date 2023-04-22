@@ -17,6 +17,7 @@
 #include "nmeagnssreceiver.h"
 #include "platformutilities.h"
 #include "positioning.h"
+#include "qgsmessagelog.h"
 
 #include <QSettings>
 
@@ -48,16 +49,12 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 
     if ( mImuPosition.valid )
     {
-      int quality = info.quality;
-      if ( mImuPosition.parseError )
-        quality = 0;
-
       mLastGnssPositionInformation = GnssPositionInformation( mImuPosition.latitude, mImuPosition.longitude,
                                                               mImuPosition.altitude,
                                                               mImuPosition.speed * 1000 / 60 / 60, mImuPosition.direction,
                                                               info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                               info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType,
-                                                              quality,
+                                                              info.quality,
                                                               info.satellitesUsed, info.status,
                                                               info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                               0, QStringLiteral( "nmea" ),
@@ -138,26 +135,29 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
     return;
   }
 
-  mImuPosition.valid = true;
-  mImuPosition.parseError = false;
-
   // Parse other parameters
   mImuPosition.utcDateTime = QDateTime::currentDateTime();
   QTime time = QTime::fromString( parameters[1], "hhmmss.zzz" );
   if ( time.isValid() )
     mImuPosition.utcDateTime.setTime( time );
 
-  mImuPosition.latitude = parameters[2].toDouble( &ok );
-  if ( !ok )
-    mImuPosition.parseError = true;
+  bool latitudeOk;
+  mImuPosition.latitude = parameters[2].toDouble( &latitudeOk );
 
-  mImuPosition.longitude = parameters[3].toDouble( &ok );
-  if ( !ok )
-    mImuPosition.parseError = true;
+  bool longitudeOk;
+  mImuPosition.longitude = parameters[3].toDouble( &longitudeOk );
 
-  mImuPosition.altitude = parameters[4].toDouble( &ok );
-  if ( !ok )
-    mImuPosition.parseError = true;
+  bool altitudeOk;
+  mImuPosition.altitude = parameters[4].toDouble( &altitudeOk );
+
+  if ( !latitudeOk || !longitudeOk || !altitudeOk )
+  {
+    mImuPosition.valid = false;
+    QgsMessageLog::logMessage( tr( "Could not parse the IMU position: %1,%2,%3" ).arg( parameters[2], parameters[3], parameters[4] ),
+                               "Nmea",
+                               Qgis::Warning );
+    return;
+  }
 
   double speedNorth = parameters[5].toDouble();
   double speedEast = parameters[6].toDouble();
@@ -182,4 +182,6 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   mImuPosition.gyroY = parameters[16].toDouble();
   mImuPosition.gyroZ = parameters[17].toDouble();
   mImuPosition.steeringZ = parameters[18].toDouble();
+
+  mImuPosition.valid = true;
 }
