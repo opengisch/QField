@@ -136,7 +136,7 @@ class Setup : public QObject
       fs->setExtraSelectors( selectors );
 
       qmlInit( engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "tcpUdpNmeaServer" ), mTcpUdpNmeaServer );
+      engine->rootContext()->setContextProperty( QStringLiteral( "tcpUdpNmeaServer" ), &mTcpUdpNmeaServer );
 
       qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
       qRegisterMetaType<QgsFeature>( "QgsFeature" );
