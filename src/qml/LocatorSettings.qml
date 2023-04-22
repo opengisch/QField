@@ -101,6 +101,16 @@ Popup {
                             color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                         }
+                        Text {
+                            visible: Default ? false : true
+                            Layout.fillWidth: true
+                            leftPadding: 5
+                            bottomPadding: 5
+                            text: qsTr('When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.').arg('<b>'+Prefix+'</b>')
+                            font: Theme.tipFont
+                            color: Theme.secondaryTextColor
+                            wrapMode: Text.WordWrap
+                        }
                         CheckBox {
                               Layout.fillWidth: true
                               topPadding: 5
@@ -113,16 +123,6 @@ Popup {
                               indicator.implicitWidth: 24
                               checked: Default? true : false
                               onCheckedChanged: Default = checked
-                        }
-                        Text {
-                            visible: Default ? false : true
-                            Layout.fillWidth: true
-                            leftPadding: 5
-                            bottomPadding: 5
-                            text: qsTr('By typing the %1 prefix in the search bar, this locator filter can even be used when disabled').arg('<b>'+Prefix+'</b>')
-                            font: Theme.tipFont
-                            color: Theme.secondaryTextColor
-                            wrapMode: Text.WordWrap
                         }
                     }
                 }
