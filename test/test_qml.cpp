@@ -35,6 +35,7 @@ class TcpUdpNmeaServer : public QObject
 {
     Q_OBJECT
 
+  public:
     void start()
     {
       // start a UDP server streaming NMEA strings (used in tst_positioning.qml)
