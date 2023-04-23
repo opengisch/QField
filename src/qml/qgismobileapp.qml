@@ -266,7 +266,7 @@ ApplicationWindow {
 
     onReadingChanged: {
       var timestamp = Date.now();
-      if (timestamp - lastAcceptedReading > 500) {
+      if (timestamp - lastAcceptedReading > 200) {
         lastAcceptedReading = timestamp;
         orientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
         hasValue = true
