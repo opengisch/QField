@@ -20,6 +20,7 @@
 #include "qfield_qml_init.h"
 #include "qgsquickcoordinatetransformer.h"
 
+#include <QDebug>
 #include <QProcess>
 #include <QQmlContext>
 #include <QQmlEngine>
@@ -78,6 +79,9 @@ class TcpUdpNmeaServer : public QObject
       // kill the TCP and UDP server
       mTcpServerProcess.kill();
       mUdpServerProcess.kill();
+
+      if ( !mTcpServerProcess.waitForFinished() || !mUdpServerProcess.waitForFinished() )
+        qDebug() << "Vaiting for processes to terminate timed out";
     }
 
     void restart()
