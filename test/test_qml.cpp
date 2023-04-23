@@ -35,7 +35,7 @@ class TcpUdpNmeaServer : public QObject
 {
     Q_OBJECT
 
-  public:
+  public slots:
     void start()
     {
       // start a UDP server streaming NMEA strings (used in tst_positioning.qml)
@@ -80,9 +80,13 @@ class TcpUdpNmeaServer : public QObject
       mUdpServerProcess.kill();
     }
 
-    QString dataDir() const { return mDataDir; }
+    void restart()
+    {
+      kill();
+      start();
+    }
 
-  public slots:
+    QString dataDir() const { return mDataDir; }
 
     void setTcpTestFile( const QString &fileName )
     {
