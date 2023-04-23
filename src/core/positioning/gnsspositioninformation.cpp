@@ -158,7 +158,7 @@ QString GnssPositionInformation::qualityDescription() const
   }
 
   if ( mImuCorrection )
-    quality.append( QCoreApplication::translate( "QgsGpsInformation", " - IMU" ) );
+    quality.append( QCoreApplication::translate( "QgsGpsInformation", " + IMU" ) );
 
   return quality;
 }
