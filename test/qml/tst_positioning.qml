@@ -75,8 +75,7 @@ TestCase {
     }
 
     function test_05_happyIMU() {
-        tcpUdpNmeaServer.setUdpTestFile('happyWithIMU.txt')
-        tcpUdpNmeaServer.restart()
+        positioning.deviceId = 'udp:localhost:1959'
 
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = ''

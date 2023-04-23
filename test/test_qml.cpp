@@ -20,7 +20,6 @@
 #include "qfield_qml_init.h"
 #include "qgsquickcoordinatetransformer.h"
 
-#include <QDebug>
 #include <QProcess>
 #include <QQmlContext>
 #include <QQmlEngine>
@@ -32,95 +31,86 @@
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
-class TcpUdpNmeaServer : public QObject
+class NmeaServer : public QObject
 {
     Q_OBJECT
 
-  public slots:
-    void start()
+  public:
+    enum Protocol
+    {
+      Udp,
+      Tcp,
+    };
+
+    NmeaServer( const QString &filename,
+                Protocol protocol,
+                int port )
+      : QObject()
+      , mFilename( filename )
+      , mProtocol( protocol )
+      , mPort( port )
+    {
+    }
+
+    void start( const QString &nmeaServerLocation )
     {
       // start a UDP server streaming NMEA strings (used in tst_positioning.qml)
-      const QStringList arguments = QCoreApplication::arguments();
-      QString nmeaServer;
-      for ( int i = 0; i < arguments.size(); i++ )
-      {
-        if ( arguments[i] == QStringLiteral( "-input" ) )
-        {
-          if ( i + 1 < arguments.size() )
-          {
-            // the nmea server python script location, relative to the absolute input path
-            nmeaServer = QString( "%1/../nmea_server" ).arg( arguments[i + 1] );
-            mDataDir = QString( "%1/../testdata" ).arg( arguments[i + 1] );
-          }
-        }
-      }
-      if ( !nmeaServer.isEmpty() )
-      {
-        mTcpServerProcess.setProgram( QStringLiteral( "python3" ) );
-        mTcpServerProcess.setArguments( QStringList() << QStringLiteral( "%1/nmeaserver.py" ).arg( nmeaServer )
-                                                      << QStringLiteral( "--type" )
-                                                      << QStringLiteral( "tcp" )
-                                                      << QStringLiteral( "--port" )
-                                                      << QStringLiteral( "11111" )
-                                                      << QStringLiteral( "%1/%2" ).arg( nmeaServer, mTcpTestFile ) );
-        mTcpServerProcess.start();
+      if ( nmeaServerLocation.isEmpty() )
+        return;
 
-        mUdpServerProcess.setProgram( QStringLiteral( "python3" ) );
-        mUdpServerProcess.setArguments( QStringList() << QStringLiteral( "%1/nmeaserver.py" ).arg( nmeaServer )
-                                                      << QStringLiteral( "--type" )
-                                                      << QStringLiteral( "udp" )
-                                                      << QStringLiteral( "%1/%2" ).arg( nmeaServer, mUdpTestFile ) );
-        mUdpServerProcess.start();
+      QString type;
+      switch ( mProtocol )
+      {
+        case Protocol::Tcp:
+          type = "tcp";
+          break;
+        case Protocol::Udp:
+          type = "udp";
+          break;
       }
+
+      mServerProcess.setProgram( QStringLiteral( "python3" ) );
+      mServerProcess.setArguments( QStringList() << QStringLiteral( "%1/nmeaserver.py" ).arg( nmeaServerLocation )
+                                                 << QStringLiteral( "--type" )
+                                                 << type
+                                                 << QStringLiteral( "--port" )
+                                                 << QString::number( mPort )
+                                                 << QStringLiteral( "%1/%2" ).arg( nmeaServerLocation, mFilename ) );
+      mServerProcess.start();
     }
 
     void kill()
     {
-      // kill the TCP and UDP server
-      mTcpServerProcess.kill();
-      mUdpServerProcess.kill();
+      // kill the server process
+      mServerProcess.kill();
 
-      if ( !mTcpServerProcess.waitForFinished() || !mUdpServerProcess.waitForFinished() )
+      if ( !mServerProcess.waitForFinished() )
         qDebug() << "Waiting for processes to terminate timed out";
-    }
-
-    void restart()
-    {
-      qDebug() << "Restart udp and tcp server";
-      kill();
-      start();
     }
 
     QString dataDir() const { return mDataDir; }
 
-    void setTcpTestFile( const QString &fileName )
-    {
-      mTcpTestFile = fileName;
-      qDebug() << "Tcp test file set to" << mTcpTestFile;
-    }
-
-    void setUdpTestFile( const QString &fileName )
-    {
-      mUdpTestFile = fileName;
-      qDebug() << "Udp test file set to" << mUdpTestFile;
-    }
-
   private:
     QString mDataDir;
 
-    QProcess mTcpServerProcess;
-    QString mTcpTestFile = "happy.txt";
+    QProcess mServerProcess;
 
-    QProcess mUdpServerProcess;
-    QString mUdpTestFile = "TrimbleR1.txt";
+    QString mFilename;
+    Protocol mProtocol;
+    int mPort;
 };
+
 
 class Setup : public QObject
 {
     Q_OBJECT
 
   private:
-    TcpUdpNmeaServer mTcpUdpNmeaServer;
+    NmeaServer mNmeaServerTrimbleR1 = NmeaServer( "TrimbleR1.txt", NmeaServer::Udp, 1958 );
+    NmeaServer mNmeaServerHappy = NmeaServer( "happy.txt", NmeaServer::Tcp, 11111 );
+    NmeaServer mNmeaServerHappyWithIMU = NmeaServer( "happyWithIMU.txt", NmeaServer::Udp, 1959 );
+
+    QString mDataDir;
 
   public:
     Setup()
@@ -129,16 +119,34 @@ class Setup : public QObject
     }
 
   public slots:
-
     void applicationAvailable()
     {
-      mTcpUdpNmeaServer.start();
+      const QStringList arguments = QCoreApplication::arguments();
+      QString nmeaServerLocation;
+      for ( int i = 0; i < arguments.size(); i++ )
+      {
+        if ( arguments[i] == QStringLiteral( "-input" ) )
+        {
+          if ( i + 1 < arguments.size() )
+          {
+            // the nmea server python script, relative to the absolute input path
+            nmeaServerLocation = QString( "%1/../nmea_server" ).arg( arguments[i + 1] );
+            mDataDir = QString( "%1/../testdata" ).arg( arguments[i + 1] );
+          }
+        }
+      }
+
+      // Start tcp/udp test servers
+      mNmeaServerTrimbleR1.start( nmeaServerLocation );
+      mNmeaServerHappy.start( nmeaServerLocation );
+      mNmeaServerHappyWithIMU.start( nmeaServerLocation );
     }
 
     void cleanupTestCase()
     {
-      // kill the TCP and UDP server
-      mTcpUdpNmeaServer.kill();
+      mNmeaServerTrimbleR1.kill();
+      mNmeaServerHappy.kill();
+      mNmeaServerHappyWithIMU.kill();
     }
 
     void qmlEngineAvailable( QQmlEngine *engine )
@@ -153,8 +161,7 @@ class Setup : public QObject
       fs->setExtraSelectors( selectors );
 
       qmlInit( engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "tcpUdpNmeaServer" ), &mTcpUdpNmeaServer );
-      engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mTcpUdpNmeaServer.dataDir() );
+      engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
 
       qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
       qRegisterMetaType<QgsFeature>( "QgsFeature" );
