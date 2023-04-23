@@ -3020,7 +3020,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
+        <translation>Activer la constrainte de capteur</translation>
     </message>
     <message>
         <source>Record when all active constraints are met</source>
@@ -3191,7 +3191,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Fond the carte</translation>
     </message>
     <message>
         <source>Default Project</source>
@@ -3207,7 +3207,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Charger le dernier projet ouvert au démarrage</translation>
     </message>
 </context>
 <context>

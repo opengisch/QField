@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>Gebruikt een ruwe schatting-transformatie van %1 naar %2</translation>
     </message>
 </context>
 <context>
@@ -167,7 +167,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Verbind met %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -183,11 +183,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Kies het Bluetooth apparaat uit onderstaande lijst</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Naam Bluetooth apparaat</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -199,11 +199,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Apparaten in de buurt zoeken</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Geen Bluetooth apparaten gevonden, scan om apparaten te vinden.</translation>
     </message>
 </context>
 <context>
@@ -233,7 +233,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Remote host niet gevonden</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
@@ -513,18 +513,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitaliseer een route om een hoogteprofiel te maken</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Hoogteprofiel wordt gemaakt...</translation>
     </message>
 </context>
 <context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Kopieer “%1” naar klembord</translation>
     </message>
     <message>
         <source>Calculator</source>
@@ -832,11 +832,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Ga naar %1%2 %3%4 (Kaart CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Ga naar %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -901,7 +901,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Zoom naar groep</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
@@ -949,7 +949,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Toon zichtbare objectenlijst</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
@@ -1048,7 +1048,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Geeft de uitkomst van de expressie die in de zoekbalk is getypt</translation>
     </message>
 </context>
 <context>
@@ -1203,7 +1203,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Printing...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -1226,7 +1226,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">centroïde</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1339,7 +1339,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer Video bestand</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
@@ -1739,7 +1739,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Groeten &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation>Hallo &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -2037,7 +2037,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Groeten &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation>Hallo &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2148,7 +2148,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Favorieten</translation>
     </message>
     <message>
         <source>Project file</source>
@@ -2168,11 +2168,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Exporteren naar folder:</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Verwijder dataset</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
@@ -2180,19 +2180,19 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Verwijder project folder</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Project importeren van folder</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Project importeren van ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Importeer dataset(s)</translation>
     </message>
     <message>
         <source>Storage management help</source>
@@ -2204,7 +2204,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Typ een URL om een project of dataset te downloaden en te importeren:</translation>
     </message>
 </context>
 <context>
@@ -2389,7 +2389,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Wanneer de nauwkeurigheidsindicator is ingeschakeld, is een badge bevestigd aan de locatieknop en &lt;span %1&gt;rood&lt;/span&gt; gekleurd als de nauwkeurigheidswaarde lager is dan slecht, &lt;span %2&gt;geel&lt;/span&gt; als deze niet uitstekend is, of &lt;span %3&gt;groen&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Bovendien kan een nauwkeurigheidsbeperkingsmodus worden ingeschakeld, die beperkt het toevoegen van knooppunten wanneer vergrendeld om de cursor te coördineren naar posities met een nauwkeurigheidswaarde boven de slechte drempel.</translation>
+        <translation>Als de nauwkeurigheidsindicator is ingeschakeld, wordt een badge bevestigd aan de locatieknop en &lt;span %1&gt;rood&lt;/span&gt; gekleurd als de nauwkeurigheidswaarde lager is dan slecht, &lt;span %2&gt;geel&lt;/span&gt; als deze niet uitstekend is, of &lt;span %3&gt;groen&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Bovendien kan een nauwkeurigheidsvereiste worden ingeschakeld. Deze beperkt het toevoegen van knooppunten wanneer vergrendeld om de cursor te coördineren naar posities met een nauwkeurigheidswaarde boven de slechte drempel.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -2445,7 +2445,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Tijd voordat het scherm wordt gedimd om de batterij te sparen</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -2485,7 +2485,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Als de coördinaatcursor is ingeschakeld bij het digitaliseren van objecten wordt het hierboven geselecteerde meettype toegevoegd aan de geometrie indien deze een M dimensie bevat.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -2501,43 +2501,43 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Verbind met %1</translation>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Uiterlijk gebruikersinterface:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>gebruik systeeminstelling</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Licht</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Donker</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Grootte lettertype gebruikersinterface:</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Klein</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normaal</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Groot</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Extra groot</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
@@ -2632,47 +2632,47 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>centroïde</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Fout zip bestand bestaat niet: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Fout zip bestandsnaam is leeg</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Fout output dir bestaat niet: &apos;%1&apos; </translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation> Fout output dir is geen folder: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Fout output dir is niet bewerkbaar: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Maken van submap %1/%2 mislukt</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan niet schrijven naar %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Fout bij lezen van bestand: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Fout bij ophalen bestanden : &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Fout bij openen zip archief: &apos;%1&apos; (Error code: %2)</translation>
     </message>
 </context>
 <context>
@@ -2803,15 +2803,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer de seriële poort uit onderstaande lijst:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Geen seriële poort gevonden, ververs de lijst nadat een apparaat is aangesloten.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Ververs lijst</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
@@ -2826,15 +2826,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Seriële poort apparaat niet gevonden</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Poging tot lezen via de seriële poort gaf een fout</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>De connectie werd geweigerd vanwege onjuiste rechten</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
@@ -2886,7 +2886,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Remote host niet gevonden</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -2902,7 +2902,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>De verbinding is geweigerd door de remote host</translation>
     </message>
 </context>
 <context>
@@ -2920,11 +2920,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Kopieer Tekst</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Plak Tekst</translation>
     </message>
     <message>
         <source>Scan Code</source>
@@ -3073,7 +3073,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Remote host niet gevonden</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -3089,7 +3089,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>De verbinding is geweigerd door de remote host</translation>
     </message>
 </context>
 <context>
@@ -3190,27 +3190,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Standaard project</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Achtergrondkaart</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Standaard Project</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Individuele Datasets Achtergondkaart</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Standaard project laden bij opstarten</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Laatst geopend project laden bij opstarten</translation>
     </message>
 </context>
 <context>
@@ -3460,27 +3460,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25m Precisie</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5m Precisie</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1m Precisie</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2.5m Precisie</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5m Precisie</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10m Precisie</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3520,7 +3520,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 Precisie</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
@@ -3628,7 +3628,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Vergrendel Scherm</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -3648,7 +3648,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Canvas volgt locatie en kompas oriëntatie</translation>
     </message>
     <message>
         <source>Importing %1</source>
@@ -3660,11 +3660,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Sensoren</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer sensor</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
@@ -3676,7 +3676,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer layout</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
@@ -3684,7 +3684,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Geen print layout beschikbaar</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -3692,7 +3692,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Geen sensor beschikbaar</translation>
     </message>
 </context>
 <context>

@@ -524,11 +524,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>“%1” in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Rechner</translation>
     </message>
 </context>
 <context>
@@ -744,7 +744,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Objekt als Navigation setzen</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -809,7 +809,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation type="unfinished"/>
+        <translation>Ring füllen Werkzeug</translation>
     </message>
 </context>
 <context>
@@ -1065,7 +1065,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="unfinished"/>
+        <translation>Ohne Präfix auslösen</translation>
     </message>
 </context>
 <context>
@@ -1770,7 +1770,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Es gibt %n lokale Änderung</numerusform><numerusform>Es gibt %n lokale Änderungen</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
@@ -1856,7 +1856,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished"><numerusform>%n Attachment wird im Hintergrund hochgeladen</numerusform><numerusform>%n Attachments werden im Hintergrund hochgeladen</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -2705,11 +2705,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Float RTK</source>
-        <translation type="unfinished"/>
+        <translation>Float RTK</translation>
     </message>
     <message>
         <source>Fixed RTK</source>
-        <translation type="unfinished"/>
+        <translation>Fixed RTK</translation>
     </message>
     <message>
         <source>PPS</source>
@@ -2750,7 +2750,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger referenzierender Layer</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -2784,7 +2784,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation>Die Geometrie konnte nicht überarbeitet werden</translation>
     </message>
 </context>
 <context>

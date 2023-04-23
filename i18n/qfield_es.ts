@@ -524,11 +524,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Copie &quot;%1&quot; al portapapeles</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Calculadora</translation>
     </message>
 </context>
 <context>
@@ -1050,7 +1050,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve el valor de la expresión escrita en la barra de búsqueda</translation>
     </message>
 </context>
 <context>
@@ -2200,11 +2200,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Importar dirección URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Escriba una URL a continuación para descargar e importar el proyecto o conjunto de datos:</translation>
     </message>
 </context>
 <context>
@@ -2541,7 +2541,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Registre sentencias NMEA del dispositivo al archivo</translation>
     </message>
 </context>
 <context>
@@ -2636,19 +2636,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error el archivo zip no existe: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Error el nombre del archivo zip está vacío</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error el directorio de salida no existe: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error el directorio de salida no es un directorio: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
