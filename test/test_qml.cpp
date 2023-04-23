@@ -81,11 +81,12 @@ class TcpUdpNmeaServer : public QObject
       mUdpServerProcess.kill();
 
       if ( !mTcpServerProcess.waitForFinished() || !mUdpServerProcess.waitForFinished() )
-        qDebug() << "Vaiting for processes to terminate timed out";
+        qDebug() << "Waiting for processes to terminate timed out";
     }
 
     void restart()
     {
+      qDebug() << "Restart udp and tcp server";
       kill();
       start();
     }
@@ -95,11 +96,13 @@ class TcpUdpNmeaServer : public QObject
     void setTcpTestFile( const QString &fileName )
     {
       mTcpTestFile = fileName;
+      qDebug() << "Tcp test file set to" << mTcpTestFile;
     }
 
     void setUdpTestFile( const QString &fileName )
     {
       mUdpTestFile = fileName;
+      qDebug() << "Udp test file set to" << mUdpTestFile;
     }
 
   private:
