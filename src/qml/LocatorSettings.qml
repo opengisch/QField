@@ -36,7 +36,7 @@ Popup {
             leftPadding: 48
             rightPadding: 48
             width: parent.width - 20
-            text: qsTr( "Search Settings" )
+            text: qsTr( "Search Bar Settings" )
             font: Theme.strongFont
             color: Theme.mainColor
             horizontalAlignment: Text.AlignHCenter
@@ -92,19 +92,6 @@ Popup {
                             color: Theme.mainTextColor
                             wrapMode: Text.WordWrap
                         }
-                        CheckBox {
-                              Layout.fillWidth: true
-                              topPadding: 5
-                              bottomPadding: 5
-                              text: qsTr('Trigger without its prefix')  + ' (' + Prefix + ')'
-                              font: Theme.tipFont
-                              indicator.height: 16
-                              indicator.width: 16
-                              indicator.implicitHeight: 24
-                              indicator.implicitWidth: 24
-                              checked: Default? true : false
-                              onCheckedChanged: Default = checked
-                        }
                         Text {
                             Layout.fillWidth: true
                             leftPadding: 5
@@ -113,6 +100,29 @@ Popup {
                             font: Theme.tipFont
                             color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
+                        }
+                        Text {
+                            visible: Default ? false : true
+                            Layout.fillWidth: true
+                            leftPadding: 5
+                            bottomPadding: 5
+                            text: qsTr('When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.').arg('<b>'+Prefix+'</b>')
+                            font: Theme.tipFont
+                            color: Theme.secondaryTextColor
+                            wrapMode: Text.WordWrap
+                        }
+                        CheckBox {
+                              Layout.fillWidth: true
+                              topPadding: 5
+                              bottomPadding: 5
+                              text: qsTr('Enable %1 locator by default').arg('<b>'+Name+'</b>')
+                              font: Theme.tipFont
+                              indicator.height: 16
+                              indicator.width: 16
+                              indicator.implicitHeight: 24
+                              indicator.implicitWidth: 24
+                              checked: Default? true : false
+                              onCheckedChanged: Default = checked
                         }
                     }
                 }
