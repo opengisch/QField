@@ -524,11 +524,11 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>&quot;%1&quot; kopiran u međuspremnik</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Kalkulator</translation>
     </message>
 </context>
 <context>
@@ -1050,7 +1050,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Vraća vrijednost izraza unesenog u tražilicu</translation>
     </message>
 </context>
 <context>
@@ -1064,11 +1064,23 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>Postavke pretraživanja</translation>
+        <translation type="vanished">Postavke pretraživanja</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation>Pokreni bez prefixa</translation>
+        <translation type="vanished">Pokreni bez prefixa</translation>
+    </message>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation>Postavke tražilice</translation>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation>Kada je isključeno, ovaj filter lokatora se i dalje može koristiti ako se utipka %1 prefiks u tražilicu.</translation>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation>Uključi %1 lokator kao zadani</translation>
     </message>
 </context>
 <context>
@@ -2539,7 +2551,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Zapiši NMEA rečenice od uređaja u datoteku</translation>
     </message>
 </context>
 <context>
@@ -3021,23 +3033,23 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviraj ograničenje senzora</translation>
     </message>
     <message>
         <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Zapiši kada su sva ograničenja zadovoljena</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Kada je uključeno, točke će biti zapisane samo ako su sva aktivna ograničenja zadovoljena. Ako je postavka isključena, pojedinačna zadovoljena ograničenja će pokrenuti dodavanje točke.</translation>
     </message>
     <message>
         <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Kada je ograničenje senzora samostalno aktivirano, dodavanje točaka će se izvršiti kad god senzor prikupi nove podatke.</translation>
     </message>
     <message>
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Kada su sva ograničenja isključena, dodavanje točaka će se dogoditi u svakom trenutku dostavljnog podatka od uređaja za pozicioniranje.</translation>
     </message>
 </context>
 <context>
@@ -3188,27 +3200,27 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Zadani projekt</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Osnovna karta</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Zadani projekt</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Osnovna karta pojedinačnih izvora podataka</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Učitaj zadani projekt prilikom pokretanja</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Učitaj posljednji otvoreni projekt prilikom pokretanja</translation>
     </message>
 </context>
 <context>
@@ -3658,39 +3670,39 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Senzori</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Odaberi senzor ispod</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Odspajam senzor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Spajam se na senzor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Odaberi okvir ispod</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Greška senzora: %1</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Nema dostupnog okvira za ispis</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Saznaj više</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Nema dostupnog senzora</translation>
     </message>
 </context>
 <context>

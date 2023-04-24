@@ -1062,10 +1062,22 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>Zoek instellingen</translation>
+        <translation type="vanished">Zoek instellingen</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
         <translation type="unfinished"/>
     </message>
 </context>

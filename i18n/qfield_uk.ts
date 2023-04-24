@@ -1066,11 +1066,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>Налаштування пошуку</translation>
+        <translation type="vanished">Налаштування пошуку</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation>Тригер без префіксу</translation>
+        <translation type="vanished">Тригер без префіксу</translation>
+    </message>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

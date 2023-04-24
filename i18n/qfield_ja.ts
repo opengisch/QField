@@ -1060,11 +1060,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>検索の設定</translation>
+        <translation type="vanished">検索の設定</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation>接頭辞のないトリガー</translation>
+        <translation type="vanished">接頭辞のないトリガー</translation>
+    </message>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

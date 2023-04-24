@@ -1062,11 +1062,23 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>Configuración da Busca</translation>
+        <translation type="vanished">Configuración da Busca</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation>Despregar sen o seu prefixo</translation>
+        <translation type="vanished">Despregar sen o seu prefixo</translation>
+    </message>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

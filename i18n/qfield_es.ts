@@ -1064,11 +1064,23 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>Configuración de búsqueda</translation>
+        <translation type="vanished">Configuración de búsqueda</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation>Desencadenar sin su prefijo</translation>
+        <translation type="vanished">Desencadenar sin su prefijo</translation>
+    </message>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

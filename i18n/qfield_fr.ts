@@ -1063,11 +1063,23 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>Paramètres de recherche</translation>
+        <translation type="vanished">Paramètres de recherche</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation>Déclencher sans son préfixe</translation>
+        <translation type="vanished">Déclencher sans son préfixe</translation>
+    </message>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation>Paramètres de la Barre de Recherche</translation>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3199,7 +3211,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Fond de Carte pour Jeux de Données</translation>
     </message>
     <message>
         <source>Load default project on launch</source>

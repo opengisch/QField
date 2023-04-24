@@ -1060,11 +1060,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>搜索设置</translation>
+        <translation type="vanished">搜索设置</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation>触发时不带前缀</translation>
+        <translation type="vanished">触发时不带前缀</translation>
+    </message>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation>搜索栏设置</translation>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation>禁用时，仍可以在搜索栏键入前缀 %1 来使用此搜索过滤。</translation>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation>默认启用 %1 搜索</translation>
     </message>
 </context>
 <context>
