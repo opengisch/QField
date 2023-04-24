@@ -22,40 +22,49 @@
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent )
-  , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
-  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
+}
+
+void BluetoothDeviceModel::initiateDiscoveryAgent()
+{
+  mLocalDevice = std::make_unique<QBluetoothLocalDevice>();
+  mServiceDiscoveryAgent = std::make_unique<QBluetoothServiceDiscoveryAgent>();
+
+  connect( mServiceDiscoveryAgent.get(), &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [=]( QBluetoothServiceDiscoveryAgent::Error error ) {
+  connect( mServiceDiscoveryAgent.get(), qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [=]( QBluetoothServiceDiscoveryAgent::Error error ) {
 #else
-  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::errorOccurred ), this, [=]( QBluetoothServiceDiscoveryAgent::Error error ) {
+  connect( mServiceDiscoveryAgent.get(), qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::errorOccurred ), this, [=]( QBluetoothServiceDiscoveryAgent::Error error ) {
 #endif
     if ( error != QBluetoothServiceDiscoveryAgent::NoError )
     {
-      setLastError( mServiceDiscoveryAgent.errorString() );
+      setLastError( mServiceDiscoveryAgent->errorString() );
       setScanningStatus( Failed );
     }
   } );
-  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [=]() {
-    setScanningStatus( mServiceDiscoveryAgent.error() == QBluetoothServiceDiscoveryAgent::NoError ? Succeeded : Failed );
+  connect( mServiceDiscoveryAgent.get(), &QBluetoothServiceDiscoveryAgent::finished, [=]() {
+    setScanningStatus( mServiceDiscoveryAgent->error() == QBluetoothServiceDiscoveryAgent::NoError ? Succeeded : Failed );
   } );
-  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [=]() {
+  connect( mServiceDiscoveryAgent.get(), &QBluetoothServiceDiscoveryAgent::canceled, [=]() {
     setScanningStatus( Canceled );
   } );
 }
 
 void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 {
-  if ( mServiceDiscoveryAgent.isActive() )
-    mServiceDiscoveryAgent.stop();
+  if ( !mServiceDiscoveryAgent )
+    initiateDiscoveryAgent();
 
-  mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ) );
+  if ( mServiceDiscoveryAgent->isActive() )
+    mServiceDiscoveryAgent->stop();
+
+  mServiceDiscoveryAgent->setUuidFilter( QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ) );
   QBluetoothServiceDiscoveryAgent::DiscoveryMode discoveryMode = fullDiscovery ? QBluetoothServiceDiscoveryAgent::FullDiscovery : QBluetoothServiceDiscoveryAgent::MinimalDiscovery;
 
   // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
   setScanningStatus( Scanning );
-  mServiceDiscoveryAgent.clear();
-  mServiceDiscoveryAgent.start( discoveryMode );
+  mServiceDiscoveryAgent->clear();
+  mServiceDiscoveryAgent->start( discoveryMode );
 }
 
 void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
