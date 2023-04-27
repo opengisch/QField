@@ -51,10 +51,38 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     void handleStartLogging() override;
     void handleStopLogging() override;
 
+    void processImuSentence( const QString &sentence );
+
     QTime mLastGnssPositionUtcTime;
 
     QFile mLogFile;
     QTextStream mLogStream;
+
+    GnssPositionInformation mCurrentNmeaGnssPositionInformation;
+
+    struct ImuPosition
+    {
+        bool valid = false;
+        QDateTime utcDateTime;
+        double latitude = std::numeric_limits<double>::quiet_NaN();
+        double longitude = std::numeric_limits<double>::quiet_NaN();
+        double altitude = std::numeric_limits<double>::quiet_NaN();
+        double speed = std::numeric_limits<double>::quiet_NaN();
+        double speedDown = std::numeric_limits<double>::quiet_NaN();
+        double direction = std::numeric_limits<double>::quiet_NaN();
+        double roll = std::numeric_limits<double>::quiet_NaN();
+        double pitch = std::numeric_limits<double>::quiet_NaN();
+        double heading = std::numeric_limits<double>::quiet_NaN();
+        double steering = std::numeric_limits<double>::quiet_NaN();
+        double accelerometerX = std::numeric_limits<double>::quiet_NaN();
+        double accelerometerY = std::numeric_limits<double>::quiet_NaN();
+        double accelerometerZ = std::numeric_limits<double>::quiet_NaN();
+        double gyroX = std::numeric_limits<double>::quiet_NaN();
+        double gyroY = std::numeric_limits<double>::quiet_NaN();
+        double gyroZ = std::numeric_limits<double>::quiet_NaN();
+        double steeringZ = std::numeric_limits<double>::quiet_NaN();
+    };
+    ImuPosition mImuPosition;
 };
 
 #endif // NMEAGNSSRECEIVER_H

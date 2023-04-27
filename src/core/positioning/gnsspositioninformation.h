@@ -81,6 +81,7 @@ class GnssPositionInformation
     Q_PROPERTY( double magneticVariation READ magneticVariation )
     Q_PROPERTY( int averagedCount READ averagedCount )
     Q_PROPERTY( QString sourceName READ sourceName )
+    Q_PROPERTY( bool imuCorrection READ imuCorrection )
 
   public:
     /**
@@ -98,9 +99,11 @@ class GnssPositionInformation
 
     GnssPositionInformation( double latitude = std::numeric_limits<double>::quiet_NaN(), double longitude = std::numeric_limits<double>::quiet_NaN(), double elevation = std::numeric_limits<double>::quiet_NaN(),
                              double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
-                             double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
+                             double pdop = 0, double hdop = 0, double vdop = 0,
+                             double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                              QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
-                             double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), int averagedCount = 0, const QString &sourceName = QString() );
+                             double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), int averagedCount = 0, const QString &sourceName = QString(),
+                             bool imuCorrection = false );
 
     bool operator==( const GnssPositionInformation &other ) const;
     bool operator!=( const GnssPositionInformation &other ) const { return !operator==( other ); }
@@ -260,6 +263,11 @@ class GnssPositionInformation
      */
     QString fixStatusDescription() const;
 
+    /**
+     * Returns whether the IMU correction is active
+     */
+    bool imuCorrection() const { return mImuCorrection; }
+
   private:
     double mLatitude = std::numeric_limits<double>::quiet_NaN();
     double mLongitude = std::numeric_limits<double>::quiet_NaN();
@@ -285,6 +293,7 @@ class GnssPositionInformation
     double mMagneticVariation = std::numeric_limits<double>::quiet_NaN();
     int mAveragedCount = 0;
     QString mSourceName;
+    bool mImuCorrection;
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )
