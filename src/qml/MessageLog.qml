@@ -27,7 +27,7 @@ Page {
 
   ColumnLayout {
     anchors.margins: 8
-    anchors.bottomMargin: mainWindow.sceneBottomMargin
+    anchors.bottomMargin: 8 + mainWindow.sceneBottomMargin
     anchors.fill: parent
     Layout.margins: 0
     spacing: 10

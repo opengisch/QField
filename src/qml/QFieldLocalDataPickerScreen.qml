@@ -77,7 +77,7 @@ Page {
       Layout.fillHeight: true
       Layout.margins: 10
       Layout.topMargin: 0
-      Layout.bottomMargin: mainWindow.sceneBottomMargin
+      Layout.bottomMargin: 10 + mainWindow.sceneBottomMargin
       color: Theme.controlBackgroundColor
       border.color: Theme.controlBorderColor
       border.width: 1
