@@ -296,7 +296,7 @@ void LayerObserver::addLayerListeners()
       if ( mObservedLayerIds.contains( vl->id() ) )
         continue;
 
-      if ( !vl->readOnly() && QFieldCloudUtils::isCloudAction( vl ) )
+      if ( !vl->readOnly() )
       {
         // Ignore all layers that cannot determine a primary key column
         if ( DeltaFileWrapper::getLocalPkAttribute( vl ).first == -1 )

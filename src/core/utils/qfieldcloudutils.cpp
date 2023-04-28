@@ -52,17 +52,6 @@ const QString QFieldCloudUtils::localProjectFilePath( const QString &username, c
   return QString();
 }
 
-bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
-{
-  Q_ASSERT( layer );
-
-  const QString layerAction( layer->customProperty( QStringLiteral( "QFieldSync/cloud_action" ) ).toString().toUpper() );
-
-  if ( layerAction == QStringLiteral( "NO_ACTION" ) || layerAction == QStringLiteral( "REMOVE" ) )
-    return false;
-  return true;
-}
-
 const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 {
   QFileInfo fi( fileName );
