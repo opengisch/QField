@@ -1065,7 +1065,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia paska wyszukiwania</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
@@ -1258,6 +1258,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Bearing</source>
         <translation>Namiar</translation>
+    </message>
+</context>
+<context>
+    <name>NmeaGnssReceiver</name>
+    <message>
+        <source>Could not parse the IMU position: %1,%2,%3</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2548,7 +2555,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Zapisuj dane NMEA z urządzenia do pliku</translation>
     </message>
 </context>
 <context>
@@ -2742,6 +2749,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Unknown (%1)</source>
         <translation>Nieznany (%1)</translation>
+    </message>
+    <message>
+        <source> + IMU</source>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3197,27 +3208,27 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Domyślny projekt</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa bazowa</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Domyślny projekt</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa bazowa dla własnych zestawów danych</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Wczytaj domyślny projekt na starcie</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Wczytaj ostatnio otwarty projekt na starcie</translation>
     </message>
 </context>
 <context>

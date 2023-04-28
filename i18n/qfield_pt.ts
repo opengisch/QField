@@ -1268,6 +1268,13 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
 </context>
 <context>
+    <name>NmeaGnssReceiver</name>
+    <message>
+        <source>Could not parse the IMU position: %1,%2,%3</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2749,6 +2756,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Unknown (%1)</source>
         <translation>Desconhecido (%1)</translation>
+    </message>
+    <message>
+        <source> + IMU</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

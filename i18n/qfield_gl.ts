@@ -1266,6 +1266,13 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
 </context>
 <context>
+    <name>NmeaGnssReceiver</name>
+    <message>
+        <source>Could not parse the IMU position: %1,%2,%3</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2747,6 +2754,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Unknown (%1)</source>
         <translation>Descoñecido (%1)</translation>
+    </message>
+    <message>
+        <source> + IMU</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

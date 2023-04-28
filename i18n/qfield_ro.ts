@@ -1270,6 +1270,13 @@ Motiv:
     </message>
 </context>
 <context>
+    <name>NmeaGnssReceiver</name>
+    <message>
+        <source>Could not parse the IMU position: %1,%2,%3</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2751,6 +2758,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Unknown (%1)</source>
         <translation>Necunoscut (%1)</translation>
+    </message>
+    <message>
+        <source> + IMU</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

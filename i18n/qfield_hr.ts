@@ -1268,6 +1268,13 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
 </context>
 <context>
+    <name>NmeaGnssReceiver</name>
+    <message>
+        <source>Could not parse the IMU position: %1,%2,%3</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2745,6 +2752,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Unknown (%1)</source>
         <translation>Nepoznato (%1)</translation>
+    </message>
+    <message>
+        <source> + IMU</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

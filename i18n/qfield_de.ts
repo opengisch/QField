@@ -1265,6 +1265,13 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
+    <name>NmeaGnssReceiver</name>
+    <message>
+        <source>Could not parse the IMU position: %1,%2,%3</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2742,6 +2749,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Unknown (%1)</source>
         <translation>Unbekannt (%1)</translation>
+    </message>
+    <message>
+        <source> + IMU</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

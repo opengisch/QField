@@ -1268,6 +1268,13 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
 </context>
 <context>
+    <name>NmeaGnssReceiver</name>
+    <message>
+        <source>Could not parse the IMU position: %1,%2,%3</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2752,6 +2759,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Unknown (%1)</source>
         <translation>Sconosciuto (%1)</translation>
+    </message>
+    <message>
+        <source> + IMU</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

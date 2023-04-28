@@ -1264,6 +1264,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>NmeaGnssReceiver</name>
+    <message>
+        <source>Could not parse the IMU position: %1,%2,%3</source>
+        <translation>无法解析IMU位置: %1,%2,%3</translation>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2745,6 +2752,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Unknown (%1)</source>
         <translation>未知 (%1)</translation>
+    </message>
+    <message>
+        <source> + IMU</source>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
