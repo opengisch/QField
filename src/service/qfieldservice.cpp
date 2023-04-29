@@ -19,7 +19,6 @@
 #include "qfieldservice.h"
 
 #include <QSettings>
-#include <QtAndroid>
 
 QFieldService::QFieldService( int &argc, char **argv )
   : QAndroidService( argc, argv )
@@ -34,7 +33,12 @@ QFieldService::QFieldService( int &argc, char **argv )
     loop.exec();
   }
 
-  QtAndroid::androidService().callMethod<void>( "stopSelf" );
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+  QAndroidJniObject activity = QtAndroid::androidService();
+#else
+  QJniObject activity = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context();
+#endif
+  activity.callMethod<void>( "stopSelf" );
 
   exit( 0 );
 }
