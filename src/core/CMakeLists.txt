@@ -275,6 +275,10 @@ configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
+if(BUILD_WITH_QT6)
+  target_link_libraries(qfield_core PRIVATE Qt6::CorePrivate)
+endif()
+
 # to include <qpa/qplatformnativeinterface.h>
 target_include_directories(qfield_core SYSTEM
                            PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
@@ -357,7 +361,9 @@ if(WITH_SENTRY)
 endif()
 
 if(ANDROID)
-  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::AndroidExtras)
+  if(NOT BUILD_WITH_QT6)
+    target_link_libraries(qfield_core PUBLIC ${QT_PKG}::AndroidExtras)
+  endif()
 endif()
 
 if(TARGET ${QT_PKG}::PrintSupport)

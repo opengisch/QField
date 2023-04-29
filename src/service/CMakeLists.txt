@@ -21,7 +21,13 @@ target_link_libraries(qfield_service PUBLIC ${QT_PKG}::Core
                                             ${QT_PKG}::Positioning)
 
 if(ANDROID)
-  target_link_libraries(qfield_service PUBLIC ${QT_PKG}::AndroidExtras)
+  if(NOT BUILD_WITH_QT6)
+    target_link_libraries(qfield_service PUBLIC ${QT_PKG}::AndroidExtras)
+  endif()
+endif()
+
+if(BUILD_WITH_QT6)
+  target_link_libraries(qfield_service PUBLIC Qt6::CorePrivate)
 endif()
 
 install(FILES ${QFIELD_SERVICE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})
