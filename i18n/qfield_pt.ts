@@ -1072,15 +1072,15 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações da Barra de Pesquisa</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Quando desativado, este filtro do localizador ainda pode ser usado inserido o prefixo %1 na barra de pesquisa.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Ativar e definir este localizador % 1 como padrão.</translation>
     </message>
 </context>
 <context>
@@ -1271,7 +1271,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível analisar a posição do IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -2759,7 +2759,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
