@@ -65,23 +65,25 @@ ApplicationWindow {
   }
 
   LabSettings.Settings {
-      property alias x: mainWindow.x
-      property alias y: mainWindow.y
-      property alias width: mainWindow.width
-      property alias height: mainWindow.height
+    property alias x: mainWindow.x
+    property alias y: mainWindow.y
+    property alias width: mainWindow.width
+    property alias height: mainWindow.height
 
-      property int minimumSize: Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? 300 : 50
+    property int minimumSize: Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? 300 : 50
 
-      Component.onCompleted: {
-          width = Math.max(width, minimumSize)
-          height = Math.max(height, minimumSize)
-          x = Math.min(x, mainWindow.screen.width - width)
-          y = Math.min(y, mainWindow.screen.height - height)
+    Component.onCompleted: {
+      if (Qt.platform.os !== "ios" && Qt.platform.os !== "android") {
+        width = Math.max(width, minimumSize)
+        height = Math.max(height, minimumSize)
+        x = Math.min(x, mainWindow.screen.width - width)
+        y = Math.min(y, mainWindow.screen.height - height)
       }
+    }
   }
 
   FocusStack{
-      id: focusstack
+    id: focusstack
   }
 
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
