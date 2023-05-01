@@ -32,6 +32,7 @@ Item {
     font: Theme.defaultFont
     placeholderTextColor: Theme.accentLightColor
     rightPadding: showPasswordButton.visible ? 2 * showPasswordButton.width : 0
+    leftPadding: rightPadding
     inputMethodHints: Qt.ImhNone
 
     background: Rectangle {
@@ -66,30 +67,21 @@ Item {
     }
   }
 
-  Image {
+  QfToolButton {
     id: showPasswordButton
     z: 1
-    width: 20
-    height: 20
     visible: !!textFieldWrapper.echoMode && textFieldWrapper.echoMode !== TextInput.Normal
-    source: textField.echoMode === TextInput.Normal
-            ? Theme.getThemeVectorIcon('ic_hide_green_48dp')
-            : Theme.getThemeVectorIcon('ic_show_green_48dp')
-    sourceSize.width: 20 * screen.devicePixelRatio
-    sourceSize.height: 20 * screen.devicePixelRatio
-    fillMode: Image.PreserveAspectFit
+    iconSource: textField.echoMode === TextInput.Normal
+                ? Theme.getThemeVectorIcon('ic_hide_green_48dp')
+                : Theme.getThemeVectorIcon('ic_show_green_48dp')
     anchors.right: textField.right
-    anchors.rightMargin: height - 7
     anchors.verticalCenter: textField.verticalCenter
     opacity: textField.text.length > 0 ? 1 : 0.25
 
-    MouseArea {
-      anchors.fill: parent
-      onClicked: {
-        textField.echoMode = textField.echoMode === TextInput.Normal
-            ? textFieldWrapper.echoMode
-            : TextInput.Normal
-      }
+    onClicked: {
+      textField.echoMode = textField.echoMode === TextInput.Normal
+                           ? textFieldWrapper.echoMode
+                           : TextInput.Normal
     }
   }
 }
