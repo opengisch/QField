@@ -229,7 +229,6 @@ cmake -S . -B build-arm64-ios \
 	-DCMAKE_PREFIX_PATH=$HOME/Documents/qt5/5.15.2/ios/lib/cmake/Qt5 \
 	-DCMAKE_FIND_ROOT_PATH=$HOME/Documents/qt5/5.15.2/ios/ \
 	-DSYSTEM_QT=ON \
-	-DWITH_QT5=1 \
 	-DVCPKG_TARGET_TRIPLET=arm64-ios \
 	-DWITH_VCPKG=ON \
 	-DVCPKG_BUILD_TYPE=release \
