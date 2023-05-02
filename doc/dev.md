@@ -214,20 +214,23 @@ xcode-select --install
 sudo xcode-select --switch /Library/Developer/CommandLineTools
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
+QT_ROOT=$HOME/Documents/qt5
+
+
 # Then, of course, Qt is needed (Could be installed with 'aqtinstall' or with the official tools)
-pip3 install aqtinstall && aqt install-qt mac ios 5.15.2 -O qt5 -m qtcharts # Qt
+pip3 install aqtinstall && aqt install-qt mac ios 5.15.2 -O $QT_ROOT -m qtcharts # Qt
 
 # Setup the environment for the build tools
 
 export PATH="$(brew --prefix flex)/bin:$PATH" && export PATH="$(brew --prefix bison)/bin:$PATH" # For QGis
 
-export Qt5_DIR=$HOME/Documents/qt5/5.15.2/ios/ # Seems that a full path might be needed for dependencies based on Qt like Qca
+export Qt5_DIR=$QT_ROOT/5.15.2/ios/ # Seems that a full path might be needed for dependencies based on Qt like Qca
 
 # Configure using CMake
 
 cmake -S . -B build-arm64-ios \
-	-DCMAKE_PREFIX_PATH=$HOME/Documents/qt5/5.15.2/ios/lib/cmake/Qt5 \
-	-DCMAKE_FIND_ROOT_PATH=$HOME/Documents/qt5/5.15.2/ios/ \
+	-DCMAKE_PREFIX_PATH=$QT_ROOT/5.15.2/ios/lib/cmake/Qt5 \
+	-DCMAKE_FIND_ROOT_PATH=$QT_ROOT/5.15.2/ios/ \
 	-DSYSTEM_QT=ON \
 	-DVCPKG_TARGET_TRIPLET=arm64-ios \
 	-DWITH_VCPKG=ON \
