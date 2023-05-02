@@ -243,7 +243,7 @@ cmake -S . -B build-arm64-ios \
 
 # In "Xcode" build settings, it is possible that the additional flag "CoreFoundation" had to be removed manually.
 
-# Then, compile. Hopefully, all done. To install an app on iOS, it must be signed using Xcode tools.
+# Then, compile. To install an app on iOS, it must be signed using Xcode tools.
 cmake --build build-arm64-ios
 ```
 
