@@ -31,6 +31,8 @@ QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsV
   QgsRelation relation = relationManager->relation( relationId );
   if ( relation.isValid() )
     return relation;
+  if ( !layer )
+    return relation;
 
   // In case we don't find the relation by id, fall back to any suitable relation, that's how QGIS does it too
   int index = layer->fields().indexFromName( fieldName );
