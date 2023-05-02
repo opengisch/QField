@@ -217,7 +217,7 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 # Then, of course, Qt is needed (Could be installed with 'aqtinstall' or with the official tools)
 pip3 install aqtinstall && aqt install-qt mac ios 5.15.2 -O qt5 -m qtcharts # Qt
 
-# Then, really important, some variables need to be exported in the shell
+# Setup the environment for the build tools
 
 export PATH="$(brew --prefix flex)/bin:$PATH" && export PATH="$(brew --prefix bison)/bin:$PATH" # For QGis
 
