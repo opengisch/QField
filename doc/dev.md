@@ -223,7 +223,7 @@ export PATH="$(brew --prefix flex)/bin:$PATH" && export PATH="$(brew --prefix bi
 
 export Qt5_DIR=$HOME/Documents/qt5/5.15.2/ios/ # Seems that a full path might be needed for dependencies based on Qt like Qca
 
-# The Cmake configuration command should look like something like this one (The architecture parameter seems to be really important)
+# Configure using CMake
 
 cmake -S . -B build-arm64-ios \
 	-DCMAKE_PREFIX_PATH=$HOME/Documents/qt5/5.15.2/ios/lib/cmake/Qt5 \
