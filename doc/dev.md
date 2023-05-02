@@ -209,7 +209,7 @@ cmake --build build-x64-ios
 # Firstly, some compilation dependencies need to be installed
 brew install cmake flex bison python pkg-config autoconf automake libtool
 
-# Secondly, Xcode must be installed through the AppStore, then configured (Sometimes commands like those are needed to correctly set-up Xcode)
+# Secondly, Xcode must be installed through the AppStore, then configured
 xcode-select --install
 sudo xcode-select --switch /Library/Developer/CommandLineTools
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
