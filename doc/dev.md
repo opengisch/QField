@@ -179,7 +179,7 @@ cmake -S QField \
 cmake --build build
 ```
 
-## iOS
+## iOS Simulators for x64 processors
 
 To compile for iOS simulator, make sure you have installed recent versions of flex and bison (e.g. via homebrew) and added to the path.
 You also need the Qt sdk for ios installed.
@@ -201,6 +201,54 @@ export Qt5_DIR=5.15.2/ios
 cmake -S . -B build-x64-ios -DVCPKG_TARGET_TRIPLET=x64-ios -GXcode -DWITH_VCPKG=ON -DSYSTEM_QT=ON -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_FIND_ROOT_PATH=$Qt5_DIR
 cmake --build build-x64-ios
 ```
+
+
+## iOS application (ARM-64 processors architecture)
+
+```sh
+# Firstly, some compilation dependencies need to be installed
+brew install cmake flex bison python pkg-config autoconf automake libtool
+
+# Secondly, Xcode must be installed through the AppStore, then configured
+xcode-select --install
+sudo xcode-select --switch /Library/Developer/CommandLineTools
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+QT_ROOT=$HOME/Documents/qt5
+
+
+# Then, of course, Qt is needed (Could be installed with 'aqtinstall' or with the official tools)
+pip3 install aqtinstall && aqt install-qt mac ios 5.15.2 -O $QT_ROOT -m qtcharts # Qt
+
+# Setup the environment for the build tools
+
+export PATH="$(brew --prefix flex)/bin:$PATH" && export PATH="$(brew --prefix bison)/bin:$PATH" # For QGis
+
+export Qt5_DIR=$QT_ROOT/5.15.2/ios/ # Seems that a full path might be needed for dependencies based on Qt like Qca
+
+# Configure using CMake
+
+cmake -S . -B build-arm64-ios \
+	-DCMAKE_PREFIX_PATH=$QT_ROOT/5.15.2/ios/lib/cmake/Qt5 \
+	-DCMAKE_FIND_ROOT_PATH=$QT_ROOT/5.15.2/ios/ \
+	-DSYSTEM_QT=ON \
+	-DVCPKG_TARGET_TRIPLET=arm64-ios \
+	-DWITH_VCPKG=ON \
+	-DVCPKG_BUILD_TYPE=release \
+	-DCMAKE_SYSTEM_NAME=iOS \
+	-DCMAKE_OSX_SYSROOT=iphoneos \
+	-DCMAKE_OSX_ARCHITECTURES=arm64 \
+	-GXcode
+
+# The "build/CMakeFiles/[version]/CMakeSystem.cmake" file may need to be modified.
+# The "CMAKE_SYSTEM_PROCESSOR" variable must be set to "aarch64" manually (only if the cmake configuration fails).
+
+# In "Xcode" build settings, it is possible that the additional flag "CoreFoundation" had to be removed manually.
+
+# Then, compile. To install an app on iOS, it must be signed using Xcode tools.
+cmake --build build-arm64-ios
+```
+
 
 ## Contribute
 
