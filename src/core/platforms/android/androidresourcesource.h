@@ -18,8 +18,11 @@
 
 #include "resourcesource.h"
 
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 #include <QAndroidActivityResultReceiver>
-
+#else
+#include <QtCore/private/qandroidextras_p.h>
+#endif
 
 class AndroidResourceSource : public ResourceSource, public QAndroidActivityResultReceiver
 {
@@ -33,8 +36,11 @@ class AndroidResourceSource : public ResourceSource, public QAndroidActivityResu
      */
     explicit AndroidResourceSource( const QString &prefix );
 
-    //! QAndroidActivityResultReceiver
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
     void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
+#else
+    void handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data ) override;
+#endif
 
   private:
     /**

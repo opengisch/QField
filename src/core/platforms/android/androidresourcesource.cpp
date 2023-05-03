@@ -13,16 +13,23 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "androidresourcesource.h"
 #include "qgsapplication.h"
 #include "qgsmessagelog.h"
 
-#include <QAndroidJniEnvironment>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QSettings>
+
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+#include <QAndroidJniEnvironment>
 #include <QtAndroid>
+#else
+#include <QJniEnvironment>
+#include <QtCore/private/qandroidextras_p.h>
+#endif
 
 AndroidResourceSource::AndroidResourceSource( const QString &prefix )
   : ResourceSource( nullptr, prefix )
@@ -31,7 +38,11 @@ AndroidResourceSource::AndroidResourceSource( const QString &prefix )
 {
 }
 
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
+#else
+void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data )
+#endif
 {
   if ( receiverRequestCode == 171 )
   {
@@ -41,13 +52,21 @@ void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int r
       QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), false );
     }
 
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
     jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
+#else
+    jint RESULT_OK = QJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
+#endif
     if ( resultCode == RESULT_OK )
     {
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
       QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
-
-
       QAndroidJniObject media_path = QAndroidJniObject::fromString( "RESOURCE_FILENAME" );
+#else
+      QJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
+      QJniObject media_path = QJniObject::fromString( "RESOURCE_FILENAME" );
+#endif
+
       media_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
                                             media_path.object<jstring>() );
 

@@ -18,7 +18,12 @@
 #include "qgsmessagelog.h"
 
 #include <QFile>
+
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 #include <QtAndroid>
+#else
+#include <QtCore/private/qandroidextras_p.h>
+#endif
 
 AndroidProjectSource::AndroidProjectSource( QObject *parent )
   : ProjectSource( parent )
@@ -26,12 +31,24 @@ AndroidProjectSource::AndroidProjectSource( QObject *parent )
 {
 }
 
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 void AndroidProjectSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
+#else
+void AndroidProjectSource::handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data )
+#endif
 {
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
+#else
+  jint RESULT_OK = QJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
+#endif
   if ( receiverRequestCode == 103 && resultCode == RESULT_OK )
   {
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
     QAndroidJniObject uri = data.callObjectMethod( "getData", "()Landroid/net/Uri;" );
+#else
+    QJniObject uri = data.callObjectMethod( "getData", "()Landroid/net/Uri;" );
+#endif
 
     QString path = uri.callObjectMethod( "getPath", "()Ljava/lang/String;" ).toString();
 
