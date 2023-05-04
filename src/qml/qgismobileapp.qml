@@ -775,7 +775,7 @@ ApplicationWindow {
     visible: navigation.isActive ||
              positioningSettings.showPositionInformation ||
              positioningPreciseView.visible ||
-             sensorInformationView.visible ||
+             sensorInformationView.activeSensors > 0 ||
              (stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive)
 
     width: parent.width
