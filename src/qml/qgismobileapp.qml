@@ -2004,7 +2004,7 @@ ApplicationWindow {
           sensorMenu.popup( mainMenu.x, mainMenu.y + sensorItem.y )
         } else {
           mainMenu.close();
-          toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/') })
+          toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/sensors/') })
         }
         highlighted = false
       }
