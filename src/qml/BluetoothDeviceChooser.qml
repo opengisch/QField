@@ -79,7 +79,10 @@ Item {
       Layout.fillWidth: true
       visible: bluetoothDeviceComboBox.count
       font: Theme.defaultFont
+
       popup.font: Theme.defaultFont
+      popup.topMargin: mainWindow.sceneTopMargin
+      popup.bottomMargin: mainWindow.sceneTopMargin
 
       enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
 

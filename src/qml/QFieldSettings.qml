@@ -340,7 +340,10 @@ Page {
                           Layout.fillWidth: true
                           Layout.alignment: Qt.AlignVCenter
                           font: Theme.defaultFont
+
                           popup.font: Theme.defaultFont
+                          popup.topMargin: mainWindow.sceneTopMargin
+                          popup.bottomMargin: mainWindow.sceneTopMargin
 
                           model: ListModel {
                             ListElement { name: qsTr('Follow system appearance'); value: 'system' }
@@ -381,7 +384,10 @@ Page {
                           Layout.fillWidth: true
                           Layout.alignment: Qt.AlignVCenter
                           font: Theme.defaultFont
+
                           popup.font: Theme.defaultFont
+                          popup.topMargin: mainWindow.sceneTopMargin
+                          popup.bottomMargin: mainWindow.sceneTopMargin
 
                           model: ListModel {
                             ListElement { name: qsTr('Tiny'); value: 0.75 }
@@ -435,7 +441,10 @@ Page {
                           Layout.fillWidth: true
                           Layout.alignment: Qt.AlignVCenter
                           font: Theme.defaultFont
+
                           popup.font: Theme.defaultFont
+                          popup.topMargin: mainWindow.sceneTopMargin
+                          popup.bottomMargin: mainWindow.sceneBottomMargin
 
                           property variant languageCodes: undefined
                           property string currentLanguageCode: undefined
@@ -531,7 +540,10 @@ Page {
                           Layout.fillWidth: true
                           Layout.alignment: Qt.AlignVCenter
                           font: Theme.defaultFont
+
                           popup.font: Theme.defaultFont
+                          popup.topMargin: mainWindow.sceneTopMargin
+                          popup.bottomMargin: mainWindow.sceneTopMargin
 
                           textRole: 'DeviceName'
                           valueRole: 'DeviceType'
@@ -733,7 +745,10 @@ Page {
                       Layout.columnSpan: 2
                       Layout.alignment: Qt.AlignVCenter
                       font: Theme.defaultFont
+
                       popup.font: Theme.defaultFont
+                      popup.topMargin: mainWindow.sceneTopMargin
+                      popup.bottomMargin: mainWindow.sceneTopMargin
 
                       property bool loaded: false
                       Component.onCompleted: {
@@ -1193,7 +1208,10 @@ Page {
                       Layout.columnSpan: 2
                       model: [ qsTr( "None" ) ].concat( platformUtilities.availableGrids() );
                       font: Theme.defaultFont
+
                       popup.font: Theme.defaultFont
+                      popup.topMargin: mainWindow.sceneTopMargin
+                      popup.bottomMargin: mainWindow.sceneTopMargin
 
                       onCurrentIndexChanged: {
                           positioningSettings.verticalGrid = currentIndex > 0 ? platformUtilities.availableGrids()[currentIndex - 1] : '';

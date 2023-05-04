@@ -486,7 +486,8 @@ Page {
         property string projectName: ''
         property string projectLocalPath: ''
 
-        title: 'Project Actions'
+        title: qsTr('Project Actions')
+
         width: {
             var result = 0;
             var padding = 0;
@@ -497,6 +498,9 @@ Page {
             }
             return Math.min( result + padding * 2,mainWindow.width - 20);
         }
+
+        topMargin: mainWindow.sceneTopMargin
+        bottomMargin: mainWindow.sceneBottomMargin
 
         MenuItem {
           id: downloadProject

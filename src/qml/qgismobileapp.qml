@@ -1895,6 +1895,9 @@ ApplicationWindow {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
+    topMargin: sceneTopMargin
+    bottomMargin: sceneBottomMargin
+
     width: {
         var result = 0;
         var padding = 0;
@@ -1905,8 +1908,6 @@ ApplicationWindow {
         }
         return result + padding * 2;
     }
-
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
       text: qsTr( 'Measure Tool' )
@@ -2000,7 +2001,7 @@ ApplicationWindow {
 
       onTriggered: {
         if (sensorListInstantiator.count > 0) {
-          sensorMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
+          sensorMenu.popup( mainMenu.x, mainMenu.y + sensorItem.y )
         } else {
           mainMenu.close();
           toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/') })
@@ -2112,6 +2113,9 @@ ApplicationWindow {
 
     title: qsTr( "Sensors" )
 
+    topMargin: sceneTopMargin
+    bottomMargin: sceneBottomMargin
+
     width: {
         var result = 0;
         var padding = 0;
@@ -2122,8 +2126,6 @@ ApplicationWindow {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
-
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
       text: qsTr( 'Select sensor below' )
@@ -2181,6 +2183,9 @@ ApplicationWindow {
 
     title: qsTr( "Print" )
 
+    topMargin: sceneTopMargin
+    bottomMargin: sceneBottomMargin
+
     width: {
         var result = 0;
         var padding = 0;
@@ -2191,8 +2196,6 @@ ApplicationWindow {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
-
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
       text: qsTr( 'Select layout below' )
@@ -2280,6 +2283,9 @@ ApplicationWindow {
                    : xLabel + ': ' + xValue
     }
 
+    topMargin: sceneTopMargin
+    bottomMargin: sceneBottomMargin
+
     width: {
         var result = 0;
         var padding = 0;
@@ -2290,8 +2296,6 @@ ApplicationWindow {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
-
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
         id: xItem
@@ -2381,6 +2385,9 @@ ApplicationWindow {
     title: qsTr( "Navigation Options" )
     font: Theme.defaultFont
 
+    topMargin: sceneTopMargin
+    bottomMargin: sceneBottomMargin
+
     width: {
         var result = 0;
         var padding = 0;
@@ -2391,8 +2398,6 @@ ApplicationWindow {
         }
         return Math.min(result + padding, mainWindow.width - 20);
     }
-
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
       id: preciseViewItem
@@ -2446,6 +2451,9 @@ ApplicationWindow {
     title: qsTr( "Precise View Settings" )
     font: Theme.defaultFont
 
+    topMargin: sceneTopMargin
+    bottomMargin: sceneBottomMargin
+
     width: {
         var result = 0;
         var padding = 0;
@@ -2456,8 +2464,6 @@ ApplicationWindow {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
-
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.10, 2, navigation.distanceUnits))
@@ -2609,6 +2615,9 @@ ApplicationWindow {
     title: qsTr( "Positioning Options" )
     font: Theme.defaultFont
 
+    topMargin: sceneTopMargin
+    bottomMargin: sceneBottomMargin
+
     width: {
         var result = 0;
         var padding = 0;
@@ -2619,8 +2628,6 @@ ApplicationWindow {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
-
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
         id: positioningDeviceName

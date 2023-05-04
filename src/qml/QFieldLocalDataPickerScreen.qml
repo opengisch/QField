@@ -339,7 +339,7 @@ Page {
 
         onClicked: {
           importMenu.popup(importButton.x + importButton.width - importMenu.width + 10,
-                           importButton.y - importMenu.height)
+                           importButton.y - importButton.height)
         }
       }
     }
@@ -351,7 +351,8 @@ Page {
       property int itemType: 0
       property string itemPath: ''
 
-      title: 'Item Actions'
+      title: qsTr('Item Actions')
+
       width: {
         var result = 0;
         var padding = 0;
@@ -362,6 +363,9 @@ Page {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
       }
+
+      topMargin: sceneTopMargin
+      bottomMargin: sceneBottomMargin
 
       MenuItem {
         id: sendDatasetTo
@@ -453,7 +457,8 @@ Page {
     Menu {
       id: importMenu
 
-      title: 'Import Actions'
+      title: qsTr('Import Actions')
+
       width: {
         var result = 0;
         var padding = 0;
@@ -465,13 +470,16 @@ Page {
         return Math.min( result + padding * 2,mainWindow.width - 20);
       }
 
+      topMargin: sceneTopMargin
+      bottomMargin: sceneBottomMargin
+
       MenuItem {
         id: importProjectFromFolder
 
-        visible: platformUtilities.capabilities & PlatformUtilities.CustomImport
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomImport
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled ? 48 : 0
         leftPadding: 10
 
         text: qsTr( "Import project from folder" )
@@ -481,10 +489,10 @@ Page {
       MenuItem {
         id: importProjectFromZIP
 
-        visible: platformUtilities.capabilities & PlatformUtilities.CustomImport
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomImport
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled ? 48 : 0
         leftPadding: 10
 
         text: qsTr( "Import project from ZIP" )
@@ -494,10 +502,11 @@ Page {
       MenuItem {
         id: importDataset
 
-        visible: platformUtilities.capabilities & PlatformUtilities.CustomImport
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomImport
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled ? 48 : 0
+
         leftPadding: 10
 
         text: qsTr( "Import dataset(s)" )
@@ -511,7 +520,6 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
         leftPadding: 10
 
         text: qsTr( "Import URL" )
@@ -528,7 +536,6 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
         leftPadding: 10
 
         text: qsTr( "Storage management help" )

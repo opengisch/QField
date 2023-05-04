@@ -579,7 +579,7 @@ Page {
                 property string recentProjectPath: ''
                 property int recentProjectType: 0
 
-                title: 'Recent Project Actions'
+                title: qsTr('Recent Project Actions')
 
                 width: {
                   var result = 0;
@@ -591,6 +591,9 @@ Page {
                   }
                   return Math.min( result + padding, mainWindow.width - 20);
                 }
+
+                topMargin: mainWindow.sceneTopMargin
+                bottomMargin: mainWindow.sceneBottomMargin
 
                 MenuItem {
                   id: defaultProject

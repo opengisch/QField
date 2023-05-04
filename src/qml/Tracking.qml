@@ -475,7 +475,10 @@ Item {
                 Layout.columnSpan: 2
                 Layout.alignment: Qt.AlignVCenter
                 font: Theme.defaultFont
+
                 popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
 
                 property bool loaded: false
                 Component.onCompleted: {

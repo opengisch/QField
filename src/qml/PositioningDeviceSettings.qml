@@ -105,7 +105,10 @@ Popup {
               id: positioningDeviceType
               Layout.fillWidth: true
               font: Theme.defaultFont
+
               popup.font: Theme.defaultFont
+              popup.topMargin: mainWindow.sceneTopMargin
+              popup.bottomMargin: mainWindow.sceneTopMargin
 
               textRole: "name"
               valueRole: "value"

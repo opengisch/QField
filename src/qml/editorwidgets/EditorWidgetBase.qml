@@ -23,6 +23,9 @@ Item {
           }
           return result + padding * 2;
       }
+
+      topMargin: mainWindow.sceneTopMargin
+      bottomMargin: mainWindow.sceneBottomMargin
     }
 
     /* This signal is emmited when an editor widget has changed the value.

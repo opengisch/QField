@@ -51,7 +51,10 @@ Item {
       Layout.fillWidth: true
       visible: serialPortComboBox.count
       font: Theme.defaultFont
+
       popup.font: Theme.defaultFont
+      popup.topMargin: mainWindow.sceneTopMargin
+      popup.bottomMargin: mainWindow.sceneTopMargin
 
       textRole: 'display'
       model: SerialPortModel {
