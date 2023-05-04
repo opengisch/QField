@@ -319,6 +319,9 @@ Item {
 
             font: Theme.defaultFont
             popup.font: Theme.defaultFont
+            popup.topMargin: mainWindow.sceneTopMargin
+            popup.bottomMargin: mainWindow.sceneTopMargin
+
             contentItem: Text {
                 leftPadding: enabled ? 5 : 0
                 height: fontMetrics.height + 20

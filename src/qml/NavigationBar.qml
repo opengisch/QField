@@ -500,7 +500,8 @@ Rectangle {
         return result + padding * 2 + 10;
     }
 
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
 
     MenuItem {
       text: qsTr( 'Toggle Feature Selection' )
@@ -611,7 +612,8 @@ Rectangle {
         return result + padding * 2;
     }
 
-    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
 
     MenuItem {
       text: Qt.platform.os === "ios" ? qsTr( "Print Atlas Feature to Image" ) : qsTr( 'Print Atlas Feature to PDF' )
@@ -742,6 +744,9 @@ Rectangle {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
+
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
 
     MenuItem {
       text: qsTr( 'Select template below' )
