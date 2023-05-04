@@ -9,6 +9,8 @@ import Theme 1.0
 Rectangle {
   id: sensorInformationView
 
+  property alias activeSensors: grid.count
+
   property int ceilsCount: 4
   property double rowHeight: 30
   property color backgroundColor: Theme.mainBackgroundColor
@@ -20,7 +22,6 @@ Rectangle {
           ? rowHeight * Math.ceil(grid.count / 3)
           : rowHeight * Math.ceil(grid.count / 2)
   anchors.margins: 20
-  visible: grid.count > 0
 
   color: Theme.mainBackgroundColor
 
