@@ -2144,6 +2144,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>No projects found</source>
         <translation>Não foram encontrados projetos</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Ações de Projeto</translation>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2226,6 +2230,14 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>Escreve um URL para fazer download e importar o projeto ou conjunto de dados:</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Ações</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>Importar Ações</translation>
     </message>
 </context>
 <context>
@@ -3236,6 +3248,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Load last opened project on launch</source>
         <translation>Abrir o último projeto aberto no lançamento</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>Ações de Projeto Recente</translation>
     </message>
 </context>
 <context>

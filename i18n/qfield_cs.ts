@@ -2137,6 +2137,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <source>No projects found</source>
         <translation>Nenalezeny žádné projekty</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2218,6 +2222,14 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Actions</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3228,6 +3240,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

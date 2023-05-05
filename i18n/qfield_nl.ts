@@ -2142,6 +2142,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>No projects found</source>
         <translation>Geen projecten gevonden</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2224,6 +2228,14 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>Typ een URL om een project of dataset te downloaden en te importeren:</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3234,6 +3246,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Load last opened project on launch</source>
         <translation>Laatst geopend project laden bij opstarten</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

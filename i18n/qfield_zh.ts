@@ -171,7 +171,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">连接%1</translation>
+        <translation type="vanished">连接至%1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -295,11 +295,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X坐标</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y坐标</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -506,7 +506,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation>项目菜单</translation>
+        <translation>项菜单</translation>
     </message>
 </context>
 <context>
@@ -887,7 +887,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show on map</source>
-        <translation>在地图上显示</translation>
+        <translation>在地图显示</translation>
     </message>
     <message>
         <source>Show labels</source>
@@ -927,7 +927,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>图层 %1 上的追踪已停止</translation>
+        <translation>在图层 %1 上的追踪已停止</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -962,7 +962,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>无法开始编辑</translation>
+        <translation>无法启动编辑</translation>
     </message>
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
@@ -1015,7 +1015,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation>附加文件目录</translation>
+        <translation>附属文件目录</translation>
     </message>
     <message>
         <source>Sample projects</source>
@@ -1042,7 +1042,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation>您所在位置的搜索过滤器已激活，请在设置面板自定义结果</translation>
+        <translation>您所在位置的搜索过滤已激活，请在设置面板自定义结果</translation>
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
@@ -1110,7 +1110,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>MultiFeatureListModelBase</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>无法开始编辑</translation>
+        <translation>无法启动编辑</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -1228,7 +1228,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>X</source>
-        <translation>X坐标</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
@@ -1244,7 +1244,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Y</source>
-        <translation>Y坐标</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
@@ -1274,7 +1274,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>无法开始编辑</translation>
+        <translation>无法启动编辑</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -1391,7 +1391,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X坐标</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Lon.</source>
@@ -1403,7 +1403,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y坐标</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <source>Lat</source>
@@ -1504,7 +1504,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>X</source>
-        <translation>X坐标</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1516,7 +1516,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Y</source>
-        <translation>Y坐标</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2140,6 +2140,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No projects found</source>
         <translation>未找到工程</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>工程动作</translation>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2222,6 +2226,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>在下面键入URL，下载并导入工程或数据集：</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>项动作</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>导入动作</translation>
     </message>
 </context>
 <context>
@@ -3233,6 +3245,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Load last opened project on launch</source>
         <translation>启动时加载上次打开的工程</translation>
     </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>最近工程动作</translation>
+    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -3465,11 +3481,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X坐标</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y坐标</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>

@@ -2142,6 +2142,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>No projects found</source>
         <translation>Non se atoparon proxectos</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2224,6 +2228,14 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>Teclea un URL debaixo para descargar e importar o proxecto ou un conxunto de datos:</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3233,6 +3245,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

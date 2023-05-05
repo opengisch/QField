@@ -2140,6 +2140,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No projects found</source>
         <translation>Nisu pronađeni projekti</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2222,6 +2226,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>Ispod upiši URL za preuzimanje i uvoz projekta ili seta podataka:</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3232,6 +3244,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Load last opened project on launch</source>
         <translation>Učitaj posljednji otvoreni projekt prilikom pokretanja</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

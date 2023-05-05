@@ -2137,6 +2137,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>No projects found</source>
         <translation>Nie znaleziono żadnych projektów</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2219,6 +2223,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>Wprowadź poniżej URL, aby pobrać i zaimportować projekt lub zestaw danych:</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3229,6 +3241,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Load last opened project on launch</source>
         <translation>Wczytaj ostatnio otwarty projekt na starcie</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

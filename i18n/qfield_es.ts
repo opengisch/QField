@@ -2142,6 +2142,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No projects found</source>
         <translation>Proyecto no localizado</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2224,6 +2228,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>Escriba una URL a continuación para descargar e importar el proyecto o conjunto de datos:</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3233,6 +3245,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

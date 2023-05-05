@@ -2171,6 +2171,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No projects found</source>
         <translation>No projects found</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2252,6 +2256,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3265,6 +3277,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

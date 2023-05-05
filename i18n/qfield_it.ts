@@ -2147,6 +2147,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>No projects found</source>
         <translation>Nessun progetto trovato</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2228,6 +2232,14 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Actions</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3238,6 +3250,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2144,6 +2144,10 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <source>No projects found</source>
         <translation>Projekteja  ei löytynyt</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2225,6 +2229,14 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Actions</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3235,6 +3247,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
         <translation type="unfinished"/>
     </message>
 </context>
