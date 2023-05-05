@@ -53,6 +53,7 @@ void QgsQuickMapSettings::setProject( QgsProject *project )
   {
     connect( mProject, &QgsProject::readProject, this, &QgsQuickMapSettings::onReadProject );
     connect( mProject, &QgsProject::crsChanged, this, &QgsQuickMapSettings::onCrsChanged );
+
     setDestinationCrs( mProject->crs() );
     mMapSettings.setTransformContext( mProject->transformContext() );
     mMapSettings.setPathResolver( mProject->pathResolver() );
@@ -331,6 +332,7 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
 
   mMapSettings.setTransformContext( mProject->transformContext() );
   mMapSettings.setPathResolver( mProject->pathResolver() );
+  mMapSettings.setElevationShadingRenderer( mProject->elevationShadingRenderer() );
 
   emit extentChanged();
   emit rotationChanged();
