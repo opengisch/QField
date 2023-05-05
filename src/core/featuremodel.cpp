@@ -558,33 +558,14 @@ void FeatureModel::resetAttributes( bool partialReset )
   if ( !mLayer )
     return;
 
-  QgsExpressionContext expressionContext = createExpressionContext();
-  expressionContext.setFeature( mFeature );
-
   QgsFields fields = mLayer->fields();
-
   beginResetModel();
   for ( int i = 0; i < fields.count(); ++i )
   {
     //if the value does not need to be remembered and it's not prefilled by the linked parent feature
     if ( !sRememberings->value( mLayer ).rememberedAttributes.at( i ) && !mLinkedAttributeIndexes.contains( i ) )
     {
-      if ( fields.at( i ).defaultValueDefinition().isValid() )
-      {
-        QgsExpression exp( fields.at( i ).defaultValueDefinition().expression() );
-        exp.prepare( &expressionContext );
-        if ( exp.hasParserError() )
-          QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has parser error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.parserErrorString() ), QStringLiteral( "QField" ) );
-
-        QVariant value = exp.evaluate( &expressionContext );
-
-        if ( exp.hasEvalError() )
-          QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has evaluation error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.evalErrorString() ), QStringLiteral( "QField" ) );
-
-
-        mFeature.setAttribute( i, value );
-      }
-      else if ( !partialReset )
+      if ( !partialReset )
       {
         mFeature.setAttribute( i, QVariant() );
       }
@@ -613,6 +594,12 @@ void FeatureModel::resetAttributes( bool partialReset )
       mFeature.setAttribute( i, maxOrdering );
     }
   }
+
+  // Reset default values
+  QgsExpressionContext expressionContext = createExpressionContext();
+  expressionContext.setFeature( mFeature );
+  mFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap(), &expressionContext );
+
   endResetModel();
 }
 
@@ -710,8 +697,7 @@ bool FeatureModel::create()
   QMetaObject::Connection connection = connect( mLayer, &QgsVectorLayer::featureAdded, this, [&createdFeatureId]( QgsFeatureId fid ) { createdFeatureId = fid; } );
 
   bool isSuccess = true;
-  QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap() );
-  if ( mLayer->addFeature( createdFeature ) )
+  if ( mLayer->addFeature( mFeature ) )
   {
     if ( mProject && mProject->topologicalEditing() )
       mLayer->addTopologicalPoints( mFeature.geometry() );
