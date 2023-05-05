@@ -6,6 +6,6 @@ GenericName=QField
 Comment=QField
 Icon=qfield
 Terminal=false
-Exec=env FONTCONFIG_PATH=/etc/fonts qfield %F
+Exec=qfield %F
 MimeType=application/x-qgis-project;image/tiff;image/jpeg;image/jp2;application/x-raster-aig;application/x-mapinfo-mif;application/x-esri-shape;
 Categories=Qt;Utility;
