@@ -131,6 +131,11 @@ endif()
 list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
 list(APPEND QGIS_OPTIONS -DBUILD_WITH_QT6=ON)
 
+if(VCPKG_CROSSCOMPILING)
+   list(APPEND QGIS_OPTIONS -DQT_HOST_PATH=${CURRENT_HOST_INSTALLED_DIR})
+   list(APPEND QGIS_OPTIONS -DQT_HOST_PATH_CMAKE_DIR:PATH=${CURRENT_HOST_INSTALLED_DIR}/share)
+endif()
+
 if(VCPKG_TARGET_IS_WINDOWS)
     ##############################################################################
     #Install pip
@@ -226,7 +231,6 @@ else() # Build in UNIX
         FIND_LIB_OPTIONS(FCGI fcgi fcgi LIBRARY ${VCPKG_TARGET_SHARED_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
     endif()
-    find_package(Qt6 QUIET)
     list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
     if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a")
         set(QT_POLY2TRI_DIR_RELEASE "${CURRENT_INSTALLED_DIR}/lib")

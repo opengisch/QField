@@ -44,6 +44,12 @@ vcpkg_execute_required_process(
 )
 message(STATUS "Importing certstore done")
 
+if(VCPKG_CROSSCOMPILING)
+   list(APPEND QCA_OPTIONS -DQT_HOST_PATH=${CURRENT_HOST_INSTALLED_DIR})
+   list(APPEND QCA_OPTIONS -DQT_ADDITIONAL_PACKAGES_PREFIX_PATH=${CURRENT_HOST_INSTALLED_DIR})
+   list(APPEND QCA_OPTIONS -DQT_HOST_PATH_CMAKE_DIR:PATH=${CURRENT_HOST_INSTALLED_DIR}/share)
+endif()
+ 
 # Configure and build
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
@@ -56,6 +62,7 @@ vcpkg_cmake_configure(
         -DQCA_FEATURE_INSTALL_DIR=share/qca/mkspecs/features
         -DOSX_FRAMEWORK=OFF
         -DQT6=ON
+        ${QCA_OPTIONS}
     OPTIONS_DEBUG
         -DQCA_PLUGINS_INSTALL_DIR=${QCA_FEATURE_INSTALL_DIR_DEBUG}
     OPTIONS_RELEASE
