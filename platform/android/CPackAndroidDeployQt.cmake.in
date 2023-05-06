@@ -12,6 +12,7 @@ if(DEFINED ENV{KEYNAME}
       --deployment bundled
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
+      --release
       --aab
     WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR
     COMMAND_ERROR_IS_FATAL ANY)
