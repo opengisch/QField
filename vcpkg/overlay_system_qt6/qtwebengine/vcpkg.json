@@ -1,0 +1,32 @@
+{
+  "$comment": "x86-windows is not within the upstream support matrix of Qt6",
+  "name": "qtwebengine",
+  "version": "6.4.3",
+  "description": "Qt WebEngine",
+  "homepage": "https://www.qt.io/",
+  "license": null,
+  "supports": "!static & !((x86 | arm) & windows)",
+  "dependencies": [],
+  "default-features": [
+    "default-features"
+  ],
+  "features": {
+    "default-features": {
+      "description": "Platform-dependent default features"
+    },
+    "geolocation": {
+      "description": "Build with Geolocation",
+      "dependencies": []
+    },
+    "proprietary-codecs": {
+      "description": "Enables the use of proprietary codecs such as h.264/h.265 and MP3."
+    },
+    "spellchecker": {
+      "description": "Provides a spellchecker"
+    },
+    "webchannel": {
+      "description": "Provides QtWebChannel integration",
+      "dependencies": []
+    }
+  }
+}
