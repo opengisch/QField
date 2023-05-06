@@ -166,7 +166,7 @@ jobs:
         with:
           name: ${{ env.APP_PACKAGE_NAME }}-android-${{ matrix.triplet }}
           path: |
-            ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
+            ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
       - name: 🍺 Deploy
         run: |

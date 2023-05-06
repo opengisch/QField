@@ -22,7 +22,7 @@ if(DEFINED ENV{KEYNAME}
       --ks @CMAKE_SOURCE_DIR@/keystore.p12 --ks-key-alias "$ENV{KEYNAME}"
       --ks-pass "pass:$ENV{STOREPASS}"
       --key-pass "pass:$ENV{KEYPASS}"
-        @CMAKE_BINARY_DIR@/android-build/build/outputs/apk/release/android-build-release-signed.apk
+        @CMAKE_BINARY_DIR@/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk
     WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR
     COMMAND_ERROR_IS_FATAL ANY)
 else()
