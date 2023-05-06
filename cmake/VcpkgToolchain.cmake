@@ -130,10 +130,10 @@ if(NOT "${NUGET_TOKEN}" STREQUAL "" AND (_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MO
   set(ENV{VCPKG_BINARY_SOURCES} "$ENV{VCPKG_BINARY_SOURCES};nugetconfig,${_CONFIG_PATH_NATIVE},readwrite")
 endif()
 
-set(SYSTEM_QT OFF CACHE BOOL "Determines if system Qt libraries should be used or Qt should be built from source. If enabled, the 'Qt5_DIR' environment variable can be used to specify the Qt installation to use.")
+set(SYSTEM_QT OFF CACHE BOOL "Determines if system Qt libraries should be used or Qt should be built from source. If enabled, the 'Qt6_DIR' environment variable can be used to specify the Qt installation to use.")
 if(SYSTEM_QT)
-  list(APPEND VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/vcpkg/overlay_system_qt")
-  set($ENV{VCPKG_KEEP_ENV_VARS} "$ENV{VCPKG_KEEP_ENV_VARS};Qt5_DIR")
+  list(APPEND VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/vcpkg/overlay_system_qt6")
+  set($ENV{VCPKG_KEEP_ENV_VARS} "$ENV{VCPKG_KEEP_ENV_VARS};Qt6_DIR")
 endif()
 list(APPEND VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/vcpkg/overlay")
 list(APPEND VCPKG_OVERLAY_TRIPLETS "${CMAKE_SOURCE_DIR}/vcpkg/triplets")
