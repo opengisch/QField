@@ -1,7 +1,7 @@
 buildscript {
     ext {
         buildToolsVersion = "@ANDROID_BUILD_TOOLS_VERSION@"
-        minSdkVersion = @ANDROID_PLATFORM@
+        minSdkVersion = @ANDROID_PLATFORM_INT@
         compileSdkVersion = @ANDROID_TARGET_PLATFORM@
         targetSdkVersion = @ANDROID_TARGET_PLATFORM@
         ndkVersion = '@ANDROID_NDK_VERSION@'
@@ -57,19 +57,8 @@ android {
      * Changing them manually might break the compilation!
      *******************************************************/
 
-    ndkVersion '@ANDROID_NDK_VERSION@'
-    compileSdkVersion androidCompileSdkVersion.toInteger()
-
-
-    /*
-    // see https://bugreports.qt.io/browse/QTBUG-69755
-    // and https://forum.qt.io/topic/86570/incorrect-apk-directory/4
-    applicationVariants.all { variant ->
-            variant.outputs.all {
-                outputFileName = "../" + outputFileName
-            }
-         }
-    */
+    ndkVersion = '@ANDROID_NDK_VERSION@'
+    compileSdkVersion = androidCompileSdkVersion.toInteger()
 
     sourceSets {
         main {
@@ -85,13 +74,13 @@ android {
     }
 
     lintOptions {
-        abortOnError false
+        abortOnError = false
         disable 'MissingTranslation'
     }
 
     defaultConfig {
-      minSdkVersion @ANDROID_PLATFORM@
-      targetSdkVersion @ANDROID_TARGET_PLATFORM@
+      minSdkVersion = @ANDROID_PLATFORM_INT@
+      targetSdkVersion = @ANDROID_TARGET_PLATFORM@
       ndk {
         abiFilters "@ANDROID_ABI@"
       }
