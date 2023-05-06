@@ -1,26 +1,3 @@
-set(ANDROID_TEMPLATE_FOLDER "@CMAKE_BINARY_DIR@/android-template")
-file(COPY @CMAKE_SOURCE_DIR@/platform/android/
-     DESTINATION ${ANDROID_TEMPLATE_FOLDER}/)
-
-set(SRC_FOLDER "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/@APP_PACKAGE_NAME@")
-file(RENAME "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/qfield" ${SRC_FOLDER})
-file(GLOB_RECURSE JAVA_FILES "${SRC_FOLDER}" "*.java")
-foreach(JAVA_FILE ${JAVA_FILES})
-  file(READ ${JAVA_FILE} CONTENT)
-  string(REGEX REPLACE "ch.opengis.qfield" "ch.opengis.@APP_PACKAGE_NAME@"
-                       CONTENT "${CONTENT}")
-  file(WRITE ${JAVA_FILE} "${CONTENT}")
-endforeach()
-
-# Workaround for
-# https://bugreports.qt.io/browse/QTBUG-84302
-file(COPY_FILE @CMAKE_BINARY_DIR@/android_deployment_settings.json @CMAKE_BINARY_DIR@/android_deployment_settings.tmp)
-execute_process(
-  COMMAND
-  "bash"
-  -c "cat <<< \"$(jq '. += { \"sdkBuildToolsRevision\" : \"@ANDROID_BUILD_TOOLS_VERSION@\" }' < @CMAKE_BINARY_DIR@/android_deployment_settings.tmp)\" > @CMAKE_BINARY_DIR@/android_deployment_settings.json"
-  COMMAND_ERROR_IS_FATAL ANY
-)
 if(DEFINED ENV{KEYNAME}
    AND DEFINED ENV{KEYPASS}
    AND DEFINED ENV{STOREPASS})
@@ -30,8 +7,8 @@ if(DEFINED ENV{KEYNAME}
       --sign @CMAKE_SOURCE_DIR@/keystore.p12 "$ENV{KEYNAME}"
       --storepass "$ENV{STOREPASS}"
       --keypass "$ENV{KEYPASS}"
-      --input @CMAKE_BINARY_DIR@/android_deployment_settings.json
-      --output @CMAKE_BINARY_DIR@/android-build
+      --input @CMAKE_BINARY_DIR@/src/app/android-qfield-deployment-settings.json
+      --output @CMAKE_BINARY_DIR@/src/app/android-build
       --deployment bundled
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
@@ -52,8 +29,8 @@ else()
   execute_process(
     COMMAND
       "@ANDROIDDEPLOYQT_EXECUTABLE@"
-      --input @CMAKE_BINARY_DIR@/android_deployment_settings.json
-      --output @CMAKE_BINARY_DIR@/android-build
+      --input @CMAKE_BINARY_DIR@/src/app/android-qfield-deployment-settings.json
+      --output @CMAKE_BINARY_DIR@/src/app/android-build
       --deployment bundled
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
