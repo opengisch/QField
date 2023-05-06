@@ -18,7 +18,7 @@ endif()
 
 if(ANDROID_ABI)
   set(ANDROID_NDK_VERSION "$ENV{ANDROID_NDK_HOME}" CACHE STRING "Android NDK version")
-  set(ANDROID_BUILD_TOOLS_VERSION "29.0.2" CACHE STRING "Android build-tools version")
+  set(ANDROID_BUILD_TOOLS_VERSION "30.0.3" CACHE STRING "Android build-tools version")
   set(ANDROID_TARGET_PLATFORM 31 CACHE INT "Target Android platform SDK version")
   set(ANDROID_PLATFORM 21 CACHE INT "Minimum Android platform SDK version")
   set(ANDROID_PLATFORM_INT 21 CACHE INT "Minimum Android platform SDK version") # Used in build.gradle.in
