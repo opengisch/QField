@@ -1072,15 +1072,15 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de la barra de búsqueda</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está deshabilitado, este filtro del localizador todavía se puede usar escribiendo el prefijo %1 en la barra de búsqueda.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar el localizador %1 de forma predeterminada</translation>
     </message>
 </context>
 <context>
@@ -1271,7 +1271,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo analizar la posición de la IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -2144,7 +2144,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Acciones del proyecto</translation>
     </message>
 </context>
 <context>
@@ -2231,11 +2231,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Acciones de elementos</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Acciones de importación</translation>
     </message>
 </context>
 <context>
@@ -2683,27 +2683,27 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>No se puede escribir en el directorio de salida de error: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Error al crear un subdirectorio %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo escribir en %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error al leer el archivo: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error al obtener archivos: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Error al abrir el archivo zip: &apos;%1&apos; (Código de error: %2)</translation>
     </message>
 </context>
 <context>
@@ -2769,7 +2769,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3058,23 +3058,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
+        <translation>Activar restricción de sensor</translation>
     </message>
     <message>
         <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Registrar cuando se cumplan todas las restricciones activas</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, los vértices solo se registran cuando se cumplen todas las restricciones activas. Si la configuración está deshabilitada, las restricciones individuales cumplidas activarán una adición de vértice.</translation>
     </message>
     <message>
         <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando la restricción del sensor se activa sola, se agregará el vértice siempre que el sensor haya capturado nuevos datos.</translation>
     </message>
     <message>
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando todas las restricciones están deshabilitadas, las adiciones de vértice se producirán con la frecuencia proporcionada por el dispositivo de posicionamiento.</translation>
     </message>
 </context>
 <context>
@@ -3225,31 +3225,31 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Proyecto predeterminado</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa base</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Proyecto predeterminado</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa base de conjuntos de datos individuales</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Cargar proyecto predeterminado al iniciar</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Cargar el último proyecto abierto al iniciar</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Acciones recientes del proyecto</translation>
     </message>
 </context>
 <context>
@@ -3691,47 +3691,47 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Importando %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Falló la importación de URL</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Sensores</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione el sensor a continuación</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Desconectando el sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Conectando el sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione el diseño a continuación</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Error de sensor: %1</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>No hay diseño de impresión disponible</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Aprende más</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Ningún sensor disponible</translation>
     </message>
 </context>
 <context>

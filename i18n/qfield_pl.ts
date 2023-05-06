@@ -2139,7 +2139,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Działania projektu</translation>
     </message>
 </context>
 <context>
@@ -2226,11 +2226,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Działania elementów</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Importuj działania</translation>
     </message>
 </context>
 <context>
@@ -2483,7 +2483,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Prędkość</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3021,7 +3021,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Prędkość</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3244,7 +3244,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnie działania projektów</translation>
     </message>
 </context>
 <context>
