@@ -1,4 +1,6 @@
 import QtQuick 2.14
-import Qt5Compat.GraphicalEffects
+//import QtGraphicalEffects 1.14
 
-OpacityMask {}
+Item {
+  property var maskSource
+}

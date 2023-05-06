@@ -1,7 +1,12 @@
 import QtQuick 2.14
-import Qt5Compat.GraphicalEffects
+//import QtGraphicalEffects 1.14
 
-DropShadow {
-  property int samples: 2
-  radius: sample / 2
+Item {
+  property int samples
+  property bool transparentBorder
+  property int radius
+  property color color
+  property int horizontalOffset
+  property int verticalOffset
+  property var source
 }
