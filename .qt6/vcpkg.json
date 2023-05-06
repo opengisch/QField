@@ -16,12 +16,7 @@
         "qml"
       ]
     },
-    {
-      "name": "qtwebview",
-      "features": [
-        "qml"
-      ]
-    },
+    "qtwebview",
     "qtconnectivity",
     "qtdeclarative",
     "qtlocation",
