@@ -16,8 +16,10 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        triplet: ['arm64-android', 'arm-android', 'x64-android', 'x86-android']
-        all_files_access: ['ON', 'OFF']
+        triplet: ['arm64-android']
+        all_files_access: ['OFF']
+#        triplet: ['arm64-android', 'arm-android', 'x64-android', 'x86-android']
+#        all_files_access: ['ON', 'OFF']
 
     steps:
       - name: 🐣 Checkout
@@ -29,9 +31,9 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "ANDROID_NDK_VERSION=22.1.7171670" >> $GITHUB_ENV
-          echo "ANDROID_BUILD_TOOLS_VERSION=29.0.2" >> $GITHUB_ENV
-          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/22.1.7171670" >> $GITHUB_ENV
+          echo "ANDROID_NDK_VERSION=23.1.7779620" >> $GITHUB_ENV
+          echo "ANDROID_BUILD_TOOLS_VERSION=30.0.3" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/23.1.7779620" >> $GITHUB_ENV
           echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
@@ -47,16 +49,29 @@ jobs:
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: 5.14.2
-          modules: 'qtcharts'
+          version: 6.5.0
+          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: 'android'
-          arch: 'android'
+          arch: 'android_arm64_v8a'
+          aqtversion: '==3.1.*'
+          py7zrversion: '==0.20.*'
+          cache: true
+
+      - name: 💐 Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: 6.5.0
+          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
+          target: 'desktop'
+          arch: 'gcc_64'
+          aqtversion: '==3.1.*'
+          py7zrversion: '==0.20.*'
           cache: true
 
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1
         with:
-          key: ${{ matrix.triplet }}
+          key: ${{ matrix.triplet }}-qt6
           max-size: 200M
 
       # The sentry-android dependency is added via gradle
@@ -91,11 +106,16 @@ jobs:
                 -D CMAKE_CXX_COMPILER_LAUNCHER=ccache \
                 -D SYSTEM_QT=ON \
                 -D ANDROID_SDK=/usr/local/lib/android/sdk/ \
+                -D ANDROID_SDK_ROOT=/usr/local/lib/android/sdk/ \
                 -D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
                 -D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_ALL_FILES_ACCESS="${{ matrix.all_files_access }}" \
                 -D WITH_SPIX=OFF \
+                -D BUILD_WITH_QT6=ON \
+                -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
+                -D QT_HOST_PATH=/home/runner/work/QField/Qt/6.5.0/gcc_64 \
+                -D QT_HOST_PATH_CMAKE_DIR:PATH=/home/runner/work/QField/Qt/6.5.0/gcc_64 \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
@@ -103,10 +123,7 @@ jobs:
                 -D APP_ICON="${APP_ICON}" \
                 -D APP_NAME="${APP_NAME}" \
                 -D NUGET_USERNAME=opengisch \
-                -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-                -D SENTRY_ENV="${APP_ENV}" \
-                -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
+                -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }}
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v3
@@ -140,6 +157,10 @@ jobs:
           # ln -s /usr/local/lib/android/sdk/ndk/23.2.8568313/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
 
+      - name: tmate
+        uses: m-kuhn/action-tmate@patch-1
+        if: failure()
+
       - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -170,6 +191,7 @@ jobs:
         run: |
           curl -sL https://sentry.io/get-cli/ | bash
           sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
+
 
   deploy_to_playstore:
     runs-on: ubuntu-20.04
