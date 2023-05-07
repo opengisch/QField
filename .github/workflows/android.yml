@@ -31,9 +31,9 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "ANDROID_NDK_VERSION=23.1.7779620" >> $GITHUB_ENV
+          echo "ANDROID_NDK_VERSION=25.2.9519653" >> $GITHUB_ENV
           echo "ANDROID_BUILD_TOOLS_VERSION=30.0.3" >> $GITHUB_ENV
-          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/23.1.7779620" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> $GITHUB_ENV
           echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
@@ -152,9 +152,6 @@ jobs:
           KEYPASS: ${{ secrets.KEYPASS }}
           STOREPASS: ${{ secrets.STOREPASS }}
         run: |
-          # Qt 5.x androiddeployqt is not compatible with r25, a bit of cheating
-          # rm ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj
-          # ln -s /usr/local/lib/android/sdk/ndk/23.2.8568313/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
 
       - name: tmate
