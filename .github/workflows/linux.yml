@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: 🐣 Checkout
@@ -43,7 +43,7 @@ jobs:
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: 5.14.2
+          version: 6.5.0
           modules: 'qtcharts'
           target: desktop
           cache: true
@@ -65,6 +65,7 @@ jobs:
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D WITH_VCPKG=ON \
                 -D SYSTEM_QT=ON \
+                -D BUILD_WITH_QT6=ON \
                 -D WITH_SPIX=ON \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
