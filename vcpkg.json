@@ -6,8 +6,7 @@
   "description": "A simplified and touch optimized frontend for QGIS.",
   "dependencies": [
     {
-      "name": "gdal",
-      "default-features": false
+      "name": "gdal"
     },
     "libpq",
     "qgis",
