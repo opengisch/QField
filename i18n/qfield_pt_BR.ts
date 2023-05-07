@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Links Menu</translation>
     </message>
 </context>
 <context>
@@ -183,11 +183,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Selecione o dispositivo Bluetooth na lista abaixo:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome do dispositivo Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Endereço do dispositivo Bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Procurar dispositivos próximos</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum dispositivo Bluetooth detectado, toque para listar os dispositivos próximos.</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>Nulo</translation>
     </message>
 </context>
 <context>
@@ -464,11 +464,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>A expressão de valor padrão para o campo %2 do registrador de digitalização tem um erro de analisador: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>A expressão de valor padrão para o campo %2 do registrador de digitalização tem um erro de avaliação: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
@@ -495,7 +495,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>A contagem de posições coletadas não atende ao requisito</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -506,29 +506,29 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de itens</translation>
     </message>
 </context>
 <context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitalize um caminho para renderizar o perfil de elevação</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Renderizando perfil de elevação…</translation>
     </message>
 </context>
 <context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Copie “%1” para a área de transferência</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Calculadora</translation>
     </message>
 </context>
 <context>
@@ -824,15 +824,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to coordinate</source>
-        <translation>Ir para Coordenada</translation>
+        <translation>Ir para a Coordenada</translation>
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Ir para %1%2 %3%4 (Mapa CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Ir para %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -1882,7 +1882,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Último aviso: redefinir projetos da nuvem apagará todas as mudanças locais, você tem certeza de que quer prosseguir?</translation>
+        <translation>Último aviso: redefinir projetos da nuvem apagará todas as mudanças locais, você tem certeza de que quer continuar?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
@@ -2317,7 +2317,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Customizar barra de busca</translation>
+        <translation>Personalizar a barra de busca</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3410,7 +3410,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ir para a Tela Inicial</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
