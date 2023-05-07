@@ -285,6 +285,5 @@ ListView {
 
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: ApplicationWindow.overlay
   }
 }
