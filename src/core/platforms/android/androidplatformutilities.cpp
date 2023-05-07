@@ -125,7 +125,7 @@ void AndroidPlatformUtilities::afterUpdate()
     } );
   }
 
-  FileUtils::copyRecursively( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation );
+  FileUtils::copyRecursively( QStringLiteral( "assets:/" ), mSystemGenericDataLocation );
 
   if ( mActivity.isValid() )
   {
