@@ -99,8 +99,10 @@ endif()
 
 if(BUILD_WITH_QT6)
   set(QT_PKG Qt6)
+  set(QT_MIN_VERSION 6.5.0)
 else()
   set(QT_PKG Qt5)
+  set(QT_MIN_VERSION 5.14.0)
 endif()
 
 if (ANDROID)
@@ -124,7 +126,6 @@ if (ANDROID)
   endif()
 endif()
 
-set(QT_MIN_VERSION 5.14.0)
 find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Multimedia REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
