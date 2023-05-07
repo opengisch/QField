@@ -50,10 +50,8 @@ jobs:
         with:
           version: 6.5.0
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
-          target: 'android'
+          target: android
           arch: 'android_arm64_v8a'
-          aqtversion: '==3.1.*'
-          py7zrversion: '==0.20.*'
           cache: true
 
       - name: 💐 Install Qt
@@ -61,10 +59,7 @@ jobs:
         with:
           version: 6.5.0
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
-          target: 'desktop'
-          arch: 'gcc_64'
-          aqtversion: '==3.1.*'
-          py7zrversion: '==0.20.*'
+          target: desktop
           cache: true
 
       - name: Setup ccache
