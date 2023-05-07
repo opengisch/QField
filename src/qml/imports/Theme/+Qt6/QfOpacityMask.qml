@@ -1,6 +1,6 @@
 import QtQuick 2.14
-//import QtGraphicalEffects 1.14
+import QtQuick.Effects
 
-Item {
-  property var maskSource
+MultiEffect {
+  maskEnabled: true
 }
