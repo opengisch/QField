@@ -188,6 +188,7 @@ Page {
 
       SwipeView {
         id: swipeView
+        width: parent.width
         anchors.fill: parent
         currentIndex: tabRow.currentIndex
 
@@ -196,7 +197,6 @@ Page {
           model: form.model.hasTabs ? form.model : 1
 
           Item {
-            id: formPage
             property int currentIndex: index
 
             Flickable {
@@ -216,6 +216,11 @@ Page {
                   implicitHeight: 25
                   color: Theme.mainColor
                 }
+              }
+
+              Rectangle {
+                anchors.fill: content
+                color: Theme.mainBackgroundColor
               }
 
               /**
