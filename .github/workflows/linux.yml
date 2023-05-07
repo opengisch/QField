@@ -44,7 +44,7 @@ jobs:
         uses: jurplel/install-qt-action@v3
         with:
           version: 6.5.0
-          modules: 'qtcharts'
+          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: desktop
           cache: true
 
