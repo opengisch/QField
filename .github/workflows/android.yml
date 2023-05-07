@@ -17,7 +17,7 @@ jobs:
       fail-fast: true
       matrix:
         all_files_access: ['OFF']
-        triplet: ['arm64-android', 'arm-android', 'x64-android', 'x86-android']
+        triplet: ['arm64-android', 'arm-neon-android', 'x64-android', 'x86-android']
 #        all_files_access: ['ON', 'OFF']
 
     steps:
