@@ -16,6 +16,7 @@ vcpkg_from_github(
     PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
+        ios.patch
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
@@ -50,6 +51,7 @@ if(VCPKG_CROSSCOMPILING)
    list(APPEND QCA_OPTIONS -DQT_HOST_PATH_CMAKE_DIR:PATH=${CURRENT_HOST_INSTALLED_DIR}/share)
 endif()
  
+list(APPEND QCA_OPTIONS -DWITH_gnupg_PLUGIN=no)
 # Configure and build
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
