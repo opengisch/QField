@@ -16,7 +16,14 @@ set(QT_MODULES
   Qt6AttributionsScannerTools
   Qt6Bluetooth
   Qt6Bootstrap
-  Qt6BundledPcre2Config
+  Qt6BundledPcre2
+  Qt6BundledLibpng
+  Qt6BundledHarfbuzz
+  Qt6BundledFreetype
+  Qt6BundledLibjpeg
+  Qt6Bundled_Clip2Tri
+  Qt6Bundled_Poly2Tri
+  Qt6Bundled_Clipper
   Qt6Charts
   Qt6ClipboardSupport
   Qt6Concurrent
