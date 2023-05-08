@@ -524,11 +524,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Copiar &quot;%1&quot; ó portapapeis</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Calculadora</translation>
     </message>
 </context>
 <context>
@@ -1048,7 +1048,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Devolve o valor da expresión tecleada na barra de busca</translation>
     </message>
 </context>
 <context>
@@ -1070,15 +1070,15 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración da Barra de Busca</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Cando está desactivado, este filtro localizador aínda se pode utilizar tecleando o prefixo %1 na barra de busca.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Activar o localizador %1 de forma predeterminada</translation>
     </message>
 </context>
 <context>
@@ -1269,7 +1269,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode procesar a posición IMU: %1,%2,%3 </translation>
     </message>
 </context>
 <context>
@@ -2144,7 +2144,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Accións do Proxecto</translation>
     </message>
 </context>
 <context>
@@ -2231,11 +2231,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Accións do Elemento</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Importar Accións</translation>
     </message>
 </context>
 <context>
@@ -2572,7 +2572,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Rexistrar as sentenzas NMEA do dispositivo a un ficheiro</translation>
     </message>
 </context>
 <context>
@@ -2769,7 +2769,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3058,23 +3058,23 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
+        <translation>Activar restrición do sensor</translation>
     </message>
     <message>
         <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Rexistrar cando se cumpran tódalas restricións activas</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, os vértices só se rexistrarán cando estean activadas tódalas restricións. Se a configuración está desactivada, as restricións individuais dadas desencadearán unha adición de vértice.</translation>
     </message>
     <message>
         <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa unicamente a restrición do sensor, o engadido de vértices producirase cando o sensor capture novos datos.</translation>
     </message>
     <message>
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Cando tódalas restricións se desactivan, a adición de vértices ocorrerá tan frecuentemente como se envíen dende o dispositivo de posicionamento.</translation>
     </message>
 </context>
 <context>
@@ -3225,31 +3225,31 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Proxecto predeterminado</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa base</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Proxecto Predeterminado</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa Base dos Conxuntos de Datos Individuais</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Cargar proxecto predeterminado ó iniciar</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Cargar o último proxecto aberto ó iniciar</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Accións do Proxecto Recente</translation>
     </message>
 </context>
 <context>
@@ -3699,39 +3699,39 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Sensores</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar sensor abaixo</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Desconectando o  sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Conectando o sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar deseño abaixo</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro do sensor: %1</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Non hai dispoñible ningún deseño para imprimir</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Aprender máis</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Non hai ningún sensor dispoñible</translation>
     </message>
 </context>
 <context>
