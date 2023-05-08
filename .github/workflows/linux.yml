@@ -96,6 +96,13 @@ jobs:
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
 
+      - name: 📦 Upload package
+        if: ${{ env.ARTIFACT_NAME != null }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
+          path: ${{ env.ARTIFACT_PATHNAME }}
+
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj
@@ -110,13 +117,6 @@ jobs:
         with:
           name: package-logs-x64-linux
           path: ${{ env.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
-
-      - name: 📦 Upload package
-        if: always() && ${{ env.ARTIFACT_NAME != null }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
-          path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
         if: always()
