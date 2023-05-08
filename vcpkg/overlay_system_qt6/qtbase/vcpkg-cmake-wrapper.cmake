@@ -26,6 +26,7 @@ set(QT_MODULES
   Qt6DocTools
   Qt6EdidSupport
   Qt6EglSupport
+  Qt6EntryPointPrivate
   Qt6EventDispatcherSupport
   Qt6FbSupport
   Qt6FontDatabaseSupport
@@ -89,17 +90,24 @@ set(QT_MODULES
   Qt6Xml
   Qt6XmlPatterns
   Qt6Zlib
+  Qt6BundledPcre2
 )
 
 foreach(MOD ${QT_MODULES})
   set(${MOD}_DIR $ENV{Qt6_DIR}/lib/cmake/${MOD})
 endforeach()
 
-set(Qt6CoreTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6CoreTools)
-set(Qt6GuiTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6GuiTools)
-set(Qt6LinguistTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6LinguistTools)
-set(Qt6QmlTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6QmlTools)
-set(Qt6QmlImportScanner_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6QmlImportScanner)
-set(Qt6WidgetsTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6WidgetsTools)
+if("${CMAKE_HOST_SYSTEM}" MATCHES "Darwin")
+    set(_QT_HOST_INSTALL_DIR "macos")
+else() # if("${CMAKE_HOST_SYSTEM}" MATCHES "Linux")
+    set(_QT_HOST_INSTALL_DIR "gcc_64")
+endif()
+
+set(Qt6CoreTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6CoreTools)
+set(Qt6GuiTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6GuiTools)
+set(Qt6LinguistTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6LinguistTools)
+set(Qt6QmlTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6QmlTools)
+set(Qt6QmlImportScanner_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6QmlImportScanner)
+set(Qt6WidgetsTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6WidgetsTools)
 
 _find_package(${ARGS})
