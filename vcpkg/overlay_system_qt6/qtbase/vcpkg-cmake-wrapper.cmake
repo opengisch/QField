@@ -16,6 +16,7 @@ set(QT_MODULES
   Qt6AttributionsScannerTools
   Qt6Bluetooth
   Qt6Bootstrap
+  Qt6BundledPcre2Config
   Qt6Charts
   Qt6ClipboardSupport
   Qt6Concurrent

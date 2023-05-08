@@ -31,6 +31,7 @@ jobs:
           modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtmultimedia qtwebview qtsensors'
           target: ios
           cache: true
+          extra: --autodesktop
 
       - name: 🌾 Prepare vars
         id: vars
@@ -103,7 +104,8 @@ jobs:
                 -D CMAKE_SYSTEM_NAME=iOS \
                 -D CMAKE_SYSTEM_PROCESSOR=aarch64 \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
-                -D CMAKE_FIND_ROOT_PATH=${{ env.Qt5_DIR }} \
+                -D QT_HOST_PATH=/home/runner/work/QField/Qt/6.5.0/macos \
+                -D QT_HOST_PATH_CMAKE_DIR:PATH=/home/runner/work/QField/Qt/6.5.0/macos \
                 -D ENABLE_TESTS=OFF \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D WITH_CCACHE=ON
