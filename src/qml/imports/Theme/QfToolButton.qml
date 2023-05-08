@@ -45,6 +45,7 @@ RoundButton {
       }
     }
 
+    layer.enabled: true
     Ripple {
       id: ripple
       clip: true
@@ -60,12 +61,7 @@ RoundButton {
 
       layer.enabled: true
       layer.effect: QfOpacityMask {
-        maskSource: Rectangle
-        {
-          width: ripple.width
-          height: ripple.height
-          radius: ripple.height / 2
-        }
+        maskSource: backgroundRectangle
       }
     }
   }

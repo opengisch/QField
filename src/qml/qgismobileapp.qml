@@ -1014,10 +1014,10 @@ ApplicationWindow {
   Column {
     id: zoomToolbar
     anchors.right: mapCanvas.right
-    anchors.rightMargin: 4
+    anchors.rightMargin: 10
     anchors.bottom: mapCanvas.bottom
     anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
-    spacing: 4
+    spacing: 8
 
     visible: !screenLocker.enabled && locationToolbar.height / mapCanvas.height < 0.41
 
@@ -1029,12 +1029,8 @@ ApplicationWindow {
       bgcolor: Theme.darkGray
       iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
 
-      transform: Scale {
-          origin.x: zoomInButton.width / 1.5
-          origin.y: zoomInButton.height / 1.25
-          xScale: 0.75
-          yScale: 0.75
-      }
+      width: 36
+      height: 36
 
       onClicked: {
           if ( gnssButton.followActive ) gnssButton.followActiveSkipExtentChanged = true;
@@ -1049,12 +1045,8 @@ ApplicationWindow {
       bgcolor: Theme.darkGray
       iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
 
-      transform: Scale {
-          origin.x: zoomOutButton.width / 1.5
-          origin.y: zoomOutButton.height / 1.75
-          xScale: 0.75
-          yScale: 0.75
-      }
+      width: 36
+      height: 36
 
       onClicked: {
           if ( gnssButton.followActive ) gnssButton.followActiveSkipExtentChanged = true;
