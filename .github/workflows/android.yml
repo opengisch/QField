@@ -45,16 +45,47 @@ jobs:
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
-      - name: 💐 Install Qt
+      - name: 💐 Install Qt (arm64-android)
         uses: jurplel/install-qt-action@v3
+        if: ${{ matrix.triplet == 'arm64-android' }}
         with:
           version: 6.5.0
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: android
-          arch: 'android_arm64_v8a'
+          arch: android_arm64_v8a
           cache: true
 
-      - name: 💐 Install Qt
+      - name: 💐 Install Qt (arm-neon-android)
+        uses: jurplel/install-qt-action@v3
+        if: ${{ matrix.triplet == 'arm-neon-android' }}
+        with:
+          version: 6.5.0
+          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
+          target: android
+          arch: android_armv7
+          cache: true
+
+      - name: 💐 Install Qt (x64-android)
+        uses: jurplel/install-qt-action@v3
+        if: ${{ matrix.triplet == 'x64-android' }}
+        with:
+          version: 6.5.0
+          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
+          target: android
+          arch: android_x86_64
+          cache: true
+
+      - name: 💐 Install Qt (x86-android)
+        uses: jurplel/install-qt-action@v3
+        if: ${{ matrix.triplet == 'x86-android' }}
+        with:
+          version: 6.5.0
+          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
+          target: android
+          arch: android_x86
+          cache: true
+
+      - name: 💐 Install Qt (linux desktop)
         uses: jurplel/install-qt-action@v3
         with:
           version: 6.5.0
