@@ -18,7 +18,16 @@
 #define AUDIORECORDER_H
 
 #include <QObject>
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+
+class AudioRecorder : public QObject
+{
+    Q_OBJECT
+
+  public:
+    explicit AudioRecorder( QObject *parent = nullptr );
+};
+#else
 #include <QAudioProbe>
 #include <QAudioRecorder>
 
