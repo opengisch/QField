@@ -89,6 +89,13 @@ jobs:
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
+      - name: Package
+        run: |
+          export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
+          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
+          echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
+
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj
@@ -96,13 +103,6 @@ jobs:
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E "smoke_test"
-
-      - name: Package
-        run: |
-          export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
-          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
-          echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
 
       - name: 📑 Upload package logs
         uses: actions/upload-artifact@v3
