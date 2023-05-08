@@ -112,7 +112,7 @@ jobs:
           path: ${{ env.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
 
       - name: 📦 Upload package
-        if: ${{ env.ARTIFACT_NAME != null }}
+        if: always() && ${{ env.ARTIFACT_NAME != null }}
         uses: actions/upload-artifact@v3
         with:
           name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
