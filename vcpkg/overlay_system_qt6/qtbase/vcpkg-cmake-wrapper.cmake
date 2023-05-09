@@ -53,6 +53,7 @@ set(QT_MODULES
   Qt6OpenGL
   Qt6OpenGLExtensions
   Qt6PacketProtocol
+  Qt6PacketProtocolPrivate
   Qt6PlatformCompositorSupport
   Qt6Positioning
   Qt6PositioningQuick
