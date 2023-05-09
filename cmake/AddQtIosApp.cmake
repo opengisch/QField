@@ -7,11 +7,11 @@
 cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
 
 # find the Qt root directory might break in future release
-# Dependant on Qt5
-if(NOT Qt5Core_DIR)
-    find_package(Qt5Core REQUIRED)
+# Dependant on Qt6
+if(NOT Qt6Core_DIR)
+    find_package(Qt6Core REQUIRED)
 endif()
-get_filename_component(QT_IOS_QT_ROOT "${Qt5Core_DIR}/../../.." ABSOLUTE)
+get_filename_component(QT_IOS_QT_ROOT "${Qt6Core_DIR}/../../.." ABSOLUTE)
 
 if(QT_IOS_QT_ROOT)
     message(STATUS "Found Qt Sdk for Ios: ${QT_IOS_QT_ROOT}")
