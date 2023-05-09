@@ -54,7 +54,9 @@ TEST_CASE( "GeometryUtils" )
   SECTION( "   AddRingFromRubberband" )
   {
     REQUIRE( mLayer->startEditing() );
-    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == GeometryUtils::GeometryOperationResult::AddRingNotInExistingFeature );
+    REQUIRE( mLayer.get() );
+    REQUIRE( model.get() );
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == GeometryUtils::GeometryOperationResult::AddRingNotValid );
 
     model->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
     model->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );

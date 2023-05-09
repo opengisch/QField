@@ -102,6 +102,11 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
 
+  if ( ring.size() < 3 )
+  {
+    return GeometryUtils::GeometryOperationResult::AddRingNotValid;
+  }
+
   //Try to fix invalid geometries, useful when being passed on a freehand digitized ring
   QgsGeometry geometry( new QgsLineString( ring ) );
   if ( !geometry.isNull() )
