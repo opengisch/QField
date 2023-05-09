@@ -1070,15 +1070,15 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Eigenschappen zoekbalk</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Indien uitgeschakeld kan deze locatie filter nog steeds worden gebruikt door het voorvoegsel %1 te gebruiken in de zoekbalk.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik standaard de locatiefilter %1</translation>
     </message>
 </context>
 <context>
