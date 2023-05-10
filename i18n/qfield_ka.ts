@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>დოკუმენტაცია</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>ბმულების მენიუ</translation>
     </message>
 </context>
 <context>
@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>კოდის წამკითხველი</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>დააყენეთ თქვენი კამერა კოდის ცენტრში</translation>
     </message>
 </context>
 <context>
@@ -167,11 +167,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1-თან დაკავშირება</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">%1-სთან დაკავშირება</translation>
+        <translation type="vanished">%1-თან დაკავშირება</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -183,11 +183,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>აირჩიეთ ბლუთუზ მოწყობილობა სიიდან:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>ბლუთუზ მოწყობილობის სახელი:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>ბლუთუზ მოწყობილობის მისამართი:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>ახლომყოფი მოწყობილობების ძებნა</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>ბლუთუზ მოწყობილობები ვერ იქნა ნაპოვნი, სცადეთ სკანირება თავიდან.</translation>
     </message>
 </context>
 <context>
@@ -233,11 +233,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">დაშორებული ჰოსტი ვერ ვიპოვე</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">დაშორებულ ჰოსტზე ვერ ვიპოვე სერვისის UUID</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -245,7 +245,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ეს პროტოკოლი ამ პლათფორმაზე არ არის ხელმისაწვდომი</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -253,11 +253,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">დაშორებული ჰოსტმა დახურა კავშირი</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">უცნობი შეცდომა</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -524,11 +524,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>“%1”-ის კოპირება ბუფერში</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>კალკულატორი</translation>
     </message>
 </context>
 <context>
@@ -620,7 +620,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>ტოპოგრაფიული ელემენტის დუბლირება წარმატებით შესრულდა</translation>
+        <translation>ტოპო ელემენტის დუბლირება წარმატებით შესრულდა</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
@@ -785,7 +785,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation type="unfinished"/>
+        <translation>მისამართის ძებნის დასრულება</translation>
     </message>
 </context>
 <context>
@@ -892,11 +892,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>სიმკვეთრე</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>ახლო ხედი ჯგუფზე</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
@@ -948,7 +948,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>ტოპოგრაფიული ელემენტების მენიუს გამოჩენა</translation>
     </message>
 </context>
 <context>
@@ -982,7 +982,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>უვარგისი ტოპოგრაფიული ელემენტის დუბლირება შეუძლებელია.</translation>
+        <translation>უვარგისი ტოპო ელემენტის დუბლირება შეუძლებელია.</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
@@ -1064,7 +1064,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>საძიებო პანელის პარამეტრები</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
@@ -1133,7 +1133,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation>ატლასის ტოპოგრაფიული ელემენტ(ებ)ის  დაბეჭდვა PDF-ში</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
@@ -1165,7 +1165,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>ავტომატური ახლოს ხედი ტოპოგრაფიულ ელემენტზე</translation>
+        <translation>ავტო ახლოხედი ტოპო. ელემენტზე</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
@@ -1173,11 +1173,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>ტოპოგრაფიული ელემენტის გადაადგილება</translation>
+        <translation>ტოპო ელემენტის გადაადგილება</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>ტოპოგრაფიული ელემენტის დუბლირება</translation>
+        <translation>ტოპო ელემენტის დუბლირება</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -1197,30 +1197,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>ატლასის ტოპოგრაფიული ელემენტ(ებ)ის დაბეჭდვა სურათში</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>ატლასის ტოპოგრაფიული ელემენტის დაბეჭდვა სურათში</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>ატლასის ტოპოგრაფიული ელემენტ(ებ)ის დაბეჭდვა</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>იბეჭდება...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>ატლასის ტოპოგრაფიული ელემენტ(ებ)ი წარმატებით დაიბეჭდა და განთავსდა პროექტის საქაღალდეში</translation>
     </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">გან.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1228,11 +1228,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">გრძ.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ცენტროიდი</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1248,7 +1248,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>მანძ.</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1332,11 +1332,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Vector Datasets</source>
-        <translation>ვექტორული მონაცემები</translation>
+        <translation>ვექტორული მონაცემთა ნაკრები</translation>
     </message>
     <message>
         <source>Raster Datasets</source>
-        <translation type="unfinished"/>
+        <translation>რასტრული მონაცემთა ნაკრები</translation>
     </message>
     <message>
         <source>Failed to save file resource</source>
@@ -1344,42 +1344,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>სურათის არჩევა</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>ყველა სურათი (*.jpg *.jpeg *.png *.bmp);;JPEG ფორმატი (*.jpg *.jpeg);;PNG ფორმატი (*.jpg *.jpeg);;BMP ფორმატი (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>ვიდეოს არჩევა</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>ყველა ვიდეო (*.mp4 *.mkv *.mov);;MP4 ფორმატი (*.mp4);;MKV ფორმატი (*.mkv);;MOV ფორმატი (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">აუდიო ფაილები (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>ყველა ფაილი (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>ფაილის არჩევა</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>აუდიო ფაილები (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">გან.</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1391,7 +1391,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">გრძ.</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1415,11 +1415,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ჰორიზ. სიზუსტე</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ვერტ. სიზუსტე</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -1457,11 +1457,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>პოზიციონირების მოწყობილობის პარამეტრები</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>სახელი:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
@@ -1469,15 +1469,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>კავშირის ტიპი:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ბლუთუზი</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>ბლუთუზი (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -1524,11 +1524,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="unfinished"/>
+        <translation>ჰორიზ. სიზუსტე</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="unfinished"/>
+        <translation>ვერტ. სიზუსტე</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -1559,7 +1559,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>მანძ.</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
@@ -1577,7 +1577,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>ხმის ჩამწერი</translation>
     </message>
 </context>
 <context>
@@ -1600,11 +1600,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation type="unfinished"/>
+        <translation>სერვერი ვერ ვიპოვე, გთხოვთ გადაამოწმოთ სერვერი URL</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Timeout, გთხოვთ სცადოთ თავიდან</translation>
     </message>
     <message>
         <source>Wrong username or password</source>
@@ -1616,7 +1616,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation>შესვლა დროებით მიუწვდემელია</translation>
+        <translation>შესვლა დროებით მიუწვდომელია</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
@@ -1669,11 +1669,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>მიმდინარეობს ავტორიზაცია, გთხოვთ მოითმინოთ</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>ანგარიშში შესვლა</translation>
     </message>
     <message>
         <source>New user?</source>
@@ -1803,11 +1803,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Push changes</source>
-        <translation type="unfinished"/>
+        <translation>ცვლილებების ატვირთვა</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation type="unfinished"/>
+        <translation>ინტერნეტის ტრაფიკის დაზოგვის მიზნით, ქლაუდში სრული პროექტის ატვირთვის ნაცვლად, მხოლოდ ცვლილებების ატვირთვა უფრო ხელსაყრელია.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
@@ -1819,11 +1819,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>ლოკალურ ფენებზე ყველა ცვლილების უკან დაბრუნება. ამ შემთხვევაში ცვლილებები დაიკარგება.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ქლაუდიდან ჩამოტვირთულ ფენებზე ყველა ცვლილების უკან დაბრუნება. ამ შემთხვევაში ცვლილებები დაიკარგება.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1849,19 +1849,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>ბოლო ცვლილებები სწორედ ეხლახანს აიტვირთა</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>ბოლო ცვლილებები აიტვირთა %1 წუთის წინ</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation type="unfinished"/>
+        <translation>ბოლო ცვლილებების ატვირთვა - %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>ბოლო ცვლილებების ატვირთვა - %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
@@ -1873,7 +1873,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation type="unfinished"/>
+        <translation>ნამდვილად გსურთ ლოკალური ცვლილებების უკან დაბრუნება?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -1893,11 +1893,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation type="unfinished"/>
+        <translation>ცვლილებების უკან დაბრუნების შეცდომა</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation type="unfinished"/>
+        <translation>დასაბრუნებელი არაფერია</translation>
     </message>
 </context>
 <context>
@@ -2129,7 +2129,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>პროექტები ვერ ვიპოვე</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2152,27 +2152,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>პროექტები</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>მონაცემთა ნაკრებები</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>ფავორიტები</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>პროექტის ფაილი</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>ვექტორული მონაცემთა ნაკრები</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>რასტრული მონაცემთა ნაკრები</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -2184,7 +2184,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>მონაცემთა ნაკრების წაშლა</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
@@ -2200,11 +2200,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>პროექტის იმპორტი ZIP-დან</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>მონაცემ(ებ)-ის იმპორტი</translation>
     </message>
     <message>
         <source>Storage management help</source>
@@ -2485,11 +2485,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>ჰორიზონტალური სიზუსტე</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>ვერტიკალური სიზუსტე</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2509,11 +2509,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>დამატება</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>შეცვლა</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -2521,43 +2521,43 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>%1-სთან დაკავშირება</translation>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>მომხმარებლის ინტერფეისის იერსახე:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>როგორც სისტემის იერსახე</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>ნათელი გარემო</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>მუქი გარემო</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>მომხმარებლის ინტერფეისის ფონტის ზომა:</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>წვრილი</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>სტანდარტული</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>დიდი</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>ძალიან დიდი</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
@@ -2616,7 +2616,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation>QGIS ექსპორტი ვერ შესრულა</translation>
+        <translation>QGIS ექსპორტი ვერ შესრულდა</translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
@@ -2652,7 +2652,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>ცენტროიდი</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
@@ -2835,7 +2835,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>სიის განახლება</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
@@ -2883,11 +2883,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>მისამართი:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>პორტი:</translation>
     </message>
 </context>
 <context>
@@ -2910,7 +2910,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>დაშორებული ჰოსტი ვერ ვიპოვე</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -2944,15 +2944,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>ტექსტის კოპირება</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>ტექსტის ჩასმა</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>კოდის სკანირება</translation>
     </message>
 </context>
 <context>
@@ -3023,11 +3023,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>ჰორიზონტალური სიზუსტე</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>ვერტიკალური სიზუსტე</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3070,11 +3070,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>მისამართი:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>პორტი:</translation>
     </message>
 </context>
 <context>
@@ -3097,7 +3097,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>დაშორებული ჰოსტი ვერ ვიპოვე</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -3170,11 +3170,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>ვეთანხმები</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>უარს ვაცხადებ</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -3214,15 +3214,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>ძირითადი პროექტი</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>საბაზისო რუკა</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>ძირითადი პროექტი</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -3308,7 +3308,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>პერიმეტრი</translation>
     </message>
     <message>
         <source>Length</source>
@@ -3332,19 +3332,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="unfinished"/>
+        <translation>ტოპოლოგიური ცვლილების რეჟიმი ჩართულია</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="unfinished"/>
+        <translation>ტოპოლოგიური ცვლილების რეჟიმი გამორთულია</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>გაციფრულების თავისუფალი რეჟიმი ჩართულია</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>გაციფრულების თავისუფალი რეჟიმი გამორთულია</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
@@ -3448,7 +3448,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>სანიშნის დამატება</translation>
     </message>
     <message>
         <source>Set as Destination</source>
@@ -3460,7 +3460,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>უსათაური სანიშნე</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3480,7 +3480,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>კოორდინატები დაკოპირდა ბუფერში</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -3488,27 +3488,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25მ სიზუსტე</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5მ სიზუსტე</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1მ სიზუსტე</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2.5მ სიზუსტე</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5მ სიზუსტე</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10მ სიზუსტე</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3516,15 +3516,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>ცენტრირება ლოკაციაზე</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>სანიშნის დამატება ადგილმდებარეობაზე</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>ადგილმდებარეობის კოორდინატების კოპირება</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -3532,7 +3532,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>ანგარიშში შესვლა შესრულა</translation>
+        <translation>ანგარიშში შესვლა წარმატებით შესრულდა</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3540,7 +3540,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>ნავიგაციის საშუალებები</translation>
     </message>
     <message>
         <source>Clear Destination</source>
@@ -3628,7 +3628,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="unfinished"/>
+        <translation>პროექტ %1-ის ჩამოტვირთვის შეცდომა</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
@@ -3652,11 +3652,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>აზიმუტი</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>ჩაკეტილი ეკრანი</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -3664,15 +3664,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>იბეჭდება...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>ბეჭდვა</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>პოზიციონირების მოწყობილობის შეცდომა: %1</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -3680,47 +3680,47 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>%1-ის იმპორტი</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>URL იმპორტის შეცდომა</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>სენსორები</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>აირჩიეთ სენსორი</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>სენსორ &apos;%1&apos;-სთან კავშირის გაწყვეტა...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>სენსორ &apos;%1&apos;-სთან დაკავშირება...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>აირჩიეთ შაბლონი</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>სენსორის შეცდომა: %1</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>საბეჭდი შაბლონი ვერ ვიპოვე</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>გაიგეთ მეტი</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>სენსორები ხელმისაწვდომი არ არის</translation>
     </message>
 </context>
 <context>
