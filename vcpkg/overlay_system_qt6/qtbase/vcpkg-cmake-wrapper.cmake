@@ -47,6 +47,7 @@ set(QT_MODULES
   Qt6MacExtras
   Qt6Multimedia
   Qt6MultimediaQuick
+  Qt6MultimediaQuickPrivate
   Qt6MultimediaWidgets
   Qt6Network
   Qt6Nfc
@@ -71,6 +72,7 @@ set(QT_MODULES
   Qt6Quick
   Qt6QuickControls2
   Qt6QuickDialogs2
+  Qt6QuickDialogs2Utils
   Qt6QuickLayouts
   Qt6QuickParticlesPrivate
   Qt6QuickShapesPrivate
@@ -94,6 +96,7 @@ set(QT_MODULES
   Qt6WebChannel
   Qt6WebSockets
   Qt6WebView
+  Qt6WebViewQuick
   Qt6Widgets
   Qt6Xml
   Qt6XmlPatterns
