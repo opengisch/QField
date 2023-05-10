@@ -46,7 +46,6 @@ jobs:
           version: 6.5.0
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: desktop
-          cache: true
 
       - name: Install linuxdeploy
         uses: miurahr/install-linuxdeploy-action@v1

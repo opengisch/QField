@@ -30,14 +30,14 @@ jobs:
           version: 6.5.0
           modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtmultimedia qtwebview qtsensors'
           target: ios
-          cache: true
+          cache: false
 
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
           version: 6.5.0
           target: desktop
-          cache: true
+          cache: false
 
       - name: 🌾 Prepare vars
         id: vars

@@ -53,7 +53,7 @@ jobs:
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: android
           arch: android_arm64_v8a
-          cache: true
+          cache: false
 
       - name: 💐 Install Qt (arm-neon-android)
         uses: jurplel/install-qt-action@v3
@@ -63,7 +63,7 @@ jobs:
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: android
           arch: android_armv7
-          cache: true
+          cache: false
 
       - name: 💐 Install Qt (x64-android)
         uses: jurplel/install-qt-action@v3
@@ -73,7 +73,7 @@ jobs:
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: android
           arch: android_x86_64
-          cache: true
+          cache: false
 
       - name: 💐 Install Qt (x86-android)
         uses: jurplel/install-qt-action@v3
@@ -83,7 +83,7 @@ jobs:
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: android
           arch: android_x86
-          cache: true
+          cache: false
 
       - name: 💐 Install Qt (linux desktop)
         uses: jurplel/install-qt-action@v3
@@ -91,7 +91,7 @@ jobs:
           version: 6.5.0
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: desktop
-          cache: true
+          cache: false
 
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1
