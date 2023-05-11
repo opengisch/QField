@@ -25,6 +25,7 @@ set(QT_MODULES
   Qt6Bundled_Poly2Tri
   Qt6Bundled_Clipper
   Qt6Charts
+  Qt6ChartsQml
   Qt6ClipboardSupport
   Qt6Concurrent
   Qt6Core
@@ -43,6 +44,7 @@ set(QT_MODULES
   Qt6Help
   Qt6HostInfo
   Qt6InputSupport
+  Qt6LabsSettings
   Qt6Location
   Qt6MacExtras
   Qt6Multimedia
@@ -71,8 +73,11 @@ set(QT_MODULES
   Qt6QmlXmlListModel
   Qt6Quick
   Qt6QuickControls2
+  Qt6QuickControls2Impl
+  Qt6QuickControls2ImplPrivate
   Qt6QuickDialogs2
   Qt6QuickDialogs2Utils
+  Qt6QuickEffectsPrivate
   Qt6QuickLayouts
   Qt6QuickParticlesPrivate
   Qt6QuickShapesPrivate
@@ -83,6 +88,7 @@ set(QT_MODULES
   Qt6RepParser
   Qt6Scxml
   Qt6Sensors
+  Qt6SensorsQuick
   Qt6SerialPort
   Qt6ServiceSupport
   Qt6Sql
