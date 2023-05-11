@@ -998,7 +998,7 @@ ApplicationWindow {
 
   QfToolButton {
     id: alertIcon
-    iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
+    iconSource: Theme.getThemeVectorIcon( "ic_alert_black_24dp" )
     round: true
     bgcolor: "transparent"
 
