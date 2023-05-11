@@ -55,6 +55,7 @@ set(QT_MODULES
   Qt6Nfc
   Qt6OpenGL
   Qt6OpenGLExtensions
+  Qt6OpenGLWidgets
   Qt6PacketProtocol
   Qt6PacketProtocolPrivate
   Qt6PlatformCompositorSupport
@@ -76,6 +77,7 @@ set(QT_MODULES
   Qt6QuickControls2Impl
   Qt6QuickControls2ImplPrivate
   Qt6QuickDialogs2
+  Qt6QuickDialogs2QuickImpl
   Qt6QuickDialogs2Utils
   Qt6QuickEffectsPrivate
   Qt6QuickLayouts
