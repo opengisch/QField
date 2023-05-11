@@ -5,6 +5,8 @@ message("  - qmake path: ${qmake_executable}")
 execute_process(COMMAND ${CMAKE_MAKE_PROGRAM} install
                 WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
                 COMMAND_ERROR_IS_FATAL ANY)
+file(COPY @CMAKE_SOURCE_DIR@/platform/linux/AppRun
+     DESTINATION ${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage)
 execute_process(COMMAND env QMAKE=${qmake_executable} "${LINUXDEPLOY_EXECUTABLE}" --plugin=qt --output=appimage --appdir=${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage -e ./output/bin/qfield -d ${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage/usr/share/qfield/qfield.desktop
                 WORKING_DIRECTORY ${CPACK_PACKAGE_DIRECTORY}
                 COMMAND_ECHO STDERR
