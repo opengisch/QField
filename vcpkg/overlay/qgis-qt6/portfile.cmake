@@ -19,6 +19,7 @@ vcpkg_from_github(
         poly2tri.patch
         mesh.patch
         sensor.patch
+        wkbptr.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
