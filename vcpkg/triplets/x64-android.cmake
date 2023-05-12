@@ -4,6 +4,7 @@ set(VCPKG_LIBRARY_LINKAGE static)
 set(VCPKG_CMAKE_SYSTEM_NAME Android)
 set(VCPKG_BUILD_TYPE release)
 set(VCPKG_MAKE_BUILD_TRIPLET "--host=x86_64-linux-android")
+set(VCPKG_CMAKE_CONFIGURE_OPTIONS -DANDROID_ABI=x86_64)
 
 set(VCPKG_CXX_FLAGS "-fstack-protector-strong")
 set(VCPKG_C_FLAGS "-fstack-protector-strong")
