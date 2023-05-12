@@ -38,11 +38,6 @@
       "default-features": false
     },
     "nu-book-zxing-cpp",
-    "spix-qt6",
-    {
-      "name": "sentry-native",
-      "platform": "!android & !ios & !osx"
-    },
     "catch2",
     {
       "name": "sentry-cocoa",
