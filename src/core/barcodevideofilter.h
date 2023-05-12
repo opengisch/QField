@@ -23,6 +23,29 @@
 #include <QObject>
 #include <QThread>
 
+class BarcodeDecoderThread : public QThread
+{
+  public:
+    explicit BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image )
+      : QThread()
+      , mDecoder( decoder )
+      , mImage( image )
+    {
+    }
+
+  private:
+    void run() override
+    {
+      if ( mDecoder )
+      {
+        mDecoder->decodeImage( mImage );
+      }
+    }
+
+    BarcodeDecoder *mDecoder = nullptr;
+    QImage mImage;
+};
+
 class BarcodeVideoFilter : public QAbstractVideoFilter
 {
     Q_OBJECT

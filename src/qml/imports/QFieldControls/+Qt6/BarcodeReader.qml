@@ -1,8 +1,8 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Shapes 1.14
-import QtMultimedia 5.14
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Shapes
+import QtMultimedia
 
 import org.qfield 1.0
 
@@ -35,6 +35,7 @@ Popup {
 
   BarcodeDecoder {
     id: barcodeDecoder
+    videoSink: videoOutput.videoSink
 
     onDecodedStringChanged: {
       if (decodedString !== '') {
@@ -43,19 +44,26 @@ Popup {
     }
   }
 
-  /*
-   TODO: Qt6 Camera QML implementation
+  Loader {
+    id: cameraLoader
+    sourceComponent: cameraComponent
+    active: barcodeReader.visible
 
-  Camera {
-    position: Camera.BackFace
-
-    focus {
-        focusMode: Camera.FocusContinuous
-        focusPointMode: Camera.FocusPointCenter
+    onLoaded: {
+      item.videoOutput = videoOutput
     }
+  }
 
-    flash.mode: Camera.FlashOff
-  }*/
+  Component {
+    id: cameraComponent
+
+    CaptureSession {
+      camera: Camera {
+        active: barcodeReader.visible
+        flashMode: Camera.FlashOff
+      }
+    }
+  }
 
   Page {
     width: parent.width
@@ -89,6 +97,7 @@ Popup {
           Layout.rightMargin: 10
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
@@ -110,22 +119,12 @@ Popup {
         radius: 10
         clip: true
 
-        /*
-        TODO: Qt6 implementation using VideoSink as alternative to QAbstractVideoFilter
         VideoOutput {
+          id: videoOutput
           anchors.fill: parent
           anchors.margins: 6
-
-          autoOrientation: true
           fillMode: VideoOutput.PreserveAspectCrop
-
-          filters: [
-            BarcodeVideoFilter {
-              active: barcodeReader.visible
-              decoder: barcodeDecoder
-            }
-          ]
-        }*/
+        }
 
         Rectangle {
           id: decodedFlash
@@ -205,6 +204,7 @@ Popup {
           iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
           bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
 
+          visible: cameraLoader.active && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
           states: [
             State {
               name: "Off"
@@ -226,6 +226,11 @@ Popup {
           ]
 
           onClicked: {
+            if (camera.torchMode === Camera.TorchOff) {
+              cameraLoader.item.camera.torchMode = Camera.TorchOn
+            } else {
+              cameraLoader.item.camera.torchMode = Camera.TorchOff
+            }
           }
         }
       }
@@ -237,10 +242,14 @@ Popup {
           id: decodedText
           Layout.fillWidth: true
 
+          text: barcodeDecoder.decodedString !== ''
+                ? barcodeDecoder.decodedString
+                : qsTr( 'Center your camera on a code')
           font: Theme.tipFont
+          color: Theme.mainTextColor
           horizontalAlignment: Text.AlignLeft
           elide: Text.ElideMiddle
-          opacity: barcodeDecoder.decodedString !== '' ? 1 : 0.2
+          opacity: barcodeDecoder.decodedString !== '' ? 1 : 0.45
         }
 
         QfToolButton {
