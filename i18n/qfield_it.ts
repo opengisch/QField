@@ -187,7 +187,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome dispositivo bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo dispositivo bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Cerca dispositivi nelle vicinanze</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Nessun dispositivo Bluetooth trovato, scansiona per popolare i dispositivi nelle vicinanze.</translation>
     </message>
 </context>
 <context>
@@ -524,7 +524,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Copia “%1” negli appunti</translation>
     </message>
     <message>
         <source>Calculator</source>
