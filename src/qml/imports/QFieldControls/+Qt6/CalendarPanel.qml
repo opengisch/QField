@@ -1,6 +1,6 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.14
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
 import Theme 1.0
 import org.qfield 1.0
@@ -20,9 +20,9 @@ Popup {
     focus: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
-    parent: ApplicationWindow.overlay
-    x: (parent.width - width) / 2
-    y: (parent.height - height) / 2
+    parent: mainWindow.contentItem
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height) / 2
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
     onAboutToShow: {
@@ -116,6 +116,7 @@ Popup {
                 }
 
                 Text {
+                    text: calendar.title
                     horizontalAlignment: Text.AlignHCenter
                     Layout.column: 1
                     Layout.row: 0
@@ -164,9 +165,6 @@ Popup {
                         }
                     }
                 }
-
-                /*
-                TODO: Qt6 Calendar QML implementation (new in Qt 6.3)
 
                 DayOfWeekRow {
                     locale: calendar.locale
@@ -247,7 +245,7 @@ Popup {
                     function resetDate() {
                         calendarPopup.selectedDate = new Date()
                     }
-                }*/
+                }
             }
         }
 
