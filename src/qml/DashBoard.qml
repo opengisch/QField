@@ -70,7 +70,7 @@ Drawer {
         QfToolButton {
           id: settingsButton
           anchors.verticalCenter: parent.verticalCenter
-          iconSource: Theme.getThemeIcon( 'ic_settings_white_24dp' )
+          iconSource: Theme.getThemeVectorIcon( 'ic_settings_white_24dp' )
           bgcolor: "transparent"
           onClicked: showMenu()
         }
