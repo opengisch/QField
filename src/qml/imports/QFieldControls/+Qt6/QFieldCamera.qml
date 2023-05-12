@@ -1,7 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Window 2.14
-import QtMultimedia 5.14
+import QtMultimedia
 
 import Theme 1.0
 
@@ -19,21 +19,22 @@ Popup {
 
   x: 0
   y: 0
-  height: parent.height
-  width: parent.width
+  width: mainWindow.width
+  height: mainWindow.height
   padding: 0
 
+  parent: mainWindow.contentItem
   modal: true
   focus: true
 
   property string state: "PhotoCapture"
   onStateChanged: {
     if (state == "PhotoCapture") {
-      camera.captureMode = Camera.CaptureStillImage
       photoPreview.source = ''
+      videoPreview.source = ''
     } else if (state == "VideoCapture") {
-      camera.captureMode = Camera.CaptureVideo
-      videoPreview.source = '';
+      photoPreview.source = ''
+      videoPreview.source = ''
     }
   }
 
@@ -47,106 +48,56 @@ Popup {
       color: "#000000"
     }
 
-    /* TODO: FIX
+    MediaDevices {
+        id: mediaDevices
+    }
 
-    Camera {
-      id: camera
+    CaptureSession {
+      id: captureSession
 
-      cameraState: cameraItem.visible ? Camera.ActiveState : Camera.UnloadedState
+      camera: Camera {
+        id: camera
 
-      position: Camera.BackFace
+        active: cameraItem.visible
+        cameraDevice: mediaDevices.defaultVideoInput
 
-      metaData.cameraManufacturer: 'QField'
-      metaData.gpsLatitude: positionSource.positionInformation.latitudeValid
-                            ? positionSource.positionInformation.latitude
-                            : undefined
-      metaData.gpsLongitude: positionSource.positionInformation.longitudeValid
-                             ? positionSource.positionInformation.longitude
-                             : undefined
-      metaData.gpsAltitude: positionSource.positionInformation.elevationValid
-                            ? positionSource.positionInformation.elevation
-                            : undefined
-      metaData.gpsSpeed: positionSource.positionInformation.speedValid
-                         ? positionSource.positionInformation.speed
-                         : undefined
-
-      imageCapture {
-        onImageSaved: {
-          currentPath  = path
+        function zoomIn(increase) {
+          var zoom = camera.zoomFactor + increase
+          if (zoom < camera.maximumZoomFactor) {
+            camera.zoomFactor = zoom
+          } else {
+            camera.zoomFactor = camera.maximumZoomFactor
+          }
         }
-        onImageCaptured: {
-          photoPreview.source = preview
+
+        function zoomOut(decrease) {
+          var zoom = camera.zoomFactor - decrease;
+          if (zoom > 1) {
+            camera.zoomFactor = zoom
+          } else {
+            camera.zoomFactor = 1
+          }
+        }
+      }
+      videoOutput: videoOutput
+      imageCapture: ImageCapture {
+        id: imageCapture
+
+        onImageSaved: (requestId, path) => {
+          currentPath  = path
+          photoPreview.source = 'file://'+path
           cameraItem.state = "PhotoPreview"
         }
       }
-
-      videoRecorder {
-        audioEncodingMode: CameraRecorder.ConstantBitRateEncoding
-        audioBitRate: 128000
-        mediaContainer: "mp4"
+      recorder: MediaRecorder {
+        id: recorder
       }
+    }
 
-      function zoomIn(increase) {
-        var zoom;
-        if (camera.opticalZoom < camera.maximumOpticalZoom) {
-          zoom = camera.opticalZoom + increase
-          if (zoom < camera.maximumOpticalZoom) {
-            camera.opticalZoom = zoom
-          } else {
-            camera.opticalZoom = camera.maximumOpticalZoom
-          }
-        } else {
-          zoom = camera.digitalZoom + increase
-          if (zoom < camera.maximumDigitalZoom) {
-            camera.digitalZoom = zoom
-          } else {
-            camera.digitalZoom = camera.maximumDigitalZoom
-          }
-        }
-      }
-
-      function zoomOut(decrease) {
-        var zoom;
-        if (camera.digitalZoom > 1) {
-          zoom = camera.digitalZoom - decrease
-          if (zoom > 1) {
-            camera.digitalZoom = zoom
-          } else {
-            camera.digitalZoom = 1
-          }
-        } else {
-          zoom = camera.opticalZoom - decrease
-          if (zoom > 1) {
-            camera.opticalZoom = zoom
-          } else {
-            camera.opticalZoom = 1
-          }
-        }
-      }
-    }*/
-
-    /* TODO: FIX
-
-      VideoOutput {
+    VideoOutput {
+      id: videoOutput
       anchors.fill: parent
-
       visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
-
-      focus : visible
-      source: camera
-
-      autoOrientation: true
-    }*/
-
-    MouseArea {
-      anchors.fill: parent
-
-      onClicked: {
-        if (camera.lockStatus == Camera.Unlocked)
-          camera.searchAndLock();
-        else
-          camera.unlock();
-      }
     }
 
     PinchHandler {
@@ -228,7 +179,7 @@ Popup {
         height: 64
         radius: 32
         color: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
-        border.color: cameraItem.state == "VideoCapture" && camera.videoRecorder.recorderState != CameraRecorder.StoppedState
+        border.color: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState != CameraRecorder.StoppedState
                       ? "red"
                       : "white"
         border.width: 2
@@ -252,14 +203,14 @@ Popup {
 
           onClicked: {
             if (cameraItem.state == "PhotoCapture") {
-              camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM/')
+              captureSession.imageCapture.captureToFile(qgisProject.homePath+ '/DCIM/')
             } else if (cameraItem.state == "VideoCapture") {
-              if (camera.videoRecorder.recorderState == CameraRecorder.StoppedState) {
-                camera.videoRecorder.record()
+              if (captureSession.recorder.recorderState == CameraRecorder.StoppedState) {
+                captureSession.recorder.record()
               } else {
-                camera.videoRecorder.stop()
-                videoPreview.source = camera.videoRecorder.actualLocation
-                var path = camera.videoRecorder.actualLocation.toString()
+                captureSession.recorder.stop()
+                videoPreview.source = captureSession.recorder.actualLocation
+                var path = captureSession.recorder.actualLocation.toString()
                 var filePos = path.indexOf('file://')
                 currentPath = filePos === 0 ? path.substring(7) : path
                 cameraItem.state = "VideoPreview"
@@ -282,24 +233,23 @@ Popup {
         bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
         round: true
 
-        text: (camera.digitalZoom * camera.opticalZoom).toFixed(1) +'X'
+        text: camera.zoomFactor.toFixed(1) +'X'
         font: Theme.tinyFont
 
         onClicked: {
-          camera.opticalZoom = 1;
-          camera.digitalZoom = 1;
+          camera.zoomFactor = 1;
         }
       }
 
       QfToolButton {
         id: flashButton
-        visible: cameraItem.isCapturing && camera.flash.supportedModes.length > 1
+        visible: cameraItem.isCapturing && camera.isFlashModeSupported(Camera.FlashOn)
 
         x: cameraItem.isPortraitMode ? (parent.width / 4) * 3 - (width / 2) : (parent.width - width) / 2
         y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) - (height / 2)
 
         iconSource: {
-          switch(camera.flash.mode) {
+          switch(camera.flashMode) {
             case Camera.FlashAuto:
               return Theme.getThemeVectorIcon('ic_flash_auto_black_24dp');
             case Camera.FlashOn:
@@ -315,16 +265,16 @@ Popup {
         round: true
 
         onClicked: {
-          if (camera.flash.mode == Camera.FlashOff) {
-            camera.flash.mode = Camera.FlashOn;
+          if (camera.flashMode === Camera.FlashOff) {
+            camera.flashMode = Camera.FlashOn;
           } else {
-            camera.flash.mode = Camera.FlashOff
+            camera.flashMode = Camera.FlashOff
           }
         }
       }
 
       Rectangle {
-        visible: cameraItem.state == "VideoCapture" && camera.videoRecorder.recorderState != CameraRecorder.StoppedState
+        visible: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState != CameraRecorder.StoppedState
 
         x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width / 2 - width / 2
         y: cameraItem.isPortraitMode ? captureRing.y - height - 20 : captureRing.y - height - 20
@@ -339,8 +289,8 @@ Popup {
           id: durationLabel
           anchors.centerIn: parent
           text: {
-            if (camera.videoRecorder.duration > 0) {
-              var seconds = Math.ceil(camera.videoRecorder.duration / 1000);
+            if (captureSession.recorder.duration > 0) {
+              var seconds = Math.ceil(captureSession.recorder.duration / 1000);
               var hours = Math.floor(seconds / 60 / 60) + '';
               seconds -= hours * 60 * 60;
               var minutes = Math.floor(seconds / 60) + '';

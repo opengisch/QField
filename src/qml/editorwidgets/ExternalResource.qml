@@ -573,7 +573,6 @@ EditorWidgetBase {
     QFieldCamera {
       id: qfieldCamera
       visible: false
-      parent: ApplicationWindow.overlay
 
       Component.onCompleted: {
         if (isVideo) {
