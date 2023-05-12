@@ -420,6 +420,7 @@
         <file>themes/qfield/mdpi/ic_edit_attributes_white.png</file>
         <file>themes/qfield/xhdpi/ic_edit_attributes_white.png</file>
         <file>themes/qfield/xxhdpi/ic_edit_attributes_white.png</file>
+        <file>themes/qfield/nodpi/ic_baseline_search_white.svg</file>
         <file>themes/qfield/hdpi/ic_baseline_search_white.png</file>
         <file>themes/qfield/xxxhdpi/ic_baseline_search_white.png</file>
         <file>themes/qfield/mdpi/ic_baseline_search_white.png</file>

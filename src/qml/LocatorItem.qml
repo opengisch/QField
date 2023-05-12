@@ -221,7 +221,7 @@ Item {
     z:20
     anchors { right: parent.right; top: parent.top; }
 
-    iconSource: Theme.getThemeIcon( "ic_baseline_search_white" )
+    iconSource: Theme.getThemeVectorIcon( "ic_baseline_search_white" )
     round: true
     bgcolor: Theme.mainColor
 
