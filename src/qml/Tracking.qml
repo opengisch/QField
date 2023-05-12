@@ -139,7 +139,7 @@ Item {
 
     Popup {
       id: embeddedFeatureFormPopup
-      parent: ApplicationWindow.overlay
+      parent: mainWindow.contentItem
 
       x: Theme.popupScreenEdgeMargin
       y: Theme.popupScreenEdgeMargin
@@ -198,7 +198,7 @@ Item {
 
     Popup {
       id: trackInformationPopup
-      parent: ApplicationWindow.overlay
+      parent: mainWindow.contentItem
 
       x: Theme.popupScreenEdgeMargin
       y: Theme.popupScreenEdgeMargin

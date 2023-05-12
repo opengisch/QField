@@ -23,7 +23,7 @@ Popup {
 
   property bool opacitySliderVisible: false
 
-  parent: ApplicationWindow.overlay
+  parent: mainWindow.contentItem
   width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2

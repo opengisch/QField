@@ -539,7 +539,6 @@ EditorWidgetBase {
     QFieldAudioRecorder {
       z: 10000
       visible: false
-      parent: ApplicationWindow.overlay
 
       Component.onCompleted: {
         if (platformUtilities.checkMicrophonePermissions()) {

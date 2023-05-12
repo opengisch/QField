@@ -56,7 +56,7 @@ Item {
     Popup {
       id: searchFeaturePopup
 
-      parent: ApplicationWindow.overlay
+      parent: mainWindow.contentItem
       x: Theme.popupScreenEdgeMargin
       y: Theme.popupScreenEdgeMargin
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes

@@ -44,7 +44,7 @@ Popup {
     signal featureSaved(int id)
     signal featureCancelled
 
-    parent: ApplicationWindow.overlay
+    parent: mainWindow.contentItem
     closePolicy: Popup.NoAutoClose // prevent accidental feature addition and editing
 
     x: Math.max(mainWindow.sceneTopMargin, Theme.popupScreenEdgeMargin)

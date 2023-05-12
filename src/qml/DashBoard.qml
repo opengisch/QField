@@ -352,6 +352,6 @@ Drawer {
       mapSettings: mapSettings;
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: ApplicationWindow.overlay
+      parent: mainWindow.contentItem
   }
 }

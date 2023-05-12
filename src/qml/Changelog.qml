@@ -8,7 +8,7 @@ import org.qfield 1.0
 Popup {
     id: changelogPopup
 
-    parent: ApplicationWindow.overlay
+    parent: mainWindow.contentItem
     x: Theme.popupScreenEdgeMargin
     y: Theme.popupScreenEdgeMargin
     width: parent.width - Theme.popupScreenEdgeMargin * 2
