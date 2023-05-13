@@ -213,8 +213,8 @@ ListView {
     }
   }
   MouseArea {
-      acceptedButtons: Qt.LeftButton | Qt.RightButton
       anchors.fill: parent
+      preventStealing: true
 
       property Item pressedItem
 

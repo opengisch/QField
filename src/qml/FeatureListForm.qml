@@ -280,6 +280,7 @@ Rectangle {
       MouseArea {
         id: mouseArea
         anchors.fill: parent
+        preventStealing: true
 
         onClicked: {
           if ( featureForm.multiSelection ) {
