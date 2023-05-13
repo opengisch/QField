@@ -17,6 +17,7 @@ vcpkg_from_github(
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
         ios.patch
+        connect_fix.patch
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
