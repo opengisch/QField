@@ -11,11 +11,12 @@ vcpkg_add_to_path("${PERL_EXE_PATH}")
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO KDE/qca
-    REF v2.3.4
-    SHA512 04583da17531538fc2a7ae18a1a4f89f1e8d303e2bb390520a8f55a20bab17f8407ab07aefef2a75587e2a0521f41b37a9fdd8430ec483daf5d02c05556b8ddb
+    REF v2.3.6
+    SHA512 983cd023482a2c16e4976a8b75ff739239f82aab039dc879c0cbfb842487d77fb4b153bf3c855bed0ec6b1a48f2c4f654c181982a945e2f83cb9953c4896c70d
     PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
+        0003-Define-NOMINMAX-for-botan-plugin-with-MSVC.patch
         ios.patch
         connect_fix.patch
 )
