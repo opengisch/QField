@@ -37,6 +37,7 @@ RoundButton {
     border.color: button.borderColor
     color: 'transparent'
     radius: round ? height / 2 : 0
+    clip: true
 
     Behavior on color {
       ColorAnimation {
@@ -44,7 +45,6 @@ RoundButton {
       }
     }
 
-    layer.enabled: true
     Ripple {
       id: ripple
       clip: true
@@ -57,11 +57,6 @@ RoundButton {
       color: Theme.darkTheme
              ? bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10ffffff" : "#22aaaaaa"
              : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
-
-      layer.enabled: true
-      layer.effect: QfOpacityMask {
-        maskSource: backgroundRectangle
-      }
     }
   }
 
