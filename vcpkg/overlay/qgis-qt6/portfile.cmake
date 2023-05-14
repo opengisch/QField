@@ -233,20 +233,20 @@ else() # Build in UNIX
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
     endif()
     list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
-    if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a")
-        set(QT_POLY2TRI_DIR_RELEASE "${CURRENT_INSTALLED_DIR}/lib")
-        set(QT_POLY2TRI_DIR_DEBUG "${CURRENT_INSTALLED_DIR}/debug/lib")
-    elseif(EXISTS "${Qt6_DIR}/../../libqt_poly2tri.a")
-        set(QT_POLY2TRI_DIR_RELEASE "${Qt6_DIR}/../..")
-        set(QT_POLY2TRI_DIR_DEBUG "${Qt6_DIR}/../..")
-    else()
-        list(APPEND QGIS_OPTIONS -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
-    endif()
-    if(DEFINED QT_POLY2TRI_DIR_RELEASE)
-        list(APPEND QGIS_OPTIONS -DPoly2Tri_INCLUDE_DIR:PATH=${CMAKE_CURRENT_LIST_DIR}/poly2tri)
-        list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_DEBUG}/debug/lib/libqt_poly2tri_debug.a) # static qt only
-        list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_RELEASE}/lib/libqt_poly2tri.a) # static qt only
-    endif()
+    #    if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a")
+    #        set(QT_POLY2TRI_DIR_RELEASE "${CURRENT_INSTALLED_DIR}/lib")
+    #        set(QT_POLY2TRI_DIR_DEBUG "${CURRENT_INSTALLED_DIR}/debug/lib")
+    #    elseif(EXISTS "${Qt6_DIR}/../../libqt_poly2tri.a")
+    #        set(QT_POLY2TRI_DIR_RELEASE "${Qt6_DIR}/../..")
+    #        set(QT_POLY2TRI_DIR_DEBUG "${Qt6_DIR}/../..")
+    #    else()
+    #        list(APPEND QGIS_OPTIONS -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
+    #    endif()
+    #    if(DEFINED QT_POLY2TRI_DIR_RELEASE)
+    #        list(APPEND QGIS_OPTIONS -DPoly2Tri_INCLUDE_DIR:PATH=${CMAKE_CURRENT_LIST_DIR}/poly2tri)
+    #        list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_DEBUG}/debug/lib/libqt_poly2tri_debug.a) # static qt only
+    #        list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_RELEASE}/lib/libqt_poly2tri.a) # static qt only
+    #    endif()
 endif()
 
 list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
@@ -307,44 +307,6 @@ if(VCPKG_TARGET_IS_WINDOWS)
     copy_path(plugins tools)
     copy_path(resources share)
     copy_path(svg share)
-    
-    # Extend vcpkg_copy_tool_dependencies to support the export of dll and exe dependencies in different directories to the same directory,
-    # and support the copy of debug dependencies
-    function(vcpkg_copy_tool_dependencies_ex TOOL_DIR OUTPUT_DIR SEARCH_DIR)
-        find_program(PS_EXE powershell PATHS ${DOWNLOADS}/tool)
-        if (PS_EXE-NOTFOUND)
-            message(FATAL_ERROR "Could not find powershell in vcpkg tools, please open an issue to report this.")
-        endif()
-        macro(search_for_dependencies PATH_TO_SEARCH)
-            file(GLOB TOOLS ${TOOL_DIR}/*.exe ${TOOL_DIR}/*.dll)
-            foreach(TOOL ${TOOLS})
-                vcpkg_execute_required_process(
-                    COMMAND ${PS_EXE} -noprofile -executionpolicy Bypass -nologo
-                        -file ${CMAKE_CURRENT_LIST_DIR}/applocal.ps1
-                        -targetBinary ${TOOL}
-                        -installedDir ${PATH_TO_SEARCH}
-                        -outputDir    ${OUTPUT_DIR}
-                    WORKING_DIRECTORY ${VCPKG_ROOT_DIR}
-                    LOGNAME copy-tool-dependencies
-                )
-            endforeach()
-        endmacro()
-        search_for_dependencies(${CURRENT_PACKAGES_DIR}/${SEARCH_DIR})
-        search_for_dependencies(${CURRENT_INSTALLED_DIR}/${SEARCH_DIR})
-    endfunction()
-
-    vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin ${CURRENT_PACKAGES_DIR}/tools/qgis/bin bin)
-    vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/tools/${PORT}/plugins ${CURRENT_PACKAGES_DIR}/tools/qgis/bin bin)
-    if("debug-tools" IN_LIST FEATURES)
-        vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin debug/bin)
-        vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/plugins ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin debug/bin)
-    endif()
-    if("server" IN_LIST FEATURES)
-        vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/tools/${PORT}/server ${CURRENT_PACKAGES_DIR}/tools/qgis/bin bin)
-        if("debug-tools" IN_LIST FEATURES)
-            vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/server ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin debug/bin)
-        endif()
-    endif()
 endif()
 
 file(GLOB QGIS_CMAKE_PATH ${CURRENT_PACKAGES_DIR}/*.cmake)
