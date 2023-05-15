@@ -1,5 +1,5 @@
 ---
-name: 🍎 MacOS (Qt6)
+name: 🍎 MacOS
 on:
   push:
     branches:

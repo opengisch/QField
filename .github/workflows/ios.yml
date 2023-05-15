@@ -1,5 +1,5 @@
 ---
-name: 🍏 iOS build
+name: 🍏 iOS
 
 on:
   push:
