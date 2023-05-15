@@ -141,7 +141,7 @@ void FlatLayerTreeModelBase::updateMap( const QModelIndex &topLeft, const QModel
   QModelIndex modifiedIndex = mapFromSource( topLeft );
   if ( modifiedIndex.isValid() )
   {
-    emit dataChanged( modifiedIndex, modifiedIndex, QVector<int>() << Qt::DisplayRole << FlatLayerTreeModel::Name << FlatLayerTreeModel::FeatureCount );
+    emit dataChanged( modifiedIndex, modifiedIndex, QVector<int>() << Qt::DisplayRole << FlatLayerTreeModel::Name << FlatLayerTreeModel::FeatureCount << FlatLayerTreeModel::Visible );
   }
 }
 
