@@ -6,7 +6,6 @@ export SOURCE_DIR=/usr/src/qfield
 
 CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
-export Qt6_Dir=/home/devel/6.5.0/android_arm64_v8a
 export Qt6_DIR=/home/devel/6.5.0/android_arm64_v8a
 
 [[ -z ${APP_NAME} ]] && APP_NAME="QField"

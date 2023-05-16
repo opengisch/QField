@@ -8,5 +8,5 @@ QT_VERSION=6.5.0
 # sudo apt install mesa-common-dev libgl1-mesa-dev (makes QtGui/OpenGL happy)
 
 export Qt6_DIR=${QT_PREFIX}/${QT_VERSION}/gcc_64
-cmake -S . -B $(git rev-parse --show-toplevel)/build-x64-linux -DSYSTEM_QT=ON -DBUILD_WITH_QT6=ON -GNinja -DWITH_VCPKG=ON -DQt6_ROOT=${Qt6_DIR} -DENABLE_TESTS=ON
+cmake -S . -B $(git rev-parse --show-toplevel)/build-x64-linux -DSYSTEM_QT=ON -GNinja -DWITH_VCPKG=ON -DQt6_ROOT=${Qt6_DIR} -DENABLE_TESTS=ON
 cmake --build $(git rev-parse --show-toplevel)/build-x64-linux
