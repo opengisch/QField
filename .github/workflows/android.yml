@@ -17,8 +17,15 @@ jobs:
       fail-fast: true
       matrix:
         all_files_access: ['OFF']
-        triplet: ['arm64-android', 'arm-neon-android', 'x64-android', 'x86-android']
-#        all_files_access: ['ON', 'OFF']
+        include:
+          - triplet: 'arm64-android'
+            qt_arch: 'android_arm64_v8a'
+          - triplet: 'arm-neon-android'
+            qt_arch: 'android_armv7'
+          - triplet: 'x64-android'
+            qt_arch: 'android_x86_64'
+          - triplet: 'x86-android'
+            qt_arch: 'android_x86'
 
     steps:
       - name: 🐣 Checkout
@@ -26,7 +33,7 @@ jobs:
         with:
           submodules: recursive
 
-      - name: 🌾 Prepare vars
+      - name: 🌾 Prepare variables
         id: vars
         shell: bash
         run: |
@@ -45,47 +52,16 @@ jobs:
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
-      - name: 💐 Install Qt (arm64-android)
+      - name: 💐 Install Qt (Android)
         uses: jurplel/install-qt-action@v3
-        if: ${{ matrix.triplet == 'arm64-android' }}
         with:
           version: 6.5.0
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: android
-          arch: android_arm64_v8a
+          arch: ${{ matrix.qt_arch }}
           cache: false
 
-      - name: 💐 Install Qt (arm-neon-android)
-        uses: jurplel/install-qt-action@v3
-        if: ${{ matrix.triplet == 'arm-neon-android' }}
-        with:
-          version: 6.5.0
-          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
-          target: android
-          arch: android_armv7
-          cache: false
-
-      - name: 💐 Install Qt (x64-android)
-        uses: jurplel/install-qt-action@v3
-        if: ${{ matrix.triplet == 'x64-android' }}
-        with:
-          version: 6.5.0
-          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
-          target: android
-          arch: android_x86_64
-          cache: false
-
-      - name: 💐 Install Qt (x86-android)
-        uses: jurplel/install-qt-action@v3
-        if: ${{ matrix.triplet == 'x86-android' }}
-        with:
-          version: 6.5.0
-          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
-          target: android
-          arch: android_x86
-          cache: false
-
-      - name: 💐 Install Qt (linux desktop)
+      - name: 💐 Install Qt (Desktop)
         uses: jurplel/install-qt-action@v3
         with:
           version: 6.5.0

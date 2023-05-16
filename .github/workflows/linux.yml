@@ -58,11 +58,13 @@ jobs:
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
+          # TODO: Enable spix when it supports Qt 6.5
           cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D WITH_VCPKG=ON \
+                -D WITH_SPIX=OFF \
                 -D SYSTEM_QT=ON \
                 -D BUILD_WITH_QT6=ON \
                 -D APP_VERSION="${APP_VERSION}" \

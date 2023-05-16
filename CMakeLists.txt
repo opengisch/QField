@@ -123,6 +123,14 @@ if (ANDROID)
 
   if(NOT BUILD_WITH_QT6)
     find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
+
+    include(FetchContent)
+    FetchContent_Declare(android_openssl
+      GIT_REPOSITORY https://github.com/KDAB/android_openssl.git
+      GIT_TAG aa3c67c59160715216e89ae2c48291d6021601fa
+    )
+    FetchContent_MakeAvailable(android_openssl)
+    include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
   endif()
 endif()
 
@@ -159,7 +167,11 @@ endif()
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Android")
-  set(SHARE_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/assets")
+  if (BUILD_WITH_QT6)
+    set(SHARE_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/assets")
+  else()
+    set(SHARE_DIR "${CMAKE_BINARY_DIR}/android-build/assets/share")
+  endif()
 else()
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
 endif()
