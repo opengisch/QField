@@ -1271,7 +1271,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Ne mogu obraditi IMU poziciju: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -2142,7 +2142,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Akcije projekta</translation>
     </message>
 </context>
 <context>
@@ -2229,11 +2229,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Akcije stavke</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Akcije uvoza</translation>
     </message>
 </context>
 <context>
@@ -2767,7 +2767,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation>+ IMU</translation>
     </message>
 </context>
 <context>
@@ -3247,7 +3247,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Nedavne akcije projekta</translation>
     </message>
 </context>
 <context>
