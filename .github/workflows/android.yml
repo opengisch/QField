@@ -113,7 +113,6 @@ jobs:
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_ALL_FILES_ACCESS="${{ matrix.all_files_access }}" \
                 -D WITH_SPIX=OFF \
-                -D BUILD_WITH_QT6=ON \
                 -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
                 -D QT_HOST_PATH=/home/runner/work/QField/Qt/6.5.0/gcc_64 \
                 -D QT_HOST_PATH_CMAKE_DIR:PATH=/home/runner/work/QField/Qt/6.5.0/gcc_64 \

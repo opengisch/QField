@@ -88,7 +88,6 @@ jobs:
                 -D VCPKG_TARGET_TRIPLET="${{ env.TRIPLET }}" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=OFF \
-                -D BUILD_WITH_QT6=ON \
                 -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
                 -D WITH_BLUETOOTH=OFF \
                 -D WITH_SERIALPORT=OFF \
