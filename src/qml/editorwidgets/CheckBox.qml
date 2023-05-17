@@ -56,7 +56,7 @@ EditorWidgetBase {
     }
 
     checked: {
-        if( isBool ) {
+        if (isBool) {
             return !isNull ? value : false;
         } else {
             return !isNull ? String(value) === config['CheckedState'] : false;
@@ -70,11 +70,18 @@ EditorWidgetBase {
     anchors.fill: parent
 
     onClicked: {
-      checkBox.checked = !checkBox.checked
-      valueChangeRequested( isBool
-                           ? checkBox.checked
-                           : checkBox.checked ? config['CheckedState'] : config['UncheckedState'], false )
-      checkBox.forceActiveFocus();
+      var editedValue = true
+      if (isBool) {
+        editedValue = !isNull ? !value : true
+      } else {
+        if (!isNull) {
+          editedValue = value === config['CheckedState'] ? config['UncheckedState'] : config['CheckedState']
+        } else {
+          editedValue = config['CheckedState']
+        }
+      }
+
+      valueChangeRequested(editedValue, false)
     }
   }
 
