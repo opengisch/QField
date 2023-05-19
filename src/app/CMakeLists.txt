@@ -42,6 +42,13 @@ file(APPEND ${TRANSLATIONS_QRC} "\n    </qresource>\n</RCC>")
 configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
 
+if(BUILD_WITH_QT6)
+  find_package(
+    Qt6
+    COMPONENTS Core5Compat
+    REQUIRED)
+endif()
+
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
 
@@ -55,7 +62,26 @@ function(create_executable)
       ${TRANSLATIONS_QRC})
 
   if(ANDROID)
-    add_library(${exe_TARGET} SHARED ${QFIELD_SOURCES})
+    if(BUILD_WITH_QT6)
+      qt_add_executable(${exe_TARGET} ${QFIELD_SOURCES})
+      set_property(TARGET ${exe_TARGET} PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+                                                 ${ANDROID_PACKAGE_SOURCE_DIR})
+      set_property(TARGET ${exe_TARGET} PROPERTY QT_QML_IMPORT_PATH
+                                                 $ENV{Qt6_DIR}/qml)
+      set_property(TARGET ${exe_TARGET} PROPERTY QT_QML_ROOT_PATH
+                                                 ${CMAKE_SOURCE_DIR}/src/qml)
+
+      set(PROJECT_NAME ${exe_TARGET})
+      include(FetchContent)
+      FetchContent_Declare(
+        android_openssl
+        GIT_REPOSITORY https://github.com/KDAB/android_openssl.git
+        GIT_TAG ef412c6ebf131fae29a873d0c5db6c6b9dd494fd)
+      FetchContent_MakeAvailable(android_openssl)
+      include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
+    else()
+      add_library(${exe_TARGET} SHARED ${QFIELD_SOURCES})
+    endif()
   else()
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
@@ -63,7 +89,7 @@ function(create_executable)
   target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml)
 
   if(ANDROID)
-    target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_service)
+    target_link_libraries(${exe_TARGET} PRIVATE qfield_service)
   endif()
 
   if(WITH_SENTRY)
@@ -96,7 +122,9 @@ function(create_executable)
                           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
   endif()
   if(BUILD_WITH_QT6)
+    target_link_libraries(${exe_TARGET} PUBLIC Qt6::Core5Compat)
     qt_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
+    qt_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::Core5Compat)
   else()
     qt5_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
   endif()

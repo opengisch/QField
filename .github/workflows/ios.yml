@@ -1,5 +1,5 @@
 ---
-name: 🍏 iOS build
+name: 🍏 iOS
 
 on:
   push:
@@ -14,8 +14,7 @@ jobs:
   build:
     runs-on: macos-12
     env:
-      DEPLOYMENT_TARGET: '12.0'
-      QT_VERSION: '5.15.2'
+      DEPLOYMENT_TARGET: '13.0'
       BUILD_TYPE: 'Release'
       TRIPLET: 'arm64-ios'
 
@@ -28,10 +27,17 @@ jobs:
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: 5.15.2
-          modules: 'qtcharts'
+          version: 6.5.0
+          modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtmultimedia qtwebview qtsensors'
           target: ios
-          cache: true
+          cache: false
+
+      - name: 💐 Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: 6.5.0
+          target: desktop
+          cache: false
 
       - name: 🌾 Prepare vars
         id: vars
@@ -82,6 +88,7 @@ jobs:
                 -D VCPKG_TARGET_TRIPLET="${{ env.TRIPLET }}" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=OFF \
+                -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
                 -D WITH_BLUETOOTH=OFF \
                 -D WITH_SERIALPORT=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
@@ -102,7 +109,8 @@ jobs:
                 -D CMAKE_SYSTEM_NAME=iOS \
                 -D CMAKE_SYSTEM_PROCESSOR=aarch64 \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
-                -D CMAKE_FIND_ROOT_PATH=${{ env.Qt5_DIR }} \
+                -D QT_HOST_PATH=${{ github.workspace }}/../Qt/6.5.0/macos \
+                -D QT_HOST_PATH_CMAKE_DIR:PATH=${{ github.workspace }}/../Qt/6.5.0/macos \
                 -D ENABLE_TESTS=OFF \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D WITH_CCACHE=ON

@@ -58,7 +58,7 @@ android {
      *******************************************************/
 
     ndkVersion = '@ANDROID_NDK_VERSION@'
-    compileSdkVersion = androidCompileSdkVersion.toInteger()
+    compileSdkVersion = @ANDROID_TARGET_PLATFORM@
 
     sourceSets {
         main {

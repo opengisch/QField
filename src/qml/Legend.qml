@@ -213,8 +213,8 @@ ListView {
     }
   }
   MouseArea {
-      acceptedButtons: Qt.LeftButton | Qt.RightButton
       anchors.fill: parent
+      preventStealing: true
 
       property Item pressedItem
 
@@ -285,6 +285,5 @@ ListView {
 
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: ApplicationWindow.overlay
   }
 }

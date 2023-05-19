@@ -16,7 +16,16 @@ set(QT_MODULES
   Qt6AttributionsScannerTools
   Qt6Bluetooth
   Qt6Bootstrap
+  Qt6BundledPcre2
+  Qt6BundledLibpng
+  Qt6BundledHarfbuzz
+  Qt6BundledFreetype
+  Qt6BundledLibjpeg
+  Qt6Bundled_Clip2Tri
+  Qt6Bundled_Poly2Tri
+  Qt6Bundled_Clipper
   Qt6Charts
+  Qt6ChartsQml
   Qt6ClipboardSupport
   Qt6Concurrent
   Qt6Core
@@ -25,6 +34,7 @@ set(QT_MODULES
   Qt6DocTools
   Qt6EdidSupport
   Qt6EglSupport
+  Qt6EntryPointPrivate
   Qt6EventDispatcherSupport
   Qt6FbSupport
   Qt6FontDatabaseSupport
@@ -34,16 +44,20 @@ set(QT_MODULES
   Qt6Help
   Qt6HostInfo
   Qt6InputSupport
+  Qt6LabsSettings
   Qt6Location
   Qt6MacExtras
   Qt6Multimedia
   Qt6MultimediaQuick
+  Qt6MultimediaQuickPrivate
   Qt6MultimediaWidgets
   Qt6Network
   Qt6Nfc
   Qt6OpenGL
   Qt6OpenGLExtensions
+  Qt6OpenGLWidgets
   Qt6PacketProtocol
+  Qt6PacketProtocolPrivate
   Qt6PlatformCompositorSupport
   Qt6Positioning
   Qt6PositioningQuick
@@ -60,7 +74,12 @@ set(QT_MODULES
   Qt6QmlXmlListModel
   Qt6Quick
   Qt6QuickControls2
+  Qt6QuickControls2Impl
+  Qt6QuickControls2ImplPrivate
   Qt6QuickDialogs2
+  Qt6QuickDialogs2QuickImpl
+  Qt6QuickDialogs2Utils
+  Qt6QuickEffectsPrivate
   Qt6QuickLayouts
   Qt6QuickParticlesPrivate
   Qt6QuickShapesPrivate
@@ -71,6 +90,7 @@ set(QT_MODULES
   Qt6RepParser
   Qt6Scxml
   Qt6Sensors
+  Qt6SensorsQuick
   Qt6SerialPort
   Qt6ServiceSupport
   Qt6Sql
@@ -84,21 +104,29 @@ set(QT_MODULES
   Qt6WebChannel
   Qt6WebSockets
   Qt6WebView
+  Qt6WebViewQuick
   Qt6Widgets
   Qt6Xml
   Qt6XmlPatterns
   Qt6Zlib
+  Qt6BundledPcre2
 )
 
 foreach(MOD ${QT_MODULES})
   set(${MOD}_DIR $ENV{Qt6_DIR}/lib/cmake/${MOD})
 endforeach()
 
-set(Qt6CoreTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6CoreTools)
-set(Qt6GuiTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6GuiTools)
-set(Qt6LinguistTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6LinguistTools)
-set(Qt6QmlTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6QmlTools)
-set(Qt6QmlImportScanner_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6QmlImportScanner)
-set(Qt6WidgetsTools_DIR $ENV{Qt6_DIR}/../gcc_64/lib/cmake/Qt6WidgetsTools)
+if("${CMAKE_HOST_SYSTEM}" MATCHES "Darwin")
+    set(_QT_HOST_INSTALL_DIR "macos")
+else() # if("${CMAKE_HOST_SYSTEM}" MATCHES "Linux")
+    set(_QT_HOST_INSTALL_DIR "gcc_64")
+endif()
+
+set(Qt6CoreTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6CoreTools)
+set(Qt6GuiTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6GuiTools)
+set(Qt6LinguistTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6LinguistTools)
+set(Qt6QmlTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6QmlTools)
+set(Qt6QmlImportScanner_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6QmlImportScanner)
+set(Qt6WidgetsTools_DIR $ENV{Qt6_DIR}/../${_QT_HOST_INSTALL_DIR}/lib/cmake/Qt6WidgetsTools)
 
 _find_package(${ARGS})

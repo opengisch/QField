@@ -15,13 +15,14 @@ Button {
 
   signal dropdownClicked
 
-  padding: 8
+  topPadding: 8
+  bottomPadding: 8
   leftPadding: 8
   rightPadding: dropdown ? 40 : 8
-  leftInset: 4
-  rightInset: 4
   topInset: 2
   bottomInset: 2
+  leftInset: 4
+  rightInset: 4
 
   icon.color: button.color
   font: Theme.defaultFont
@@ -54,6 +55,11 @@ Button {
     spacing: parent.spacing
     mirrored: parent.mirrored
     display: parent.display
+
+    topPadding: 2
+    bottomPadding: 2
+    leftPadding: 0
+    rightPadding: 0
 
     icon: parent.icon
     color: button.color

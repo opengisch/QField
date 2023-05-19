@@ -16,7 +16,32 @@
 
 #include "barcodedecoder.h"
 
+#include <QVideoFrame>
+
 #include <ZXing/ReadBarcode.h>
+
+class BarcodeDecoderThread : public QThread
+{
+  public:
+    explicit BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image )
+      : QThread()
+      , mDecoder( decoder )
+      , mImage( image )
+    {
+    }
+
+  private:
+    void run() override
+    {
+      if ( mDecoder )
+      {
+        mDecoder->decodeImage( mImage );
+      }
+    }
+
+    BarcodeDecoder *mDecoder = nullptr;
+    QImage mImage;
+};
 
 BarcodeDecoder::BarcodeDecoder( QObject *parent )
   : QObject( parent )
@@ -85,3 +110,36 @@ void BarcodeDecoder::decodeImage( const QImage &image )
 
   return;
 }
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+void BarcodeDecoder::setVideoSink( QVideoSink *sink )
+{
+  if ( mVideoSink == sink )
+    return;
+
+  if ( mVideoSink )
+    disconnect( mVideoSink );
+
+  mVideoSink = sink;
+  connect( mVideoSink, &QVideoSink::videoFrameChanged, this, &BarcodeDecoder::decodeVideoFrame );
+}
+
+void BarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
+{
+  if ( mDecodingThread )
+    return;
+
+  QImage image = frame.toImage();
+  if ( !image.isNull() && image.format() != QImage::Format_ARGB32 )
+  {
+    image = image.convertToFormat( QImage::Format_ARGB32 );
+  }
+
+  mDecodingThread = new BarcodeDecoderThread( this, image );
+  connect( mDecodingThread, &QThread::finished, this, [=] {
+    mDecodingThread->deleteLater();
+    mDecodingThread = nullptr;
+  } );
+  mDecodingThread->start();
+}
+#endif

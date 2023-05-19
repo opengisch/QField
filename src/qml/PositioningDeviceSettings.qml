@@ -9,7 +9,7 @@ import Theme 1.0
 
 Popup {
     id: popup
-    parent: ApplicationWindow.overlay
+    parent: mainWindow.contentItem
 
     signal apply
 

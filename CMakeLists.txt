@@ -14,7 +14,7 @@ set(APP_VERSION "0" CACHE STRING "Application Version (Example: v1.0.0)")
 set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
-set(BUILD_WITH_QT6 OFF CACHE BOOL "Build with Qt6")
+set(BUILD_WITH_QT6 ON CACHE BOOL "Build with Qt6")
 
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
@@ -99,8 +99,10 @@ endif()
 
 if(BUILD_WITH_QT6)
   set(QT_PKG Qt6)
+  set(QT_MIN_VERSION 6.5.0)
 else()
   set(QT_PKG Qt5)
+  set(QT_MIN_VERSION 5.14.0)
 endif()
 
 if (ANDROID)
@@ -119,20 +121,19 @@ if (ANDROID)
 
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
 
-  include(FetchContent)
-  FetchContent_Declare(android_openssl
-      GIT_REPOSITORY https://github.com/KDAB/android_openssl.git
-      GIT_TAG aa3c67c59160715216e89ae2c48291d6021601fa
-  )
-  FetchContent_MakeAvailable(android_openssl)
-  include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
-
   if(NOT BUILD_WITH_QT6)
     find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
+
+    include(FetchContent)
+    FetchContent_Declare(android_openssl
+      GIT_REPOSITORY https://github.com/KDAB/android_openssl.git
+      GIT_TAG aa3c67c59160715216e89ae2c48291d6021601fa
+    )
+    FetchContent_MakeAvailable(android_openssl)
+    include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
   endif()
 endif()
 
-set(QT_MIN_VERSION 5.14.0)
 find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Multimedia REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
@@ -166,7 +167,11 @@ endif()
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Android")
-  set(SHARE_DIR "${CMAKE_BINARY_DIR}/android-build/assets/share")
+  if (BUILD_WITH_QT6)
+    set(SHARE_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/assets")
+  else()
+    set(SHARE_DIR "${CMAKE_BINARY_DIR}/android-build/assets/share")
+  endif()
 else()
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
 endif()

@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-ARG NDK_VERSION=22.1.7171670
+ARG NDK_VERSION=23.1.7779620
 
 ENV ANDROID_SDK_HOME /opt/android-sdk-linux
 ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
@@ -66,13 +66,9 @@ RUN /opt/tools/entrypoint.sh built-in
 
 RUN yes | /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager --licenses && /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager "ndk;${NDK_VERSION}"
 
-# Replace llvm-readobj from r25 with a small wrapper script to make parameters compatible with androiddeployqt from Qt 5.14
-RUN mv /opt/android-sdk-linux/ndk/${NDK_VERSION}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj /opt/android-sdk-linux/ndk/${NDK_VERSION}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj-bin
-COPY tools/llvm-readobj /opt/android-sdk-linux/ndk/${NDK_VERSION}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj
-
 RUN mkdir /home/devel
 WORKDIR /home/devel
 RUN pip3 install aqtinstall cmake && \
-    /usr/local/bin/aqt install-qt linux android 5.14.2 -m qtcharts
+    /usr/local/bin/aqt install-qt linux android 6.5.0 android_arm64_v8a -m qtcharts qt5compat qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors --autodesktop
 ENV ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk/${NDK_VERSION}
 ENV ANDROID_NDK_VERSION=${NDK_VERSION}

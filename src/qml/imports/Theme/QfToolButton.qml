@@ -23,7 +23,6 @@ RoundButton {
   implicitWidth: width
   implicitHeight: height
 
-  focusPolicy: Qt.NoFocus
   topInset:0
   bottomInset:0
   leftInset:0
@@ -38,6 +37,7 @@ RoundButton {
     border.color: button.borderColor
     color: 'transparent'
     radius: round ? height / 2 : 0
+    clip: true
 
     Behavior on color {
       ColorAnimation {
@@ -57,16 +57,6 @@ RoundButton {
       color: Theme.darkTheme
              ? bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10ffffff" : "#22aaaaaa"
              : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
-
-      layer.enabled: true
-      layer.effect: QfOpacityMask {
-        maskSource: Rectangle
-        {
-          width: ripple.width
-          height: ripple.height
-          radius: ripple.height / 2
-        }
-      }
     }
   }
 

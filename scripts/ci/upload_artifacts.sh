@@ -18,7 +18,7 @@ then
   #s3cmd modify --add-header=content-type:application/octet-stream s3://qfieldapks/ci-builds/${FILENAME_AAB}
   #echo -e "\e[31mcontent-type modified \e[0m"
 
-  mv ${CMAKE_BUILD_DIR}/android-build/build/outputs/apk/release/android-build-release-signed.apk /tmp/${FILENAME_APK}
+  mv ${CMAKE_BUILD_DIR}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk /tmp/${FILENAME_APK}
   echo "${S3CFG}" > ~/.s3cfg
   s3cmd put --acl-public /tmp/${FILENAME_APK} s3://qfieldapks/ci-builds/${FILENAME_APK}
   echo -e "\e[31mUploaded to https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${FILENAME_APK} \e[0m"

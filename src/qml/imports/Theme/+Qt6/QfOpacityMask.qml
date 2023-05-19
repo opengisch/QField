@@ -1,4 +1,6 @@
 import QtQuick 2.14
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 
-OpacityMask {}
+MultiEffect {
+  maskEnabled: true
+}

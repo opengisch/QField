@@ -6,8 +6,7 @@ export SOURCE_DIR=/usr/src/qfield
 
 CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
-export Qt5_Dir=/home/devel/5.14.2/android/
-export Qt5_DIR=${Qt5_Dir}
+export Qt6_DIR=/home/devel/6.5.0/android_arm64_v8a
 
 [[ -z ${APP_NAME} ]] && APP_NAME="QField"
 [[ -z ${APP_PACKAGE_NAME} ]] && APP_PACKAGE_NAME="qfield"
@@ -19,11 +18,15 @@ echo "Package name ${APP_PACKAGE_NAME}"
 cmake -S "${SOURCE_DIR}" \
       -B "${CMAKE_BUILD_DIR}" \
       -G Ninja \
-      -D CMAKE_PREFIX_PATH=${Qt5_Dir} \
+      -D BUILD_WITH_QT6=ON \
+      -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
+      -D QT_HOST_PATH=/home/devel/6.5.0/gcc_64 \
+      -D QT_HOST_PATH_CMAKE_DIR=/home/devel/6.5.0/gcc_64/lib/cmake \
       -D VCPKG_TARGET_TRIPLET="${triplet}" \
       -D SYSTEM_QT=ON \
-      -D ANDROID_SDK=/home/devel/android/ \
       -D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
+      -D ANDROID_SDK=/opt/android-sdk-linux \
+      -D ANDROID_SDK_ROOT=/opt/android-sdk-linux \
       -D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \
       -D WITH_SPIX=OFF \
       -D APP_VERSION="v1.0.0" \

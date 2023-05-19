@@ -38,6 +38,10 @@
       "default-features": false
     },
     "nu-book-zxing-cpp",
+    {
+      "name": "sentry-native",
+      "platform": "!android & !ios & !osx"
+    },
     "catch2",
     {
       "name": "sentry-cocoa",

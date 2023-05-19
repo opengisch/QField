@@ -27,7 +27,6 @@
         <file>PositioningSettings.qml</file>
         <file>PositioningInformationView.qml</file>
         <file>PositioningPreciseView.qml</file>
-        <file>QFieldAudioRecorder.qml</file>
         <file>QFieldSettings.qml</file>
         <file>ScaleBar.qml</file>
         <file>SensorInformationView.qml</file>
@@ -56,7 +55,6 @@
         <file>Legend.qml</file>
         <file>TemporalProperties.qml</file>
         <file>LayerTreeItemProperties.qml</file>
-        <file>QFieldCamera.qml</file>
         <file>VertexRubberband.qml</file>
         <file>VisibilityFadingRow.qml</file>
         <file>LocatorItem.qml</file>

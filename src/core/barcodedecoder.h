@@ -20,11 +20,17 @@
 #include <QImage>
 #include <QObject>
 #include <QThread>
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+#include <QVideoSink>
+#endif
 
 class BarcodeDecoder : public QObject
 {
     Q_OBJECT
 
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+    Q_PROPERTY( QVideoSink *videoSink WRITE setVideoSink )
+#endif
     Q_PROPERTY( QString decodedString READ decodedString NOTIFY decodedStringChanged )
 
   public:
@@ -51,6 +57,17 @@ class BarcodeDecoder : public QObject
   private:
     QImage mImage;
     QString mDecodedString;
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+    QThread *mDecodingThread = nullptr;
+    QVideoSink *mVideoSink = nullptr;
+
+  public slots:
+    void decodeVideoFrame( const QVideoFrame &frame );
+
+  public:
+    void setVideoSink( QVideoSink *sink );
+#endif
 };
 
 #endif // BARCODEDECODER_H

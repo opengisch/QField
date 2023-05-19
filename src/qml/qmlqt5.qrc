@@ -2,6 +2,8 @@
     <qresource prefix="/qml">
         <file>imports/QFieldControls/+Qt5/BarcodeReader.qml</file>
         <file>imports/QFieldControls/+Qt5/CalendarPanel.qml</file>
+        <file>imports/QFieldControls/+Qt5/QFieldAudioRecorder.qml</file>
+        <file>imports/QFieldControls/+Qt5/QFieldCamera.qml</file>
         <file>imports/Theme/+Qt5/QfDropShadow.qml</file>
         <file>imports/Theme/+Qt5/QfOpacityMask.qml</file>
     </qresource>

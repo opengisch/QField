@@ -19,6 +19,7 @@ vcpkg_from_github(
         poly2tri.patch
         mesh.patch
         sensor.patch
+        wkbptr.patch # upstreamed for 3.32
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -131,6 +132,11 @@ endif()
 list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
 list(APPEND QGIS_OPTIONS -DBUILD_WITH_QT6=ON)
 
+if(VCPKG_CROSSCOMPILING)
+   list(APPEND QGIS_OPTIONS -DQT_HOST_PATH=${CURRENT_HOST_INSTALLED_DIR})
+   list(APPEND QGIS_OPTIONS -DQT_HOST_PATH_CMAKE_DIR:PATH=${CURRENT_HOST_INSTALLED_DIR}/share)
+endif()
+
 if(VCPKG_TARGET_IS_WINDOWS)
     ##############################################################################
     #Install pip
@@ -200,13 +206,7 @@ if(VCPKG_TARGET_IS_WINDOWS)
     endif()
     FIND_LIB_OPTIONS(SPATIALINDEX ${SPATIALINDEX_LIB_NAME} ${SPATIALINDEX_LIB_NAME}d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
-    if(VCPKG_LIBRARY_LINKAGE STREQUAL "static" AND EXISTS "${CURRENT_INSTALLED_DIR}/lib/qt_poly2tri.lib")
-        list(APPEND QGIS_OPTIONS -DPoly2Tri_INCLUDE_DIR:PATH=${CMAKE_CURRENT_LIST_DIR}/poly2tri)
-        list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/debug/lib/qt_poly2tri_debug.lib) # static qt only
-        list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/lib/qt_poly2tri.lib) # static qt only
-    else()
-        list(APPEND -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
-    endif()
+    list(APPEND QGIS_OPTIONS -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
 else() # Build in UNIX
     list(APPEND QGIS_OPTIONS -DCMAKE_FIND_ROOT_PATH=$ENV{Qt5_DIR}) # for building with system Qt. Should find a nicer solution.
     list(APPEND QGIS_OPTIONS -DWITH_QTMOBILITY=OFF)
@@ -226,7 +226,6 @@ else() # Build in UNIX
         FIND_LIB_OPTIONS(FCGI fcgi fcgi LIBRARY ${VCPKG_TARGET_SHARED_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
     endif()
-    find_package(Qt6 QUIET)
     list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
     if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a")
         set(QT_POLY2TRI_DIR_RELEASE "${CURRENT_INSTALLED_DIR}/lib")
@@ -264,8 +263,8 @@ if(VCPKG_TARGET_IS_WINDOWS)
     function(copy_path basepath targetdir)
         file(GLOB ${basepath}_PATH ${CURRENT_PACKAGES_DIR}/${basepath}/*)
         if( ${basepath}_PATH )
-            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/${targetdir}/${PORT}/${basepath})
-            file(COPY ${${basepath}_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/${targetdir}/${PORT}/${basepath})
+            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/${targetdir}/qgis/${basepath})
+            file(COPY ${${basepath}_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/${targetdir}/qgis/${basepath})
         endif()
  
         if(EXISTS "${CURRENT_PACKAGES_DIR}/${basepath}/")
@@ -275,21 +274,21 @@ if(VCPKG_TARGET_IS_WINDOWS)
 
     file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
     if(QGIS_TOOL_PATH)
-        file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
-        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
+        file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/qgis/bin)
+        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/qgis/bin)
         file(REMOVE_RECURSE ${QGIS_TOOL_PATH})
         file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/* )
-        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
+        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/qgis/bin)
     endif()
     
     file(GLOB QGIS_TOOL_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/debug/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
     if(QGIS_TOOL_PATH_DEBUG)
         if("debug-tools" IN_LIST FEATURES)
-            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
-            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
+            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin)
+            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin)
             file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
             file(GLOB QGIS_TOOL_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/* )
-            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
+            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin)
         else()
             file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
         endif()
@@ -302,49 +301,11 @@ if(VCPKG_TARGET_IS_WINDOWS)
     copy_path(plugins tools)
     copy_path(resources share)
     copy_path(svg share)
-    
-    # Extend vcpkg_copy_tool_dependencies to support the export of dll and exe dependencies in different directories to the same directory,
-    # and support the copy of debug dependencies
-    function(vcpkg_copy_tool_dependencies_ex TOOL_DIR OUTPUT_DIR SEARCH_DIR)
-        find_program(PS_EXE powershell PATHS ${DOWNLOADS}/tool)
-        if (PS_EXE-NOTFOUND)
-            message(FATAL_ERROR "Could not find powershell in vcpkg tools, please open an issue to report this.")
-        endif()
-        macro(search_for_dependencies PATH_TO_SEARCH)
-            file(GLOB TOOLS ${TOOL_DIR}/*.exe ${TOOL_DIR}/*.dll)
-            foreach(TOOL ${TOOLS})
-                vcpkg_execute_required_process(
-                    COMMAND ${PS_EXE} -noprofile -executionpolicy Bypass -nologo
-                        -file ${CMAKE_CURRENT_LIST_DIR}/applocal.ps1
-                        -targetBinary ${TOOL}
-                        -installedDir ${PATH_TO_SEARCH}
-                        -outputDir    ${OUTPUT_DIR}
-                    WORKING_DIRECTORY ${VCPKG_ROOT_DIR}
-                    LOGNAME copy-tool-dependencies
-                )
-            endforeach()
-        endmacro()
-        search_for_dependencies(${CURRENT_PACKAGES_DIR}/${SEARCH_DIR})
-        search_for_dependencies(${CURRENT_INSTALLED_DIR}/${SEARCH_DIR})
-    endfunction()
-
-    vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin bin)
-    vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/tools/${PORT}/plugins ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin bin)
-    if("debug-tools" IN_LIST FEATURES)
-        vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin debug/bin)
-        vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/plugins ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin debug/bin)
-    endif()
-    if("server" IN_LIST FEATURES)
-        vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/tools/${PORT}/server ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin bin)
-        if("debug-tools" IN_LIST FEATURES)
-            vcpkg_copy_tool_dependencies_ex(${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/server ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin debug/bin)
-        endif()
-    endif()
 endif()
 
 file(GLOB QGIS_CMAKE_PATH ${CURRENT_PACKAGES_DIR}/*.cmake)
 if(QGIS_CMAKE_PATH)
-    file(COPY ${QGIS_CMAKE_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/share/cmake/${PORT})
+    file(COPY ${QGIS_CMAKE_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/share/cmake/qgis)
     file(REMOVE_RECURSE ${QGIS_CMAKE_PATH})
 endif()
 
@@ -361,4 +322,4 @@ file(REMOVE_RECURSE # Added for debug porpose
 )
 
 # Handle copyright
-file(INSTALL ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)
+file(INSTALL ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/qgis RENAME copyright)

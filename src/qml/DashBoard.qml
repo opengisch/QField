@@ -349,9 +349,9 @@ Drawer {
 
   TemporalProperties {
       id: temporalProperties
-      mapSettings: mapSettings;
+      mapSettings: dashBoard.mapSettings;
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: ApplicationWindow.overlay
+      parent: mainWindow.contentItem
   }
 }

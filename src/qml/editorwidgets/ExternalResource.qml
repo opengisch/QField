@@ -7,6 +7,7 @@ import QtMultimedia 5.14
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
+import QFieldControls 1.0
 
 import "."
 import ".."
@@ -262,9 +263,6 @@ EditorWidgetBase {
 
       width: parent.width
       height: parent.height - 54
-
-      autoLoad: true
-      autoPlay: true
 
       property bool firstFrameDrawn: false
 
@@ -541,7 +539,6 @@ EditorWidgetBase {
     QFieldAudioRecorder {
       z: 10000
       visible: false
-      parent: ApplicationWindow.overlay
 
       Component.onCompleted: {
         if (platformUtilities.checkMicrophonePermissions()) {
@@ -575,7 +572,6 @@ EditorWidgetBase {
     QFieldCamera {
       id: qfieldCamera
       visible: false
-      parent: ApplicationWindow.overlay
 
       Component.onCompleted: {
         if (isVideo) {

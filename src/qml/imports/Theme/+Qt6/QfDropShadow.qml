@@ -1,7 +1,18 @@
 import QtQuick 2.14
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 
-DropShadow {
-  property int samples: 2
-  radius: sample / 2
+MultiEffect {
+  id: effect
+
+  // dummy properties to support Qt5 and Qt6
+  property int samples
+  property int radius
+  property bool transparentBorder
+
+  // property aliases
+  property alias color: effect.shadowColor
+  property alias horizontalOffset: effect.shadowHorizontalOffset
+  property alias verticalOffset: effect.shadowVerticalOffset
+
+  shadowEnabled: true
 }

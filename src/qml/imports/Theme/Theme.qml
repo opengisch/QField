@@ -1,13 +1,14 @@
 pragma Singleton
 
 import QtQuick 2.14
+import QtQuick.Controls.Material 2.14
 
 QtObject {
     property bool darkTheme: false
 
-    readonly property color mainTextColor: darkTheme ? "#EEEEEE" : "#000000"
+    property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
+    property color mainTextColor: darkTheme ? "#EEEEEE" : "#000000"
     readonly property color mainTextDisabledColor: darkTheme ? "#73EEEEEE" : "#73000000"
-    readonly property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
     readonly property color mainColor: "#80cc28"
 
     readonly property color secondaryTextColor: darkTheme? "#AAAAAA" : "#999999"
@@ -123,6 +124,9 @@ QtObject {
       } else if (appearance === 'dark') {
         darkTheme = true
       }
+      Material.theme = darkTheme ? "Dark" : "Light"
+      mainBackgroundColor = Material.backgroundColor
+      mainTextColor = Material.foreground
     }
 
     function applyFontScale() {

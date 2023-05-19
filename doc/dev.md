@@ -41,12 +41,16 @@ is a good start. The next step is to install QField specific dependencies,
 here is a non-exhaustive list of them on Ubuntu.
 
 ```
+# TODO: update to qt6 as soon as distros start to ship qt6.5
 sudo apt install libqt5sensors5-dev libqt5webview5-dev libqt5multimedia5-plugins libqt5multimedia5 qtmultimedia5-dev libzxingcore-dev  libqt5bluetooth5 qtconnectivity5-dev qml-module-qtbluetooth qml-module-qtlocation qml-module-qtwebengine qml-module-qtgraphicaleffects qml-module-qt-labs-settings qml-module-qtquick-controls2 qml-module-qtquick-layouts qml-module-qtwebview qml-module-qtmultimedia qml-module-qtquick-shapes qml-module-qtsensors qml-module-qt-labs-calendar qml-module-qtquick-particles2 zipcmp zipmerge ziptool
 ```
 
 ### Configure
 ```sh
-cmake -S QField -B build
+# Building for Qt6 is the standard, but currently no
+# distributions ship Qt 6.5.0
+# To be updated
+cmake -S QField -B build -D BUILD_WITH_QT6=OFF
 ```
 
 If you use a locally built QGIS installed to a different
@@ -55,11 +59,9 @@ location, use `-DQGIS_ROOT=` to specify this path.
 ### Using vcpkg
 
 This will build the complete dependency chain from scratch.
-Except Qt which is still taken from the system. You can also try
-to build Qt, it's known to be hard work.
 
 ```sh
-cmake -S QField -B build -DSYSTEM_QT=ON -DWITH_VCPKG=ON
+cmake -S QField -B build -DWITH_VCPKG=ON
 ```
 
 Since this is now building a lot, grab yourself a cold or hot drink
@@ -145,7 +147,7 @@ The following triplets are possible:
 There is a simple script that helps building everything by using a docker image.
 
 ```sh
-triplet=arm-android ./scripts/build.sh
+triplet=arm64-android ./scripts/build.sh
 ```
 
 ### Building locally
@@ -161,7 +163,7 @@ To install Qt, `aqtinstall` is a nifty little helper
 
 ```sh
 pip3 install aqtinstall
-aqt install-qt linux android 5.14.2 -m qtcharts
+aqt install-qt linux android 6.5.0 android_arm64_v8a -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors  --autodesktop
 ```
 
 #### Configure
@@ -186,19 +188,19 @@ You also need the Qt sdk for ios installed.
 
 ```sh
 brew install flex bison
-aqt install-qt mac ios 5.15.2 -O 5.15.2 -m qtcharts
+aqt install-qt mac ios 6.5.0 -O 6.5.0 -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors --autodesktop
 ```
 
 ```sh
 export PATH="$(brew --prefix flex)/bin:$PATH"
 export PATH="$(brew --prefix bison)/bin:$PATH"
-export Qt5_DIR=5.15.2/ios
+export Qt6_DIR=6.5.0/ios
 ```
 
 ### Configure
 
 ```sh
-cmake -S . -B build-x64-ios -DVCPKG_TARGET_TRIPLET=x64-ios -GXcode -DWITH_VCPKG=ON -DSYSTEM_QT=ON -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_FIND_ROOT_PATH=$Qt5_DIR
+cmake -S . -B build-x64-ios -DVCPKG_TARGET_TRIPLET=x64-ios -GXcode -DWITH_VCPKG=ON -DSYSTEM_QT=ON -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_FIND_ROOT_PATH=$Qt6_DIR
 cmake --build build-x64-ios
 ```
 
@@ -214,23 +216,23 @@ xcode-select --install
 sudo xcode-select --switch /Library/Developer/CommandLineTools
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-QT_ROOT=$HOME/Documents/qt5
+QT_ROOT=$HOME/Documents/qt6
 
 
-# Then, of course, Qt is needed (Could be installed with 'aqtinstall' or with the official tools)
-pip3 install aqtinstall && aqt install-qt mac ios 5.15.2 -O $QT_ROOT -m qtcharts # Qt
+# Install Qt (Could be installed with 'aqtinstall' or with the official tools)
+pip3 install aqtinstall
+aqt install-qt mac ios 6.5.0 -O $QT_ROOT -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors --autodesktop
 
 # Setup the environment for the build tools
+export PATH="$(brew --prefix flex)/bin:$(brew --prefix bison)/bin:$PATH"
 
-export PATH="$(brew --prefix flex)/bin:$PATH" && export PATH="$(brew --prefix bison)/bin:$PATH" # For QGis
-
-export Qt5_DIR=$QT_ROOT/5.15.2/ios/ # Seems that a full path might be needed for dependencies based on Qt like Qca
+export Qt6_DIR=$QT_ROOT/6.5.0/ios/
 
 # Configure using CMake
 
 cmake -S . -B build-arm64-ios \
-	-DCMAKE_PREFIX_PATH=$QT_ROOT/5.15.2/ios/lib/cmake/Qt5 \
-	-DCMAKE_FIND_ROOT_PATH=$QT_ROOT/5.15.2/ios/ \
+	-DCMAKE_PREFIX_PATH=$QT_ROOT/6.5.0/ios/lib/cmake/Qt6 \
+	-DCMAKE_FIND_ROOT_PATH=$QT_ROOT/6.5.0/ios/ \
 	-DSYSTEM_QT=ON \
 	-DVCPKG_TARGET_TRIPLET=arm64-ios \
 	-DWITH_VCPKG=ON \
