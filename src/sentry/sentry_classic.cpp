@@ -23,10 +23,44 @@
 
 #include <sentry.h>
 #ifdef ANDROID
+#include <android/log.h>
+
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+#include <QAndroidJniEnvironment>
 #include <QAndroidJniObject>
 #include <QtAndroid>
 
-#include <android/log.h>
+inline QAndroidJniObject qtAndroidContext()
+{
+  auto result = QtAndroid::androidActivity();
+  if ( result.isValid() )
+    return result;
+  return QtAndroid::androidService();
+}
+
+inline void runOnAndroidMainThread( const QtAndroid::Runnable &runnable )
+{
+  QtAndroid::runOnAndroidThread( runnable );
+}
+
+#else
+#include <QJniEnvironment>
+#include <QJniObject>
+#include <QtCore/private/qandroidextras_p.h>
+
+inline QJniObject qtAndroidContext()
+{
+  return QJniObject( QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context() );
+}
+
+inline void runOnAndroidMainThread( const std::function<void()> &runnable )
+{
+  QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->runOnAndroidMainThread( [runnable]() {
+    runnable();
+    return QVariant();
+  } );
+}
+#endif
 #endif
 
 namespace sentry_wrapper
@@ -123,8 +157,8 @@ namespace sentry_wrapper
   void init()
   {
 #if ANDROID
-    QtAndroid::runOnAndroidThread( [] {
-      QAndroidJniObject activity = QtAndroid::androidActivity();
+    runOnAndroidMainThread( [] {
+      auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
         activity.callMethod<void>( "initiateSentry" );
