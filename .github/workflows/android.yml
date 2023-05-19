@@ -16,16 +16,31 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        all_files_access: ['OFF']
         include:
           - triplet: 'arm64-android'
             qt_arch: 'android_arm64_v8a'
+            all_files_access: 'OFF'
+          - triplet: 'arm64-android'
+            qt_arch: 'android_arm64_v8a'
+            all_files_access: 'ON'
           - triplet: 'arm-neon-android'
             qt_arch: 'android_armv7'
+            all_files_access: 'OFF'
+          - triplet: 'arm-neon-android'
+            qt_arch: 'android_armv7'
+            all_files_access: 'ON'
           - triplet: 'x64-android'
             qt_arch: 'android_x86_64'
+            all_files_access: 'OFF'
+          - triplet: 'x64-android'
+            qt_arch: 'android_x86_64'
+            all_files_access: 'ON'
           - triplet: 'x86-android'
             qt_arch: 'android_x86'
+            all_files_access: 'OFF'
+          - triplet: 'x86-android'
+            qt_arch: 'android_x86'
+            all_files_access: 'ON'
 
     steps:
       - name: 🐣 Checkout
