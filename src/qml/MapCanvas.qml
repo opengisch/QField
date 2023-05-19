@@ -28,7 +28,7 @@ Item {
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
   property bool interactive: true
-  property bool mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
+  property bool hovered: false
   property bool freehandDigitizing: false
 
   // for signals, type can be "stylus" for any device click or "touch"
@@ -87,303 +87,280 @@ Item {
     freeze: false
   }
 
-    // stylus clicks
-    TapHandler {
-      enabled: interactive && !mouseAsTouchScreen
-      acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
-      acceptedButtons: Qt.LeftButton | Qt.RightButton
-      property bool longPressActive: false
+  MouseArea {
+    id: mouseArea
+    enabled: interactive && !hovered
+    anchors.fill: parent
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+    scrollGestureEnabled: false
 
-      onSingleTapped: (eventPoint, button) => {
-        if (button === undefined) {
-          button = eventPoint.event.button
-        }
+    property bool longPressActive: false
+    property bool doublePressed: false
 
-        if (button === Qt.RightButton)
-        {
-          mapArea.rightClicked(point.position, "stylus")
-        } else {
-          mapArea.clicked(point.position, "stylus")
-        }
-      }
+    Timer {
+      id: timer
+      interval: 350
+      repeat: false
 
-      onLongPressed: {
-          mapArea.longPressed(point.position, "stylus")
-          longPressActive = true
-      }
+      property var tapPoint
 
-      onPressedChanged: {
-          if (longPressActive)
-              mapArea.longPressReleased("stylus")
-          longPressActive = false
+      onTriggered: {
+        confirmedClicked(tapPoint)
       }
     }
 
-    // touch clicked & zoom in and out
-    TapHandler {
-        id: tapHandler
-        enabled: interactive
-        acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
-        property bool longPressActive: false
-        property bool doublePressed: false
-        property var timer: Timer {
-            property var tapPoint
-            interval: 350
-            repeat: false
+    onClicked: (mouse) => {
+                 if (mouse.button === Qt.RightButton)
+                 {
+                   mapArea.rightClicked(Qt.point(mouse.x, mouse.y), "touch")
+                 }
+                 else
+                 {
+                   timer.tapPoint = Qt.point(mouse.x, mouse.y)
+                   timer.restart()
+                 }
+               }
 
-            onTriggered: {
-                confirmedClicked(tapPoint)
-            }
-        }
-
-        onSingleTapped: (eventPoint, button) => {
-            if (button === undefined) {
-              button = eventPoint.event.button
-            }
-
-            if (button === Qt.RightButton)
-            {
-              mapArea.rightClicked(point.position, "touch")
-            }
-            else
-            {
-              timer.tapPoint = point.position
-              timer.restart()
-            }
-        }
-
-        onDoubleTapped: {
-            mapCanvasWrapper.zoom(point.position, 0.8)
-        }
-
-        onLongPressed: {
-            mapArea.longPressed(point.position, "touch")
-            longPressActive = true
-        }
-
-        onPressedChanged: {
-            if ( pressed && timer.running )
-            {
-                timer.stop()
-                doublePressed = true
-                dragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
-            }
-            else
-            {
-                doublePressed = false
-                dragHandler.grabPermissions = PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
-            }
-
-            if (longPressActive)
-                mapArea.longPressReleased("touch")
-            longPressActive = false
-        }
-    }
-
-    DragHandler {
-        id: dragHandler
-        enabled: interactive && !freehandDigitizing
-        target: null
-        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
-
-        property var oldPos
-        property real oldTranslationY
-
-        property bool isZooming: false
-        property point zoomCenter
-
-        onActiveChanged: {
-            if ( active )
-            {
-                if ( tapHandler.doublePressed )
-                {
-                    oldTranslationY = 0;
-                    zoomCenter = centroid.position;
-                    isZooming = true;
-                    freeze('zoom');
-                }
-                else
-                {
-                    freeze('pan');
-                }
-            }
-            else
-            {
-                unfreeze(isZooming ? 'zoom' : 'pan');
-                isZooming = false;
-            }
-        }
-
-        onCentroidChanged: {
-            var oldPos1 = oldPos;
-            oldPos = centroid.position;
-            if ( active )
-            {
-                if ( isZooming )
-                {
-                    mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY)/60))
-                    oldTranslationY = translation.y
-                }
-                else
-                {
-                    mapCanvasWrapper.pan(centroid.position, oldPos1)
-                }
-            }
-        }
-    }
-
-    DragHandler {
-        target: null
-        enabled: interactive
-        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
-        grabPermissions: PointerHandler.TakeOverForbidden
-        acceptedButtons: Qt.RightButton
-
-        property real oldTranslationY
-        property point zoomCenter
-
-        onActiveChanged: {
-            if (active)
-            {
-                oldTranslationY = 0
-                zoomCenter = centroid.position
-            }
-
-            if ( active )
-                freeze('zoom')
-            else
-                unfreeze('zoom')
-        }
-
-        onTranslationChanged: {
-            if (active)
-            {
-              mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
-            }
-
-            oldTranslationY = translation.y
-        }
-    }
-
-    DragHandler {
-        target: null
-        enabled: interactive
-        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
-        grabPermissions: PointerHandler.TakeOverForbidden
-        acceptedButtons: Qt.MiddleButton
-
-        property real oldTranslationY: 0
-        property bool translationThresholdReached: false
-
-        onActiveChanged: {
-            if (active)
-            {
-                freeze('rotate')
-                oldTranslationY = 0
-                translationThresholdReached = false
-            }
-            else
-            {
-                unfreeze('rotate')
-            }
-        }
-
-        onTranslationChanged: {
-            if (active)
-            {
-                if (translationThresholdReached)
-                {
-                    if (oldTranslationY != 0)
-                    {
-                        mapCanvasWrapper.rotate(oldTranslationY - translation.y)
+    onPressAndHold: (mouse) => {
+                      mapArea.longPressed(Qt.point(mouse.x, mouse.y), "touch")
+                      longPressActive = true
                     }
-                    oldTranslationY = translation.y
-                    translationThresholdReached = true
+
+    onPressed: (mouse) => {
+                 if (mouse.button === Qt.RightButton) {
+                   secondaryDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything;
+                 } else {
+                   if (timer.running) {
+                     timer.stop()
+                     doublePressed = true
+                     mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+                   } else {
+                     doublePressed = false
+                     mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+                   }
+                 }
+               }
+
+    onReleased: (mouse) => {
+                  if (doublePressed) {
+                    mapCanvasWrapper.zoom(Qt.point(mouse.x, mouse.y), 0.8)
+                  }
                 }
-                else if (Math.abs(oldTranslationY - translation.y) > pinch.rotationTreshold)
-                {
-                    oldTranslationY = translation.y
-                    translationThresholdReached = true
-                }
-            }
-        }
+
+    onCanceled: {
+      timer.stop()
+    }
+  }
+
+  // stylus clicks
+  TapHandler {
+    enabled: interactive
+    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+    property bool longPressActive: false
+
+    onSingleTapped: (eventPoint, button) => {
+                      if (button === undefined) {
+                        button = eventPoint.event.button
+                      }
+
+                      if (button === Qt.RightButton)
+                      {
+                        mapArea.rightClicked(point.position, "stylus")
+                      } else {
+                        mapArea.clicked(point.position, "stylus")
+                      }
+                    }
+
+    onLongPressed: {
+      mapArea.longPressed(point.position, "stylus")
+      longPressActive = true
     }
 
-    PinchHandler {
-        id: pinch
-        enabled: interactive
-        target: null
-        acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
-        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    onPressedChanged: {
+      if (longPressActive)
+        mapArea.longPressReleased("stylus")
+      longPressActive = false
+    }
+  }
 
-        property real rotationTreshold: 20.0
+  DragHandler {
+    id: mainDragHandler
+    enabled: interactive && !freehandDigitizing
+    target: null
+    grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
 
-        property var oldPos
-        property real oldScale: 1.0
-        property real oldRotation: 0.0
+    property var oldPos
+    property real oldTranslationY
 
-        property bool rotationActive: false
-        property bool rotationTresholdReached: false
+    property bool isZooming: false
+    property point zoomCenter
 
-        onActiveChanged: {
-            if ( active ) {
-                freeze('pinch')
-                oldScale = 1.0
-                oldRotation = 0.0
-                rotationTresholdReached = false
-                oldPos = centroid.position
-            } else {
-                unfreeze('pinch')
-            }
+    onActiveChanged: {
+      if (active) {
+        if (mouseArea.doublePressed) {
+          oldTranslationY = 0
+          zoomCenter = centroid.position
+          isZooming = true
+        } else {
+          freeze('pan')
         }
-
-        onCentroidChanged: {
-            var oldPos1 = oldPos
-            oldPos = centroid.position
-            if ( active )
-            {
-                mapCanvasWrapper.pan(centroid.position, oldPos1)
-            }
-        }
-
-        onRotationChanged: {
-            if ( active )
-            {
-                if (rotationTresholdReached)
-                {
-                    mapCanvasWrapper.rotate(rotation - oldRotation)
-                    oldRotation = rotation
-                }
-                else if (Math.abs(rotation - oldRotation) > pinch.rotationTreshold)
-                {
-                  oldRotation = rotation
-                  rotationTresholdReached = true
-                }
-            }
-        }
-
-        onActiveScaleChanged: {
-            mapCanvasWrapper.zoom( pinch.centroid.position, oldScale / pinch.activeScale )
-            mapCanvasWrapper.pan( pinch.centroid.position, oldPos )
-            oldScale = pinch.activeScale
-        }
+      } else {
+        grabPermissions = PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+        unfreeze(isZooming ? 'zoom' : 'pan')
+        isZooming = false
+      }
     }
 
-    WheelHandler {
-        enabled: interactive
-        target: null
-        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
-
-        onWheel: (event) => {
-            if (event.angleDelta.y > 0)
-            {
-                zoomIn(point.position)
-            }
-            else
-            {
-                zoomOut(point.position)
-            }
+    onCentroidChanged: {
+      var oldPos1 = oldPos
+      oldPos = centroid.position
+      if (active) {
+        if (isZooming) {
+          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60))
+          oldTranslationY = translation.y
+        } else {
+          mapCanvasWrapper.pan(centroid.position, oldPos1)
         }
+      }
     }
+  }
+
+  DragHandler {
+    id: secondaryDragHandler
+    target: null
+    enabled: interactive
+    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    grabPermissions: PointerHandler.TakeOverForbidden
+    acceptedButtons: Qt.RightButton
+
+    property real oldTranslationY
+    property point zoomCenter
+
+    onActiveChanged: {
+      if (active) {
+        oldTranslationY = 0
+        zoomCenter = centroid.position
+        freeze('zoom')
+      } else {
+        grabPermissions: PointerHandler.TakeOverForbidden
+        unfreeze('zoom')
+      }
+    }
+
+    onTranslationChanged: {
+      if (active) {
+        mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
+      }
+
+      oldTranslationY = translation.y
+    }
+  }
+
+  DragHandler {
+    target: null
+    enabled: interactive
+    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    grabPermissions: PointerHandler.TakeOverForbidden
+    acceptedButtons: Qt.MiddleButton
+
+    property real oldTranslationY: 0
+    property bool translationThresholdReached: false
+
+    onActiveChanged: {
+      if (active) {
+        freeze('rotate')
+        oldTranslationY = 0
+        translationThresholdReached = false
+      } else {
+        unfreeze('rotate')
+      }
+    }
+
+    onTranslationChanged: {
+      if (active) {
+        if (translationThresholdReached) {
+          if (oldTranslationY != 0) {
+            mapCanvasWrapper.rotate(oldTranslationY - translation.y)
+          }
+          oldTranslationY = translation.y
+          translationThresholdReached = true
+        } else if (Math.abs(oldTranslationY - translation.y) > pinch.rotationTreshold) {
+          oldTranslationY = translation.y
+          translationThresholdReached = true
+        }
+      }
+    }
+  }
+
+  PinchHandler {
+    id: pinch
+    enabled: interactive
+    target: null
+    acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
+    grabPermissions: PointerHandler.CanTakeOverFromItems | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+
+    property real rotationTreshold: 20.0
+
+    property var oldPos
+    property real oldScale: 1.0
+    property real oldRotation: 0.0
+
+    property bool rotationActive: false
+    property bool rotationTresholdReached: false
+
+    onActiveChanged: {
+      if (active) {
+        freeze('pinch')
+        oldScale = 1.0
+        oldRotation = 0.0
+        rotationTresholdReached = false
+        oldPos = centroid.position
+      } else {
+        unfreeze('pinch')
+      }
+    }
+
+    onCentroidChanged: {
+      var oldPos1 = oldPos
+      oldPos = centroid.position
+      if (active) {
+        mapCanvasWrapper.pan(centroid.position, oldPos1)
+      }
+    }
+
+    onRotationChanged: {
+      if (active) {
+        if (rotationTresholdReached) {
+          mapCanvasWrapper.rotate(rotation - oldRotation)
+          oldRotation = rotation
+        } else if (Math.abs(rotation - oldRotation) > pinch.rotationTreshold) {
+          oldRotation = rotation
+          rotationTresholdReached = true
+        }
+      }
+    }
+
+    onActiveScaleChanged: {
+      mapCanvasWrapper.zoom( pinch.centroid.position, oldScale / pinch.activeScale )
+      mapCanvasWrapper.pan( pinch.centroid.position, oldPos )
+      oldScale = pinch.activeScale
+    }
+  }
+
+  WheelHandler {
+    enabled: interactive
+    target: null
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+
+    onWheel: (event) => {
+               if (event.angleDelta.y > 0) {
+                 zoomIn(point.position)
+               } else {
+                 zoomOut(point.position)
+               }
+             }
+  }
 }
