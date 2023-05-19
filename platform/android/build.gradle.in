@@ -98,16 +98,10 @@ android {
          }
        }
     }
-
-    /* For Sentry */
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
 }
 
 
 // Add Sentry's SDK as a dependency.
 dependencies {
-    implementation 'io.sentry:sentry-android:5.7.4'
+    implementation 'io.sentry:sentry-android:6.13.1'
 }
