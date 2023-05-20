@@ -87,74 +87,108 @@ Item {
     freeze: false
   }
 
-  MouseArea {
-    id: mouseArea
-    enabled: interactive && !hovered
+  PinchArea {
+    id: pinchArea
+    enabled: interactive
     anchors.fill: parent
-    acceptedButtons: Qt.LeftButton | Qt.RightButton
-    scrollGestureEnabled: false
 
-    property bool longPressActive: false
-    property bool doublePressed: false
+    property bool isDragging: false
 
-    Timer {
-      id: timer
-      interval: 350
-      repeat: false
+    property real rotationTreshold: 20.0
+    property bool rotationTresholdReached: false
+    property real previousRotation: 0
 
-      property var tapPoint
-
-      onTriggered: {
-        confirmedClicked(tapPoint)
-      }
+    onPinchStarted: {
+      freeze('pinch')
+      isDragging = true
+      previousRotation = 0
+      rotationTresholdReached = false
+    }
+    onPinchFinished: {
+      isDragging = false
+      unfreeze('pinch')
     }
 
-    onClicked: (mouse) => {
-                 if (mouse.button === Qt.RightButton)
-                 {
-                   mapArea.rightClicked(Qt.point(mouse.x, mouse.y), "touch")
-                 }
-                 else
-                 {
-                   timer.tapPoint = Qt.point(mouse.x, mouse.y)
-                   timer.restart()
-                 }
-               }
-
-    onPressAndHold: (mouse) => {
-                      mapArea.longPressed(Qt.point(mouse.x, mouse.y), "touch")
-                      longPressActive = true
+    onPinchUpdated: (pinch) => {
+                      mapCanvasWrapper.pan(pinch.center, pinch.previousCenter)
+                      mapCanvasWrapper.zoom(pinch.center, pinch.previousScale / pinch.scale)
+                      if (rotationTresholdReached) {
+                        mapCanvasWrapper.rotate(pinch.rotation - previousRotation)
+                        previousRotation = pinch.rotation
+                      } else if (Math.abs(pinch.rotation - previousRotation) > rotationTreshold) {
+                        rotationTresholdReached = true
+                      }
                     }
 
-    onPressed: (mouse) => {
-                 if (mouse.button === Qt.RightButton) {
-                   secondaryDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything;
-                 } else {
-                   if (timer.running) {
-                     timer.stop()
-                     doublePressed = true
-                     mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
-                   } else {
-                     doublePressed = false
-                     mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+
+    MouseArea {
+      id: mouseArea
+      enabled: interactive && !hovered && !pinchArea.isDragging
+      anchors.fill: parent
+      acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+      property bool longPressActive: false
+      property bool doublePressed: false
+
+      Timer {
+        id: timer
+        interval: 350
+        repeat: false
+
+        property var tapPoint
+
+        onTriggered: {
+          confirmedClicked(tapPoint)
+        }
+      }
+
+      onClicked: (mouse) => {
+                   if (mouse.button === Qt.RightButton)
+                   {
+                     mapArea.rightClicked(Qt.point(mouse.x, mouse.y), "touch")
+                   }
+                   else
+                   {
+                     timer.tapPoint = Qt.point(mouse.x, mouse.y)
+                     timer.restart()
                    }
                  }
-               }
 
-    onReleased: (mouse) => {
-                  if (doublePressed) {
-                    mapCanvasWrapper.zoom(Qt.point(mouse.x, mouse.y), 0.8)
+      onPressAndHold: (mouse) => {
+                        mapArea.longPressed(Qt.point(mouse.x, mouse.y), "touch")
+                        longPressActive = true
+                      }
+
+      onPressed: (mouse) => {
+                   if (mouse.button === Qt.RightButton) {
+                     secondaryDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything;
+                   } else {
+                     if (timer.running) {
+                       timer.stop()
+                       doublePressed = true
+                       mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+                     } else {
+                       doublePressed = false
+                       mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+                     }
+                   }
+                 }
+
+      onReleased: (mouse) => {
+                    if (doublePressed) {
+                      mapCanvasWrapper.zoom(Qt.point(mouse.x, mouse.y), 0.8)
+                    }
                   }
-                }
 
-    onCanceled: {
-      timer.stop()
+      onCanceled: {
+        timer.stop()
+      }
     }
   }
 
   // stylus clicks
   TapHandler {
-    enabled: interactive
+    enabled: interactive && !pinchArea.isDragging
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedButtons: Qt.LeftButton | Qt.RightButton
 
@@ -165,8 +199,7 @@ Item {
                         button = eventPoint.event.button
                       }
 
-                      if (button === Qt.RightButton)
-                      {
+                      if (button === Qt.RightButton) {
                         mapArea.rightClicked(point.position, "stylus")
                       } else {
                         mapArea.clicked(point.position, "stylus")
@@ -187,7 +220,7 @@ Item {
 
   DragHandler {
     id: mainDragHandler
-    enabled: interactive && !freehandDigitizing
+    enabled: interactive && !freehandDigitizing && !pinchArea.isDragging
     target: null
     grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
     acceptedButtons: Qt.NoButton | Qt.LeftButton
@@ -204,6 +237,7 @@ Item {
           oldTranslationY = 0
           zoomCenter = centroid.position
           isZooming = true
+          freeze('zoom')
         } else {
           freeze('pan')
         }
@@ -231,7 +265,7 @@ Item {
   DragHandler {
     id: secondaryDragHandler
     target: null
-    enabled: interactive
+    enabled: interactive && !pinchArea.isDragging
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     grabPermissions: PointerHandler.TakeOverForbidden
     acceptedButtons: Qt.RightButton
@@ -261,7 +295,7 @@ Item {
 
   DragHandler {
     target: null
-    enabled: interactive
+    enabled: interactive && !pinchArea.isDragging
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     grabPermissions: PointerHandler.TakeOverForbidden
     acceptedButtons: Qt.MiddleButton
@@ -287,7 +321,7 @@ Item {
           }
           oldTranslationY = translation.y
           translationThresholdReached = true
-        } else if (Math.abs(oldTranslationY - translation.y) > pinch.rotationTreshold) {
+        } else if (Math.abs(oldTranslationY - translation.y) > pinchArea.rotationTreshold) {
           oldTranslationY = translation.y
           translationThresholdReached = true
         }
@@ -295,63 +329,8 @@ Item {
     }
   }
 
-  PinchHandler {
-    id: pinch
-    enabled: interactive
-    target: null
-    acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
-    grabPermissions: PointerHandler.CanTakeOverFromItems | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-
-    property real rotationTreshold: 20.0
-
-    property var oldPos
-    property real oldScale: 1.0
-    property real oldRotation: 0.0
-
-    property bool rotationActive: false
-    property bool rotationTresholdReached: false
-
-    onActiveChanged: {
-      if (active) {
-        freeze('pinch')
-        oldScale = 1.0
-        oldRotation = 0.0
-        rotationTresholdReached = false
-        oldPos = centroid.position
-      } else {
-        unfreeze('pinch')
-      }
-    }
-
-    onCentroidChanged: {
-      var oldPos1 = oldPos
-      oldPos = centroid.position
-      if (active) {
-        mapCanvasWrapper.pan(centroid.position, oldPos1)
-      }
-    }
-
-    onRotationChanged: {
-      if (active) {
-        if (rotationTresholdReached) {
-          mapCanvasWrapper.rotate(rotation - oldRotation)
-          oldRotation = rotation
-        } else if (Math.abs(rotation - oldRotation) > pinch.rotationTreshold) {
-          oldRotation = rotation
-          rotationTresholdReached = true
-        }
-      }
-    }
-
-    onActiveScaleChanged: {
-      mapCanvasWrapper.zoom( pinch.centroid.position, oldScale / pinch.activeScale )
-      mapCanvasWrapper.pan( pinch.centroid.position, oldPos )
-      oldScale = pinch.activeScale
-    }
-  }
-
   WheelHandler {
-    enabled: interactive
+    enabled: interactive && !pinchArea.isDragging
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
