@@ -380,6 +380,7 @@ ApplicationWindow {
         }
 
         onHoveredChanged: {
+            mapCanvasMap.hovered = hovered
             if ( hovered ) {
                 hasBeenHovered = true;
             } else {
