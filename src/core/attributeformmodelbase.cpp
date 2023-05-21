@@ -157,6 +157,8 @@ void AttributeFormModelBase::resetModel()
   mVisibilityExpressions.clear();
   mConstraints.clear();
 
+  setHasTabs( false );
+
   if ( !mFeatureModel )
     return;
 
@@ -185,7 +187,6 @@ void AttributeFormModelBase::resetModel()
 #else
     const bool hasTabs = !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type();
 #endif
-    setHasTabs( hasTabs );
 
     invisibleRootItem()->setColumnCount( 1 );
     if ( hasTabs )
@@ -206,10 +207,13 @@ void AttributeFormModelBase::resetModel()
           QStandardItem *item = new QStandardItem();
           item->setData( element->name(), AttributeFormModel::Name );
           item->setData( "container", AttributeFormModel::ElementType );
+          item->setData( QString(), AttributeFormModel::GroupName );
+          item->setData( QVariant(), AttributeFormModel::GroupIndex );
           item->setData( true, AttributeFormModel::CurrentlyVisible );
           item->setData( true, AttributeFormModel::ConstraintHardValid );
           item->setData( true, AttributeFormModel::ConstraintSoftValid );
           invisibleRootItem()->appendRow( item );
+          setHasTabs( true );
 
           QString visibilityExpression;
           if ( container->visibilityExpression().enabled() )
