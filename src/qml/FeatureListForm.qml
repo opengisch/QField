@@ -169,17 +169,13 @@ Rectangle {
   ]
   state: "Hidden"
 
+  color: Theme.mainBackgroundColor
   clip: true
 
   QtObject {
     id: props
 
     property bool isVisible: false
-  }
-
-  Rectangle {
-    anchors.fill: parent
-    color: Theme.mainBackgroundColor
   }
 
   ListView {
@@ -292,8 +288,8 @@ Rectangle {
               featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
           } else {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
-            featureForm.selection.focusedItem = index
             featureForm.state = "FeatureForm"
+            featureForm.selection.focusedItem = index
             featureForm.multiSelection = false;
           }
 
