@@ -71,7 +71,7 @@ EditorWidgetBase {
 
           anchors.verticalCenter: textField.verticalCenter
 
-          iconSource: Theme.getThemeIcon("ic_remove_black_48dp")
+          iconSource: Theme.getThemeVectorIcon("ic_remove_black_24dp")
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           visible: enabled
@@ -102,7 +102,7 @@ EditorWidgetBase {
 
           anchors.verticalCenter: textField.verticalCenter
 
-          iconSource: Theme.getThemeIcon("ic_add_black_48dp")
+          iconSource: Theme.getThemeVectorIcon("ic_add_black_24dp")
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           visible: enabled
