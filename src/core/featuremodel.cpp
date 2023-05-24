@@ -565,7 +565,7 @@ void FeatureModel::resetAttributes( bool partialReset )
     //if the value does not need to be remembered and it's not prefilled by the linked parent feature
     if ( !sRememberings->value( mLayer ).rememberedAttributes.at( i ) && !mLinkedAttributeIndexes.contains( i ) )
     {
-      if ( !partialReset )
+      if ( !partialReset || fields.at( i ).defaultValueDefinition().isValid() )
       {
         mFeature.setAttribute( i, QVariant() );
       }
