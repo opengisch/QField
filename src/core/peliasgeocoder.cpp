@@ -82,7 +82,7 @@ QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, c
     }
     catch ( QgsCsException & )
     {
-      QgsDebugMsg( "Could not transform geocode bounds to WGS84" );
+      QgsDebugMsgLevel( "Could not transform geocode bounds to WGS84", 2 );
     }
   }
 

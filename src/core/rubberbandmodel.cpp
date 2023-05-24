@@ -176,12 +176,12 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   catch ( const QgsCsException &exp )
   {
     Q_UNUSED( exp )
-    QgsDebugMsg( exp.what() );
+    QgsDebugMsgLevel( exp.what(), 2 );
   }
   catch ( ... )
   {
     // catch any other errors
-    QgsDebugMsg( "Transform exception caught - possibly because of missing gsb file." );
+    QgsDebugMsgLevel( "Transform exception caught - possibly because of missing gsb file.", 2 );
   }
 
   QgsPoint resultPt( x, y );
