@@ -1,6 +1,6 @@
 #!/bin/bash
 QT_PREFIX=${HOME}/.qt
-QT_VERSION=6.5.0
+QT_VERSION=6.5.1
 
 # pip install aqt
 # aqt install-qt linux desktop ${QT_VERSION} ${QT_PREFIX} -m [...] <- check android.yaml

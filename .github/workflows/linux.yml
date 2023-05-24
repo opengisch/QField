@@ -43,7 +43,7 @@ jobs:
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: 6.5.0
+          version: 6.5.1
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: desktop
 
