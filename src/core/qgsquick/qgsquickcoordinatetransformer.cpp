@@ -128,12 +128,12 @@ void QgsQuickCoordinateTransformer::updatePosition()
   catch ( const QgsCsException &exp )
   {
     Q_UNUSED( exp )
-    QgsDebugMsg( exp.what() );
+    QgsDebugMsgLevel( exp.what(), 2 );
   }
   catch ( ... )
   {
     // catch any other errors
-    QgsDebugMsg( "Transform exception caught - possibly because of missing gsb file." );
+    QgsDebugMsgLevel( "Transform exception caught - possibly because of missing gsb file.", 2 );
   }
 
   if ( mSkipAltitudeTransformation )
@@ -164,12 +164,12 @@ void QgsQuickCoordinateTransformer::updatePosition()
     catch ( const QgsCsException &exp )
     {
       Q_UNUSED( exp )
-      QgsDebugMsg( exp.what() );
+      QgsDebugMsgLevel( exp.what(), 2 );
     }
     catch ( ... )
     {
       // catch any other errors
-      QgsDebugMsg( "Transform exception caught - possibly because of missing/incompatible grid file." );
+      QgsDebugMsgLevel( "Transform exception caught - possibly because of missing/incompatible grid file.", 2 );
     }
   }
 

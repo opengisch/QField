@@ -154,7 +154,7 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
     }
     catch ( QgsCsException & )
     {
-      QgsDebugMsg( "Could not transform current coordinate" );
+      QgsDebugMsgLevel( "Could not transform current coordinate", 2 );
       return;
     }
   }
