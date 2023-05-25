@@ -74,6 +74,13 @@ QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const Qgis::WkbT
 
 void SnappingUtils::snap()
 {
+  if ( !mEnabled )
+  {
+    mSnappingResult = SnappingResult();
+    emit snappingResultChanged();
+    return;
+  }
+
   QgsPointXY point = mapSettings()->screenToCoordinate( mInputCoordinate );
   QgsPointLocator::Match match = snapToMap( point );
   mSnappingResult = SnappingResult( match );
@@ -198,4 +205,21 @@ void SnappingUtils::setMapSettings( QgsQuickMapSettings *settings )
 
   mSettings = settings;
   emit mapSettingsChanged();
+}
+
+bool SnappingUtils::enabled() const
+{
+  return mEnabled;
+}
+
+void SnappingUtils::setEnabled( bool enabled )
+{
+  if ( mEnabled == enabled )
+    return;
+
+  mEnabled = enabled;
+
+  snap();
+
+  emit enabledChanged();
 }
