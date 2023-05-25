@@ -52,6 +52,7 @@ Item {
   SnappingUtils {
     id: snappingUtils
 
+    enabled: locator.visible
     mapSettings: locator.mapSettings
     inputCoordinate: sourceLocation === undefined ? Qt.point( locator.width / 2, locator.height / 2 ) : sourceLocation // In screen coordinates
     config: qgisProject ? qgisProject.snappingConfig : snappingUtils.emptySnappingConfig()
