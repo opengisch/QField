@@ -27,6 +27,7 @@ class SnappingUtils : public QgsSnappingUtils
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( SnappingResult snappingResult READ snappingResult NOTIFY snappingResultChanged )
@@ -34,6 +35,9 @@ class SnappingUtils : public QgsSnappingUtils
 
   public:
     explicit SnappingUtils( QObject *parent = nullptr );
+
+    bool enabled() const;
+    void setEnabled( bool enabled );
 
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *settings );
@@ -55,6 +59,7 @@ class SnappingUtils : public QgsSnappingUtils
     static Q_INVOKABLE QgsSnappingConfig emptySnappingConfig() { return QgsSnappingConfig(); }
 
   signals:
+    void enabledChanged();
     void mapSettingsChanged();
     void currentLayerChanged();
     void snappingResultChanged();
@@ -75,6 +80,7 @@ class SnappingUtils : public QgsSnappingUtils
   private:
     void snap();
 
+    bool mEnabled = false;
     QgsQuickMapSettings *mSettings = nullptr;
     QgsVectorLayer *mCurrentLayer = nullptr;
 
