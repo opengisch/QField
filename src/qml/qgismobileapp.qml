@@ -2749,11 +2749,10 @@ ApplicationWindow {
     moveFeaturesToolbar: moveFeaturesToolbar
     barcodeReader: barcodeReader
 
-    visible: state != "Hidden"
     focus: visible
 
     anchors { right: parent.right; bottom: parent.bottom }
-    border { color: "lightGray"; width: 1 }
+
     allowEdit: stateMachine.state === "digitize"
     allowDelete: stateMachine.state === "digitize"
 
