@@ -32,7 +32,7 @@ Item {
     width: textFieldWrapper.width
     font: Theme.defaultFont
     placeholderTextColor: Theme.accentLightColor
-    rightPadding: showPasswordButton.visible ? 2 * showPasswordButton.width : 0
+    rightPadding: showPasswordButton.visible ? showPasswordButton.width : 0
     leftPadding: rightPadding
     inputMethodHints: Qt.ImhNone
 
