@@ -6,6 +6,7 @@ Item {
 
   property alias font: textField.font
   property alias text: textField.text
+  property alias displayText: textField.displayText
   property alias placeholderText: textField.placeholderText
   property alias horizontalAlignment: textField.horizontalAlignment
   property alias inputMethodHints: textField.inputMethodHints

@@ -91,7 +91,7 @@ Popup {
                 id: positioningDeviceName
                 Layout.fillWidth: true
                 font: Theme.defaultFont
-                placeholderText: qsTr('Leave empty to auto-fill')
+                placeholderText: displayText == '' ? qsTr('Leave empty to auto-fill') : ''
             }
 
             Label {

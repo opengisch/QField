@@ -63,7 +63,7 @@ ColumnLayout {
                         enabled: table.model.isEditable(index)
                         font: Theme.tipFont
                         horizontalAlignment: TextInput.AlignLeft
-                        placeholderText: qsTr( "Enter name" )
+                        placeholderText: displayText == '' ? qsTr( "Enter name" ) : ''
 
                         background: Rectangle {
                             y: variableNameText.height - height - variableNameText.bottomPadding / 2
@@ -88,7 +88,7 @@ ColumnLayout {
                         enabled: table.model.isEditable(index)
                         font: Theme.tipFont
                         horizontalAlignment: TextInput.AlignLeft
-                        placeholderText: qsTr( "Enter value" )
+                        placeholderText: displayText == '' ? qsTr( "Enter value" ) : ''
 
                         background: Rectangle {
                             y: variableValueText.height - height - variableValueText.bottomPadding / 2
