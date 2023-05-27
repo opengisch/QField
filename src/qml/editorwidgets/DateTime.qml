@@ -63,6 +63,7 @@ EditorWidgetBase {
       color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
       topPadding: 6
       bottomPadding: 6
+      rightPadding: 0
       leftPadding: enabled ? 5 : 0
 
       inputMethodHints: Qt.ImhDigitsOnly

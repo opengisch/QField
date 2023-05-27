@@ -42,6 +42,8 @@ EditorWidgetBase {
     id: textField
     topPadding: 10
     bottomPadding: 10
+    rightPadding: 0
+    leftPadding: enabled ? 5 : 0
     visible: (config['IsMultiline'] === undefined || config['IsMultiline'] == false) && isEditable
     anchors.left: parent.left
     anchors.right: parent.right
