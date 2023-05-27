@@ -79,9 +79,11 @@ void LayerObserver::onHomePathChanged()
 void LayerObserver::onLayersAdded( const QList<QgsMapLayer *> &layers )
 {
   Q_UNUSED( layers );
-  addLayerListeners();
+  if ( !QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
+  {
+    addLayerListeners();
+  }
 }
-
 
 void LayerObserver::onBeforeCommitChanges()
 {
@@ -282,11 +284,6 @@ void LayerObserver::onEditingStopped()
 void LayerObserver::addLayerListeners()
 {
   const QList<QgsMapLayer *> layers = mProject->mapLayers().values();
-
-  // we should keep track only of the layers on cloud projects
-  if ( QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
-    return;
-
   for ( QgsMapLayer *layer : layers )
   {
     QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
