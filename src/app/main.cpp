@@ -86,6 +86,11 @@ int main( int argc, char **argv )
     return 0;
   }
 
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 1 )
+  // Avoids systematic crash after first launch, a regression in Qt >= 6.5.1
+  qputenv( "QML_DISABLE_DISK_CACHE", "1" );
+#endif
+
   initGraphics();
 
   // Read settings, use a dummy app to get access to QSettings
