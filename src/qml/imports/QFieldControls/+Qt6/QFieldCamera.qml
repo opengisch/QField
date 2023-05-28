@@ -179,7 +179,7 @@ Popup {
         height: 64
         radius: 32
         color: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
-        border.color: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState != CameraRecorder.StoppedState
+        border.color: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState !== MediaRecorder.StoppedState
                       ? "red"
                       : "white"
         border.width: 2
@@ -205,7 +205,7 @@ Popup {
             if (cameraItem.state == "PhotoCapture") {
               captureSession.imageCapture.captureToFile(qgisProject.homePath+ '/DCIM/')
             } else if (cameraItem.state == "VideoCapture") {
-              if (captureSession.recorder.recorderState == CameraRecorder.StoppedState) {
+              if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
                 captureSession.recorder.record()
               } else {
                 captureSession.recorder.stop()
@@ -274,7 +274,7 @@ Popup {
       }
 
       Rectangle {
-        visible: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState != CameraRecorder.StoppedState
+        visible: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState !== MediaRecorder.StoppedState
 
         x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width / 2 - width / 2
         y: cameraItem.isPortraitMode ? captureRing.y - height - 20 : captureRing.y - height - 20
