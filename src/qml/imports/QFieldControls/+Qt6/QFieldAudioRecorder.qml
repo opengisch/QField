@@ -2,7 +2,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Shapes 1.14
-import QtMultimedia 5.14
+import QtMultimedia
 
 import org.qfield 1.0
 
@@ -34,8 +34,13 @@ Popup {
     player.source = ''
   }
 
-  AudioRecorder {
-    id: recorder
+  CaptureSession {
+    id: captureSession
+    audioInput: AudioInput {
+    }
+    recorder: AudioRecorder {
+      id: recorder
+    }
   }
 
   /**
@@ -142,7 +147,7 @@ Popup {
         Rectangle {
           id: levelFeedback
           anchors.centerIn: parent
-          width: 120 + (Math.min(audioFeedback.width, audioFeedback.height) - 120) * recorder.level
+          width: 120 + (Math.min(audioFeedback.width, audioFeedback.height) - 120) * 0
           height: width
           radius: width / 2
           color: "#44808080"
@@ -162,7 +167,7 @@ Popup {
               duration: 2000
               easing.type: Easing.InOutQuad
             }
-            running: !recorder.hasLevel && recorder.recording
+            running: recorder.recorderState === MediaRecorder.RecordingState
             loops: Animation.Infinite
           }
 
@@ -173,14 +178,14 @@ Popup {
             height: 120
             iconSource: ''
             round: true
-            bgcolor: !recorder.recording ? "#FF0000" : "#808080"
+            bgcolor: recorder.recorderState === MediaRecorder.RecordingState ? "#808080" : "#FF0000"
 
             onClicked: {
               if (preRecording) {
                 recorder.record();
                 preRecording = false;
               } else {
-                if (recorder.recording) {
+                if (recorder.recorderState === MediaRecorder.RecordingState) {
                   // As of Qt5.15, Android doesn't support pausing a recording, revisit in Qt6
                   recorder.stop();
                   playerLoader.start();
