@@ -20,6 +20,7 @@ vcpkg_from_github(
         poly2tri.patch
         mesh.patch
         sharedmem_ios.patch
+        qpdfwriter.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
