@@ -283,7 +283,6 @@ endif()
 target_include_directories(qfield_core SYSTEM
                            PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
 if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-  target_compile_definitions(qfield_core PRIVATE -DQT_NO_PRINTER)
   target_compile_options(qfield_core PRIVATE "-fobjc-arc")
 endif()
 
