@@ -10,6 +10,7 @@ import Theme 1.0
 
 Popup {
   id : audioRecorder
+  z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
   signal finished(string path)
   signal canceled()
@@ -18,11 +19,11 @@ Popup {
   property bool hasRecordedClip: player.duration > 0
   property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin)
 
+  parent: ApplicationWindow.overlay
   width: popupWidth
   height: Math.min(mainWindow.height - Theme.popupScreenEdgeMargin, popupWidth + toolBar.height + recordButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-  z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
   padding: 0
 
   closePolicy: Popup.CloseOnEscape

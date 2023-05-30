@@ -17,6 +17,7 @@ Popup {
   signal finished(string path)
   signal canceled()
 
+  parent: ApplicationWindow.overlay
   x: 0
   y: 0
   height: parent.height

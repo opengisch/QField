@@ -17,9 +17,26 @@
 #include "audiorecorder.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+#include <QMediaFormat>
+
 AudioRecorder::AudioRecorder( QObject *parent )
-  : QObject( parent )
+  : QMediaRecorder( parent )
 {
+}
+
+bool AudioRecorder::recording() const
+{
+  return recorderState() == QMediaRecorder::RecordingState;
+}
+
+double AudioRecorder::level() const
+{
+  return mLevel;
+}
+
+bool AudioRecorder::hasLevel() const
+{
+  return mHasLevel;
 }
 #else
 AudioRecorder::AudioRecorder( QObject *parent )
