@@ -20,6 +20,12 @@ Drawer {
 
   property color mainColor: Theme.mainColor
 
+  Component.onCompleted: {
+    if (Material.roundedScale) {
+      Material.roundedScale = Material.NotRounded
+    }
+  }
+
   width: Math.min( 300, mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge

@@ -125,8 +125,6 @@ Item {
     TextField {
       id: searchField
       focus: locatorItem.state == "on" ? true : false
-      placeholderText: qsTr("Search…")
-      placeholderTextColor: Theme.mainColor
       width: parent.width - busyIndicator.width - 76
       height: 48
       anchors.top: parent.top

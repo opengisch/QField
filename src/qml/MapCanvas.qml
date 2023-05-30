@@ -163,20 +163,24 @@ Item {
                    if (mouse.button === Qt.RightButton) {
                      secondaryDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything;
                    } else {
+                     mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
                      if (timer.running) {
                        timer.stop()
                        doublePressed = true
-                       mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
                      } else {
                        doublePressed = false
-                       mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
                      }
                    }
                  }
 
       onReleased: (mouse) => {
-                    if (doublePressed) {
-                      mapCanvasWrapper.zoom(Qt.point(mouse.x, mouse.y), 0.8)
+                    if (mouse.button === Qt.RightButton) {
+                      secondaryDragHandler.grabPermissions = PointerHandler.TakeOverForbidden
+                    } else {
+                      mainDragHandler.grabPermissions = PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+                      if (doublePressed) {
+                        mapCanvasWrapper.zoom(Qt.point(mouse.x, mouse.y), 0.8)
+                      }
                     }
                   }
 
@@ -188,7 +192,7 @@ Item {
 
   // stylus clicks
   TapHandler {
-    enabled: interactive && !pinchArea.isDragging
+    enabled: interactive && hovered && !pinchArea.isDragging
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedButtons: Qt.LeftButton | Qt.RightButton
 

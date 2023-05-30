@@ -54,26 +54,33 @@ Page {
       id: settingsModel
       ListElement {
           title: qsTr( "Show scale bar" )
+          description: ''
           settingAlias: "showScaleBar"
+          isVisible: true
       }
       ListElement {
           title: qsTr( "Maximized attribute form" )
+          description: ''
           settingAlias: "fullScreenIdentifyView"
+          isVisible: true
       }
       ListElement {
           title: qsTr( "Fixed scale navigation" )
           description: qsTr( "When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature." )
           settingAlias: "locatorKeepScale"
+          isVisible: true
       }
       ListElement {
           title: qsTr( "Show digitizing information" )
           description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool." )
           settingAlias: "numericalDigitizingInformation"
+          isVisible: true
       }
       ListElement {
           title: qsTr( "Show bookmarks" )
           description: qsTr( "When switched on, user's saved and currently opened project bookmarks will be displayed on the map." )
           settingAlias: "showBookmarks"
+          isVisible: true
       }
       ListElement {
           title: qsTr( "Use native camera" )
@@ -85,16 +92,19 @@ Page {
           title: qsTr( "Fast editing mode" )
           description: qsTr( "If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately." )
           settingAlias: "autoSave"
+          isVisible: true
       }
       ListElement {
           title: qsTr( "Consider mouse as a touchscreen device" )
           description: qsTr( "If disabled, the mouse will act as a stylus pen." )
           settingAlias: "mouseAsTouchScreen"
+          isVisible: true
       }
       ListElement {
           title: qsTr( "Send anonymized metrics" )
           description: qsTr( "If enabled, anonymized metrics will be collected and sent to help improve QField for everyone." )
           settingAlias: "enableInfoCollection"
+          isVisible: true
       }
       Component.onCompleted: {
           for (var i = 0; i < settingsModel.count; i++) {
@@ -215,54 +225,61 @@ Page {
                   }
 
                   ListView {
-                      Layout.preferredWidth: mainWindow.width
-                      Layout.preferredHeight: childrenRect.height
-                      interactive: false
+                    Layout.preferredWidth: mainWindow.width
+                    Layout.preferredHeight: childrenRect.height
+                    interactive: false
 
-                      model: settingsModel
+                    model: settingsModel
 
-                      delegate: Row {
-                          width: parent ? parent.width - 16 : undefined
-                          height: !!isVisible ? undefined : 0
-                          visible: !!isVisible
+                    delegate: Rectangle {
+                      width: parent ? parent.width - 16 : undefined
+                      height: isVisible ? line.height : 0
+                      color: "transparent"
+                      clip: true
 
-                          Column {
-                              width: parent.width - toggle.width
-                              Label {
-                                  width: parent.width
-                                  padding: 8
-                                  leftPadding: 22
-                                  text: title
-                                  font: Theme.defaultFont
-                                  color: Theme.mainTextColor
-                                  wrapMode: Text.WordWrap
-                                  MouseArea {
-                                      anchors.fill: parent
-                                      onClicked: toggle.toggle()
-                                  }
-                              }
+                      Row {
+                        id: line
+                        width: parent.width
 
-                              Label {
-                                  width: parent.width
-                                  visible: !!description
-                                  padding: !!description ? 8 : 0
-                                  topPadding: 0
-                                  leftPadding: 22
-                                  text: description || ''
-                                  font: Theme.tipFont
-                                  color: Theme.secondaryTextColor
-                                  wrapMode: Text.WordWrap
-                              }
+                        Column {
+                          width: parent.width - toggle.width
+
+                          Label {
+                            width: parent.width
+                            padding: 8
+                            leftPadding: 20
+                            text: title
+                            font: Theme.defaultFont
+                            color: Theme.mainTextColor
+                            wrapMode: Text.WordWrap
+                            MouseArea {
+                              anchors.fill: parent
+                              onClicked: toggle.toggle()
+                            }
                           }
 
-                          QfSwitch {
-                              id: toggle
-                              width: implicitContentWidth
-                              checked: registry[settingAlias]
-                              Layout.alignment: Qt.AlignTop | Qt.AlignRight
-                              onCheckedChanged: registry[settingAlias] = checked
+                          Label {
+                            width: parent.width
+                            visible: description !== ''
+                            padding: description !== '' ? 8 : 0
+                            topPadding: 0
+                            leftPadding: 20
+                            text: description
+                            font: Theme.tipFont
+                            color: Theme.secondaryTextColor
+                            wrapMode: Text.WordWrap
                           }
+                        }
+
+                        QfSwitch {
+                          id: toggle
+                          width: implicitContentWidth
+                          checked: registry[settingAlias]
+                          Layout.alignment: Qt.AlignTop | Qt.AlignRight
+                          onCheckedChanged: registry[settingAlias] = checked
+                        }
                       }
+                    }
                   }
 
                   GridLayout {

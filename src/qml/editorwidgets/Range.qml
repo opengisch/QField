@@ -30,6 +30,8 @@ EditorWidgetBase {
           height: fontMetrics.height + 20
           topPadding: 10
           bottomPadding: 10
+          rightPadding: 0
+          leftPadding: enabled ? 5 : 0
           width: parent.width - decreaseButton.width - increaseButton.width
 
           font: Theme.defaultFont

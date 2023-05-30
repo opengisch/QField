@@ -140,6 +140,9 @@ Drawer {
   }
 
   Component.onCompleted: {
-      close()
+    if (Material.roundedScale) {
+      Material.roundedScale = Material.NotRounded
+    }
+    close()
   }
 }
