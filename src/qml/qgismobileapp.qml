@@ -1919,7 +1919,7 @@ ApplicationWindow {
 
     MenuItem {
       id: printItem
-      text: Qt.platform.os === "ios" ? qsTr( "Print to Image" ) : qsTr( "Print to PDF" )
+      text: qsTr( "Print to PDF" )
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon( "ic_print_black_24dp" )

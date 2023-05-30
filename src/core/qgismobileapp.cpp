@@ -1219,11 +1219,7 @@ bool QgisMobileapp::print( const QString &layoutName )
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return false;
 
-#ifndef QT_NO_PRINTER
   const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
-#else
-  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".jpg" );
-#endif
 
   if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
   {
@@ -1233,7 +1229,6 @@ bool QgisMobileapp::print( const QString &layoutName )
 
     QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
 
-#ifndef QT_NO_PRINTER
     QgsLayoutExporter::PdfExportSettings pdfSettings;
     pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
     pdfSettings.dpi = layoutToPrint->renderContext().dpi();
@@ -1241,12 +1236,6 @@ bool QgisMobileapp::print( const QString &layoutName )
     pdfSettings.exportMetadata = true;
     pdfSettings.simplifyGeometries = true;
     QgsLayoutExporter::ExportResult result = exporter.exportToPdf( destination, pdfSettings );
-#else
-    QgsLayoutExporter::ImageExportSettings imageSettings;
-    imageSettings.dpi = layoutToPrint->renderContext().dpi();
-    imageSettings.exportMetadata = true;
-    QgsLayoutExporter::ExportResult result = exporter.exportToImage( destination, imageSettings );
-#endif
 
     if ( result == QgsLayoutExporter::Success )
       PlatformUtilities::instance()->open( destination );
@@ -1258,7 +1247,6 @@ bool QgisMobileapp::print( const QString &layoutName )
     bool success = printAtlas( layoutToPrint, destination );
     if ( success )
     {
-#ifndef QT_NO_PRINTER
       if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
       {
         PlatformUtilities::instance()->open( destination );
@@ -1267,9 +1255,6 @@ bool QgisMobileapp::print( const QString &layoutName )
       {
         PlatformUtilities::instance()->open( mProject->homePath() );
       }
-#else
-      PlatformUtilities::instance()->open( mProject->homePath() );
-#endif
     }
     return success;
   }
@@ -1312,7 +1297,6 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 
   if ( success )
   {
-#ifndef QT_NO_PRINTER
     if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
     {
       PlatformUtilities::instance()->open( destination );
@@ -1321,9 +1305,6 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
     {
       PlatformUtilities::instance()->open( mProject->homePath() );
     }
-#else
-    PlatformUtilities::instance()->open( mProject->homePath() );
-#endif
   }
   return success;
 }
@@ -1348,7 +1329,6 @@ bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &de
     }
   }
 
-#ifndef QT_NO_PRINTER
   QgsLayoutExporter::PdfExportSettings pdfSettings;
   pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
   pdfSettings.dpi = layoutToPrint->renderContext().dpi();
@@ -1356,18 +1336,12 @@ bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &de
   pdfSettings.exportMetadata = true;
   pdfSettings.simplifyGeometries = true;
   pdfSettings.predefinedMapScales = mapScales;
-#else
-  QgsLayoutExporter::ImageExportSettings imageSettings;
-  imageSettings.dpi = layoutToPrint->renderContext().dpi();
-  imageSettings.exportMetadata = true;
-#endif
 
   if ( layoutToPrint->atlas()->updateFeatures() )
   {
     QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
     QgsLayoutExporter::ExportResult result;
 
-#ifndef QT_NO_PRINTER
     if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
     {
       result = exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
@@ -1376,10 +1350,6 @@ bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &de
     {
       result = exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
     }
-#else
-    const QString extension = layoutToPrint->customProperty( QStringLiteral( "atlasRasterFormat" ), QStringLiteral( "JPG" ) ).toString();
-    result = exporter.exportToImage( layoutToPrint->atlas(), destination, extension, imageSettings, error );
-#endif
 
     return result == QgsLayoutExporter::Success ? true : false;
   }
