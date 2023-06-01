@@ -1057,7 +1057,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Cerca...</translation>
+        <translation type="vanished">Cerca...</translation>
     </message>
 </context>
 <context>
@@ -3676,7 +3676,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Stampa come Immagine</translation>
+        <translation type="vanished">Stampa come Immagine</translation>
     </message>
     <message>
         <source>Printing...</source>

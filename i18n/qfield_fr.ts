@@ -1056,7 +1056,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Recherche...</translation>
+        <translation type="vanished">Recherche...</translation>
     </message>
 </context>
 <context>
@@ -1075,7 +1075,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Si désactivé, ce filtre de localisation peut tout de même être utilisé en inscrivant le préfixe %1 dans la barre de recherche</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
@@ -1270,7 +1270,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;analyser la position de l&apos;IMU : %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -2766,7 +2766,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3063,15 +3063,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, les sommets ne seront enregistrés que lorsque toutes les contraintes actives auront été satisfaites. Si désactivé, chaque contrainte satisfaite déclenchera l&apos;ajout d&apos;un sommet.</translation>
     </message>
     <message>
         <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsque la contrainte du capteur est activée seule, des sommets seront ajoutés chaque fois que le capteur aura capturé de nouvelles données.</translation>
     </message>
     <message>
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsque toutes les contraintes sont désactivées, les ajouts de sommets se produisent aussi fréquemment que le permet le dispositif de positionnement.</translation>
     </message>
 </context>
 <context>
@@ -3670,7 +3670,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Imprimer sur image</translation>
+        <translation type="vanished">Imprimer sur image</translation>
     </message>
     <message>
         <source>Printing...</source>

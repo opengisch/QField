@@ -3703,7 +3703,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Print to Image</translation>
+        <translation type="vanished">Print to Image</translation>
     </message>
     <message>
         <source>Printing...</source>
