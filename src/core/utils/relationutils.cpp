@@ -27,6 +27,9 @@ RelationUtils::RelationUtils( QObject *parent )
 
 QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId )
 {
+  if ( !project )
+    return QgsRelation();
+
   QgsRelationManager *relationManager = project->relationManager();
   QgsRelation relation = relationManager->relation( relationId );
   if ( relation.isValid() )
