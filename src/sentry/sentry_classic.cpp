@@ -97,12 +97,15 @@ namespace sentry_wrapper
     sentry_value_set_by_key(
       crumb, "level", sentry_value_new_string( logLevelForMessageType( type ) ) );
 
-    sentry_value_t location = sentry_value_new_object();
-    sentry_value_set_by_key(
-      location, "file", sentry_value_new_string( context.file ) );
-    sentry_value_set_by_key(
-      location, "line", sentry_value_new_int32( context.line ) );
-    sentry_value_set_by_key( crumb, "data", location );
+    if ( context.file && !QString( context.file ).isEmpty() )
+    {
+      sentry_value_t location = sentry_value_new_object();
+      sentry_value_set_by_key(
+        location, "file", sentry_value_new_string( context.file ) );
+      sentry_value_set_by_key(
+        location, "line", sentry_value_new_int32( context.line ) );
+      sentry_value_set_by_key( crumb, "data", location );
+    }
 
     sentry_add_breadcrumb( crumb );
 
