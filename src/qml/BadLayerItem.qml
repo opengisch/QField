@@ -23,8 +23,9 @@ Page {
     }
 
   ColumnLayout {
-    width: parent.width
-    height: parent.height
+    anchors.margins: 8
+    anchors.bottomMargin: 8 + mainWindow.sceneBottomMargin
+    anchors.fill: parent
     Layout.margins: 0
     spacing: 10
 
