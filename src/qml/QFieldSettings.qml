@@ -1292,7 +1292,7 @@ Page {
             id: variableEditor
             anchors.fill: parent
             anchors.margins: 4
-            anchors.bottomMargin: mainWindow.sceneBottomMargin
+            anchors.bottomMargin: 4 + mainWindow.sceneBottomMargin
         }
       }
     }
