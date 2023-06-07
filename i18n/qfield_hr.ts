@@ -1057,7 +1057,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Pretraži...</translation>
+        <translation type="vanished">Pretraži...</translation>
     </message>
 </context>
 <context>
@@ -3669,7 +3669,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Ispiši u sliku</translation>
+        <translation type="vanished">Ispiši u sliku</translation>
     </message>
     <message>
         <source>Printing...</source>
