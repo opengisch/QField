@@ -29,7 +29,7 @@ class BarcodeDecoder : public QObject
     Q_OBJECT
 
 #if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
-    Q_PROPERTY( QVideoSink *videoSink WRITE setVideoSink )
+    Q_PROPERTY( QVideoSink *videoSink READ videoSink WRITE setVideoSink NOTIFY videoSinkChanged )
 #endif
     Q_PROPERTY( QString decodedString READ decodedString NOTIFY decodedStringChanged )
 
@@ -62,10 +62,14 @@ class BarcodeDecoder : public QObject
     QThread *mDecodingThread = nullptr;
     QVideoSink *mVideoSink = nullptr;
 
+  signals:
+    void videoSinkChanged();
+
   public slots:
     void decodeVideoFrame( const QVideoFrame &frame );
 
   public:
+    QVideoSink *videoSink() const;
     void setVideoSink( QVideoSink *sink );
 #endif
 };
