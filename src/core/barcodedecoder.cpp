@@ -112,6 +112,11 @@ void BarcodeDecoder::decodeImage( const QImage &image )
 }
 
 #if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+QVideoSink *BarcodeDecoder::videoSink() const
+{
+  return mVideoSink;
+}
+
 void BarcodeDecoder::setVideoSink( QVideoSink *sink )
 {
   if ( mVideoSink == sink )
@@ -122,6 +127,8 @@ void BarcodeDecoder::setVideoSink( QVideoSink *sink )
 
   mVideoSink = sink;
   connect( mVideoSink, &QVideoSink::videoFrameChanged, this, &BarcodeDecoder::decodeVideoFrame );
+
+  emit videoSinkChanged();
 }
 
 void BarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
