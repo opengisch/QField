@@ -12,6 +12,7 @@ on:
 
 jobs:
   build:
+    name: build (windows)
     runs-on: windows-2022
 
     steps:

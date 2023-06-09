@@ -12,6 +12,7 @@ on:
 
 jobs:
   build:
+    name: build (linux)
     runs-on: ubuntu-22.04
 
     steps:
