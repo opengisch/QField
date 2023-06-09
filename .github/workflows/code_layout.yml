@@ -26,6 +26,7 @@ jobs:
   #        run: ./scripts/test_licenses.sh
 
   banned_keywords_check:
+    name: banned keywords check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,6 +35,7 @@ jobs:
         run: ./scripts/test_banned_keywords.sh
 
   cppcheck-1_9:
+    name: cpp check
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
