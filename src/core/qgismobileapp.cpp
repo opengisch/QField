@@ -137,6 +137,7 @@
 #include <qgsgeopackageprojectstorage.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
+#include <qgslayertreeregistrybridge.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutexporter.h>
 #include <qgslayoutitemmap.h>
@@ -692,6 +693,7 @@ void QgisMobileapp::readProjectFile()
 
   mProject->removeAllMapLayers();
   mProject->setTitle( QString() );
+  mProject->layerTreeRegistryBridge()->setLayerInsertionMethod( Qgis::LayerTreeInsertionMethod::OptimalInInsertionGroup );
 
   mTrackingModel->reset();
 
