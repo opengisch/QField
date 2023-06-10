@@ -215,6 +215,14 @@
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.zip" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.zip" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.zip" />
+        <data android:pathPattern=".*\\.mbtiles" />
+        <data android:pathPattern=".*\\..*\\.mbtiles" />
+        <data android:pathPattern=".*\\..*\\..*\\.mbtiles" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\.mbtiles" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.mbtiles" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.mbtiles" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.mbtiles" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.mbtiles" />
       </intent-filter>
 
       <!-- Git Revision -->
