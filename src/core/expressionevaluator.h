@@ -21,6 +21,7 @@
 #include <QObject>
 #include <qgsexpression.h>
 #include <qgsexpressioncontext.h>
+#include <qgsmaplayer.h>
 
 class ExpressionEvaluator : public QObject
 {
