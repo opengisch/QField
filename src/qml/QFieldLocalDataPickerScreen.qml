@@ -339,7 +339,7 @@ Page {
 
         onClicked: {
           importMenu.popup(importButton.x + importButton.width - importMenu.width + 10,
-                           importButton.y - importButton.height)
+                           importButton.y - importButton.height - header.height - 10)
         }
       }
     }
