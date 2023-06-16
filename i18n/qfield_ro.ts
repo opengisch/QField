@@ -1059,7 +1059,7 @@ Motiv:
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Căutare</translation>
+        <translation type="vanished">Căutare</translation>
     </message>
 </context>
 <context>
@@ -3675,7 +3675,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Generează Imagine</translation>
+        <translation type="vanished">Generează Imagine</translation>
     </message>
     <message>
         <source>Printing...</source>

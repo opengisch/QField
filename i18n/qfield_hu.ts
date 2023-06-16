@@ -1054,7 +1054,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Keresés...</translation>
+        <translation type="vanished">Keresés...</translation>
     </message>
 </context>
 <context>

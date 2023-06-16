@@ -1056,7 +1056,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Traženje...</translation>
+        <translation type="vanished">Traženje...</translation>
     </message>
 </context>
 <context>

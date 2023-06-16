@@ -1053,7 +1053,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Search…</translation>
+        <translation type="vanished">Search…</translation>
     </message>
 </context>
 <context>

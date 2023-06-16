@@ -1046,7 +1046,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Iskanje...</translation>
+        <translation type="vanished">Iskanje...</translation>
     </message>
 </context>
 <context>
@@ -3653,7 +3653,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Tiskanje v sliko</translation>
+        <translation type="vanished">Tiskanje v sliko</translation>
     </message>
     <message>
         <source>Printing...</source>

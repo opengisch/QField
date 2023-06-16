@@ -195,7 +195,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-apparaatadres:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
@@ -905,7 +905,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Zoom naar bovenliggende laag</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
@@ -1055,7 +1055,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Zoek...</translation>
+        <translation type="vanished">Zoek...</translation>
     </message>
 </context>
 <context>
@@ -1350,7 +1350,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer Afbeeldingsbestand</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
@@ -1366,7 +1366,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Geluidsbestanden (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1475,7 +1475,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Verbindingstype:</translation>
     </message>
     <message>
         <source>Bluetooth</source>

@@ -1053,7 +1053,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>搜索…</translation>
+        <translation type="vanished">搜索…</translation>
     </message>
 </context>
 <context>
@@ -3669,7 +3669,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>输出为图像</translation>
+        <translation type="vanished">输出为图像</translation>
     </message>
     <message>
         <source>Printing...</source>

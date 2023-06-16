@@ -1051,7 +1051,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Hledat...</translation>
+        <translation type="vanished">Hledat...</translation>
     </message>
 </context>
 <context>
@@ -3666,7 +3666,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Tisk do obrázku</translation>
+        <translation type="vanished">Tisk do obrázku</translation>
     </message>
     <message>
         <source>Printing...</source>

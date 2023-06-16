@@ -1055,7 +1055,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Etsi...</translation>
+        <translation type="vanished">Etsi...</translation>
     </message>
 </context>
 <context>

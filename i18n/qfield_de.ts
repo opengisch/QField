@@ -1054,7 +1054,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Suchen…</translation>
+        <translation type="vanished">Suchen…</translation>
     </message>
 </context>
 <context>
@@ -3666,7 +3666,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Als Bild drucken</translation>
+        <translation type="vanished">Als Bild drucken</translation>
     </message>
     <message>
         <source>Printing...</source>

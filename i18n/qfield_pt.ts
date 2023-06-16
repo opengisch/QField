@@ -1057,7 +1057,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Pesquisar...</translation>
+        <translation type="vanished">Pesquisar...</translation>
     </message>
 </context>
 <context>
@@ -3673,7 +3673,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Imprimir a Imagem</translation>
+        <translation type="vanished">Imprimir a Imagem</translation>
     </message>
     <message>
         <source>Printing...</source>

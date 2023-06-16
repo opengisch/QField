@@ -1057,7 +1057,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Buscar...</translation>
+        <translation type="vanished">Buscar...</translation>
     </message>
 </context>
 <context>
@@ -3671,7 +3671,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Imprimir a imagen</translation>
+        <translation type="vanished">Imprimir a imagen</translation>
     </message>
     <message>
         <source>Printing...</source>

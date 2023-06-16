@@ -1050,7 +1050,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Szukaj...</translation>
+        <translation type="vanished">Szukaj...</translation>
     </message>
 </context>
 <context>
@@ -3666,7 +3666,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Drukuj do obrazu</translation>
+        <translation type="vanished">Drukuj do obrazu</translation>
     </message>
     <message>
         <source>Printing...</source>
