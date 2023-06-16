@@ -78,6 +78,7 @@ EditorWidgetBase {
     if (currentValue != undefined && currentValue !== '')
     {
       image.visible = isImage
+      geoTagBadge.visible = isImage
       player.visible = isVideo
       playerControls.visible = isVideo || isAudio
       if (isImage) {
@@ -89,14 +90,15 @@ EditorWidgetBase {
         image.anchors.topMargin = 0
         image.source = 'file://' + prefixToRelativePath + value
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
-        geoTagBadge.visible = true
       } else if (isAudio || isVideo) {
         mediaFrame.height = 48
         player.source = 'file://' + prefixToRelativePath + value
       }
     } else {
+      image.source = ''
       image.visible = documentViewer == document_IMAGE
       image.opacity = 0.15
+      geoTagBadge.visible = false
       player.visible = false
       playerControls.visible = false
       mediaFrame.height = 48
