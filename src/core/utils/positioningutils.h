@@ -19,6 +19,8 @@
 #include "qfield_core_export.h"
 
 #include <QObject>
+#include <qgscoordinatereferencesystem.h>
+#include <qgspoint.h>
 
 class GnssPositionInformation;
 
@@ -44,6 +46,11 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
      * Returns an average GnssPositionInformation from a list of position information
      */
     static Q_INVOKABLE GnssPositionInformation averagedPositionInformation( const QList<QVariant> &positionsInformation );
+
+    /**
+     * Returns the true north bearing from a given position and CRS
+     */
+    static Q_INVOKABLE double bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs );
 };
 
 #endif // POSITIONINGUTILS_H
