@@ -17,6 +17,10 @@
 #include "gnsspositioninformation.h"
 #include "positioningutils.h"
 
+#include <qgsbearingutils.h>
+#include <qgscoordinatetransformcontext.h>
+#include <qgsproject.h>
+
 PositioningUtils::PositioningUtils( QObject *parent )
   : QObject( parent )
 {
@@ -110,4 +114,22 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
                                   hacc / positionsInformationCount, vacc / positionsInformationCount, utcDateTime,
                                   fixMode, fixType, quality, satellitesUsed, status, satPrn, satInfoComplete,
                                   verticalSpeed / positionsInformationCount, magneticVariation / positionsInformationCount, positionsInformationCount, sourceName );
+}
+
+double PositioningUtils::bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs )
+{
+  const QgsCoordinateTransformContext transformContext = QgsProject::instance()->transformContext();
+
+  double bearing = 0.0;
+  try
+  {
+    bearing = QgsBearingUtils::bearingTrueNorth( crs, transformContext, position );
+  }
+  catch ( QgsException &e )
+  {
+    Q_UNUSED( e )
+    QgsDebugMsgLevel( QStringLiteral( "Caught exception %1" ).arg( e.what() ), 2 );
+  }
+
+  return bearing;
 }

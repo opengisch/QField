@@ -202,6 +202,7 @@ ApplicationWindow {
 
     property bool currentness: false;
     property alias destinationCrs: positionSource.coordinateTransformer.destinationCrs
+    property real bearingTrueNorth: 0.0
 
     coordinateTransformer: CoordinateTransformer {
       destinationCrs: mapCanvas.mapSettings.destinationCrs
@@ -215,8 +216,11 @@ ApplicationWindow {
     logging: positioningSettings.logging
 
     onProjectedPositionChanged: {
-      if (active && gnssButton.followActive) {
-        gnssButton.followLocation(false);
+      if (active) {
+        bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs)
+        if (gnssButton.followActive) {
+          gnssButton.followLocation(false);
+        }
       }
     }
 
@@ -248,8 +252,8 @@ ApplicationWindow {
     returnGeoValues: false
 
     property bool hasValue: false
-    property real orientation: 0
     property real lastAcceptedReading: 0
+    property real orientation: 0
 
     Screen.onOrientationChanged: {
         switch (Screen.orientation) {
@@ -691,9 +695,9 @@ ApplicationWindow {
              ? positionSource.positionInformation.speed
              : -1
       orientation: magnetometer.hasValue
-                   ? magnetometer.orientation < 0
-                     ? 360 + magnetometer.orientation
-                     : magnetometer.orientation
+                   ? magnetometer.orientation + positionSource.bearingTrueNorth < 0
+                     ? 360 + magnetometer.orientation + positionSource.bearingTrueNorth
+                     : magnetometer.orientation + positionSource.bearingTrueNorth
                    : -1
     }
 
