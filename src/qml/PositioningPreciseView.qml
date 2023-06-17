@@ -54,7 +54,7 @@ Item {
       width: Math.min(positioningPreciseView.height - 10,
                       positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
       height: width
-      rotation: magnetometer.hasValue ? -magnetometer.orientation : 0
+      rotation: magnetometer.hasValue ? -magnetometer.orientation + positionSource.bearingTrueNorth : 0
 
       ShapePath {
         strokeWidth: 1
