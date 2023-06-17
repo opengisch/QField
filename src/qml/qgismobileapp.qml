@@ -254,27 +254,30 @@ ApplicationWindow {
     property bool hasValue: false
     property real lastAcceptedReading: 0
     property real orientation: 0
+    property real screenOrientation: 0
 
-    Screen.onOrientationChanged: {
-        switch (Screen.orientation) {
-          case Qt.LandscapeOrientation:
-            magnetometer.userOrientation = 90;
-            break;
-          case Qt.InvertedLandscapeOrientation:
-            magnetometer.userOrientation = 270;
-            break;
-          case Qt.PortraitOrientation:
-          default:
-            magnetometer.userOrientation = 0;
-            break;
-        }
+    function handleScreenOrientation() {
+      switch (Screen.orientation) {
+        case Qt.LandscapeOrientation:
+          magnetometer.screenOrientation = 90
+          break;
+        case Qt.InvertedLandscapeOrientation:
+          magnetometer.screenOrientation = 270
+          break;
+        case Qt.PortraitOrientation:
+        default:
+          magnetometer.screenOrientation = 0
+          break;
+      }
     }
+
+    Screen.onOrientationChanged: handleScreenOrientation()
 
     onReadingChanged: {
       var timestamp = Date.now();
       if (timestamp - lastAcceptedReading > 200) {
         lastAcceptedReading = timestamp;
-        orientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
+        orientation = screenOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
         hasValue = true
 
         if (gnssButton.followOrientationActive) {
@@ -287,6 +290,7 @@ ApplicationWindow {
       if (Screen.orientationUpdateMask) {
         Screen.orientationUpdateMask = Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
       }
+      handleScreenOrientation()
     }
   }
 
