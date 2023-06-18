@@ -1055,7 +1055,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Buscar...</translation>
+        <translation type="vanished">Buscar...</translation>
     </message>
 </context>
 <context>
@@ -3671,7 +3671,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Imprimir a Imaxe</translation>
+        <translation type="vanished">Imprimir a Imaxe</translation>
     </message>
     <message>
         <source>Printing...</source>
