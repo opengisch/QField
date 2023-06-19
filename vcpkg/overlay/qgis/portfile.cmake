@@ -1,5 +1,5 @@
-set(QGIS_REF 988b80eec040df0b8bf66c32a1f9c4778f0daf5d)
-set(QGIS_SHA512 0c2ef7f1d2d48281edbd716b9e2dbefc3bb618083758d195aa4425fd806b81f1c058d91897c89bc9d65cab35eced8760607994db667ee4d221bd49141372e0e4)
+set(QGIS_REF 653c11f8f899dd73bf5ec0296747714867909c37)
+set(QGIS_SHA512 54e32c10103a7d642971956e93c8081663b5c1d9a25dff1243585ef67d561c3aa91e990f731dad0d387b5cdfa2a660963ecbf75410f9e6301e075bc508adcd32)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -20,7 +20,6 @@ vcpkg_from_github(
         poly2tri.patch
         mesh.patch
         sharedmem_ios.patch
-        qpdfwriter.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
