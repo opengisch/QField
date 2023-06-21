@@ -638,6 +638,8 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
   bool allConstraintsHardValid = true;
   bool allConstraintsSoftValid = true;
   QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  QMap<int, bool> hardConstraintsCache;
+  QMap<int, bool> softConstraintsCache;
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
@@ -661,12 +663,21 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
         feature.setAttribute( fidx, defaultValueClause );
       }
 
-      bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, feature, fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
+      bool hardConstraintSatisfied = false;
+      if ( !hardConstraintsCache.contains( fidx ) )
+      {
+        hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, feature, fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
+        hardConstraintsCache[fidx] = hardConstraintSatisfied;
+      }
+      else
+      {
+        hardConstraintSatisfied = hardConstraintsCache.value( fidx );
+      }
       if ( hardConstraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
       {
         item->setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
       }
-      if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+      if ( !hardConstraintSatisfied )
       {
         allConstraintsHardValid = false;
         if ( mHasTabs && item->parent() )
@@ -680,13 +691,21 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
         }
       }
 
-      QStringList softErrors;
-      bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
+      bool softConstraintSatisfied = false;
+      if ( !softConstraintsCache.contains( fidx ) )
+      {
+        softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, errors, QgsFieldConstraints::ConstraintStrengthSoft );
+        softConstraintsCache[fidx] = softConstraintSatisfied;
+      }
+      else
+      {
+        softConstraintSatisfied = softConstraintsCache.value( fidx );
+      }
       if ( softConstraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
       {
         item->setData( softConstraintSatisfied, AttributeFormModel::ConstraintSoftValid );
       }
-      if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      if ( !softConstraintSatisfied )
       {
         allConstraintsSoftValid = false;
         if ( mHasTabs && item->parent() )
