@@ -112,8 +112,7 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
         bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
         if ( changed )
         {
-          item->setData( value, AttributeFormModel::AttributeValue );
-          emit dataChanged( index, index, QVector<int>() << role );
+          synchronizeFieldValue( fieldIndex, value );
         }
         updateDefaultValues( fieldIndex );
         updateVisibilityAndConstraints( fieldIndex );
@@ -544,6 +543,20 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
   }
 }
 
+void AttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant value )
+{
+  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  {
+    QStandardItem *item = constraintIterator.key();
+    const int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    if ( fidx != fieldIndex )
+      continue;
+
+    item->setData( value, AttributeFormModel::AttributeValue );
+  }
+}
+
 void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> updatedFields )
 {
   const QgsFields fields = mFeatureModel->feature().fields();
@@ -558,7 +571,7 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
-    int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    const int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
     if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
       continue;
 
@@ -575,7 +588,7 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
     const QVariant updatedValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
     if ( success && updatedValue != previousValue )
     {
-      item->setData( defaultValue, AttributeFormModel::AttributeValue );
+      synchronizeFieldValue( fidx, updatedValue );
       if ( !updatedFields.contains( fidx ) )
       {
         updatedFields.append( fidx );
@@ -605,7 +618,6 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
         if ( item->data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
         {
           item->setData( visible, AttributeFormModel::CurrentlyVisible );
-          emit dataChanged( item->index(), item->index(), QVector<int>() << AttributeFormModel::CurrentlyVisible );
         }
       }
     }
