@@ -267,11 +267,11 @@ jobs:
             <details>
             <summary>Other architectures</summary>
 
-            - [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk)
+            - [arm-neon-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-neon-android.apk)
             - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
             - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
             - [**all access arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk)
-            - [all access arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk)
+            - [all access arm-neon-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-neon-android.apk)
             - [all access x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
             - [all access x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
             </details>
