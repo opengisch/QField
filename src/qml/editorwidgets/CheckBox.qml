@@ -75,7 +75,7 @@ EditorWidgetBase {
         editedValue = !isNull ? !value : true
       } else {
         if (!isNull) {
-          editedValue = value === config['CheckedState'] ? config['UncheckedState'] : config['CheckedState']
+          editedValue = value == config['CheckedState'] ? config['UncheckedState'] : config['CheckedState']
         } else {
           editedValue = config['CheckedState']
         }
