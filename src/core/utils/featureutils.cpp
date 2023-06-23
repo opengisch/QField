@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "featureutils.h"
+#include "qgsquickmapsettings.h"
 
 #include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
@@ -49,4 +50,36 @@ QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feat
     name = QString::number( feature.id() );
 
   return name;
+}
+
+QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature )
+{
+  if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
+  {
+    QgsCoordinateTransform transf( layer->crs(), mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
+    QgsGeometry geom( feature.geometry() );
+    if ( !geom.isNull() )
+    {
+      geom.transform( transf );
+
+      QgsRectangle extent;
+      if ( geom.type() == Qgis::GeometryType::Point )
+      {
+        QgsVector delta = QgsPointXY( geom.asPoint() ) - mapSettings->extent().center();
+        extent = mapSettings->extent();
+        extent.setXMinimum( extent.xMinimum() + delta.x() );
+        extent.setXMaximum( extent.xMaximum() + delta.x() );
+        extent.setYMinimum( extent.yMinimum() + delta.y() );
+        extent.setYMaximum( extent.yMaximum() + delta.y() );
+      }
+      else
+      {
+        QgsRectangle featureExtent = geom.boundingBox();
+        extent = featureExtent.buffered( std::max( featureExtent.width(), featureExtent.height() ) );
+      }
+      return extent;
+    }
+  }
+
+  return QgsRectangle();
 }
