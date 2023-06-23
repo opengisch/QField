@@ -1,5 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import QtQuick.Controls.Material 2.14
+import QtQuick.Controls.Material.impl 2.14
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -272,6 +274,16 @@ Item {
         color: isFilterName ? Theme.mainColor : isGroup ? Theme.controlBorderColor : "transparent"
         opacity: 0.95
 
+        Ripple {
+          clip: true
+          width: parent.width
+          height: parent.height
+          pressed: mouseArea.pressed
+          anchor: delegateRect
+          active: mouseArea.pressed
+          color: Material.rippleColor
+        }
+
         Text {
           id: textCell
           text: isFilterName ? model.ResultFilterName : model.Text.trim()
@@ -322,6 +334,7 @@ Item {
         }
 
         MouseArea {
+          id: mouseArea
           anchors.left: parent.left
           anchors.top: parent.top
           anchors.bottom: parent.bottom
