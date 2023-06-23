@@ -2,6 +2,8 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQml.Models 2.14
 import QtQuick.Layouts 1.14
+import QtQuick.Controls.Material 2.14
+import QtQuick.Controls.Material.impl 2.14
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -23,7 +25,7 @@ EditorWidgetBase {
   Rectangle {
     anchors.fill: parent
     color: "transparent"
-    border.color: 'lightgray'
+    border.color: Theme.controlBorderColor
     border.width: 1
   }
 
@@ -62,8 +64,6 @@ EditorWidgetBase {
     highlightRangeMode: ListView.ApplyRange
   }
 
-
-  //the add entry "last row"
   Item {
     id: addEntry
     anchors.top: listView.bottom
@@ -74,12 +74,12 @@ EditorWidgetBase {
 
     Rectangle{
       anchors.fill: parent
-      color: 'lightgrey'
+      color: Theme.controlBorderColor
       visible: isEnabled
 
       Text {
         visible: isEnabled
-        color: 'grey'
+        color: Theme.secondaryTextColor
         text: isEnabled && !constraintsHardValid ? qsTr( 'Ensure contraints') : ''
         anchors { leftMargin: 10; left: parent.left; right: addButtonRow.left; verticalCenter: parent.verticalCenter }
         font.bold: true
@@ -134,7 +134,6 @@ EditorWidgetBase {
     }
   }
 
-
   Component {
     id: dragDelegate
 
@@ -165,18 +164,18 @@ EditorWidgetBase {
           orderedRelationModel.moveItems(indexFrom, indexTo)
         } else if (listView.currentIndex !== dragArea.DelegateModel.itemsIndex) {
           listView.currentIndex = dragArea.DelegateModel.itemsIndex
-          orderedRelationModel.onViewCurrentFeatureChanged(listView.currentIndex)
+          orderedRelationModel.viewCurrentFeatureChanged(listView.currentIndex)
         }
       }
 
       onClicked: {
-        embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly'
-        embeddedPopup.currentLayer = orderedRelationModel.relation.referencingLayer
-        embeddedPopup.linkedRelation = orderedRelationModel.relation
-        embeddedPopup.linkedRelationOrderingField = orderedRelationModel.orderingField
-        embeddedPopup.linkedParentFeature = orderedRelationModel.feature
-        embeddedPopup.feature = model.referencingFeature
-        embeddedPopup.open()
+        if (orderedRelationModel.relation.referencingLayer !== undefined) {
+          locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry
+          locatorHighlightItem.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs
+          mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
+                                                             orderedRelationModel.relation.referencingLayer,
+                                                             nmRelationId ? model.nmReferencingFeature : model.referencingFeature)
+        }
       }
 
       Rectangle {
@@ -188,8 +187,17 @@ EditorWidgetBase {
         width: dragArea.width
         height: row.implicitHeight + 4
 
-        color: dragArea.held ? Theme.lightGray : "transparent"
-        Behavior on color { ColorAnimation { duration: 100 } }
+        Ripple {
+          clip: true
+          width: parent.width
+          height: parent.height
+          pressed: dragArea.pressed
+          anchor: content
+          active: dragArea.pressed
+          color: Material.rippleColor
+        }
+
+        color: "transparent"
 
         radius: 2
         Drag.active: dragArea.held
@@ -228,7 +236,7 @@ EditorWidgetBase {
           Text {
             id: featureText
             font: Theme.defaultFont
-            color: !isEnabled ? 'grey' : 'black'
+            color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
             text: Description || model.displayString
             verticalAlignment: Text.AlignVCenter
             padding: 4
@@ -236,30 +244,44 @@ EditorWidgetBase {
             width: parent.width
                      - 8
                      - (featureImage.visible ? featureImage.width : 0)
-                     - (moveDownButton.visible ? moveDownButton.width : 0)
-                     - (moveUpButton.visible ? moveUpButton.width : 0)
-                     - (deleteButton.visible ? deleteButton.width : 0)
+                     - viewButton.width
+                     - moveDownButton.width
+                     - moveUpButton.width
+                     - deleteButton.width
           }
 
-          ToolButton {
+          QfToolButton {
+            id: viewButton
+            width: 40
+            height: 40
+
+            round: false
+            iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white-24dp') : Theme.getThemeVectorIcon('ic_baseline-list_alt-24dp')
+            iconColor: Theme.mainTextColor
+            bgcolor: 'transparent'
+
+            onClicked: {
+              embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly'
+              embeddedPopup.currentLayer = orderedRelationModel.relation.referencingLayer
+              embeddedPopup.linkedRelation = orderedRelationModel.relation
+              embeddedPopup.linkedRelationOrderingField = orderedRelationModel.orderingField
+              embeddedPopup.linkedParentFeature = orderedRelationModel.feature
+              embeddedPopup.feature = model.referencingFeature
+              embeddedPopup.open()
+            }
+          }
+
+          QfToolButton {
             id: moveDownButton
-            width: itemHeight
-            height: itemHeight
             visible: isEnabled
+            width: visible ? 40 : 0
+            height: 40
             opacity: (index === listView.count - 1) ? 0.3 : 1
 
-            contentItem: Rectangle {
-              anchors.fill: parent
-              color: 'transparent'
-              Image {
-                anchors.fill: parent
-                anchors.margins: 8
-                fillMode: Image.PreserveAspectFit
-                horizontalAlignment: Image.AlignHCenter
-                verticalAlignment: Image.AlignVCenter
-                source: Theme.getThemeVectorIcon( 'ic_chevron_down' )
-              }
-            }
+            round: false
+            iconSource: Theme.getThemeVectorIcon( 'ic_chevron_down' )
+            iconColor: Theme.mainTextColor
+            bgcolor: 'transparent'
 
             onClicked: {
               if (index === listView.count - 1) {
@@ -273,25 +295,17 @@ EditorWidgetBase {
             }
           }
 
-          ToolButton {
+          QfToolButton {
             id: moveUpButton
-            width: itemHeight
-            height: itemHeight
             visible: isEnabled
+            width: visible ? 40 : 0
+            height: 40
             opacity: (index === 0) ? 0.3 : 1
 
-            contentItem: Rectangle {
-              anchors.fill: parent
-              color: 'transparent'
-              Image {
-                anchors.fill: parent
-                anchors.margins: 8
-                fillMode: Image.PreserveAspectFit
-                horizontalAlignment: Image.AlignHCenter
-                verticalAlignment: Image.AlignVCenter
-                source: Theme.getThemeVectorIcon( 'ic_chevron_up' )
-              }
-            }
+            round: false
+            iconSource: Theme.getThemeVectorIcon( 'ic_chevron_up' )
+            iconColor: Theme.mainTextColor
+            bgcolor: 'transparent'
 
             onClicked: {
               if (index === 0) {
@@ -305,24 +319,16 @@ EditorWidgetBase {
             }
           }
 
-          ToolButton {
+          QfToolButton {
             id: deleteButton
-            width: itemHeight
-            height: itemHeight
             visible: isEnabled
+            width: visible ? 40 : 0
+            height: 40
 
-            contentItem: Rectangle {
-              anchors.fill: parent
-              color: nmRelationId ? 'blue' : Theme.errorColor
-              Image {
-                anchors.fill: parent
-                anchors.margins: 8
-                fillMode: Image.PreserveAspectFit
-                horizontalAlignment: Image.AlignHCenter
-                verticalAlignment: Image.AlignVCenter
-                source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
-              }
-            }
+            round: false
+            iconSource: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
+            iconColor: Theme.mainTextColor
+            bgcolor: 'transparent'
 
             onClicked: {
               deleteDialog.referencingFeatureId = model.referencingFeature.id
@@ -338,7 +344,7 @@ EditorWidgetBase {
           id: bottomLine
           anchors.bottom: parent.bottom
           height: 1
-          color: 'lightGray'
+          color: Theme.controlBorderColor
           width: parent.width
         }
       }
@@ -368,15 +374,18 @@ EditorWidgetBase {
 
     property int referencingFeatureId
     property string referencingFeatureDisplayMessage
-    property string referencingLayerName: relationEditorModel.relation.referencingLayer ? relationEditorModel.relation.referencingLayer.name : ''
+    property string referencingLayerName: orderedRelationModel.relation.referencingLayer ? orderedRelationModel.relation.referencingLayer.name : ''
     property int nmReferencedFeatureId
     property string nmReferencedFeatureDisplayMessage
-    property string nmReferencedLayerName: relationEditorModel.nmRelation.referencedLayer ? relationEditorModel.nmRelation.referencedLayer.name : ''
+    property string nmReferencedLayerName: orderedRelationModel.nmRelation.referencedLayer ? orderedRelationModel.nmRelation.referencedLayer.name : ''
     property string nmReferencingLayerName
 
     visible: false
     modal: true
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
     font: Theme.defaultFont
 
     title: nmRelationId
