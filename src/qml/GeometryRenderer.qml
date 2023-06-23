@@ -9,9 +9,9 @@ Item {
   property MapSettings mapSettings
   property alias geometryWrapper: geometryWrapper
   property double lineWidth: 3.5
-  property color color: "yellow"
+  property color color: "#55ff0000"
   property double pointSize: 20
-  property color borderColor: "blue"
+  property color borderColor: "#ff0000"
   property double borderSize: 2
 
   QgsGeometryWrapper {
