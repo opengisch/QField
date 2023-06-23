@@ -14,6 +14,7 @@
  ***************************************************************************/
 
 #include "featurelistextentcontroller.h"
+#include "featureutils.h"
 
 #include <qgsgeometry.h>
 #include <qgsvectorlayer.h>
@@ -54,26 +55,9 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 
     if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
     {
-      QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
-      QgsGeometry geom( feat.geometry() );
-      if ( !geom.isNull() )
-      {
-        geom.transform( transf );
-
-        if ( geom.type() == Qgis::GeometryType::Point )
-        {
-          if ( !skipIfIntersects || !mMapSettings->extent().intersects( geom.boundingBox() ) )
-            mMapSettings->setCenter( QgsPoint( geom.asPoint() ) );
-        }
-        else
-        {
-          QgsRectangle featureExtent = geom.boundingBox();
-          QgsRectangle bufferedExtent = featureExtent.buffered( std::max( featureExtent.width(), featureExtent.height() ) );
-
-          if ( !skipIfIntersects || !mMapSettings->extent().intersects( bufferedExtent ) )
-            mMapSettings->setExtent( bufferedExtent );
-        }
-      }
+      QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feat );
+      if ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) )
+        mMapSettings->setExtent( extent );
     }
   }
 }

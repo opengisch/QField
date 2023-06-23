@@ -75,7 +75,7 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
       else
       {
         QgsRectangle featureExtent = geom.boundingBox();
-        extent = featureExtent.buffered( std::max( featureExtent.width(), featureExtent.height() ) );
+        extent = featureExtent.buffered( std::max( featureExtent.width(), featureExtent.height() ) / 4.0 );
       }
       return extent;
     }
