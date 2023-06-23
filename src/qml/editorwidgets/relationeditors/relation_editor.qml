@@ -1,6 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
+import QtQuick.Controls.Material 2.14
+import QtQuick.Controls.Material.impl 2.14
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -163,6 +165,31 @@ EditorWidgetBase {
 
           height: Math.max(itemHeight, featureText.height)
 
+          Ripple {
+            clip: true
+            width: parent.width
+            height: parent.height
+            pressed: mouseArea.pressed
+            anchor: listitem
+            active: mouseArea.pressed
+            color: Material.rippleColor
+          }
+
+          MouseArea {
+            id: mouseArea
+            anchors.fill: parent
+
+            onClicked: {
+              if (relationEditorModel.relation.referencingLayer !== undefined) {
+                locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry
+                locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs
+                mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
+                                                                   relationEditorModel.relation.referencingLayer,
+                                                                   nmRelationId ? model.nmReferencingFeature : model.referencingFeature)
+              }
+            }
+          }
+
           Row {
             id: itemRow
             anchors.fill: parent
@@ -178,20 +205,6 @@ EditorWidgetBase {
               color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
               elide: Text.ElideRight
               text: nmRelationId ? model.nmDisplayString : model.displayString
-
-              MouseArea {
-                anchors.fill: parent
-
-                onClicked: {
-                  if (relationEditorModel.relation.referencingLayer !== undefined) {
-                    locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry
-                    locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs
-                    mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
-                                                                       relationEditorModel.relation.referencingLayer,
-                                                                       nmRelationId ? model.nmReferencingFeature : model.referencingFeature)
-                  }
-                }
-              }
             }
 
             QfToolButton {
