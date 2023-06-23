@@ -59,7 +59,6 @@ EditorWidgetBase {
         border.width: 1
         clip: true
 
-        //the list
         ListView {
           id: referencingFeatureListView
           model: relationEditorModel
@@ -86,7 +85,6 @@ EditorWidgetBase {
           }
         }
 
-        //the add entry "last row"
         Item {
           id: addEntry
           anchors.bottom: parent.bottom
@@ -153,7 +151,6 @@ EditorWidgetBase {
         }
     }
 
-    //list components
     Component {
         id: referencingFeatureDelegate
 
@@ -164,52 +161,77 @@ EditorWidgetBase {
 
           focus: true
 
-          height: Math.max( itemHeight, featureText.height )
+          height: Math.max(itemHeight, featureText.height)
 
-          Text {
-            id: featureText
-            anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
-            font: Theme.defaultFont
-            color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
-            text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
-          }
-
-          MouseArea {
+          Row {
+            id: itemRow
             anchors.fill: parent
+            anchors.rightMargin: 10
+            anchors.leftMargin: 10
+            height: listitem.height
 
-            onClicked: {
+            Text {
+              id: featureText
+              anchors.verticalCenter: parent.verticalCenter
+              width: parent.width - viewButton.width - deleteButton.width
+              font: Theme.defaultFont
+              color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+              elide: Text.ElideRight
+              text: nmRelationId ? model.nmDisplayString : model.displayString
+
+              MouseArea {
+                anchors.fill: parent
+
+                onClicked: {
+                  if (relationEditorModel.relation.referencingLayer !== undefined) {
+                    locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry
+                    locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs
+                    mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
+                                                                       relationEditorModel.relation.referencingLayer,
+                                                                       nmRelationId ? model.nmReferencingFeature : model.referencingFeature)
+                  }
+                }
+              }
+            }
+
+            QfToolButton {
+              id: viewButton
+              width: 40
+              height: 40
+
+              round: false
+              iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white-24dp') : Theme.getThemeVectorIcon('ic_baseline-list_alt-24dp')
+              iconColor: Theme.mainTextColor
+              bgcolor: 'transparent'
+
+              onClicked: {
                 embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly'
                 embeddedPopup.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
                 embeddedPopup.linkedRelation = relationEditorModel.relation
                 embeddedPopup.linkedParentFeature = relationEditorModel.feature
                 embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
                 embeddedPopup.open()
+              }
             }
-          }
-
-          Row
-          {
-            id: deleteButtonRow
-            anchors { top: parent.top; right: parent.right; rightMargin: 10 }
-            height: listitem.height
 
             QfToolButton {
-                id: deleteButton
-                width: parent.height
-                height: parent.height
-                visible: isEnabled && isButtonEnabled('DeleteChildFeature')
+              id: deleteButton
+              visible: isEnabled && isButtonEnabled('DeleteChildFeature')
+              width: visible ? 40 : 0
+              height: 40
 
-                round: false
-                iconSource: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
-                bgcolor: nmRelationId ? 'blue' : Theme.errorColor
+              round: false
+              iconSource: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
+              iconColor: Theme.mainTextColor
+              bgcolor: 'transparent'
 
-                onClicked: {
-                    deleteDialog.referencingFeatureId = model.referencingFeature.id
-                    deleteDialog.referencingFeatureDisplayMessage = model.displayString
-                    deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : ''
-                    deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : ''
-                    deleteDialog.visible = true
-                }
+              onClicked: {
+                deleteDialog.referencingFeatureId = model.referencingFeature.id
+                deleteDialog.referencingFeatureDisplayMessage = model.displayString
+                deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : ''
+                deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : ''
+                deleteDialog.visible = true
+              }
             }
           }
 
@@ -224,7 +246,6 @@ EditorWidgetBase {
         }
     }
 
-    //the delete entry stuff
     Dialog {
       id: deleteDialog
       parent: mainWindow.contentItem
@@ -240,6 +261,9 @@ EditorWidgetBase {
       visible: false
       modal: true
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
+      x: ( mainWindow.width - width ) / 2
+      y: ( mainWindow.height - height ) / 2
+
       font: Theme.defaultFont
 
       title: nmRelationId
