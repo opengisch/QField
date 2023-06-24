@@ -52,7 +52,7 @@ QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feat
   return name;
 }
 
-QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature )
+QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature, const double &rightEdge, const double &bottomEdge )
 {
   if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
   {
@@ -63,20 +63,34 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
       geom.transform( transf );
 
       QgsRectangle extent;
+      const double rightPercentage = rightEdge / mapSettings->outputSize().width();
+      const double bottomPercentage = bottomEdge / mapSettings->outputSize().height();
       if ( geom.type() == Qgis::GeometryType::Point )
       {
-        QgsVector delta = QgsPointXY( geom.asPoint() ) - mapSettings->extent().center();
         extent = mapSettings->extent();
-        extent.setXMinimum( extent.xMinimum() + delta.x() );
-        extent.setXMaximum( extent.xMaximum() + delta.x() );
-        extent.setYMinimum( extent.yMinimum() + delta.y() );
-        extent.setYMaximum( extent.yMaximum() + delta.y() );
+        QgsVector delta = QgsPointXY( geom.asPoint() ) - extent.center();
+        const double deltaX = delta.x() + ( rightEdge > 0.0 ? mapSettings->mapUnitsPerPoint() * mapSettings->outputSize().width() * ( 0.5 - rightPercentage / 2.0 ) : 0.0 );
+        const double deltaY = delta.y() - ( bottomEdge > 0.0 ? mapSettings->mapUnitsPerPoint() * mapSettings->outputSize().height() * ( 0.5 - ( 1.0 - bottomPercentage ) / 2.0 ) : 0.0 );
+        extent.setXMinimum( extent.xMinimum() + deltaX );
+        extent.setXMaximum( extent.xMaximum() + deltaX );
+        extent.setYMinimum( extent.yMinimum() + deltaY );
+        extent.setYMaximum( extent.yMaximum() + deltaY );
       }
       else
       {
-        QgsRectangle featureExtent = geom.boundingBox();
-        extent = featureExtent.buffered( std::max( featureExtent.width(), featureExtent.height() ) / 4.0 );
+        extent = geom.boundingBox();
+        extent = extent.buffered( std::max( extent.width(), extent.height() ) / 6.0 );
+
+        if ( rightEdge > 0.0 )
+        {
+          extent.setXMaximum( extent.xMaximum() + ( extent.xMaximum() - extent.xMinimum() ) * rightPercentage );
+        }
+        if ( bottomEdge > 0.0 )
+        {
+          extent.setYMinimum( extent.yMinimum() - ( extent.yMaximum() - extent.yMinimum() ) * bottomPercentage * 2 );
+        }
       }
+
       return extent;
     }
   }

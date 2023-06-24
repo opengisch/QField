@@ -164,7 +164,7 @@ EditorWidgetBase {
           orderedRelationModel.moveItems(indexFrom, indexTo)
         } else if (listView.currentIndex !== dragArea.DelegateModel.itemsIndex) {
           listView.currentIndex = dragArea.DelegateModel.itemsIndex
-          orderedRelationModel.viewCurrentFeatureChanged(listView.currentIndex)
+          orderedRelationModel.triggerViewCurrentFeatureChange(listView.currentIndex)
         }
       }
 
@@ -174,7 +174,9 @@ EditorWidgetBase {
           locatorHighlightItem.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs
           mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
                                                              orderedRelationModel.relation.referencingLayer,
-                                                             nmRelationId ? model.nmReferencingFeature : model.referencingFeature)
+                                                             nmRelationId ? model.nmReferencingFeature : model.referencingFeature,
+                                                             featureForm.x,
+                                                             featureForm.y)
         }
       }
 
