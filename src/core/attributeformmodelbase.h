@@ -86,8 +86,14 @@ class AttributeFormModelBase : public QStandardItemModel
                     int currentTabIndex = 0,
                     int columnCount = 1 );
 
+
+    //! Synchronize all items linked to the \a fieldIndex to have the same \a value.
+    void synchronizeFieldValue( int fieldIndex, QVariant value );
+
+    //! Update default values refering to the \a fieldIndex.
     void updateDefaultValues( int fieldIndex = -1, QVector<int> updatedFields = QVector<int>() );
 
+    //! Udate the visibility state of groups as well as constraints of field items
     void updateVisibilityAndConstraints( int fieldIndex = -1 );
 
     void setConstraintsHardValid( bool constraintsHardValid );

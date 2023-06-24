@@ -112,8 +112,7 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
         bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
         if ( changed )
         {
-          item->setData( value, AttributeFormModel::AttributeValue );
-          emit dataChanged( index, index, QVector<int>() << role );
+          synchronizeFieldValue( fieldIndex, value );
         }
         updateDefaultValues( fieldIndex );
         updateVisibilityAndConstraints( fieldIndex );
@@ -347,6 +346,8 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
     item->setData( currentTabIndex, AttributeFormModel::TabIndex );
     item->setData( QString(), AttributeFormModel::GroupName );
     item->setData( QVariant(), AttributeFormModel::GroupIndex );
+    item->setData( true, AttributeFormModel::ConstraintHardValid );
+    item->setData( true, AttributeFormModel::ConstraintSoftValid );
 
     QgsAttributeEditorElement::LabelStyle labelStyle = element->labelStyle();
     item->setData( labelStyle.overrideColor, AttributeFormModel::LabelOverrideColor );
@@ -420,8 +421,6 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( "field", AttributeFormModel::ElementType );
         item->setData( fieldIndex, AttributeFormModel::FieldIndex );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
-        item->setData( true, AttributeFormModel::ConstraintHardValid );
-        item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
 
         // create constraint description
@@ -544,6 +543,20 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
   }
 }
 
+void AttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant value )
+{
+  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  {
+    QStandardItem *item = constraintIterator.key();
+    const int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    if ( fidx != fieldIndex )
+      continue;
+
+    item->setData( value, AttributeFormModel::AttributeValue );
+  }
+}
+
 void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> updatedFields )
 {
   const QgsFields fields = mFeatureModel->feature().fields();
@@ -558,7 +571,7 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
-    int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    const int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
     if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
       continue;
 
@@ -575,7 +588,7 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
     const QVariant updatedValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
     if ( success && updatedValue != previousValue )
     {
-      item->setData( defaultValue, AttributeFormModel::AttributeValue );
+      synchronizeFieldValue( fidx, updatedValue );
       if ( !updatedFields.contains( fidx ) )
       {
         updatedFields.append( fidx );
@@ -592,6 +605,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
   mExpressionContext.setFields( fields );
   mExpressionContext.setFeature( mFeatureModel->feature() );
 
+  bool visibilityChanged = false;
   for ( const VisibilityExpression &it : std::as_const( mVisibilityExpressions ) )
   {
     if ( fieldIndex == -1 || it.first.referencedAttributeIndexes( fields ).contains( fieldIndex ) )
@@ -605,34 +619,31 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
         if ( item->data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
         {
           item->setData( visible, AttributeFormModel::CurrentlyVisible );
-          emit dataChanged( item->index(), item->index(), QVector<int>() << AttributeFormModel::CurrentlyVisible );
+          visibilityChanged = true;
         }
       }
     }
   }
 
-  // reset contrainsts status of containers
-  if ( mHasTabs )
-  {
-    QStandardItem *root = invisibleRootItem();
-    for ( int i = 0; i < root->rowCount(); i++ )
-    {
-      QStandardItem *item = root->child( i, 0 );
-      item->setData( true, AttributeFormModel::ConstraintHardValid );
-      item->setData( true, AttributeFormModel::ConstraintSoftValid );
-    }
-  }
-
-  bool allConstraintsHardValid = true;
-  bool allConstraintsSoftValid = true;
   QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  QMap<int, bool> hardConstraintsCache;
+  QMap<int, bool> softConstraintsCache;
+  bool validityChanged = false;
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
-    const bool isVisible = item->parent() ? item->parent()->data( AttributeFormModel::CurrentlyVisible ).toBool()
-                                          : true;
     int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
-    if ( isVisible && mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeAllowEdit ) == true )
+    if ( fieldIndex != -1 && fidx != fieldIndex )
+    {
+      const QString fieldName = mLayer->fields().at( fieldIndex ).name();
+      const QgsExpression expression = mLayer->fields().at( fieldIndex ).constraints().constraintExpression();
+      if ( !expression.referencedColumns().contains( fieldName ) )
+      {
+        continue;
+      }
+    }
+
+    if ( mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeAllowEdit ) == true )
     {
       QStringList errors;
 
@@ -649,43 +660,36 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
         feature.setAttribute( fidx, defaultValueClause );
       }
 
-      bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, feature, fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
+      bool hardConstraintSatisfied = false;
+      if ( !hardConstraintsCache.contains( fidx ) )
+      {
+        hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, feature, fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
+        hardConstraintsCache[fidx] = hardConstraintSatisfied;
+      }
+      else
+      {
+        hardConstraintSatisfied = hardConstraintsCache.value( fidx );
+      }
       if ( hardConstraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
       {
         item->setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
-      }
-      if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
-      {
-        allConstraintsHardValid = false;
-        if ( mHasTabs && item->parent() )
-        {
-          QStandardItem *parentItem = item->parent();
-          while ( parentItem->parent() )
-          {
-            parentItem = parentItem->parent();
-          }
-          parentItem->setData( false, AttributeFormModel::ConstraintHardValid );
-        }
+        validityChanged = true;
       }
 
-      QStringList softErrors;
-      bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
+      bool softConstraintSatisfied = false;
+      if ( !softConstraintsCache.contains( fidx ) )
+      {
+        softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, errors, QgsFieldConstraints::ConstraintStrengthSoft );
+        softConstraintsCache[fidx] = softConstraintSatisfied;
+      }
+      else
+      {
+        softConstraintSatisfied = softConstraintsCache.value( fidx );
+      }
       if ( softConstraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
       {
         item->setData( softConstraintSatisfied, AttributeFormModel::ConstraintSoftValid );
-      }
-      if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
-      {
-        allConstraintsSoftValid = false;
-        if ( mHasTabs && item->parent() )
-        {
-          QStandardItem *parentItem = item->parent();
-          while ( parentItem->parent() )
-          {
-            parentItem = parentItem->parent();
-          }
-          parentItem->setData( false, AttributeFormModel::ConstraintSoftValid );
-        }
+        validityChanged = true;
       }
     }
     else
@@ -695,8 +699,99 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     }
   }
 
-  setConstraintsHardValid( allConstraintsHardValid );
-  setConstraintsSoftValid( allConstraintsSoftValid );
+  auto checkChildrenValidity = [=]( QStandardItem *tab, bool &hardValidity, bool &softValidity ) {
+    QStandardItem *item = tab->child( 0, 0 );
+    while ( item )
+    {
+      const bool isVisible = item->data( AttributeFormModel::CurrentlyVisible ).toBool();
+      if ( isVisible )
+      {
+        if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+        {
+          hardValidity = false;
+          break;
+        }
+        if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+        {
+          softValidity = false;
+        }
+      }
+
+      if ( isVisible && item->hasChildren() )
+      {
+        item = item->child( 0, 0 );
+      }
+      else
+      {
+        int nextRow = item->row() + 1;
+        QStandardItem *parentItem = item->parent();
+        if ( !parentItem )
+        {
+          parentItem = invisibleRootItem();
+        }
+        QStandardItem *nextItem = parentItem->child( nextRow, 0 );
+        while ( !nextItem )
+        {
+          if ( parentItem == tab )
+            break;
+
+          nextRow = parentItem->row() + 1;
+          parentItem = parentItem->parent();
+          nextItem = parentItem->child( nextRow, 0 );
+        }
+        item = nextItem;
+      }
+    }
+  };
+
+  // reset contrainsts status of containers
+  if ( validityChanged || visibilityChanged )
+  {
+    bool allConstraintsHardValid = true;
+    bool allConstraintsSoftValid = true;
+
+    if ( mHasTabs )
+    {
+      QStandardItem *root = invisibleRootItem();
+      for ( int i = 0; i < root->rowCount(); i++ )
+      {
+        bool hardValidity = true;
+        bool softValidity = true;
+
+        QStandardItem *tab = root->child( i, 0 );
+        checkChildrenValidity( tab, hardValidity, softValidity );
+        if ( !hardValidity )
+        {
+          allConstraintsHardValid = false;
+        }
+        if ( !softValidity )
+        {
+          allConstraintsSoftValid = false;
+        }
+        tab->setData( hardValidity, AttributeFormModel::ConstraintHardValid );
+        tab->setData( softValidity, AttributeFormModel::ConstraintSoftValid );
+      }
+    }
+    else
+    {
+      bool hardValidity = true;
+      bool softValidity = true;
+      QStandardItem *tab = invisibleRootItem();
+      checkChildrenValidity( tab, hardValidity, softValidity );
+
+      if ( !hardValidity )
+      {
+        allConstraintsHardValid = false;
+      }
+      if ( !softValidity )
+      {
+        allConstraintsSoftValid = false;
+      }
+    }
+
+    setConstraintsHardValid( allConstraintsHardValid );
+    setConstraintsSoftValid( allConstraintsSoftValid );
+  }
 }
 
 bool AttributeFormModelBase::constraintsHardValid() const
