@@ -75,7 +75,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
       if ( pg.isMultipart() )
       {
         QSGOpacityNode *on = new QSGOpacityNode;
-        on->setOpacity( 0.5 );
+        on->setOpacity( 0.25 );
 
         QgsGeometryPartIterator it = pg.parts();
         while ( it.hasNext() )
@@ -105,7 +105,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
       else
       {
         QSGOpacityNode *on = new QSGOpacityNode;
-        on->setOpacity( 0.5 );
+        on->setOpacity( 0.25 );
         QSGGeometryNode *geomNode = new QSGGeometryNode;
         QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( pg.get() );
         if ( !c )

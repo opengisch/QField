@@ -9,10 +9,9 @@ Item {
   property MapSettings mapSettings
   property alias geometryWrapper: geometryWrapper
   property double lineWidth: 3.5
-  property color color: "#55ff0000"
+  property color color: "#ff0000"
   property double pointSize: 20
-  property color borderColor: "#ff0000"
-  property double borderSize: 2
+  property double borderSize: 3
 
   QgsGeometryWrapper {
     id: geometryWrapper
@@ -70,12 +69,12 @@ Item {
         x: mapToScreenPosition.screenPoint.x - width/2
         y: mapToScreenPosition.screenPoint.y - width/2
 
-        color: geometryRenderer.color
+        color: Qt.hsla(geometryRenderer.color.hslHue, geometryRenderer.color.hslSaturation, geometryRenderer.color.hslLightness, 0.5)
         width: geometryRenderer.pointSize
         height: geometryRenderer.pointSize
         radius: geometryRenderer.pointSize / 2
 
-        border.color: geometryRenderer.borderColor
+        border.color: geometryRenderer.color
         border.width: geometryRenderer.borderSize
       }
     }
