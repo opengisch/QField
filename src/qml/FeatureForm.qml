@@ -48,6 +48,7 @@ Page {
     }
   }
 
+  clip: true
   states: [
     State {
       name: 'ReadOnly'
