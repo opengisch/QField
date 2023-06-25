@@ -420,14 +420,16 @@ Item {
                 onDisplayTextChanged: {
                     if (activeFocus) {
                         if (text != comboBox.displayText) {
-                            var trimmedText = text.trim();
+                            var trimmedText = text.trim()
                             var matches = featureListModel.findDisplayValueMatches(trimmedText)
                             if (matches.length > 0) {
                                 var remainder = featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole).substring(trimmedText.length)
                                 searchableLabel.completer = '<span style="color:rgba(0,0,0,0);">' + trimmedText + '</span><span style="font-weight:'
                                         + (matches.length === 1 ? 'bold' : 'normal' ) + ';">'  + remainder + '</span>'
+                                color = Theme.mainTextColor
                             } else {
                                 searchableLabel.completer = ''
+                                color = Theme.warningColor
                             }
                         } else {
                             searchableLabel.completer = ''
@@ -441,24 +443,31 @@ Item {
                         if (text === '') {
                             if (!featureListModel.addNull || comboBox.currentIndex != 0) {
                                 text = comboBox.displayText
-                                searchableLabel.completer = ''
-                            } else {
-                                searchableLabel.completer = ''
+                                color = Theme.mainTextColor
                             }
+                            searchableLabel.completer = ''
                         }
                     } else {
-                        if (text === '' && featureListModel.addNull) {
-                            comboBox.currentIndex = 0;
-                            searchableLabel.completer = comboBox.displayText
-                        } else {
-                            applyAutoCompletion(true)
+                        if (!isLastKeyPressedReturn) {
+                            if (text === '' && featureListModel.addNull) {
+                                comboBox.currentIndex = 0;
+                                searchableLabel.completer = comboBox.displayText
+                            } else {
+                                applyAutoCompletion(true)
+                            }
                         }
                     }
                 }
 
+                property bool isLastKeyPressedReturn: false
                 Keys.onPressed: {
                     if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-                        applyAutoCompletion()
+                        if (!isLastKeyPressedReturn) {
+                          applyAutoCompletion()
+                        }
+                        isLastKeyPressedReturn = true
+                    } else {
+                      isLastKeyPressedReturn = false
                     }
                 }
 
