@@ -2402,11 +2402,17 @@ ApplicationWindow {
       }
 
       Menu {
+        id: featureMenu
+
         property int fid: featureId
         property var featureLayer: currentLayer
 
+        topMargin: sceneTopMargin
+        bottomMargin: sceneBottomMargin
+
         title: layerName + ': ' + featureName
         font: Theme.defaultFont
+        leftPadding: 10
 
         width: {
             var result = 0;
@@ -2417,6 +2423,12 @@ ApplicationWindow {
                 padding = Math.max(item.padding, padding);
             }
             return Math.min(result + padding * 2,mainWindow.width - 20);
+        }
+
+        Component.onCompleted: {
+          if (featureMenu.icon !== undefined) {
+            featureMenu.icon.source = Theme.getThemeVectorIcon('ic_info_white_24dp')
+          }
         }
 
         MenuItem {
@@ -2435,7 +2447,7 @@ ApplicationWindow {
         MenuSeparator { width: parent.width }
 
         MenuItem {
-          text: qsTr('Duplicate & Move Feature')
+          text: qsTr('Duplicate Feature')
           font: Theme.defaultFont
           enabled: projectInfo.insertRights
           icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )

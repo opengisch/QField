@@ -145,7 +145,6 @@ void MultiFeatureListModelBase::clearSelection()
 
 void MultiFeatureListModelBase::toggleSelectedItem( int item )
 {
-  qDebug() << item;
   if ( !mSelectedFeatures.contains( mFeatures.at( item ) ) )
   {
     mSelectedFeatures << mFeatures.at( item );
@@ -233,7 +232,6 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
   switch ( role )
   {
     case MultiFeatureListModel::FeatureIdRole:
-      qDebug() << feature->second.id();
       return feature->second.id();
 
     case MultiFeatureListModel::FeatureSelectedRole:
