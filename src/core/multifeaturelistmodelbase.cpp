@@ -145,6 +145,7 @@ void MultiFeatureListModelBase::clearSelection()
 
 void MultiFeatureListModelBase::toggleSelectedItem( int item )
 {
+  qDebug() << item;
   if ( !mSelectedFeatures.contains( mFeatures.at( item ) ) )
   {
     mSelectedFeatures << mFeatures.at( item );

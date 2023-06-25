@@ -2402,6 +2402,9 @@ ApplicationWindow {
       }
 
       Menu {
+        property int fid: featureId
+        property var featureLayer: currentLayer
+
         title: layerName + ': ' + featureName
         font: Theme.defaultFont
 
@@ -2417,18 +2420,41 @@ ApplicationWindow {
         }
 
         MenuItem {
-          property int fid: featureId
-          property var featureLayer: currentLayer
-
-          text: qsTr('Open feature form')
+          text: qsTr('Open Feature Form')
           font: Theme.defaultFont
           icon.source: Theme.getThemeIcon( "ic_baseline-list_alt-24px" )
           leftPadding: 10
 
           onTriggered: {
-            featureForm.model.setFeatures(featureLayer, '$id = ' + fid)
+            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
             featureForm.selection.focusedItem = 0
             featureForm.state = "FeatureForm"
+          }
+        }
+
+        MenuSeparator { width: parent.width }
+
+        MenuItem {
+          text: qsTr('Duplicate & Move Feature')
+          font: Theme.defaultFont
+          enabled: projectInfo.insertRights
+          icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
+          leftPadding: 10
+
+          onTriggered: {
+            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
+            featureForm.selection.focusedItem = 0
+            featureForm.multiSelection = true
+            featureForm.selection.toggleSelectedItem(0)
+            featureForm.state = "FeatureList"
+            if (featureForm.model.canDuplicateSelection) {
+              if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature)) {
+                featureForm.selection.focusedItem = -1
+                displayToast(qsTr("Successfully duplicated feature"))
+                return;
+              }
+            }
+            displayToast(qsTr( "Feature duplication not available" ))
           }
         }
       }
