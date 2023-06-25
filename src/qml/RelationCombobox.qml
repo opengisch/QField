@@ -377,8 +377,11 @@ Item {
                 property bool useCompleter: false
                 property string completer: ''
 
+                anchors.verticalCenter: parent.verticalCenter
+                topPadding: 0
                 leftPadding: 5
                 rightPadding: 5
+                bottomPadding: 0
                 width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
                 height: fontMetrics.height + 12
                 text: useCompleter ? completer : comboBox.displayText
@@ -398,10 +401,10 @@ Item {
                 property string typedFilter: ''
 
                 anchors.verticalCenter: parent.verticalCenter
-                topPadding: fontMetrics.ascent - 1
+                topPadding: 0
                 rightPadding: 5
                 leftPadding: 5
-                bottomPadding: 5
+                bottomPadding: 0
                 topInset: 0
                 bottomInset: 0
                 width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
