@@ -487,6 +487,8 @@ Rectangle {
           featureForm.selection.focusedItem = -1
           featureForm.state = "FeatureList"
           featureForm.multiSelection = true
+
+          moveFeaturesToolbar.initializeMoveFeatures()
         }
     }
 
@@ -568,6 +570,7 @@ Rectangle {
         if  (featureForm.multiSelection) {
           if (featureForm.model.duplicateSelection()) {
               displayToast( qsTr( "Successfully duplicated selected features, list updated to show newly-created features" ) )
+              moveFeaturesToolbar.initializeMoveFeatures()
           }
         }
     }
