@@ -181,6 +181,7 @@ QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
   roleNames[Qt::DisplayRole] = "display";
   roleNames[MultiFeatureListModel::FeatureIdRole] = "featureId";
   roleNames[MultiFeatureListModel::FeatureSelectedRole] = "featureSelected";
+  roleNames[MultiFeatureListModel::FeatureNameRole] = "featureName";
   roleNames[MultiFeatureListModel::FeatureRole] = "feature";
   roleNames[MultiFeatureListModel::LayerNameRole] = "layerName";
   roleNames[MultiFeatureListModel::LayerRole] = "currentLayer";
@@ -231,6 +232,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
   switch ( role )
   {
     case MultiFeatureListModel::FeatureIdRole:
+      qDebug() << feature->second.id();
       return feature->second.id();
 
     case MultiFeatureListModel::FeatureSelectedRole:
@@ -248,6 +250,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return feature->second;
 
     case Qt::DisplayRole:
+    case MultiFeatureListModel::FeatureNameRole:
     {
       return FeatureUtils::displayName( feature->first, feature->second );
     }
