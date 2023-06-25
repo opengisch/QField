@@ -398,8 +398,10 @@ Item {
                 property string typedFilter: ''
 
                 anchors.verticalCenter: parent.verticalCenter
-                padding: 5
                 topPadding: fontMetrics.ascent - 1
+                rightPadding: 5
+                leftPadding: 5
+                bottomPadding: 5
                 topInset: 0
                 bottomInset: 0
                 width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
