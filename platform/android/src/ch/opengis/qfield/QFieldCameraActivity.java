@@ -122,6 +122,14 @@ public class QFieldCameraActivity extends Activity {
                     e.printStackTrace();
                 }
 
+                // Let the android scan new media folders/files to make them
+                // visible through MTP
+                result.setReadable(true);
+                result.setWritable(true);
+                MediaScannerConnection.scanFile(
+                    this, new String[] {result.getParentFile().toString()},
+                    null, null);
+
                 Intent intent = this.getIntent();
                 intent.putExtra("RESOURCE_FILENAME", prefix + finalFilePath);
                 setResult(RESULT_OK, intent);
