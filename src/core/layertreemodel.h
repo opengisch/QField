@@ -137,6 +137,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
       LabelsVisible,
       Opacity,
       FilterExpression,
+      Credits,
     };
     Q_ENUM( Roles )
 
