@@ -900,6 +900,30 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return QString();
     }
 
+    case FlatLayerTreeModel::Credits:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      QgsMapLayer *layer = nullptr;
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        layer = nodeLayer->layer();
+      }
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
+      {
+        layer = sym->layerNode()->layer();
+      }
+
+      if ( layer )
+      {
+        QStringList credits = !layer->metadata().rights().isEmpty() ? layer->metadata().rights() : QStringList() << layer->attribution();
+        std::for_each( credits.begin(), credits.end(), []( QString &credit ) { credit = credit.trimmed(); } );
+        credits.removeAll( QStringLiteral( "" ) ); // skip-keyword-check
+        return credits.join( QStringLiteral( "; " ) );
+      }
+      return QVariant();
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -1040,6 +1064,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::LabelsVisible] = "LabelsVisible";
   roleNames[FlatLayerTreeModel::Opacity] = "Opacity";
   roleNames[FlatLayerTreeModel::FilterExpression] = "FilterExpression";
+  roleNames[FlatLayerTreeModel::Credits] = "Credits";
   return roleNames;
 }
 
