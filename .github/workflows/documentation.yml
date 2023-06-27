@@ -1,0 +1,27 @@
+---
+name: 📜 Documentation
+on:
+  pull_request_target:
+    types:
+      - closed
+      - labeled
+jobs:
+  backport:
+    runs-on: ubuntu-latest
+    name: Create documentation task
+    if: contains(github.event.pull_request.labels.*.name, 'needs documentation')
+    steps:
+      - name: Create task
+        run: |
+          curl -i -X POST \
+            'https://api.clickup.com/api/v2/list/900400532890/task' \
+            -H 'Authorization: ${{ secrets.CLICKUP_TOKEN}}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "name": "${{ github.context.payload.pull_request.title }}",
+              "description": "Coming from pull request ${{ github.context.payload.pull_request.url }}",
+              "tags": [
+                "qfield"
+              ],
+              "status": "Open"
+            }'
