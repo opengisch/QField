@@ -18,6 +18,7 @@ vcpkg_from_github(
         bigobj.patch
         poly2tri.patch
         mesh.patch
+        vectortilelabels.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
