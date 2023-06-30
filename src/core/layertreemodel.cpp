@@ -852,7 +852,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         {
           return vectorLayer->isSpatial() && vectorLayer->labeling();
         }
-#if _QGIS_VERSION_INT >= 33300 || WITH_VCPKG
+#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           return vectorTileLayer->labeling() ? true : false;
@@ -873,7 +873,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         {
           return vectorLayer->isSpatial() && vectorLayer->labeling() && vectorLayer->labelsEnabled();
         }
-#if _QGIS_VERSION_INT >= 33300 || WITH_VCPKG
+#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           return vectorTileLayer->labeling() && vectorTileLayer->labelsEnabled();
@@ -998,7 +998,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
           emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
           return true;
         }
-#if _QGIS_VERSION_INT >= 33300 || WITH_VCPKG
+#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           if ( !vectorTileLayer->labeling() )

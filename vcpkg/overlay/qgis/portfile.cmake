@@ -20,7 +20,8 @@ vcpkg_from_github(
         poly2tri.patch
         mesh.patch
         sharedmem_ios.patch
-        vectortilelabels.patch
+        vectortilelabels.patch # Remove when updating to QGIS 3.34
+        version.patch # Remove when updating to QGIS 3.34
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
