@@ -13,7 +13,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "layertreemodel.h"
+#include "qfield.h"
 
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
@@ -25,6 +27,7 @@
 #include <qgsrasterlayer.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerfeaturecounter.h>
+#include <qgsvectortilelayer.h>
 
 FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
   : QSortFilterProxyModel( parent )
@@ -842,27 +845,43 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     case FlatLayerTreeModel::HasLabels:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
-      QgsVectorLayer *layer = nullptr;
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-        layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+        if ( QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
+        {
+          return vectorLayer->isSpatial() && vectorLayer->labeling();
+        }
+#if _QGIS_VERSION_INT >= 33299
+        else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
+        {
+          return vectorTileLayer->labeling() ? true : false;
+        }
+#endif
       }
 
-      return layer && layer->isSpatial() && layer->labeling();
+      return false;
     }
 
     case FlatLayerTreeModel::LabelsVisible:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
-      QgsVectorLayer *layer = nullptr;
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-        layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+        if ( QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
+        {
+          return vectorLayer->isSpatial() && vectorLayer->labeling() && vectorLayer->labelsEnabled();
+        }
+#if _QGIS_VERSION_INT >= 33299
+        else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
+        {
+          return vectorTileLayer->labeling() && vectorTileLayer->labelsEnabled();
+        }
+#endif
       }
 
-      return layer && layer->isSpatial() && layer->labeling() && layer->labelsEnabled();
+      return false;
     }
 
     case FlatLayerTreeModel::Opacity:
@@ -964,22 +983,38 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
     case FlatLayerTreeModel::LabelsVisible:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
-      QgsVectorLayer *layer = nullptr;
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-        layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+        if ( QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
+        {
+          if ( !vectorLayer->isSpatial() || !vectorLayer->labeling() )
+            break;
+
+          vectorLayer->setLabelsEnabled( !vectorLayer->labelsEnabled() );
+          vectorLayer->emitStyleChanged();
+          vectorLayer->triggerRepaint();
+
+          emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
+          return true;
+        }
+#if _QGIS_VERSION_INT >= 33299
+        else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
+        {
+          if ( !vectorTileLayer->labeling() )
+            break;
+
+          vectorTileLayer->setLabelsEnabled( !vectorTileLayer->labelsEnabled() );
+          vectorTileLayer->emitStyleChanged();
+          vectorTileLayer->triggerRepaint();
+
+          emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
+          return true;
+        }
+#endif
       }
 
-      if ( !layer || !layer->isSpatial() || !layer->labeling() )
-        return false;
-
-      layer->setLabelsEnabled( !layer->labelsEnabled() );
-      layer->emitStyleChanged();
-      layer->triggerRepaint();
-
-      emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
-      return true;
+      return false;
     }
 
     case FlatLayerTreeModel::IsCollapsed:

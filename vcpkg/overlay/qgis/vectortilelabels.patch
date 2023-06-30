@@ -1,0 +1,183 @@
+diff --git a/python/core/auto_generated/vectortile/qgsvectortilelayer.sip.in b/python/core/auto_generated/vectortile/qgsvectortilelayer.sip.in
+index e6a4cd09315..d3c89f603ec 100644
+--- a/python/core/auto_generated/vectortile/qgsvectortilelayer.sip.in
++++ b/python/core/auto_generated/vectortile/qgsvectortilelayer.sip.in
+@@ -194,6 +194,33 @@ Sets labeling for the map layer.
+     QgsVectorTileLabeling *labeling() const;
+ %Docstring
+ Returns currently assigned labeling
++%End
++
++    bool labelsEnabled() const;
++%Docstring
++Returns whether the layer contains labels which are enabled and should be drawn.
++
++:return: ``True`` if layer contains enabled labels
++
++.. seealso:: :py:func:`setLabelsEnabled`
++
++.. versionadded:: 3.34
++%End
++
++    void setLabelsEnabled( bool enabled );
++%Docstring
++Sets whether labels should be ``enabled`` for the layer.
++
++.. note::
++
++   Labels will only be rendered if :py:func:`~QgsVectorTileLayer.labelsEnabled` is ``True`` and a labeling
++   object is returned by :py:func:`~QgsVectorTileLayer.labeling`.
++
++.. seealso:: :py:func:`labelsEnabled`
++
++.. seealso:: :py:func:`labeling`
++
++.. versionadded:: 3.34
+ %End
+ 
+     void setTileBorderRenderingEnabled( bool enabled );
+diff --git a/src/core/vectortile/qgsvectortilelayer.cpp b/src/core/vectortile/qgsvectortilelayer.cpp
+index d7da9f135f3..8e80d0f513f 100644
+--- a/src/core/vectortile/qgsvectortilelayer.cpp
++++ b/src/core/vectortile/qgsvectortilelayer.cpp
+@@ -247,6 +247,11 @@ bool QgsVectorTileLayer::readSymbology( const QDomNode &node, QString &errorMess
+         errorMessage = tr( "Unknown labeling type: " ) + rendererType;
+       }
+ 
++      if ( elemLabeling.hasAttribute( QStringLiteral( "labelsEnabled" ) ) )
++        mLabelsEnabled = elemLabeling.attribute( QStringLiteral( "labelsEnabled" ) ).toInt();
++      else
++        mLabelsEnabled = true;
++
+       if ( labeling )
+       {
+         labeling->readXml( elemLabeling, context );
+@@ -304,6 +309,7 @@ bool QgsVectorTileLayer::writeSymbology( QDomNode &node, QDomDocument &doc, QStr
+   {
+     QDomElement elemLabeling = doc.createElement( QStringLiteral( "labeling" ) );
+     elemLabeling.setAttribute( QStringLiteral( "type" ), mLabeling->type() );
++    elemLabeling.setAttribute( QStringLiteral( "labelsEnabled" ), mLabelsEnabled ? QStringLiteral( "1" ) : QStringLiteral( "0" ) );
+     mLabeling->writeXml( elemLabeling, context );
+     elem.appendChild( elemLabeling );
+   }
+@@ -619,6 +625,21 @@ QgsVectorTileLabeling *QgsVectorTileLayer::labeling() const
+   return mLabeling.get();
+ }
+ 
++bool QgsVectorTileLayer::labelsEnabled() const
++{
++  // non fatal for now -- the "rasterize" processing algorithm is not thread safe and calls this
++  QGIS_PROTECT_QOBJECT_THREAD_ACCESS_NON_FATAL
++
++  return mLabelsEnabled && static_cast< bool >( mLabeling );
++}
++
++void QgsVectorTileLayer::setLabelsEnabled( bool enabled )
++{
++  QGIS_PROTECT_QOBJECT_THREAD_ACCESS
++
++  mLabelsEnabled = enabled;
++}
++
+ QList<QgsFeature> QgsVectorTileLayer::selectedFeatures() const
+ {
+   QGIS_PROTECT_QOBJECT_THREAD_ACCESS
+diff --git a/src/core/vectortile/qgsvectortilelayer.h b/src/core/vectortile/qgsvectortilelayer.h
+index 002271a4d03..5bbd39c5683 100644
+--- a/src/core/vectortile/qgsvectortilelayer.h
++++ b/src/core/vectortile/qgsvectortilelayer.h
+@@ -216,6 +216,27 @@ class CORE_EXPORT QgsVectorTileLayer : public QgsMapLayer
+     //! Returns currently assigned labeling
+     QgsVectorTileLabeling *labeling() const;
+ 
++    /**
++     * Returns whether the layer contains labels which are enabled and should be drawn.
++     * \returns TRUE if layer contains enabled labels
++     *
++     * \see setLabelsEnabled()
++     * \since QGIS 3.34
++     */
++    bool labelsEnabled() const;
++
++    /**
++     * Sets whether labels should be \a enabled for the layer.
++     *
++     * \note Labels will only be rendered if labelsEnabled() is TRUE and a labeling
++     * object is returned by labeling().
++     *
++     * \see labelsEnabled()
++     * \see labeling()
++     * \since QGIS 3.34
++     */
++    void setLabelsEnabled( bool enabled );
++
+     //! Sets whether to render also borders of tiles (useful for debugging)
+     void setTileBorderRenderingEnabled( bool enabled ) { mTileBorderRendering = enabled; }
+     //! Returns whether to render also borders of tiles (useful for debugging)
+@@ -293,6 +314,8 @@ class CORE_EXPORT QgsVectorTileLayer : public QgsMapLayer
+     std::unique_ptr<QgsVectorTileRenderer> mRenderer;
+     //! Labeling assigned to the layer to produce labels
+     std::unique_ptr<QgsVectorTileLabeling> mLabeling;
++    //! True if labels are enabled
++    bool mLabelsEnabled = true;
+     //! Whether we draw borders of tiles
+     bool mTileBorderRendering = false;
+ 
+diff --git a/src/core/vectortile/qgsvectortilelayerrenderer.cpp b/src/core/vectortile/qgsvectortilelayerrenderer.cpp
+index 76a0c0aa9bf..99885994b61 100644
+--- a/src/core/vectortile/qgsvectortilelayerrenderer.cpp
++++ b/src/core/vectortile/qgsvectortilelayerrenderer.cpp
+@@ -36,6 +36,7 @@ QgsVectorTileLayerRenderer::QgsVectorTileLayerRenderer( QgsVectorTileLayer *laye
+   , mDataProvider( qgis::down_cast< const QgsVectorTileDataProvider* >( layer->dataProvider() )->clone() )
+   , mRenderer( layer->renderer()->clone() )
+   , mDrawTileBoundaries( layer->isTileBorderRenderingEnabled() )
++  , mLabelsEnabled( layer->labelsEnabled() )
+   , mFeedback( new QgsFeedback )
+   , mSelectedFeatures( layer->selectedFeatures() )
+   , mLayerOpacity( layer->opacity() )
+@@ -43,7 +44,7 @@ QgsVectorTileLayerRenderer::QgsVectorTileLayerRenderer( QgsVectorTileLayer *laye
+ {
+   if ( QgsLabelingEngine *engine = context.labelingEngine() )
+   {
+-    if ( layer->labeling() )
++    if ( layer->labelsEnabled() )
+     {
+       mLabelProvider = layer->labeling()->provider( layer );
+       if ( mLabelProvider )
+diff --git a/src/core/vectortile/qgsvectortilelayerrenderer.h b/src/core/vectortile/qgsvectortilelayerrenderer.h
+index 986d7eec866..a038409a00d 100644
+--- a/src/core/vectortile/qgsvectortilelayerrenderer.h
++++ b/src/core/vectortile/qgsvectortilelayerrenderer.h
+@@ -70,6 +70,9 @@ class QgsVectorTileLayerRenderer : public QgsMapLayerRenderer
+     //! Whether to draw boundaries of tiles (useful for debugging)
+     bool mDrawTileBoundaries = false;
+ 
++    //! True if labels are enabled
++    bool mLabelsEnabled = true;
++
+     // temporary data used during rendering process
+ 
+     //! Feedback object that may be used by the caller to cancel the rendering
+diff --git a/tests/src/core/testqgsvectortilelayer.cpp b/tests/src/core/testqgsvectortilelayer.cpp
+index 8bf50afb6e2..e869b17c81d 100644
+--- a/tests/src/core/testqgsvectortilelayer.cpp
++++ b/tests/src/core/testqgsvectortilelayer.cpp
+@@ -213,12 +213,16 @@ void TestQgsVectorTileLayer::test_labeling()
+                      Qt::transparent, 0,
+                      Qt::transparent, Qt::transparent, 0 ) );
+   mLayer->setRenderer( rend );  // takes ownership
++  bool res1 = imageCheck( "render_test_labeling", mLayer, mLayer->extent() );
+ 
+-  const bool res = imageCheck( "render_test_labeling", mLayer, mLayer->extent() );
++  // disable label rendering
++  mLayer->setLabelsEnabled( false );
++  bool res2 = imageCheck( "render_test_labeling_disabled", mLayer, mLayer->extent() );
+ 
+   mLayer->setRenderer( oldRenderer );
+ 
+-  QVERIFY( res );
++  QVERIFY( res1 );
++  QVERIFY( res2 );
+ }
+ 
+ void TestQgsVectorTileLayer::testMbtilesProviderMetadata()
