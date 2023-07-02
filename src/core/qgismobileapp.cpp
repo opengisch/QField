@@ -134,6 +134,7 @@
 #include <qgsfeature.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
+#include <qgsfontmanager.h>
 #include <qgsgeopackageprojectstorage.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
@@ -248,6 +249,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Semibolditalic.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Mask.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Regular.ttf" );
+
+  QgsApplication::fontManager()->enableFontDownloadsForSession();
 
   mProject = QgsProject::instance();
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
