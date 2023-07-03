@@ -122,7 +122,6 @@ if(TRUE) # Should possibly have a "static only" check
 
   _qgis_core_add_dependency(GDAL::GDAL GDAL)
 
-
   _qgis_core_add_dependency(exiv2lib exiv2)
   _qgis_core_add_dependency(exiv2-xmp exiv2)
   _qgis_core_add_dependency(libzip::zip libzip)

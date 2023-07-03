@@ -8,4 +8,3 @@ set(VCPKG_CMAKE_CONFIGURE_OPTIONS -DANDROID_ABI=x86)
 
 set(VCPKG_CXX_FLAGS "-fstack-protector-strong")
 set(VCPKG_C_FLAGS "-fstack-protector-strong")
-
