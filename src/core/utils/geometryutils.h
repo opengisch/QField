@@ -67,10 +67,13 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     //! Reshape a polyon with given \a fid using the ring in the rubberband model.
     static Q_INVOKABLE GeometryOperationResult reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
 
-    //! Add a ring to a polyon with given \a fid using the ring in the rubberband model.
+    //! Adds a ring to a polyon with given \a fid using the ring in the rubberband model.
     static Q_INVOKABLE GeometryOperationResult addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
 
-    //! This will perform a split using the line in the rubberband model. It works with the layer selection if some features are selected.
+    /**
+     * Performs a split using the line in the rubberband model.
+     * \note Requires a given vector layer to have selected feature(s).
+     */
     static Q_INVOKABLE GeometryOperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel );
 
     //! Converts QGeoCoordinate to QgsPoint.
@@ -82,11 +85,14 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     //! Returns a reprojected \a point from the stated \a crs to WGS84.
     static Q_INVOKABLE QgsPoint reprojectPointToWgs84( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs );
 
-    //! Returns a reprojected \a point from the stated \a sourceCrs to a \a destinationCrs
+    //! Returns a reprojected \a point from the stated \a sourceCrs to a \a destinationCrs.
     static Q_INVOKABLE QgsPoint reprojectPoint( const QgsPoint &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs );
 
-    //! Returns an empty (i.e. null) point
+    //! Returns an empty (i.e. null) point.
     static Q_INVOKABLE QgsPoint emptyPoint() { return QgsPoint(); }
+
+    //! Creates a point from \a x and \a y.
+    static Q_INVOKABLE QgsPoint point( double x, double y ) { return QgsPoint( x, y ); }
 };
 
 #endif // GEOMETRYUTILS_H
