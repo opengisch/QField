@@ -144,6 +144,7 @@ int main( int argc, char **argv )
 
   QStringList projSearchPaths = QgsProjUtils::searchPaths();
 #ifdef RELATIVE_PREFIX_PATH
+  qputenv( "SSL_CERT_FILE", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/cacert.pem" ).toLocal8Bit() );
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
   projSearchPaths << QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/proj" );
   qInfo() << "Proj path: " << projSearchPaths.constLast();
