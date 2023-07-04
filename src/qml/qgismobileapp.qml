@@ -1858,15 +1858,15 @@ ApplicationWindow {
         id: moveFeaturesToolbar
 
         property bool moveFeaturesRequested: false
-        property variant startPoint: undefined // QgsPoint or undefined
-        property variant endPoint: undefined // QgsPoint or undefined
+        property var startPoint: undefined // QgsPoint or undefined
+        property var endPoint: undefined // QgsPoint or undefined
         signal moveConfirmed
         signal moveCanceled
 
         stateVisible: moveFeaturesRequested
 
         onConfirm: {
-            endPoint = mapCanvas.mapSettings.center
+            endPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y)
             moveFeaturesRequested = false
             moveConfirmed()
         }
@@ -1882,7 +1882,7 @@ ApplicationWindow {
               featureForm.extentController.zoomToSelected()
             }
 
-            startPoint = mapCanvas.mapSettings.center
+            startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y)
             moveFeaturesRequested = true
         }
     }
