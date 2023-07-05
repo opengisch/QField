@@ -6,6 +6,7 @@
   "dependencies": [
     "qtbase",
     "qt5compat",
+    "openssl",
     {
       "name": "vcpkg-cmake",
       "host": true
