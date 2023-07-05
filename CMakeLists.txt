@@ -242,8 +242,12 @@ if(WITH_VCPKG)
     )
   endforeach()
 
-  # Using file(DOWNLOAD) to use https
-  file(DOWNLOAD https://curl.se/ca/cacert.pem "${CMAKE_BINARY_DIR}/cacert.pem" TLS_VERIFY ON)
+  file(DOWNLOAD https://curl.se/ca/cacert.pem "${CMAKE_BINARY_DIR}/cacert.pem" TLS_VERIFY ON STATUS DOWNLOAD_STATUS)
+  list(GET DOWNLOAD_STATUS 0 STATUS_CODE)
+  list(GET DOWNLOAD_STATUS 1 ERROR_MESSAGE)
+  if(NOT ${STATUS_CODE} EQUAL 0)
+      message(FATAL_ERROR "Error occurred during download: ${ERROR_MESSAGE}")
+  endif()
 
   add_custom_command(TARGET deploy
     POST_BUILD
