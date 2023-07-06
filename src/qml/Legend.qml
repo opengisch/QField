@@ -214,7 +214,6 @@ ListView {
   }
   MouseArea {
       anchors.fill: parent
-      preventStealing: true
 
       property Item pressedItem
 
