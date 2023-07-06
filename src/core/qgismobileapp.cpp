@@ -1293,8 +1293,20 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 
   layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
   layoutToPrint->atlas()->setFilterFeatures( true );
+  layoutToPrint->atlas()->updateFeatures();
 
   const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
+  QString finalDestination;
+  const bool destinationSingleFile = layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool();
+  if ( !destinationSingleFile && ids.size() == 1 )
+  {
+    layoutToPrint->atlas()->first();
+    finalDestination = mProject->homePath() + '/' + layoutToPrint->atlas()->currentFilename() + QStringLiteral( ".pdf" );
+  }
+  else
+  {
+    finalDestination = destination;
+  }
   const bool success = printAtlas( layoutToPrint, destination );
 
   layoutToPrint->atlas()->setFilterExpression( priorFilterExpression, error );
@@ -1302,9 +1314,9 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 
   if ( success )
   {
-    if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+    if ( destinationSingleFile || ids.size() == 1 )
     {
-      PlatformUtilities::instance()->open( destination );
+      PlatformUtilities::instance()->open( finalDestination );
     }
     else
     {
