@@ -138,8 +138,6 @@ Rectangle {
         property int distance: 0
         property bool isTracing: false
 
-        preventStealing: true
-
         onPressed: {
           startX = mouse.x
           startY = mouse.y
