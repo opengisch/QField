@@ -1105,11 +1105,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Send application log</source>
-        <translation type="unfinished"/>
+        <translation>Odeslat protokol aplikace</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation type="unfinished"/>
+        <translation>Protokol vaší aplikace je odeslán</translation>
     </message>
 </context>
 <context>
@@ -1722,15 +1722,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Některé vrstvy nebyly v QFieldCloudu správně zabaleny. Tyto vrstvy mohou být špatně nakonfigurovány nebo jejich zdroj dat není přístupný ze serveru QFieldCloud.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud měl potíže s zabalením vašeho projektu</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Některé vrstvy nebyly v QFieldCloudu správně zabaleny. Tyto vrstvy mohou být špatně nakonfigurovány nebo jejich zdroj dat není přístupný ze serveru QFieldCloud. Zkontrolujte prosím protokoly poslední úlohy balení na webové stránce qfield.cloud.</translation>
     </message>
 </context>
 <context>
@@ -1920,7 +1920,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zabalená vrstva &apos;%1&apos; není platná: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
@@ -1948,15 +1948,15 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>project(%1) trigger response refresh neobsahuje všechny očekávané klíče: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Získávání stavu úlohy, ale projekt je smazán.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Vytvoření úlohy bylo dokončeno, ale v odpovědi serveru chybí povinná pole: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
@@ -2947,11 +2947,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Dočasné vlastnosti</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Povolit dočasný filtr</translation>
     </message>
 </context>
 <context>
