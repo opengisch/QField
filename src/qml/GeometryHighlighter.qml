@@ -4,14 +4,31 @@ import org.qfield 1.0
 
 Item {
   id: geometryHighlighter
+
   property alias geometryWrapper: geometryRenderer.geometryWrapper
   property int duration: 3000
 
-  Connections {
-    target: geometryRenderer.geometryWrapper
+  SequentialAnimation {
+    id: timer
+    running: false
+    loops: 3
+    alwaysRunToEnd: true
 
-    function onQgsGeometryChanged() {
-      timer.restart()
+    OpacityAnimator {
+      target: geometryHighlighter;
+      from: 1;
+      to: 0;
+      duration: 500
+    }
+    OpacityAnimator {
+      target: geometryHighlighter;
+      from: 0;
+      to: 1;
+      duration: 500
+    }
+
+    onFinished: {
+      geometryHighlighter.geometryWrapper.clear()
     }
   }
 
@@ -20,11 +37,11 @@ Item {
     mapSettings: mapCanvas.mapSettings
   }
 
-  Timer {
-    id: timer
-    interval: geometryHighlighter.duration
-    running: false
-    repeat: false
-    onTriggered: geometryHighlighter.geometryWrapper.clear()
+  Connections {
+    target: geometryRenderer.geometryWrapper
+
+    function onQgsGeometryChanged() {
+      timer.restart()
+    }
   }
 }

@@ -23,7 +23,7 @@ Repeater {
 
     visible: featureListSelectionHighlight.visible && ( !showSelectedOnly || model.featureSelected )
     color: model.featureSelected ? featureListSelectionHighlight.selectedColor : selectionModel.model.selectedCount === 0 && selectionModel && model.index === selectionModel.focusedItem ? featureListSelectionHighlight.focusedColor : featureListSelectionHighlight.color
-    borderColor: "white"
+    z: model.index === selectionModel.focusedItem ? 1 : 0
 
     transform: Translate {
         x: featureListSelectionHighlight.translateX

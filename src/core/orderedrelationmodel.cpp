@@ -117,7 +117,7 @@ QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
   return ReferencingFeatureListModel::data( index, role );
 }
 
-void OrderedRelationModel::onViewCurrentFeatureChanged( int index )
+void OrderedRelationModel::triggerViewCurrentFeatureChange( int index )
 {
   if ( index < 0 || index >= rowCount( QModelIndex() ) )
     return;

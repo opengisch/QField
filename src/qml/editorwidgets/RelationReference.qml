@@ -40,7 +40,7 @@ EditorWidgetBase {
   RelationCombobox {
     id: relationReference
     featureListModel: listModel
-    anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? viewButton.width : 0 }
+    anchors { left: parent.left; right: parent.right; rightMargin: viewButton.width + openFormButton.width + 4 }
     enabled: isEnabled
     useSearch: true
     allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
@@ -52,7 +52,7 @@ EditorWidgetBase {
     id: viewButton
 
     enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-    anchors { right: parent.right; top: parent.top; }
+    anchors { right: openFormButton.left; top: parent.top; }
 
     width: enabled ? 48 : 0
     height: 48
@@ -62,12 +62,39 @@ EditorWidgetBase {
     bgcolor: "transparent"
 
     onClicked: {
-        if ( relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== '' ) {
-          relationReference.embeddedFeatureForm.state = isEnabled ? 'Edit' : 'ReadOnly'
-          relationReference.embeddedFeatureForm.currentLayer = listModel.currentLayer
-          relationReference.embeddedFeatureForm.feature = listModel.getFeatureFromKeyValue( relationReference.currentKeyValue )
-          relationReference.embeddedFeatureForm.open()
-        }
+      if (listModel.currentLayer !== undefined) {
+        var feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue)
+        locatorHighlightItem.geometryWrapper.qgsGeometry = feature.geometry
+        locatorHighlightItem.geometryWrapper.crs = listModel.currentLayer.crs
+        mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
+                                                           listModel.currentLayer,
+                                                           feature,
+                                                           featureForm.x,
+                                                           featureForm.y)
+      }
+    }
+  }
+
+  QfToolButton  {
+    id: openFormButton
+
+    enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
+    anchors { right: parent.right; top: parent.top; }
+
+    width: enabled ? 48 : 0
+    height: 48
+
+    iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white-24dp') : Theme.getThemeVectorIcon('ic_baseline-list_alt-24dp')
+    iconColor: Theme.mainTextColor
+    bgcolor: "transparent"
+
+    onClicked: {
+      if ( relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== '' ) {
+        relationReference.embeddedFeatureForm.state = isEnabled ? 'Edit' : 'ReadOnly'
+        relationReference.embeddedFeatureForm.currentLayer = listModel.currentLayer
+        relationReference.embeddedFeatureForm.feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue)
+        relationReference.embeddedFeatureForm.open()
+      }
     }
   }
 }

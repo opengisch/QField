@@ -724,11 +724,6 @@ ApplicationWindow {
       }
     }
 
-    /* Locator Highlight */
-    GeometryHighlighter {
-      id: locatorHighlightItem
-    }
-
     /* Highlight the currently selected item on the feature list */
     FeatureListSelectionHighlight {
       id: featureListHighlight
@@ -761,6 +756,11 @@ ApplicationWindow {
       focusedColor: "#ff7777"
       selectedColor: Theme.mainColor
       width: 5
+    }
+
+    /* Highlight features identified by locator or relation editor widgets */
+    GeometryHighlighter {
+      id: locatorHighlightItem
     }
 
     MapToScreen {

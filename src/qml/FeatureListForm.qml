@@ -390,6 +390,7 @@ Rectangle {
       model: globalFeaturesList.model
       selection: featureForm.selection
       mapSettings: featureForm.mapSettings
+      featureForm: featureForm
 
       onFeatureFormStateRequested: {
         featureForm.state = "FeatureForm"

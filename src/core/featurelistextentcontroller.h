@@ -21,6 +21,7 @@
 #include "qgsquickmapsettings.h"
 
 #include <QObject>
+#include <QQuickItem>
 
 class FeatureListExtentController : public QObject
 {
@@ -30,6 +31,7 @@ class FeatureListExtentController : public QObject
     Q_PROPERTY( FeatureListModelSelection *selection MEMBER mSelection NOTIFY selectionChanged )
     Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QQuickItem *featureForm MEMBER mFeatureForm NOTIFY featureFormChanged )
 
   public:
     explicit FeatureListExtentController( QObject *parent = nullptr );
@@ -54,6 +56,7 @@ class FeatureListExtentController : public QObject
     void selectionChanged();
     void modelChanged();
     void mapSettingsChanged();
+    void featureFormChanged();
     void featureFormStateRequested();
 
   private slots:
@@ -64,6 +67,7 @@ class FeatureListExtentController : public QObject
     MultiFeatureListModel *mModel = nullptr;
     FeatureListModelSelection *mSelection = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
+    QQuickItem *mFeatureForm = nullptr;
     bool mAutoZoom = false;
 };
 

@@ -52,6 +52,7 @@ class OrderedRelationModel : public ReferencingFeatureListModel
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
     Q_INVOKABLE bool moveItems( const int fromIdx, const int toIdx );
     QHash<int, QByteArray> roleNames() const override;
+    Q_INVOKABLE void triggerViewCurrentFeatureChange( int index );
 
   signals:
     void orderingFieldChanged();
@@ -59,9 +60,6 @@ class OrderedRelationModel : public ReferencingFeatureListModel
     void descriptionChanged();
     void currentFeatureChanged( QgsFeature feature );
     void failedReorder();
-
-  private slots:
-    void onViewCurrentFeatureChanged( int index );
 
   private:
     bool beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId ) override;
