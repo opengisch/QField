@@ -1078,7 +1078,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je tento filtr vypnut, lze jej stále použít zadáním předpony %1 do vyhledávacího řádku.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
@@ -2226,7 +2226,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Import URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
@@ -2519,7 +2519,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Při digitalizaci prvků se souřadnicovým kurzorem uzamčeným na aktuální pozici se ke geometrii přidá výše zvolený typ měření, pokud má rozměr M.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -2772,7 +2772,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3069,15 +3069,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je tato možnost povolena, budou vrcholy zaznamenány pouze tehdy, když jsou splněna všechna aktivní omezení. Pokud je toto nastavení zakázáno, budou jednotlivé splněné vazby spouštět přidávání vrcholů.</translation>
     </message>
     <message>
         <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je aktivováno pouze omezení senzoru, dojde k přidání vrcholů vždy, když senzor zachytí nová data.</translation>
     </message>
     <message>
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud jsou všechna omezení vypnuta, bude přidávání vrcholů probíhat tak často, jak to umožňuje polohovací zařízení.</translation>
     </message>
 </context>
 <context>
@@ -3228,15 +3228,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí projekt</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Základní mapa</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí Projekt</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -3244,11 +3244,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Načíst výchozí projekt při spuštění</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Načíst poslední otevřený projekt při spuštění</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
@@ -3698,7 +3698,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Import URL selhal</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -3730,7 +3730,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Více informací</translation>
     </message>
     <message>
         <source>No sensor available</source>
