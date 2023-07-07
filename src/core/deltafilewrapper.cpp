@@ -1126,7 +1126,7 @@ bool DeltaFileWrapper::isCreatedFeature( QgsVectorLayer *vl, QgsFeature feature 
 QPair<int, QString> DeltaFileWrapper::getLocalPkAttribute( const QgsVectorLayer *vl )
 {
   const QgsFields fields = vl->fields();
-  const QList<int> pkAttrs = vl->primaryKeyAttributes() << fields.indexFromName( QStringLiteral( "fid" ) );
+  const QList<int> pkAttrs = vl->primaryKeyAttributes();
   // we assume the first index to be the primary key index... kinda stupid, but memory layers don't have primary key at all, but we use it on geopackages, but... snap!
   const int pkAttrIdx = pkAttrs[0];
 
