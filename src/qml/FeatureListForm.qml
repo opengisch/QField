@@ -573,7 +573,7 @@ Rectangle {
     }
 
     onMultiDeleteClicked: {
-        if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
+        if( trackingModel.featuresInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
         {
           displayToast( qsTr( "A number of features are being tracked, stop tracking to delete those" ) )
         }
