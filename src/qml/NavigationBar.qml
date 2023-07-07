@@ -126,7 +126,6 @@ Rectangle {
       wrapMode: Text.Wrap
       elide: Text.ElideRight
 
-
       MouseArea {
         anchors.fill: parent
 

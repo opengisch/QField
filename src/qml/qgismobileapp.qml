@@ -2420,7 +2420,7 @@ ApplicationWindow {
             for (var i = 0; i < count; ++i) {
                 var item = itemAt(i);
                 result = Math.max(item.contentItem.implicitWidth, result);
-                padding = Math.max(item.padding, padding);
+                padding = Math.max(item.leftPadding, padding);
             }
             return Math.min(result + padding * 2,mainWindow.width - 20);
         }
@@ -2430,6 +2430,16 @@ ApplicationWindow {
             featureMenu.icon.source = Theme.getThemeVectorIcon('ic_info_white_24dp')
           }
         }
+
+        MenuItem {
+          text: qsTr('Layer:') + ' ' + layerName
+          enabled: false
+        }
+        MenuItem {
+          text: qsTr('Feature:') + ' ' + featureName
+          enabled: false
+        }
+        MenuSeparator { width: parent.width }
 
         MenuItem {
           text: qsTr('Open Feature Form')
@@ -2443,8 +2453,6 @@ ApplicationWindow {
             featureForm.state = "FeatureForm"
           }
         }
-
-        MenuSeparator { width: parent.width }
 
         MenuItem {
           text: qsTr('Duplicate Feature')
