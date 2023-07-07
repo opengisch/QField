@@ -2461,14 +2461,14 @@ ApplicationWindow {
             featureForm.state = "FeatureList"
             if (featureForm.model.canDuplicateSelection) {
               if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature)) {
-                displayToast(qsTr("Successfully duplicated feature"))
+                displayToast(qsTr('Successfully duplicated feature'))
 
                 featureForm.selection.focusedItem = -1
                 moveFeaturesToolbar.initializeMoveFeatures()
                 return;
               }
             }
-            displayToast(qsTr( "Feature duplication not available" ))
+            displayToast(qsTr('Feature duplication not available'))
           }
         }
       }
