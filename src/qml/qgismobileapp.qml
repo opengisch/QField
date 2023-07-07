@@ -483,6 +483,7 @@ ApplicationWindow {
                   }
               } else {
                   if (!overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested) {
+                      identifyTool.isMenuRequest = false
                       identifyTool.identify(point)
                   }
               }
@@ -492,6 +493,7 @@ ApplicationWindow {
       onConfirmedClicked: (point) => {
           if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state != "FeatureFormEdit")
           {
+              identifyTool.isMenuRequest = false
               identifyTool.identify(point)
           }
       }
@@ -517,17 +519,22 @@ ApplicationWindow {
           }
           // do not use else, as if it was catch it has return before
           if( !overlayFeatureFormDrawer.visible ) {
+            identifyTool.isMenuRequest = false
             identifyTool.identify(point)
           }
         } else {
           canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
           canvasMenu.popup(point.x, point.y)
+          identifyTool.isMenuRequest = true
+          identifyTool.identify(point)
         }
       }
 
       onRightClicked: (point, type) => {
         canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
         canvasMenu.popup(point.x, point.y)
+        identifyTool.isMenuRequest = true
+        identifyTool.identify(point)
       }
 
       onLongPressReleased: (type) => {
@@ -552,8 +559,10 @@ ApplicationWindow {
     IdentifyTool {
       id: identifyTool
 
+      property bool isMenuRequest: false
+
       mapSettings: mapCanvas.mapSettings
-      model: featureForm.model
+      model:  isMenuRequest ? canvasMenuFeatureListModel : featureForm.model
       searchRadiusMm: 3
     }
 
@@ -2378,6 +2387,102 @@ ApplicationWindow {
       onTriggered: {
         screenLocker.enabled = true
       }
+    }
+
+    MenuSeparator {
+      width: parent.width
+      visible: canvasMenuFeatureListInstantiator.count > 0
+    }
+
+    Instantiator {
+      id: canvasMenuFeatureListInstantiator
+
+      model: MultiFeatureListModel {
+        id: canvasMenuFeatureListModel
+      }
+
+      Menu {
+        id: featureMenu
+
+        property int fid: featureId
+        property var featureLayer: currentLayer
+
+        topMargin: sceneTopMargin
+        bottomMargin: sceneBottomMargin
+
+        title: layerName + ': ' + featureName
+        font: Theme.defaultFont
+        leftPadding: 10
+
+        width: {
+            var result = 0;
+            var padding = 0;
+            for (var i = 0; i < count; ++i) {
+                var item = itemAt(i);
+                result = Math.max(item.contentItem.implicitWidth, result);
+                padding = Math.max(item.leftPadding, padding);
+            }
+            return Math.min(result + padding * 2,mainWindow.width - 20);
+        }
+
+        Component.onCompleted: {
+          if (featureMenu.icon !== undefined) {
+            featureMenu.icon.source = Theme.getThemeVectorIcon('ic_info_white_24dp')
+          }
+        }
+
+        MenuItem {
+          text: qsTr('Layer:') + ' ' + layerName
+          enabled: false
+        }
+        MenuItem {
+          text: qsTr('Feature:') + ' ' + featureName
+          enabled: false
+        }
+        MenuSeparator { width: parent.width }
+
+        MenuItem {
+          text: qsTr('Open Feature Form')
+          font: Theme.defaultFont
+          icon.source: Theme.getThemeIcon( "ic_baseline-list_alt-24px" )
+          leftPadding: 10
+
+          onTriggered: {
+            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
+            featureForm.selection.focusedItem = 0
+            featureForm.state = "FeatureForm"
+          }
+        }
+
+        MenuItem {
+          text: qsTr('Duplicate Feature')
+          font: Theme.defaultFont
+          enabled: projectInfo.insertRights
+          icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
+          leftPadding: 10
+
+          onTriggered: {
+            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
+            featureForm.selection.focusedItem = 0
+            featureForm.multiSelection = true
+            featureForm.selection.toggleSelectedItem(0)
+            featureForm.state = "FeatureList"
+            if (featureForm.model.canDuplicateSelection) {
+              if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature)) {
+                displayToast(qsTr('Successfully duplicated feature'))
+
+                featureForm.selection.focusedItem = -1
+                moveFeaturesToolbar.initializeMoveFeatures()
+                return;
+              }
+            }
+            displayToast(qsTr('Feature duplication not available'))
+          }
+        }
+      }
+
+      onObjectAdded: (index, object) => { canvasMenu.insertMenu(index+9, object) }
+      onObjectRemoved: (index, object) => { canvasMenu.removeMenu(object) }
     }
   }
 

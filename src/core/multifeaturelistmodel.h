@@ -44,6 +44,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     {
       FeatureIdRole = Qt::UserRole + 1,
       FeatureSelectedRole,
+      FeatureNameRole,
       FeatureRole,
       LayerNameRole,
       LayerRole,
