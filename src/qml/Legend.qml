@@ -1,7 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import QtQuick.Controls.Material 2.14
+import QtQuick.Controls.Material.impl 2.14
 import QtQuick.Layouts 1.14
-import QtQml.Models 2.14
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -28,22 +29,22 @@ ListView {
     property string itemType: Type
     property string layerType: LayerType
     property bool isSelectedLayer: ( itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer )
+    property bool isPressed: false
 
     id: rectangle
     width: parent ? parent.width : undefined
     height: line.height + 7
-    state: "default"
+    color: isSelectedLayer ? Theme.mainColor : "transparent"
 
-    states: [
-      State {
-        name: "default"
-        PropertyChanges { target: rectangle; color: isSelectedLayer ? Theme.mainColor : "transparent" }
-      },
-      State {
-        name: "pressed"
-        PropertyChanges { target: rectangle; color: Theme.controlBorderColor }
-      }
-    ]
+    Ripple {
+      clip: true
+      width: parent.width
+      height: parent.height
+      pressed: parent.isPressed
+      anchor: parent
+      active: parent.isPressed
+      color: Material.rippleColor
+    }
 
     Row {
       id: line
@@ -240,7 +241,7 @@ ListView {
           var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (item && item.itemType) {
               pressedItem = item;
-              pressedItem.state = "pressed"
+              pressedItem.isPressed = true
           }
       }
       onDoubleClicked: {
@@ -262,7 +263,7 @@ ListView {
       }
       onCanceled: {
           if (pressedItem) {
-              pressedItem.state = "default"
+              pressedItem.isPressed = false
               pressedItem = null
           }
       }
@@ -272,7 +273,7 @@ ListView {
                 pressAndHold(mouse)
               }
 
-              pressedItem.state = "default"
+              pressedItem.isPressed = false
               pressedItem = null
           }
       }
