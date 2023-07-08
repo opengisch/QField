@@ -197,7 +197,7 @@ ListView {
       }
 
       Rectangle {
-          visible: Type == 'layer' && !IsValid
+          visible: Type === 'layer' && !IsValid
           height: 24
           width: 24
           anchors.verticalCenter: parent.verticalCenter
@@ -218,7 +218,7 @@ ListView {
 
       property Item pressedItem
 
-      onClicked: {
+      onClicked: (mouse) => {
           var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (!item) return;
 
@@ -237,14 +237,14 @@ ListView {
               }
           }
       }
-      onPressed: {
+      onPressed: (mouse) => {
           var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (item && item.itemType) {
               pressedItem = item;
               pressedItem.isPressed = true
           }
       }
-      onDoubleClicked: {
+      onDoubleClicked: (mouse) => {
           var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (item) {
             var itemIndex = legend.model.index(item.itemRow, 0)
@@ -267,9 +267,9 @@ ListView {
               pressedItem = null
           }
       }
-      onReleased: {
+      onReleased: (mouse) => {
           if (pressedItem) {
-              if (mouse.button == Qt.RightButton) {
+              if (mouse.button === Qt.RightButton) {
                 pressAndHold(mouse)
               }
 
