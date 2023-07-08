@@ -3733,6 +3733,30 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>No sensor available</source>
         <translation>Non hai ningún sensor dispoñible</translation>
     </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplicar Entidade</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Entidade duplicada con éxito</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

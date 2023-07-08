@@ -3737,6 +3737,30 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>No sensor available</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplică Element</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Element duplicat cu succes</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

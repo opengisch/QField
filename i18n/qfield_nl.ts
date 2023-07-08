@@ -3733,6 +3733,30 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>No sensor available</source>
         <translation>Geen sensor beschikbaar</translation>
     </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Dubbel object</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Succesvol object gedupliceerd</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
