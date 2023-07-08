@@ -475,7 +475,6 @@ Page {
             Loader {
               id: attributeEditorLoader
 
-              height: childrenRect.height
               anchors { left: parent.left; right: parent.right }
 
               //disable widget if it's:
