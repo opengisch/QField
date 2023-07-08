@@ -535,7 +535,7 @@ Page {
               MouseArea {
                 property Item pressedItem
                 anchors.fill: parent
-                onClicked: {
+                onClicked: (mouse) => {
                   var item = table.itemAt(mouse.x, mouse.y)
                   if (item) {
                     if ( item.type == 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
@@ -544,7 +544,7 @@ Page {
                     iface.loadFile(item.path,item.title)
                   }
                 }
-                onPressed: {
+                onPressed: (mouse) => {
                   var item = table.itemAt(mouse.x, mouse.y)
                   if (item) {
                     pressedItem = item.children[0].children[1].children[0];
@@ -563,7 +563,7 @@ Page {
                     pressedItem = null
                   }
                 }
-                onPressAndHold: {
+                onPressAndHold: (mouse) => {
                   var item = table.itemAt(mouse.x, mouse.y)
                   if (item) {
                     recentProjectActions.recentProjectPath = item.path;
@@ -724,15 +724,15 @@ Page {
       onReleased: mouse.accepted = false
       onDoubleClicked: mouse.accepted = false
       onPressAndHold: mouse.accepted = false
-      onClicked:  {
+      onClicked:  (mouse) => {
         burstSomeSparkles(mouse.x, mouse.y)
         mouse.accepted = false
       }
-      onPressed:  {
+      onPressed:  (mouse) => {
         burstSomeSparkles(mouse.x, mouse.y)
         mouse.accepted = false
       }
-      onPositionChanged: {
+      onPositionChanged: (mouse) => {
         burstSomeSparkles(mouse.x, mouse.y)
         mouse.accepted = false
       }

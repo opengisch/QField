@@ -2914,7 +2914,7 @@ ApplicationWindow {
       enabled: !parent.activeFocus
 
       //onPressed because onClicked shall be handled in underlying MouseArea
-      onPressed: {
+      onPressed: (mouse) => {
         parent.focus=true
         mouse.accepted=false
       }
@@ -3445,7 +3445,7 @@ ApplicationWindow {
     anchors.fill: parent
     enabled: barcodeReader.visible
 
-    onClicked: {
+    onClicked: (mouse) => {
       // Needed to avoid people interacting with the UI while the barcode reader is visible
       // (e.g. close the feature form while scanning a code to fill an attribute)
       return;
