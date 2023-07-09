@@ -1830,7 +1830,6 @@ ApplicationWindow {
           overlayFeatureFormDrawer.featureModel.resetAttributes()
           overlayFeatureFormDrawer.open()
           overlayFeatureFormDrawer.state = "Add"
-          overlayFeatureFormDrawer.featureForm.reset()
         }
         else
         {
