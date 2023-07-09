@@ -159,7 +159,7 @@
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
         <translation>Una búsqueda completa de dispositivos puede llevar más tiempo. ¿Realmente quiere hacerla?
-Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translation>
+Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -183,7 +183,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation>Seleccione el dispositivo Bluetooth de la lista a continuación:</translation>
+        <translation>Seleccione el dispositivo Bluetooth de la siguiente lista:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
@@ -632,7 +632,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Funciones seleccionadas duplicadas con éxito, lista actualizada para mostrar funciones recién creadas</translation>
+        <translation>Se duplicaron con éxito los objetos seleccionados, lista actualizada para mostrar los objetos recién creados</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -927,7 +927,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>La capa no tiene entidades</translation>
+        <translation>La capa no tiene objetos</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -951,11 +951,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Mostrar lista de objetos</translation>
+        <translation>Mostrar lista de objetos visibles</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation>Mostrar lista de objetos</translation>
+        <translation>Mostrar menú de objetos</translation>
     </message>
 </context>
 <context>
@@ -990,7 +990,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>No se puede copiar objeto no válida</translation>
+        <translation>No se puede copiar objeto no válido</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
@@ -1034,7 +1034,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Devuelve un punto de un par de coordenadas X e Y tecleadas en la barra de búsqueda</translation>
+        <translation>Devuelve un punto a partir de un par de coordenadas X e Y tecleadas en la barra de búsqueda</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
@@ -1057,7 +1057,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Buscar...</translation>
+        <translation type="vanished">Buscar…</translation>
     </message>
 </context>
 <context>
@@ -3735,15 +3735,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Capa:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Objeto:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Abrir formulario de objetos</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3755,7 +3755,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Duplicado de objetos no disponible</translation>
     </message>
 </context>
 <context>

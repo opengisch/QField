@@ -3733,15 +3733,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>レイヤー:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>地物:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>属性フォームを開く</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3753,7 +3753,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>地物のコピーは利用できません</translation>
     </message>
 </context>
 <context>

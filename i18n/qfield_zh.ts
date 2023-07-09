@@ -1706,45 +1706,45 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>了解有关QField云的更多信息</translation>
+        <translation>了解有关QFieldCloud的更多信息</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">QField云图层打包存在问题</translation>
+        <translation type="vanished">QFieldCloud图层打包存在问题</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">QField云中的某些图层未正确打包。这些图层可能配置错误，或者无法从QField云服务器访问其数据源。</translation>
+        <translation type="vanished">QFieldCloud中的某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其数据源。</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QField云在打包您的工程时遇到问题</translation>
+        <translation>QFieldCloud在打包工程时遇到问题</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>QField云端的某些图层未正确打包。这些图层可能配置错误，或者无法从QField云服务器访问其的数据源。请在 qfield.cloud 网站上查看最新打包作业日志。</translation>
+        <translation>QFieldCloud的某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其的数据源。请在 qfield.cloud 网站查看最新打包作业日志。</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QField云</translation>
+        <translation>QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation>当前工程未存储在QField云端。&lt;br&gt;&lt;br&gt;</translation>
+        <translation>当前工程未存储在QFieldCloud。&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>将工程存储在QField云可提供无缝同步、离线编辑和团队管理。&lt;br&gt;&lt;br&gt;</translation>
+        <translation>将工程存储在QFieldCloud可提供无缝同步、离线编辑和团队管理。&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>了解有关QField云的更多信息</translation>
+        <translation>了解有关QFieldCloud的更多信息</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -1760,7 +1760,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>该QField云工程最初是通过另一个云帐户下载的，请使用此工程的原始帐户登录以使用QField云功能。</translation>
+        <translation>该QFieldCloud工程最初是通过另一个云帐户下载的，请使用此工程的原始帐户登录以使用QFieldCloud功能。</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -1768,7 +1768,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QField云正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
+        <translation>QFieldCloud正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -1776,7 +1776,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation>QField云正在请求最新上传的修改。这可能需要一些时间，请稍等...</translation>
+        <translation>QFieldCloud正在请求最新上传的修改。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -1804,7 +1804,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>将整个工程与所有已修改的要素进行同步，并从QField云下载最新更新的工程和所有已使用的修改。</translation>
+        <translation>将整个工程与所有已修改的要素进行同步，并从QFieldCloud下载最新更新的工程和所有已使用的修改。</translation>
     </message>
     <message>
         <source>Push changes</source>
@@ -2042,7 +2042,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QField云工程</translation>
+        <translation>QFieldCloud工程</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2074,7 +2074,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QField云正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
+        <translation>QFieldCloud正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2585,7 +2585,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation>QField云未知错误</translation>
+        <translation>QFieldCloud未知错误</translation>
     </message>
     <message>
         <source>Status not ok</source>
@@ -2804,7 +2804,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>无法将更改应用于 %1 图层。</translation>
+        <translation>无法在图层 %1 提交图层更改。</translation>
     </message>
 </context>
 <context>
@@ -3183,11 +3183,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>我真的不想要</translation>
+        <translation>我不需要</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation>QField云工程</translation>
+        <translation>QFieldCloud工程</translation>
     </message>
     <message>
         <source>Open local file</source>
@@ -3645,11 +3645,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>修改无法上传至QField云端：%1</translation>
+        <translation>修改无法上传至QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>修改已成功上传至QField云端</translation>
+        <translation>修改已成功上传至QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
@@ -3733,15 +3733,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>图层:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>要素:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>打开要素从</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3753,7 +3753,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>要素复制不可用</translation>
     </message>
 </context>
 <context>
