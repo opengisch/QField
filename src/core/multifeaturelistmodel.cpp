@@ -50,7 +50,26 @@ void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl, const QString &filt
   }
   if ( !extent.isEmpty() )
   {
-    request.setFilterRect( extent );
+    QgsRectangle filterExtent = extent;
+    if ( QgsProject::instance()->crs() != vl->crs() )
+    {
+      QgsCoordinateTransform transform( QgsProject::instance()->crs(), vl->crs(), QgsProject::instance()->transformContext() );
+      try
+      {
+        filterExtent = transform.transform( extent );
+      }
+      catch ( const QgsException &e )
+      {
+        Q_UNUSED( e )
+        return;
+      }
+      catch ( ... )
+      {
+        // catch any other errors
+        return;
+      }
+    }
+    request.setFilterRect( filterExtent );
   }
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests( { { vl, request } } );
   mSourceModel->setFeatures( requests );
