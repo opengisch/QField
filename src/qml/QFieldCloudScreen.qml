@@ -418,7 +418,7 @@ Page {
             MouseArea {
               property Item pressedItem
               anchors.fill: parent
-              onClicked: {
+              onClicked: (mouse) => {
                 var item = table.itemAt(
                   table.contentX + mouse.x,
                   table.contentY + mouse.y
@@ -434,7 +434,7 @@ Page {
                   }
                 }
               }
-              onPressed: {
+              onPressed: (mouse) => {
                 var item = table.itemAt(
                   table.contentX + mouse.x,
                   table.contentY + mouse.y
@@ -457,7 +457,7 @@ Page {
                 }
               }
 
-              onPressAndHold: {
+              onPressAndHold: (mouse) => {
                   var item = table.itemAt(
                     table.contentX + mouse.x,
                     table.contentY + mouse.y
