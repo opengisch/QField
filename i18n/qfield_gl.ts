@@ -3735,15 +3735,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Capa:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Entidade:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Abrir Formulario de Entidade</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3755,7 +3755,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Non está dispoñible a duplicación de entidades</translation>
     </message>
 </context>
 <context>
