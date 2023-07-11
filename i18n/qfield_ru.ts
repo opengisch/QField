@@ -141,7 +141,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n устройство найдено</numerusform><numerusform>%n устройства найдены</numerusform><numerusform>%n устройств найдено</numerusform><numerusform>%n устройств(а) найдены</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>

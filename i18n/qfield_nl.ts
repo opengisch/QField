@@ -3675,7 +3675,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Printing...</translation>
     </message>
     <message>
         <source>Print</source>
