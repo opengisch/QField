@@ -593,7 +593,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Zamierzasz odrzucić nowy element, czy kontynuować?</translation>
+        <translation>Zamierzasz odrzucić nowy obiekt, czy kontynuować?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
@@ -636,7 +636,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>Brak elementu w tym miejscu</translation>
+        <translation>Brak obiektu w tym miejscu</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
@@ -735,11 +735,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Ustaw element jako cel</translation>
+        <translation>Ustaw obiekt jako cel</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Ustaw element jako nawigację</translation>
+        <translation type="vanished">Ustaw obiekt jako nawigację</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -920,7 +920,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>Warstwa nie posiada żadnych elementów</translation>
+        <translation>Warstwa nie posiada żadnych obiektów</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -944,7 +944,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Pokaż listę widocznych elementów</translation>
+        <translation>Pokaż listę widocznych obiektów</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
@@ -983,17 +983,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>Nie można skopiować nieprawidłowego elementu</translation>
+        <translation>Nie można skopiować nieprawidłowego obiektu</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>Nie można dodać nowego elementu na warstwie &quot;%1&quot;. Powód:
+        <translation>Nie można dodać nowego obiektu na warstwie &quot;%1&quot;. Powód:
 %2</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nie można dodać nowego elementu na warstwie &quot;%1&quot;.</translation>
+        <translation>Nie można dodać nowego obiektu na warstwie &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1023,7 +1023,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Wyświetla listę elementów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
+        <translation>Wyświetla listę obiektów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
@@ -1170,7 +1170,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Ustaw element jako cel</translation>
+        <translation>Ustaw obiekt jako cel</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1264,7 +1264,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Nie można przetworzyć pozycji IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -3255,7 +3255,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Dodawanie elementu potomnego na warstwie %1</translation>
+        <translation>Dodawanie obiektu potomnego na warstwie %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -3263,7 +3263,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Odłączyć obiekt %1 (%2) od %3</translation>
+        <translation>Odłącz obiekt %1 (%2) od %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
@@ -3730,15 +3730,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Warstwa:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Obiekt:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Otwórz formularz obiektu</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3750,7 +3750,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Duplikacja obiektu niedostępna</translation>
     </message>
 </context>
 <context>
@@ -3761,7 +3761,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Dodawanie elementu potomnego na warstwie %1</translation>
+        <translation>Dodawanie obiektu potomnego na warstwie %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -3769,7 +3769,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Odłączyć obiekt %1 (%2) od %3</translation>
+        <translation>Odłącz obiekt %1 (%2) od %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>

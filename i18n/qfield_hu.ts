@@ -183,11 +183,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Válasszd ki a Bluetooth eszközt az alábbi listából:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth eszköz neve:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth eszköz címe:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Közeli eszközök keresése</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Bluetotth eszközt nem észleltem, keress a közeli eszközök listázásáért</translation>
     </message>
 </context>
 <context>
@@ -371,14 +371,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>QField kiadés oldala</translation>
+        <translation>QField kiadás oldala</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>Előző kiadások a GitHun-on</translation>
+        <translation>Előző kiadások a GitHub-on</translation>
     </message>
 </context>
 <context>
@@ -449,11 +449,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>Minden tömb elem egy objektumnak kell lennie, de a #%1 helyen nem az</translation>
+        <translation>Minden tömb elem egy objektum legyen, de a #%1 helyen nem az</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>Minden tömb elemnek egy objektumnak kell lennie &quot;%1&quot; kulccsal, de a #%2 elem nem az</translation>
+        <translation>Minden tömb elem egy  &quot;%1&quot; kulcsot tartalmazó objektum legyen, de a #%2 elem nem az</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
@@ -472,7 +472,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>Hiba a digitalizáló-naplózásnál a réteg hozzáadása közben.</translation>
+        <translation>Hiba a digitalizáló-naplózásban egy réteg elem hozzáadása közben.</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
@@ -513,18 +513,18 @@ Cancel to make a minimal device scan instead.</source>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizálj nyomvonalat a magassági profil megjelenítéséhez</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Magassági profil megjelenítés...</translation>
     </message>
 </context>
 <context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Másold “%1”-t a vágólapra</translation>
     </message>
     <message>
         <source>Calculator</source>
@@ -593,7 +593,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Valóban elveti az új funkciót?</translation>
+        <translation>Valóban elveti az új elemet?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
@@ -695,7 +695,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation> A %1 tulajdonság nem hívható be a véglegesítés után</translation>
+        <translation> A %1 elem nem hívható be a véglegesítés után</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
@@ -711,12 +711,12 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>A &quot;%1&quot; réteg véglegesítve, de az újonnan létrehozott funkció %2 nem tölthető le.</translation>
+        <translation>A &quot;%1&quot; réteg véglegesítve, de az újonnan létrehozott elem %2 nem tölthető le.</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>A &quot;%1&quot; réteg nem véglegesíthető az újonnan létrehozott %2 funkcióval. Magyarázat:%3</translation>
+        <translation>A &quot;%1&quot; réteg nem véglegesíthető az újonnan létrehozott %2 elemmel. Magyarázat:%3</translation>
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
@@ -739,11 +739,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Funkció beállítása célként.</translation>
+        <translation>Elem beállítása célként</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Funkció beállítása navigációként.</translation>
+        <translation type="vanished">Elemhez navigálás beállítása</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -1174,7 +1174,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Állítsa be a funkciót célként.</translation>
+        <translation>Állítsa be az elemet célként.</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1202,15 +1202,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Atlasz elem(ek) nyomtatása képfájlba</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Atlasz elem nyomtatása képfájlba</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Atlasz elem(ek) nyomtatása</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -1218,7 +1218,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Az atlasz elem(ek) nyomtatása és a projekt könyvtáradba helyezése sikeres volt</translation>
     </message>
 </context>
 <context>
@@ -1804,11 +1804,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Az egész projekt szinkronizálása az összes módosult elemekkel és a frissen aktualizált projekt letöltése a QFieldCloud-ból az összes alkalmazott módosítással.</translation>
+        <translation>Az egész projekt szinkronizálása az összes módosult elemmel és a frissen aktualizált projekt letöltése a QFieldCloud-ból az összes alkalmazott módosítással.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Változtatások eltolása</translation>
+        <translation>Változtatások feltöltése</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
@@ -1824,7 +1824,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>A helyi rétegek összes módosított funkciójának visszaállítása. (Ezeket a változtatásokat nem lehet újra visszaállítani.)</translation>
+        <translation>A helyi rétegek összes módosított elemének visszaállítása. Az eldobott változtatások visszaállítása nem lehetséges.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -2256,7 +2256,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Ha be van kapcsolva, a koordinátaadatok, például a szélességi és hosszúsági fokok rákerülnek a térképre az új elemek digitalizálása vagy a mérőeszköz használata közben.</translation>
+        <translation>Ha be van kapcsolva, a koordináták, mint szélességi és hosszúsági értékek rákerülnek a térképre az új elemek digitalizálása vagy a mérőeszköz használata közben.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -2280,7 +2280,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Ha engedélyezve van, akkor a funkció mentve lesz, amint érvényes geometriája van és a  beállítások is teljesülnek. Az attribútumok azonnal véglegesítésre kerülnek.</translation>
+        <translation>Ha engedélyezve van, az elem mentésre kerül azonnal, amint érvényes geometriája van, a megszorítások teljesülnek és az attribútumok is véglegesítésítődtek.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -2510,7 +2510,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Az aktuális pozícióhoz rögzített  koordináta kurzorral történő elem digitalizálás közben  a fent kiválasztott mérési mód kerül hozzáadásra a geometriához, feltéve, hogy az rendelkezik M dimenzióval.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -3449,7 +3449,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Canvas térkép lehetőségek</translation>
+        <translation>Térkép lehetőségek</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
@@ -3733,11 +3733,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Elem:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Elem űrlap megnyitás</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3749,7 +3749,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Elem duplikálás nem lehetséges</translation>
     </message>
 </context>
 <context>
@@ -3760,11 +3760,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Utód funkció hozzáadása a %1 réteghez</translation>
+        <translation>Utód elem hozzáadása a %1 réteghez</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nem adható hozzá utód-funkció: a szülői elsődleges kulcsok nem állnak rendelkezésre</translation>
+        <translation>Nem adható hozzá utód-elem: a szülői elsődleges kulcsok nem állnak rendelkezésre</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3776,7 +3776,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Meg kell szüntetni a(z) %3 réteg %1 (%2) szolgáltatását? (A kapcsolat a(z) %4 rétegen törlődik.)</translation>
+        <translation>A &lt;b&gt;%3&lt;/b&gt; réteg &lt;b&gt;%1 (%2)&lt;/b&gt; eleme lekapcsolódhatott?&lt;br&gt;&lt;i&gt;(A  &lt;b&gt;%4&lt;/b&gt; réteghez való kapcsolat törlődik.)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
