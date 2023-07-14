@@ -3734,15 +3734,15 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Couche : </translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Entité : </translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir le formulaire de l&apos;entité</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3754,7 +3754,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>La duplication de l&apos;entité n&apos;est pas possible</translation>
     </message>
 </context>
 <context>
