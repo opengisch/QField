@@ -449,9 +449,12 @@ Page {
               delegate: Rectangle {
                 id: rectangle
                 objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
+
+                property bool isPressed: false
                 property string path: ProjectPath
                 property string title: ProjectTitle
                 property var type: ProjectType
+
                 width: parent ? parent.width : undefined
                 height: line.height
                 color: "transparent"
@@ -471,6 +474,7 @@ Page {
                     height: 95
                     clip: true
                     color: "transparent"
+                    opacity: rectangle.isPressed ? 0.8 : 1
 
                     Rectangle {
                       id: previewImageMask
@@ -494,10 +498,10 @@ Page {
                       }
                     }
                   }
+
                   Row {
                     width: parent.width
                     spacing: 0
-
 
                     Image {
                       id: type
@@ -528,6 +532,7 @@ Page {
                         font.pointSize: Theme.tipFont.pointSize
                         font.underline: true
                         color: Theme.mainColor
+                        opacity: rectangle.isPressed ? 0.8 : 1
                         wrapMode: Text.WordWrap
                         Layout.fillWidth: true
                       }
@@ -583,19 +588,19 @@ Page {
                 onPressed: (mouse) => {
                   var item = table.itemAt(mouse.x, mouse.y)
                   if (item) {
-                    pressedItem = item.children[0].children[1].children[0];
-                    pressedItem.color = "#5a8725"
+                    pressedItem = item
+                    pressedItem.isPressed = true
                   }
                 }
                 onCanceled: {
                   if (pressedItem) {
-                    pressedItem.color = Theme.mainColor
+                    pressedItem.isPressed = false
                     pressedItem = null
                   }
                 }
                 onReleased: {
                   if (pressedItem) {
-                    pressedItem.color = Theme.mainColor
+                    pressedItem.isPressed = false
                     pressedItem = null
                   }
                 }
