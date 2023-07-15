@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import QtQuick.Controls.Material.impl 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Particles 2.14
 import Qt.labs.settings 1.0
@@ -474,7 +475,6 @@ Page {
                     height: 95
                     clip: true
                     color: "transparent"
-                    opacity: rectangle.isPressed ? 0.8 : 1
 
                     Rectangle {
                       id: previewImageMask
@@ -491,6 +491,19 @@ Page {
                       height: parent.height - 4
                       source: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
                       fillMode: Image.PreserveAspectCrop
+
+                      layer.enabled: true
+                      layer.effect: QfOpacityMask {
+                        maskSource: previewImageMask
+                      }
+                    }
+                    Ripple {
+                      clip: true
+                      width: previewImage.width
+                      height: previewImage.height
+                      pressed: rectangle.isPressed
+                      active: rectangle.isPressed
+                      color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.15)
 
                       layer.enabled: true
                       layer.effect: QfOpacityMask {
