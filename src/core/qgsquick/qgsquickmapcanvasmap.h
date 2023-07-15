@@ -118,7 +118,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     /**
      * Returns an image of the last successful map canvas rendering
      */
-    const QImage image() const { return mImage; }
+    QImage image() const { return mImage; }
 
   signals:
 
