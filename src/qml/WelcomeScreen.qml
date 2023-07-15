@@ -456,78 +456,114 @@ Page {
                 height: line.height
                 color: "transparent"
 
-                Row {
+                Column {
                   id: line
                   width: parent.width
-                  leftPadding: 6
-                  rightPadding: 10
+                  leftPadding: 0
+                  rightPadding: 0
                   topPadding: 9
                   bottomPadding: 3
                   spacing: 0
-                  Image {
-                    id: type
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: switch(ProjectType) {
-                            case 0: return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
-                            case 1: return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
-                            case 2: return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
-                            default: return '';
-                            }
-                    sourceSize.width: 80
-                    sourceSize.height: 80
-                    width: 40
-                    height: 40
-                  }
-                  ColumnLayout {
-                    id: inner
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: rectangle.width - type.width - 20
+
+                  Rectangle {
+                    visible: previewImage.status === Image.Ready
+                    width: parent.width - parent.leftPadding - parent.rightPadding
+                    height: 95
                     clip: true
+                    color: "transparent"
 
-                    Text {
-                      id: projectTitle
-                      topPadding: 5
-                      leftPadding: 3
-                      bottomPadding: projectNote.visible ? 0 : 5
-                      text: ProjectTitle
-                      font.pointSize: Theme.tipFont.pointSize
-                      font.underline: true
-                      color: Theme.mainColor
-                      wrapMode: Text.WordWrap
-                      Layout.fillWidth: true
+                    Rectangle {
+                      id: previewImageMask
+                      width: previewImage.width
+                      height: previewImage.height
+                      radius: 10
+                      color: "white"
+                      visible: false
+                      layer.enabled: true
                     }
-                    Text {
-                      id: projectNote
-                      leftPadding: 3
-                      bottomPadding: 5
-                      text: {
-                        var notes = [];
+                    Image {
+                      id: previewImage
+                      width: parent.width
+                      height: parent.height - 4
+                      source: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
+                      fillMode: Image.PreserveAspectCrop
 
-                        if ( index == 0 ) {
-                          var firstRun = settings && !settings.value( "/QField/FirstRunFlag", false )
-                          if (!firstRun && firstShown === false) notes.push( qsTr( "Last session" ) );
-                        }
-
-                        if ( ProjectPath === registry.defaultProject ) {
-                          notes.push( qsTr( "Default project" ) );
-                        }
-
-                        if ( ProjectPath === registry.baseMapProject ) {
-                          notes.push( qsTr( "Base map" ) );
-                        }
-
-                        if ( notes.length > 0 ) {
-                          return notes.join( '; ' );
-                        } else {
-                          return "";
-                        }
+                      layer.enabled: true
+                      layer.effect: QfOpacityMask {
+                        maskSource: previewImageMask
                       }
-                      visible: text != ""
-                      font.pointSize: Theme.tipFont.pointSize - 2
-                      font.italic: true
-                      color: Theme.secondaryTextColor
-                      wrapMode: Text.WordWrap
-                      Layout.fillWidth: true
+                    }
+                  }
+                  Row {
+                    width: parent.width
+                    spacing: 0
+
+
+                    Image {
+                      id: type
+                      anchors.verticalCenter: parent.verticalCenter
+                      source: switch(ProjectType) {
+                              case 0: return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
+                              case 1: return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
+                              case 2: return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
+                              default: return '';
+                              }
+                      sourceSize.width: 80
+                      sourceSize.height: 80
+                      width: 40
+                      height: 40
+                    }
+                    ColumnLayout {
+                      id: inner
+                      anchors.verticalCenter: parent.verticalCenter
+                      width: rectangle.width - type.width - 20
+                      clip: true
+
+                      Text {
+                        id: projectTitle
+                        topPadding: 5
+                        leftPadding: 3
+                        bottomPadding: projectNote.visible ? 0 : 5
+                        text: ProjectTitle
+                        font.pointSize: Theme.tipFont.pointSize
+                        font.underline: true
+                        color: Theme.mainColor
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                      }
+                      Text {
+                        id: projectNote
+                        leftPadding: 3
+                        bottomPadding: 5
+                        text: {
+                          var notes = [];
+
+                          if ( index == 0 ) {
+                            var firstRun = settings && !settings.value( "/QField/FirstRunFlag", false )
+                            if (!firstRun && firstShown === false) notes.push( qsTr( "Last session" ) );
+                          }
+
+                          if ( ProjectPath === registry.defaultProject ) {
+                            notes.push( qsTr( "Default project" ) );
+                          }
+
+                          if ( ProjectPath === registry.baseMapProject ) {
+                            notes.push( qsTr( "Base map" ) );
+                          }
+
+                          if ( notes.length > 0 ) {
+                            return notes.join( '; ' );
+                          } else {
+                            return "";
+                          }
+                        }
+                        visible: text != ""
+                        font.pointSize: Theme.tipFont.pointSize - 2
+                        font.italic: true
+                        color: Theme.secondaryTextColor
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                      }
                     }
                   }
                 }

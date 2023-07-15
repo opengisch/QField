@@ -85,6 +85,7 @@
 #include "positioningutils.h"
 #include "printlayoutlistmodel.h"
 #include "projectinfo.h"
+#include "projectsimageprovider.h"
 #include "projectsource.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
@@ -258,6 +259,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mLocalFilesImageProvider = new LocalFilesImageProvider();
+  mProjectsImageProvider = new ProjectsImageProvider();
   mTrackingModel = new TrackingModel;
 
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
@@ -547,6 +549,7 @@ void QgisMobileapp::initDeclarative()
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
   addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
+  addImageProvider( QLatin1String( "projects" ), mProjectsImageProvider );
 }
 
 void QgisMobileapp::loadProjectQuirks()
@@ -650,6 +653,16 @@ void QgisMobileapp::onAfterFirstRendering()
     }
     mFirstRenderingFlag = false;
   }
+}
+
+void QgisMobileapp::onMapCanvasRefreshed()
+{
+  disconnect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
+  const QImage grab = mMapCanvas->image();
+  const int pixels = std::min( grab.width(), grab.height() );
+  const QRect rect( ( grab.width() - pixels ) / 2, ( grab.height() - pixels ) / 2, pixels, pixels );
+  const QImage img = grab.copy( rect );
+  img.save( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) );
 }
 
 bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
@@ -1182,6 +1195,8 @@ void QgisMobileapp::readProjectFile()
   }
 
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
+
+  connect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
 }
 
 QString QgisMobileapp::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
