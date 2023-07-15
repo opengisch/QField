@@ -658,11 +658,13 @@ void QgisMobileapp::onAfterFirstRendering()
 void QgisMobileapp::onMapCanvasRefreshed()
 {
   disconnect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
-  const QImage grab = mMapCanvas->image();
-  const int pixels = std::min( grab.width(), grab.height() );
-  const QRect rect( ( grab.width() - pixels ) / 2, ( grab.height() - pixels ) / 2, pixels, pixels );
-  const QImage img = grab.copy( rect );
-  img.save( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) );
+  if ( !mProjectFilePath.isEmpty() )
+  {
+    if ( !QFileInfo::exists( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) ) )
+    {
+      saveProjectPreviewImage();
+    }
+  }
 }
 
 bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
@@ -677,6 +679,8 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   const QString suffix = fi.suffix().toLower();
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
   {
+    saveProjectPreviewImage();
+
     mAuthRequestHandler->clearStoredRealms();
 
     mProjectFilePath = path;
@@ -1405,6 +1409,18 @@ bool QgisMobileapp::event( QEvent *event )
   return QQmlApplicationEngine::event( event );
 }
 
+void QgisMobileapp::saveProjectPreviewImage()
+{
+  if ( !mProjectFilePath.isEmpty() && mMapCanvas && !mMapCanvas->isRendering() )
+  {
+    const QImage grab = mMapCanvas->image();
+    const int pixels = std::min( grab.width(), grab.height() );
+    const QRect rect( ( grab.width() - pixels ) / 2, ( grab.height() - pixels ) / 2, pixels, pixels );
+    const QImage img = grab.copy( rect );
+    img.save( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) );
+  }
+}
+
 void QgisMobileapp::requestQuit()
 {
   mApp->exitQgis();
@@ -1413,6 +1429,7 @@ void QgisMobileapp::requestQuit()
 
 QgisMobileapp::~QgisMobileapp()
 {
+  saveProjectPreviewImage();
   delete mOfflineEditing;
   mProject->removeAllMapLayers();
   delete mProject;

@@ -192,6 +192,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
   private:
     void initDeclarative();
     void loadProjectQuirks();
+    void saveProjectPreviewImage();
     bool printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination );
 
     QgsOfflineEditing *mOfflineEditing = nullptr;
