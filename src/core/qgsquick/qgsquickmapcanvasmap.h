@@ -115,6 +115,11 @@ class QgsQuickMapCanvasMap : public QQuickItem
     //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
     void setIncrementalRendering( bool incrementalRendering );
 
+    /**
+     * Returns an image of the last successful map canvas rendering
+     */
+    const QImage image() const { return mImage; }
+
   signals:
 
     /**
