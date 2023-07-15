@@ -85,6 +85,7 @@
 #include "positioningutils.h"
 #include "printlayoutlistmodel.h"
 #include "projectinfo.h"
+#include "projectsimageprovider.h"
 #include "projectsource.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
@@ -258,6 +259,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mLocalFilesImageProvider = new LocalFilesImageProvider();
+  mProjectsImageProvider = new ProjectsImageProvider();
   mTrackingModel = new TrackingModel;
 
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
@@ -547,6 +549,7 @@ void QgisMobileapp::initDeclarative()
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
   addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
+  addImageProvider( QLatin1String( "projects" ), mProjectsImageProvider );
 }
 
 void QgisMobileapp::loadProjectQuirks()
@@ -652,6 +655,18 @@ void QgisMobileapp::onAfterFirstRendering()
   }
 }
 
+void QgisMobileapp::onMapCanvasRefreshed()
+{
+  disconnect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
+  if ( !mProjectFilePath.isEmpty() )
+  {
+    if ( !QFileInfo::exists( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) ) )
+    {
+      saveProjectPreviewImage();
+    }
+  }
+}
+
 bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
 {
   QFileInfo fi( path );
@@ -664,6 +679,8 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   const QString suffix = fi.suffix().toLower();
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
   {
+    saveProjectPreviewImage();
+
     mAuthRequestHandler->clearStoredRealms();
 
     mProjectFilePath = path;
@@ -1182,6 +1199,8 @@ void QgisMobileapp::readProjectFile()
   }
 
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
+
+  connect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
 }
 
 QString QgisMobileapp::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
@@ -1390,6 +1409,18 @@ bool QgisMobileapp::event( QEvent *event )
   return QQmlApplicationEngine::event( event );
 }
 
+void QgisMobileapp::saveProjectPreviewImage()
+{
+  if ( !mProjectFilePath.isEmpty() && mMapCanvas && !mMapCanvas->isRendering() )
+  {
+    const QImage grab = mMapCanvas->image();
+    const int pixels = std::min( grab.width(), grab.height() );
+    const QRect rect( ( grab.width() - pixels ) / 2, ( grab.height() - pixels ) / 2, pixels, pixels );
+    const QImage img = grab.copy( rect );
+    img.save( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) );
+  }
+}
+
 void QgisMobileapp::requestQuit()
 {
   mApp->exitQgis();
@@ -1398,6 +1429,7 @@ void QgisMobileapp::requestQuit()
 
 QgisMobileapp::~QgisMobileapp()
 {
+  saveProjectPreviewImage();
   delete mOfflineEditing;
   mProject->removeAllMapLayers();
   delete mProject;

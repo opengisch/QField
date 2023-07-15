@@ -78,6 +78,7 @@ set(QFIELD_CORE_SRCS
     printlayoutlistmodel.cpp
     projectinfo.cpp
     projectsource.cpp
+    projectsimageprovider.cpp
     qfieldappauthrequesthandler.cpp
     qfieldcloudconnection.cpp
     qfieldcloudprojectsmodel.cpp
@@ -184,6 +185,7 @@ set(QFIELD_CORE_HDRS
     printlayoutlistmodel.h
     projectinfo.h
     projectsource.h
+    projectsimageprovider.h
     qfieldappauthrequesthandler.h
     qfieldcloudconnection.h
     qfieldcloudprojectsmodel.h

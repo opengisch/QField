@@ -249,6 +249,7 @@ Page {
             delegate: Rectangle {
                 id: rectangle
 
+                property bool isPressed: false
                 property string projectId: Id
                 property string projectOwner: Owner
                 property string projectName: Name
@@ -328,6 +329,7 @@ Page {
                             font.pointSize: Theme.tipFont.pointSize
                             font.underline: true
                             color: Theme.mainColor
+                            opacity: rectangle.isPressed ? 0.8 : 1
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -440,19 +442,19 @@ Page {
                   table.contentY + mouse.y
                 )
                 if (item) {
-                  pressedItem = item.children[1].children[1].children[0];
-                  pressedItem.color = "#5a8725"
+                  pressedItem = item
+                  pressedItem.isPressed = true
                 }
               }
               onCanceled: {
                 if (pressedItem) {
-                  pressedItem.color = Theme.mainColor
+                  pressedItem.isPressed = false
                   pressedItem = null
                 }
               }
               onReleased: {
                 if (pressedItem) {
-                  pressedItem.color = Theme.mainColor
+                  pressedItem.isPressed = false
                   pressedItem = null
                 }
               }

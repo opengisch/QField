@@ -50,6 +50,7 @@ class FlatLayerTreeModel;
 class LayerTreeModel;
 class LegendImageProvider;
 class LocalFilesImageProvider;
+class ProjectsImageProvider;
 class TrackingModel;
 class LocatorFiltersModel;
 class QgsProject;
@@ -185,12 +186,13 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
   private slots:
 
     void onAfterFirstRendering();
-
+    void onMapCanvasRefreshed();
     void requestQuit();
 
   private:
     void initDeclarative();
     void loadProjectQuirks();
+    void saveProjectPreviewImage();
     bool printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination );
 
     QgsOfflineEditing *mOfflineEditing = nullptr;
@@ -203,6 +205,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     bool mFirstRenderingFlag;
     LegendImageProvider *mLegendImageProvider = nullptr;
     LocalFilesImageProvider *mLocalFilesImageProvider = nullptr;
+    ProjectsImageProvider *mProjectsImageProvider = nullptr;
 
     QgsProject *mProject = nullptr;
     QString mProjectFilePath;
