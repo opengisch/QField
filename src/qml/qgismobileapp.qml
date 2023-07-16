@@ -2993,6 +2993,7 @@ ApplicationWindow {
 
       projectInfo.filePath = path
       stateMachine.state = projectInfo.getSavedStateMode()
+      dashBoard.currentLayer = projectInfo.getSavedActiveLayer()
 
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
 

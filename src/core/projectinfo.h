@@ -77,6 +77,17 @@ class ProjectInfo : public QObject
      */
     Q_INVOKABLE QString getSavedStateMode() const;
 
+    /**
+     * Saves the active \a layer within the current project
+     */
+    Q_INVOKABLE void saveActiveLayer( QgsMapLayer *layer );
+
+    /**
+     * Returns the saved active layer for the current project
+     * or nullptr if active layer was not saved or isn't present
+     */
+    Q_INVOKABLE QgsMapLayer *getSavedActiveLayer() const;
+
   signals:
 
     void filePathChanged();

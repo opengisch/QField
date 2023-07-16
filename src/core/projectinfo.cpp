@@ -234,6 +234,27 @@ QString ProjectInfo::getSavedStateMode() const
   return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
 }
 
+void ProjectInfo::saveActiveLayer( QgsMapLayer *layer )
+{
+  if ( mFilePath.isEmpty() || !layer )
+    return;
+
+  QFileInfo fi( mFilePath );
+  if ( fi.exists() )
+  {
+    mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+    mSettings.setValue( QStringLiteral( "filesize" ), fi.size() );
+    mSettings.setValue( QStringLiteral( "activeLayer" ), layer->id() );
+    mSettings.endGroup();
+  }
+}
+
+QgsMapLayer *ProjectInfo::getSavedActiveLayer() const
+{
+  const QString layerId = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+  return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;
+}
+
 void ProjectInfo::mapThemeChanged()
 {
   if ( mFilePath.isEmpty() )
