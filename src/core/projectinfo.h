@@ -22,6 +22,7 @@
 #include "qgsquickmapsettings.h"
 
 #include <QObject>
+#include <QSettings>
 #include <QTimer>
 
 /**
@@ -59,17 +60,17 @@ class ProjectInfo : public QObject
     /**
      * Saves the \a layer style to the current project information settings
      */
-    Q_INVOKABLE void saveLayerStyle( QgsMapLayer *layer ) const;
+    Q_INVOKABLE void saveLayerStyle( QgsMapLayer *layer );
 
     /**
      * Saves the current state (visibility and collapse status) of the layer tree
      */
-    Q_INVOKABLE void saveLayerTreeState() const;
+    Q_INVOKABLE void saveLayerTreeState();
 
     /**
      * Saves the state \a mode for the current project
      */
-    Q_INVOKABLE void saveStateMode( const QString &mode ) const;
+    Q_INVOKABLE void saveStateMode( const QString &mode );
 
     /**
      * Returns the saved state mode for the current project
@@ -99,6 +100,7 @@ class ProjectInfo : public QObject
     void saveRotation();
     void saveTemporalState();
 
+    QSettings mSettings;
     QString mFilePath;
 
     QgsQuickMapSettings *mMapSettings = nullptr;
