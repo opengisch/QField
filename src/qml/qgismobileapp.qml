@@ -174,9 +174,9 @@ ApplicationWindow {
       case 'digitize':
         projectInfo.saveStateMode(mode)
         dashBoard.ensureEditableLayerSelected();
-        if (dashBoard.currentLayer)
+        if (dashBoard.activeLayer)
         {
-          displayToast( qsTr( 'You are now in digitize mode on layer %1' ).arg( dashBoard.currentLayer.name ) );
+          displayToast( qsTr( 'You are now in digitize mode on layer %1' ).arg( dashBoard.activeLayer.name ) );
         }
         else
         {
@@ -506,7 +506,7 @@ ApplicationWindow {
             // for instance, the vertex editor will select a vertex if possible
             return
           }
-          if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
+          if ( stateMachine.state === "digitize" && dashBoard.activeLayer ) { // the sourceLocation test checks if a (stylus) hover is active
             if ( ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2 )
                || ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2 ) ) {
                 digitizingToolbar.addVertex();
@@ -620,7 +620,7 @@ ApplicationWindow {
             return Number.NaN;
           }
         }
-        vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
+        vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
         crs: mapCanvas.mapSettings.destinationCrs
       }
 
@@ -685,7 +685,7 @@ ApplicationWindow {
       visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
-      currentLayer: dashBoard.currentLayer
+      currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
       positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
       averagedPosition: positionSource.averagedPosition
@@ -889,7 +889,7 @@ ApplicationWindow {
     DistanceArea {
       id: digitizingGeometryMeasure
 
-      property VectorLayer currentLayer: dashBoard.currentLayer
+      property VectorLayer currentLayer: dashBoard.activeLayer
 
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       project: qgisProject
@@ -1146,7 +1146,7 @@ ApplicationWindow {
 
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
-      var currentLayerLocked = false;
+      var activeLayerLocked = false;
       for (var i = 0; i < layerTree.rowCount(); i++)
       {
         var index = layerTree.index(i, 0)
@@ -1160,14 +1160,14 @@ ApplicationWindow {
              firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
           }
         }
-        if (currentLayer != null && currentLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer))
+        if (activeLayer != null && activeLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer))
         {
            if (
                layerTree.data(index, FlatLayerTreeModel.ReadOnly) === true
                || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === true
            )
            {
-             currentLayerLocked = true;
+             activeLayerLocked = true;
            }
            else
            {
@@ -1176,10 +1176,10 @@ ApplicationWindow {
         }
         if (
             firstEditableLayer !== null
-            && (currentLayer == null || currentLayerLocked === true)
+            && (activeLayer == null || activeLayerLocked === true)
         )
         {
-          currentLayer = firstEditableLayer;
+          activeLayer = firstEditableLayer;
           break;
         }
       }
@@ -1243,12 +1243,12 @@ ApplicationWindow {
       id: topologyButton
       round: true
       visible: stateMachine.state === "digitize"
-          && dashBoard.currentLayer
-          && dashBoard.currentLayer.isValid
+          && dashBoard.activeLayer
+          && dashBoard.activeLayer.isValid
           && (
-                   dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Polygon
-                   || dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Line
-                   || dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Point
+                   dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
+                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
+                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
         )
       state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
       iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
@@ -1289,9 +1289,9 @@ ApplicationWindow {
                && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
                    (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon
                     || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line))
-                   || (!digitizingToolbar.geometryRequested && dashBoard.currentLayer && dashBoard.currentLayer.isValid &&
-                   (dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Polygon
-                    || dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Line)))
+                   || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid &&
+                   (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
+                    || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
       iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
 
       bgcolor: Theme.darkGray
@@ -1697,10 +1697,10 @@ ApplicationWindow {
 
       stateVisible: !screenLocker.enabled &&
                     ((stateMachine.state === "digitize"
-                     && dashBoard.currentLayer
-                     && !dashBoard.currentLayer.readOnly
+                     && dashBoard.activeLayer
+                     && !dashBoard.activeLayer.readOnly
                      // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
-                     && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
+                     && dashBoard.activeLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
                      && !geometryEditorsToolbar.stateVisible
                      && !moveFeaturesToolbar.stateVisible
                      && (projectInfo.editRights || projectInfo.insertRights))
@@ -1716,7 +1716,7 @@ ApplicationWindow {
       FeatureModel {
         id: digitizingFeature
         project: qgisProject
-        currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
+        currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
         positionInformation: positionSource.positionInformation
         topSnappingResult: coordinateLocator.topSnappingResult
         positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
@@ -1724,7 +1724,7 @@ ApplicationWindow {
         geometry: Geometry {
           id: digitizingGeometry
           rubberbandModel: digitizingRubberband.model
-          vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
+          vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
         }
       }
 
@@ -2884,8 +2884,8 @@ ApplicationWindow {
     onEditGeometry: {
       // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
       // important for snapping settings to make sense when set to current layer
-      if ( dashBoard.currentLayer != featureForm.selection.focusedLayer ) {
-        dashBoard.currentLayer = featureForm.selection.focusedLayer
+      if ( dashBoard.activeLayer != featureForm.selection.focusedLayer ) {
+        dashBoard.activeLayer = featureForm.selection.focusedLayer
         displayToast( qsTr( "Current layer switched to the one holding the selected geometry." ) );
       }
       geometryEditingFeature.vertexModel.geometry = featureForm.selection.focusedGeometry
@@ -2926,7 +2926,7 @@ ApplicationWindow {
     id: overlayFeatureFormDrawer
     digitizingToolbar: digitizingToolbar
     barcodeReader: barcodeReader
-    featureModel.currentLayer: dashBoard.currentLayer
+    featureModel.currentLayer: dashBoard.activeLayer
   }
 
   function displayToast( message, type ) {
@@ -2993,7 +2993,7 @@ ApplicationWindow {
 
       projectInfo.filePath = path
       stateMachine.state = projectInfo.getSavedStateMode()
-      dashBoard.currentLayer = projectInfo.getSavedActiveLayer()
+      dashBoard.activeLayer = projectInfo.getSavedActiveLayer()
 
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
 

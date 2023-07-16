@@ -14,7 +14,7 @@ ListView {
   id: legend
 
   property bool isVisible: false
-  property VectorLayer currentLayer
+  property VectorLayer activeLayer
 
   model: flatLayerTree
   flickableDirection: Flickable.VerticalFlick
@@ -28,7 +28,7 @@ ListView {
     property int itemPadding: 5 + ( 5 + 24 ) * TreeLevel
     property string itemType: Type
     property string layerType: LayerType
-    property bool isSelectedLayer: ( itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer )
+    property bool isSelectedLayer: ( itemType === "layer" && vectorLayer != null && vectorLayer == activeLayer )
     property bool isPressed: false
 
     id: rectangle
@@ -141,7 +141,7 @@ ListView {
         text: Name
         horizontalAlignment: Text.AlignLeft
         font.pointSize: Theme.tipFont.pointSize
-        font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? true : false
+        font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == activeLayer) ? true : false
         color: {
             if ( isSelectedLayer )
                 return Theme.light;
@@ -233,8 +233,8 @@ ListView {
 
           if (item) {
               if (item.vectorLayer && item.vectorLayer.isValid) {
-                currentLayer = item.vectorLayer
-                projectInfo.saveActiveLayer(currentLayer)
+                activeLayer = item.vectorLayer
+                projectInfo.saveActiveLayer(activeLayer)
               }
           }
       }

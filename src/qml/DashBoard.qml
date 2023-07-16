@@ -14,7 +14,7 @@ Drawer {
   signal showCloudMenu
 
   property alias allowLayerChange: legend.enabled
-  property alias currentLayer: legend.currentLayer
+  property alias activeLayer: legend.activeLayer
   property alias layerTree: legend.model
   property MapSettings mapSettings
 
@@ -41,9 +41,9 @@ Drawer {
   onShowMenu: mainMenu.popup(settingsButton.x + 2, mainWindow.sceneTopMargin + settingsButton.y + 2)
   onShowCloudMenu: cloudPopup.show()
 
-  onCurrentLayerChanged: {
-    if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
-      displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
+  onActiveLayerChanged: {
+    if (activeLayer && activeLayer.readOnly && stateMachine.state == "digitize")
+      displayToast(qsTr("The layer %1 is read only.").arg(activeLayer.name))
   }
 
   Connections {
