@@ -220,6 +220,28 @@ void ProjectInfo::saveLayerTreeState() const
   }
 }
 
+void ProjectInfo::saveStateMode( const QString &mode ) const
+{
+  if ( mFilePath.isEmpty() )
+    return;
+
+  QFileInfo fi( mFilePath );
+  if ( fi.exists() )
+  {
+    QSettings settings;
+    settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+    settings.setValue( QStringLiteral( "filesize" ), fi.size() );
+    settings.setValue( QStringLiteral( "stateMode" ), mode );
+    settings.endGroup();
+  }
+}
+
+QString ProjectInfo::getSavedStateMode() const
+{
+  QSettings settings;
+  return settings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
+}
+
 void ProjectInfo::mapThemeChanged()
 {
   if ( mFilePath.isEmpty() )

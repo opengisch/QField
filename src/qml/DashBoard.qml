@@ -46,6 +46,18 @@ Drawer {
       displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
   }
 
+  Connections {
+    target: stateMachine
+
+    function onStateChanged() {
+      if (stateMachine.state === "measure") {
+        return
+      }
+
+      modeSwitch.checked = stateMachine.state === "digitize"
+    }
+  }
+
   ColumnLayout {
     anchors.fill: parent
 
@@ -146,7 +158,7 @@ Drawer {
 
 
       Switch {
-        id: modeswitch
+        id: modeSwitch
         visible: projectInfo.insertRights
         height: 56
         width: ( 56 + 36 )
@@ -155,7 +167,7 @@ Drawer {
         indicator: Rectangle {
           implicitHeight: 36
           implicitWidth: 36 * 2
-          x: modeswitch.leftPadding
+          x: modeSwitch.leftPadding
           radius: 4
           color:  "#66212121"
           border.color: "#44FFFFFF"
@@ -183,7 +195,7 @@ Drawer {
             opacity: 0.4
           }
           Rectangle {
-            x: modeswitch.checked ? parent.width - width : 0
+            x: modeSwitch.checked ? parent.width - width : 0
             width: 36
             height: 36
             radius: 4
@@ -193,7 +205,7 @@ Drawer {
               width: 28
               height: 28
               anchors.centerIn: parent
-              source:  modeswitch.checked ? Theme.getThemeVectorIcon( 'ic_create_white_24dp' ) : Theme.getThemeVectorIcon( 'ic_map_white_24dp' )
+              source:  modeSwitch.checked ? Theme.getThemeVectorIcon( 'ic_create_white_24dp' ) : Theme.getThemeVectorIcon( 'ic_map_white_24dp' )
               sourceSize.width: parent.height * screen.devicePixelRatio
               sourceSize.height: parent.width * screen.devicePixelRatio
             }
@@ -205,6 +217,7 @@ Drawer {
             }
           }
         }
+
         onPositionChanged: {
           if ( checked ) {
             changeMode( "digitize" )

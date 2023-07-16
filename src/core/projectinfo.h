@@ -66,6 +66,16 @@ class ProjectInfo : public QObject
      */
     Q_INVOKABLE void saveLayerTreeState() const;
 
+    /**
+     * Saves the state \a mode for the current project
+     */
+    Q_INVOKABLE void saveStateMode( const QString &mode ) const;
+
+    /**
+     * Returns the saved state mode for the current project
+     */
+    Q_INVOKABLE QString getSavedStateMode() const;
+
   signals:
 
     void filePathChanged();
