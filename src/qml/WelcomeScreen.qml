@@ -874,7 +874,7 @@ Page {
       } else {
         var firstRun = !settings.value( "/QField/FirstRunFlag", false )
         if ( firstRun ) {
-          welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try out sample projects listed in the list below." )
+          welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try the sample projects listed below." )
         } else {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
