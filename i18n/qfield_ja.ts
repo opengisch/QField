@@ -3215,7 +3215,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>QFieldにようこそ。初めてこのアプリをご使用になりますか？どうぞ下のリストにあるサンプルプロジェクトをお試しください。</translation>
+        <translation type="vanished">QFieldにようこそ。初めてこのアプリをご使用になりますか？どうぞ下のリストにあるサンプルプロジェクトをお試しください。</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3248,6 +3248,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Recent Project Actions</source>
         <translation>最近使用したプロジェクトのアクション</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

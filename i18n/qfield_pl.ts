@@ -766,7 +766,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="unfinished"/>
+        <translation>Pierścień nie posiada żadnego istniejącego pierścienia do dopasowania</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
@@ -1043,7 +1043,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Zwraca wartość wyrażenia wpisanego w pasku wyszukiwania</translation>
     </message>
 </context>
 <context>
@@ -1069,11 +1069,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli wyłączone, ten filtr lokalizatorów wciąż może być używany, przez wpisanie przedrostka %1 w pasku wyszukiwania.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Włącz domyślnie lokalizator %1</translation>
     </message>
 </context>
 <context>
@@ -3212,7 +3212,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Witaj w QField. Pierwszy raz używasz tej aplikacji? Wypróbuj przykładowe projekty pokazane na poniższej liście.</translation>
+        <translation type="vanished">Witaj w QField. Pierwszy raz używasz tej aplikacji? Wypróbuj przykładowe projekty pokazane na poniższej liście.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3245,6 +3245,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Recent Project Actions</source>
         <translation>Ostatnie działania projektów</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation>Witaj w QField. Jeśli pierwszy raz używasz tej aplikacji, możesz wypróbować przykładowe projekty z poniższej listy.</translation>
     </message>
 </context>
 <context>

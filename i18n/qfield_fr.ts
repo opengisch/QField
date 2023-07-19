@@ -3214,7 +3214,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Bienvenue dans QField. C&apos;est votre première utilisation de l&apos;application ? Essayez les projets d&apos;exemple listés ci-dessous.</translation>
+        <translation type="vanished">Bienvenue dans QField. C&apos;est votre première utilisation de l&apos;application ? Essayez les projets d&apos;exemple listés ci-dessous.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3246,6 +3246,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>

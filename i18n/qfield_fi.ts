@@ -3219,7 +3219,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Tervetuloa QFieldiin. Ensimmäinen kerta, kun käytät tätä sovellusta? Kokeile alla olevassa luettelossa lueteltuja esimerkkiprojekteja.</translation>
+        <translation type="vanished">Tervetuloa QFieldiin. Ensimmäinen kerta, kun käytät tätä sovellusta? Kokeile alla olevassa luettelossa lueteltuja esimerkkiprojekteja.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3252,6 +3252,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Recent Project Actions</source>
         <translation>Projektin viime toimet</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

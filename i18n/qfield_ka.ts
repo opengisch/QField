@@ -3240,6 +3240,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Recent Project Actions</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>

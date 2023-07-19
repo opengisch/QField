@@ -3219,7 +3219,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Bem-vindo ao QField. É a primeira vez que está a usar a aplicação? Experimente alguns exemplos de projetos abaixo listados.</translation>
+        <translation type="vanished">Bem-vindo ao QField. É a primeira vez que está a usar a aplicação? Experimente alguns exemplos de projetos abaixo listados.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3252,6 +3252,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Recent Project Actions</source>
         <translation>Ações de Projeto Recente</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

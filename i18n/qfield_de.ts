@@ -3212,7 +3212,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Willkommen bei QField. Verwenden Sie diese Anwendung zum ersten Mal? Probieren Sie die in der Liste unten aufgeführten Beispielprojekte aus.</translation>
+        <translation type="vanished">Willkommen bei QField. Verwenden Sie diese Anwendung zum ersten Mal? Probieren Sie die in der Liste unten aufgeführten Beispielprojekte aus.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3244,6 +3244,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>

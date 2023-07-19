@@ -3222,7 +3222,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Benvenuto in QField. È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
+        <translation type="vanished">Benvenuto in QField. È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3254,6 +3254,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>

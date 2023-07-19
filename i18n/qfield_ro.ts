@@ -3221,7 +3221,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Bine ați venit pe QField. Este prima dată când utilizați această aplicație? Încercați exemplele de proiecte enumerate în lista de mai jos.</translation>
+        <translation type="vanished">Bine ați venit pe QField. Este prima dată când utilizați această aplicație? Încercați exemplele de proiecte enumerate în lista de mai jos.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3253,6 +3253,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>

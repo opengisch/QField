@@ -3217,7 +3217,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Welkom bij QField. Gebruik je deze applicatie voor het eerst? Probeer voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
+        <translation type="vanished">Welkom bij QField. Gebruik je deze applicatie voor het eerst? Probeer voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3249,6 +3249,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>

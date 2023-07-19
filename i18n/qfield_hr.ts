@@ -3215,7 +3215,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Dobrodošli u QField. Prvi put koristite aplikaciju? Probajte neki od primjera projekata sa donje liste.</translation>
+        <translation type="vanished">Dobrodošli u QField. Prvi put koristite aplikaciju? Probajte neki od primjera projekata sa donje liste.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3248,6 +3248,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Recent Project Actions</source>
         <translation>Nedavne akcije projekta</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

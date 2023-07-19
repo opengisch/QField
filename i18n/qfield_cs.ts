@@ -3220,7 +3220,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Vítejte v QField. Používáte tuto aplikaci poprvé? Vyzkoušejte ukázkové projekty se seznamu níže.</translation>
+        <translation type="vanished">Vítejte v QField. Používáte tuto aplikaci poprvé? Vyzkoušejte ukázkové projekty se seznamu níže.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3252,6 +3252,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
