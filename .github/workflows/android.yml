@@ -70,7 +70,7 @@ jobs:
       - name: 💐 Install Qt (Android)
         uses: jurplel/install-qt-action@v3
         with:
-          version: 6.5.1
+          version: 6.5.2
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: android
           arch: ${{ matrix.qt_arch }}
@@ -79,7 +79,7 @@ jobs:
       - name: 💐 Install Qt (Desktop)
         uses: jurplel/install-qt-action@v3
         with:
-          version: 6.5.1
+          version: 6.5.2
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
           target: desktop
           cache: false
@@ -129,8 +129,8 @@ jobs:
                 -D WITH_ALL_FILES_ACCESS="${{ matrix.all_files_access }}" \
                 -D WITH_SPIX=OFF \
                 -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
-                -D QT_HOST_PATH=/home/runner/work/QField/Qt/6.5.1/gcc_64 \
-                -D QT_HOST_PATH_CMAKE_DIR:PATH=/home/runner/work/QField/Qt/6.5.1/gcc_64 \
+                -D QT_HOST_PATH=/home/runner/work/QField/Qt/6.5.2/gcc_64 \
+                -D QT_HOST_PATH_CMAKE_DIR:PATH=/home/runner/work/QField/Qt/6.5.2/gcc_64 \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
