@@ -1,6 +1,6 @@
 #!/bin/bash
 QT_PREFIX=${HOME}/.qt
-QT_VERSION=6.5.1
+QT_VERSION=6.5.2
 
 # pip install aqtinstall
 # aqt install-qt linux desktop ${QT_VERSION} gcc_64 -O ${QT_PREFIX} -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors # Modules come from .github/workflows/android.yaml
