@@ -3,7 +3,7 @@
 set -e
 
 echo "::group::tx-pull"
-./tx pull --minimum-perc=50 --force
+./tx pull -a --minimum-perc=50 --force
 echo "::endgroup::"
 
 echo "::group::android specific translations"
