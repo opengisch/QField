@@ -28,6 +28,8 @@ ProjectInfo::ProjectInfo( QObject *parent )
   : QObject( parent )
 {
   mSaveExtentTimer.setSingleShot( true );
+  mSaveRotationTimer.setSingleShot( true );
+  mSaveTemporalStateTimer.setSingleShot( true );
   connect( &mSaveExtentTimer, &QTimer::timeout, this, &ProjectInfo::saveExtent );
   connect( &mSaveRotationTimer, &QTimer::timeout, this, &ProjectInfo::saveRotation );
   connect( &mSaveTemporalStateTimer, &QTimer::timeout, this, &ProjectInfo::saveTemporalState );
