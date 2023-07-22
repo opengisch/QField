@@ -7,7 +7,7 @@ import org.qfield 1.0
 Drawer {
   id: overlayFeatureFormDrawer
 
-  property alias featureModel: overlayFeatureForm.featureModel
+  property alias featureModel: attributeFormModel.featureModel
   property alias state: overlayFeatureForm.state
   property alias featureForm: overlayFeatureForm
   property alias digitizingToolbar: overlayFeatureForm.digitizingToolbar
@@ -77,7 +77,6 @@ Drawer {
     topMargin: overlayFeatureFormDrawer.y == 0 ? mainWindow.sceneTopMargin : 0.0
     bottomMargin: mainWindow.sceneBottomMargin
 
-    property alias featureModel: attributeFormModel.featureModel
     property bool isSaved: false
 
     digitizingToolbar: overlayFeatureFormDrawer.digitizingToolbar
