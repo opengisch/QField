@@ -91,7 +91,7 @@ EditorWidgetBase {
       anchors.right: parent.right
       y: checkValue.height - height - checkValue.bottomPadding / 2
       implicitWidth: 120
-      height: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? 2: 1
+      height: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? 2 : 1
       color: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? Theme.accentColor : Theme.accentLightColor
   }
 

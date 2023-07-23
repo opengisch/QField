@@ -276,7 +276,7 @@ Item {
               Layout.fillWidth: true
             }
 
-            TextField {
+            QfTextField {
               id: timeIntervalValue
               width: timeInterval.width
               font: Theme.defaultFont
@@ -288,13 +288,6 @@ Item {
 
               inputMethodHints: Qt.ImhFormattedNumbersOnly
               validator: DoubleValidator { locale: 'C' }
-
-              background: Rectangle {
-                y: parent.height - height - parent.bottomPadding / 2
-                implicitWidth: 120
-                height: parent.activeFocus ? 2: 1
-                color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
-              }
 
               Component.onCompleted: {
                 text = isNaN(positioningSettings.trackerTimeInterval) ? '' : positioningSettings.trackerTimeInterval
@@ -348,7 +341,7 @@ Item {
               Layout.fillWidth: true
             }
 
-            TextField {
+            QfTextField {
               id: minimumDistanceValue
               width: minimumDistance.width
               font: Theme.defaultFont
@@ -360,13 +353,6 @@ Item {
 
               inputMethodHints: Qt.ImhFormattedNumbersOnly
               validator: DoubleValidator { locale: 'C' }
-
-              background: Rectangle {
-                y: parent.height - height - parent.bottomPadding / 2
-                implicitWidth: 120
-                height: parent.activeFocus ? 2: 1
-                color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
-              }
 
               Component.onCompleted: {
                 text = isNaN(positioningSettings.trackerMinimumDistance) ? '' : positioningSettings.trackerMinimumDistance
