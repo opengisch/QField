@@ -472,7 +472,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>Digitalizacija značajke sloja dnevnika nije uspjela</translation>
+        <translation>Neuspješno dodavanje elementa sloja u dnevnik</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
@@ -3251,7 +3251,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Dobrodošli u QField. Prvi puta koristite aplikaciju? Probajte primjere projekata koji su popisani ispod.</translation>
     </message>
 </context>
 <context>
@@ -3737,15 +3737,15 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Sloj:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Element:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Otvori obrazac za element</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3757,7 +3757,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Dupliciranje elementa nije dostupno</translation>
     </message>
 </context>
 <context>
@@ -3772,7 +3772,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Ne mogu dodati podznačajku: primarni ključevi roditeljskog elementa nisu dostupni </translation>
+        <translation>Ne mogu dodati podelement: primarni ključevi roditeljskog elementa nisu dostupni </translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
