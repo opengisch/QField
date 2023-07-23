@@ -144,8 +144,8 @@ jobs:
             echo "${{ secrets.S3CFG }}" > ~/.s3cfg
             envsubst < ${{ github.workspace }}/platform/ios/installation-template.html > qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html
             envsubst < ${{ github.workspace }}/platform/ios/installation-template.plist > qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.plist
-            s3cmd put --acl-public --add-header=content-type:text/html qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html
-            s3cmd put --acl-public --add-header=content-type:application/xml qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList
+            s3cmd put --acl-public -m 'text/html' qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html
+            s3cmd put --acl-public -m 'application/xml' qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList
             s3cmd put --acl-public qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
 
             echo "Install the ipa from https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html"
