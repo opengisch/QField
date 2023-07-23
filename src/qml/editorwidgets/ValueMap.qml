@@ -87,7 +87,7 @@ EditorWidgetBase {
         visible: !enabled
         y: comboBox.height - 12
         width: comboBox.width
-        height: comboBox.activeFocus ? 2: 1
+        height: comboBox.activeFocus ? 2 : 1
         color: comboBox.activeFocus ? Theme.accentColor : Theme.accentLightColor
       }
 

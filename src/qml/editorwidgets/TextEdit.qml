@@ -122,7 +122,7 @@ EditorWidgetBase {
       anchors.right: parent.right
       y: Math.max( textField.height, textArea.height ) - height - textField.bottomPadding / 2
       implicitWidth: 120
-      height: textField.activeFocus || textArea.activeFocus ? 2: 1
+      height: textField.activeFocus || textArea.activeFocus ? 2 : 1
       color: textField.activeFocus || textArea.activeFocus ? Theme.accentColor : Theme.accentLightColor
   }
 

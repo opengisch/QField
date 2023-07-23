@@ -11,8 +11,9 @@ Item {
   property alias horizontalAlignment: textField.horizontalAlignment
   property alias inputMethodHints: textField.inputMethodHints
   property alias inputMask: textField.inputMask
+  property alias validator: textField.validator
 
-  property var echoMode: TextInput.Normal
+  property int echoMode: TextInput.Normal
 
   signal textEdited
   signal editingFinished
@@ -37,10 +38,15 @@ Item {
     inputMethodHints: Qt.ImhNone
 
     background: Rectangle {
-      y: textField.height - height - textField.bottomPadding / 2
       implicitWidth: 120
-      height: textField.activeFocus ? 2: 1
-      color: textField.activeFocus ? Theme.accentColor : Theme.accentLightColor
+      color: "transparent"
+
+      Rectangle {
+        y: textField.height - height - textField.bottomPadding / 2
+        width: textField.width
+        height: textField.activeFocus ? 2 : 1
+        color: textField.activeFocus ? Theme.accentColor : Theme.accentLightColor
+      }
     }
 
     onActiveFocusChanged: {

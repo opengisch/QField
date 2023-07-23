@@ -841,7 +841,7 @@ Page {
                       Layout.leftMargin: 8
                   }
 
-                  TextField {
+                  QfTextField {
                       id: accuracyBadInput
                       width: antennaHeightActivated.width
                       font: Theme.defaultFont
@@ -853,13 +853,6 @@ Page {
 
                       inputMethodHints: Qt.ImhFormattedNumbersOnly
                       validator: DoubleValidator { locale: 'C' }
-
-                      background: Rectangle {
-                        y: parent.height - height - parent.bottomPadding / 2
-                        implicitWidth: 120
-                        height: parent.activeFocus ? 2: 1
-                        color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
-                      }
 
                       Component.onCompleted: {
                           text = isNaN( positioningSettings.accuracyBad ) ? '' : positioningSettings.accuracyBad
@@ -883,7 +876,7 @@ Page {
                       Layout.leftMargin: 8
                   }
 
-                  TextField {
+                  QfTextField {
                       id: accuracyExcellentInput
                       width: antennaHeightActivated.width
                       font: Theme.defaultFont
@@ -895,13 +888,6 @@ Page {
 
                       inputMethodHints: Qt.ImhFormattedNumbersOnly
                       validator: DoubleValidator { locale: 'C' }
-
-                      background: Rectangle {
-                        y: parent.height - height - parent.bottomPadding / 2
-                        implicitWidth: 120
-                        height: parent.activeFocus ? 2: 1
-                        color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
-                      }
 
                       Component.onCompleted: {
                           text = isNaN( positioningSettings.accuracyExcellent ) ? '' : positioningSettings.accuracyExcellent
@@ -993,7 +979,7 @@ Page {
                       Layout.leftMargin: 8
                   }
 
-                  TextField {
+                  QfTextField {
                       id: averagedPositioningMinimumCount
                       width: averagedPositioning.width
                       font: Theme.defaultFont
@@ -1005,13 +991,6 @@ Page {
 
                       inputMethodHints: Qt.ImhFormattedNumbersOnly
                       validator: IntValidator { locale: 'C' }
-
-                      background: Rectangle {
-                        y: parent.height - height - parent.bottomPadding / 2
-                        implicitWidth: 120
-                        height: parent.activeFocus ? 2: 1
-                        color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
-                      }
 
                       Component.onCompleted: {
                           text = isNaN( positioningSettings.averagedPositioningMinimumCount ) ? '' : positioningSettings.averagedPositioningMinimumCount
@@ -1100,7 +1079,7 @@ Page {
                       Layout.leftMargin: 8
                   }
 
-                  TextField {
+                  QfTextField {
                       id: antennaHeightInput
                       enabled: antennaHeightActivated.checked
                       visible: antennaHeightActivated.checked
@@ -1112,13 +1091,6 @@ Page {
 
                       inputMethodHints: Qt.ImhFormattedNumbersOnly
                       validator: DoubleValidator { locale: 'C' }
-
-                      background: Rectangle {
-                        y: parent.height - height - parent.bottomPadding / 2
-                        implicitWidth: 120
-                        height: parent.activeFocus ? 2: 1
-                        color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
-                      }
 
                       Component.onCompleted: {
                           text = isNaN( positioningSettings.antennaHeight ) ? '' : positioningSettings.antennaHeight

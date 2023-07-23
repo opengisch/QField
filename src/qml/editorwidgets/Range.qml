@@ -53,10 +53,15 @@ EditorWidgetBase {
           inputMethodHints: Qt.ImhFormattedNumbersOnly
 
           background: Rectangle {
+            implicitWidth: 120
+            color: "transparent"
+
+            Rectangle {
               y: textField.height - height - textField.bottomPadding / 2
-              implicitWidth: 120
-              height: textField.activeFocus ? 2: 1
+              width: textField.width
+              height: textField.activeFocus ? 2 : 1
               color: textField.activeFocus ? Theme.accentColor : Theme.accentLightColor
+            }
           }
 
           onTextChanged: {
@@ -222,7 +227,7 @@ EditorWidgetBase {
     visible: widgetStyle === "Slider"
     width: sliderRow.width
     implicitWidth: 120
-    height: slider.activeFocus ? 2: 1
+    height: slider.activeFocus ? 2 : 1
     color: slider.activeFocus ? Theme.accentColor : Theme.accentLightColor
   }
 
