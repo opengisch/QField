@@ -54,8 +54,8 @@ jobs:
 
       - uses: Apple-Actions/import-codesign-certs@v2
         with:
-          p12-file-base64: ${{ secrets.IOS_CERTIFICATES_FILE_BASE64_DEV }}
-          p12-password: ${{ secrets.IOS_CERTIFICATES_PASSWORD_DEV }}
+          p12-file-base64: ${{ secrets.APPLE_CODESIGN_CERT_BASE64_DEV }}
+          p12-password: ${{ secrets.APPLE_CODESIGN_CERT_PASS_DEV }}
 
       - uses: Apple-Actions/download-provisioning-profiles@v1
         with:
@@ -90,7 +90,7 @@ jobs:
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
-                -D MACOS_CODE_SIGN_IDENTITY="${{ secrets.IOS_CODE_SIGN_IDENTITY_DEV }}" \
+                -D MACOS_CODE_SIGN_IDENTITY="Apple Development" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D WITH_CCACHE=ON
 
