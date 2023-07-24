@@ -2475,11 +2475,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Wartość pomiarowa (M) dołączana do geometrii:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Znacznik czasowy (ms czasu systemowego)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3009,7 +3009,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Wartość pomiarowa (M) dołączana do geometrii:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -3017,7 +3017,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Znacznik czasowy (ms czasu systemowego)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3049,7 +3049,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Aby aktywować funkcję pomiaru, upewnij się, że typ geometrii warstwy wektorowej użytej do sesji śledzenia posiada pole M.</translation>
     </message>
     <message>
         <source>Activate sensor constraint</source>
