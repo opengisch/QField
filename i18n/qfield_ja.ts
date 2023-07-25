@@ -3251,7 +3251,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>QFieldへようこそ。このアプリケーションを使うのは初めてですか？下記のサンプルプロジェクトをお試しください。</translation>
     </message>
 </context>
 <context>
