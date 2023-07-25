@@ -154,62 +154,54 @@ ListView {
         opacity: Visible ? 1 : 0.25
       }
 
-      Rectangle {
-          visible: InTracking ? true : false
-          height: 24
-          width: 24
-          anchors.verticalCenter: parent.verticalCenter
-          radius: height / 2
-          color: Theme.mainColor
+      QfToolButton {
+        visible: InTracking ? true : false
+        height: 24
+        width: 24
+        padding: 4
+        anchors.verticalCenter: parent.verticalCenter
+        enabled: false
 
-          SequentialAnimation on color  {
-              loops: Animation.Infinite
-              ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
-              ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
-          }
+        round: true
+        bgcolor: Theme.mainColor
+        SequentialAnimation on bgcolor  {
+            loops: Animation.Infinite
+            ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
+            ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
+        }
 
-          Image {
-              anchors.fill: parent
-              anchors.margins: 4
-              fillMode: Image.PreserveAspectFit
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
-          }
+        icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+        icon.color: Theme.mainTextColor
       }
 
-      Rectangle {
-          visible: ReadOnly || GeometryLocked
-          height: 24
-          width: 24
-          anchors.verticalCenter: parent.verticalCenter
-          color: 'transparent'
-          opacity: 0.25
+      QfToolButton {
+        visible: ReadOnly || GeometryLocked
+        height: 24
+        width: 24
+        padding: 4
+        anchors.verticalCenter: parent.verticalCenter
+        enabled: false
 
-          Image {
-              anchors.fill: parent
-              anchors.margins: 4
-              fillMode: Image.PreserveAspectFit
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
-          }
+        bgcolor: 'transparent'
+        opacity: 0.5
+
+        icon.source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
+        icon.color: Theme.mainTextColor
       }
 
-      Rectangle {
-          visible: Type === 'layer' && !IsValid
-          height: 24
-          width: 24
-          anchors.verticalCenter: parent.verticalCenter
-          color: 'transparent'
-          Image {
-              anchors.fill: parent
-              anchors.margins: 4
-              fillMode: Image.PreserveAspectFit
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
-          }
+      QfToolButton {
+        visible: Type === 'layer' && !IsValid
+        height: 24
+        width: 24
+        padding: 4
+        anchors.verticalCenter: parent.verticalCenter
+        enabled: false
+
+        bgcolor: 'transparent'
+        opacity: 0.5
+
+        icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp' )
+        icon.color: Theme.mainTextColor
       }
     }
   }
