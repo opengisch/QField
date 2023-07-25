@@ -3,7 +3,9 @@
 set -e
 
 echo "::group::tx-pull"
-./tx pull --minimum-perc=50 --force
+# `-a` Of all the languages that exist on the remote,
+# `--minimum-perc=50 --force` force-pull only those with at least 50% translation coverage
+./tx pull -a --minimum-perc=50 --force
 echo "::endgroup::"
 
 echo "::group::android specific translations"
