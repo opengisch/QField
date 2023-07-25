@@ -118,7 +118,10 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   static const int IMU_KQGEO_STATUS_OK = 1026;
   static const int IMU_KQGEO_STATUS_OK_NEW = 1967106;
 
-  QStringList parameters = sentence.split( ',' );
+  // Remove checksum
+  QString sentenceWithoutChecksum = sentence.split( '*' ).first();
+
+  QStringList parameters = sentenceWithoutChecksum.split( ',' );
   if ( parameters.size() <= PARAMETER_STATUS_INDEX )
     return;
 
