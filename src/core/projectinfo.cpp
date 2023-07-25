@@ -43,6 +43,8 @@ void ProjectInfo::setFilePath( const QString &filePath )
   mFilePath = filePath;
 
   emit filePathChanged();
+  emit stateModeChanged();
+  emit activeLayerChanged();
 }
 
 QString ProjectInfo::filePath() const
@@ -106,15 +108,10 @@ void ProjectInfo::saveExtent()
   if ( mFilePath.isEmpty() )
     return;
 
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() )
-  {
-    const QgsRectangle extent = mMapSettings->extent();
-    mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-    mSettings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    mSettings.setValue( QStringLiteral( "extent" ), QStringLiteral( "%1|%2|%3|%4" ).arg( qgsDoubleToString( extent.xMinimum() ), qgsDoubleToString( extent.xMaximum() ), qgsDoubleToString( extent.yMinimum() ), qgsDoubleToString( extent.yMaximum() ) ) );
-    mSettings.endGroup();
-  }
+  const QgsRectangle extent = mMapSettings->extent();
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "extent" ), QStringLiteral( "%1|%2|%3|%4" ).arg( qgsDoubleToString( extent.xMinimum() ), qgsDoubleToString( extent.xMaximum() ), qgsDoubleToString( extent.yMinimum() ), qgsDoubleToString( extent.yMaximum() ) ) );
+  mSettings.endGroup();
 }
 
 void ProjectInfo::rotationChanged()
@@ -127,14 +124,9 @@ void ProjectInfo::saveRotation()
   if ( mFilePath.isEmpty() )
     return;
 
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() )
-  {
-    mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-    mSettings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    mSettings.setValue( QStringLiteral( "rotation" ), mMapSettings->rotation() );
-    mSettings.endGroup();
-  }
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "rotation" ), mMapSettings->rotation() );
+  mSettings.endGroup();
 }
 
 void ProjectInfo::temporalStateChanged()
@@ -147,16 +139,11 @@ void ProjectInfo::saveTemporalState()
   if ( mFilePath.isEmpty() )
     return;
 
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() )
-  {
-    mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-    mSettings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    mSettings.setValue( QStringLiteral( "isTemporal" ), mMapSettings->isTemporal() );
-    mSettings.setValue( QStringLiteral( "StartDateTime" ), mMapSettings->temporalBegin().toTimeSpec( Qt::LocalTime ).toString( Qt::ISODateWithMs ) );
-    mSettings.setValue( QStringLiteral( "EndDateTime" ), mMapSettings->temporalEnd().toTimeSpec( Qt::LocalTime ).toString( Qt::ISODateWithMs ) );
-    mSettings.endGroup();
-  }
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "isTemporal" ), mMapSettings->isTemporal() );
+  mSettings.setValue( QStringLiteral( "StartDateTime" ), mMapSettings->temporalBegin().toTimeSpec( Qt::LocalTime ).toString( Qt::ISODateWithMs ) );
+  mSettings.setValue( QStringLiteral( "EndDateTime" ), mMapSettings->temporalEnd().toTimeSpec( Qt::LocalTime ).toString( Qt::ISODateWithMs ) );
+  mSettings.endGroup();
 }
 
 void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
@@ -164,29 +151,25 @@ void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
   if ( mFilePath.isEmpty() || !layer )
     return;
 
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() )
+  const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+  QgsMapLayerStyle style;
+  style.readFromLayer( layer );
+
+  // Prefix id with :: to avoid loss of slash on linux paths
+  QString id( QStringLiteral( "::" ) );
+  if ( isDataset )
   {
-    const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
-    QgsMapLayerStyle style;
-    style.readFromLayer( layer );
-
-    // Prefix id with :: to avoid loss of slash on linux paths
-    QString id( QStringLiteral( "::" ) );
-    if ( isDataset )
-    {
-      // For non-project datasets, the layer id is random, use the source URI
-      id += layer->source();
-    }
-    else
-    {
-      id += layer->id();
-    }
-
-    mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerstyles" ).arg( mFilePath ) );
-    mSettings.setValue( id, style.xmlData() );
-    mSettings.endGroup();
+    // For non-project datasets, the layer id is random, use the source URI
+    id += layer->source();
   }
+  else
+  {
+    id += layer->id();
+  }
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerstyles" ).arg( mFilePath ) );
+  mSettings.setValue( id, style.xmlData() );
+  mSettings.endGroup();
 }
 
 void ProjectInfo::saveLayerTreeState()
@@ -195,8 +178,7 @@ void ProjectInfo::saveLayerTreeState()
     return;
 
   const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() && !isDataset )
+  if ( !isDataset )
   {
     QgsMapThemeCollection mapCollection( QgsProject::instance() );
     const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTree->layerTreeModel()->rootGroup(), mLayerTree->layerTreeModel() );
@@ -209,7 +191,6 @@ void ProjectInfo::saveLayerTreeState()
     mapCollection.writeXml( document );
 
     mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-    mSettings.setValue( QStringLiteral( "filesize" ), fi.size() );
     mSettings.setValue( QStringLiteral( "layertreestate" ), document.toString() );
     mSettings.remove( QStringLiteral( "maptheme" ) );
     mSettings.endGroup();
@@ -221,14 +202,9 @@ void ProjectInfo::setStateMode( const QString &mode )
   if ( mFilePath.isEmpty() )
     return;
 
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() )
-  {
-    mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-    mSettings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    mSettings.setValue( QStringLiteral( "stateMode" ), mode );
-    mSettings.endGroup();
-  }
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "stateMode" ), mode );
+  mSettings.endGroup();
 }
 
 QString ProjectInfo::stateMode() const
@@ -241,14 +217,9 @@ void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
   if ( mFilePath.isEmpty() || !layer )
     return;
 
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() )
-  {
-    mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-    mSettings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    mSettings.setValue( QStringLiteral( "activeLayer" ), layer->id() );
-    mSettings.endGroup();
-  }
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "activeLayer" ), layer->id() );
+  mSettings.endGroup();
 }
 
 QgsMapLayer *ProjectInfo::activeLayer() const
@@ -262,20 +233,15 @@ void ProjectInfo::mapThemeChanged()
   if ( mFilePath.isEmpty() )
     return;
 
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() )
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  if ( !mLayerTree->mapTheme().isEmpty() )
   {
-    mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-    mSettings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    if ( !mLayerTree->mapTheme().isEmpty() )
-    {
-      mSettings.setValue( QStringLiteral( "maptheme" ), mLayerTree->mapTheme() );
-      mSettings.remove( QStringLiteral( "layertreestate" ) );
-    }
-    else
-    {
-      mSettings.remove( QStringLiteral( "maptheme" ) );
-    }
-    mSettings.endGroup();
+    mSettings.setValue( QStringLiteral( "maptheme" ), mLayerTree->mapTheme() );
+    mSettings.remove( QStringLiteral( "layertreestate" ) );
   }
+  else
+  {
+    mSettings.remove( QStringLiteral( "maptheme" ) );
+  }
+  mSettings.endGroup();
 }
