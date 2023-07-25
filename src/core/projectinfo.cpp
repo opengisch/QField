@@ -216,7 +216,7 @@ void ProjectInfo::saveLayerTreeState()
   }
 }
 
-void ProjectInfo::saveStateMode( const QString &mode )
+void ProjectInfo::setStateMode( const QString &mode )
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -231,12 +231,12 @@ void ProjectInfo::saveStateMode( const QString &mode )
   }
 }
 
-QString ProjectInfo::getSavedStateMode() const
+QString ProjectInfo::stateMode() const
 {
   return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
 }
 
-void ProjectInfo::saveActiveLayer( QgsMapLayer *layer )
+void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() || !layer )
     return;
@@ -251,7 +251,7 @@ void ProjectInfo::saveActiveLayer( QgsMapLayer *layer )
   }
 }
 
-QgsMapLayer *ProjectInfo::getSavedActiveLayer() const
+QgsMapLayer *ProjectInfo::activeLayer() const
 {
   const QString layerId = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
   return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;

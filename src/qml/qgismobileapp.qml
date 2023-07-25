@@ -168,11 +168,11 @@ ApplicationWindow {
     switch ( stateMachine.state )
     {
       case 'browse':
-        projectInfo.saveStateMode(mode)
+        projectInfo.stateMode = mode
         displayToast( qsTr( 'You are now in browse mode' ) );
         break;
       case 'digitize':
-        projectInfo.saveStateMode(mode)
+        projectInfo.stateMode = mode
         dashBoard.ensureEditableLayerSelected();
         if (dashBoard.activeLayer)
         {
@@ -2992,8 +2992,8 @@ ApplicationWindow {
       busyOverlay.state = "hidden"
 
       projectInfo.filePath = path
-      stateMachine.state = projectInfo.getSavedStateMode()
-      dashBoard.activeLayer = projectInfo.getSavedActiveLayer()
+      stateMachine.state = projectInfo.stateMode
+      dashBoard.activeLayer = projectInfo.activeLayer
 
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
 

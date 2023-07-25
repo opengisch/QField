@@ -234,7 +234,7 @@ ListView {
           if (item) {
               if (item.vectorLayer && item.vectorLayer.isValid) {
                 activeLayer = item.vectorLayer
-                projectInfo.saveActiveLayer(activeLayer)
+                projectInfo.activeLayer = activeLayer
               }
           }
       }

@@ -35,10 +35,10 @@ class ProjectInfo : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged )
-
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-
     Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
+    Q_PROPERTY( QString stateMode READ stateMode WRITE setStateMode NOTIFY stateModeChanged )
+    Q_PROPERTY( QgsMapLayer *activeLayer READ activeLayer WRITE setActiveLayer NOTIFY activeLayerChanged )
 
   public:
     explicit ProjectInfo( QObject *parent = nullptr );
@@ -70,40 +70,37 @@ class ProjectInfo : public QObject
     /**
      * Saves the state \a mode for the current project
      */
-    Q_INVOKABLE void saveStateMode( const QString &mode );
+    void setStateMode( const QString &mode );
 
     /**
      * Returns the saved state mode for the current project
      */
-    Q_INVOKABLE QString getSavedStateMode() const;
+    QString stateMode() const;
 
     /**
      * Saves the active \a layer within the current project
      */
-    Q_INVOKABLE void saveActiveLayer( QgsMapLayer *layer );
+    void setActiveLayer( QgsMapLayer *layer );
 
     /**
      * Returns the saved active layer for the current project
      * or nullptr if active layer was not saved or isn't present
      */
-    Q_INVOKABLE QgsMapLayer *getSavedActiveLayer() const;
+    QgsMapLayer *activeLayer() const;
 
   signals:
 
     void filePathChanged();
-
     void mapSettingsChanged();
-
     void layerTreeChanged();
+    void stateModeChanged();
+    void activeLayerChanged();
 
   private slots:
 
     void extentChanged();
-
     void rotationChanged();
-
     void temporalStateChanged();
-
     void mapThemeChanged();
 
   private:
