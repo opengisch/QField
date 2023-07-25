@@ -159,9 +159,9 @@ ListView {
         width: rectangle.width
                - itemPadding
                - 46
-               - ( InTracking ? 34 : 0 )
-               - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
-               - ( !IsValid ? 34 : 0 )
+               - (InTracking ? 29 : 0)
+               - ((ReadOnly || GeometryLocked) ? 29 : 0)
+               - (!IsValid ? 29 : 0)
         padding: 3
         leftPadding: 0
         text: Name
@@ -201,21 +201,6 @@ ListView {
       }
 
       QfToolButton {
-        visible: ReadOnly || GeometryLocked
-        height: 24
-        width: 24
-        padding: 4
-        anchors.verticalCenter: parent.verticalCenter
-        enabled: false
-
-        bgcolor: 'transparent'
-        opacity: 0.5
-
-        icon.source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
-        icon.color: Theme.mainTextColor
-      }
-
-      QfToolButton {
         visible: Type === 'layer' && !IsValid
         height: 24
         width: 24
@@ -227,6 +212,21 @@ ListView {
         opacity: 0.5
 
         icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp' )
+        icon.color: Theme.errorColor
+      }
+
+      QfToolButton {
+        visible: ReadOnly || GeometryLocked
+        height: 24
+        width: 24
+        padding: 4
+        anchors.verticalCenter: parent.verticalCenter
+        enabled: false
+
+        bgcolor: 'transparent'
+        opacity: 0.5
+
+        icon.source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
         icon.color: Theme.mainTextColor
       }
     }
