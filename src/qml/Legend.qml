@@ -23,26 +23,52 @@ ListView {
   spacing: 0
 
   delegate: Rectangle {
-    property VectorLayer vectorLayer: VectorLayerPointer ? VectorLayerPointer : null
-    property var itemRow: index
     property int itemPadding: 5 + ( 5 + 24 ) * TreeLevel
-    property string itemType: Type
-    property string layerType: LayerType
-    property bool isSelectedLayer: ( itemType === "layer" && vectorLayer != null && vectorLayer == activeLayer )
-    property bool isPressed: false
+    property bool isSelectedLayer: Type === "layer" && VectorLayerPointer && VectorLayerPointer == activeLayer
 
     id: rectangle
     width: parent ? parent.width : undefined
     height: line.height + 7
     color: isSelectedLayer ? Theme.mainColor : "transparent"
 
+    MouseArea {
+      id: mouseArea
+      anchors.fill: parent
+      acceptedButtons: Qt.LeftButton | Qt.RightButton
+      onClicked: (mouse) => {
+        if (ReadOnly || GeometryLocked) {
+          return
+        }
+
+        if (VectorLayerPointer && VectorLayerPointer.isValid) {
+          activeLayer = VectorLayerPointer
+          projectInfo.activeLayer = VectorLayerPointer
+        }
+      }
+      onDoubleClicked: (mouse) => {
+        if (HasChildren) {
+          IsCollapsed = !IsCollapsed
+          projectInfo.saveLayerTreeState();
+        }
+      }
+      onPressAndHold: {
+        itemProperties.index = legend.model.index(index, 0)
+        itemProperties.open()
+      }
+      onReleased: (mouse) => {
+        if (mouse.button === Qt.RightButton) {
+          pressAndHold(mouse)
+        }
+      }
+    }
+
     Ripple {
       clip: true
       width: parent.width
       height: parent.height
-      pressed: parent.isPressed
+      pressed: mouseArea.pressed
       anchor: parent
-      active: parent.isPressed
+      active: mouseArea.pressed
       color: Material.rippleColor
     }
 
@@ -141,7 +167,7 @@ ListView {
         text: Name
         horizontalAlignment: Text.AlignLeft
         font.pointSize: Theme.tipFont.pointSize
-        font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == activeLayer) ? true : false
+        font.bold: Type === "group" || (Type === "layer" && VectorLayerPointer && VectorLayerPointer == activeLayer) ? true : false
         color: {
             if ( isSelectedLayer )
                 return Theme.light;
@@ -204,72 +230,6 @@ ListView {
         icon.color: Theme.mainTextColor
       }
     }
-  }
-  MouseArea {
-      anchors.fill: parent
-
-      property Item pressedItem
-
-      onClicked: (mouse) => {
-          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
-          if (!item) return;
-
-          var index = legend.model.index(item.itemRow, 0)
-
-          if (
-              legend.model.data(index, FlatLayerTreeModel.ReadOnly)
-              || legend.model.data(index, FlatLayerTreeModel.GeometryLocked)
-          ) {
-            return
-          }
-
-          if (item) {
-              if (item.vectorLayer && item.vectorLayer.isValid) {
-                activeLayer = item.vectorLayer
-                projectInfo.activeLayer = activeLayer
-              }
-          }
-      }
-      onPressed: (mouse) => {
-          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
-          if (item && item.itemType) {
-              pressedItem = item;
-              pressedItem.isPressed = true
-          }
-      }
-      onDoubleClicked: (mouse) => {
-          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
-          if (item) {
-            var itemIndex = legend.model.index(item.itemRow, 0)
-            if (layerTree.data(itemIndex, FlatLayerTreeModel.HasChildren)) {
-              var isCollapsed = layerTree.data(itemIndex, FlatLayerTreeModel.IsCollapsed)
-              layerTree.setData(itemIndex, !isCollapsed, FlatLayerTreeModel.IsCollapsed);
-              projectInfo.saveLayerTreeState();
-            }
-          }
-      }
-      onPressAndHold: {
-          if (pressedItem) {
-            itemProperties.index = legend.model.index(pressedItem.itemRow, 0)
-            itemProperties.open()
-          }
-      }
-      onCanceled: {
-          if (pressedItem) {
-              pressedItem.isPressed = false
-              pressedItem = null
-          }
-      }
-      onReleased: (mouse) => {
-          if (pressedItem) {
-              if (mouse.button === Qt.RightButton) {
-                pressAndHold(mouse)
-              }
-
-              pressedItem.isPressed = false
-              pressedItem = null
-          }
-      }
   }
 
   LayerTreeItemProperties {
