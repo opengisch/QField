@@ -1251,7 +1251,7 @@ ApplicationWindow {
                    || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
         )
       state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
-      iconSource: Theme.getThemeVectorIcon( "ic_topology_white_24dp" )
+      iconSource: Theme.getThemeVectorIcon( "ic_snapping_white_24dp" )
       iconColor: "#ffffff"
 
       bgcolor: Theme.darkGray
