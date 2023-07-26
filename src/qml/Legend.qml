@@ -248,11 +248,11 @@ ListView {
         enabled: isVisible
 
         round: true
-        bgcolor: SnappingEnabled ? Theme.mainColor : 'transparent'
+        bgcolor: SnappingEnabled ? Theme.mainColor : Theme.controlBackgroundColor
         opacity: SnappingEnabled ? 1.0 : 0.5
 
         icon.source: Theme.getThemeVectorIcon( 'ic_snapping_white_24dp' )
-        icon.color: SnappingEnabled ? "#ffffff" : Theme.mainTextColor
+        icon.color: SnappingEnabled ? 'white' : Theme.mainTextColor
 
         onClicked: {
           SnappingEnabled = !SnappingEnabled
