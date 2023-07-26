@@ -1252,8 +1252,7 @@ ApplicationWindow {
         )
       state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
       iconSource: Theme.getThemeVectorIcon( "ic_snapping_white_24dp" )
-      iconColor: "#ffffff"
-
+      iconColor: "white"
       bgcolor: Theme.darkGray
 
       states: [
@@ -1262,7 +1261,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: snappingButton
-            iconColor: "#ffffff"
+            iconColor: "white"
             bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
           }
         },
@@ -1298,8 +1297,7 @@ ApplicationWindow {
         )
       state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
       iconSource: Theme.getThemeVectorIcon( "ic_topology_white_24dp" )
-      iconColor: "#ffffff"
-
+      iconColor: "white"
       bgcolor: Theme.darkGray
 
       states: [
@@ -1308,7 +1306,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: topologyButton
-            iconColor: "#ffffff"
+            iconColor: "white"
             bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
           }
         },
@@ -1340,7 +1338,7 @@ ApplicationWindow {
                    (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
                     || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
       iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
-      iconColor: "#ffffff"
+      iconColor: "white"
       bgcolor: Theme.darkGray
 
       property bool freehandDigitizing: false
@@ -1351,7 +1349,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: freehandButton
-            iconColor: "#ffffff"
+            iconColor: "white"
             bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
           }
         },
