@@ -1251,7 +1251,8 @@ ApplicationWindow {
                    || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
         )
       state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
-      iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
+      iconSource: Theme.getThemeVectorIcon( "ic_topology_white_24dp" )
+      iconColor: "#ffffff"
 
       bgcolor: Theme.darkGray
 
@@ -1261,7 +1262,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: topologyButton
-            iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
+            iconColor: "#ffffff"
             bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
           }
         },
@@ -1270,7 +1271,7 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: topologyButton
-            iconSource: Theme.getThemeIcon( "ic_topology_green_24dp" )
+            iconColor: Theme.mainColor
             bgcolor: Theme.darkGray
           }
         }
@@ -1292,8 +1293,8 @@ ApplicationWindow {
                    || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid &&
                    (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
                     || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
-      iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
-
+      iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
+      iconColor: "#ffffff"
       bgcolor: Theme.darkGray
 
       property bool freehandDigitizing: false
@@ -1304,7 +1305,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: freehandButton
-            iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
+            iconColor: "#ffffff"
             bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
           }
         },
@@ -1313,7 +1314,7 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: freehandButton
-            iconSource: Theme.getThemeIcon( "ic_freehand_green_24dp" )
+            iconColor: Theme.mainColor
             bgcolor: Theme.darkGray
           }
         }
