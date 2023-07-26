@@ -189,7 +189,7 @@ ListView {
         width: 24
         padding: 4
         anchors.verticalCenter: parent.verticalCenter
-        enabled: false
+        enabled: isVisible
 
         round: true
         bgcolor: Theme.mainColor
@@ -201,6 +201,10 @@ ListView {
 
         icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
         icon.color: Theme.mainTextColor
+
+        onClicked: {
+          displayToast(qsTr('This layer is is currently tracking the device position.'))
+        }
       }
 
       QfToolButton {
@@ -211,13 +215,17 @@ ListView {
         width: 24
         padding: 4
         anchors.verticalCenter: parent.verticalCenter
-        enabled: false
+        enabled: isVisible
 
         bgcolor: 'transparent'
         opacity: 0.5
 
         icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp' )
         icon.color: Theme.errorColor
+
+        onClicked: {
+          displayToast(qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.'))
+        }
       }
 
       QfToolButton {
@@ -228,13 +236,21 @@ ListView {
         width: 24
         padding: 4
         anchors.verticalCenter: parent.verticalCenter
-        enabled: false
+        enabled: isVisible
 
         bgcolor: 'transparent'
         opacity: 0.5
 
         icon.source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
         icon.color: Theme.mainTextColor
+
+        onClicked: {
+          if ( ReadOnly ) {
+            displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'))
+          } else {
+            displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'))
+          }
+        }
       }
 
       QfToolButton {
