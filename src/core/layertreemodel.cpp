@@ -943,6 +943,22 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return QVariant();
     }
 
+    case FlatLayerTreeModel::SnappingEnabled:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        if ( QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
+        {
+          const QgsSnappingConfig::IndividualLayerSettings settings = mProject->snappingConfig().individualLayerSettings( layer );
+          return settings.enabled();
+        }
+      }
+
+      return false;
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -1064,6 +1080,27 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
       return true;
     }
 
+    case FlatLayerTreeModel::SnappingEnabled:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        if ( QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
+        {
+          QgsSnappingConfig snappingConfig = mProject->snappingConfig();
+          QgsSnappingConfig::IndividualLayerSettings settings = snappingConfig.individualLayerSettings( layer );
+          settings.setEnabled( !settings.enabled() );
+          snappingConfig.setIndividualLayerSettings( layer, settings );
+          mProject->setSnappingConfig( snappingConfig );
+          emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::SnappingEnabled );
+          return true;
+        }
+      }
+
+      return false;
+    }
+
     default:
       return false;
   }
@@ -1100,6 +1137,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::Opacity] = "Opacity";
   roleNames[FlatLayerTreeModel::FilterExpression] = "FilterExpression";
   roleNames[FlatLayerTreeModel::Credits] = "Credits";
+  roleNames[FlatLayerTreeModel::SnappingEnabled] = "SnappingEnabled";
   return roleNames;
 }
 

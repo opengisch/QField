@@ -138,6 +138,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
       Opacity,
       FilterExpression,
       Credits,
+      SnappingEnabled,
     };
     Q_ENUM( Roles )
 

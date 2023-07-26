@@ -159,9 +159,10 @@ ListView {
         width: rectangle.width
                - itemPadding
                - 46
-               - (InTracking ? 29 : 0)
-               - ((ReadOnly || GeometryLocked) ? 29 : 0)
-               - (!IsValid ? 29 : 0)
+               - (trackingBadge.isVisible ? trackingBadge.width + 5 : 0)
+               - (lockedBadge.isVisible ? lockedBadge.width + 5 : 0)
+               - (invalidBadge.isVisible ? invalidBadge.width + 5 : 0)
+               - (snappingBadge.isVisible ? snappingBadge.width + 5 : 0)
         padding: 3
         leftPadding: 0
         text: Name
@@ -181,7 +182,9 @@ ListView {
       }
 
       QfToolButton {
-        visible: InTracking ? true : false
+        id: trackingBadge
+        property bool isVisible: InTracking ? true : false
+        visible: isVisible
         height: 24
         width: 24
         padding: 4
@@ -201,7 +204,9 @@ ListView {
       }
 
       QfToolButton {
-        visible: Type === 'layer' && !IsValid
+        id: invalidBadge
+        property bool isVisible: Type === 'layer' && !IsValid
+        visible: isVisible
         height: 24
         width: 24
         padding: 4
@@ -216,7 +221,9 @@ ListView {
       }
 
       QfToolButton {
-        visible: ReadOnly || GeometryLocked
+        id: lockedBadge
+        property bool isVisible: ReadOnly || GeometryLocked
+        visible: isVisible
         height: 24
         width: 24
         padding: 4
@@ -228,6 +235,28 @@ ListView {
 
         icon.source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
         icon.color: Theme.mainTextColor
+      }
+
+      QfToolButton {
+        id: snappingBadge
+        property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === 'layer' && LayerType === "vectorlayer"
+        visible: isVisible
+        height: 24
+        width: 24
+        padding: 4
+        anchors.verticalCenter: parent.verticalCenter
+        enabled: isVisible
+
+        round: true
+        bgcolor: SnappingEnabled ? Theme.mainColor : 'transparent'
+        opacity: SnappingEnabled ? 1.0 : 0.5
+
+        icon.source: Theme.getThemeVectorIcon( 'ic_snapping_white_24dp' )
+        icon.color: SnappingEnabled ? "#ffffff" : Theme.mainTextColor
+
+        onClicked: {
+          SnappingEnabled = !SnappingEnabled
+        }
       }
     }
   }

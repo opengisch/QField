@@ -398,6 +398,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<Qgis::AreaUnit>( "Qgis::AreaUnit" );
   qRegisterMetaType<Qgis::AngleUnit>( "Qgis::AngleUnit" );
   qRegisterMetaType<Qgis::DeviceConnectionStatus>( "Qgis::DeviceConnectionStatus" );
+  qRegisterMetaType<Qgis::SnappingMode>( "Qgis::SnappingMode" );
   qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
