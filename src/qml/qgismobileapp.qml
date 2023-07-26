@@ -1240,6 +1240,52 @@ ApplicationWindow {
     spacing: 4
 
     QfToolButton {
+      id: snappingButton
+      round: true
+      visible: stateMachine.state === "digitize"
+          && dashBoard.activeLayer
+          && dashBoard.activeLayer.isValid
+          && (
+                   dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
+                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
+                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
+        )
+      state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
+      iconSource: Theme.getThemeVectorIcon( "ic_topology_white_24dp" )
+      iconColor: "#ffffff"
+
+      bgcolor: Theme.darkGray
+
+      states: [
+        State {
+
+          name: "Off"
+          PropertyChanges {
+            target: snappingButton
+            iconColor: "#ffffff"
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          }
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: snappingButton
+            iconColor: Theme.mainColor
+            bgcolor: Theme.darkGray
+          }
+        }
+      ]
+
+      onClicked: {
+        var snappingConfig = qgisProject.snappingConfig;
+        snappingConfig.enabled = !snappingConfig.enabled
+        qgisProject.snappingConfig = snappingConfig
+        displayToast( snappingConfig.enabled ? qsTr( "Snapping turned on" ) : qsTr( "Snapping turned off" ) );
+      }
+    }
+
+    QfToolButton {
       id: topologyButton
       round: true
       visible: stateMachine.state === "digitize"
