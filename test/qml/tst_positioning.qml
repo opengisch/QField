@@ -86,4 +86,17 @@ TestCase {
         compare(positioning.positionInformation.qualityDescription, "Float RTK + IMU")
         compare(positioning.positionInformation.imuCorrection, true)
     }
+
+    function test_06_happyMonch2IMU() {
+        positioning.deviceId = 'udp:localhost:1960'
+
+        coordinateTransformer.deltaZ = 0
+        coordinateTransformer.verticalGrid = ''
+
+        // wait a few seconds so positioning can catch some NMEA strings
+        wait(2500)
+
+        compare(positioning.positionInformation.qualityDescription, "Fixed RTK + IMU")
+        compare(positioning.positionInformation.imuCorrection, true)
+    }
 }

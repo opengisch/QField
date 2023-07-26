@@ -109,6 +109,7 @@ class Setup : public QObject
     NmeaServer mNmeaServerTrimbleR1 = NmeaServer( "TrimbleR1.txt", NmeaServer::Udp, 1958 );
     NmeaServer mNmeaServerHappy = NmeaServer( "happy.txt", NmeaServer::Tcp, 11111 );
     NmeaServer mNmeaServerHappyWithIMU = NmeaServer( "happyWithIMU.txt", NmeaServer::Udp, 1959 );
+    NmeaServer mNmeaServerHappyMonch2WithIMU = NmeaServer( "happyMonch2WithIMU.txt", NmeaServer::Udp, 1960 );
 
     QString mDataDir;
 
@@ -140,6 +141,7 @@ class Setup : public QObject
       mNmeaServerTrimbleR1.start( nmeaServerLocation );
       mNmeaServerHappy.start( nmeaServerLocation );
       mNmeaServerHappyWithIMU.start( nmeaServerLocation );
+      mNmeaServerHappyMonch2WithIMU.start( nmeaServerLocation );
     }
 
     void cleanupTestCase()
@@ -147,6 +149,7 @@ class Setup : public QObject
       mNmeaServerTrimbleR1.kill();
       mNmeaServerHappy.kill();
       mNmeaServerHappyWithIMU.kill();
+      mNmeaServerHappyMonch2WithIMU.kill();
     }
 
     void qmlEngineAvailable( QQmlEngine *engine )
