@@ -23,26 +23,52 @@ ListView {
   spacing: 0
 
   delegate: Rectangle {
-    property VectorLayer vectorLayer: VectorLayerPointer ? VectorLayerPointer : null
-    property var itemRow: index
     property int itemPadding: 5 + ( 5 + 24 ) * TreeLevel
-    property string itemType: Type
-    property string layerType: LayerType
-    property bool isSelectedLayer: ( itemType === "layer" && vectorLayer != null && vectorLayer == activeLayer )
-    property bool isPressed: false
+    property bool isSelectedLayer: Type === "layer" && VectorLayerPointer && VectorLayerPointer == activeLayer
 
     id: rectangle
     width: parent ? parent.width : undefined
     height: line.height + 7
     color: isSelectedLayer ? Theme.mainColor : "transparent"
 
+    MouseArea {
+      id: mouseArea
+      anchors.fill: parent
+      acceptedButtons: Qt.LeftButton | Qt.RightButton
+      onClicked: (mouse) => {
+        if (ReadOnly || GeometryLocked) {
+          return
+        }
+
+        if (VectorLayerPointer && VectorLayerPointer.isValid) {
+          activeLayer = VectorLayerPointer
+          projectInfo.activeLayer = VectorLayerPointer
+        }
+      }
+      onDoubleClicked: (mouse) => {
+        if (HasChildren) {
+          IsCollapsed = !IsCollapsed
+          projectInfo.saveLayerTreeState();
+        }
+      }
+      onPressAndHold: {
+        itemProperties.index = legend.model.index(index, 0)
+        itemProperties.open()
+      }
+      onReleased: (mouse) => {
+        if (mouse.button === Qt.RightButton) {
+          pressAndHold(mouse)
+        }
+      }
+    }
+
     Ripple {
       clip: true
       width: parent.width
       height: parent.height
-      pressed: parent.isPressed
+      pressed: mouseArea.pressed
       anchor: parent
-      active: parent.isPressed
+      active: mouseArea.pressed
       color: Material.rippleColor
     }
 
@@ -133,15 +159,15 @@ ListView {
         width: rectangle.width
                - itemPadding
                - 46
-               - ( InTracking ? 34 : 0 )
-               - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
-               - ( !IsValid ? 34 : 0 )
+               - (InTracking ? 29 : 0)
+               - ((ReadOnly || GeometryLocked) ? 29 : 0)
+               - (!IsValid ? 29 : 0)
         padding: 3
         leftPadding: 0
         text: Name
         horizontalAlignment: Text.AlignLeft
         font.pointSize: Theme.tipFont.pointSize
-        font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == activeLayer) ? true : false
+        font.bold: Type === "group" || (Type === "layer" && VectorLayerPointer && VectorLayerPointer == activeLayer) ? true : false
         color: {
             if ( isSelectedLayer )
                 return Theme.light;
@@ -154,130 +180,56 @@ ListView {
         opacity: Visible ? 1 : 0.25
       }
 
-      Rectangle {
-          visible: InTracking ? true : false
-          height: 24
-          width: 24
-          anchors.verticalCenter: parent.verticalCenter
-          radius: height / 2
-          color: Theme.mainColor
+      QfToolButton {
+        visible: InTracking ? true : false
+        height: 24
+        width: 24
+        padding: 4
+        anchors.verticalCenter: parent.verticalCenter
+        enabled: false
 
-          SequentialAnimation on color  {
-              loops: Animation.Infinite
-              ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
-              ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
-          }
+        round: true
+        bgcolor: Theme.mainColor
+        SequentialAnimation on bgcolor  {
+            loops: Animation.Infinite
+            ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
+            ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
+        }
 
-          Image {
-              anchors.fill: parent
-              anchors.margins: 4
-              fillMode: Image.PreserveAspectFit
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
-          }
+        icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+        icon.color: Theme.mainTextColor
       }
 
-      Rectangle {
-          visible: ReadOnly || GeometryLocked
-          height: 24
-          width: 24
-          anchors.verticalCenter: parent.verticalCenter
-          color: 'transparent'
-          opacity: 0.25
+      QfToolButton {
+        visible: Type === 'layer' && !IsValid
+        height: 24
+        width: 24
+        padding: 4
+        anchors.verticalCenter: parent.verticalCenter
+        enabled: false
 
-          Image {
-              anchors.fill: parent
-              anchors.margins: 4
-              fillMode: Image.PreserveAspectFit
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
-          }
+        bgcolor: 'transparent'
+        opacity: 0.5
+
+        icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp' )
+        icon.color: Theme.errorColor
       }
 
-      Rectangle {
-          visible: Type === 'layer' && !IsValid
-          height: 24
-          width: 24
-          anchors.verticalCenter: parent.verticalCenter
-          color: 'transparent'
-          Image {
-              anchors.fill: parent
-              anchors.margins: 4
-              fillMode: Image.PreserveAspectFit
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
-          }
+      QfToolButton {
+        visible: ReadOnly || GeometryLocked
+        height: 24
+        width: 24
+        padding: 4
+        anchors.verticalCenter: parent.verticalCenter
+        enabled: false
+
+        bgcolor: 'transparent'
+        opacity: 0.5
+
+        icon.source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
+        icon.color: Theme.mainTextColor
       }
     }
-  }
-  MouseArea {
-      anchors.fill: parent
-
-      property Item pressedItem
-
-      onClicked: (mouse) => {
-          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
-          if (!item) return;
-
-          var index = legend.model.index(item.itemRow, 0)
-
-          if (
-              legend.model.data(index, FlatLayerTreeModel.ReadOnly)
-              || legend.model.data(index, FlatLayerTreeModel.GeometryLocked)
-          ) {
-            return
-          }
-
-          if (item) {
-              if (item.vectorLayer && item.vectorLayer.isValid) {
-                activeLayer = item.vectorLayer
-                projectInfo.activeLayer = activeLayer
-              }
-          }
-      }
-      onPressed: (mouse) => {
-          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
-          if (item && item.itemType) {
-              pressedItem = item;
-              pressedItem.isPressed = true
-          }
-      }
-      onDoubleClicked: (mouse) => {
-          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
-          if (item) {
-            var itemIndex = legend.model.index(item.itemRow, 0)
-            if (layerTree.data(itemIndex, FlatLayerTreeModel.HasChildren)) {
-              var isCollapsed = layerTree.data(itemIndex, FlatLayerTreeModel.IsCollapsed)
-              layerTree.setData(itemIndex, !isCollapsed, FlatLayerTreeModel.IsCollapsed);
-              projectInfo.saveLayerTreeState();
-            }
-          }
-      }
-      onPressAndHold: {
-          if (pressedItem) {
-            itemProperties.index = legend.model.index(pressedItem.itemRow, 0)
-            itemProperties.open()
-          }
-      }
-      onCanceled: {
-          if (pressedItem) {
-              pressedItem.isPressed = false
-              pressedItem = null
-          }
-      }
-      onReleased: (mouse) => {
-          if (pressedItem) {
-              if (mouse.button === Qt.RightButton) {
-                pressAndHold(mouse)
-              }
-
-              pressedItem.isPressed = false
-              pressedItem = null
-          }
-      }
   }
 
   LayerTreeItemProperties {

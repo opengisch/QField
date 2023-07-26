@@ -118,17 +118,15 @@ Popup {
 
         Text {
           id: invalidText
-          property var invalidIcon: Theme.getThemeVectorIcon('ic_error_outline_24dp')
-          property var invalidSize: fontMetrics.height - 5
-
           visible: index !== undefined && !layerTree.data(index, FlatLayerTreeModel.IsValid)
           Layout.fillWidth: true
+          bottomPadding: 15
 
           wrapMode: Text.WordWrap
           textFormat: Text.RichText
-          text: '<img src="' + invalidIcon + '" width="' + invalidSize + '" height="' + invalidSize + '"> '
-                + qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
+          text:  qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
           font: Theme.tipFont
+          color: Theme.errorColor
         }
 
         CheckBox {
@@ -321,11 +319,11 @@ Popup {
 
           visible: isReadOnly || isGeometryLocked
           Layout.fillWidth: true
+          topPadding: 5
 
           wrapMode: Text.WordWrap
           textFormat: Text.RichText
-          text: '<img src="' + padlockIcon + '" width="' + padlockSize + '" height="' + padlockSize + '"> '
-                + (isReadOnly ? qsTr('Read-Only Layer') : qsTr('Geometry Locked Layer'))
+          text: isReadOnly ? qsTr('Read-only layer') : qsTr('Geometry-locked layer')
           font: Theme.tipFont
           color: Theme.secondaryTextColor
 

@@ -27,7 +27,7 @@ QtObject {
     readonly property color light: "#ffffff"
     readonly property color hyperlinkBlue: '#0000EE'
 
-    readonly property color errorColor: "#c0392b"
+    readonly property color errorColor: darkTheme ? "#df3422" : "#c0392b"
     readonly property color warningColor: "orange"
     readonly property color cloudColor: "#4c6dac"
 
