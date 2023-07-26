@@ -57,7 +57,7 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
     if ( mImuPosition.valid )
     {
       mLastGnssPositionInformation = GnssPositionInformation( mImuPosition.latitude, mImuPosition.longitude,
-                                                              ellipsoidalElevation ? mImuPosition.altitude + info.elevation_diff : mImuPosition.altitude,
+                                                              ellipsoidalElevation ? mImuPosition.altitude : mImuPosition.altitude - info.elevation_diff,
                                                               mImuPosition.speed * 1000 / 60 / 60, mImuPosition.direction,
                                                               info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                               info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType,
