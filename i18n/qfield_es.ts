@@ -807,7 +807,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>Herramienta de remodelado</translation>
+        <translation>Herramienta de remodelación</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
@@ -3253,7 +3253,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Bienvenido a QField. ¿Primera vez que usa la aplicación? Pruebe los proyectos de muestra listados debajo.</translation>
     </message>
 </context>
 <context>

@@ -3256,7 +3256,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Vitajte v QField. Používate túto aplikáciu prvýkrát? Pozrite si vzorové projekty nižšie.</translation>
     </message>
 </context>
 <context>
