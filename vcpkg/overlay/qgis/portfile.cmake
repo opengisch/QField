@@ -22,6 +22,7 @@ vcpkg_from_github(
         sharedmem_ios.patch
         vectortilelabels.patch # Remove when updating to QGIS 3.34
         version.patch # Remove when updating to QGIS 3.34
+        snapping_properties.patch # Remove when updating to QGIS 3.34
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)

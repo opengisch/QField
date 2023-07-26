@@ -1,0 +1,32 @@
+diff --git a/src/core/qgssnappingconfig.cpp b/src/core/qgssnappingconfig.cpp
+index 27f29579cc7..5871d230af2 100644
+--- a/src/core/qgssnappingconfig.cpp
++++ b/src/core/qgssnappingconfig.cpp
+@@ -702,9 +702,11 @@ QgsProject *QgsSnappingConfig::project() const
+ 
+ void QgsSnappingConfig::setProject( QgsProject *project )
+ {
+-  if ( mProject != project )
+-    mProject = project;
+-
++  if ( mProject == project )
++  {
++    return;
++  }
++  mProject = project;
+   reset();
+ }
+ 
+diff --git a/src/core/qgssnappingconfig.h b/src/core/qgssnappingconfig.h
+index 9c7b8ef5601..1c0d985376d 100644
+--- a/src/core/qgssnappingconfig.h
++++ b/src/core/qgssnappingconfig.h
+@@ -39,6 +39,8 @@ class CORE_EXPORT QgsSnappingConfig
+     Q_GADGET
+ 
+     Q_PROPERTY( QgsProject *project READ project WRITE setProject )
++    Q_PROPERTY( bool enabled READ enabled WRITE setEnabled )
++    Q_PROPERTY( Qgis::SnappingMode mode READ mode WRITE setMode )
+ 
+   public:
+ 
