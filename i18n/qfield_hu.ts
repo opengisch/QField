@@ -932,11 +932,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Csak olvasható réteg</translation>
+        <translation type="vanished">Csak olvasható réteg</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Zárolt geometriájú réteg</translation>
+        <translation type="vanished">Zárolt geometriájú réteg</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -953,6 +953,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Show Features Menu</source>
         <translation>Elem menü megjelenítés</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3754,6 +3762,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Feature duplication not available</source>
         <translation>Elem duplikálás nem lehetséges</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

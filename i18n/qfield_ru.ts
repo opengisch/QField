@@ -937,11 +937,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Слой только для чтения</translation>
+        <translation type="vanished">Слой только для чтения</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Слой с фиксацией геометрии</translation>
+        <translation type="vanished">Слой с фиксацией геометрии</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -957,6 +957,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3758,6 +3766,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

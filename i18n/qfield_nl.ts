@@ -933,11 +933,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Alleen lezen Laag</translation>
+        <translation type="vanished">Alleen lezen Laag</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Geometrie vergrendelde laag</translation>
+        <translation type="vanished">Geometrie vergrendelde laag</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -953,6 +953,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3759,6 +3767,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -937,11 +937,11 @@ Motiv:
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Strat Read-Only</translation>
+        <translation type="vanished">Strat Read-Only</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Strat cu Geometrie Fixată</translation>
+        <translation type="vanished">Strat cu Geometrie Fixată</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -958,6 +958,14 @@ Motiv:
     <message>
         <source>Show Features Menu</source>
         <translation>Arată meniul entităților</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3763,6 +3771,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

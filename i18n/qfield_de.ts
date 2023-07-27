@@ -933,11 +933,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Nur Lesezugriff auf Layer</translation>
+        <translation type="vanished">Nur Lesezugriff auf Layer</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Layer mit gesperrter Geometrie</translation>
+        <translation type="vanished">Layer mit gesperrter Geometrie</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -954,6 +954,14 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Show Features Menu</source>
         <translation>Objektmenü anzeigen</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3754,6 +3762,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

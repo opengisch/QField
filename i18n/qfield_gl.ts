@@ -933,11 +933,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Capa de Só Lectura</translation>
+        <translation type="vanished">Capa de Só Lectura</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Capa Xeométrica Bloqueada</translation>
+        <translation type="vanished">Capa Xeométrica Bloqueada</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -954,6 +954,14 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Show Features Menu</source>
         <translation>Amosar o Menú de Entidades</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3760,6 +3768,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Feature duplication not available</source>
         <translation>Non está dispoñible a duplicación de entidades</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

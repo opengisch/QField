@@ -937,11 +937,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Vrstva pouze pro čtení</translation>
+        <translation type="vanished">Vrstva pouze pro čtení</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Vrstva s uzamčenou geometrií</translation>
+        <translation type="vanished">Vrstva s uzamčenou geometrií</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -958,6 +958,14 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Show Features Menu</source>
         <translation>Zobrazit menu Prvky</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3762,6 +3770,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

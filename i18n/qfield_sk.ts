@@ -935,11 +935,11 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Vrstva iba na čítanie</translation>
+        <translation type="vanished">Vrstva iba na čítanie</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Vrstva so zamknutou geometriou</translation>
+        <translation type="vanished">Vrstva so zamknutou geometriou</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -956,6 +956,14 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     <message>
         <source>Show Features Menu</source>
         <translation>Zobraziť menu prvkov</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Vrstva iba na čítanie</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>Vrstva má zamknuté geometrie</translation>
     </message>
 </context>
 <context>
@@ -3763,6 +3771,14 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Feature duplication not available</source>
         <translation>Duplikovanie prvku nie je dostupné</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>Prichytávanie zapnuté</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Prichytávanie vypnuté</translation>
     </message>
 </context>
 <context>

@@ -935,11 +935,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Camada apenas de leitura</translation>
+        <translation type="vanished">Camada apenas de leitura</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Bloquear geometria da camada</translation>
+        <translation type="vanished">Bloquear geometria da camada</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -956,6 +956,14 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Show Features Menu</source>
         <translation>Mostrar Menu de Elementos</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3761,6 +3769,14 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

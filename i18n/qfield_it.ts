@@ -935,11 +935,11 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Layer in sola lettura</translation>
+        <translation type="vanished">Layer in sola lettura</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Layer a Geometria Bloccata</translation>
+        <translation type="vanished">Layer a Geometria Bloccata</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -956,6 +956,14 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <message>
         <source>Show Features Menu</source>
         <translation>Mostra Menu Elementi</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3764,6 +3772,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

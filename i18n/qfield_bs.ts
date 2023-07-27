@@ -934,11 +934,11 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Sloj samo za čitanje</translation>
+        <translation type="vanished">Sloj samo za čitanje</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Sloj sa zaključanom geometrijom</translation>
+        <translation type="vanished">Sloj sa zaključanom geometrijom</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -954,6 +954,14 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3759,6 +3767,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

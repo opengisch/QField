@@ -934,11 +934,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Couche en lecture seule</translation>
+        <translation type="vanished">Couche en lecture seule</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Couche avec géométrie verrouillée</translation>
+        <translation type="vanished">Couche avec géométrie verrouillée</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -955,6 +955,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Show Features Menu</source>
         <translation>Afficher le menu des entités</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3759,6 +3767,14 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Feature duplication not available</source>
         <translation>La duplication de l&apos;entité n&apos;est pas possible</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

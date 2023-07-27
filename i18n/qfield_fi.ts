@@ -933,11 +933,11 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Vain-luku-taso</translation>
+        <translation type="vanished">Vain-luku-taso</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Lukittu-geometria-taso</translation>
+        <translation type="vanished">Lukittu-geometria-taso</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -954,6 +954,14 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <message>
         <source>Show Features Menu</source>
         <translation>N채yt채 ominaisuudet valikko</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3761,6 +3769,14 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

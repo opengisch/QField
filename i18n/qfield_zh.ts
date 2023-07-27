@@ -931,11 +931,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>只读图层</translation>
+        <translation type="vanished">只读图层</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>几何图形锁定图层</translation>
+        <translation type="vanished">几何图形锁定图层</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -952,6 +952,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show Features Menu</source>
         <translation>显示要素菜单</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>只读图层</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>几何图形锁定图层</translation>
     </message>
 </context>
 <context>
@@ -3758,6 +3766,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Feature duplication not available</source>
         <translation>要素复制不可用</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>捕捉已打开</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>捕捉已关闭</translation>
     </message>
 </context>
 <context>

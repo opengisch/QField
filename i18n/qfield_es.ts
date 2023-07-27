@@ -935,11 +935,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Capa de solo lectura</translation>
+        <translation type="vanished">Capa de solo lectura</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Capa de geometría bloqueada</translation>
+        <translation type="vanished">Capa de geometría bloqueada</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -956,6 +956,14 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Show Features Menu</source>
         <translation>Mostrar menú de objetos</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3760,6 +3768,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Feature duplication not available</source>
         <translation>Duplicado de objetos no disponible</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

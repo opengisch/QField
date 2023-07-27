@@ -935,11 +935,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+        <translation type="vanished">Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Sloj sa Zaključanom Geometrijom</translation>
+        <translation type="vanished">Sloj sa Zaključanom Geometrijom</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -956,6 +956,14 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Show Features Menu</source>
         <translation>Prikaži izbornik elemenata karte</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>Sloj sa zaključanom geometrijom</translation>
     </message>
 </context>
 <context>
@@ -3758,6 +3766,14 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Feature duplication not available</source>
         <translation>Dupliciranje elementa nije dostupno</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

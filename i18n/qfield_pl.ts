@@ -928,11 +928,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Warstwa tylko do odczytu</translation>
+        <translation type="vanished">Warstwa tylko do odczytu</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Warstwa z zablokowaną geometrią</translation>
+        <translation type="vanished">Warstwa z zablokowaną geometrią</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -949,6 +949,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show Features Menu</source>
         <translation>Pokaż menu obiektów</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Warstwa tylko do odczytu</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>Warstwa z zablokowaną geometrią</translation>
     </message>
 </context>
 <context>
@@ -1100,7 +1108,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation>Dziennik twojej aplikacji jest wysyłany.</translation>
+        <translation>Dziennik twojej aplikacji jest wysyłany</translation>
     </message>
 </context>
 <context>
@@ -2634,7 +2642,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Could not flush database %1 (%3) </source>
-        <translation type="unfinished"/>
+        <translation>Nie można zsynchronizować bazy danych %1 (%3) </translation>
     </message>
     <message>
         <source>Position</source>
@@ -3686,7 +3694,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Widok mapy podąża za lokalizacją i orientacją kompasu</translation>
     </message>
     <message>
         <source>Importing %1</source>
@@ -3755,6 +3763,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Feature duplication not available</source>
         <translation>Duplikacja obiektu niedostępna</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>Przyciąganie włączone</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Przyciąganie wyłączone</translation>
     </message>
 </context>
 <context>

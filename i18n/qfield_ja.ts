@@ -931,11 +931,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>読み取り専用レイヤ</translation>
+        <translation type="vanished">読み取り専用レイヤ</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>ジオメトリロックされたレイヤ</translation>
+        <translation type="vanished">ジオメトリロックされたレイヤ</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -952,6 +952,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show Features Menu</source>
         <translation>地物のメニューを表示</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>読み取り専用レイヤ</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>ジオメトリロックされたレイヤ</translation>
     </message>
 </context>
 <context>
@@ -3758,6 +3766,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Feature duplication not available</source>
         <translation>地物のコピーは利用できません</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
