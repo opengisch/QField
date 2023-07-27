@@ -68,6 +68,11 @@ class ProjectInfo : public QObject
     Q_INVOKABLE void saveLayerTreeState();
 
     /**
+     * Saves the current snapping configuration settings
+     */
+    Q_INVOKABLE void saveSnappingConfiguration();
+
+    /**
      * Saves the state \a mode for the current project
      */
     void setStateMode( const QString &mode );

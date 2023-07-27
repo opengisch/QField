@@ -272,6 +272,7 @@ ListView {
 
         onClicked: {
           SnappingEnabled = !SnappingEnabled
+          projectInfo.saveSnappingConfiguration()
         }
       }
     }
