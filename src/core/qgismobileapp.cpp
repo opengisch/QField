@@ -1199,6 +1199,17 @@ void QgisMobileapp::readProjectFile()
     mapCollection.applyTheme( QStringLiteral( "::QFieldLayerTreeState" ), mFlatLayerTree->layerTreeModel()->rootGroup(), mFlatLayerTree->layerTreeModel() );
   }
 
+  const QString snappingConfig = settings.value( QStringLiteral( "/qgis/projectInfo/%1/snappingconfig" ).arg( mProjectFilePath ), QString() ).toString();
+  if ( !snappingConfig.isEmpty() )
+  {
+    QDomDocument document;
+    document.setContent( snappingConfig );
+
+    QgsSnappingConfig config( mProject );
+    config.readProject( document );
+    mProject->setSnappingConfig( config );
+  }
+
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 
   connect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );

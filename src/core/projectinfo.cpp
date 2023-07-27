@@ -197,6 +197,24 @@ void ProjectInfo::saveLayerTreeState()
   }
 }
 
+void ProjectInfo::saveSnappingConfiguration()
+{
+  if ( mFilePath.isEmpty() )
+    return;
+
+  QgsSnappingConfig config = QgsProject::instance()->snappingConfig();
+
+  const QDomDocumentType documentType = QDomImplementation().createDocumentType( QStringLiteral( "qgis" ), QStringLiteral( "http://mrcc.com/qgis.dtd" ), QStringLiteral( "SYSTEM" ) );
+  QDomDocument document( documentType );
+
+  document.appendChild( document.createElement( QStringLiteral( "qgis" ) ) );
+  config.writeProject( document );
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "snappingconfig" ), document.toString() );
+  mSettings.endGroup();
+}
+
 void ProjectInfo::setStateMode( const QString &mode )
 {
   if ( mFilePath.isEmpty() )
