@@ -462,6 +462,8 @@ void QgsQuickMapCanvasMap::stopRendering()
 {
   if ( mJob )
   {
+    mMapUpdateTimer.stop();
+
     disconnect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
     disconnect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
 
