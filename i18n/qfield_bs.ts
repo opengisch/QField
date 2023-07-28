@@ -1011,6 +1011,25 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Sloj je pogrešan. Možda je problem sa mrežom, fajl nedostaje ili projekat nije dobro konfigurisan.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Ovaj sloj je konfigurisan kao &quot;Samo za čitanje&quot; što onemogućava dodavnje, brisanje i editovanje objekata.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Sloj je konfigurisan kao &quot;Zaključaj geometriju&quot; što onemogućava dodavanje i brisanje objekata, kao i mijenjanje geometrije postojećih objekata.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

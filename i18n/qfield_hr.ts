@@ -1012,6 +1012,25 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation>Ovaj sloj trenutno snima poziciju uređaja.</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Ovaj sloj je nevažeći. Ovo se može događati zbog problema s mrežom, datoteke koja nedostaje ili projekta koji nije dobro konfiguriran.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Sloj je konfiguriran &apos;&apos;Samo za čitanje&apos;&apos; što onemogućava dodavanje, brisanje i uređivanje elemenata.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Sloj je konfiguriran kao &quot;Zaključana Geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
@@ -3769,11 +3788,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Hvatanje elemenata je uključeno</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Hvatanje elemenata je isključeno</translation>
     </message>
 </context>
 <context>

@@ -1011,6 +1011,25 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Cette couche est invalide. Cela peut être dû à un problème de réseau, un fichier absent ou une erreur de configuration du projet.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Cette couche est configurée en &quot;lecture seule&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Cette couche est configurée en &quot;géométries verrouillées&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités ainsi que la modification des géométries des entités existantes.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

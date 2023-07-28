@@ -1010,6 +1010,25 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Esta capa é incorrecta. Isto pode ser debido a unha incidencia na rede, á falta dun ficheiro ou a unha mala configuración do proxecto.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Esta capa está configurada coma de &quot;Só Lectura&quot;, o cal desactiva o engadido, eliminación e edición de entidades.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Esta capa está configurada coma de &quot;Xeometrías Bloqueadas&quot;, o cal desactiva o engadido e a eliminación de entidades, así como a modificación das xeometrías existentes.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

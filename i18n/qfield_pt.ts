@@ -1012,6 +1012,25 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Esta camada é inválida. Isto pode ser devido a um problema de rede, um ficheiro ausente ou uma configuração incorreta do projeto.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Esta camada é configurada como &quot;Apenas leitura&quot; o que desativa a adição, exclusão e edição de elementos.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Esta camada está configurada como &quot;Bloquear Geometrias&quot; o que desativa a opção de adicionar e apagar elementos, bem como modificar as geometrias de elementos existentes.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

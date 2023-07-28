@@ -1014,6 +1014,25 @@ Motiv:
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Acest strat este configurat ca &quot;Read-Only&quot; ceea ce dezactivează adăugarea, ștergerea și editarea elementelor.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Acest strat este configurat drept &quot;Geometri blocate&quot; fapt care dezactivează adăugarea și ștergerea elementelor, precum și modificarea geometriilor aferente elementelor existente.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

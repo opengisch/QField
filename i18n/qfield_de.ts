@@ -1009,6 +1009,25 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Dieses Layer ist ungültig. Dies kann auf ein Netzwerkproblem, eine fehlende Datei oder eine Fehlkonfiguration des Projekts zurückzuführen sein.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Dieser Layer ist als &quot;nicht bearbeitbar&quot; konfiguriert, was das Hinzufügen, Löschen und Editieren von Objekten verhindert</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Bei diesem Layer ist das Bearbeiten von Geometrien gesperrt. Dies verhindert sowohl das Hinzufügen und Löschen von Objekten, als auch das Bearbeiten der Geometrien von bestehenden Objekten</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

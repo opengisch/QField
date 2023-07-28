@@ -1008,6 +1008,25 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>このレイヤーは無効です。これはネットワークの問題、ファイルの欠落、もしくはプロジェクトの設定ミスが原因の可能性があります。</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>このレイヤは「読取専用」と設定されているため、地物の追加、削除、編集は行えません。</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>このレイヤーは、地物の追加と削除、および既存のフィーチャのジオメトリの変更を無効にする「ジオメトリのロック」が設定されています。</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

@@ -1012,6 +1012,25 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Esta capa no es válida. Esto puede deberse a un problema de red, un archivo que falta o una mala configuración del proyecto.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Esta capa está configurada como &quot;solo lectura&quot;, lo que deshabilita añadir, borrar y editar objetos.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Esta capa está configurada como &quot;bloquear geometrías&quot;, lo que deshabilita añadir y borrar objetos, así como modificar las geometrías de los objetos existentes.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

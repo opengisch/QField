@@ -1010,6 +1010,25 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Deze laag is ongeldig. Dit kan te wijten zijn aan een netwerkprobleem, een ontbrekend bestand of een verkeerde configuratie van het project.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Deze laag is geconfigureerd als &quot;Alleen-lezen&quot;, wat het toevoegen, verwijderen en bewerken van objecten uitschakelt.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Deze laag is geconfigureerd als &quot;Geometrieën vergrendelen&quot;, wat het toevoegen en verwijderen van objecten uitschakelt, evenals het wijzigen van de geometrieën van bestaande objecten.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

@@ -1010,6 +1010,25 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Taso ei ole kelvollinen. Tämä voi johtua yhteysongelmasta, puuttuvasta tiedostosta tai virheellisestä projektista.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Taso on konfiguroitu &quot;vain-luku&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja muokkauksen.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Tämä taso on konfiguroitu &quot;lukittu-geometria&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja olemassa olevien kohteiden geometrioiden muokkauksen.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

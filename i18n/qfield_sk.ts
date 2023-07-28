@@ -1013,6 +1013,25 @@ Dôvod:
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Táto vrstva je neplatná. Tento problém mohol vzniknúť kvôli chybe v sieti, chýbajúcemu súboru alebo zlou konfiguráciou projektu.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Táto vrstva je iba na čítanie, nemožno pridávať, zmazať ani editovať prvky.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Táto vrstva má zamknuté geometrie, nemožno pridávať ani zmazať prvky, ako aj modifikovať geometrie existujúcich prvkov.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>

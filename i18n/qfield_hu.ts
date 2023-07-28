@@ -1009,6 +1009,25 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Ez a réteg hibás. Ezt okozhatja hálózati hiba, hiányzó fájl vagy tévesen konfigurált projekt.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Ezt a réteget csak olvashatónak konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Ezt  réteget zárolt geometriával konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését valamint a létező elemek geometriájának módosítását.</translation>
+    </message>
+</context>
+<context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
