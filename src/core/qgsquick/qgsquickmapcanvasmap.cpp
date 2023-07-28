@@ -56,7 +56,10 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   setFlags( QQuickItem::ItemHasContents );
 }
 
-QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap() = default;
+QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
+{
+  stopRendering();
+}
 
 QgsQuickMapSettings *QgsQuickMapCanvasMap::mapSettings() const
 {
@@ -459,9 +462,15 @@ void QgsQuickMapCanvasMap::stopRendering()
 {
   if ( mJob )
   {
+    mMapUpdateTimer.stop();
+
     disconnect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
     disconnect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
 
+    if ( !mJob->isActive() )
+      mJob->deleteLater();
+    else
+      connect( mJob, &QgsMapRendererJob::finished, mJob, &QObject::deleteLater );
     mJob->cancelWithoutBlocking();
     mJob = nullptr;
   }
