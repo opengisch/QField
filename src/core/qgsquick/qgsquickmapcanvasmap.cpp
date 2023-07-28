@@ -467,7 +467,10 @@ void QgsQuickMapCanvasMap::stopRendering()
     disconnect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
     disconnect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
 
-    connect( mJob, &QgsMapRendererJob::finished, mJob, &QObject::deleteLater );
+    if ( !mJob->isActive() )
+      mJob->deleteLater();
+    else
+      connect( mJob, &QgsMapRendererJob::finished, mJob, &QObject::deleteLater );
     mJob->cancelWithoutBlocking();
     mJob = nullptr;
   }
