@@ -25,6 +25,11 @@ jobs:
         with:
           submodules: recursive
 
+      - uses: Apple-Actions/import-codesign-certs@v2
+        with:
+          p12-file-base64: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_BASE64_DIST || secrets.APPLE_CODESIGN_CERT_BASE64_DEV }}
+          p12-password: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_PASS_DIST || secrets.APPLE_CODESIGN_CERT_PASS_DEV }}
+
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
@@ -38,11 +43,6 @@ jobs:
         shell: bash
         run: |
           ./scripts/ci/env_gh.sh
-
-      - uses: Apple-Actions/import-codesign-certs@v1
-        with:
-          p12-file-base64: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPSTORE_DISTRIBUTION_CERT_BASE64 || secrets.IOS_CERTIFICATES_FILE_BASE64_DEV }}
-          p12-password: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPSTORE_DISTRIBUTION_CERT_PASS || secrets.IOS_CERTIFICATES_PASSWORD_DEV }}
 
       - uses: Apple-Actions/download-provisioning-profiles@v1
         with:
@@ -96,7 +96,7 @@ jobs:
                 -D ENABLE_BITCODE=OFF \
                 -D ENABLE_ARC=ON \
                 -D QT_IOS_TEAM_ID="${{ secrets.IOS_TEAM_ID }}" \
-                -D QT_IOS_CODE_SIGN_IDENTITY="${{env.CI_USE_IOS_DIST_CERT && secrets.IOS_CODE_SIGN_IDENTITY || secrets.IOS_CODE_SIGN_IDENTITY_DEV }}" \
+                -D QT_IOS_CODE_SIGN_IDENTITY="${{env.CI_USE_IOS_DIST_CERT && 'Apple Distribution' || 'Apple Development' }}" \
                 -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{env.CI_USE_IOS_DIST_CERT && secrets.IOS_PROVISIONING_PROFILE_SPECIFIER || secrets.IOS_PROVISIONING_PROFILE_SPECIFIER_DEV }}" \
                 -D QT_IOS_EXPORT_METHOD="${{env.CI_USE_IOS_DIST_CERT && 'app-store' || 'development' }}" \
                 -D CMAKE_SYSTEM_NAME=iOS \
