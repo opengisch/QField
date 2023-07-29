@@ -21,6 +21,7 @@ Page {
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
+  property alias quality: registry.quality
 
   Component.onCompleted: {
     if (settings.valueBool('nativeCameraLaunched', false)) {
@@ -40,6 +41,7 @@ Page {
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
     property bool enableInfoCollection: true
+    property double quality: 1.0
 
     onEnableInfoCollectionChanged: {
       if (enableInfoCollection) {
@@ -501,6 +503,48 @@ Page {
                           Layout.fillWidth: true
 
                           onLinkActivated: Qt.openUrlExternally(link)
+                      }
+
+                      Label {
+                          Layout.fillWidth: true
+                          text: qsTr( "Map canvas rendering quality:" )
+                          font: Theme.defaultFont
+                          color: Theme.mainTextColor
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      ComboBox {
+                          id: renderingQualityComboBox
+                          enabled: true
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+
+                          popup.font: Theme.defaultFont
+                          popup.topMargin: mainWindow.sceneTopMargin
+                          popup.bottomMargin: mainWindow.sceneTopMargin
+
+                          model: ListModel {
+                            ListElement { name: qsTr('Best quality'); value: 1.0 }
+                            ListElement { name: qsTr('Lower quality'); value: 0.75 }
+                            ListElement { name: qsTr('Lowest quality'); value: 0.5 }
+                          }
+                          textRole: "name"
+                          valueRole: "value"
+
+                          property bool initialized: false
+
+                          onCurrentValueChanged: {
+                              if (initialized) {
+                                quality = currentValue
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              currentIndex = indexOfValue(quality)
+                              initialized = true
+                          }
                       }
                   }
 

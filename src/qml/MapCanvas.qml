@@ -26,6 +26,7 @@ Item {
   property alias mapSettings: mapCanvasWrapper.mapSettings
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
+  property alias quality: mapCanvasWrapper.quality
 
   property bool interactive: true
   property bool hovered: false

@@ -455,6 +455,7 @@ ApplicationWindow {
       id: mapCanvasMap
       interactive: !screenLocker.enabled
       incrementalRendering: true
+      quality: qfieldSettings.quality
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
       anchors.fill: parent
