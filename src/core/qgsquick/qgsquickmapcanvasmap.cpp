@@ -112,6 +112,12 @@ void QgsQuickMapCanvasMap::refreshMap()
   if ( !mapSettings.hasValidSettings() )
     return;
 
+  if ( !qgsDoubleNear( mQuality, 1.0 ) )
+  {
+    mapSettings.setOutputSize( mapSettings.outputSize() * mQuality );
+    mapSettings.setOutputDpi( mapSettings.outputDpi() * mQuality );
+  }
+
   //build the expression context
   QgsExpressionContext expressionContext;
   expressionContext << QgsExpressionContextUtils::globalScope()
@@ -345,6 +351,25 @@ void QgsQuickMapCanvasMap::setIncrementalRendering( bool incrementalRendering )
   emit incrementalRenderingChanged();
 }
 
+double QgsQuickMapCanvasMap::quality() const
+{
+  return mQuality;
+}
+
+void QgsQuickMapCanvasMap::setQuality( double quality )
+{
+  quality = std::clamp( quality, 0.5, 1.0 );
+  if ( mQuality == quality )
+    return;
+
+  mQuality = quality;
+
+  emit qualityChanged();
+
+  // And trigger a new rendering job
+  refresh();
+}
+
 bool QgsQuickMapCanvasMap::freeze() const
 {
   return mFreeze;
@@ -388,6 +413,7 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
   if ( !node )
   {
     node = new QSGSimpleTextureNode();
+    node->setFiltering( QSGTexture::Linear );
     QSGTexture *texture = window()->createTextureFromImage( mImage );
     node->setTexture( texture );
     node->setOwnsTexture( true );

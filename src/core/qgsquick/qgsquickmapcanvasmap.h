@@ -84,6 +84,15 @@ class QgsQuickMapCanvasMap : public QQuickItem
      */
     Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
 
+    /**
+     * The quality property allows for an increase in rendering speed and memory usage reduction at the
+     * cost of rendering quality.
+     *
+     * By default, the value is set to 1.0, providing for the best rendering. The lowest quality
+     * value is 0.5.
+     */
+    Q_PROPERTY( double quality READ quality WRITE setQuality NOTIFY qualityChanged )
+
   public:
     //! Create map canvas map
     explicit QgsQuickMapCanvasMap( QQuickItem *parent = nullptr );
@@ -115,6 +124,12 @@ class QgsQuickMapCanvasMap : public QQuickItem
     //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
     void setIncrementalRendering( bool incrementalRendering );
 
+    //! \copydoc QgsQuickMapCanvasMap::quality
+    double quality() const;
+
+    //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
+    void setQuality( double quality );
+
     /**
      * Returns an image of the last successful map canvas rendering
      */
@@ -143,6 +158,9 @@ class QgsQuickMapCanvasMap : public QQuickItem
 
     //!\copydoc QgsQuickMapCanvasMap::incrementalRendering
     void incrementalRenderingChanged();
+
+    //!\copydoc QgsQuickMapCanvasMap::quality
+    void qualityChanged();
 
   protected:
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
@@ -214,6 +232,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mIncrementalRendering = false;
     bool mSilentRefresh = false;
     bool mDeferredRefreshPending = false;
+    double mQuality = 1.0;
 
     QQuickWindow *mWindow = nullptr;
 };
