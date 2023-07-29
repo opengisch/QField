@@ -1752,7 +1752,7 @@ ApplicationWindow {
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
-      screenHovering: hoverHandler.hovered
+      screenHovering: mapCanvasMap.hovered
 
       digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 
@@ -1902,7 +1902,7 @@ ApplicationWindow {
       featureModel: geometryEditingFeature
       mapSettings: mapCanvas.mapSettings
       editorRubberbandModel: geometryEditorsRubberband.model
-      screenHovering: hoverHandler.hovered
+      screenHovering: mapCanvasMap.hovered
 
       stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
     }
@@ -3598,7 +3598,7 @@ ApplicationWindow {
     id: geometryEditingVertexModel
     currentPoint: coordinateLocator.currentCoordinate
     mapSettings: mapCanvas.mapSettings
-    isHovering: hoverHandler.hovered
+    isHovering: mapCanvasMap.hovered
   }
 
   ScreenLocker {
