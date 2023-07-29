@@ -1091,7 +1091,7 @@ void QgisMobileapp::readProjectFile()
   // Restore project information (extent, customized style, layer visibility, etc.)
   QSettings settings;
   const QStringList parts = settings.value( QStringLiteral( "/qgis/projectInfo/%1/extent" ).arg( mProjectFilePath ), QString() ).toString().split( '|' );
-  if ( parts.size() == 4 && ( SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix().toLower() ) || fi.size() == settings.value( QStringLiteral( "/qgis/projectInfo/%1/filesize" ).arg( mProjectFilePath ), 0 ).toLongLong() ) )
+  if ( parts.size() == 4 )
   {
     extent.setXMinimum( parts[0].toDouble() );
     extent.setXMaximum( parts[1].toDouble() );
