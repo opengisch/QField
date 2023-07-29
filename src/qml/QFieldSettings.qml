@@ -546,6 +546,17 @@ Page {
                               initialized = true
                           }
                       }
+
+                      Label {
+                          text: qsTr( "A lower quality trades rendering precision in favor of lower memory usage and rendering time." )
+                          font: Theme.tipFont
+                          color: Theme.secondaryTextColor
+                          textFormat: Qt.RichText
+                          wrapMode: Text.WordWrap
+                          Layout.fillWidth: true
+
+                          onLinkActivated: Qt.openUrlExternally(link)
+                      }
                   }
 
                   Item {
