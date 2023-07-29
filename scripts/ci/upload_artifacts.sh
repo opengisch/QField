@@ -20,10 +20,8 @@ then
 
   mv ${CMAKE_BUILD_DIR}/android-build/build/outputs/apk/release/android-build-release-signed.apk /tmp/${FILENAME_APK}
   echo "${S3CFG}" > ~/.s3cfg
-  s3cmd put --acl-public /tmp/${FILENAME_APK} s3://qfieldapks/ci-builds/${FILENAME_APK}
+  s3cmd put --acl-public -m 'application/vnd.android.package-archive' /tmp/${FILENAME_APK} s3://qfieldapks/ci-builds/${FILENAME_APK}
   echo -e "\e[31mUploaded to https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${FILENAME_APK} \e[0m"
-  s3cmd modify --add-header=content-type:application/vnd.android.package-archive s3://qfieldapks/ci-builds/${FILENAME_APK}
-  echo -e "\e[31mcontent-type modified \e[0m"
 else
   echo -e "Not uploading artifacts ..."
 fi
