@@ -319,7 +319,6 @@ ApplicationWindow {
   Item {
     id: mapCanvas
     clip: true
-    property bool isBeingTouched: false
 
     DragHandler {
         id: freehandHandler
@@ -357,15 +356,19 @@ ApplicationWindow {
     HoverHandler {
         id: hoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen
-                 && !parent.isBeingTouched
                  && !(positionSource.active && positioningSettings.positioningCoordinateLock)
                  && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
 
         property bool hasBeenHovered: false
+        property bool skipHover: false
 
         onPointChanged: {
+            if (skipHover) {
+              return
+            }
+
             function pointInItem(point, item) {
                 var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
                 return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width &&
@@ -390,6 +393,11 @@ ApplicationWindow {
         }
 
         onHoveredChanged: {
+            if (skipHover) {
+              skipHover = hovered
+              return
+            }
+
             mapCanvasMap.hovered = hovered
             if ( hovered ) {
                 hasBeenHovered = true;
@@ -398,15 +406,7 @@ ApplicationWindow {
             }
         }
     }
-    Timer {
-        id: resetIsBeingTouchedTimer
-        interval: 750
-        repeat: false
 
-        onTriggered: {
-            parent.isBeingTouched = false
-        }
-    }
     /* The second hover handler is a workaround what appears to be an issue with
      * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
@@ -420,11 +420,7 @@ ApplicationWindow {
 
         onHoveredChanged: {
             if ( hovered ) {
-                parent.isBeingTouched = true
-                resetIsBeingTouchedTimer.stop()
-            }
-            else {
-                resetIsBeingTouchedTimer.restart()
+                hoverHandler.skipHover = true
             }
         }
     }
