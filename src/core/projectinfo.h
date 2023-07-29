@@ -19,11 +19,14 @@
 #define PROJECTINFO_H
 
 #include "layertreemodel.h"
+#include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 
 #include <QObject>
 #include <QSettings>
 #include <QTimer>
+
+class FlatLayerTreeModel;
 
 /**
  * This class stores current projection information such as
@@ -92,6 +95,9 @@ class ProjectInfo : public QObject
      * or nullptr if active layer was not saved or isn't present
      */
     QgsMapLayer *activeLayer() const;
+
+
+    static void restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree );
 
   signals:
 
