@@ -263,3 +263,90 @@ void ProjectInfo::mapThemeChanged()
   }
   mSettings.endGroup();
 }
+
+void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree )
+{
+  QSettings settings;
+
+  const double rotation = settings.value( QStringLiteral( "qgis/projectInfo/%1/rotation" ).arg( projectFilePath ), mapCanvas->mapSettings()->rotation() ).toDouble();
+  mapCanvas->mapSettings()->setRotation( rotation );
+
+  const bool isTemporal = settings.value( QStringLiteral( "/qgis/projectInfo/%1/isTemporal" ).arg( projectFilePath ), false ).toBool();
+  const QString begin = settings.value( QStringLiteral( "/qgis/projectInfo/%1/StartDateTime" ).arg( projectFilePath ), QString() ).toString();
+  const QString end = settings.value( QStringLiteral( "/qgis/projectInfo/%1/EndDateTime" ).arg( projectFilePath ), QString() ).toString();
+  if ( !begin.isEmpty() && !end.isEmpty() )
+  {
+    mapCanvas->mapSettings()->setTemporalBegin( QDateTime::fromString( begin, Qt::ISODateWithMs ) );
+    mapCanvas->mapSettings()->setTemporalEnd( QDateTime::fromString( end, Qt::ISODateWithMs ) );
+    mapCanvas->mapSettings()->setIsTemporal( isTemporal );
+  }
+
+  settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerstyles" ).arg( projectFilePath ) );
+  const QStringList ids = settings.allKeys();
+  if ( !ids.isEmpty() )
+  {
+    const bool isDataset = project->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+    const QList<QgsMapLayer *> mapLayers = isDataset ? project->layerStore()->mapLayers().values() : QList<QgsMapLayer *>();
+
+    for ( QString id : ids )
+    {
+      const QString xmlData = settings.value( id ).toString();
+      if ( xmlData.isEmpty() )
+        continue;
+
+      // Remove the :: prefix to get actual layer id or source
+      id = id.mid( 2 );
+
+      QgsMapLayer *layer = nullptr;
+      if ( isDataset )
+      {
+        for ( QgsMapLayer *ml : mapLayers )
+        {
+          if ( ml && ml->source() == id )
+          {
+            layer = ml;
+            break;
+          }
+        }
+      }
+      else
+      {
+        layer = project->layerStore()->mapLayer( id );
+      }
+
+      if ( layer )
+      {
+        QgsMapLayerStyle style( xmlData );
+        style.writeToLayer( layer );
+      }
+    }
+  }
+  settings.endGroup();
+
+  const QString mapTheme = settings.value( QStringLiteral( "/qgis/projectInfo/%1/maptheme" ).arg( projectFilePath ), QString() ).toString();
+  const QString layerTreeState = settings.value( QStringLiteral( "/qgis/projectInfo/%1/layertreestate" ).arg( projectFilePath ), QString() ).toString();
+  if ( !mapTheme.isEmpty() )
+  {
+    layerTree->setMapTheme( mapTheme );
+  }
+  else if ( !layerTreeState.isEmpty() )
+  {
+    QDomDocument document;
+    document.setContent( layerTreeState );
+
+    QgsMapThemeCollection mapCollection( project );
+    mapCollection.readXml( document );
+    mapCollection.applyTheme( QStringLiteral( "::QFieldLayerTreeState" ), layerTree->layerTreeModel()->rootGroup(), layerTree->layerTreeModel() );
+  }
+
+  const QString snappingConfig = settings.value( QStringLiteral( "/qgis/projectInfo/%1/snappingconfig" ).arg( projectFilePath ), QString() ).toString();
+  if ( !snappingConfig.isEmpty() )
+  {
+    QDomDocument document;
+    document.setContent( snappingConfig );
+
+    QgsSnappingConfig config( project );
+    config.readProject( document );
+    project->setSnappingConfig( config );
+  }
+}
