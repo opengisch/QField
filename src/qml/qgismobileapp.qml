@@ -2435,8 +2435,10 @@ ApplicationWindow {
     }
 
     MenuSeparator {
+      enabled: canvasMenuFeatureListInstantiator.count > 0
       width: parent.width
-      visible: canvasMenuFeatureListInstantiator.count > 0
+      visible: enabled
+      height: enabled ? undefined : 0
     }
 
     Instantiator {
@@ -2457,7 +2459,6 @@ ApplicationWindow {
 
         title: layerName + ': ' + featureName
         font: Theme.defaultFont
-        leftPadding: 10
 
         width: {
             var result = 0;

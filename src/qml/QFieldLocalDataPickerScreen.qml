@@ -369,12 +369,13 @@ Page {
 
       MenuItem {
         id: sendDatasetTo
-        visible: platformUtilities.capabilities & PlatformUtilities.CustomSend
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend
                  && itemMenu.itemMetaType == LocalFilesModel.Dataset
+        visible: enabled
 
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled ? undefined : 0
         leftPadding: 10
 
         text: qsTr( "Send to..." )
@@ -383,12 +384,13 @@ Page {
 
       MenuItem {
         id: exportDatasetTo
-        visible: platformUtilities.capabilities & PlatformUtilities.CustomExport
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport
                  && itemMenu.itemMetaType == LocalFilesModel.Dataset
+        visible: enabled
 
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled ? undefined : 0
         leftPadding: 10
 
         text: qsTr( "Export to folder..." )
@@ -397,13 +399,14 @@ Page {
 
       MenuItem {
         id: removeDataset
-        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset
                  && !qfieldLocalDataPickerScreen.projectFolderView
                  && table.model.isDeletedAllowedInCurrentPath
+        visible: enabled
 
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled? undefined : 0
         leftPadding: 10
 
         text: qsTr( "Remove dataset" )
@@ -412,12 +415,13 @@ Page {
 
       MenuItem {
         id: exportFolderTo
-        visible: platformUtilities.capabilities & PlatformUtilities.CustomExport &&
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport &&
                  itemMenu.itemMetaType == LocalFilesModel.Folder
+        visible: enabled
 
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled ? undefined : 0
         leftPadding: 10
 
         text: qsTr( "Export to folder..." )
@@ -426,12 +430,13 @@ Page {
 
       MenuItem {
         id: sendCompressedFolderTo
-        visible: platformUtilities.capabilities & PlatformUtilities.CustomSend
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend
                  && itemMenu.itemMetaType == LocalFilesModel.Folder
+        visible: enabled
 
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled ? undefined : 0
         leftPadding: 10
 
         text: qsTr( "Send compressed folder to..." )
@@ -440,13 +445,14 @@ Page {
 
       MenuItem {
         id: removeProjectFolder
-        visible: itemMenu.itemMetaType == LocalFilesModel.Folder
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Folder
                  && !qfieldLocalDataPickerScreen.projectFolderView
                  && table.model.isDeletedAllowedInCurrentPath
+        visible: enabled
 
         font: Theme.defaultFont
         width: parent.width
-        height: visible ? 48 : 0
+        height: enabled ? undefined : 0
         leftPadding: 10
 
         text: qsTr( "Remove project folder" )
@@ -477,9 +483,10 @@ Page {
         id: importProjectFromFolder
 
         enabled: platformUtilities.capabilities & PlatformUtilities.CustomImport
+        visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? 48 : 0
+        height: enabled ? undefined : 0
         leftPadding: 10
 
         text: qsTr( "Import project from folder" )
@@ -490,9 +497,10 @@ Page {
         id: importProjectFromZIP
 
         enabled: platformUtilities.capabilities & PlatformUtilities.CustomImport
+        visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? 48 : 0
+        height: enabled ? undefined : 0
         leftPadding: 10
 
         text: qsTr( "Import project from ZIP" )
@@ -503,9 +511,10 @@ Page {
         id: importDataset
 
         enabled: platformUtilities.capabilities & PlatformUtilities.CustomImport
+        visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? 48 : 0
+        height: enabled ? undefined : 0
 
         leftPadding: 10
 
@@ -513,7 +522,12 @@ Page {
         onTriggered: { platformUtilities.importDatasets(); }
       }
 
-      MenuSeparator { visible: platformUtilities.capabilities & PlatformUtilities.CustomImport; width: parent.width }
+      MenuSeparator {
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomImport
+        visible: enabled
+        width: parent.width
+        height: enabled ? undefined : 0
+      }
 
       MenuItem {
         id: importUrl
@@ -529,7 +543,9 @@ Page {
         }
       }
 
-      MenuSeparator { width: parent.width }
+      MenuSeparator {
+        width: parent.width
+      }
 
       MenuItem {
         id: storageHelp

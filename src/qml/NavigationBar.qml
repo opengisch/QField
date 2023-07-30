@@ -518,7 +518,7 @@ Rectangle {
     MenuSeparator { width: parent.width }
 
     MenuItem {
-      text: Qt.platform.os === "ios" ? qsTr( "Print Atlas Feature(s) to Image" ) : qsTr( 'Print Atlas Feature(s) to PDF' )
+      text: qsTr( 'Print Atlas Feature(s) to PDF' )
       icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
       enabled: toolBar.model && toolBar.model.selectedCount > 0 && LayerUtils.isAtlasCoverageLayer( toolBar.model.selectedLayer )
 
@@ -533,8 +533,10 @@ Rectangle {
     }
 
     MenuSeparator {
-      visible: mergeSelectedFeaturesBtn.visible || moveSelectedFeaturesBtn.visible || duplicateSelectedFeaturesBtn.visible || deleteSelectedFeaturesBtn.visible
+      enabled: mergeSelectedFeaturesBtn.visible || moveSelectedFeaturesBtn.visible || duplicateSelectedFeaturesBtn.visible || deleteSelectedFeaturesBtn.visible
+      visible: enabled
       width: parent.width
+      height: enabled ? undefined : 0
     }
 
     MenuItem {
@@ -542,10 +544,8 @@ Rectangle {
       text: qsTr( 'Merge Selected Features' )
       icon.source: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
-      visible: enabled
 
       font: Theme.defaultFont
-      height: visible ? 48 : 0
       leftPadding: 10
 
       onTriggered: multiMergeClicked();
@@ -556,10 +556,8 @@ Rectangle {
       text: qsTr( 'Move Selected Feature(s)' )
       icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
       enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
-      visible: enabled
 
       font: Theme.defaultFont
-      height: visible ? 48 : 0
       leftPadding: 10
 
       onTriggered: multiMoveClicked();
@@ -570,10 +568,8 @@ Rectangle {
       text: qsTr( 'Duplicate Selected Feature(s)' )
       icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
-      visible: enabled
 
       font: Theme.defaultFont
-      height: visible ? 48 : 0
       leftPadding: 10
 
       onTriggered: multiDuplicateClicked();
@@ -585,9 +581,9 @@ Rectangle {
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
       enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
       visible: enabled
+      height: enabled ? undefined : 0
 
       font: Theme.defaultFont
-      height: visible ? 48 : 0
       leftPadding: 10
 
       onTriggered: multiDeleteClicked();
