@@ -907,18 +907,19 @@ ApplicationWindow {
         return newY;
     }
 
+    textFormat: Text.PlainText
     text: {
       if ((qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure') {
         var point = GeometryUtils.reprojectPoint(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
         var coordinates;
         if (coordinatesIsXY) {
-          coordinates = '<p>%1: %2<br>%3: %4</p>'
+          coordinates = '%1: %2\n%3: %4\n'
                         .arg(coordinatesIsGeographic ? qsTr( 'Lon' ) : 'X')
                         .arg(point.x.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ))
                         .arg(coordinatesIsGeographic ? qsTr( 'Lat' ) : 'Y')
                         .arg(point.y.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ));
         } else {
-          coordinates = '<p>%1: %2<br>%3: %4</p>'
+          coordinates = '%1: %2\n%3: %4\n'
                         .arg(coordinatesIsGeographic ? qsTr( 'Lat' ) : 'Y')
                         .arg(point.y.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ))
                         .arg(coordinatesIsGeographic ? qsTr( 'Lon' ) : 'X')
@@ -931,31 +932,31 @@ ApplicationWindow {
                      : '')
 
                 .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
-                     ? '<p>%1: %2</p>'
+                     ? '%1: %2\n'
                        .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length' ) )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.segmentLength, projectInfo.distanceUnits ) , 3, projectInfo.distanceUnits ) )
                      : '')
 
                 .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
-                     ? '<p>%1: %2</p>'
+                     ? '%1: %2\n'
                        .arg( qsTr( 'Azimuth') )
                        .arg( UnitTypes.formatAngle( digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees ) )
                      : '')
 
                 .arg(currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon
                      ? digitizingGeometryMeasure.perimeterValid
-                       ? '<p>%1: %2</p>'
+                       ? '%1: %2\n'
                          .arg( qsTr( 'Perimeter') )
                          .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.perimeter, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits ) )
                        : ''
                      : digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
-                     ? '<p>%1: %2</p>'
+                     ? '%1: %2\n'
                        .arg( qsTr( 'Length') )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.length, projectInfo.distanceUnits ),3, projectInfo.distanceUnits ) )
                      : '')
 
                 .arg(digitizingGeometryMeasure.areaValid
-                     ? '<p>%1: %2</p>'
+                     ? '%1: %2\n'
                      .arg( qsTr( 'Area') )
                      .arg(UnitTypes.formatArea( digitizingGeometryMeasure.convertAreaMeansurement( digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits ) )
                      : '')
