@@ -2599,6 +2599,26 @@ Cancel to make a minimal device scan instead.</source>
         <source>Log NMEA sentences from device to file</source>
         <translation>将日志NMEA语句从设备保存到文件</translation>
     </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>地图画布渲染质量：</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>最佳质量</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>质量较低</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>最低质量</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>较低质量是以较低内存使用率和渲染时间而降低渲染精度。</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

@@ -2596,6 +2596,26 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Log NMEA sentences from device to file</source>
         <translation>Zapisuj dane NMEA z urządzenia do pliku</translation>
     </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Jakość rysowania obszaru mapy:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Najlepsza jakość</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Niższa jakość</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Najniższa jakość</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Niższa jakość to kompromis między precyzją rysowania a mniejszym użyciem pamięci i czasem rysowania.</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

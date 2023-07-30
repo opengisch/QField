@@ -1011,7 +1011,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>このレイヤーは現在デバイスの位置を追跡しています。</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -2599,6 +2599,26 @@ Cancel to make a minimal device scan instead.</source>
         <source>Log NMEA sentences from device to file</source>
         <translation>デバイスからファイルへのNMEAセンテンスのログを移動</translation>
     </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>地図キャンバスの描画精度:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>最高精度</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>やや低い精度</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>最低精度</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>低く設定すると、描画精度と引き換えに、メモリ使用量と描画にかかる時間を削減できます。</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3788,11 +3808,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>スナッピングを有効にしました</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>スナッピングを無効にしました</translation>
     </message>
 </context>
 <context>

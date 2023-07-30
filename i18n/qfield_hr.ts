@@ -1019,7 +1019,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Ovaj sloj je nevažeći. Ovo se može događati zbog problema s mrežom, datoteke koja nedostaje ili projekta koji nije dobro konfiguriran.</translation>
+        <translation>Ovaj sloj je nevažeći. Ovo se može događati zbog: problema s mrežom, datoteke koja nedostaje ili projekta koji nije dobro konfiguriran.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1027,7 +1027,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Sloj je konfiguriran kao &quot;Zaključana Geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
+        <translation>Sloj je konfiguriran kao &quot;Zaključana geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
     </message>
 </context>
 <context>
@@ -2598,6 +2598,26 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Log NMEA sentences from device to file</source>
         <translation>Zapiši NMEA rečenice od uređaja u datoteku</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Kvaliteta renderiranja platna karte:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Najbolja kvaliteta</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Smanjena kvaliteta</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Najlošija kvaliteta</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Lošija kvaliteta žrtvuje preciznost iscrtavanja u korist manje potrošnje memorije i potrebnog vremena za iscrtavanje</translation>
     </message>
 </context>
 <context>
