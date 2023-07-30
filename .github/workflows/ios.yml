@@ -30,6 +30,7 @@ jobs:
           p12-file-base64: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_BASE64_DIST || secrets.APPLE_CODESIGN_CERT_BASE64_DEV }}
           p12-password: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_PASS_DIST || secrets.APPLE_CODESIGN_CERT_PASS_DEV }}
 
+
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
