@@ -1253,7 +1253,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Print Atlas Feature(s) to Image</translation>
+        <translation type="vanished">Print Atlas Feature(s) to Image</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
