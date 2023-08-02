@@ -959,11 +959,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Camada apenas de leitura</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear geometria da camada</translation>
     </message>
 </context>
 <context>
@@ -1015,7 +1015,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>Esta camada está atualmente a seguir a posição do dispositivo.</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1232,7 +1232,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Imprimir Elemento(s) para Imagem</translation>
+        <translation type="vanished">Imprimir Elemento(s) para Imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2605,23 +2605,23 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Qualidade de renderização do mapa:</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Melhor qualidade</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Qualidade inferior</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Qualidade mais baixa</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Uma qualidade inferior troca a precisão de renderização a favor de menor uso de memória e tempo de renderização.</translation>
     </message>
 </context>
 <context>
@@ -3302,7 +3302,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Bem-vindo ao QField. É a primeira vez que está a usar a aplicação? Experimente alguns exemplos de projetos listados abaixo.</translation>
     </message>
 </context>
 <context>
@@ -3788,15 +3788,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Camada:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Elemento:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Abrir formulário do elemento</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -3808,15 +3808,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Duplicação de elemento não disponível</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Snapping ligado</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Snapping desligado</translation>
     </message>
 </context>
 <context>
