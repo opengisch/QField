@@ -96,7 +96,7 @@ jobs:
                 -D ENABLE_BITCODE=OFF \
                 -D ENABLE_ARC=ON \
                 -D QT_IOS_TEAM_ID="${{ secrets.IOS_TEAM_ID }}" \
-                -D QT_IOS_CODE_SIGN_IDENTITY="${{ 'iOS Distribution' }}" \
+                -D QT_IOS_CODE_SIGN_IDENTITY="Apple Distribution" \
                 -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{ secrets.IOS_PROVISIONING_PROFILE_SPECIFIER }}" \
                 -D QT_IOS_EXPORT_METHOD="${{ 'app-store' }}" \
                 -D CMAKE_SYSTEM_NAME=iOS \
@@ -123,6 +123,10 @@ jobs:
       - name: Package
         run: |
           cmake --build  /Users/runner/builddir --target bundle --config Release
+
+      - name: Debug
+        if: always()
+        uses: m-kuhn/tmate-action@patch-1
 
       - name: 🍺 Deploy
         env:
