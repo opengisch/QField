@@ -126,7 +126,7 @@ jobs:
 
       - name: Debug
         if: always()
-        uses: m-kuhn/tmate-action@patch-1
+        uses: m-kuhn/action-tmate@patch-1
 
       - name: 🍺 Deploy
         env:
