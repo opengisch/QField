@@ -1016,7 +1016,7 @@ Dôvod:
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>Na tejto vrstve prebieha trasovanie polohy zariadenia.</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1233,7 +1233,7 @@ Dôvod:
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Vytlačiť prvky Atlasu do obrázku</translation>
+        <translation type="vanished">Vytlačiť prvky Atlasu do obrázku</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2606,23 +2606,23 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Kvalita vykresľovania mapového okna:</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Vysoká</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Nízka</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Najnižšia</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Nižšia kvalita využíva menej pamäte a rýchlejšie sa načíta.</translation>
     </message>
 </context>
 <context>

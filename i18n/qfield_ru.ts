@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Сканер кода</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Наведите камеру на код</translation>
     </message>
 </context>
 <context>
@@ -348,7 +348,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>Подтвердить</translation>
     </message>
 </context>
 <context>
@@ -438,7 +438,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation type="vanished">Подтвердить</translation>
     </message>
 </context>
 <context>
@@ -589,7 +589,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation type="unfinished"/>
+        <translation>Отменить редактирование</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -597,7 +597,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Вы собираетесь выйти из режима редактирования, любые изменения будут потеряны. Продолжить?</translation>
     </message>
 </context>
 <context>
@@ -744,7 +744,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -901,7 +901,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Прозрачность</translation>
     </message>
     <message>
         <source>Zoom to group</source>
@@ -909,7 +909,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Увеличить до родительского слоя</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
@@ -953,7 +953,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Отобразить перечень</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
@@ -1206,7 +1206,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1234,11 +1234,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Распечатать</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Распечатать</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1246,7 +1246,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Печать…</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -3001,15 +3001,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Копировать текст</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Вставить текст</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Сканировать код</translation>
     </message>
 </context>
 <context>
@@ -3291,7 +3291,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>При запуске загружать последний открытый проект</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
@@ -3469,11 +3469,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Перейти на главный экран</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Открыть каталог проекта</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3509,11 +3509,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Добавить закладку</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3529,7 +3529,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Копировать координаты</translation>
     </message>
     <message>
         <source>X</source>
@@ -3597,7 +3597,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3717,7 +3717,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Заблокировать экран</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -3725,7 +3725,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Печать…</translation>
     </message>
     <message>
         <source>Print</source>
@@ -3749,7 +3749,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Датчики</translation>
     </message>
     <message>
         <source>Select sensor below</source>
