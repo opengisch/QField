@@ -21,6 +21,7 @@
 #include <QObject>
 #include <QThread>
 #if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+#include <QPointer>
 #include <QVideoSink>
 #endif
 
@@ -60,7 +61,7 @@ class BarcodeDecoder : public QObject
 
 #if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
     QThread *mDecodingThread = nullptr;
-    QVideoSink *mVideoSink = nullptr;
+    QPointer<QVideoSink> mVideoSink;
 
   signals:
     void videoSinkChanged();

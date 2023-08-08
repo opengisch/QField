@@ -35,32 +35,10 @@ Popup {
 
   BarcodeDecoder {
     id: barcodeDecoder
-    videoSink: videoOutput.videoSink
 
     onDecodedStringChanged: {
       if (decodedString !== '') {
         decodedFlashAnimation.start();
-      }
-    }
-  }
-
-  Loader {
-    id: cameraLoader
-    sourceComponent: cameraComponent
-    active: barcodeReader.visible
-
-    onLoaded: {
-      item.videoOutput = videoOutput
-    }
-  }
-
-  Component {
-    id: cameraComponent
-
-    CaptureSession {
-      camera: Camera {
-        active: barcodeReader.visible
-        flashMode: Camera.FlashOff
       }
     }
   }
@@ -119,11 +97,40 @@ Popup {
         radius: 10
         clip: true
 
-        VideoOutput {
-          id: videoOutput
+        Loader {
+          id: cameraLoader
+          sourceComponent: cameraComponent
+          active: barcodeReader.visible
           anchors.fill: parent
-          anchors.margins: 6
-          fillMode: VideoOutput.PreserveAspectCrop
+
+          onLoaded: {
+            barcodeDecoder.videoSink = item.sink
+          }
+        }
+
+        Component {
+          id: cameraComponent
+
+          Item {
+            property alias camera: captureSession.camera
+            property alias sink: videoOutput.videoSink
+
+            CaptureSession {
+              id: captureSession
+              camera: Camera {
+                active: true
+                flashMode: Camera.FlashOff
+              }
+              videoOutput: videoOutput
+            }
+
+            VideoOutput {
+              id: videoOutput
+              anchors.fill: parent
+              anchors.margins: 6
+              fillMode: VideoOutput.PreserveAspectCrop
+            }
+          }
         }
 
         Rectangle {
