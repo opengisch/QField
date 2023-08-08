@@ -126,7 +126,9 @@ namespace sentry_wrapper
       report += QString( context.function );
     }
 
-    const char *const local = report.toLocal8Bit().constData();
+    QByteArray reportLocal8Bit = report.toLocal8Bit();
+    reportLocal8Bit.truncate( 4090 );
+    const char *const local = reportLocal8Bit.constData();
     switch ( type )
     {
       case QtDebugMsg:
