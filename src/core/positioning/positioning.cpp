@@ -133,6 +133,16 @@ void Positioning::setEllipsoidalElevation( bool ellipsoidal )
   emit ellipsoidalElevationChanged();
 }
 
+void Positioning::setAntennaHeight( double antennaHeight )
+{
+  if ( mAntennaHeight == antennaHeight )
+    return;
+
+  mAntennaHeight = antennaHeight;
+
+  emit antennaHeightChanged();
+}
+
 void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer )
 {
   if ( mCoordinateTransformer == coordinateTransformer )
@@ -239,6 +249,10 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   {
     mSourcePosition.clear();
   }
+
+  // With IMU active the antenna height is corrected by the device
+  if ( mAntennaHeight && !mPositionInformation.imuCorrection() )
+    mSourcePosition.setZ( mSourcePosition.z() - mAntennaHeight );
 
   if ( mCoordinateTransformer )
   {

@@ -209,12 +209,13 @@ ApplicationWindow {
     coordinateTransformer: CoordinateTransformer {
       destinationCrs: mapCanvas.mapSettings.destinationCrs
       transformContext: qgisProject ? qgisProject.transformContext : CoordinateReferenceSystemUtils.emptyTransformContext()
-      deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
+      deltaZ: 0
       skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
       verticalGrid: positioningSettings.verticalGrid
     }
 
     ellipsoidalElevation: positioningSettings.ellipsoidalElevation
+    antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
     logging: positioningSettings.logging
 
     onProjectedPositionChanged: {
