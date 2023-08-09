@@ -250,10 +250,6 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
     mSourcePosition.clear();
   }
 
-  // With IMU active the antenna height is corrected by the device
-  if ( mAntennaHeight && !mPositionInformation.imuCorrection() )
-    mSourcePosition.setZ( mSourcePosition.z() - mAntennaHeight );
-
   if ( mCoordinateTransformer )
   {
     mCoordinateTransformer->setSourcePosition( mSourcePosition );
