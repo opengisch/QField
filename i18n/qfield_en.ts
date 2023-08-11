@@ -1029,7 +1029,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Cannot add new feature in layer &quot;%1&quot;.</translation>
+        <translation type="vanished">Cannot add new feature in layer &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>

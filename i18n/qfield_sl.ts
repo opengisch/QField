@@ -951,7 +951,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Sloj samo za branje</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
@@ -3254,7 +3254,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Privzeti projekt</translation>
     </message>
     <message>
         <source>Base map</source>
@@ -3262,7 +3262,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Privzeti projekt</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -3760,7 +3760,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Preberi več</translation>
     </message>
     <message>
         <source>No sensor available</source>
@@ -3768,11 +3768,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Sloj:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Objekt:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>

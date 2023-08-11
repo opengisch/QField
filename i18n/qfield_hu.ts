@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Dokumentáció</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -84,7 +84,7 @@
     <name>AttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
-        <translation>Kifejezés megszorítások</translation>
+        <translation>Kifejezés megszorítás</translation>
     </message>
     <message>
         <source>Not NULL</source>
@@ -233,31 +233,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nem tudok kapcsolódni a távoli géphez</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nem találom a távoli gépen az UUID szolgáltatást</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Az olvasási, vagy írási kísérlet a csatornán hibát jelez</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A protokoll nem támogatott ezen a platformon</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A művelet végrehajtási kísérletét a csatorna állapota meghiúsította.</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A távoli gép bontotta a kapcsolatot</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ismeretlen hiba</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -472,15 +472,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>Hiba a digitalizáló-naplózásban egy réteg elem hozzáadása közben.</translation>
+        <translation>Alakzat hozzáadási hiba a digitalizását naplózó réteghez</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation>Hiba a digitalizáló-naplózásnál a réteg változtatása közben.</translation>
+        <translation>A digitalizálást naplózó réteg változásrögzítése sikertelen</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation>Hiba a digitalizâlô-naplôzâs rêteg-szolgâltatâs (layer-feature) szerkesztêse közben.</translation>
+        <translation>A digitalizálási naplózó réteg szerkesztése sikertelen</translation>
     </message>
 </context>
 <context>
@@ -528,7 +528,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Kalkulátor</translation>
     </message>
 </context>
 <context>
@@ -542,7 +542,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ExternalResource</name>
     <message>
         <source>No Value</source>
-        <translation>Nincs étrék</translation>
+        <translation>Nincs érték</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
@@ -565,7 +565,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Hibás korlátozás</translation>
+        <translation>Érvénytelen korlátozások</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
@@ -668,7 +668,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>Valóban törölni akarja a kiválasztott %n elemet?</numerusform><numerusform>Valóban törölni akarja a kiválasztott %n elemt?</numerusform></translation>
+        <translation><numerusform>Valóban törölni akarja a kiválasztott %n elemet?</numerusform><numerusform>Valóban törölni akarja a kiválasztott %n elemet?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
@@ -956,11 +956,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Csak olvasható réteg</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
-        <translation type="unfinished"/>
+        <translation>Rögzített geometriájú réteg</translation>
     </message>
 </context>
 <context>
@@ -1012,7 +1012,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>Az eszközpozíciót jelenleg rögzítő réteg </translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1074,7 +1074,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Visszaadja a keresősávban beírt kifejezés értékét</translation>
     </message>
 </context>
 <context>
@@ -1096,7 +1096,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Keresősáv beállítások</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
@@ -1173,11 +1173,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Kiválasztott elemek mozgatása</translation>
+        <translation>Kiválasztott elem(ek) mozgatása</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Kiválasztott elemek duplikálása</translation>
+        <translation>Kiválasztott elem(ek) duplikálása</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
@@ -1229,7 +1229,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Atlasz elem(ek) nyomtatása képfájlba</translation>
+        <translation type="vanished">Atlasz elem(ek) nyomtatása képfájlba</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2962,11 +2962,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Nem tudok kapcsolódni a távoli géphez</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Az olvasási, vagy írási kísérlet a csatornán hibát jelez</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -3149,11 +3149,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Nem tudok kapcsolódni a távoli géphez</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Az olvasási, vagy írási kísérlet a csatornán hibát jelez</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
