@@ -453,6 +453,7 @@ ApplicationWindow {
       interactive: !screenLocker.enabled
       incrementalRendering: true
       quality: qfieldSettings.quality
+      forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
       anchors.fill: parent

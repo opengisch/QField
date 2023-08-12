@@ -93,6 +93,11 @@ class QgsQuickMapCanvasMap : public QQuickItem
      */
     Q_PROPERTY( double quality READ quality WRITE setQuality NOTIFY qualityChanged )
 
+    /**
+     * When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred.
+     */
+    Q_PROPERTY( double forceDeferredLayersRepaint READ forceDeferredLayersRepaint WRITE setForceDeferredLayersRepaint NOTIFY forceDeferredLayersRepaintChanged )
+
   public:
     //! Create map canvas map
     explicit QgsQuickMapCanvasMap( QQuickItem *parent = nullptr );
@@ -130,6 +135,12 @@ class QgsQuickMapCanvasMap : public QQuickItem
     //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
     void setQuality( double quality );
 
+    //!\copydoc QgsQuickMapCanvasMap::forceDeferredLayersRepaint
+    bool forceDeferredLayersRepaint() const;
+
+    //!\copydoc QgsQuickMapCanvasMap::forceDeferredLayersRepaint
+    void setForceDeferredLayersRepaint( bool deferred );
+
     /**
      * Returns an image of the last successful map canvas rendering
      */
@@ -161,6 +172,9 @@ class QgsQuickMapCanvasMap : public QQuickItem
 
     //!\copydoc QgsQuickMapCanvasMap::quality
     void qualityChanged();
+
+    //!\copydoc QgsQuickMapCanvasMap::forceDeferredLayersRepaint
+    void forceDeferredLayersRepaintChanged();
 
   protected:
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
@@ -233,6 +247,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mSilentRefresh = false;
     bool mDeferredRefreshPending = false;
     double mQuality = 1.0;
+    bool mForceDeferredLayersRepaint = false;
 
     QQuickWindow *mWindow = nullptr;
 };

@@ -236,9 +236,9 @@ void QgsQuickMapCanvasMap::layerRepaintRequested( bool deferred )
 
   if ( !mFreeze )
   {
-    if ( deferred )
+    if ( deferred || mForceDeferredLayersRepaint )
     {
-      if ( !mJob )
+      if ( !mJob && !mRefreshTimer.isActive() )
       {
         mSilentRefresh = true;
         refresh();
@@ -368,6 +368,20 @@ void QgsQuickMapCanvasMap::setQuality( double quality )
 
   // And trigger a new rendering job
   refresh();
+}
+
+bool QgsQuickMapCanvasMap::forceDeferredLayersRepaint() const
+{
+  return mForceDeferredLayersRepaint;
+}
+
+void QgsQuickMapCanvasMap::setForceDeferredLayersRepaint( bool deferred )
+{
+  if ( mForceDeferredLayersRepaint == deferred )
+    return;
+
+  mForceDeferredLayersRepaint = deferred;
+  emit forceDeferredLayersRepaintChanged();
 }
 
 bool QgsQuickMapCanvasMap::freeze() const
