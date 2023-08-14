@@ -739,7 +739,7 @@ void QgisMobileapp::readProjectFile()
   bool projectLoaded = false;
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
   {
-    mProject->read( mProjectFilePath );
+    mProject->read( mProjectFilePath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
     mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
     projectLoaded = true;
   }
@@ -752,7 +752,7 @@ void QgisMobileapp::readProjectFile()
       if ( !projectNames.isEmpty() )
       {
         QgsGeoPackageProjectUri projectUri { true, mProjectFilePath, projectNames.at( 0 ) };
-        mProject->read( QgsGeoPackageProjectStorage::encodeUri( projectUri ) );
+        mProject->read( QgsGeoPackageProjectStorage::encodeUri( projectUri ), Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
         mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
         projectLoaded = true;
       }
@@ -922,7 +922,7 @@ void QgisMobileapp::readProjectFile()
       const QString fileAssociationProject = settings.value( QStringLiteral( "QField/baseMapProject" ), QString() ).toString();
       if ( !fileAssociationProject.isEmpty() && QFile::exists( fileAssociationProject ) )
       {
-        mProject->read( fileAssociationProject );
+        mProject->read( fileAssociationProject, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
       }
       else
       {
@@ -933,13 +933,13 @@ void QgisMobileapp::readProjectFile()
           if ( QFile::exists( dataDir + QStringLiteral( "basemap.qgs" ) ) )
           {
             projectFound = true;
-            mProject->read( dataDir + QStringLiteral( "basemap.qgs" ) );
+            mProject->read( dataDir + QStringLiteral( "basemap.qgs" ), Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
             break;
           }
           else if ( QFile::exists( dataDir + QStringLiteral( "basemap.qgz" ) ) )
           {
             projectFound = true;
-            mProject->read( dataDir + QStringLiteral( "basemap.qgs" ) );
+            mProject->read( dataDir + QStringLiteral( "basemap.qgs" ), Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
             break;
           }
         }
