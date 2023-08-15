@@ -45,9 +45,11 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
   mLastGnssPositionValid = !std::isnan( info.latitude );
 
   bool ellipsoidalElevation = false;
+  double antennaHeight = 0.0;
   if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
   {
     ellipsoidalElevation = positioning->ellipsoidalElevation();
+    antennaHeight = positioning->antennaHeight();
   }
 
   if ( info.utcTime != mLastGnssPositionUtcTime )
@@ -73,9 +75,13 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
     emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
   }
 
+  double elevation = info.elevation - antennaHeight;
+  if ( ellipsoidalElevation )
+    elevation += info.elevation_diff;
+
   // QgsGpsInformation's speed is served in km/h, translate to m/s
   mCurrentNmeaGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude,
-                                                                 ellipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation,
+                                                                 elevation,
                                                                  info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                                  info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                                  info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
