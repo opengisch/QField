@@ -1161,7 +1161,7 @@ Page {
                   }
 
                   Label {
-                      text: qsTr( "This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically remove 1.6 from each recorded value. Make sure to insert the effective antenna height (pole + antenna phase centre), not the pole height only." )
+                      text: qsTr( "This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset." )
                       font: Theme.tipFont
                       color: Theme.secondaryTextColor
 
