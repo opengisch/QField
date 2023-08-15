@@ -51,6 +51,7 @@ class Positioning : public QObject
     Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
 
     Q_PROPERTY( bool ellipsoidalElevation READ ellipsoidalElevation WRITE setEllipsoidalElevation NOTIFY ellipsoidalElevationChanged )
+    Q_PROPERTY( double antennaHeight READ antennaHeight WRITE setAntennaHeight NOTIFY antennaHeightChanged )
 
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
 
@@ -156,6 +157,19 @@ class Positioning : public QObject
     void setEllipsoidalElevation( bool ellipsoidal );
 
     /**
+     * Sets the GNSS device antenna height. This should be the pole height + sensore phase height.
+     * \note When IMU is active this value is ignored as the device does the correction internally.
+    **/
+    double antennaHeight() const { return mAntennaHeight; }
+
+    /**
+     * Returns the GNSS device antenna height. This should be the pole height + sensore phase height.
+     * \note When IMU is active this value is ignored as the device does the correction internally.
+    **/
+    void setAntennaHeight( double antennaHeight );
+
+
+    /**
      * Returns whether GNSS devices will log their incoming position stream into a logfile.
      * \note Requires a device type with logging capability
      */
@@ -179,6 +193,7 @@ class Positioning : public QObject
     void averagedPositionCountChanged();
     void projectedPositionChanged();
     void ellipsoidalElevationChanged();
+    void antennaHeightChanged();
     void loggingChanged();
 
   private slots:
@@ -209,6 +224,7 @@ class Positioning : public QObject
     bool mAveragedPosition = false;
 
     bool mEllipsoidalElevation = false;
+    double mAntennaHeight = 0.0;
 
     bool mLogging = false;
 

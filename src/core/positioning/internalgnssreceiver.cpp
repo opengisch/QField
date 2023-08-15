@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "internalgnssreceiver.h"
+#include "positioning.h"
 
 #include <QGuiApplication>
 #include <qgsapplication.h>
@@ -132,10 +133,15 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
     longitude = positionInfo.coordinate().longitude();
     updatePositionInformation = true;
   }
+
+  double antennaHeight = 0.0;
+  if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
+    antennaHeight = positioning->antennaHeight();
+
   double elevation = mLastGnssPositionInformation.elevation();
   if ( !qgsDoubleNear( positionInfo.coordinate().altitude(), elevation ) )
   {
-    elevation = positionInfo.coordinate().altitude();
+    elevation = positionInfo.coordinate().altitude() - antennaHeight;
     updatePositionInformation = true;
   }
 

@@ -133,6 +133,16 @@ void Positioning::setEllipsoidalElevation( bool ellipsoidal )
   emit ellipsoidalElevationChanged();
 }
 
+void Positioning::setAntennaHeight( double antennaHeight )
+{
+  if ( mAntennaHeight == antennaHeight )
+    return;
+
+  mAntennaHeight = antennaHeight;
+
+  emit antennaHeightChanged();
+}
+
 void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer )
 {
   if ( mCoordinateTransformer == coordinateTransformer )
