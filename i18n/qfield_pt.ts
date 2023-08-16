@@ -1008,7 +1008,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Não é possível adicionar novo elemento na camada &quot;%1&quot;.</translation>
+        <translation type="vanished">Não é possível adicionar novo elemento na camada &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -2477,7 +2477,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Os valores Z que são registados a partir de um recetor de posicionamento serão corrigidos por esse valor. Se um valor de 1,6 for inserido, isso resultará numa correção de -1,6 para cada valor registado.</translation>
+        <translation type="vanished">Os valores Z que são registados a partir de um recetor de posicionamento serão corrigidos por esse valor. Se um valor de 1,6 for inserido, isso resultará numa correção de -1,6 para cada valor registado.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2622,6 +2622,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>Uma qualidade inferior troca a precisão de renderização a favor de menor uso de memória e tempo de renderização.</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

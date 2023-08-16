@@ -1005,7 +1005,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nem tudok új elemet hozzáadni &quot;%1&quot; réteghez.</translation>
+        <translation type="vanished">Nem tudok új elemet hozzáadni &quot;%1&quot; réteghez.</translation>
     </message>
 </context>
 <context>
@@ -2469,7 +2469,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>A pozicionáló eszköz által rögzített Z értékek ezzel az értékkel korrigálásra kerülnek. Ha 1,6-os értéket adunk meg, akkor minden rögzített értéknél -1,6-os korrekciót eredményez.</translation>
+        <translation type="vanished">A pozicionáló eszköz által rögzített Z értékek ezzel az értékkel korrigálásra kerülnek. Ha 1,6-os értéket adunk meg, akkor minden rögzített értéknél -1,6-os korrekciót eredményez.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2613,6 +2613,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -1008,7 +1008,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Impossibile aggiungere il nuovo elemento nel layer &quot;%1&quot;.</translation>
+        <translation type="vanished">Impossibile aggiungere il nuovo elemento nel layer &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1232,7 +1232,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Stampa Elementi Atlante come Immagine</translation>
+        <translation type="vanished">Stampa Elementi Atlante come Immagine</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2480,7 +2480,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>I valori Z registrati dal dispositivo di posizionamento verranno corretti di questo valore. Se viene inserito un valore di 1.6, ciò risulterà in una correzione di -1.6 per ogni valore registrato.</translation>
+        <translation type="vanished">I valori Z registrati dal dispositivo di posizionamento verranno corretti di questo valore. Se viene inserito un valore di 1.6, ciò risulterà in una correzione di -1.6 per ogni valore registrato.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2624,6 +2624,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>

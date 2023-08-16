@@ -1009,7 +1009,7 @@ Dôvod:
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Pridanie nového prvku na vrstve &quot;%1&quot; nie je možné.</translation>
+        <translation type="vanished">Pridanie nového prvku na vrstve &quot;%1&quot; nie je možné.</translation>
     </message>
 </context>
 <context>
@@ -2478,7 +2478,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Hodnoty Z zaznamenané z polohovacieho zariadenia budú upravené o túto hodnotu. Pri hodnote 1.6 bude výsledná hodnota upravená o -1.6.</translation>
+        <translation type="vanished">Hodnoty Z zaznamenané z polohovacieho zariadenia budú upravené o túto hodnotu. Pri hodnote 1.6 bude výsledná hodnota upravená o -1.6.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2623,6 +2623,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>Nižšia kvalita využíva menej pamäte a rýchlejšie sa načíta.</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

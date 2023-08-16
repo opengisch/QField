@@ -1002,7 +1002,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>لا يمكن إضافة ميزة جديدة في الطبقة %1</translation>
+        <translation type="vanished">لا يمكن إضافة ميزة جديدة في الطبقة %1</translation>
     </message>
 </context>
 <context>
@@ -2471,7 +2471,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>سيتم تصحيح قيم Z التي تم تسجيلها من جهاز تحديد المواقع بهذه القيمة. إذا تم إدخال قيمة 1.6 ، فسيؤدي ذلك إلى تصحيح -1.6 لكل قيمة مسجلة.</translation>
+        <translation type="vanished">سيتم تصحيح قيم Z التي تم تسجيلها من جهاز تحديد المواقع بهذه القيمة. إذا تم إدخال قيمة 1.6 ، فسيؤدي ذلك إلى تصحيح -1.6 لكل قيمة مسجلة.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2615,6 +2615,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>

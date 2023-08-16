@@ -2603,6 +2603,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>

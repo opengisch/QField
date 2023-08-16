@@ -1004,7 +1004,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>无法在图层 &quot;%1&quot; 中添加新要素。</translation>
+        <translation type="vanished">无法在图层 &quot;%1&quot; 中添加新要素。</translation>
     </message>
 </context>
 <context>
@@ -1228,7 +1228,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>地图集要素输出为图像文件</translation>
+        <translation type="vanished">地图集要素输出为图像文件</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2473,7 +2473,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>通过定位设备记录的Z值进行校正。如果输入的值为1.6，则每个记录值修正为-1.6。</translation>
+        <translation type="vanished">通过定位设备记录的Z值进行校正。如果输入的值为1.6，则每个记录值修正为-1.6。</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2618,6 +2618,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>较低质量是以较低内存使用率和渲染时间而降低渲染精度。</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation>该值将校正定位设备记录的Z值。如果输入的值为1.6，QField将自动从每个记录的值中减去1.6。请确保输入有效天线高度，即杆长 + 天线相位中心偏移。</translation>
     </message>
 </context>
 <context>

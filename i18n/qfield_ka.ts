@@ -1000,7 +1000,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>ახალი ტოპოგრაფიული ელემენტის დამატების პრობლემა &quot;%1&quot; ფენაზე.</translation>
+        <translation type="vanished">ახალი ტოპოგრაფიული ელემენტის დამატების პრობლემა &quot;%1&quot; ფენაზე.</translation>
     </message>
 </context>
 <context>
@@ -1224,7 +1224,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>ატლასის ტოპოგრაფიული ელემენტ(ებ)ის დაბეჭდვა სურათში</translation>
+        <translation type="vanished">ატლასის ტოპოგრაფიული ელემენტ(ებ)ის დაბეჭდვა სურათში</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2608,6 +2608,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>

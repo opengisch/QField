@@ -1010,7 +1010,7 @@ Motiv:
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nu se poate adăuga un element nou în strat &quot;%1.</translation>
+        <translation type="vanished">Nu se poate adăuga un element nou în strat &quot;%1.</translation>
     </message>
 </context>
 <context>
@@ -2479,7 +2479,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Valorile Z înregistrate de la dispozitivul de poziționare vor fi corectate cu această valoare. Dacă este introdusă o valoare de 1.6, aceasta va avea ca rezultat o corecție de -1,6 pentru fiecare valoare înregistrată.</translation>
+        <translation type="vanished">Valorile Z înregistrate de la dispozitivul de poziționare vor fi corectate cu această valoare. Dacă este introdusă o valoare de 1.6, aceasta va avea ca rezultat o corecție de -1,6 pentru fiecare valoare înregistrată.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2623,6 +2623,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
