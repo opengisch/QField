@@ -30,7 +30,7 @@ Rectangle {
     Layout.fillWidth: true
     Layout.preferredHeight: childrenRect.height
     width: parent.width
-    height: childrenRect.height
+    height: parent.height
     cellWidth: parent.width > 620
                ? parent.width / 3
                : parent.width / 2
@@ -45,7 +45,7 @@ Rectangle {
     delegate: Rectangle {
       width: grid.cellWidth
       height: grid.cellHeight
-      color: index % 2 == 0 ? alternateBackgroundColor : backgroundColor
+      color: index % 2 == 0 ? sensorInformationView.alternateBackgroundColor : sensorInformationView.backgroundColor
 
       Text {
         anchors.margins:  10
@@ -54,7 +54,7 @@ Rectangle {
         width: grid.cellWidth - 20
         height: grid.cellHeight - 20
         font: Theme.tipFont
-        color: textColor
+        color: sensorInformationView.textColor
         text: SensorName + ': ' + (SensorLastValue ? (SensorLastValue + '').trim() : 'N/A')
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
