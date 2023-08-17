@@ -2625,7 +2625,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Este valor irá corrigir os valores Z registrados do dispositivo de posicionamento. Se for inserido um valor de 1.6, o QField subtrairá automaticamente 1.6 de cada valor registrado. Certifique-se de inserir a altura efetiva da antena, ou seja, comprimento do bastão + desvio do centro de fase da antena.</translation>
     </message>
 </context>
 <context>

@@ -2621,7 +2621,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Ova vrijednost će ispraviti snimljenu Z vrijednosti dobivenu od uređaja za pozicioniranje. Ako je unesena vrijednost 1.6, QField će automatski oduzeti 1.6 od svake snimljene vrijednosti. Pripazite da unesete stvarnu visinu antene, tj. visina štapa + fazni offset središta antene.</translation>
     </message>
 </context>
 <context>
