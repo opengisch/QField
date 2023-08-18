@@ -117,7 +117,7 @@ void Tracker::start()
   {
     mTimeIntervalFulfilled = true;
   }
-  if ( mMinimumDistance > 0 || qgsDoubleNear( mTimeInterval, 0.0 ) )
+  if ( mMinimumDistance > 0 || ( qgsDoubleNear( mTimeInterval, 0.0 ) && !mSensorCapture ) )
   {
     connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
@@ -161,7 +161,7 @@ void Tracker::stop()
     mTimer.stop();
     disconnect( &mTimer, &QTimer::timeout, this, &Tracker::trackPosition );
   }
-  if ( mMinimumDistance > 0 )
+  if ( mMinimumDistance > 0 || ( qgsDoubleNear( mTimeInterval, 0.0 ) && !mSensorCapture ) )
   {
     disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
