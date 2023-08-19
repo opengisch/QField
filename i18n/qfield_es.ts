@@ -159,7 +159,7 @@
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
         <translation>Una búsqueda completa de dispositivos puede llevar más tiempo. ¿Realmente quiere hacerla?
-Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translation>
+Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -183,7 +183,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation>Seleccione el dispositivo Bluetooth de la lista a continuación:</translation>
+        <translation>Seleccione el dispositivo Bluetooth de la siguiente lista:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
@@ -632,7 +632,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Funciones seleccionadas duplicadas con éxito, lista actualizada para mostrar funciones recién creadas</translation>
+        <translation>Se duplicaron con éxito los objetos seleccionados, lista actualizada para mostrar los objetos recién creados</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -807,7 +807,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>Herramienta de remodelado</translation>
+        <translation>Herramienta de remodelación</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
@@ -927,7 +927,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>La capa no tiene entidades</translation>
+        <translation>La capa no tiene objetos</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -935,11 +935,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Capa de solo lectura</translation>
+        <translation type="vanished">Capa de solo lectura</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Capa de geometría bloqueada</translation>
+        <translation type="vanished">Capa de geometría bloqueada</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -951,11 +951,19 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Mostrar lista de objetos</translation>
+        <translation>Mostrar lista de objetos visibles</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation>Mostrar lista de objetos</translation>
+        <translation>Mostrar menú de objetos</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -990,7 +998,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>No se puede copiar objeto no válida</translation>
+        <translation>No se puede copiar objeto no válido</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
@@ -1000,7 +1008,26 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>No se puede añadir objeto nuevo a la capa &quot;%1&quot;. </translation>
+        <translation type="vanished">No se puede añadir objeto nuevo a la capa &quot;%1&quot;. </translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Esta capa no es válida. Esto puede deberse a un problema de red, un archivo que falta o una mala configuración del proyecto.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Esta capa está configurada como &quot;solo lectura&quot;, lo que deshabilita añadir, borrar y editar objetos.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Esta capa está configurada como &quot;bloquear geometrías&quot;, lo que deshabilita añadir y borrar objetos, así como modificar las geometrías de los objetos existentes.</translation>
     </message>
 </context>
 <context>
@@ -1034,7 +1061,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Devuelve un punto de un par de coordenadas X e Y tecleadas en la barra de búsqueda</translation>
+        <translation>Devuelve un punto a partir de un par de coordenadas X e Y tecleadas en la barra de búsqueda</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
@@ -1057,7 +1084,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Buscar...</translation>
+        <translation type="vanished">Buscar…</translation>
     </message>
 </context>
 <context>
@@ -1205,7 +1232,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Imprimir entidad(es) del atlas a imagen</translation>
+        <translation type="vanished">Imprimir entidad(es) del atlas a imagen</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2448,7 +2475,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Los valores Z tomados por un dispositivo de posicionamiento se corregirán con este valor. Si se introduce un valor de 1,6 el resultado será una corrección de -1,6 para cada valor registrado. </translation>
+        <translation type="vanished">Los valores Z tomados por un dispositivo de posicionamiento se corregirán con este valor. Si se introduce un valor de 1,6 el resultado será una corrección de -1,6 para cada valor registrado. </translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2573,6 +2600,30 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Log NMEA sentences from device to file</source>
         <translation>Registre sentencias NMEA del dispositivo al archivo</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3217,7 +3268,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Bienvenido a QField. ¿Primera vez que usa la aplicación? Pruebe los proyectos de muestra listados debajo.</translation>
+        <translation type="vanished">Bienvenido a QField. ¿Primera vez que usa la aplicación? Pruebe los proyectos de muestra listados debajo.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3250,6 +3301,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Recent Project Actions</source>
         <translation>Acciones recientes del proyecto</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation>Bienvenido a QField. ¿Primera vez que usa la aplicación? Pruebe los proyectos de muestra listados debajo.</translation>
     </message>
 </context>
 <context>
@@ -3671,7 +3726,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Imprimir a imagen</translation>
+        <translation type="vanished">Imprimir a imagen</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3732,6 +3787,38 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>No sensor available</source>
         <translation>Ningún sensor disponible</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Capa:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Objeto:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>Abrir formulario de objetos</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplicar objeto</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Objeto duplicado con éxito</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>Duplicado de objetos no disponible</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

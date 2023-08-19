@@ -934,11 +934,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Couche en lecture seule</translation>
+        <translation type="vanished">Couche en lecture seule</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Couche avec géométrie verrouillée</translation>
+        <translation type="vanished">Couche avec géométrie verrouillée</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -955,6 +955,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Show Features Menu</source>
         <translation>Afficher le menu des entités</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -999,7 +1007,26 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;.</translation>
+        <translation type="vanished">Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Cette couche est invalide. Cela peut être dû à un problème de réseau, un fichier absent ou une erreur de configuration du projet.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Cette couche est configurée en &quot;lecture seule&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Cette couche est configurée en &quot;géométries verrouillées&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités ainsi que la modification des géométries des entités existantes.</translation>
     </message>
 </context>
 <context>
@@ -1056,7 +1083,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Recherche...</translation>
+        <translation type="vanished">Recherche...</translation>
     </message>
 </context>
 <context>
@@ -1075,7 +1102,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Si désactivé, ce filtre de localisation peut tout de même être utilisé en inscrivant le préfixe %1 dans la barre de recherche</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
@@ -1204,7 +1231,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Imprimer les caractéristiques de l&apos;Atlas sur l&apos;image</translation>
+        <translation type="vanished">Imprimer les caractéristiques de l&apos;Atlas sur l&apos;image</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1270,7 +1297,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;analyser la position de l&apos;IMU : %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -2445,7 +2472,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Les valeurs Z collectées par l&apos;appareil vont être corrigées par cette valeur. Si une valeur de 1.6 m est entrée, toutes les valeurs collectées vont recevoir une correction de -1.6 m</translation>
+        <translation type="vanished">Les valeurs Z collectées par l&apos;appareil vont être corrigées par cette valeur. Si une valeur de 1.6 m est entrée, toutes les valeurs collectées vont recevoir une correction de -1.6 m</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2570,6 +2597,30 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Log NMEA sentences from device to file</source>
         <translation>Log des trames NMEA depuis l&apos;appareil vers un fichier.</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2766,7 +2817,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3063,15 +3114,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, les sommets ne seront enregistrés que lorsque toutes les contraintes actives auront été satisfaites. Si désactivé, chaque contrainte satisfaite déclenchera l&apos;ajout d&apos;un sommet.</translation>
     </message>
     <message>
         <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsque la contrainte du capteur est activée seule, des sommets seront ajoutés chaque fois que le capteur aura capturé de nouvelles données.</translation>
     </message>
     <message>
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsque toutes les contraintes sont désactivées, les ajouts de sommets se produisent aussi fréquemment que le permet le dispositif de positionnement.</translation>
     </message>
 </context>
 <context>
@@ -3214,7 +3265,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Bienvenue dans QField. C&apos;est votre première utilisation de l&apos;application ? Essayez les projets d&apos;exemple listés ci-dessous.</translation>
+        <translation type="vanished">Bienvenue dans QField. C&apos;est votre première utilisation de l&apos;application ? Essayez les projets d&apos;exemple listés ci-dessous.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3246,6 +3297,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3670,7 +3725,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Imprimer sur image</translation>
+        <translation type="vanished">Imprimer sur image</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3731,6 +3786,38 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>No sensor available</source>
         <translation>Pas de capteur disponible</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Couche : </translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Entité : </translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>Ouvrir le formulaire de l&apos;entité</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Dupliquer l&apos;entité</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Entité dupliquée avec succès</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>La duplication de l&apos;entité n&apos;est pas possible</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

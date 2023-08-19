@@ -468,7 +468,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Výraz výchozí hodnoty pro pole %2 digitalizačního záznamníku má chybu vyhodnocení: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
@@ -513,7 +513,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizujte křivku pro vykreslení výškového profilu</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
@@ -524,11 +524,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Kopírovat “%1” do schránky</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Kalkulačka</translation>
     </message>
 </context>
 <context>
@@ -647,32 +647,40 @@ Zrušte pro jen minimální skenování zařízení. </translation>
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Má být %n vybraný objekt opravdu sloučen?
+
+Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zachová své atributy.</numerusform><numerusform>Má být %n vybraných objektů opravdu sloučeno?
+
+Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zachová své atributy.</numerusform><numerusform>Má být %n vybraných objektů opravdu sloučeno?
+
+Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zachová své atributy.</numerusform><numerusform>Má být %n vybraných objektů opravdu sloučeno?
+
+Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zachová své atributy.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Úspěšně sloučen %n objekt</numerusform><numerusform>Úspěšně sloučeno %n objektů</numerusform><numerusform>Úspěšně sloučeno %n objektů</numerusform><numerusform>Úspěšně sloučeno %n objektů</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nepodařilo se sloučit %n objekt</numerusform><numerusform>Nepodařilo se sloučit %n objektů</numerusform><numerusform>Nepodařilo se sloučit %n objektů</numerusform><numerusform>Nepodařilo se sloučit %n objektů</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>Smazat funkci(e)</translation>
+        <translation>Smazat objekt(y)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Opravdu má být %n objekt smazán?</numerusform><numerusform>Opravdu má být %n objektů smazáno?</numerusform><numerusform>Opravdu má být %n objektů smazáno?</numerusform><numerusform>Opravdu má být %n objektů smazáno?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Úspěšně smazán %n objekt</numerusform><numerusform>Úspěšně smazáno %n objektů</numerusform><numerusform>Úspěšně smazáno %n objektů</numerusform><numerusform>Úspěšně smazáno %n objektů</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nepodařilo se smazat %n objekt</numerusform><numerusform>Nepodařilo se smazat %n objektů</numerusform><numerusform>Nepodařilo se smazat %n objektů</numerusform><numerusform>Nepodařilo se smazat %n objektů</numerusform></translation>
     </message>
     <message>
         <source>Changes discarded</source>
@@ -929,11 +937,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Vrstva pouze pro čtení</translation>
+        <translation type="vanished">Vrstva pouze pro čtení</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Vrstva s uzamčenou geometrií</translation>
+        <translation type="vanished">Vrstva s uzamčenou geometrií</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -950,6 +958,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show Features Menu</source>
         <translation>Zobrazit menu Prvky</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -994,7 +1010,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nelze přidat nový prvek ve vrstvě &quot;%1&quot;</translation>
+        <translation type="vanished">Nelze přidat nový prvek ve vrstvě &quot;%1&quot;</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Tato vrstva je neplatná. Může to být způsobeno problémem se sítí, chybějícím souborem nebo nesprávnou konfigurací projektu.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Tato vrstva je nakonfigurována jako „pouze pro čtení“, která zakazuje přidávání, mazání a úpravy funkcí.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Tato vrstva je nakonfigurována jako „Uzamknout geometrii“, která zakazuje přidávání a mazání prvků, jakož i úpravu geometrie existujících prvků.</translation>
     </message>
 </context>
 <context>
@@ -1044,14 +1079,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí hodnotu výrazu zadaného v liště hledání</translation>
     </message>
 </context>
 <context>
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Hledat...</translation>
+        <translation type="vanished">Hledat...</translation>
     </message>
 </context>
 <context>
@@ -1066,11 +1101,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení lišty hledání</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je tento filtr vypnut, lze jej stále použít zadáním předpony %1 do vyhledávacího řádku.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
@@ -1097,11 +1132,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Send application log</source>
-        <translation type="unfinished"/>
+        <translation>Odeslat protokol aplikace</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation type="unfinished"/>
+        <translation>Protokol vaší aplikace je odeslán</translation>
     </message>
 </context>
 <context>
@@ -1199,7 +1234,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Tisk prvku(ů) atlasu do obrázku</translation>
+        <translation type="vanished">Tisk prvku(ů) atlasu do obrázku</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1346,35 +1381,35 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte soubor obrázku</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Všechny obrázky (*.jpg *.jpeg *.png *.bmp);;Obrázky JPEG (*.jpg *.jpeg);;Obrázky PNG (*.jpg *.jpeg);;Obrácky BMP (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte soubor videa</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Všechna videa (*.mp4 *.mkv *.mov);;MP4 videa (*.mp4);;MKV videa (*.mkv);;MOV videa (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zvukové soubory (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Všechny soubory (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte soubor</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Zvukové soubory (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1579,7 +1614,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Zvukový záznamník</translation>
     </message>
 </context>
 <context>
@@ -1714,15 +1749,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Některé vrstvy nebyly v QFieldCloudu správně zabaleny. Tyto vrstvy mohou být špatně nakonfigurovány nebo jejich zdroj dat není přístupný ze serveru QFieldCloud.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud měl potíže s zabalením vašeho projektu</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Některé vrstvy nebyly v QFieldCloudu správně zabaleny. Tyto vrstvy mohou být špatně nakonfigurovány nebo jejich zdroj dat není přístupný ze serveru QFieldCloud. Zkontrolujte prosím protokoly poslední úlohy balení na webové stránce qfield.cloud.</translation>
     </message>
 </context>
 <context>
@@ -1785,7 +1820,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Je %n lokální změna</numerusform><numerusform>Jsou %n lokální změny</numerusform><numerusform>Je %n lokálních změn</numerusform><numerusform>Je %n lokálních změn</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
@@ -1873,7 +1908,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished"><numerusform>%n příloha je právě nahrávána na pozadí.</numerusform><numerusform>%n přílohy jsou právě nahrávány na pozadí.</numerusform><numerusform>%n příloh je právě nahráváno na pozadí.</numerusform><numerusform>%n příloh(y) je/jsou právě nahráváno/y na pozadí.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1912,7 +1947,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zabalená vrstva &apos;%1&apos; není platná: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
@@ -1940,15 +1975,15 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>project(%1) trigger response refresh neobsahuje všechny očekávané klíče: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Získávání stavu úlohy, ale projekt je smazán.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Vytvoření úlohy bylo dokončeno, ale v odpovědi serveru chybí povinná pole: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
@@ -2218,7 +2253,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Import URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
@@ -2357,7 +2392,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished"><numerusform>%n zařízení nalezeno</numerusform><numerusform>%n zařízení nalezena</numerusform><numerusform>%n zařízení nalezeno</numerusform><numerusform>%n zařízení nalezeno</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -2443,7 +2478,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Hodnoty Z zaznamenané z přijímače polohy budou opraveny o tuto hodnotu. Pokud je zadáno 1.6, výsledkem bude korekce -1.6 pro každou zaznamenanou hodnotu. </translation>
+        <translation type="vanished">Hodnoty Z zaznamenané z přijímače polohy budou opraveny o tuto hodnotu. Pokud je zadáno 1.6, výsledkem bude korekce -1.6 pro každou zaznamenanou hodnotu. </translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2511,7 +2546,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Při digitalizaci prvků se souřadnicovým kurzorem uzamčeným na aktuální pozici se ke geometrii přidá výše zvolený typ měření, pokud má rozměr M.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -2531,42 +2566,66 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Vzhled uživatelského rozhraní:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Podle vzhledu systému</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Světlé téma</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Tmavé téma</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Velikost písma uživatelského rozhraní:</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Malé</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normální</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Velké</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Extra velké</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2662,35 +2721,35 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Chyba - soubor zip neexistuje: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Chyba - prázdný název souboru zip</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Chyba - výstupní složka neexistuje: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Chyba - výstupní složka není složka: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Chyba - do výstupní složky nelze zapisovat: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se vytvořit podsložku %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Nezdařil se zápis do %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Chyba čtení souboru: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
@@ -2698,7 +2757,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Chyba otevírání archivu zip: &apos;%1&apos; (kód chyby: %2)</translation>
     </message>
 </context>
 <context>
@@ -2764,7 +2823,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -2939,11 +2998,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Dočasné vlastnosti</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Povolit dočasný filtr</translation>
     </message>
 </context>
 <context>
@@ -3061,15 +3120,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je tato možnost povolena, budou vrcholy zaznamenány pouze tehdy, když jsou splněna všechna aktivní omezení. Pokud je toto nastavení zakázáno, budou jednotlivé splněné vazby spouštět přidávání vrcholů.</translation>
     </message>
     <message>
         <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je aktivováno pouze omezení senzoru, dojde k přidání vrcholů vždy, když senzor zachytí nová data.</translation>
     </message>
     <message>
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud jsou všechna omezení vypnuta, bude přidávání vrcholů probíhat tak často, jak to umožňuje polohovací zařízení.</translation>
     </message>
 </context>
 <context>
@@ -3212,7 +3271,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Vítejte v QField. Používáte tuto aplikaci poprvé? Vyzkoušejte ukázkové projekty se seznamu níže.</translation>
+        <translation type="vanished">Vítejte v QField. Používáte tuto aplikaci poprvé? Vyzkoušejte ukázkové projekty se seznamu níže.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3220,15 +3279,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí projekt</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Základní mapa</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí Projekt</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -3236,14 +3295,18 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Načíst výchozí projekt při spuštění</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Načíst poslední otevřený projekt při spuštění</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3666,7 +3729,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Tisk do obrázku</translation>
+        <translation type="vanished">Tisk do obrázku</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3690,7 +3753,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Import URL selhal</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -3722,10 +3785,42 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Více informací</translation>
     </message>
     <message>
         <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplikovat prvek</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Prvek úspěšně zduplikován</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

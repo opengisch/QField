@@ -929,11 +929,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>طبقات القراءة فقط</translation>
+        <translation type="vanished">طبقات القراءة فقط</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>طبقة مقفولة الرسم</translation>
+        <translation type="vanished">طبقة مقفولة الرسم</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -950,6 +950,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show Features Menu</source>
         <translation>إظهار قائمة الميزات</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -994,7 +1002,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>لا يمكن إضافة ميزة جديدة في الطبقة %1</translation>
+        <translation type="vanished">لا يمكن إضافة ميزة جديدة في الطبقة %1</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>هذه الطبقة غير متاحة، قد يكون ذلك بسبب مشكلة في الشبكة، يوجد ملفات ناقصة أو أخطاء في ضبط المشورع.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>هذه الطبقة مضبوطة &quot;للقراءة فقط&quot;، حيث لا يمكن إضافة أو حذف أو تحرير أي ميزة فيها. </translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>هذه الطبقة مضبوطة مقفولة الأشكال، حيث لا يمكن إضافة أو حذف الميزات، بينما يمكن تحرير أشكال الميزات الموجودة فقط.</translation>
     </message>
 </context>
 <context>
@@ -1051,7 +1078,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>جار البحث ...</translation>
+        <translation type="vanished">جار البحث ...</translation>
     </message>
 </context>
 <context>
@@ -2444,7 +2471,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>سيتم تصحيح قيم Z التي تم تسجيلها من جهاز تحديد المواقع بهذه القيمة. إذا تم إدخال قيمة 1.6 ، فسيؤدي ذلك إلى تصحيح -1.6 لكل قيمة مسجلة.</translation>
+        <translation type="vanished">سيتم تصحيح قيم Z التي تم تسجيلها من جهاز تحديد المواقع بهذه القيمة. إذا تم إدخال قيمة 1.6 ، فسيؤدي ذلك إلى تصحيح -1.6 لكل قيمة مسجلة.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2568,6 +2595,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3213,7 +3264,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>مرحبًا بك في QField. هل هذه أول مرة تستخدم هذا التطبيق؟ جرب عينة من المشاريع المُدرجة في القائمة أدناه.</translation>
+        <translation type="vanished">مرحبًا بك في QField. هل هذه أول مرة تستخدم هذا التطبيق؟ جرب عينة من المشاريع المُدرجة في القائمة أدناه.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3245,6 +3296,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3727,6 +3782,38 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>تكرار الميزة</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>تم تكرار الميزة بنجاح</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

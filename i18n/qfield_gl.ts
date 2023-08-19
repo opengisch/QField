@@ -933,11 +933,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Capa de Só Lectura</translation>
+        <translation type="vanished">Capa de Só Lectura</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Capa Xeométrica Bloqueada</translation>
+        <translation type="vanished">Capa Xeométrica Bloqueada</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -954,6 +954,14 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Show Features Menu</source>
         <translation>Amosar o Menú de Entidades</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Capa de só lectura</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>Capa de xeometría bloqueada</translation>
     </message>
 </context>
 <context>
@@ -998,7 +1006,26 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Non se pode engadir unha nova entidade na capa &quot;%1&quot;.</translation>
+        <translation type="vanished">Non se pode engadir unha nova entidade na capa &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation>Esta capa está a trazar a posición do dispositivo.</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Esta capa é incorrecta. Isto pode ser debido a unha incidencia na rede, á falta dun ficheiro ou a unha mala configuración do proxecto.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Esta capa está configurada coma de &quot;Só Lectura&quot;, o cal desactiva o engadido, eliminación e edición de entidades.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Esta capa está configurada coma de &quot;Xeometrías Bloqueadas&quot;, o cal desactiva o engadido e a eliminación de entidades, así como a modificación das xeometrías existentes.</translation>
     </message>
 </context>
 <context>
@@ -1055,7 +1082,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Buscar...</translation>
+        <translation type="vanished">Buscar...</translation>
     </message>
 </context>
 <context>
@@ -1203,7 +1230,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Imprimir as Entidade(s) do Atlas a Imaxe</translation>
+        <translation type="vanished">Imprimir as Entidade(s) do Atlas a Imaxe</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2448,7 +2475,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Os valores Z que se gravan do dispositivo de posicionamento corrixiranse con este valor. Se un valor de 1,6 se introduce, producirá unha corrección de -1,6 para cada valor rexistrado.</translation>
+        <translation type="vanished">Os valores Z que se gravan do dispositivo de posicionamento corrixiranse con este valor. Se un valor de 1,6 se introduce, producirá unha corrección de -1,6 para cada valor rexistrado.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2573,6 +2600,30 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Log NMEA sentences from device to file</source>
         <translation>Rexistrar as sentenzas NMEA do dispositivo a un ficheiro</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Calidade de representación do mapa:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>A mellor calidade</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Calidade baixa</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>A peor calidade</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Unha menor calidade troca precisión da representación en favor dunha utilización menor de memoria e de tempo de representación.</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation>Este valor corrixirá os valores Z rexistrados polo dispositivo de posicionamento. Se introducimos un valor de 1,6 , QField restará automaticamente 1,6 de cada valor rexistrado. Asegúrese de introducir a altura efectiva da antena, é dicir, a altura do polo + o desprazamento do centro de fase da antena.</translation>
     </message>
 </context>
 <context>
@@ -3217,7 +3268,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Benvido a QField. É a primeira vez utilizando a aplicación? Proba os proxectos de exemplo amosados na lista de abaixo.</translation>
+        <translation type="vanished">Benvido a QField. É a primeira vez utilizando a aplicación? Proba os proxectos de exemplo amosados na lista de abaixo.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3250,6 +3301,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Recent Project Actions</source>
         <translation>Accións do Proxecto Recente</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation>Benvido a QField. Primeira vez utilizando a aplicación? Proba os proxectos de exemplo listados abaixo.</translation>
     </message>
 </context>
 <context>
@@ -3671,7 +3726,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Imprimir a Imaxe</translation>
+        <translation type="vanished">Imprimir a Imaxe</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3732,6 +3787,38 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>No sensor available</source>
         <translation>Non hai ningún sensor dispoñible</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Capa:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Entidade:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>Abrir Formulario de Entidade</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplicar Entidade</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Entidade duplicada con éxito</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>Non está dispoñible a duplicación de entidades</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>Axuste aceso</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Axuste apagado</translation>
     </message>
 </context>
 <context>

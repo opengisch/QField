@@ -141,7 +141,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Знайдено %n пристроїв</numerusform><numerusform>Знайдено %n пристроїв</numerusform><numerusform>Знайдено %n пристроїв</numerusform><numerusform>Знайдено %n пристроїв</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -937,11 +937,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Шар тільки для читання</translation>
+        <translation type="vanished">Шар тільки для читання</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Шар з заблокованою геометрією</translation>
+        <translation type="vanished">Шар з заблокованою геометрією</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -958,6 +958,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show Features Menu</source>
         <translation>Показати меню об&apos;єктів</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1002,7 +1010,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Неможливо додати нову функцію в шар &quot;%1&quot;.</translation>
+        <translation type="vanished">Неможливо додати нову функцію в шар &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Цей шар недійсний. Це може бути пов’язано з проблемою мережі, відсутнім файлом або неправильною конфігурацією проекту.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Цей шар налаштовано як «Тільки для читання», що вимикає додавання, видалення та редагування функцій.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Цей шар налаштовано як «Заблокувати геометрії», що вимикає додавання та видалення об’єктів, а також зміну геометрії наявних об’єктів.</translation>
     </message>
 </context>
 <context>
@@ -1059,7 +1086,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Пошук…</translation>
+        <translation type="vanished">Пошук…</translation>
     </message>
 </context>
 <context>
@@ -2452,7 +2479,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Значення Z, записані з пристрою позиціонування, будуть виправлені цим значенням. Якщо введено значення 1,6, це призведе до виправлення -1,6 для кожного записаного значення.</translation>
+        <translation type="vanished">Значення Z, записані з пристрою позиціонування, будуть виправлені цим значенням. Якщо введено значення 1,6, це призведе до виправлення -1,6 для кожного записаного значення.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2576,6 +2603,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3221,7 +3272,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Ласкаво просимо до QField. Вперше користуєтеся цією програмою? Спробуйте зразки проектів, наведених у списку нижче.</translation>
+        <translation type="vanished">Ласкаво просимо до QField. Вперше користуєтеся цією програмою? Спробуйте зразки проектів, наведених у списку нижче.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3253,6 +3304,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3735,6 +3790,38 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Дублікат об&apos;єкта</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Об’єкт успішно продубльовано</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>
