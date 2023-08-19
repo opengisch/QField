@@ -937,11 +937,11 @@ Motiv:
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Strat Read-Only</translation>
+        <translation type="vanished">Strat Read-Only</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Strat cu Geometrie Fixată</translation>
+        <translation type="vanished">Strat cu Geometrie Fixată</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -958,6 +958,14 @@ Motiv:
     <message>
         <source>Show Features Menu</source>
         <translation>Arată meniul entităților</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1002,7 +1010,26 @@ Motiv:
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nu se poate adăuga un element nou în strat &quot;%1.</translation>
+        <translation type="vanished">Nu se poate adăuga un element nou în strat &quot;%1.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Acest strat este configurat ca &quot;Read-Only&quot; ceea ce dezactivează adăugarea, ștergerea și editarea elementelor.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Acest strat este configurat drept &quot;Geometri blocate&quot; fapt care dezactivează adăugarea și ștergerea elementelor, precum și modificarea geometriilor aferente elementelor existente.</translation>
     </message>
 </context>
 <context>
@@ -1059,7 +1086,7 @@ Motiv:
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Căutare</translation>
+        <translation type="vanished">Căutare</translation>
     </message>
 </context>
 <context>
@@ -2452,7 +2479,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Valorile Z înregistrate de la dispozitivul de poziționare vor fi corectate cu această valoare. Dacă este introdusă o valoare de 1.6, aceasta va avea ca rezultat o corecție de -1,6 pentru fiecare valoare înregistrată.</translation>
+        <translation type="vanished">Valorile Z înregistrate de la dispozitivul de poziționare vor fi corectate cu această valoare. Dacă este introdusă o valoare de 1.6, aceasta va avea ca rezultat o corecție de -1,6 pentru fiecare valoare înregistrată.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2576,6 +2603,30 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3221,7 +3272,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Bine ați venit pe QField. Este prima dată când utilizați această aplicație? Încercați exemplele de proiecte enumerate în lista de mai jos.</translation>
+        <translation type="vanished">Bine ați venit pe QField. Este prima dată când utilizați această aplicație? Încercați exemplele de proiecte enumerate în lista de mai jos.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3253,6 +3304,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3675,7 +3730,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Generează Imagine</translation>
+        <translation type="vanished">Generează Imagine</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3735,6 +3790,38 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplică Element</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Element duplicat cu succes</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

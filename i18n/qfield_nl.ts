@@ -195,7 +195,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-apparaatadres:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
@@ -905,7 +905,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Zoom naar bovenliggende laag</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
@@ -933,11 +933,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Alleen lezen Laag</translation>
+        <translation type="vanished">Alleen lezen Laag</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Geometrie vergrendelde laag</translation>
+        <translation type="vanished">Geometrie vergrendelde laag</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -953,6 +953,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -998,7 +1006,26 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Kan geen nieuw object toevoegen aan laag &quot;%1&quot;.</translation>
+        <translation type="vanished">Kan geen nieuw object toevoegen aan laag &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Deze laag is ongeldig. Dit kan te wijten zijn aan een netwerkprobleem, een ontbrekend bestand of een verkeerde configuratie van het project.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Deze laag is geconfigureerd als &quot;Alleen-lezen&quot;, wat het toevoegen, verwijderen en bewerken van objecten uitschakelt.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Deze laag is geconfigureerd als &quot;Geometrieën vergrendelen&quot;, wat het toevoegen en verwijderen van objecten uitschakelt, evenals het wijzigen van de geometrieën van bestaande objecten.</translation>
     </message>
 </context>
 <context>
@@ -1055,7 +1082,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Zoek...</translation>
+        <translation type="vanished">Zoek...</translation>
     </message>
 </context>
 <context>
@@ -1350,7 +1377,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer Afbeeldingsbestand</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
@@ -1366,7 +1393,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Geluidsbestanden (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1475,7 +1502,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Verbindingstype:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2448,7 +2475,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Z-waarden die vanaf het GPS-apparaat worden geregistreerd, worden met deze waarde gecorrigeerd. Als een waarde van 1,6 wordt ingevoerd, resulteert dit in een correctie van -1,6 voor elke geregistreerde waarde.</translation>
+        <translation type="vanished">Z-waarden die vanaf het GPS-apparaat worden geregistreerd, worden met deze waarde gecorrigeerd. Als een waarde van 1,6 wordt ingevoerd, resulteert dit in een correctie van -1,6 voor elke geregistreerde waarde.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2572,6 +2599,30 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3217,7 +3268,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Welkom bij QField. Gebruik je deze applicatie voor het eerst? Probeer voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
+        <translation type="vanished">Welkom bij QField. Gebruik je deze applicatie voor het eerst? Probeer voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3249,6 +3300,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3675,7 +3730,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Printing...</translation>
     </message>
     <message>
         <source>Print</source>
@@ -3732,6 +3787,38 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>No sensor available</source>
         <translation>Geen sensor beschikbaar</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Dubbel object</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Succesvol object gedupliceerd</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

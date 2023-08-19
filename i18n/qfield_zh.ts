@@ -931,11 +931,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>只读图层</translation>
+        <translation type="vanished">只读图层</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>几何图形锁定图层</translation>
+        <translation type="vanished">几何图形锁定图层</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -952,6 +952,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show Features Menu</source>
         <translation>显示要素菜单</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>只读图层</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>几何图形锁定图层</translation>
     </message>
 </context>
 <context>
@@ -996,7 +1004,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>无法在图层 &quot;%1&quot; 中添加新要素。</translation>
+        <translation type="vanished">无法在图层 &quot;%1&quot; 中添加新要素。</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation>该图层当前正在追踪设备位置。</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>此图层无效。这可能是由于网络问题、文件丢失或工程配置错误造成的。</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>该图层已设置为“只读”，禁用添加、删除和编辑要素。</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>该图层被配置为“锁定几何图形”，禁用添加和删除要素以及修改现有要素的几何图形。</translation>
     </message>
 </context>
 <context>
@@ -1053,7 +1080,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>搜索…</translation>
+        <translation type="vanished">搜索…</translation>
     </message>
 </context>
 <context>
@@ -1201,7 +1228,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>地图集要素输出为图像文件</translation>
+        <translation type="vanished">地图集要素输出为图像文件</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1706,45 +1733,45 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>了解有关QField云的更多信息</translation>
+        <translation>了解有关QFieldCloud的更多信息</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">QField云图层打包存在问题</translation>
+        <translation type="vanished">QFieldCloud图层打包存在问题</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">QField云中的某些图层未正确打包。这些图层可能配置错误，或者无法从QField云服务器访问其数据源。</translation>
+        <translation type="vanished">QFieldCloud中的某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其数据源。</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QField云在打包您的工程时遇到问题</translation>
+        <translation>QFieldCloud在打包工程时遇到问题</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>QField云端的某些图层未正确打包。这些图层可能配置错误，或者无法从QField云服务器访问其的数据源。请在 qfield.cloud 网站上查看最新打包作业日志。</translation>
+        <translation>QFieldCloud的某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其的数据源。请在 qfield.cloud 网站查看最新打包作业日志。</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QField云</translation>
+        <translation>QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation>当前工程未存储在QField云端。&lt;br&gt;&lt;br&gt;</translation>
+        <translation>当前工程未存储在QFieldCloud。&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>将工程存储在QField云可提供无缝同步、离线编辑和团队管理。&lt;br&gt;&lt;br&gt;</translation>
+        <translation>将工程存储在QFieldCloud可提供无缝同步、离线编辑和团队管理。&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>了解有关QField云的更多信息</translation>
+        <translation>了解有关QFieldCloud的更多信息</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -1760,7 +1787,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>该QField云工程最初是通过另一个云帐户下载的，请使用此工程的原始帐户登录以使用QField云功能。</translation>
+        <translation>该QFieldCloud工程最初是通过另一个云帐户下载的，请使用此工程的原始帐户登录以使用QFieldCloud功能。</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -1768,7 +1795,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QField云正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
+        <translation>QFieldCloud正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -1776,7 +1803,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation>QField云正在请求最新上传的修改。这可能需要一些时间，请稍等...</translation>
+        <translation>QFieldCloud正在请求最新上传的修改。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -1804,7 +1831,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>将整个工程与所有已修改的要素进行同步，并从QField云下载最新更新的工程和所有已使用的修改。</translation>
+        <translation>将整个工程与所有已修改的要素进行同步，并从QFieldCloud下载最新更新的工程和所有已使用的修改。</translation>
     </message>
     <message>
         <source>Push changes</source>
@@ -2042,7 +2069,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QField云工程</translation>
+        <translation>QFieldCloud工程</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2074,7 +2101,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QField云正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
+        <translation>QFieldCloud正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2446,7 +2473,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>通过定位设备记录的Z值进行校正。如果输入的值为1.6，则每个记录值修正为-1.6。</translation>
+        <translation type="vanished">通过定位设备记录的Z值进行校正。如果输入的值为1.6，则每个记录值修正为-1.6。</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2572,6 +2599,30 @@ Cancel to make a minimal device scan instead.</source>
         <source>Log NMEA sentences from device to file</source>
         <translation>将日志NMEA语句从设备保存到文件</translation>
     </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>地图画布渲染质量：</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>最佳质量</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>质量较低</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>最低质量</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>较低质量是以较低内存使用率和渲染时间而降低渲染精度。</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation>该值将校正定位设备记录的Z值。如果输入的值为1.6，QField将自动从每个记录的值中减去1.6。请确保输入有效天线高度，即杆长 + 天线相位中心偏移。</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2585,7 +2636,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation>QField云未知错误</translation>
+        <translation>QFieldCloud未知错误</translation>
     </message>
     <message>
         <source>Status not ok</source>
@@ -2804,7 +2855,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>无法将更改应用于 %1 图层。</translation>
+        <translation>无法在图层 %1 提交图层更改。</translation>
     </message>
 </context>
 <context>
@@ -3183,11 +3234,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>我真的不想要</translation>
+        <translation>我不需要</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation>QField云工程</translation>
+        <translation>QFieldCloud工程</translation>
     </message>
     <message>
         <source>Open local file</source>
@@ -3215,7 +3266,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>欢迎使用QField！是第一次使用本应用吗？试试下方文件列表的一些示例工程吧。</translation>
+        <translation type="vanished">欢迎使用QField！是第一次使用本应用吗？试试下方文件列表的一些示例工程吧。</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3248,6 +3299,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Recent Project Actions</source>
         <translation>最近工程动作</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation>欢迎来到QField！是第一次使用本应用吗？请试试下面的示例工程吧。</translation>
     </message>
 </context>
 <context>
@@ -3645,11 +3700,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>修改无法上传至QField云端：%1</translation>
+        <translation>修改无法上传至QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>修改已成功上传至QField云端</translation>
+        <translation>修改已成功上传至QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
@@ -3669,7 +3724,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>输出为图像</translation>
+        <translation type="vanished">输出为图像</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3730,6 +3785,38 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>No sensor available</source>
         <translation>无可用传感器</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>图层:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>要素:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>打开要素从</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>复制要素</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>已成功复制要素</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>要素复制不可用</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>捕捉已打开</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>捕捉已关闭</translation>
     </message>
 </context>
 <context>

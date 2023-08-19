@@ -935,11 +935,11 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Layer in sola lettura</translation>
+        <translation type="vanished">Layer in sola lettura</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Layer a Geometria Bloccata</translation>
+        <translation type="vanished">Layer a Geometria Bloccata</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -956,6 +956,14 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <message>
         <source>Show Features Menu</source>
         <translation>Mostra Menu Elementi</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1000,7 +1008,26 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Impossibile aggiungere il nuovo elemento nel layer &quot;%1&quot;.</translation>
+        <translation type="vanished">Impossibile aggiungere il nuovo elemento nel layer &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Questo layer non è valido. Ciò potrebbe essere dovuto a un problema di rete, a un file mancante o ad una configurazione errata del progetto.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Questo layer è configurato come &quot;Sola-Lettura&quot; che disabilita l&apos;aggiunta, l&apos;eliminazione e la modifica degli elementi.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Questo layer è configurato come &quot;Geometrie Bloccate&quot; che disabilita l&apos;aggiunta e l&apos;eliminazione degli elementi, nonché la modifica delle geometrie degli elementi esistenti.</translation>
     </message>
 </context>
 <context>
@@ -1057,7 +1084,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Cerca...</translation>
+        <translation type="vanished">Cerca...</translation>
     </message>
 </context>
 <context>
@@ -1205,7 +1232,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Stampa Elementi Atlante come Immagine</translation>
+        <translation type="vanished">Stampa Elementi Atlante come Immagine</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -2453,7 +2480,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>I valori Z registrati dal dispositivo di posizionamento verranno corretti di questo valore. Se viene inserito un valore di 1.6, ciò risulterà in una correzione di -1.6 per ogni valore registrato.</translation>
+        <translation type="vanished">I valori Z registrati dal dispositivo di posizionamento verranno corretti di questo valore. Se viene inserito un valore di 1.6, ciò risulterà in una correzione di -1.6 per ogni valore registrato.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2577,6 +2604,30 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3222,7 +3273,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Benvenuto in QField. È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
+        <translation type="vanished">Benvenuto in QField. È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3254,6 +3305,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3676,7 +3731,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Stampa come Immagine</translation>
+        <translation type="vanished">Stampa come Immagine</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3736,6 +3791,38 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplica l&apos;elemento</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Elemento duplicato con successo</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

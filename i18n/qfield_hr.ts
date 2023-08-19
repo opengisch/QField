@@ -472,7 +472,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>Digitalizacija značajke sloja dnevnika nije uspjela</translation>
+        <translation>Neuspješno dodavanje elementa sloja u dnevnik</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
@@ -935,11 +935,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+        <translation type="vanished">Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Sloj sa Zaključanom Geometrijom</translation>
+        <translation type="vanished">Sloj sa Zaključanom Geometrijom</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -956,6 +956,14 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Show Features Menu</source>
         <translation>Prikaži izbornik elemenata karte</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>Sloj sa zaključanom geometrijom</translation>
     </message>
 </context>
 <context>
@@ -1000,7 +1008,26 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nije moguće dodati novi element u sloj &quot;%1&quot;.</translation>
+        <translation type="vanished">Nije moguće dodati novi element u sloj &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation>Ovaj sloj trenutno snima poziciju uređaja.</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Ovaj sloj je nevažeći. Ovo se može događati zbog: problema s mrežom, datoteke koja nedostaje ili projekta koji nije dobro konfiguriran.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Sloj je konfiguriran &apos;&apos;Samo za čitanje&apos;&apos; što onemogućava dodavanje, brisanje i uređivanje elemenata.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Sloj je konfiguriran kao &quot;Zaključana geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
     </message>
 </context>
 <context>
@@ -1057,7 +1084,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Pretraži...</translation>
+        <translation type="vanished">Pretraži...</translation>
     </message>
 </context>
 <context>
@@ -1205,7 +1232,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation>Isprintaj stavku(e) Atlasa u sliku</translation>
+        <translation type="vanished">Isprintaj stavku(e) Atlasa u sliku</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1271,7 +1298,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Ne mogu obraditi IMU poziciju: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -2142,7 +2169,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Akcije projekta</translation>
     </message>
 </context>
 <context>
@@ -2229,11 +2256,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Akcije stavke</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Akcije uvoza</translation>
     </message>
 </context>
 <context>
@@ -2446,7 +2473,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Z vrijednosti koje su snimljene od uređaja za pozicioniranje će biti umanjene za ovu vrijednost. Ako je unesena vrijednost 1.6, to će rezultirati korekcijom od -1.6 za svaku snimljenu vrijednost.</translation>
+        <translation type="vanished">Z vrijednosti koje su snimljene od uređaja za pozicioniranje će biti umanjene za ovu vrijednost. Ako je unesena vrijednost 1.6, to će rezultirati korekcijom od -1.6 za svaku snimljenu vrijednost.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2571,6 +2598,30 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Log NMEA sentences from device to file</source>
         <translation>Zapiši NMEA rečenice od uređaja u datoteku</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Kvaliteta renderiranja platna karte:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Najbolja kvaliteta</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Smanjena kvaliteta</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Najlošija kvaliteta</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Lošija kvaliteta žrtvuje preciznost iscrtavanja u korist manje potrošnje memorije i potrebnog vremena za iscrtavanje</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation>Ova vrijednost će ispraviti snimljenu Z vrijednosti dobivenu od uređaja za pozicioniranje. Ako je unesena vrijednost 1.6, QField će automatski oduzeti 1.6 od svake snimljene vrijednosti. Pripazite da unesete stvarnu visinu antene, tj. visina štapa + fazni offset središta antene.</translation>
     </message>
 </context>
 <context>
@@ -2767,7 +2818,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation>+ IMU</translation>
     </message>
 </context>
 <context>
@@ -3215,7 +3266,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Dobrodošli u QField. Prvi put koristite aplikaciju? Probajte neki od primjera projekata sa donje liste.</translation>
+        <translation type="vanished">Dobrodošli u QField. Prvi put koristite aplikaciju? Probajte neki od primjera projekata sa donje liste.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3247,7 +3298,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Nedavne akcije projekta</translation>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation>Dobrodošli u QField. Prvi puta koristite aplikaciju? Probajte primjere projekata koji su popisani ispod.</translation>
     </message>
 </context>
 <context>
@@ -3669,7 +3724,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Ispiši u sliku</translation>
+        <translation type="vanished">Ispiši u sliku</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3731,6 +3786,38 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>No sensor available</source>
         <translation>Nema dostupnog senzora</translation>
     </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Sloj:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Element:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>Otvori obrazac za element</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Dupliciraj element</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Element uspješno dupliciran</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>Dupliciranje elementa nije dostupno</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>Hvatanje elemenata je uključeno</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Hvatanje elemenata je isključeno</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -3744,7 +3831,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Ne mogu dodati podznačajku: primarni ključevi roditeljskog elementa nisu dostupni </translation>
+        <translation>Ne mogu dodati podelement: primarni ključevi roditeljskog elementa nisu dostupni </translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>

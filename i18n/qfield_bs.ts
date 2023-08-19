@@ -141,7 +141,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n uređaj(a) pronađeno</numerusform><numerusform>%n uređaj(a) pronađeno</numerusform><numerusform>%n uređaj(a) pronađeno</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -934,11 +934,11 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Sloj samo za čitanje</translation>
+        <translation type="vanished">Sloj samo za čitanje</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Sloj sa zaključanom geometrijom</translation>
+        <translation type="vanished">Sloj sa zaključanom geometrijom</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -954,6 +954,14 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -999,7 +1007,26 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nije moguće dodati objekat na sloju &quot;%1&quot;.</translation>
+        <translation type="vanished">Nije moguće dodati objekat na sloju &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Sloj je pogrešan. Možda je problem sa mrežom, fajl nedostaje ili projekat nije dobro konfigurisan.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Ovaj sloj je konfigurisan kao &quot;Samo za čitanje&quot; što onemogućava dodavnje, brisanje i editovanje objekata.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Sloj je konfigurisan kao &quot;Zaključaj geometriju&quot; što onemogućava dodavanje i brisanje objekata, kao i mijenjanje geometrije postojećih objekata.</translation>
     </message>
 </context>
 <context>
@@ -1056,7 +1083,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Traženje...</translation>
+        <translation type="vanished">Traženje...</translation>
     </message>
 </context>
 <context>
@@ -2448,7 +2475,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Z vrijednost koja je snimljena sa uređaja će biti popravljena za ovu vrijednost. Ako je unesena vrijednost 1.6 , to će rezultirati korekcijom od -1.6 za svaku snimljenu vrijednost.</translation>
+        <translation type="vanished">Z vrijednost koja je snimljena sa uređaja će biti popravljena za ovu vrijednost. Ako je unesena vrijednost 1.6 , to će rezultirati korekcijom od -1.6 za svaku snimljenu vrijednost.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2572,6 +2599,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3217,7 +3268,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Dobrodošli u QField. Prvi put koristite aplikaciju? Probajte neki od primjera projekata sa donje liste.</translation>
+        <translation type="vanished">Dobrodošli u QField. Prvi put koristite aplikaciju? Probajte neki od primjera projekata sa donje liste.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3249,6 +3300,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3731,6 +3786,38 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Dupliciraj objekat</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Uspješno dupliciranje objekta</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

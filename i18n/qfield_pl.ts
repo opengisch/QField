@@ -593,7 +593,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Zamierzasz odrzucić nowy element, czy kontynuować?</translation>
+        <translation>Zamierzasz odrzucić nowy obiekt, czy kontynuować?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
@@ -636,7 +636,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>Brak elementu w tym miejscu</translation>
+        <translation>Brak obiektu w tym miejscu</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
@@ -735,11 +735,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Ustaw element jako cel</translation>
+        <translation>Ustaw obiekt jako cel</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Ustaw element jako nawigację</translation>
+        <translation type="vanished">Ustaw obiekt jako nawigację</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -766,7 +766,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="unfinished"/>
+        <translation>Pierścień nie posiada żadnego istniejącego pierścienia do dopasowania</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
@@ -920,7 +920,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>Warstwa nie posiada żadnych elementów</translation>
+        <translation>Warstwa nie posiada żadnych obiektów</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -928,11 +928,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Warstwa tylko do odczytu</translation>
+        <translation type="vanished">Warstwa tylko do odczytu</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Warstwa z zablokowaną geometrią</translation>
+        <translation type="vanished">Warstwa z zablokowaną geometrią</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -944,11 +944,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Pokaż listę widocznych elementów</translation>
+        <translation>Pokaż listę widocznych obiektów</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
         <translation>Pokaż menu obiektów</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Warstwa tylko do odczytu</translation>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
+        <translation>Warstwa z zablokowaną geometrią</translation>
     </message>
 </context>
 <context>
@@ -983,17 +991,36 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>Nie można skopiować nieprawidłowego elementu</translation>
+        <translation>Nie można skopiować nieprawidłowego obiektu</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>Nie można dodać nowego elementu na warstwie &quot;%1&quot;. Powód:
+        <translation>Nie można dodać nowego obiektu na warstwie &quot;%1&quot;. Powód:
 %2</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nie można dodać nowego elementu na warstwie &quot;%1&quot;.</translation>
+        <translation type="vanished">Nie można dodać nowego obiektu na warstwie &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation>Ta warstwa aktualnie śledzi pozycję urządzenia.</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Ta warstwa jest nieprawidłowa. Może to być spowodowane błędem sieci, brakującym plikiem lub błędną konfiguracją projektu.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Ta warstwa jest skonfigurowana jako &quot;tylko do odczytu&quot;, co uniemożliwia dodawanie, usuwanie i edytowanie na niej obiektów.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Ta warstwa jest skonfigurowana jako „Zablokuj geometrie”, co uniemożliwia dodawanie i usuwanie obiektów, a także modyfikowanie geometrii istniejących obiektów.</translation>
     </message>
 </context>
 <context>
@@ -1023,7 +1050,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Wyświetla listę elementów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
+        <translation>Wyświetla listę obiektów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
@@ -1043,14 +1070,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns the value of the expression typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Zwraca wartość wyrażenia wpisanego w pasku wyszukiwania</translation>
     </message>
 </context>
 <context>
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Szukaj...</translation>
+        <translation type="vanished">Szukaj...</translation>
     </message>
 </context>
 <context>
@@ -1069,11 +1096,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli wyłączone, ten filtr lokalizatorów wciąż może być używany, przez wpisanie przedrostka %1 w pasku wyszukiwania.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Włącz domyślnie lokalizator %1</translation>
     </message>
 </context>
 <context>
@@ -1100,7 +1127,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation>Dziennik twojej aplikacji jest wysyłany.</translation>
+        <translation>Dziennik twojej aplikacji jest wysyłany</translation>
     </message>
 </context>
 <context>
@@ -1170,7 +1197,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Ustaw element jako cel</translation>
+        <translation>Ustaw obiekt jako cel</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1264,7 +1291,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Nie można przetworzyć pozycji IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -2443,7 +2470,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Wartości Z, które są rejestrowane z urządzenia pozycjonującego, będą korygowane o tę wartość. Wprowadzenie wartości 1,6 spowoduje korektę -1,6 dla każdej zarejestrowanej wartości.</translation>
+        <translation type="vanished">Wartości Z, które są rejestrowane z urządzenia pozycjonującego, będą korygowane o tę wartość. Wprowadzenie wartości 1,6 spowoduje korektę -1,6 dla każdej zarejestrowanej wartości.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2475,11 +2502,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Wartość pomiarowa (M) dołączana do geometrii:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Znacznik czasowy (ms czasu systemowego)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -2569,6 +2596,30 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Log NMEA sentences from device to file</source>
         <translation>Zapisuj dane NMEA z urządzenia do pliku</translation>
     </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Jakość rysowania obszaru mapy:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Najlepsza jakość</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Niższa jakość</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Najniższa jakość</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Niższa jakość to kompromis między precyzją rysowania a mniejszym użyciem pamięci i czasem rysowania.</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2634,7 +2685,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Could not flush database %1 (%3) </source>
-        <translation type="unfinished"/>
+        <translation>Nie można zsynchronizować bazy danych %1 (%3) </translation>
     </message>
     <message>
         <source>Position</source>
@@ -3009,7 +3060,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Wartość pomiarowa (M) dołączana do geometrii:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -3017,7 +3068,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Znacznik czasowy (ms czasu systemowego)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3049,7 +3100,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Aby aktywować funkcję pomiaru, upewnij się, że typ geometrii warstwy wektorowej użytej do sesji śledzenia posiada pole M.</translation>
     </message>
     <message>
         <source>Activate sensor constraint</source>
@@ -3212,7 +3263,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Witaj w QField. Pierwszy raz używasz tej aplikacji? Wypróbuj przykładowe projekty pokazane na poniższej liście.</translation>
+        <translation type="vanished">Witaj w QField. Pierwszy raz używasz tej aplikacji? Wypróbuj przykładowe projekty pokazane na poniższej liście.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3246,6 +3297,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Recent Project Actions</source>
         <translation>Ostatnie działania projektów</translation>
     </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation>Witaj w QField. Jeśli pierwszy raz używasz tej aplikacji, możesz wypróbować przykładowe projekty z poniższej listy.</translation>
+    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -3255,7 +3310,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Dodawanie elementu potomnego na warstwie %1</translation>
+        <translation>Dodawanie obiektu potomnego na warstwie %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -3263,7 +3318,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Odłączyć obiekt %1 (%2) od %3</translation>
+        <translation>Odłącz obiekt %1 (%2) od %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
@@ -3666,7 +3721,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation>Drukuj do obrazu</translation>
+        <translation type="vanished">Drukuj do obrazu</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3682,7 +3737,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Widok mapy podąża za lokalizacją i orientacją kompasu</translation>
     </message>
     <message>
         <source>Importing %1</source>
@@ -3728,6 +3783,38 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>No sensor available</source>
         <translation>Brak dostępnego czujnika</translation>
     </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Warstwa:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Obiekt:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>Otwórz formularz obiektu</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Powiel obiekt</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Obiekt powielony pomyślnie</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>Duplikacja obiektu niedostępna</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>Przyciąganie włączone</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Przyciąganie wyłączone</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -3737,7 +3824,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Dodawanie elementu potomnego na warstwie %1</translation>
+        <translation>Dodawanie obiektu potomnego na warstwie %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -3745,7 +3832,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Odłączyć obiekt %1 (%2) od %3</translation>
+        <translation>Odłącz obiekt %1 (%2) od %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>

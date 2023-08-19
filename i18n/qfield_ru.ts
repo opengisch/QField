@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Сканер кода</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Наведите камеру на код</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n устройство найдено</numerusform><numerusform>%n устройства найдены</numerusform><numerusform>%n устройств найдено</numerusform><numerusform>%n устройств(а) найдены</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -348,7 +348,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>Подтвердить</translation>
     </message>
 </context>
 <context>
@@ -438,7 +438,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation type="vanished">Подтвердить</translation>
     </message>
 </context>
 <context>
@@ -589,7 +589,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation type="unfinished"/>
+        <translation>Отменить редактирование</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -597,7 +597,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Вы собираетесь выйти из режима редактирования, любые изменения будут потеряны. Продолжить?</translation>
     </message>
 </context>
 <context>
@@ -744,7 +744,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -901,7 +901,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Прозрачность</translation>
     </message>
     <message>
         <source>Zoom to group</source>
@@ -909,7 +909,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Увеличить до родительского слоя</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
@@ -937,11 +937,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Слой только для чтения</translation>
+        <translation type="vanished">Слой только для чтения</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation>Слой с фиксацией геометрии</translation>
+        <translation type="vanished">Слой с фиксацией геометрии</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -953,10 +953,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Отобразить перечень</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geometry-locked layer</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1002,7 +1010,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Невозможно добавить новый объект в слой &quot;%1&quot;.</translation>
+        <translation type="vanished">Невозможно добавить новый объект в слой &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>Legend</name>
+    <message>
+        <source>This layer is is currently tracking the device position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Этот слой недействителен. Это может быть связано с проблемой сети, отсутствующим файлом или неправильной конфигурацией проекта.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Этот слой настроен как «Только для чтения», что запрещает добавление, удаление и редактирование объектов.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
+        <translation>Этот слой настроен как «Заблокированная геометрия», что запрещает добавление и удаление объектов, а также изменение геометрии существующих объектов.</translation>
     </message>
 </context>
 <context>
@@ -1059,7 +1086,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Поиск...</translation>
+        <translation type="vanished">Поиск...</translation>
     </message>
 </context>
 <context>
@@ -1179,7 +1206,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1207,11 +1234,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Распечатать</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Распечатать</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1219,7 +1246,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Печать…</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -2447,7 +2474,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Значения координаты  Z, записанные с устройства позиционирования, будут скорректированы с учётом этого значения. Если ввести значение 1,6, это приведет к поправке -1,6 для каждого записанного значения. </translation>
+        <translation type="vanished">Значения координаты  Z, записанные с устройства позиционирования, будут скорректированы с учётом этого значения. Если ввести значение 1,6, это приведет к поправке -1,6 для каждого записанного значения. </translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2571,6 +2598,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2954,15 +3005,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Копировать текст</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Вставить текст</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Сканировать код</translation>
     </message>
 </context>
 <context>
@@ -3216,7 +3267,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation>Добро пожаловать в QField! Пользуетесь приложением впервые? Ознакомьтесь с примерами проектов, приведёнными ниже. </translation>
+        <translation type="vanished">Добро пожаловать в QField! Пользуетесь приложением впервые? Ознакомьтесь с примерами проектов, приведёнными ниже. </translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3244,10 +3295,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>При запуске загружать последний открытый проект</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3418,11 +3473,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Перейти на главный экран</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Открыть каталог проекта</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3458,11 +3513,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Добавить закладку</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3478,7 +3533,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Копировать координаты</translation>
     </message>
     <message>
         <source>X</source>
@@ -3546,7 +3601,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3666,7 +3721,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Заблокировать экран</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -3674,7 +3729,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Печать…</translation>
     </message>
     <message>
         <source>Print</source>
@@ -3698,7 +3753,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Датчики</translation>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -3730,6 +3785,38 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Дублировать объект</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Объект успешно продублирован</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>
