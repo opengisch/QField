@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Използвано позициониращо устройство:</translation>
+        <translation>Използвано позициониращо устройство:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Търси</translation>
+        <translation>Търси</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Установена връзка с %1</translation>
+        <translation>Установена връзка с %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">Свържи с %1</translation>
+        <translation>Свържи с %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Свържи с %1</translation>
+        <translation>Свържи с %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Свързване с %1</translation>
+        <translation>Свързване с %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Използвай ортометричнана надморска височина от устройството</translation>
+        <translation>Използвай ортометричнана надморска височина от устройството</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Вградено устройство</translation>
+        <translation>Вградено устройство</translation>
     </message>
 </context>
 <context>
@@ -233,31 +233,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">Отдалечения хост не е открит</translation>
+        <translation>Отдалечения хост не е открит</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">Услуг с такова UUID не може да бъде открита на отдалечения хост</translation>
+        <translation>Услуг с такова UUID не може да бъде открита на отдалечения хост</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">Грешка при четене или писане от сокета</translation>
+        <translation>Грешка при четене или писане от сокета</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">Протоколът не се поддържа на тази платформа</translation>
+        <translation>Протоколът не се поддържа на тази платформа</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">Състоянието на сокета не позволява опитаната операция</translation>
+        <translation>Състоянието на сокета не позволява опитаната операция</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">Отдалечения хост затвори изградената връзка</translation>
+        <translation>Отдалечения хост затвори изградената връзка</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">Неразпозната грешка</translation>
+        <translation>Неразпозната грешка</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Дълж.</translation>
+        <translation>Дълж.</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Шир.</translation>
+        <translation>Шир.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Часове</translation>
+        <translation>Часове</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Минути</translation>
+        <translation>Минути</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Секунди</translation>
+        <translation>Секунди</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">ОК</translation>
+        <translation>ОК</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Последните промени са отменени</translation>
+        <translation>Последните промени са отменени</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -744,7 +744,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Използвай обекта като навигация</translation>
+        <translation>Използвай обекта като навигация</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -816,15 +816,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Върви на %1 %2 (CRS на картата)</translation>
+        <translation>Върви на %1 %2 (CRS на картата)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Настрой точка за навигация</translation>
+        <translation>Настрой точка за навигация</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Върви на %1 %2° (WGS84)</translation>
+        <translation>Върви на %1 %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -913,7 +913,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Обнови данните</translation>
+        <translation>Обнови данните</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -933,11 +933,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Слой само за четене</translation>
+        <translation>Слой само за четене</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Слой със заключена геометрия</translation>
+        <translation>Слой със заключена геометрия</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1006,7 +1006,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Неуспешно добавяне на нов обект в слой &quot;%1&quot;.</translation>
+        <translation>Неуспешно добавяне на нов обект в слой &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1082,18 +1082,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Търсене...</translation>
+        <translation>Търсене...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Настройки за търсене</translation>
+        <translation>Настройки за търсене</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Търси без префикс</translation>
+        <translation>Търси без префикс</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1222,11 +1222,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Принтиране на обектите на атласа в PDF</translation>
+        <translation>Принтиране на обектите на атласа в PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Обектите на атласа са успешно принтирани в PDF и съхранени в твоите документи</translation>
+        <translation>Обектите на атласа са успешно принтирани в PDF и съхранени в твоите документи</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
@@ -1253,7 +1253,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Шир.</translation>
+        <translation>Шир.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1261,11 +1261,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Дълж.</translation>
+        <translation>Дълж.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">центроид</translation>
+        <translation>центроид</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1330,7 +1330,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Последните промени са отменени</translation>
+        <translation>Последните промени са отменени</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1341,15 +1341,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Избор на мултимедиен файл</translation>
+        <translation>Избор на мултимедиен файл</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG изображения (*.jpg *.jpeg)</translation>
+        <translation>JPEG изображения (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Неуспешен запис на изображение от галерията</translation>
+        <translation>Неуспешен запис на изображение от галерията</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1412,71 +1412,71 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Шир.</translation>
+        <translation>Шир.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Дълж.</translation>
+        <translation>Дълж.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Дълж.</translation>
+        <translation>Дълж.</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Шир.</translation>
+        <translation>Шир.</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Височина</translation>
+        <translation>Височина</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Скорост</translation>
+        <translation>Скорост</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">Хор. точност</translation>
+        <translation>Хор. точност</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">Верт. точност</translation>
+        <translation>Верт. точност</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Валидност</translation>
+        <translation>Валидност</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Поправка</translation>
+        <translation>Поправка</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Качество</translation>
+        <translation>Качество</translation>
     </message>
 </context>
 <context>
@@ -1677,7 +1677,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Неуспешно влизане</translation>
+        <translation>Неуспешно влизане</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1719,15 +1719,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Излизане</translation>
+        <translation>Излизане</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Влизане, моля, изчакай</translation>
+        <translation>Влизане, моля, изчакай</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Влизане</translation>
+        <translation>Влизане</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1742,11 +1742,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Проблеми при пакетирането на QFieldCloud слой.</translation>
+        <translation>Проблеми при пакетирането на QFieldCloud слой.</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Някои слоеве не са пакетирани успешно в QFieldCloud. Тези слоеве може да не са настроени правилно или техните данни да не са достъпни от сървъра на QFieldCloud.</translation>
+        <translation>Някои слоеве не са пакетирани успешно в QFieldCloud. Тези слоеве може да не са настроени правилно или техните данни да не са достъпни от сървъра на QFieldCloud.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1857,7 +1857,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Отказване на промените за всички обекти на слоевете в облака. Тези промени не могат да бъдат възстановени!</translation>
+        <translation>Отказване на промените за всички обекти на слоевете в облака. Тези промени не могат да бъдат възстановени!</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1905,7 +1905,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n прикачени файл се качва на фонов режим.</numerusform><numerusform>%n прикачени файла се качват на фонов режим.</numerusform></translation>
+        <translation><numerusform>%n прикачени файл се качва на фонов режим.</numerusform><numerusform>%n прикачени файла се качват на фонов режим.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1940,32 +1940,32 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Неуспешно експортиране</translation>
+        <translation>Неуспешно експортиране</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Пакетираният слой &apos;%1&apos; е невалиден: &apos;%2&apos;</translation>
+        <translation>Пакетираният слой &apos;%1&apos; е невалиден: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Неуспешно отваряне на временен файл за &quot;%1&quot;, причина:
+        <translation>Неуспешно отваряне на временен файл за &quot;%1&quot;, причина:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
+        <translation>Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Неуспешно изтегляне на файл &quot;%1&quot;, причина:
+        <translation>Неуспешно изтегляне на файл &quot;%1&quot;, причина:
 %2</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Неуспешно записване на изтегления файл &quot;%1&quot;, причина от файловата система:
+        <translation>Неуспешно записване на изтегления файл &quot;%1&quot;, причина от файловата система:
 %2</translation>
     </message>
     <message>
@@ -2037,7 +2037,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
+        <translation>Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
 %2</translation>
     </message>
     <message>
@@ -2323,7 +2323,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">При активиране, яркостта на екрана ще бъде намалена след 20 секунди на неактивност, за да се пести енергия.</translation>
+        <translation>При активиране, яркостта на екрана ще бъде намалена след 20 секунди на неактивност, за да се пести енергия.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2379,36 +2379,36 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Търсене на свързани устройства</translation>
+        <translation>Търсене на свързани устройства</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Търсенето неуспешно: %1</translation>
+        <translation>Търсенето неуспешно: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Приключено търсене</translation>
+        <translation>Приключено търсене</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n намерено устройство</numerusform><numerusform>%n намерени устройства</numerusform></translation>
+        <translation><numerusform>%n намерено устройство</numerusform><numerusform>%n намерени устройства</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Прекъснато търсене</translation>
+        <translation>Прекъснато търсене</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Търси</translation>
+        <translation>Търси</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Пълно търсене на устройства</translation>
+        <translation>Пълно търсене на устройства</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Пълното търсене на устройства може да отнеме известно време. Наистина ли желаете да направите пълно търсене?
+        <translation>Пълното търсене на устройства може да отнеме известно време. Наистина ли желаете да направите пълно търсене?
 Откажи за бързо търсене.</translation>
     </message>
     <message>
@@ -2417,7 +2417,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Свържи с %1</translation>
+        <translation>Свържи с %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2477,7 +2477,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Z стойностите, които са получени от устройството за позициониране ще бъдат коригиране с тази стойност. Например, ако е избрана стойност от 1,6, резултатът ще бъде, че всяка стойност ще бъде намалена с 1,6 м. </translation>
+        <translation>Z стойностите, които са получени от устройството за позициониране ще бъдат коригиране с тази стойност. Например, ако е избрана стойност от 1,6, резултатът ще бъде, че всяка стойност ще бъде намалена с 1,6 м. </translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2775,7 +2775,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Зареждане на локалния шрифт %1</translation>
+        <translation>Зареждане на локалния шрифт %1</translation>
     </message>
 </context>
 <context>
@@ -2836,7 +2836,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Обертання полотна карти не підтримується. Скидання з %1 до 0.</translation>
+        <translation>Обертання полотна карти не підтримується. Скидання з %1 до 0.</translation>
     </message>
 </context>
 <context>
@@ -2940,7 +2940,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">Подготовка на QField, това е еднократка операция, която може да отнеме известно време</translation>
+        <translation>Подготовка на QField, това е еднократка операция, която може да отнеме известно време</translation>
     </message>
 </context>
 <context>
@@ -3047,11 +3047,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Запиши, когато всички активни ограничения са изпълнени</translation>
+        <translation>Запиши, когато всички активни ограничения са изпълнени</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">При активиране, възлите ще бъдат записани само когато всички активни ограничения са изпълнени. При деактивиране, всяко отделно ограничение ще предизвика добавяне на възел.</translation>
+        <translation>При активиране, възлите ще бъдат записани само когато всички активни ограничения са изпълнени. При деактивиране, всяко отделно ограничение ще предизвика добавяне на възел.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3059,11 +3059,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Не може да проследява с празни стойности</translation>
+        <translation>Не може да проследява с празни стойности</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Когато и двете ограничения са изключени, добавянето на вертекси ще  се случва всеки път, когато се получат от позиционираото устройство.</translation>
+        <translation>Когато и двете ограничения са изключени, добавянето на вертекси ще  се случва всеки път, когато се получат от позиционираото устройство.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3258,11 +3258,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Проект картна-основа</translation>
+        <translation>Проект картна-основа</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Проект картна-основа</translation>
+        <translation>Проект картна-основа</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3270,7 +3270,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Добре дошли в QField! Използвате приложението за пръв път? Опитайте някой от примерните проекти в списъка по-долу.</translation>
+        <translation>Добре дошли в QField! Използвате приложението за пръв път? Опитайте някой от примерните проекти в списъка по-долу.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3440,11 +3440,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Позиционирането е активирано</translation>
+        <translation>Позиционирането е активирано</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Позиционирането е изключено</translation>
+        <translation>Позиционирането е изключено</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3472,7 +3472,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Създай PDF</translation>
+        <translation>Създай PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3484,7 +3484,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Отвори проект</translation>
+        <translation>Отвори проект</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3500,7 +3500,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Избери някой от шаблоните</translation>
+        <translation>Избери някой от шаблоните</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3524,7 +3524,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Добави отметка на координати</translation>
+        <translation>Добави отметка на координати</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3532,7 +3532,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Използвай координатите като дестинация</translation>
+        <translation>Използвай координатите като дестинация</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3540,11 +3540,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3556,27 +3556,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0,25 m прецизност</translation>
+        <translation>0,25 m прецизност</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0,5 m прецизност</translation>
+        <translation>0,5 m прецизност</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1 m прецизност</translation>
+        <translation>1 m прецизност</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2,5 m прецизност</translation>
+        <translation>2,5 m прецизност</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5 m прецизност</translation>
+        <translation>5 m прецизност</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10 m прецизност</translation>
+        <translation>10 m прецизност</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3604,7 +3604,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Използвай като дестинация</translation>
+        <translation>Използвай като дестинация</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3640,11 +3640,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Центриране до текущата локация</translation>
+        <translation>Центриране до текущата локация</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Добави отметка на текущата локация</translation>
+        <translation>Добави отметка на текущата локация</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3656,7 +3656,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">Копирай текущата локация</translation>
+        <translation>Копирай текущата локация</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3684,7 +3684,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Невписан</translation>
+        <translation>Невписан</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3692,7 +3692,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Вписан</translation>
+        <translation>Вписан</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3716,7 +3716,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">Грешка в позиционирането: %1</translation>
+        <translation>Грешка в позиционирането: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>

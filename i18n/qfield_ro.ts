@@ -126,7 +126,7 @@ Vă rugăm să le examinați și să reconfigurați proiectul QGIS.</translation
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Dispozitiv de poziționare în uz:</translation>
+        <translation>Dispozitiv de poziționare în uz:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -150,7 +150,7 @@ Vă rugăm să le examinați și să reconfigurați proiectul QGIS.</translation
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Scanare</translation>
+        <translation>Scanare</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -164,23 +164,23 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Contectat la %1</translation>
+        <translation>Contectat la %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">Contectat la %1</translation>
+        <translation>Contectat la %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Conectare la %1</translation>
+        <translation>Conectare la %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Se contectează la %1</translation>
+        <translation>Se contectează la %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Utilizați altitudinea ortometrică a dispozitivului</translation>
+        <translation>Utilizați altitudinea ortometrică a dispozitivului</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -192,7 +192,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -211,7 +211,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Dispozitiv intern</translation>
+        <translation>Dispozitiv intern</translation>
     </message>
 </context>
 <context>
@@ -234,31 +234,31 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">Nu s-a putut găsi gazda la distanță</translation>
+        <translation>Nu s-a putut găsi gazda la distanță</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">Nu s-a putut determina UUID-ul serviciului de pe gazda aflată la distanță</translation>
+        <translation>Nu s-a putut determina UUID-ul serviciului de pe gazda aflată la distanță</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">Protocolul nu este acceptat pe această platformă</translation>
+        <translation>Protocolul nu este acceptat pe această platformă</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">S-a încercat o operațiune în timp ce socketul era într-o stare care nu permitea acest lucru</translation>
+        <translation>S-a încercat o operațiune în timp ce socketul era într-o stare care nu permitea acest lucru</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">Gazda aflată la distanță a închis conexiunea</translation>
+        <translation>Gazda aflată la distanță a închis conexiunea</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">Eroare necunoscută</translation>
+        <translation>Eroare necunoscută</translation>
     </message>
 </context>
 <context>
@@ -288,19 +288,19 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -427,19 +427,19 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Ore</translation>
+        <translation>Ore</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Minute</translation>
+        <translation>Minute</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Secunde</translation>
+        <translation>Secunde</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -617,7 +617,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Ultimele modificări nu s-au salvat</translation>
+        <translation>Ultimele modificări nu s-au salvat</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -748,7 +748,7 @@ Motiv:
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Setați caracteristica ca navigație</translation>
+        <translation>Setați caracteristica ca navigație</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -820,15 +820,15 @@ Motiv:
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Mergi la %1 %2 (CRS Hartă)</translation>
+        <translation>Mergi la %1 %2 (CRS Hartă)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Seteză punct de navigare</translation>
+        <translation>Seteză punct de navigare</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Mergi la %1° %2° (WGS84)</translation>
+        <translation>Mergi la %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -917,7 +917,7 @@ Motiv:
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Reîncărcarea datelor</translation>
+        <translation>Reîncărcarea datelor</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -937,11 +937,11 @@ Motiv:
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Strat Read-Only</translation>
+        <translation>Strat Read-Only</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Strat cu Geometrie Fixată</translation>
+        <translation>Strat cu Geometrie Fixată</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1010,7 +1010,7 @@ Motiv:
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Nu se poate adăuga un element nou în strat &quot;%1.</translation>
+        <translation>Nu se poate adăuga un element nou în strat &quot;%1.</translation>
     </message>
 </context>
 <context>
@@ -1086,18 +1086,18 @@ Motiv:
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Căutare</translation>
+        <translation>Căutare</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Setări Căutare</translation>
+        <translation>Setări Căutare</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Declanșator fără prefix</translation>
+        <translation>Declanșator fără prefix</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1226,11 +1226,11 @@ Motiv:
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Printează elemen(ele) atlas ca PDF</translation>
+        <translation>Printează elemen(ele) atlas ca PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Element(ele) Atlas, au fost printate cu succes în PDF și salvate în documente</translation>
+        <translation>Element(ele) Atlas, au fost printate cu succes în PDF și salvate în documente</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
@@ -1257,7 +1257,7 @@ Motiv:
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1265,11 +1265,11 @@ Motiv:
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation>Lon.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">centroid</translation>
+        <translation>centroid</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1334,7 +1334,7 @@ Motiv:
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Ultimele modificări nu s-au salvat</translation>
+        <translation>Ultimele modificări nu s-au salvat</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1345,15 +1345,15 @@ Motiv:
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Selectare Fișier Media</translation>
+        <translation>Selectare Fișier Media</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">Imagini JPEG (*.jpg *.jpeg)</translation>
+        <translation>Imagini JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Nu s-a putut salva imaginea în galerie</translation>
+        <translation>Nu s-a putut salva imaginea în galerie</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1416,71 +1416,71 @@ Motiv:
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation>Lon.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Altitudine</translation>
+        <translation>Altitudine</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Viteză</translation>
+        <translation>Viteză</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">Acurateţea H.</translation>
+        <translation>Acurateţea H.</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">Acurateţea V.</translation>
+        <translation>Acurateţea V.</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Valid</translation>
+        <translation>Valid</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Rezolvat</translation>
+        <translation>Rezolvat</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Calitate</translation>
+        <translation>Calitate</translation>
     </message>
 </context>
 <context>
@@ -1510,7 +1510,7 @@ Motiv:
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">Bluetooth</translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1681,7 +1681,7 @@ Motiv:
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Autentificare eșuată</translation>
+        <translation>Autentificare eșuată</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1723,15 +1723,15 @@ Motiv:
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Deconectare</translation>
+        <translation>Deconectare</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Conectare, vă rugăm să așteptați</translation>
+        <translation>Conectare, vă rugăm să așteptați</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Autentificare</translation>
+        <translation>Autentificare</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1746,11 +1746,11 @@ Motiv:
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Împachetarea straturilor QFieldCloud problematică</translation>
+        <translation>Împachetarea straturilor QFieldCloud problematică</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Unele straturi nu au fost împachetate corect pe QFieldCloud. Aceste straturi pot fi configurate greșit sau sursa lor de date nu este accesibilă din serverul QFieldCloud.</translation>
+        <translation>Unele straturi nu au fost împachetate corect pe QFieldCloud. Aceste straturi pot fi configurate greșit sau sursa lor de date nu este accesibilă din serverul QFieldCloud.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1861,7 +1861,7 @@ Motiv:
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Reveniți la toate elementele modificate din straturile locale de cloud. Nu puteți restabili aceste schimbări.</translation>
+        <translation>Reveniți la toate elementele modificate din straturile locale de cloud. Nu puteți restabili aceste schimbări.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1909,7 +1909,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n atașament(ele) %n sunt încărcate în fundal.</numerusform><numerusform>%n atașament(ele) %n sunt încărcate în fundal.</numerusform><numerusform>%n atașament(ele) %n sunt încărcate în fundal.</numerusform></translation>
+        <translation><numerusform>%n atașament(ele) %n sunt încărcate în fundal.</numerusform><numerusform>%n atașament(ele) %n sunt încărcate în fundal.</numerusform><numerusform>%n atașament(ele) %n sunt încărcate în fundal.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1944,31 +1944,31 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Exportare eșuată</translation>
+        <translation>Exportare eșuată</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Stratul împachetat &apos;%1&apos; nu este valid: &apos;%2&apos;</translation>
+        <translation>Stratul împachetat &apos;%1&apos; nu este valid: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Nu s-a putut deschide fișierul temporar pentru &quot;%1&quot;, motiv:
+        <translation>Nu s-a putut deschide fișierul temporar pentru &quot;%1&quot;, motiv:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Nu s-a putut încărca atașamentul stocat la &quot;%1&quot;, motivul:
+        <translation>Nu s-a putut încărca atașamentul stocat la &quot;%1&quot;, motivul:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished"> Nu s-a putut descărca fișierul &quot;%1&quot;, motiv:</translation>
+        <translation> Nu s-a putut descărca fișierul &quot;%1&quot;, motiv:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nu s-a putut scrie fișierul descărcat stocat la &quot;%1&quot;, motiv:</translation>
+        <translation>Nu s-a putut scrie fișierul descărcat stocat la &quot;%1&quot;, motiv:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2039,7 +2039,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Nu s-a putut încărca atașamentul stocat la `%1`, motiv:
+        <translation>Nu s-a putut încărca atașamentul stocat la `%1`, motiv:
 % 2</translation>
     </message>
     <message>
@@ -2325,7 +2325,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">Dacă este activată, luminozitatea ecranului va fi redusă după 20 secunde de inactivitate pentru a păstra energia bateriei.</translation>
+        <translation>Dacă este activată, luminozitatea ecranului va fi redusă după 20 secunde de inactivitate pentru a păstra energia bateriei.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2381,36 +2381,36 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Scanare pentru dispozitive asociate</translation>
+        <translation>Scanare pentru dispozitive asociate</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Scanarea a eșuat: %1</translation>
+        <translation>Scanarea a eșuat: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Scanare cu succes</translation>
+        <translation>Scanare cu succes</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform></translation>
+        <translation><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Scanare anulată</translation>
+        <translation>Scanare anulată</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Scanare</translation>
+        <translation>Scanare</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Faceți o descoperire completă a serviciilor</translation>
+        <translation>Faceți o descoperire completă a serviciilor</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">O scanare completă a dispozitivului poate dura mai mult. Chiar doriți să o faceți?
+        <translation>O scanare completă a dispozitivului poate dura mai mult. Chiar doriți să o faceți?
 Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
@@ -2419,7 +2419,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Conectare la %1</translation>
+        <translation>Conectare la %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2479,7 +2479,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Valorile Z înregistrate de la dispozitivul de poziționare vor fi corectate cu această valoare. Dacă este introdusă o valoare de 1.6, aceasta va avea ca rezultat o corecție de -1,6 pentru fiecare valoare înregistrată.</translation>
+        <translation>Valorile Z înregistrate de la dispozitivul de poziționare vor fi corectate cu această valoare. Dacă este introdusă o valoare de 1.6, aceasta va avea ca rezultat o corecție de -1,6 pentru fiecare valoare înregistrată.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2777,7 +2777,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Încărcarea fontului %1</translation>
+        <translation>Încărcarea fontului %1</translation>
     </message>
 </context>
 <context>
@@ -2838,7 +2838,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Rotația canevasului nu este permisă. Resetarea de la %1 la 0.</translation>
+        <translation>Rotația canevasului nu este permisă. Resetarea de la %1 la 0.</translation>
     </message>
 </context>
 <context>
@@ -2942,7 +2942,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">QField se încarcă. Această operațiune se face o singură dată și poate dura cateva minute</translation>
+        <translation>QField se încarcă. Această operațiune se face o singură dată și poate dura cateva minute</translation>
     </message>
 </context>
 <context>
@@ -2984,7 +2984,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">Conexiunea a fost refuzată de gazda aflată la distanță</translation>
+        <translation>Conexiunea a fost refuzată de gazda aflată la distanță</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3049,11 +3049,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Înregistrați când sunt îndeplinite ambele condiții de constrânge active</translation>
+        <translation>Înregistrați când sunt îndeplinite ambele condiții de constrânge active</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Atunci când este activat, nodurile se înregistrează numai atunci când sunt îndeplinite ambele constrângerile individuale îndeplinite și astfel vor declanșa o adăugare de noduri.</translation>
+        <translation>Atunci când este activat, nodurile se înregistrează numai atunci când sunt îndeplinite ambele constrângerile individuale îndeplinite și astfel vor declanșa o adăugare de noduri.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3061,7 +3061,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Nu se poate porni traseul cu valori goale</translation>
+        <translation>Nu se poate porni traseul cu valori goale</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
@@ -3171,7 +3171,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">Conexiunea a fost refuzată de gazda aflată la distanță</translation>
+        <translation>Conexiunea a fost refuzată de gazda aflată la distanță</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3260,11 +3260,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Proiectul de bază al hărții</translation>
+        <translation>Proiectul de bază al hărții</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Proiectul de bază al Hărții</translation>
+        <translation>Proiectul de bază al Hărții</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3272,7 +3272,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Bine ați venit pe QField. Este prima dată când utilizați această aplicație? Încercați exemplele de proiecte enumerate în lista de mai jos.</translation>
+        <translation>Bine ați venit pe QField. Este prima dată când utilizați această aplicație? Încercați exemplele de proiecte enumerate în lista de mai jos.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3442,11 +3442,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Poziționarea este activată</translation>
+        <translation>Poziționarea este activată</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Poziționarea nu este activată</translation>
+        <translation>Poziționarea nu este activată</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3474,7 +3474,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Print PDF</translation>
+        <translation>Print PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3486,7 +3486,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Deschide Proiect</translation>
+        <translation>Deschide Proiect</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3502,7 +3502,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Seletează șablonul de mai jos</translation>
+        <translation>Seletează șablonul de mai jos</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3526,7 +3526,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Adăugați Semn de Carte la Coordonate</translation>
+        <translation>Adăugați Semn de Carte la Coordonate</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3534,7 +3534,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Setați Coordonate ca Destinație</translation>
+        <translation>Setați Coordonate ca Destinație</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3542,11 +3542,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3558,27 +3558,27 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">Precizie 0.25m</translation>
+        <translation>Precizie 0.25m</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">Precizie 0.5m</translation>
+        <translation>Precizie 0.5m</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">Precizie 1m</translation>
+        <translation>Precizie 1m</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">Precizie 2.5m</translation>
+        <translation>Precizie 2.5m</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">Precizie 5m</translation>
+        <translation>Precizie 5m</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">Precizie 10m</translation>
+        <translation>Precizie 10m</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3606,7 +3606,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Setează ca Destinație</translation>
+        <translation>Setează ca Destinație</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3642,11 +3642,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Centrează pe Locația Curentă</translation>
+        <translation>Centrează pe Locația Curentă</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Adăugați un Semn de Carte la Locația Curentă</translation>
+        <translation>Adăugați un Semn de Carte la Locația Curentă</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3658,7 +3658,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">Copiază Locația Curentă</translation>
+        <translation>Copiază Locația Curentă</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3686,7 +3686,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Deconectat</translation>
+        <translation>Deconectat</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3694,7 +3694,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Autentificat</translation>
+        <translation>Autentificat</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3718,7 +3718,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">Eroare de poziționare: %1</translation>
+        <translation>Eroare de poziționare: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3730,7 +3730,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="vanished">Generează Imagine</translation>
+        <translation>Generează Imagine</translation>
     </message>
     <message>
         <source>Printing...</source>

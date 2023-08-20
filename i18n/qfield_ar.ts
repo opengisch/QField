@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">جهاز التموضع مشغول:</translation>
+        <translation>جهاز التموضع مشغول:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">البحث</translation>
+        <translation>البحث</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">تم الاتصال إلى %1</translation>
+        <translation>تم الاتصال إلى %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">جار الاتصال بـ %1</translation>
+        <translation>جار الاتصال بـ %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">اتصال إلى %1</translation>
+        <translation>اتصال إلى %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">جار الاتصال إلى %1</translation>
+        <translation>جار الاتصال إلى %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">استخدام الارتفاع التقديري من الجهاز</translation>
+        <translation>استخدام الارتفاع التقديري من الجهاز</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">غير محدد</translation>
+        <translation>غير محدد</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">الجهاز الداخلي</translation>
+        <translation>الجهاز الداخلي</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">عرض</translation>
+        <translation>عرض</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">طول</translation>
+        <translation>طول</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">ساعات</translation>
+        <translation>ساعات</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">دقائق</translation>
+        <translation>دقائق</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">ثوان</translation>
+        <translation>ثوان</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">حسناً</translation>
+        <translation>حسناً</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">تم إهمال التغيرات الأخيرة</translation>
+        <translation>تم إهمال التغيرات الأخيرة</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -740,7 +740,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">ضبط الميزة كملاحة</translation>
+        <translation>ضبط الميزة كملاحة</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -812,15 +812,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">إذهب إلي %1 %2  (خريطة CRS)</translation>
+        <translation>إذهب إلي %1 %2  (خريطة CRS)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">ضبط نقطة الملاحة</translation>
+        <translation>ضبط نقطة الملاحة</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">إذهب إلي %1 %2 (WGS84)</translation>
+        <translation>إذهب إلي %1 %2 (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -909,7 +909,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">إعادة تحميل البيانات</translation>
+        <translation>إعادة تحميل البيانات</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -929,11 +929,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">طبقات القراءة فقط</translation>
+        <translation>طبقات القراءة فقط</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">طبقة مقفولة الرسم</translation>
+        <translation>طبقة مقفولة الرسم</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1002,7 +1002,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">لا يمكن إضافة ميزة جديدة في الطبقة %1</translation>
+        <translation>لا يمكن إضافة ميزة جديدة في الطبقة %1</translation>
     </message>
 </context>
 <context>
@@ -1078,18 +1078,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">جار البحث ...</translation>
+        <translation>جار البحث ...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">إعدادات البحث</translation>
+        <translation>إعدادات البحث</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">التشغيل بدون بادئة</translation>
+        <translation>التشغيل بدون بادئة</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1218,11 +1218,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">جار طباعة أطلس الميزة (ات) على كملف PDF</translation>
+        <translation>جار طباعة أطلس الميزة (ات) على كملف PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">تم طباعة أطلس الميزاة (ات) بنجاح إلى ملف PDF وتم وحفظه في مستنداتك</translation>
+        <translation>تم طباعة أطلس الميزاة (ات) بنجاح إلى ملف PDF وتم وحفظه في مستنداتك</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
@@ -1249,7 +1249,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">طول.</translation>
+        <translation>طول.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1257,11 +1257,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">عرض.</translation>
+        <translation>عرض.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">النقطة الوسطى</translation>
+        <translation>النقطة الوسطى</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1326,7 +1326,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">تم إهمال التغيرات الأخيرة</translation>
+        <translation>تم إهمال التغيرات الأخيرة</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1337,15 +1337,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">تحديد ملف الوسائط</translation>
+        <translation>تحديد ملف الوسائط</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">صور JPEG  (*.jpg *.jpeg)</translation>
+        <translation>صور JPEG  (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">فشل حفظ معرض الصور</translation>
+        <translation>فشل حفظ معرض الصور</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1408,71 +1408,71 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">طول.</translation>
+        <translation>طول.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">غير محدد</translation>
+        <translation>غير محدد</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">عرض.</translation>
+        <translation>عرض.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">عرض</translation>
+        <translation>عرض</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">طول</translation>
+        <translation>طول</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">الارتفاع</translation>
+        <translation>الارتفاع</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">السرعة</translation>
+        <translation>السرعة</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">الدقة العامودية</translation>
+        <translation>الدقة العامودية</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">الدقة الأفقية</translation>
+        <translation>الدقة الأفقية</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">صالح</translation>
+        <translation>صالح</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">العثور</translation>
+        <translation>العثور</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">الجودة</translation>
+        <translation>الجودة</translation>
     </message>
 </context>
 <context>
@@ -1673,7 +1673,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">فشل تسجيل الدخول</translation>
+        <translation>فشل تسجيل الدخول</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1715,15 +1715,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">تسجيل الخروج</translation>
+        <translation>تسجيل الخروج</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">جار تسجيل الدخول، يرجى الانتظار</translation>
+        <translation>جار تسجيل الدخول، يرجى الانتظار</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">تسجيل الدخول</translation>
+        <translation>تسجيل الدخول</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1738,11 +1738,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">جار حزم طبقة QFieldCloud  المتعطلة</translation>
+        <translation>جار حزم طبقة QFieldCloud  المتعطلة</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">لم يتم تحزيم بعض الطبقات بنجاح على QFieldCloud. ربما تحوي إعدادات خاطئة أو لا يمكن الوصول إلى مصدر البيانات من خلال QFieldCloud. </translation>
+        <translation>لم يتم تحزيم بعض الطبقات بنجاح على QFieldCloud. ربما تحوي إعدادات خاطئة أو لا يمكن الوصول إلى مصدر البيانات من خلال QFieldCloud. </translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1853,7 +1853,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">استرجاع كل الميزات المُعدلة في الطبقات المحلية. لن تستطيع التراجع عن هذه التغيرات.</translation>
+        <translation>استرجاع كل الميزات المُعدلة في الطبقات المحلية. لن تستطيع التراجع عن هذه التغيرات.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1936,31 +1936,31 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">فشل التصدير</translation>
+        <translation>فشل التصدير</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">الطبقة المحزومة %1&apos; غير متاحة: &apos;%2&apos;</translation>
+        <translation>الطبقة المحزومة %1&apos; غير متاحة: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">فشل في فتح الملف المؤقت عند &quot;%1&quot;، والسبب:
+        <translation>فشل في فتح الملف المؤقت عند &quot;%1&quot;، والسبب:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">فشل في رفع الملحقات المُخزنة في  &quot;%1&quot;,  والسبب:
+        <translation>فشل في رفع الملحقات المُخزنة في  &quot;%1&quot;,  والسبب:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">فشل في تحميل الملف &quot;%1&quot;, والسبب:</translation>
+        <translation>فشل في تحميل الملف &quot;%1&quot;, والسبب:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">فشل في كاتبة الملف المُحمل المُخزن في &quot;%1&quot;، والسبب:</translation>
+        <translation>فشل في كاتبة الملف المُحمل المُخزن في &quot;%1&quot;، والسبب:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2031,7 +2031,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">فشل رفع الملقحات المخزنة في `%1`، والسبب:
+        <translation>فشل رفع الملقحات المخزنة في `%1`، والسبب:
 %2</translation>
     </message>
     <message>
@@ -2317,7 +2317,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">في حال التفعيل، سيتم تخميد إضاءة الشاشة بعد 20 ثانية عند عدم استخدام التطبيق من أجل توفير الطاقة.</translation>
+        <translation>في حال التفعيل، سيتم تخميد إضاءة الشاشة بعد 20 ثانية عند عدم استخدام التطبيق من أجل توفير الطاقة.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2373,15 +2373,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">اليحث عن أجهزة مقترنة</translation>
+        <translation>اليحث عن أجهزة مقترنة</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">فشل البحث: %1</translation>
+        <translation>فشل البحث: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">تم البحث</translation>
+        <translation>تم البحث</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
@@ -2389,20 +2389,20 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">تم إلغاء البحث</translation>
+        <translation>تم إلغاء البحث</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">البحث</translation>
+        <translation>البحث</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">الضبط لاكتشاف كل الخدمات</translation>
+        <translation>الضبط لاكتشاف كل الخدمات</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">يحتاج البحت عن كل الأجهزة زمناً طوبلاً، هل أنت متأكد من ذلك؟
+        <translation>يحتاج البحت عن كل الأجهزة زمناً طوبلاً، هل أنت متأكد من ذلك؟
 قم بإلغاء الأمر من أجل البحث عن أقل.</translation>
     </message>
     <message>
@@ -2411,7 +2411,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">اتصال إلى %1</translation>
+        <translation>اتصال إلى %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2471,7 +2471,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">سيتم تصحيح قيم Z التي تم تسجيلها من جهاز تحديد المواقع بهذه القيمة. إذا تم إدخال قيمة 1.6 ، فسيؤدي ذلك إلى تصحيح -1.6 لكل قيمة مسجلة.</translation>
+        <translation>سيتم تصحيح قيم Z التي تم تسجيلها من جهاز تحديد المواقع بهذه القيمة. إذا تم إدخال قيمة 1.6 ، فسيؤدي ذلك إلى تصحيح -1.6 لكل قيمة مسجلة.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2769,7 +2769,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">تحميل الخط %1</translation>
+        <translation>تحميل الخط %1</translation>
     </message>
 </context>
 <context>
@@ -2830,7 +2830,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">تدوير لوحة الخريطة غير مدعوم. إعادة التعيين من %1 إلى 0.</translation>
+        <translation>تدوير لوحة الخريطة غير مدعوم. إعادة التعيين من %1 إلى 0.</translation>
     </message>
 </context>
 <context>
@@ -2934,7 +2934,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">جار تحضير QField ، هذه عملية لمرة واحدة وقد تستغرق بعض الوقت</translation>
+        <translation>جار تحضير QField ، هذه عملية لمرة واحدة وقد تستغرق بعض الوقت</translation>
     </message>
 </context>
 <context>
@@ -3041,11 +3041,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">التسجيل عند وقوع ضمن الحدود الفعّالة</translation>
+        <translation>التسجيل عند وقوع ضمن الحدود الفعّالة</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">عند التمكين ، يتم تسجيل الرؤوس فقط عند استيفاء القيود النشطة. إذا تم تعطيل الإعداد ، ستؤدي القيود الفردية التي تم الوفاء بها إلى تشغيل إضافة قمة.</translation>
+        <translation>عند التمكين ، يتم تسجيل الرؤوس فقط عند استيفاء القيود النشطة. إذا تم تعطيل الإعداد ، ستؤدي القيود الفردية التي تم الوفاء بها إلى تشغيل إضافة قمة.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3053,7 +3053,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">لا يمكن بدء التعقب بقيمة فارغة</translation>
+        <translation>لا يمكن بدء التعقب بقيمة فارغة</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
@@ -3252,11 +3252,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">مشورع الخريطة الأساسية</translation>
+        <translation>مشورع الخريطة الأساسية</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">مشورع الخريطة الأساسية</translation>
+        <translation>مشورع الخريطة الأساسية</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3264,7 +3264,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">مرحبًا بك في QField. هل هذه أول مرة تستخدم هذا التطبيق؟ جرب عينة من المشاريع المُدرجة في القائمة أدناه.</translation>
+        <translation>مرحبًا بك في QField. هل هذه أول مرة تستخدم هذا التطبيق؟ جرب عينة من المشاريع المُدرجة في القائمة أدناه.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3434,11 +3434,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">تم تفعيل التموضع</translation>
+        <translation>تم تفعيل التموضع</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">تم إطفاء التموضع</translation>
+        <translation>تم إطفاء التموضع</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3466,7 +3466,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">جار الطباعة إلى ملف PDF</translation>
+        <translation>جار الطباعة إلى ملف PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3478,7 +3478,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">فتح مشورع</translation>
+        <translation>فتح مشورع</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3494,7 +3494,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">تحديد القالب من الأسفل</translation>
+        <translation>تحديد القالب من الأسفل</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3518,7 +3518,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">إضافة علامة مرجعية عند الإحداثيات</translation>
+        <translation>إضافة علامة مرجعية عند الإحداثيات</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3526,7 +3526,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">ضبط الإحداثيات كوجهة</translation>
+        <translation>ضبط الإحداثيات كوجهة</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3534,11 +3534,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3550,27 +3550,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">الدقة 0.25 م</translation>
+        <translation>الدقة 0.25 م</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">الدقة 0.5 م</translation>
+        <translation>الدقة 0.5 م</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">الدقة 1 م</translation>
+        <translation>الدقة 1 م</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">الدقة 2.5 م</translation>
+        <translation>الدقة 2.5 م</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">الدقة 5 م</translation>
+        <translation>الدقة 5 م</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">الدقة 10 م</translation>
+        <translation>الدقة 10 م</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3598,7 +3598,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">ضبط كوجهة</translation>
+        <translation>ضبط كوجهة</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3634,11 +3634,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">التوسيط إلى الموقع الحالي</translation>
+        <translation>التوسيط إلى الموقع الحالي</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">إضافة علامة مرجيعة عند الموقع الحالي</translation>
+        <translation>إضافة علامة مرجيعة عند الموقع الحالي</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3650,7 +3650,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">نسخ الموقع الحالي</translation>
+        <translation>نسخ الموقع الحالي</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3678,7 +3678,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">تم تسجيل الخروج</translation>
+        <translation>تم تسجيل الخروج</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3686,7 +3686,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">تم تسجيل الدخول</translation>
+        <translation>تم تسجيل الدخول</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>

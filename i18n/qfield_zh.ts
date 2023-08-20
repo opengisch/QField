@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">使用中的定位设备：</translation>
+        <translation>使用中的定位设备：</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">扫描</translation>
+        <translation>扫描</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">已连接%1</translation>
+        <translation>已连接%1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">连接至%1</translation>
+        <translation>连接至%1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">连接至%1</translation>
+        <translation>连接至%1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">正在连接%1</translation>
+        <translation>正在连接%1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">使用设备的垂直海拔</translation>
+        <translation>使用设备的垂直海拔</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">不可用</translation>
+        <translation>不可用</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">内部设备</translation>
+        <translation>内部设备</translation>
     </message>
 </context>
 <context>
@@ -233,31 +233,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">未找到远程主机</translation>
+        <translation>未找到远程主机</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">在远程主机上未找到服务UUID</translation>
+        <translation>在远程主机上未找到服务UUID</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">尝试从Socket读取或写入时返回错误</translation>
+        <translation>尝试从Socket读取或写入时返回错误</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">此平台不支持该协议</translation>
+        <translation>此平台不支持该协议</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">当Socket处于不允许的状态时尝试了操作</translation>
+        <translation>当Socket处于不允许的状态时尝试了操作</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">远程主机已关闭连接</translation>
+        <translation>远程主机已关闭连接</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">未知错误</translation>
+        <translation>未知错误</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">经度</translation>
+        <translation>经度</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">纬度</translation>
+        <translation>纬度</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">时</translation>
+        <translation>时</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">分</translation>
+        <translation>分</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">秒</translation>
+        <translation>秒</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">放弃最后的修改</translation>
+        <translation>放弃最后的修改</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -742,7 +742,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">将要素设为导航</translation>
+        <translation>将要素设为导航</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -814,15 +814,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">转到 %1 %2 (地图坐标参照系)</translation>
+        <translation>转到 %1 %2 (地图坐标参照系)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">设置导航点</translation>
+        <translation>设置导航点</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">转到 %1° %2° (WGS84)</translation>
+        <translation>转到 %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -911,7 +911,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">重新加载数据</translation>
+        <translation>重新加载数据</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -931,11 +931,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">只读图层</translation>
+        <translation>只读图层</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">几何图形锁定图层</translation>
+        <translation>几何图形锁定图层</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1004,7 +1004,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">无法在图层 &quot;%1&quot; 中添加新要素。</translation>
+        <translation>无法在图层 &quot;%1&quot; 中添加新要素。</translation>
     </message>
 </context>
 <context>
@@ -1080,18 +1080,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">搜索…</translation>
+        <translation>搜索…</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">搜索设置</translation>
+        <translation>搜索设置</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">触发时不带前缀</translation>
+        <translation>触发时不带前缀</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1220,15 +1220,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">地图集要素正在输出为PDF文件</translation>
+        <translation>地图集要素正在输出为PDF文件</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">地图集要素已成功输出为PDF文件并保存在您的文档文件夹中</translation>
+        <translation>地图集要素已成功输出为PDF文件并保存在您的文档文件夹中</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">地图集要素输出为图像文件</translation>
+        <translation>地图集要素输出为图像文件</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1251,7 +1251,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">纬度</translation>
+        <translation>纬度</translation>
     </message>
     <message>
         <source>X</source>
@@ -1259,11 +1259,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">经度</translation>
+        <translation>经度</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">质心</translation>
+        <translation>质心</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1328,7 +1328,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">放弃最后的修改</translation>
+        <translation>放弃最后的修改</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1339,15 +1339,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">选择媒介文件</translation>
+        <translation>选择媒介文件</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG图片格式 (*.jpg *.jpeg)</translation>
+        <translation>JPEG图片格式 (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">无法将图片保存到图库</translation>
+        <translation>无法将图片保存到图库</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1391,7 +1391,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="vanished">音频文件 (*.mp3 *.aac *.ogg)</translation>
+        <translation>音频文件 (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1410,71 +1410,71 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">纬度</translation>
+        <translation>纬度</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">不可用</translation>
+        <translation>不可用</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">经度</translation>
+        <translation>经度</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">经度</translation>
+        <translation>经度</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">纬度</translation>
+        <translation>纬度</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">海拔</translation>
+        <translation>海拔</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">速度</translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">平面精度</translation>
+        <translation>平面精度</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">高程精度</translation>
+        <translation>高程精度</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">位置精度因子 (PDOP)</translation>
+        <translation>位置精度因子 (PDOP)</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">水平精度因子 (HDOP)</translation>
+        <translation>水平精度因子 (HDOP)</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">垂直精度因子 (VDOP)</translation>
+        <translation>垂直精度因子 (VDOP)</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">有效</translation>
+        <translation>有效</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">修复</translation>
+        <translation>修复</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">高标准</translation>
+        <translation>高标准</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1504,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">蓝牙</translation>
+        <translation>蓝牙</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1675,7 +1675,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">登录失败</translation>
+        <translation>登录失败</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1717,15 +1717,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">退出登录</translation>
+        <translation>退出登录</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">正在登录，请稍候</translation>
+        <translation>正在登录，请稍候</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">登录</translation>
+        <translation>登录</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1740,11 +1740,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">QFieldCloud图层打包存在问题</translation>
+        <translation>QFieldCloud图层打包存在问题</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">QFieldCloud中的某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其数据源。</translation>
+        <translation>QFieldCloud中的某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其数据源。</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1855,7 +1855,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">还原本地云图层中所有已修改的要素。您无法恢复这些修改。</translation>
+        <translation>还原本地云图层中所有已修改的要素。您无法恢复这些修改。</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1903,7 +1903,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>当前正在后台上传%n个附件。</numerusform></translation>
+        <translation><numerusform>当前正在后台上传%n个附件。</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1938,31 +1938,31 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">导出失败</translation>
+        <translation>导出失败</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">打包图层 &apos;%1&apos; 无效：&apos;%2&apos;</translation>
+        <translation>打包图层 &apos;%1&apos; 无效：&apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">无法打开&quot;%1&quot;的临时文件，原因：
+        <translation>无法打开&quot;%1&quot;的临时文件，原因：
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">无法上传存储在&quot;%1&quot;的附件，原因：
+        <translation>无法上传存储在&quot;%1&quot;的附件，原因：
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">下载文件 &quot;%1&quot; 失败，原因：</translation>
+        <translation>下载文件 &quot;%1&quot; 失败，原因：</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">无法写入存储在 &quot;%1&quot; 的下载文件，FS 原因:</translation>
+        <translation>无法写入存储在 &quot;%1&quot; 的下载文件，FS 原因:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2033,7 +2033,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">无法上传存储在`%1`的附件，原因：
+        <translation>无法上传存储在`%1`的附件，原因：
 %2</translation>
     </message>
     <message>
@@ -2319,7 +2319,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">如果启用，屏幕亮度将在休止状态 20 秒后变暗，以节省电池的电量。</translation>
+        <translation>如果启用，屏幕亮度将在休止状态 20 秒后变暗，以节省电池的电量。</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2375,36 +2375,36 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">正在扫描配对设备</translation>
+        <translation>正在扫描配对设备</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">扫描失败：%1</translation>
+        <translation>扫描失败：%1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">完成扫描</translation>
+        <translation>完成扫描</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>找到%n个设备</numerusform></translation>
+        <translation><numerusform>找到%n个设备</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">扫描已取消</translation>
+        <translation>扫描已取消</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">扫描</translation>
+        <translation>扫描</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">进行全方位服务探索</translation>
+        <translation>进行全方位服务探索</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">全方位设备扫描可能需要更长时间，您真的想这样做吗？
+        <translation>全方位设备扫描可能需要更长时间，您真的想这样做吗？
 取消，进行最少设备扫描。</translation>
     </message>
     <message>
@@ -2413,7 +2413,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">连接%1</translation>
+        <translation>连接%1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2473,7 +2473,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">通过定位设备记录的Z值进行校正。如果输入的值为1.6，则每个记录值修正为-1.6。</translation>
+        <translation>通过定位设备记录的Z值进行校正。如果输入的值为1.6，则每个记录值修正为-1.6。</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2771,7 +2771,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">加载字体 %1</translation>
+        <translation>加载字体 %1</translation>
     </message>
 </context>
 <context>
@@ -2832,7 +2832,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">不支持地图画布旋转，正在从%1重置为0。</translation>
+        <translation>不支持地图画布旋转，正在从%1重置为0。</translation>
     </message>
 </context>
 <context>
@@ -2936,7 +2936,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">正在准备QField，请稍等</translation>
+        <translation>正在准备QField，请稍等</translation>
     </message>
 </context>
 <context>
@@ -2978,7 +2978,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">远程主机拒绝连接</translation>
+        <translation>远程主机拒绝连接</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3043,11 +3043,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">当同时激活两个约束时开始记录</translation>
+        <translation>当同时激活两个约束时开始记录</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">启用后，只有在同时激活两个约束时才会记录顶点；如果禁用，满足单个约束将触发增加顶点。</translation>
+        <translation>启用后，只有在同时激活两个约束时才会记录顶点；如果禁用，满足单个约束将触发增加顶点。</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3055,11 +3055,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">无法通过空值启动跟踪</translation>
+        <translation>无法通过空值启动跟踪</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">当两个约束都被禁用时，顶点添加的频率将与定位设备提供的频率相同。</translation>
+        <translation>当两个约束都被禁用时，顶点添加的频率将与定位设备提供的频率相同。</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3165,7 +3165,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">远程主机拒绝连接</translation>
+        <translation>远程主机拒绝连接</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3254,11 +3254,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">底图工程文件</translation>
+        <translation>底图工程文件</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">底图工程文件</translation>
+        <translation>底图工程文件</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3266,7 +3266,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">欢迎使用QField！是第一次使用本应用吗？试试下方文件列表的一些示例工程吧。</translation>
+        <translation>欢迎使用QField！是第一次使用本应用吗？试试下方文件列表的一些示例工程吧。</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3436,11 +3436,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">定位功能已激活</translation>
+        <translation>定位功能已激活</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">关闭定位功能</translation>
+        <translation>关闭定位功能</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3468,7 +3468,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">输出为PDF文件</translation>
+        <translation>输出为PDF文件</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3480,7 +3480,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">打开工程</translation>
+        <translation>打开工程</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3496,7 +3496,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">请选择模板</translation>
+        <translation>请选择模板</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3520,7 +3520,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">在坐标处添加书签</translation>
+        <translation>在坐标处添加书签</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3528,7 +3528,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">将坐标设为目标</translation>
+        <translation>将坐标设为目标</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3536,11 +3536,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3552,27 +3552,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0.25米精度</translation>
+        <translation>0.25米精度</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0.5米精度</translation>
+        <translation>0.5米精度</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1米精度</translation>
+        <translation>1米精度</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2.5米精度</translation>
+        <translation>2.5米精度</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5米精度</translation>
+        <translation>5米精度</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10米精度</translation>
+        <translation>10米精度</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3600,7 +3600,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">设为目标</translation>
+        <translation>设为目标</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3636,11 +3636,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">居中当前位置</translation>
+        <translation>居中当前位置</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">在当前位置添加书签</translation>
+        <translation>在当前位置添加书签</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3652,7 +3652,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">复制当前位置</translation>
+        <translation>复制当前位置</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3680,7 +3680,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">已注销</translation>
+        <translation>已注销</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3688,7 +3688,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">已登录</translation>
+        <translation>已登录</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3712,7 +3712,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">定位错误: %1</translation>
+        <translation>定位错误: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3724,7 +3724,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="vanished">输出为图像</translation>
+        <translation>输出为图像</translation>
     </message>
     <message>
         <source>Printing...</source>

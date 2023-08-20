@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Használt helymeghatározó eszköz:</translation>
+        <translation>Használt helymeghatározó eszköz:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Keres</translation>
+        <translation>Keres</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Csatlakoztatva ide %1</translation>
+        <translation>Csatlakoztatva ide %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">Csatlakozás ide %1</translation>
+        <translation>Csatlakozás ide %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Csatlakozás ide %1</translation>
+        <translation>Csatlakozás ide %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Csatlakozom ide %1</translation>
+        <translation>Csatlakozom ide %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Ortometrikus magasság használata az eszközből</translation>
+        <translation>Ortometrikus magasság használata az eszközből</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Belső eszköz</translation>
+        <translation>Belső eszköz</translation>
     </message>
 </context>
 <context>
@@ -233,31 +233,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">Nem tudok kapcsolódni a távoli géphez</translation>
+        <translation>Nem tudok kapcsolódni a távoli géphez</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">Nem találom a távoli gépen az UUID szolgáltatást</translation>
+        <translation>Nem találom a távoli gépen az UUID szolgáltatást</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">Az olvasási, vagy írási kísérlet a csatornán hibát jelez</translation>
+        <translation>Az olvasási, vagy írási kísérlet a csatornán hibát jelez</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">A protokoll nem támogatott ezen a platformon</translation>
+        <translation>A protokoll nem támogatott ezen a platformon</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">A művelet végrehajtási kísérletét a csatorna állapota meghiúsította.</translation>
+        <translation>A művelet végrehajtási kísérletét a csatorna állapota meghiúsította.</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">A távoli gép bontotta a kapcsolatot</translation>
+        <translation>A távoli gép bontotta a kapcsolatot</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">Ismeretlen hiba</translation>
+        <translation>Ismeretlen hiba</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Óra</translation>
+        <translation>Óra</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Perc</translation>
+        <translation>Perc</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Másodperc</translation>
+        <translation>Másodperc</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Legutolsó módosításokat eldobtam</translation>
+        <translation>Legutolsó módosításokat eldobtam</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -743,7 +743,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Elemhez navigálás beállítása</translation>
+        <translation>Elemhez navigálás beállítása</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -815,15 +815,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Ugrás %1 %2 (térkép vetület)</translation>
+        <translation>Ugrás %1 %2 (térkép vetület)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Állítsa be a navigációs pontot.</translation>
+        <translation>Állítsa be a navigációs pontot.</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Ugrás %1° %2° (WGS84)</translation>
+        <translation>Ugrás %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -912,7 +912,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Adatok újra betöltése</translation>
+        <translation>Adatok újra betöltése</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -932,11 +932,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Csak olvasható réteg</translation>
+        <translation>Csak olvasható réteg</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Zárolt geometriájú réteg</translation>
+        <translation>Zárolt geometriájú réteg</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1005,7 +1005,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Nem tudok új elemet hozzáadni &quot;%1&quot; réteghez.</translation>
+        <translation>Nem tudok új elemet hozzáadni &quot;%1&quot; réteghez.</translation>
     </message>
 </context>
 <context>
@@ -1081,18 +1081,18 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Keresés...</translation>
+        <translation>Keresés...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Keresési beállítások</translation>
+        <translation>Keresési beállítások</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Trigger prefix nélkül.</translation>
+        <translation>Trigger prefix nélkül.</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1221,15 +1221,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Atlasz elem(ek) nyomtatása PDF fájlba folyamatban</translation>
+        <translation>Atlasz elem(ek) nyomtatása PDF fájlba folyamatban</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Atlasz elem(ek) nyomtatása PDF fájlba sikeres volt, a dokumentumok között található.</translation>
+        <translation>Atlasz elem(ek) nyomtatása PDF fájlba sikeres volt, a dokumentumok között található.</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Atlasz elem(ek) nyomtatása képfájlba</translation>
+        <translation>Atlasz elem(ek) nyomtatása képfájlba</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1252,7 +1252,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1260,11 +1260,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation>Lon.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">centrális</translation>
+        <translation>centrális</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1329,7 +1329,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Legutolsó módosításokat eldobtam</translation>
+        <translation>Legutolsó módosításokat eldobtam</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1340,15 +1340,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Válasszon média fájlt</translation>
+        <translation>Válasszon média fájlt</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG képek (*.jpg *.jpeg)</translation>
+        <translation>JPEG képek (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Nem sikerült a képet a galériába menteni</translation>
+        <translation>Nem sikerült a képet a galériába menteni</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1411,71 +1411,71 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation>Lon.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Magasság</translation>
+        <translation>Magasság</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Sebesség</translation>
+        <translation>Sebesség</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">Hz. pontosság</translation>
+        <translation>Hz. pontosság</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">V. pontosság</translation>
+        <translation>V. pontosság</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Hibátlan</translation>
+        <translation>Hibátlan</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Fix</translation>
+        <translation>Fix</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Minőség</translation>
+        <translation>Minőség</translation>
     </message>
 </context>
 <context>
@@ -1675,7 +1675,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Sikertelen bejelentkezés</translation>
+        <translation>Sikertelen bejelentkezés</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1717,15 +1717,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Kijelentkezés</translation>
+        <translation>Kijelentkezés</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Bejelentkezés, kérem várjon</translation>
+        <translation>Bejelentkezés, kérem várjon</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Bejelentkezés</translation>
+        <translation>Bejelentkezés</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1740,11 +1740,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Problémás QField réteg becsomagolás</translation>
+        <translation>Problémás QField réteg becsomagolás</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Néhány réteget helytelenül csomagoltak be a QFieldCloud-on. Ezen a rétegek konfigurációja hibás lehet vagy az adatforrásai nem érhetők el a QFieldCloud szerverről.</translation>
+        <translation>Néhány réteget helytelenül csomagoltak be a QFieldCloud-on. Ezen a rétegek konfigurációja hibás lehet vagy az adatforrásai nem érhetők el a QFieldCloud szerverről.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1855,7 +1855,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Minden módosított elem visszaállítása a helyi felhő rétegeken. Nem tudja visszaállítani azokat a módosításokat.</translation>
+        <translation>Minden módosított elem visszaállítása a helyi felhő rétegeken. Nem tudja visszaállítani azokat a módosításokat.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1901,7 +1901,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform></translation>
+        <translation><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1936,30 +1936,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Sikertelen export</translation>
+        <translation>Sikertelen export</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">&apos;%1&apos;  becsomagolt réteg hibás: &apos;%2&apos;</translation>
+        <translation>&apos;%1&apos;  becsomagolt réteg hibás: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Nem sikerült megnyitni a &quot;%1&quot;  ideiglenes fájlt, ok:
+        <translation>Nem sikerült megnyitni a &quot;%1&quot;  ideiglenes fájlt, ok:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Nem sikerült feltölteni a &quot;%1&quot; címen tárolt mellékletet, oka:%2</translation>
+        <translation>Nem sikerült feltölteni a &quot;%1&quot; címen tárolt mellékletet, oka:%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Nem sikerült a &quot;%1&quot; fájlt letölteni, ok:</translation>
+        <translation>Nem sikerült a &quot;%1&quot; fájlt letölteni, ok:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nem sikerült az írás a letöltött fájlba, amely a következő helyen található: &quot;%1&quot;, fs oka:</translation>
+        <translation>Nem sikerült az írás a letöltött fájlba, amely a következő helyen található: &quot;%1&quot;, fs oka:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2030,7 +2030,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
+        <translation>Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -2315,7 +2315,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">Ha engedélyezve van, a képernyő fényereje 20 másodperces inaktivitás után halványodik az akkumulátor kímélése érdekében.</translation>
+        <translation>Ha engedélyezve van, a képernyő fényereje 20 másodperces inaktivitás után halványodik az akkumulátor kímélése érdekében.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2371,36 +2371,36 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Párosított eszközök keresése</translation>
+        <translation>Párosított eszközök keresése</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Sikertelem keresés: %1</translation>
+        <translation>Sikertelem keresés: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Keresést befejeztem</translation>
+        <translation>Keresést befejeztem</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n eszközt találtam</numerusform><numerusform>%n eszközt találtam</numerusform></translation>
+        <translation><numerusform>%n eszközt találtam</numerusform><numerusform>%n eszközt találtam</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Keresés megszakítva</translation>
+        <translation>Keresés megszakítva</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Keres</translation>
+        <translation>Keres</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Teljes körű szolgáltatás felfedezés</translation>
+        <translation>Teljes körű szolgáltatás felfedezés</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Egy teljes keresés tovább tarthat.Valóban ezt akarja?
+        <translation>Egy teljes keresés tovább tarthat.Valóban ezt akarja?
  Szakítsa meg a minimális eszközkereséshez.</translation>
     </message>
     <message>
@@ -2409,7 +2409,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Csatlakozás ide %1</translation>
+        <translation>Csatlakozás ide %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2469,7 +2469,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">A pozicionáló eszköz által rögzített Z értékek ezzel az értékkel korrigálásra kerülnek. Ha 1,6-os értéket adunk meg, akkor minden rögzített értéknél -1,6-os korrekciót eredményez.</translation>
+        <translation>A pozicionáló eszköz által rögzített Z értékek ezzel az értékkel korrigálásra kerülnek. Ha 1,6-os értéket adunk meg, akkor minden rögzített értéknél -1,6-os korrekciót eredményez.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2767,7 +2767,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">%1 betűkészlet betöltése</translation>
+        <translation>%1 betűkészlet betöltése</translation>
     </message>
 </context>
 <context>
@@ -2828,7 +2828,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">A térképvászon forgatás nem támogatott. %1-ről visszaállítottam 0-ra.</translation>
+        <translation>A térképvászon forgatás nem támogatott. %1-ről visszaállítottam 0-ra.</translation>
     </message>
 </context>
 <context>
@@ -2932,7 +2932,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">QField előkészítése, ezt egy egyszeri művelet, mely több időbe telhet</translation>
+        <translation>QField előkészítése, ezt egy egyszeri művelet, mely több időbe telhet</translation>
     </message>
 </context>
 <context>
@@ -3039,11 +3039,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Rögzítse, ha mindkét aktív korlátozás teljesül</translation>
+        <translation>Rögzítse, ha mindkét aktív korlátozás teljesül</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Ha engedélyezve van, a csúcsok csak akkor rögzíthetők, ha mindkét aktív korlátozás teljesül. Ha nincs engedélyezve, már egy korlátozás teljesítése csúcsösszeadást vált ki.</translation>
+        <translation>Ha engedélyezve van, a csúcsok csak akkor rögzíthetők, ha mindkét aktív korlátozás teljesül. Ha nincs engedélyezve, már egy korlátozás teljesítése csúcsösszeadást vált ki.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3051,11 +3051,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Üres értékekkel nem lehet elkezdeni a követést</translation>
+        <translation>Üres értékekkel nem lehet elkezdeni a követést</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Ha mindkét megszorítás le van tiltva, a töréspont hozzáadás olyan gyakran történik, ahogy az eszköz pozíciót küld.</translation>
+        <translation>Ha mindkét megszorítás le van tiltva, a töréspont hozzáadás olyan gyakran történik, ahogy az eszköz pozíciót küld.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3250,11 +3250,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Alaptérkép projekt</translation>
+        <translation>Alaptérkép projekt</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Alaptérkép projekt</translation>
+        <translation>Alaptérkép projekt</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3262,7 +3262,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Üdvözli a QField. Először használja ezt az alkalmazást? Próbálja ki az alábbi listában  szreplő mintaprojekteket.</translation>
+        <translation>Üdvözli a QField. Először használja ezt az alkalmazást? Próbálja ki az alábbi listában  szreplő mintaprojekteket.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3432,11 +3432,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">A helymeghatározás bekapcsolva</translation>
+        <translation>A helymeghatározás bekapcsolva</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">A helymeghatározás kikapcsolva</translation>
+        <translation>A helymeghatározás kikapcsolva</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3464,7 +3464,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Nyomtatás PDF-be</translation>
+        <translation>Nyomtatás PDF-be</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3476,7 +3476,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Projekt megnyitása</translation>
+        <translation>Projekt megnyitása</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3492,7 +3492,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Válasszon sablont lent</translation>
+        <translation>Válasszon sablont lent</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3516,7 +3516,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Könyvjelző hozzáadása a Koordinátákhoz</translation>
+        <translation>Könyvjelző hozzáadása a Koordinátákhoz</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3524,7 +3524,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Állítsa be a koordinátákat célként</translation>
+        <translation>Állítsa be a koordinátákat célként</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3532,11 +3532,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3548,27 +3548,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0.25m pontosság</translation>
+        <translation>0.25m pontosság</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0.5m pontosság</translation>
+        <translation>0.5m pontosság</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1m pontosság</translation>
+        <translation>1m pontosság</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2.5m pontosság</translation>
+        <translation>2.5m pontosság</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5m pontosság</translation>
+        <translation>5m pontosság</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10m pontosság</translation>
+        <translation>10m pontosság</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3596,7 +3596,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Beállítás célként</translation>
+        <translation>Beállítás célként</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3632,11 +3632,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Aktuális pozíció középre</translation>
+        <translation>Aktuális pozíció középre</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Könyvjelző hozzáadása az aktuális helyhez</translation>
+        <translation>Könyvjelző hozzáadása az aktuális helyhez</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3648,7 +3648,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">Jelenlegi hely másolása</translation>
+        <translation>Jelenlegi hely másolása</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3676,7 +3676,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Kijelentkezett</translation>
+        <translation>Kijelentkezett</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3684,7 +3684,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Bejelentkezett</translation>
+        <translation>Bejelentkezett</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>

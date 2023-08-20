@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">使用中の測位デバイス:</translation>
+        <translation>使用中の測位デバイス:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">スキャン</translation>
+        <translation>スキャン</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">%1 に接続しました</translation>
+        <translation>%1 に接続しました</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">%1に接続する</translation>
+        <translation>%1に接続する</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">%1 に接続する</translation>
+        <translation>%1 に接続する</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">%1 に接続しています</translation>
+        <translation>%1 に接続しています</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">デバイスから取得したオルソメトリック高度を使う</translation>
+        <translation>デバイスから取得したオルソメトリック高度を使う</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">内蔵デバイス</translation>
+        <translation>内蔵デバイス</translation>
     </message>
 </context>
 <context>
@@ -233,31 +233,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">リモートホストが見つかりません</translation>
+        <translation>リモートホストが見つかりません</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">リモートホストでサービスの UUID が見つかりませんでした。</translation>
+        <translation>リモートホストでサービスの UUID が見つかりませんでした。</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">ソケットから読み書きしようとするとエラーが返されました</translation>
+        <translation>ソケットから読み書きしようとするとエラーが返されました</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">このプロトコルはこのプラットフォームではサポートされていません。</translation>
+        <translation>このプロトコルはこのプラットフォームではサポートされていません。</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">ソケットが許可されていない状態で操作が行われました</translation>
+        <translation>ソケットが許可されていない状態で操作が行われました</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">リモートホストが接続を閉じました</translation>
+        <translation>リモートホストが接続を閉じました</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">不明なエラー</translation>
+        <translation>不明なエラー</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">経度</translation>
+        <translation>経度</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">緯度</translation>
+        <translation>緯度</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">時間</translation>
+        <translation>時間</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">分</translation>
+        <translation>分</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">秒</translation>
+        <translation>秒</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">最後に行った変更は破棄されました</translation>
+        <translation>最後に行った変更は破棄されました</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -742,7 +742,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">地物をナビゲーションに設定</translation>
+        <translation>地物をナビゲーションに設定</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -814,15 +814,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">%1 %2 (地図のCRS)にいく</translation>
+        <translation>%1 %2 (地図のCRS)にいく</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">ナビゲーションポイントを設定</translation>
+        <translation>ナビゲーションポイントを設定</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">%1° %2° (WGS84)にいく</translation>
+        <translation>%1° %2° (WGS84)にいく</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -911,7 +911,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">データを再読み込み</translation>
+        <translation>データを再読み込み</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -931,11 +931,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">読み取り専用レイヤ</translation>
+        <translation>読み取り専用レイヤ</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">ジオメトリロックされたレイヤ</translation>
+        <translation>ジオメトリロックされたレイヤ</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1004,7 +1004,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">レイヤ&quot;%1&quot;に新しい地物を追加できません。</translation>
+        <translation>レイヤ&quot;%1&quot;に新しい地物を追加できません。</translation>
     </message>
 </context>
 <context>
@@ -1080,18 +1080,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">検索しています…</translation>
+        <translation>検索しています…</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">検索の設定</translation>
+        <translation>検索の設定</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">接頭辞のないトリガー</translation>
+        <translation>接頭辞のないトリガー</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1220,15 +1220,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">地図帳の地物をPDFに印刷</translation>
+        <translation>地図帳の地物をPDFに印刷</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">地図帳の地物がPDFに印刷され、ドキュメントに保存されました。</translation>
+        <translation>地図帳の地物がPDFに印刷され、ドキュメントに保存されました。</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">地図帳の地物をPDFに印刷</translation>
+        <translation>地図帳の地物をPDFに印刷</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1251,7 +1251,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">緯度</translation>
+        <translation>緯度</translation>
     </message>
     <message>
         <source>X</source>
@@ -1259,11 +1259,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">経度</translation>
+        <translation>経度</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">重心</translation>
+        <translation>重心</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1328,7 +1328,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">最後に行った変更は破棄されました</translation>
+        <translation>最後に行った変更は破棄されました</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1339,15 +1339,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">メディアファイルを選択</translation>
+        <translation>メディアファイルを選択</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG 画像 (*.jpg *.jpeg)</translation>
+        <translation>JPEG 画像 (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">ギャラリー画像を保存できませんでした</translation>
+        <translation>ギャラリー画像を保存できませんでした</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1391,7 +1391,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="vanished">音声ファイル (*.mp3 *.aac *.ogg)</translation>
+        <translation>音声ファイル (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1410,71 +1410,71 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">緯度</translation>
+        <translation>緯度</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">経度</translation>
+        <translation>経度</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">経度</translation>
+        <translation>経度</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">緯度</translation>
+        <translation>緯度</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">高度</translation>
+        <translation>高度</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">スピード</translation>
+        <translation>スピード</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">水平方向の精度</translation>
+        <translation>水平方向の精度</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">垂直方向の精度</translation>
+        <translation>垂直方向の精度</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP（位置精度劣化度）</translation>
+        <translation>PDOP（位置精度劣化度）</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP（水平精度劣化度）</translation>
+        <translation>HDOP（水平精度劣化度）</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP（垂直精度劣化度）</translation>
+        <translation>VDOP（垂直精度劣化度）</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">有効</translation>
+        <translation>有効</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">修正</translation>
+        <translation>修正</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">品質</translation>
+        <translation>品質</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1504,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">Bluetooth</translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1675,7 +1675,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">ログインできませんでした</translation>
+        <translation>ログインできませんでした</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1717,15 +1717,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">ログアウト</translation>
+        <translation>ログアウト</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">ログインしています、お待ちください</translation>
+        <translation>ログインしています、お待ちください</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">ログイン</translation>
+        <translation>ログイン</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1740,11 +1740,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">問題のあるQFieldCloudレイヤーのパッケージング</translation>
+        <translation>問題のあるQFieldCloudレイヤーのパッケージング</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">一部のレイヤーはQFieldCloud上で正しくパッケージ化されていません。これらのレイヤーは、設定が間違っているか、データソースがQFieldCloudサーバーからアクセスできない可能性があります。</translation>
+        <translation>一部のレイヤーはQFieldCloud上で正しくパッケージ化されていません。これらのレイヤーは、設定が間違っているか、データソースがQFieldCloudサーバーからアクセスできない可能性があります。</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1855,7 +1855,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">ローカルのクラウドレイヤーの変更した地物をすべて元に戻します。それらの変更をリストアすることはできません。</translation>
+        <translation>ローカルのクラウドレイヤーの変更した地物をすべて元に戻します。それらの変更をリストアすることはできません。</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1903,7 +1903,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n 個の添付ファイルがバックグラウンドでアップロードされています。</numerusform></translation>
+        <translation><numerusform>%n 個の添付ファイルがバックグラウンドでアップロードされています。</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1938,31 +1938,31 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">エクスポートに失敗しました</translation>
+        <translation>エクスポートに失敗しました</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">パッケージされている &apos;%1&apos; は無効なレイヤです: &apos;%2&apos;</translation>
+        <translation>パッケージされている &apos;%1&apos; は無効なレイヤです: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">&quot;%1&quot; の一時ファイルを開くのに失敗しました。理由:
+        <translation>&quot;%1&quot; の一時ファイルを開くのに失敗しました。理由:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">&quot;%1&quot; に保存されている添付ファイルのアップロードに失敗しました。理由:
+        <translation>&quot;%1&quot; に保存されている添付ファイルのアップロードに失敗しました。理由:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">&quot;%1&quot; ファイルのダウンロードに失敗しました。理由:</translation>
+        <translation>&quot;%1&quot; ファイルのダウンロードに失敗しました。理由:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">&quot;%1&quot; に保存されているダウンロードしたファイルの書き込みに失敗しました。理由:</translation>
+        <translation>&quot;%1&quot; に保存されているダウンロードしたファイルの書き込みに失敗しました。理由:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2033,7 +2033,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
+        <translation>%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
 %2</translation>
     </message>
     <message>
@@ -2319,7 +2319,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">この機能を有効にすると、バッテリーを節約するために、20秒間操作しないと画面の明るさが低下します。</translation>
+        <translation>この機能を有効にすると、バッテリーを節約するために、20秒間操作しないと画面の明るさが低下します。</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2375,36 +2375,36 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">ペアリングされたデバイスをスキャンしています</translation>
+        <translation>ペアリングされたデバイスをスキャンしています</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">スキャンに失敗しました: %1</translation>
+        <translation>スキャンに失敗しました: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">スキャン完了</translation>
+        <translation>スキャン完了</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n つのデバイスが見つかりました</numerusform></translation>
+        <translation><numerusform>%n つのデバイスが見つかりました</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">スキャンがキャンセルされました。</translation>
+        <translation>スキャンがキャンセルされました。</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">スキャン</translation>
+        <translation>スキャン</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">フルサービス検出をする</translation>
+        <translation>フルサービス検出をする</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
+        <translation>デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
 キャンセルして代わりにミニマムなデバイススキャンを行います。</translation>
     </message>
     <message>
@@ -2413,7 +2413,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">%1 に接続する</translation>
+        <translation>%1 に接続する</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2473,7 +2473,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">GNSS受信機から取得したZ値はこの数値によって補正されます。もし1.6という数値が入力された場合、各レコードの値から-1.6m補正されたものが保持されます。</translation>
+        <translation>GNSS受信機から取得したZ値はこの数値によって補正されます。もし1.6という数値が入力された場合、各レコードの値から-1.6m補正されたものが保持されます。</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2771,7 +2771,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">フォント %1 をロードしています</translation>
+        <translation>フォント %1 をロードしています</translation>
     </message>
 </context>
 <context>
@@ -2832,7 +2832,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">マップキャンバスの回転はサポートされていません。 ％1から0にリセットします。</translation>
+        <translation>マップキャンバスの回転はサポートされていません。 ％1から0にリセットします。</translation>
     </message>
 </context>
 <context>
@@ -2936,7 +2936,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">QFieldを順しています。これは一回限りの操作で少し時間がかかる場合があります。</translation>
+        <translation>QFieldを順しています。これは一回限りの操作で少し時間がかかる場合があります。</translation>
     </message>
 </context>
 <context>
@@ -2978,7 +2978,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">リモートホストによって接続が拒否されました</translation>
+        <translation>リモートホストによって接続が拒否されました</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3043,11 +3043,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">両方の制約を満たした場合に記録する</translation>
+        <translation>両方の制約を満たした場合に記録する</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">有効にすると、両方の制約を満たしたときにのみ頂点が記録されます。この設定を無効にすると、個々の制約が満たされたときに頂点の追加が行われます。</translation>
+        <translation>有効にすると、両方の制約を満たしたときにのみ頂点が記録されます。この設定を無効にすると、個々の制約が満たされたときに頂点の追加が行われます。</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3055,11 +3055,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">値が未設定のため追跡を開始できません</translation>
+        <translation>値が未設定のため追跡を開始できません</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">両方の制約を無効にした場合、頂点の追加は衛星受信機から配信される頻度と同じに行われます。</translation>
+        <translation>両方の制約を無効にした場合、頂点の追加は衛星受信機から配信される頻度と同じに行われます。</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3165,7 +3165,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">リモートホストによって接続が拒否されました</translation>
+        <translation>リモートホストによって接続が拒否されました</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3254,11 +3254,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">ベースマッププロジェクト</translation>
+        <translation>ベースマッププロジェクト</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">ベースマッププロジェクト</translation>
+        <translation>ベースマッププロジェクト</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3266,7 +3266,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">QFieldにようこそ。初めてこのアプリをご使用になりますか？どうぞ下のリストにあるサンプルプロジェクトをお試しください。</translation>
+        <translation>QFieldにようこそ。初めてこのアプリをご使用になりますか？どうぞ下のリストにあるサンプルプロジェクトをお試しください。</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3436,11 +3436,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">現在位置表示機能が有効になりました</translation>
+        <translation>現在位置表示機能が有効になりました</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">現在位置表示機能が無効になりました</translation>
+        <translation>現在位置表示機能が無効になりました</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3468,7 +3468,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">PDFに印刷しています</translation>
+        <translation>PDFに印刷しています</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3480,7 +3480,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">プロジェクトを開く</translation>
+        <translation>プロジェクトを開く</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3496,7 +3496,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">下のテンプレートを選択</translation>
+        <translation>下のテンプレートを選択</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3520,7 +3520,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">座標でブックマークを追加</translation>
+        <translation>座標でブックマークを追加</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3528,7 +3528,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">目的地として座標を設定</translation>
+        <translation>目的地として座標を設定</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3536,11 +3536,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3552,27 +3552,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0.25m精度</translation>
+        <translation>0.25m精度</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0.5m精度</translation>
+        <translation>0.5m精度</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1m精度</translation>
+        <translation>1m精度</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2.5m精度</translation>
+        <translation>2.5m精度</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5m精度</translation>
+        <translation>5m精度</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10m精度</translation>
+        <translation>10m精度</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3600,7 +3600,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">目的地として設定</translation>
+        <translation>目的地として設定</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3636,11 +3636,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">現在位置を中央に表示</translation>
+        <translation>現在位置を中央に表示</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">現在位置でブックマークを追加</translation>
+        <translation>現在位置でブックマークを追加</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3652,7 +3652,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">現在位置をコピー</translation>
+        <translation>現在位置をコピー</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3680,7 +3680,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">ログアウトしました</translation>
+        <translation>ログアウトしました</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3688,7 +3688,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">ログインしました</translation>
+        <translation>ログインしました</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3712,7 +3712,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">測位エラー: %1</translation>
+        <translation>測位エラー: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3724,7 +3724,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="vanished">画像に印刷する</translation>
+        <translation>画像に印刷する</translation>
     </message>
     <message>
         <source>Printing...</source>
