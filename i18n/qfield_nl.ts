@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Positionerings apparaat in gebruik:</translation>
+        <translation>Positionerings apparaat in gebruik:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Scan</translation>
+        <translation>Scan</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Verbonden met %1</translation>
+        <translation>Verbonden met %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">Verbind met %1</translation>
+        <translation>Verbind met %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Verbinden met %1</translation>
+        <translation>Verbinden met %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Aan het verbinden met %1</translation>
+        <translation>Aan het verbinden met %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Orthometrische hoogte van apparaat gebruiken</translation>
+        <translation>Orthometrische hoogte van apparaat gebruiken</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/B</translation>
+        <translation>N/B</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Intern apparaat</translation>
+        <translation>Intern apparaat</translation>
     </message>
 </context>
 <context>
@@ -233,7 +233,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">Remote host niet gevonden</translation>
+        <translation>Remote host niet gevonden</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
@@ -245,7 +245,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">Het protocol wordt op dit platform niet ondersteund</translation>
+        <translation>Het protocol wordt op dit platform niet ondersteund</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -257,7 +257,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">Onbekende fout</translation>
+        <translation>Onbekende fout</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Uren</translation>
+        <translation>Uren</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Minuten</translation>
+        <translation>Minuten</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Seconden</translation>
+        <translation>Seconden</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Laatste wijzigingen genegeerd</translation>
+        <translation>Laatste wijzigingen genegeerd</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -744,7 +744,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Object instellen als navigatie</translation>
+        <translation>Object instellen als navigatie</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -816,15 +816,15 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Ga naar %1 %2 (Kaart CRS)</translation>
+        <translation>Ga naar %1 %2 (Kaart CRS)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Navigatiepunt instellen</translation>
+        <translation>Navigatiepunt instellen</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Ga naar %1° %2° (WGS84)</translation>
+        <translation>Ga naar %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -913,7 +913,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Herladen data</translation>
+        <translation>Herladen data</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -933,11 +933,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Alleen lezen Laag</translation>
+        <translation>Alleen lezen Laag</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Geometrie vergrendelde laag</translation>
+        <translation>Geometrie vergrendelde laag</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1006,7 +1006,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Kan geen nieuw object toevoegen aan laag &quot;%1&quot;.</translation>
+        <translation>Kan geen nieuw object toevoegen aan laag &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1082,14 +1082,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Zoek...</translation>
+        <translation>Zoek...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Zoek instellingen</translation>
+        <translation>Zoek instellingen</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
@@ -1222,11 +1222,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Atlas-object(en) printen naar PDF</translation>
+        <translation>Atlas-object(en) printen naar PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Atlas-object(en) succesvol geprint naar PDF en in uw documenten geplaatst</translation>
+        <translation>Atlas-object(en) succesvol geprint naar PDF en in uw documenten geplaatst</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
@@ -1253,7 +1253,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1261,11 +1261,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation>Lon.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">centroïde</translation>
+        <translation>centroïde</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1330,7 +1330,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Laatste wijzigingen genegeerd</translation>
+        <translation>Laatste wijzigingen genegeerd</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1341,15 +1341,15 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Selecteer mediabestand</translation>
+        <translation>Selecteer mediabestand</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG afbeeldingen (*.jpg *.jpeg)</translation>
+        <translation>JPEG afbeeldingen (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Kan galerijafbeelding niet opslaan</translation>
+        <translation>Kan galerijafbeelding niet opslaan</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1393,7 +1393,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="vanished">Geluidsbestanden (*.mp3 *.aac *.ogg)</translation>
+        <translation>Geluidsbestanden (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1412,71 +1412,71 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/B</translation>
+        <translation>N/B</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation>Lon.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Hoogte</translation>
+        <translation>Hoogte</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Snelheid</translation>
+        <translation>Snelheid</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">H. Nauwkeurigheid</translation>
+        <translation>H. Nauwkeurigheid</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">V. Nauwkeurigheid</translation>
+        <translation>V. Nauwkeurigheid</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Geldig</translation>
+        <translation>Geldig</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Vast</translation>
+        <translation>Vast</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Kwaliteit</translation>
+        <translation>Kwaliteit</translation>
     </message>
 </context>
 <context>
@@ -1506,7 +1506,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">Bluetooth</translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1677,7 +1677,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Inloggen mislukt</translation>
+        <translation>Inloggen mislukt</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1719,15 +1719,15 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Uitloggen</translation>
+        <translation>Uitloggen</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Inloggen, even geduld a.u.b.</translation>
+        <translation>Inloggen, even geduld a.u.b.</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Log in</translation>
+        <translation>Log in</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1742,11 +1742,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Problematische inpakken van QFieldCloud-laag</translation>
+        <translation>Problematische inpakken van QFieldCloud-laag</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Sommige lagen zijn niet correct ingepakt op QFieldCloud. Deze lagen kunnen verkeerd zijn geconfigureerd of hun gegevensbron is niet toegankelijk vanaf de QFieldCloud-server.</translation>
+        <translation>Sommige lagen zijn niet correct ingepakt op QFieldCloud. Deze lagen kunnen verkeerd zijn geconfigureerd of hun gegevensbron is niet toegankelijk vanaf de QFieldCloud-server.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1857,7 +1857,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Zet alle gewijzigde objecten in de lokale cloudlagen terug. U kunt die wijzigingen niet herstellen.</translation>
+        <translation>Zet alle gewijzigde objecten in de lokale cloudlagen terug. U kunt die wijzigingen niet herstellen.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1905,7 +1905,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform></translation>
+        <translation><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1940,7 +1940,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Export mislukt</translation>
+        <translation>Export mislukt</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
@@ -1949,22 +1949,22 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Kan tijdelijk bestand voor &quot;%1&quot; niet openen, reden:
+        <translation>Kan tijdelijk bestand voor &quot;%1&quot; niet openen, reden:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &quot;%1&quot;, reden:
+        <translation>Kan bijlage niet uploaden die is opgeslagen op &quot;%1&quot;, reden:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Kan bestand &quot;%1&quot; niet downloaden, reden:</translation>
+        <translation>Kan bestand &quot;%1&quot; niet downloaden, reden:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Kan gedownloade bestand opgeslagen op &quot;%1&quot; niet schrijven, fs reden:</translation>
+        <translation>Kan gedownloade bestand opgeslagen op &quot;%1&quot; niet schrijven, fs reden:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2035,7 +2035,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
+        <translation>Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
 %2</translation>
     </message>
     <message>
@@ -2321,7 +2321,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">Indien ingeschakeld, wordt de helderheid van het scherm gedimd na 20 seconden inactiviteit om de batterij te sparen.</translation>
+        <translation>Indien ingeschakeld, wordt de helderheid van het scherm gedimd na 20 seconden inactiviteit om de batterij te sparen.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2377,36 +2377,36 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Scannen naar gekoppelde apparaten</translation>
+        <translation>Scannen naar gekoppelde apparaten</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Scannen mislukt: %1</translation>
+        <translation>Scannen mislukt: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Scannen gereed</translation>
+        <translation>Scannen gereed</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n apparaat(en) gevonden</numerusform><numerusform>%n apparaat(en) gevonden</numerusform></translation>
+        <translation><numerusform>%n apparaat(en) gevonden</numerusform><numerusform>%n apparaat(en) gevonden</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Scannen geannuleerd</translation>
+        <translation>Scannen geannuleerd</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Scan</translation>
+        <translation>Scan</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Maak een full-service ontdekking</translation>
+        <translation>Maak een full-service ontdekking</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Een volledige apparaatscan kan langer duren. Wil je het echt doen?
+        <translation>Een volledige apparaatscan kan langer duren. Wil je het echt doen?
 Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translation>
     </message>
     <message>
@@ -2415,7 +2415,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Verbinden met %1</translation>
+        <translation>Verbinden met %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2475,7 +2475,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Z-waarden die vanaf het GPS-apparaat worden geregistreerd, worden met deze waarde gecorrigeerd. Als een waarde van 1,6 wordt ingevoerd, resulteert dit in een correctie van -1,6 voor elke geregistreerde waarde.</translation>
+        <translation>Z-waarden die vanaf het GPS-apparaat worden geregistreerd, worden met deze waarde gecorrigeerd. Als een waarde van 1,6 wordt ingevoerd, resulteert dit in een correctie van -1,6 voor elke geregistreerde waarde.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2773,7 +2773,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Lettertype %1 laden</translation>
+        <translation>Lettertype %1 laden</translation>
     </message>
 </context>
 <context>
@@ -2834,7 +2834,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Rotatie van kaartcanvas wordt niet ondersteund. Resetten van %1 naar 0.</translation>
+        <translation>Rotatie van kaartcanvas wordt niet ondersteund. Resetten van %1 naar 0.</translation>
     </message>
 </context>
 <context>
@@ -2938,7 +2938,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">QField voorbereiden, dit is een eenmalige operatie die enige tijd kan duren</translation>
+        <translation>QField voorbereiden, dit is een eenmalige operatie die enige tijd kan duren</translation>
     </message>
 </context>
 <context>
@@ -3045,11 +3045,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Opnemen wanneer aan beide actieve beperkingen is voldaan</translation>
+        <translation>Opnemen wanneer aan beide actieve beperkingen is voldaan</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Indien ingeschakeld, worden knooppunten alleen geregistreerd als aan beide actieve beperkingen is voldaan. Als de instelling is uitgeschakeld, zullen individuele beperkingen waaraan wordt voldaan een knooppunt-toevoeging activeren.</translation>
+        <translation>Indien ingeschakeld, worden knooppunten alleen geregistreerd als aan beide actieve beperkingen is voldaan. Als de instelling is uitgeschakeld, zullen individuele beperkingen waaraan wordt voldaan een knooppunt-toevoeging activeren.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3256,11 +3256,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Basiskaart project</translation>
+        <translation>Basiskaart project</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Basiskaart project</translation>
+        <translation>Basiskaart project</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3268,7 +3268,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Welkom bij QField. Gebruik je deze applicatie voor het eerst? Probeer voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
+        <translation>Welkom bij QField. Gebruik je deze applicatie voor het eerst? Probeer voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3438,11 +3438,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Positionering geactiveerd</translation>
+        <translation>Positionering geactiveerd</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Positionering uit</translation>
+        <translation>Positionering uit</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3470,7 +3470,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Afdrukken naar PDF</translation>
+        <translation>Afdrukken naar PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3482,7 +3482,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Open project</translation>
+        <translation>Open project</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3498,7 +3498,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Selecteer hieronder een sjabloon</translation>
+        <translation>Selecteer hieronder een sjabloon</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3522,7 +3522,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Bladwijzer toevoegen bij Coördinaten</translation>
+        <translation>Bladwijzer toevoegen bij Coördinaten</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3530,7 +3530,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Coördinaten instellen als bestemming</translation>
+        <translation>Coördinaten instellen als bestemming</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3538,11 +3538,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3554,27 +3554,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0.25m Precisie</translation>
+        <translation>0.25m Precisie</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0.5m Precisie</translation>
+        <translation>0.5m Precisie</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1m Precisie</translation>
+        <translation>1m Precisie</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2.5m Precisie</translation>
+        <translation>2.5m Precisie</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5m Precisie</translation>
+        <translation>5m Precisie</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10m Precisie</translation>
+        <translation>10m Precisie</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3602,7 +3602,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Instellen als bestemming</translation>
+        <translation>Instellen als bestemming</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3638,11 +3638,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Centreren op Huidige Locatie</translation>
+        <translation>Centreren op Huidige Locatie</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Bladwijzer toevoegen op huidige locatie</translation>
+        <translation>Bladwijzer toevoegen op huidige locatie</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3654,7 +3654,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">Kopieer huidige locatie</translation>
+        <translation>Kopieer huidige locatie</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3682,7 +3682,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Uitgelogd</translation>
+        <translation>Uitgelogd</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3690,7 +3690,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Ingelogd</translation>
+        <translation>Ingelogd</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>

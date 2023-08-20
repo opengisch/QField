@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Käytettävä paikannuslaite:</translation>
+        <translation>Käytettävä paikannuslaite:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Skannaa</translation>
+        <translation>Skannaa</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Yhdistetty laitteeseen %1</translation>
+        <translation>Yhdistetty laitteeseen %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">Yhdistä %1</translation>
+        <translation>Yhdistä %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Yhdistä laitteeseen %1</translation>
+        <translation>Yhdistä laitteeseen %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Yhdistetään laitteeseen %1</translation>
+        <translation>Yhdistetään laitteeseen %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Käytä laitteen ortometristä korkeutta</translation>
+        <translation>Käytä laitteen ortometristä korkeutta</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Sisäinen laite</translation>
+        <translation>Sisäinen laite</translation>
     </message>
 </context>
 <context>
@@ -233,31 +233,31 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">Isäntälaitetta ei löytynyt</translation>
+        <translation>Isäntälaitetta ei löytynyt</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">Palvelun UUID ei löytynyt isäntälaitteesta</translation>
+        <translation>Palvelun UUID ei löytynyt isäntälaitteesta</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
+        <translation>Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">Protokollaa ei tueta tällä alustalla</translation>
+        <translation>Protokollaa ei tueta tällä alustalla</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">Leikkausta yritettiin, kun socketti oli tilassa, joka ei sallinut sitä</translation>
+        <translation>Leikkausta yritettiin, kun socketti oli tilassa, joka ei sallinut sitä</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">Isäntälaite sulki yhteyden</translation>
+        <translation>Isäntälaite sulki yhteyden</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">Tuntematon virhe</translation>
+        <translation>Tuntematon virhe</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Tunnit</translation>
+        <translation>Tunnit</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Minuutit</translation>
+        <translation>Minuutit</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Sekuntit</translation>
+        <translation>Sekuntit</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Viimeisimmät muutokset hylätty</translation>
+        <translation>Viimeisimmät muutokset hylätty</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -744,7 +744,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Aseta ominaisuus navigoinniksi</translation>
+        <translation>Aseta ominaisuus navigoinniksi</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -816,15 +816,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Mene %1 %2 (kartan koordinaattijärjestelmä)</translation>
+        <translation>Mene %1 %2 (kartan koordinaattijärjestelmä)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Aseta navigointipisteeksi</translation>
+        <translation>Aseta navigointipisteeksi</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Mene %1° %2° (WGS84)</translation>
+        <translation>Mene %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -913,7 +913,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Lataa data uudelleen</translation>
+        <translation>Lataa data uudelleen</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -933,11 +933,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Vain-luku-taso</translation>
+        <translation>Vain-luku-taso</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Lukittu-geometria-taso</translation>
+        <translation>Lukittu-geometria-taso</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1006,7 +1006,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Ei voida lisätä uutta ominaisuutta tasolla  &quot;%1&quot;.</translation>
+        <translation>Ei voida lisätä uutta ominaisuutta tasolla  &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1082,18 +1082,18 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Etsi...</translation>
+        <translation>Etsi...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Hakuasetukset</translation>
+        <translation>Hakuasetukset</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Käynnistä ilman etuliitettä</translation>
+        <translation>Käynnistä ilman etuliitettä</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1222,15 +1222,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Tulostetaan Atlaksen kohde(kohteet) PDF:ksi</translation>
+        <translation>Tulostetaan Atlaksen kohde(kohteet) PDF:ksi</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Atlaksen kohde(kohteet) tulostettu PDF:ksi onnistuneesti ja sijoitettu dokumentteihisi</translation>
+        <translation>Atlaksen kohde(kohteet) tulostettu PDF:ksi onnistuneesti ja sijoitettu dokumentteihisi</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Tulosta Atlas kohde(kohteet) kuvaksi</translation>
+        <translation>Tulosta Atlas kohde(kohteet) kuvaksi</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1253,7 +1253,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lev.</translation>
+        <translation>Lev.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1261,11 +1261,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Pit.</translation>
+        <translation>Pit.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">keskiö</translation>
+        <translation>keskiö</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1330,7 +1330,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Viimeisimmät muutokset hylätty</translation>
+        <translation>Viimeisimmät muutokset hylätty</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1341,15 +1341,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Valitse mediatiedosto</translation>
+        <translation>Valitse mediatiedosto</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG-kuvat (*.jpg *.jpeg)</translation>
+        <translation>JPEG-kuvat (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Galleriakuvan tallennus epäonnistui</translation>
+        <translation>Galleriakuvan tallennus epäonnistui</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1393,7 +1393,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="vanished">Äänitiedostot (*.mp3 *.aac *.ogg)</translation>
+        <translation>Äänitiedostot (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1412,71 +1412,71 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lev.</translation>
+        <translation>Lev.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Pit.</translation>
+        <translation>Pit.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Korkeus</translation>
+        <translation>Korkeus</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Nopeus</translation>
+        <translation>Nopeus</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">H. Tarkkuus</translation>
+        <translation>H. Tarkkuus</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">V. Tarkkuus</translation>
+        <translation>V. Tarkkuus</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Kelvollinen</translation>
+        <translation>Kelvollinen</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Korjaa</translation>
+        <translation>Korjaa</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Laatu</translation>
+        <translation>Laatu</translation>
     </message>
 </context>
 <context>
@@ -1506,7 +1506,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">Bluetooth</translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1677,7 +1677,7 @@ syy: %2</translation>
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Sisäänkirjautuminen epäonnistui</translation>
+        <translation>Sisäänkirjautuminen epäonnistui</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1719,15 +1719,15 @@ syy: %2</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Kirjaudu ulos</translation>
+        <translation>Kirjaudu ulos</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Kirjaudutaan sisään, ole hyvä ja odota</translation>
+        <translation>Kirjaudutaan sisään, ole hyvä ja odota</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Kirjaudu sisään</translation>
+        <translation>Kirjaudu sisään</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1742,11 +1742,11 @@ syy: %2</translation>
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Ongelmallinen QFieldCloud tason pakkaus</translation>
+        <translation>Ongelmallinen QFieldCloud tason pakkaus</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Joitakin tasoja ei ole pakattu oikein QFieldCloudiin. Nämä tasot voivat olla määritetty väärin tai niiden tietolähde ei ole käytettävissä QFieldCloud-palvelimelta.</translation>
+        <translation>Joitakin tasoja ei ole pakattu oikein QFieldCloudiin. Nämä tasot voivat olla määritetty väärin tai niiden tietolähde ei ole käytettävissä QFieldCloud-palvelimelta.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1858,7 +1858,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Palauta kaikki muokatut kohteet lokaaleilla pilvitasoilla. Et voi palauttaa näitä muutoksia.</translation>
+        <translation>Palauta kaikki muokatut kohteet lokaaleilla pilvitasoilla. Et voi palauttaa näitä muutoksia.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1906,7 +1906,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n liite(ttä) ladataan taustalla parhaillaan </numerusform><numerusform>%n liite(ttä) ladataan taustalla parhaillaan </numerusform></translation>
+        <translation><numerusform>%n liite(ttä) ladataan taustalla parhaillaan </numerusform><numerusform>%n liite(ttä) ladataan taustalla parhaillaan </numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1941,31 +1941,31 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Vienti epäonnistui</translation>
+        <translation>Vienti epäonnistui</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Pakattu kerros &apos;% 1&apos; ei kelpaa: &apos;% 2&apos;</translation>
+        <translation>Pakattu kerros &apos;% 1&apos; ei kelpaa: &apos;% 2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Väliaikaisen tiedoston &quot;%1&quot; avaaminen epäonnistui, syy:
+        <translation>Väliaikaisen tiedoston &quot;%1&quot; avaaminen epäonnistui, syy:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">&quot;%1&quot; tallennetun liitteen lataaminen epäonnistui, syy:
+        <translation>&quot;%1&quot; tallennetun liitteen lataaminen epäonnistui, syy:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Tiedoston lataus epäonnistui &quot;%1&quot;, syy:</translation>
+        <translation>Tiedoston lataus epäonnistui &quot;%1&quot;, syy:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Ladatun tiedoston kirjoittaminen kohdassa &quot;%1&quot; epäonnistui, fs syy:</translation>
+        <translation>Ladatun tiedoston kirjoittaminen kohdassa &quot;%1&quot; epäonnistui, fs syy:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2036,7 +2036,7 @@ epäonnistui, syy: %2</translation>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Osoitteeseen `%1` tallennetun liitteen lataaminen epäonnistui,
+        <translation>Osoitteeseen `%1` tallennetun liitteen lataaminen epäonnistui,
 syy: %2</translation>
     </message>
     <message>
@@ -2323,7 +2323,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">Jos sallittuna, näytön kirkkaus himmennetään 20 sekunnin käyttämättömyyden jälkeen akun säästämiseksi.</translation>
+        <translation>Jos sallittuna, näytön kirkkaus himmennetään 20 sekunnin käyttämättömyyden jälkeen akun säästämiseksi.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2379,36 +2379,36 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Skannataan paritettuja laitteita</translation>
+        <translation>Skannataan paritettuja laitteita</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Skannaus epäonnistui: %1</translation>
+        <translation>Skannaus epäonnistui: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Skannaus suoritettu</translation>
+        <translation>Skannaus suoritettu</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n laite löydetty</numerusform><numerusform>%n laitetta löydetty</numerusform></translation>
+        <translation><numerusform>%n laite löydetty</numerusform><numerusform>%n laitetta löydetty</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Skannaus peruutettu</translation>
+        <translation>Skannaus peruutettu</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Skannaa</translation>
+        <translation>Skannaa</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Tee täydellinen palveluhaku</translation>
+        <translation>Tee täydellinen palveluhaku</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Täydellinen laiteskannaus voi viedä enemmän aikaa. Haluatko jatkaa?
+        <translation>Täydellinen laiteskannaus voi viedä enemmän aikaa. Haluatko jatkaa?
 Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
@@ -2417,7 +2417,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Yhdistä laitteeseen %1</translation>
+        <translation>Yhdistä laitteeseen %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2477,7 +2477,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Paikannuslaitteella tallennetut Z-arvot korjataan tällä arvolla. Jos annetaan arvo 1.6, sitä korjataan -1.6 jokaisen tallennetun arvon kohdalla.</translation>
+        <translation>Paikannuslaitteella tallennetut Z-arvot korjataan tällä arvolla. Jos annetaan arvo 1.6, sitä korjataan -1.6 jokaisen tallennetun arvon kohdalla.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2775,7 +2775,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Ladataan kirjasinta %1</translation>
+        <translation>Ladataan kirjasinta %1</translation>
     </message>
 </context>
 <context>
@@ -2836,7 +2836,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Karttapohjan kiertoa ei tueta. Palautetaan arvosta %1 arvoon 0.</translation>
+        <translation>Karttapohjan kiertoa ei tueta. Palautetaan arvosta %1 arvoon 0.</translation>
     </message>
 </context>
 <context>
@@ -2940,7 +2940,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">Valmistellaan QFieldiä, tämä on kertaluontoinen operaatio, joka voi viedä hieman aikaa</translation>
+        <translation>Valmistellaan QFieldiä, tämä on kertaluontoinen operaatio, joka voi viedä hieman aikaa</translation>
     </message>
 </context>
 <context>
@@ -2982,7 +2982,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">Etäpalvelin kieltäytyi yhteydestä</translation>
+        <translation>Etäpalvelin kieltäytyi yhteydestä</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3047,11 +3047,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Tallenna jos molemmat aktiiviset rajoitteet toteutuvat</translation>
+        <translation>Tallenna jos molemmat aktiiviset rajoitteet toteutuvat</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Kun sallittu, taitepisteet tallennetaan ainoastaan kun molemmat aktiiviset rajoitusehdot täyttyvät. Jos asetusta ei ole sallittu, yksittäisen rajoitusehdon täyttyminen aiheuttaa taitepisteen lisäyksen.</translation>
+        <translation>Kun sallittu, taitepisteet tallennetaan ainoastaan kun molemmat aktiiviset rajoitusehdot täyttyvät. Jos asetusta ei ole sallittu, yksittäisen rajoitusehdon täyttyminen aiheuttaa taitepisteen lisäyksen.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3059,11 +3059,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Ei voida aloittaa jäljitystä tyhjillä arvoilla</translation>
+        <translation>Ei voida aloittaa jäljitystä tyhjillä arvoilla</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Kun molemmat rajoitukset on poistettu käytöstä, taitepisteiden lisäyksiä tapahtuu yhtä usein kuin paikannuslaite toimittaa sijainteja.</translation>
+        <translation>Kun molemmat rajoitukset on poistettu käytöstä, taitepisteiden lisäyksiä tapahtuu yhtä usein kuin paikannuslaite toimittaa sijainteja.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3169,7 +3169,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">Etäpalvelin kieltäytyi yhteydestä</translation>
+        <translation>Etäpalvelin kieltäytyi yhteydestä</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3258,11 +3258,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Taustakarttaprojekti</translation>
+        <translation>Taustakarttaprojekti</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Taustakarttaprojekti</translation>
+        <translation>Taustakarttaprojekti</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3270,7 +3270,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Tervetuloa QFieldiin. Ensimmäinen kerta, kun käytät tätä sovellusta? Kokeile alla olevassa luettelossa lueteltuja esimerkkiprojekteja.</translation>
+        <translation>Tervetuloa QFieldiin. Ensimmäinen kerta, kun käytät tätä sovellusta? Kokeile alla olevassa luettelossa lueteltuja esimerkkiprojekteja.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3440,11 +3440,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Paikannus päällä</translation>
+        <translation>Paikannus päällä</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Paikannus pois päältä</translation>
+        <translation>Paikannus pois päältä</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3472,7 +3472,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Tulostetaan PDF:ksi</translation>
+        <translation>Tulostetaan PDF:ksi</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3484,7 +3484,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Avaa projekti</translation>
+        <translation>Avaa projekti</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3500,7 +3500,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Valitse malli alta</translation>
+        <translation>Valitse malli alta</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3524,7 +3524,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Lisää kirjanmerkki koordinaatteihin</translation>
+        <translation>Lisää kirjanmerkki koordinaatteihin</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3532,7 +3532,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Aseta koordinaatit kohteelle</translation>
+        <translation>Aseta koordinaatit kohteelle</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3540,11 +3540,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3556,27 +3556,27 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0.25m tarkkuus</translation>
+        <translation>0.25m tarkkuus</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0.5m tarkkuus</translation>
+        <translation>0.5m tarkkuus</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1m tarkkuus</translation>
+        <translation>1m tarkkuus</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2.5m tarkkuus</translation>
+        <translation>2.5m tarkkuus</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5m tarkkuus</translation>
+        <translation>5m tarkkuus</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10m tarkkuus</translation>
+        <translation>10m tarkkuus</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3604,7 +3604,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Aseta kohteeksi</translation>
+        <translation>Aseta kohteeksi</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3640,11 +3640,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Keskitä nykyiseen sijaintiin</translation>
+        <translation>Keskitä nykyiseen sijaintiin</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Lisää kirjanmerkki nykyiseen sijaintiin</translation>
+        <translation>Lisää kirjanmerkki nykyiseen sijaintiin</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3656,7 +3656,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">Kopioi nykyinen sijainti</translation>
+        <translation>Kopioi nykyinen sijainti</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3684,7 +3684,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Olet kirjautunut ulos</translation>
+        <translation>Olet kirjautunut ulos</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3692,7 +3692,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Olet kirjautunut sisään</translation>
+        <translation>Olet kirjautunut sisään</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3716,7 +3716,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">Paikannusvirhe: %1</translation>
+        <translation>Paikannusvirhe: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3728,7 +3728,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="vanished">Tulosta kuva</translation>
+        <translation>Tulosta kuva</translation>
     </message>
     <message>
         <source>Printing...</source>

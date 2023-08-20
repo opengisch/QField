@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Appareil de positionnement utilisé : </translation>
+        <translation>Appareil de positionnement utilisé : </translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Recherche</translation>
+        <translation>Recherche</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -162,23 +162,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Connecté à %1 </translation>
+        <translation>Connecté à %1 </translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">Connecter à %1 </translation>
+        <translation>Connecter à %1 </translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Connecter à %1 </translation>
+        <translation>Connecter à %1 </translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Connexion à %1 </translation>
+        <translation>Connexion à %1 </translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Utiliser l&apos;altitude ortho-métrique de l&apos;appareil</translation>
+        <translation>Utiliser l&apos;altitude ortho-métrique de l&apos;appareil</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -190,7 +190,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">ND</translation>
+        <translation>ND</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -209,7 +209,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Stockage interne</translation>
+        <translation>Stockage interne</translation>
     </message>
 </context>
 <context>
@@ -232,31 +232,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">Impossible de trouver l&apos;hôte distant</translation>
+        <translation>Impossible de trouver l&apos;hôte distant</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">Impossible de trouver l&apos;UUID du service sur l&apos;hôte distant</translation>
+        <translation>Impossible de trouver l&apos;UUID du service sur l&apos;hôte distant</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">Une tentative de lecture ou d&apos;écriture à partir du socket a renvoyé une erreur</translation>
+        <translation>Une tentative de lecture ou d&apos;écriture à partir du socket a renvoyé une erreur</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">Le protocole n&apos;est pas supporté sur cette plateforme</translation>
+        <translation>Le protocole n&apos;est pas supporté sur cette plateforme</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">Une opération a été tentée alors que le socket était dans un état qui ne le permettait pas</translation>
+        <translation>Une opération a été tentée alors que le socket était dans un état qui ne le permettait pas</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">L&apos;hôte distant a fermé la connexion</translation>
+        <translation>L&apos;hôte distant a fermé la connexion</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">Erreur inconnue</translation>
+        <translation>Erreur inconnue</translation>
     </message>
 </context>
 <context>
@@ -286,19 +286,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -425,19 +425,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Heures</translation>
+        <translation>Heures</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Minutes</translation>
+        <translation>Minutes</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Secondes</translation>
+        <translation>Secondes</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -615,7 +615,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Dernières modifications ignorées</translation>
+        <translation>Dernières modifications ignorées</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -745,7 +745,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Définir l&apos;entité en tant que navigation</translation>
+        <translation>Définir l&apos;entité en tant que navigation</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -817,15 +817,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Aller à %1 %2 (SCR carte)</translation>
+        <translation>Aller à %1 %2 (SCR carte)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Définir le point de navigation</translation>
+        <translation>Définir le point de navigation</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Aller à %1 %2 (WGS84)</translation>
+        <translation>Aller à %1 %2 (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -914,7 +914,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Recharger les données </translation>
+        <translation>Recharger les données </translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -934,11 +934,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Couche en lecture seule</translation>
+        <translation>Couche en lecture seule</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Couche avec géométrie verrouillée</translation>
+        <translation>Couche avec géométrie verrouillée</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1007,7 +1007,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;.</translation>
+        <translation>Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1083,18 +1083,18 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Recherche...</translation>
+        <translation>Recherche...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Paramètres de recherche</translation>
+        <translation>Paramètres de recherche</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Déclencher sans son préfixe</translation>
+        <translation>Déclencher sans son préfixe</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1223,15 +1223,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Impression des entités de l&apos;atlas en PDF</translation>
+        <translation>Impression des entités de l&apos;atlas en PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">La ou les entités de l&apos;atlas ont été imprimées avec succès en PDF et placées dans vos documents.</translation>
+        <translation>La ou les entités de l&apos;atlas ont été imprimées avec succès en PDF et placées dans vos documents.</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Imprimer les caractéristiques de l&apos;Atlas sur l&apos;image</translation>
+        <translation>Imprimer les caractéristiques de l&apos;Atlas sur l&apos;image</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1254,7 +1254,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1262,11 +1262,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation>Lon.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">centroïde</translation>
+        <translation>centroïde</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1331,7 +1331,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Dernières modifications ignorées</translation>
+        <translation>Dernières modifications ignorées</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1342,15 +1342,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Sélectionnez le fichier multimédia.</translation>
+        <translation>Sélectionnez le fichier multimédia.</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">Images JPEG (*.jpg *.jpeg)</translation>
+        <translation>Images JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Échec de l&apos;enregistrement de l&apos;image dans la galerie.</translation>
+        <translation>Échec de l&apos;enregistrement de l&apos;image dans la galerie.</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1394,7 +1394,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="vanished">Fichiers audio(*.mp3 *.aac *.ogg)</translation>
+        <translation>Fichiers audio(*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1413,71 +1413,71 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">ND</translation>
+        <translation>ND</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation>Lon.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Altitude</translation>
+        <translation>Altitude</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Vitesse</translation>
+        <translation>Vitesse</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">Précision H.</translation>
+        <translation>Précision H.</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">Précision V.</translation>
+        <translation>Précision V.</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Valide</translation>
+        <translation>Valide</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Fix</translation>
+        <translation>Fix</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Qualité </translation>
+        <translation>Qualité </translation>
     </message>
 </context>
 <context>
@@ -1507,7 +1507,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">Bluetooth</translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1678,7 +1678,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Échec à la connexion</translation>
+        <translation>Échec à la connexion</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1719,15 +1719,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Déconnexion</translation>
+        <translation>Déconnexion</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Connexion en cours, veuillez patienter</translation>
+        <translation>Connexion en cours, veuillez patienter</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Connexion</translation>
+        <translation>Connexion</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1742,11 +1742,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Empaquetage des couches QFieldCloud problématique</translation>
+        <translation>Empaquetage des couches QFieldCloud problématique</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Certaines couches n&apos;ont pas été empaquetées correctement sur QFieldCloud. Ces couches sont peut-être mal configurées ou la source de données n&apos;est pas accessible depuis le serveur QFieldCloud.</translation>
+        <translation>Certaines couches n&apos;ont pas été empaquetées correctement sur QFieldCloud. Ces couches sont peut-être mal configurées ou la source de données n&apos;est pas accessible depuis le serveur QFieldCloud.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1857,7 +1857,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Annulez toutes les entités modifiées dans les couches locales du nuage. Vous ne pouvez pas restaurer ces modifications.</translation>
+        <translation>Annulez toutes les entités modifiées dans les couches locales du nuage. Vous ne pouvez pas restaurer ces modifications.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1905,7 +1905,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n pièce jointe est actuellement envoyée en tâche de fond.</numerusform><numerusform>%n pièces jointes sont actuellement envoyées en tâche de fond.</numerusform><numerusform>%n pièces jointes sont actuellement envoyées en tâche de fond.</numerusform></translation>
+        <translation><numerusform>%n pièce jointe est actuellement envoyée en tâche de fond.</numerusform><numerusform>%n pièces jointes sont actuellement envoyées en tâche de fond.</numerusform><numerusform>%n pièces jointes sont actuellement envoyées en tâche de fond.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1940,29 +1940,29 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">L&apos;exportation a échoué</translation>
+        <translation>L&apos;exportation a échoué</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">La couche empaquetée &apos;%1&apos; n&apos;est pas valide: &apos;%2&apos;</translation>
+        <translation>La couche empaquetée &apos;%1&apos; n&apos;est pas valide: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Impossible d&apos;ouvrir le fichier temporaire pour &quot;%1&quot;, raison : %2</translation>
+        <translation>Impossible d&apos;ouvrir le fichier temporaire pour &quot;%1&quot;, raison : %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Impossible de télécharger la pièce jointe stockée à &quot;%1&quot;, raison :%2</translation>
+        <translation>Impossible de télécharger la pièce jointe stockée à &quot;%1&quot;, raison :%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Échec du téléchargement du fichier &quot;%1&quot;, raison :</translation>
+        <translation>Échec du téléchargement du fichier &quot;%1&quot;, raison :</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Échec d&apos;enregistrement du fichier téléchargé sur &quot;%1&quot;; erreur du système de fichier:</translation>
+        <translation>Échec d&apos;enregistrement du fichier téléchargé sur &quot;%1&quot;; erreur du système de fichier:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2033,7 +2033,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
+        <translation>Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
 %2</translation>
     </message>
     <message>
@@ -2319,7 +2319,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">Si activé, la luminosité de l&apos;écran sera atténuée après 20 secondes d’inactivité pour préserver la batterie. </translation>
+        <translation>Si activé, la luminosité de l&apos;écran sera atténuée après 20 secondes d’inactivité pour préserver la batterie. </translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2375,36 +2375,36 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Recherche d&apos;appareils couplés</translation>
+        <translation>Recherche d&apos;appareils couplés</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">L&apos;analyse a échoué : %1</translation>
+        <translation>L&apos;analyse a échoué : %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Recherche terminée </translation>
+        <translation>Recherche terminée </translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n appareil trouvé</numerusform><numerusform>%n appareils trouvés</numerusform><numerusform>%n appareils trouvés</numerusform></translation>
+        <translation><numerusform>%n appareil trouvé</numerusform><numerusform>%n appareils trouvés</numerusform><numerusform>%n appareils trouvés</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Recherche annulée</translation>
+        <translation>Recherche annulée</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Recherche</translation>
+        <translation>Recherche</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Faire une découverte complète du service</translation>
+        <translation>Faire une découverte complète du service</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">L&apos;analyse complète de l&apos;appareil peut prendre plus de temps. Souhaitez-vous poursuivre ? Annuler pour réaliser une analyse minimale à la place.</translation>
+        <translation>L&apos;analyse complète de l&apos;appareil peut prendre plus de temps. Souhaitez-vous poursuivre ? Annuler pour réaliser une analyse minimale à la place.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -2412,7 +2412,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Connecter à %1 </translation>
+        <translation>Connecter à %1 </translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2472,7 +2472,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Les valeurs Z collectées par l&apos;appareil vont être corrigées par cette valeur. Si une valeur de 1.6 m est entrée, toutes les valeurs collectées vont recevoir une correction de -1.6 m</translation>
+        <translation>Les valeurs Z collectées par l&apos;appareil vont être corrigées par cette valeur. Si une valeur de 1.6 m est entrée, toutes les valeurs collectées vont recevoir une correction de -1.6 m</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2770,7 +2770,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Chargement de la police %1</translation>
+        <translation>Chargement de la police %1</translation>
     </message>
 </context>
 <context>
@@ -2831,7 +2831,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">La rotation de la carte n&apos;est pas supportée. Réinitialisation de %1 à 0.</translation>
+        <translation>La rotation de la carte n&apos;est pas supportée. Réinitialisation de %1 à 0.</translation>
     </message>
 </context>
 <context>
@@ -2935,7 +2935,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">Préparation de QField, opération ponctuelle qui peut prendre un certain temps</translation>
+        <translation>Préparation de QField, opération ponctuelle qui peut prendre un certain temps</translation>
     </message>
 </context>
 <context>
@@ -2977,7 +2977,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">La connexion a été refusée par le flexible déporté</translation>
+        <translation>La connexion a été refusée par le flexible déporté</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3042,11 +3042,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Enregistrer lorsque les deux contraintes sont actives simultanément</translation>
+        <translation>Enregistrer lorsque les deux contraintes sont actives simultanément</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Les sommets ne seront enregistrés que lorsque toutes les contraintes actives sont respectées lorsque ce paramètre est activé. S&apos;il est désactivé, les contraintes individuelles rencontrées entraîneront la création d&apos;un sommet.</translation>
+        <translation>Les sommets ne seront enregistrés que lorsque toutes les contraintes actives sont respectées lorsque ce paramètre est activé. S&apos;il est désactivé, les contraintes individuelles rencontrées entraîneront la création d&apos;un sommet.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3054,11 +3054,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Impossible de démarrer un suivi avec des valeurs vides</translation>
+        <translation>Impossible de démarrer un suivi avec des valeurs vides</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Lorsque les deux contraintes sont désactivées, les ajouts de sommets se produiront aussi fréquemment que fournis par le dispositif de positionnement.</translation>
+        <translation>Lorsque les deux contraintes sont désactivées, les ajouts de sommets se produiront aussi fréquemment que fournis par le dispositif de positionnement.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3164,7 +3164,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">La connexion a été refusée par le flexible déporté</translation>
+        <translation>La connexion a été refusée par le flexible déporté</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3253,11 +3253,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Fond de carte du projet</translation>
+        <translation>Fond de carte du projet</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Fond de carte du projet</translation>
+        <translation>Fond de carte du projet</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3265,7 +3265,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Bienvenue dans QField. C&apos;est votre première utilisation de l&apos;application ? Essayez les projets d&apos;exemple listés ci-dessous.</translation>
+        <translation>Bienvenue dans QField. C&apos;est votre première utilisation de l&apos;application ? Essayez les projets d&apos;exemple listés ci-dessous.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3435,11 +3435,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Positionnement activé</translation>
+        <translation>Positionnement activé</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Positionnement désactivé</translation>
+        <translation>Positionnement désactivé</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3467,7 +3467,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Impression en PDF</translation>
+        <translation>Impression en PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3479,7 +3479,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Ouvrir un projet</translation>
+        <translation>Ouvrir un projet</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3495,7 +3495,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Sélectionner un modèle ci-dessous</translation>
+        <translation>Sélectionner un modèle ci-dessous</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3520,7 +3520,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Ajouter un Signet aux Coordonnées</translation>
+        <translation>Ajouter un Signet aux Coordonnées</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3528,7 +3528,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Définir les Coordonnées comme Destination</translation>
+        <translation>Définir les Coordonnées comme Destination</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3536,11 +3536,11 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3552,27 +3552,27 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0.25m Précision</translation>
+        <translation>0.25m Précision</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0.5m Précision</translation>
+        <translation>0.5m Précision</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1m Précision</translation>
+        <translation>1m Précision</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2.5m Précision</translation>
+        <translation>2.5m Précision</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5m Précision</translation>
+        <translation>5m Précision</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10m Précision</translation>
+        <translation>10m Précision</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3600,7 +3600,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Définir Comme Destination</translation>
+        <translation>Définir Comme Destination</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3636,11 +3636,11 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Centrer sur la localisation actuelle</translation>
+        <translation>Centrer sur la localisation actuelle</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Ajouter un Signet à la Position Actuelle</translation>
+        <translation>Ajouter un Signet à la Position Actuelle</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3652,7 +3652,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">Copier la Position Actuelle</translation>
+        <translation>Copier la Position Actuelle</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3680,7 +3680,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Déconnecté</translation>
+        <translation>Déconnecté</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3688,7 +3688,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Connecté</translation>
+        <translation>Connecté</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3713,7 +3713,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">Erreur de positionnement : %1</translation>
+        <translation>Erreur de positionnement : %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3725,7 +3725,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="vanished">Imprimer sur image</translation>
+        <translation>Imprimer sur image</translation>
     </message>
     <message>
         <source>Printing...</source>

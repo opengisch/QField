@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Konumlandırma cihazı kullanımda:</translation>
+        <translation>Konumlandırma cihazı kullanımda:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Tara</translation>
+        <translation>Tara</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">%1&apos;e bağlandı</translation>
+        <translation>%1&apos;e bağlandı</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">%1&apos;e bağlan</translation>
+        <translation>%1&apos;e bağlan</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">%1&apos;e bağlan</translation>
+        <translation>%1&apos;e bağlan</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">%1&apos;e bağlanılıyor</translation>
+        <translation>%1&apos;e bağlanılıyor</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Cihazdan ortometrik yüksekliği kullan</translation>
+        <translation>Cihazdan ortometrik yüksekliği kullan</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">Geçerli değil</translation>
+        <translation>Geçerli değil</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Dahili cihaz</translation>
+        <translation>Dahili cihaz</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Boylam</translation>
+        <translation>Boylam</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Enlem</translation>
+        <translation>Enlem</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Saat</translation>
+        <translation>Saat</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Dakika</translation>
+        <translation>Dakika</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Saniye</translation>
+        <translation>Saniye</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">Tamam</translation>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -605,7 +605,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Son değişiklikler uygulanmadı</translation>
+        <translation>Son değişiklikler uygulanmadı</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -801,7 +801,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Git %1 %2 (Harita CRS)</translation>
+        <translation>Git %1 %2 (Harita CRS)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
@@ -809,7 +809,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Git %1° %2° (WGS84)</translation>
+        <translation>Git %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -898,7 +898,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Veriyi yeniden yükle</translation>
+        <translation>Veriyi yeniden yükle</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -1161,11 +1161,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Atlas obje(ler)i PDF&apos;e yazdırılıyor</translation>
+        <translation>Atlas obje(ler)i PDF&apos;e yazdırılıyor</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Atlas özellik(ler)i başarıyla PDF olarak yazdırıldı ve belgelerinize yerleştirildi</translation>
+        <translation>Atlas özellik(ler)i başarıyla PDF olarak yazdırıldı ve belgelerinize yerleştirildi</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
@@ -1192,7 +1192,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Enlem</translation>
+        <translation>Enlem</translation>
     </message>
     <message>
         <source>X</source>
@@ -1200,7 +1200,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Boylam</translation>
+        <translation>Boylam</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -1262,7 +1262,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Son değişiklikler uygulanmadı</translation>
+        <translation>Son değişiklikler uygulanmadı</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1273,15 +1273,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Medya Dosyasını Seç</translation>
+        <translation>Medya Dosyasını Seç</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG görüntüleri (*.jpg *.jpeg)</translation>
+        <translation>JPEG görüntüleri (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Görüntü galeriye kaydedilemedi</translation>
+        <translation>Görüntü galeriye kaydedilemedi</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1344,71 +1344,71 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Enlem</translation>
+        <translation>Enlem</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">Geçerli değil</translation>
+        <translation>Geçerli değil</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Boylam</translation>
+        <translation>Boylam</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Boylam</translation>
+        <translation>Boylam</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Enlem</translation>
+        <translation>Enlem</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Yükseklik</translation>
+        <translation>Yükseklik</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Hız</translation>
+        <translation>Hız</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">Yatay doğruluk</translation>
+        <translation>Yatay doğruluk</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">Dikey doğruluk</translation>
+        <translation>Dikey doğruluk</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Geçerli</translation>
+        <translation>Geçerli</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Düzelt</translation>
+        <translation>Düzelt</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Kalite</translation>
+        <translation>Kalite</translation>
     </message>
 </context>
 <context>
@@ -2281,15 +2281,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Eşleştirilmiş cihazlar taranıyor</translation>
+        <translation>Eşleştirilmiş cihazlar taranıyor</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Tarama başarısız: %1</translation>
+        <translation>Tarama başarısız: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Tarama tamamlandı</translation>
+        <translation>Tarama tamamlandı</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
@@ -2297,20 +2297,20 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Tarama iptal edildi</translation>
+        <translation>Tarama iptal edildi</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Tara</translation>
+        <translation>Tara</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Tam hizmet keşfi yapın</translation>
+        <translation>Tam hizmet keşfi yapın</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Tam cihaz taraması daha uzun sürebilir. Gerçekten yapmak istiyor musun?
+        <translation>Tam cihaz taraması daha uzun sürebilir. Gerçekten yapmak istiyor musun?
 Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
@@ -2319,7 +2319,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">%1&apos;e bağlan</translation>
+        <translation>%1&apos;e bağlan</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2609,7 +2609,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Font yükleniyor %1</translation>
+        <translation>Font yükleniyor %1</translation>
     </message>
 </context>
 <context>
@@ -2666,7 +2666,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Harita Kanvası döndürmeyi desteklemez. %1&apos;den 0&apos;a kadar sıfırlanıyor.</translation>
+        <translation>Harita Kanvası döndürmeyi desteklemez. %1&apos;den 0&apos;a kadar sıfırlanıyor.</translation>
     </message>
 </context>
 <context>
@@ -2770,7 +2770,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">QField hazırlanıyor, bu biraz zaman alabilecek tek seferlik bir işlemdir</translation>
+        <translation>QField hazırlanıyor, bu biraz zaman alabilecek tek seferlik bir işlemdir</translation>
     </message>
 </context>
 <context>
@@ -2889,7 +2889,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Boş değerler ile takibe başlanamaz</translation>
+        <translation>Boş değerler ile takibe başlanamaz</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
@@ -3218,11 +3218,11 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Konum servisi aktif edildi</translation>
+        <translation>Konum servisi aktif edildi</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Konum servisi kapatıldı</translation>
+        <translation>Konum servisi kapatıldı</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3250,7 +3250,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">PDF&apos;e Yazdır</translation>
+        <translation>PDF&apos;e Yazdır</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3262,7 +3262,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Proje aç</translation>
+        <translation>Proje aç</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3318,11 +3318,11 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3418,7 +3418,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Geçerli Konumu Ortala</translation>
+        <translation>Geçerli Konumu Ortala</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>

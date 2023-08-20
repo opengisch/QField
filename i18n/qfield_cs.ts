@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Používaná zařízení určení polohy: </translation>
+        <translation>Používaná zařízení určení polohy: </translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Skenovat</translation>
+        <translation>Skenovat</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Připojeno k %1</translation>
+        <translation>Připojeno k %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">Připojit k %1</translation>
+        <translation>Připojit k %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Připojit k %1</translation>
+        <translation>Připojit k %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Připojení k %1</translation>
+        <translation>Připojení k %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Použití ortometrické výšky ze zařízení</translation>
+        <translation>Použití ortometrické výšky ze zařízení</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Vnitřní zařízeni</translation>
+        <translation>Vnitřní zařízeni</translation>
     </message>
 </context>
 <context>
@@ -233,31 +233,31 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">Vzdálený hostitel nenalezen</translation>
+        <translation>Vzdálený hostitel nenalezen</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">Nenalezeno servisní UUID na vzdáleném hostiteli</translation>
+        <translation>Nenalezeno servisní UUID na vzdáleném hostiteli</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">Pokus o čtení nebo zápis z/do socketu vrátil chybu</translation>
+        <translation>Pokus o čtení nebo zápis z/do socketu vrátil chybu</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">Protokol není na této platformě podporován</translation>
+        <translation>Protokol není na této platformě podporován</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">Požadavek na operaci, kterou stav socketu nedovoluje</translation>
+        <translation>Požadavek na operaci, kterou stav socketu nedovoluje</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">Vzdálený hostitel ukončil spojení</translation>
+        <translation>Vzdálený hostitel ukončil spojení</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">Neznámá chyba</translation>
+        <translation>Neznámá chyba</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Zem. dél.</translation>
+        <translation>Zem. dél.</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Zem. šíř.</translation>
+        <translation>Zem. šíř.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Hodin</translation>
+        <translation>Hodin</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Minut</translation>
+        <translation>Minut</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Vteřin</translation>
+        <translation>Vteřin</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Poslední změny byly zrušeny</translation>
+        <translation>Poslední změny byly zrušeny</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -820,15 +820,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Jít na %1 %2 (Map CRS)</translation>
+        <translation>Jít na %1 %2 (Map CRS)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Nastavit průjezdní bod</translation>
+        <translation>Nastavit průjezdní bod</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Jít na %1° %2° (WGS84)</translation>
+        <translation>Jít na %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -917,7 +917,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Znovu načíst data</translation>
+        <translation>Znovu načíst data</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -937,11 +937,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Vrstva pouze pro čtení</translation>
+        <translation>Vrstva pouze pro čtení</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Vrstva s uzamčenou geometrií</translation>
+        <translation>Vrstva s uzamčenou geometrií</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1010,7 +1010,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Nelze přidat nový prvek ve vrstvě &quot;%1&quot;</translation>
+        <translation>Nelze přidat nový prvek ve vrstvě &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1086,18 +1086,18 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Hledat...</translation>
+        <translation>Hledat...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Nastavení vyhledávání</translation>
+        <translation>Nastavení vyhledávání</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Vyvolat bez zadání prefixu</translation>
+        <translation>Vyvolat bez zadání prefixu</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1226,15 +1226,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Tisknu prvek(prvky) atlasu do PDF</translation>
+        <translation>Tisknu prvek(prvky) atlasu do PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Prvky atlasu úspěšně vytištěné do PDF a umístěné v dokumentu (dokumentech)</translation>
+        <translation>Prvky atlasu úspěšně vytištěné do PDF a umístěné v dokumentu (dokumentech)</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Tisk prvku(ů) atlasu do obrázku</translation>
+        <translation>Tisk prvku(ů) atlasu do obrázku</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1257,7 +1257,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Zem. šíř.</translation>
+        <translation>Zem. šíř.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1265,7 +1265,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Zem. dél.</translation>
+        <translation>Zem. dél.</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -1334,7 +1334,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Poslední změny byly zrušeny</translation>
+        <translation>Poslední změny byly zrušeny</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1345,15 +1345,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Vyberte mediální soubor</translation>
+        <translation>Vyberte mediální soubor</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG obrázky (*.jpg *.jpeg)</translation>
+        <translation>JPEG obrázky (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Obrázek galerie se nepodařilo uložit</translation>
+        <translation>Obrázek galerie se nepodařilo uložit</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1397,7 +1397,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="vanished">Zvukové soubory (*.mp3 *.aac *.ogg)</translation>
+        <translation>Zvukové soubory (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1416,71 +1416,71 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Zem. šíř.</translation>
+        <translation>Zem. šíř.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Zem. dél.</translation>
+        <translation>Zem. dél.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Zem. dél.</translation>
+        <translation>Zem. dél.</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Zem. šíř.</translation>
+        <translation>Zem. šíř.</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Nadmořská výška</translation>
+        <translation>Nadmořská výška</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Rychlost</translation>
+        <translation>Rychlost</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">H. Přesnost</translation>
+        <translation>H. Přesnost</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">V. Přesnost</translation>
+        <translation>V. Přesnost</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Platné</translation>
+        <translation>Platné</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Oprava</translation>
+        <translation>Oprava</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Kvalita</translation>
+        <translation>Kvalita</translation>
     </message>
 </context>
 <context>
@@ -1510,7 +1510,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">Bluetooth</translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1681,7 +1681,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Přihlášení selhalo</translation>
+        <translation>Přihlášení selhalo</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1722,15 +1722,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Odhlášení</translation>
+        <translation>Odhlášení</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Přihlašuji, prosím čekejte</translation>
+        <translation>Přihlašuji, prosím čekejte</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Přihlásit</translation>
+        <translation>Přihlásit</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1749,7 +1749,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Některé vrstvy nebyly v QFieldCloudu správně zabaleny. Tyto vrstvy mohou být špatně nakonfigurovány nebo jejich zdroj dat není přístupný ze serveru QFieldCloud.</translation>
+        <translation>Některé vrstvy nebyly v QFieldCloudu správně zabaleny. Tyto vrstvy mohou být špatně nakonfigurovány nebo jejich zdroj dat není přístupný ze serveru QFieldCloud.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1860,7 +1860,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Vrátit všechny změněné prvky v místních vrstvách mraku. Tyto změny nelze obnovit.</translation>
+        <translation>Vrátit všechny změněné prvky v místních vrstvách mraku. Tyto změny nelze obnovit.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1908,7 +1908,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n příloha je právě nahrávána na pozadí.</numerusform><numerusform>%n přílohy jsou právě nahrávány na pozadí.</numerusform><numerusform>%n příloh je právě nahráváno na pozadí.</numerusform><numerusform>%n příloh(y) je/jsou právě nahráváno/y na pozadí.</numerusform></translation>
+        <translation><numerusform>%n příloha je právě nahrávána na pozadí.</numerusform><numerusform>%n přílohy jsou právě nahrávány na pozadí.</numerusform><numerusform>%n příloh je právě nahráváno na pozadí.</numerusform><numerusform>%n příloh(y) je/jsou právě nahráváno/y na pozadí.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1943,31 +1943,31 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Export se nezdařil</translation>
+        <translation>Export se nezdařil</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Zabalená vrstva &apos;%1&apos; není platná: &apos;%2&apos;</translation>
+        <translation>Zabalená vrstva &apos;%1&apos; není platná: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Nepodařilo se otevřít dočasný soubor pro &quot;%1&quot;, důvod:
+        <translation>Nepodařilo se otevřít dočasný soubor pro &quot;%1&quot;, důvod:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
+        <translation>Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Nepodařilo se stáhnout soubor &quot;%1&quot;, důvod:</translation>
+        <translation>Nepodařilo se stáhnout soubor &quot;%1&quot;, důvod:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nepodařilo se zapsat stažený soubor uložený na &quot;%1&quot;, důvod fs:</translation>
+        <translation>Nepodařilo se zapsat stažený soubor uložený na &quot;%1&quot;, důvod fs:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2038,7 +2038,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
+        <translation>Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
 %2</translation>
     </message>
     <message>
@@ -2324,7 +2324,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">Při zaškrtnutí bude pro úsporu baterie jas obrazovky snížen po 20 sekundách nečinnosti</translation>
+        <translation>Při zaškrtnutí bude pro úsporu baterie jas obrazovky snížen po 20 sekundách nečinnosti</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2380,36 +2380,36 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Vyhledávání spárovaných zařízení</translation>
+        <translation>Vyhledávání spárovaných zařízení</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Skenování selhalo: %1</translation>
+        <translation>Skenování selhalo: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Skenování dokončeno</translation>
+        <translation>Skenování dokončeno</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n zařízení nalezeno</numerusform><numerusform>%n zařízení nalezena</numerusform><numerusform>%n zařízení nalezeno</numerusform><numerusform>%n zařízení nalezeno</numerusform></translation>
+        <translation><numerusform>%n zařízení nalezeno</numerusform><numerusform>%n zařízení nalezena</numerusform><numerusform>%n zařízení nalezeno</numerusform><numerusform>%n zařízení nalezeno</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Skenování zrušeno</translation>
+        <translation>Skenování zrušeno</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Skenovat</translation>
+        <translation>Skenovat</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Spustit úplné vyhledání služeb</translation>
+        <translation>Spustit úplné vyhledání služeb</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Plné skenování zařízení může trvat déle. Opravdu to chcete?
+        <translation>Plné skenování zařízení může trvat déle. Opravdu to chcete?
 Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
@@ -2418,7 +2418,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Připojit k %1</translation>
+        <translation>Připojit k %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2478,7 +2478,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Hodnoty Z zaznamenané z přijímače polohy budou opraveny o tuto hodnotu. Pokud je zadáno 1.6, výsledkem bude korekce -1.6 pro každou zaznamenanou hodnotu. </translation>
+        <translation>Hodnoty Z zaznamenané z přijímače polohy budou opraveny o tuto hodnotu. Pokud je zadáno 1.6, výsledkem bude korekce -1.6 pro každou zaznamenanou hodnotu. </translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2776,7 +2776,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Načítání písma %1</translation>
+        <translation>Načítání písma %1</translation>
     </message>
 </context>
 <context>
@@ -2837,7 +2837,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Rotace plochy mapy  není podporována. Resetuje se  z %1 na 0.</translation>
+        <translation>Rotace plochy mapy  není podporována. Resetuje se  z %1 na 0.</translation>
     </message>
 </context>
 <context>
@@ -2941,7 +2941,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">Připravuji QField, toto je jednorázová operace, která může nějakou dobu trvat</translation>
+        <translation>Připravuji QField, toto je jednorázová operace, která může nějakou dobu trvat</translation>
     </message>
 </context>
 <context>
@@ -2983,7 +2983,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">Připojení bylo odmítnuto vzdáleným hostitelem</translation>
+        <translation>Připojení bylo odmítnuto vzdáleným hostitelem</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3048,11 +3048,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Zaznamenat při splnění obou podmínek</translation>
+        <translation>Zaznamenat při splnění obou podmínek</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Pokud je zapnuto, vrchol bude zaznamenán v jen případě splnění obou aktivních omezení. Pokud je nastavení vypnuto, vyvolá přidání vrcholu splnění kterékoliv z podmínek. </translation>
+        <translation>Pokud je zapnuto, vrchol bude zaznamenán v jen případě splnění obou aktivních omezení. Pokud je nastavení vypnuto, vyvolá přidání vrcholu splnění kterékoliv z podmínek. </translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3060,11 +3060,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Nelze spustit trasu s prázdnými hodnotami</translation>
+        <translation>Nelze spustit trasu s prázdnými hodnotami</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Když jsou obě podmínky vypnuté, vrcholy jsou přidávány tak často, jak přicházejí z přijímače polohy. </translation>
+        <translation>Když jsou obě podmínky vypnuté, vrcholy jsou přidávány tak často, jak přicházejí z přijímače polohy. </translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3170,7 +3170,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">Připojení bylo odmítnuto vzdáleným hostitelem</translation>
+        <translation>Připojení bylo odmítnuto vzdáleným hostitelem</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3259,11 +3259,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Projekt podkladové mapy</translation>
+        <translation>Projekt podkladové mapy</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Projekt podkladové mapy</translation>
+        <translation>Projekt podkladové mapy</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3271,7 +3271,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Vítejte v QField. Používáte tuto aplikaci poprvé? Vyzkoušejte ukázkové projekty se seznamu níže.</translation>
+        <translation>Vítejte v QField. Používáte tuto aplikaci poprvé? Vyzkoušejte ukázkové projekty se seznamu níže.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3441,11 +3441,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Určení polohy je aktivováno</translation>
+        <translation>Určení polohy je aktivováno</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Určení polohy je vypnuto</translation>
+        <translation>Určení polohy je vypnuto</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3473,7 +3473,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Tisk do PDF</translation>
+        <translation>Tisk do PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3485,7 +3485,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Otevřít projekt</translation>
+        <translation>Otevřít projekt</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3501,7 +3501,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Vyberte níže uvedenou šablonu</translation>
+        <translation>Vyberte níže uvedenou šablonu</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3525,7 +3525,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Přidat záložku na souřadnice</translation>
+        <translation>Přidat záložku na souřadnice</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3533,7 +3533,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Nastavit souřadnice jako cíl</translation>
+        <translation>Nastavit souřadnice jako cíl</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3541,11 +3541,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3557,27 +3557,27 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">Přesnost 0,25m</translation>
+        <translation>Přesnost 0,25m</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">Přesnost 0,5m</translation>
+        <translation>Přesnost 0,5m</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">Přesnost 1m</translation>
+        <translation>Přesnost 1m</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">Přesnost 2,5m</translation>
+        <translation>Přesnost 2,5m</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">Přesnost 5m</translation>
+        <translation>Přesnost 5m</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">Přesnost 10m</translation>
+        <translation>Přesnost 10m</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3605,7 +3605,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Nastavit jako cíl</translation>
+        <translation>Nastavit jako cíl</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3641,11 +3641,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Vycentrovat na aktuální polohu</translation>
+        <translation>Vycentrovat na aktuální polohu</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Přidat záložku pro aktuální polohu</translation>
+        <translation>Přidat záložku pro aktuální polohu</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3657,7 +3657,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">Kopírovat aktuální polohu</translation>
+        <translation>Kopírovat aktuální polohu</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3685,7 +3685,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Odhlášeno</translation>
+        <translation>Odhlášeno</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3693,7 +3693,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Přihlášeno</translation>
+        <translation>Přihlášeno</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3717,7 +3717,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">Chyba určení polohy: %1</translation>
+        <translation>Chyba určení polohy: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3729,7 +3729,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="vanished">Tisk do obrázku</translation>
+        <translation>Tisk do obrázku</translation>
     </message>
     <message>
         <source>Printing...</source>

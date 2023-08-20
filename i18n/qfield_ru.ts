@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Используемое устройство позиционирования:</translation>
+        <translation>Используемое устройство позиционирования:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Поиск</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,7 +163,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Подключено к %1</translation>
+        <translation>Подключено к %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
@@ -171,15 +171,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Подключиться к %1</translation>
+        <translation>Подключиться к %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Подключение к %1</translation>
+        <translation>Подключение к %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Использовать ортометрическую высоту , полученную с устройства</translation>
+        <translation>Использовать ортометрическую высоту , полученную с устройства</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">Н/Д</translation>
+        <translation>Н/Д</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Внутренний датчик</translation>
+        <translation>Внутренний датчик</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Долгота</translation>
+        <translation>Долгота</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Широта</translation>
+        <translation>Широта</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Часы</translation>
+        <translation>Часы</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Минуты</translation>
+        <translation>Минуты</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Секунды</translation>
+        <translation>Секунды</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">Подтвердить</translation>
+        <translation>Подтвердить</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Последние изменения не сохранены</translation>
+        <translation>Последние изменения не сохранены</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -820,7 +820,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Перейти к  %1 %2 (СК карты)</translation>
+        <translation>Перейти к  %1 %2 (СК карты)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
@@ -828,7 +828,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Перейти к %1° %2° (WGS84)</translation>
+        <translation>Перейти к %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -917,7 +917,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Обновить данные</translation>
+        <translation>Обновить данные</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -937,11 +937,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Слой только для чтения</translation>
+        <translation>Слой только для чтения</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Слой с фиксацией геометрии</translation>
+        <translation>Слой с фиксацией геометрии</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1010,7 +1010,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Невозможно добавить новый объект в слой &quot;%1&quot;.</translation>
+        <translation>Невозможно добавить новый объект в слой &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1086,18 +1086,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Поиск...</translation>
+        <translation>Поиск...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Настройки поиска</translation>
+        <translation>Настройки поиска</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Включить без префикса</translation>
+        <translation>Включить без префикса</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1226,15 +1226,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Печать объекта(ов) в PDF</translation>
+        <translation>Печать объекта(ов) в PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Объект(ы) атласа успешно напечатан(ы) в PDF и сохранен(ы) в ваших документах</translation>
+        <translation>Объект(ы) атласа успешно напечатан(ы) в PDF и сохранен(ы) в ваших документах</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Распечатать</translation>
+        <translation>Распечатать</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1257,7 +1257,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Шир.</translation>
+        <translation>Шир.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1265,7 +1265,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Дол.</translation>
+        <translation>Дол.</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -1334,7 +1334,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Последние изменения не сохранены</translation>
+        <translation>Последние изменения не сохранены</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1345,15 +1345,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Выберите файл</translation>
+        <translation>Выберите файл</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG изображения (*.jpg *.jpeg)</translation>
+        <translation>JPEG изображения (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Не удалось сохранить изображение в галлерею</translation>
+        <translation>Не удалось сохранить изображение в галлерею</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1416,71 +1416,71 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Шир.</translation>
+        <translation>Шир.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">Н/Д</translation>
+        <translation>Н/Д</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Дол.</translation>
+        <translation>Дол.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Долгота</translation>
+        <translation>Долгота</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Широта</translation>
+        <translation>Широта</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Высота</translation>
+        <translation>Высота</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Скорость</translation>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">Гор. точность</translation>
+        <translation>Гор. точность</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">Верт. точность</translation>
+        <translation>Верт. точность</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Действительный</translation>
+        <translation>Действительный</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Фиксированный</translation>
+        <translation>Фиксированный</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Качество</translation>
+        <translation>Качество</translation>
     </message>
 </context>
 <context>
@@ -1680,7 +1680,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Не удалось войти</translation>
+        <translation>Не удалось войти</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1722,15 +1722,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Выйти</translation>
+        <translation>Выйти</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Вход в систему, пожалуйста, подождите</translation>
+        <translation>Вход в систему, пожалуйста, подождите</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Авторизоваться</translation>
+        <translation>Авторизоваться</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1745,11 +1745,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Проблемная упаковка слоя QFieldCloud</translation>
+        <translation>Проблемная упаковка слоя QFieldCloud</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Некоторые слои не были правильно упакованы в QFieldCloud. Эти слои могут быть неправильно настроены или их источник данных недоступен с сервера QFieldCloud.</translation>
+        <translation>Некоторые слои не были правильно упакованы в QFieldCloud. Эти слои могут быть неправильно настроены или их источник данных недоступен с сервера QFieldCloud.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1860,7 +1860,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Отменить все измененные объекты в локальных облачных слоях. Вы не можете восстановить эти изменения.</translation>
+        <translation>Отменить все измененные объекты в локальных облачных слоях. Вы не можете восстановить эти изменения.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1908,7 +1908,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n вложение загружается в фоновом режиме</numerusform><numerusform>%n вложения загружаются в фоновом режиме</numerusform><numerusform>%n вложений загружаются в фоновом режиме </numerusform><numerusform>%n вложений загружаются в фоновом режиме</numerusform></translation>
+        <translation><numerusform>%n вложение загружается в фоновом режиме</numerusform><numerusform>%n вложения загружаются в фоновом режиме</numerusform><numerusform>%n вложений загружаются в фоновом режиме </numerusform><numerusform>%n вложений загружаются в фоновом режиме</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1943,29 +1943,29 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Ошибка экспорта</translation>
+        <translation>Ошибка экспорта</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Упакованный слой &apos;%1&apos;  недействителен: &apos;%2&apos;</translation>
+        <translation>Упакованный слой &apos;%1&apos;  недействителен: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Не удалось открыть временный файл для &quot;%1&quot;, причина: %2</translation>
+        <translation>Не удалось открыть временный файл для &quot;%1&quot;, причина: %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Не удалось загрузить вложение, хранящееся в &quot;%1&quot;, причина: %2</translation>
+        <translation>Не удалось загрузить вложение, хранящееся в &quot;%1&quot;, причина: %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Не удалось загрузить файл &quot;%1&quot;, причина:</translation>
+        <translation>Не удалось загрузить файл &quot;%1&quot;, причина:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Не удалось записать загруженный файл, хранящийся в &quot;%1&quot;, причина ошибки:</translation>
+        <translation>Не удалось записать загруженный файл, хранящийся в &quot;%1&quot;, причина ошибки:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2320,7 +2320,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">Если этот параметр включен, яркость экрана будет уменьшена после 20 секунд бездействия для сохранения заряда батареи.</translation>
+        <translation>Если этот параметр включен, яркость экрана будет уменьшена после 20 секунд бездействия для сохранения заряда батареи.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2376,36 +2376,36 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Поиск связанных устройств</translation>
+        <translation>Поиск связанных устройств</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Не удалось провести поиск: %1</translation>
+        <translation>Не удалось провести поиск: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Поиск завершён</translation>
+        <translation>Поиск завершён</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n устройство найдено</numerusform><numerusform>%n устройства найдены</numerusform><numerusform>%n устройств найдено</numerusform><numerusform>%n устройств(а) найдены</numerusform></translation>
+        <translation><numerusform>%n устройство найдено</numerusform><numerusform>%n устройства найдены</numerusform><numerusform>%n устройств найдено</numerusform><numerusform>%n устройств(а) найдены</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Поиск отменён</translation>
+        <translation>Поиск отменён</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Поиск</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Произвести полное сканирование</translation>
+        <translation>Произвести полное сканирование</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Полный поиск устройств может занят долгое время. Вы действительно хотите выполнить его?
+        <translation>Полный поиск устройств может занят долгое время. Вы действительно хотите выполнить его?
 Отмените чтобы вместо этого  выполнить минимальный поиск устройств.</translation>
     </message>
     <message>
@@ -2414,7 +2414,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Подключиться к %1</translation>
+        <translation>Подключиться к %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2474,7 +2474,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Значения координаты  Z, записанные с устройства позиционирования, будут скорректированы с учётом этого значения. Если ввести значение 1,6, это приведет к поправке -1,6 для каждого записанного значения. </translation>
+        <translation>Значения координаты  Z, записанные с устройства позиционирования, будут скорректированы с учётом этого значения. Если ввести значение 1,6, это приведет к поправке -1,6 для каждого записанного значения. </translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2772,7 +2772,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Загрузка шрифта %1</translation>
+        <translation>Загрузка шрифта %1</translation>
     </message>
 </context>
 <context>
@@ -2833,7 +2833,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Вращение карты не поддерживается. Сброс с %1 на 0.</translation>
+        <translation>Вращение карты не поддерживается. Сброс с %1 на 0.</translation>
     </message>
 </context>
 <context>
@@ -2937,7 +2937,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">Подготовка QField, это одноразовая операция, которая займёт некоторое время</translation>
+        <translation>Подготовка QField, это одноразовая операция, которая займёт некоторое время</translation>
     </message>
 </context>
 <context>
@@ -3044,11 +3044,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Записывать когда выполняются оба активных ограничения</translation>
+        <translation>Записывать когда выполняются оба активных ограничения</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Если включено, вершины будут записываться только при выполнении обоих активных ограничений. Если параметр отключен, выполнение отдельных ограничений приведет к добавлению вершин.</translation>
+        <translation>Если включено, вершины будут записываться только при выполнении обоих активных ограничений. Если параметр отключен, выполнение отдельных ограничений приведет к добавлению вершин.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3056,7 +3056,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Невозможно начать трек с пустыми значениями</translation>
+        <translation>Невозможно начать трек с пустыми значениями</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
@@ -3255,11 +3255,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Базовый проект</translation>
+        <translation>Базовый проект</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Базовый Проект</translation>
+        <translation>Базовый Проект</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3267,7 +3267,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Добро пожаловать в QField! Пользуетесь приложением впервые? Ознакомьтесь с примерами проектов, приведёнными ниже. </translation>
+        <translation>Добро пожаловать в QField! Пользуетесь приложением впервые? Ознакомьтесь с примерами проектов, приведёнными ниже. </translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3437,11 +3437,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Определение местоположения включено</translation>
+        <translation>Определение местоположения включено</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Определение местоположения отключено</translation>
+        <translation>Определение местоположения отключено</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3469,7 +3469,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Печать в PDF</translation>
+        <translation>Печать в PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3481,7 +3481,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Открыть проект</translation>
+        <translation>Открыть проект</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3497,7 +3497,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Выберите шаблон ниже</translation>
+        <translation>Выберите шаблон ниже</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3537,11 +3537,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3601,7 +3601,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Установить в качестве пункта назначения</translation>
+        <translation>Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3637,7 +3637,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Центрирую на текущее местоположение</translation>
+        <translation>Центрирую на текущее местоположение</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
@@ -3681,7 +3681,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Выйти из</translation>
+        <translation>Выйти из</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3689,7 +3689,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Войти в</translation>
+        <translation>Войти в</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>

@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Uređaj za pozicioniranje u upotrebi:</translation>
+        <translation>Uređaj za pozicioniranje u upotrebi:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Skeniraj</translation>
+        <translation>Skeniraj</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -163,23 +163,23 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Povezano na %1</translation>
+        <translation>Povezano na %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">Poveži na %1</translation>
+        <translation>Poveži na %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Poveži na %1</translation>
+        <translation>Poveži na %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Povezivanje na %1</translation>
+        <translation>Povezivanje na %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Koristi ortometrijsku visinu uređaja</translation>
+        <translation>Koristi ortometrijsku visinu uređaja</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -191,7 +191,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">Nedostupno</translation>
+        <translation>Nedostupno</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -210,7 +210,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Unutarnji uređaj</translation>
+        <translation>Unutarnji uređaj</translation>
     </message>
 </context>
 <context>
@@ -233,31 +233,31 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">Ne mogu pronaći udaljeni poslužitelj</translation>
+        <translation>Ne mogu pronaći udaljeni poslužitelj</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">Ne mogu pronaći uslugu UUID na udaljenom poslužitelju</translation>
+        <translation>Ne mogu pronaći uslugu UUID na udaljenom poslužitelju</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">Dogodila se greška prilikom pokušaja čitanja ili pisanja iz utičnice</translation>
+        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz utičnice</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">Protokol nije podržan na ovoj platformi</translation>
+        <translation>Protokol nije podržan na ovoj platformi</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">Pokušana je operacija dok je utičnica bila u stanju koji ne dozvoljava tu operaciju</translation>
+        <translation>Pokušana je operacija dok je utičnica bila u stanju koji ne dozvoljava tu operaciju</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">Udaljeni poslužitelj je zatvorio konekciju</translation>
+        <translation>Udaljeni poslužitelj je zatvorio konekciju</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">Nepoznata greška</translation>
+        <translation>Nepoznata greška</translation>
     </message>
 </context>
 <context>
@@ -287,19 +287,19 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Dužina</translation>
+        <translation>Dužina</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Širina</translation>
+        <translation>Širina</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -426,19 +426,19 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">Sati</translation>
+        <translation>Sati</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">Minute</translation>
+        <translation>Minute</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">Sekunde</translation>
+        <translation>Sekunde</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -616,7 +616,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Zadnje promjene odbačene </translation>
+        <translation>Zadnje promjene odbačene </translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -746,7 +746,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">Postavi element kao navigaciju</translation>
+        <translation>Postavi element kao navigaciju</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -818,15 +818,15 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">Idi na %1 %2 (CRS Karte)</translation>
+        <translation>Idi na %1 %2 (CRS Karte)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Postavi navigacijsku točku</translation>
+        <translation>Postavi navigacijsku točku</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">Idi na %1° %2° (WGS84)</translation>
+        <translation>Idi na %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -915,7 +915,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Ponovo učitaj podatke</translation>
+        <translation>Ponovo učitaj podatke</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -935,11 +935,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+        <translation>Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Sloj sa Zaključanom Geometrijom</translation>
+        <translation>Sloj sa Zaključanom Geometrijom</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1008,7 +1008,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Nije moguće dodati novi element u sloj &quot;%1&quot;.</translation>
+        <translation>Nije moguće dodati novi element u sloj &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1084,18 +1084,18 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Pretraži...</translation>
+        <translation>Pretraži...</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Postavke pretraživanja</translation>
+        <translation>Postavke pretraživanja</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Pokreni bez prefixa</translation>
+        <translation>Pokreni bez prefixa</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1224,15 +1224,15 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Ispisujem element(e) atlasa u PDF</translation>
+        <translation>Ispisujem element(e) atlasa u PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Element(i) atlasa uspješno su ispisani u PDF i smješteni u vaše dokumente.</translation>
+        <translation>Element(i) atlasa uspješno su ispisani u PDF i smješteni u vaše dokumente.</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Isprintaj stavku(e) Atlasa u sliku</translation>
+        <translation>Isprintaj stavku(e) Atlasa u sliku</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
@@ -1255,7 +1255,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Širina.</translation>
+        <translation>Širina.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1263,11 +1263,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Dužina</translation>
+        <translation>Dužina</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">centroid</translation>
+        <translation>centroid</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1332,7 +1332,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Zadnje promjene zanemarene</translation>
+        <translation>Zadnje promjene zanemarene</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1343,15 +1343,15 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Izaberi Multimedijsku Datoteku</translation>
+        <translation>Izaberi Multimedijsku Datoteku</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG fotografije (*.jpg *.jpeg)</translation>
+        <translation>JPEG fotografije (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Nije uspjelo spremanje fotografije iz galerije</translation>
+        <translation>Nije uspjelo spremanje fotografije iz galerije</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1395,7 +1395,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="vanished">Audio datoteke (*.mp3 *.aac *.ogg)</translation>
+        <translation>Audio datoteke (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1414,71 +1414,71 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Širina.</translation>
+        <translation>Širina.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Dužina.</translation>
+        <translation>Dužina.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Dužina</translation>
+        <translation>Dužina</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Širina</translation>
+        <translation>Širina</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">Visina</translation>
+        <translation>Visina</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Brzina</translation>
+        <translation>Brzina</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">H. točnost</translation>
+        <translation>H. točnost</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">V. točnost</translation>
+        <translation>V. točnost</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Valjano</translation>
+        <translation>Valjano</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Fiksirano</translation>
+        <translation>Fiksirano</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Kvaliteta</translation>
+        <translation>Kvaliteta</translation>
     </message>
 </context>
 <context>
@@ -1508,7 +1508,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">Bluetooth</translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1679,7 +1679,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Neuspješna prijava </translation>
+        <translation>Neuspješna prijava </translation>
     </message>
     <message>
         <source>Failed to sign in</source>
@@ -1721,15 +1721,15 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Odjava</translation>
+        <translation>Odjava</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Prijavljivanje, molimo pričekajte</translation>
+        <translation>Prijavljivanje, molimo pričekajte</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Prijava</translation>
+        <translation>Prijava</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1744,11 +1744,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Problematično pakiranje QFieldCloud slojeva</translation>
+        <translation>Problematično pakiranje QFieldCloud slojeva</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Neki slojevi nisu ispravno zapakirani na QFieldCloud-u. Ovi slojevi možda nisu dobro konfigurirani ili njihov izvor podataka nije dostupan sa QFieldCloud servera. </translation>
+        <translation>Neki slojevi nisu ispravno zapakirani na QFieldCloud-u. Ovi slojevi možda nisu dobro konfigurirani ili njihov izvor podataka nije dostupan sa QFieldCloud servera. </translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1859,7 +1859,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Vratite sve promijenjene elemente u lokalnoj verziji sloja iz oblaka. Ne možete vratiti ove promjene.</translation>
+        <translation>Vratite sve promijenjene elemente u lokalnoj verziji sloja iz oblaka. Ne možete vratiti ove promjene.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1905,7 +1905,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform></translation>
+        <translation><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1940,29 +1940,29 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Izvoz nije uspio</translation>
+        <translation>Izvoz nije uspio</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Zapakirani sloj &apos;%1&apos; nije valjan: &apos;%2&apos;</translation>
+        <translation>Zapakirani sloj &apos;%1&apos; nije valjan: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Nije uspjelo otvaranje privremene datoteke za &quot;%1&quot;, razlog:%2</translation>
+        <translation>Nije uspjelo otvaranje privremene datoteke za &quot;%1&quot;, razlog:%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Nije uspjelo prebacivanje priloga pohranjenog na &quot;%1&quot;, razlog:%2</translation>
+        <translation>Nije uspjelo prebacivanje priloga pohranjenog na &quot;%1&quot;, razlog:%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Nije uspjelo preuzimanje datoteke &quot;%1&quot;, razlog:</translation>
+        <translation>Nije uspjelo preuzimanje datoteke &quot;%1&quot;, razlog:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nije uspjelo zapisivanje preuzete datoteke na &quot;%1&quot;, razlog:</translation>
+        <translation>Nije uspjelo zapisivanje preuzete datoteke na &quot;%1&quot;, razlog:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2033,7 +2033,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Neuspješno učitavanje privitka spremljenog u `%1`, razlog:
+        <translation>Neuspješno učitavanje privitka spremljenog u `%1`, razlog:
 %2</translation>
     </message>
     <message>
@@ -2319,7 +2319,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">Ako je uključeno, svjetlina ekrana će biti prigušena nakon 20 sekundi nekorištenja radi štednje baterije.</translation>
+        <translation>Ako je uključeno, svjetlina ekrana će biti prigušena nakon 20 sekundi nekorištenja radi štednje baterije.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2375,36 +2375,36 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Skeniranje za uparenim uređajima</translation>
+        <translation>Skeniranje za uparenim uređajima</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Skeniranje nije uspjelo: %1</translation>
+        <translation>Skeniranje nije uspjelo: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Skeniranje završeno</translation>
+        <translation>Skeniranje završeno</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n uređaj(a) pronađen</numerusform><numerusform>%n uređaj(a) pronađeno</numerusform><numerusform>%n uređaj(a) pronađeno</numerusform></translation>
+        <translation><numerusform>%n uređaj(a) pronađen</numerusform><numerusform>%n uređaj(a) pronađeno</numerusform><numerusform>%n uređaj(a) pronađeno</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Skeniranje završeno</translation>
+        <translation>Skeniranje završeno</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Skeniranje</translation>
+        <translation>Skeniranje</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Učini punu uslugu</translation>
+        <translation>Učini punu uslugu</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Puno skeniranje uređaja može trajati duže. Jeste li sigurni? 
+        <translation>Puno skeniranje uređaja može trajati duže. Jeste li sigurni? 
 Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
@@ -2413,7 +2413,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Poveži na %1</translation>
+        <translation>Poveži na %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2473,7 +2473,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Z vrijednosti koje su snimljene od uređaja za pozicioniranje će biti umanjene za ovu vrijednost. Ako je unesena vrijednost 1.6, to će rezultirati korekcijom od -1.6 za svaku snimljenu vrijednost.</translation>
+        <translation>Z vrijednosti koje su snimljene od uređaja za pozicioniranje će biti umanjene za ovu vrijednost. Ako je unesena vrijednost 1.6, to će rezultirati korekcijom od -1.6 za svaku snimljenu vrijednost.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2771,7 +2771,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Učitavanja fonta %1</translation>
+        <translation>Učitavanja fonta %1</translation>
     </message>
 </context>
 <context>
@@ -2832,7 +2832,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Rotiranje okvira mape nije podržano. Ponovno postavljane sa %1 na 0.</translation>
+        <translation>Rotiranje okvira mape nije podržano. Ponovno postavljane sa %1 na 0.</translation>
     </message>
 </context>
 <context>
@@ -2936,7 +2936,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">Priremam QField, ova operacija se radi samo jednom i može potrajati neko vrijeme</translation>
+        <translation>Priremam QField, ova operacija se radi samo jednom i može potrajati neko vrijeme</translation>
     </message>
 </context>
 <context>
@@ -2978,7 +2978,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">Konekcija je odbijena od udaljenog poslužitelja</translation>
+        <translation>Konekcija je odbijena od udaljenog poslužitelja</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3043,11 +3043,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Snimaj kada su oba uvjeta ispunjena</translation>
+        <translation>Snimaj kada su oba uvjeta ispunjena</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Kada je omogućeno, točke linije se mogu snimati samo uz oba ograničenja. Kada je onemogućeno, ispunjenje pojedinog ograničenja će pokrenuti dodavanje točaka linije.</translation>
+        <translation>Kada je omogućeno, točke linije se mogu snimati samo uz oba ograničenja. Kada je onemogućeno, ispunjenje pojedinog ograničenja će pokrenuti dodavanje točaka linije.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3055,11 +3055,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Nije moguće pokrenuti pračenje sa praznim vrijednostima</translation>
+        <translation>Nije moguće pokrenuti pračenje sa praznim vrijednostima</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Kada su oba ograničenja isključena, učestalost dodavanja točaka će biti u svakom trenutku dostave podatka od prijemnika za pozicioniranje.</translation>
+        <translation>Kada su oba ograničenja isključena, učestalost dodavanja točaka će biti u svakom trenutku dostave podatka od prijemnika za pozicioniranje.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3165,7 +3165,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">Konekcija je odbijena od udaljenog poslužitelja</translation>
+        <translation>Konekcija je odbijena od udaljenog poslužitelja</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
@@ -3254,11 +3254,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Projekt osnovne karte</translation>
+        <translation>Projekt osnovne karte</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Projekt Osnovne Karte</translation>
+        <translation>Projekt Osnovne Karte</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -3266,7 +3266,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Dobrodošli u QField. Prvi put koristite aplikaciju? Probajte neki od primjera projekata sa donje liste.</translation>
+        <translation>Dobrodošli u QField. Prvi put koristite aplikaciju? Probajte neki od primjera projekata sa donje liste.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3436,11 +3436,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Pozicioniranje uključeno</translation>
+        <translation>Pozicioniranje uključeno</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Pozicioniranje isključeno</translation>
+        <translation>Pozicioniranje isključeno</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -3468,7 +3468,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Printanje u PDF</translation>
+        <translation>Printanje u PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3480,7 +3480,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">Otvori Projekt</translation>
+        <translation>Otvori Projekt</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3496,7 +3496,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">Izaberite predložak</translation>
+        <translation>Izaberite predložak</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -3520,7 +3520,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Dodaj zabilješku na koordinatama</translation>
+        <translation>Dodaj zabilješku na koordinatama</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3528,7 +3528,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Postavi Koordinate kao Odredište</translation>
+        <translation>Postavi Koordinate kao Odredište</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -3536,11 +3536,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="vanished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
@@ -3552,27 +3552,27 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0,25 m preciznost</translation>
+        <translation>0,25 m preciznost</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0,5 m preciznost</translation>
+        <translation>0,5 m preciznost</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1 m preciznost</translation>
+        <translation>1 m preciznost</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2,5 m preciznost</translation>
+        <translation>2,5 m preciznost</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5 m preciznost</translation>
+        <translation>5 m preciznost</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10 m preciznost</translation>
+        <translation>10 m preciznost</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3600,7 +3600,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Postavi kao Odredište</translation>
+        <translation>Postavi kao Odredište</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -3636,11 +3636,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">Centriraj na trenutnu lokaciju</translation>
+        <translation>Centriraj na trenutnu lokaciju</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Dodaj zabilješku na trenutnoj lokaciji</translation>
+        <translation>Dodaj zabilješku na trenutnoj lokaciji</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3652,7 +3652,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">Kopiraj trenutnu lokaciju</translation>
+        <translation>Kopiraj trenutnu lokaciju</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3680,7 +3680,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">Odjavljen</translation>
+        <translation>Odjavljen</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3688,7 +3688,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Ulogiran</translation>
+        <translation>Ulogiran</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3712,7 +3712,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">Greška pozicioniranja: %1</translation>
+        <translation>Greška pozicioniranja: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3724,7 +3724,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="vanished">Ispiši u sliku</translation>
+        <translation>Ispiši u sliku</translation>
     </message>
     <message>
         <source>Printing...</source>
