@@ -868,9 +868,11 @@ Page {
 
   function adjustWelcomeScreen() {
     if (visible) {
+      const currentProjectButtonVisible = !!qgisProject.fileName;
+
       if (firstShown) {
         welcomeText.text = " ";
-        currentProjectButton.visible = true
+        currentProjectButton.visible = currentProjectButtonVisible
       } else {
         var firstRun = !settings.value( "/QField/FirstRunFlag", false )
         if ( firstRun ) {
@@ -878,7 +880,7 @@ Page {
         } else {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
-        currentProjectButton.visible = false
+        currentProjectButton.visible = currentProjectButtonVisible
       }
     }
   }
