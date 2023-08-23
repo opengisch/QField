@@ -325,6 +325,7 @@ Page {
 
       WebView {
         id: htmlItem
+        height: 0
         anchors {
           left: parent.left
           right: parent.right
@@ -334,13 +335,21 @@ Page {
 
         property string code: containerCode
         onCodeChanged: {
-          loadHtml(code);
+          if (parent.visible) {
+            loadHtml(code);
+          }
         }
 
         onLoadingChanged: {
           if ( !loading ) {
-            runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 30 ) } );
+            runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = (result + 20) } );
           }
+        }
+      }
+
+      onVisibleChanged: {
+        if (visible) {
+          htmlItem.loadHtml(htmlItem.code);
         }
       }
     }
