@@ -342,7 +342,7 @@ Page {
 
         onLoadingChanged: {
           if ( !loading ) {
-            runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = (result + 20) } );
+            runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = (result + 18) } );
           }
         }
       }

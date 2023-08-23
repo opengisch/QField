@@ -622,6 +622,97 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
       updateVisibilityAndConstraints( fidx );
     }
   }
+
+  updateEditorWidgetCodes( fieldName );
+}
+
+void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
+{
+  QMap<QStandardItem *, QString>::ConstIterator editorWidgetCodesIterator( mEditorWidgetCodes.constBegin() );
+  for ( ; editorWidgetCodesIterator != mEditorWidgetCodes.constEnd(); editorWidgetCodesIterator++ )
+  {
+    QStandardItem *item = editorWidgetCodesIterator.key();
+    QString code = editorWidgetCodesIterator.value();
+    bool needUpdate = false;
+
+    if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) || item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
+    {
+      const thread_local QRegularExpression sRegEx( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)", QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
+      QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
+      while ( matchIt.hasNext() )
+      {
+        const QRegularExpressionMatch match = matchIt.next();
+        QString expression = match.captured( 1 );
+        expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
+
+        QgsExpression exp( expression );
+        exp.prepare( &mExpressionContext );
+        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+        {
+          needUpdate = true;
+          break;
+        }
+      }
+
+      if ( needUpdate )
+      {
+        QRegularExpressionMatch match = sRegEx.match( code );
+        while ( match.hasMatch() )
+        {
+          QString expression = match.captured( 1 );
+          expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
+
+          QgsExpression exp = QgsExpression( expression );
+          exp.prepare( &mExpressionContext );
+          QVariant result = exp.evaluate( &mExpressionContext );
+
+          QString resultString;
+          switch ( static_cast<QMetaType::Type>( result.type() ) )
+          {
+            case QMetaType::Int:
+            case QMetaType::UInt:
+            case QMetaType::Double:
+            case QMetaType::LongLong:
+            case QMetaType::ULongLong:
+              resultString = result.toString();
+              break;
+            case QMetaType::Bool:
+              resultString = result.toBool() ? QStringLiteral( "true" ) : QStringLiteral( "false" );
+              break;
+            default:
+              resultString = QStringLiteral( "'%1'" ).arg( result.toString() );
+              break;
+          }
+          code = code.mid( 0, match.capturedStart( 0 ) ) + resultString + code.mid( match.capturedEnd( 0 ) );
+          match = sRegEx.match( code );
+        }
+        item->setData( code, AttributeFormModel::EditorWidgetCode );
+      }
+    }
+    else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "text" ) )
+    {
+      const thread_local QRegularExpression sRegEx( QStringLiteral( "\\[%(.*?)%\\]" ), QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
+      QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
+      while ( matchIt.hasNext() )
+      {
+        const QRegularExpressionMatch match = matchIt.next();
+
+        QgsExpression exp( match.captured( 1 ) );
+        exp.prepare( &mExpressionContext );
+        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+        {
+          needUpdate = true;
+          break;
+        }
+      }
+
+      if ( needUpdate )
+      {
+        code = QgsExpression::replaceExpressionText( code, &mExpressionContext );
+        item->setData( code, AttributeFormModel::EditorWidgetCode );
+      }
+    }
+  }
 }
 
 void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )

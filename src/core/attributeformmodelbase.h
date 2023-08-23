@@ -93,6 +93,9 @@ class AttributeFormModelBase : public QStandardItemModel
     //! Update default values refering to the \a fieldIndex.
     void updateDefaultValues( int fieldIndex = -1, QVector<int> updatedFields = QVector<int>() );
 
+    //! Update QML, HTML, and text widget code.
+    void updateEditorWidgetCodes( const QString &fieldName );
+
     //! Udate the visibility state of groups as well as constraints of field items
     void updateVisibilityAndConstraints( int fieldIndex = -1 );
 
