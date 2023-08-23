@@ -344,6 +344,45 @@ Page {
     }
   }
 
+  Component {
+    id: innerContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+      }
+
+      Flow {
+        id: innerContainerContent
+        anchors {
+          left: parent.left
+          right: parent.right
+        }
+
+        Repeater {
+          model: SubModel {
+            id: innerSubModel
+            model: form.model
+            rootIndex: form.model.mapFromSource(containerGroupIndex)
+          }
+          delegate: fieldItem
+        }
+
+        Connections {
+          target: form.model
+
+          function onModelReset() {
+            if (containerGroupIndex !== undefined && innerContainer.visible) {
+              innerSubModel.rootIndex = form.model.mapFromSource(containerGroupIndex)
+            }
+          }
+        }
+      }
+    }
+  }
+
   /**
    * A field editor
    */
@@ -398,65 +437,23 @@ Page {
       Item {
         id: field
 
-        height: childrenRect.height
         anchors {
           top: fieldGroupTitle.bottom
           left: parent.left
           right: parent.right
         }
 
-        Item {
-          id: innerContainer
+        Loader {
+          property var containerGroupIndex: GroupIndex
 
-          property bool isVisible: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
-
-          visible: isVisible
-          height: childrenRect.height
+          active: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
+          height: active ? item.childrenRect.height : 0
           anchors {
             left: parent.left
             right: parent.right
           }
 
-          Loader {
-            id: innerContainerLoader
-            anchors {
-              left: parent.left
-              right: parent.right
-            }
-            sourceComponent: innerContainerComponent
-            active: innerContainer.isVisible
-          }
-
-          Component {
-            id: innerContainerComponent
-
-            Flow {
-              id: innerContainerContent
-              anchors {
-                left: parent.left
-                right: parent.right
-              }
-
-              Repeater {
-                model: SubModel {
-                  id: innerSubModel
-                  model: form.model
-                  rootIndex: form.model.mapFromSource(GroupIndex)
-                }
-                delegate: fieldItem
-              }
-
-              Connections {
-                target: form.model
-
-                function onModelReset() {
-                  if (innerContainerContent !== undefined && GroupIndex !== undefined && innerContainer.isVisible) {
-                    innerContainerContent.innerSubModel.rootIndex = form.model.mapFromSource(GroupIndex)
-                  }
-                }
-              }
-            }
-          }
+          sourceComponent: innerContainer
         }
 
         Loader {

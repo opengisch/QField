@@ -208,7 +208,7 @@ void AttributeFormModelBase::resetModel()
           item->setData( element->name(), AttributeFormModel::Name );
           item->setData( "container", AttributeFormModel::ElementType );
           item->setData( QString(), AttributeFormModel::GroupName );
-          item->setData( QVariant(), AttributeFormModel::GroupIndex );
+          item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
           item->setData( true, AttributeFormModel::CurrentlyVisible );
           item->setData( true, AttributeFormModel::ConstraintHardValid );
           item->setData( true, AttributeFormModel::ConstraintSoftValid );
@@ -353,7 +353,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
     item->setData( columnCount, AttributeFormModel::ColumnCount );
     item->setData( currentTabIndex, AttributeFormModel::TabIndex );
     item->setData( QString(), AttributeFormModel::GroupName );
-    item->setData( QVariant(), AttributeFormModel::GroupIndex );
+    item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
     item->setData( true, AttributeFormModel::ConstraintHardValid );
     item->setData( true, AttributeFormModel::ConstraintSoftValid );
 
