@@ -323,33 +323,38 @@ Page {
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
-      WebView {
-        id: htmlItem
-        height: 0
+      Item {
+        id: htmlContent
+        height: childrenRect.height
         anchors {
           left: parent.left
           right: parent.right
           top: htmlLabel.bottom
-          rightMargin: 12
-        }
-
-        property string code: containerCode
-        onCodeChanged: {
-          if (parent.visible) {
-            loadHtml(code);
-          }
-        }
-
-        onLoadingChanged: {
-          if ( !loading ) {
-            runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = (result + 18) } );
-          }
         }
       }
 
+      property string htmlCode: containerCode
+      property var htmlItem: undefined
       onVisibleChanged: {
         if (visible) {
-          htmlItem.loadHtml(htmlItem.code);
+          if (htmlItem === undefined) {
+            // avoid cost of WevView creation until needed
+            htmlItem = Qt.createQmlObject('import QtWebView 1.14;
+              WebView {
+                id: htmlItem;
+                height: 0;
+                opacity: 0;
+                anchors { top: parent.top; left: parent.left; right: parent.right; }
+                onLoadingChanged: { if (!loading) { runJavaScript("document.body.offsetHeight", function(result) { anchors.left = parent.left; width = parent.width; height = (result + 18); opacity = 1.0; } ) } }
+              }'
+              , htmlContent);
+          }
+          htmlItem.loadHtml(htmlCode)
+        }
+      }
+      onHtmlCodeChanged: {
+        if (visible && htmlItem) {
+          htmlItem.loadHtml(htmlCode);
         }
       }
     }
