@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Документация</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -271,19 +271,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>Свойства закладки</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Название</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Цвет</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Скопировать информацию о закладке</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -303,15 +303,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Информация о закладке скопирована в буфер обмена</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Удалить закладку</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Вы собираетесь удалить закладку, продолжить?</translation>
     </message>
 </context>
 <context>
@@ -1101,7 +1101,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки строки поиска</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
@@ -2166,7 +2166,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Проекты не найдены</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2177,11 +2177,11 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Каталог проекта</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Локальные проекты и наборы данных</translation>
     </message>
     <message>
         <source>Folders</source>
@@ -2189,11 +2189,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Проекты</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Наборы данных</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -2229,7 +2229,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Удалить каталог проекта</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -2292,7 +2292,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Показать закладки</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
@@ -2546,15 +2546,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Добавить</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>Connect to %1</source>
@@ -2562,39 +2562,39 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Внешний вид пользовательского интерфейса:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>В соответствии с внешним видом системы</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Светлая тема</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Темная тема</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Размер шрифта пользовательского интерфейса:</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Крошечный</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Обычный</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Большой</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Очень большой</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
@@ -3525,7 +3525,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Закладка без названия</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3545,7 +3545,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Координаты скопированы в буфер обмена</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
