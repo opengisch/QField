@@ -246,6 +246,8 @@ Page {
         }
         opacity: textLabel.opacity
         color: Theme.mainTextColor
+        linkColor: Theme.mainColor
+        onLinkActivated: Qt.openUrlExternally(link)
       }
     }
   }
