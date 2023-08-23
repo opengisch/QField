@@ -207,6 +207,49 @@ Page {
     }
   }
 
+  Component {
+    id: textContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+      }
+
+      Label {
+        id: textLabel
+        width: parent.width
+        text: containerName
+        wrapMode: Text.WordWrap
+        font.pointSize: Theme.tinyFont.pointSize
+        font.bold: true
+        topPadding: 10
+        bottomPadding: 5
+        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
+                 ? 0.45
+                 : 1
+        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
+      }
+
+      Text {
+        id: textContent
+        width: parent.width
+        text: containerCode
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        anchors {
+          left: parent.left
+          right: parent.right
+          top: textLabel.bottom
+        }
+        opacity: textLabel.opacity
+        color: Theme.mainTextColor
+      }
+    }
+  }
+
   /**
    * A field editor
    */
@@ -320,6 +363,23 @@ Page {
               }
             }
           }
+        }
+
+        Loader {
+          property string containerName: Name || ''
+          property string containerCode: EditorWidgetCode || ''
+          property var labelOverrideColor: LabelOverrideColor
+          property var labelColor: LabelColor
+
+          active: Type === 'text' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
+
+          height: active ? item.childrenRect.height : 0
+          anchors {
+            left: parent.left
+            right: parent.right
+          }
+
+          sourceComponent: textContainer
         }
 
         Item {

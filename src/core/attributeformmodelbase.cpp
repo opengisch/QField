@@ -23,6 +23,7 @@
 #include <qgsattributeeditorhtmlelement.h>
 #include <qgsattributeeditorqmlelement.h>
 #include <qgsattributeeditorrelation.h>
+#include <qgsattributeeditortextelement.h>
 #include <qgsdatetimefieldformatter.h>
 #include <qgseditorwidgetsetup.h>
 #include <qgsmapthemecollection.h>
@@ -298,12 +299,11 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
       QString expression = match.captured( 1 );
       expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
 
-      QgsExpressionContext expressionContext = mLayer->createExpressionContext();
-      expressionContext.setFeature( mFeatureModel->feature() );
+      mExpressionContext.setFeature( mFeatureModel->feature() );
 
       QgsExpression exp = QgsExpression( expression );
-      exp.prepare( &expressionContext );
-      QVariant result = exp.evaluate( &expressionContext );
+      exp.prepare( &mExpressionContext );
+      QVariant result = exp.evaluate( &mExpressionContext );
 
       QString resultString;
       switch ( static_cast<QMetaType::Type>( result.type() ) )
@@ -325,6 +325,14 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
       code = code.mid( 0, match.capturedStart( 0 ) ) + resultString + code.mid( match.capturedEnd( 0 ) );
       match = re.match( code );
     }
+    item->setData( code, AttributeFormModel::EditorWidgetCode );
+  }
+  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "text" ) )
+  {
+    QString code = mEditorWidgetCodes[item];
+
+    mExpressionContext.setFeature( mFeatureModel->feature() );
+    code = QgsExpression::replaceExpressionText( code, &mExpressionContext );
     item->setData( code, AttributeFormModel::EditorWidgetCode );
   }
   else
@@ -528,8 +536,25 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
       }
 
 #if _QGIS_VERSION_INT >= 33100
-      case Qgis::AttributeEditorType::Action:
       case Qgis::AttributeEditorType::TextElement:
+      {
+        QgsAttributeEditorTextElement *textElement = static_cast<QgsAttributeEditorTextElement *>( element );
+
+        item->setData( "text", AttributeFormModel::ElementType );
+        item->setData( textElement->name(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( false, AttributeFormModel::AttributeEditable );
+        item->setData( false, AttributeFormModel::AttributeAllowEdit );
+
+        mEditorWidgetCodes.insert( item, textElement->text() );
+
+        updateAttributeValue( item );
+
+        items.append( item );
+        parent->appendRow( item );
+        break;
+      }
+      case Qgis::AttributeEditorType::Action:
       case Qgis::AttributeEditorType::SpacerElement:
       case Qgis::AttributeEditorType::Invalid:
 #else
