@@ -385,6 +385,12 @@ Page {
     }
   }
 
+  Component {
+    id: dummyContainer
+
+    Item {}
+  }
+
   /**
    * A field editor
    */
@@ -446,36 +452,29 @@ Page {
         }
 
         Loader {
-          property var containerGroupIndex: GroupIndex
-
-          active: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
-          height: active ? item.childrenRect.height : 0
-          anchors {
-            left: parent.left
-            right: parent.right
-          }
-
-          sourceComponent: innerContainer
-        }
-
-        Loader {
           property string containerName: Name || ''
           property string containerCode: EditorWidgetCode || ''
+          property var containerGroupIndex: GroupIndex
           property var labelOverrideColor: LabelOverrideColor
           property var labelColor: LabelColor
 
-          active: (Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
+          active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) ||
+                  ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
           height: active ? item.childrenRect.height : 0
           anchors {
             left: parent.left
             right: parent.right
           }
 
-          sourceComponent: Type === 'qml'
-                           ? qmlContainer
-                           : Type === 'text'
-                             ? textContainer
-                             : htmlContainer
+          sourceComponent: Type === 'container' && GroupIndex !== undefined && GroupIndex.valid
+                           ? innerContainer
+                           : Type === 'qml'
+                             ? qmlContainer
+                             : Type === 'html'
+                               ? htmlContainer
+                               : Type === 'text'
+                                 ? textContainer
+                                 : dummyContainer
         }
 
         Item {
