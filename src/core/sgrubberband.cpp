@@ -112,7 +112,7 @@ QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &p
   geom = geom.buffer( 0.0000001, 5 );
   QgsPolygon *polygon = qgsgeometry_cast<QgsPolygon *>( geom.constGet() );
   QgsTessellator t( 0, 0, false, false, false, true );
-  if ( points.size() > 2 )
+  if ( points.size() > 2 && polygon )
   {
     t.addPolygon( *polygon, 0 );
   }
