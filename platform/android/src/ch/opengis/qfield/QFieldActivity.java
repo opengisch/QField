@@ -571,7 +571,14 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.setType("*/*");
-        startActivityForResult(intent, R.id.import_dataset);
+        try {
+            startActivityForResult(intent, R.id.import_dataset);
+        } catch (ActivityNotFoundException e) {
+            displayAlertDialog(
+                getString(R.string.operation_unsupported),
+                getString(R.string.import_operation_unsupported));
+            Log.w("QField", "No activity found for ACTION_OPEN_DOCUMENT.");
+        }
         return;
     }
 
@@ -584,6 +591,9 @@ public class QFieldActivity extends QtActivity {
         try {
             startActivityForResult(intent, R.id.import_project_folder);
         } catch (ActivityNotFoundException e) {
+            displayAlertDialog(
+                getString(R.string.operation_unsupported),
+                getString(R.string.import_operation_unsupported));
             Log.w("QField", "No activity found for ACTION_OPEN_DOCUMENT_TREE.");
         }
         return;
@@ -596,7 +606,14 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.setType("application/zip");
-        startActivityForResult(intent, R.id.import_project_archive);
+        try {
+            startActivityForResult(intent, R.id.import_project_archive);
+        } catch (ActivityNotFoundException e) {
+            displayAlertDialog(
+                getString(R.string.operation_unsupported),
+                getString(R.string.import_operation_unsupported));
+            Log.w("QField", "No activity found for ACTION_OPEN_DOCUMENT.");
+        }
         return;
     }
 
@@ -644,6 +661,9 @@ public class QFieldActivity extends QtActivity {
         try {
             startActivityForResult(intent, R.id.export_to_folder);
         } catch (ActivityNotFoundException e) {
+            displayAlertDialog(
+                getString(R.string.operation_unsupported),
+                getString(R.string.export_operation_unsupported));
             Log.w("QField", "No activity found for ACTION_OPEN_DOCUMENT_TREE.");
         }
         return;
