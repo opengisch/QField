@@ -164,9 +164,11 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon *polygon, 
   QgsGeometry geom( polygon->clone() );
   geom = geom.buffer( 0.0000001, 5 );
   QgsPolygon *bufferedPolygon = qgsgeometry_cast<QgsPolygon *>( geom.constGet() );
-
   QgsTessellator t( visibleExtent.xMinimum(), visibleExtent.yMaximum(), false, false, false, true );
-  t.addPolygon( *bufferedPolygon, 0 );
+  if ( bufferedPolygon )
+  {
+    t.addPolygon( *bufferedPolygon, 0 );
+  }
 
   QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), t.dataVerticesCount() );
 
