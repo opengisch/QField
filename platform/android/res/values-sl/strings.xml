@@ -69,4 +69,4 @@
     <string name="import_project_wait">Počakaj, medtem QField uvaža projekt</string>
     <string name="import_dataset_wait">Počakaj, medtem QField uvaža zbirko(e) podatkov</string>
     <string name="upload_pending_attachments">Trenutno poteka nalaganje priponk v QFieldCloud</string>
-</resources>
+    </resources>

@@ -2621,7 +2621,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>この値は、測位デバイスから記録されたZ値を補正します。1.6の値が入力された場合、QFieldは記録された各値から自動的に1.6を差し引きます。有効アンテナ高、すなわちポール長＋アンテナ位置のオフセットを必ず入力してください。</translation>
     </message>
 </context>
 <context>

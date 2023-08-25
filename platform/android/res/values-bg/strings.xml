@@ -69,4 +69,4 @@
     <string name="import_project_wait">Моля изчакайте докато QField импортира проекта</string>
     <string name="import_dataset_wait">Моля изчакайте докато QField импортира данните</string>
     <string name="upload_pending_attachments">Качване на прикачени файлове към QFieldCloud</string>
-</resources>
+    </resources>

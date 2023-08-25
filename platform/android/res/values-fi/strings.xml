@@ -71,4 +71,4 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="import_project_wait">Ole hyvä odota kun QField on tuomassa projektia</string>
     <string name="import_dataset_wait">Ole hyvä odota kun QField on tuomassa datajoukkoa(joukkoja).</string>
     <string name="upload_pending_attachments">Lähetetään parhaillaan liitteitä QFieldCloudiin</string>
-</resources>
+    </resources>

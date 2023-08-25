@@ -69,4 +69,4 @@
     <string name="import_project_wait">Kérjük várjon, amíg a QGIS importálja a projektet</string>
     <string name="import_dataset_wait">Kérjük várjon, amíg a QField importálja az adatállomány(oka)t</string>
     <string name="upload_pending_attachments">A csatolmányok feltöltése a QFieldCloud-ba most</string>
-</resources>
+    </resources>

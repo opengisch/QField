@@ -69,4 +69,4 @@
     <string name="import_project_wait">Attendere mentre QField importa il progetto</string>
     <string name="import_dataset_wait">Attendere mentre QField importa i set di dati.</string>
     <string name="upload_pending_attachments">Caricando gli allegati in QFieldCloud</string>
-</resources>
+    </resources>

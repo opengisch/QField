@@ -69,4 +69,7 @@
     <string name="import_project_wait">QFieldがプロジェクトをインポートしている間、しばらくお待ちください。</string>
     <string name="import_dataset_wait">QFieldがデータセットをインポートしている間、しばらくお待ちください。</string>
     <string name="upload_pending_attachments">現在、QFieldCloudに添付ファイルをアップロードしています。</string>
+    <string name="operation_unsupported">サポートされていない操作です</string>
+    <string name="import_operation_unsupported">お使いのデバイスはこのインポート操作に対応していません。</string>
+    <string name="export_operation_unsupported">お使いのデバイスはこのエクスポート操作に対応していません。</string>
 </resources>

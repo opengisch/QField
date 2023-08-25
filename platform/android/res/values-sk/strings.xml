@@ -70,4 +70,4 @@
     <string name="import_project_wait">QField importuje projekt, počkajte prosím</string>
     <string name="import_dataset_wait">QField importuje dataset(y), počkajte prosím</string>
     <string name="upload_pending_attachments">Nahrávanie príloh do QFieldCloud</string>
-</resources>
+    </resources>
