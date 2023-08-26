@@ -94,6 +94,10 @@ EditorWidgetBase {
 
   TextArea {
     id: textArea
+    topPadding: 10
+    bottomPadding: 10
+    rightPadding: 0
+    leftPadding: enabled ? 5 : 0
     height: config['IsMultiline'] === true ? undefined : 0
     visible: config['IsMultiline'] === true && isEditable
     enabled: isEditable
