@@ -306,16 +306,16 @@ Item {
           anchors.rightMargin: 1
 
           Repeater {
-            model: locator.contextMenuActionsModel( index )
+            model: locator.contextMenuActionsModel(index)
 
             QfToolButton {
               anchors.verticalCenter: parent.verticalCenter
-              height: parent.height
-              width:  36
+              width: 32
+              height: 32
+              padding: 0
               bgcolor: "transparent"
 
-              iconSource: Theme.getThemeIcon( model.iconPath )
-              iconColor: Theme.darkTheme ? Theme.mainTextColor : "transparent"
+              iconSource: Theme.getThemeIcon(model.iconPath)
 
               onClicked: {
                 locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
