@@ -94,48 +94,43 @@ void ScaleBarMeasurement::measure()
 {
   if ( mProject && mMapSettings )
   {
-    const Qgis::DistanceUnit mapUnits = mDistanceArea.lengthUnits();
-
-    // convert to meters
     const QgsRectangle extent = mMapSettings->mapSettings().extent();
     const double yPosition = 0.5 * ( extent.yMinimum() + extent.yMaximum() );
-    const double extentLength = mDistanceArea.measureLine( QgsPointXY( extent.xMinimum(), yPosition ),
-                                                           QgsPointXY( extent.xMaximum(), yPosition ) );
-    const double factor = ( extentLength / extent.width() ) * mMapSettings->mapUnitsPerPoint();
 
+    const Qgis::DistanceUnit mapUnits = mDistanceArea.lengthUnits();
+    double extentLength = mDistanceArea.measureLine( QgsPointXY( extent.xMinimum(), yPosition ),
+                                                     QgsPointXY( extent.xMaximum(), yPosition ) );
+
+    Qgis::DistanceUnit distanceUnit = mProject->distanceUnits();
+    extentLength = mDistanceArea.convertLengthMeasurement( extentLength, distanceUnit );
+    QgsUnitTypes::DistanceValue scaledDistance = QgsUnitTypes::scaledDistance( extentLength, distanceUnit, 2 );
+    distanceUnit = scaledDistance.unit;
+    extentLength = scaledDistance.value;
+
+    const double factor = ( extentLength / extent.width() ) * mMapSettings->mapUnitsPerPoint();
     const double range = mReferenceScreenLength * factor;
     const double exponent = std::floor( std::log( range ) / 2.302585092994046 );
     const double magnitude = std::pow( 10, exponent );
-    const double adjustedMagnitude = ( mapUnits == Qgis::DistanceUnit::Degrees
+    const double adjustedMagnitude = ( distanceUnit == Qgis::DistanceUnit::Degrees
                                          ? magnitude / ( 1 + ( magnitude / factor ) / mReferenceScreenLength )
                                          : magnitude / ( 1 + std::round( ( magnitude / factor ) / mReferenceScreenLength ) ) );
-
     mScreenLength = adjustedMagnitude / factor;
 
-    if ( mapUnits == Qgis::DistanceUnit::Meters && adjustedMagnitude >= 1000 )
+    if ( std::isnan( adjustedMagnitude ) )
     {
-      mLabel = QStringLiteral( "%1 %2" ).arg( adjustedMagnitude / 1000 ).arg( QgsUnitTypes::toAbbreviatedString( Qgis::DistanceUnit::Kilometers ) );
+      mLabel = tr( "Unknown" );
+    }
+    else if ( adjustedMagnitude >= 0.1 )
+    {
+      mLabel = QStringLiteral( "%1 %2" ).arg( adjustedMagnitude ).arg( QgsUnitTypes::toAbbreviatedString( distanceUnit ) );
     }
     else
     {
-      // better show 0.1m than 0m. No way to force it to show 10cm.
-      QgsUnitTypes::DistanceValue scaledDistance = QgsUnitTypes::scaledDistance( adjustedMagnitude, mapUnits, 1 );
-
-      if ( std::isnan( scaledDistance.value ) )
-      {
-        mLabel = tr( "Unknown" );
-      }
-      else if ( scaledDistance.value >= 0.1 )
-      {
-        mLabel = QStringLiteral( "%1 %2" ).arg( scaledDistance.value ).arg( QgsUnitTypes::toAbbreviatedString( scaledDistance.unit ) );
-      }
-      else
-      {
-        // when going to mm scale, better show all the decimals
-        scaledDistance = QgsUnitTypes::scaledDistance( adjustedMagnitude, mapUnits, 10 );
-        mLabel = QStringLiteral( "%1 %2" ).arg( scaledDistance.value ).arg( QgsUnitTypes::toAbbreviatedString( scaledDistance.unit ) );
-      }
+      // when going to mm scale, better show all the decimals
+      scaledDistance = QgsUnitTypes::scaledDistance( adjustedMagnitude, mapUnits, 10 );
+      mLabel = QStringLiteral( "%1 %2" ).arg( scaledDistance.value ).arg( QgsUnitTypes::toAbbreviatedString( scaledDistance.unit ) );
     }
+
     const bool impreciseUnits = mMapSettings->mapSettings().mapUnits() == Qgis::DistanceUnit::Degrees;
     if ( impreciseUnits )
       mLabel = QStringLiteral( "~" ) + mLabel;
