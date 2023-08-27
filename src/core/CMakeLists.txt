@@ -273,7 +273,7 @@ endif()
 if(WITH_SERIALPORT)
   target_compile_definitions(qfield_core PRIVATE WITH_SERIALPORT)
 endif()
-if(WITH_BLUETOOTH)
+if(WITH_NFC)
   target_compile_definitions(qfield_core PRIVATE WITH_NFC)
 endif()
 

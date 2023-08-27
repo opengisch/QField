@@ -39,6 +39,9 @@
 #include "serialportmodel.h"
 #include "serialportreceiver.h"
 #endif
+#ifdef WITH_NFC
+#include "nearfieldreader.h"
+#endif
 #include "appinterface.h"
 #include "attributeformmodel.h"
 #include "audiorecorder.h"
@@ -79,7 +82,6 @@
 #include "modelhelper.h"
 #include "navigation.h"
 #include "navigationmodel.h"
-#include "nearfieldreader.h"
 #include "orderedrelationmodel.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
