@@ -23,6 +23,7 @@
 #include <qgsattributeeditorhtmlelement.h>
 #include <qgsattributeeditorqmlelement.h>
 #include <qgsattributeeditorrelation.h>
+#include <qgsattributeeditortextelement.h>
 #include <qgsdatetimefieldformatter.h>
 #include <qgseditorwidgetsetup.h>
 #include <qgsmapthemecollection.h>
@@ -207,7 +208,7 @@ void AttributeFormModelBase::resetModel()
           item->setData( element->name(), AttributeFormModel::Name );
           item->setData( "container", AttributeFormModel::ElementType );
           item->setData( QString(), AttributeFormModel::GroupName );
-          item->setData( QVariant(), AttributeFormModel::GroupIndex );
+          item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
           item->setData( true, AttributeFormModel::CurrentlyVisible );
           item->setData( true, AttributeFormModel::ConstraintHardValid );
           item->setData( true, AttributeFormModel::ConstraintSoftValid );
@@ -298,12 +299,11 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
       QString expression = match.captured( 1 );
       expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
 
-      QgsExpressionContext expressionContext = mLayer->createExpressionContext();
-      expressionContext.setFeature( mFeatureModel->feature() );
+      mExpressionContext.setFeature( mFeatureModel->feature() );
 
       QgsExpression exp = QgsExpression( expression );
-      exp.prepare( &expressionContext );
-      QVariant result = exp.evaluate( &expressionContext );
+      exp.prepare( &mExpressionContext );
+      QVariant result = exp.evaluate( &mExpressionContext );
 
       QString resultString;
       switch ( static_cast<QMetaType::Type>( result.type() ) )
@@ -327,6 +327,14 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     }
     item->setData( code, AttributeFormModel::EditorWidgetCode );
   }
+  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "text" ) )
+  {
+    QString code = mEditorWidgetCodes[item];
+
+    mExpressionContext.setFeature( mFeatureModel->feature() );
+    code = QgsExpression::replaceExpressionText( code, &mExpressionContext );
+    item->setData( code, AttributeFormModel::EditorWidgetCode );
+  }
   else
   {
     for ( int i = 0; i < item->rowCount(); ++i )
@@ -345,7 +353,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
     item->setData( columnCount, AttributeFormModel::ColumnCount );
     item->setData( currentTabIndex, AttributeFormModel::TabIndex );
     item->setData( QString(), AttributeFormModel::GroupName );
-    item->setData( QVariant(), AttributeFormModel::GroupIndex );
+    item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
     item->setData( true, AttributeFormModel::ConstraintHardValid );
     item->setData( true, AttributeFormModel::ConstraintSoftValid );
 
@@ -528,8 +536,25 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
       }
 
 #if _QGIS_VERSION_INT >= 33100
-      case Qgis::AttributeEditorType::Action:
       case Qgis::AttributeEditorType::TextElement:
+      {
+        QgsAttributeEditorTextElement *textElement = static_cast<QgsAttributeEditorTextElement *>( element );
+
+        item->setData( "text", AttributeFormModel::ElementType );
+        item->setData( textElement->name(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( false, AttributeFormModel::AttributeEditable );
+        item->setData( false, AttributeFormModel::AttributeAllowEdit );
+
+        mEditorWidgetCodes.insert( item, textElement->text() );
+
+        updateAttributeValue( item );
+
+        items.append( item );
+        parent->appendRow( item );
+        break;
+      }
+      case Qgis::AttributeEditorType::Action:
       case Qgis::AttributeEditorType::SpacerElement:
       case Qgis::AttributeEditorType::Invalid:
 #else
@@ -595,6 +620,97 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
         updateDefaultValues( fidx, updatedFields );
       }
       updateVisibilityAndConstraints( fidx );
+    }
+  }
+
+  updateEditorWidgetCodes( fieldName );
+}
+
+void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
+{
+  QMap<QStandardItem *, QString>::ConstIterator editorWidgetCodesIterator( mEditorWidgetCodes.constBegin() );
+  for ( ; editorWidgetCodesIterator != mEditorWidgetCodes.constEnd(); editorWidgetCodesIterator++ )
+  {
+    QStandardItem *item = editorWidgetCodesIterator.key();
+    QString code = editorWidgetCodesIterator.value();
+    bool needUpdate = false;
+
+    if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) || item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
+    {
+      const thread_local QRegularExpression sRegEx( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)", QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
+      QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
+      while ( matchIt.hasNext() )
+      {
+        const QRegularExpressionMatch match = matchIt.next();
+        QString expression = match.captured( 1 );
+        expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
+
+        QgsExpression exp( expression );
+        exp.prepare( &mExpressionContext );
+        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+        {
+          needUpdate = true;
+          break;
+        }
+      }
+
+      if ( needUpdate )
+      {
+        QRegularExpressionMatch match = sRegEx.match( code );
+        while ( match.hasMatch() )
+        {
+          QString expression = match.captured( 1 );
+          expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
+
+          QgsExpression exp = QgsExpression( expression );
+          exp.prepare( &mExpressionContext );
+          QVariant result = exp.evaluate( &mExpressionContext );
+
+          QString resultString;
+          switch ( static_cast<QMetaType::Type>( result.type() ) )
+          {
+            case QMetaType::Int:
+            case QMetaType::UInt:
+            case QMetaType::Double:
+            case QMetaType::LongLong:
+            case QMetaType::ULongLong:
+              resultString = result.toString();
+              break;
+            case QMetaType::Bool:
+              resultString = result.toBool() ? QStringLiteral( "true" ) : QStringLiteral( "false" );
+              break;
+            default:
+              resultString = QStringLiteral( "'%1'" ).arg( result.toString() );
+              break;
+          }
+          code = code.mid( 0, match.capturedStart( 0 ) ) + resultString + code.mid( match.capturedEnd( 0 ) );
+          match = sRegEx.match( code );
+        }
+        item->setData( code, AttributeFormModel::EditorWidgetCode );
+      }
+    }
+    else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "text" ) )
+    {
+      const thread_local QRegularExpression sRegEx( QStringLiteral( "\\[%(.*?)%\\]" ), QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
+      QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
+      while ( matchIt.hasNext() )
+      {
+        const QRegularExpressionMatch match = matchIt.next();
+
+        QgsExpression exp( match.captured( 1 ) );
+        exp.prepare( &mExpressionContext );
+        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+        {
+          needUpdate = true;
+          break;
+        }
+      }
+
+      if ( needUpdate )
+      {
+        code = QgsExpression::replaceExpressionText( code, &mExpressionContext );
+        item->setData( code, AttributeFormModel::EditorWidgetCode );
+      }
     }
   }
 }

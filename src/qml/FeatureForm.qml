@@ -207,6 +207,204 @@ Page {
     }
   }
 
+  Component {
+    id: textContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+      }
+
+      Label {
+        id: textLabel
+        width: parent.width
+        text: containerName
+        wrapMode: Text.WordWrap
+        font.pointSize: Theme.tinyFont.pointSize
+        font.bold: true
+        topPadding: 10
+        bottomPadding: 5
+        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
+                 ? 0.45
+                 : 1
+        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
+      }
+
+      Text {
+        id: textContent
+        width: parent.width
+        text: containerCode
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        anchors {
+          left: parent.left
+          right: parent.right
+          top: textLabel.bottom
+        }
+        opacity: textLabel.opacity
+        color: Theme.mainTextColor
+        linkColor: Theme.mainColor
+        onLinkActivated: Qt.openUrlExternally(link)
+      }
+    }
+  }
+
+  Component {
+    id: qmlContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+      }
+
+      Label {
+        id: qmlLabel
+        width: parent.width
+        text: containerName
+        wrapMode: Text.WordWrap
+        font.pointSize: Theme.tinyFont.pointSize
+        font.bold: true
+        topPadding: 10
+        bottomPadding: 5
+        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
+                 ? 0.45
+                 : 1
+        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
+      }
+
+      Item {
+        id: qmlItem
+
+        property string code: containerCode
+        onCodeChanged: {
+          var obj = Qt.createQmlObject(code,qmlItem,'qmlContent');
+        }
+
+        height: childrenRect.height
+        anchors {
+          left: parent.left
+          rightMargin: 12
+          right: parent.right
+          top: qmlLabel.bottom
+        }
+      }
+    }
+  }
+
+  Component {
+    id: htmlContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+      }
+
+      Label {
+        id: htmlLabel
+        width: parent.width
+        text: containerName
+        wrapMode: Text.WordWrap
+        font.pointSize: Theme.tinyFont.pointSize
+        font.bold: true
+        topPadding: 10
+        bottomPadding: 5
+        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
+                 ? 0.45
+                 : 1
+        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
+      }
+
+      Item {
+        id: htmlContent
+        height: childrenRect.height
+        anchors {
+          left: parent.left
+          right: parent.right
+          top: htmlLabel.bottom
+        }
+      }
+
+      property string htmlCode: containerCode
+      property var htmlItem: undefined
+      onVisibleChanged: {
+        if (visible) {
+          if (htmlItem === undefined) {
+            // avoid cost of WevView creation until needed
+            htmlItem = Qt.createQmlObject('import QtWebView 1.14;
+              WebView {
+                id: htmlItem;
+                height: 0;
+                opacity: 0;
+                anchors { top: parent.top; left: parent.left; right: parent.right; }
+                onLoadingChanged: { if (!loading) { runJavaScript("document.body.offsetHeight", function(result) { anchors.left = parent.left; width = parent.width; height = (result + 18); opacity = 1.0; } ) } }
+              }'
+              , htmlContent);
+          }
+          htmlItem.loadHtml(htmlCode)
+        }
+      }
+      onHtmlCodeChanged: {
+        if (visible && htmlItem) {
+          htmlItem.loadHtml(htmlCode);
+        }
+      }
+    }
+  }
+
+  Component {
+    id: innerContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+      }
+
+      Flow {
+        id: innerContainerContent
+        anchors {
+          left: parent.left
+          right: parent.right
+        }
+
+        Repeater {
+          model: SubModel {
+            id: innerSubModel
+            model: form.model
+            rootIndex: form.model.mapFromSource(containerGroupIndex)
+          }
+          delegate: fieldItem
+        }
+
+        Connections {
+          target: form.model
+
+          function onModelReset() {
+            if (containerGroupIndex !== undefined && innerContainer.visible) {
+              innerSubModel.rootIndex = form.model.mapFromSource(containerGroupIndex)
+            }
+          }
+        }
+      }
+    }
+  }
+
+  Component {
+    id: dummyContainer
+
+    Item {}
+  }
+
   /**
    * A field editor
    */
@@ -261,157 +459,36 @@ Page {
       Item {
         id: field
 
-        height: childrenRect.height
         anchors {
           top: fieldGroupTitle.bottom
           left: parent.left
           right: parent.right
         }
 
-        Item {
-          id: innerContainer
+        Loader {
+          property string containerName: Name || ''
+          property string containerCode: EditorWidgetCode || ''
+          property var containerGroupIndex: GroupIndex
+          property var labelOverrideColor: LabelOverrideColor
+          property var labelColor: LabelColor
 
-          property bool isVisible: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
-
-          visible: isVisible
-          height: childrenRect.height
+          active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) ||
+                  ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
+          height: active ? item.childrenRect.height : 0
           anchors {
             left: parent.left
             right: parent.right
           }
 
-          Loader {
-            id: innerContainerLoader
-            anchors {
-              left: parent.left
-              right: parent.right
-            }
-            sourceComponent: innerContainerComponent
-            active: innerContainer.isVisible
-          }
-
-          Component {
-            id: innerContainerComponent
-
-            Flow {
-              id: innerContainerContent
-              anchors {
-                left: parent.left
-                right: parent.right
-              }
-
-              Repeater {
-                model: SubModel {
-                  id: innerSubModel
-                  model: form.model
-                  rootIndex: form.model.mapFromSource(GroupIndex)
-                }
-                delegate: fieldItem
-              }
-
-              Connections {
-                target: form.model
-
-                function onModelReset() {
-                  if (innerContainerContent !== undefined && GroupIndex !== undefined && innerContainer.isVisible) {
-                    innerContainerContent.innerSubModel.rootIndex = form.model.mapFromSource(GroupIndex)
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        Item {
-          id: qmlContainer
-
-          property bool isVisible: Type === 'qml' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
-          property string qmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
-
-          visible: isVisible
-          height: isVisible ? childrenRect.height : 0
-          anchors {
-            left: parent.left
-            right: parent.right
-            leftMargin: 12
-          }
-
-          Label {
-            id: qmlLabel
-            width: parent.width
-            text: Name || ''
-            wrapMode: Text.WordWrap
-            font.pointSize: Theme.tinyFont.pointSize
-            font.bold: true
-            topPadding: 10
-            bottomPadding: 5
-            opacity: 0.45
-            color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
-          }
-
-          Item {
-            id: qmlItem
-            height: childrenRect.height
-            anchors {
-              left: parent.left
-              rightMargin: 12
-              right: parent.right
-              top: qmlLabel.bottom
-            }
-          }
-
-          onQmlCodeChanged: {
-            if (isVisible) {
-              var obj = Qt.createQmlObject(qmlContainer.qmlCode,qmlItem,'qmlContent');
-            }
-          }
-        }
-
-        Item {
-          id: htmlContainer
-
-          property bool isVisible: Type === 'html' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
-          property string htmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
-
-          visible: isVisible
-          height: isVisible ? childrenRect.height : 0
-          anchors {
-            left: parent.left
-            right: parent.right
-            leftMargin: 12
-          }
-
-          Label {
-            id: htmlLabel
-            width: parent.width
-            text: Name || ''
-            wrapMode: Text.WordWrap
-            font.pointSize: Theme.tinyFont.pointSize
-            font.bold: true
-            topPadding: 10
-            bottomPadding: 5
-            opacity: 0.45
-            color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
-          }
-
-          Item {
-            id: htmlLoader
-            visible: TabIndex === form.currentTab && ( form.focus || featureForm.focus )
-            anchors {
-              left: parent.left
-              rightMargin: 12
-              right: parent.right
-              top: htmlLabel.bottom
-            }
-          }
-
-          onHtmlCodeChanged: {
-            if (isVisible) {
-              var htmlItem = Qt.createQmlObject('import QtWebView 1.14; WebView { id: htmlItem; anchors { left: parent.left; rightMargin: 12; right: parent.right; } onLoadingChanged: if ( !loading ) runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 30 ) } ); }',
-                                                htmlLoader);
-              htmlItem.loadHtml(htmlContainer.htmlCode);
-            }
-          }
+          sourceComponent: Type === 'container' && GroupIndex !== undefined && GroupIndex.valid
+                           ? innerContainer
+                           : Type === 'qml'
+                             ? qmlContainer
+                             : Type === 'html'
+                               ? htmlContainer
+                               : Type === 'text'
+                                 ? textContainer
+                                 : dummyContainer
         }
 
         Item {
