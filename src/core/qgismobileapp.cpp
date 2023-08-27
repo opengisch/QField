@@ -79,6 +79,7 @@
 #include "modelhelper.h"
 #include "navigation.h"
 #include "navigationmodel.h"
+#include "nearfieldreader.h"
 #include "orderedrelationmodel.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
@@ -471,6 +472,12 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "withSerialPort", QVariant( true ) );
 #else
   rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
+#endif
+#ifdef WITH_NFC
+  qmlRegisterType<NearFieldReader>( "org.qfield", 1, 0, "NearFieldReader" );
+  rootContext()->setContextProperty( "withNfc", QVariant( true ) );
+#else
+  rootContext()->setContextProperty( "withNfc", QVariant( false ) );
 #endif
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );

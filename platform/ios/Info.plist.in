@@ -80,6 +80,9 @@
     <key>NSBluetoothAlwaysUsageDescription</key>
     <string>Bluetooth access needed to connect an external GNSS device.</string>
 
+    <key>NFCReaderUsageDescription</key>
+    <string>NFC access needed to read text from tags.</string>
+
     <key>CSResourcesFileMapped</key>
     <true/>
 

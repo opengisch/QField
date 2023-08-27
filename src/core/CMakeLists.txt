@@ -230,6 +230,11 @@ if(WITH_SERIALPORT)
        positioning/serialportreceiver.h)
 endif()
 
+if(WITH_NFC)
+  list(APPEND QFIELD_CORE_SRCS nearfieldreader.cpp)
+  list(APPEND QFIELD_CORE_HDRS nearfieldreader.h)
+endif()
+
 if(ANDROID)
   set(QFIELD_CORE_HDRS
       ${QFIELD_CORE_HDRS}
@@ -267,6 +272,9 @@ if(WITH_BLUETOOTH)
 endif()
 if(WITH_SERIALPORT)
   target_compile_definitions(qfield_core PRIVATE WITH_SERIALPORT)
+endif()
+if(WITH_BLUETOOTH)
+  target_compile_definitions(qfield_core PRIVATE WITH_NFC)
 endif()
 
 include(GenerateExportHeader)
@@ -355,6 +363,14 @@ if(WITH_SERIALPORT)
     COMPONENTS SerialPort
     REQUIRED)
   target_link_libraries(qfield_core PUBLIC ${QT_PKG}::SerialPort)
+endif()
+
+if(WITH_NFC)
+  find_package(
+    ${QT_PKG}
+    COMPONENTS Nfc
+    REQUIRED)
+  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::Nfc)
 endif()
 
 if(WITH_SENTRY)
