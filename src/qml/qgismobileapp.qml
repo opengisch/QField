@@ -960,7 +960,7 @@ ApplicationWindow {
                 .arg(digitizingGeometryMeasure.areaValid
                      ? '%1: %2\n'
                      .arg( qsTr( 'Area') )
-                     .arg(UnitTypes.formatArea( digitizingGeometryMeasure.convertAreaMeansurement( digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits ) )
+                     .arg(UnitTypes.formatArea( digitizingGeometryMeasure.convertAreaMeansurement( digitizingGeometryMeasure.area, projectInfo.areaUnits ), 3, projectInfo.areaUnits ) )
                      : '')
 
                 .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing
@@ -3087,7 +3087,7 @@ ApplicationWindow {
 
       var distanceString = iface.readProjectEntry("Measurement" ,"/DistanceUnits", "")
       projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters
-      var areaString = iface.readProjectEntry("Measurement" ,"/AreaeUnits", "")
+      var areaString = iface.readProjectEntry("Measurement" ,"/AreaUnits", "")
       projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : Qgis.AreaUnit.SquareMeters
 
       if (qgisProject.displaySettings) {
