@@ -1,21 +1,20 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Shapes 1.14
-import QtMultimedia 5.14
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Shapes
+import QtMultimedia
 
 import org.qfield 1.0
 
 import Theme 1.0
 
 Popup {
-  id : barcodeReader
+  id : codeReader
 
   signal decoded(var string)
 
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin
-  property bool openedOnce: false
 
   width: popupWidth
   height: Math.min(mainWindow.height - Theme.popupScreenEdgeMargin, popupWidth + toolBar.height + acceptButton.height)
@@ -28,29 +27,10 @@ Popup {
   dim: true
 
   onAboutToShow: {
-    openedOnce = true
     barcodeDecoder.clearDecodedString();
   }
 
   onAboutToHide: {
-    cameraLoader.item.flash.mode = Camera.FlashOff;
-  }
-
-  Loader {
-    active: withNfc && barcodeReader.openedOnce
-
-    sourceComponent: Component {
-      Item {
-        id: nearFieldContainer
-
-        Component.onCompleted: {
-          Qt.createQmlObject('import org.qfield 1.0
-            NearFieldReader {
-              active: barcodeReader.visible
-            }' , nearFieldContainer);
-        }
-      }
-    }
   }
 
   BarcodeDecoder {
@@ -64,28 +44,18 @@ Popup {
   }
 
   Loader {
-    id: cameraLoader
-    sourceComponent: cameraComponent
-    active: barcodeReader.openedOnce
-  }
+    active: withNfc && codeReader.openedOnce
 
-  Component {
-    id: cameraComponent
+    sourceComponent: Component {
+      Item {
+        id: nearFieldContainer
 
-    Camera {
-      id: camera
-      position: Camera.BackFace
-      cameraState: barcodeReader.visible ? Camera.ActiveState : Camera.UnloadedState
-
-      focus {
-        focusMode: Camera.FocusContinuous
-        focusPointMode: Camera.FocusPointCenter
-      }
-
-      flash.mode: Camera.FlashOff
-
-      Component.onCompleted: {
-        videoOutput.source = camera
+        Component.onCompleted: {
+          Qt.createQmlObject('import org.qfield 1.0
+            NearFieldReader {
+              active: codeReader.visible
+            }' , nearFieldContainer);
+        }
       }
     }
   }
@@ -126,7 +96,7 @@ Popup {
           bgcolor: "transparent"
 
           onClicked: {
-            barcodeReader.close();
+            codeReader.close();
           }
         }
       }
@@ -144,21 +114,40 @@ Popup {
         radius: 10
         clip: true
 
-        VideoOutput {
-          id: videoOutput
-
+        Loader {
+          id: cameraLoader
+          sourceComponent: cameraComponent
+          active: codeReader.visible
           anchors.fill: parent
-          anchors.margins: 6
 
-          autoOrientation: true
-          fillMode: VideoOutput.PreserveAspectCrop
+          onLoaded: {
+            barcodeDecoder.videoSink = item.sink
+          }
+        }
 
-          filters: [
-            BarcodeVideoFilter {
-              active: barcodeReader.visible
-              decoder: barcodeDecoder
+        Component {
+          id: cameraComponent
+
+          Item {
+            property alias camera: captureSession.camera
+            property alias sink: videoOutput.videoSink
+
+            CaptureSession {
+              id: captureSession
+              camera: Camera {
+                active: true
+                flashMode: Camera.FlashOff
+              }
+              videoOutput: videoOutput
             }
-          ]
+
+            VideoOutput {
+              id: videoOutput
+              anchors.fill: parent
+              anchors.margins: 6
+              fillMode: VideoOutput.PreserveAspectCrop
+            }
+          }
         }
 
         Rectangle {
@@ -239,8 +228,7 @@ Popup {
           iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
           bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
 
-          visible: cameraLoader.active && cameraLoader.item.flash.supportedModes.includes(Camera.FlashVideoLight)
-          state: cameraLoader.active && cameraLoader.item.flash.mode !== Camera.FlashOff ? "On" : "Off"
+          visible: cameraLoader.active && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
           states: [
             State {
               name: "Off"
@@ -262,9 +250,11 @@ Popup {
           ]
 
           onClicked: {
-            cameraLoader.item.flash.mode = camera.flash.mode === Camera.FlashOff
-                                           ? Camera.FlashVideoLight
-                                           : Camera.FlashOff;
+            if (camera.torchMode === Camera.TorchOff) {
+              cameraLoader.item.camera.torchMode = Camera.TorchOn
+            } else {
+              cameraLoader.item.camera.torchMode = Camera.TorchOff
+            }
           }
         }
       }
@@ -290,19 +280,18 @@ Popup {
           id: acceptButton
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
-          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           enabled: barcodeDecoder.decodedString !== ''
-          opacity: enabled ? 1 : 0.25
+          opacity: enabled ? 1 : 0.2
 
           onClicked: {
-            if (barcodeReader.barcodeRequestedItem != undefined) {
-                barcodeReader.barcodeRequestedItem.requestedBarcodeReceived(barcodeDecoder.decodedString)
-                barcodeReader.barcodeRequestedItem = undefined;
+            if (codeReader.barcodeRequestedItem != undefined) {
+                codeReader.barcodeRequestedItem.requestedBarcodeReceived(barcodeDecoder.decodedString)
+                codeReader.barcodeRequestedItem = undefined;
             } else {
-                barcodeReader.decoded(barcodeDecoder.decodedString);
+                codeReader.decoded(barcodeDecoder.decodedString);
             }
-            barcodeReader.close();
+            codeReader.close();
           }
         }
       }

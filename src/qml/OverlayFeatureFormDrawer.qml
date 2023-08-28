@@ -11,7 +11,7 @@ Drawer {
   property alias state: overlayFeatureForm.state
   property alias featureForm: overlayFeatureForm
   property alias digitizingToolbar: overlayFeatureForm.digitizingToolbar
-  property alias barcodeReader: overlayFeatureForm.barcodeReader
+  property alias codeReader: overlayFeatureForm.codeReader
   property bool isAdding: false
 
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
@@ -80,7 +80,7 @@ Drawer {
     property bool isSaved: false
 
     digitizingToolbar: overlayFeatureFormDrawer.digitizingToolbar
-    barcodeReader: overlayFeatureFormDrawer.barcodeReader
+    codeReader: overlayFeatureFormDrawer.codeReader
 
     model: AttributeFormModel {
         id: attributeFormModel
