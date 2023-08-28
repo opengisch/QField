@@ -36,6 +36,16 @@ Popup {
     cameraLoader.item.flash.mode = Camera.FlashOff;
   }
 
+  Loader {
+    active: withNfc && barcodeReader.openedOnce
+
+    sourceComponent: Component {
+      NearFieldReader {
+        active: barcodeReader.visible
+      }
+    }
+  }
+
   BarcodeDecoder {
     id: barcodeDecoder
 
