@@ -43,6 +43,23 @@ Popup {
     }
   }
 
+  Loader {
+    active: withNfc && barcodeReader.openedOnce
+
+    sourceComponent: Component {
+      Item {
+        id: nearFieldContainer
+
+        Component.onCompleted: {
+          Qt.createQmlObject('import org.qfield 1.0
+            NearFieldReader {
+              active: barcodeReader.visible
+            }' , nearFieldContainer);
+        }
+      }
+    }
+  }
+
   Page {
     width: parent.width
     height: parent.height
