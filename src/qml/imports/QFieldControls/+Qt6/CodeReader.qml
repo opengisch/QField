@@ -13,6 +13,7 @@ Popup {
 
   signal decoded(var string)
 
+  property string decodedString: ''
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin
 
@@ -38,6 +39,7 @@ Popup {
 
     onDecodedStringChanged: {
       if (decodedString !== '') {
+        codeReader.decodedString = decodedString
         decodedFlashAnimation.start();
       }
     }
@@ -55,7 +57,13 @@ Popup {
             NearFieldReader {
               active: codeReader.visible
               onTargetDetected: (targetId) => {
-                displayToast(qsTr(\'NFC tag detected (ID: %1\').arg(targetId));
+                displayToast(qsTr(\'NFC tag detected\');
+              }
+              onReadStringChanged: {
+                if (readString !== \'\') {
+                  codeReader.decodedString = decodedString
+                  decodedFlashAnimation.start();
+                }
               }
             }' , nearFieldContainer);
         }
@@ -269,14 +277,14 @@ Popup {
           id: decodedText
           Layout.fillWidth: true
 
-          text: barcodeDecoder.decodedString !== ''
-                ? barcodeDecoder.decodedString
+          text: codeReader.decodedString !== ''
+                ? codeReader.decodedString
                 : qsTr( 'Center your camera on a code')
           font: Theme.tipFont
           color: Theme.mainTextColor
           horizontalAlignment: Text.AlignLeft
           elide: Text.ElideMiddle
-          opacity: barcodeDecoder.decodedString !== '' ? 1 : 0.45
+          opacity: codeReader.decodedString !== '' ? 1 : 0.45
         }
 
         QfToolButton {
@@ -284,15 +292,15 @@ Popup {
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
           bgcolor: "transparent"
-          enabled: barcodeDecoder.decodedString !== ''
+          enabled: codeReader.decodedString !== ''
           opacity: enabled ? 1 : 0.2
 
           onClicked: {
             if (codeReader.barcodeRequestedItem != undefined) {
-                codeReader.barcodeRequestedItem.requestedBarcodeReceived(barcodeDecoder.decodedString)
+                codeReader.barcodeRequestedItem.requestedBarcodeReceived(codeReader.decodedString)
                 codeReader.barcodeRequestedItem = undefined;
             } else {
-                codeReader.decoded(barcodeDecoder.decodedString);
+                codeReader.decoded(codeReader.decodedString);
             }
             codeReader.close();
           }

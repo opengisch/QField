@@ -41,8 +41,6 @@ void NearFieldReader::handleTargetDetected( QNearFieldTarget *target )
   if ( target->hasNdefMessage() )
   {
     mReadString.clear();
-    emit readStringChanged();
-
     QNearFieldTarget::RequestId request = target->readNdefMessages();
     if ( !request.isValid() )
     {
@@ -95,9 +93,6 @@ void NearFieldReader::setActive( bool active )
 
   if ( mActive )
   {
-    mReadString.clear();
-    emit readStringChanged();
-
 #if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
     mNearFieldManager->startTargetDetection( QNearFieldTarget::NdefAccess );
 #else

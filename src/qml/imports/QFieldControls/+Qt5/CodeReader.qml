@@ -13,6 +13,7 @@ Popup {
 
   signal decoded(var string)
 
+  property string decodedString: ''
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin
   property bool openedOnce: false
@@ -36,6 +37,17 @@ Popup {
     cameraLoader.item.flash.mode = Camera.FlashOff;
   }
 
+  BarcodeDecoder {
+    id: barcodeDecoder
+
+    onDecodedStringChanged: {
+      if (decodedString !== '') {
+        codeReader.decodedString = decodedString
+        decodedFlashAnimation.start();
+      }
+    }
+  }
+
   Loader {
     active: withNfc && codeReader.openedOnce
 
@@ -48,20 +60,16 @@ Popup {
             NearFieldReader {
               active: codeReader.visible
               onTargetDetected: (targetId) => {
-                displayToast(qsTr(\'NFC tag detected (ID: %1\').arg(targetId));
+                displayToast(qsTr(\'NFC tag detected\');
+              }
+              onReadStringChanged: {
+                if (readString !== \'\') {
+                  codeReader.decodedString = decodedString
+                  decodedFlashAnimation.start();
+                }
               }
             }' , nearFieldContainer);
         }
-      }
-    }
-  }
-
-  BarcodeDecoder {
-    id: barcodeDecoder
-
-    onDecodedStringChanged: {
-      if (decodedString !== '') {
-        decodedFlashAnimation.start();
       }
     }
   }
@@ -279,14 +287,14 @@ Popup {
           id: decodedText
           Layout.fillWidth: true
 
-          text: barcodeDecoder.decodedString !== ''
-                ? barcodeDecoder.decodedString
+          text: codeReader.decodedString !== ''
+                ? codeReader.decodedString
                 : qsTr( 'Center your camera on a code')
           font: Theme.tipFont
           color: Theme.mainTextColor
           horizontalAlignment: Text.AlignLeft
           elide: Text.ElideMiddle
-          opacity: barcodeDecoder.decodedString !== '' ? 1 : 0.45
+          opacity: codeReader.decodedString !== '' ? 1 : 0.45
         }
 
         QfToolButton {
@@ -295,15 +303,15 @@ Popup {
           iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
-          enabled: barcodeDecoder.decodedString !== ''
+          enabled: codeReader.decodedString !== ''
           opacity: enabled ? 1 : 0.25
 
           onClicked: {
             if (codeReader.barcodeRequestedItem != undefined) {
-                codeReader.barcodeRequestedItem.requestedBarcodeReceived(barcodeDecoder.decodedString)
+                codeReader.barcodeRequestedItem.requestedBarcodeReceived(codeReader.decodedString)
                 codeReader.barcodeRequestedItem = undefined;
             } else {
-                codeReader.decoded(barcodeDecoder.decodedString);
+                codeReader.decoded(codeReader.decodedString);
             }
             codeReader.close();
           }
