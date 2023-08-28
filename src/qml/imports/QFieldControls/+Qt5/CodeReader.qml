@@ -47,6 +47,9 @@ Popup {
           Qt.createQmlObject('import org.qfield 1.0
             NearFieldReader {
               active: codeReader.visible
+              onTargetDetected: (targetId) => {
+                displayToast(qsTr(\'NFC tag detected (ID: %1\').arg(targetId));
+              }
             }' , nearFieldContainer);
         }
       }

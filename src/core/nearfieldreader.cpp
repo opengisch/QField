@@ -27,13 +27,16 @@ NearFieldReader::NearFieldReader( QObject *parent )
   : QObject( parent )
 {
   mNearFieldManager = std::make_unique<QNearFieldManager>( this );
-  connect( mNearFieldManager.get(), &QNearFieldManager::targetDetected, this, &NearFieldReader::targetDetected );
+  connect( mNearFieldManager.get(), &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetDetected );
+  connect( mNearFieldManager.get(), &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetLost );
 }
 
-void NearFieldReader::targetDetected( QNearFieldTarget *target )
+void NearFieldReader::handleTargetDetected( QNearFieldTarget *target )
 {
-  connect( target, &QNearFieldTarget::ndefMessageRead, this, &NearFieldReader::ndefMessageRead );
+  connect( target, &QNearFieldTarget::ndefMessageRead, this, &NearFieldReader::handleNdefMessageRead );
   connect( target, &QNearFieldTarget::error, this, &NearFieldReader::handleTargetError );
+
+  emit targetDetected( QString( target->uid() ) );
 
   if ( target->hasNdefMessage() )
   {
@@ -48,12 +51,12 @@ void NearFieldReader::targetDetected( QNearFieldTarget *target )
   }
 }
 
-void NearFieldReader::targetLost( QNearFieldTarget *target )
+void NearFieldReader::handleTargetLost( QNearFieldTarget *target )
 {
   disconnect( target );
 }
 
-void NearFieldReader::ndefMessageRead( const QNdefMessage &message )
+void NearFieldReader::handleNdefMessageRead( const QNdefMessage &message )
 {
   for ( const QNdefRecord &record : message )
   {

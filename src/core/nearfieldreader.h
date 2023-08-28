@@ -40,11 +40,12 @@ class NearFieldReader : public QObject
   signals:
     void activeChanged();
     void readStringChanged();
+    void targetDetected( const QString &targetId );
 
   private:
-    void targetDetected( QNearFieldTarget *target );
-    void targetLost( QNearFieldTarget *target );
-    void ndefMessageRead( const QNdefMessage &message );
+    void handleTargetDetected( QNearFieldTarget *target );
+    void handleTargetLost( QNearFieldTarget *target );
+    void handleNdefMessageRead( const QNdefMessage &message );
     void handleTargetError( QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id );
 
     std::unique_ptr<QNearFieldManager> mNearFieldManager;
