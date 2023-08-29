@@ -35,6 +35,7 @@ class NearFieldReader : public QObject
 
   public:
     explicit NearFieldReader( QObject *parent = nullptr );
+    ~NearFieldReader();
 
     /**
      * Returns whether the device is actively scanning and reading text strings from near-field targets.

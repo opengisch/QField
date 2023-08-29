@@ -31,6 +31,14 @@ NearFieldReader::NearFieldReader( QObject *parent )
   connect( mNearFieldManager.get(), &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetLost );
 }
 
+NearFieldReader::~NearFieldReader()
+{
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+  mNearFieldManager->setTargetAccessModes( QNearFieldManager::NoTargetAccess );
+#endif
+  mNearFieldManager->stopTargetDetection();
+}
+
 void NearFieldReader::handleTargetDetected( QNearFieldTarget *target )
 {
   connect( target, &QNearFieldTarget::ndefMessageRead, this, &NearFieldReader::handleNdefMessageRead );
