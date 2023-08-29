@@ -477,7 +477,7 @@ void QgisMobileapp::initDeclarative()
 #endif
 #ifdef WITH_NFC
   qmlRegisterType<NearFieldReader>( "org.qfield", 1, 0, "NearFieldReader" );
-  rootContext()->setContextProperty( "withNfc", QVariant( true ) );
+  rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
 #else
   rootContext()->setContextProperty( "withNfc", QVariant( false ) );
 #endif

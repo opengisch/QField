@@ -37,6 +37,8 @@ class NearFieldReader : public QObject
 
     QString readString() const;
 
+    static bool isSupported();
+
   signals:
     void activeChanged();
     void readStringChanged();

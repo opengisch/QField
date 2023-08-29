@@ -108,3 +108,9 @@ void NearFieldReader::setActive( bool active )
     mNearFieldManager->stopTargetDetection();
   }
 }
+
+bool NearFieldReader::isSupported()
+{
+  QNearFieldManager manager;
+  return manager.isSupported();
+}
