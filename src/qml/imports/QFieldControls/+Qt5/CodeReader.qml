@@ -3,6 +3,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Shapes 1.14
 import QtMultimedia 5.14
+import Qt.labs.settings 1.0
 
 import org.qfield 1.0
 
@@ -30,11 +31,23 @@ Popup {
 
   onAboutToShow: {
     openedOnce = true
+    // when NFC is not accessible, make sure the only option, QR, is active
+    if (!withNfc && !settings.cameraActive) {
+      settings.cameraActive = true
+    }
     barcodeDecoder.clearDecodedString();
   }
 
   onAboutToHide: {
-    cameraLoader.item.flash.mode = Camera.FlashOff;
+    if (cameraLoader.active) {
+      cameraLoader.item.flash.mode = Camera.FlashOff;
+    }
+  }
+
+  Settings {
+    id: settings
+    property bool cameraActive: true
+    property bool nearfieldActive: true
   }
 
   BarcodeDecoder {
@@ -49,7 +62,8 @@ Popup {
   }
 
   Loader {
-    active: withNfc && codeReader.openedOnce
+    id: nearfieldLoader
+    active: withNfc && codeReader.openedOnce && settings.nearfieldActive
 
     sourceComponent: Component {
       Item {
@@ -76,30 +90,28 @@ Popup {
 
   Loader {
     id: cameraLoader
-    sourceComponent: cameraComponent
-    active: codeReader.openedOnce
-  }
+    active: codeReader.openedOnce && settings.cameraActive
+    sourceComponent: Component {
 
-  Component {
-    id: cameraComponent
+      Camera {
+        id: camera
+        position: Camera.BackFace
+        cameraState: codeReader.visible ? Camera.ActiveState : Camera.UnloadedState
 
-    Camera {
-      id: camera
-      position: Camera.BackFace
-      cameraState: codeReader.visible ? Camera.ActiveState : Camera.UnloadedState
+        focus {
+          focusMode: Camera.FocusContinuous
+          focusPointMode: Camera.FocusPointCenter
+        }
 
-      focus {
-        focusMode: Camera.FocusContinuous
-        focusPointMode: Camera.FocusPointCenter
-      }
+        flash.mode: Camera.FlashOff
 
-      flash.mode: Camera.FlashOff
-
-      Component.onCompleted: {
-        videoOutput.source = camera
+        Component.onCompleted: {
+          videoOutput.source = camera
+        }
       }
     }
   }
+
 
   Page {
     width: parent.width
@@ -148,15 +160,46 @@ Popup {
       height: parent.height
 
       Rectangle {
+        id: visualFeedback
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        color: "#333333"
+        color: Theme.mainBackgroundColor
         radius: 10
         clip: true
 
+        Rectangle {
+          id: nearfieldFeedback
+          visible: settings.nearfieldActive && !settings.cameraActive
+          anchors.centerIn: parent
+          width: 120
+          height: width
+          radius: width / 2
+          color: "#44808080"
+
+          SequentialAnimation {
+            NumberAnimation {
+              target:  nearfieldFeedback
+              property: "width"
+              to: 120 + (Math.min(visualFeedback.width, visualFeedback.height) - 120)
+              duration: 2000
+              easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+              target:  nearfieldFeedback
+              property: "width"
+              to: 120
+              duration: 2000
+              easing.type: Easing.InOutQuad
+            }
+            running: nearfieldFeedback.visible
+            loops: Animation.Infinite
+          }
+        }
+
         VideoOutput {
           id: videoOutput
+          visible: settings.cameraActive
 
           anchors.fill: parent
           anchors.margins: 6
@@ -187,6 +230,7 @@ Popup {
 
         Shape {
           id: frame
+          visible: settings.cameraActive
           anchors.fill: parent
 
           ShapePath {
@@ -211,6 +255,7 @@ Popup {
 
         Shape {
           id: aim
+          visible: settings.cameraActive
           anchors.fill: parent
 
           ShapePath {
@@ -240,7 +285,6 @@ Popup {
           }
         }
 
-
         QfToolButton {
           id: flashlightButton
           anchors.bottom: parent.bottom
@@ -248,6 +292,7 @@ Popup {
           anchors.horizontalCenter: parent.horizontalCenter
           round: true
           iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
+          iconColor: "white"
           bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
 
           visible: cameraLoader.active && cameraLoader.item.flash.supportedModes.includes(Camera.FlashVideoLight)
@@ -257,7 +302,7 @@ Popup {
               name: "Off"
               PropertyChanges {
                 target: flashlightButton
-                iconSource: Theme.getThemeVectorIcon( "ic_flashlight_white_48dp" )
+                iconColor: "white"
                 bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
               }
             },
@@ -266,7 +311,7 @@ Popup {
               name: "On"
               PropertyChanges {
                 target: flashlightButton
-                iconSource: Theme.getThemeVectorIcon( "ic_flashlight_green_48dp" )
+                iconColor: Theme.mainColor
                 bgcolor: Theme.darkGray
               }
             }
@@ -276,6 +321,78 @@ Popup {
             cameraLoader.item.flash.mode = camera.flash.mode === Camera.FlashOff
                                            ? Camera.FlashVideoLight
                                            : Camera.FlashOff;
+          }
+        }
+
+        QfToolButton {
+          id: cameraButton
+          anchors.bottom: parent.bottom
+          anchors.bottomMargin: 20
+          anchors.right: flashlightButton.left
+          round: true
+          iconSource: Theme.getThemeVectorIcon( 'ic_qr_code_black_24dp' )
+          iconColor: "white"
+          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+
+          visible: withNfc
+          state: settings.cameraActive ? "On" : "Off"
+          states: [
+            State {
+              name: "Off"
+              PropertyChanges {
+                target: cameraButton
+                bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+              }
+            },
+
+            State {
+              name: "On"
+              PropertyChanges {
+                target: cameraButton
+                iconColor: Theme.mainColor
+                bgcolor: Theme.darkGray
+              }
+            }
+          ]
+
+          onClicked: {
+            settings.cameraActive = !settings.cameraActive;
+          }
+        }
+
+        QfToolButton {
+          id: nearfieldButton
+          anchors.bottom: parent.bottom
+          anchors.bottomMargin: 20
+          anchors.left: flashlightButton.right
+          round: true
+          iconSource: Theme.getThemeVectorIcon( 'ic_nfc_code_black_24dp' )
+          iconColor: "white"
+          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+
+          visible: withNfc
+          state: settings.nearfieldActive ? "On" : "Off"
+          states: [
+            State {
+              name: "Off"
+              PropertyChanges {
+                target: nearfieldButton
+                bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+              }
+            },
+
+            State {
+              name: "On"
+              PropertyChanges {
+                target: nearfieldButton
+                iconColor: Theme.mainColor
+                bgcolor: Theme.darkGray
+              }
+            }
+          ]
+
+          onClicked: {
+            settings.nearfieldActive = !settings.nearfieldActive;
           }
         }
       }
@@ -289,7 +406,7 @@ Popup {
 
           text: codeReader.decodedString !== ''
                 ? codeReader.decodedString
-                : qsTr( 'Center your camera on a code')
+                : qsTr( 'Center your device on a code')
           font: Theme.tipFont
           color: Theme.mainTextColor
           horizontalAlignment: Text.AlignLeft
