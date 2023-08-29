@@ -60,7 +60,7 @@ Popup {
             NearFieldReader {
               active: codeReader.visible
               onTargetDetected: (targetId) => {
-                displayToast(qsTr(\'NFC tag detected\');
+                displayToast(qsTr(\'NFC tag detected\'))
               }
               onReadStringChanged: {
                 if (readString !== \'\') {
@@ -299,12 +299,13 @@ Popup {
 
         QfToolButton {
           id: acceptButton
+          enabled: codeReader.decodedString !== ''
+          opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
-          iconColor: Theme.mainTextColor
-          bgcolor: "transparent"
-          enabled: codeReader.decodedString !== ''
-          opacity: enabled ? 1 : 0.25
+          iconColor: enabled ? "white" : Theme.mainTextColor
+          bgcolor: enabled ? Theme.mainColor : "transparent"
+          round: true
 
           onClicked: {
             if (codeReader.barcodeRequestedItem != undefined) {
