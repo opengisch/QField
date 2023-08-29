@@ -64,7 +64,7 @@ Popup {
               }
               onReadStringChanged: {
                 if (readString !== \'\') {
-                  codeReader.decodedString = decodedString
+                  codeReader.decodedString = readString
                   decodedFlashAnimation.start();
                 }
               }

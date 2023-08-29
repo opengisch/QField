@@ -56,21 +56,41 @@ void NearFieldReader::handleTargetLost( QNearFieldTarget *target )
 
 void NearFieldReader::handleNdefMessageRead( const QNdefMessage &message )
 {
+  qInfo() << QStringLiteral( "Received %1 record message(s) from near-field target" ).arg( message.size() );
   for ( const QNdefRecord &record : message )
   {
-    QgsMessageLog::logMessage( record.type() );
-    if ( record.isRecordType<QNdefNfcTextRecord>() )
+    switch ( record.typeNameFormat() )
     {
-      QNdefNfcTextRecord textRecord( record );
-      mReadString.append( textRecord.text() );
-      emit readStringChanged();
+      case QNdefRecord::NfcRtd:
+      {
+        if ( record.isRecordType<QNdefNfcTextRecord>() )
+        {
+          QNdefNfcTextRecord textRecord( record );
+          mReadString.append( textRecord.text() );
+        }
+        else
+        {
+          mReadString.append( record.payload() );
+        }
+        emit readStringChanged();
+        break;
+      }
+
+      case QNdefRecord::Mime:
+      case QNdefRecord::Uri:
+      case QNdefRecord::ExternalRtd:
+      case QNdefRecord::Unknown:
+      case QNdefRecord::Empty:
+      default:
+        qInfo() << QStringLiteral( "Received unsupported record (type %1): %2" ).arg( record.typeNameFormat() ).arg( QString( record.payload() ) );
+        break;
     }
   }
 }
 
 void NearFieldReader::handleTargetError( QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id )
 {
-  qInfo() << QStringLiteral( "NFC error: %1" ).arg( error );
+  qInfo() << QStringLiteral( "Near-field target error: %1" ).arg( error );
 }
 
 QString NearFieldReader::readString() const
@@ -94,7 +114,7 @@ void NearFieldReader::setActive( bool active )
   if ( mActive )
   {
 #if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
-    mNearFieldManager->startTargetDetection( QNearFieldTarget::NdefAccess );
+    mNearFieldManager->startTargetDetection( QNearFieldTarget::AnyAccess );
 #else
     mNearFieldManager->setTargetAccessModes( QNearFieldManager::NdefReadTargetAccess );
     mNearFieldManager->startTargetDetection();
