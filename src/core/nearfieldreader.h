@@ -21,6 +21,11 @@
 
 #include <memory>
 
+/**
+ * The NearFieldReader class allows for the scanning of near-field targets.
+ * When text strings are present on targets, the strings will be automatically
+ * read and a signal emitted with the string values.
+ */
 class NearFieldReader : public QObject
 {
     Q_OBJECT
@@ -31,17 +36,32 @@ class NearFieldReader : public QObject
   public:
     explicit NearFieldReader( QObject *parent = nullptr );
 
+    /**
+     * Returns whether the device is actively scanning and reading text strings from near-field targets.
+     */
     bool active() const;
 
+    /**
+     * Sets whether the device is actively scanning and reading text strings from near-field targets
+     */
     void setActive( bool active );
 
+    /**
+     * Returns the last read near-field string.
+     */
     QString readString() const;
 
+    /**
+     * Returns whether the current device can read near-field targets.
+     */
     static bool isSupported();
 
   signals:
+    //! Emitted when the active state has changed.
     void activeChanged();
+    //! Emitted when the last text string read from a near-field target has changed.
     void readStringChanged();
+    //! Emitted when a near-field target has been detected.
     void targetDetected( const QString &targetId );
 
   private:
