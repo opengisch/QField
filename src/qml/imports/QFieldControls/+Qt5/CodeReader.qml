@@ -329,6 +329,7 @@ Popup {
           anchors.bottom: parent.bottom
           anchors.bottomMargin: 20
           anchors.right: flashlightButton.left
+          anchors.rightMargin: 10
           round: true
           iconSource: Theme.getThemeVectorIcon( 'ic_qr_code_black_24dp' )
           iconColor: "white"

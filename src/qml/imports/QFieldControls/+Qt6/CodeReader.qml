@@ -141,39 +141,39 @@ Popup {
         radius: 10
         clip: true
 
+        Rectangle {
+          id: nearfieldFeedback
+          visible: settings.nearfieldActive && !settings.cameraActive
+          anchors.centerIn: parent
+          width: 120
+          height: width
+          radius: width / 2
+          color: "#44808080"
+
+          SequentialAnimation {
+            NumberAnimation {
+              target:  nearfieldFeedback
+              property: "width"
+              to: 120 + (Math.min(visualFeedback.width, visualFeedback.height) - 120)
+              duration: 2000
+              easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+              target:  nearfieldFeedback
+              property: "width"
+              to: 120
+              duration: 2000
+              easing.type: Easing.InOutQuad
+            }
+            running: nearfieldFeedback.visible
+            loops: Animation.Infinite
+          }
+        }
+
         Loader {
           id: cameraLoader
           active: codeReader.visible && settings.cameraActive
           anchors.fill: parent
-
-          Rectangle {
-            id: nearfieldFeedback
-            visible: settings.nearfieldActive && !settings.cameraActive
-            anchors.centerIn: parent
-            width: 120
-            height: width
-            radius: width / 2
-            color: "#44808080"
-
-            SequentialAnimation {
-              NumberAnimation {
-                target:  nearfieldFeedback
-                property: "width"
-                to: 120 + (Math.min(visualFeedback.width, visualFeedback.height) - 120)
-                duration: 2000
-                easing.type: Easing.InOutQuad
-              }
-              NumberAnimation {
-                target:  nearfieldFeedback
-                property: "width"
-                to: 120
-                duration: 2000
-                easing.type: Easing.InOutQuad
-              }
-              running: nearfieldFeedback.visible
-              loops: Animation.Infinite
-            }
-          }
 
           sourceComponent: Component {
             id: cameraComponent
@@ -307,7 +307,7 @@ Popup {
           ]
 
           onClicked: {
-            if (cameraLoader.item.torchMode === Camera.TorchOff) {
+            if (cameraLoader.item.camera.torchMode === Camera.TorchOff) {
               cameraLoader.item.camera.torchMode = Camera.TorchOn
             } else {
               cameraLoader.item.camera.torchMode = Camera.TorchOff
@@ -320,6 +320,7 @@ Popup {
           anchors.bottom: parent.bottom
           anchors.bottomMargin: 20
           anchors.right: flashlightButton.left
+          anchors.rightMargin: 10
           round: true
           iconSource: Theme.getThemeVectorIcon( 'ic_qr_code_black_24dp' )
           iconColor: "white"
@@ -356,6 +357,7 @@ Popup {
           anchors.bottom: parent.bottom
           anchors.bottomMargin: 20
           anchors.left: flashlightButton.right
+          anchors.leftMargin: 10
           round: true
           iconSource: Theme.getThemeVectorIcon( 'ic_nfc_code_black_24dp' )
           iconColor: "white"
