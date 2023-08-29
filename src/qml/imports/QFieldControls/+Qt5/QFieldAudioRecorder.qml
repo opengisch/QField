@@ -266,13 +266,13 @@ Popup {
 
         QfToolButton {
           id: acceptButton
-          Layout.alignment: Qt.AlignVCenter
-          round: true
-          iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
-          iconColor: Theme.mainTextColor
-          bgcolor: "transparent"
           enabled: audioRecorder.hasRecordedClip
-          opacity: enabled ? 1 : 0.25
+          opacity: enabled ? 1 : 0.2
+          Layout.alignment: Qt.AlignVCenter
+          iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
+          iconColor: enabled ? "white" : Theme.mainTextColor
+          bgcolor: enabled ? Theme.mainColor : "transparent"
+          round: true
 
           onClicked: {
             var path = recorder.actualLocation.toString()
