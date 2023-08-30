@@ -17,6 +17,7 @@ Popup {
   property string decodedString: ''
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin
+  property bool openedOnce: false
 
   width: popupWidth
   height: Math.min(mainWindow.height - Theme.popupScreenEdgeMargin, popupWidth + toolBar.height + acceptButton.height)
@@ -29,6 +30,7 @@ Popup {
   dim: true
 
   onAboutToShow: {
+    openedOnce = true
     // when NFC is not accessible, make sure the only option, QR, is active
     if (!withNfc && !settings.cameraActive) {
       settings.cameraActive = true
@@ -172,7 +174,10 @@ Popup {
 
         Loader {
           id: cameraLoader
-          active: codeReader.visible && settings.cameraActive
+          // A note on the conditional expression below:
+          // - On Android, loading and unloading the source component leads to freeze (as of Qt 6.5.2)
+          // - On Linux, not loading and unloading the source component leads to blank VideoOutput (as of Qt 6.5.2)
+          active: codeReader.openedOnce && (Qt.platform.os === "android" || codeReader.visible)
           anchors.fill: parent
 
           sourceComponent: Component {
@@ -185,7 +190,7 @@ Popup {
               CaptureSession {
                 id: captureSession
                 camera: Camera {
-                  active: true
+                  active: codeReader.visible && settings.cameraActive
                   flashMode: Camera.FlashOff
                 }
                 videoOutput: videoOutput
@@ -193,6 +198,7 @@ Popup {
 
               VideoOutput {
                 id: videoOutput
+                visible: settings.cameraActive
                 anchors.fill: parent
                 anchors.margins: 6
                 fillMode: VideoOutput.PreserveAspectCrop
@@ -285,7 +291,8 @@ Popup {
           iconColor: "white"
           bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
 
-          visible: cameraLoader.active && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
+          visible: settings.cameraActive && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
+          state: cameraLoader.item.camera.torchMode === Camera.TorchOn ? "On" : "Off"
           states: [
             State {
               name: "Off"

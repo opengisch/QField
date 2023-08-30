@@ -366,6 +366,7 @@ Popup {
           anchors.bottom: parent.bottom
           anchors.bottomMargin: 20
           anchors.left: flashlightButton.right
+          anchors.leftMargin: 10
           round: true
           iconSource: Theme.getThemeVectorIcon( 'ic_nfc_code_black_24dp' )
           iconColor: "white"
