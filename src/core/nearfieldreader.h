@@ -33,6 +33,7 @@ class NearFieldReader : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool active READ active WRITE setActive NOTIFY activeChanged )
+    Q_PROPERTY( bool targetInRange READ targetInRange NOTIFY targetInRangeChanged )
     Q_PROPERTY( QString readString READ readString NOTIFY readStringChanged )
 
   public:
@@ -45,7 +46,7 @@ class NearFieldReader : public QObject
     bool active() const;
 
     /**
-     * Sets whether the device is actively scanning and reading text strings from near-field targets
+     * Sets whether the device is actively scanning and reading text strings from near-field targets.
      */
     void setActive( bool active );
 
@@ -53,6 +54,11 @@ class NearFieldReader : public QObject
      * Returns the last read near-field string.
      */
     QString readString() const;
+
+    /**
+     * Returns whether a near-field target is currently within range.
+     */
+    bool targetInRange() const;
 
     /**
      * Returns whether the current device can read near-field targets.
@@ -64,6 +70,8 @@ class NearFieldReader : public QObject
     void activeChanged();
     //! Emitted when the last text string read from a near-field target has changed.
     void readStringChanged();
+    //! Emitted when a near-field target is within range of the device
+    void targetInRangeChanged();
     //! Emitted when a near-field target has been detected.
     void targetDetected( const QString &targetId );
 
@@ -77,6 +85,7 @@ class NearFieldReader : public QObject
     QNearFieldManager *mNearFieldManager = nullptr;
 #endif
     bool mActive = false;
+    bool mTargetInRange = false;
     QString mReadString;
 };
 

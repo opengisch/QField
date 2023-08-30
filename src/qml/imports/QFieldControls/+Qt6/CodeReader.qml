@@ -35,6 +35,7 @@ Popup {
     if (!withNfc && !settings.cameraActive) {
       settings.cameraActive = true
     }
+    decodedString = ''
     barcodeDecoder.clearDecodedString();
   }
 
@@ -63,19 +64,16 @@ Popup {
 
   Loader {
     id: nearfieldLoader
-    active: withNfc && codeReader.openedOnce && settings.nearfieldActive
+    active: withNfc && codeReader.visible && settings.nearfieldActive
 
     sourceComponent: Component {
       NearFieldReader {
         id: nearFieldReader
-        active: codeReader.visible
-
-        onTargetDetected: (targetId) => {
-                            displayToast(qsTr('NFC tag detected'))
-                          }
+        active: true
 
         onReadStringChanged: {
           if (readString !== '') {
+            displayToast(qsTr('NFC text tag detected'))
             codeReader.decodedString = readString
             decodedFlashAnimation.start();
           }
@@ -146,7 +144,7 @@ Popup {
           width: 120
           height: width
           radius: width / 2
-          color: "#44808080"
+          color: nearfieldLoader.active && nearfieldLoader.item.targetInRange ? Theme.mainColor : "#44808080"
 
           SequentialAnimation {
             NumberAnimation {

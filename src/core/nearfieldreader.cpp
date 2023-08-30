@@ -80,6 +80,11 @@ void NearFieldReader::setActive( bool active )
 #endif
 }
 
+bool NearFieldReader::targetInRange() const
+{
+  return mTargetInRange;
+}
+
 bool NearFieldReader::isSupported()
 {
 #ifdef WITH_NFC
@@ -95,6 +100,8 @@ void NearFieldReader::handleTargetDetected( QNearFieldTarget *target )
 {
   connect( target, &QNearFieldTarget::ndefMessageRead, this, &NearFieldReader::handleNdefMessageRead );
   connect( target, &QNearFieldTarget::error, this, &NearFieldReader::handleTargetError );
+  mTargetInRange = true;
+  emit targetInRangeChanged();
 
   emit targetDetected( QString( target->uid() ) );
 
@@ -112,6 +119,8 @@ void NearFieldReader::handleTargetDetected( QNearFieldTarget *target )
 void NearFieldReader::handleTargetLost( QNearFieldTarget *target )
 {
   disconnect( target );
+  mTargetInRange = false;
+  emit targetInRangeChanged();
 }
 
 void NearFieldReader::handleNdefMessageRead( const QNdefMessage &message )
