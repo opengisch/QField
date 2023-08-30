@@ -70,6 +70,7 @@ set(QFIELD_CORE_SRCS
     multifeaturelistmodelbase.cpp
     navigation.cpp
     navigationmodel.cpp
+    nearfieldreader.cpp
     networkmanager.cpp
     networkreply.cpp
     orderedrelationmodel.cpp
@@ -177,6 +178,7 @@ set(QFIELD_CORE_HDRS
     multifeaturelistmodelbase.h
     navigation.h
     navigationmodel.h
+    nearfieldreader.h
     networkmanager.h
     networkreply.h
     orderedrelationmodel.h
@@ -228,11 +230,6 @@ if(WITH_SERIALPORT)
        positioning/serialportreceiver.cpp)
   list(APPEND QFIELD_CORE_HDRS positioning/serialportmodel.h
        positioning/serialportreceiver.h)
-endif()
-
-if(WITH_NFC)
-  list(APPEND QFIELD_CORE_SRCS nearfieldreader.cpp)
-  list(APPEND QFIELD_CORE_HDRS nearfieldreader.h)
 endif()
 
 if(ANDROID)

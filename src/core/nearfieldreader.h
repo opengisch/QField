@@ -17,9 +17,11 @@
 #ifndef NEARFIELDREADER_H
 #define NEARFIELDREADER_H
 
+#ifdef WITH_NFC
 #include <QNearFieldManager>
-
-#include <memory>
+#else
+#include <QObject>
+#endif
 
 /**
  * The NearFieldReader class allows for the scanning of near-field targets.
@@ -66,12 +68,14 @@ class NearFieldReader : public QObject
     void targetDetected( const QString &targetId );
 
   private:
+#ifdef WITH_NFC
     void handleTargetDetected( QNearFieldTarget *target );
     void handleTargetLost( QNearFieldTarget *target );
     void handleNdefMessageRead( const QNdefMessage &message );
     void handleTargetError( QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id );
 
-    std::unique_ptr<QNearFieldManager> mNearFieldManager;
+    QNearFieldManager *mNearFieldManager = nullptr;
+#endif
     bool mActive = false;
     QString mReadString;
 };

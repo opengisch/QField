@@ -66,23 +66,19 @@ Popup {
     active: withNfc && codeReader.openedOnce && settings.nearfieldActive
 
     sourceComponent: Component {
-      Item {
-        id: nearFieldContainer
+      NearFieldReader {
+        id: nearFieldReader
+        active: codeReader.visible
 
-        Component.onCompleted: {
-          Qt.createQmlObject('import org.qfield 1.0
-            NearFieldReader {
-              active: codeReader.visible
-              onTargetDetected: (targetId) => {
-                displayToast(qsTr(\'NFC tag detected\'))
-              }
-              onReadStringChanged: {
-                if (readString !== \'\') {
-                  codeReader.decodedString = readString
-                  decodedFlashAnimation.start();
-                }
-              }
-            }' , nearFieldContainer);
+        onTargetDetected: (targetId) => {
+          displayToast(qsTr('NFC tag detected'))
+        }
+
+        onReadStringChanged: {
+          if (readString !== '') {
+            codeReader.decodedString = readString
+            decodedFlashAnimation.start();
+          }
         }
       }
     }

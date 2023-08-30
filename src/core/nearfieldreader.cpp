@@ -17,28 +17,80 @@
 #include "nearfieldreader.h"
 
 #include <QDebug>
+#include <qgsmessagelog.h>
+#ifdef WITH_NFC
 #include <QNdefMessage>
 #include <QNdefNfcTextRecord>
 #include <QNearFieldTarget>
+#endif
 #include <QUrl>
-#include <qgsmessagelog.h>
 
 NearFieldReader::NearFieldReader( QObject *parent )
   : QObject( parent )
 {
-  mNearFieldManager = std::make_unique<QNearFieldManager>( this );
-  connect( mNearFieldManager.get(), &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetDetected );
-  connect( mNearFieldManager.get(), &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetLost );
+#ifdef WITH_NFC
+  mNearFieldManager = new QNearFieldManager( this );
+  connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetDetected );
+  connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetLost );
+#endif
 }
 
 NearFieldReader::~NearFieldReader()
 {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  mNearFieldManager->setTargetAccessModes( QNearFieldManager::NoTargetAccess );
-#endif
+#ifdef WITH_NFC
   mNearFieldManager->stopTargetDetection();
+#endif
 }
 
+QString NearFieldReader::readString() const
+{
+  return mReadString;
+}
+
+bool NearFieldReader::active() const
+{
+  return mActive;
+}
+
+void NearFieldReader::setActive( bool active )
+{
+  if ( mActive == active )
+    return;
+
+  mActive = active;
+  emit activeChanged();
+
+#ifdef WITH_NFC
+  if ( mActive )
+  {
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+    mNearFieldManager->startTargetDetection( QNearFieldTarget::AnyAccess );
+#else
+    mNearFieldManager->setTargetAccessModes( QNearFieldManager::NdefReadTargetAccess );
+    mNearFieldManager->startTargetDetection();
+#endif
+  }
+  else
+  {
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+    mNearFieldManager->setTargetAccessModes( QNearFieldManager::NoTargetAccess );
+#endif
+    mNearFieldManager->stopTargetDetection();
+  }
+#endif
+}
+
+bool NearFieldReader::isSupported()
+{
+#ifdef WITH_NFC
+  QNearFieldManager manager;
+  return manager.isSupported();
+#else
+  return false;
+#endif
+}
+
+#ifdef WITH_NFC
 void NearFieldReader::handleTargetDetected( QNearFieldTarget *target )
 {
   connect( target, &QNearFieldTarget::ndefMessageRead, this, &NearFieldReader::handleNdefMessageRead );
@@ -98,47 +150,6 @@ void NearFieldReader::handleNdefMessageRead( const QNdefMessage &message )
 
 void NearFieldReader::handleTargetError( QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id )
 {
-  qInfo() << QStringLiteral( "Near-field target error: %1" ).arg( error );
+  qWarning() << QStringLiteral( "Near-field target error: %1" ).arg( error );
 }
-
-QString NearFieldReader::readString() const
-{
-  return mReadString;
-}
-
-bool NearFieldReader::active() const
-{
-  return mActive;
-}
-
-void NearFieldReader::setActive( bool active )
-{
-  if ( mActive == active )
-    return;
-
-  mActive = active;
-  emit activeChanged();
-
-  if ( mActive )
-  {
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
-    mNearFieldManager->startTargetDetection( QNearFieldTarget::AnyAccess );
-#else
-    mNearFieldManager->setTargetAccessModes( QNearFieldManager::NdefReadTargetAccess );
-    mNearFieldManager->startTargetDetection();
 #endif
-  }
-  else
-  {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    mNearFieldManager->setTargetAccessModes( QNearFieldManager::NoTargetAccess );
-#endif
-    mNearFieldManager->stopTargetDetection();
-  }
-}
-
-bool NearFieldReader::isSupported()
-{
-  QNearFieldManager manager;
-  return manager.isSupported();
-}
