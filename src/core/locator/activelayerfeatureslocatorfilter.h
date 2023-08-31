@@ -72,6 +72,7 @@ class ActiveLayerFeaturesLocatorFilter : public QgsLocatorFilter
     QgsFeatureIterator mDisplayTitleIterator;
     QgsFeatureIterator mFieldIterator;
     QString mLayerId;
+    QString mLayerName;
     bool mLayerIsSpatial = false;
     QStringList mAttributeAliases;
     QStringList mFieldsCompletion;

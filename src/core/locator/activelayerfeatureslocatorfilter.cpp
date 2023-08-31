@@ -154,6 +154,7 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
   mFieldIterator = layer->getFeatures( req );
 
   mLayerId = layer->id();
+  mLayerName = layer->name();
   mAttributeAliases.clear();
   for ( int idx = 0; idx < layer->fields().size(); ++idx )
   {
@@ -177,6 +178,7 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
     {
       QgsLocatorResult result;
       result.displayString = QStringLiteral( "@%1" ).arg( field );
+      result.group = mLayerName;
       result.description = tr( "Limit the search to the field '%1'" ).arg( field );
       result.userData = QVariantMap( { { QStringLiteral( "type" ), QVariant::fromValue( ResultType::FieldRestriction ) },
                                        { QStringLiteral( "search_text" ), QStringLiteral( "%1 @%2 " ).arg( prefix(), field ) } } );
@@ -198,6 +200,7 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
 
       QgsLocatorResult result;
       result.displayString = mDispExpression.evaluate( &mContext ).toString();
+      result.group = mLayerName;
 
       result.userData = QVariantList() << f.id() << mLayerId;
       result.score = static_cast<double>( searchString.length() ) / result.displayString.size();
@@ -247,7 +250,7 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
     }
     if ( result.displayString.isEmpty() )
       continue; //not sure how this result slipped through...
-
+    result.group = mLayerName;
     result.description = mDispExpression.evaluate( &mContext ).toString();
     result.userData = QVariantList() << f.id() << mLayerId;
     result.score = static_cast<double>( searchString.length() ) / result.displayString.size();
