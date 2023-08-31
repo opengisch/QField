@@ -91,6 +91,8 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     bool keepScale() const;
     void setKeepScale( bool keepScale );
 
+    void requestSearchTextChange( const QString &text );
+
     Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
     void emitMessage( const QString &text );
@@ -104,6 +106,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void activeLayerChanged();
     void messageEmitted( const QString &text );
     void keepScaleChanged();
+    void searchTextChangeRequested( const QString text );
 
   public slots:
     Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );

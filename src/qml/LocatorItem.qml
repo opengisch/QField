@@ -83,6 +83,10 @@ Item {
     onMessageEmitted: {
       displayToast(text)
     }
+
+    onSearchTextChangeRequested: (text) => {
+      searchField.text = text
+    }
   }
 
   Connections {
@@ -147,6 +151,7 @@ Item {
       }
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
       onDisplayTextChanged: {
+        locatorItem.state = "on"
         searchTermHandled = false
         searchTermChanged(searchField.displayText)
         if (!searchTermHandled) {
@@ -318,8 +323,8 @@ Item {
               iconSource: Theme.getThemeIcon(model.iconPath)
 
               onClicked: {
-                locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
                 locatorItem.state = "off"
+                locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
               }
             }
           }
