@@ -124,6 +124,20 @@ void LocatorModelSuperBridge::setFeatureListController( FeatureListExtentControl
   emit featureListControllerChanged();
 }
 
+QgsMapLayer *LocatorModelSuperBridge::activeLayer() const
+{
+  return mActiveLayer.data();
+}
+
+void LocatorModelSuperBridge::setActiveLayer( QgsMapLayer *layer )
+{
+  if ( mActiveLayer == layer )
+    return;
+
+  mActiveLayer = layer;
+  emit activeLayerChanged();
+}
+
 bool LocatorModelSuperBridge::keepScale() const
 {
   return mKeepScale;

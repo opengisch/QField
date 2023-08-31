@@ -1076,6 +1076,7 @@ ApplicationWindow {
 
     locatorModelSuperBridge.navigation: navigation
     locatorModelSuperBridge.bookmarks: bookmarkModel
+    locatorModelSuperBridge.activeLayer: dashBoard.activeLayer
 
     anchors.right: parent.right
     anchors.top: parent.top
