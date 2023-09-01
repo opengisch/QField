@@ -10,8 +10,7 @@ import Theme 1.0
 Popup {
     id: popup
 
-    property alias locatorModelSuperBridge: locatorFiltersModel.locatorModelSuperBridge
-    property alias model: locatorFiltersModel
+    property alias locatorFiltersModel: locatorfiltersList.model
 
     width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin)
     x: (parent.width - width) / 2
@@ -68,10 +67,6 @@ Popup {
                 width: parent.width
                 height: Math.min( childrenRect.height, mainWindow.height - 160 );
                 clip: true
-
-                model: LocatorFiltersModel {
-                    id: locatorFiltersModel
-                }
 
                 delegate: Rectangle {
                     id: rectangle
