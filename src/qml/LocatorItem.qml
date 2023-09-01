@@ -274,7 +274,7 @@ Item {
         property int resultIndex: index
 
         anchors.margins: 10
-        height: isFilterName || isGroup ? 30 : 40
+        height: isFilterName || isGroup ? 30 : Math.max(actionsRow.childrenRect.height, textArea.childrenRect.height + textArea.topPadding + textArea.bottomPadding)
         width: resultsList.width
         color: isFilterName ? Theme.mainColor : isGroup ? Theme.controlBorderColor : "transparent"
         opacity: 0.95
@@ -289,18 +289,41 @@ Item {
           color: Material.rippleColor
         }
 
-        Text {
-          id: textCell
-          text: isFilterName ? model.ResultFilterName : model.Text.trim()
+        Column {
+          id: textArea
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
           anchors.right: actionsRow.left
-          leftPadding: 5
-          font.bold: false
-          font.pointSize: Theme.resultFont.pointSize
-          color: isFilterName ? "white" : Theme.mainTextColor
-          elide: Text.ElideRight
-          horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
+          topPadding: 8
+          bottomPadding: 8
+          spacing: 2
+
+          Text {
+            id: nameCell
+            anchors.left: parent.left
+            anchors.right: parent.right
+            text: isFilterName ? model.ResultFilterName : model.Text.trim()
+            leftPadding: 5
+            font.bold: false
+            font.pointSize: Theme.resultFont.pointSize
+            color: isFilterName ? "white" : Theme.mainTextColor
+            elide: Text.ElideRight
+            horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
+          }
+
+          Text {
+            id: descriptionCell
+            visible: !isFilterName && !isGroup && text !== ''
+            anchors.left: parent.left
+            anchors.right: parent.right
+            text: locator.getLocatorModelDescrition(index)
+            leftPadding: 5
+            font.bold: false
+            font.pointSize: Theme.resultFont.pointSize
+            color: Theme.secondaryTextColor
+            elide: Text.ElideRight
+            horizontalAlignment: Text.AlignLeft
+          }
         }
 
         Row {
@@ -346,8 +369,10 @@ Item {
           anchors.right: actionsRow.left
 
           onClicked: {
-            locator.triggerResultAtRow(index)
-            locatorItem.state = "off"
+            if (!isFilterName && !isGroup && nameCell.text !== '') {
+              locator.triggerResultAtRow(index)
+              locatorItem.state = "off"
+            }
           }
         }
       }

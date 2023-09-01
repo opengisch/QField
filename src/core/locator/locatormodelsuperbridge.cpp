@@ -180,6 +180,15 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   return model;
 }
 
+QString LocatorModelSuperBridge::getLocatorModelDescrition( const int row )
+{
+  const QModelIndex index = proxyModel()->index( row, 1 );
+  if ( !index.isValid() )
+    return nullptr;
+
+  return proxyModel()->data( index, Qt::DisplayRole ).toString();
+}
+
 void LocatorModelSuperBridge::emitMessage( const QString &text )
 {
   emit messageEmitted( text );

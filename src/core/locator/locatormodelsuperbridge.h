@@ -95,6 +95,8 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 
     Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
+    Q_INVOKABLE QString getLocatorModelDescrition( const int row );
+
     void emitMessage( const QString &text );
 
   signals:
