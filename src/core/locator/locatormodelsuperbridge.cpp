@@ -256,7 +256,7 @@ QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
 QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 {
   const static QMap<QString, QString> sLocatorFilterDescriptions = {
-    { QStringLiteral( "activelayerfeatures" ), tr( "Returns a list of features from the active layer with matching attributes" ) },
+    { QStringLiteral( "features" ), tr( "Returns a list of features from the active layer with matching attributes" ) },
     { QStringLiteral( "allfeatures" ), tr( "Returns a list of features accross all searchable layers with matching attributes" ) },
     { QStringLiteral( "goto" ), tr( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) },
     { QStringLiteral( "bookmarks" ), tr( "Returns a list of bookmark with matching names" ) },
