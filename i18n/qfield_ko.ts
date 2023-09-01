@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>링크 메뉴</translation>
     </message>
 </context>
 <context>
@@ -103,18 +103,18 @@
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>The following layers could not be loaded, please review those and reconfigure the QGIS project.</translation>
+        <translation>레이어를 불러올 수 없습니다. 해당 레이어를 수정 후 프로젝트를 재구성하십시오.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation>You may check the Portable Project section in the QField documentation for more help.</translation>
+        <translation>큐필트 설명서(QField documentation)의 휴대용 프로젝트(Portable Project section)에서 자세한 도움말을 확인할 수 있습니다.</translation>
     </message>
 </context>
 <context>
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>코드 읽기</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
