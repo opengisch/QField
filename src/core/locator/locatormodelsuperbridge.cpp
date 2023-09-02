@@ -233,8 +233,8 @@ LocatorActionsModel::LocatorActionsModel( int rows, int columns, QObject *parent
 QHash<int, QByteArray> LocatorActionsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
-  roles[IconPathRole] = "iconPath";
-  roles[IdRole] = "id";
+  roles[IconPathRole] = "IconPath";
+  roles[IdRole] = "Id";
   return roles;
 }
 

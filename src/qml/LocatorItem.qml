@@ -329,7 +329,7 @@ Item {
             id: descriptionCell
             anchors.left: parent.left
             anchors.right: parent.right
-            text: Description
+            text: Description || ''
             leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
@@ -364,8 +364,8 @@ Item {
       Rectangle {
         id: delegateRect
 
-        property bool isGroup: model.ResultFilterGroupSorting === 0
-        property bool isFilterName: model.ResultType === 0
+        property bool isGroup: ResultFilterGroupSorting === 0
+        property bool isFilterName: ResultType === 0
         property int resultIndex: index
 
         anchors.margins: 10
@@ -397,7 +397,11 @@ Item {
             id: nameCell
             anchors.left: parent.left
             anchors.right: parent.right
-            text: isFilterName ? model.ResultFilterName : model.Text.trim()
+            text: isFilterName
+                  ? ResultFilterName
+                  : typeof(model.Text) == 'string'
+                    ? model.Text.trim()
+                    : ''
             leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
@@ -438,11 +442,11 @@ Item {
               padding: 0
               bgcolor: "transparent"
 
-              iconSource: Theme.getThemeIcon(model.iconPath)
+              iconSource: Theme.getThemeIcon(IconPath)
 
               onClicked: {
                 locatorItem.state = "off"
-                locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
+                locator.triggerResultAtRow(delegateRect.resultIndex, Id)
               }
             }
           }
