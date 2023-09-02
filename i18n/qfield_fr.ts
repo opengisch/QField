@@ -958,11 +958,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Couche en lecture seule</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
-        <translation type="unfinished"/>
+        <translation>Calque à géométrie verrouillée</translation>
     </message>
 </context>
 <context>
@@ -1014,7 +1014,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>Cette couche suit actuellement la position de l&apos;appareil.</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1106,7 +1106,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Activer le localisateur %1 par défaut</translation>
     </message>
 </context>
 <context>
@@ -2169,7 +2169,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>actions sur le projet</translation>
     </message>
 </context>
 <context>
@@ -2256,11 +2256,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Actions sur les éléments</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Actions d&apos;importation</translation>
     </message>
 </context>
 <context>
@@ -2600,27 +2600,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Qualité du rendu du canevas de carte :</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Très bonne qualité</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Bonne qualité</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Basse quality</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Une qualité inférieure négocie la précision de rendu au profit d&apos;une utilisation de mémoire et d&apos;un temps de rendu réduits.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Cette valeur corrigera les valeurs Z enregistrées à partir du dispositif de positionnement. Si une valeur de 1,6 est saisie, QField soustraira automatiquement 1,6 de chaque valeur enregistrée. Veiller à insérer la hauteur effective de l’antenne, c.-à-d. longueur du pôle + décalage du centre de phase de l’antenne</translation>
     </message>
 </context>
 <context>
@@ -3297,11 +3297,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Actions récentes sur le projet</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Bienvenue sur QField.
+Première utilisation de cette application ?
+Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
 </context>
 <context>
@@ -3813,11 +3815,11 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>La capture activée</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Capture désactivée</translation>
     </message>
 </context>
 <context>

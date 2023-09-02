@@ -1100,11 +1100,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Ha nem elérhető ez a kereső szűrő, mégis használható marad a %1 előjel kereső sorba írásával</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>%1 kereső alapból elérhető</translation>
     </message>
 </context>
 <context>
@@ -2236,7 +2236,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Adathalaz(ok) importálása</translation>
+        <translation>Adathalmaz(ok) importálása</translation>
     </message>
     <message>
         <source>Storage management help</source>
@@ -2248,7 +2248,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Írd az URL címet alább a projekt, vagy adathalmaz importálásához</translation>
     </message>
     <message>
         <source>Item Actions</source>
@@ -2497,7 +2497,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Az aktivitás nélküli idő hossza, mielőtt a képernyő elsötétülne, hogy kímélje az akkumulátort.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -2557,39 +2557,39 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Felhasználói felület megjelenése:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Kövesd a rendszer megjelenést</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Világos téma</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Sötét téma</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Felhasználói felület betűmérete:</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Apró</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Szokásos</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Nagy</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Különösen nagy</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
@@ -3290,7 +3290,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Indításkor az utoljára megnyitott projekt betöltése</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
@@ -3716,7 +3716,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Képernyő zárolás</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -3748,7 +3748,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Szenzorok</translation>
     </message>
     <message>
         <source>Select sensor below</source>

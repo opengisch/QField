@@ -3,11 +3,11 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>개발: </translation>
+        <translation>만든이 : </translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QField 지원</translation>
+        <translation>큐필드 후원하기</translation>
     </message>
     <message>
         <source>Changelog</source>
@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>큐필드 관련 정보</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>코드 읽기</translation>
+        <translation>큐알코드 스캔</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>큐알코드를 중앙에 맞춰 스캔해주세요.</translation>
     </message>
 </context>
 <context>
@@ -179,15 +179,15 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Use orthometric altitude from device</translation>
+        <translation type="vanished">수직 고도 측정 기능 사용</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>선택할 블루투스 기기 : </translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 기기 : </translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 기기 주소 : </translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 기기 찾기</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 기기가 없습니다. 블루투스 기기 찾기를 누르세요.</translation>
     </message>
 </context>
 <context>
@@ -636,7 +636,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>현재 위치에 피처가 없습니다</translation>
+        <translation>현재 위치에 대상이 없습니다</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
@@ -661,7 +661,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>Delete feature(s)</translation>
+        <translation>대상 삭제</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
@@ -2267,7 +2267,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Show scale bar</translation>
+        <translation>축적바 표시</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -2275,27 +2275,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Fixed scale navigation</translation>
+        <translation>검색 이동 시 축적 고정</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</translation>
+        <translation>활성화 시 검색 대상으로 이동할 때 축적이 변하지 않음, 비활성화 시 검색 대상으로 이동에 맞춰 축적이 변경됨.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Show digitizing information</translation>
+        <translation>디지털화(수치화) 표시</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</translation>
+        <translation>새로운 대상을 지도에 생성하거나 측정 도구를 사용할 때 위도 및 경도와 같은 좌표 정보가 지도 위에 겹쳐 표시됩니다.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>북마크 표시</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>지도 상 북마크가 표시됩니다.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -2307,35 +2307,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation>Fast editing mode</translation>
+        <translation>빠른 편집 모드</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</translation>
+        <translation>대상을 생성해 저장할 수 있습니다.and the constraints are fulfilled and atributes are commited immediately.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Dim screen when idling</translation>
+        <translation>미사용 시 화면 밝기 지정</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</translation>
+        <translation type="vanished">위 시간 동안 어플 화면이 켜진 채로 아무것도 하지 않으면 배터리 유지를 위해 화면 밝기를 어둡게 조정합니다.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Consider mouse as a touchscreen device</translation>
+        <translation>마우스를 터치펜으로 인식</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>If disabled, the mouse will act as a stylus pen.</translation>
+        <translation>마우스를 터치 사용과 같이 사용할 수 있습니다.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>익명으로 측정 값 공유</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>큐필드 사용 중 익명으로 측정 값을 수집/전송하여 앱 개선에 도움을 줍니다.</translation>
     </message>
     <message>
         <source>General</source>
@@ -2351,31 +2351,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Customize search bar</translation>
+        <translation>검색창 설정</translation>
     </message>
     <message>
         <source>User interface language:</source>
-        <translation>User interface language:</translation>
+        <translation>사용자 언어</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>To apply the selected user interface language, QField needs to completely shutdown and restart.</translation>
+        <translation>사용자 언어를 적용하려면 큐필드를 완전히 종료한 후 다시 시작해야 합니다.</translation>
     </message>
     <message>
         <source>system</source>
-        <translation>system</translation>
+        <translation>시스템</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Found a missing or incomplete language? %1Join the translator community.%2</translation>
+        <translation>변역이 완벽하지 않습니까? %1이 곳에서 번역을 도와주실 수 있습니다.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Positioning device in use:</translation>
+        <translation>위치 기반 기기</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Scanning for paired devices</translation>
+        <translation type="vanished">페어링된 장치 검색</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
@@ -2839,7 +2839,7 @@ Cancel to make a minimal device scan instead.</translation>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation>Invalid referencing layer</translation>
+        <translation>참조 레이어에 문제가 있습니다.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -3337,7 +3337,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Failed to delete referencing feature</translation>
+        <translation>어떤 문제로 참조 레이어를 삭제하는데 실패했습니다.</translation>
     </message>
 </context>
 <context>
@@ -3448,11 +3448,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Failed to create feature!</translation>
+        <translation>대상을 생성하는데 실패하였습니다!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Failed to save feature!</translation>
+        <translation>대상을 저장하는데 실패하였습니다!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -3792,7 +3792,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>대상 : </translation>
     </message>
     <message>
         <source>Open Feature Form</source>
@@ -3800,15 +3800,15 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Duplicate Feature</translation>
+        <translation>대상 복사하기</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Successfully duplicated feature</translation>
+        <translation>대상을 복사하였습니다.</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>대상을 복사할 수 없습니다.</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
@@ -3839,7 +3839,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Delete feature %1 (%2) on %3</translation>
+        <translation>대상 삭제</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
@@ -3851,7 +3851,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Failed to delete referencing feature</translation>
+        <translation>어떤 문제로 참조 레이어를 삭제하는데 실패했습니다.</translation>
     </message>
 </context>
 </TS>
