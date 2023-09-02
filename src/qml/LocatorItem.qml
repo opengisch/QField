@@ -113,7 +113,8 @@ Item {
     enabled: false
 
     function onDecoded(string) {
-      searchField.text = string;
+      var prefix = locator.getPrefixFromSreachString(searchField.text)
+      searchField.text = prefix !== '' ? prefix + ' ' + string : string;
     }
 
     function onVisibleChanged() {

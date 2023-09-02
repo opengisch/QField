@@ -189,6 +189,21 @@ QString LocatorModelSuperBridge::getLocatorModelDescrition( const int row )
   return proxyModel()->data( index, Qt::DisplayRole ).toString();
 }
 
+QString LocatorModelSuperBridge::getPrefixFromSreachString( const QString &string )
+{
+  QRegularExpression separatorRx( QStringLiteral( "^([^\\s]+)(?:\\s|$)" ) );
+  QRegularExpressionMatch match = separatorRx.match( string.trimmed() );
+  if ( match.hasMatch() )
+  {
+    if ( !locator()->filters( match.captured( 1 ) ).isEmpty() )
+    {
+      return match.captured( 1 );
+    }
+  }
+
+  return QString();
+}
+
 void LocatorModelSuperBridge::emitMessage( const QString &text )
 {
   emit messageEmitted( text );

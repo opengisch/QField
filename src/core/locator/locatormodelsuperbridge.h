@@ -97,6 +97,8 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 
     Q_INVOKABLE QString getLocatorModelDescrition( const int row );
 
+    Q_INVOKABLE QString getPrefixFromSreachString( const QString &string );
+
     void emitMessage( const QString &text );
 
   signals:
