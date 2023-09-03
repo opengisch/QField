@@ -68,7 +68,7 @@ VisibilityFadingRow {
     }
   }
 
-  function init(featureModel, mapSettings, editorRubberbandModel)
+  function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
   {
     splitFeatureToolbar.featureModel = featureModel
     drawLineToolbar.rubberbandModel = editorRubberbandModel

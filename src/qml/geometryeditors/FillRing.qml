@@ -107,7 +107,7 @@ VisibilityFadingRow {
     }
   }
 
-  function init(featureModel, mapSettings, editorRubberbandModel)
+  function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
   {
     fillRingToolbar.featureModel = featureModel
     drawPolygonToolbar.rubberbandModel = editorRubberbandModel

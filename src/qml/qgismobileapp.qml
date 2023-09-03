@@ -326,7 +326,10 @@ ApplicationWindow {
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
         onActiveChanged: {
-            if (!active) {
+            if (active) {
+                geometryEditorsToolbar.canvasFreehandBegin();
+            } else {
+                geometryEditorsToolbar.canvasFreehandEnd();
                 var screenLocation = centroid.position;
                 var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
                 var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
@@ -641,6 +644,10 @@ ApplicationWindow {
       }
 
       visible: stateMachine.state === "digitize"
+    }
+
+    GeometryRenderer {
+      id: geometryEditorRenderer
     }
 
     /** A rubberband for the different geometry editors **/
@@ -1927,6 +1934,7 @@ ApplicationWindow {
       featureModel: geometryEditingFeature
       mapSettings: mapCanvas.mapSettings
       editorRubberbandModel: geometryEditorsRubberband.model
+      editorRenderer: geometryEditorRenderer
       screenHovering: mapCanvasMap.hovered
 
       stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)

@@ -64,7 +64,7 @@ VisibilityFadingRow {
         }
     }
 
-    function init(featureModel, mapSettings, editorRubberbandModel)
+    function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
     {
         reshapeToolbar.featureModel = featureModel
         drawPolygonToolbar.rubberbandModel = editorRubberbandModel

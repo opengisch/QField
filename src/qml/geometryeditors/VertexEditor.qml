@@ -23,7 +23,7 @@ VisibilityFadingRow {
 
   spacing: 4
 
-  function init(featureModel, mapSettings, editorRubberbandModel)
+  function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
   {
     vertexEditorToolbar.featureModel = featureModel
     vertexEditorToolbar.mapSettings = mapSettings
