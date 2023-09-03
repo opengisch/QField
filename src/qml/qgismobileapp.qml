@@ -29,9 +29,6 @@ import org.qfield 1.0
 import Theme 1.0
 import QFieldControls 1.0
 
-import 'geometry_editors'
-import '.'
-
 ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
