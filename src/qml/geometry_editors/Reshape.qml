@@ -29,19 +29,6 @@ VisibilityFadingRow {
         return true; // handled
     }
 
-    QfToolButton {
-      id: stopToolButton
-      iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
-      round: true
-      visible: !drawPolygonToolbar.rubberbandModel || drawPolygonToolbar.rubberbandModel.vertexCount < 2
-      bgcolor: Theme.darkGray
-
-      onClicked: {
-          cancel()
-          finished()
-      }
-    }
-
     DigitizingToolbar {
         id: drawPolygonToolbar
         showConfirmButton: true
