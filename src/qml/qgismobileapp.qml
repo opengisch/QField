@@ -340,12 +340,11 @@ ApplicationWindow {
 
         onCentroidChanged: {
             if (active) {
-                if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
-                    // needed to handle freehand digitizing of rings
-                } else {
-                    if (centroid.position !== Qt.point(0, 0))
-                        coordinateLocator.sourceLocation = centroid.position
-                    digitizingToolbar.addVertex();
+                if (centroid.position !== Qt.point(0, 0)) {
+                    coordinateLocator.sourceLocation = centroid.position
+                    if (!geometryEditorsToolbar.canvasClicked(centroid.position)) {
+                        digitizingToolbar.addVertex();
+                    }
                 }
             }
         }
