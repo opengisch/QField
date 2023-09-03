@@ -2,7 +2,7 @@ import QtQuick 2.14
 
 Row {
   id: visibilityFadingRow
-  property bool stateVisible: undefined
+  property bool stateVisible: false
   visible: opacity > 0
   opacity: 0
 
