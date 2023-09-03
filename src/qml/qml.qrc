@@ -47,11 +47,11 @@
         <file>editorwidgets/RelationReference.qml</file>
         <file>editorwidgets/relationeditors/relation_editor.qml</file>
         <file>editorwidgets/relationeditors/ordered_relation_editor.qml</file>
-        <file>geometry_editors/VertexEditorToolbar.qml</file>
-        <file>geometry_editors/GeometryEditorsToolbar.qml</file>
-        <file>geometry_editors/SplitFeatureToolbar.qml</file>
-        <file>geometry_editors/ReshapeToolBar.qml</file>
-        <file>geometry_editors/FillRingToolBar.qml</file>
+        <file>geometry_editors/VertexEditor.qml</file>
+        <file>geometry_editors/SplitFeature.qml</file>
+        <file>geometry_editors/Reshape.qml</file>
+        <file>geometry_editors/FillRing.qml</file>
+        <file>GeometryEditorsToolbar.qml</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
         <file>TemporalProperties.qml</file>

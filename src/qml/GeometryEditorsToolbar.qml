@@ -4,7 +4,6 @@ import QtQml.Models 2.14
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import ".."
 
 /**
 This contains several geometry editing tools
@@ -41,10 +40,10 @@ VisibilityFadingRow {
     id: editors
   }
   Component.onCompleted: {
-    editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "VertexEditorToolbar.qml")
-    editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
-    editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "ReshapeToolBar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
-    editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "FillRingToolBar.qml", GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "geometryeditors/VertexEditor.qml")
+    editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "geometryeditors/SplitFeature.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "geometryeditors/Reshape.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "geometryeditors/FillRing.qml", GeometryEditorsModelSingleton.Polygon)
   }
 
   function init() {
@@ -137,7 +136,8 @@ VisibilityFadingRow {
 
   Connections {
       target: toolbarRow.item
-      onFinished: {
+
+      function onFinished() {
           featureModel.vertexModel.clear()
           toolbarRow.source = ''
       }
