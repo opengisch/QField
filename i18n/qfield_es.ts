@@ -959,11 +959,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Capa de solo lectura</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
-        <translation type="unfinished"/>
+        <translation>Capa de geometría bloqueada</translation>
     </message>
 </context>
 <context>
@@ -1015,7 +1015,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>Esta capa está actualmente registrando la posición del dispositivo.</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -2603,27 +2603,27 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Calidad de renderizado del lienzo del mapa:</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>La mejor calidad</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Calidad más baja</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>La calidad más baja</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Una calidad más baja reduce la precisión del renderizado en favor de un menor uso de memoria y tiempo de renderizado.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Este valor corregirá los valores Z registrados por el dispositivo de posicionamiento. Si se introduce un valor de 1,6, QField restará automáticamente 1,6 a cada valor registrado. Asegúrese de insertar la altura efectiva de la antena, esto es, longitud de mástil + desplazamiento del centro de fase de la antena.</translation>
     </message>
 </context>
 <context>
@@ -3814,11 +3814,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Autoajuste activado</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Autoajuste desactivado</translation>
     </message>
 </context>
 <context>
