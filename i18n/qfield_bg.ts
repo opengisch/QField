@@ -756,7 +756,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>Рингът не е затворен</translation>
@@ -784,6 +784,37 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Желаеш ли да запълниш очартението с нов полигон?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">Рингът не е затворен</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Рингът не е валиден</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">Рингът пресича други рингове (не е отдалечен)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">Рингът не открива други рингове, в които да бъде вместен.</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Грешка при създаване на ринга</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Запълване на ринг</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Желаеш ли да запълниш очартението с нов полигон?</translation>
     </message>
 </context>
 <context>
@@ -2874,10 +2905,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Геометрията не може да бъде преоформена</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Геометрията не може да бъде преоформена</translation>
     </message>
 </context>
 <context>
@@ -2930,10 +2968,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Обектът не може да бъде разделен</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Обектът не може да бъде разделен</translation>
     </message>
 </context>
 <context>
@@ -3196,10 +3241,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Неуспешен запис на обект!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Неуспешен запис на обект!</translation>
     </message>
 </context>
 <context>

@@ -758,7 +758,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>O anel não está fechado</translation>
@@ -786,6 +786,37 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Gostaria de preencher o anel com um novo polígono?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">O anel não está fechado</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">O anel não é válido</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">O anel atravessa anéis existentes (não é disjunto)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">O anel introduzido não tem nenhum anel existente para encaixar</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Erro desconhecido ao criar o anel</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Preencher anel</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Gostaria de preencher o anel com um novo polígono?</translation>
     </message>
 </context>
 <context>
@@ -2874,10 +2905,17 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Não foi possível alterar a geometria</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Não foi possível alterar a geometria</translation>
     </message>
 </context>
 <context>
@@ -2930,10 +2968,17 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>O elemento não pôde ser dividido</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">O elemento não pôde ser dividido</translation>
     </message>
 </context>
 <context>
@@ -3196,10 +3241,17 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Falha ao guardar o elemento!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Falha ao guardar o elemento!</translation>
     </message>
 </context>
 <context>

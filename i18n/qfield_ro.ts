@@ -760,7 +760,7 @@ Motiv:
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>Cercul nu este închis</translation>
@@ -788,6 +788,37 @@ Motiv:
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Vreți să umpleți cercul cu un poligon nou?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">Cercul nu este închis</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Cercul nu este valid</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">Cercul se intersectează cu alte cercuri existente (dacă nu este disjoint)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">Cercul nu are nici un cerc existent pentru a se potrivi în interior</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Eroare necunoscută la crearea cercului</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Umpleți cercul</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Vreți să umpleți cercul cu un poligon nou?</translation>
     </message>
 </context>
 <context>
@@ -2876,10 +2907,17 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Geometria nu poate fi remodelată</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Geometria nu poate fi remodelată</translation>
     </message>
 </context>
 <context>
@@ -2932,10 +2970,17 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Elementul nu a putut fi divizat</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Elementul nu a putut fi divizat</translation>
     </message>
 </context>
 <context>
@@ -3198,10 +3243,17 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Salvarea elementului a eșuat!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Salvarea elementului a eșuat!</translation>
     </message>
 </context>
 <context>

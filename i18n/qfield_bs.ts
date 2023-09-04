@@ -757,7 +757,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>Prsten nije zatvoren</translation>
@@ -785,6 +785,37 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Želite li popuniti prsten sa novim poligonom?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">Prsten nije zatvoren</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Prsten nije validan</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">Prsten presijeca postojeće prstenove (nije presijecanje)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">Ovaj prsten nema postojeći prsten u koji se uklapa</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Nepoznata greška prilikom kreiranja prstena</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Popuni prsten</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Želite li popuniti prsten sa novim poligonom?</translation>
     </message>
 </context>
 <context>
@@ -2872,10 +2903,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Ova geometrija ne može biti preoblikovana</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Ova geometrija ne može biti preoblikovana</translation>
     </message>
 </context>
 <context>
@@ -2928,10 +2966,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Objekat ne može biti podijeljen</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Objekat ne može biti podijeljen</translation>
     </message>
 </context>
 <context>
@@ -3194,10 +3239,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Nije uspjelo snimanje objekta!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Nije uspjelo snimanje objekta!</translation>
     </message>
 </context>
 <context>

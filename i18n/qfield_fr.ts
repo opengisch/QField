@@ -757,7 +757,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>L&apos;anneau n&apos;est pas fermé</translation>
@@ -785,6 +785,37 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Remplir l&apos;anneau avec un nouveau polygone ?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">L&apos;anneau n&apos;est pas fermé</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">L&apos;anneau n&apos;est pas valide</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">L&apos;anneau chevauche des anneaux existants (il n&apos;est pas disjoint)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">L&apos;anneau n&apos;a pas d&apos;anneau existant dans lequel s&apos;insérer</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Erreur inconnue lors de la création de l&apos;anneau</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Remplir l&apos;anneau</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Remplir l&apos;anneau avec un nouveau polygone ?</translation>
     </message>
 </context>
 <context>
@@ -2869,10 +2900,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Cette géométrie ne peut être remodelée</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Cette géométrie ne peut être remodelée</translation>
     </message>
 </context>
 <context>
@@ -2925,10 +2963,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>L&apos;entité ne peut être découpée</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">L&apos;entité ne peut être découpée</translation>
     </message>
 </context>
 <context>
@@ -3191,10 +3236,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Échec de l&apos;enregistrement de l&apos;entité !</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Échec de l&apos;enregistrement de l&apos;entité !</translation>
     </message>
 </context>
 <context>

@@ -756,7 +756,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>Der Ring ist nicht geschlossen</translation>
@@ -784,6 +784,37 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Möchtest du den Ring mit einem neuen Polygon füllen?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">Der Ring ist nicht geschlossen</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Der Ring ist nicht valide</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">Der Ring überlappt bestehende Ringe</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">Der Ring hat keinen bestehenden Ring, in den er passt</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Unbekannter Fehler beim Erstellen des Rings</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Fülle Ring</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Möchtest du den Ring mit einem neuen Polygon füllen?</translation>
     </message>
 </context>
 <context>
@@ -2867,10 +2898,17 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Die Geometrie konnte nicht überarbeitet werden</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Die Geometrie konnte nicht überarbeitet werden</translation>
     </message>
 </context>
 <context>
@@ -2919,6 +2957,13 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>SplitFeature</name>
+    <message>
+        <source>Feature could not be split</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3189,10 +3234,17 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Feature konnte nicht gespeichert werden!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Feature konnte nicht gespeichert werden!</translation>
     </message>
 </context>
 <context>

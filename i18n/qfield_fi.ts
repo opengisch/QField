@@ -756,7 +756,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>Piiri ei ole suljettu</translation>
@@ -784,6 +784,37 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Haluatko täyttää piirin uudella polygonilla?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">Piiri ei ole suljettu</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Piiri ei ole validi</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">Piiri leikkaa olemassa olevia piirejä (se ei ole erillinen)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">Piirille ei ole olemassa olevaa piiriä johon sovittautua</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Tuntematon virhe piiriä luodessa</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Täytä piiri</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Haluatko täyttää piirin uudella polygonilla?</translation>
     </message>
 </context>
 <context>
@@ -2874,10 +2905,17 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Geometriaa ei voitu uudelleenmuotoilla</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Geometriaa ei voitu uudelleenmuotoilla</translation>
     </message>
 </context>
 <context>
@@ -2930,10 +2968,17 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Kohdetta ei voitu jakaa</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Kohdetta ei voitu jakaa</translation>
     </message>
 </context>
 <context>
@@ -3196,10 +3241,17 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Kohteen tallennus epäonnistui!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Kohteen tallennus epäonnistui!</translation>
     </message>
 </context>
 <context>

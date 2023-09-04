@@ -751,7 +751,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>წრე არ არის შეკრული</translation>
@@ -775,6 +775,37 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Fill ring</source>
         <translation>წრის შევსება</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">წრე არ არის შეკრული</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">წრე არ არის ვალიდური</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">წრის შექმნისას წარმოიშვა უცნობი შეცდომა</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">წრის შევსება</translation>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
@@ -2861,6 +2892,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>Reshape</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
@@ -2917,10 +2955,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>ტოპოგრაფიული ელემენტის გაყოფა შეუძლებელია</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">ტოპოგრაფიული ელემენტის გაყოფა შეუძლებელია</translation>
     </message>
 </context>
 <context>
@@ -3183,10 +3228,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>ტოპოგრაფიული ელემენტის შენახვია ვერ მოხდა!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">ტოპოგრაფიული ელემენტის შენახვია ვერ მოხდა!</translation>
     </message>
 </context>
 <context>

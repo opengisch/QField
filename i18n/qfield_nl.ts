@@ -756,7 +756,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>De ring is niet gesloten</translation>
@@ -784,6 +784,37 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Wil je de ring met een polygoon vullen?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">De ring is niet gesloten</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">De ring is niet geldig</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">De ring kruist bestaande ringen (hij is niet disjunct)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">De ring heeft geen bestaande ring om in te passen</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Onbekende fout bij het maken van een ring</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Vul de ring</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Wil je de ring met een polygoon vullen?</translation>
     </message>
 </context>
 <context>
@@ -2872,10 +2903,17 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>De geometrie kan niet worden omgevormd</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">De geometrie kan niet worden omgevormd</translation>
     </message>
 </context>
 <context>
@@ -2928,10 +2966,17 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Object kan niet worden gesplitst</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Object kan niet worden gesplitst</translation>
     </message>
 </context>
 <context>
@@ -3194,10 +3239,17 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Kan object niet opslaan!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Kan object niet opslaan!</translation>
     </message>
 </context>
 <context>

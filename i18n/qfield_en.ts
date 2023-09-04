@@ -779,34 +779,65 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
-        <translation>The ring is not closed</translation>
+        <translation type="unfinished">The ring is not closed</translation>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation>The ring is not valid</translation>
+        <translation type="unfinished">The ring is not valid</translation>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation>The ring crosses existing rings (it is not disjoint)</translation>
+        <translation type="unfinished">The ring crosses existing rings (it is not disjoint)</translation>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>The ring doesn&apos;t have any existing ring to fit into</translation>
+        <translation type="unfinished">The ring doesn&apos;t have any existing ring to fit into</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation>Unknown error when creating the ring</translation>
+        <translation type="unfinished">Unknown error when creating the ring</translation>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation>Fill ring</translation>
+        <translation type="unfinished">Fill ring</translation>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation>Would you like to fill the ring with a new polygon?</translation>
+        <translation type="unfinished">Would you like to fill the ring with a new polygon?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">The ring is not closed</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">The ring is not valid</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">The ring crosses existing rings (it is not disjoint)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">The ring doesn&apos;t have any existing ring to fit into</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Unknown error when creating the ring</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Fill ring</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Would you like to fill the ring with a new polygon?</translation>
     </message>
 </context>
 <context>
@@ -2904,10 +2935,17 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
+    <name>Reshape</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="unfinished">The geometry could not be reshaped</translation>
+    </message>
+</context>
+<context>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>The geometry could not be reshaped</translation>
+        <translation type="vanished">The geometry could not be reshaped</translation>
     </message>
 </context>
 <context>
@@ -2960,10 +2998,17 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
+    <name>SplitFeature</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="unfinished">Feature could not be split</translation>
+    </message>
+</context>
+<context>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
-        <translation>Feature could not be split</translation>
+        <translation type="vanished">Feature could not be split</translation>
     </message>
 </context>
 <context>
@@ -3226,10 +3271,17 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
+    <name>VertexEditor</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="unfinished">Failed to save feature!</translation>
+    </message>
+</context>
+<context>
     <name>VertexEditorToolbar</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Failed to save feature!</translation>
+        <translation type="vanished">Failed to save feature!</translation>
     </message>
 </context>
 <context>

@@ -758,7 +758,7 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>Geometria nie je uzavretá</translation>
@@ -786,6 +786,37 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Chcete vyplniť geometriu novým polygonom?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">Geometria nie je uzavretá</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Geometria je nesprávna</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">Geometria križuje existujúce geometrie (nie je nespojitá)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">Geometria, do ktorej je možné vložiť túto geometriu neexistuje</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Neznáma chyba pri vytváraní geometrie</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Vyplniť geometriu</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Chcete vyplniť geometriu novým polygonom?</translation>
     </message>
 </context>
 <context>
@@ -2875,10 +2906,17 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Geometriu nebolo možné zmeniť</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Geometriu nebolo možné zmeniť</translation>
     </message>
 </context>
 <context>
@@ -2931,10 +2969,17 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Objekt nemohol byť rozdelený</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Objekt nemohol byť rozdelený</translation>
     </message>
 </context>
 <context>
@@ -3197,10 +3242,17 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Uloženie prvku zlyhalo!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Uloženie prvku zlyhalo!</translation>
     </message>
 </context>
 <context>

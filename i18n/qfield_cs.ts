@@ -760,7 +760,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>Kruh není uzavřen</translation>
@@ -788,6 +788,37 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Chcete kruh vyplnit novým polygonem?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">Kruh není uzavřen</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Kruh není validní</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">Kruh protíná existující kruhy (není nespojitý)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">Kruh nemá žádný existující kruh, do kterého by se vešel.</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Neznámá chyba při vytváření kruhu</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Vyplnit kruh</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Chcete kruh vyplnit novým polygonem?</translation>
     </message>
 </context>
 <context>
@@ -2875,10 +2906,17 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Geometrii nebylo možné přepracovat.</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Geometrii nebylo možné přepracovat.</translation>
     </message>
 </context>
 <context>
@@ -2931,10 +2969,17 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Objekt nelze rozdělit</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Objekt nelze rozdělit</translation>
     </message>
 </context>
 <context>
@@ -3197,10 +3242,17 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Nepodařilo se uložit prvek!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Nepodařilo se uložit prvek!</translation>
     </message>
 </context>
 <context>

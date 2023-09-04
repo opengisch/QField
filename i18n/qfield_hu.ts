@@ -755,7 +755,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>A gyűrű nem zárt</translation>
@@ -783,6 +783,37 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Ki akarja tölteni a gyűrűt egy új felülettel?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">A gyűrű nem zárt</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Hibás gyűrű</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">A gyűrű metsz már létező gyűrűket (nem különálló)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">A gyűrű nem esik bele egyik már létező gyűrűbe sem</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Ismeretlen hiba a gyűrű létrehozásakor</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Gyűrű kitöltés</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Ki akarja tölteni a gyűrűt egy új felülettel?</translation>
     </message>
 </context>
 <context>
@@ -1288,7 +1319,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Raktár</translation>
+        <translation>Irány</translation>
     </message>
 </context>
 <context>
@@ -1489,19 +1520,19 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pozícionáló eszköz beállítások</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Név:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Automatikus kitöltéséhez hagyd üresen </translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Kapcsolódási típus:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2505,23 +2536,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Időbélyeg (ezredmásodperc a kezdet óta)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Felszíni sebesség</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Raktár</translation>
+        <translation>Irány</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vízszintes pontosság</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Függőleges pontosság</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2541,11 +2572,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Hozzáad</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Szerkeszt</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -2716,7 +2747,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a zip fájl név üres</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
@@ -2866,10 +2897,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>A geometriát nem lehetett átformálni</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">A geometriát nem lehetett átformálni</translation>
     </message>
 </context>
 <context>
@@ -2895,7 +2933,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Soros port megjelenítendő neve:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
@@ -2922,10 +2960,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Az elem nem darabolható</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Az elem nem darabolható</translation>
     </message>
 </context>
 <context>
@@ -3067,23 +3112,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Időbélyeg (ezredmásodperc a kezdet óta)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Felszíni sebesség</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Raktár</translation>
+        <translation>Irány</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vízszintes pontosság</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Függőleges pontosság</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3188,10 +3233,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Nem sikerült az elemet menteni!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Nem sikerült az elemet menteni!</translation>
     </message>
 </context>
 <context>

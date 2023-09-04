@@ -750,6 +750,37 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>FillRing</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRingToolBar</name>
     <message>
         <source>The ring is not closed</source>
@@ -2854,10 +2885,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Geometrije ni bilo mogoče preoblikovati</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Geometrije ni bilo mogoče preoblikovati</translation>
     </message>
 </context>
 <context>
@@ -2910,10 +2948,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Objekta mi mogoče razdeliti</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Objekta mi mogoče razdeliti</translation>
     </message>
 </context>
 <context>
@@ -3176,10 +3221,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Objekta ni mogoče shraniti!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Objekta ni mogoče shraniti!</translation>
     </message>
 </context>
 <context>

@@ -760,7 +760,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>Кільце не замкнене</translation>
@@ -788,6 +788,37 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Чи хотіли б ви заповнити кільце новим багатокутником?</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">Кільце не замкнене</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">Кільце недійсне</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">Кільце перетинає існуючі кільця (не перетинається)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">У колі немає жодного існуючого кільця, в яке можна вписатися</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">Невідома помилка при створенні кільця</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">Наповніть кільце</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">Чи хотіли б ви заповнити кільце новим багатокутником?</translation>
     </message>
 </context>
 <context>
@@ -2876,10 +2907,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>Геометрію не можна було змінити</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">Геометрію не можна було змінити</translation>
     </message>
 </context>
 <context>
@@ -2932,10 +2970,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>Не вдалося розділити об’єкт</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">Не вдалося розділити об’єкт</translation>
     </message>
 </context>
 <context>
@@ -3198,10 +3243,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>Не вдалося зберегти об&apos;єкт!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">Не вдалося зберегти об&apos;єкт!</translation>
     </message>
 </context>
 <context>

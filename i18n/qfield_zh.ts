@@ -754,7 +754,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>环未闭合</translation>
@@ -782,6 +782,37 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>您想用新的多边形填充这个环吗？</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">环未闭合</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">环无效</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">输入环与现有环交叉 (相交)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">环没有任何现有的环可载入</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">创建环时出现未知错误</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">填充环</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">您想用新的多边形填充这个环吗？</translation>
     </message>
 </context>
 <context>
@@ -2870,10 +2901,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>无法重塑几何图形</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">无法重塑几何图形</translation>
     </message>
 </context>
 <context>
@@ -2926,10 +2964,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>要素无法分割</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">要素无法分割</translation>
     </message>
 </context>
 <context>
@@ -3192,10 +3237,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>保存要素失败！</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">保存要素失败！</translation>
     </message>
 </context>
 <context>

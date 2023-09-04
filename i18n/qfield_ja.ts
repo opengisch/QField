@@ -754,7 +754,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>FillRingToolBar</name>
+    <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
         <translation>リングが閉じられていません</translation>
@@ -782,6 +782,37 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>新しいポリゴンでリングを充填しますか？</translation>
+    </message>
+</context>
+<context>
+    <name>FillRingToolBar</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation type="vanished">リングが閉じられていません</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation type="vanished">リングが有効ではありません</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="vanished">リングが既存のリングと交差しています (2つが交わりを持たない状態(disjoint)でありません)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="vanished">入力されたリングには適合する既存のリングがありません</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation type="vanished">リングを作成する際に不明なエラーが起きました</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation type="vanished">リングの充填</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="vanished">新しいポリゴンでリングを充填しますか？</translation>
     </message>
 </context>
 <context>
@@ -2870,10 +2901,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>ReshapeToolBar</name>
+    <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
         <translation>ジオメトリの再構築ができませんでした</translation>
+    </message>
+</context>
+<context>
+    <name>ReshapeToolBar</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation type="vanished">ジオメトリの再構築ができませんでした</translation>
     </message>
 </context>
 <context>
@@ -2926,10 +2964,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>SplitFeatureToolbar</name>
+    <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
         <translation>地物を分割できませんでした</translation>
+    </message>
+</context>
+<context>
+    <name>SplitFeatureToolbar</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation type="vanished">地物を分割できませんでした</translation>
     </message>
 </context>
 <context>
@@ -3192,10 +3237,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>VertexEditorToolbar</name>
+    <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
         <translation>地物を保存できませんでした!</translation>
+    </message>
+</context>
+<context>
+    <name>VertexEditorToolbar</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation type="vanished">地物を保存できませんでした!</translation>
     </message>
 </context>
 <context>
