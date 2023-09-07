@@ -18,6 +18,23 @@ repos:
     - id: check-added-large-files
       args: ['--maxkb=8000']
 
+- repo: local
+  hooks:
+  - id: qmllint
+    name: Run qmllint
+    description: QML linter
+    entry: qmllint
+    language: system
+    files: .*\.qml
+
+  - id: shfmt
+    name: Run shfmt
+    description: shfmt Shell code formatter.
+    entry: shfmt -w
+    language: system
+    types: [file, shell]
+    exclude: .docker/android_dev/tools/android-accept-licenses.sh
+
 # Shellcheck
 - repo: https://github.com/jumanjihouse/pre-commit-hooks
   rev: 2.1.5

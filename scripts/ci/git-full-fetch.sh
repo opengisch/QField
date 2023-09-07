@@ -10,4 +10,3 @@ git fetch --tags
 
 # checkout the tagged commit
 git checkout -qf ${CI_TAG}
-

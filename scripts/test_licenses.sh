@@ -8,14 +8,16 @@ LICENSE_CHECK="scripts/licensecheck.pl"
 
 DIR=$(git rev-parse --show-toplevel)
 
-pushd "${DIR}" > /dev/null || exit
-missing=$(! { "$LICENSE_CHECK" -r -i "$EXCLUDE_LIST" src & "$LICENSE_CHECK" -r -i "$EXCLUDE_LIST" python; } | grep UNKNOWN)
+pushd "${DIR}" >/dev/null || exit
+missing=$(! {
+	"$LICENSE_CHECK" -r -i "$EXCLUDE_LIST" src &
+	"$LICENSE_CHECK" -r -i "$EXCLUDE_LIST" python
+} | grep UNKNOWN)
 
-popd > /dev/null || exit
+popd >/dev/null || exit
 
 if [[ $missing ]]; then
-  echo " *** Found source files without valid license headers"
-  echo "$missing"
-  exit 1
+	echo " *** Found source files without valid license headers"
+	echo "$missing"
+	exit 1
 fi
-
