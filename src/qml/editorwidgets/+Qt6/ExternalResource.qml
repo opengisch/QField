@@ -80,12 +80,9 @@ EditorWidgetBase {
     isAudio = !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value).startsWith("audio/")
     isVideo = !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value).startsWith("video/")
 
-    if (currentValue != undefined && currentValue !== '')
-    {
+    if (currentValue != undefined && currentValue !== '') {
       image.visible = isImage
       geoTagBadge.visible = isImage
-      player.visible = isVideo
-      playerControls.visible = isVideo || isAudio
       if (isImage) {
         mediaFrame.height = 200
 
@@ -104,8 +101,6 @@ EditorWidgetBase {
       image.visible = documentViewer == document_IMAGE
       image.opacity = 0.15
       geoTagBadge.visible = false
-      player.visible = false
-      playerControls.visible = false
       mediaFrame.height = 48
     }
   }
@@ -261,8 +256,11 @@ EditorWidgetBase {
       }
     }
 
-    Video {
+    Loader {
       id: player
+      active: isAudio || isVideo
+
+      property string source: ''
 
       anchors.left: parent.left
       anchors.top: parent.top
@@ -270,30 +268,37 @@ EditorWidgetBase {
       width: parent.width
       height: parent.height - 54
 
-      property bool firstFrameDrawn: false
+      sourceComponent: Component {
+        Video {
+          visible: isVideo
 
-      onSourceChanged: {
-        firstFrameDrawn = false;
-      }
+          anchors.fill: parent
 
-      onHasVideoChanged: {
-        mediaFrame.height = hasVideo ? 254 : 48
-      }
+          property bool firstFrameDrawn: false
 
-      onPlaybackStateChanged: {
-        if (!firstFrameDrawn && playbackState == MediaPlayer.PlayingState) {
-          firstFrameDrawn = true;
-          pause();
+          source: player.source
+
+          onHasVideoChanged: {
+            mediaFrame.height = hasVideo ? 254 : 48
+            firstFrameDrawn = false
+            if (hasVideo) {
+              play();
+            }
+          }
+
+          onDurationChanged: {
+            positionSlider.to = duration / 1000;
+            positionSlider.value = 0;
+          }
+
+          onPositionChanged: {
+            if (!firstFrameDrawn && playbackState == MediaPlayer.PlayingState) {
+              firstFrameDrawn = true;
+              pause();
+            }
+            positionSlider.value = position / 1000;
+          }
         }
-      }
-
-      onDurationChanged: {
-        positionSlider.to = duration / 1000;
-        positionSlider.value = 0;
-      }
-
-      onPositionChanged: {
-        positionSlider.value = position / 1000;
       }
     }
 
@@ -314,7 +319,7 @@ EditorWidgetBase {
     RowLayout {
       id: playerControls
 
-      visible: player.duration > 0
+      visible: player.active && player.item.duration > 0
 
       anchors.left: parent.left
       anchors.bottom: parent.bottom
@@ -325,17 +330,17 @@ EditorWidgetBase {
       QfToolButton {
         id: playButton
 
-        iconSource: player.playbackState == MediaPlayer.PlayingState
+        iconSource: player.active && player.item.playbackState === MediaPlayer.PlayingState
                     ? Theme.getThemeVectorIcon('ic_pause_black_24dp')
                     : Theme.getThemeVectorIcon('ic_play_black_24dp')
         iconColor: Theme.mainTextColor
         bgcolor: "transparent"
 
         onClicked: {
-          if (player.playbackState === MediaPlayer.PlayingState) {
-            player.pause()
+          if (player.item.playbackState === MediaPlayer.PlayingState) {
+            player.item.pause()
           } else {
-            player.play()
+            player.item.play()
           }
         }
       }
@@ -350,7 +355,7 @@ EditorWidgetBase {
         enabled: to > 0
 
         onMoved: {
-          player.seek(value * 1000)
+          player.item.seek(value * 1000)
         }
       }
 
@@ -359,14 +364,14 @@ EditorWidgetBase {
         Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
         Layout.rightMargin: 14
 
-        color: player.playbackState == MediaPlayer.PlayingState ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        color: player.active && player.item.playbackState === MediaPlayer.PlayingState ? Theme.mainTextColor : Theme.mainTextDisabledColor
         font: Theme.tipFont
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
         text: {
-          if (player.duration > 0) {
-            var seconds = Math.ceil(player.duration / 1000);
+          if (player.active && player.item.duration > 0) {
+            var seconds = Math.ceil(player.item.duration / 1000);
             var hours = Math.floor(seconds / 60 / 60) + '';
             seconds -= hours * 60 * 60;
             var minutes = Math.floor(seconds / 60) + '';
