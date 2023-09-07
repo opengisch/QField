@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Install dependencies
         run: sudo apt install -y shfmt
-      
+
       - uses: actions/github-script@v6
         if: ${{ github.event.issue.pull_request }}
         id: get-pr
