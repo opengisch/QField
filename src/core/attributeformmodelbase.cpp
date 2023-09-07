@@ -827,7 +827,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
           hardValidity = false;
           break;
         }
-        if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+        if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
         {
           softValidity = false;
         }
