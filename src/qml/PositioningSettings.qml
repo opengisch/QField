@@ -7,7 +7,7 @@ LabSettings.Settings {
 
     property string positioningDevice: ""
     property string positioningDeviceName: qsTr( "Internal device" );
-    property bool ellipsoidalElevation: true
+    property int elevationCorrectionMode: Positioning.ElevationCorrectionMode.None
     property bool logging: false
 
     property bool showPositionInformation: false

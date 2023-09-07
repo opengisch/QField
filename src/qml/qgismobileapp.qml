@@ -211,7 +211,7 @@ ApplicationWindow {
       verticalGrid: positioningSettings.verticalGrid
     }
 
-    ellipsoidalElevation: positioningSettings.ellipsoidalElevation
+    elevationCorrectionMode: positioningSettings.elevationCorrectionMode
     antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
     logging: positioningSettings.logging
 

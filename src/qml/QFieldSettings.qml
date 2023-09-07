@@ -680,6 +680,8 @@ Page {
                               var modelIndex = positioningDeviceModel.index(currentIndex, 0);
                               positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId)
                               positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+
+                              verticalGridShiftComboBox.reload()
                           }
 
                           Component.onCompleted: {
@@ -1213,31 +1215,6 @@ Page {
                   }
 
                   Label {
-                    text: qsTr("Use orthometric altitude from device")
-                    font: Theme.defaultFont
-                    color: Theme.mainTextColor
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
-
-                    MouseArea {
-                      anchors.fill: parent
-                      onClicked: reportOrthometricAltitude.toggle()
-                    }
-                  }
-
-                  QfSwitch {
-                    id: reportOrthometricAltitude
-                    Layout.preferredWidth: implicitContentWidth
-                    Layout.alignment: Qt.AlignTop
-                    visible: positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude
-                    checked: !positioningSettings.ellipsoidalElevation
-                    onCheckedChanged: {
-                      positioningSettings.ellipsoidalElevation = !checked
-                    }
-                  }
-
-                  Label {
                       text: qsTr( "Vertical grid shift in use:" )
                       font: Theme.defaultFont
                       color: Theme.mainTextColor
@@ -1248,21 +1225,79 @@ Page {
                   }
 
                   ComboBox {
+                      id: verticalGridShiftComboBox
                       Layout.fillWidth: true
                       Layout.columnSpan: 2
-                      model: [ qsTr( "None" ) ].concat( platformUtilities.availableGrids() );
                       font: Theme.defaultFont
 
                       popup.font: Theme.defaultFont
                       popup.topMargin: mainWindow.sceneTopMargin
                       popup.bottomMargin: mainWindow.sceneTopMargin
 
-                      onCurrentIndexChanged: {
-                          positioningSettings.verticalGrid = currentIndex > 0 ? platformUtilities.availableGrids()[currentIndex - 1] : '';
+                      textRole: "text"
+                      valueRole: "value"
+
+                      model: ListModel {
+                          id: model
                       }
 
-                      Component.onCompleted: {
-                          currentIndex = positioningSettings.verticalGrid != '' ? find(positioningSettings.verticalGrid) : 0;
+                      onCurrentValueChanged: {
+                          if(!currentValue)
+                              return
+
+                          positioningSettings.elevationCorrectionMode = currentValue;
+
+                          if(positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.FromGeoidFile)
+                              positioningSettings.verticalGrid = currentText
+                          else
+                              positioningSettings.verticalGrid = ""
+                      }
+
+                      Component.onCompleted: reload()
+
+                      function reload()
+                      {
+                          verticalGridShiftComboBox.model.clear()
+                          verticalGridShiftComboBox.model.append({text: qsTr( "None" ), value: Positioning.ElevationCorrectionMode.None});
+
+                          if(positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
+                              verticalGridShiftComboBox.model.append({text: qsTr( "Orthometric from device" ), value: Positioning.ElevationCorrectionMode.OrthometricFromDevice});
+
+                          // Add geoid files to combobox
+                          var geoidFiles = platformUtilities.availableGrids()
+                          for(var i = 0; i < geoidFiles.length; i++)
+                              verticalGridShiftComboBox.model.append( { text: geoidFiles[i], value: Positioning.ElevationCorrectionMode.FromGeoidFile } );
+
+                          if(positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.None)
+                          {
+                              verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode)
+                              positioningSettings.verticalGrid = "";
+                          }
+                          else if(positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice)
+                          {
+                              if(positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
+                                  verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(positioningSettings.elevationCorrectionMode)
+                              else
+                                  // Orthometric not available -> fallback to None
+                                  verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None)
+                              positioningSettings.verticalGrid = "";
+                          }
+                          else if(positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.FromGeoidFile)
+                          {
+                              var currentVerticalGridFileIndex = verticalGridShiftComboBox.find(positioningSettings.verticalGrid);
+                              if(currentVerticalGridFileIndex < 1)
+                                  // Vertical index file not found -> fallback to None
+                                  verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None)
+                              else
+                                  verticalGridShiftComboBox.currentIndex = currentVerticalGridFileIndex;
+                          }
+                          else
+                          {
+                              console.log("Alarm unknown elevationCorrectionMode: '%1'".arg(positioningSettings.elevationCorrectionMode))
+
+                              // Unknown mode -> fallback to None
+                              verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None)
+                          }
                       }
                   }
 

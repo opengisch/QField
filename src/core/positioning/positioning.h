@@ -50,12 +50,24 @@ class Positioning : public QObject
     Q_PROPERTY( bool averagedPosition READ averagedPosition WRITE setAveragedPosition NOTIFY averagedPositionChanged )
     Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
 
-    Q_PROPERTY( bool ellipsoidalElevation READ ellipsoidalElevation WRITE setEllipsoidalElevation NOTIFY ellipsoidalElevationChanged )
+    Q_PROPERTY( ElevationCorrectionMode elevationCorrectionMode READ elevationCorrectionMode WRITE setElevationCorrectionMode NOTIFY elevationCorrectionModeChanged )
     Q_PROPERTY( double antennaHeight READ antennaHeight WRITE setAntennaHeight NOTIFY antennaHeightChanged )
 
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
 
+    Q_ENUMS( ElevationCorrectionMode )
+
   public:
+    /**
+     * Elevation correction modes
+     */
+    enum class ElevationCorrectionMode
+    {
+      None,
+      OrthometricFromDevice,
+      FromGeoidFile
+    };
+
     explicit Positioning( QObject *parent = nullptr );
 
     virtual ~Positioning() = default;
@@ -145,16 +157,16 @@ class Positioning : public QObject
     int averagedPositionCount() const { return mCollectedPositionInformations.size(); }
 
     /**
-     * Returns whether GNSS devices will be asked to report ellipsoidal height.
-     * \note Requires a device type with ellipsoidal capability
+     * Returns the current elevation correction mode.
+     * \note Some modes depends on device capabilities.
      */
-    bool ellipsoidalElevation() const { return mEllipsoidalElevation; }
+    ElevationCorrectionMode elevationCorrectionMode() const { return mElevationCorrectionMode; }
 
     /**
-     * Sets whether GNSS devices will be asked to report ellipsoidal height.
-     * \note Requires a device type with ellipsoidal capability
+     * Sets the current elevation correction mode.
+     * \note Some modes depends on device capabilities.
      */
-    void setEllipsoidalElevation( bool ellipsoidal );
+    void setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode );
 
     /**
      * Sets the GNSS device antenna height. This should be the pole height + sensore phase height.
@@ -192,7 +204,7 @@ class Positioning : public QObject
     void averagedPositionChanged();
     void averagedPositionCountChanged();
     void projectedPositionChanged();
-    void ellipsoidalElevationChanged();
+    void elevationCorrectionModeChanged();
     void antennaHeightChanged();
     void loggingChanged();
 
@@ -223,7 +235,7 @@ class Positioning : public QObject
 
     bool mAveragedPosition = false;
 
-    bool mEllipsoidalElevation = false;
+    ElevationCorrectionMode mElevationCorrectionMode = ElevationCorrectionMode::None;
     double mAntennaHeight = 0.0;
 
     bool mLogging = false;
