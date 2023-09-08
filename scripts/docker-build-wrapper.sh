@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)
 
 USER_ID=$(stat -c '%u' "${BASH_SOURCE[0]}")
 GROUP_ID=$(stat -c '%g' "${BASH_SOURCE[0]}")

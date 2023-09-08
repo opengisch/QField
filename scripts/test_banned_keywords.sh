@@ -128,28 +128,26 @@ HINTS[34]="Use QString() instead"
 RES=
 DIR=$(git rev-parse --show-toplevel)
 
-pushd "${DIR}" > /dev/null || exit
+pushd "${DIR}" >/dev/null || exit
 
-for i in "${!KEYWORDS[@]}"
-do
-  FOUND=$(git grep "${KEYWORDS[$i]}" -- 'src/*.h' 'src/*.cpp' -- ':!*qtermwidget*' | grep --invert-match skip-keyword-check)
+for i in "${!KEYWORDS[@]}"; do
+	FOUND=$(git grep "${KEYWORDS[$i]}" -- 'src/*.h' 'src/*.cpp' -- ':!*qtermwidget*' | grep --invert-match skip-keyword-check)
 
-  if [[  ${FOUND} ]]; then
-    echo "Found source files with banned keyword: ${KEYWORDS[$i]}!"
-    echo " -> ${HINTS[$i]}"
-    echo "    or mark with // skip-keyword-check"
-    echo
-    echo "${FOUND}"
-    echo
-    RES=1
-  fi
+	if [[ ${FOUND} ]]; then
+		echo "Found source files with banned keyword: ${KEYWORDS[$i]}!"
+		echo " -> ${HINTS[$i]}"
+		echo "    or mark with // skip-keyword-check"
+		echo
+		echo "${FOUND}"
+		echo
+		RES=1
+	fi
 
 done
 
-popd > /dev/null || exit
+popd >/dev/null || exit
 
 if [ $RES ]; then
-  echo " *** Found banned keywords"
-  exit 1
+	echo " *** Found banned keywords"
+	exit 1
 fi
-
