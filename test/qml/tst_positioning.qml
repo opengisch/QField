@@ -12,7 +12,7 @@ TestCase {
         id: positioning
         deviceId: 'udp:localhost:1958'
         active: true
-        ellipsoidalElevation: true
+        elevationCorrectionMode: Positioning.ElevationCorrectionMode.None
 
         coordinateTransformer: CoordinateTransformer {
           id: coordinateTransformer

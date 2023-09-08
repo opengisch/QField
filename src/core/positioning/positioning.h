@@ -63,9 +63,9 @@ class Positioning : public QObject
      */
     enum class ElevationCorrectionMode
     {
-      None,
-      OrthometricFromDevice,
-      FromGeoidFile
+      None,                    //! Elevation is used as it comes from the device. For most devices including Android internal this is ellipsoidic.
+      OrthometricFromDevice,   //! Apply the geoid correction provided by the device. Available only for external devices.
+      OrthometricFromGeoidFile //! Apply the geoid correction from a geoid file.
     };
 
     explicit Positioning( QObject *parent = nullptr );

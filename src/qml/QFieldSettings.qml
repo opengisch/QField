@@ -1242,12 +1242,12 @@ Page {
                       }
 
                       onCurrentValueChanged: {
-                          if(!currentValue)
+                          if (!currentValue)
                               return
 
                           positioningSettings.elevationCorrectionMode = currentValue;
 
-                          if(positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.FromGeoidFile)
+                          if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile)
                               positioningSettings.verticalGrid = currentText
                           else
                               positioningSettings.verticalGrid = ""
@@ -1260,32 +1260,32 @@ Page {
                           verticalGridShiftComboBox.model.clear()
                           verticalGridShiftComboBox.model.append({text: qsTr( "None" ), value: Positioning.ElevationCorrectionMode.None});
 
-                          if(positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
+                          if (positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
                               verticalGridShiftComboBox.model.append({text: qsTr( "Orthometric from device" ), value: Positioning.ElevationCorrectionMode.OrthometricFromDevice});
 
                           // Add geoid files to combobox
                           var geoidFiles = platformUtilities.availableGrids()
-                          for(var i = 0; i < geoidFiles.length; i++)
-                              verticalGridShiftComboBox.model.append( { text: geoidFiles[i], value: Positioning.ElevationCorrectionMode.FromGeoidFile } );
+                          for (var i = 0; i < geoidFiles.length; i++)
+                              verticalGridShiftComboBox.model.append( { text: geoidFiles[i], value: Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile } );
 
-                          if(positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.None)
+                          if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.None)
                           {
                               verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode)
                               positioningSettings.verticalGrid = "";
                           }
-                          else if(positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice)
+                          else if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice)
                           {
-                              if(positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
+                              if (positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
                                   verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(positioningSettings.elevationCorrectionMode)
                               else
                                   // Orthometric not available -> fallback to None
                                   verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None)
                               positioningSettings.verticalGrid = "";
                           }
-                          else if(positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.FromGeoidFile)
+                          else if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile)
                           {
                               var currentVerticalGridFileIndex = verticalGridShiftComboBox.find(positioningSettings.verticalGrid);
-                              if(currentVerticalGridFileIndex < 1)
+                              if (currentVerticalGridFileIndex < 1)
                                   // Vertical index file not found -> fallback to None
                                   verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None)
                               else
@@ -1293,7 +1293,7 @@ Page {
                           }
                           else
                           {
-                              console.log("Alarm unknown elevationCorrectionMode: '%1'".arg(positioningSettings.elevationCorrectionMode))
+                              console.log("Warning unknown elevationCorrectionMode: '%1'".arg(positioningSettings.elevationCorrectionMode))
 
                               // Unknown mode -> fallback to None
                               verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None)
