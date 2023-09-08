@@ -18,6 +18,7 @@ set(QFIELD_CORE_SRCS
     qgsquick/qgsquickelevationprofilecanvas.cpp
     qgsquick/qgsquickmapsettings.cpp
     qgsquick/qgsquickmaptransform.cpp
+    locator/activelayerfeatureslocatorfilter.cpp
     locator/bookmarklocatorfilter.cpp
     locator/expressioncalculatorlocatorfilter.cpp
     locator/featureslocatorfilter.cpp
@@ -124,6 +125,7 @@ set(QFIELD_CORE_HDRS
     qgsquick/qgsquickelevationprofilecanvas.h
     qgsquick/qgsquickmapsettings.h
     qgsquick/qgsquickmaptransform.h
+    locator/activelayerfeatureslocatorfilter.h
     locator/bookmarklocatorfilter.h
     locator/expressioncalculatorlocatorfilter.h
     locator/featureslocatorfilter.h

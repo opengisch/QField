@@ -13,6 +13,7 @@ Item {
 
   property bool searchFieldVisible: searchField.visible
   property alias locatorModelSuperBridge: locator
+  property alias locatorFiltersModel: locatorFilters
 
   /* Emitted when the search term typed into the locator bar has changed. If
    * the searchTermHandled boolean property is set to true while the signal
@@ -83,6 +84,15 @@ Item {
     onMessageEmitted: {
       displayToast(text)
     }
+
+    onSearchTextChangeRequested: (text) => {
+      searchField.text = text
+    }
+  }
+
+  LocatorFiltersModel {
+    id: locatorFilters
+    locatorModelSuperBridge: locator
   }
 
   Connections {
@@ -103,7 +113,8 @@ Item {
     enabled: false
 
     function onDecoded(string) {
-      searchField.text = string;
+      var prefix = locator.getPrefixFromSearchString(searchField.text)
+      searchField.text = prefix !== '' ? prefix + ' ' + string : string;
     }
 
     function onVisibleChanged() {
@@ -147,10 +158,16 @@ Item {
       }
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
       onDisplayTextChanged: {
+        locatorItem.state = "on"
+
         searchTermHandled = false
         searchTermChanged(searchField.displayText)
         if (!searchTermHandled) {
           locator.performSearch(searchField.displayText)
+        }
+
+        if (searchField.displayText == 'f ' && dashBoard.activeLayer == undefined) {
+          displayToast(qsTr('To search features within the active layer, select a vector layer through the legend.'))
         }
       }
     }
@@ -256,20 +273,103 @@ Item {
       z: 2
       anchors.top: resultsBox.top
       anchors.topMargin: 24
-      model: locator.proxyModel()
+      model: searchField.displayText !== '' ? locator.proxyModel() : locatorFilters
       width: parent.width
       height: resultsList.count > 0 ? Math.min( childrenRect.height, mainWindow.height / 2 - searchFieldRect.height - 10 ) : 0
       clip: true
 
-      delegate: Rectangle {
+      delegate: searchField.displayText !== '' ? resultsComponent : filtersComponent
+    }
+
+    Component {
+      id: filtersComponent
+
+      Rectangle {
         id: delegateRect
 
-        property bool isGroup: model.ResultFilterGroupSorting === 0
-        property bool isFilterName: model.ResultType === 0
+        anchors.margins: 10
+        height: textArea.childrenRect.height + textArea.topPadding + textArea.bottomPadding
+        width: resultsList.width
+        color: "transparent"
+        opacity: 0.95
+
+        Ripple {
+          clip: true
+          width: parent.width
+          height: parent.height
+          pressed: mouseArea.pressed
+          anchor: delegateRect
+          active: mouseArea.pressed
+          color: Material.rippleColor
+        }
+
+        Column {
+          id: textArea
+          anchors.verticalCenter: parent.verticalCenter
+          anchors.left: parent.left
+          anchors.right: parent.right
+          topPadding: 8
+          bottomPadding: 8
+          spacing: 2
+
+          Text {
+            id: nameCell
+            anchors.left: parent.left
+            anchors.right: parent.right
+            text: Name + ' (' + Prefix + ')'
+            leftPadding: 5
+            font.bold: false
+            font.pointSize: Theme.resultFont.pointSize
+            color: Theme.mainTextColor
+            elide: Text.ElideRight
+            horizontalAlignment: Text.AlignLeft
+          }
+
+          Text {
+            id: descriptionCell
+            anchors.left: parent.left
+            anchors.right: parent.right
+            text: Description || ''
+            leftPadding: 5
+            font.bold: false
+            font.pointSize: Theme.resultFont.pointSize
+            color: Theme.secondaryTextColor
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignLeft
+          }
+        }
+
+        /* bottom border */
+        Rectangle {
+          anchors.bottom: parent.bottom
+          height: 1
+          color: Theme.controlBorderColor
+          width: parent.width
+        }
+
+        MouseArea {
+          id: mouseArea
+          anchors.fill: parent
+
+          onClicked: {
+            searchField.text = Prefix + ' ';
+          }
+        }
+      }
+    }
+
+    Component {
+      id: resultsComponent
+
+      Rectangle {
+        id: delegateRect
+
+        property bool isGroup: ResultFilterGroupSorting === 0
+        property bool isFilterName: ResultType === 0
         property int resultIndex: index
 
         anchors.margins: 10
-        height: isFilterName || isGroup ? 30 : 40
+        height: isFilterName || isGroup ? 30 : Math.max(actionsRow.childrenRect.height, textArea.childrenRect.height + textArea.topPadding + textArea.bottomPadding)
         width: resultsList.width
         color: isFilterName ? Theme.mainColor : isGroup ? Theme.controlBorderColor : "transparent"
         opacity: 0.95
@@ -284,18 +384,45 @@ Item {
           color: Material.rippleColor
         }
 
-        Text {
-          id: textCell
-          text: isFilterName ? model.ResultFilterName : model.Text.trim()
+        Column {
+          id: textArea
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
           anchors.right: actionsRow.left
-          leftPadding: 5
-          font.bold: false
-          font.pointSize: Theme.resultFont.pointSize
-          color: isFilterName ? "white" : Theme.mainTextColor
-          elide: Text.ElideRight
-          horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
+          topPadding: 8
+          bottomPadding: 8
+          spacing: 2
+
+          Text {
+            id: nameCell
+            anchors.left: parent.left
+            anchors.right: parent.right
+            text: isFilterName
+                  ? ResultFilterName
+                  : typeof(model.Text) == 'string'
+                    ? model.Text.trim()
+                    : ''
+            leftPadding: 5
+            font.bold: false
+            font.pointSize: Theme.resultFont.pointSize
+            color: isFilterName ? "white" : Theme.mainTextColor
+            elide: Text.ElideRight
+            horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
+          }
+
+          Text {
+            id: descriptionCell
+            visible: !isFilterName && !isGroup && text !== ''
+            anchors.left: parent.left
+            anchors.right: parent.right
+            text: locator.getLocatorModelDescription(index)
+            leftPadding: 5
+            font.bold: false
+            font.pointSize: Theme.resultFont.pointSize
+            color: Theme.secondaryTextColor
+            elide: Text.ElideRight
+            horizontalAlignment: Text.AlignLeft
+          }
         }
 
         Row {
@@ -315,11 +442,11 @@ Item {
               padding: 0
               bgcolor: "transparent"
 
-              iconSource: Theme.getThemeIcon(model.iconPath)
+              iconSource: Theme.getThemeIcon(IconPath)
 
               onClicked: {
-                locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
                 locatorItem.state = "off"
+                locator.triggerResultAtRow(delegateRect.resultIndex, Id)
               }
             }
           }
@@ -341,8 +468,10 @@ Item {
           anchors.right: actionsRow.left
 
           onClicked: {
-            locator.triggerResultAtRow(index)
-            locatorItem.state = "off"
+            if (!isFilterName && !isGroup && nameCell.text !== '') {
+              locator.triggerResultAtRow(index)
+              locatorItem.state = "off"
+            }
           }
         }
       }

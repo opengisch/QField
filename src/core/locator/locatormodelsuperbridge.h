@@ -53,41 +53,88 @@ class LocatorActionsModel : public QStandardItemModel
 
 /**
  * LocatorModelSuperBridge reimplements QgsLocatorModelBridge
- *  for specific needs of QField / QML implementation.
+ * for specific needs of QField / QML implementation.
  */
 class LocatorModelSuperBridge : public QgsLocatorModelBridge
 {
     Q_OBJECT
+
+    //! The current project's map settings
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    //! The locator highlight geometry object through which locator actions can highhlight features
     Q_PROPERTY( QObject *locatorHighlightGeometry READ locatorHighlightGeometry WRITE setLocatorHighlightGeometry NOTIFY locatorHighlightGeometryChanged )
+    //! The feature list extent controller
     Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
+    //! The current project's active layer
+    Q_PROPERTY( QgsMapLayer *activeLayer READ activeLayer WRITE setActiveLayer NOTIFY activeLayerChanged )
+    //! The bookmark manager containing user and current project bookmarks
     Q_PROPERTY( BookmarkModel *bookmarks READ bookmarks WRITE setBookmarks NOTIFY bookmarksChanged )
+    //! The navigation object from which destination can be set or modified
     Q_PROPERTY( Navigation *navigation READ navigation WRITE setNavigation NOTIFY navigationChanged )
+    //! The keep scale flag. When turned on, locator actions should not result in changed scale
     Q_PROPERTY( bool keepScale READ keepScale WRITE setKeepScale NOTIFY keepScaleChanged )
 
   public:
     explicit LocatorModelSuperBridge( QObject *parent = nullptr );
     ~LocatorModelSuperBridge() = default;
 
+    //! \copydoc LocatorModelSuperBridge::mapSettings
     QgsQuickMapSettings *mapSettings() const;
+    //! \copydoc LocatorModelSuperBridge::mapSettings
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    //! \copydoc LocatorModelSuperBridge::bookmarks
     BookmarkModel *bookmarks() const;
+    //! \copydoc LocatorModelSuperBridge::bookmarks
     void setBookmarks( BookmarkModel *bookmarks );
 
+    //! \copydoc LocatorModelSuperBridge::navigation
     Navigation *navigation() const;
+    //! \copydoc LocatorModelSuperBridge::navigation
     void setNavigation( Navigation *navigation );
 
+    //! \copydoc LocatorModelSuperBridge::locatorHighlightGeometry
     QObject *locatorHighlightGeometry() const;
+    //! \copydoc LocatorModelSuperBridge::locatorHighlightGeometry
     void setLocatorHighlightGeometry( QObject *locatorHighlightGeometry );
 
+    //! \copydoc LocatorModelSuperBridge::featureListController
     FeatureListExtentController *featureListController() const;
+    //! \copydoc LocatorModelSuperBridge::featureListController
     void setFeatureListController( FeatureListExtentController *featureListController );
 
+    //! \copydoc LocatorModelSuperBridge::activeLayer
+    QgsMapLayer *activeLayer() const;
+    //! \copydoc LocatorModelSuperBridge::activeLayer
+    void setActiveLayer( QgsMapLayer *layer );
+
+    //! \copydoc LocatorModelSuperBridge::keepScale
     bool keepScale() const;
+    //! \copydoc LocatorModelSuperBridge::keepScale
     void setKeepScale( bool keepScale );
 
+    /**
+     * Requests for the current text in the search bar to be changed to the
+     * provided \a text string.
+     */
+    void requestSearchTextChange( const QString &text );
+
+    /**
+     * Returns the actions model for a given locator search result list item.
+     */
     Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
+
+    /**
+     * Returns the description for a given locator search result list item.
+     */
+    Q_INVOKABLE QString getLocatorModelDescription( const int row );
+
+    /**
+     * Looks for and if present returns the locator filter prefix from
+     * a given search string. If not prefix is detected, an empty
+     * string will be returned.
+     */
+    Q_INVOKABLE QString getPrefixFromSearchString( const QString &string );
 
     void emitMessage( const QString &text );
 
@@ -97,8 +144,10 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void navigationChanged();
     void locatorHighlightGeometryChanged();
     void featureListControllerChanged();
+    void activeLayerChanged();
     void messageEmitted( const QString &text );
     void keepScaleChanged();
+    void searchTextChangeRequested( const QString &text );
 
   public slots:
     Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );
@@ -107,6 +156,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     QgsQuickMapSettings *mMapSettings = nullptr;
     QObject *mLocatorHighlightGeometry = nullptr;
     FeatureListExtentController *mFeatureListController = nullptr;
+    QPointer<QgsMapLayer> mActiveLayer;
     bool mKeepScale = false;
 
     PeliasGeocoder *mFinlandGeocoder = nullptr;

@@ -307,7 +307,7 @@ ApplicationWindow {
       if ( positionSource.positionInformation ) {
         positionSource.currentness = ((Date.now() - positionSource.positionInformation.utcDateTime.getTime()) / 1000) < 30;
         if (!geocoderLocatorFiltersChecked && positionSource.valid) {
-          locatorSettings.model.setGeocoderLocatorFiltersDefaulByPosition(positionSource.positionInformation);
+          locatorItem.locatorFiltersModel.setGeocoderLocatorFiltersDefaulByPosition(positionSource.positionInformation);
           geocoderLocatorFiltersChecked = true;
         }
       }
@@ -1076,6 +1076,7 @@ ApplicationWindow {
 
     locatorModelSuperBridge.navigation: navigation
     locatorModelSuperBridge.bookmarks: bookmarkModel
+    locatorModelSuperBridge.activeLayer: dashBoard.activeLayer
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -1105,7 +1106,7 @@ ApplicationWindow {
 
   LocatorSettings {
       id: locatorSettings
-      locatorModelSuperBridge: locatorItem.locatorModelSuperBridge
+      locatorFiltersModel: locatorItem.locatorFiltersModel
 
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside

@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 
+#include "activelayerfeatureslocatorfilter.h"
 #include "bookmarklocatorfilter.h"
 #include "expressioncalculatorlocatorfilter.h"
 #include "featurelistextentcontroller.h"
@@ -35,6 +36,7 @@
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
 {
+  locator()->registerFilter( new ActiveLayerFeaturesLocatorFilter( this ) );
   locator()->registerFilter( new FeaturesLocatorFilter( this ) );
   locator()->registerFilter( new GotoLocatorFilter( this ) );
   locator()->registerFilter( new BookmarkLocatorFilter( this ) );
@@ -124,6 +126,20 @@ void LocatorModelSuperBridge::setFeatureListController( FeatureListExtentControl
   emit featureListControllerChanged();
 }
 
+QgsMapLayer *LocatorModelSuperBridge::activeLayer() const
+{
+  return mActiveLayer.data();
+}
+
+void LocatorModelSuperBridge::setActiveLayer( QgsMapLayer *layer )
+{
+  if ( mActiveLayer == layer )
+    return;
+
+  mActiveLayer = layer;
+  emit activeLayerChanged();
+}
+
 bool LocatorModelSuperBridge::keepScale() const
 {
   return mKeepScale;
@@ -136,6 +152,11 @@ void LocatorModelSuperBridge::setKeepScale( bool keepScale )
 
   mKeepScale = keepScale;
   emit keepScaleChanged();
+}
+
+void LocatorModelSuperBridge::requestSearchTextChange( const QString &text )
+{
+  emit searchTextChangeRequested( text );
 }
 
 LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int row )
@@ -157,6 +178,30 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   }
 
   return model;
+}
+
+QString LocatorModelSuperBridge::getLocatorModelDescription( const int row )
+{
+  const QModelIndex index = proxyModel()->index( row, 1 );
+  if ( !index.isValid() )
+    return nullptr;
+
+  return proxyModel()->data( index, Qt::DisplayRole ).toString();
+}
+
+QString LocatorModelSuperBridge::getPrefixFromSearchString( const QString &string )
+{
+  QRegularExpression separatorRx( QStringLiteral( "^([^\\s]+)(?:\\s|$)" ) );
+  QRegularExpressionMatch match = separatorRx.match( string.trimmed() );
+  if ( match.hasMatch() )
+  {
+    if ( !locator()->filters( match.captured( 1 ) ).isEmpty() )
+    {
+      return match.captured( 1 );
+    }
+  }
+
+  return QString();
 }
 
 void LocatorModelSuperBridge::emitMessage( const QString &text )
@@ -188,8 +233,8 @@ LocatorActionsModel::LocatorActionsModel( int rows, int columns, QObject *parent
 QHash<int, QByteArray> LocatorActionsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
-  roles[IconPathRole] = "iconPath";
-  roles[IdRole] = "id";
+  roles[IconPathRole] = "IconPath";
+  roles[IdRole] = "Id";
   return roles;
 }
 
@@ -226,11 +271,12 @@ QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
 QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 {
   const static QMap<QString, QString> sLocatorFilterDescriptions = {
-    { QStringLiteral( "allfeatures" ), tr( "Returns a list of features accross all searchable layers with matching attributes" ) },
-    { QStringLiteral( "goto" ), tr( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) },
-    { QStringLiteral( "bookmarks" ), tr( "Returns a list of bookmark with matching names" ) },
-    { QStringLiteral( "calculator" ), tr( "Returns the value of the expression typed in the search bar" ) },
-    { QStringLiteral( "pelias-finland" ), tr( "Returns a list of locations and addresses within Finland with matching terms" ) } };
+    { QStringLiteral( "features" ), tr( "Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an '@'." ) },
+    { QStringLiteral( "allfeatures" ), tr( "Returns a list of features accross all searchable layers with matching display name." ) },
+    { QStringLiteral( "goto" ), tr( "Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar." ) },
+    { QStringLiteral( "bookmarks" ), tr( "Returns a list of user and currently open project bookmarks with matching names." ) },
+    { QStringLiteral( "calculator" ), tr( "Returns the value of an expression typed in the search bar." ) },
+    { QStringLiteral( "pelias-finland" ), tr( "Returns a list of locations and addresses within Finland with matching terms." ) } };
 
   if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return QVariant();
