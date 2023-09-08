@@ -47,7 +47,9 @@ QString ActiveLayerFeaturesLocatorFilter::fieldRestriction( QString &searchStrin
   QString _fieldRestriction;
   searchString = searchString.trimmed();
   if ( isRestricting )
+  {
     *isRestricting = searchString.startsWith( '@' );
+  }
   if ( searchString.startsWith( '@' ) )
   {
     _fieldRestriction = searchString.left( std::min( searchString.indexOf( ' ' ), searchString.length() ) ).remove( 0, 1 );
@@ -84,7 +86,9 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
     QgsFeatureRequest req;
     req.setSubsetOfAttributes( qgis::setToList( mDispExpression.referencedAttributeIndexes( layer->fields() ) ) );
     if ( !mDispExpression.needsGeometry() )
+    {
       req.setFlags( QgsFeatureRequest::NoGeometry );
+    }
     QString enhancedSearch = searchString;
     enhancedSearch.replace( ' ', '%' );
     req.setFilterExpression( QStringLiteral( "%1 ILIKE '%%2%'" )
@@ -105,7 +109,9 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
   for ( const QgsField &field : fields )
   {
     if ( field.configurationFlags().testFlag( QgsField::ConfigurationFlag::NotSearchable ) )
+    {
       continue;
+    }
 
     if ( isRestricting )
     {
@@ -145,10 +151,14 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
 
   QgsFeatureRequest req;
   if ( !mDispExpression.needsGeometry() )
+  {
     req.setFlags( QgsFeatureRequest::NoGeometry );
+  }
   req.setFilterExpression( expression );
   if ( isRestricting )
+  {
     req.setSubsetOfAttributes( subsetOfAttributes );
+  }
 
   req.setLimit( mMaxTotalResults );
   mFieldIterator = layer->getFeatures( req );
@@ -241,9 +251,13 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
       if ( attrString.contains( searchString, Qt::CaseInsensitive ) )
       {
         if ( idx < mAttributeAliases.count() )
+        {
           result.displayString = QStringLiteral( "%1 (%2)" ).arg( attrString, mAttributeAliases[idx] );
+        }
         else
+        {
           result.displayString = attrString;
+        }
         break;
       }
       idx++;
@@ -378,9 +392,13 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
           }
 
           if ( r.isEmpty() || mLocatorBridge->keepScale() )
+          {
             mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) );
+          }
           else
+          {
             mLocatorBridge->mapSettings()->setExtent( r );
+          }
 
           mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
           mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", layer->crs() );

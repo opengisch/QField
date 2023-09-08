@@ -180,7 +180,7 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   return model;
 }
 
-QString LocatorModelSuperBridge::getLocatorModelDescrition( const int row )
+QString LocatorModelSuperBridge::getLocatorModelDescription( const int row )
 {
   const QModelIndex index = proxyModel()->index( row, 1 );
   if ( !index.isValid() )
@@ -189,7 +189,7 @@ QString LocatorModelSuperBridge::getLocatorModelDescrition( const int row )
   return proxyModel()->data( index, Qt::DisplayRole ).toString();
 }
 
-QString LocatorModelSuperBridge::getPrefixFromSreachString( const QString &string )
+QString LocatorModelSuperBridge::getPrefixFromSearchString( const QString &string )
 {
   QRegularExpression separatorRx( QStringLiteral( "^([^\\s]+)(?:\\s|$)" ) );
   QRegularExpressionMatch match = separatorRx.match( string.trimmed() );

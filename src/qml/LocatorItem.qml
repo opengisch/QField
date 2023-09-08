@@ -113,7 +113,7 @@ Item {
     enabled: false
 
     function onDecoded(string) {
-      var prefix = locator.getPrefixFromSreachString(searchField.text)
+      var prefix = locator.getPrefixFromSearchString(searchField.text)
       searchField.text = prefix !== '' ? prefix + ' ' + string : string;
     }
 
@@ -415,7 +415,7 @@ Item {
             visible: !isFilterName && !isGroup && text !== ''
             anchors.left: parent.left
             anchors.right: parent.right
-            text: locator.getLocatorModelDescrition(index)
+            text: locator.getLocatorModelDescription(index)
             leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
