@@ -181,7 +181,7 @@ EditorWidgetBase {
     text: qsTr( 'Scan Code' )
 
     font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon( "ic_qrcode_black_24dp" )
+    icon.source: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
     height: 48
     leftPadding: 10
 

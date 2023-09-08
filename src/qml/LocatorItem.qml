@@ -32,7 +32,7 @@ Item {
           name: "on"
           PropertyChanges { target: searchFieldRect; visible: true; }
           PropertyChanges { target: searchFieldRect; width: mainWindow.width - 62 }
-          PropertyChanges { target: barcodeReaderButton; visible: true; }
+          PropertyChanges { target: codeReaderButton; visible: true; }
           PropertyChanges { target: clearButton; visible: true; }
           PropertyChanges { target: busyIndicator; visible: true; }
       },
@@ -40,7 +40,7 @@ Item {
         name: "off"
         PropertyChanges { target: busyIndicator; visible: false; }
         PropertyChanges { target: clearButton; visible: false; }
-        PropertyChanges { target: barcodeReaderButton; visible: false; }
+        PropertyChanges { target: codeReaderButton; visible: false; }
         PropertyChanges { target: searchFieldRect; width: 48 }
         PropertyChanges { target: searchFieldRect; visible: false; }
       }
@@ -53,7 +53,7 @@ Item {
         SequentialAnimation {
           PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
           NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 250 }
-          PropertyAnimation { target: barcodeReaderButton; property: "visible"; duration: 0 }
+          PropertyAnimation { target: codeReaderButton; property: "visible"; duration: 0 }
           PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
           PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
         }
@@ -64,7 +64,7 @@ Item {
         SequentialAnimation {
           PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
           PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
-          PropertyAnimation { target: barcodeReaderButton; property: "visible"; duration: 0 }
+          PropertyAnimation { target: codeReaderButton; property: "visible"; duration: 0 }
           NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 150 }
           PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
         }
@@ -98,8 +98,8 @@ Item {
   }
 
   Connections {
-    id: barcodeReaderConnection
-    target: barcodeReader
+    id: codeReaderConnection
+    target: codeReader
     enabled: false
 
     function onDecoded(string) {
@@ -160,9 +160,9 @@ Item {
     id: busyIndicator
     z: 11
     running: locator.isRunning
-    anchors.right: barcodeReaderButton.left
+    anchors.right: codeReaderButton.left
     anchors.rightMargin: -15
-    anchors.verticalCenter: barcodeReaderButton.verticalCenter
+    anchors.verticalCenter: codeReaderButton.verticalCenter
     height: searchFieldRect.height - 10
     visible: false
   }
@@ -194,7 +194,7 @@ Item {
   }
 
   QfToolButton {
-    id: barcodeReaderButton
+    id: codeReaderButton
     width: 40
     height: 40
     padding: 2
@@ -204,15 +204,15 @@ Item {
     anchors.verticalCenter: searchFieldRect.verticalCenter
     visible: false
 
-    iconSource: Theme.getThemeVectorIcon("ic_qrcode_black_24dp")
+    iconSource: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
     iconColor: Theme.darkTheme ? Theme.mainTextColor : "transparent"
     bgcolor: "transparent"
 
     onClicked: {
       Qt.inputMethod.hide();
 
-      barcodeReader.open();
-      barcodeReaderConnection.enabled = true;
+      codeReader.open();
+      codeReaderConnection.enabled = true;
     }
   }
 

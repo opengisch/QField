@@ -1130,7 +1130,7 @@ ApplicationWindow {
                  && !qfieldSettings.visible
                  && !qfieldCloudScreen.visible
                  && !qfieldLocalDataPickerScreen.visible
-                 && !barcodeReader.visible
+                 && !codeReader.visible
                  && !screenLocker.enabled
 
     onOpenedChanged: {
@@ -2905,7 +2905,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     digitizingToolbar: digitizingToolbar
     moveFeaturesToolbar: moveFeaturesToolbar
-    barcodeReader: barcodeReader
+    codeReader: codeReader
 
     focus: visible
 
@@ -2969,7 +2969,7 @@ ApplicationWindow {
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     digitizingToolbar: digitizingToolbar
-    barcodeReader: barcodeReader
+    codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer
   }
 
@@ -3488,9 +3488,9 @@ ApplicationWindow {
   }
 
   MouseArea {
-    id: barcodeReaderCatcher
+    id: codeReaderCatcher
     anchors.fill: parent
-    enabled: barcodeReader.visible
+    enabled: codeReader.visible
 
     onClicked: (mouse) => {
       // Needed to avoid people interacting with the UI while the barcode reader is visible
@@ -3499,8 +3499,8 @@ ApplicationWindow {
     }
   }
 
-  BarcodeReader {
-    id: barcodeReader
+  CodeReader {
+    id: codeReader
     visible: false
   }
 

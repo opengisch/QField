@@ -332,7 +332,7 @@ EditorWidgetBase {
 
         embeddedLevel: form.embeddedLevel + 1
         digitizingToolbar: form.digitizingToolbar
-        barcodeReader: form.barcodeReader
+        codeReader: form.codeReader
 
         onFeatureCancelled: {
             if( autoSave )

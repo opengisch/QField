@@ -17,7 +17,7 @@ Popup {
     property alias feature: formFeatureModel.feature
     property alias attributeFormModel: formAttributeFormModel
     property alias digitizingToolbar: form.digitizingToolbar
-    property alias barcodeReader: form.barcodeReader
+    property alias codeReader: form.codeReader
 
     Connections {
         target: digitizingToolbar

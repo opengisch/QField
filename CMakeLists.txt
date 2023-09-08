@@ -81,6 +81,9 @@ set(WITH_BLUETOOTH
 set(WITH_SERIALPORT
     ON
     CACHE BOOL "Enable serial port support")
+set(WITH_NFC
+    ON
+    CACHE BOOL "Enable NFC support")
 
 set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
 

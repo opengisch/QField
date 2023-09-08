@@ -25,7 +25,7 @@ Page {
   signal requestBarcode(var item)
 
   property DigitizingToolbar digitizingToolbar
-  property BarcodeReader barcodeReader
+  property CodeReader codeReader
 
   property AttributeFormModel model
   property alias currentTab: swipeView.currentIndex
@@ -651,8 +651,8 @@ Page {
               }
 
               function onRequestBarcode(item) {
-                form.barcodeReader.barcodeRequestedItem = item
-                form.barcodeReader.open()
+                form.codeReader.barcodeRequestedItem = item
+                form.codeReader.open()
               }
             }
           }

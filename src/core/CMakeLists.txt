@@ -70,6 +70,7 @@ set(QFIELD_CORE_SRCS
     multifeaturelistmodelbase.cpp
     navigation.cpp
     navigationmodel.cpp
+    nearfieldreader.cpp
     networkmanager.cpp
     networkreply.cpp
     orderedrelationmodel.cpp
@@ -177,6 +178,7 @@ set(QFIELD_CORE_HDRS
     multifeaturelistmodelbase.h
     navigation.h
     navigationmodel.h
+    nearfieldreader.h
     networkmanager.h
     networkreply.h
     orderedrelationmodel.h
@@ -268,6 +270,9 @@ endif()
 if(WITH_SERIALPORT)
   target_compile_definitions(qfield_core PRIVATE WITH_SERIALPORT)
 endif()
+if(WITH_NFC)
+  target_compile_definitions(qfield_core PRIVATE WITH_NFC)
+endif()
 
 include(GenerateExportHeader)
 generate_export_header(qfield_core)
@@ -355,6 +360,14 @@ if(WITH_SERIALPORT)
     COMPONENTS SerialPort
     REQUIRED)
   target_link_libraries(qfield_core PUBLIC ${QT_PKG}::SerialPort)
+endif()
+
+if(WITH_NFC)
+  find_package(
+    ${QT_PKG}
+    COMPONENTS Nfc
+    REQUIRED)
+  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::Nfc)
 endif()
 
 if(WITH_SENTRY)
