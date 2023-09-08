@@ -74,6 +74,9 @@ Page {
             width: 46
             height: 46
             radius: width/2
+            color: "white"
+            visible: false
+            layer.enabled: true
           }
 
           Image {
