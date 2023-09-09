@@ -142,28 +142,28 @@ endif()
 if(VCPKG_TARGET_IS_WINDOWS)
     ##############################################################################
     #Install pip
-    if(NOT EXISTS "${PYTHON3_PATH}/Scripts/pip.exe")
-        MESSAGE(STATUS  "Install pip for Python Begin ...")
-        vcpkg_download_distfile(
-            GET_PIP_PATH
-            URLS https://bootstrap.pypa.io/pip/3.5/get-pip.py
-            FILENAME get-pip.py
-            SHA512  a408dd74e69a2c3259e06669562bebfff676156a1a3b2f8ba6594ed308e3f94afdf79257688e59b02bf02bd7f6ecbea510fc6665b403149031f14bcc08308a47
-        )
-
-        vcpkg_execute_required_process(
-            COMMAND "${PYTHON_EXECUTABLE}" "${GET_PIP_PATH}"
-            WORKING_DIRECTORY ${PYTHON3_PATH}
-            LOGNAME pip
-        )
-
-        vcpkg_execute_required_process(
-            COMMAND "${PYTHON_EXECUTABLE}" -m pip install --upgrade pip
-            WORKING_DIRECTORY ${PYTHON3_PATH}
-            LOGNAME pip
-        )
-        MESSAGE(STATUS  "Install pip for Python End")
-    endif (NOT EXISTS "${PYTHON3_PATH}/Scripts/pip.exe")
+    #if(NOT EXISTS "${PYTHON3_PATH}/Scripts/pip.exe")
+    #    MESSAGE(STATUS  "Install pip for Python Begin ...")
+    #    vcpkg_download_distfile(
+    #        GET_PIP_PATH
+    #        URLS https://bootstrap.pypa.io/pip/3.6/get-pip.py
+    #        FILENAME get-pip.py
+    #        SHA512  79b8c9041f5c2f5420503a1b53bbd4da7505f5cf9bb4a7cc5560732f687c5282834f807d6d5ed19d41865e64ee99ad48a603d0d2c93265fd7e14ecba4b53d007
+    #    )
+    #
+    #    vcpkg_execute_required_process(
+    #        COMMAND "${PYTHON_EXECUTABLE}" "${GET_PIP_PATH}"
+    #        WORKING_DIRECTORY ${PYTHON3_PATH}
+    #        LOGNAME pip
+    #    )
+    #
+    #    vcpkg_execute_required_process(
+    #        COMMAND "${PYTHON_EXECUTABLE}" -m pip install --upgrade pip
+    #        WORKING_DIRECTORY ${PYTHON3_PATH}
+    #        LOGNAME pip
+    #    )
+    #    MESSAGE(STATUS  "Install pip for Python End")
+    #endif (NOT EXISTS "${PYTHON3_PATH}/Scripts/pip.exe")
     ##############################################################################
 
     list(APPEND QGIS_OPTIONS -DBISON_EXECUTABLE="${BISON}")

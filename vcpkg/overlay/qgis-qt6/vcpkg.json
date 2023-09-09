@@ -43,14 +43,14 @@
       "qtkeychain-qt6"
     ],
     "features":
-	{
+    {
             "opencl" : {
               "description": "Should OpenCL support be added",
               "dependencies":
               [
                   "opencl"
               ]
-    },
+        },
             "server":
         {
             "description": "Determines whether QGIS server should be built",
@@ -101,5 +101,4 @@
             ]
         }
   }
-    
-  }
+}
