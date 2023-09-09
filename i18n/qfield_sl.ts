@@ -23,6 +23,29 @@
     </message>
 </context>
 <context>
+    <name>ActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Odpri obrazec</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Nastavi objekt kot cilj</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Objekt nima geometrije</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
@@ -114,11 +137,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>Čitalec kode</translation>
+        <translation type="vanished">Čitalec kode</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Centrirajte kamero na kodo</translation>
+        <translation type="vanished">Centrirajte kamero na kodo</translation>
     </message>
 </context>
 <context>
@@ -400,6 +423,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>close</source>
         <translation>Zapri</translation>
+    </message>
+</context>
+<context>
+    <name>CodeReader</name>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Čitalec kode</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1085,7 +1123,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Vrne seznam zaznamkov z ujemajočimi se imeni</translation>
+        <translation type="vanished">Vrne seznam zaznamkov z ujemajočimi se imeni</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
@@ -1096,7 +1134,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Filtri za iskanje za lokacije so bili aktivirani, rezultate prilagodiš na plošči z nastavitvami.</translation>
     </message>
     <message>
-        <source>Returns the value of the expression typed in the search bar</source>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1105,6 +1163,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search…</source>
         <translation type="vanished">Iskanje...</translation>
+    </message>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

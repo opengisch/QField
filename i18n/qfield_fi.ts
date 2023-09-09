@@ -23,6 +23,29 @@
     </message>
 </context>
 <context>
+    <name>ActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Avaa lomake</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Aseta ominaisuus kohteeksi</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Kohteella ei ole geometriaa</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
@@ -114,11 +137,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>Koodin lukija</translation>
+        <translation type="vanished">Koodin lukija</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Keskitä kamerasi koodiin.</translation>
+        <translation type="vanished">Keskitä kamerasi koodiin.</translation>
     </message>
 </context>
 <context>
@@ -401,6 +424,21 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>close</source>
         <translation>sulje</translation>
+    </message>
+</context>
+<context>
+    <name>CodeReader</name>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Koodin lukija</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1086,27 +1124,47 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Palauttaa listan kohteista kaikista haettavista tasoista, jotka vastaavat attribuutteja</translation>
+        <translation type="vanished">Palauttaa listan kohteista kaikista haettavista tasoista, jotka vastaavat attribuutteja</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Palauttaa pisteen hakukenttään kirjoitetusta parista X- ja Y-koordinaatteja</translation>
+        <translation type="vanished">Palauttaa pisteen hakukenttään kirjoitetusta parista X- ja Y-koordinaatteja</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Palauttaa kirjanmerkkiluettelon vastaavilla nimillä</translation>
+        <translation type="vanished">Palauttaa kirjanmerkkiluettelon vastaavilla nimillä</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>Palauttaa listan sijainneista ja osoitteista Suomessa, jotka vastaavat nimikkeitä</translation>
+        <translation type="vanished">Palauttaa listan sijainneista ja osoitteista Suomessa, jotka vastaavat nimikkeitä</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Hakufiltterit sijainnillesi on aktivoitu, muokkaa tuloksia asetukset-paneelissa</translation>
     </message>
     <message>
-        <source>Returns the value of the expression typed in the search bar</source>
-        <translation>Palauttaa hakupalkkiin kirjoitetun lausekkeen arvon</translation>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1114,6 +1172,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Search…</source>
         <translation type="vanished">Etsi...</translation>
+    </message>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

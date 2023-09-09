@@ -23,6 +23,29 @@
     </message>
 </context>
 <context>
+    <name>ActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Otevřít z</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Nastavit prvek jako cíl</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Prvek nemá žádnou geometrii</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
@@ -114,11 +137,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>Čtečka kódů</translation>
+        <translation type="vanished">Čtečka kódů</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Zaměřte kameru doprostřed kódu</translation>
+        <translation type="vanished">Zaměřte kameru doprostřed kódu</translation>
     </message>
 </context>
 <context>
@@ -401,6 +424,21 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>close</source>
         <translation>zavřít</translation>
+    </message>
+</context>
+<context>
+    <name>CodeReader</name>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Čtečka kódů</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1090,27 +1128,47 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Vrátí seznam prvků s odpovídajícím atributy přes všechny prohledávatelné vrstvy.</translation>
+        <translation type="vanished">Vrátí seznam prvků s odpovídajícím atributy přes všechny prohledávatelné vrstvy.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Vrátí bod ze souřadnic X a Y zadaných v liště hledání</translation>
+        <translation type="vanished">Vrátí bod ze souřadnic X a Y zadaných v liště hledání</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Vrátí seznam záložek s odpovídajícími názvy</translation>
+        <translation type="vanished">Vrátí seznam záložek s odpovídajícími názvy</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>Vrátí seznam poloh a adres ve Finsku odpovídajících podmínkám</translation>
+        <translation type="vanished">Vrátí seznam poloh a adres ve Finsku odpovídajících podmínkám</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Byly aktivovány filtry vyhledávání pro vaše lokality, přizpůsobte si výsledky na panelu nastavení.</translation>
     </message>
     <message>
-        <source>Returns the value of the expression typed in the search bar</source>
-        <translation>Vrátí hodnotu výrazu zadaného v liště hledání</translation>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1118,6 +1176,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Search…</source>
         <translation type="vanished">Hledat...</translation>
+    </message>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

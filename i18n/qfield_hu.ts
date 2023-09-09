@@ -23,6 +23,29 @@
     </message>
 </context>
 <context>
+    <name>ActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Úrlap nyitás</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Elem beállítása célként</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Az elemhez nem tartozik geometria</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
@@ -114,11 +137,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>Kódolvasó</translation>
+        <translation type="vanished">Kódolvasó</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Irányítsa a kamerát a kódra</translation>
+        <translation type="vanished">Irányítsa a kamerát a kódra</translation>
     </message>
 </context>
 <context>
@@ -401,6 +424,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>close</source>
         <translation>lezár</translation>
+    </message>
+</context>
+<context>
+    <name>CodeReader</name>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Kódolvasó</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1085,27 +1123,47 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Elemek egy listáját adja vissza az összes kereshető rétegen az egyező attribútumokkal</translation>
+        <translation type="vanished">Elemek egy listáját adja vissza az összes kereshető rétegen az egyező attribútumokkal</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>A keresőben megadott X, Y koordinátapár alapján egy pontot ad vissza</translation>
+        <translation type="vanished">A keresőben megadott X, Y koordinátapár alapján egy pontot ad vissza</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Az illeszkedő könyvjelző nevek listáját adja vissza</translation>
+        <translation type="vanished">Az illeszkedő könyvjelző nevek listáját adja vissza</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>A helyek és címek listáját adja vissza Finnországban az egyező kifejezéssel</translation>
+        <translation type="vanished">A helyek és címek listáját adja vissza Finnországban az egyező kifejezéssel</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>A helyzetére vonatkozó keresési szűrők aktiválva vannak. A beállítások panelen testreszabhatja az eredményeket.</translation>
     </message>
     <message>
-        <source>Returns the value of the expression typed in the search bar</source>
-        <translation>Visszaadja a keresősávban beírt kifejezés értékét</translation>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1113,6 +1171,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Search…</source>
         <translation type="vanished">Keresés...</translation>
+    </message>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

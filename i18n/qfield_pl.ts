@@ -23,6 +23,29 @@
     </message>
 </context>
 <context>
+    <name>ActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation>Ogranicz wyszukiwanie do pola &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Otwórz formularz</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Ustaw obiekt jako cel</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Obiekt nie posiada geometrii</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation>Elementy z aktywnej warstwy</translation>
+    </message>
+</context>
+<context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
@@ -114,11 +137,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>Czytnik kodów</translation>
+        <translation type="vanished">Czytnik kodów</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Wyśrodkuj swój aparat na kodzie</translation>
+        <translation type="vanished">Wyśrodkuj swój aparat na kodzie</translation>
     </message>
 </context>
 <context>
@@ -401,6 +424,21 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>close</source>
         <translation>zamknij</translation>
+    </message>
+</context>
+<context>
+    <name>CodeReader</name>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation>Wykryto znacznik tekstowy NFC</translation>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Czytnik kodów</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation>Skieruj swoje urządzenie na kod</translation>
     </message>
 </context>
 <context>
@@ -1081,27 +1119,47 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Wyświetla listę obiektów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
+        <translation type="vanished">Wyświetla listę obiektów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Wyświetla punkt z pary wprowadzonych w pasku wyszukiwania współrzędnych X i Y.</translation>
+        <translation type="vanished">Wyświetla punkt z pary wprowadzonych w pasku wyszukiwania współrzędnych X i Y.</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Wyświetla listę zakładek z odpowiadającymi nazwami</translation>
+        <translation type="vanished">Wyświetla listę zakładek z odpowiadającymi nazwami</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>Wyświetla listę lokalizacji i adresów w Finlandii z odpowiadającymi symbolami</translation>
+        <translation type="vanished">Wyświetla listę lokalizacji i adresów w Finlandii z odpowiadającymi symbolami</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Filtry wyszukiwania dla twoich lokalizacji zostały aktywowane, dostosuj wyniki w panelu ustawień.</translation>
     </message>
     <message>
-        <source>Returns the value of the expression typed in the search bar</source>
-        <translation>Zwraca wartość wyrażenia wpisanego w pasku wyszukiwania</translation>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Wyświetla listę obiektów z aktywnej warstwy z atrybutami spełniającymi kryteria wyszukiwania. Ograniczenie kryteriów wyszukiwania do pojedynczego atrybutu wykonuje się przez podanie jego nazwy poprzedzonej przez znak &quot;@&quot;.</translation>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Wyświetla listę obiektów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1109,6 +1167,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search…</source>
         <translation type="vanished">Szukaj...</translation>
+    </message>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

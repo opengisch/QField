@@ -23,6 +23,29 @@
     </message>
 </context>
 <context>
+    <name>ActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Otvori obrazac</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Postavi element kao odredište</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Element nema geometriju</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
@@ -114,11 +137,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>Čitač kôda</translation>
+        <translation type="vanished">Čitač kôda</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Postavi kameru iznad kôda</translation>
+        <translation type="vanished">Postavi kameru iznad kôda</translation>
     </message>
 </context>
 <context>
@@ -401,6 +424,21 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <message>
         <source>close</source>
         <translation>zatvori</translation>
+    </message>
+</context>
+<context>
+    <name>CodeReader</name>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Čitač kôda</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1088,27 +1126,47 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Ispisuje popis elemenata svih pretraživih slojeva s odgovarajućim atributima.</translation>
+        <translation type="vanished">Ispisuje popis elemenata svih pretraživih slojeva s odgovarajućim atributima.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Ispisuje točku iz para X i Y koordinata unesenih u traku za pretraživanje</translation>
+        <translation type="vanished">Ispisuje točku iz para X i Y koordinata unesenih u traku za pretraživanje</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Ispisuje popis oznaka sa odgovarajućim nazivima</translation>
+        <translation type="vanished">Ispisuje popis oznaka sa odgovarajućim nazivima</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>Ispisuje popis lokacija i adresa unutar Finske sa odgovarajućim pojmovima</translation>
+        <translation type="vanished">Ispisuje popis lokacija i adresa unutar Finske sa odgovarajućim pojmovima</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Filteri pretrage za vašu lokaciju su aktivirani, prilagođite rezultate u listi postavki</translation>
     </message>
     <message>
-        <source>Returns the value of the expression typed in the search bar</source>
-        <translation>Vraća vrijednost izraza unesenog u tražilicu</translation>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1116,6 +1174,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Search…</source>
         <translation type="vanished">Pretraži...</translation>
+    </message>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

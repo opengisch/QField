@@ -23,6 +23,29 @@
     </message>
 </context>
 <context>
+    <name>ActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Abrir formulário</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Definir elemento como destino</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>O elemento não tem geometria</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
@@ -114,11 +137,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>Leitor de Código</translation>
+        <translation type="vanished">Leitor de Código</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Centre a sua câmera num código</translation>
+        <translation type="vanished">Centre a sua câmera num código</translation>
     </message>
 </context>
 <context>
@@ -401,6 +424,21 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>close</source>
         <translation>fechar</translation>
+    </message>
+</context>
+<context>
+    <name>CodeReader</name>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Leitor de Código</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1088,27 +1126,47 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Devolve uma lista de elementos através de todas as camadas com atributos correspondentes onde for possível pesquisar.</translation>
+        <translation type="vanished">Devolve uma lista de elementos através de todas as camadas com atributos correspondentes onde for possível pesquisar.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Devolve um ponto a partir de um par de coordenadas XY introduzida na barra de pesquisa.</translation>
+        <translation type="vanished">Devolve um ponto a partir de um par de coordenadas XY introduzida na barra de pesquisa.</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Devolve uma lista de marcadores com os nomes correspondentes</translation>
+        <translation type="vanished">Devolve uma lista de marcadores com os nomes correspondentes</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>Devolva uma lista de locais e endereços na Finlândia com os termos correspondentes. </translation>
+        <translation type="vanished">Devolva uma lista de locais e endereços na Finlândia com os termos correspondentes. </translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Os filtros de pesquisa para os seus locais foi ativado, personalize os resultados no painel de configurações</translation>
     </message>
     <message>
-        <source>Returns the value of the expression typed in the search bar</source>
-        <translation>Devolve o valor da expressão escrita na barra de pesquisa</translation>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1116,6 +1174,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Search…</source>
         <translation type="vanished">Pesquisar...</translation>
+    </message>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -23,6 +23,29 @@
     </message>
 </context>
 <context>
+    <name>ActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Otvori formu</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Objekat nema geometriju</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
@@ -400,6 +423,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>close</source>
         <translation>zatvori</translation>
+    </message>
+</context>
+<context>
+    <name>CodeReader</name>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1087,26 +1125,46 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Vraća listu objekata kroz sve pretražive slojeve sa odgovarajućim atributima.</translation>
+        <translation type="vanished">Vraća listu objekata kroz sve pretražive slojeve sa odgovarajućim atributima.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Vraća tačku iz para X i Y koordinata kucanih u traci za pretragu</translation>
+        <translation type="vanished">Vraća tačku iz para X i Y koordinata kucanih u traci za pretragu</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Vrati na listu oznaka sa odgovarajućim nazivima</translation>
+        <translation type="vanished">Vrati na listu oznaka sa odgovarajućim nazivima</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>Vraća listu lokacija i adresa</translation>
+        <translation type="vanished">Vraća listu lokacija i adresa</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Filteri pretrage za vašu lokaciju su aktivirani, prilagodite rezultate u panelu postavke</translation>
     </message>
     <message>
-        <source>Returns the value of the expression typed in the search bar</source>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1115,6 +1173,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <message>
         <source>Search…</source>
         <translation type="vanished">Traženje...</translation>
+    </message>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
