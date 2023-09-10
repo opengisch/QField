@@ -31,21 +31,23 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindExpat.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindPoly2Tri.cmake)
 
-vcpkg_find_acquire_program(FLEX)
-get_filename_component(FLEX_DIR "${FLEX}" DIRECTORY )
-vcpkg_add_to_path(PREPEND "${FLEX_DIR}")
-vcpkg_find_acquire_program(BISON)
-get_filename_component(BISON_DIR "${BISON}" DIRECTORY )
-vcpkg_add_to_path(PREPEND "${BISON_DIR}")
-vcpkg_find_acquire_program(PYTHON3)
-set(PYTHON_EXECUTABLE ${PYTHON3})
 
+vcpkg_find_acquire_program(FLEX)
+vcpkg_find_acquire_program(BISON)
 list(APPEND QGIS_OPTIONS -DENABLE_TESTS:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_QTWEBKIT:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_GRASS7:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_SPATIALITE:BOOL=ON)
 list(APPEND QGIS_OPTIONS -DWITH_QSPATIALITE:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_PDAL:BOOL=OFF)
+
+list(APPEND QGIS_OPTIONS -DBISON_EXECUTABLE="${BISON}")
+list(APPEND QGIS_OPTIONS -DFLEX_EXECUTABLE="${FLEX}")
+# By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
+# let's keep things clean and tidy and put them at a predictable location
+list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
+list(APPEND QGIS_OPTIONS -DBUILD_WITH_QT6=ON)
+list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
 
 if("opencl" IN_LIST FEATURES)
     list(APPEND QGIS_OPTIONS -DUSE_OPENCL:BOOL=ON)
@@ -130,11 +132,6 @@ if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
   list(APPEND QGIS_OPTIONS -DQGIS_PLUGIN_SUBDIR=lib)
 endif()
 
-# By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
-# let's keep things clean and tidy and put them at a predictable location
-list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
-list(APPEND QGIS_OPTIONS -DBUILD_WITH_QT6=ON)
-
 if(VCPKG_CROSSCOMPILING)
    list(APPEND QGIS_OPTIONS -DQT_HOST_PATH=${CURRENT_HOST_INSTALLED_DIR})
    list(APPEND QGIS_OPTIONS -DQT_HOST_PATH_CMAKE_DIR:PATH=${CURRENT_HOST_INSTALLED_DIR}/share)
@@ -155,7 +152,6 @@ if(VCPKG_TARGET_IS_WINDOWS)
     FIND_LIB_OPTIONS(GSLCBLAS gslcblas gslcblasd LIB ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(POSTGRES libpq libpq LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(PROJ proj proj_d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-    FIND_LIB_OPTIONS(PYTHON python39 python39_d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QCA qca qcad LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QTKEYCHAIN qt5keychain qt5keychaind LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QSCINTILLA qscintilla2_qt5 qscintilla2_qt5d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
@@ -214,8 +210,6 @@ else() # Build in UNIX
         list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_RELEASE}/lib/libqt_poly2tri.a) # static qt only
     endif()
 endif()
-
-list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
 
 if(VCPKG_TARGET_IS_IOS)
     list(APPEND QGIS_OPTIONS -DWITH_QTSERIALPORT=FALSE)

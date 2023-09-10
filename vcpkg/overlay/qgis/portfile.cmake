@@ -33,22 +33,23 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindExpat.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindPoly2Tri.cmake)
 
+
 vcpkg_find_acquire_program(FLEX)
-get_filename_component(FLEX_DIR "${FLEX}" DIRECTORY )
-vcpkg_add_to_path(PREPEND "${FLEX_DIR}")
 vcpkg_find_acquire_program(BISON)
-get_filename_component(BISON_DIR "${BISON}" DIRECTORY )
-vcpkg_add_to_path(PREPEND "${BISON_DIR}")
-
-vcpkg_find_acquire_program(PYTHON3)
-set(PYTHON_EXECUTABLE ${PYTHON3})
-
 list(APPEND QGIS_OPTIONS -DENABLE_TESTS:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_QTWEBKIT:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_GRASS7:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_SPATIALITE:BOOL=ON)
 list(APPEND QGIS_OPTIONS -DWITH_QSPATIALITE:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_PDAL:BOOL=OFF)
+
+list(APPEND QGIS_OPTIONS -DBISON_EXECUTABLE="${BISON}")
+list(APPEND QGIS_OPTIONS -DFLEX_EXECUTABLE="${FLEX}")
+# By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
+# let's keep things clean and tidy and put them at a predictable location
+list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
+list(APPEND QGIS_OPTIONS -DBUILD_WITH_QT6=OFF)
+list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
 
 if("opencl" IN_LIST FEATURES)
     list(APPEND QGIS_OPTIONS -DUSE_OPENCL:BOOL=ON)
@@ -133,10 +134,6 @@ if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
   list(APPEND QGIS_OPTIONS -DQGIS_PLUGIN_SUBDIR=lib)
 endif()
 
-# By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
-# let's keep things clean and tidy and put them at a predictable location
-list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
-
 if(VCPKG_TARGET_IS_WINDOWS)
     list(APPEND QGIS_OPTIONS -DQT_LRELEASE_EXECUTABLE=${CURRENT_INSTALLED_DIR}/tools/qt5-tools/bin/lrelease.exe)
 
@@ -219,8 +216,6 @@ else() # Build in UNIX
     endif()
 endif()
 
-list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
-
 if(VCPKG_TARGET_IS_IOS)
     list(APPEND QGIS_OPTIONS -DWITH_QTSERIALPORT=FALSE)
 endif()
@@ -239,8 +234,8 @@ if(VCPKG_TARGET_IS_WINDOWS)
     function(copy_path basepath targetdir)
         file(GLOB ${basepath}_PATH ${CURRENT_PACKAGES_DIR}/${basepath}/*)
         if( ${basepath}_PATH )
-            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/${targetdir}/${PORT}/${basepath})
-            file(COPY ${${basepath}_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/${targetdir}/${PORT}/${basepath})
+            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/${targetdir}/qgis/${basepath})
+            file(COPY ${${basepath}_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/${targetdir}/qgis/${basepath})
         endif()
  
         if(EXISTS "${CURRENT_PACKAGES_DIR}/${basepath}/")
@@ -250,21 +245,21 @@ if(VCPKG_TARGET_IS_WINDOWS)
 
     file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
     if(QGIS_TOOL_PATH)
-        file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
-        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
+        file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/qgis/bin)
+        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/qgis/bin)
         file(REMOVE_RECURSE ${QGIS_TOOL_PATH})
         file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/* )
-        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
+        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/qgis/bin)
     endif()
     
     file(GLOB QGIS_TOOL_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/debug/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
     if(QGIS_TOOL_PATH_DEBUG)
         if("debug-tools" IN_LIST FEATURES)
-            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
-            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
+            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin)
+            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin)
             file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
             file(GLOB QGIS_TOOL_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/* )
-            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
+            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/qgis/bin)
         else()
             file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
         endif()
@@ -319,7 +314,7 @@ endif()
 
 file(GLOB QGIS_CMAKE_PATH ${CURRENT_PACKAGES_DIR}/*.cmake)
 if(QGIS_CMAKE_PATH)
-    file(COPY ${QGIS_CMAKE_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/share/cmake/${PORT})
+    file(COPY ${QGIS_CMAKE_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/share/cmake/qgis)
     file(REMOVE_RECURSE ${QGIS_CMAKE_PATH})
 endif()
 
@@ -336,4 +331,4 @@ file(REMOVE_RECURSE # Added for debug porpose
 )
 
 # Handle copyright
-file(INSTALL ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)
+file(INSTALL ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/qgis RENAME copyright)
