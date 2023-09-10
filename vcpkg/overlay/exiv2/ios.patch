@@ -7,9 +7,9 @@ index 3e30c9996..0ff113488 100644
  #elif defined(__unix__)
      auto path = fs::read_symlink("/proc/self/exe");
 +#elif defined(__APPLE__)
-+    char pathbuf[PROC_PIDPATHINFO_MAXSIZE];
-+    uint32_t size = sizeof(path);
-+    _NSGetExecutablePath(path, &size);
++    char pathbuf[2048];
++    uint32_t size = sizeof(pathbuf);
++    _NSGetExecutablePath(pathbuf, &size);
 +    auto path = fs::path(pathbuf);
  #endif
      return path.parent_path().string();
