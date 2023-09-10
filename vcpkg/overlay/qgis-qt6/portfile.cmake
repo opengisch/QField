@@ -32,11 +32,12 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindPoly2Tri.cmake)
 
 vcpkg_find_acquire_program(FLEX)
+get_filename_component(FLEX_DIR "${FLEX}" DIRECTORY )
+vcpkg_add_to_path(PREPEND "${FLEX_DIR}")
 vcpkg_find_acquire_program(BISON)
+get_filename_component(BISON_DIR "${BISON}" DIRECTORY )
+vcpkg_add_to_path(PREPEND "${BISON_DIR}")
 vcpkg_find_acquire_program(PYTHON3)
-get_filename_component(PYTHON3_PATH ${PYTHON3} DIRECTORY)
-vcpkg_add_to_path(${PYTHON3_PATH})
-vcpkg_add_to_path(${PYTHON3_PATH}/Scripts)
 set(PYTHON_EXECUTABLE ${PYTHON3})
 
 list(APPEND QGIS_OPTIONS -DENABLE_TESTS:BOOL=OFF)
@@ -140,37 +141,6 @@ if(VCPKG_CROSSCOMPILING)
 endif()
 
 if(VCPKG_TARGET_IS_WINDOWS)
-    ##############################################################################
-    #Install pip
-    #if(NOT EXISTS "${PYTHON3_PATH}/Scripts/pip.exe")
-    #    MESSAGE(STATUS  "Install pip for Python Begin ...")
-    #    vcpkg_download_distfile(
-    #        GET_PIP_PATH
-    #        URLS https://bootstrap.pypa.io/pip/3.6/get-pip.py
-    #        FILENAME get-pip.py
-    #        SHA512  79b8c9041f5c2f5420503a1b53bbd4da7505f5cf9bb4a7cc5560732f687c5282834f807d6d5ed19d41865e64ee99ad48a603d0d2c93265fd7e14ecba4b53d007
-    #    )
-    #
-    #    vcpkg_execute_required_process(
-    #        COMMAND "${PYTHON_EXECUTABLE}" "${GET_PIP_PATH}"
-    #        WORKING_DIRECTORY ${PYTHON3_PATH}
-    #        LOGNAME pip
-    #    )
-    #
-    #    vcpkg_execute_required_process(
-    #        COMMAND "${PYTHON_EXECUTABLE}" -m pip install --upgrade pip
-    #        WORKING_DIRECTORY ${PYTHON3_PATH}
-    #        LOGNAME pip
-    #    )
-    #    MESSAGE(STATUS  "Install pip for Python End")
-    #endif (NOT EXISTS "${PYTHON3_PATH}/Scripts/pip.exe")
-    ##############################################################################
-
-    list(APPEND QGIS_OPTIONS -DBISON_EXECUTABLE="${BISON}")
-    list(APPEND QGIS_OPTIONS -DFLEX_EXECUTABLE="${FLEX}")
-
-    list(APPEND QGIS_OPTIONS -DPYUIC_PROGRAM=${PYTHON3_PATH}/Scripts/pyuic5.exe)
-    list(APPEND QGIS_OPTIONS -DPYRCC_PROGRAM=${PYTHON3_PATH}/Scripts/pyrcc5.exe)
     list(APPEND QGIS_OPTIONS -DQT_LRELEASE_EXECUTABLE=${CURRENT_INSTALLED_DIR}/tools/qt5-tools/bin/lrelease.exe)
 
     # qgis_gui depends on Qt5UiTools, and Qt5UiTools is a static library.
