@@ -1,0 +1,58 @@
+commit 32f5418fc4f7bb2ee986dee1824ff2989c113a94
+Author: Antonio Rojas <arojas@archlinux.org>
+Date:   Sun Jul 9 10:01:49 2023 +0200
+
+    Fix build with exiv2 0.28
+
+diff --git a/src/core/raster/qgsexiftools.cpp b/src/core/raster/qgsexiftools.cpp
+index 7fa27098455..f883d7960c6 100644
+--- a/src/core/raster/qgsexiftools.cpp
++++ b/src/core/raster/qgsexiftools.cpp
+@@ -66,7 +66,11 @@ QVariant decodeXmpData( const QString &key, Exiv2::XmpData::const_iterator &it )
+       case Exiv2::signedLong:
+       case Exiv2::unsignedLongLong:
+       case Exiv2::signedLongLong:
++#if EXIV2_TEST_VERSION (0, 28, 0)
++        val = QVariant::fromValue( it->toUint32() );
++#else
+         val = QVariant::fromValue( it->toLong() );
++#endif
+         break;
+ 
+       case Exiv2::tiffDouble:
+@@ -80,7 +84,11 @@ QVariant decodeXmpData( const QString &key, Exiv2::XmpData::const_iterator &it )
+       case Exiv2::signedByte:
+       case Exiv2::tiffIfd:
+       case Exiv2::tiffIfd8:
++#if EXIV2_TEST_VERSION (0, 28, 0)
++        val = QVariant::fromValue( static_cast< int >( it->toUint32() ) );
++#else
+         val = QVariant::fromValue( static_cast< int >( it->toLong() ) );
++#endif
+         break;
+ 
+       case Exiv2::date:
+@@ -182,7 +190,11 @@ QVariant decodeExifData( const QString &key, Exiv2::ExifData::const_iterator &it
+       case Exiv2::signedLong:
+       case Exiv2::unsignedLongLong:
+       case Exiv2::signedLongLong:
++#if EXIV2_TEST_VERSION (0, 28, 0)
++        val = QVariant::fromValue( it->toUint32() );
++#else
+         val = QVariant::fromValue( it->toLong() );
++#endif
+         break;
+ 
+       case Exiv2::tiffDouble:
+@@ -196,7 +208,11 @@ QVariant decodeExifData( const QString &key, Exiv2::ExifData::const_iterator &it
+       case Exiv2::signedByte:
+       case Exiv2::tiffIfd:
+       case Exiv2::tiffIfd8:
++#if EXIV2_TEST_VERSION (0, 28, 0)
++        val = QVariant::fromValue( static_cast< int >( it->toUint32() ) );
++#else
+         val = QVariant::fromValue( static_cast< int >( it->toLong() ) );
++#endif
+         break;
+ 
+       case Exiv2::date:
