@@ -33,18 +33,21 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindPoly2Tri.cmake)
 
 vcpkg_find_acquire_program(FLEX)
 vcpkg_find_acquire_program(BISON)
-vcpkg_find_acquire_program(PYTHON3)
-get_filename_component(PYTHON3_PATH ${PYTHON3} DIRECTORY)
-vcpkg_add_to_path(${PYTHON3_PATH})
-vcpkg_add_to_path(${PYTHON3_PATH}/Scripts)
-set(PYTHON_EXECUTABLE ${PYTHON3})
 
-list(APPEND QGIS_OPTIONS -DENABLE_TESTS:BOOL=OFF)
-list(APPEND QGIS_OPTIONS -DWITH_QTWEBKIT:BOOL=OFF)
-list(APPEND QGIS_OPTIONS -DWITH_GRASS7:BOOL=OFF)
-list(APPEND QGIS_OPTIONS -DWITH_SPATIALITE:BOOL=ON)
-list(APPEND QGIS_OPTIONS -DWITH_QSPATIALITE:BOOL=OFF)
-list(APPEND QGIS_OPTIONS -DWITH_PDAL:BOOL=OFF)
+list(APPEND QGIS_OPTIONS "-DENABLE_TESTS:BOOL=OFF")
+list(APPEND QGIS_OPTIONS "-DWITH_QTWEBKIT:BOOL=OFF")
+list(APPEND QGIS_OPTIONS "-DWITH_GRASS7:BOOL=OFF")
+list(APPEND QGIS_OPTIONS "-DWITH_SPATIALITE:BOOL=ON")
+list(APPEND QGIS_OPTIONS "-DWITH_QSPATIALITE:BOOL=OFF")
+list(APPEND QGIS_OPTIONS "-DWITH_PDAL:BOOL=OFF")
+
+list(APPEND QGIS_OPTIONS "-DBISON_EXECUTABLE=${BISON}")
+list(APPEND QGIS_OPTIONS "-DFLEX_EXECUTABLE=${FLEX}")
+# By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
+# let's keep things clean and tidy and put them at a predictable location
+list(APPEND QGIS_OPTIONS "-DQGIS_INCLUDE_SUBDIR=include/qgis")
+list(APPEND QGIS_OPTIONS "-DBUILD_WITH_QT6=ON")
+list(APPEND QGIS_OPTIONS "-DQGIS_MACAPP_FRAMEWORK=FALSE")
 
 if("opencl" IN_LIST FEATURES)
     list(APPEND QGIS_OPTIONS -DUSE_OPENCL:BOOL=ON)
@@ -129,66 +132,19 @@ if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
   list(APPEND QGIS_OPTIONS -DQGIS_PLUGIN_SUBDIR=lib)
 endif()
 
-# By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
-# let's keep things clean and tidy and put them at a predictable location
-list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
-list(APPEND QGIS_OPTIONS -DBUILD_WITH_QT6=ON)
-
 if(VCPKG_CROSSCOMPILING)
    list(APPEND QGIS_OPTIONS -DQT_HOST_PATH=${CURRENT_HOST_INSTALLED_DIR})
    list(APPEND QGIS_OPTIONS -DQT_HOST_PATH_CMAKE_DIR:PATH=${CURRENT_HOST_INSTALLED_DIR}/share)
 endif()
 
 if(VCPKG_TARGET_IS_WINDOWS)
-    ##############################################################################
-    #Install pip
-    #if(NOT EXISTS "${PYTHON3_PATH}/Scripts/pip.exe")
-    #    MESSAGE(STATUS  "Install pip for Python Begin ...")
-    #    vcpkg_download_distfile(
-    #        GET_PIP_PATH
-    #        URLS https://bootstrap.pypa.io/pip/3.6/get-pip.py
-    #        FILENAME get-pip.py
-    #        SHA512  79b8c9041f5c2f5420503a1b53bbd4da7505f5cf9bb4a7cc5560732f687c5282834f807d6d5ed19d41865e64ee99ad48a603d0d2c93265fd7e14ecba4b53d007
-    #    )
-    #
-    #    vcpkg_execute_required_process(
-    #        COMMAND "${PYTHON_EXECUTABLE}" "${GET_PIP_PATH}"
-    #        WORKING_DIRECTORY ${PYTHON3_PATH}
-    #        LOGNAME pip
-    #    )
-    #
-    #    vcpkg_execute_required_process(
-    #        COMMAND "${PYTHON_EXECUTABLE}" -m pip install --upgrade pip
-    #        WORKING_DIRECTORY ${PYTHON3_PATH}
-    #        LOGNAME pip
-    #    )
-    #    MESSAGE(STATUS  "Install pip for Python End")
-    #endif (NOT EXISTS "${PYTHON3_PATH}/Scripts/pip.exe")
-    ##############################################################################
-
-    list(APPEND QGIS_OPTIONS -DBISON_EXECUTABLE="${BISON}")
-    list(APPEND QGIS_OPTIONS -DFLEX_EXECUTABLE="${FLEX}")
-
-    list(APPEND QGIS_OPTIONS -DPYUIC_PROGRAM=${PYTHON3_PATH}/Scripts/pyuic5.exe)
-    list(APPEND QGIS_OPTIONS -DPYRCC_PROGRAM=${PYTHON3_PATH}/Scripts/pyrcc5.exe)
-    list(APPEND QGIS_OPTIONS -DQT_LRELEASE_EXECUTABLE=${CURRENT_INSTALLED_DIR}/tools/qt5-tools/bin/lrelease.exe)
-
-    # qgis_gui depends on Qt5UiTools, and Qt5UiTools is a static library.
-    # If Qt5_EXCLUDE_STATIC_DEPENDENCIES is not set, it will add the QT release library that it depends on.
-    # so that in debug mode, it will reference both the qt debug library and the release library.
-    # In Debug mode, add Qt5_EXCLUDE_STATIC_DEPENDENCIES to avoid this bug
-    list(APPEND QGIS_OPTIONS_DEBUG -DQt5_EXCLUDE_STATIC_DEPENDENCIES:BOOL=ON)
-
     FIND_LIB_OPTIONS(GDAL gdal gdald LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(GEOS geos_c geos_cd LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(GSL gsl gsld LIB ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(GSLCBLAS gslcblas gslcblasd LIB ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(POSTGRES libpq libpq LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(PROJ proj proj_d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-    FIND_LIB_OPTIONS(PYTHON python39 python39_d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QCA qca qcad LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-    FIND_LIB_OPTIONS(QTKEYCHAIN qt5keychain qt5keychaind LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-    FIND_LIB_OPTIONS(QSCINTILLA qscintilla2_qt5 qscintilla2_qt5d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
       FIND_LIB_OPTIONS(ZSTD zstd_static zstd_staticd LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     endif()
@@ -210,7 +166,6 @@ if(VCPKG_TARGET_IS_WINDOWS)
     list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
     list(APPEND QGIS_OPTIONS -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
 else() # Build in UNIX
-    list(APPEND QGIS_OPTIONS -DCMAKE_FIND_ROOT_PATH=$ENV{Qt5_DIR}) # for building with system Qt. Should find a nicer solution.
     list(APPEND QGIS_OPTIONS -DGSL_CONFIG=" ")
     list(APPEND QGIS_OPTIONS -DGSL_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
     list(APPEND QGIS_OPTIONS -DPROJ_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
@@ -239,8 +194,6 @@ else() # Build in UNIX
         list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_RELEASE}/lib/libqt_poly2tri.a) # static qt only
     endif()
 endif()
-
-list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
 
 if(VCPKG_TARGET_IS_IOS)
     list(APPEND QGIS_OPTIONS -DWITH_QTSERIALPORT=FALSE)
