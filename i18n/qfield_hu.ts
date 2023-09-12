@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Korlátozza a keresést a köv. mezőre: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Elemek az aktív rétegből</translation>
     </message>
 </context>
 <context>
@@ -430,7 +430,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>NFC szöveges címke észlelve</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -438,7 +438,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Nézzen a készüléked a kódra</translation>
     </message>
 </context>
 <context>
@@ -858,7 +858,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>Cím keresés befejezése</translation>
+        <translation>Finn címkeresés</translation>
     </message>
 </context>
 <context>
@@ -1143,27 +1143,27 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Visszaadja az aktív réteg megegyező attribútummal rendelkező elemeinek listáját. A megfeleltetés egyetlen attribútumra korlátozása céljából  a nevét &apos;@&apos; előtaggal kell azonosítani.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Visszaadja minden kereshető réteg, azonos megjelenített névvel rendelkező elemének listáját.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Visszaad egy a keresősávba írt,  X - Y koordináta párból, vagy WGS84 szélesség - hosszúság értékből képzett pontot.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Visszaadja az azonos nevű felhasználói és a jelenleg nyitott projektkönyvjelzők listáját.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Visszaadja a keresősávba írt kifejezés értékét</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Visszaadja a Finnországban található, a kifejezésnek megfelelő helyszínek és címek listáját.</translation>
     </message>
 </context>
 <context>
@@ -3810,11 +3810,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>A módosítások nem fértek hozzá a QFieldCloudhoz: %1</translation>
+        <translation>A módosítások nem jutottak el a QFieldCloud-ba: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>A módosítások sikeresen átküldve a QFieldCloudba</translation>
+        <translation>A módosítások sikeresen átküldve a QFieldCloud-ba</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
