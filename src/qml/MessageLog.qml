@@ -44,6 +44,15 @@ Page {
         objectName: 'messagesList'
         flickableDirection: Flickable.VerticalFlick
         boundsBehavior: Flickable.StopAtBounds
+        ScrollBar.vertical: ScrollBar {
+          policy: ScrollBar.AsNeeded
+          width: 6
+          contentItem: Rectangle {
+            implicitWidth: 6
+            implicitHeight: 25
+            color: Theme.mainColor
+          }
+        }
         clip: true
         anchors.fill: parent
         spacing: 2
