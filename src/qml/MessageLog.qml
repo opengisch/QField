@@ -84,7 +84,7 @@ Page {
               objectName: 'messageText'
               padding: 5
               width: rectangle.width - datetext.width - tagtext.width - separator.width - 3 * line.spacing
-              text: Message
+              text: Message.replace(new RegExp('\n', "gi"), '<br>')
               font: Theme.tipFont
               color: Theme.mainTextColor
               wrapMode: Text.WordWrap
@@ -109,6 +109,15 @@ Page {
     TextEdit{
         id: copyHelper
         visible: false
+    }
+
+    QfButton {
+        text: qsTr("Log current runtime profiler")
+        Layout.fillWidth: true
+
+        onClicked: {
+            iface.logRuntimeProfiler()
+        }
     }
 
     QfButton {
