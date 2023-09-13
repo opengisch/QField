@@ -121,7 +121,7 @@ Page {
     }
 
     QfButton {
-        text: qsTr("Log current runtime profiler")
+        text: qsTr("Log runtime profiler")
         Layout.fillWidth: true
 
         onClicked: {
