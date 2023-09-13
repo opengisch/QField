@@ -55,7 +55,7 @@ Item {
     border.width: 0.7
   }
 
-  Image {
+  Item {
     id: compassDirectionMarker
     visible: orientation > -1
     width: 48
@@ -65,11 +65,65 @@ Item {
     x: props.screenLocation.x - width / 2
     y: props.screenLocation.y - height
 
-    source: Theme.getThemeVectorIcon( "ic_compass_direction" )
-    fillMode: Image.PreserveAspectFit
     rotation: orientation + mapSettings.rotation
     transformOrigin: Item.Bottom
-    smooth: true
+
+    property real wideness: 58.0
+
+    Shape {
+      width: 48
+      height: 48
+
+      ShapePath {
+        strokeWidth: 0
+        strokeColor: "transparent"
+        fillGradient: LinearGradient {
+          x1: 24; y1: 48
+          x2: 24; y2: 0
+          GradientStop { position: 0.0; color: "#2374b5" }
+          GradientStop { position: 1.0; color: "#002374b5" }
+        }
+        joinStyle: ShapePath.MiterJoin
+
+        PathAngleArc {
+          centerX: 24; centerY: 48
+          radiusX: 48; radiusY: 48
+          startAngle: -90 - (compassDirectionMarker.wideness / 2)
+          sweepAngle: compassDirectionMarker.wideness
+        }
+        PathLine { x: 24; y: 48 }
+      }
+    }
+
+    Shape {
+      width: 48
+      height: 48
+
+      ShapePath {
+        strokeWidth: 0
+        strokeColor: "transparent"
+        fillGradient: LinearGradient {
+          x1: 24; y1: 48
+          x2: 24; y2: 0
+          GradientStop { position: 0.0; color: "#2374b5" }
+          GradientStop { position: 1.0; color: "#002374b5" }
+        }
+        joinStyle: ShapePath.MiterJoin
+        startX: 24
+        startY: 48
+
+        PathLine {
+          x: 48 * Math.sin((180 - (compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 24
+          y: 48 * Math.cos((180 - (compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 48
+        }
+        PathLine { x: 24; y: 40 }
+        PathLine {
+          x: 48 * Math.sin((180 + (compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 24
+          y: 48 * Math.cos((180+- (compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 48
+        }
+        PathLine { x: 24; y: 48 }
+      }
+    }
   }
 
   Shape {
