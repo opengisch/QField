@@ -150,12 +150,6 @@ Item {
       PathLine { x: 13; y: 16 }
       PathLine { x: 5; y: 22 }
       PathLine { x: 13; y: 2 }
-
-      SequentialAnimation on fillColor  {
-        loops: Animation.Infinite
-        ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
-      }
     }
 
     layer.enabled: true
@@ -183,12 +177,6 @@ Item {
     color: locationMarker.color
     border.color: "white"
     border.width: 3
-
-    SequentialAnimation on color  {
-      loops: Animation.Infinite
-      ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
-      ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
-    }
 
     layer.enabled: true
     layer.effect: QfDropShadow {
@@ -226,12 +214,6 @@ Item {
       PathLine { x: 18; y: 20 }
       PathLine { x: 2; y: 20 }
       PathLine { x: 10; y: 0 }
-
-      SequentialAnimation on fillColor  {
-        loops: Animation.Infinite
-        ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
-      }
     }
 
     layer.enabled: true
