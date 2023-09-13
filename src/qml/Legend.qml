@@ -194,6 +194,7 @@ ListView {
         round: true
         bgcolor: Theme.mainColor
         SequentialAnimation on bgcolor  {
+            running: isVisible && legend.isVisible
             loops: Animation.Infinite
             ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
             ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
