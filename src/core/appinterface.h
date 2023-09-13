@@ -67,6 +67,13 @@ class AppInterface : public QObject
     Q_INVOKABLE void logMessage( const QString &message );
 
     /**
+     * Outputs the current runtime profiler model content into the message log
+     * panel, as well as added into the device's system logs
+     * which will be captured by the sentry's reporting framework when enabled.
+     */
+    Q_INVOKABLE void logRuntimeProfiler();
+
+    /**
      * Sends a logs reporting through to sentry when enabled.
      */
     Q_INVOKABLE void sendLog( const QString &message );
