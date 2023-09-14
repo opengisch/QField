@@ -91,6 +91,11 @@ Page {
         visible: model.hasTabs
         height: form.model.hasTabs ? 48 : 0
         currentIndex: swipeView.currentIndex
+        onCurrentIndexChanged: {
+          if (swipeView.currentIndex != currentIndex) {
+            swipeView.currentIndex = currentIndex
+          }
+        }
 
         Repeater {
           model: form.model.hasTabs ? form.model : 0
@@ -147,6 +152,11 @@ Page {
       Layout.fillWidth: true
       Layout.fillHeight: true
       currentIndex: tabRow.currentIndex
+      onCurrentIndexChanged: {
+        if (tabRow.currentIndex != currentIndex) {
+          tabRow.currentIndex = currentIndex
+        }
+      }
 
       Repeater {
         // One page per tab in tabbed forms, 1 page in auto forms
