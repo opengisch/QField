@@ -90,14 +90,7 @@ Page {
         id: tabRow
         visible: model.hasTabs
         height: form.model.hasTabs ? 48 : 0
-
-        Connections {
-          target: swipeView
-
-          function onCurrentIndexChanged(currentIndex) {
-            tabRow.currentIndex = swipeView.currentIndex
-          }
-        }
+        currentIndex: swipeView.currentIndex
 
         Repeater {
           model: form.model.hasTabs ? form.model : 0
