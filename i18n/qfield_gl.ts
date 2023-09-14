@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Limitar a busca ó campo &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Entidades da capa activa</translation>
     </message>
 </context>
 <context>
@@ -430,7 +430,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Detectada a etiqueta de texto NFC</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -438,7 +438,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centrar o dispositivo nun código</translation>
     </message>
 </context>
 <context>
@@ -1144,7 +1144,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve unha lista de entidades da capa activa con atributos coincidentes. Restrinxir a coincidencia a un único atributo faise identificando o seu nome co prefixo &apos;@&apos;.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>

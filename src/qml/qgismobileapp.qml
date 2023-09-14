@@ -2777,7 +2777,7 @@ ApplicationWindow {
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.padding, padding);
         }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+        return Math.max(10, Math.min(result + padding * 2,mainWindow.width - 20));
     }
 
     MenuItem {

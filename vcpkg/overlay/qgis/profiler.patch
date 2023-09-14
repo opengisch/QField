@@ -1,0 +1,115 @@
+diff --git a/python/core/auto_generated/qgsruntimeprofiler.sip.in b/python/core/auto_generated/qgsruntimeprofiler.sip.in
+index a9bfe71e003..fa3bbce1de4 100644
+--- a/python/core/auto_generated/qgsruntimeprofiler.sip.in
++++ b/python/core/auto_generated/qgsruntimeprofiler.sip.in
+@@ -127,6 +127,15 @@ Returns the translated name of a standard profile ``group``.
+     virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+ 
+ 
++    QString asText( const QString &group = QString() );
++%Docstring
++Returns the model as a multi-line text string.
++
++:param group: A group name to filter the model against.
++
++.. versionadded:: 3.34
++%End
++
+ 
+     void groupAdded( const QString &group );
+ %Docstring
+diff --git a/src/core/qgsruntimeprofiler.cpp b/src/core/qgsruntimeprofiler.cpp
+index e97e29c4d7e..f3ad7c854dc 100644
+--- a/src/core/qgsruntimeprofiler.cpp
++++ b/src/core/qgsruntimeprofiler.cpp
+@@ -575,6 +575,42 @@ QgsRuntimeProfilerNode *QgsRuntimeProfiler::index2node( const QModelIndex &index
+   return reinterpret_cast<QgsRuntimeProfilerNode *>( index.internalPointer() );
+ }
+ 
++void QgsRuntimeProfiler::extractModelAsText( QStringList &lines, const QString &group, const QModelIndex &parent, int level )
++{
++  const int rc = rowCount( parent );
++  const int cc = columnCount( parent );
++  for ( int r = 0; r < rc; r++ )
++  {
++    QModelIndex rowIndex = index( r, 0, parent );
++    if ( data( rowIndex, QgsRuntimeProfilerNode::Group ).toString() != group )
++      continue;
++
++    QStringList cells;
++    for ( int c = 0; c < cc; c++ )
++    {
++      QModelIndex cellIndex = index( r, c, parent );
++      cells << data( cellIndex ).toString();
++    }
++    lines << QStringLiteral( "%1 %2" ).arg( QStringLiteral( "-" ).repeated( level + 1 ), cells.join( QStringLiteral( ": " ) ) );
++    extractModelAsText( lines, group, rowIndex, level + 1 );
++  }
++}
++
++QString QgsRuntimeProfiler::asText( const QString &group )
++{
++  QStringList lines;
++  for ( const QString &g : std::as_const( mGroups ) )
++  {
++    if ( !group.isEmpty() && g != group )
++      continue;
++
++    const QString groupName = translateGroupName( g );
++    lines << ( !groupName.isEmpty() ? groupName : g );
++    extractModelAsText( lines, g );
++  }
++  return lines.join( QStringLiteral( "\r\n" ) );
++}
++
+ 
+ //
+ // QgsScopedRuntimeProfile
+diff --git a/src/core/qgsruntimeprofiler.h b/src/core/qgsruntimeprofiler.h
+index 7d615610354..5de0a45dc11 100644
+--- a/src/core/qgsruntimeprofiler.h
++++ b/src/core/qgsruntimeprofiler.h
+@@ -263,6 +263,13 @@ class CORE_EXPORT QgsRuntimeProfiler : public QAbstractItemModel
+     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+     QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+ 
++    /**
++     * Returns the model as a multi-line text string.
++     * \param group A group name to filter the model against.
++     * \since QGIS 3.34
++     */
++    QString asText( const QString &group = QString() );
++
+ #ifndef SIP_RUN
+     ///@cond PRIVATE
+   signals:
+@@ -293,6 +300,7 @@ class CORE_EXPORT QgsRuntimeProfiler : public QAbstractItemModel
+     QgsRuntimeProfilerNode *pathToNode( const QString &group, const QStringList &path ) const;
+     QModelIndex node2index( QgsRuntimeProfilerNode *node ) const;
+     QModelIndex indexOfParentNode( QgsRuntimeProfilerNode *parentNode ) const;
++    void extractModelAsText( QStringList &lines, const QString &group, const QModelIndex &parent = QModelIndex(), int level = 0 );
+ 
+     /**
+      * Returns node for given index. Returns root node for invalid index.
+diff --git a/tests/src/core/testqgsruntimeprofiler.cpp b/tests/src/core/testqgsruntimeprofiler.cpp
+index 0a170644da3..d2d9f8de624 100644
+--- a/tests/src/core/testqgsruntimeprofiler.cpp
++++ b/tests/src/core/testqgsruntimeprofiler.cpp
+@@ -87,6 +87,17 @@ void TestQgsRuntimeProfiler::testGroups()
+   QCOMPARE( profiler.childGroups( QString(), QStringLiteral( "group 1" ) ), QStringList() << QStringLiteral( "task 1" ) );
+   QCOMPARE( profiler.childGroups( QStringLiteral( "task 1" ), QStringLiteral( "group 1" ) ), QStringList() << QStringLiteral( "task 1a" ) );
+   QCOMPARE( profiler.childGroups( QString(), QStringLiteral( "group 2" ) ), QStringList() << QStringLiteral( "task 2" ) );
++
++  QString profilerAsText = profiler.asText();
++  // verify individual chunks as the ordering of individual model items can vary
++  QVERIFY( profilerAsText.contains( QStringLiteral( "group 2\r\n- task 2: 0" ) ) );
++  QVERIFY( profilerAsText.contains( QStringLiteral( "group 1\r\n" ) ) );
++  QVERIFY( profilerAsText.contains( QStringLiteral( "\r\n- task 1: 0" ) ) );
++  QVERIFY( profilerAsText.contains( QStringLiteral( "\r\n-- task 1a: 0" ) ) );
++
++  profilerAsText = profiler.asText( QStringLiteral( "group 2" ) );
++  // verify individual chunks as the ordering of individual model items can vary
++  QCOMPARE( profilerAsText, QStringLiteral( "group 2\r\n- task 2: 0" ) );
+ }
+ 
+ 
