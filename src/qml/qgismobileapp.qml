@@ -455,7 +455,7 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: (point, type) => {
-          if (featureForm.state == "FeatureFormEdit") {
+          if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
               featureForm.requestCancel();
               return;
           }
@@ -1832,10 +1832,14 @@ ApplicationWindow {
 
       onCancel: {
           if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
-              elevationProfile.clear();
-              elevationProfile.refresh();
+              elevationProfile.clear()
+              elevationProfile.refresh()
           } else {
               if ( geometryRequested ) {
+                  if ( overlayFeatureFormDrawer.isAdding )
+                  {
+                      overlayFeatureFormDrawer.open()
+                  }
                   geometryRequested = false
               }
           }
@@ -1845,7 +1849,9 @@ ApplicationWindow {
         if ( geometryRequested )
         {
             if ( overlayFeatureFormDrawer.isAdding )
+            {
                 overlayFeatureFormDrawer.open()
+            }
 
             coordinateLocator.flash()
             digitizingFeature.geometry.applyRubberband()

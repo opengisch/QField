@@ -768,7 +768,7 @@ Page {
   }
 
   function cancel() {
-    if( form.state === 'Add' && featureCreated && qfieldSettings.autoSave ) {
+    if( form.state === 'Add' && featureCreated ) {
       // indirect action, no need to check for success and display a toast, the log is enough
       model.deleteFeature()
     }
