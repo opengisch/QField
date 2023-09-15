@@ -1229,6 +1229,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Your application log is being sent</source>
         <translation>Zapisnik vaše aplikacije se šalje</translation>
     </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>

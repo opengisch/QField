@@ -1226,6 +1226,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Your application log is being sent</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>

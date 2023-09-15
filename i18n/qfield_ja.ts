@@ -1225,6 +1225,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Your application log is being sent</source>
         <translation>アプリのログが送信されています</translation>
     </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>

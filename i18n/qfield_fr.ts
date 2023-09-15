@@ -1228,6 +1228,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Your application log is being sent</source>
         <translation>Le journal d&apos;application est sur le point d&apos;être envoyé</translation>
     </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>

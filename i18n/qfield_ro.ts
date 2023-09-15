@@ -1231,6 +1231,10 @@ Motiv:
         <source>Your application log is being sent</source>
         <translation>Jurnalul cu modificări a fost trimis</translation>
     </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>

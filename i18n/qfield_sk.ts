@@ -1230,6 +1230,10 @@ Dôvod:
         <source>Your application log is being sent</source>
         <translation>Protokol aplikácie sa odosiela</translation>
     </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>

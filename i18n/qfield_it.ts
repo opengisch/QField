@@ -1229,6 +1229,10 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
         <source>Your application log is being sent</source>
         <translation>Invio del registro dell&apos;applicazione in corso</translation>
     </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>
