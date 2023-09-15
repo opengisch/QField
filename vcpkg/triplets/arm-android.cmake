@@ -6,5 +6,5 @@ set(VCPKG_BUILD_TYPE release)
 set(VCPKG_MAKE_BUILD_TRIPLET "--host=armv7a-linux-androideabi")
 set(VCPKG_CMAKE_CONFIGURE_OPTIONS -DANDROID_ABI=armeabi-v7a -DANDROID_ARM_NEON=OFF)
 
-set(VCPKG_CXX_FLAGS "-fstack-protector-strong -lunwind -Wl,--exclude-libs=libunwind.a")
-set(VCPKG_C_FLAGS "-fstack-protector-strong -lunwind -Wl,--exclude-libs=libunwind.a")
+set(VCPKG_CXX_FLAGS "-fstack-protector-strong")
+set(VCPKG_C_FLAGS "-fstack-protector-strong")
