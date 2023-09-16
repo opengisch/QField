@@ -17,9 +17,8 @@ Item {
   property real speed: -1 // A -1 value indicates absence of speed information
   property real orientation: -1 // A -1 value indicates absence of compass orientation
 
-  property color color: Theme.positionColor
-  property color darkerColor: Qt.darker(color, 1.75)
-  property color semiOpaqueColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.2)
+  property color color: Qt.darker(Theme.positionColor, 1.25)
+  property color semiOpaqueColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.1)
 
   property MapSettings mapSettings
 
@@ -51,7 +50,7 @@ Item {
     radius: width/2
 
     color: locationMarker.semiOpaqueColor
-    border.color: locationMarker.darkerColor
+    border.color: locationMarker.color
     border.width: 0.7
   }
 
@@ -80,8 +79,8 @@ Item {
         fillGradient: LinearGradient {
           x1: 24; y1: 48
           x2: 24; y2: 0
-          GradientStop { position: 0.0; color: "#2374b5" }
-          GradientStop { position: 1.0; color: "#002374b5" }
+          GradientStop { position: 0.0; color: locationMarker.color }
+          GradientStop { position: 1.0; color: locationMarker.semiOpaqueColor }
         }
         joinStyle: ShapePath.MiterJoin
 
@@ -105,8 +104,8 @@ Item {
         fillGradient: LinearGradient {
           x1: 24; y1: 48
           x2: 24; y2: 0
-          GradientStop { position: 0.0; color: "#2374b5" }
-          GradientStop { position: 1.0; color: "#002374b5" }
+          GradientStop { position: 0.0; color: locationMarker.color }
+          GradientStop { position: 1.0; color: locationMarker.semiOpaqueColor }
         }
         joinStyle: ShapePath.MiterJoin
         startX: 24
@@ -166,8 +165,8 @@ Item {
     id: positionMarker
     visible: !movementMarker.visible && props.isOnMapCanvas
 
-    width: 12
-    height: 12
+    width: 13
+    height: 13
 
     x: props.screenLocation.x - width / 2
     y: props.screenLocation.y - height / 2
@@ -176,7 +175,7 @@ Item {
 
     color: locationMarker.color
     border.color: "white"
-    border.width: 3
+    border.width: 2
 
     layer.enabled: true
     layer.effect: QfDropShadow {
