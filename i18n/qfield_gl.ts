@@ -1152,19 +1152,19 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve un punto a partir dun par de coordenadas X e Y - ou latitude e lonxitude WGS84 - tecleadas na barra de busca.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve unha lista de marcadores do proxecto do usuario actualmente aberto con nomes coincidentes.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve o valor dunha expresión tecleada na barra de busca.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve unha lista de localizacións e enderezos sitos en Finlandia con termos coincidentes.</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1175,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Para buscar entidades dentro da capa activa, seleccionar unha capa vectorial a través da lenda.</translation>
     </message>
 </context>
 <context>

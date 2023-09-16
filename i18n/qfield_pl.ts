@@ -1147,19 +1147,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Wyświetla punkt z wprowadzonych w pasku wyszukiwania pary współrzędnych X i Y lub szerokości i długości geograficznej WGS84.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Wyświetla listę zakładek użytkownika i aktualnie otwartych w projekcie z odpowiadającymi nazwami</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Wyświetla wartość wyrażenia wpisanego w pasku wyszukiwania.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Wyświetla listę lokalizacji i adresów w Finlandii z odpowiadającymi symbolami</translation>
     </message>
 </context>
 <context>
@@ -1170,7 +1170,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Aby wyszukać obiekty na aktywnej warstwie, wybierz warstwę wektorową z legendy.</translation>
     </message>
 </context>
 <context>

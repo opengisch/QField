@@ -181,24 +181,24 @@
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>A full device scan can take longer. You really want to do it?
-Cancel to make a minimal device scan instead.</translation>
+        <translation>전체 장치를 스캔하면 시간이 더 걸릴 수 있습니다. 
+대신 최소 장치를 검색 하시려면 취소하시기 바랍니다.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Connected to %1</translation>
+        <translation type="vanished">장치 %1 연결 됨</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">장치 %1 연결</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Connect  to %1</translation>
+        <translation type="vanished">장치 %1 연결</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Connecting to %1</translation>
+        <translation type="vanished">장치 %1 연결 중</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -1188,7 +1188,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>검색창 설정</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
@@ -1585,7 +1585,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Positioning 장치 설정</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -1601,7 +1601,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">블루투스</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -2436,7 +2436,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation>기본 설정</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -2476,15 +2476,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Scanning failed: %1</translation>
+        <translation type="vanished">장치 검색 실패: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">Scanning done</translation>
+        <translation type="vanished">장치 검색 완료</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n device(s) found</numerusform></translation>
+        <translation type="vanished"><numerusform>%n 개의 장치를 찾았습니다.</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -2501,24 +2501,24 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">A full device scan can take longer. You really want to do it?
-Cancel to make a minimal device scan instead.</translation>
+        <translation type="vanished">전체 장치를 스캔하면 시간이 더 걸릴 수 있습니다. 
+대신 최소 장치를 검색 하시려면 취소하시기 바랍니다.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Connected to %1</translation>
+        <translation>장치 %1 연결 됨</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">Connect  to %1</translation>
+        <translation type="vanished">장치 %1 연결</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Connecting to %1</translation>
+        <translation>장치 %1 연결 중</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>Use orthometric altitude from device</translation>
+        <translation>수직 고도 측정 기능 사용</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2594,7 +2594,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField 설정</translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -2654,7 +2654,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>장치 %1 연결</translation>
     </message>
     <message>
         <source>User interface appearance:</source>
@@ -3957,7 +3957,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>대상 삭제</translation>
+        <translation>대상 삭제 %1 (%2) on %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
