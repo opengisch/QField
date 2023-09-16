@@ -373,9 +373,9 @@ ApplicationWindow {
             }
             // when hovering various toolbars, reset coordinate locator position for nicer UX
             if ( !freehandHandler.active && ( pointInItem( point, digitizingToolbar ) || pointInItem( point, elevationProfileButton ) ) ) {
-                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate );
+                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate )
             } else if ( !freehandHandler.active && pointInItem( point, geometryEditorsToolbar ) ) {
-                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate );
+                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate )
             } else if ( !freehandHandler.active ) {
                 // after a click, it seems that the position is sent once at 0,0 => weird)
                 if (point.position !== Qt.point(0, 0))
@@ -446,7 +446,7 @@ ApplicationWindow {
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
-      interactive: !screenLocker.enabled
+      interactive: !dashBoard.opened && !screenLocker.enabled && !welcomeScreen.visible && !qfieldSettings.visible && !cloudPopup.visible && !codeReader.visible
       incrementalRendering: true
       quality: qfieldSettings.quality
       forceDeferredLayersRepaint: trackings.count > 0
@@ -455,6 +455,10 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: (point, type) => {
+          if (type === "stylus" && (featureForm.visible || overlayFeatureFormDrawer.opened)) {
+              return;
+          }
+
           if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
               featureForm.requestCancel();
               return;
@@ -466,6 +470,23 @@ ApplicationWindow {
           }
 
           if ( type === "stylus" ) {
+
+              function pointInItem(point, item) {
+                  var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
+                  return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width &&
+                         point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
+              }
+
+              if ( pointInItem( point, digitizingToolbar ) ||
+                   pointInItem( point, zoomToolbar ) ||
+                   pointInItem( point, mainToolbar ) ||
+                   pointInItem( point, mainMenuBar ) ||
+                   pointInItem( point, geometryEditorsToolbar ) ||
+                   pointInItem( point, locationToolbar ) ||
+                   pointInItem( point, locatorItem ) ) {
+                  return;
+              }
+
               // Check if geometry editor is taking over
               if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && geometryEditorsToolbar.canvasClicked(point) )
                   return;
