@@ -1227,7 +1227,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>日志运行时分析工具</translation>
     </message>
 </context>
 <context>
