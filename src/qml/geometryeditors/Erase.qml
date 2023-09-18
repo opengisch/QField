@@ -15,6 +15,8 @@ VisibilityFadingRow {
   property GeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
+  property int size: sizeMediumButton.sizeValue
+
   readonly property bool blocking: drawPolygonToolbar.isDigitizing
 
   spacing: 4
@@ -34,15 +36,16 @@ VisibilityFadingRow {
   function canvasFreehandBegin()
   {
     geometryEditorsRubberband.visible = false
+    drawPolygonToolbar.rubberbandModel.measureValue = 0.0
     drawPolygonToolbar.addVertex()
-    drawPolygonToolbar.rubberbandModel.measureValue = 20.0
+    adjustSize()
     return true // handled
   }
 
   function canvasFreehandEnd()
   {
     drawPolygonToolbar.rubberbandModel.measureValue = 0.0
-    drawPolygonToolbar.addVertex();
+    drawPolygonToolbar.addVertex()
     return true // handled
   }
 
@@ -96,15 +99,128 @@ VisibilityFadingRow {
     }
   }
 
+  QfToolButton {
+    id: sizeSmallButton
+    iconSource: Theme.getThemeVectorIcon( "ic_size_small_white_24dp" )
+    round: true
+    visible: true
+    bgcolor: Theme.darkGray
+
+    property int sizeValue: 2
+    state: eraseToolbar.size == sizeValue ? "On" : "Off"
+
+    states: [
+      State {
+        name: "Off"
+        PropertyChanges {
+          target: sizeSmallButton
+          iconColor: "white"
+          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+        }
+      },
+
+      State {
+        name: "On"
+        PropertyChanges {
+          target: sizeSmallButton
+          iconColor: Theme.mainColor
+          bgcolor: Theme.darkGray
+        }
+      }
+    ]
+
+    onClicked: {
+      eraseToolbar.size = sizeValue;
+      adjustSize();
+    }
+  }
+
+  QfToolButton {
+    id: sizeMediumButton
+    iconSource: Theme.getThemeVectorIcon( "ic_size_medium_white_24dp" )
+    round: true
+    visible: true
+    bgcolor: Theme.darkGray
+
+    property int sizeValue: 5
+    state: eraseToolbar.size == sizeValue ? "On" : "Off"
+
+    states: [
+      State {
+        name: "Off"
+        PropertyChanges {
+          target: sizeMediumButton
+          iconColor: "white"
+          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+        }
+      },
+
+      State {
+        name: "On"
+        PropertyChanges {
+          target: sizeMediumButton
+          iconColor: Theme.mainColor
+          bgcolor: Theme.darkGray
+        }
+      }
+    ]
+
+    onClicked: {
+      eraseToolbar.size = sizeValue;
+      adjustSize();
+    }
+  }
+
+  QfToolButton {
+    id: sizeLargeButton
+    iconSource: Theme.getThemeVectorIcon( "ic_size_large_white_24dp" )
+    round: true
+    visible: true
+    bgcolor: Theme.darkGray
+
+    property int sizeValue: 10
+    state: eraseToolbar.size == sizeValue ? "On" : "Off"
+
+    states: [
+      State {
+        name: "Off"
+        PropertyChanges {
+          target: sizeLargeButton
+          iconColor: "white"
+          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+        }
+      },
+
+      State {
+        name: "On"
+        PropertyChanges {
+          target: sizeLargeButton
+          iconColor: Theme.mainColor
+          bgcolor: Theme.darkGray
+        }
+      }
+    ]
+
+    onClicked: {
+      eraseToolbar.size = sizeValue;
+      adjustSize();
+    }
+  }
+
+  function adjustSize()
+  {
+    drawPolygonToolbar.rubberbandModel.measureValue = drawPolygonToolbar.mapSettings.mapUnitsPerPoint * 5 * eraseToolbar.size
+  }
+
   function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
   {
     eraseToolbar.featureModel = featureModel
     eraseToolbar.editorRenderer = editorRenderer
     eraseToolbar.editorRenderer.mapSettings = mapSettings
+    drawPolygonToolbar.mapSettings = mapSettings
     drawPolygonToolbar.rubberbandModel = editorRubberbandModel
     drawPolygonToolbar.rubberbandModel.geometryType = Qgis.GeometryType.Line
-    drawPolygonToolbar.rubberbandModel.measureValue = 20.0
-    drawPolygonToolbar.mapSettings = mapSettings
+    adjustSize()
     drawPolygonToolbar.stateVisible = true
   }
 

@@ -45,7 +45,7 @@ VisibilityFadingRow {
     editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "geometryeditors/VertexEditor.qml")
     editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "geometryeditors/SplitFeature.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
     editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "geometryeditors/Reshape.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
-    editors.addEditor(qsTr("Erase Tool"), "ic_eraser_tool_white_24dp", "geometryeditors/Erase.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Erase Tool"), "ic_erase_tool_white_24dp", "geometryeditors/Erase.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
     editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "geometryeditors/FillRing.qml", GeometryEditorsModelSingleton.Polygon)
   }
 
