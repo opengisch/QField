@@ -55,7 +55,6 @@ VisibilityFadingRow {
     screenHovering: eraseToolbar.screenHovering
 
     digitizingLogger.type: 'edit_erase'
-    digitizingLogger.digitizingLayer: featureModel.currentLayer
 
     function addVertex() {
       digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
@@ -225,6 +224,7 @@ VisibilityFadingRow {
     eraseToolbar.featureModel = featureModel
     eraseToolbar.editorRenderer = editorRenderer
     eraseToolbar.editorRenderer.mapSettings = mapSettings
+    drawPolygonToolbar.digitizingLogger.digitizingLayer = featureModel.currentLayer
     drawPolygonToolbar.mapSettings = mapSettings
     drawPolygonToolbar.rubberbandModel = editorRubberbandModel
     drawPolygonToolbar.rubberbandModel.geometryType = Qgis.GeometryType.Line

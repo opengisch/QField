@@ -36,7 +36,6 @@ VisibilityFadingRow {
     screenHovering: splitFeatureToolbar.screenHovering
 
     digitizingLogger.type: 'edit_split'
-    digitizingLogger.digitizingLayer: featureModel.currentLayer
 
     onConfirmed: {
       digitizingLogger.writeCoordinates()
@@ -71,6 +70,7 @@ VisibilityFadingRow {
   function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
   {
     splitFeatureToolbar.featureModel = featureModel
+    drawLineToolbar.digitizingLogger.digitizingLayer = featureModel.currentLayer
     drawLineToolbar.rubberbandModel = editorRubberbandModel
     drawLineToolbar.rubberbandModel.geometryType = Qgis.GeometryType.Line
     drawLineToolbar.mapSettings = mapSettings

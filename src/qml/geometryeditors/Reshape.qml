@@ -35,7 +35,6 @@ VisibilityFadingRow {
         screenHovering: reshapeToolbar.screenHovering
 
         digitizingLogger.type: 'edit_reshape'
-        digitizingLogger.digitizingLayer: featureModel.currentLayer
 
         onConfirmed: {
             digitizingLogger.writeCoordinates()
@@ -67,6 +66,7 @@ VisibilityFadingRow {
     function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
     {
         reshapeToolbar.featureModel = featureModel
+        drawPolygonToolbar.digitizingLogger.digitizingLayer = featureModel.currentLayer
         drawPolygonToolbar.rubberbandModel = editorRubberbandModel
         drawPolygonToolbar.rubberbandModel.geometryType = Qgis.GeometryType.Polygon
         drawPolygonToolbar.mapSettings = mapSettings
