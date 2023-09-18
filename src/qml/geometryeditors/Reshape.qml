@@ -58,6 +58,10 @@ VisibilityFadingRow {
                 featureModel.applyGeometryToVertexModel()
             }
         }
+
+        onCancel: {
+          rubberbandModel.reset()
+        }
     }
 
     function init(featureModel, mapSettings, editorRubberbandModel)
