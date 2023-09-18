@@ -33,6 +33,8 @@ VisibilityFadingRow {
   property GeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
+  property string image: ''
+
   spacing: 4
 
   signal editorChanged
@@ -57,6 +59,7 @@ VisibilityFadingRow {
       var toolbarQml = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.ToolbarRole)
       var iconPath = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.IconPathRole)
       var name = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.NameRole)
+      geometryEditorsToolbar.image = Theme.getThemeVectorIcon(iconPath)
       toolbarRow.load(toolbarQml, iconPath, name)
     }
   }
@@ -117,7 +120,9 @@ VisibilityFadingRow {
           if (toolbarRow.item)
             toolbarRow.item.cancel()
           selectorRow.stateVisible = false
+          geometryEditorsToolbar.image = Theme.getThemeVectorIcon(iconPath)
           toolbarRow.load(toolbar, iconPath, name)
+
           settings.setValue( "/QField/GeometryEditorLastUsed", index )
         }
       }

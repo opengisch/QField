@@ -1237,6 +1237,7 @@ ApplicationWindow {
     CloseTool {
       id: closeMeasureTool
       visible: stateMachine.state === 'measure'
+      toolImage: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
       toolText: qsTr( 'Close measure tool' )
       onClosedTool: mainWindow.closeMeasureTool()
     }
@@ -1244,6 +1245,7 @@ ApplicationWindow {
     CloseTool {
       id: closeGeometryEditorsTool
       visible: ( stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0 )
+      toolImage: geometryEditorsToolbar.image
       toolText: qsTr( 'Stop editing' )
       onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
@@ -1251,6 +1253,7 @@ ApplicationWindow {
     CloseTool {
       id: abortRequestGeometry
       visible: digitizingToolbar.geometryRequested
+      toolImage: Theme.getThemeVectorIcon( "ic_edit_geometry_white" )
       toolText: qsTr( 'Cancel addition' )
       onClosedTool: digitizingToolbar.cancel()
     }
