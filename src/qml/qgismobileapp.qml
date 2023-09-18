@@ -1290,7 +1290,7 @@ ApplicationWindow {
           PropertyChanges {
             target: snappingButton
             iconColor: "white"
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+            bgcolor: Theme.darkGraySemiOpaque
           }
         },
 
@@ -1336,7 +1336,7 @@ ApplicationWindow {
           PropertyChanges {
             target: topologyButton
             iconColor: "white"
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+            bgcolor: Theme.darkGraySemiOpaque
           }
         },
 
@@ -1379,7 +1379,7 @@ ApplicationWindow {
           PropertyChanges {
             target: freehandButton
             iconColor: "white"
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+            bgcolor: Theme.darkGraySemiOpaque
           }
         },
 
@@ -1426,7 +1426,7 @@ ApplicationWindow {
           PropertyChanges {
             target: elevationProfileButton
             iconSource: Theme.getThemeVectorIcon( "ic_elevation_white_24dp" )
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+            bgcolor: Theme.darkGraySemiOpaque
           }
         },
 

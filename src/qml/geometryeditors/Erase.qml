@@ -122,7 +122,7 @@ VisibilityFadingRow {
         PropertyChanges {
           target: sizeSmallButton
           iconColor: "white"
-          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          bgcolor: Theme.darkGraySemiOpaque
         }
       },
 
@@ -158,7 +158,7 @@ VisibilityFadingRow {
         PropertyChanges {
           target: sizeMediumButton
           iconColor: "white"
-          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          bgcolor: Theme.darkGraySemiOpaque
         }
       },
 
@@ -194,7 +194,7 @@ VisibilityFadingRow {
         PropertyChanges {
           target: sizeLargeButton
           iconColor: "white"
-          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          bgcolor: Theme.darkGraySemiOpaque
         }
       },
 

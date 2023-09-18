@@ -287,7 +287,7 @@ Popup {
           round: true
           iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
           iconColor: "white"
-          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          bgcolor: Theme.darkGraySemiOpaque
 
           visible: cameraLoader.active && cameraLoader.item.flash.supportedModes.includes(Camera.FlashVideoLight)
           state: cameraLoader.active && cameraLoader.item.flash.mode !== Camera.FlashOff ? "On" : "Off"
@@ -297,7 +297,7 @@ Popup {
               PropertyChanges {
                 target: flashlightButton
                 iconColor: "white"
-                bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+                bgcolor: Theme.darkGraySemiOpaque
               }
             },
 
@@ -327,7 +327,7 @@ Popup {
           round: true
           iconSource: Theme.getThemeVectorIcon( 'ic_qr_code_black_24dp' )
           iconColor: "white"
-          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          bgcolor: Theme.darkGraySemiOpaque
 
           visible: withNfc
           state: settings.cameraActive ? "On" : "Off"
@@ -336,7 +336,7 @@ Popup {
               name: "Off"
               PropertyChanges {
                 target: cameraButton
-                bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+                bgcolor: Theme.darkGraySemiOpaque
               }
             },
 
@@ -364,7 +364,7 @@ Popup {
           round: true
           iconSource: Theme.getThemeVectorIcon( 'ic_nfc_code_black_24dp' )
           iconColor: "white"
-          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          bgcolor: Theme.darkGraySemiOpaque
 
           visible: withNfc
           state: settings.nearfieldActive ? "On" : "Off"
@@ -373,7 +373,7 @@ Popup {
               name: "Off"
               PropertyChanges {
                 target: nearfieldButton
-                bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+                bgcolor: Theme.darkGraySemiOpaque
               }
             },
 
