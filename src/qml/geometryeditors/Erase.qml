@@ -99,6 +99,14 @@ VisibilityFadingRow {
     }
   }
 
+  Connections {
+    target: drawPolygonToolbar.mapSettings
+
+    function onExtentChanged() {
+      adjustSize();
+    }
+  }
+
   QfToolButton {
     id: sizeSmallButton
     iconSource: Theme.getThemeVectorIcon( "ic_size_small_white_24dp" )
