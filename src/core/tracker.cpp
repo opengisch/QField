@@ -45,7 +45,6 @@ void Tracker::trackPosition()
     return;
   }
 
-  qDebug() << mCurrentDistance;
   if ( !qgsDoubleNear( mMaximumDistance, 0.0 ) && mCurrentDistance > mMaximumDistance )
   {
     // Simple logic to avoid getting stuck in an infinite erroneous distance having somehow actually moved beyond the safeguard threshold
@@ -55,10 +54,11 @@ void Tracker::trackPosition()
     }
   }
 
+  mSkipPositionReceived = true;
   model()->addVertex();
+
   mMaximumDistanceFailures = 0;
   mCurrentDistance = 0.0;
-
   mTimeIntervalFulfilled = false;
   mMinimumDistanceFulfilled = false;
   mSensorCaptureFulfilled = false;
@@ -66,6 +66,13 @@ void Tracker::trackPosition()
 
 void Tracker::positionReceived()
 {
+  if ( mSkipPositionReceived )
+  {
+    // When calling model()->addVertex(), the signal we listen to for new position received is triggered, skip that one
+    mSkipPositionReceived = false;
+    return;
+  }
+
   if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) || !qgsDoubleNear( mMaximumDistance, 0.0 ) )
   {
     QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
@@ -162,6 +169,10 @@ void Tracker::start()
   {
     model()->setMeasureValue( 0 );
   }
+
+  mSkipPositionReceived = false;
+  mMaximumDistanceFailures = 0;
+  mCurrentDistance = mMaximumDistance;
 
   //track first position
   trackPosition();

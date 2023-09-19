@@ -109,6 +109,8 @@ class Tracker : public QObject
     void sensorDataReceived();
 
   private:
+    void trackPosition();
+
     RubberbandModel *mRubberbandModel = nullptr;
 
     QTimer mTimer;
@@ -122,6 +124,7 @@ class Tracker : public QObject
     bool mTimeIntervalFulfilled = false;
     bool mMinimumDistanceFulfilled = false;
     bool mSensorCaptureFulfilled = false;
+    bool mSkipPositionReceived = false;
 
     QPointer<QgsVectorLayer> mLayer;
     QgsFeature mFeature;
@@ -131,8 +134,6 @@ class Tracker : public QObject
     QDateTime mStartPositionTimestamp;
 
     MeasureType mMeasureType = Tracker::SecondsSinceStart;
-
-    void trackPosition();
 };
 
 #endif // TRACKER_H
