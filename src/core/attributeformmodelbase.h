@@ -82,7 +82,7 @@ class AttributeFormModelBase : public QStandardItemModel
     void buildForm( QgsAttributeEditorContainer *container,
                     QStandardItem *parent,
                     const QString &parentVisibilityExpressions,
-                    QVector<QStandardItem *> &items,
+                    QList<QStandardItem *> &containers,
                     int currentTabIndex = 0,
                     int columnCount = 1 );
 
@@ -121,7 +121,7 @@ class AttributeFormModelBase : public QStandardItemModel
     std::unique_ptr<QgsAttributeEditorContainer> mTemporaryContainer;
     bool mHasTabs = false;
 
-    typedef QPair<QgsExpression, QVector<QStandardItem *>> VisibilityExpression;
+    typedef QPair<QgsExpression, QStandardItem *> VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;
     QMap<QStandardItem *, QgsFieldConstraints> mConstraints;
     QMap<QStandardItem *, QString> mEditorWidgetCodes;
