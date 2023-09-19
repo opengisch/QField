@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "rubberbandmodel.h"
 #include "trackingmodel.h"
 
 TrackingModel::TrackingModel( QObject *parent )

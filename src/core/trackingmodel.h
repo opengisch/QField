@@ -16,7 +16,6 @@
 #ifndef TRACKINGMODEL_H
 #define TRACKINGMODEL_H
 
-#include "rubberbandmodel.h"
 #include "tracker.h"
 
 #include <QAbstractItemModel>
