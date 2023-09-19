@@ -320,8 +320,6 @@ endif()
 target_compile_features(qfield_core PUBLIC cxx_std_17)
 set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 
-target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR})
-
 target_link_libraries(
   qfield_core
   PUBLIC ${QT_PKG}::Core
@@ -342,10 +340,10 @@ target_link_libraries(
          QGIS::Analysis
          ZXing::ZXing
          PROJ::proj
+         GDAL::GDAL
          SQLite::SQLite3
          Qca::qca
          QtKeychain::QtKeychain
-         ${GDAL_LIBRARIES}
          libzip::zip)
 
 if(WITH_BLUETOOTH)
