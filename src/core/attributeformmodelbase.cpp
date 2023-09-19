@@ -189,6 +189,7 @@ void AttributeFormModelBase::resetModel()
 #endif
 
     invisibleRootItem()->setColumnCount( 1 );
+    QList<QStandardItem *> containers;
     if ( hasTabs )
     {
       const QList<QgsAttributeEditorElement *> children { root->children() };
@@ -212,24 +213,29 @@ void AttributeFormModelBase::resetModel()
           item->setData( true, AttributeFormModel::CurrentlyVisible );
           item->setData( true, AttributeFormModel::ConstraintHardValid );
           item->setData( true, AttributeFormModel::ConstraintSoftValid );
-          invisibleRootItem()->appendRow( item );
-          setHasTabs( true );
 
           QString visibilityExpression;
           if ( container->visibilityExpression().enabled() )
           {
-            mVisibilityExpressions.append( qMakePair( container->visibilityExpression().data(), QVector<QStandardItem *>() << item ) );
+            mVisibilityExpressions.append( qMakePair( container->visibilityExpression().data(), item ) );
             visibilityExpression = container->visibilityExpression().data().expression();
           }
 
-          buildForm( container, item, visibilityExpression, currentTab, columnCount );
+          buildForm( container, item, visibilityExpression, containers, currentTab, columnCount );
+          invisibleRootItem()->appendRow( item );
+          setHasTabs( true );
           currentTab++;
         }
       }
     }
     else
     {
-      buildForm( invisibleRootContainer(), invisibleRootItem(), QString() );
+      buildForm( invisibleRootContainer(), invisibleRootItem(), QString(), containers );
+    }
+
+    for ( QStandardItem *container : std::as_const( containers ) )
+    {
+      container->setData( container->index(), AttributeFormModel::GroupIndex );
     }
   }
 }
@@ -342,7 +348,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   }
 }
 
-void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, int currentTabIndex, int columnCount )
+void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QList<QStandardItem *> &containers, int currentTabIndex, int columnCount )
 {
   const QList<QgsAttributeEditorElement *> children { container->children() };
   for ( QgsAttributeEditorElement *element : children )
@@ -389,12 +395,12 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         if ( innerContainer->backgroundColor().isValid() )
           item->setData( innerContainer->backgroundColor(), AttributeFormModel::GroupColor );
 
+        buildForm( innerContainer, item, visibilityExpression, containers, 0, innerColumnCount );
         parent->appendRow( item );
-        item->setData( item->index(), AttributeFormModel::GroupIndex );
+        containers << item;
 
-        buildForm( innerContainer, item, visibilityExpression, 0, innerColumnCount );
         if ( !visibilityExpression.isEmpty() )
-          mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), QVector<QStandardItem *>() << item ) );
+          mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), item ) );
         break;
       }
 
@@ -719,13 +725,11 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
       exp.prepare( &mExpressionContext );
 
       bool visible = exp.evaluate( &mExpressionContext ).toInt();
-      for ( QStandardItem *item : std::as_const( it.second ) )
+      QStandardItem *item = it.second;
+      if ( item->data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
       {
-        if ( item->data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
-        {
-          item->setData( visible, AttributeFormModel::CurrentlyVisible );
-          visibilityChanged = true;
-        }
+        item->setData( visible, AttributeFormModel::CurrentlyVisible );
+        visibilityChanged = true;
       }
     }
   }
