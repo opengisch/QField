@@ -222,16 +222,14 @@ void AttributeFormModelBase::resetModel()
             visibilityExpression = container->visibilityExpression().data().expression();
           }
 
-          QVector<QStandardItem *> dummy;
-          buildForm( container, item, visibilityExpression, dummy, currentTab, columnCount );
+          buildForm( container, item, visibilityExpression, currentTab, columnCount );
           currentTab++;
         }
       }
     }
     else
     {
-      QVector<QStandardItem *> dummy;
-      buildForm( invisibleRootContainer(), invisibleRootItem(), QString(), dummy );
+      buildForm( invisibleRootContainer(), invisibleRootItem(), QString() );
     }
   }
 }
@@ -344,7 +342,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   }
 }
 
-void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex, int columnCount )
+void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, int currentTabIndex, int columnCount )
 {
   const QList<QgsAttributeEditorElement *> children { container->children() };
   for ( QgsAttributeEditorElement *element : children )
@@ -391,12 +389,10 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         if ( innerContainer->backgroundColor().isValid() )
           item->setData( innerContainer->backgroundColor(), AttributeFormModel::GroupColor );
 
-        items.append( item );
         parent->appendRow( item );
         item->setData( item->index(), AttributeFormModel::GroupIndex );
 
-        QVector<QStandardItem *> newItems;
-        buildForm( innerContainer, item, visibilityExpression, newItems, 0, innerColumnCount );
+        buildForm( innerContainer, item, visibilityExpression, 0, innerColumnCount );
         if ( !visibilityExpression.isEmpty() )
           mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), QVector<QStandardItem *>() << item ) );
         break;
@@ -454,8 +450,6 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
         mConstraints.insert( item, field.constraints() );
 
-        items.append( item );
-
         parent->appendRow( item );
         break;
       }
@@ -483,8 +477,6 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( true, AttributeFormModel::AttributeAllowEdit );
 
-        items.append( item );
-
         parent->appendRow( item );
         break;
       }
@@ -507,7 +499,6 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
         updateAttributeValue( item );
 
-        items.append( item );
         parent->appendRow( item );
         break;
       }
@@ -530,7 +521,6 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
         updateAttributeValue( item );
 
-        items.append( item );
         parent->appendRow( item );
         break;
       }
@@ -550,7 +540,6 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
         updateAttributeValue( item );
 
-        items.append( item );
         parent->appendRow( item );
         break;
       }
