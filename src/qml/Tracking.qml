@@ -444,6 +444,76 @@ Item {
               Layout.columnSpan: 2
             }
 
+
+
+            Label {
+              text: qsTr("Erroneous distance safeguard")
+              font: Theme.defaultFont
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: maximumDistance.toggle()
+              }
+            }
+
+            QfSwitch {
+              id: erroneousDistanceSafeguard
+              Layout.preferredWidth: implicitContentWidth
+              Layout.alignment: Qt.AlignTop
+              checked: positioningSettings.trackerErroneousDistanceSafeguard
+              onCheckedChanged: {
+                positioningSettings.trackerErroneousDistanceSafeguard = checked
+              }
+            }
+
+            Label {
+              text: qsTr("Maximum tolerated distance [%1]").arg( UnitTypes.toAbbreviatedString( infoDistanceArea.lengthUnits ) )
+              font: Theme.defaultFont
+              wrapMode: Text.WordWrap
+              enabled: erroneousDistanceSafeguard.checked
+              visible: erroneousDistanceSafeguard.checked
+              Layout.leftMargin: 8
+              Layout.fillWidth: true
+            }
+
+            QfTextField {
+              id: erroneousDistanceValue
+              width: erroneousDistanceSafeguard.width
+              font: Theme.defaultFont
+              enabled: erroneousDistanceSafeguard.checked
+              visible: erroneousDistanceSafeguard.checked
+              horizontalAlignment: TextInput.AlignHCenter
+              Layout.preferredWidth: 60
+              Layout.preferredHeight: font.height + 20
+
+              inputMethodHints: Qt.ImhFormattedNumbersOnly
+              validator: DoubleValidator { locale: 'C' }
+
+              Component.onCompleted: {
+                text = isNaN(positioningSettings.trackerErroneousDistance) ? '' : positioningSettings.trackerErroneousDistance
+              }
+
+              onTextChanged: {
+                if( text.length === 0 || isNaN(text) ) {
+                  positioningSettings.trackerErroneousDistance = NaN
+                } else {
+                  positioningSettings.trackerErroneousDistance = parseFloat( text )
+                }
+              }
+            }
+
+            Label {
+                text: qsTr( "When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded." )
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+            }
+
             Label {
                 id: measureLabel
                 Layout.fillWidth: true
@@ -519,8 +589,9 @@ Item {
               icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
               onClicked: {
-                track.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
-                track.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
+                track.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text
+                track.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text
+                track.maximumDistance = erroneousDistanceValue.text.length == 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text
                 track.sensorCapture = sensorCapture.checked
                 track.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked
                 track.rubberModel = rubberbandModel

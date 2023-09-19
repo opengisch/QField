@@ -45,7 +45,19 @@ void Tracker::trackPosition()
     return;
   }
 
+  qDebug() << mCurrentDistance;
+  if ( !qgsDoubleNear( mMaximumDistance, 0.0 ) && mCurrentDistance > mMaximumDistance )
+  {
+    // Simple logic to avoid getting stuck in an infinite erroneous distance having somehow actually moved beyond the safeguard threshold
+    if ( ++mMaximumDistanceFailures < 20 )
+    {
+      return;
+    }
+  }
+
   model()->addVertex();
+  mMaximumDistanceFailures = 0;
+  mCurrentDistance = 0.0;
 
   mTimeIntervalFulfilled = false;
   mMinimumDistanceFulfilled = false;
@@ -54,7 +66,7 @@ void Tracker::trackPosition()
 
 void Tracker::positionReceived()
 {
-  if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) )
+  if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) || !qgsDoubleNear( mMaximumDistance, 0.0 ) )
   {
     QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
 
@@ -69,8 +81,12 @@ void Tracker::positionReceived()
     QgsDistanceArea distanceArea;
     distanceArea.setEllipsoid( QgsProject::instance()->ellipsoid() );
     distanceArea.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
+    mCurrentDistance = distanceArea.measureLine( flatPoints );
+  }
 
-    if ( distanceArea.measureLine( flatPoints ) > mMinimumDistance )
+  if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) )
+  {
+    if ( mCurrentDistance > mMinimumDistance )
     {
       mMinimumDistanceFulfilled = true;
     }

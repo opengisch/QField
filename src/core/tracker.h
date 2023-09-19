@@ -49,42 +49,49 @@ class Tracker : public QObject
     RubberbandModel *model() const;
     void setModel( RubberbandModel *model );
 
-    //! the (minimum) time interval between setting trackpoints
+    //! Returns the minimum time interval constraint between each tracked point
     double timeInterval() const { return mTimeInterval; }
-    //! the (minimum) time interval between setting trackpoints
+    //! Sets the minimum time interval constraint between each tracked point
     void setTimeInterval( const double timeInterval ) { mTimeInterval = timeInterval; }
 
-    //! the minimum distance between setting trackpoints
+    //! Returns the minimum distance constraint between each tracked point
     double minimumDistance() const { return mMinimumDistance; }
-    //! the minimum distance between setting trackpoints
+    //! Sets the minimum distance constraint between each tracked point
     void setMinimumDistance( const double minimumDistance ) { mMinimumDistance = minimumDistance; };
 
-    //! Returns if TRUE, newly captured sensor data is needed before setting trackpoints
+    //! Returns the maximum distance tolerated beyond which a position will be considered errenous
+    double maximumDistance() const { return mMaximumDistance; }
+    //! Sets the maximum distance tolerated beyond which a position will be considered errenous
+    void setMaximumDistance( const double maximumDistance ) { mMaximumDistance = maximumDistance; };
+
+    //! Returns if TRUE, newly captured sensor data is needed between each tracked point
     bool sensorCapture() const { return mSensorCapture; }
-    //! Sets whether newly captured sensor data is needed before setting trackpoints
+    //! Sets whether newly captured sensor data is needed between each tracked point
     void setSensorCapture( const bool capture ) { mSensorCapture = capture; }
 
-    //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
+    //! Returns TRUE if all constraints need to be fulfilled between each tracked point
     bool conjunction() const { return mConjunction; }
-    //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
+    //! Sets where all constraints need to be fulfilled between each tracked point
     void setConjunction( const bool conjunction ) { mConjunction = conjunction; }
 
-    //! the timestamp of the first recorded position
+    //! Returns the timestamp of the first recorded point
     QDateTime startPositionTimestamp() const { return mStartPositionTimestamp; }
-    //! the timestamp of the first recorded position
+    //! Sets the timestamp of the first recorded point
     void setStartPositionTimestamp( const QDateTime &startPositionTimestamp ) { mStartPositionTimestamp = startPositionTimestamp; }
 
-    //! the current layer
+    //! Returns the current layer
     QgsVectorLayer *layer() const { return mLayer.data(); }
-    //! the current layer
+    //! Sets the current layer
     void setLayer( QgsVectorLayer *layer ) { mLayer = layer; }
-    //! the created feature
+
+    //! Returns the created feature
     QgsFeature feature() const { return mFeature; }
-    //! the created feature
+    //! Sets the created feature
     void setFeature( const QgsFeature &feature ) { mFeature = feature; }
-    //! if the layer (and the rubberband ) is visible
+
+    //! Returns TRUE if the layer and the rubberband are visible
     bool visible() const { return mVisible; }
-    //! if the layer (and the rubberband ) is visible
+    //! Sets whether the layer and the rubberband are visible
     void setVisible( const bool visible ) { mVisible = visible; }
 
     MeasureType measureType() const { return mMeasureType; }
@@ -105,8 +112,11 @@ class Tracker : public QObject
     RubberbandModel *mRubberbandModel = nullptr;
 
     QTimer mTimer;
-    double mTimeInterval = 0;
-    double mMinimumDistance = 0;
+    double mTimeInterval = 0.0;
+    double mMinimumDistance = 0.0;
+    double mMaximumDistance = 0.0;
+    int mMaximumDistanceFailures = 0;
+    double mCurrentDistance = 0.0;
     bool mSensorCapture = false;
     bool mConjunction = true;
     bool mTimeIntervalFulfilled = false;
