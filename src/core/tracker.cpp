@@ -21,6 +21,8 @@
 #include <qgsproject.h>
 #include <qgssensormanager.h>
 
+#define MAXIMUM_DISTANCE_FAILURES 20
+
 Tracker::Tracker( QgsVectorLayer *layer, bool visible )
   : mLayer( layer ), mVisible( visible )
 {
@@ -48,7 +50,7 @@ void Tracker::trackPosition()
   if ( !qgsDoubleNear( mMaximumDistance, 0.0 ) && mCurrentDistance > mMaximumDistance )
   {
     // Simple logic to avoid getting stuck in an infinite erroneous distance having somehow actually moved beyond the safeguard threshold
-    if ( ++mMaximumDistanceFailures < 20 )
+    if ( ++mMaximumDistanceFailuresCount < MAXIMUM_DISTANCE_FAILURES )
     {
       return;
     }
@@ -57,7 +59,7 @@ void Tracker::trackPosition()
   mSkipPositionReceived = true;
   model()->addVertex();
 
-  mMaximumDistanceFailures = 0;
+  mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = 0.0;
   mTimeIntervalFulfilled = false;
   mMinimumDistanceFulfilled = false;
@@ -171,7 +173,7 @@ void Tracker::start()
   }
 
   mSkipPositionReceived = false;
-  mMaximumDistanceFailures = 0;
+  mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = mMaximumDistance;
 
   //track first position

@@ -117,7 +117,7 @@ class Tracker : public QObject
     double mTimeInterval = 0.0;
     double mMinimumDistance = 0.0;
     double mMaximumDistance = 0.0;
-    int mMaximumDistanceFailures = 0;
+    int mMaximumDistanceFailuresCount = 0;
     double mCurrentDistance = 0.0;
     bool mSensorCapture = false;
     bool mConjunction = true;
