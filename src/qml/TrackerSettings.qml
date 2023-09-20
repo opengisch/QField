@@ -24,6 +24,15 @@ Popup {
   onTrackerChanged: {
     if (tracker != undefined) {
       featureModel.currentLayer = tracker.vectorLayer
+      timeInterval.checked = tracker.timeInterval > 0
+      timeIntervalValue.text = tracker.timeInterval
+      minimumDistance.checked = tracker.minimumDistance > 0
+      minimumDistanceValue.text = tracker.minimumDistance
+      erroneousDistanceSafeguard.checked = tracker.maximumDistance > 0
+      erroneousDistanceValue.text = tracker.maximumDistance
+      sensorCapture.checked = tracker.sensorCapture
+      allConstraints.checked = tracker.conjunction && (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
+      measureComboBox.currentIndex = tracker.measureType
     }
   }
 
@@ -81,7 +90,7 @@ Popup {
           id: timeInterval
           Layout.preferredWidth: implicitContentWidth
           Layout.alignment: Qt.AlignTop
-          checked: positioningSettings.trackerTimeIntervalConstraint
+          checked: false
           onCheckedChanged: {
             positioningSettings.trackerTimeIntervalConstraint = checked
           }
@@ -110,10 +119,6 @@ Popup {
           inputMethodHints: Qt.ImhFormattedNumbersOnly
           validator: DoubleValidator { locale: 'C' }
 
-          Component.onCompleted: {
-            text = isNaN(positioningSettings.trackerTimeInterval) ? '' : positioningSettings.trackerTimeInterval
-          }
-
           onTextChanged: {
             if( text.length === 0 || isNaN(text) ) {
               positioningSettings.trackerTimeInterval = NaN
@@ -139,7 +144,7 @@ Popup {
           id: minimumDistance
           Layout.preferredWidth: implicitContentWidth
           Layout.alignment: Qt.AlignTop
-          checked: positioningSettings.trackerMinimumDistanceConstraint
+          checked: false
           onCheckedChanged: {
             positioningSettings.trackerMinimumDistanceConstraint = checked
           }
@@ -174,10 +179,6 @@ Popup {
           inputMethodHints: Qt.ImhFormattedNumbersOnly
           validator: DoubleValidator { locale: 'C' }
 
-          Component.onCompleted: {
-            text = isNaN(positioningSettings.trackerMinimumDistance) ? '' : positioningSettings.trackerMinimumDistance
-          }
-
           onTextChanged: {
             if( text.length === 0 || isNaN(text) ) {
               positioningSettings.trackerMinimumDistance = NaN
@@ -203,7 +204,7 @@ Popup {
           id: sensorCapture
           Layout.preferredWidth: implicitContentWidth
           Layout.alignment: Qt.AlignTop
-          checked: positioningSettings.trackerSensorCaptureConstraint
+          checked: false
           onCheckedChanged: {
             positioningSettings.trackerSensorCaptureConstraint = checked
           }
@@ -229,7 +230,7 @@ Popup {
           Layout.alignment: Qt.AlignTop
           enabled: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
           visible: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
-          checked: positioningSettings.trackerMeetAllConstraints
+          checked: false
           onCheckedChanged: {
             positioningSettings.trackerMeetAllConstraints = checked
           }
@@ -282,7 +283,7 @@ Popup {
           id: erroneousDistanceSafeguard
           Layout.preferredWidth: implicitContentWidth
           Layout.alignment: Qt.AlignTop
-          checked: positioningSettings.trackerErroneousDistanceSafeguard
+          checked: false
           onCheckedChanged: {
             positioningSettings.trackerErroneousDistanceSafeguard = checked
           }
@@ -310,10 +311,6 @@ Popup {
 
           inputMethodHints: Qt.ImhFormattedNumbersOnly
           validator: DoubleValidator { locale: 'C' }
-
-          Component.onCompleted: {
-            text = isNaN(positioningSettings.trackerErroneousDistance) ? '' : positioningSettings.trackerErroneousDistance
-          }
 
           onTextChanged: {
             if( text.length === 0 || isNaN(text) ) {
@@ -372,7 +369,6 @@ Popup {
                 ];
 
                 model = measurements;
-                currentIndex = positioningSettings.trackerMeasureType;
                 loaded = true;
             }
 

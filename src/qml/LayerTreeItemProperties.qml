@@ -304,6 +304,12 @@ Popup {
             } else {
               trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisibleCheckBox.checked )
               var tracker = trackings.itemAt(trackings.count - 1).tracker
+              tracker.minimumDistance = positioningSettings.trackerMinimumDistanceConstraint ? positioningSettings.trackerMinimumDistance : 0
+              tracker.timeInterval = positioningSettings.trackerTimeIntervalConstraint ? positioningSettings.trackerTimeInterval : 0
+              tracker.maximumDistance = positioningSettings.trackerErroneousDistanceSafeguard ? positioningSettings.trackerErroneousDistance : 0
+              tracker.sensorCapture = positioningSettings.trackerSensorCaptureConstraint
+              tracker.conjunction = positioningSettings.trackerMeetAllConstraints
+              tracker.measureType = positioningSettings.trackerMeasureType
               trackerSettings.tracker = tracker
               trackerSettings.open()
             }
