@@ -1857,8 +1857,7 @@ ApplicationWindow {
               elevationProfile.refresh()
           } else {
               if ( geometryRequested ) {
-                  if ( overlayFeatureFormDrawer.isAdding )
-                  {
+                  if ( overlayFeatureFormDrawer.isAdding ) {
                       overlayFeatureFormDrawer.open()
                   }
                   geometryRequested = false
@@ -1869,8 +1868,7 @@ ApplicationWindow {
       onConfirmed: {
         if ( geometryRequested )
         {
-            if ( overlayFeatureFormDrawer.isAdding )
-            {
+            if ( overlayFeatureFormDrawer.isAdding ) {
                 overlayFeatureFormDrawer.open()
             }
 
