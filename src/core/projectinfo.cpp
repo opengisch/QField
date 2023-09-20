@@ -142,10 +142,10 @@ QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
   if ( !layer || !mTrackingModel || mTrackingModel->layerInTracking( layer ) )
     return QModelIndex();
 
-  if ( !mSettings.contains( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) ) )
+  if ( !mSettings.contains( QStringLiteral( "/qgis/projectInfo/trackers/%1/minimumDistance" ).arg( layer->id() ) ) )
     return QModelIndex();
 
-  mTrackingModel->createTracker( layer );
+  QModelIndex index = mTrackingModel->createTracker( layer );
   Tracker *tracker = mTrackingModel->trackerForLayer( layer );
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
@@ -168,7 +168,7 @@ QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
   }
   mSettings.endGroup();
 
-  return QModelIndex();
+  return index;
 }
 
 void ProjectInfo::extentChanged()
