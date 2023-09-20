@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "rubberbandmodel.h"
 #include "trackingmodel.h"
 
 TrackingModel::TrackingModel( QObject *parent )
@@ -34,6 +35,7 @@ QHash<int, QByteArray> TrackingModel::roleNames() const
   roles[VectorLayer] = "vectorLayer";
   roles[TimeInterval] = "timeInterval";
   roles[MinimumDistance] = "minimumDistance";
+  roles[MaximumDistance] = "maximumDistance";
   roles[Conjunction] = "conjunction";
   roles[Feature] = "feature";
   roles[RubberModel] = "rubberModel";
@@ -119,6 +121,9 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
       break;
     case SensorCapture:
       currentTracker->setSensorCapture( value.toBool() );
+      break;
+    case MaximumDistance:
+      currentTracker->setMaximumDistance( value.toDouble() );
       break;
     default:
       return false;

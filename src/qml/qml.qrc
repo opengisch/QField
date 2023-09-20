@@ -79,7 +79,7 @@
         <file>imports/Theme/qmldir</file>
         <file>imports/QFieldControls/qmldir</file>
         <file>PageHeader.qml</file>
-        <file>Tracking.qml</file>
+        <file>TrackingSession.qml</file>
         <file>EmbeddedFeatureForm.qml</file>
         <file>ImageDial.qml</file>
         <file>ScreenLocker.qml</file>

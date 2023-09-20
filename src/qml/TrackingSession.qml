@@ -9,9 +9,9 @@ import Theme 1.0
 import '.'
 
 Item {
-  id: tracking
+  id: trackingSession
 
-  property var track: model
+  property var tracker: model
 
   Component.onCompleted: {
     featureModel.resetAttributes()
@@ -22,14 +22,14 @@ Item {
   RubberbandModel {
     id: rubberbandModel
     frozen: false
-    vectorLayer: track.vectorLayer
+    vectorLayer: tracker.vectorLayer
     currentCoordinate: positionSource.projectedPosition
 
-    property int measureType: track.measureType
+    property int measureType: tracker.measureType
     measureValue: {
       switch(measureType) {
         case Tracker.SecondsSinceStart:
-          return ( positionSource.positionInformation.utcDateTime - track.startPositionTimestamp ) / 1000
+          return ( positionSource.positionInformation.utcDateTime - tracker.startPositionTimestamp ) / 1000
         case Tracker.Timestamp:
           return positionSource.positionInformation.utcDateTime.getTime()
         case Tracker.GroundSpeed:
@@ -74,7 +74,7 @@ Item {
           {
             // indirect action, no need to check for success and display a toast, the log is enough
             featureModel.create()
-            track.feature = featureModel.feature
+            tracker.feature = featureModel.feature
           }
           else
           {
@@ -88,7 +88,7 @@ Item {
 
   Rubberband {
     id: rubberband
-    visible: track.visible
+    visible: tracker.visible
 
     lineWidth: 4
     color: Qt.rgba(Math.min(0.75, Math.random()),
@@ -104,12 +104,12 @@ Item {
   FeatureModel {
     id: featureModel
     project: qgisProject
-    currentLayer: track.vectorLayer
+    currentLayer: tracker.vectorLayer
 
     geometry: Geometry {
       id: featureModelGeometry
       rubberbandModel: rubberbandModel
-      vectorLayer: track.vectorLayer
+      vectorLayer: tracker.vectorLayer
     }
 
     positionInformation: coordinateLocator.positionInformation
@@ -164,14 +164,14 @@ Item {
 
         onTemporaryStored: {
           embeddedFeatureForm.active = false
-          trackingModel.startTracker(track.vectorLayer)
-          displayToast(qsTr('Track on layer %1 started').arg(track.vectorLayer.name))
+          trackingModel.startTracker(tracker.vectorLayer)
+          displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
         }
 
         onCancelled: {
           embeddedFeatureForm.active = false
           embeddedFeatureForm.focus = false
-          trackingModel.stopTracker(track.vectorLayer)
+          trackingModel.stopTracker(tracker.vectorLayer)
         }
       }
 
@@ -221,7 +221,7 @@ Item {
 
           onBack: {
             trackInformationDialog.active = false
-            trackingModel.stopTracker(track.vectorLayer)
+            trackingModel.stopTracker(tracker.vectorLayer)
           }
         }
 
@@ -326,7 +326,7 @@ Item {
 
             DistanceArea {
               id: infoDistanceArea
-              property VectorLayer currentLayer: track.vectorLayer
+              property VectorLayer currentLayer: tracker.vectorLayer
               project: qgisProject
               crs: qgisProject.crs
             }
@@ -444,6 +444,76 @@ Item {
               Layout.columnSpan: 2
             }
 
+
+
+            Label {
+              text: qsTr("Erroneous distance safeguard")
+              font: Theme.defaultFont
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: maximumDistance.toggle()
+              }
+            }
+
+            QfSwitch {
+              id: erroneousDistanceSafeguard
+              Layout.preferredWidth: implicitContentWidth
+              Layout.alignment: Qt.AlignTop
+              checked: positioningSettings.trackerErroneousDistanceSafeguard
+              onCheckedChanged: {
+                positioningSettings.trackerErroneousDistanceSafeguard = checked
+              }
+            }
+
+            Label {
+              text: qsTr("Maximum tolerated distance [%1]").arg( UnitTypes.toAbbreviatedString( infoDistanceArea.lengthUnits ) )
+              font: Theme.defaultFont
+              wrapMode: Text.WordWrap
+              enabled: erroneousDistanceSafeguard.checked
+              visible: erroneousDistanceSafeguard.checked
+              Layout.leftMargin: 8
+              Layout.fillWidth: true
+            }
+
+            QfTextField {
+              id: erroneousDistanceValue
+              width: erroneousDistanceSafeguard.width
+              font: Theme.defaultFont
+              enabled: erroneousDistanceSafeguard.checked
+              visible: erroneousDistanceSafeguard.checked
+              horizontalAlignment: TextInput.AlignHCenter
+              Layout.preferredWidth: 60
+              Layout.preferredHeight: font.height + 20
+
+              inputMethodHints: Qt.ImhFormattedNumbersOnly
+              validator: DoubleValidator { locale: 'C' }
+
+              Component.onCompleted: {
+                text = isNaN(positioningSettings.trackerErroneousDistance) ? '' : positioningSettings.trackerErroneousDistance
+              }
+
+              onTextChanged: {
+                if( text.length === 0 || isNaN(text) ) {
+                  positioningSettings.trackerErroneousDistance = NaN
+                } else {
+                  positioningSettings.trackerErroneousDistance = parseFloat( text )
+                }
+              }
+            }
+
+            Label {
+                text: qsTr( "When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded." )
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+            }
+
             Label {
                 id: measureLabel
                 Layout.fillWidth: true
@@ -456,7 +526,7 @@ Item {
 
             ComboBox {
                 id: measureComboBox
-                enabled: LayerUtils.hasMValue(track.vectorLayer)
+                enabled: LayerUtils.hasMValue(tracker.vectorLayer)
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 Layout.alignment: Qt.AlignVCenter
@@ -495,7 +565,7 @@ Item {
 
             Label {
                 id: measureTipLabel
-                visible: !LayerUtils.hasMValue(track.vectorLayer)
+                visible: !LayerUtils.hasMValue(tracker.vectorLayer)
                 Layout.fillWidth: true
                 text: qsTr( "To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension." )
                 font: Theme.tipFont
@@ -519,20 +589,21 @@ Item {
               icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
               onClicked: {
-                track.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
-                track.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
-                track.sensorCapture = sensorCapture.checked
-                track.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked
-                track.rubberModel = rubberbandModel
-                track.measureType = measureComboBox.currentIndex
-                rubberbandModel.measureType = track.measureType
+                tracker.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text
+                tracker.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text
+                tracker.maximumDistance = erroneousDistanceValue.text.length == 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text
+                tracker.sensorCapture = sensorCapture.checked
+                tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked
+                tracker.rubberModel = rubberbandModel
+                tracker.measureType = measureComboBox.currentIndex
+                rubberbandModel.measureType = tracker.measureType
 
                 trackInformationDialog.active = false
                 if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
                   embeddedFeatureForm.active = true
                 } else {
-                  trackingModel.startTracker(track.vectorLayer)
-                  displayToast(qsTr('Track on layer %1 started').arg(track.vectorLayer.name))
+                  trackingModel.startTracker(tracker.vectorLayer)
+                  displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
                 }
               }
             }

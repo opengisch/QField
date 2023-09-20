@@ -38,6 +38,9 @@ LabSettings.Settings {
     property bool trackerSensorCaptureConstraint: false
     property bool trackerMeetAllConstraints: false
 
+    property bool trackerErroneousDistanceSafeguard: false
+    property double trackerErroneousDistance: 100
+
     property int trackerMeasureType: 0
     property int digitizingMeasureType: 1
 }

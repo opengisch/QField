@@ -599,7 +599,7 @@ ApplicationWindow {
         id: trackings
         model: trackingModel
 
-        Tracking {}
+        TrackingSession {}
     }
 
     /** A rubberband for ditizing **/

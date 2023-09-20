@@ -21,6 +21,8 @@
 #include <qgsproject.h>
 #include <qgssensormanager.h>
 
+#define MAXIMUM_DISTANCE_FAILURES 20
+
 Tracker::Tracker( QgsVectorLayer *layer, bool visible )
   : mLayer( layer ), mVisible( visible )
 {
@@ -45,8 +47,20 @@ void Tracker::trackPosition()
     return;
   }
 
+  if ( !qgsDoubleNear( mMaximumDistance, 0.0 ) && mCurrentDistance > mMaximumDistance )
+  {
+    // Simple logic to avoid getting stuck in an infinite erroneous distance having somehow actually moved beyond the safeguard threshold
+    if ( ++mMaximumDistanceFailuresCount < MAXIMUM_DISTANCE_FAILURES )
+    {
+      return;
+    }
+  }
+
+  mSkipPositionReceived = true;
   model()->addVertex();
 
+  mMaximumDistanceFailuresCount = 0;
+  mCurrentDistance = 0.0;
   mTimeIntervalFulfilled = false;
   mMinimumDistanceFulfilled = false;
   mSensorCaptureFulfilled = false;
@@ -54,7 +68,14 @@ void Tracker::trackPosition()
 
 void Tracker::positionReceived()
 {
-  if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) )
+  if ( mSkipPositionReceived )
+  {
+    // When calling model()->addVertex(), the signal we listen to for new position received is triggered, skip that one
+    mSkipPositionReceived = false;
+    return;
+  }
+
+  if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) || !qgsDoubleNear( mMaximumDistance, 0.0 ) )
   {
     QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
 
@@ -69,8 +90,12 @@ void Tracker::positionReceived()
     QgsDistanceArea distanceArea;
     distanceArea.setEllipsoid( QgsProject::instance()->ellipsoid() );
     distanceArea.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
+    mCurrentDistance = distanceArea.measureLine( flatPoints );
+  }
 
-    if ( distanceArea.measureLine( flatPoints ) > mMinimumDistance )
+  if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) )
+  {
+    if ( mCurrentDistance > mMinimumDistance )
     {
       mMinimumDistanceFulfilled = true;
     }
@@ -146,6 +171,10 @@ void Tracker::start()
   {
     model()->setMeasureValue( 0 );
   }
+
+  mSkipPositionReceived = false;
+  mMaximumDistanceFailuresCount = 0;
+  mCurrentDistance = mMaximumDistance;
 
   //track first position
   trackPosition();

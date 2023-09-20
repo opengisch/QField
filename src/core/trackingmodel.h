@@ -16,7 +16,6 @@
 #ifndef TRACKINGMODEL_H
 #define TRACKINGMODEL_H
 
-#include "rubberbandmodel.h"
 #include "tracker.h"
 
 #include <QAbstractItemModel>
@@ -35,16 +34,17 @@ class TrackingModel : public QAbstractItemModel
     enum TrackingRoles
     {
       DisplayString = Qt::UserRole,
-      VectorLayer,            //! the layer in the current tracking session
-      RubberModel,            //! the rubberbandmodel used in the current tracking session
-      TimeInterval,           //! the (minimum) time interval constraint between setting trackpoints
-      MinimumDistance,        //! the minimum distance constraint between setting trackpoints
-      Conjunction,            //! if TRUE, all constraints needs to be fulfilled before setting trackpoints
+      VectorLayer,            //! layer in the current tracking session
+      RubberModel,            //! rubberbandmodel used in the current tracking session
+      TimeInterval,           //! minimum time interval constraint between each tracked point
+      MinimumDistance,        //! minimum distance constraint between each tracked point
+      Conjunction,            //! if TRUE, all constraints needs to be fulfilled before tracking a point
       Visible,                //! if the layer and so the tracking components like rubberband is visible
-      Feature,                //! the feature in the current tracking session
-      StartPositionTimestamp, //! the timestamp when the current tracking session started
-      MeasureType,            //! the measurement type used to set the measure value
-      SensorCapture,          //! if TRUE, newly captured sensor data constraint required between setting trackpoints
+      Feature,                //! feature in the current tracking session
+      StartPositionTimestamp, //! timestamp when the current tracking session started
+      MeasureType,            //! measurement type used to set the measure value
+      SensorCapture,          //! if TRUE, newly captured sensor data constraint will be required between each tracked point
+      MaximumDistance,        //! maximum distance tolerated beyond which a position will be considered errenous
     };
 
     QHash<int, QByteArray> roleNames() const override;
