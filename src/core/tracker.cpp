@@ -23,8 +23,8 @@
 
 #define MAXIMUM_DISTANCE_FAILURES 20
 
-Tracker::Tracker( QgsVectorLayer *layer, bool visible )
-  : mLayer( layer ), mVisible( visible )
+Tracker::Tracker( QgsVectorLayer *layer )
+  : mLayer( layer )
 {
 }
 

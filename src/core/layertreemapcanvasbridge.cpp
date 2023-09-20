@@ -131,7 +131,7 @@ void LayerTreeMapCanvasBridge::setCanvasLayers( QgsLayerTreeNode *node, QList<Qg
       }
       QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
       if ( layer )
-        mTrackingModel->setLayerVisible( layer, nodeLayer->isVisible() );
+        mTrackingModel->setTrackerVisibility( layer, nodeLayer->isVisible() );
     }
   }
 

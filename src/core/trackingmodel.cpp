@@ -191,10 +191,10 @@ void TrackingModel::reset()
   endResetModel();
 }
 
-QModelIndex TrackingModel::createTracker( QgsVectorLayer *layer, bool visible )
+QModelIndex TrackingModel::createTracker( QgsVectorLayer *layer )
 {
   beginInsertRows( QModelIndex(), mTrackers.count(), mTrackers.count() );
-  mTrackers.append( new Tracker( layer, visible ) );
+  mTrackers.append( new Tracker( layer ) );
   endInsertRows();
   return index( mTrackers.size() - 1, 0 );
 }
@@ -218,7 +218,7 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
   emit layerInTrackingChanged( layer, false );
 }
 
-void TrackingModel::setLayerVisible( QgsVectorLayer *layer, bool visible )
+void TrackingModel::setTrackerVisibility( QgsVectorLayer *layer, bool visible )
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {

@@ -44,7 +44,7 @@ class Tracker : public QObject
     };
     Q_ENUM( MeasureType )
 
-    explicit Tracker( QgsVectorLayer *layer, bool visible );
+    explicit Tracker( QgsVectorLayer *layer );
 
     RubberbandModel *model() const;
     void setModel( RubberbandModel *model );
@@ -89,9 +89,9 @@ class Tracker : public QObject
     //! Sets the created feature
     void setFeature( const QgsFeature &feature ) { mFeature = feature; }
 
-    //! Returns TRUE if the layer and the rubberband are visible
+    //! Returns TRUE if the tracker rubberband is visible
     bool visible() const { return mVisible; }
-    //! Sets whether the layer and the rubberband are visible
+    //! Sets whether the tracker rubberband is visible
     void setVisible( const bool visible ) { mVisible = visible; }
 
     MeasureType measureType() const { return mMeasureType; }

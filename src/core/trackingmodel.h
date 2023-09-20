@@ -39,7 +39,7 @@ class TrackingModel : public QAbstractItemModel
       TimeInterval,           //! minimum time interval constraint between each tracked point
       MinimumDistance,        //! minimum distance constraint between each tracked point
       Conjunction,            //! if TRUE, all constraints needs to be fulfilled before tracking a point
-      Visible,                //! if the layer and so the tracking components like rubberband is visible
+      Visible,                //! if TRUE, the tracking session rubberband is visible
       Feature,                //! feature in the current tracking session
       StartPositionTimestamp, //! timestamp when the current tracking session started
       MeasureType,            //! measurement type used to set the measure value
@@ -55,19 +55,19 @@ class TrackingModel : public QAbstractItemModel
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
     virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-    //! creates a tracking session for this \a layer and the information if it's \a visible , so it's ready to receive properties
-    Q_INVOKABLE QModelIndex createTracker( QgsVectorLayer *layer, bool visible );
-    //! starts the tracking for the current tracking session of this \a layer, collects first vertex
+    //! Creates a tracking session for the provided vector \a layer.
+    Q_INVOKABLE QModelIndex createTracker( QgsVectorLayer *layer );
+    //! Starts tracking for the provided vector \a layer provided it has a tracking session created.
     Q_INVOKABLE void startTracker( QgsVectorLayer *layer );
-    //! stops the tracking session of this \a layer
+    //! Stops the tracking session of the provided vector \a layer.
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
-    //! sets the information that this \a layer is \a visible or not, means the tracking component should be as well
-    Q_INVOKABLE void setLayerVisible( QgsVectorLayer *layer, bool visible );
-    //! if the \a feature id is in a tracking session
+    //! Sets whether the tracking session rubber band is \a visible.
+    Q_INVOKABLE void setTrackerVisibility( QgsVectorLayer *layer, bool visible );
+    //! Returns TRUE if the \a featureId is attached to a vector \a layer tracking session.
     Q_INVOKABLE bool featureInTracking( QgsVectorLayer *layer, QgsFeatureId featureId );
-    //! if any of the \a features are in a tracking session
+    //! Returns TRUE if the list of \a features is attached to a vector \a layer tracking session.
     Q_INVOKABLE bool featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features );
-    //! if the \a layer is in a tracking session
+    //! Returns TRUE if the vector \a layer has a tracking session.
     Q_INVOKABLE bool layerInTracking( QgsVectorLayer *layer );
 
     void reset();
