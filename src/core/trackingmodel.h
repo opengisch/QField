@@ -56,7 +56,7 @@ class TrackingModel : public QAbstractItemModel
     virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
     //! creates a tracking session for this \a layer and the information if it's \a visible , so it's ready to receive properties
-    Q_INVOKABLE void createTracker( QgsVectorLayer *layer, bool visible );
+    Q_INVOKABLE QModelIndex createTracker( QgsVectorLayer *layer, bool visible );
     //! starts the tracking for the current tracking session of this \a layer, collects first vertex
     Q_INVOKABLE void startTracker( QgsVectorLayer *layer );
     //! stops the tracking session of this \a layer

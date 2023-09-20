@@ -76,18 +76,36 @@ int TrackingModel::columnCount( const QModelIndex &parent ) const
 
 QVariant TrackingModel::data( const QModelIndex &index, int role ) const
 {
+  if ( index.row() < 0 || index.row() >= mTrackers.size() )
+    return QVariant();
+
+  Tracker *tracker = mTrackers[index.row()];
   switch ( role )
   {
     case DisplayString:
-      return QString( "Tracker on layer %1" ).arg( mTrackers.at( index.row() )->layer()->name() );
+      return QString( "Tracker on layer %1" ).arg( tracker->layer()->name() );
     case VectorLayer:
-      return QVariant::fromValue<QgsVectorLayer *>( mTrackers.at( index.row() )->layer() );
+      return QVariant::fromValue<QgsVectorLayer *>( tracker->layer() );
+    case Feature:
+      return QVariant::fromValue<QgsFeature>( tracker->feature() );
     case Visible:
-      return mTrackers.at( index.row() )->visible();
+      return tracker->visible();
     case StartPositionTimestamp:
-      return mTrackers.at( index.row() )->startPositionTimestamp();
+      return tracker->startPositionTimestamp();
+    case TimeInterval:
+      return tracker->timeInterval();
+    case MinimumDistance:
+      return tracker->minimumDistance();
+    case Conjunction:
+      return tracker->minimumDistance();
+    case RubberModel:
+      return QVariant::fromValue<RubberbandModel *>( tracker->model() );
     case MeasureType:
-      return mTrackers.at( index.row() )->measureType();
+      return tracker->measureType();
+    case SensorCapture:
+      return tracker->sensorCapture();
+    case MaximumDistance:
+      return tracker->maximumDistance();
     default:
       return QVariant();
   }
@@ -95,35 +113,38 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
 
 bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  Tracker *currentTracker = mTrackers[index.row()];
+  if ( index.row() < 0 || index.row() >= mTrackers.size() )
+    return false;
+
+  Tracker *tracker = mTrackers[index.row()];
   switch ( role )
   {
-    case TimeInterval:
-      currentTracker->setTimeInterval( value.toDouble() );
-      break;
-    case MinimumDistance:
-      currentTracker->setMinimumDistance( value.toDouble() );
-      break;
-    case Conjunction:
-      currentTracker->setConjunction( value.toBool() );
-      break;
     case Feature:
-      currentTracker->setFeature( value.value<QgsFeature>() );
-      break;
-    case RubberModel:
-      currentTracker->setModel( value.value<RubberbandModel *>() );
+      tracker->setFeature( value.value<QgsFeature>() );
       break;
     case Visible:
-      currentTracker->setVisible( value.toBool() );
+      tracker->setVisible( value.toBool() );
+      break;
+    case TimeInterval:
+      tracker->setTimeInterval( value.toDouble() );
+      break;
+    case MinimumDistance:
+      tracker->setMinimumDistance( value.toDouble() );
+      break;
+    case Conjunction:
+      tracker->setConjunction( value.toBool() );
+      break;
+    case RubberModel:
+      tracker->setModel( value.value<RubberbandModel *>() );
       break;
     case MeasureType:
-      currentTracker->setMeasureType( static_cast<Tracker::MeasureType>( value.toInt() ) );
+      tracker->setMeasureType( static_cast<Tracker::MeasureType>( value.toInt() ) );
       break;
     case SensorCapture:
-      currentTracker->setSensorCapture( value.toBool() );
+      tracker->setSensorCapture( value.toBool() );
       break;
     case MaximumDistance:
-      currentTracker->setMaximumDistance( value.toDouble() );
+      tracker->setMaximumDistance( value.toDouble() );
       break;
     default:
       return false;
@@ -170,11 +191,12 @@ void TrackingModel::reset()
   endResetModel();
 }
 
-void TrackingModel::createTracker( QgsVectorLayer *layer, bool visible )
+QModelIndex TrackingModel::createTracker( QgsVectorLayer *layer, bool visible )
 {
   beginInsertRows( QModelIndex(), mTrackers.count(), mTrackers.count() );
   mTrackers.append( new Tracker( layer, visible ) );
   endInsertRows();
+  return index( mTrackers.size() - 1, 0 );
 }
 
 void TrackingModel::startTracker( QgsVectorLayer *layer )

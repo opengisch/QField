@@ -302,7 +302,10 @@ Popup {
               trackingModel.stopTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer));
               displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer).name  ) )
             } else {
-              trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisibleCheckBox.checked );
+              trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisibleCheckBox.checked )
+              var tracker = trackings.itemAt(trackings.count - 1).tracker
+              trackerSettings.tracker = tracker
+              trackerSettings.open()
             }
             close()
           }

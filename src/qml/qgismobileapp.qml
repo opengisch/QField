@@ -3357,6 +3357,10 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
+  TrackerSettings {
+    id: trackerSettings
+  }
+
   QFieldSettings {
     id: qfieldSettings
 
