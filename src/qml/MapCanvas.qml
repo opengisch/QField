@@ -195,6 +195,7 @@ Item {
   // stylus clicks
   TapHandler {
     enabled: interactive && hovered && !pinchArea.isDragging
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything | PointerHandler.ApprovesCancellation
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedButtons: Qt.LeftButton | Qt.RightButton
 
