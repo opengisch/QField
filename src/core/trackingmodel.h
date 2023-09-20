@@ -69,6 +69,8 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE bool featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features );
     //! Returns TRUE if the vector \a layer has a tracking session.
     Q_INVOKABLE bool layerInTracking( QgsVectorLayer *layer );
+    //! Returns the tracker for the vector \a layer if a tracking session is present, otherwise returns NULLPTR.
+    Tracker *trackerForLayer( QgsVectorLayer *layer );
 
     void reset();
 

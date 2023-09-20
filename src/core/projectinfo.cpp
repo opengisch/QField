@@ -79,7 +79,7 @@ QgsQuickMapSettings *ProjectInfo::mapSettings() const
 
 void ProjectInfo::setLayerTree( FlatLayerTreeModel *layerTree )
 {
-  if ( !layerTree )
+  if ( mLayerTree == layerTree )
     return;
 
   if ( mLayerTree )
@@ -88,7 +88,11 @@ void ProjectInfo::setLayerTree( FlatLayerTreeModel *layerTree )
   }
 
   mLayerTree = layerTree;
-  connect( mLayerTree, &FlatLayerTreeModel::mapThemeChanged, this, &ProjectInfo::mapThemeChanged );
+
+  if ( mLayerTree )
+  {
+    connect( mLayerTree, &FlatLayerTreeModel::mapThemeChanged, this, &ProjectInfo::mapThemeChanged );
+  }
 
   emit layerTreeChanged();
 }
@@ -96,6 +100,75 @@ void ProjectInfo::setLayerTree( FlatLayerTreeModel *layerTree )
 FlatLayerTreeModel *ProjectInfo::layerTree() const
 {
   return mLayerTree;
+}
+
+void ProjectInfo::setTrackingModel( TrackingModel *trackingModel )
+{
+  if ( mTrackingModel == trackingModel )
+    return;
+
+  mTrackingModel = trackingModel;
+
+  emit trackingModelChanged();
+}
+
+TrackingModel *ProjectInfo::trackingModel() const
+{
+  return mTrackingModel;
+}
+
+
+void ProjectInfo::saveTracker( QgsVectorLayer *layer )
+{
+  if ( !layer || !mTrackingModel || !mTrackingModel->layerInTracking( layer ) )
+    return;
+
+  Tracker *tracker = mTrackingModel->trackerForLayer( layer );
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
+  mSettings.setValue( "minimumDistance", tracker->minimumDistance() );
+  mSettings.setValue( "timeInterval", tracker->timeInterval() );
+  mSettings.setValue( "sensorCapture", tracker->sensorCapture() );
+  mSettings.setValue( "conjunction", tracker->conjunction() );
+  mSettings.setValue( "maximumDistance", tracker->maximumDistance() );
+  mSettings.setValue( "measureType", static_cast<int>( tracker->measureType() ) );
+  mSettings.setValue( "visible", tracker->visible() );
+  mSettings.setValue( "featureId", tracker->feature().id() );
+  mSettings.endGroup();
+}
+
+QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
+{
+  if ( !layer || !mTrackingModel || mTrackingModel->layerInTracking( layer ) )
+    return QModelIndex();
+
+  if ( !mSettings.contains( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) ) )
+    return QModelIndex();
+
+  mTrackingModel->createTracker( layer );
+  Tracker *tracker = mTrackingModel->trackerForLayer( layer );
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
+  tracker->setMinimumDistance( mSettings.value( "minimumDistance", 0 ).toDouble() );
+  tracker->setTimeInterval( mSettings.value( "timeInterval", 0 ).toDouble() );
+  tracker->setSensorCapture( mSettings.value( "sensorCapture", false ).toBool() );
+  tracker->setConjunction( mSettings.value( "conjunction", false ).toBool() );
+  tracker->setMaximumDistance( mSettings.value( "maximumDistance", 0 ).toDouble() );
+  tracker->setMeasureType( static_cast<Tracker::MeasureType>( mSettings.value( "measureType", 0 ).toInt() ) );
+  tracker->setVisible( mSettings.value( "visible", true ).toBool() );
+  const QgsFeatureId fid = mSettings.value( "featureId", FID_NULL ).toLongLong();
+  if ( fid >= 0 )
+  {
+    QgsFeature feature = layer->getFeature( fid );
+    tracker->setFeature( feature );
+  }
+  else
+  {
+    tracker->setFeature( QgsFeature( layer->fields() ) );
+  }
+  mSettings.endGroup();
+
+  return QModelIndex();
 }
 
 void ProjectInfo::extentChanged()

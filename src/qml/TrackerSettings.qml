@@ -418,6 +418,9 @@ Popup {
             } else {
               trackingModel.startTracker(tracker.vectorLayer)
               displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
+              if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
+                projectInfo.saveTracker(featureModel.currentLayer)
+              }
             }
           }
         }
@@ -494,6 +497,9 @@ Popup {
           embeddedFeatureForm.active = false
           trackingModel.startTracker(tracker.vectorLayer)
           displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
+          if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
+            projectInfo.saveTracker(featureModel.currentLayer)
+          }
           trackerSettings.close()
         }
 

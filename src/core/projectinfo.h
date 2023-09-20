@@ -21,6 +21,7 @@
 #include "layertreemodel.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
+#include "trackingmodel.h"
 
 #include <QObject>
 #include <QSettings>
@@ -42,6 +43,7 @@ class ProjectInfo : public QObject
     Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
     Q_PROPERTY( QString stateMode READ stateMode WRITE setStateMode NOTIFY stateModeChanged )
     Q_PROPERTY( QgsMapLayer *activeLayer READ activeLayer WRITE setActiveLayer NOTIFY activeLayerChanged )
+    Q_PROPERTY( TrackingModel *trackingModel READ trackingModel WRITE setTrackingModel NOTIFY trackingModelChanged )
 
   public:
     explicit ProjectInfo( QObject *parent = nullptr );
@@ -59,6 +61,10 @@ class ProjectInfo : public QObject
     void setLayerTree( FlatLayerTreeModel *layerTree );
 
     FlatLayerTreeModel *layerTree() const;
+
+    void setTrackingModel( TrackingModel *trackingModel );
+
+    TrackingModel *trackingModel() const;
 
     /**
      * Saves the \a layer style to the current project information settings
@@ -96,6 +102,9 @@ class ProjectInfo : public QObject
      */
     QgsMapLayer *activeLayer() const;
 
+    Q_INVOKABLE void saveTracker( QgsVectorLayer *layer );
+
+    Q_INVOKABLE QModelIndex restoreTracker( QgsVectorLayer *layer );
 
     static void restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree );
 
@@ -106,6 +115,7 @@ class ProjectInfo : public QObject
     void layerTreeChanged();
     void stateModeChanged();
     void activeLayerChanged();
+    void trackingModelChanged();
 
   private slots:
 
@@ -128,6 +138,7 @@ class ProjectInfo : public QObject
     QTimer mSaveTemporalStateTimer;
 
     FlatLayerTreeModel *mLayerTree = nullptr;
+    TrackingModel *mTrackingModel = nullptr;
 
     bool mIsTemporal = false;
 };

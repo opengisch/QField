@@ -183,6 +183,18 @@ bool TrackingModel::layerInTracking( QgsVectorLayer *layer )
   return trackerIterator( layer ) != mTrackers.constEnd();
 }
 
+Tracker *TrackingModel::trackerForLayer( QgsVectorLayer *layer )
+{
+  for ( Tracker *tracker : std::as_const( mTrackers ) )
+  {
+    if ( tracker->layer() == layer )
+    {
+      return tracker;
+    }
+  }
+  return nullptr;
+}
+
 void TrackingModel::reset()
 {
   beginResetModel();

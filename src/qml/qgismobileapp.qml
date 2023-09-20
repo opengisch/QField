@@ -3173,6 +3173,7 @@ ApplicationWindow {
 
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
+    trackingModel: trackings.model
 
     property var distanceUnits: Qgis.DistanceUnit.Meters
     property var areaUnits: Qgis.AreaUnit.SquareMeters

@@ -73,6 +73,7 @@ Item {
             // indirect action, no need to check for success and display a toast, the log is enough
             featureModel.create()
             tracker.feature = featureModel.feature
+            projectInfo.saveTracker(featureModel.currentLayer)
           }
           else
           {
