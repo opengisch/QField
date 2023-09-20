@@ -45,6 +45,7 @@ class TrackingModel : public QAbstractItemModel
       MeasureType,            //! measurement type used to set the measure value
       SensorCapture,          //! if TRUE, newly captured sensor data constraint will be required between each tracked point
       MaximumDistance,        //! maximum distance tolerated beyond which a position will be considered errenous
+      IsActive,               //! if TRUE, the tracker has been started
     };
 
     QHash<int, QByteArray> roleNames() const override;

@@ -43,6 +43,7 @@ QHash<int, QByteArray> TrackingModel::roleNames() const
   roles[StartPositionTimestamp] = "startPositionTimestamp";
   roles[MeasureType] = "measureType";
   roles[SensorCapture] = "sensorCapture";
+  roles[IsActive] = "isActive";
 
   return roles;
 }
@@ -106,6 +107,8 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
       return tracker->sensorCapture();
     case MaximumDistance:
       return tracker->maximumDistance();
+    case IsActive:
+      return tracker->isActive();
     default:
       return QVariant();
   }
@@ -215,6 +218,9 @@ void TrackingModel::startTracker( QgsVectorLayer *layer )
 {
   int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
   mTrackers[listIndex]->start();
+
+  QModelIndex idx = index( listIndex, 0 );
+  emit dataChanged( idx, idx, QVector<int>() << TrackingModel::IsActive );
   emit layerInTrackingChanged( layer, true );
 }
 
@@ -222,6 +228,9 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
 {
   int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
   mTrackers[listIndex]->stop();
+
+  QModelIndex idx = index( listIndex, 0 );
+  emit dataChanged( idx, idx, QVector<int>() << TrackingModel::IsActive );
 
   beginRemoveRows( QModelIndex(), listIndex, listIndex );
   delete mTrackers.takeAt( listIndex );

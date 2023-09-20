@@ -146,25 +146,24 @@ QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
     return QModelIndex();
 
   QModelIndex index = mTrackingModel->createTracker( layer );
-  Tracker *tracker = mTrackingModel->trackerForLayer( layer );
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
-  tracker->setMinimumDistance( mSettings.value( "minimumDistance", 0 ).toDouble() );
-  tracker->setTimeInterval( mSettings.value( "timeInterval", 0 ).toDouble() );
-  tracker->setSensorCapture( mSettings.value( "sensorCapture", false ).toBool() );
-  tracker->setConjunction( mSettings.value( "conjunction", false ).toBool() );
-  tracker->setMaximumDistance( mSettings.value( "maximumDistance", 0 ).toDouble() );
-  tracker->setMeasureType( static_cast<Tracker::MeasureType>( mSettings.value( "measureType", 0 ).toInt() ) );
-  tracker->setVisible( mSettings.value( "visible", true ).toBool() );
+  mTrackingModel->setData( index, mSettings.value( "minimumDistance", 0 ).toDouble(), TrackingModel::MinimumDistance );
+  mTrackingModel->setData( index, mSettings.value( "timeInterval", 0 ).toDouble(), TrackingModel::TimeInterval );
+  mTrackingModel->setData( index, mSettings.value( "sensorCapture", false ).toBool(), TrackingModel::SensorCapture );
+  mTrackingModel->setData( index, mSettings.value( "conjunction", false ).toBool(), TrackingModel::Conjunction );
+  mTrackingModel->setData( index, mSettings.value( "maximumDistance", 0 ).toDouble(), TrackingModel::MaximumDistance );
+  mTrackingModel->setData( index, static_cast<Tracker::MeasureType>( mSettings.value( "measureType", 0 ).toInt() ), TrackingModel::MeasureType );
+  mTrackingModel->setData( index, mSettings.value( "visible", true ).toBool(), TrackingModel::MinimumDistance );
   const QgsFeatureId fid = mSettings.value( "featureId", FID_NULL ).toLongLong();
   if ( fid >= 0 )
   {
     QgsFeature feature = layer->getFeature( fid );
-    tracker->setFeature( feature );
+    mTrackingModel->setData( index, QVariant::fromValue<QgsFeature>( feature ), TrackingModel::Feature );
   }
   else
   {
-    tracker->setFeature( QgsFeature( layer->fields() ) );
+    mTrackingModel->setData( index, QVariant::fromValue<QgsFeature>( QgsFeature( layer->fields() ) ), TrackingModel::Feature );
   }
   mSettings.endGroup();
 

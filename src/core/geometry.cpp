@@ -91,10 +91,17 @@ void Geometry::updateRubberband( const QgsGeometry &geometry )
   if ( !mRubberbandModel )
     return;
 
-  if ( mVectorLayer )
-    mRubberbandModel->setDataFromGeometry( geometry, mVectorLayer->crs() );
+  if ( !geometry.isEmpty() )
+  {
+    if ( mVectorLayer )
+      mRubberbandModel->setDataFromGeometry( geometry, mVectorLayer->crs() );
+    else
+      mRubberbandModel->setDataFromGeometry( geometry );
+  }
   else
-    mRubberbandModel->setDataFromGeometry( geometry );
+  {
+    mRubberbandModel->reset();
+  }
 }
 
 QgsVectorLayer *Geometry::vectorLayer() const

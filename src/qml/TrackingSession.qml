@@ -52,7 +52,7 @@ Item {
     crs: mapCanvas.mapSettings.destinationCrs
 
     onVertexCountChanged: {
-      if (vertexCount == 0) {
+      if (!tracker.isActive || vertexCount == 0) {
         return;
       }
 
@@ -105,6 +105,12 @@ Item {
     project: qgisProject
     currentLayer: tracker.vectorLayer
     feature: tracker.feature
+
+    onFeatureChanged: {
+      if (!tracker.isActive) {
+        updateRubberband()
+      }
+    }
 
     geometry: Geometry {
       id: featureModelGeometry

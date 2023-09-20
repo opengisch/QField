@@ -37,7 +37,21 @@ void Tracker::setModel( RubberbandModel *model )
 {
   if ( mRubberbandModel == model )
     return;
+
   mRubberbandModel = model;
+}
+
+QgsFeature Tracker::feature() const
+{
+  return mFeature;
+}
+
+void Tracker::setFeature( const QgsFeature &feature )
+{
+  if ( mFeature == feature )
+    return;
+
+  mFeature = feature;
 }
 
 void Tracker::trackPosition()
@@ -133,6 +147,9 @@ void Tracker::sensorDataReceived()
 
 void Tracker::start()
 {
+  mIsActive = true;
+  emit isActiveChanged();
+
   if ( mTimeInterval > 0 )
   {
     connect( &mTimer, &QTimer::timeout, this, &Tracker::timeReceived );
@@ -184,6 +201,9 @@ void Tracker::stop()
 {
   //track last position
   trackPosition();
+
+  mIsActive = false;
+  emit isActiveChanged();
 
   if ( mTimeInterval > 0 )
   {

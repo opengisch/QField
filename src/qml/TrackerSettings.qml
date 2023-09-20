@@ -33,7 +33,17 @@ Popup {
       sensorCapture.checked = tracker.sensorCapture
       allConstraints.checked = tracker.conjunction && (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
       measureComboBox.currentIndex = tracker.measureType
+      resumeTrackingButton.visible = tracker.feature.id >= 0
     }
+  }
+
+  function applySettings() {
+    tracker.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text
+    tracker.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text
+    tracker.maximumDistance = erroneousDistanceValue.text.length == 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text
+    tracker.sensorCapture = sensorCapture.checked
+    tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked
+    tracker.measureType = measureComboBox.currentIndex
   }
 
   Page {
@@ -397,7 +407,7 @@ Popup {
         }
 
         QfButton {
-          id: trackingButton
+          id: startTrackingButton
           Layout.topMargin: 8
           Layout.fillWidth: true
           Layout.columnSpan: 2
@@ -405,14 +415,9 @@ Popup {
           icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
           onClicked: {
-            tracker.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text
-            tracker.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text
-            tracker.maximumDistance = erroneousDistanceValue.text.length == 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text
-            tracker.sensorCapture = sensorCapture.checked
-            tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked
-            tracker.measureType = measureComboBox.currentIndex
-
+            applySettings()
             featureModel.resetAttributes()
+            tracker.feature = featureModel.feature
             if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
               embeddedFeatureForm.active = true
             } else {
@@ -421,7 +426,29 @@ Popup {
               if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
                 projectInfo.saveTracker(featureModel.currentLayer)
               }
+              trackerSettings.close()
             }
+          }
+        }
+
+        QfButton {
+          id: resumeTrackingButton
+          Layout.topMargin: 8
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+          text: qsTr( "Resume tracking")
+          icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+          icon.color: Theme.mainColor
+          bgcolor: "transparent"
+          color: Theme.mainColor
+          visible: false
+
+          onClicked: {
+            applySettings()
+            trackingModel.startTracker(tracker.vectorLayer)
+            displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
+            projectInfo.saveTracker(featureModel.currentLayer)
+            trackerSettings.close()
           }
         }
 

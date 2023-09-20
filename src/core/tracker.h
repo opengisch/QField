@@ -85,9 +85,9 @@ class Tracker : public QObject
     void setLayer( QgsVectorLayer *layer ) { mLayer = layer; }
 
     //! Returns the created feature
-    QgsFeature feature() const { return mFeature; }
+    QgsFeature feature() const;
     //! Sets the created feature
-    void setFeature( const QgsFeature &feature ) { mFeature = feature; }
+    void setFeature( const QgsFeature &feature );
 
     //! Returns TRUE if the tracker rubberband is visible
     bool visible() const { return mVisible; }
@@ -97,11 +97,14 @@ class Tracker : public QObject
     MeasureType measureType() const { return mMeasureType; }
     void setMeasureType( MeasureType type ) { mMeasureType = type; }
 
+    bool isActive() const { return mIsActive; }
+
     void start();
     void stop();
 
   signals:
     void startPositionTimestampChanged();
+    void isActiveChanged();
 
   private slots:
     void positionReceived();
@@ -110,6 +113,8 @@ class Tracker : public QObject
 
   private:
     void trackPosition();
+
+    bool mIsActive = false;
 
     RubberbandModel *mRubberbandModel = nullptr;
 
