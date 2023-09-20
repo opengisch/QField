@@ -154,7 +154,7 @@ QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
   mTrackingModel->setData( index, mSettings.value( "conjunction", false ).toBool(), TrackingModel::Conjunction );
   mTrackingModel->setData( index, mSettings.value( "maximumDistance", 0 ).toDouble(), TrackingModel::MaximumDistance );
   mTrackingModel->setData( index, static_cast<Tracker::MeasureType>( mSettings.value( "measureType", 0 ).toInt() ), TrackingModel::MeasureType );
-  mTrackingModel->setData( index, mSettings.value( "visible", true ).toBool(), TrackingModel::MinimumDistance );
+  mTrackingModel->setData( index, mSettings.value( "visible", true ).toBool(), TrackingModel::Visible );
   const QgsFeatureId fid = mSettings.value( "featureId", FID_NULL ).toLongLong();
   if ( fid >= 0 )
   {

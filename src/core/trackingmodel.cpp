@@ -98,7 +98,7 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
     case MinimumDistance:
       return tracker->minimumDistance();
     case Conjunction:
-      return tracker->minimumDistance();
+      return tracker->conjunction();
     case RubberModel:
       return QVariant::fromValue<RubberbandModel *>( tracker->model() );
     case MeasureType:
