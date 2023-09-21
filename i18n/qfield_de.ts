@@ -3127,6 +3127,97 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Tracking auf Layer %1 aktiviert</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Tracker - Optionen</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Minimumzeit [sek]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Minimumentfernung [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Tracking starten</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Das Tracking kann nicht mit leeren Werten gestartet werden</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">Vergangene Zeit (Sekunden seit Beginn des Trackings)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Zeitstempel (Milisekunden seit Zeitalter)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Bodengeschwindigkeit</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Peilung</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Horizontale Genauigkeit</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Vertikale Genauigkeit</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">Um die Messfunktion zu aktivieren, stellen Sie sicher, dass der Geometrietyp der für die Trackingsitzung verwendeten Vektorebene eine M-Dimension hat.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Tracking auf Layer %1 aktiviert</translation>
     </message>
     <message>
@@ -3150,23 +3241,35 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <translation>Minimumentfernung [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
+        <source>Activate sensor constraint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <source>Record when all active constraints are met</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Tracking starten</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Das Tracking kann nicht mit leeren Werten gestartet werden</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3214,24 +3317,8 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <translation>Um die Messfunktion zu aktivieren, stellen Sie sicher, dass der Geometrietyp der für die Trackingsitzung verwendeten Vektorebene eine M-Dimension hat.</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <source>Start tracking</source>
+        <translation>Tracking starten</translation>
     </message>
 </context>
 <context>

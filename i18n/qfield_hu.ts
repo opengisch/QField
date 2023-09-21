@@ -1174,7 +1174,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Az aktív réteg elemei közötti kereséshez válasszon ki egy réteget a jelmagyarázatban.</translation>
     </message>
 </context>
 <context>
@@ -1338,7 +1338,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Nyomtatás...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -1469,39 +1469,39 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen a fájl forrás mentése</translation>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Válassz kép fájlt</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Minden kép (*.jpg *.jpeg *.png *.bmp);;JPEG képek (*.jpg *.jpeg);;PNG képek (*.jpg *.jpeg);;BMP képek (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Válassz videó fájlt</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Minden videó (*.mp4 *.mkv *.mov);;MP4 videó (*.mp4);;MKV videó (*.mkv);;MOV videó (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Audió fájlok (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Minden fájl (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Válassz fájlt</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Audió fájlok (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1602,23 +1602,23 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Soros port (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -1706,7 +1706,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Hangfelvevő</translation>
     </message>
 </context>
 <context>
@@ -1754,7 +1754,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Bejelentkezési hiba váratlan átirányítás miatt, kérjük, próbálja később</translation>
     </message>
 </context>
 <context>
@@ -2258,7 +2258,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Nem találtunk projekteket</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -3126,6 +3126,97 @@ Cancel to make a minimal device scan instead.</source>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">%1 rétegen a követés elindult</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Követés beállítások</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">Aktiválja az időkorlátot</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Minimum idő [sec]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">Aktiválja a távolságkorlátozást</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Minimum távolság [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">Rögzítse, ha mindkét aktív korlátozás teljesül</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">Ha engedélyezve van, a csúcsok csak akkor rögzíthetők, ha mindkét aktív korlátozás teljesül. Ha nincs engedélyezve, már egy korlátozás teljesítése csúcsösszeadást vált ki.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Követés indítása</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Üres értékekkel nem lehet elkezdeni a követést</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">Ha mindkét megszorítás le van tiltva, a töréspont hozzáadás olyan gyakran történik, ahogy az eszköz pozíciót küld.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Időbélyeg (ezredmásodperc a kezdet óta)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Felszíni sebesség</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Irány</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Vízszintes pontosság</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Függőleges pontosság</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>%1 rétegen a követés elindult</translation>
     </message>
     <message>
@@ -3149,24 +3240,36 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Minimum távolság [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">Rögzítse, ha mindkét aktív korlátozás teljesül</translation>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Ha engedélyezve van, a csúcsok csak akkor rögzíthetők, ha mindkét aktív korlátozás teljesül. Ha nincs engedélyezve, már egy korlátozás teljesítése csúcsösszeadást vált ki.</translation>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Követés indítása</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Üres értékekkel nem lehet elkezdeni a követést</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Ha mindkét megszorítás le van tiltva, a töréspont hozzáadás olyan gyakran történik, ahogy az eszköz pozíciót küld.</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3213,24 +3316,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <source>Start tracking</source>
+        <translation>Követés indítása</translation>
     </message>
 </context>
 <context>
@@ -3842,7 +3929,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Nyomtatás...</translation>
     </message>
     <message>
         <source>Print</source>

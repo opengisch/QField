@@ -1148,7 +1148,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve unha lista de entidades a través de tódalas capas consultables con nome visible coincidente.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
@@ -1229,7 +1229,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Rexistrar perfilar de execución</translation>
     </message>
 </context>
 <context>
@@ -3132,6 +3132,97 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Comezou o seguimento na capa %1</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Configuración do Seguimento</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">Activar restrición de tempo</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Tempo mínimo [seg.]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">Activar restrición de distancia</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Distancia mínima [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">Rexistrar cando se estean activadas ámbalas restricións</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">Cando se activa, os vértices só se rexistrarán cando estean activadas ámbalas restricións. Se a configuración está desactivada, as restricións individuais dadas desencadearán unha adición de vértice.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Comezar o trazado</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">O seguimento non pode comezar con valores baleiros</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">Cando ámbalas restricións se desactivan, a adición de vértices ocorrerá tan frecuentemente como se envíen dende o dispositivo de posicionamento.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">Valor da medida (M) engadido ós vértices:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">Tempo transcorrido (segundos dende o inicio do trazado)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Tempo (milisegundos dende epoch)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Velocidade terrestre</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Rumbo</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Precisión horizontal</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Precisión vertical</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">Para activar a funcionalidade de medida, asegúrate de que o tipo de xeometría das capas vectoriais utilizadas para a sesión de trazado teña unha dimensión M.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Comezou o seguimento na capa %1</translation>
     </message>
     <message>
@@ -3155,24 +3246,36 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Distancia mínima [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">Rexistrar cando se estean activadas ámbalas restricións</translation>
+        <source>Activate sensor constraint</source>
+        <translation>Activar restrición do sensor</translation>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Cando se activa, os vértices só se rexistrarán cando estean activadas ámbalas restricións. Se a configuración está desactivada, as restricións individuais dadas desencadearán unha adición de vértice.</translation>
+        <source>Record when all active constraints are met</source>
+        <translation>Rexistrar cando se cumpran tódalas restricións activas</translation>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Comezar o trazado</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation>Cando se activa, os vértices só se rexistrarán cando estean activadas tódalas restricións. Se a configuración está desactivada, as restricións individuais dadas desencadearán unha adición de vértice.</translation>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">O seguimento non pode comezar con valores baleiros</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>Cando se activa unicamente a restrición do sensor, o engadido de vértices producirase cando o sensor capture novos datos.</translation>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Cando ámbalas restricións se desactivan, a adición de vértices ocorrerá tan frecuentemente como se envíen dende o dispositivo de posicionamento.</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>Cando tódalas restricións se desactivan, a adición de vértices ocorrerá tan frecuentemente como se envíen dende o dispositivo de posicionamento.</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation>Protección de distancia errónea</translation>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation>Distancia máxima tolerada [%1]</translation>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation>Cando a protección de distancia está activada, descartaranse as lecturas das posicións que teñen unha distancia máis aló do valor de tolerancia especificado.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3219,24 +3322,8 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Para activar a funcionalidade de medida, asegúrate de que o tipo de xeometría das capas vectoriais utilizadas para a sesión de trazado teña unha dimensión M.</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>Activar restrición do sensor</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>Rexistrar cando se cumpran tódalas restricións activas</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Cando se activa, os vértices só se rexistrarán cando estean activadas tódalas restricións. Se a configuración está desactivada, as restricións individuais dadas desencadearán unha adición de vértice.</translation>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>Cando se activa unicamente a restrición do sensor, o engadido de vértices producirase cando o sensor capture novos datos.</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Cando tódalas restricións se desactivan, a adición de vértices ocorrerá tan frecuentemente como se envíen dende o dispositivo de posicionamento.</translation>
+        <source>Start tracking</source>
+        <translation>Comezar o trazado</translation>
     </message>
 </context>
 <context>

@@ -3130,6 +3130,97 @@ Cancel to make a minimal device scan instead.</source>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">レイヤー %1 の追跡を開始しました</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">トラッキングの設定</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">時間制約の有効化</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">最小時間 [秒]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">距離制約の有効化</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">最短距離 [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">両方の制約を満たした場合に記録する</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">有効にすると、両方の制約を満たしたときにのみ頂点が記録されます。この設定を無効にすると、個々の制約が満たされたときに頂点の追加が行われます。</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">追跡を開始する</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">値が未設定のため追跡を開始できません</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">両方の制約を無効にした場合、頂点の追加は衛星受信機から配信される頻度と同じに行われます。</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">頂点に紐づけられた計測値（M）:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">経過時間（追跡開始からの秒数）</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">タイムスタンプ（エポックミリ秒）</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">対地速度</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">方位</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">水平精度</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">垂直精度</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP（位置精度劣化度）</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP（水平精度劣化度）</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP（垂直精度劣化度）</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">測定機能を有効にするには、追跡セッションで使用するベクターレイヤーのジオメトリタイプがM次元であることを確認してください。</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>レイヤー %1 の追跡を開始しました</translation>
     </message>
     <message>
@@ -3153,24 +3244,36 @@ Cancel to make a minimal device scan instead.</source>
         <translation>最短距離 [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">両方の制約を満たした場合に記録する</translation>
+        <source>Activate sensor constraint</source>
+        <translation>センサーの制約を有効にする</translation>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">有効にすると、両方の制約を満たしたときにのみ頂点が記録されます。この設定を無効にすると、個々の制約が満たされたときに頂点の追加が行われます。</translation>
+        <source>Record when all active constraints are met</source>
+        <translation>全ての制約を満たした場合に記録する</translation>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>追跡を開始する</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation>有効にすると、両方の制約を満たしたときにのみ頂点が記録されます。この設定を無効にすると、個々の制約が満たされたときに頂点の追加が行われます。</translation>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">値が未設定のため追跡を開始できません</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>センサーの制約が単独で有効になっている場合、頂点の追加はセンサーが新しいデータを取得するたびに発生する。</translation>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">両方の制約を無効にした場合、頂点の追加は衛星受信機から配信される頻度と同じに行われます。</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>全ての制約を無効にした場合、頂点の追加は衛星受信機から配信される頻度と同じに行われます。</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3217,24 +3320,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>測定機能を有効にするには、追跡セッションで使用するベクターレイヤーのジオメトリタイプがM次元であることを確認してください。</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>センサーの制約を有効にする</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>全ての制約を満たした場合に記録する</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>有効にすると、両方の制約を満たしたときにのみ頂点が記録されます。この設定を無効にすると、個々の制約が満たされたときに頂点の追加が行われます。</translation>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>センサーの制約が単独で有効になっている場合、頂点の追加はセンサーが新しいデータを取得するたびに発生する。</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>全ての制約を無効にした場合、頂点の追加は衛星受信機から配信される頻度と同じに行われます。</translation>
+        <source>Start tracking</source>
+        <translation>追跡を開始する</translation>
     </message>
 </context>
 <context>

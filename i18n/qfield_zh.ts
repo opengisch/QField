@@ -3130,6 +3130,97 @@ Cancel to make a minimal device scan instead.</source>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">对图层%1的追踪已启动</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">追踪设置</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">激活时间约束</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">最短时间 [秒]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">激活距离约束</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">最短距离 [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">当同时激活两个约束时开始记录</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">启用后，只有在同时激活两个约束时才会记录顶点；如果禁用，满足单个约束将触发增加顶点。</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">开始追踪</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">无法通过空值启动跟踪</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">当两个约束都被禁用时，顶点添加的频率将与定位设备提供的频率相同。</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">附加到顶点的测量值 (M)：</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">经过时间 (自跟踪开始后的秒数)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">时间戳 (Unix时间戳之后的毫秒数)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">对地速度</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">方位角</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">水平精度</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">垂直精度</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">位置精度因子 (PDOP)</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">水平精度因子 (HDOP)</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">垂直精度因子 (VDOP)</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">要激活测量功能，请确保用于跟踪会话矢量图层的几何图形类型具有M维度。</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>对图层%1的追踪已启动</translation>
     </message>
     <message>
@@ -3153,24 +3244,36 @@ Cancel to make a minimal device scan instead.</source>
         <translation>最短距离 [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">当同时激活两个约束时开始记录</translation>
+        <source>Activate sensor constraint</source>
+        <translation>激活传感器约束</translation>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">启用后，只有在同时激活两个约束时才会记录顶点；如果禁用，满足单个约束将触发增加顶点。</translation>
+        <source>Record when all active constraints are met</source>
+        <translation>当所有活动约束都满足时进行记录</translation>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>开始追踪</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation>启用时，只有满足所有活动约束时才会记录顶点。如果禁用该设置，满足某个约束将触发顶点添加。</translation>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">无法通过空值启动跟踪</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>当单独激活传感器约束时，只要传感器捕捉到新数据，就会进行顶点添加。</translation>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">当两个约束都被禁用时，顶点添加的频率将与定位设备提供的频率相同。</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>当禁用所有约束时，顶点添加的频率将与定位设备提供的频率相同。</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3217,24 +3320,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>要激活测量功能，请确保用于跟踪会话矢量图层的几何图形类型具有M维度。</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>激活传感器约束</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>当所有活动约束都满足时进行记录</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>启用时，只有满足所有活动约束时才会记录顶点。如果禁用该设置，满足某个约束将触发顶点添加。</translation>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>当单独激活传感器约束时，只要传感器捕捉到新数据，就会进行顶点添加。</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>当禁用所有约束时，顶点添加的频率将与定位设备提供的频率相同。</translation>
+        <source>Start tracking</source>
+        <translation>开始追踪</translation>
     </message>
 </context>
 <context>

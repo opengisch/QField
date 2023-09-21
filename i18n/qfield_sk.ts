@@ -3135,6 +3135,97 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Začalo trasovanie na vrstve %1</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Nastavenia trasovača</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">Aktivovať časové obmedzenie</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Minimálny čas [sec]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">Aktivovať obmedzenie vzdialenosti</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Minimálna vzdialenosť [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">Zaznamenať po splnení oboch podmienok</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">Po zapnutí budú pridané iba vrcholy, ktoré spĺňajú obe podmienky. Po vypnutí budú pridané také vrcholy, ktoré spĺňajú aspoň jednu podmienku.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Spustiť trasovanie</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Nie je možné spustiť trasu s prázdnymi hodnotami</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">Po vypnutí oboch podmienok budú vrcholy pridávané tak často, ako prichádzajú z prijímača polohy.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">Hodnota merania (M) pripojená k vrcholom:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">Uplynutý čas (v sekundách od spustenia trasovania)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Časová pečiatka (milisekundy od epochy)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Rýchlosť voči zemi</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Smerovník</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Horizontálna presnosť</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Vertikálna presnosť</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">Ak chcete aktivovať funkciu merania, uistite sa, že typ geometrie vektorovej vrstvy použitý pre reláciu trasovania má rozmer M.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Začalo trasovanie na vrstve %1</translation>
     </message>
     <message>
@@ -3158,24 +3249,36 @@ Zrušiť a spraviť minimálny sken.</translation>
         <translation>Minimálna vzdialenosť [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">Zaznamenať po splnení oboch podmienok</translation>
+        <source>Activate sensor constraint</source>
+        <translation>Aktivovať obmedzenie snímača</translation>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Po zapnutí budú pridané iba vrcholy, ktoré spĺňajú obe podmienky. Po vypnutí budú pridané také vrcholy, ktoré spĺňajú aspoň jednu podmienku.</translation>
+        <source>Record when all active constraints are met</source>
+        <translation>Zaznamenať ak sú všetky aktívne obmedzenia splnené</translation>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Spustiť trasovanie</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation>Po zapnutí budú zaznamenávané iba vrcholy, ktoré spĺňajú všetky aktívne obmedzenia. Po vypnutí vyvolá pridanie vrcholu splnenie už jednej podmienky.</translation>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Nie je možné spustiť trasu s prázdnymi hodnotami</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>Keď sa obmedzenie snímača aktivuje samostatne, pridanie vrcholov sa uskutoční vždy, keď snímač zachytí nové údaje.</translation>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Po vypnutí oboch podmienok budú vrcholy pridávané tak často, ako prichádzajú z prijímača polohy.</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>Ak sú vypnuté všetky obmedzenia, budú vrcholy pridávané tak často, ako prichádzajú z prijímača polohy.</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3222,24 +3325,8 @@ Zrušiť a spraviť minimálny sken.</translation>
         <translation>Ak chcete aktivovať funkciu merania, uistite sa, že typ geometrie vektorovej vrstvy použitý pre reláciu trasovania má rozmer M.</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>Aktivovať obmedzenie snímača</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>Zaznamenať ak sú všetky aktívne obmedzenia splnené</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Po zapnutí budú zaznamenávané iba vrcholy, ktoré spĺňajú všetky aktívne obmedzenia. Po vypnutí vyvolá pridanie vrcholu splnenie už jednej podmienky.</translation>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>Keď sa obmedzenie snímača aktivuje samostatne, pridanie vrcholov sa uskutoční vždy, keď snímač zachytí nové údaje.</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Ak sú vypnuté všetky obmedzenia, budú vrcholy pridávané tak často, ako prichádzajú z prijímača polohy.</translation>
+        <source>Start tracking</source>
+        <translation>Spustiť trasovanie</translation>
     </message>
 </context>
 <context>

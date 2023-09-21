@@ -3114,6 +3114,97 @@ Cancel to make a minimal device scan instead.</source>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Sledenje na sloju % 1 se je začelo</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Nastavitve za sledenje</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Najmanjša razdalja [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Začni sledenje</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Sledenja ni mogoče začeti s praznimi vrednostmi</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Potovalna hitrost</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Horizontalna natančnost</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Vertikalna natančnost</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Sledenje na sloju % 1 se je začelo</translation>
     </message>
     <message>
@@ -3137,23 +3228,35 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Najmanjša razdalja [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
+        <source>Activate sensor constraint</source>
+        <translation>Aktiviraj omejitev senzorja</translation>
+    </message>
+    <message>
+        <source>Record when all active constraints are met</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Začni sledenje</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>Ko je aktivirana samo omejitev senzorja, se bodo dodajanja ogljišč zgodila vsakič, ko bo senzor zajel nove podatke.</translation>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Sledenja ni mogoče začeti s praznimi vrednostmi</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3201,24 +3304,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>Aktiviraj omejitev senzorja</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>Ko je aktivirana samo omejitev senzorja, se bodo dodajanja ogljišč zgodila vsakič, ko bo senzor zajel nove podatke.</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <source>Start tracking</source>
+        <translation>Začni sledenje</translation>
     </message>
 </context>
 <context>

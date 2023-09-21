@@ -3130,6 +3130,97 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Pračenje na sloju %1 započelo</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Postavke pračenja</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">Aktiviraj uvjet vremena</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Minimalno vrijeme [sec]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">Aktiviraj uvjet udaljenosti</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Minimalna udaljenost [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">Snimaj kada su oba uvjeta ispunjena</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">Kada je omogućeno, točke linije se mogu snimati samo uz oba ograničenja. Kada je onemogućeno, ispunjenje pojedinog ograničenja će pokrenuti dodavanje točaka linije.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Pokreni pračenje</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Nije moguće pokrenuti pračenje sa praznim vrijednostima</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">Kada su oba ograničenja isključena, učestalost dodavanja točaka će biti u svakom trenutku dostave podatka od prijemnika za pozicioniranje.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">Mjerena (M) vrijednost je dodijeljena točkama:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">Proteklo vrijeme (u sekundama od početka praćenja)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Vremenska oznaka (milisekunde od epohe)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Brzina na terenu</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Smjerni kut</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Horizontalna točnost</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Vertikalna točnost</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">Za aktiviranje funkcionalnosti mjerenja, provjeri obuhvaća li vrsta geometrije vektorskog sloja za praćenje sesije M dimenziju.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Pračenje na sloju %1 započelo</translation>
     </message>
     <message>
@@ -3153,24 +3244,36 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation>Minimalna udaljenost [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">Snimaj kada su oba uvjeta ispunjena</translation>
+        <source>Activate sensor constraint</source>
+        <translation>Aktiviraj ograničenje senzora</translation>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Kada je omogućeno, točke linije se mogu snimati samo uz oba ograničenja. Kada je onemogućeno, ispunjenje pojedinog ograničenja će pokrenuti dodavanje točaka linije.</translation>
+        <source>Record when all active constraints are met</source>
+        <translation>Zapiši kada su sva ograničenja zadovoljena</translation>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Pokreni pračenje</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation>Kada je uključeno, točke će biti zapisane samo ako su sva aktivna ograničenja zadovoljena. Ako je postavka isključena, pojedinačna zadovoljena ograničenja će pokrenuti dodavanje točke.</translation>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Nije moguće pokrenuti pračenje sa praznim vrijednostima</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>Kada je ograničenje senzora samostalno aktivirano, dodavanje točaka će se izvršiti kad god senzor prikupi nove podatke.</translation>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Kada su oba ograničenja isključena, učestalost dodavanja točaka će biti u svakom trenutku dostave podatka od prijemnika za pozicioniranje.</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>Kada su sva ograničenja isključena, dodavanje točaka će se dogoditi u svakom trenutku dostavljnog podatka od uređaja za pozicioniranje.</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3217,24 +3320,8 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation>Za aktiviranje funkcionalnosti mjerenja, provjeri obuhvaća li vrsta geometrije vektorskog sloja za praćenje sesije M dimenziju.</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>Aktiviraj ograničenje senzora</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>Zapiši kada su sva ograničenja zadovoljena</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Kada je uključeno, točke će biti zapisane samo ako su sva aktivna ograničenja zadovoljena. Ako je postavka isključena, pojedinačna zadovoljena ograničenja će pokrenuti dodavanje točke.</translation>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>Kada je ograničenje senzora samostalno aktivirano, dodavanje točaka će se izvršiti kad god senzor prikupi nove podatke.</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Kada su sva ograničenja isključena, dodavanje točaka će se dogoditi u svakom trenutku dostavljnog podatka od uređaja za pozicioniranje.</translation>
+        <source>Start tracking</source>
+        <translation>Pokreni pračenje</translation>
     </message>
 </context>
 <context>

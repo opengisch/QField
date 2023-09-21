@@ -3129,6 +3129,97 @@ Cancel to make a minimal device scan instead.</source>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Suivi de la couche %1 démarré</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Paramètres de suivi</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">Activer la contrainte de temps</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Intervalle de temps minimal [sec]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">Activer la contrainte de distance</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Distance minimale [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">Enregistrer lorsque les deux contraintes sont actives simultanément</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">Les sommets ne seront enregistrés que lorsque toutes les contraintes actives sont respectées lorsque ce paramètre est activé. S&apos;il est désactivé, les contraintes individuelles rencontrées entraîneront la création d&apos;un sommet.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Démarrer le suivi</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Impossible de démarrer un suivi avec des valeurs vides</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">Lorsque les deux contraintes sont désactivées, les ajouts de sommets se produiront aussi fréquemment que fournis par le dispositif de positionnement.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">Valeur de mesure (M) attachée aux sommets :</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">Temps écoulé (secondes depuis le début du suivi)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Horodatage (millisecondes depuis le début)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Vitesse au sol</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Direction</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Précision horizontale</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Précision verticale</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">Pour activer la fonctionnalité de mesure, assurez-vous que le type de géométrie de couche vectorielle utilisé pour la session de suivi a une dimension M.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Suivi de la couche %1 démarré</translation>
     </message>
     <message>
@@ -3152,24 +3243,36 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Distance minimale [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">Enregistrer lorsque les deux contraintes sont actives simultanément</translation>
+        <source>Activate sensor constraint</source>
+        <translation>Activer la constrainte de capteur</translation>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Les sommets ne seront enregistrés que lorsque toutes les contraintes actives sont respectées lorsque ce paramètre est activé. S&apos;il est désactivé, les contraintes individuelles rencontrées entraîneront la création d&apos;un sommet.</translation>
+        <source>Record when all active constraints are met</source>
+        <translation>Enregistrer lorsque toutes les contraintes actives sont respectées.</translation>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Démarrer le suivi</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation>Si activé, les sommets ne seront enregistrés que lorsque toutes les contraintes actives auront été satisfaites. Si désactivé, chaque contrainte satisfaite déclenchera l&apos;ajout d&apos;un sommet.</translation>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Impossible de démarrer un suivi avec des valeurs vides</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>Lorsque la contrainte du capteur est activée seule, des sommets seront ajoutés chaque fois que le capteur aura capturé de nouvelles données.</translation>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Lorsque les deux contraintes sont désactivées, les ajouts de sommets se produiront aussi fréquemment que fournis par le dispositif de positionnement.</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>Lorsque toutes les contraintes sont désactivées, les ajouts de sommets se produisent aussi fréquemment que le permet le dispositif de positionnement.</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3216,24 +3319,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Pour activer la fonctionnalité de mesure, assurez-vous que le type de géométrie de couche vectorielle utilisé pour la session de suivi a une dimension M.</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>Activer la constrainte de capteur</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>Enregistrer lorsque toutes les contraintes actives sont respectées.</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Si activé, les sommets ne seront enregistrés que lorsque toutes les contraintes actives auront été satisfaites. Si désactivé, chaque contrainte satisfaite déclenchera l&apos;ajout d&apos;un sommet.</translation>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>Lorsque la contrainte du capteur est activée seule, des sommets seront ajoutés chaque fois que le capteur aura capturé de nouvelles données.</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Lorsque toutes les contraintes sont désactivées, les ajouts de sommets se produisent aussi fréquemment que le permet le dispositif de positionnement.</translation>
+        <source>Start tracking</source>
+        <translation>Démarrer le suivi</translation>
     </message>
 </context>
 <context>

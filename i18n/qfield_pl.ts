@@ -3127,6 +3127,97 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Rozpoczęto ślad na warstwie %1</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Ustawienia zapisu śladu</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">Aktywuj ograniczenie czasowe</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Minimalny czas [s]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">Aktywuj ograniczenie odległości</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Minimalna odległość [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">Rejestruj, gdy oba aktywne ograniczenia są spełnione</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">Gdy ta opcja jest włączona, wierzchołki są rejestrowane tylko wtedy, gdy spełnione są oba aktywne ograniczenia. Jeśli to ustawienie jest wyłączone, spełnienie poszczególnego ograniczenia wywoła dodawanie wierzchołków.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Włącz zapis śladu</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Nie można rozpocząć śladu z pustymi wartościami</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">Wartość pomiarowa (M) dołączana do geometrii:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">Czas (sekund od początku śledzenia)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Znacznik czasowy (ms czasu systemowego)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Prędkość</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Namiar</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Dokładność pozioma</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Dokładność pionowa</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">Aby aktywować funkcję pomiaru, upewnij się, że typ geometrii warstwy wektorowej użytej do sesji śledzenia posiada pole M.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Rozpoczęto ślad na warstwie %1</translation>
     </message>
     <message>
@@ -3150,23 +3241,35 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Minimalna odległość [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">Rejestruj, gdy oba aktywne ograniczenia są spełnione</translation>
+        <source>Activate sensor constraint</source>
+        <translation>Aktywuj ograniczenie czujnika</translation>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Gdy ta opcja jest włączona, wierzchołki są rejestrowane tylko wtedy, gdy spełnione są oba aktywne ograniczenia. Jeśli to ustawienie jest wyłączone, spełnienie poszczególnego ograniczenia wywoła dodawanie wierzchołków.</translation>
+        <source>Record when all active constraints are met</source>
+        <translation>Rejestruj, gdy wszystkie aktywne ograniczenia są spełnione</translation>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Włącz zapis śladu</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Nie można rozpocząć śladu z pustymi wartościami</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation>Maksymalna tolerancja odległości [%1]</translation>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3214,24 +3317,8 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Aby aktywować funkcję pomiaru, upewnij się, że typ geometrii warstwy wektorowej użytej do sesji śledzenia posiada pole M.</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>Aktywuj ograniczenie czujnika</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>Rejestruj, gdy wszystkie aktywne ograniczenia są spełnione</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <source>Start tracking</source>
+        <translation>Włącz zapis śladu</translation>
     </message>
 </context>
 <context>

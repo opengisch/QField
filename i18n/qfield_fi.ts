@@ -3134,6 +3134,97 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Jäljitys tasolla %1 aloitettiin</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Jäljityksen asetukset</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">Aktivoi aikarajoite</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Minimiaika [s]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">Aktivoi rajoite etäisyydelle</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Minimietäisyys [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">Tallenna jos molemmat aktiiviset rajoitteet toteutuvat</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">Kun sallittu, taitepisteet tallennetaan ainoastaan kun molemmat aktiiviset rajoitusehdot täyttyvät. Jos asetusta ei ole sallittu, yksittäisen rajoitusehdon täyttyminen aiheuttaa taitepisteen lisäyksen.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Aloita jäljitys</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Ei voida aloittaa jäljitystä tyhjillä arvoilla</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">Kun molemmat rajoitukset on poistettu käytöstä, taitepisteiden lisäyksiä tapahtuu yhtä usein kuin paikannuslaite toimittaa sijainteja.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">Taitepisteisiin liitetty mitta (M) arvo:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">Kulunut aika (sekunteja jäljityksen aloittamisesta)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Aikaleima (millisekuntia aikakauden alusta)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Maanopeus</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Suuntima</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Horisontaalinen tarkkuus</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Vertikaalinen tarkkuus</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">Aktivoi mittaustoiminto varmistamalla, että jäljitysistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Jäljitys tasolla %1 aloitettiin</translation>
     </message>
     <message>
@@ -3157,24 +3248,36 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Minimietäisyys [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">Tallenna jos molemmat aktiiviset rajoitteet toteutuvat</translation>
+        <source>Activate sensor constraint</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Kun sallittu, taitepisteet tallennetaan ainoastaan kun molemmat aktiiviset rajoitusehdot täyttyvät. Jos asetusta ei ole sallittu, yksittäisen rajoitusehdon täyttyminen aiheuttaa taitepisteen lisäyksen.</translation>
+        <source>Record when all active constraints are met</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Aloita jäljitys</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Ei voida aloittaa jäljitystä tyhjillä arvoilla</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Kun molemmat rajoitukset on poistettu käytöstä, taitepisteiden lisäyksiä tapahtuu yhtä usein kuin paikannuslaite toimittaa sijainteja.</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3221,24 +3324,8 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Aktivoi mittaustoiminto varmistamalla, että jäljitysistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <source>Start tracking</source>
+        <translation>Aloita jäljitys</translation>
     </message>
 </context>
 <context>

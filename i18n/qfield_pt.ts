@@ -3134,6 +3134,97 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
+        <translation type="vanished">Rastreamento na camada % 1 iniciada</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="vanished">Configurações de rastreamento</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation type="vanished">Ativar restrição de tempo</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation type="vanished">Tempo mínimo [seg]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation type="vanished">Ativar restrição de distância</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation type="vanished">Distância miníma [%1]</translation>
+    </message>
+    <message>
+        <source>Record when both active constraints are met</source>
+        <translation type="vanished">Registar quando ambas restrições ativas forem atendidas</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation type="vanished">Quando ativo, os vértices só serão gravados quando ambas restrições forem válidas. Se a configuração está desativada, as restrições individuais válidas irão ativar a adição de vértices.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="vanished">Iniciar tracking GPS</translation>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="vanished">Não é possível iniciar o rastreamento com valores vazios</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="vanished">Quando ambas as restrições estiverem desligadas, as adições de vértices ocorrem com a mesma frequência que são fornecidas pelo posicionamento do dispositivo.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="vanished">Valor da medição (M) anexado aos vértices:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="vanished">Tempo decorrido (segundos desde o início do tracking GPS)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="vanished">Timestamp (millisegundos since epoch)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="vanished">Velocidade</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="vanished">Orientação</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="vanished">Precisão horizontal</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="vanished">Precisão vertical</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="vanished">Para ativar a funcionalidade de medição, garante que o tipo de geometria da camada vetorial usada para a sessão de tracking GPS tem a dimensão M.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
         <translation>Rastreamento na camada % 1 iniciada</translation>
     </message>
     <message>
@@ -3157,24 +3248,36 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Distância miníma [%1]</translation>
     </message>
     <message>
-        <source>Record when both active constraints are met</source>
-        <translation type="vanished">Registar quando ambas restrições ativas forem atendidas</translation>
+        <source>Activate sensor constraint</source>
+        <translation>Activar restrição de sensor</translation>
     </message>
     <message>
-        <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Quando ativo, os vértices só serão gravados quando ambas restrições forem válidas. Se a configuração está desativada, as restrições individuais válidas irão ativar a adição de vértices.</translation>
+        <source>Record when all active constraints are met</source>
+        <translation>Registar quando todas as restrições ativas forem atendidas</translation>
     </message>
     <message>
-        <source>Start tracking</source>
-        <translation>Iniciar tracking GPS</translation>
+        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
+        <translation>Quando ativo, os vértices só serão gravados quando ambas restrições forem válidas. Se a configuração está desativada, as restrições individuais válidas irão ativar a adição de vértices.</translation>
     </message>
     <message>
-        <source>Cannot start track with empty values</source>
-        <translation type="vanished">Não é possível iniciar o rastreamento com valores vazios</translation>
+        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
+        <translation>Quando a restrição do sensor é ativada sozinha, as adições de vértices ocorrerão sempre que o sensor capturar novos dados.</translation>
     </message>
     <message>
-        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Quando ambas as restrições estiverem desligadas, as adições de vértices ocorrem com a mesma frequência que são fornecidas pelo posicionamento do dispositivo.</translation>
+        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>Quando todas as restrições estiverem desligadas, as adições de vértices ocorrem com a mesma frequência fornecida pelo dispositivo de posicionamento.</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3221,24 +3324,8 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Para ativar a funcionalidade de medição, garante que o tipo de geometria da camada vetorial usada para a sessão de tracking GPS tem a dimensão M.</translation>
     </message>
     <message>
-        <source>Activate sensor constraint</source>
-        <translation>Activar restrição de sensor</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>Registar quando todas as restrições ativas forem atendidas</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>Quando ativo, os vértices só serão gravados quando ambas restrições forem válidas. Se a configuração está desativada, as restrições individuais válidas irão ativar a adição de vértices.</translation>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>Quando a restrição do sensor é ativada sozinha, as adições de vértices ocorrerão sempre que o sensor capturar novos dados.</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>Quando todas as restrições estiverem desligadas, as adições de vértices ocorrem com a mesma frequência fornecida pelo dispositivo de posicionamento.</translation>
+        <source>Start tracking</source>
+        <translation>Iniciar tracking GPS</translation>
     </message>
 </context>
 <context>

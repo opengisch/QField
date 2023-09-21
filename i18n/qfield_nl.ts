@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Beperk de zoekopdracht tot het veld &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -260,7 +260,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kon de service-UUID niet vinden op de externe host</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -276,7 +276,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">De externe host heeft de verbinding verbroken</translation>
     </message>
     <message>
         <source>Unknown error</source>
@@ -2620,11 +2620,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Horizontale nauwkeurigheid</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Verticale nauwkeurigheid</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2917,7 +2917,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3009,7 +3009,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Seriële poortadres:</translation>
     </message>
 </context>
 <context>
@@ -3056,11 +3056,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adres:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Poort:</translation>
     </message>
 </context>
 <context>
@@ -3132,27 +3132,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Spoor op laag %1 gestart</translation>
+        <translation type="vanished">Spoor op laag %1 gestart</translation>
     </message>
     <message>
         <source>Tracker Settings</source>
-        <translation>Volger-instellingen</translation>
+        <translation type="vanished">Volger-instellingen</translation>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation>Tijdsbeperking activeren</translation>
+        <translation type="vanished">Tijdsbeperking activeren</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>Minimale tijd [sec]</translation>
+        <translation type="vanished">Minimale tijd [sec]</translation>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation>Afstandsbeperking activeren</translation>
+        <translation type="vanished">Afstandsbeperking activeren</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation>Minimale afstand [%1]</translation>
+        <translation type="vanished">Minimale afstand [%1]</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
@@ -3192,31 +3192,58 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Koers</translation>
+        <translation type="vanished">Koers</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Horizontale nauwkeurigheid</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Verticale nauwkeurigheid</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TrackingSession</name>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation>Spoor op laag %1 gestart</translation>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation>Volger-instellingen</translation>
+    </message>
+    <message>
+        <source>Activate time constraint</source>
+        <translation>Tijdsbeperking activeren</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation>Minimale tijd [sec]</translation>
+    </message>
+    <message>
+        <source>Activate distance constraint</source>
+        <translation>Afstandsbeperking activeren</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation>Minimale afstand [%1]</translation>
     </message>
     <message>
         <source>Activate sensor constraint</source>
@@ -3238,16 +3265,76 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Koers</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horizontale nauwkeurigheid</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Verticale nauwkeurigheid</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adres:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Poort:</translation>
     </message>
 </context>
 <context>
@@ -3592,7 +3679,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Naar het beginscherm</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
@@ -3900,7 +3987,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Meer info</translation>
     </message>
     <message>
         <source>No sensor available</source>
@@ -3908,7 +3995,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Laag:</translation>
     </message>
     <message>
         <source>Feature:</source>
