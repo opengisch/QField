@@ -75,9 +75,9 @@ void Tracker::trackPosition()
 
   mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = 0.0;
-  mTimeIntervalFulfilled = false;
-  mMinimumDistanceFulfilled = false;
-  mSensorCaptureFulfilled = false;
+  mTimeIntervalFulfilled = qgsDoubleNear( mTimeInterval, 0.0 );
+  mMinimumDistanceFulfilled = qgsDoubleNear( mMinimumDistance, 0.0 );
+  mSensorCaptureFulfilled = !mSensorCapture;
 }
 
 void Tracker::positionReceived()
@@ -174,11 +174,6 @@ void Tracker::start()
   else
   {
     mSensorCaptureFulfilled = true;
-    if ( mTimeInterval > 0 || mSensorCapture )
-    {
-      // Other constraints will guide verdex addition
-      return;
-    }
   }
 
   //set the start time
