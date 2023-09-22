@@ -121,8 +121,12 @@ GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband( QgsVe
   QgsGeometry resultGeom = geom.difference( diffGeom );
   if ( !resultGeom.isNull() )
   {
-    layer->changeGeometry( fid, resultGeom );
+    if ( QgsWkbTypes::isMultiType( resultGeom.wkbType() ) && !QgsWkbTypes::isMultiType( layer->wkbType() ) )
+    {
+      return GeometryUtils::GeometryOperationResult::AddPartNotMultiGeometry;
+    }
 
+    layer->changeGeometry( fid, resultGeom );
     // Add topological points
     if ( QgsProject::instance()->topologicalEditing() )
     {

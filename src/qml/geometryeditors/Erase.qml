@@ -72,7 +72,11 @@ VisibilityFadingRow {
       }
       var result = GeometryUtils.eraseFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
       if ( result !== GeometryUtils.Success ) {
-          displayToast( qsTr( 'The geometry could not be erased' ), 'error' );
+          if ( result === GeometryUtils.AddPartNotMultiGeometry ) {
+              displayToast( qsTr( 'The geometry could not be modified into multiple parts' ), 'error' );
+          } else {
+              displayToast( qsTr( 'The geometry could not be modified' ), 'error' );
+          }
           featureModel.currentLayer.rollBack()
           rubberbandModel.reset()
       } else {
