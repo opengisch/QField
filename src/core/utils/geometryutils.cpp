@@ -59,7 +59,9 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
   QgsFeature feature = layer->getFeature( fid );
   QgsGeometry geom = feature.geometry();
   if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
+  {
     return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
+  }
 
   QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
   QgsLineString reshapeLineString( points );
@@ -111,7 +113,9 @@ GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband( QgsVe
   QgsFeature feature = layer->getFeature( fid );
   QgsGeometry geom = feature.geometry();
   if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
+  {
     return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
+  }
 
   const QgsGeometry diffGeom = variableWidthBufferByMFromRubberband( rubberBandModel, layer->crs() );
   QgsGeometry resultGeom = geom.difference( diffGeom );
