@@ -166,10 +166,12 @@ ApplicationWindow {
     {
       case 'browse':
         projectInfo.stateMode = mode
+        platformUtilities.setHandleVolumeKeys(false)
         displayToast( qsTr( 'You are now in browse mode' ) );
         break;
       case 'digitize':
         projectInfo.stateMode = mode
+        platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys)
         dashBoard.ensureEditableLayerSelected();
         if (dashBoard.activeLayer)
         {
@@ -181,6 +183,7 @@ ApplicationWindow {
         }
         break;
       case 'measure':
+        platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys)
         elevationProfile.populateLayersFromProject();
         displayToast( qsTr( 'You are now in measure mode' ) );
         break;
@@ -3015,6 +3018,25 @@ ApplicationWindow {
   Connections {
     target: iface
 
+    function onVolumeKeyUp(volumeKeyCode) {
+      if (!mapCanvasMap.interactive) {
+        return;
+      }
+
+      switch (volumeKeyCode) {
+        case  Qt.Key_VolumeDown:
+          digitizingToolbar.removeVertex();
+          break;
+        case Qt.Key_VolumeUp:
+          if (!geometryEditorsToolbar.canvasClicked(coordinateLocator.currentCoordinate)) {
+            digitizingToolbar.addVertex();
+          }
+          break;
+        default:
+          break;
+      }
+    }
+
     function onImportTriggered(name) {
       busyOverlay.text = qsTr("Importing %1").arg(name)
       busyOverlay.state = "visible"
@@ -3062,6 +3084,7 @@ ApplicationWindow {
 
       projectInfo.filePath = path
       stateMachine.state = projectInfo.stateMode
+      platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse')
       dashBoard.activeLayer = projectInfo.activeLayer
 
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor

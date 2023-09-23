@@ -75,6 +75,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void dimBrightness() override;
     void restoreBrightness() override;
 
+    void setHandleVolumeKeys( const bool handle ) override;
+
     QVariantMap sceneMargins( QQuickWindow *window ) const override;
 
     double systemFontPointSize() const override { return 16.0; }

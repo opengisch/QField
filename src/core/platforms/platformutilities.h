@@ -43,13 +43,14 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     {
       NoCapabilities = 0,             //!< No capabilities
       NativeCamera = 1,               //!< Native camera handling support
-      AdjustBrightness = 1 << 1,      //!< Capable of adjusting screen brightness
+      AdjustBrightness = 1 << 1,      //!< Screen brightness adjustment support
       SentryFramework = 1 << 2,       //!< Sentry framework support
       CustomLocalDataPicker = 1 << 3, //!< Custom QML local data picker support
       CustomImport = 1 << 4,          //!< Import project and dataset support
       CustomExport = 1 << 5,          //!< Export project and dataset support
       CustomSend = 1 << 6,            //!< Send/share files support
       FilePicker = 1 << 7,            //!< File picker support
+      VolumeKeys = 1 << 8,            //!< Volume keys handling support
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
@@ -248,6 +249,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * Restores the brightness of the screen to its original value on supported devices.
      */
     Q_INVOKABLE virtual void restoreBrightness() { return; };
+
+    /**
+     * Sets whether the device volume keys are handled by QField.
+     */
+    Q_INVOKABLE virtual void setHandleVolumeKeys( const bool handle ) { Q_UNUSED( handle ); }
 
     /**
      * Copies a text \a string to the system clipboard.

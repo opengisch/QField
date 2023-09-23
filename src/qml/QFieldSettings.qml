@@ -18,6 +18,7 @@ Page {
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias showBookmarks: registry.showBookmarks
   property alias nativeCamera: registry.nativeCamera
+  property alias digitizingVolumeKeys: registry.digitizingVolumeKeys
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
@@ -38,6 +39,7 @@ Page {
     property bool numericalDigitizingInformation: false
     property bool showBookmarks: true
     property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
+    property bool digitizingVolumeKeys: platformUtilities.capabilities & PlatformUtilities.VolumeKeys
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
     property bool enableInfoCollection: true
@@ -45,10 +47,14 @@ Page {
 
     onEnableInfoCollectionChanged: {
       if (enableInfoCollection) {
-        iface.initiateSentry();
+        iface.initiateSentry()
       } else {
-        iface.closeSentry();
+        iface.closeSentry()
       }
+    }
+
+    onDigitizingVolumeKeysChanged: {
+      platformUtilities.setHandleVolumeKeys(digitizingVolumeKeys && stateMachine.state != 'browse')
     }
   }
 
@@ -97,6 +103,12 @@ Page {
           isVisible: true
       }
       ListElement {
+          title: qsTr( "Use volume keys to digitize" )
+          description: qsTr( "If enabled, pressing the device's volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions." )
+          settingAlias: "digitizingVolumeKeys"
+          isVisible: true
+      }
+      ListElement {
           title: qsTr( "Consider mouse as a touchscreen device" )
           description: qsTr( "If disabled, the mouse will act as a stylus pen." )
           settingAlias: "mouseAsTouchScreen"
@@ -110,7 +122,9 @@ Page {
       }
       Component.onCompleted: {
           for (var i = 0; i < settingsModel.count; i++) {
-              if (settingsModel.get(i).settingAlias === 'nativeCamera') {
+              if (settingsModel.get(i).settingAlias === 'digitizingVolumeKeys') {
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.VolumeKeys ? true : false)
+              } else if (settingsModel.get(i).settingAlias === 'nativeCamera') {
                   settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera ? true : false)
               } else if (settingsModel.get(i).settingAlias === 'enableInfoCollection') {
                   settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.SentryFramework ? true : false)
