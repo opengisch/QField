@@ -3265,15 +3265,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>错误距离保护</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>最大容许距离 [%1]</translation>
     </message>
     <message>
         <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
-        <translation type="unfinished"/>
+        <translation>启用错误距离保护时，距离超过指定容许值的范围将被丢弃。</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
