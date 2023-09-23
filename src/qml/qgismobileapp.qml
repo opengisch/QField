@@ -3019,7 +3019,7 @@ ApplicationWindow {
     target: iface
 
     function onVolumeKeyUp(volumeKeyCode) {
-      if (!mapCanvasMap.interactive) {
+      if (stateMachine.state === 'browse' || !mapCanvasMap.interactive) {
         return;
       }
 
