@@ -875,7 +875,7 @@ void AndroidPlatformUtilities::setHandleVolumeKeys( const bool handle )
 {
   if ( mActivity.isValid() )
   {
-    runOnAndroidMainThread( [&handle] {
+    runOnAndroidMainThread( [handle] {
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
