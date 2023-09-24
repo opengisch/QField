@@ -484,9 +484,8 @@ Page {
                               var systemLanguage = qsTr( "system" );
                               var systemLanguageSuffix = systemLanguage !== 'system' ? ' (system)' : ''
                               var items = [systemLanguage + systemLanguageSuffix]
-                              model = items.concat(Object.values(languages));
-
-                              currentIndex = languageCodes.indexOf(customLanguageCode);
+                              languageComboBox.model = items.concat(Object.values(languages));
+                              languageComboBox.currentIndex = languageCodes.indexOf(customLanguageCode);
                               currentLanguageCode = customLanguageCode || ''
                               languageTip.visible = false
                           }
@@ -838,8 +837,8 @@ Page {
                             qsTr("VDOP")
                           ];
 
-                          model = measurements;
-                          currentIndex = positioningSettings.digitizingMeasureType - 1;
+                          measureComboBox.model = measurements;
+                          measureComboBox.currentIndex = positioningSettings.digitizingMeasureType - 1;
                           loaded = true;
                       }
 
@@ -1238,7 +1237,7 @@ Page {
                       valueRole: "value"
 
                       model: ListModel {
-                          id: model
+                          id: verticalGridShiftModel
                       }
 
                       onCurrentValueChanged: {
