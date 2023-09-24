@@ -57,7 +57,12 @@ EditorWidgetBase {
 
     checked: {
         if (isBool) {
-            return !isNull ? value : false;
+            var actualValue = value
+            // Some datasets - such as Geopackage - can send the value as a 'True' or 'False' string, we have to work around that
+            if (!isNull && typeof value == 'string') {
+              actualValue = value.toLowerCase() === 'true'
+            }
+            return !isNull ? actualValue : false;
         } else {
             return !isNull ? String(value) === config['CheckedState'] : false;
         }
@@ -72,10 +77,15 @@ EditorWidgetBase {
     onClicked: {
       var editedValue = true
       if (isBool) {
-        editedValue = !isNull ? !value : true
+        var actualValue = value
+        // Some datasets - such as Geopackage - can send the value as a 'True' or 'False' string, we have to work around that
+        if (!isNull && typeof value == 'string') {
+          actualValue = value.toLowerCase() === 'true'
+        }
+        editedValue = !isNull ? !actualValue : true
       } else {
         if (!isNull) {
-          editedValue = value == config['CheckedState'] ? config['UncheckedState'] : config['CheckedState']
+          editedValue = value === config['CheckedState'] ? config['UncheckedState'] : config['CheckedState']
         } else {
           editedValue = config['CheckedState']
         }
