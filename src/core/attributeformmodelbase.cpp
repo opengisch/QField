@@ -710,6 +710,33 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
   }
 }
 
+void _checkChildrenValidity( QStandardItem *parent, bool &hardValidity, bool &softValidity )
+{
+  QStandardItem *item = parent->child( 0, 0 );
+  while ( item )
+  {
+    const bool isVisible = item->data( AttributeFormModel::CurrentlyVisible ).toBool();
+    if ( isVisible )
+    {
+      if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+      {
+        hardValidity = false;
+        break;
+      }
+      if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        softValidity = false;
+      }
+    }
+
+    if ( isVisible && item->hasChildren() )
+    {
+      _checkChildrenValidity( item, hardValidity, softValidity );
+    }
+    item = parent->child( item->row() + 1, 0 );
+  }
+};
+
 void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
 {
   QgsFields fields = mFeatureModel->feature().fields();
@@ -808,51 +835,6 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     }
   }
 
-  auto checkChildrenValidity = [=]( QStandardItem *tab, bool &hardValidity, bool &softValidity ) {
-    QStandardItem *item = tab->child( 0, 0 );
-    while ( item )
-    {
-      const bool isVisible = item->data( AttributeFormModel::CurrentlyVisible ).toBool();
-      if ( isVisible )
-      {
-        if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
-        {
-          hardValidity = false;
-          break;
-        }
-        if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
-        {
-          softValidity = false;
-        }
-      }
-
-      if ( isVisible && item->hasChildren() )
-      {
-        item = item->child( 0, 0 );
-      }
-      else
-      {
-        int nextRow = item->row() + 1;
-        QStandardItem *parentItem = item->parent();
-        if ( !parentItem )
-        {
-          parentItem = invisibleRootItem();
-        }
-        QStandardItem *nextItem = parentItem->child( nextRow, 0 );
-        while ( !nextItem )
-        {
-          if ( parentItem == tab )
-            break;
-
-          nextRow = parentItem->row() + 1;
-          parentItem = parentItem->parent();
-          nextItem = parentItem->child( nextRow, 0 );
-        }
-        item = nextItem;
-      }
-    }
-  };
-
   // reset contrainsts status of containers
   if ( validityChanged || visibilityChanged )
   {
@@ -868,7 +850,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
         bool softValidity = true;
 
         QStandardItem *tab = root->child( i, 0 );
-        checkChildrenValidity( tab, hardValidity, softValidity );
+        _checkChildrenValidity( tab, hardValidity, softValidity );
         if ( !hardValidity )
         {
           allConstraintsHardValid = false;
@@ -886,7 +868,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
       bool hardValidity = true;
       bool softValidity = true;
       QStandardItem *tab = invisibleRootItem();
-      checkChildrenValidity( tab, hardValidity, softValidity );
+      _checkChildrenValidity( tab, hardValidity, softValidity );
 
       if ( !hardValidity )
       {
