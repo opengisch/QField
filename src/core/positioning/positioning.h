@@ -55,8 +55,6 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
 
-    Q_ENUMS( ElevationCorrectionMode )
-
   public:
     /**
      * Elevation correction modes
@@ -67,6 +65,7 @@ class Positioning : public QObject
       OrthometricFromDevice,   //! Apply the geoid correction provided by the device. Available only for external devices.
       OrthometricFromGeoidFile //! Apply the geoid correction from a geoid file.
     };
+    Q_ENUM( ElevationCorrectionMode )
 
     explicit Positioning( QObject *parent = nullptr );
 
@@ -242,5 +241,7 @@ class Positioning : public QObject
 
     AbstractGnssReceiver *mReceiver = nullptr;
 };
+
+Q_DECLARE_METATYPE( Positioning::ElevationCorrectionMode )
 
 #endif // POSITIONING_H

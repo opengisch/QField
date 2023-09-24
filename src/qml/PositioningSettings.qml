@@ -1,6 +1,8 @@
 import QtQuick 2.14
 import Qt.labs.settings 1.0 as LabSettings
 
+import org.qfield 1.0
+
 LabSettings.Settings {
     property bool positioningActivated: false
     property bool positioningCoordinateLock: false

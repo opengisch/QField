@@ -391,6 +391,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectCheckout>( "QFieldCloudProjectsModel::ProjectCheckout" );
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
   qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
+  qRegisterMetaType<Positioning::ElevationCorrectionMode>( "Positioning::ElevationCorrectionMode" );
 
   qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" );
   qRegisterMetaType<Qgis::WkbType>( "Qgis::WkbType" );

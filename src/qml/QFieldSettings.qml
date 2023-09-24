@@ -1241,31 +1241,35 @@ Page {
                       }
 
                       onCurrentValueChanged: {
-                          if (!currentValue)
+                          if (reloading || currentValue == undefined) {
                               return
+                          }
 
                           positioningSettings.elevationCorrectionMode = currentValue;
 
-                          if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile)
+                          if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile) {
                               positioningSettings.verticalGrid = currentText
-                          else
+                          } else {
                               positioningSettings.verticalGrid = ""
+                          }
                       }
 
                       Component.onCompleted: reload()
 
-                      function reload()
-                      {
+                      property bool reloading: false
+                      function reload() {
+                          reloading = true
+
                           verticalGridShiftComboBox.model.clear()
-                          verticalGridShiftComboBox.model.append({text: qsTr( "None" ), value: Positioning.ElevationCorrectionMode.None});
+                          verticalGridShiftComboBox.model.append({text: qsTr("None"), value: Positioning.ElevationCorrectionMode.None});
 
                           if (positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
-                              verticalGridShiftComboBox.model.append({text: qsTr( "Orthometric from device" ), value: Positioning.ElevationCorrectionMode.OrthometricFromDevice});
+                              verticalGridShiftComboBox.model.append({text: qsTr("Orthometric from device"), value: Positioning.ElevationCorrectionMode.OrthometricFromDevice});
 
                           // Add geoid files to combobox
                           var geoidFiles = platformUtilities.availableGrids()
                           for (var i = 0; i < geoidFiles.length; i++)
-                              verticalGridShiftComboBox.model.append( { text: geoidFiles[i], value: Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile } );
+                              verticalGridShiftComboBox.model.append({text: geoidFiles[i], value: Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile});
 
                           if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.None)
                           {
@@ -1297,6 +1301,8 @@ Page {
                               // Unknown mode -> fallback to None
                               verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None)
                           }
+
+                          reloading = false
                       }
                   }
 
