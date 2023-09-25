@@ -255,13 +255,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QgsApplication::fontManager()->enableFontDownloadsForSession();
 
   mProject = QgsProject::instance();
+  mTrackingModel = new TrackingModel();
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
-  mLayerObserver = std::make_unique<LayerObserver>( mProject );
+  mLayerObserver = std::make_unique<LayerObserver>( mProject, mTrackingModel );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mLocalFilesImageProvider = new LocalFilesImageProvider();
   mProjectsImageProvider = new ProjectsImageProvider();
-  mTrackingModel = new TrackingModel;
 
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
 

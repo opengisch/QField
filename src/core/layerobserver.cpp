@@ -17,6 +17,7 @@
 
 #include "layerobserver.h"
 #include "qfieldcloudutils.h"
+#include "trackingmodel.h"
 
 #include <QDebug>
 #include <QDir>
@@ -29,11 +30,12 @@
 #include <appinterface.h>
 
 
-LayerObserver::LayerObserver( const QgsProject *project )
+LayerObserver::LayerObserver( const QgsProject *project, TrackingModel *trackingModel )
   : mProject( project )
+  , mTrackingModel( trackingModel )
 {
   QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
-  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
+  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ), mTrackingModel );
 
   connect( mProject, &QgsProject::homePathChanged, this, &LayerObserver::onHomePathChanged );
   connect( mProject, &QgsProject::layersAdded, this, &LayerObserver::onLayersAdded );
@@ -62,12 +64,12 @@ void LayerObserver::onHomePathChanged()
   Q_ASSERT( mDeltaFileWrapper->hasError() || !mDeltaFileWrapper->isDirty() );
 
   QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
-  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) ) );
+  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ), mTrackingModel ) );
   emit deltaFileWrapperChanged();
 
   mObservedLayerIds.clear();
 
-  if ( !QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
+  //if ( !QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
   {
     if ( mDeltaFileWrapper->hasError() )
       QgsMessageLog::logMessage( QStringLiteral( "The current delta file wrapper experienced an error: %1" ).arg( mDeltaFileWrapper->errorString() ) );
@@ -284,8 +286,8 @@ void LayerObserver::addLayerListeners()
   const QList<QgsMapLayer *> layers = mProject->mapLayers().values();
 
   // we should keep track only of the layers on cloud projects
-  if ( QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
-    return;
+  //if ( QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
+  //  return;
 
   for ( QgsMapLayer *layer : layers )
   {

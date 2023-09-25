@@ -17,6 +17,7 @@
 
 #include "deltafilewrapper.h"
 #include "qfield.h"
+#include "trackingmodel.h"
 #include "utils/fileutils.h"
 #include "utils/qfieldcloudutils.h"
 
@@ -41,8 +42,9 @@ Q_GLOBAL_STATIC( CacheAttachmentFieldNamesMap, sCacheAttachmentFieldNames );
 Q_GLOBAL_STATIC( QSet<QString>, sFileLocks );
 
 
-DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fileName )
+DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fileName, TrackingModel *trackingModel )
   : mProject( project )
+  , mTrackingModel( trackingModel )
 {
   QFileInfo fileInfo = QFileInfo( fileName );
 
@@ -479,9 +481,48 @@ QMap<QString, QString> DeltaFileWrapper::attachmentFileNames() const
   return fileNameChecksum;
 }
 
+bool DeltaFileWrapper::updateTrackerCompatibleDelta( const QString &localLayerId, const QString &localPkAttrName, const QgsFeature &newFeature )
+{
+  for ( int i = mDeltas.size() - 1; i >= 0; i-- )
+  {
+    QJsonObject delta = mDeltas[i].toObject();
+    const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
+    const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
+    const QString method = delta.value( QStringLiteral( "method" ) ).toString();
+    if ( layerId == localLayerId && localPk == newFeature.attribute( localPkAttrName ) && method == "patch" )
+    {
+      QJsonObject newValues = delta.value( QStringLiteral( "new" ) ).toObject();
+      QJsonObject attributes = newValues.value( QStringLiteral( "attributes" ) ).toObject();
+      if ( attributes.isEmpty() && newValues.contains( "geometry" ) )
+      {
+        qInfo() << "DeltaFileWrapper::addPatch: replacing an patch delta for tracking feature";
+
+        newValues.insert( QStringLiteral( "geometry" ), geometryToJsonValue( newFeature.geometry() ) );
+        delta.insert( QStringLiteral( "new" ), newValues );
+        mDeltas.replace( i, delta );
+        return true;
+      }
+      else
+      {
+        // An attribute change has occured *after* any ongoing tracking session, we must create a new patch
+        return false;
+      }
+    }
+  }
+  return false;
+}
 
 void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot )
 {
+  if ( mTrackingModel && mTrackingModel->rowCount() > 0 )
+  {
+    QgsVectorLayer *vl = static_cast<QgsVectorLayer *>( mProject->mapLayer( localLayerId ) );
+    if ( mTrackingModel->featureInTracking( vl, newFeature.id() ) && updateTrackerCompatibleDelta( localLayerId, localPkAttrName, newFeature ) )
+    {
+      return;
+    }
+  }
+
   QJsonObject delta(
     {
       { "localPk", oldFeature.attribute( localPkAttrName ).toString() },

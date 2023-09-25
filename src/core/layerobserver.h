@@ -27,6 +27,8 @@
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
+class TrackingModel;
+
 typedef QMap<QgsFeatureId, QgsFeature> QgsChangedFeatures;
 
 /**
@@ -44,7 +46,7 @@ class LayerObserver : public QObject
      *
      * @param project
      */
-    explicit LayerObserver( const QgsProject *project );
+    explicit LayerObserver( const QgsProject *project, TrackingModel *trackingModel = nullptr );
 
 
     /**
@@ -148,6 +150,8 @@ class LayerObserver : public QObject
      */
     QString mDeltaFileName = nullptr;
 
+
+    TrackingModel *mTrackingModel = nullptr;
 
     /**
      * Store the old version of changed (patch or delete) features per layer.
