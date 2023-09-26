@@ -688,14 +688,13 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   }
   else
   {
-    int replaceDeltaIdx = -1;
     for ( int i = mDeltas.size() - 1; i >= 0; i-- )
     {
       QJsonObject existingDelta = mDeltas[i].toObject();
-      const QString layerId = existingDelta.value( QStringLiteral( "localLayerId" ) ).toString();
-      const QString localPk = existingDelta.value( QStringLiteral( "localPk" ) ).toString();
-      const QString method = existingDelta.value( QStringLiteral( "method" ) ).toString();
-      if ( layerId == localLayerId && localPk == newFeature.attribute( localPkAttrName ) && method == "patch" )
+      const QString existingLayerId = existingDelta.value( QStringLiteral( "localLayerId" ) ).toString();
+      const QString existingLocalPk = existingDelta.value( QStringLiteral( "localPk" ) ).toString();
+      const QString existingMethod = existingDelta.value( QStringLiteral( "method" ) ).toString();
+      if ( existingLayerId == localLayerId && existingLocalPk == newFeature.attribute( localPkAttrName ) && existingMethod == "patch" )
       {
         QJsonObject existingOldData = existingDelta.value( QStringLiteral( "old" ) ).toObject();
         QJsonObject existingNewData = existingDelta.value( QStringLiteral( "new" ) ).toObject();
