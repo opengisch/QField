@@ -2514,7 +2514,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>Ortometrikus magasság használata az eszközből</translation>
+        <translation type="vanished">Ortometrikus magasság használata az eszközből</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2526,19 +2526,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Gyenge pontosság alatt [m]</translation>
+        <translation>Gyenge pontosság [m] alatt</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Kiváló pontosság felett [m]</translation>
+        <translation>Kiváló pontosság [m] felett</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Pontossági követelmény engedélyezése</translation>
+        <translation>Pontossági követelmény beállítása</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Ha a pontosságjelző be van kapcsolva, a helymeghatározó gombhoz egy jelvény kapcsolódik, ami piros színű, ha a pontossági érték rossz, sárga, ha megközelíti a kiválót, illetve zöld. Ezen kívül be lehet kapcsolni egy pontosságkorlátozó módot, amely korlátozza a csúcsok összeadását, ha zárolva van, hogy a kurzort a rossz, küszöb feletti pontossági értékkel rendelkező pozíciókra koordinálja.</translation>
+        <translation>Ha a pontosságjelző be van kapcsolva, a helymeghatározó gomb oldalán egy jelvény látható. Ez piros, ha a pontossági szint gyenge, sárga, ha jobb, de nem éri el a kiválót, illetve zöld ha kíválő. Ezenkívül bekapcsolható a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizáló kurzor a pozícióhoz van kötve. </translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -2554,7 +2554,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Beállítása esetén a pozícióhoz rögzített kurzorral felvett töréspontok digitalizálása csak a minimális számú összegyűjtött pozíció átlagolt értékét fogadja el. Az átlagolt pozíciókkal történő digitalizálás során a művelet a töréspont hozzáadása gomb lenyomásával és nyomva tartásával történik, amely addig gyűjti a pozíciókat, amíg a gombot fel nem engedi. A pontossági követelmény beállítását a rendszer tiszteletben tartja, ha engedélyezve van.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -2714,6 +2714,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3569,7 +3573,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Szegmens</translation>
+        <translation>Szakasz</translation>
     </message>
     <message>
         <source>Perimeter</source>
@@ -3917,7 +3921,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Irány</translation>
     </message>
     <message>
         <source>Lock Screen</source>

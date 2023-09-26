@@ -2518,7 +2518,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>使用设备的垂直海拔</translation>
+        <translation type="vanished">使用设备的垂直海拔</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2719,6 +2719,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation>该值将校正定位设备记录的Z值。如果输入的值为1.6，QField将自动从每个记录的值中减去1.6。请确保输入有效天线高度，即杆长 + 天线相位中心偏移。</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

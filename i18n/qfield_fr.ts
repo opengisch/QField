@@ -2517,7 +2517,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>Utiliser l&apos;altitude ortho-métrique de l&apos;appareil</translation>
+        <translation type="vanished">Utiliser l&apos;altitude ortho-métrique de l&apos;appareil</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2718,6 +2718,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation>Cette valeur corrigera les valeurs Z enregistrées à partir du dispositif de positionnement. Si une valeur de 1,6 est saisie, QField soustraira automatiquement 1,6 de chaque valeur enregistrée. Veiller à insérer la hauteur effective de l’antenne, c.-à-d. longueur du pôle + décalage du centre de phase de l’antenne</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

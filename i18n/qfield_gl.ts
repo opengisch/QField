@@ -2520,7 +2520,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>Utilizar a altitude ortométrica do dispositivo</translation>
+        <translation type="vanished">Utilizar a altitude ortométrica do dispositivo</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2721,6 +2721,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation>Este valor corrixirá os valores Z rexistrados polo dispositivo de posicionamento. Se introducimos un valor de 1,6 , QField restará automaticamente 1,6 de cada valor rexistrado. Asegúrese de introducir a altura efectiva da antena, é dicir, a altura do polo + o desprazamento do centro de fase da antena.</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
