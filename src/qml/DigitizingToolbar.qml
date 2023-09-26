@@ -319,6 +319,10 @@ VisibilityFadingRow {
     return true;
   }
 
+  function triggerAddVertex() {
+    addVertexButton.clicked()
+  }
+
   function addVertex() {
     digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
     coordinateLocator.flash()

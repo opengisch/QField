@@ -449,7 +449,8 @@ ApplicationWindow {
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
-      interactive: !dashBoard.opened && !screenLocker.enabled && !welcomeScreen.visible && !qfieldSettings.visible && !cloudPopup.visible && !codeReader.visible
+      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !cloudPopup.visible && !codeReader.visible
+      interactive: isEnabled && !screenLocker.enabled
       incrementalRendering: true
       quality: qfieldSettings.quality
       forceDeferredLayersRepaint: trackings.count > 0
@@ -3019,17 +3020,19 @@ ApplicationWindow {
     target: iface
 
     function onVolumeKeyUp(volumeKeyCode) {
-      if (stateMachine.state === 'browse' || !mapCanvasMap.interactive) {
+      if (stateMachine.state === 'browse' || !mapCanvasMap.isEnabled) {
         return;
       }
 
       switch (volumeKeyCode) {
         case  Qt.Key_VolumeDown:
-          digitizingToolbar.removeVertex();
+          if (mapCanvasMap.interactive) {
+            digitizingToolbar.removeVertex();
+          }
           break;
         case Qt.Key_VolumeUp:
           if (!geometryEditorsToolbar.canvasClicked(coordinateLocator.currentCoordinate)) {
-            digitizingToolbar.addVertex();
+            digitizingToolbar.triggerAddVertex();
           }
           break;
         default:
