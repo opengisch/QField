@@ -17,7 +17,6 @@
 
 #include "deltafilewrapper.h"
 #include "qfield.h"
-#include "trackingmodel.h"
 #include "utils/fileutils.h"
 #include "utils/qfieldcloudutils.h"
 
@@ -42,9 +41,8 @@ Q_GLOBAL_STATIC( CacheAttachmentFieldNamesMap, sCacheAttachmentFieldNames );
 Q_GLOBAL_STATIC( QSet<QString>, sFileLocks );
 
 
-DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fileName, TrackingModel *trackingModel )
+DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fileName )
   : mProject( project )
-  , mTrackingModel( trackingModel )
 {
   QFileInfo fileInfo = QFileInfo( fileName );
 
@@ -481,48 +479,8 @@ QMap<QString, QString> DeltaFileWrapper::attachmentFileNames() const
   return fileNameChecksum;
 }
 
-bool DeltaFileWrapper::updateTrackerCompatibleDelta( const QString &localLayerId, const QString &localPkAttrName, const QgsFeature &newFeature )
-{
-  for ( int i = mDeltas.size() - 1; i >= 0; i-- )
-  {
-    QJsonObject delta = mDeltas[i].toObject();
-    const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
-    const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
-    const QString method = delta.value( QStringLiteral( "method" ) ).toString();
-    if ( layerId == localLayerId && localPk == newFeature.attribute( localPkAttrName ) && method == "patch" )
-    {
-      QJsonObject newValues = delta.value( QStringLiteral( "new" ) ).toObject();
-      QJsonObject attributes = newValues.value( QStringLiteral( "attributes" ) ).toObject();
-      if ( attributes.isEmpty() && newValues.contains( "geometry" ) )
-      {
-        qInfo() << "DeltaFileWrapper::addPatch: replacing an patch delta for tracking feature";
-
-        newValues.insert( QStringLiteral( "geometry" ), geometryToJsonValue( newFeature.geometry() ) );
-        delta.insert( QStringLiteral( "new" ), newValues );
-        mDeltas.replace( i, delta );
-        return true;
-      }
-      else
-      {
-        // An attribute change has occured *after* any ongoing tracking session, we must create a new patch
-        return false;
-      }
-    }
-  }
-  return false;
-}
-
 void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot )
 {
-  if ( mTrackingModel && mTrackingModel->rowCount() > 0 )
-  {
-    QgsVectorLayer *vl = static_cast<QgsVectorLayer *>( mProject->mapLayer( localLayerId ) );
-    if ( mTrackingModel->featureInTracking( vl, newFeature.id() ) && updateTrackerCompatibleDelta( localLayerId, localPkAttrName, newFeature ) )
-    {
-      return;
-    }
-  }
-
   QJsonObject delta(
     {
       { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
@@ -730,6 +688,54 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   }
   else
   {
+    int replaceDeltaIdx = -1;
+    for ( int i = mDeltas.size() - 1; i >= 0; i-- )
+    {
+      QJsonObject existingDelta = mDeltas[i].toObject();
+      const QString layerId = existingDelta.value( QStringLiteral( "localLayerId" ) ).toString();
+      const QString localPk = existingDelta.value( QStringLiteral( "localPk" ) ).toString();
+      const QString method = existingDelta.value( QStringLiteral( "method" ) ).toString();
+      if ( layerId == localLayerId && localPk == newFeature.attribute( localPkAttrName ) && method == "patch" )
+      {
+        QJsonObject existingOldData = existingDelta.value( QStringLiteral( "old" ) ).toObject();
+        QJsonObject existingNewData = existingDelta.value( QStringLiteral( "new" ) ).toObject();
+        if ( newData.contains( "geometry" ) )
+        {
+          existingNewData.insert( "geometry", newData.value( QStringLiteral( "geometry" ) ).toString() );
+          if ( !existingOldData.contains( "geometry" ) )
+          {
+            // Previous patch did not contain a geometry change, add old geometry data
+            existingOldData.insert( "geometry", oldData.value( QStringLiteral( "geometry" ) ) );
+          }
+        }
+        const QStringList attributeNames = tmpNewAttrs.keys();
+        if ( !attributeNames.isEmpty() )
+        {
+          QJsonObject existingOldAttributes = existingOldData.value( QStringLiteral( "attributes" ) ).toObject();
+          QJsonObject existingNewAttributes = existingNewData.value( QStringLiteral( "attributes" ) ).toObject();
+          for ( const QString &attributeName : attributeNames )
+          {
+            existingNewAttributes.insert( attributeName, tmpNewAttrs.value( attributeName ) );
+            if ( !existingOldAttributes.contains( attributeName ) )
+            {
+              // Previous patch did not contain this attribute change, add old attribute value
+              existingOldAttributes.insert( attributeName, tmpOldAttrs.value( attributeName ) );
+            }
+          }
+          existingOldData.insert( "attributes", existingOldAttributes );
+          existingNewData.insert( "attributes", existingNewAttributes );
+        }
+        existingDelta.insert( "old", existingOldData );
+        existingDelta.insert( "new", existingNewData );
+
+        mDeltas.replace( i, existingDelta );
+
+        qInfo() << "DeltaFileWrapper::addPatch: replaced an existing patch delta: " << existingDelta;
+
+        return;
+      }
+    }
+
     mDeltas.append( delta );
 
     qInfo() << "DeltaFileWrapper::addPatch: Added a new patch delta: " << delta;

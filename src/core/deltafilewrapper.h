@@ -25,8 +25,6 @@
 #include <qgslogger.h>
 #include <qgsvectorlayer.h>
 
-class TrackingModel;
-
 const QString DeltaFormatVersion = QStringLiteral( "1.0" );
 
 /**
@@ -64,7 +62,7 @@ class DeltaFileWrapper : public QObject
      *
      * @param fileName complete file name with path where the object should be stored
      */
-    DeltaFileWrapper( const QgsProject *project, const QString &fileName, TrackingModel *trackingModel = nullptr );
+    DeltaFileWrapper( const QgsProject *project, const QString &fileName );
 
     /**
      * Destroy the Delta File Wrapper object
@@ -348,12 +346,6 @@ class DeltaFileWrapper : public QObject
     QJsonValue geometryToJsonValue( const QgsGeometry &geom ) const;
 
     /**
-     * Returns TRUE if a tracker-compatible delta (defined as a geometry-only modification patch) for a
-     * given layer feature.
-     */
-    bool updateTrackerCompatibleDelta( const QString &localLayerId, const QString &localPkAttrName, const QgsFeature &newFeature );
-
-    /**
      * Applies the current delta file on the current project. A wrapper method arround \a _applyDeltasOnLayers.
      * If \a shouldApplyInReverse is passed, the deltas are applied in reverse order (e.g. discarding the changes).
      */
@@ -376,11 +368,6 @@ class DeltaFileWrapper : public QObject
      * The current project instance
      */
     const QgsProject *mProject = nullptr;
-
-    /**
-     * The tracking model instance
-     */
-    TrackingModel *mTrackingModel = nullptr;
 
     /**
      * A mapping between the local primary key and it's index in the delta file.

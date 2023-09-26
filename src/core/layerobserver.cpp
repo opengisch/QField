@@ -17,7 +17,6 @@
 
 #include "layerobserver.h"
 #include "qfieldcloudutils.h"
-#include "trackingmodel.h"
 
 #include <QDebug>
 #include <QDir>
@@ -30,12 +29,11 @@
 #include <appinterface.h>
 
 
-LayerObserver::LayerObserver( const QgsProject *project, TrackingModel *trackingModel )
+LayerObserver::LayerObserver( const QgsProject *project )
   : mProject( project )
-  , mTrackingModel( trackingModel )
 {
   QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
-  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ), mTrackingModel );
+  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
 
   connect( mProject, &QgsProject::homePathChanged, this, &LayerObserver::onHomePathChanged );
   connect( mProject, &QgsProject::layersAdded, this, &LayerObserver::onLayersAdded );
@@ -64,7 +62,7 @@ void LayerObserver::onHomePathChanged()
   Q_ASSERT( mDeltaFileWrapper->hasError() || !mDeltaFileWrapper->isDirty() );
 
   QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
-  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ), mTrackingModel ) );
+  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) ) );
   emit deltaFileWrapperChanged();
 
   mObservedLayerIds.clear();
