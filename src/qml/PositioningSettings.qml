@@ -1,13 +1,15 @@
 import QtQuick 2.14
 import Qt.labs.settings 1.0 as LabSettings
 
+import org.qfield 1.0
+
 LabSettings.Settings {
     property bool positioningActivated: false
     property bool positioningCoordinateLock: false
 
     property string positioningDevice: ""
     property string positioningDeviceName: qsTr( "Internal device" );
-    property bool ellipsoidalElevation: true
+    property int elevationCorrectionMode: Positioning.ElevationCorrectionMode.None
     property bool logging: false
 
     property bool showPositionInformation: false

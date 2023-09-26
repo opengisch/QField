@@ -123,14 +123,14 @@ void Positioning::setLogging( bool logging )
   emit loggingChanged();
 }
 
-void Positioning::setEllipsoidalElevation( bool ellipsoidal )
+void Positioning::setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode )
 {
-  if ( mEllipsoidalElevation == ellipsoidal )
+  if ( mElevationCorrectionMode == elevationCorrectionMode )
     return;
 
-  mEllipsoidalElevation = ellipsoidal;
+  mElevationCorrectionMode = elevationCorrectionMode;
 
-  emit ellipsoidalElevationChanged();
+  emit elevationCorrectionModeChanged();
 }
 
 void Positioning::setAntennaHeight( double antennaHeight )

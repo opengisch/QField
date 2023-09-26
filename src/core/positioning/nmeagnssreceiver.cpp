@@ -48,19 +48,19 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
   double antennaHeight = 0.0;
   if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
   {
-    ellipsoidalElevation = positioning->ellipsoidalElevation();
+    ellipsoidalElevation = positioning->elevationCorrectionMode() != Positioning::ElevationCorrectionMode::OrthometricFromDevice;
     antennaHeight = positioning->antennaHeight();
   }
 
   if ( info.utcTime != mLastGnssPositionUtcTime )
   {
     mLastGnssPositionUtcTime = info.utcTime;
-
     if ( mImuPosition.valid )
     {
       mLastGnssPositionInformation = GnssPositionInformation( mImuPosition.latitude, mImuPosition.longitude,
                                                               ellipsoidalElevation ? mImuPosition.altitude : mImuPosition.altitude - info.elevation_diff,
-                                                              mImuPosition.speed * 1000 / 60 / 60, mImuPosition.direction,
+                                                              mImuPosition.speed * 1000 / 60 / 60, // QgsGpsInformation's speed is served in km/h, translate to m/s
+                                                              mImuPosition.direction,
                                                               info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                               info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType,
                                                               info.quality,
@@ -70,19 +70,18 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
                                                               mImuPosition.valid );
     }
     else
+    {
       mLastGnssPositionInformation = mCurrentNmeaGnssPositionInformation;
+    }
 
     emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
   }
 
-  double elevation = info.elevation - antennaHeight;
-  if ( ellipsoidalElevation )
-    elevation += info.elevation_diff;
-
-  // QgsGpsInformation's speed is served in km/h, translate to m/s
   mCurrentNmeaGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude,
-                                                                 elevation,
-                                                                 info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop, info.hdop, info.vdop,
+                                                                 info.elevation - antennaHeight + ( ellipsoidalElevation ? info.elevation_diff : 0 ),
+                                                                 info.speed * 1000 / 60 / 60, // QgsGpsInformation's speed is served in km/h, translate to m/s
+                                                                 info.direction,
+                                                                 info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                                  info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                                  info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                                  0, QStringLiteral( "nmea" ) );

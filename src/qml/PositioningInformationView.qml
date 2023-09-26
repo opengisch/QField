@@ -92,18 +92,27 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: {
-            var altitude = qsTr( "Altitude" ) + ': ';
-            if ( positionSource.positionInformation && positionSource.positionInformation.elevationValid ) {
-                altitude += Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 3 ) + ' m'
-                if ( !isNaN( parseFloat( antennaHeight ) ) ) {
-                    altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg( ( antennaHeight > 0 ? "+" : "-" ) + Math.abs( antennaHeight ).toLocaleString(Qt.locale(), 'f', 3 ) );
-                }
+          var altitude = qsTr( "Altitude" ) + ': '
+          if ( positionSource.positionInformation && positionSource.positionInformation.elevationValid ) {
+            altitude += Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 3 ) + ' m '
+            var details = []
+            if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile) {
+              details.push('grid')
+            } else if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
+              details.push('ortho.')
             }
-            else
-            {
-                altitude += qsTr('N/A');
+            if ( !isNaN( parseFloat( antennaHeight ) ) ) {
+              details.push('ant.')
             }
-            return altitude
+            if (details.length > 0) {
+              altitude += ' (%1)'.arg( details.join(', '))
+            }
+          }
+          else
+          {
+            altitude += qsTr('N/A');
+          }
+          return altitude
         }
       }
     }

@@ -12,7 +12,7 @@ TestCase {
         id: positioning
         deviceId: 'udp:localhost:1958'
         active: true
-        ellipsoidalElevation: true
+        elevationCorrectionMode: Positioning.ElevationCorrectionMode.None
 
         coordinateTransformer: CoordinateTransformer {
           id: coordinateTransformer
@@ -25,10 +25,12 @@ TestCase {
     }
 
     function test_01_ellipsoidalElevation() {
+        positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = ''
         // wait a few seconds so positioning can catch some NMEA strings
         wait(2500)
+
 
         // the elevation in the NMEA stream goes between 320 to 322, and the ellispodal adjustment is -26.0 meters
         // we therefore simply check whether we are int the 200s value range, which indicates ellispodal elevation is
@@ -36,7 +38,21 @@ TestCase {
         compare(Math.floor(positioning.positionInformation.elevation / 100), 2)
     }
 
-    function test_02_deltaZ() {
+    function test_02_orthometricElevation() {
+        positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.OrthometricFromDevice
+        coordinateTransformer.deltaZ = 0
+        coordinateTransformer.verticalGrid = ''
+        // wait a few seconds so positioning can catch some NMEA strings
+        wait(2500)
+
+        // the orthmoetric elevation in the NMEA stream goes between 320 to 322,
+        // we therefore simply check whether we are int the 300s value range, which indicates orthographic elevation is
+        // being returned
+        compare(Math.floor(positioning.positionInformation.elevation / 100), 3)
+    }
+
+    function test_03_deltaZ() {
+        positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None
         coordinateTransformer.deltaZ = -100
         coordinateTransformer.verticalGrid = ''
         // wait a few seconds so positioning can catch some NMEA strings
@@ -48,7 +64,8 @@ TestCase {
         compare(Math.floor(positioning.projectedPosition.z / 100), 1)
     }
 
-    function test_03_verticalGrid() {
+    function test_04_verticalGrid() {
+        positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = dataDir + '/testgrid.tif'
         // wait a few seconds so positioning can catch some NMEA strings
@@ -60,8 +77,9 @@ TestCase {
         compare(Math.floor(positioning.projectedPosition.z / 100), -1)
     }
 
-    function test_04_tcpReceiver() {
+    function test_05_tcpReceiver() {
         positioning.deviceId = 'tcp:localhost:11111'
+        positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = ''
         // wait a few seconds so positioning can catch some NMEA strings
@@ -74,9 +92,9 @@ TestCase {
         compare(Math.floor(positioning.positionInformation.vacc), 4)
     }
 
-    function test_05_happyIMU() {
+    function test_06_happyIMU() {
         positioning.deviceId = 'udp:localhost:1959'
-
+        positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = ''
 
@@ -87,9 +105,9 @@ TestCase {
         compare(positioning.positionInformation.imuCorrection, true)
     }
 
-    function test_06_happyMonch2IMU() {
+    function test_07_happyMonch2IMU() {
         positioning.deviceId = 'udp:localhost:1960'
-
+        positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = ''
 
