@@ -559,6 +559,17 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
+    <name>Erase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
@@ -881,6 +892,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Fill Ring Tool</source>
         <translation>Ferramenta anel de preenchimento</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

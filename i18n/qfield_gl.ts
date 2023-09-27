@@ -559,6 +559,17 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
 </context>
 <context>
+    <name>Erase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
@@ -879,6 +890,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Fill Ring Tool</source>
         <translation>Ferramenta de Recheo de Aneis</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

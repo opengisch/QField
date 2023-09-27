@@ -559,6 +559,17 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
 </context>
 <context>
+    <name>Erase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
@@ -881,6 +892,10 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <message>
         <source>Fill Ring Tool</source>
         <translation>Strumento Riempi Buco</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

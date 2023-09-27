@@ -559,6 +559,17 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
+    <name>Erase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
@@ -874,6 +885,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Fill Ring Tool</source>
         <translation>Narzędzie wypełniania pierścienia</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
