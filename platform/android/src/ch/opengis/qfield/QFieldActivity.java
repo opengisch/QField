@@ -182,6 +182,7 @@ public class QFieldActivity extends QtActivity {
         if (handleVolumeKeys && (keyCode == KeyEvent.KEYCODE_VOLUME_UP ||
                                  keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ||
                                  keyCode == KeyEvent.KEYCODE_MUTE)) {
+            // Forward volume keys' presses to QField
             volumeKeyDown(keyCode);
             return true;
         }
@@ -193,6 +194,7 @@ public class QFieldActivity extends QtActivity {
         if (handleVolumeKeys && (keyCode == KeyEvent.KEYCODE_VOLUME_UP ||
                                  keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ||
                                  keyCode == KeyEvent.KEYCODE_MUTE)) {
+            // Forward volume keys's releases to QField
             volumeKeyUp(keyCode);
             return true;
         }
