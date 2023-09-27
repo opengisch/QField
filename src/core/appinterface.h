@@ -134,6 +134,12 @@ class AppInterface : public QObject
     //! Requests QField to open its local data picker screen to show the \a path content.
     void openPath( const QString &path );
 
+    //! Emitted when a volume key is pressed while QField is set to handle those keys.
+    void volumeKeyDown( int volumeKeyCode );
+
+    //! Emitted when a volume key is pressed while QField is set to handle those keys.
+    void volumeKeyUp( int volumeKeyCode );
+
   private:
     static AppInterface *sAppInterface;
 

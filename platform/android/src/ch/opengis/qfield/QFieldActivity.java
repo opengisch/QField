@@ -66,6 +66,7 @@ import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DisplayCutout;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowInsets;
@@ -105,8 +106,11 @@ public class QFieldActivity extends QtActivity {
 
     public static native void openProject(String url);
     public static native void openPath(String path);
+    public static native void volumeKeyDown(int volumeKeyCode);
+    public static native void volumeKeyUp(int volumeKeyCode);
 
     private float originalBrightness;
+    private boolean handleVolumeKeys = false;
     private String pathsToExport;
     private double sceneTopMargin = 0;
     private double sceneBottomMargin = 0;
@@ -171,6 +175,30 @@ public class QFieldActivity extends QtActivity {
             intent.getAction() == Intent.ACTION_SEND) {
             openProject(getPathFromIntent(intent));
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (handleVolumeKeys && (keyCode == KeyEvent.KEYCODE_VOLUME_UP ||
+                                 keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ||
+                                 keyCode == KeyEvent.KEYCODE_MUTE)) {
+            // Forward volume keys' presses to QField
+            volumeKeyDown(keyCode);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (handleVolumeKeys && (keyCode == KeyEvent.KEYCODE_VOLUME_UP ||
+                                 keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ||
+                                 keyCode == KeyEvent.KEYCODE_MUTE)) {
+            // Forward volume keys's releases to QField
+            volumeKeyUp(keyCode);
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 
     private boolean isDarkTheme() {
@@ -341,6 +369,14 @@ public class QFieldActivity extends QtActivity {
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.screenBrightness = originalBrightness;
         getWindow().setAttributes(lp);
+    }
+
+    private void takeVolumeKeys() {
+        handleVolumeKeys = true;
+    }
+
+    private void releaseVolumeKeys() {
+        handleVolumeKeys = false;
     }
 
     private void showBlockingProgressDialog(String message) {

@@ -98,7 +98,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker | CustomImport | CustomExport | CustomSend | FilePicker;
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -871,6 +871,20 @@ void AndroidPlatformUtilities::restoreBrightness()
   }
 }
 
+void AndroidPlatformUtilities::setHandleVolumeKeys( const bool handle )
+{
+  if ( mActivity.isValid() )
+  {
+    runOnAndroidMainThread( [handle] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( handle ? "takeVolumeKeys" : "releaseVolumeKeys" );
+      }
+    } );
+  }
+}
+
 QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
 {
   Q_UNUSED( window )
@@ -943,6 +957,27 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
     const char *pathStr = env->GetStringUTFChars( path, NULL );
     emit AppInterface::instance()->openPath( QString( pathStr ) );
     env->ReleaseStringUTFChars( path, pathStr );
+  }
+  return;
+}
+
+#define ANDROID_VOLUME_DOWN 25
+#define ANDROID_VOLUME_UP 24
+
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, volumeKeyDown )( JNIEnv *env, jobject obj, int volumeKeyCode )
+{
+  if ( AppInterface::instance() )
+  {
+    emit AppInterface::instance()->volumeKeyDown( volumeKeyCode == ANDROID_VOLUME_DOWN ? Qt::Key_VolumeDown : Qt::Key_VolumeUp );
+  }
+  return;
+}
+
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, volumeKeyUp )( JNIEnv *env, jobject obj, int volumeKeyCode )
+{
+  if ( AppInterface::instance() )
+  {
+    emit AppInterface::instance()->volumeKeyUp( volumeKeyCode == ANDROID_VOLUME_DOWN ? Qt::Key_VolumeDown : Qt::Key_VolumeUp );
   }
   return;
 }

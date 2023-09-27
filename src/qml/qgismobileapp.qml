@@ -166,10 +166,12 @@ ApplicationWindow {
     {
       case 'browse':
         projectInfo.stateMode = mode
+        platformUtilities.setHandleVolumeKeys(false)
         displayToast( qsTr( 'You are now in browse mode' ) );
         break;
       case 'digitize':
         projectInfo.stateMode = mode
+        platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys)
         dashBoard.ensureEditableLayerSelected();
         if (dashBoard.activeLayer)
         {
@@ -181,6 +183,7 @@ ApplicationWindow {
         }
         break;
       case 'measure':
+        platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys)
         elevationProfile.populateLayersFromProject();
         displayToast( qsTr( 'You are now in measure mode' ) );
         break;
@@ -449,7 +452,8 @@ ApplicationWindow {
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
-      interactive: !dashBoard.opened && !screenLocker.enabled && !welcomeScreen.visible && !qfieldSettings.visible && !cloudPopup.visible && !codeReader.visible
+      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !cloudPopup.visible && !codeReader.visible
+      interactive: isEnabled && !screenLocker.enabled
       incrementalRendering: true
       quality: qfieldSettings.quality
       forceDeferredLayersRepaint: trackings.count > 0
@@ -3026,6 +3030,27 @@ ApplicationWindow {
   Connections {
     target: iface
 
+    function onVolumeKeyUp(volumeKeyCode) {
+      if (stateMachine.state === 'browse' || !mapCanvasMap.isEnabled) {
+        return;
+      }
+
+      switch (volumeKeyCode) {
+        case  Qt.Key_VolumeDown:
+          if (mapCanvasMap.interactive) {
+            digitizingToolbar.removeVertex();
+          }
+          break;
+        case Qt.Key_VolumeUp:
+          if (!geometryEditorsToolbar.canvasClicked(coordinateLocator.currentCoordinate)) {
+            digitizingToolbar.triggerAddVertex();
+          }
+          break;
+        default:
+          break;
+      }
+    }
+
     function onImportTriggered(name) {
       busyOverlay.text = qsTr("Importing %1").arg(name)
       busyOverlay.state = "visible"
@@ -3073,6 +3098,7 @@ ApplicationWindow {
 
       projectInfo.filePath = path
       stateMachine.state = projectInfo.stateMode
+      platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse')
       dashBoard.activeLayer = projectInfo.activeLayer
 
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
