@@ -196,7 +196,9 @@ EditorWidgetBase {
       width: sliderRow.width / 4
       height: fontMetrics.height + 20
       elide: Text.ElideRight
-      text: value !== undefined && value != '' ? Number( slider.value ).toFixed( rangeItem.precision ).toLocaleString() + rangeItem.suffix : ''
+      text: value !== undefined && value != ''
+            ? Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix
+            : ''
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft
       font: Theme.defaultFont
@@ -206,13 +208,15 @@ EditorWidgetBase {
     QfSlider {
       id: slider
       showValueLabel: false
-      value: typeof rangeItem.parent.value === 'numeric' || typeof rangeItem.parent.value === 'number' ? rangeItem.parent.value : slider.value
       width: sliderRow.width - valueLabel.width
       height: fontMetrics.height + 20
       implicitWidth: width
       from: !Number.isFinite(rangeItem.min) ? Number.MIN_VALUE : rangeItem.min
       to: !Number.isFinite(rangeItem.max) ? Number.MAX_VALUE : rangeItem.max
       stepSize: !Number.isFinite(rangeItem.step) ? 1 : rangeItem.step
+      value: rangeItem.parent.value !== undefined && rangeItem.parent.value !== ''
+             ? Number(rangeItem.parent.value)
+             : from
 
       onValueChanged: {
         if (sliderRow.visible) {
