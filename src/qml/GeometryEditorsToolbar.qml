@@ -30,7 +30,10 @@ VisibilityFadingRow {
   property FeatureModel featureModel //<! the feature which has its geometry being edited
   property MapSettings mapSettings
   property RubberbandModel editorRubberbandModel //<! an additional Rubberband model for the tools (when drawing lines in split or add ring tools)
+  property GeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
+
+  property string image: ''
 
   spacing: 4
 
@@ -39,10 +42,12 @@ VisibilityFadingRow {
   GeometryEditorsModel {
     id: editors
   }
+
   Component.onCompleted: {
     editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "geometryeditors/VertexEditor.qml")
     editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "geometryeditors/SplitFeature.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
     editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "geometryeditors/Reshape.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Erase Tool"), "ic_erase_tool_white_24dp", "geometryeditors/Erase.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
     editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "geometryeditors/FillRing.qml", GeometryEditorsModelSingleton.Polygon)
   }
 
@@ -54,6 +59,7 @@ VisibilityFadingRow {
       var toolbarQml = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.ToolbarRole)
       var iconPath = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.IconPathRole)
       var name = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.NameRole)
+      geometryEditorsToolbar.image = Theme.getThemeVectorIcon(iconPath)
       toolbarRow.load(toolbarQml, iconPath, name)
     }
   }
@@ -80,6 +86,22 @@ VisibilityFadingRow {
       return false
   }
 
+  // returns true if handled or not defined
+  function canvasFreehandBegin() {
+    if ( toolbarRow.item && toolbarRow.visible)
+      return toolbarRow.item.canvasFreehandBegin ? toolbarRow.item.canvasFreehandBegin() : true
+    else
+      return false
+  }
+
+  // returns true if handled or not defined
+  function canvasFreehandEnd() {
+    if ( toolbarRow.item && toolbarRow.visible)
+      return toolbarRow.item.canvasFreehandEnd ? toolbarRow.item.canvasFreehandEnd() : true
+    else
+      return false
+  }
+
   VisibilityFadingRow {
     id: selectorRow
     stateVisible: true
@@ -98,7 +120,9 @@ VisibilityFadingRow {
           if (toolbarRow.item)
             toolbarRow.item.cancel()
           selectorRow.stateVisible = false
+          geometryEditorsToolbar.image = Theme.getThemeVectorIcon(iconPath)
           toolbarRow.load(toolbar, iconPath, name)
+
           settings.setValue( "/QField/GeometryEditorLastUsed", index )
         }
       }
@@ -112,7 +136,7 @@ VisibilityFadingRow {
 
     function load(qmlSource, iconPath, name){
       source = qmlSource
-      item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
+      item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel, geometryEditorsToolbar.editorRenderer)
         if (toolbarRow.item.screenHovering !== undefined)
           toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
         if (toolbarRow.item.vertexRubberbandVisible !== undefined)

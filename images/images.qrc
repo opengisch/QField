@@ -463,6 +463,10 @@
         <file>themes/qfield/xxxhdpi/baseline_photo_library_black_48.png</file>
         <file>themes/qfield/nodpi/ic_split_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_reshape_tool_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_erase_tool_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_size_small_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_size_medium_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_size_large_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_ring_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_vertex_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_view_black_24dp.svg</file>

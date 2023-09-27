@@ -229,8 +229,7 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 
   mPointList.replace( mCurrentCoordinateIndex, currentCoordinate );
 
-
-  if ( mLayer && QgsWkbTypes::hasM( mLayer->wkbType() ) )
+  if ( !mLayer || QgsWkbTypes::hasM( mLayer->wkbType() ) )
   {
     if ( !std::isnan( mMeasureValue ) )
     {
@@ -277,9 +276,10 @@ void RubberbandModel::setMeasureValue( const double measureValue )
 
   emit measureValueChanged();
 
-  if ( mLayer && QgsWkbTypes::hasM( mLayer->wkbType() ) )
+  if ( !mLayer || QgsWkbTypes::hasM( mLayer->wkbType() ) )
   {
     QgsPoint currentPoint = currentCoordinate();
+    currentPoint.dropMValue(); // Reset the M value to insure new value is added below
     setCurrentCoordinate( currentPoint );
   }
 }
@@ -288,7 +288,9 @@ void RubberbandModel::addVertex()
 {
   // Avoid double vertices accidentally
   if ( mPointList.size() > 1 && *( mPointList.end() - 1 ) == *( mPointList.end() - 2 ) )
+  {
     return;
+  }
 
   insertVertices( mCurrentCoordinateIndex + 1, 1 );
   setCurrentCoordinateIndex( mCurrentCoordinateIndex + 1 );

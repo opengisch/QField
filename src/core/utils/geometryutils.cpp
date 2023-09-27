@@ -46,12 +46,22 @@ QgsGeometry GeometryUtils::lineFromRubberband( RubberbandModel *rubberBandModel,
   return g;
 }
 
+QgsGeometry GeometryUtils::variableWidthBufferByMFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
+{
+  QgsPointSequence points = rubberBandModel->pointSequence( crs, Qgis::WkbType::PointM, false );
+  std::unique_ptr<QgsLineString> line = std::make_unique<QgsLineString>( points );
+  QgsGeometry g( std::move( line ) );
+  return g.variableWidthBufferByM( 5 );
+}
+
 GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
   QgsFeature feature = layer->getFeature( fid );
   QgsGeometry geom = feature.geometry();
   if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
+  {
     return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
+  }
 
   QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
   QgsLineString reshapeLineString( points );
@@ -96,6 +106,36 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
   }
 
   return reshapeReturn;
+}
+
+GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+{
+  QgsFeature feature = layer->getFeature( fid );
+  QgsGeometry geom = feature.geometry();
+  if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
+  {
+    return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
+  }
+
+  const QgsGeometry diffGeom = variableWidthBufferByMFromRubberband( rubberBandModel, layer->crs() );
+  QgsGeometry resultGeom = geom.difference( diffGeom );
+  if ( !resultGeom.isNull() )
+  {
+    if ( QgsWkbTypes::isMultiType( resultGeom.wkbType() ) && !QgsWkbTypes::isMultiType( layer->wkbType() ) )
+    {
+      return GeometryUtils::GeometryOperationResult::AddPartNotMultiGeometry;
+    }
+
+    layer->changeGeometry( fid, resultGeom );
+    // Add topological points
+    if ( QgsProject::instance()->topologicalEditing() )
+    {
+      layer->addTopologicalPoints( resultGeom );
+    }
+    return GeometryUtils::GeometryOperationResult::Success;
+  }
+
+  return GeometryUtils::GeometryOperationResult::InvalidInputGeometryType;
 }
 
 GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )

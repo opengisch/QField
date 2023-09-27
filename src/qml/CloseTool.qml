@@ -10,12 +10,13 @@ import Theme 1.0
 ToolButton {
   id: closeTool
 
+  property string toolImage: ''
   property string toolText: qsTr("close")
 
   signal closedTool()
 
   height: 48
-  width: height + buttonText.width + 32
+  width: height + buttonText.width + 32 + 24
 
   contentItem: Rectangle {
     anchors.fill: parent
@@ -24,22 +25,15 @@ ToolButton {
 
     Row {
       spacing: 8
-      Rectangle {
+
+      QfToolButton {
         width: 48
         height: 48
-        radius: height / 2
-        color: Theme.darkGray
-        Image {
-          anchors.centerIn: parent
-          width: 24
-          height: 24
-          fillMode: Image.PreserveAspectFit
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source: Theme.getThemeIcon( "ic_close_white_24dp" )
-          sourceSize.width: 24 * screen.devicePixelRatio
-          sourceSize.height: 24 * screen.devicePixelRatio
-        }
+        enabled: false
+        round: true
+        iconSource: closeTool.toolImage
+        iconColor: "white"
+        bgcolor: Theme.darkGray
       }
 
       Text {
@@ -49,6 +43,18 @@ ToolButton {
         text: closeTool.toolText
         color: Theme.light
         font: Theme.strongFont
+      }
+
+      Image {
+        anchors.verticalCenter: parent.verticalCenter
+        width: 24
+        height: 24
+        fillMode: Image.PreserveAspectFit
+        horizontalAlignment: Image.AlignHCenter
+        verticalAlignment: Image.AlignVCenter
+        source: Theme.getThemeIcon( "ic_close_white_24dp" )
+        sourceSize.width: 24 * screen.devicePixelRatio
+        sourceSize.height: 24 * screen.devicePixelRatio
       }
     }
 

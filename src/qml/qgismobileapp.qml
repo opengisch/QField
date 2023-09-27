@@ -326,7 +326,10 @@ ApplicationWindow {
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
         onActiveChanged: {
-            if (!active) {
+            if (active) {
+                geometryEditorsToolbar.canvasFreehandBegin();
+            } else {
+                geometryEditorsToolbar.canvasFreehandEnd();
                 var screenLocation = centroid.position;
                 var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
                 var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
@@ -641,6 +644,10 @@ ApplicationWindow {
       }
 
       visible: stateMachine.state === "digitize"
+    }
+
+    GeometryRenderer {
+      id: geometryEditorRenderer
     }
 
     /** A rubberband for the different geometry editors **/
@@ -1230,6 +1237,7 @@ ApplicationWindow {
     CloseTool {
       id: closeMeasureTool
       visible: stateMachine.state === 'measure'
+      toolImage: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
       toolText: qsTr( 'Close measure tool' )
       onClosedTool: mainWindow.closeMeasureTool()
     }
@@ -1237,6 +1245,7 @@ ApplicationWindow {
     CloseTool {
       id: closeGeometryEditorsTool
       visible: ( stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0 )
+      toolImage: geometryEditorsToolbar.image
       toolText: qsTr( 'Stop editing' )
       onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
@@ -1244,6 +1253,7 @@ ApplicationWindow {
     CloseTool {
       id: abortRequestGeometry
       visible: digitizingToolbar.geometryRequested
+      toolImage: Theme.getThemeVectorIcon( "ic_edit_geometry_white" )
       toolText: qsTr( 'Cancel addition' )
       onClosedTool: digitizingToolbar.cancel()
     }
@@ -1280,7 +1290,7 @@ ApplicationWindow {
           PropertyChanges {
             target: snappingButton
             iconColor: "white"
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+            bgcolor: Theme.darkGraySemiOpaque
           }
         },
 
@@ -1326,7 +1336,7 @@ ApplicationWindow {
           PropertyChanges {
             target: topologyButton
             iconColor: "white"
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+            bgcolor: Theme.darkGraySemiOpaque
           }
         },
 
@@ -1369,7 +1379,7 @@ ApplicationWindow {
           PropertyChanges {
             target: freehandButton
             iconColor: "white"
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+            bgcolor: Theme.darkGraySemiOpaque
           }
         },
 
@@ -1416,7 +1426,7 @@ ApplicationWindow {
           PropertyChanges {
             target: elevationProfileButton
             iconSource: Theme.getThemeVectorIcon( "ic_elevation_white_24dp" )
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+            bgcolor: Theme.darkGraySemiOpaque
           }
         },
 
@@ -1927,6 +1937,7 @@ ApplicationWindow {
       featureModel: geometryEditingFeature
       mapSettings: mapCanvas.mapSettings
       editorRubberbandModel: geometryEditorsRubberband.model
+      editorRenderer: geometryEditorRenderer
       screenHovering: mapCanvasMap.hovered
 
       stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)

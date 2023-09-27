@@ -170,7 +170,7 @@ Popup {
       width: cameraItem.isPortraitMode ? parent.width : 100
       height: cameraItem.isPortraitMode ? 100 : parent.height
 
-      color: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+      color: Theme.darkGraySemiOpaque
 
       Rectangle {
         id: captureRing
@@ -178,7 +178,7 @@ Popup {
         width: 64
         height: 64
         radius: 32
-        color: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+        color: Theme.darkGraySemiOpaque
         border.color: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState !== MediaRecorder.StoppedState
                       ? "red"
                       : "white"
@@ -230,7 +230,7 @@ Popup {
         y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) * 3 - (height / 2)
 
         iconColor: "white"
-        bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+        bgcolor: Theme.darkGraySemiOpaque
         round: true
 
         text: camera.zoomFactor.toFixed(1) +'X'
