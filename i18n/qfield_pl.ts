@@ -2736,6 +2736,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Orthometric from device</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
