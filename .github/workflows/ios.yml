@@ -33,7 +33,7 @@ jobs:
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: 6.5.2
+          version: 6.5.3
           modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtmultimedia qtwebview qtsensors'
           target: ios
           cache: false
@@ -41,7 +41,7 @@ jobs:
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: 6.5.2
+          version: 6.5.3
           target: desktop
           cache: false
 
@@ -110,8 +110,8 @@ jobs:
                 -D CMAKE_SYSTEM_NAME=iOS \
                 -D CMAKE_SYSTEM_PROCESSOR=aarch64 \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
-                -D QT_HOST_PATH=${{ github.workspace }}/../Qt/6.5.2/macos \
-                -D QT_HOST_PATH_CMAKE_DIR:PATH=${{ github.workspace }}/../Qt/6.5.2/macos \
+                -D QT_HOST_PATH=${{ github.workspace }}/../Qt/6.5.3/macos \
+                -D QT_HOST_PATH_CMAKE_DIR:PATH=${{ github.workspace }}/../Qt/6.5.3/macos \
                 -D ENABLE_TESTS=OFF \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D WITH_CCACHE=ON
