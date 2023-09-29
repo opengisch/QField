@@ -51,7 +51,9 @@ Popup {
     anchors.fill: parent
 
     header: PageHeader {
-      title: qsTr("Tracker Settings")
+      title: tracker !== undefined && tracker.vectorLayer
+             ? qsTr("Tracking: %1").arg(tracker.vectorLayer.name)
+             : qsTr("Tracking")
 
       showApplyButton: false
       showCancelButton: false
