@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Limite a pesquisa ao campo &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Elementos da camada ativa</translation>
     </message>
 </context>
 <context>
@@ -430,7 +430,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Detetada tag de texto NFC</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -438,7 +438,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centre o seu dispositivo num código</translation>
     </message>
 </context>
 <context>
@@ -562,11 +562,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>A geometria não pode ser modificada em partes múltiplas</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>A geometria não pode ser modificada</translation>
     </message>
 </context>
 <context>
@@ -895,7 +895,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Ferramenta Apagar</translation>
     </message>
 </context>
 <context>
@@ -1161,27 +1161,27 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Retorna uma lista de elementos da camada ativa com atributos correspondentes. A restrição de correspondência a um único atributo é feita identificando o seu nome com um prefixo &apos;@&apos;.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve uma lista de elementos através de todas as camadas de pesquisa com nome correspondente.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve um ponto a partir de um par de coordenadas XY - ou WGS84 latitude e longitude - introduzida na barra de pesquisa.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve uma lista de marcadores de utilizador e de projetos abertos atualmente com o nome correspondente.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve o valor de uma expressão escrita na barra de pesquisa.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve uma lista de locais e endereços na Finlândia com os termos correspondentes. </translation>
     </message>
 </context>
 <context>
@@ -1192,7 +1192,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Para pesquisar elementos na camada ativa, selecione uma camada vetorial através da legenda.</translation>
     </message>
 </context>
 <context>
@@ -1246,7 +1246,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Registar perfil de tempo de execução</translation>
     </message>
 </context>
 <context>
@@ -2741,15 +2741,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortométrico do dispositivo</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Use as teclas de volume para digitalizar</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Se ativado, pressionar a tecla de aumentar volume do dispositivo adicionará um vértice, enquanto pressionar a tecla de dimininur volume removerá o último vértice inserido durante as sessões de digitalização.</translation>
     </message>
 </context>
 <context>
@@ -3296,15 +3296,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Proteção de distância errada</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Distância máxima tolerada [%1]</translation>
     </message>
     <message>
         <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
-        <translation type="unfinished"/>
+        <translation>Quando a proteção de distância errada estive ativa, as leitura de posição que tenham uma distância acima do valor de tolerância especificado vão ser descartadas.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
