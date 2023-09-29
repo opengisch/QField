@@ -12,10 +12,10 @@ Popup {
   id: trackInformationPopup
   parent: mainWindow.contentItem
 
-  x: Theme.popupScreenEdgeMargin
+  x: Theme.popupScreenEdgeMargin / 2
   y: Theme.popupScreenEdgeMargin
   padding: 0
-  width: parent.width - Theme.popupScreenEdgeMargin * 2
+  width: parent.width - Theme.popupScreenEdgeMargin
   height: parent.height - Theme.popupScreenEdgeMargin * 2
   modal: true
   closePolicy: Popup.CloseOnEscape
