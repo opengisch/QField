@@ -94,9 +94,13 @@ void Geometry::updateRubberband( const QgsGeometry &geometry )
   if ( !geometry.isEmpty() )
   {
     if ( mVectorLayer )
+    {
       mRubberbandModel->setDataFromGeometry( geometry, mVectorLayer->crs() );
+    }
     else
+    {
       mRubberbandModel->setDataFromGeometry( geometry );
+    }
   }
   else
   {

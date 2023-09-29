@@ -94,9 +94,12 @@ class Tracker : public QObject
     //! Sets whether the tracker rubberband is visible
     void setVisible( const bool visible ) { mVisible = visible; }
 
+    //! Returns the measure type used with the tracker geometry's M dimension when available
     MeasureType measureType() const { return mMeasureType; }
+    //! Sets the measure type used with the tracker geometry's M dimension when available
     void setMeasureType( MeasureType type ) { mMeasureType = type; }
 
+    //! Returns whether the tracker has been started
     bool isActive() const { return mIsActive; }
 
     void start();

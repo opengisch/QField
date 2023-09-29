@@ -130,11 +130,7 @@ Popup {
           validator: DoubleValidator { locale: 'C' }
 
           onTextChanged: {
-            if( text.length === 0 || isNaN(text) ) {
-              positioningSettings.trackerTimeInterval = NaN
-            } else {
-              positioningSettings.trackerTimeInterval = parseFloat( text )
-            }
+            positioningSettings.trackerTimeInterval = parseFloat( text )
           }
         }
 
@@ -190,16 +186,12 @@ Popup {
           validator: DoubleValidator { locale: 'C' }
 
           onTextChanged: {
-            if( text.length === 0 || isNaN(text) ) {
-              positioningSettings.trackerMinimumDistance = NaN
-            } else {
-              positioningSettings.trackerMinimumDistance = parseFloat( text )
-            }
+            positioningSettings.trackerMinimumDistance = parseFloat( text )
           }
         }
 
         Label {
-          text: qsTr("Activate sensor constraint")
+          text: qsTr("Activate new sensor data constraint")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -247,7 +239,7 @@ Popup {
         }
 
         Label {
-          text: qsTr( "When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
+          text: qsTr( "When enabled, vertices will only be recorded when all active constraints are met. When disabled, individual constraints being met will trigger a vertex addition." )
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           textFormat: Qt.RichText
@@ -257,10 +249,9 @@ Popup {
           visible: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
         }
 
-
         Label {
           text: sensorCapture.checked
-                ? qsTr( "When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data." )
+                ? qsTr( "When the sensor constraint is activated alone, vertex additions will occur whenever any sensor has captured new data." )
                 : qsTr( "When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device." )
           font: Theme.tipFont
           color: Theme.secondaryTextColor
@@ -323,11 +314,7 @@ Popup {
           validator: DoubleValidator { locale: 'C' }
 
           onTextChanged: {
-            if( text.length === 0 || isNaN(text) ) {
-              positioningSettings.trackerErroneousDistance = NaN
-            } else {
-              positioningSettings.trackerErroneousDistance = parseFloat( text )
-            }
+            positioningSettings.trackerErroneousDistance = parseFloat( text )
           }
         }
 
