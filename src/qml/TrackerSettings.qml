@@ -25,11 +25,11 @@ Popup {
     if (tracker != undefined) {
       featureModel.currentLayer = tracker.vectorLayer
       timeInterval.checked = tracker.timeInterval > 0
-      timeIntervalValue.text = tracker.timeInterval
+      timeIntervalValue.text = tracker.timeInterval > 0 ? tracker.timeInterval : positioningSettings.trackerTimeInterval
       minimumDistance.checked = tracker.minimumDistance > 0
-      minimumDistanceValue.text = tracker.minimumDistance
+      minimumDistanceValue.text = tracker.minimumDistance > 0 ? tracker.minimumDistance : positioningSettings.trackerMinimumDistance
       erroneousDistanceSafeguard.checked = tracker.maximumDistance > 0
-      erroneousDistanceValue.text = tracker.maximumDistance
+      erroneousDistanceValue.text = tracker.maximumDistance > 0 ? tracker.maximumDistance : positioningSettings.trackerErroneousDistance
       sensorCapture.checked = tracker.sensorCapture
       allConstraints.checked = tracker.conjunction && (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
       measureComboBox.currentIndex = tracker.measureType
