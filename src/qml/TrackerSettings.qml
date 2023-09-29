@@ -276,7 +276,7 @@ Popup {
 
           MouseArea {
             anchors.fill: parent
-            onClicked: maximumDistance.toggle()
+            onClicked: erroneousDistanceSafeguard.toggle()
           }
         }
 
