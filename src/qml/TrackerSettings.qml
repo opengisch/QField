@@ -83,9 +83,24 @@ Popup {
         columnSpacing: 0
         rowSpacing: 5
 
+        Label {
+          text: qsTr('Constraints Settings')
+          font: Theme.strongFont
+          color: Theme.mainColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+        }
+
+        Rectangle {
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+          height: 1
+          color: Theme.mainColor
+        }
 
         Label {
-          text: qsTr("Activate time constraint")
+          text: qsTr("Time constraint")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -135,7 +150,19 @@ Popup {
         }
 
         Label {
-          text: qsTr("Activate distance constraint")
+          text: qsTr( "When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value." )
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Item {
+          Layout.preferredWidth: allConstraints.width
+        }
+
+        Label {
+          text: qsTr("Distance constraint")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -191,7 +218,19 @@ Popup {
         }
 
         Label {
-          text: qsTr("Activate new sensor data constraint")
+          text: qsTr( "When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value." )
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Item {
+          Layout.preferredWidth: allConstraints.width
+        }
+
+        Label {
+          text: qsTr("Sensor data constraint")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -213,14 +252,26 @@ Popup {
         }
 
         Label {
+          text: qsTr( "When enabled, vertex additions will occur when sensors have captured new data." )
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Item {
+          Layout.preferredWidth: allConstraints.width
+        }
+
+        Label {
           text: qsTr("Record when all active constraints are met")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
-          enabled: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
-          visible: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
+          opacity: allConstraints.enabled ? 1 : 0.25
 
           MouseArea {
+            enabled: allConstraints.enabled
             anchors.fill: parent
             onClicked: allConstraints.toggle()
           }
@@ -231,7 +282,7 @@ Popup {
           Layout.preferredWidth: implicitContentWidth
           Layout.alignment: Qt.AlignTop
           enabled: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
-          visible: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
+          opacity: enabled ? 1 : 0.25
           checked: false
           onCheckedChanged: {
             positioningSettings.trackerMeetAllConstraints = checked
@@ -245,20 +296,7 @@ Popup {
           textFormat: Qt.RichText
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
-          enabled: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
-          visible: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
-        }
-
-        Label {
-          text: sensorCapture.checked
-                ? qsTr( "When the sensor constraint is activated alone, vertex additions will occur whenever any sensor has captured new data." )
-                : qsTr( "When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device." )
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
-          textFormat: Qt.RichText
-          wrapMode: Text.WordWrap
-          Layout.fillWidth: true
-          visible: !timeInterval.checked && !minimumDistance.checked
+          opacity: allConstraints.enabled ? 1 : 0.5
         }
 
         Item {
@@ -266,7 +304,21 @@ Popup {
           Layout.columnSpan: 2
         }
 
+        Label {
+          text: qsTr('General Settings')
+          font: Theme.strongFont
+          color: Theme.mainColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+        }
 
+        Rectangle {
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+          height: 1
+          color: Theme.mainColor
+        }
 
         Label {
           text: qsTr("Erroneous distance safeguard")
@@ -319,7 +371,7 @@ Popup {
         }
 
         Label {
-            text: qsTr( "When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded." )
+            text: qsTr( "When enabled, positions will not be discarded when the distance betwene the last and new vertex is greater than a configured maximum value." )
             font: Theme.tipFont
             color: Theme.secondaryTextColor
 
@@ -330,12 +382,13 @@ Popup {
 
         Label {
             id: measureLabel
-            Layout.fillWidth: true
-            Layout.columnSpan: 2
             text: qsTr( "Measure (M) value attached to vertices:" )
             font: Theme.defaultFont
 
             wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+            Layout.columnSpan: 2
+            Layout.topMargin: 4
         }
 
         ComboBox {
