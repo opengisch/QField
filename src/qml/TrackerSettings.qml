@@ -86,7 +86,7 @@ Popup {
         rowSpacing: 5
 
         Label {
-          text: qsTr('Constraints Settings')
+          text: qsTr('Requirement Settings')
           font: Theme.strongFont
           color: Theme.mainColor
           wrapMode: Text.WordWrap
@@ -102,7 +102,7 @@ Popup {
         }
 
         Label {
-          text: qsTr("Time constraint")
+          text: qsTr("Time requirement")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -164,7 +164,7 @@ Popup {
         }
 
         Label {
-          text: qsTr("Distance constraint")
+          text: qsTr("Distance requirement")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -232,7 +232,7 @@ Popup {
         }
 
         Label {
-          text: qsTr("Sensor data constraint")
+          text: qsTr("Sensor data requirement")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -266,14 +266,12 @@ Popup {
         }
 
         Label {
-          text: qsTr("Record when all active constraints are met")
+          text: qsTr("Wait for all active requirements")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
-          opacity: allConstraints.enabled ? 1 : 0.25
 
           MouseArea {
-            enabled: allConstraints.enabled
             anchors.fill: parent
             onClicked: allConstraints.toggle()
           }
@@ -283,8 +281,6 @@ Popup {
           id: allConstraints
           Layout.preferredWidth: implicitContentWidth
           Layout.alignment: Qt.AlignTop
-          enabled: (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
-          opacity: enabled ? 1 : 0.25
           checked: false
           onCheckedChanged: {
             positioningSettings.trackerMeetAllConstraints = checked
@@ -292,13 +288,12 @@ Popup {
         }
 
         Label {
-          text: qsTr( "When enabled, vertices will only be recorded when all active constraints are met. When disabled, individual constraints being met will trigger a vertex addition." )
+          text: qsTr( "When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions." )
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           textFormat: Qt.RichText
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
-          opacity: allConstraints.enabled ? 1 : 0.5
         }
 
         Item {
@@ -313,6 +308,7 @@ Popup {
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
           Layout.columnSpan: 2
+          Layout.topMargin: 4
         }
 
         Rectangle {
@@ -373,7 +369,7 @@ Popup {
         }
 
         Label {
-            text: qsTr( "When enabled, positions will not be discarded when the distance betwene the last and new vertex is greater than a configured maximum value." )
+            text: qsTr( "When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value." )
             font: Theme.tipFont
             color: Theme.secondaryTextColor
 
