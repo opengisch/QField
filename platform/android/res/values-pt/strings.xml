@@ -70,6 +70,6 @@
     <string name="import_dataset_wait">Por favor aguarde enquanto o QField importa o(s) conjunto(s) de dado(s)</string>
     <string name="upload_pending_attachments">Atualmente a carregar anexos para o QFieldCloud</string>
     <string name="operation_unsupported">Operação não suportada</string>
-    <string name="import_operation_unsupported">Seu dispositivo não tem suporte para esta operação de importação.</string>
-    <string name="export_operation_unsupported">Seu dispositivo não tem suporte para esta operação de exportação.</string>
+    <string name="import_operation_unsupported">O seu dispositivo não tem suporte para esta operação de importação.</string>
+    <string name="export_operation_unsupported">O seu dispositivo não tem suporte para esta operação de exportação.</string>
 </resources>

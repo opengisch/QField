@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Funkce z aktivní vrstvy</translation>
     </message>
 </context>
 <context>

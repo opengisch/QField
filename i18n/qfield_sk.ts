@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Vyhľadávať iba v poli &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -562,7 +562,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>Geometriu nie je možné modifikovať na viacero častí</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
