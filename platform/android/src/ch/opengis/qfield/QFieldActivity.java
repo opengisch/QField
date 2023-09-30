@@ -956,6 +956,20 @@ public class QFieldActivity extends QtActivity {
             PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    QFieldActivity.this,
+                    Manifest.permission.READ_MEDIA_IMAGES) ==
+                PackageManager.PERMISSION_DENIED) {
+                permissionsList.add(Manifest.permission.READ_MEDIA_IMAGES);
+            }
+            if (ContextCompat.checkSelfPermission(
+                    QFieldActivity.this,
+                    Manifest.permission.READ_MEDIA_VIDEO) ==
+                PackageManager.PERMISSION_DENIED) {
+                permissionsList.add(Manifest.permission.READ_MEDIA_VIDEO);
+            }
+        }
         if (ContextCompat.checkSelfPermission(
                 QFieldActivity.this,
                 Manifest.permission.ACCESS_FINE_LOCATION) ==
