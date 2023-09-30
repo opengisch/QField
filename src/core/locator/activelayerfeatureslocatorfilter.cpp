@@ -133,6 +133,10 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
         mFieldsCompletion << field.name();
       }
     }
+    else if ( searchString.isEmpty() )
+    {
+      mFieldsCompletion << field.name();
+    }
 
     // the completion list (returned by the current method) is used by the locator line edit directly
     completionList.append( QStringLiteral( "@%1 " ).arg( field.name() ) );
