@@ -21,6 +21,7 @@
 #include "layertreemodel.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
+#include "trackingmodel.h"
 
 #include <QObject>
 #include <QSettings>
@@ -37,28 +38,64 @@ class ProjectInfo : public QObject
 {
     Q_OBJECT
 
+    /**
+     * The file path associated with the currently opened project.
+     */
     Q_PROPERTY( QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged )
+
+    /**
+     * The map settings object, used to keep track of details such as the map extent.
+     */
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+
+    /**
+     * The layer tree model object, used to keep track of details such as layer visibility, selected map theme, etc.
+     */
     Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
+
+    /**
+     * The state mode (browse vs. digitizing) for the currently opened project.
+     */
     Q_PROPERTY( QString stateMode READ stateMode WRITE setStateMode NOTIFY stateModeChanged )
+
+    /**
+     * The active layer for the currently oepened project.
+     */
     Q_PROPERTY( QgsMapLayer *activeLayer READ activeLayer WRITE setActiveLayer NOTIFY activeLayerChanged )
+
+    /**
+     * The tracking model object, used to save and restore tracking session for individual vector layers.
+     */
+    Q_PROPERTY( TrackingModel *trackingModel READ trackingModel WRITE setTrackingModel NOTIFY trackingModelChanged )
 
   public:
     explicit ProjectInfo( QObject *parent = nullptr );
 
     virtual ~ProjectInfo() = default;
 
+    //! \copydoc ProjectInfo::filePath
     void setFilePath( const QString &filePath );
 
+    //! \copydoc ProjectInfo::filePath
     QString filePath() const;
 
+    //! \copydoc ProjectInfo::mapSettings
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    //! \copydoc ProjectInfo::mapSettings
     QgsQuickMapSettings *mapSettings() const;
 
+    //! \copydoc ProjectInfo::layerTree
     void setLayerTree( FlatLayerTreeModel *layerTree );
 
+    //! \copydoc ProjectInfo::layerTree
     FlatLayerTreeModel *layerTree() const;
+
+    //! \copydoc ProjectInfo::trackingModel
+    void setTrackingModel( TrackingModel *trackingModel );
+
+    //! \copydoc ProjectInfo::trackingModel
+    TrackingModel *trackingModel() const;
 
     /**
      * Saves the \a layer style to the current project information settings
@@ -96,7 +133,13 @@ class ProjectInfo : public QObject
      */
     QgsMapLayer *activeLayer() const;
 
+    //! Save an ongoing vector \a layer tracking session details
+    Q_INVOKABLE void saveTracker( QgsVectorLayer *layer );
 
+    //! Restore the last tracking session that occured within a vector \a layer.
+    Q_INVOKABLE QModelIndex restoreTracker( QgsVectorLayer *layer );
+
+    //! Restore various project settings
     static void restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree );
 
   signals:
@@ -106,6 +149,7 @@ class ProjectInfo : public QObject
     void layerTreeChanged();
     void stateModeChanged();
     void activeLayerChanged();
+    void trackingModelChanged();
 
   private slots:
 
@@ -128,6 +172,7 @@ class ProjectInfo : public QObject
     QTimer mSaveTemporalStateTimer;
 
     FlatLayerTreeModel *mLayerTree = nullptr;
+    TrackingModel *mTrackingModel = nullptr;
 
     bool mIsTemporal = false;
 };

@@ -23,8 +23,8 @@
 
 #define MAXIMUM_DISTANCE_FAILURES 20
 
-Tracker::Tracker( QgsVectorLayer *layer, bool visible )
-  : mLayer( layer ), mVisible( visible )
+Tracker::Tracker( QgsVectorLayer *layer )
+  : mLayer( layer )
 {
 }
 
@@ -37,7 +37,21 @@ void Tracker::setModel( RubberbandModel *model )
 {
   if ( mRubberbandModel == model )
     return;
+
   mRubberbandModel = model;
+}
+
+QgsFeature Tracker::feature() const
+{
+  return mFeature;
+}
+
+void Tracker::setFeature( const QgsFeature &feature )
+{
+  if ( mFeature == feature )
+    return;
+
+  mFeature = feature;
 }
 
 void Tracker::trackPosition()
@@ -61,9 +75,9 @@ void Tracker::trackPosition()
 
   mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = 0.0;
-  mTimeIntervalFulfilled = false;
-  mMinimumDistanceFulfilled = false;
-  mSensorCaptureFulfilled = false;
+  mTimeIntervalFulfilled = qgsDoubleNear( mTimeInterval, 0.0 );
+  mMinimumDistanceFulfilled = qgsDoubleNear( mMinimumDistance, 0.0 );
+  mSensorCaptureFulfilled = !mSensorCapture;
 }
 
 void Tracker::positionReceived()
@@ -133,6 +147,9 @@ void Tracker::sensorDataReceived()
 
 void Tracker::start()
 {
+  mIsActive = true;
+  emit isActiveChanged();
+
   if ( mTimeInterval > 0 )
   {
     connect( &mTimer, &QTimer::timeout, this, &Tracker::timeReceived );
@@ -157,11 +174,6 @@ void Tracker::start()
   else
   {
     mSensorCaptureFulfilled = true;
-    if ( mTimeInterval > 0 || mSensorCapture )
-    {
-      // Other constraints will guide verdex addition
-      return;
-    }
   }
 
   //set the start time
@@ -184,6 +196,9 @@ void Tracker::stop()
 {
   //track last position
   trackPosition();
+
+  mIsActive = false;
+  emit isActiveChanged();
 
   if ( mTimeInterval > 0 )
   {

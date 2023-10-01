@@ -80,6 +80,7 @@
         <file>imports/Theme/qmldir</file>
         <file>imports/QFieldControls/qmldir</file>
         <file>PageHeader.qml</file>
+        <file>TrackerSettings.qml</file>
         <file>TrackingSession.qml</file>
         <file>EmbeddedFeatureForm.qml</file>
         <file>ImageDial.qml</file>
