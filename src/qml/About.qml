@@ -32,23 +32,20 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
-                    aboutPanel.visible = false
-                }
+                onClicked: aboutPanel.visible = false
             }
 
             ColumnLayout {
                 id: information
-                width: aboutContainer.width
+                width: aboutPanel.width - 40
                 height: Math.max(mainWindow.height - linksButton.height * 2 - 60,
                                  opengisLogo.height + qfieldLogo.height + 100)
 
                 ColumnLayout {
                     Layout.fillHeight: true
-                    width: aboutContainer.width
+                    Layout.alignment: Qt.AlignHCenter
 
                     MouseArea {
-                        Layout.alignment: Qt.AlignCenter
                         Layout.preferredWidth: 138
                         Layout.preferredHeight: 138
                         Image {
@@ -84,10 +81,9 @@ Item {
 
                 ColumnLayout {
                     Layout.fillHeight: true
-                    width: aboutContainer.width
+                    Layout.alignment: Qt.AlignHCenter
 
                     MouseArea {
-                        Layout.alignment: Qt.AlignCenter
                         Layout.preferredWidth: 91
                         Layout.preferredHeight:113
                         Image {
