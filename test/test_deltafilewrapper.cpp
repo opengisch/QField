@@ -1158,13 +1158,138 @@ TEST_CASE( "DeltaFileWrapper" )
     newFeature.setAttribute( QStringLiteral( "fid" ), 100 );
     newFeature.setAttribute( QStringLiteral( "str" ), QStringLiteral( "stringy" ) );
     newFeature.setAttribute( QStringLiteral( "attachment" ), QVariant() );
-    newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
     dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( "[]" ) );
+
+    // Append changes to pre-existing patch
+    dfw.reset();
+    newFeature.setAttribute( QStringLiteral( "dbl" ), 3.14 );
+    newFeature.setAttribute( QStringLiteral( "int" ), 45 );
+    newFeature.setAttribute( QStringLiteral( "fid" ), 100 );
+    newFeature.setAttribute( QStringLiteral( "str" ), QStringLiteral( "stringy" ) );
+    newFeature.setAttribute( QStringLiteral( "attachment" ), QVariant() );
+    oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+    newFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+
+    expectedDoc = QJsonDocument::fromJson( R""""(
+        [
+            {
+                "clientId": "22222222-2222-2222-2222-222222222222",
+                "exportId": "33333333-3333-3333-3333-333333333333",
+                "localLayerCrs": "EPSG:3857",
+                "localLayerId": "dummyLayerIdL1",
+                "localLayerName": "layer_name",
+                "localPk": "100",
+                "method": "patch",
+                "new": {
+                    "attributes": {
+                        "int": 45
+                    },
+                    "is_snapshot": false
+                },
+                "old": {
+                    "attributes": {
+                        "int": 42
+                    },
+                    "is_snapshot": false
+                },
+                "sourceLayerId": "dummyLayerIdS1",
+                "sourcePk": "100",
+                "uuid": "11111111-1111-1111-1111-111111111111"
+            }
+        ]
+      )"""" );
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
+
+    QgsFeature newerFeature( newFeature );
+    // test attribute change already part of a patch to insure the *initial* old value is kept
+    newerFeature.setAttribute( QStringLiteral( "int" ), 5 );
+    // test attribute change not already part of a patch to insure an old value is added
+    newerFeature.setAttribute( QStringLiteral( "str" ), QStringLiteral( "modified stringy" ) );
+    // test geometry change not already part of a patch to insure an old geometry is added
+    newerFeature.setGeometry( QgsGeometry( new QgsPoint( 5.9657, 3.8356 ) ) );
+
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), newFeature, newerFeature, false );
+
+    expectedDoc = QJsonDocument::fromJson( R""""(
+        [
+            {
+                "clientId": "22222222-2222-2222-2222-222222222222",
+                "exportId": "33333333-3333-3333-3333-333333333333",
+                "localLayerCrs": "EPSG:3857",
+                "localLayerId": "dummyLayerIdL1",
+                "localLayerName": "layer_name",
+                "localPk": "100",
+                "method": "patch",
+                "new": {
+                    "attributes": {
+                        "int": 5,
+                        "str": "modified stringy"
+                    },
+                    "geometry": "Point (5.9657 3.8355999999999999)",
+                    "is_snapshot": false
+                },
+                "old": {
+                    "attributes": {
+                        "int": 42,
+                        "str": "stringy"
+                    },
+                    "geometry": "Point (25.96569999999999823 43.83559999999999945)",
+                    "is_snapshot": false
+                },
+                "sourceLayerId": "dummyLayerIdS1",
+                "sourcePk": "100",
+                "uuid": "11111111-1111-1111-1111-111111111111"
+            }
+        ]
+      )"""" );
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
+
+    QgsFeature newestFeature( newerFeature );
+    // test geometry change already part of a patch to insure the *initial* old geometry is kept
+    newestFeature.setGeometry( QgsGeometry( new QgsPoint( 0.9657, 0.8356 ) ) );
+
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), newerFeature, newestFeature, false );
+
+    expectedDoc = QJsonDocument::fromJson( R""""(
+        [
+            {
+                "clientId": "22222222-2222-2222-2222-222222222222",
+                "exportId": "33333333-3333-3333-3333-333333333333",
+                "localLayerCrs": "EPSG:3857",
+                "localLayerId": "dummyLayerIdL1",
+                "localLayerName": "layer_name",
+                "localPk": "100",
+                "method": "patch",
+                "new": {
+                    "attributes": {
+                        "int": 5,
+                        "str": "modified stringy"
+                    },
+                    "geometry": "Point (0.9657 0.83560000000000001)",
+                    "is_snapshot": false
+                },
+                "old": {
+                    "attributes": {
+                        "int": 42,
+                        "str": "stringy"
+                    },
+                    "geometry": "Point (25.96569999999999823 43.83559999999999945)",
+                    "is_snapshot": false
+                },
+                "sourceLayerId": "dummyLayerIdS1",
+                "sourcePk": "100",
+                "uuid": "11111111-1111-1111-1111-111111111111"
+            }
+        ]
+      )"""" );
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
   }
 
   SECTION( "AddDeleteWithStringPk" )
