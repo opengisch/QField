@@ -44,7 +44,7 @@ jobs:
 
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
 
@@ -211,7 +211,7 @@ jobs:
     if: ${{ github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Vars
         id: vars
@@ -252,7 +252,7 @@ jobs:
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Vars
         id: vars
         run: |
@@ -283,7 +283,7 @@ jobs:
     if: ${{ github.event_name == 'push' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Vars
         id: vars
         run: |
