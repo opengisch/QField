@@ -76,7 +76,7 @@ Item {
                             if (appVersion && appVersion !== '1.0.0')
                                 links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>'
 
-                            return "QField<br>" + appVersionStr + " (" + links + ")"
+                            return "QField<br>" + appVersionStr + " (" + links + ")<br>Qt " + qVersion
                         }
                         onLinkActivated: Qt.openUrlExternally(link)
                     }
