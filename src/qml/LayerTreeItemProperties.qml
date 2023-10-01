@@ -297,7 +297,8 @@ Popup {
           icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
           onClicked: {
-            //start track
+            close()
+
             if ( trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ) {
               trackingModel.stopTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer));
               displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer).name  ) )
@@ -319,8 +320,8 @@ Popup {
               }
               trackerSettings.tracker = tracker
               trackerSettings.open()
+              trackerSettings.focus = true
             }
-            close()
           }
         }
 
