@@ -562,11 +562,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>几何图形无法修改为多部件</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>无法修改几何图形</translation>
     </message>
 </context>
 <context>
@@ -891,7 +891,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>擦除工具</translation>
     </message>
 </context>
 <context>
@@ -2737,15 +2737,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>来自设备的正交测量</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>使用音量键进行数字化</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>如果启用，按设备的音量增大键将添加顶点，而按音量减小键将移除数字化会话期间最后输入的顶点。</translation>
     </message>
 </context>
 <context>
