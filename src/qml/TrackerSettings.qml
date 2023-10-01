@@ -559,6 +559,7 @@ Popup {
 
         onTemporaryStored: {
           tracker.feature = featureModel.feature
+          embeddedFeatureFormPopup.close()
           embeddedFeatureForm.active = false
           trackingModel.startTracker(tracker.vectorLayer)
           displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
@@ -569,15 +570,12 @@ Popup {
         }
 
         onCancelled: {
+          embeddedFeatureFormPopup.close()
           embeddedFeatureForm.active = false
           embeddedFeatureForm.focus = false
           trackingModel.stopTracker(tracker.vectorLayer)
           trackerSettings.close()
         }
-      }
-
-      onClosed: {
-        form.confirm()
       }
     }
   }
