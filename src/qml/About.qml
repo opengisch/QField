@@ -16,8 +16,10 @@ Item {
 
     ColumnLayout {
         id: aboutContainer
+        spacing: 6
         anchors.fill: parent
         anchors.margins: 20
+        anchors.topMargin: 20 + mainWindow.sceneTopMargin
         anchors.bottomMargin: 20 + mainWindow.sceneBottomMargin
 
         ScrollView {
@@ -37,11 +39,13 @@ Item {
 
             ColumnLayout {
                 id: information
+                spacing: 6
                 width: aboutPanel.width - 40
-                height: Math.max(mainWindow.height - linksButton.height * 2 - 60,
-                                 opengisLogo.height + qfieldLogo.height + 100)
+                height: Math.max(mainWindow.height - linksButton.height * 2 - qfieldAppDirectoryLabel.height - aboutContainer.spacing * 3 - aboutContainer.anchors.topMargin - aboutContainer.anchors.bottomMargin,
+                                 qfieldPart.height + opengisPart.height + spacing)
 
                 ColumnLayout {
+                    id: qfieldPart
                     Layout.fillHeight: true
                     Layout.alignment: Qt.AlignHCenter
 
@@ -80,6 +84,7 @@ Item {
                 }
 
                 ColumnLayout {
+                    id: opengisPart
                     Layout.fillHeight: true
                     Layout.alignment: Qt.AlignHCenter
 
@@ -113,6 +118,7 @@ Item {
         }
 
         Label {
+            id: qfieldAppDirectoryLabel
             Layout.fillWidth: true
             Layout.maximumWidth: parent.width
             Layout.alignment: Qt.AlignCenter
