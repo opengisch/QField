@@ -653,11 +653,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>停止追踪此要素并编辑其属性</translation>
+        <translation>停止跟踪此要素并编辑其属性</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>停止追踪此要素并编辑其形状</translation>
+        <translation>停止跟踪此要素并编辑其形状</translation>
     </message>
     <message>
         <source>Changes saved</source>
@@ -959,11 +959,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>停止追踪</translation>
+        <translation>停止跟踪</translation>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>设置追踪</translation>
+        <translation>设置跟踪</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1095,7 +1095,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation>该图层当前正在追踪设备位置。</translation>
+        <translation>该图层当前正在跟踪设备位置。</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -3154,6 +3154,133 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>TrackerSettings</name>
+    <message>
+        <source>Tracking: %1</source>
+        <translation>跟踪: %1</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>跟踪</translation>
+    </message>
+    <message>
+        <source>Requirement Settings</source>
+        <translation>需求设置</translation>
+    </message>
+    <message>
+        <source>Time requirement</source>
+        <translation>时间需求</translation>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation>最短时间 [秒]</translation>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
+        <translation>启用后，当最后一个顶点和新顶点之间的时间满足配置的最小值时，将添加顶点。</translation>
+    </message>
+    <message>
+        <source>Distance requirement</source>
+        <translation>距离需求</translation>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation>最短距离 [%1]</translation>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
+        <translation>启用后，当最后一个顶点和新顶点之间的距离满足配置的最小值时，将添加顶点。</translation>
+    </message>
+    <message>
+        <source>Sensor data requirement</source>
+        <translation>传感器数据需求</translation>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
+        <translation>启用后，当传感器捕捉到新数据时，将添加顶点。</translation>
+    </message>
+    <message>
+        <source>Wait for all active requirements</source>
+        <translation>等待所有活动需求</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
+        <translation>启用时，只有满足所有活动需求时才会记录顶点。禁用时，满足某个需求将触发添加顶点的动作。</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation>常规设置</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation>错误距离保护</translation>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation>最大容许距离 [%1]</translation>
+    </message>
+    <message>
+        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
+        <translation>启用后，当最后一个顶点和新顶点之间的距离大于配置的最大值时，将不会添加顶点。</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>附加到顶点的测量值 (M)：</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation>经过时间 (自跟踪开始后的秒数)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation>时间戳 (Unix时间戳之后的毫秒数)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>对地速度</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>方位角</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>水平精度</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>垂直精度</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>位置精度因子 (PDOP)</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>水平精度因子 (HDOP)</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>垂直精度因子 (VDOP)</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation>要激活测量功能，请确保用于跟踪会话矢量图层的几何图形类型具有M维度。</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>开始跟踪</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation>对图层%1的追踪已启动</translation>
+    </message>
+    <message>
+        <source>Resume tracking</source>
+        <translation>继续跟踪</translation>
+    </message>
+</context>
+<context>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
@@ -3189,7 +3316,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation type="vanished">开始追踪</translation>
+        <translation type="vanished">开始跟踪</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
@@ -3248,107 +3375,75 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackingSession</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>对图层%1的追踪已启动</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tracker Settings</source>
-        <translation>追踪设置</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation>激活时间约束</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>最短时间 [秒]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation>激活距离约束</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation>最短距离 [%1]</translation>
-    </message>
-    <message>
-        <source>Activate sensor constraint</source>
-        <translation>激活传感器约束</translation>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation>当所有活动约束都满足时进行记录</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>启用时，只有满足所有活动约束时才会记录顶点。如果禁用该设置，满足某个约束将触发顶点添加。</translation>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation>当单独激活传感器约束时，只要传感器捕捉到新数据，就会进行顶点添加。</translation>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation>当禁用所有约束时，顶点添加的频率将与定位设备提供的频率相同。</translation>
-    </message>
-    <message>
-        <source>Erroneous distance safeguard</source>
-        <translation>错误距离保护</translation>
-    </message>
-    <message>
-        <source>Maximum tolerated distance [%1]</source>
-        <translation>最大容许距离 [%1]</translation>
-    </message>
-    <message>
-        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
-        <translation>启用错误距离保护时，距离超过指定容许值的范围将被丢弃。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>附加到顶点的测量值 (M)：</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation>经过时间 (自跟踪开始后的秒数)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>时间戳 (Unix时间戳之后的毫秒数)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>对地速度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>方位角</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>水平精度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>垂直精度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>位置精度因子 (PDOP)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>水平精度因子 (HDOP)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>垂直精度因子 (VDOP)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation>要激活测量功能，请确保用于跟踪会话矢量图层的几何图形类型具有M维度。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>开始追踪</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

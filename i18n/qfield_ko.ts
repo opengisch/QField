@@ -3154,6 +3154,133 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>TrackerSettings</name>
+    <message>
+        <source>Tracking: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Requirement Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum time [sec]</source>
+        <translation>Minimum time [sec]</translation>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum distance [%1]</source>
+        <translation>Minimum distance [%1]</translation>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensor data requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait for all active requirements</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance [%1]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Bearing</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Start tracking</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation>Track on layer %1 started</translation>
+    </message>
+    <message>
+        <source>Resume tracking</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
@@ -3248,58 +3375,26 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackingSession</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Track on layer %1 started</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tracker Settings</source>
-        <translation>Tracker Settings</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation>Activate time constraint</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>Minimum time [sec]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation>Activate distance constraint</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation>Minimum distance [%1]</translation>
-    </message>
-    <message>
-        <source>Activate sensor constraint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Record when all active constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the sensor constraint is activated alone, vertex additions will occur whenever sensor has captured new data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When all constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When erroneous distance safeguard is enabled, position readings that have a distance beyond the specified tolerance value will be discarded.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3320,7 +3415,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Bearing</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
@@ -3332,15 +3427,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
@@ -3348,7 +3443,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>Start tracking</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
