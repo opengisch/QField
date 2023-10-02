@@ -187,7 +187,6 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 
     void onAfterFirstRendering();
     void onMapCanvasRefreshed();
-    void requestQuit();
 
   private:
     void initDeclarative();

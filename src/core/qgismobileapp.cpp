@@ -310,8 +310,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
-  connect( this, &QQmlApplicationEngine::quit, this, &QgisMobileapp::requestQuit );
-
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
@@ -1340,7 +1338,9 @@ void QgisMobileapp::setScreenDimmerTimeout( int timeoutSeconds )
 bool QgisMobileapp::event( QEvent *event )
 {
   if ( event->type() == QEvent::Close )
-    requestQuit();
+  {
+    quit();
+  }
 
   return QQmlApplicationEngine::event( event );
 }
@@ -1357,17 +1357,15 @@ void QgisMobileapp::saveProjectPreviewImage()
   }
 }
 
-void QgisMobileapp::requestQuit()
-{
-  mApp->exitQgis();
-  QMetaObject::invokeMethod( mApp, &QgsApplication::quit, Qt::QueuedConnection );
-}
-
 QgisMobileapp::~QgisMobileapp()
 {
   saveProjectPreviewImage();
+
   delete mOfflineEditing;
   mProject->removeAllMapLayers();
   delete mProject;
   delete mAppMissingGridHandler;
+
+  mApp->exitQgis();
+  QMetaObject::invokeMethod( mApp, &QgsApplication::quit, Qt::QueuedConnection );
 }
