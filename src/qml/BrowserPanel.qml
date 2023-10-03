@@ -12,8 +12,11 @@ Popup {
   signal cancel()
 
   property var browserView: undefined
+  property var browserCookies: []
+
   property string url: ''
   property bool fullscreen: false
+  property bool clearCookiesOnOpen: false
 
   width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
   height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
@@ -61,14 +64,56 @@ Popup {
   }
 
   onAboutToShow: {
+    // Reset tracked cookies
+    browserCookies = []
+
     if (url != '') {
       if (browserView === undefined) {
         // avoid cost of WevView creation until needed
-        browserView = Qt.createQmlObject('import QtWebView 1.14; WebView { id: browserView; anchors { top: parent.top; left: parent.left; right: parent.right; } onLoadingChanged: { if ( !loading ) { anchors.fill = parent; width = parent.width; height = parent.height; opacity = 1; } } }', browserContent);
+        if (qVersion >= '6.0.0') {
+          browserView = Qt.createQmlObject('import QtWebView
+            WebView {
+              id: browserView
+              anchors { top: parent.top; left: parent.left; right: parent.right; }
+              onLoadingChanged: {
+                if ( !loading ) {
+                  anchors.fill = parent; width = parent.width
+                  height = parent.height; opacity = 1
+                }
+              }
+              onCookieAdded: (domain, name) => {
+                browserPanel.browserCookies.push([domain, name])
+              }
+            }', browserContent)
+          if (clearCookiesOnOpen) {
+            browserView.deleteAllCookies()
+          }
+        } else {
+          browserView = Qt.createQmlObject('import QtWebView 1.14
+            WebView {
+              id: browserView
+              anchors { top: parent.top; left: parent.left; right: parent.right; }
+              onLoadingChanged: {
+                if ( !loading ) {
+                  anchors.fill = parent; width = parent.width
+                  height = parent.height; opacity = 1
+                }
+              }
+            }', browserContent)
+        }
       }
       browserView.anchors.fill = undefined
       browserView.url = url
       browserView.opacity = 0
     }
+
+    clearCookiesOnOpen = false
+  }
+
+  function deleteCookies() {
+    for(const [domain, name] of browserCookies) {
+      browserView.deleteCookie(domain, name)
+    }
+    browserCookies = [];
   }
 }
