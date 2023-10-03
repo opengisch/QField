@@ -479,7 +479,6 @@ QMap<QString, QString> DeltaFileWrapper::attachmentFileNames() const
   return fileNameChecksum;
 }
 
-
 void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot )
 {
   QJsonObject delta(
@@ -689,6 +688,53 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   }
   else
   {
+    for ( int i = mDeltas.size() - 1; i >= 0; i-- )
+    {
+      QJsonObject existingDelta = mDeltas[i].toObject();
+      const QString existingLayerId = existingDelta.value( QStringLiteral( "localLayerId" ) ).toString();
+      const QString existingLocalPk = existingDelta.value( QStringLiteral( "localPk" ) ).toString();
+      const QString existingMethod = existingDelta.value( QStringLiteral( "method" ) ).toString();
+      if ( existingLayerId == localLayerId && existingLocalPk == newFeature.attribute( localPkAttrName ) && existingMethod == "patch" )
+      {
+        QJsonObject existingOldData = existingDelta.value( QStringLiteral( "old" ) ).toObject();
+        QJsonObject existingNewData = existingDelta.value( QStringLiteral( "new" ) ).toObject();
+        if ( newData.contains( "geometry" ) )
+        {
+          existingNewData.insert( "geometry", newData.value( QStringLiteral( "geometry" ) ).toString() );
+          if ( !existingOldData.contains( "geometry" ) )
+          {
+            // Previous patch did not contain a geometry change, add old geometry data
+            existingOldData.insert( "geometry", oldData.value( QStringLiteral( "geometry" ) ) );
+          }
+        }
+        const QStringList attributeNames = tmpNewAttrs.keys();
+        if ( !attributeNames.isEmpty() )
+        {
+          QJsonObject existingOldAttributes = existingOldData.value( QStringLiteral( "attributes" ) ).toObject();
+          QJsonObject existingNewAttributes = existingNewData.value( QStringLiteral( "attributes" ) ).toObject();
+          for ( const QString &attributeName : attributeNames )
+          {
+            existingNewAttributes.insert( attributeName, tmpNewAttrs.value( attributeName ) );
+            if ( !existingOldAttributes.contains( attributeName ) )
+            {
+              // Previous patch did not contain this attribute change, add old attribute value
+              existingOldAttributes.insert( attributeName, tmpOldAttrs.value( attributeName ) );
+            }
+          }
+          existingOldData.insert( "attributes", existingOldAttributes );
+          existingNewData.insert( "attributes", existingNewAttributes );
+        }
+        existingDelta.insert( "old", existingOldData );
+        existingDelta.insert( "new", existingNewData );
+
+        mDeltas.replace( i, existingDelta );
+
+        qInfo() << "DeltaFileWrapper::addPatch: replaced an existing patch delta: " << existingDelta;
+
+        return;
+      }
+    }
+
     mDeltas.append( delta );
 
     qInfo() << "DeltaFileWrapper::addPatch: Added a new patch delta: " << delta;

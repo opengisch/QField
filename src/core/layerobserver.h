@@ -27,6 +27,7 @@
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
+
 typedef QMap<QgsFeatureId, QgsFeature> QgsChangedFeatures;
 
 /**
