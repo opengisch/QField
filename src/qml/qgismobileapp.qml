@@ -3285,6 +3285,7 @@ ApplicationWindow {
       function onShowLoginBrowser(url) {
           browserPopup.url = url;
           browserPopup.fullscreen = false;
+          browserPopup.clearCookiesOnOpen = true
           browserPopup.open();
       }
 
