@@ -562,11 +562,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>A geometria nem alakítható több részessé</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>A geometria nem módosítható</translation>
     </message>
 </context>
 <context>
@@ -892,7 +892,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Törlő eszköz</translation>
     </message>
 </context>
 <context>
@@ -2356,7 +2356,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>URL importálása</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
@@ -2613,7 +2613,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>A töréspontokhoz rendelt mérték (M) érték:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -2705,27 +2705,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Az eszköz NMEA mondatainak fájlba naplózása</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Térképvászon megjelenítési minősége:</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Legjobb minőség</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Alacsonyabb minőség</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Legalacsonyabb minőség</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Az alacsonyabb minőségű megjelenítés a kisebb memóriahasználatot és a gyorsabb frissítést részesíti előnyban a pontosság hátrányára,</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
@@ -3221,7 +3221,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>A töréspontokhoz rendelt mérték (M) érték:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -3324,7 +3324,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A töréspontokhoz rendelt mérték (M) érték:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
