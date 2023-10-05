@@ -156,7 +156,6 @@ Drawer {
         }
       }
 
-
       Switch {
         id: modeSwitch
         visible: projectInfo.insertRights
@@ -222,7 +221,12 @@ Drawer {
           if ( checked ) {
             changeMode( "digitize" )
           } else {
-            changeMode( "browse" )
+            if ( digitizingToolbar.rubberbandModel && digitizingToolbar.rubberbandModel.vertexCount > 1 ) {
+              displayToast( qsTr( "Finish or dimiss the digitizing feature before toggling to browse mode" ) )
+              checked = ! checked
+            } else {
+              changeMode( "browse" )
+            }
           }
         }
       }
