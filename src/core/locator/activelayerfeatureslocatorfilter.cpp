@@ -108,7 +108,11 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
   QgsAttributeList subsetOfAttributes = qgis::setToList( mDispExpression.referencedAttributeIndexes( layer->fields() ) );
   for ( const QgsField &field : fields )
   {
+#if _QGIS_VERSION_INT >= 33300
+    if ( field.configurationFlags().testFlag( Qgis::FieldConfigurationFlag::NotSearchable ) )
+#else
     if ( field.configurationFlags().testFlag( QgsField::ConfigurationFlag::NotSearchable ) )
+#endif
     {
       continue;
     }
