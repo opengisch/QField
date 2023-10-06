@@ -562,11 +562,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido modificar a xeometría a múltiples partes</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido modificar a xeometría</translation>
     </message>
 </context>
 <context>
@@ -893,7 +893,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Ferramenta de Borrado</translation>
     </message>
 </context>
 <context>
@@ -2739,15 +2739,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortométrica dende o dispositivo</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Utilizar as teclas de volume para dixitalizar</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>De activarse, premendo a tecla de subir volume do dispositivo engadirá un vértice mentres que premendo a tecla de baixar volume eliminará o último vértice introducido durante as sesións de dixitalización.</translation>
     </message>
 </context>
 <context>
@@ -3159,11 +3159,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Trazado: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Trazado</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
