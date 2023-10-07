@@ -451,6 +451,10 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
         <source>Map Theme</source>
         <translation>Tema Mape</translation>
     </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

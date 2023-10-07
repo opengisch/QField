@@ -451,6 +451,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Map Theme</source>
         <translation>Tema do Mapa</translation>
     </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

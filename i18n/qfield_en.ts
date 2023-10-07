@@ -456,6 +456,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Map Theme</source>
         <translation>Map Theme</translation>
     </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

@@ -451,6 +451,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Map Theme</source>
         <translation>Karttateema</translation>
     </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

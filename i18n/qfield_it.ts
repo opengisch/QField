@@ -451,6 +451,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Map Theme</source>
         <translation>Vista mappa</translation>
     </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
