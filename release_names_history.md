@@ -22,3 +22,4 @@
 - Fancy Flamingo (2.5)
 - Geeky Gecko (2.6)
 - Heroic Hedgehog (2.7)
+- Insightful Indri (2.8)
