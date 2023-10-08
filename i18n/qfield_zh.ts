@@ -453,7 +453,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>切换到浏览模式之前完成或摒弃数字化要素</translation>
     </message>
 </context>
 <context>
