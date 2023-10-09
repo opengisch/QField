@@ -1132,6 +1132,18 @@ void QgisMobileapp::readProjectFile()
 
   ProjectInfo::restoreSettings( mProjectFilePath, mProject, mMapCanvas, mFlatLayerTree );
 
+  const QgsSnappingConfig snappingConfig = mProject->snappingConfig();
+  const QHash<QgsVectorLayer *, QgsSnappingConfig::IndividualLayerSettings> individualLayerSettings = snappingConfig.individualLayerSettings();
+  QMetaEnum metaEnum = QMetaEnum::fromType<Qgis::SnappingTypes>();
+  for ( auto layer : individualLayerSettings.keys() )
+  {
+    QgsSnappingConfig::IndividualLayerSettings settings = individualLayerSettings.value( layer );
+    if ( settings.enabled() )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "%1: %2" ).arg( layer->name(), metaEnum.valueToKeys( settings.typeFlag() ) ), QStringLiteral( "QField" ) );
+    }
+  }
+
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 
   connect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
