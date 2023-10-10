@@ -28,10 +28,18 @@ StringUtils::StringUtils( QObject *parent )
 {
 }
 
-
 QString StringUtils::insertLinks( const QString &string )
 {
   return QgsStringUtils::insertLinks( string );
+}
+
+bool StringUtils::hasLinks( const QString &string )
+{
+  // These expressions are taken from QgsStringUtils::insertLinks
+  const thread_local QRegularExpression urlRegEx( QStringLiteral( "(\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^!\"#$%&'()*+,\\-./:;<=>?@[\\\\\\]^_`{|}~\\s]|/))))" ) );
+  const thread_local QRegularExpression emailRegEx( QStringLiteral( "([\\w._%+-]+@[\\w.-]+\\.[A-Za-z]+)" ) );
+
+  return string.contains( urlRegEx ) || string.contains( emailRegEx );
 }
 
 QString StringUtils::createUuid()

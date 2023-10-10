@@ -34,6 +34,9 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
     //! Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML <a …> links
     static Q_INVOKABLE QString insertLinks( const QString &string );
 
+    //! Returns whether a string contains one or more URLs
+    static Q_INVOKABLE bool hasLinks( const QString &string );
+
     //! Returns a new UUID string
     static Q_INVOKABLE QString createUuid();
 
