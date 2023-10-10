@@ -117,6 +117,10 @@ footer.footer {
   margin-top:4px;
 }
 
+#main-points {
+    margin-bottom:70px;
+}
+
 .point { 
   background: white;
   height: auto;  
@@ -133,7 +137,7 @@ footer.footer {
 #about { 
   background-color: #212121;
   height: auto;
-  margin: 40px auto 0px auto; 
+  margin: 0 auto 0px auto;
   width: 100%; 
   position: relative; 
   padding: 100px 0;
