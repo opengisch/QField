@@ -29,7 +29,9 @@ EditorWidgetBase {
     color: Theme.mainTextColor
     opacity: 0.45
     wrapMode: Text.Wrap
-    textFormat: config['IsMultiline'] === true && config['UseHtml'] ? TextEdit.RichText : TextEdit.AutoText
+    textFormat: (config['IsMultiline'] === true && config['UseHtml']) || stringUtilities.hasLinks(value)
+                ? TextEdit.RichText
+                : TextEdit.AutoText
 
     text: value == null ? '' : config['IsMultiline'] === true
                                ? config['UseHtml'] === true ? value : stringUtilities.insertLinks(value)
