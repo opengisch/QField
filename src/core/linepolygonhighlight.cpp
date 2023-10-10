@@ -47,11 +47,15 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
       geometry.transform( ct );
     }
 
+    const QgsRectangle extent = mMapSettings->visibleExtent();
+    mGeometryCorner = QgsPoint( extent.xMinimum(), extent.yMaximum() );
+    mGeometryMUPP = mMapSettings->mapUnitsPerPoint();
     QgsSGGeometry *gn = new QgsSGGeometry( geometry, mColor, mWidth * mMapSettings->devicePixelRatio(), mMapSettings->visibleExtent(), 1.0 / mMapSettings->mapUnitsPerPoint() );
     gn->setFlag( QSGNode::OwnedByParent );
     n->appendChildNode( gn );
 
     mDirty = false;
+    updateTransform();
 
     emit updated();
   }
@@ -127,13 +131,12 @@ void LinePolygonHighlight::updateTransform()
   if ( !mMapSettings )
     return;
 
-  const QgsRectangle extent = mMapSettings->visibleExtent();
-  const QgsPoint corner( extent.xMinimum(), extent.yMaximum() );
-  const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( corner );
+  const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( mGeometryCorner );
 
   setX( pixelCorner.x() );
   setY( pixelCorner.y() );
   setRotation( mMapSettings->rotation() );
+  setScale( mGeometryMUPP / mMapSettings->mapUnitsPerPoint() );
 
   update();
 }
@@ -145,7 +148,8 @@ void LinePolygonHighlight::rotationChanged()
 
 void LinePolygonHighlight::visibleExtentChanged()
 {
-  mDirty = true;
+  const double scaleChange = mGeometryMUPP / mMapSettings->mapUnitsPerPoint();
+  mDirty = mGeometryMUPP == 0.0 || scaleChange > 1.75 || scaleChange < 0.25;
   updateTransform();
 }
 
