@@ -76,6 +76,8 @@ class LinePolygonHighlight : public QQuickItem
     bool mDirty = false;
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsGeometryWrapper *mGeometry = nullptr;
+    QgsPoint mGeometryCorner;
+    double mGeometryMUPP = 0.0;
 };
 
 #endif // LOCATORHIGHLIGHT_H
