@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Limiter la recherche au champs &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Entités de la couche active</translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>Cette géométrie ne peut être modifiée</translation>
     </message>
 </context>
 <context>
@@ -1164,7 +1164,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Retourne une liste d&apos;entités de la couche active avec les attributs correspondants. La restriction de la correspondance à un seul attribut est réalisée en précisant son nom avec le préfixe &apos;@&apos;.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
@@ -1172,7 +1172,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Renvoie un point depuis une paire de coordonnées X et Y - ou latitude et longitude WGS84 - saisie dans la barre de recherche.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
@@ -1180,11 +1180,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Renvoie la valeur d&apos;une expression saisie dans la barre de recherche.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Renvoie une liste de lieux et adresses en Finlande qui correspondent aux termes saisis.</translation>
     </message>
 </context>
 <context>
@@ -2744,11 +2744,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser les boutons de volumes pour numériser</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, une pression du bouton d’augmentation du volume ajoutera un sommet tandis que la pression du bouton de baisse du volume enlèvera le dernier sommet saisi durant les sessions de numérisation.</translation>
     </message>
 </context>
 <context>
@@ -3212,7 +3212,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres généraux</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
