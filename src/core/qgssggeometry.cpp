@@ -72,58 +72,60 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
         pg = pg.makeValid();
       }
 
-      if ( pg.isMultipart() )
-      {
-        QSGOpacityNode *on = new QSGOpacityNode;
-        on->setOpacity( 0.25 );
+      auto addPolygon = [=]( QgsCurvePolygon *curvePolygon, QSGOpacityNode *node ) {
+        if ( !curvePolygon )
+          return;
 
-        QgsGeometryPartIterator it = pg.parts();
-        while ( it.hasNext() )
+        std::unique_ptr<QgsPolygon> polygon( qgsgeometry_cast<QgsPolygon *>( curvePolygon->segmentize() ) );
+        if ( !polygon )
+          return;
+
+        // Area
+        QSGGeometryNode *geomNode = new QSGGeometryNode;
+        geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon.get(), visibleExtent, scaleFactor ) );
+        geomNode->setFlag( QSGNode::OwnsGeometry );
+        applyStyle( geomNode );
+        node->appendChildNode( geomNode );
+
+        // Interior outline
+        for ( int i = 0; i < polygon->numInteriorRings(); i++ )
         {
-          QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( it.next() );
-          if ( !c )
-            continue;
-          std::unique_ptr<QgsPolygon> polygon( qgsgeometry_cast<QgsPolygon *>( c->segmentize() ) );
-          if ( !polygon )
-            continue;
-          QSGGeometryNode *geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon.get(), visibleExtent, scaleFactor ) );
-          geomNode->setFlag( QSGNode::OwnsGeometry );
-          applyStyle( geomNode );
-          on->appendChildNode( geomNode );
-
-          QgsGeometry exterior( polygon->toCurveType()->exteriorRing() );
+          QgsGeometry interior( polygon->interiorRing( i )->clone() );
           geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry( exterior.asPolyline(), width, visibleExtent, scaleFactor ) );
+          geomNode->setGeometry( qgsPolylineToQSGGeometry( interior.asPolyline(), width, visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
         }
 
-        appendChildNode( on );
-      }
-      else
-      {
-        QSGOpacityNode *on = new QSGOpacityNode;
-        on->setOpacity( 0.25 );
-        QSGGeometryNode *geomNode = new QSGGeometryNode;
-        QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( pg.get() );
-        if ( !c )
-          break;
-        std::unique_ptr<QgsPolygon> polygon( qgsgeometry_cast<QgsPolygon *>( c->segmentize() ) );
-        if ( !polygon )
-          break;
-        geomNode->setGeometry( qgsPolygonToQSGGeometry( qgsgeometry_cast<QgsPolygon *>( polygon.get() ), visibleExtent, scaleFactor ) );
-        geomNode->setFlag( QSGNode::OwnsGeometry );
-        applyStyle( geomNode );
-        on->appendChildNode( geomNode );
-        appendChildNode( on );
+        // Exterior outline
+        QgsGeometry exterior( polygon->toCurveType()->exteriorRing() );
         geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry( pg.asPolygon().first(), width, visibleExtent, scaleFactor ) );
+        geomNode->setGeometry( qgsPolylineToQSGGeometry( exterior.asPolyline(), width, visibleExtent, scaleFactor ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
+      };
+
+      QSGOpacityNode *on = new QSGOpacityNode;
+      on->setOpacity( 0.25 );
+
+      if ( pg.isMultipart() )
+      {
+        QgsGeometryPartIterator it = pg.parts();
+        while ( it.hasNext() )
+        {
+          QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( it.next() );
+          addPolygon( c, on );
+        }
       }
+      else
+      {
+        QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( pg.get() );
+        addPolygon( c, on );
+      }
+
+      appendChildNode( on );
       break;
     }
 
