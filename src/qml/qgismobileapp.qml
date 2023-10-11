@@ -367,16 +367,17 @@ ApplicationWindow {
         property bool hasBeenHovered: false
         property bool skipHover: false
 
+        function pointInItem(point, item) {
+            var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
+            return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width &&
+                   point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
+        }
+
         onPointChanged: {
             if (skipHover) {
               return
             }
 
-            function pointInItem(point, item) {
-                var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
-                return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width &&
-                       point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
-            }
             // when hovering various toolbars, reset coordinate locator position for nicer UX
             if ( !freehandHandler.active && ( pointInItem( point, digitizingToolbar ) || pointInItem( point, elevationProfileButton ) ) ) {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate )
@@ -461,8 +462,15 @@ ApplicationWindow {
 
       anchors.fill: parent
 
+      function pointInItem(point, item) {
+          var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
+          return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width &&
+                 point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
+      }
+
       onClicked: (point, type) => {
-          if (type === "stylus" && (featureForm.visible || overlayFeatureFormDrawer.opened)) {
+          if (type === "stylus" &&
+              ( overlayFeatureFormDrawer.opened || ( featureForm.visible && pointInItem( point, featureForm ) ) ) ) {
               return;
           }
 
@@ -477,13 +485,6 @@ ApplicationWindow {
           }
 
           if ( type === "stylus" ) {
-
-              function pointInItem(point, item) {
-                  var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
-                  return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width &&
-                         point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
-              }
-
               if ( pointInItem( point, digitizingToolbar ) ||
                    pointInItem( point, zoomToolbar ) ||
                    pointInItem( point, mainToolbar ) ||
@@ -525,10 +526,15 @@ ApplicationWindow {
 
       onLongPressed: (point, type) => {
         if ( type === "stylus" ) {
-          if (geometryEditorsToolbar.canvasLongPressed(point)) {
+          if ( overlayFeatureFormDrawer.opened || ( featureForm.visible && pointInItem( point, featureForm ) ) ) {
+            return
+          }
+
+          if ( geometryEditorsToolbar.canvasLongPressed( point ) ) {
             // for instance, the vertex editor will select a vertex if possible
             return
           }
+
           if ( stateMachine.state === "digitize" && dashBoard.activeLayer ) { // the sourceLocation test checks if a (stylus) hover is active
             if ( ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2 )
                || ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2 ) ) {
@@ -542,11 +548,10 @@ ApplicationWindow {
                 return
             }
           }
+
           // do not use else, as if it was catch it has return before
-          if( !overlayFeatureFormDrawer.visible ) {
-            identifyTool.isMenuRequest = false
-            identifyTool.identify(point)
-          }
+          identifyTool.isMenuRequest = false
+          identifyTool.identify(point)
         } else {
           canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
           canvasMenu.popup(point.x, point.y)
