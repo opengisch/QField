@@ -104,7 +104,7 @@ class QgsElevationProfilePlotItem : public Qgs2DPlot
 
       // force immediate recalculation of plot area
       QgsRenderContext context;
-      context.setScaleFactor( ( mCanvas->window()->screen()->logicalDotsPerInch() * mCanvas->window()->screen()->devicePixelRatio() ) / 25.4 );
+      context.setScaleFactor( ( mCanvas->window()->screen()->physicalDotsPerInch() * mCanvas->window()->screen()->devicePixelRatio() ) / 25.4 );
 
       calculateOptimisedIntervals( context );
       mPlotArea = interiorPlotArea( context );
@@ -290,7 +290,7 @@ void QgsQuickElevationProfileCanvas::refresh()
   connect( mCurrentJob, &QgsProfilePlotRenderer::generationFinished, this, &QgsQuickElevationProfileCanvas::generationFinished );
 
   QgsProfileGenerationContext generationContext;
-  generationContext.setDpi( window()->screen()->logicalDotsPerInch() * window()->screen()->devicePixelRatio() );
+  generationContext.setDpi( window()->screen()->physicalDotsPerInch() * window()->screen()->devicePixelRatio() );
   generationContext.setMaximumErrorMapUnits( MAX_ERROR_PIXELS * ( mProfileCurve.get()->length() ) / mPlotItem->plotArea().width() );
   generationContext.setMapUnitsPerDistancePixel( mProfileCurve.get()->length() / mPlotItem->plotArea().width() );
   mCurrentJob->setContext( generationContext );
@@ -449,7 +449,7 @@ void QgsQuickElevationProfileCanvas::refineResults()
   if ( mCurrentJob )
   {
     QgsProfileGenerationContext context;
-    context.setDpi( window()->screen()->logicalDotsPerInch() * window()->screen()->devicePixelRatio() );
+    context.setDpi( window()->screen()->physicalDotsPerInch() * window()->screen()->devicePixelRatio() );
     const double plotDistanceRange = mPlotItem->xMaximum() - mPlotItem->xMinimum();
     const double plotElevationRange = mPlotItem->yMaximum() - mPlotItem->yMinimum();
     const double plotDistanceUnitsPerPixel = plotDistanceRange / mPlotItem->plotArea().width();

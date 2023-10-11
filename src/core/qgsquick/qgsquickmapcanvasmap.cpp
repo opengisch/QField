@@ -280,7 +280,7 @@ void QgsQuickMapCanvasMap::onScreenChanged( QScreen *screen )
     {
       mMapSettings->setDevicePixelRatio( screen->devicePixelRatio() );
     }
-    mMapSettings->setOutputDpi( screen->logicalDotsPerInch() );
+    mMapSettings->setOutputDpi( screen->physicalDotsPerInch() );
   }
 }
 
