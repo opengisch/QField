@@ -17,6 +17,7 @@
 #define RUBBERBAND_H
 
 #include <QQuickItem>
+#include <qgspoint.h>
 #include <qgswkbtypes.h>
 
 class RubberbandModel;
@@ -120,6 +121,8 @@ class Rubberband : public QQuickItem
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
     float mWidthCurrentPoint = 1.2;
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Null;
+    QgsPoint mGeometryCorner;
+    double mGeometryMUPP = 0.0;
 };
 
 
