@@ -243,7 +243,7 @@ EditorWidgetBase {
               onClicked: {
                 deleteDialog.referencingFeatureId = model.referencingFeature.id
                 deleteDialog.referencingFeatureDisplayMessage = model.displayString
-                deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : ''
+                deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : 0
                 deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : ''
                 deleteDialog.visible = true
               }
