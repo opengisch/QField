@@ -255,7 +255,7 @@ void LocalFilesModel::reloadModel()
 int LocalFilesModel::rowCount( const QModelIndex &parent ) const
 {
   if ( !parent.isValid() )
-    return mItems.size();
+    return static_cast<int>( mItems.size() );
   else
     return 0;
 }

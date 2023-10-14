@@ -162,7 +162,7 @@ int main( int argc, char **argv )
     {
       newPaths[i] = strdup( projSearchPaths.at( i ).toUtf8().constData() );
     }
-    proj_context_set_search_paths( nullptr, projSearchPaths.count(), newPaths );
+    proj_context_set_search_paths( nullptr, static_cast<int>( projSearchPaths.count() ), newPaths );
     for ( int i = 0; i < projSearchPaths.count(); ++i )
     {
       free( newPaths[i] );

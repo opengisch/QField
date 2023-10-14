@@ -121,7 +121,7 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
         const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
         const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
         if ( method == QStringLiteral( "create" ) )
-          mLocalPkDeltaIdx[localLayerId][localPk] = mDeltas.count();
+          mLocalPkDeltaIdx[localLayerId][localPk] = static_cast<int>( mDeltas.count() );
 
         mDeltas.append( v );
       }
@@ -209,7 +209,7 @@ bool DeltaFileWrapper::isDirty() const
 
 int DeltaFileWrapper::count() const
 {
-  return mDeltas.size();
+  return static_cast<int>( mDeltas.size() );
 }
 
 
@@ -688,7 +688,7 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   }
   else
   {
-    for ( int i = mDeltas.size() - 1; i >= 0; i-- )
+    for ( qsizetype i = mDeltas.size() - 1; i >= 0; i-- )
     {
       QJsonObject existingDelta = mDeltas[i].toObject();
       const QString existingLayerId = existingDelta.value( QStringLiteral( "localLayerId" ) ).toString();
@@ -890,7 +890,7 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
   delta.insert( QStringLiteral( "new" ), newData );
 
   QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
-  mLocalPkDeltaIdx[localLayerId][localPk] = mDeltas.count();
+  mLocalPkDeltaIdx[localLayerId][localPk] = static_cast<int>( mDeltas.count() );
 
   mDeltas.append( delta );
   mIsDirty = true;
@@ -1020,7 +1020,7 @@ bool DeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &ve
 
   if ( shouldApplyInReverse )
     // not the most optimal solution, but at least the QJsonValues are not copied
-    for ( int i = mDeltas.size(); i > 0; )
+    for ( qsizetype i = mDeltas.size(); i > 0; )
       deltas.append( mDeltas[--i] );
   else
     deltas = QJsonArray( mDeltas );

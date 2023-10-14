@@ -167,7 +167,7 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
 
   const QList<QgsLocatorResult::ResultAction> actions = proxyModel()->data( index, QgsLocatorModel::ResultActionsRole ).value<QList<QgsLocatorResult::ResultAction>>();
   int r = 0;
-  LocatorActionsModel *model = new LocatorActionsModel( actions.count(), 1 );
+  LocatorActionsModel *model = new LocatorActionsModel( static_cast<int>( actions.count() ), 1 );
   for ( auto action : actions )
   {
     QStandardItem *item = new QStandardItem( action.text );
@@ -252,7 +252,7 @@ int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
   if ( !mLocatorModelSuperBridge->locator() || parent.isValid() )
     return 0;
 
-  return mLocatorModelSuperBridge->locator()->filters().count();
+  return static_cast<int>( mLocatorModelSuperBridge->locator()->filters().count() );
 }
 
 QHash<int, QByteArray> LocatorFiltersModel::roleNames() const

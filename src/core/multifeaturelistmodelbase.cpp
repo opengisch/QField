@@ -76,7 +76,7 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
 
 void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::IdentifyResult> &results )
 {
-  beginInsertRows( QModelIndex(), mFeatures.count(), mFeatures.count() + results.count() - 1 );
+  beginInsertRows( QModelIndex(), static_cast<int>( mFeatures.count() ), static_cast<int>( mFeatures.count() + results.count() ) - 1 );
 
   for ( const IdentifyTool::IdentifyResult &result : results )
   {
@@ -97,7 +97,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
     }
     else if ( mSelectedFeatures.size() > 1 && mSelectedFeatures.contains( item ) )
     {
-      int row = mFeatures.indexOf( item );
+      const qsizetype row = mFeatures.indexOf( item );
       mSelectedFeatures.removeAll( item );
 
       QModelIndex index = createIndex( row, 0 );
@@ -214,7 +214,7 @@ int MultiFeatureListModelBase::rowCount( const QModelIndex &parent ) const
   if ( parent.isValid() )
     return 0;
   else
-    return mFeatures.count();
+    return static_cast<int>( mFeatures.count() );
 }
 
 int MultiFeatureListModelBase::columnCount( const QModelIndex &parent ) const
@@ -310,12 +310,12 @@ bool MultiFeatureListModelBase::removeRows( int row, int count, const QModelInde
 
 int MultiFeatureListModelBase::count() const
 {
-  return mFeatures.size();
+  return static_cast<int>( mFeatures.size() );
 }
 
 int MultiFeatureListModelBase::selectedCount() const
 {
-  return mSelectedFeatures.size();
+  return static_cast<int>( mSelectedFeatures.size() );
 }
 
 bool MultiFeatureListModelBase::canEditAttributesSelection()

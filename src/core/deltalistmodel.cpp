@@ -76,7 +76,7 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
     else
     {
       mIsValid = false;
-      mErrorString = tr( "Unrecognized status \"%1\" for $%2" ).arg( statusString, mDeltas.size() );
+      mErrorString = tr( "Unrecognized status \"%1\" for $%2" ).arg( statusString, QString::number( mDeltas.size() ) );
       return;
     }
 
@@ -93,7 +93,7 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
 int DeltaListModel::rowCount( const QModelIndex &parent ) const
 {
   if ( !parent.isValid() )
-    return mDeltas.size();
+    return static_cast<int>( mDeltas.size() );
   else
     return 0;
 }
