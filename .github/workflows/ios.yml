@@ -25,31 +25,16 @@ jobs:
         with:
           submodules: recursive
 
-      - uses: Apple-Actions/import-codesign-certs@v2
-        with:
-          p12-file-base64: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_BASE64_DIST || secrets.APPLE_CODESIGN_CERT_BASE64_DEV }}
-          p12-password: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_PASS_DIST || secrets.APPLE_CODESIGN_CERT_PASS_DEV }}
-
-      - name: 💐 Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: 6.5.3
-          modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtmultimedia qtwebview qtsensors'
-          target: ios
-          cache: false
-
-      - name: 💐 Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: 6.5.3
-          target: desktop
-          cache: false
-
       - name: 🌾 Prepare vars
         id: vars
         shell: bash
         run: |
           ./scripts/ci/env_gh.sh
+
+      - uses: Apple-Actions/import-codesign-certs@v2
+        with:
+          p12-file-base64: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_BASE64_DIST || secrets.APPLE_CODESIGN_CERT_BASE64_DEV }}
+          p12-password: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_PASS_DIST || secrets.APPLE_CODESIGN_CERT_PASS_DEV }}
 
       - uses: Apple-Actions/download-provisioning-profiles@v1
         with:
@@ -57,6 +42,21 @@ jobs:
           issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+
+      - name: 💐 Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: 6.5.3
+          modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtmultimedia qtwebview qtsensors'
+          target: ios
+          cache: true
+
+      - name: 💐 Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: 6.5.3
+          target: desktop
+          cache: false
 
       - name: Prepare ios build env
         run: |
