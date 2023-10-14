@@ -156,6 +156,7 @@ void AttributeFormModelBase::resetModel()
 
   mVisibilityExpressions.clear();
   mConstraints.clear();
+  mEditorWidgetCodes.clear();
 
   setHasTabs( false );
 
@@ -501,11 +502,10 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
 
-        mEditorWidgetCodes.insert( item, qmlElement->qmlCode() );
 
         updateAttributeValue( item );
-
         parent->appendRow( item );
+        mEditorWidgetCodes.insert( item, qmlElement->qmlCode() );
         break;
       }
 
@@ -523,11 +523,9 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
 
-        mEditorWidgetCodes.insert( item, htmlElement->htmlCode() );
-
         updateAttributeValue( item );
-
         parent->appendRow( item );
+        mEditorWidgetCodes.insert( item, htmlElement->htmlCode() );
         break;
       }
 
@@ -542,11 +540,9 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
 
-        mEditorWidgetCodes.insert( item, textElement->text() );
-
         updateAttributeValue( item );
-
         parent->appendRow( item );
+        mEditorWidgetCodes.insert( item, textElement->text() );
         break;
       }
       case Qgis::AttributeEditorType::Action:
@@ -627,6 +623,10 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
   for ( ; editorWidgetCodesIterator != mEditorWidgetCodes.constEnd(); editorWidgetCodesIterator++ )
   {
     QStandardItem *item = editorWidgetCodesIterator.key();
+    if ( !item )
+    {
+      continue;
+    }
     QString code = editorWidgetCodesIterator.value();
     bool needUpdate = false;
 
