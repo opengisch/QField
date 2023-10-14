@@ -178,14 +178,14 @@ void Positioning::setupDevice()
   {
     if ( mDeviceId.startsWith( QStringLiteral( "tcp:" ) ) )
     {
-      int portSeparator = mDeviceId.lastIndexOf( ':' );
+      const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( 4, portSeparator - 4 );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = new TcpReceiver( address, port, this );
     }
     else if ( mDeviceId.startsWith( QStringLiteral( "udp:" ) ) )
     {
-      int portSeparator = mDeviceId.lastIndexOf( ':' );
+      const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( 4, portSeparator - 4 );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = new UdpReceiver( address, port, this );

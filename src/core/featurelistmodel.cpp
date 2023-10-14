@@ -69,7 +69,7 @@ QModelIndex FeatureListModel::parent( const QModelIndex &child ) const
 int FeatureListModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
-  return mEntries.size();
+  return static_cast<int>( mEntries.size() );
 }
 
 int FeatureListModel::columnCount( const QModelIndex &parent ) const

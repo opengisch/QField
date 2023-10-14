@@ -153,7 +153,7 @@ class Positioning : public QObject
      * Returns the current number of collected position informations from which the averaged position is calculated.
      * \note When averaged position is off, the value is zero.
      */
-    int averagedPositionCount() const { return mCollectedPositionInformations.size(); }
+    int averagedPositionCount() const { return static_cast<int>( mCollectedPositionInformations.size() ); }
 
     /**
      * Returns the current elevation correction mode.

@@ -426,7 +426,7 @@ int FlatLayerTreeModelBase::columnCount( const QModelIndex &parent ) const
 }
 int FlatLayerTreeModelBase::rowCount( const QModelIndex &parent ) const
 {
-  return !parent.isValid() ? mRowMap.size() : 0;
+  return !parent.isValid() ? static_cast<int>( mRowMap.size() ) : 0;
 }
 
 QModelIndex FlatLayerTreeModelBase::index( int row, int column, const QModelIndex &parent ) const

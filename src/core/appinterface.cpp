@@ -124,7 +124,7 @@ QVariantMap AppInterface::availableLanguages() const
     it.next();
     if ( it.fileName().startsWith( "qfield_" ) )
     {
-      const int delimiter = it.fileName().indexOf( '.' );
+      const qsizetype delimiter = it.fileName().indexOf( '.' );
       const QString languageCode = it.fileName().mid( 7, delimiter - 7 );
       const bool hasCoutryCode = languageCode.indexOf( '_' ) > -1;
 

@@ -27,7 +27,7 @@ NavigationModel::NavigationModel()
 
 int NavigationModel::rowCount( const QModelIndex &parent ) const
 {
-  return mPoints.size();
+  return static_cast<int>( mPoints.size() );
 }
 
 QVariant NavigationModel::data( const QModelIndex &index, int role ) const
@@ -67,7 +67,7 @@ void NavigationModel::setDestination( const QgsPoint &point )
 
     mPoints.removeLast();
     mPoints << point;
-    QModelIndex changedIndex = index( mPoints.size() - 1, 0 );
+    QModelIndex changedIndex = index( static_cast<int>( mPoints.size() ) - 1, 0 );
     emit dataChanged( changedIndex, changedIndex );
   }
   else

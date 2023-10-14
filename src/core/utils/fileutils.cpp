@@ -125,12 +125,12 @@ int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QStrin
   int count = 0;
 
   QDirIterator dirIt( sourceDir, QDirIterator::Subdirectories );
-  int sfLentgh = sourceFolder.length();
+  const qsizetype sfLength = sourceFolder.length();
 
   while ( dirIt.hasNext() )
   {
     QString filePath = dirIt.next();
-    const QString relPath = filePath.mid( sfLentgh );
+    const QString relPath = filePath.mid( sfLength );
     if ( relPath.endsWith( QLatin1String( "/." ) ) || relPath.endsWith( QLatin1String( "/.." ) ) )
       continue;
 

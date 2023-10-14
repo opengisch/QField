@@ -39,7 +39,7 @@ QHash<int, QByteArray> MessageLogModel::roleNames() const
 int MessageLogModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
-  return mMessages.size();
+  return static_cast<int>( mMessages.size() );
 }
 
 QVariant MessageLogModel::data( const QModelIndex &index, int role ) const

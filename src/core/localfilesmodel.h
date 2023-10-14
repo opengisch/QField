@@ -107,7 +107,7 @@ class LocalFilesModel : public QAbstractListModel
     QString currentPath() const;
 
     //! Returns the current navigation history depth
-    int currentDepth() const { return mHistory.size(); }
+    int currentDepth() const { return static_cast<int>( mHistory.size() ); }
 
     /**
      * Returns TRUE if deletation of files and folders is allow in the current path
