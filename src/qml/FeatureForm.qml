@@ -149,6 +149,9 @@ Page {
       }
     }
 
+    /**
+     * The main form content area
+     */
     SwipeView {
       id: swipeView
       Layout.fillWidth: true
@@ -180,9 +183,11 @@ Page {
             }
           }
 
-          /**
-              * The main form content area
-              */
+          Rectangle {
+            anchors.fill: parent
+            color: Theme.mainBackgroundColor
+          }
+
           Flow {
             id: content
             width: form.width
@@ -417,7 +422,7 @@ Page {
                ? parent.width / ColumnCount
                : parent.width
       : form.width
-      height: fieldGroupTitle.height + field.childrenRect.height
+      height: fieldGroupTitle.height + fieldContent.childrenRect.height
 
       Rectangle {
         id: fieldGroupBackground
@@ -457,7 +462,7 @@ Page {
       }
 
       Item {
-        id: field
+        id: fieldContent
 
         anchors {
           top: fieldGroupTitle.bottom
