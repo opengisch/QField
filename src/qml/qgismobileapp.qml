@@ -593,7 +593,7 @@ ApplicationWindow {
 
       mapSettings: mapCanvas.mapSettings
       model:  isMenuRequest ? canvasMenuFeatureListModel : featureForm.model
-      searchRadiusMm: 5
+      searchRadiusMm: 3
     }
 
     /** A rubberband for measuring **/
