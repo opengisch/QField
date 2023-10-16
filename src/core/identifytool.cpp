@@ -26,7 +26,7 @@
 IdentifyTool::IdentifyTool( QObject *parent )
   : QObject( parent )
   , mMapSettings( nullptr )
-  , mSearchRadiusMm( 8 )
+  , mSearchRadiusMm( 5 )
 {
 }
 
@@ -117,7 +117,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     req.setFilterRect( r );
     if ( !temporalFilter.isEmpty() )
       req.setFilterExpression( temporalFilter );
-    req.setLimit( QSettings().value( "/QField/identify/limit", 100 ).toInt() );
+    req.setLimit( QSettings().value( "/QField/identify/limit", 200 ).toInt() );
     req.setFlags( QgsFeatureRequest::ExactIntersect );
 
     QgsAttributeTableConfig config = layer->attributeTableConfig();
