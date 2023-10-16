@@ -43,12 +43,16 @@ Popup {
         onTriggered: {
           switch(action) {
               case 'decreaseYear':
+                  calendar.decreaseYear();
                   break;
               case 'decreaseMonth':
+                  calendar.decreaseMonth();
                   break;
               case 'increaseYear':
+                  calendar.increaseYear();
                   break;
               case 'increaseMonth':
+                  calendar.increaseMonth();
                   break;
           }
           if ( interval > 100 ) interval = interval * 0.8;
@@ -63,8 +67,8 @@ Popup {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: mouse.accepted = true
-                onWheel: wheel.accepted = true
+                onClicked:  (mouse) => { mouse.accepted = true }
+                onWheel: (wheel) => { wheel.accepted = true }
             }
 
             GridLayout {
@@ -83,6 +87,7 @@ Popup {
                         roundborder: true
 
                         onPressed: {
+                            calendar.decreaseYear();
                             changeCalendarTimer.action = 'decreaseYear';
                             changeCalendarTimer.interval = 700;
                             changeCalendarTimer.restart();
@@ -102,6 +107,7 @@ Popup {
                         roundborder: true
 
                         onPressed: {
+                            calendar.decreaseMonth();
                             changeCalendarTimer.action = 'decreaseMonth';
                             changeCalendarTimer.interval = 700;
                             changeCalendarTimer.restart();
@@ -135,6 +141,7 @@ Popup {
                         roundborder: true
 
                         onPressed: {
+                            calendar.increaseMonth();
                             changeCalendarTimer.action = 'increaseMonth';
                             changeCalendarTimer.interval = 700;
                             changeCalendarTimer.restart();
@@ -153,6 +160,7 @@ Popup {
                         roundborder: true
 
                         onPressed: {
+                            calendar.increaseYear();
                             changeCalendarTimer.action = 'increaseYear';
                             changeCalendarTimer.interval = 700;
                             changeCalendarTimer.restart();
@@ -181,7 +189,7 @@ Popup {
                     property date today: new Date()
 
                     function decreaseYear() {
-                        year -= 1;
+                      year -= 1;
                     }
                     function increaseYear() {
                         year += 1;
@@ -195,7 +203,7 @@ Popup {
                         }
                     }
                     function increaseMonth() {
-                        if (month != Calendar.December) {
+                        if (month !== Calendar.December) {
                             month += 1;
                         } else {
                             month = Calendar.January
@@ -232,7 +240,7 @@ Popup {
                         }
                     }
 
-                    onClicked: {
+                    onClicked: (date) => {
                         if (calendarPopup.selectedDate.getFullYear() !== date.getFullYear() ||
                             calendarPopup.selectedDate.getMonth() !== date.getMonth() ||
                             calendarPopup.selectedDate.getDate() !== date.getDate()) {
