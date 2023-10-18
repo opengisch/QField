@@ -22,7 +22,7 @@
     <layer-tree-layer id="user_3b2a144b_274a_4438_95e4_6640c2211c53" expanded="1" providerKey="postgres" name="QField users" checked="Qt::Checked" source="dbname='qfielddemo' host=demo.qfield.org port=8080 user='qfielduser' sslmode=disable key='id' srid=3857 type=Point table=&quot;public&quot;.&quot;user&quot; (geom) sql=">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e" expanded="0" providerKey="wms" name="OpenStreetMap" checked="Qt::Checked" source="crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=19&amp;zmin=0">
+    <layer-tree-layer id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e" expanded="0" providerKey="wms" name="OpenStreetMap" checked="Qt::Checked" source="crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=19&amp;zmin=0">
       <customproperties/>
     </layer-tree-layer>
     <custom-order enabled="0">
