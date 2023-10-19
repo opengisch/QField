@@ -109,7 +109,7 @@ VisibilityFadingRow {
   function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
   {
     fillRingToolbar.featureModel = featureModel
-    digitizingLogger.digitizingLayer = featureModel.currentLayer
+    drawPolygonToolbar.digitizingLogger.digitizingLayer = featureModel.currentLayer
     drawPolygonToolbar.rubberbandModel = editorRubberbandModel
     drawPolygonToolbar.rubberbandModel.geometryType = Qgis.GeometryType.Polygon
     drawPolygonToolbar.mapSettings = mapSettings
