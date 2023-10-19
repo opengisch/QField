@@ -138,7 +138,8 @@ CloudUserInformation QFieldCloudConnection::userInformation() const
 
 void QFieldCloudConnection::login()
 {
-  NetworkReply *reply = ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) )
+  const bool loginUsingToken = !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() );
+  NetworkReply *reply = loginUsingToken
                           ? get( QStringLiteral( "/api/v1/auth/user/" ) )
                           : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
                                                                              {
@@ -181,14 +182,16 @@ void QFieldCloudConnection::login()
       {
         emit loginFailed( tr( "Timeout error, please retry" ) );
       }
-      else if ( httpCode == 400 )
+      else if ( httpCode == 400 || httpCode == 401 )
       {
-        emit loginFailed( tr( "Wrong username or password" ) );
-      }
-      else if ( httpCode == 401 )
-      {
-        emit loginFailed( tr( "Session expired" ) );
-        invalidateToken();
+        if ( !loginUsingToken )
+        {
+          emit loginFailed( tr( "Wrong username or password" ) );
+        }
+        else
+        {
+          emit loginFailed( tr( "Session expired" ) );
+        }
       }
       else
       {
