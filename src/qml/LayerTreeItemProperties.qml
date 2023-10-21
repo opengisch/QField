@@ -297,18 +297,19 @@ Popup {
           icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
           onClicked: {
+            var layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
             close()
 
-            if ( trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ) {
-              trackingModel.stopTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer));
-              displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer).name  ) )
+            if (trackingModel.layerInTracking(layer)) {
+              trackingModel.stopTracker(layer);
+              displayToast(qsTr('Track on layer %1 stopped').arg(layer.name))
             } else {
               var tracker;
-              var idx = projectInfo.restoreTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer))
+              var idx = projectInfo.restoreTracker(layer)
               if (idx.valid) {
                 tracker = trackings.itemAt(idx.row).tracker
               } else {
-                idx = trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer))
+                idx = trackingModel.createTracker(layer)
                 tracker = trackings.itemAt(idx.row).tracker
                 tracker.visible = itemVisibleCheckBox.checked
                 tracker.minimumDistance = positioningSettings.trackerMinimumDistanceConstraint ? positioningSettings.trackerMinimumDistance : 0
