@@ -12,6 +12,9 @@
         <item android:id="@+id/import_dataset"
             android:title="@string/import_dataset"
             app:showAsAction="never"/>
+        <item android:id="@+id/update_project_from_archive"
+            android:title="@string/update_project_from_archive"
+            app:showAsAction="never"/>
     </group>
 
     <group android:id="@+id/help_group" >

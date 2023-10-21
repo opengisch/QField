@@ -325,9 +325,14 @@ Page {
       }
 
       QfToolButton {
-        id: importButton
+        id: actionButton
         round: true
-        visible: table.model.currentPath === 'root'
+
+        // Since the project menu only has one action for now, hide if PlatformUtilities.UpdateProjectFromArchive is missing
+        property bool isLocalProject: QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' &&
+                                      (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz')) &&
+                                      platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
+        visible: (projectFolderView && isLocalProject && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
         anchors.right: parent.right
@@ -338,8 +343,13 @@ Page {
         iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
 
         onClicked: {
-          importMenu.popup(importButton.x + importButton.width - importMenu.width + 10,
-                           importButton.y - importButton.height - header.height - 10)
+          var popupX = actionButton.x + actionButton.width - importMenu.width + 10;
+          var popupY = actionButton.y - actionButton.height - header.height - 10
+          if (projectFolderView) {
+            projectMenu.popup(popupX, popupY)
+          } else {
+            importMenu.popup(popupX, popupY)
+          }
         }
       }
     }
@@ -556,6 +566,40 @@ Page {
 
         text: qsTr( "Storage management help" )
         onTriggered: { Qt.openUrlExternally("https://docs.qfield.org/get-started/storage/") }
+      }
+    }
+
+    Menu {
+      id: projectMenu
+
+      title: qsTr('Project Actions')
+
+      width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+          var item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+      }
+
+      topMargin: sceneTopMargin
+      bottomMargin: sceneBottomMargin
+
+      MenuItem {
+        id: updateProjectFromArchive
+
+        enabled: platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
+        visible: enabled
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: 10
+
+        text: qsTr( "Update project from archive" )
+        onTriggered: { platformUtilities.updateProjectFromArchive(projectInfo.filePath); }
       }
     }
   }

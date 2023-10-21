@@ -41,16 +41,17 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
   public:
     enum Capability
     {
-      NoCapabilities = 0,             //!< No capabilities
-      NativeCamera = 1,               //!< Native camera handling support
-      AdjustBrightness = 1 << 1,      //!< Screen brightness adjustment support
-      SentryFramework = 1 << 2,       //!< Sentry framework support
-      CustomLocalDataPicker = 1 << 3, //!< Custom QML local data picker support
-      CustomImport = 1 << 4,          //!< Import project and dataset support
-      CustomExport = 1 << 5,          //!< Export project and dataset support
-      CustomSend = 1 << 6,            //!< Send/share files support
-      FilePicker = 1 << 7,            //!< File picker support
-      VolumeKeys = 1 << 8,            //!< Volume keys handling support
+      NoCapabilities = 0,                //!< No capabilities
+      NativeCamera = 1,                  //!< Native camera handling support
+      AdjustBrightness = 1 << 1,         //!< Screen brightness adjustment support
+      SentryFramework = 1 << 2,          //!< Sentry framework support
+      CustomLocalDataPicker = 1 << 3,    //!< Custom QML local data picker support
+      CustomImport = 1 << 4,             //!< Import project and dataset support
+      CustomExport = 1 << 5,             //!< Export project and dataset support
+      CustomSend = 1 << 6,               //!< Send/share files support
+      FilePicker = 1 << 7,               //!< File picker support
+      VolumeKeys = 1 << 8,               //!< Volume keys handling support
+      UpdateProjectFromArchive = 1 << 9, //!< Update local project from a ZIP archive support
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
@@ -129,6 +130,12 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual void importProjectArchive() const;
     //! Requests and imports one or more datasets into QField's application directory action
     Q_INVOKABLE virtual void importDatasets() const;
+
+    /**
+     * Update a local project content from a user-picked archive file action
+     * \param projectPath the project file path
+     */
+    Q_INVOKABLE virtual void updateProjectFromArchive( const QString &projectPath ) const;
 
     //! Exports a folder \a path to a user-specified location
     Q_INVOKABLE virtual void exportFolderTo( const QString &path ) const;

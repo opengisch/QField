@@ -206,6 +206,11 @@ void PlatformUtilities::importProjectArchive() const
 void PlatformUtilities::importDatasets() const
 {}
 
+void PlatformUtilities::updateProjectFromArchive( const QString &projectPath ) const
+{
+  Q_UNUSED( projectPath )
+}
+
 void PlatformUtilities::exportFolderTo( const QString &path ) const
 {
   Q_UNUSED( path )

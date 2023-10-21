@@ -98,7 +98,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys;
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys | UpdateProjectFromArchive;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -246,6 +246,25 @@ void AndroidPlatformUtilities::importDatasets() const
       if ( activity.isValid() )
       {
         activity.callMethod<void>( "triggerImportDatasets" );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::updateProjectFromArchive( const QString &projectPath ) const
+{
+  if ( mActivity.isValid() )
+  {
+    runOnAndroidMainThread( [projectPath] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+        QAndroidJniObject projectPathJni = QAndroidJniObject::fromString( projectPath );
+#else
+        QJniObject projectPathJni = QJniObject::fromString( projectPath );
+#endif
+        activity.callMethod<void>( "triggerUpdateProjectFromArchive", "(Ljava/lang/String;)V", projectPathJni.object<jstring>() );
       }
     } );
   }

@@ -112,6 +112,7 @@ public class QFieldActivity extends QtActivity {
     private float originalBrightness;
     private boolean handleVolumeKeys = false;
     private String pathsToExport;
+    private String projectPath;
     private double sceneTopMargin = 0;
     private double sceneBottomMargin = 0;
 
@@ -653,6 +654,25 @@ public class QFieldActivity extends QtActivity {
         return;
     }
 
+    private void triggerUpdateProjectFromArchive(String path) {
+        projectPath = path;
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.setType("application/zip");
+        try {
+            startActivityForResult(intent, R.id.update_project_from_archive);
+        } catch (ActivityNotFoundException e) {
+            displayAlertDialog(
+                getString(R.string.operation_unsupported),
+                getString(R.string.import_operation_unsupported));
+            Log.w("QField", "No activity found for ACTION_OPEN_DOCUMENT.");
+        }
+        return;
+    }
+
     private void sendDatasetTo(String paths) {
         String[] filePaths = paths.split("--;--");
         File file;
@@ -943,6 +963,53 @@ public class QFieldActivity extends QtActivity {
                     }
                 } else {
                     progressDialog.dismiss();
+                }
+            }
+        });
+    }
+
+    void updateProjectFromArchive(Uri archiveUri) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null) {
+            return;
+        }
+
+        ProgressDialog progressDialog =
+            new ProgressDialog(this, R.style.DialogTheme);
+        progressDialog.setMessage(getString(R.string.update_project_wait));
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                DocumentFile documentFile =
+                    DocumentFile.fromSingleUri(context, archiveUri);
+
+                String projectFolder =
+                    new File(projectPath).getParentFile().getAbsolutePath();
+                boolean imported = false;
+                try {
+                    InputStream input = resolver.openInputStream(archiveUri);
+                    imported = QFieldUtils.zipToFolder(input, projectFolder);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    if (!isFinishing()) {
+                        displayAlertDialog(
+                            getString(R.string.import_error),
+                            getString(R.string.import_project_archive_error));
+                    }
+                }
+
+                progressDialog.dismiss();
+                if (imported) {
+                    // Trigger a project re-load
+                    openProject(projectPath);
                 }
             }
         });
@@ -1248,6 +1315,22 @@ public class QFieldActivity extends QtActivity {
             } else {
                 importProjectArchive(uri);
             }
+        } else if (requestCode == R.id.update_project_from_archive &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d("QField", "handling updating project from archive");
+            File externalFilesDir = getExternalFilesDir(null);
+            if (externalFilesDir == null || data == null) {
+                return;
+            }
+
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            DocumentFile documentFile =
+                DocumentFile.fromSingleUri(context, uri);
+
+            updateProjectFromArchive(uri);
         } else if (requestCode == R.id.export_to_folder &&
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling export to folder");
