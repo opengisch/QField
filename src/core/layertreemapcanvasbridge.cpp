@@ -163,6 +163,9 @@ void LayerTreeMapCanvasBridge::mapThemeChanged()
 
 void LayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bool tracking )
 {
-  QgsLayerTreeLayer *nodeLayer = mRoot->findLayer( layer->id() );
-  mModel->setLayerInTracking( nodeLayer, tracking );
+  if ( layer )
+  {
+    QgsLayerTreeLayer *nodeLayer = mRoot->findLayer( layer->id() );
+    mModel->setLayerInTracking( nodeLayer, tracking );
+  }
 }
