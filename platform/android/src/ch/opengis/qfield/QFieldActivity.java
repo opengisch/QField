@@ -991,7 +991,8 @@ public class QFieldActivity extends QtActivity {
                     DocumentFile.fromSingleUri(context, archiveUri);
 
                 String projectFolder =
-                    new File(projectPath).getParentFile().getAbsolutePath();
+                    new File(projectPath).getParentFile().getAbsolutePath() +
+                    "/";
                 boolean imported = false;
                 try {
                     InputStream input = resolver.openInputStream(archiveUri);

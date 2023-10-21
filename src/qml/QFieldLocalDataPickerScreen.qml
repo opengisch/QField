@@ -343,12 +343,11 @@ Page {
         iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
 
         onClicked: {
-          var popupX = actionButton.x + actionButton.width - importMenu.width + 10;
-          var popupY = actionButton.y - actionButton.height - header.height - 10
+          var xy = mapToItem(mainWindow.contentItem, actionButton.width, actionButton.height)
           if (projectFolderView) {
-            projectMenu.popup(popupX, popupY)
+            projectMenu.popup(xy.x - projectMenu.width, xy.y - projectMenu.height - header.height)
           } else {
-            importMenu.popup(popupX, popupY)
+            importMenu.popup(xy.x - importMenu.width, xy.y - importMenu.height - header.height)
           }
         }
       }
