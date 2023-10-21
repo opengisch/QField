@@ -597,7 +597,7 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: 10
 
-        text: qsTr( "Update project from archive" )
+        text: qsTr( "Update project from ZIP" )
         onTriggered: { platformUtilities.updateProjectFromArchive(projectInfo.filePath); }
       }
     }
