@@ -341,6 +341,9 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
 
     mPointList << pt;
   }
+  // insert the last point twice so the resutling rubberband's current coordinate property being modified (by e.g.
+  // the GNSS position) will not replace the last vertex from the passed geometry
+  mPointList << pt;
 
   mCurrentCoordinateIndex = mPointList.size() - 1;
 
