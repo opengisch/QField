@@ -333,17 +333,21 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
   while ( abstractGeom->nextVertex( vertexId, pt ) )
   {
     if ( vertexId.part > 1 || vertexId.ring > 0 )
+    {
       break;
+    }
 
-    // skip first vertex on polygon, as it's duplicate of the last one
-    if ( geometry.type() == Qgis::GeometryType::Polygon && vertexId.vertex == 0 )
+    // skip last vertex on polygon, as it's duplicate of the last one
+    if ( geometry.type() == Qgis::GeometryType::Polygon && vertexId.vertex == abstractGeom->vertexCount() )
+    {
       continue;
+    }
 
     mPointList << pt;
   }
   // insert the last point twice so the resutling rubberband's current coordinate property being modified (by e.g.
   // the GNSS position) will not replace the last vertex from the passed geometry
-  mPointList << pt;
+  mPointList << mPointList.last();
 
   mCurrentCoordinateIndex = mPointList.size() - 1;
 
