@@ -438,7 +438,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Vycentrujte zařízení na kód</translation>
     </message>
 </context>
 <context>
@@ -453,7 +453,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Dokončete nebo vypněte funkci digitalizace před přepnutím do režimu prohlížení.</translation>
     </message>
 </context>
 <context>
@@ -566,11 +566,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>Geometrii nebylo možné změnit na více částí.</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>Geometrii nebylo možné změnit</translation>
     </message>
 </context>
 <context>
@@ -901,7 +901,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Nástroj pro mazání</translation>
     </message>
 </context>
 <context>
@@ -1049,11 +1049,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Vrstva pouze pro čtení</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
-        <translation type="unfinished"/>
+        <translation>Vrstva s uzamčenou geometrií</translation>
     </message>
 </context>
 <context>
@@ -1105,7 +1105,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>Tato vrstva právě nese trasování polohy zařízení.</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1167,23 +1167,23 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Vrací seznam prvků z aktivní vrstvy se shodnými atributy. Omezení shody na jeden atribut se provádí identifikací jeho názvu s předponou &quot;@&quot;.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí seznam prvků napříč všemi prohledávanými vrstvami se shodným zobrazovaným názvem.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí bod z dvojice souřadnic X a Y - nebo zeměpisné šířky a délky WGS84 - zadaných do vyhledávacího řádku.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí seznam uživatelských a aktuálně otevřených záložek projektu se shodnými názvy.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí hodnotu výrazu zadaného do vyhledávacího řádku.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
@@ -1385,7 +1385,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">centroid</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -2845,7 +2845,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>centroid</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
