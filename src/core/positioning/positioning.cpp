@@ -26,6 +26,8 @@
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 
+#include <QScreen>
+#include <qgsapplication.h>
 #include <qgsunittypes.h>
 
 Positioning::Positioning( QObject *parent )
@@ -33,6 +35,10 @@ Positioning::Positioning( QObject *parent )
 {
   // Setup internal gnss receiver by default
   setupDevice();
+
+  // Setup the magnetometer
+  mMagnetometer.setReturnGeoValues( false );
+  connect( &mMagnetometer, &QSensor::readingChanged, this, &Positioning::magnetometerReadingChanged );
 }
 
 void Positioning::setActive( bool active )
@@ -49,6 +55,7 @@ void Positioning::setActive( bool active )
       setupDevice();
     }
     mReceiver->connectDevice();
+    mMagnetometer.setActive( true );
   }
   else
   {
@@ -56,6 +63,9 @@ void Positioning::setActive( bool active )
     {
       mReceiver->disconnectDevice();
     }
+    mMagnetometer.setActive( false );
+    mOrientation = std::numeric_limits<double>::quiet_NaN();
+    emit orientationChanged();
   }
 
   emit activeChanged();
@@ -256,6 +266,36 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   }
 
   emit positionInformationChanged();
+}
+
+void Positioning::magnetometerReadingChanged()
+{
+  if ( mMagnetometer.reading() && mMagnetometer.reading()->timestamp() - mLastOrientationTimestamp > 200000 )
+  {
+    mLastOrientationTimestamp = mMagnetometer.reading()->timestamp();
+
+    double orientation = 0.0;
+    // Take into account the orientation of the device
+    QScreen *screen = QgsApplication::instance()->primaryScreen();
+    switch ( screen->orientation() )
+    {
+      case Qt::LandscapeOrientation:
+        orientation = 90;
+        break;
+      case Qt::InvertedLandscapeOrientation:
+        orientation = 270;
+        break;
+      case Qt::PortraitOrientation:
+      default:
+        break;
+    }
+    orientation += -std::atan2( mMagnetometer.reading()->x(), mMagnetometer.reading()->y() ) / M_PI * 180;
+    if ( mOrientation != orientation )
+    {
+      mOrientation = orientation;
+      emit orientationChanged();
+    }
+  }
 }
 
 QgsPoint Positioning::sourcePosition() const
