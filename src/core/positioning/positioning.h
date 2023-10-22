@@ -21,7 +21,7 @@
 #include "gnsspositioninformation.h"
 #include "qgsquickcoordinatetransformer.h"
 
-#include <QMagnetometer>
+#include <QCompass>
 #include <QObject>
 #include <qgscoordinatereferencesystem.h>
 #include <qgscoordinatetransformcontext.h>
@@ -218,7 +218,7 @@ class Positioning : public QObject
   private slots:
 
     void lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation );
-    void magnetometerReadingChanged();
+    void compassReadingChanged();
     void projectedPositionTransformed();
 
   private:
@@ -250,7 +250,7 @@ class Positioning : public QObject
 
     AbstractGnssReceiver *mReceiver = nullptr;
 
-    QMagnetometer mMagnetometer;
+    QCompass mCompass;
     double mOrientation = std::numeric_limits<double>::quiet_NaN();
     quint64 mLastOrientationTimestamp = 0;
 };

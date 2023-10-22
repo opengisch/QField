@@ -36,9 +36,8 @@ Positioning::Positioning( QObject *parent )
   // Setup internal gnss receiver by default
   setupDevice();
 
-  // Setup the magnetometer
-  mMagnetometer.setReturnGeoValues( false );
-  connect( &mMagnetometer, &QSensor::readingChanged, this, &Positioning::magnetometerReadingChanged );
+  // Setup the compass
+  connect( &mCompass, &QSensor::readingChanged, this, &Positioning::compassReadingChanged );
 }
 
 void Positioning::setActive( bool active )
@@ -55,7 +54,7 @@ void Positioning::setActive( bool active )
       setupDevice();
     }
     mReceiver->connectDevice();
-    mMagnetometer.setActive( true );
+    mCompass.setActive( true );
   }
   else
   {
@@ -63,7 +62,7 @@ void Positioning::setActive( bool active )
     {
       mReceiver->disconnectDevice();
     }
-    mMagnetometer.setActive( false );
+    mCompass.setActive( false );
     mOrientation = std::numeric_limits<double>::quiet_NaN();
     emit orientationChanged();
   }
@@ -294,12 +293,11 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   emit positionInformationChanged();
 }
 
-void Positioning::magnetometerReadingChanged()
+void Positioning::compassReadingChanged()
 {
-  if ( mMagnetometer.reading() && mMagnetometer.reading()->timestamp() - mLastOrientationTimestamp > 200000 )
+  if ( mCompass.reading() && QDateTime::currentMSecsSinceEpoch() - mLastOrientationTimestamp > 200 )
   {
-    mLastOrientationTimestamp = mMagnetometer.reading()->timestamp();
-
+    mLastOrientationTimestamp = QDateTime::currentMSecsSinceEpoch();
     double orientation = 0.0;
     // Take into account the orientation of the device
     QScreen *screen = QgsApplication::instance()->primaryScreen();
@@ -315,7 +313,7 @@ void Positioning::magnetometerReadingChanged()
       default:
         break;
     }
-    orientation += -std::atan2( mMagnetometer.reading()->x(), mMagnetometer.reading()->y() ) / M_PI * 180;
+    orientation += mCompass.reading()->azimuth();
     if ( mOrientation != orientation )
     {
       mOrientation = orientation;
