@@ -23,6 +23,7 @@
 
 #include <QCompass>
 #include <QObject>
+#include <QTimer>
 #include <qgscoordinatereferencesystem.h>
 #include <qgscoordinatetransformcontext.h>
 #include <qgspoint.h>
@@ -218,7 +219,7 @@ class Positioning : public QObject
   private slots:
 
     void lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation );
-    void compassReadingChanged();
+    void processCompassReading();
     void projectedPositionTransformed();
 
   private:
@@ -251,8 +252,8 @@ class Positioning : public QObject
     AbstractGnssReceiver *mReceiver = nullptr;
 
     QCompass mCompass;
+    QTimer mCompassTimer;
     double mOrientation = std::numeric_limits<double>::quiet_NaN();
-    quint64 mLastOrientationTimestamp = 0;
 };
 
 Q_DECLARE_METATYPE( Positioning::ElevationCorrectionMode )

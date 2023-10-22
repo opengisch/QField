@@ -37,7 +37,8 @@ Positioning::Positioning( QObject *parent )
   setupDevice();
 
   // Setup the compass
-  connect( &mCompass, &QSensor::readingChanged, this, &Positioning::compassReadingChanged );
+  mCompassTimer.setInterval( 200 );
+  connect( &mCompassTimer, &QTimer::timeout, this, &Positioning::processCompassReading );
 }
 
 void Positioning::setActive( bool active )
@@ -54,7 +55,11 @@ void Positioning::setActive( bool active )
       setupDevice();
     }
     mReceiver->connectDevice();
-    mCompass.setActive( true );
+    if ( !QSensor::sensorsForType( "QCompass" ).isEmpty() )
+    {
+      mCompass.setActive( true );
+      mCompassTimer.start();
+    }
   }
   else
   {
@@ -62,6 +67,7 @@ void Positioning::setActive( bool active )
     {
       mReceiver->disconnectDevice();
     }
+    mCompassTimer.stop();
     mCompass.setActive( false );
     mOrientation = std::numeric_limits<double>::quiet_NaN();
     emit orientationChanged();
@@ -293,11 +299,10 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   emit positionInformationChanged();
 }
 
-void Positioning::compassReadingChanged()
+void Positioning::processCompassReading()
 {
-  if ( mCompass.reading() && QDateTime::currentMSecsSinceEpoch() - mLastOrientationTimestamp > 200 )
+  if ( mCompass.reading() )
   {
-    mLastOrientationTimestamp = QDateTime::currentMSecsSinceEpoch();
     double orientation = 0.0;
     // Take into account the orientation of the device
     QScreen *screen = QgsApplication::instance()->primaryScreen();
