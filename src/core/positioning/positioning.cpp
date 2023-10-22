@@ -240,15 +240,41 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   if ( mPositionInformation == lastGnssPositionInformation )
     return;
 
+  const GnssPositionInformation positionInformation( lastGnssPositionInformation.latitude(),
+                                                     lastGnssPositionInformation.longitude(),
+                                                     lastGnssPositionInformation.elevation(),
+                                                     lastGnssPositionInformation.speed(),
+                                                     lastGnssPositionInformation.direction(),
+                                                     lastGnssPositionInformation.satellitesInView(),
+                                                     lastGnssPositionInformation.pdop(),
+                                                     lastGnssPositionInformation.hdop(),
+                                                     lastGnssPositionInformation.vdop(),
+                                                     lastGnssPositionInformation.hacc(),
+                                                     lastGnssPositionInformation.vacc(),
+                                                     lastGnssPositionInformation.utcDateTime(),
+                                                     lastGnssPositionInformation.fixMode(),
+                                                     lastGnssPositionInformation.fixType(),
+                                                     lastGnssPositionInformation.quality(),
+                                                     lastGnssPositionInformation.satellitesUsed(),
+                                                     lastGnssPositionInformation.status(),
+                                                     lastGnssPositionInformation.satPrn(),
+                                                     lastGnssPositionInformation.satInfoComplete(),
+                                                     lastGnssPositionInformation.verticalSpeed(),
+                                                     lastGnssPositionInformation.magneticVariation(),
+                                                     lastGnssPositionInformation.averagedCount(),
+                                                     lastGnssPositionInformation.sourceName(),
+                                                     lastGnssPositionInformation.imuCorrection(),
+                                                     mOrientation );
+
   if ( mAveragedPosition )
   {
-    mCollectedPositionInformations << lastGnssPositionInformation;
+    mCollectedPositionInformations << positionInformation;
     mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
     emit averagedPositionCountChanged();
   }
   else
   {
-    mPositionInformation = lastGnssPositionInformation;
+    mPositionInformation = positionInformation;
   }
 
   if ( mPositionInformation.isValid() )

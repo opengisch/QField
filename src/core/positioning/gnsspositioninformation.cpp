@@ -14,8 +14,6 @@
  ***************************************************************************/
 
 #include "gnsspositioninformation.h"
-#include "qgslogger.h"
-#include "qgsnmeaconnection.h"
 
 #include <QCoreApplication>
 #include <QFileInfo>
@@ -28,7 +26,7 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
                                                   const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
                                                   QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn,
                                                   bool satInfoComplete, double verticalSpeed, double magneticVariation, int averagedCount, const QString &sourceName,
-                                                  bool imuCorrection )
+                                                  bool imuCorrection, double orientation )
   : mLatitude( latitude )
   , mLongitude( longitude )
   , mElevation( elevation )
@@ -54,6 +52,7 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
   , mAveragedCount( averagedCount )
   , mSourceName( sourceName )
   , mImuCorrection( imuCorrection )
+  , mOrientation( orientation )
 {
 }
 
@@ -78,7 +77,9 @@ bool GnssPositionInformation::operator==( const GnssPositionInformation &other )
          mSatInfoComplete == other.mSatInfoComplete &&
          mVerticalSpeed == other.mVerticalSpeed &&
          mMagneticVariation == other.mMagneticVariation &&
-         mSourceName == other.mSourceName;
+         mSourceName == other.mSourceName &&
+         mImuCorrection== other.mImuCorrection &&
+         mOrientation == other.mOrientation;
   // clang-format on
 }
 
