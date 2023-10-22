@@ -131,9 +131,9 @@ void Rubberband::updateTransform()
 
   const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( mGeometryCorner );
 
-  setX( pixelCorner.x() );
-  setY( pixelCorner.y() );
-  setScale( mGeometryMUPP / mMapSettings->mapUnitsPerPoint() );
+  setX( mDirty ? 0 : pixelCorner.x() );
+  setY( mDirty ? 0 : pixelCorner.y() );
+  setScale( mDirty ? 1.0 : mGeometryMUPP / mMapSettings->mapUnitsPerPoint() );
   setRotation( mMapSettings->rotation() );
 
   update();
@@ -147,7 +147,7 @@ void Rubberband::rotationChanged()
 void Rubberband::visibleExtentChanged()
 {
   const double scaleChange = mGeometryMUPP / mMapSettings->mapUnitsPerPoint();
-  mDirty = mGeometryMUPP == 0.0 || scaleChange > 1.75 || scaleChange < 0.25;
+  mDirty = mDirty || mGeometryMUPP == 0.0 || scaleChange > 1.75 || scaleChange < 0.25;
   updateTransform();
 }
 
@@ -221,7 +221,6 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     mGeometryMUPP = mMapSettings->mapUnitsPerPoint();
 
     mDirty = false;
-    updateTransform();
   }
 
   return n;

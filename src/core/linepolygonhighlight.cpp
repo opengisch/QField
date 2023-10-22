@@ -55,7 +55,6 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
     n->appendChildNode( gn );
 
     mDirty = false;
-    updateTransform();
 
     emit updated();
   }
@@ -133,10 +132,10 @@ void LinePolygonHighlight::updateTransform()
 
   const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( mGeometryCorner );
 
-  setX( pixelCorner.x() );
-  setY( pixelCorner.y() );
+  setX( mDirty ? 0 : pixelCorner.x() );
+  setY( mDirty ? 0 : pixelCorner.y() );
+  setScale( mDirty ? 1.0 : mGeometryMUPP / mMapSettings->mapUnitsPerPoint() );
   setRotation( mMapSettings->rotation() );
-  setScale( mGeometryMUPP / mMapSettings->mapUnitsPerPoint() );
 
   update();
 }
