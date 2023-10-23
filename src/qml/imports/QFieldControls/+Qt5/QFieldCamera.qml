@@ -3,6 +3,8 @@ import QtQuick.Controls 2.14
 import QtQuick.Window 2.14
 import QtMultimedia 5.14
 
+import org.qfield 1.0
+
 import Theme 1.0
 
 Popup {
@@ -54,20 +56,6 @@ Popup {
       cameraState: cameraItem.visible ? Camera.ActiveState : Camera.UnloadedState
 
       position: Camera.BackFace
-
-      metaData.cameraManufacturer: 'QField'
-      metaData.gpsLatitude: positionSource.positionInformation.latitudeValid
-                            ? positionSource.positionInformation.latitude
-                            : undefined
-      metaData.gpsLongitude: positionSource.positionInformation.longitudeValid
-                             ? positionSource.positionInformation.longitude
-                             : undefined
-      metaData.gpsAltitude: positionSource.positionInformation.elevationValid
-                            ? positionSource.positionInformation.elevation
-                            : undefined
-      metaData.gpsSpeed: positionSource.positionInformation.speedValid
-                         ? positionSource.positionInformation.speed
-                         : undefined
 
       imageCapture {
         onImageSaved: {
@@ -264,6 +252,9 @@ Popup {
                 cameraItem.state = "VideoPreview"
               }
             } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
+              if (cameraItem.state == "PhotoPreview") {
+                FileUtils.addImageMetadata(currentPath, positionSource.positionInformation)
+              }
               cameraItem.finished(currentPath)
             }
           }

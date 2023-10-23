@@ -193,28 +193,40 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
     return;
   }
 
-  QVariantMap exifTags;
+  QVariantMap metadata;
   if ( positionInformation.latitudeValid() && positionInformation.longitudeValid() )
   {
-    exifTags["Exif.GPSInfo.GPSLatitude"] = std::abs( positionInformation.latitude() );
-    exifTags["Exif.GPSInfo.GPSLatitudeRef"] = positionInformation.latitude() >= 0 ? "N" : "S";
-    exifTags["Exif.GPSInfo.GPSLongitude"] = std::abs( positionInformation.longitude() );
-    exifTags["Exif.GPSInfo.GPSLongitudeRef"] = positionInformation.latitude() >= 0 ? "E" : "W";
+    metadata["Exif.GPSInfo.GPSLatitude"] = std::abs( positionInformation.latitude() );
+    metadata["Exif.GPSInfo.GPSLatitudeRef"] = positionInformation.latitude() >= 0 ? "N" : "S";
+    metadata["Exif.GPSInfo.GPSLongitude"] = std::abs( positionInformation.longitude() );
+    metadata["Exif.GPSInfo.GPSLongitudeRef"] = positionInformation.latitude() >= 0 ? "E" : "W";
     if ( positionInformation.elevationValid() )
     {
-      exifTags["Exif.GPSInfo.GPSAltitude"] = std::abs( positionInformation.elevation() );
-      exifTags["Exif.GPSInfo.GPSAltitudeRef"] = positionInformation.elevation() >= 0 ? "1" : "0";
+      metadata["Exif.GPSInfo.GPSAltitude"] = std::abs( positionInformation.elevation() );
+      metadata["Exif.GPSInfo.GPSAltitudeRef"] = positionInformation.elevation() >= 0 ? "1" : "0";
     }
   }
-
   if ( positionInformation.orientationValid() )
   {
-    exifTags["Exif.GPSInfo.GPSImgDirectionRef"] = "M";
-    exifTags["Exif.GPSInfo.GPSImgDirection"] = positionInformation.orientation();
+    metadata["Exif.GPSInfo.GPSImgDirection"] = positionInformation.orientation();
+    metadata["Exif.GPSInfo.GPSImgDirectionRef"] = "M";
+  }
+  if ( positionInformation.speedValid() )
+  {
+    metadata["Exif.GPSInfo.GPSSpeed"] = positionInformation.speed();
+    metadata["Exif.GPSInfo.GPSSpeedRef"] = "K";
   }
 
-  exifTags["Exif.GPSInfo.GPSDateStamp"] = positionInformation.utcDateTime().date();
-  exifTags["Exif.GPSInfo.GPSTimeStamp"] = positionInformation.utcDateTime().time();
+  metadata["Exif.GPSInfo.GPSDateStamp"] = positionInformation.utcDateTime().date();
+  metadata["Exif.GPSInfo.GPSTimeStamp"] = positionInformation.utcDateTime().time();
 
-  exifTags["Exif.GPSInfo.GPSSatellites"] = QString::number( positionInformation.satellitesUsed() ).rightJustified( 2, '0' );
+  metadata["Exif.GPSInfo.GPSSatellites"] = QString::number( positionInformation.satellitesUsed() ).rightJustified( 2, '0' );
+
+  metadata["Exif.Image.Make"] = QStringLiteral( "QField" );
+  metadata["Xmp.tiff.Make"] = QStringLiteral( "QField" );
+
+  for ( const QString key : metadata.keys() )
+  {
+    QgsExifTools::tagImage( imagePath, key, metadata[key] );
+  }
 }
