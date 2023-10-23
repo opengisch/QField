@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "fileutils.h"
+#include "gnsspositioninformation.h"
 
 #include <QDebug>
 #include <QDir>
@@ -164,6 +165,11 @@ QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographi
 
 void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
 {
+  if ( !QFileInfo::exists( imagePath ) )
+  {
+    return;
+  }
+
   QVariantMap metadata = QgsExifTools::readTags( imagePath );
   QImage img( imagePath );
   if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
@@ -178,4 +184,37 @@ void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHei
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
     }
   }
+}
+
+void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation )
+{
+  if ( !QFileInfo::exists( imagePath ) )
+  {
+    return;
+  }
+
+  QVariantMap exifTags;
+  if ( positionInformation.latitudeValid() && positionInformation.longitudeValid() )
+  {
+    exifTags["Exif.GPSInfo.GPSLatitude"] = std::abs( positionInformation.latitude() );
+    exifTags["Exif.GPSInfo.GPSLatitudeRef"] = positionInformation.latitude() >= 0 ? "N" : "S";
+    exifTags["Exif.GPSInfo.GPSLongitude"] = std::abs( positionInformation.longitude() );
+    exifTags["Exif.GPSInfo.GPSLongitudeRef"] = positionInformation.latitude() >= 0 ? "E" : "W";
+    if ( positionInformation.elevationValid() )
+    {
+      exifTags["Exif.GPSInfo.GPSAltitude"] = std::abs( positionInformation.elevation() );
+      exifTags["Exif.GPSInfo.GPSAltitudeRef"] = positionInformation.elevation() >= 0 ? "1" : "0";
+    }
+  }
+
+  if ( positionInformation.orientationValid() )
+  {
+    exifTags["Exif.GPSInfo.GPSImgDirectionRef"] = "M";
+    exifTags["Exif.GPSInfo.GPSImgDirection"] = positionInformation.orientation();
+  }
+
+  exifTags["Exif.GPSInfo.GPSDateStamp"] = positionInformation.utcDateTime().date();
+  exifTags["Exif.GPSInfo.GPSTimeStamp"] = positionInformation.utcDateTime().time();
+
+  exifTags["Exif.GPSInfo.GPSSatellites"] = QString::number( positionInformation.satellitesUsed() ).rightJustified( 2, '0' );
 }
