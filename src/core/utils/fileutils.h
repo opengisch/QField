@@ -42,6 +42,13 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     //! Returns a human-friendly size from bytes
     Q_INVOKABLE static QString representFileSize( qint64 bytes );
 
+    /**
+     * Insures that a given image's width and height are restricted to a maximum size.
+     * \param imagePath the image file path
+     * \param maximumWidthHeight the maximum width and height size
+     */
+    Q_INVOKABLE void restrictImageSize( const QString &imagePath, int maximumWidthHeight );
+
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback = nullptr, bool wipeDestFolder = true );
     /**
      * Creates checksum of a file. Returns null QByteArray if cannot be calculated.

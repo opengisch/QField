@@ -607,7 +607,7 @@ EditorWidgetBase {
         if (!cameraLoader.isVideo) {
           var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
           if(maximumWidhtHeight > 0) {
-            iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
+            FileUtils.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
           }
         }
 
@@ -632,7 +632,7 @@ EditorWidgetBase {
       {
         var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
         if(maximumWidhtHeight > 0) {
-          iface.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight)
+          FileUtils.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight)
         }
 
         valueChangeRequested(path, false)

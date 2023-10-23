@@ -88,8 +88,6 @@ class AppInterface : public QObject
      */
     Q_INVOKABLE void closeSentry() const;
 
-    Q_INVOKABLE void restrictImageSize( const QString &imagePath, int maximumWidthHeight );
-
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
 

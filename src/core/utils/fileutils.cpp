@@ -20,8 +20,10 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QImage>
 #include <QMimeDatabase>
 #include <qgis.h>
+#include <qgsexiftools.h>
 #include <qgsfileutils.h>
 
 FileUtils::FileUtils( QObject *parent )
@@ -158,4 +160,22 @@ QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographi
     return hash.result();
 
   return QByteArray();
+}
+
+void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
+{
+  QVariantMap metadata = QgsExifTools::readTags( imagePath );
+  QImage img( imagePath );
+  if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
+  {
+    QImage scaledImage = img.width() > img.height()
+                           ? img.scaledToWidth( maximumWidthHeight, Qt::SmoothTransformation )
+                           : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
+    scaledImage.save( imagePath );
+
+    for ( const QString key : metadata.keys() )
+    {
+      QgsExifTools::tagImage( imagePath, key, metadata[key] );
+    }
+  }
 }
