@@ -6,7 +6,7 @@ set -e
 
 # pip install --user aqtinstall
 # $HOME/.local/bin/aqt install-qt linux desktop ${QT_VERSION} gcc_64 -O ${QT_PREFIX} -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors # Modules come from .github/workflows/android.yaml
-# make sure flex and bison are installed (use `apt` or similar)
+# make sure flex, curl and bison are installed (use `apt` or similar)
 # sudo apt install mesa-common-dev libgl1-mesa-dev (makes QtGui/OpenGL happy)
 
 export Qt6_DIR=${QT_PREFIX}/${QT_VERSION}/gcc_64
