@@ -18,6 +18,7 @@ vcpkg_from_github(
         bigobj.patch
         poly2tri.patch
         mesh.patch
+        project_load.patch
         vectortilelabels.patch # Remove when updating to QGIS 3.34
         version.patch # Remove when updating to QGIS 3.34
         snapping_properties.patch # Remove when updating to QGIS 3.34
