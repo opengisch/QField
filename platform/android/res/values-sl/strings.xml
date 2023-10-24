@@ -69,4 +69,7 @@
     <string name="import_project_wait">Počakaj, medtem QField uvaža projekt</string>
     <string name="import_dataset_wait">Počakaj, medtem QField uvaža zbirko(e) podatkov</string>
     <string name="upload_pending_attachments">Trenutno poteka nalaganje priponk v QFieldCloud</string>
-    </resources>
+    <string name="operation_unsupported">Operacija ni podprta</string>
+    <string name="import_operation_unsupported">Tvoja naprava ne podpira te operacije uvoza.</string>
+    <string name="export_operation_unsupported">Tvoja naprava ne podpira te operacije izvoza.</string>
+</resources>

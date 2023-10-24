@@ -1072,7 +1072,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem razveljavit sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
@@ -1081,11 +1081,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem dodati novega objekta v sloj&quot;%1&quot;. Vzrok je %2.</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ne morem dodati novega objekta v sloj &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1100,7 +1100,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Ta sloj je konfiguriran &quot;samo za branje&quot;, kar onemogoča dodajanje, brisanje in urejanje objektov.</translation>
+        <translation>Ta sloj je konfiguriran &quot;Samo za branje&quot;, kar onemogoča dodajanje, brisanje in urejanje objektov.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
@@ -1250,7 +1250,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem razveljavit sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
@@ -1414,11 +1414,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem razveljavit sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem potrditi sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot update features ordering</source>
@@ -1452,7 +1452,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">JPEG slike (*.jpg *.jpeg) </translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
@@ -1484,7 +1484,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Izberi slikovno datoteko</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
@@ -1492,7 +1492,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Izberi video datoteko</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
@@ -1500,19 +1500,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zvočne datoteke (*.mp3 *.aac *.ogg) </translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Vse datoteke (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Izberi datoteko</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Zvočne datoteke (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov) </translation>
     </message>
 </context>
 <context>
@@ -1787,7 +1787,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Neuspešna prijava</translation>
     </message>
     <message>
         <source>Server URL
@@ -2052,7 +2052,8 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Napaka pri odpiranju začasne datoteke za &quot;%1&quot;, vzrok:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
@@ -2061,7 +2062,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Napaka pri prenosu datoteke &quot;%1&quot;, vzrok:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
@@ -2130,7 +2131,8 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Napaka pri odpiranju začasne datoteke za `%1`, vzrok:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
@@ -2151,7 +2153,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>Projekt `%1`, file `%2`: %3</translation>
+        <translation>Projekt `%1`, datoteka `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
@@ -2784,7 +2786,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Invalid job</source>
-        <translation type="unfinished"/>
+        <translation>Neveljavno opravilo</translation>
     </message>
     <message>
         <source>QGIS export failed</source>
@@ -2820,7 +2822,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>povprečeno</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -2856,11 +2858,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Napaka pri branju datoteke: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Napaka pri pridobivanju datotek: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
@@ -2871,7 +2873,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Datoteka projekta &quot;%1&quot; ne obstaja</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -2902,11 +2904,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Float RTK</source>
-        <translation type="unfinished"/>
+        <translation>RTK Float</translation>
     </message>
     <message>
         <source>Fixed RTK</source>
-        <translation type="unfinished"/>
+        <translation>RTK Fixed</translation>
     </message>
     <message>
         <source>PPS</source>
@@ -2918,7 +2920,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Autonomous</source>
-        <translation type="unfinished"/>
+        <translation>Avtonomno</translation>
     </message>
     <message>
         <source>Invalid</source>
@@ -2926,11 +2928,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unknown (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Neznano (%1)</translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation>+ IMU</translation>
     </message>
 </context>
 <context>
@@ -2963,11 +2965,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem razveljaviti sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem potrditi sprememb v sloju %1.</translation>
     </message>
 </context>
 <context>
@@ -3006,7 +3008,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Izberite serijska vrata iz spodnjega seznama:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
@@ -3018,11 +3020,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Prikazno ime serijskih vrat:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Naslov serijskih vrat:</translation>
     </message>
 </context>
 <context>
@@ -3073,7 +3075,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation>Vrata:</translation>
     </message>
 </context>
 <context>
