@@ -125,7 +125,6 @@
 #include <QQmlFileSelector>
 #include <QResource>
 #include <QScreen>
-#include <QSensor>
 #include <QStyleHints>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>

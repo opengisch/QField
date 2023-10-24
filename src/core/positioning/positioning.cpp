@@ -55,7 +55,11 @@ void Positioning::setActive( bool active )
       setupDevice();
     }
     mReceiver->connectDevice();
-    if ( !QSensor::sensorsForType( "QCompass" ).isEmpty() )
+#if QT_VERSION > QT_VERSION_CHECK( 6, 0, 0 )
+    if ( !QSensor::sensorsForType( QCompass::sensorType ).isEmpty() )
+#else
+    if ( !QSensor::sensorsForType( QCompass::type ).isEmpty() )
+#endif
     {
       mCompass.setActive( true );
       mCompassTimer.start();
