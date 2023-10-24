@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Window
 import QtMultimedia
+import Qt.labs.settings
 
 import Theme 1.0
 
@@ -36,6 +37,11 @@ Popup {
       photoPreview.source = ''
       videoPreview.source = ''
     }
+  }
+
+  Settings {
+    id: settings
+    property bool geoTagging: true
   }
 
   Page {
@@ -217,7 +223,9 @@ Popup {
               }
             } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
               if (cameraItem.state == "PhotoPreview") {
-                FileUtils.addImageMetadata(currentPath, positionSource.positionInformation)
+                if (settings.geoTagging && positionSource.active) {
+                  FileUtils.addImageMetadata(currentPath, positionSource.positionInformation)
+                }
               }
               cameraItem.finished(currentPath)
             }
@@ -336,6 +344,27 @@ Popup {
             platformUtilities.rmFile(currentPath)
           }
           cameraItem.canceled()
+        }
+      }
+    }
+
+    QfToolButton {
+      id: geotagButton
+
+      anchors.left: parent.left
+      anchors.leftMargin: 4
+      anchors.top: backButton.bottom
+      anchors.topMargin: 4
+
+      iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+      iconColor: positionSource.active && settings.geoTagging ? Theme.mainColor : "white"
+      bgcolor: Theme.darkGraySemiOpaque
+      round: true
+
+      onClicked: {
+        if (positionSource.active) {
+          settings.geoTagging = !settings.geoTagging
+          displayToast(settings.geoTagging ? qsTr("Geotagging enabled") : qsTr("Geotagging disabled"))
         }
       }
     }
