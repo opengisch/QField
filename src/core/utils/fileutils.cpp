@@ -15,13 +15,16 @@
  ***************************************************************************/
 
 #include "fileutils.h"
+#include "gnsspositioninformation.h"
 
 #include <QDebug>
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QImage>
 #include <QMimeDatabase>
 #include <qgis.h>
+#include <qgsexiftools.h>
 #include <qgsfileutils.h>
 
 FileUtils::FileUtils( QObject *parent )
@@ -158,4 +161,72 @@ QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographi
     return hash.result();
 
   return QByteArray();
+}
+
+void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
+{
+  if ( !QFileInfo::exists( imagePath ) )
+  {
+    return;
+  }
+
+  QVariantMap metadata = QgsExifTools::readTags( imagePath );
+  QImage img( imagePath );
+  if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
+  {
+    QImage scaledImage = img.width() > img.height()
+                           ? img.scaledToWidth( maximumWidthHeight, Qt::SmoothTransformation )
+                           : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
+    scaledImage.save( imagePath );
+
+    for ( const QString key : metadata.keys() )
+    {
+      QgsExifTools::tagImage( imagePath, key, metadata[key] );
+    }
+  }
+}
+
+void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation )
+{
+  if ( !QFileInfo::exists( imagePath ) )
+  {
+    return;
+  }
+
+  QVariantMap metadata;
+  if ( positionInformation.latitudeValid() && positionInformation.longitudeValid() )
+  {
+    metadata["Exif.GPSInfo.GPSLatitude"] = std::abs( positionInformation.latitude() );
+    metadata["Exif.GPSInfo.GPSLatitudeRef"] = positionInformation.latitude() >= 0 ? "N" : "S";
+    metadata["Exif.GPSInfo.GPSLongitude"] = std::abs( positionInformation.longitude() );
+    metadata["Exif.GPSInfo.GPSLongitudeRef"] = positionInformation.latitude() >= 0 ? "E" : "W";
+    if ( positionInformation.elevationValid() )
+    {
+      metadata["Exif.GPSInfo.GPSAltitude"] = std::abs( positionInformation.elevation() );
+      metadata["Exif.GPSInfo.GPSAltitudeRef"] = positionInformation.elevation() >= 0 ? "1" : "0";
+    }
+  }
+  if ( positionInformation.orientationValid() )
+  {
+    metadata["Exif.GPSInfo.GPSImgDirection"] = positionInformation.orientation();
+    metadata["Exif.GPSInfo.GPSImgDirectionRef"] = "M";
+  }
+  if ( positionInformation.speedValid() )
+  {
+    metadata["Exif.GPSInfo.GPSSpeed"] = positionInformation.speed();
+    metadata["Exif.GPSInfo.GPSSpeedRef"] = "K";
+  }
+
+  metadata["Exif.GPSInfo.GPSDateStamp"] = positionInformation.utcDateTime().date();
+  metadata["Exif.GPSInfo.GPSTimeStamp"] = positionInformation.utcDateTime().time();
+
+  metadata["Exif.GPSInfo.GPSSatellites"] = QString::number( positionInformation.satellitesUsed() ).rightJustified( 2, '0' );
+
+  metadata["Exif.Image.Make"] = QStringLiteral( "QField" );
+  metadata["Xmp.tiff.Make"] = QStringLiteral( "QField" );
+
+  for ( const QString key : metadata.keys() )
+  {
+    QgsExifTools::tagImage( imagePath, key, metadata[key] );
+  }
 }

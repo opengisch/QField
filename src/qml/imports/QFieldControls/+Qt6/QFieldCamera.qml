@@ -216,6 +216,9 @@ Popup {
                 cameraItem.state = "VideoPreview"
               }
             } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
+              if (cameraItem.state == "PhotoPreview") {
+                FileUtils.addImageMetadata(currentPath, positionSource.positionInformation)
+              }
               cameraItem.finished(currentPath)
             }
           }

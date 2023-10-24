@@ -27,7 +27,6 @@
 #include <QFileInfo>
 #include <QImageReader>
 #include <qgsapplication.h>
-#include <qgsexiftools.h>
 #include <qgsmessagelog.h>
 #include <qgsruntimeprofiler.h>
 #include <qgsziputils.h>
@@ -189,24 +188,6 @@ void AppInterface::closeSentry() const
 #if WITH_SENTRY
   sentry_wrapper::close();
 #endif
-}
-
-void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
-{
-  QVariantMap metadata = QgsExifTools::readTags( imagePath );
-  QImage img( imagePath );
-  if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
-  {
-    QImage scaledImage = img.width() > img.height()
-                           ? img.scaledToWidth( maximumWidthHeight, Qt::SmoothTransformation )
-                           : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
-    scaledImage.save( imagePath );
-
-    for ( const QString key : metadata.keys() )
-    {
-      QgsExifTools::tagImage( imagePath, key, metadata[key] );
-    }
-  }
 }
 
 void AppInterface::importUrl( const QString &url )

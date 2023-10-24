@@ -21,7 +21,9 @@
 #include "gnsspositioninformation.h"
 #include "qgsquickcoordinatetransformer.h"
 
+#include <QCompass>
 #include <QObject>
+#include <QTimer>
 #include <qgscoordinatereferencesystem.h>
 #include <qgscoordinatetransformcontext.h>
 #include <qgspoint.h>
@@ -52,6 +54,8 @@ class Positioning : public QObject
 
     Q_PROPERTY( ElevationCorrectionMode elevationCorrectionMode READ elevationCorrectionMode WRITE setElevationCorrectionMode NOTIFY elevationCorrectionModeChanged )
     Q_PROPERTY( double antennaHeight READ antennaHeight WRITE setAntennaHeight NOTIFY antennaHeightChanged )
+
+    Q_PROPERTY( double orientation READ orientation NOTIFY orientationChanged );
 
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
 
@@ -179,6 +183,10 @@ class Positioning : public QObject
     **/
     void setAntennaHeight( double antennaHeight );
 
+    /**
+     * Returns the current device orientation
+     */
+    double orientation() const { return mOrientation; }
 
     /**
      * Returns whether GNSS devices will log their incoming position stream into a logfile.
@@ -205,11 +213,13 @@ class Positioning : public QObject
     void projectedPositionChanged();
     void elevationCorrectionModeChanged();
     void antennaHeightChanged();
+    void orientationChanged();
     void loggingChanged();
 
   private slots:
 
     void lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation );
+    void processCompassReading();
     void projectedPositionTransformed();
 
   private:
@@ -240,6 +250,10 @@ class Positioning : public QObject
     bool mLogging = false;
 
     AbstractGnssReceiver *mReceiver = nullptr;
+
+    QCompass mCompass;
+    QTimer mCompassTimer;
+    double mOrientation = std::numeric_limits<double>::quiet_NaN();
 };
 
 Q_DECLARE_METATYPE( Positioning::ElevationCorrectionMode )

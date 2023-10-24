@@ -23,6 +23,8 @@
 #include <QObject>
 #include <qgsfeedback.h>
 
+class GnssPositionInformation;
+
 class QFIELD_CORE_EXPORT FileUtils : public QObject
 {
     Q_OBJECT
@@ -41,6 +43,15 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
     //! Returns a human-friendly size from bytes
     Q_INVOKABLE static QString representFileSize( qint64 bytes );
+
+    /**
+     * Insures that a given image's width and height are restricted to a maximum size.
+     * \param imagePath the image file path
+     * \param maximumWidthHeight the maximum width and height size
+     */
+    Q_INVOKABLE void restrictImageSize( const QString &imagePath, int maximumWidthHeight );
+
+    Q_INVOKABLE void addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation );
 
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback = nullptr, bool wipeDestFolder = true );
     /**

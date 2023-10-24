@@ -82,6 +82,8 @@ class GnssPositionInformation
     Q_PROPERTY( int averagedCount READ averagedCount )
     Q_PROPERTY( QString sourceName READ sourceName )
     Q_PROPERTY( bool imuCorrection READ imuCorrection )
+    Q_PROPERTY( double orientation READ orientation )
+    Q_PROPERTY( double orientationValid READ orientationValid )
 
   public:
     /**
@@ -103,7 +105,7 @@ class GnssPositionInformation
                              double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                              QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
                              double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), int averagedCount = 0, const QString &sourceName = QString(),
-                             bool imuCorrection = false );
+                             bool imuCorrection = false, double orientation = std::numeric_limits<double>::quiet_NaN() );
 
     bool operator==( const GnssPositionInformation &other ) const;
     bool operator!=( const GnssPositionInformation &other ) const { return !operator==( other ); }
@@ -268,6 +270,12 @@ class GnssPositionInformation
      */
     bool imuCorrection() const { return mImuCorrection; }
 
+    /**
+     * Orientation (in degrees).
+     */
+    double orientation() const { return mOrientation; }
+    bool orientationValid() const { return !std::isnan( mOrientation ); }
+
   private:
     double mLatitude = std::numeric_limits<double>::quiet_NaN();
     double mLongitude = std::numeric_limits<double>::quiet_NaN();
@@ -294,6 +302,7 @@ class GnssPositionInformation
     int mAveragedCount = 0;
     QString mSourceName;
     bool mImuCorrection;
+    double mOrientation = std::numeric_limits<double>::quiet_NaN();
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )

@@ -26,6 +26,8 @@
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 
+#include <QScreen>
+#include <qgsapplication.h>
 #include <qgsunittypes.h>
 
 Positioning::Positioning( QObject *parent )
@@ -33,6 +35,10 @@ Positioning::Positioning( QObject *parent )
 {
   // Setup internal gnss receiver by default
   setupDevice();
+
+  // Setup the compass
+  mCompassTimer.setInterval( 200 );
+  connect( &mCompassTimer, &QTimer::timeout, this, &Positioning::processCompassReading );
 }
 
 void Positioning::setActive( bool active )
@@ -49,6 +55,15 @@ void Positioning::setActive( bool active )
       setupDevice();
     }
     mReceiver->connectDevice();
+#if QT_VERSION > QT_VERSION_CHECK( 6, 0, 0 )
+    if ( !QSensor::sensorsForType( QCompass::sensorType ).isEmpty() )
+#else
+    if ( !QSensor::sensorsForType( QCompass::type ).isEmpty() )
+#endif
+    {
+      mCompass.setActive( true );
+      mCompassTimer.start();
+    }
   }
   else
   {
@@ -56,6 +71,10 @@ void Positioning::setActive( bool active )
     {
       mReceiver->disconnectDevice();
     }
+    mCompassTimer.stop();
+    mCompass.setActive( false );
+    mOrientation = std::numeric_limits<double>::quiet_NaN();
+    emit orientationChanged();
   }
 
   emit activeChanged();
@@ -230,15 +249,41 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   if ( mPositionInformation == lastGnssPositionInformation )
     return;
 
+  const GnssPositionInformation positionInformation( lastGnssPositionInformation.latitude(),
+                                                     lastGnssPositionInformation.longitude(),
+                                                     lastGnssPositionInformation.elevation(),
+                                                     lastGnssPositionInformation.speed(),
+                                                     lastGnssPositionInformation.direction(),
+                                                     lastGnssPositionInformation.satellitesInView(),
+                                                     lastGnssPositionInformation.pdop(),
+                                                     lastGnssPositionInformation.hdop(),
+                                                     lastGnssPositionInformation.vdop(),
+                                                     lastGnssPositionInformation.hacc(),
+                                                     lastGnssPositionInformation.vacc(),
+                                                     lastGnssPositionInformation.utcDateTime(),
+                                                     lastGnssPositionInformation.fixMode(),
+                                                     lastGnssPositionInformation.fixType(),
+                                                     lastGnssPositionInformation.quality(),
+                                                     lastGnssPositionInformation.satellitesUsed(),
+                                                     lastGnssPositionInformation.status(),
+                                                     lastGnssPositionInformation.satPrn(),
+                                                     lastGnssPositionInformation.satInfoComplete(),
+                                                     lastGnssPositionInformation.verticalSpeed(),
+                                                     lastGnssPositionInformation.magneticVariation(),
+                                                     lastGnssPositionInformation.averagedCount(),
+                                                     lastGnssPositionInformation.sourceName(),
+                                                     lastGnssPositionInformation.imuCorrection(),
+                                                     mOrientation );
+
   if ( mAveragedPosition )
   {
-    mCollectedPositionInformations << lastGnssPositionInformation;
+    mCollectedPositionInformations << positionInformation;
     mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
     emit averagedPositionCountChanged();
   }
   else
   {
-    mPositionInformation = lastGnssPositionInformation;
+    mPositionInformation = positionInformation;
   }
 
   if ( mPositionInformation.isValid() )
@@ -256,6 +301,34 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   }
 
   emit positionInformationChanged();
+}
+
+void Positioning::processCompassReading()
+{
+  if ( mCompass.reading() )
+  {
+    double orientation = 0.0;
+    // Take into account the orientation of the device
+    QScreen *screen = QgsApplication::instance()->primaryScreen();
+    switch ( screen->orientation() )
+    {
+      case Qt::LandscapeOrientation:
+        orientation = 90;
+        break;
+      case Qt::InvertedLandscapeOrientation:
+        orientation = 270;
+        break;
+      case Qt::PortraitOrientation:
+      default:
+        break;
+    }
+    orientation += mCompass.reading()->azimuth();
+    if ( mOrientation != orientation )
+    {
+      mOrientation = orientation;
+      emit orientationChanged();
+    }
+  }
 }
 
 QgsPoint Positioning::sourcePosition() const

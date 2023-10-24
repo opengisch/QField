@@ -40,6 +40,7 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const QDateTime timestamp = positionInformation.utcDateTime();
   const qreal direction = positionInformation.direction();
   const qreal groundSpeed = positionInformation.speed();
+  const qreal orientation = positionInformation.orientation();
   const qreal magneticVariation = positionInformation.magneticVariation();
   const qreal horizontalAccuracy = positionInformation.hacc();
   const qreal verticalAccuracy = positionInformation.vacc();
@@ -60,6 +61,7 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   addPositionVariable( scope, QStringLiteral( "timestamp" ), timestamp, positionLocked );
   addPositionVariable( scope, QStringLiteral( "direction" ), direction, positionLocked );
   addPositionVariable( scope, QStringLiteral( "ground_speed" ), groundSpeed, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "orientation" ), orientation, positionLocked );
   addPositionVariable( scope, QStringLiteral( "magnetic_variation" ), magneticVariation, positionLocked );
   addPositionVariable( scope, QStringLiteral( "horizontal_accuracy" ), horizontalAccuracy, positionLocked );
   addPositionVariable( scope, QStringLiteral( "vertical_accuracy" ), verticalAccuracy, positionLocked );

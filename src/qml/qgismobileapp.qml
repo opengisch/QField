@@ -227,16 +227,9 @@ ApplicationWindow {
       }
     }
 
-
-    onActiveChanged: {
-      if (active) {
-        magnetometer.active = true
-        magnetometer.start()
-      } else {
-        magnetometer.stop()
-        magnetometer.active = false
-        magnetometer.hasValue = false
-        magnetometer.orientation = 0.0
+    onOrientationChanged: {
+      if (active && gnssButton.followOrientationActive) {
+        gnssButton.followOrientation();
       }
     }
   }
@@ -246,54 +239,6 @@ ApplicationWindow {
 
     function onLastErrorChanged() {
         displayToast(qsTr('Positioning device error: %1').arg(positionSource.device.lastError), 'error')
-    }
-  }
-
-  Magnetometer {
-    id: magnetometer
-    active: false
-    returnGeoValues: false
-
-    property bool hasValue: false
-    property real lastAcceptedReading: 0
-    property real orientation: 0
-    property real screenOrientation: 0
-
-    function handleScreenOrientation() {
-      switch (Screen.orientation) {
-        case Qt.LandscapeOrientation:
-          magnetometer.screenOrientation = 90
-          break;
-        case Qt.InvertedLandscapeOrientation:
-          magnetometer.screenOrientation = 270
-          break;
-        case Qt.PortraitOrientation:
-        default:
-          magnetometer.screenOrientation = 0
-          break;
-      }
-    }
-
-    Screen.onOrientationChanged: handleScreenOrientation()
-
-    onReadingChanged: {
-      var timestamp = Date.now();
-      if (timestamp - lastAcceptedReading > 200) {
-        lastAcceptedReading = timestamp;
-        orientation = screenOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
-        hasValue = true
-
-        if (gnssButton.followOrientationActive) {
-          gnssButton.followOrientation();
-        }
-      }
-    }
-
-    Component.onCompleted: {
-      if (Screen.orientationUpdateMask) {
-        Screen.orientationUpdateMask = Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
-      }
-      handleScreenOrientation()
     }
   }
 
@@ -742,10 +687,10 @@ ApplicationWindow {
              && positionSource.positionInformation.speedValid
              ? positionSource.positionInformation.speed
              : -1
-      orientation: magnetometer.hasValue
-                   ? magnetometer.orientation + positionSource.bearingTrueNorth < 0
-                     ? 360 + magnetometer.orientation + positionSource.bearingTrueNorth
-                     : magnetometer.orientation + positionSource.bearingTrueNorth
+      orientation: !isNaN(positionSource.orientation)
+                   ? positionSource.orientation + positionSource.bearingTrueNorth < 0
+                     ? 360 + positionSource.orientation + positionSource.bearingTrueNorth
+                     : positionSource.orientation + positionSource.bearingTrueNorth
                    : -1
     }
 
@@ -1717,9 +1662,9 @@ ApplicationWindow {
         }
       }
       function followOrientation() {
-        if (magnetometer.hasValue && Math.abs(-magnetometer.orientation - mapCanvas.mapSettings.rotation) >= 10) {
+        if (!isNan(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 10) {
           gnssButton.followActiveSkipRotationChanged = true
-          mapCanvas.mapSettings.rotation = -magnetometer.orientation
+          mapCanvas.mapSettings.rotation = -positionSource.orientation
         }
       }
 
