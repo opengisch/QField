@@ -2,6 +2,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Window 2.14
 import QtMultimedia 5.14
+import Qt.labs.settings 1.0
 
 import org.qfield 1.0
 
@@ -38,6 +39,11 @@ Popup {
       camera.captureMode = Camera.CaptureVideo
       videoPreview.source = '';
     }
+  }
+
+  Settings {
+    id: settings
+    property bool geoTagging: true
   }
 
   Page {
@@ -253,7 +259,9 @@ Popup {
               }
             } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
               if (cameraItem.state == "PhotoPreview") {
-                FileUtils.addImageMetadata(currentPath, positionSource.positionInformation)
+                if (settings.geoTagging && positionSource.active) {
+                  FileUtils.addImageMetadata(currentPath, positionSource.positionInformation)
+                }
               }
               cameraItem.finished(currentPath)
             }
@@ -361,7 +369,7 @@ Popup {
 
       iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
       iconColor: "white"
-      bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.5)
+      bgcolor: Theme.darkGraySemiOpaque
       round: true
 
       onClicked: {
@@ -373,6 +381,27 @@ Popup {
             platformUtilities.rmFile(currentPath)
           }
           cameraItem.canceled()
+        }
+      }
+    }
+
+    QfToolButton {
+      id: geotagButton
+
+      anchors.left: parent.left
+      anchors.leftMargin: 4
+      anchors.top: backButton.bottom
+      anchors.topMargin: 4
+
+      iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+      iconColor: positionSource.active && settings.geoTagging ? Theme.mainColor : "white"
+      bgcolor: Theme.darkGraySemiOpaque
+      round: true
+
+      onClicked: {
+        if (positionSource.active) {
+          settings.geoTagging = !settings.geoTagging
+          displayToast(settings.geoTagging ? qsTr("Geotagging enabled") : qsTr("Geotagging disabled"))
         }
       }
     }
