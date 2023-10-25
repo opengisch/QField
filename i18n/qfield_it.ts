@@ -1732,6 +1732,17 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
 </context>
 <context>
+    <name>QFieldCamera</name>
+    <message>
+        <source>Geotagging enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geotagging disabled</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>

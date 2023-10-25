@@ -1733,6 +1733,17 @@ Dôvod:
     </message>
 </context>
 <context>
+    <name>QFieldCamera</name>
+    <message>
+        <source>Geotagging enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geotagging disabled</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
