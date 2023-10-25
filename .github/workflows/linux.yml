@@ -49,10 +49,11 @@ jobs:
           target: desktop
 
       - name: Install linuxdeploy
-        uses: miurahr/install-linuxdeploy-action@v1
+        uses: m-kuhn/install-linuxdeploy-action@configurable_linuxdeploy_release
         with:
           dir: ${{ env.BUILD_ROOT }}
           plugins: qt appimage
+          linuxdeploy-release: 1-alpha-20230713-1
 
       - name: 🌱 Install dependencies and generate project files
         run: |
