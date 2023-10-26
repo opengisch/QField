@@ -1731,11 +1731,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>地理标记已启用</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>地理标记已禁用</translation>
     </message>
 </context>
 <context>

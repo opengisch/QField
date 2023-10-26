@@ -892,7 +892,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Narzędzie do wymazywania</translation>
     </message>
 </context>
 <context>
@@ -1728,11 +1728,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagowanie włączone</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagowanie wyłączone</translation>
     </message>
 </context>
 <context>
