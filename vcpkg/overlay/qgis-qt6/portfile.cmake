@@ -24,6 +24,7 @@ vcpkg_from_github(
         snapping_properties.patch # Remove when updating to QGIS 3.34
         exiv2-0.28.patch # Remove when updating to QGIS 3.34
         profiler.patch # Remove when updating to QGIS 3.34
+        exif_orientation_fix.patch # Remove when updating to QGIS 3.34.1
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
