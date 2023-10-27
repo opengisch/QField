@@ -453,7 +453,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Rematar ou descartar a entidade en dixitalización antes de cambiar ó modo buscador</translation>
     </message>
 </context>
 <context>
@@ -1733,11 +1733,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Xeoetiquetado activado</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Xeoetiquetado desactivado</translation>
     </message>
 </context>
 <context>
@@ -3182,11 +3182,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración dos Requisitos</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisitos de tempo</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3194,11 +3194,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, as adicións de vértices produciranse cando o tempo entre o último e o novo vértice acaden un valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisitos de distancia</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3206,27 +3206,27 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, as adicións de vértices produciranse cando a distancia entre o último e o novo vértice acaden un valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisitos dos datos do sensor</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, as adicións de vértices producirase cando os sensores teñan capturado novos datos.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Agardar por tódolos requisitos activos</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, os vértices só se rexistrarán cando coincidan tódolos requisitos. Cando se desactiva, os requisitos individuais desencadearán as adicións de vértices.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración Xeral</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -3238,7 +3238,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, a adición de vértices non se producirá cando a distancia entre o último e o novo vértice sexa maior que un valor máximo configurado.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3294,7 +3294,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Retomar o trazado</translation>
     </message>
 </context>
 <context>
