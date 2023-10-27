@@ -156,7 +156,7 @@ bool DistanceArea::lengthValid() const
       return false;
 
     case Qgis::GeometryType::Line:
-      FALLTHROUGH
+      [[fallthrough]];
     case Qgis::GeometryType::Polygon:
       return mRubberbandModel->vertexCount() >= 2;
 
@@ -184,7 +184,7 @@ bool DistanceArea::perimeterValid() const
   switch ( mRubberbandModel->geometryType() )
   {
     case Qgis::GeometryType::Point:
-      FALLTHROUGH
+      [[fallthrough]];
     case Qgis::GeometryType::Line:
       return false;
 
