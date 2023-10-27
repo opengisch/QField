@@ -306,6 +306,9 @@ Page {
     id: htmlContainer
 
     Item {
+      property string htmlCode: containerCode
+      property var htmlItem: undefined
+
       height: childrenRect.height
       anchors {
         left: parent.left
@@ -338,9 +341,7 @@ Page {
         }
       }
 
-      property string htmlCode: containerCode
-      property var htmlItem: undefined
-      onVisibleChanged: {
+      Component.onCompleted: {
         if (visible) {
           if (htmlItem === undefined) {
             // avoid cost of WevView creation until needed
