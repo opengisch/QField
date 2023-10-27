@@ -99,6 +99,14 @@ import org.qtproject.qt.android.bindings.QtActivity;
 
 public class QFieldActivity extends QtActivity {
 
+    private static final int IMPORT_DATASET = 300;
+    private static final int IMPORT_PROJECT_FOLDER = 301;
+    private static final int IMPORT_PROJECT_ARCHIVE = 302;
+
+    private static final int UPDATE_PROJECT_FROM_ARCHIVE = 400;
+
+    private static final int EXPORT_TO_FOLDER = 500;
+
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedPreferenceEditor;
     private ProgressDialog progressDialog;
@@ -112,6 +120,7 @@ public class QFieldActivity extends QtActivity {
     private float originalBrightness;
     private boolean handleVolumeKeys = false;
     private String pathsToExport;
+    private String projectPath;
     private double sceneTopMargin = 0;
     private double sceneBottomMargin = 0;
 
@@ -608,7 +617,7 @@ public class QFieldActivity extends QtActivity {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.setType("*/*");
         try {
-            startActivityForResult(intent, R.id.import_dataset);
+            startActivityForResult(intent, IMPORT_DATASET);
         } catch (ActivityNotFoundException e) {
             displayAlertDialog(
                 getString(R.string.operation_unsupported),
@@ -625,7 +634,7 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         try {
-            startActivityForResult(intent, R.id.import_project_folder);
+            startActivityForResult(intent, IMPORT_PROJECT_FOLDER);
         } catch (ActivityNotFoundException e) {
             displayAlertDialog(
                 getString(R.string.operation_unsupported),
@@ -643,7 +652,26 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.setType("application/zip");
         try {
-            startActivityForResult(intent, R.id.import_project_archive);
+            startActivityForResult(intent, IMPORT_PROJECT_ARCHIVE);
+        } catch (ActivityNotFoundException e) {
+            displayAlertDialog(
+                getString(R.string.operation_unsupported),
+                getString(R.string.import_operation_unsupported));
+            Log.w("QField", "No activity found for ACTION_OPEN_DOCUMENT.");
+        }
+        return;
+    }
+
+    private void triggerUpdateProjectFromArchive(String path) {
+        projectPath = path;
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.setType("application/zip");
+        try {
+            startActivityForResult(intent, UPDATE_PROJECT_FROM_ARCHIVE);
         } catch (ActivityNotFoundException e) {
             displayAlertDialog(
                 getString(R.string.operation_unsupported),
@@ -695,7 +723,7 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         try {
-            startActivityForResult(intent, R.id.export_to_folder);
+            startActivityForResult(intent, EXPORT_TO_FOLDER);
         } catch (ActivityNotFoundException e) {
             displayAlertDialog(
                 getString(R.string.operation_unsupported),
@@ -948,6 +976,54 @@ public class QFieldActivity extends QtActivity {
         });
     }
 
+    void updateProjectFromArchive(Uri archiveUri) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null) {
+            return;
+        }
+
+        ProgressDialog progressDialog =
+            new ProgressDialog(this, R.style.DialogTheme);
+        progressDialog.setMessage(getString(R.string.update_project_wait));
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                DocumentFile documentFile =
+                    DocumentFile.fromSingleUri(context, archiveUri);
+
+                String projectFolder =
+                    new File(projectPath).getParentFile().getAbsolutePath() +
+                    "/";
+                boolean imported = false;
+                try {
+                    InputStream input = resolver.openInputStream(archiveUri);
+                    imported = QFieldUtils.zipToFolder(input, projectFolder);
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    if (!isFinishing()) {
+                        displayAlertDialog(
+                            getString(R.string.import_error),
+                            getString(R.string.import_project_archive_error));
+                    }
+                }
+
+                progressDialog.dismiss();
+                if (imported) {
+                    // Trigger a project re-load
+                    openProject(projectPath);
+                }
+            }
+        });
+    }
+
     private void checkPermissions() {
         List<String> permissionsList = new ArrayList<String>();
         if (ContextCompat.checkSelfPermission(
@@ -1093,8 +1169,7 @@ public class QFieldActivity extends QtActivity {
 
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        if (requestCode == R.id.import_dataset &&
-            resultCode == Activity.RESULT_OK) {
+        if (requestCode == IMPORT_DATASET && resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling import dataset(s)");
             File externalFilesDir = getExternalFilesDir(null);
             if (externalFilesDir == null || data == null) {
@@ -1159,7 +1234,7 @@ public class QFieldActivity extends QtActivity {
             } else {
                 importDatasets(datasetUris);
             }
-        } else if (requestCode == R.id.import_project_folder &&
+        } else if (requestCode == IMPORT_PROJECT_FOLDER &&
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling import project folder");
             File externalFilesDir = getExternalFilesDir(null);
@@ -1199,7 +1274,7 @@ public class QFieldActivity extends QtActivity {
             } else {
                 importProjectFolder(uri);
             }
-        } else if (requestCode == R.id.import_project_archive &&
+        } else if (requestCode == IMPORT_PROJECT_ARCHIVE &&
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling import project archive");
             File externalFilesDir = getExternalFilesDir(null);
@@ -1248,7 +1323,23 @@ public class QFieldActivity extends QtActivity {
             } else {
                 importProjectArchive(uri);
             }
-        } else if (requestCode == R.id.export_to_folder &&
+        } else if (requestCode == UPDATE_PROJECT_FROM_ARCHIVE &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d("QField", "handling updating project from archive");
+            File externalFilesDir = getExternalFilesDir(null);
+            if (externalFilesDir == null || data == null) {
+                return;
+            }
+
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            DocumentFile documentFile =
+                DocumentFile.fromSingleUri(context, uri);
+
+            updateProjectFromArchive(uri);
+        } else if (requestCode == EXPORT_TO_FOLDER &&
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling export to folder");
 
