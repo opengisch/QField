@@ -111,7 +111,11 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
 
       result.displayString = preparedLayer->expression.evaluate( &( preparedLayer->context ) ).toString();
 
+#if _QGIS_VERSION_INT >= 33300
+      result.setUserData( QVariantList() << f.id() << preparedLayer->layerId );
+#else
       result.userData = QVariantList() << f.id() << preparedLayer->layerId;
+#endif
       result.icon = preparedLayer->layerIcon;
       result.score = static_cast<double>( string.length() ) / result.displayString.size();
       result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
@@ -139,7 +143,11 @@ void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
 
 void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
+#if _QGIS_VERSION_INT >= 33300
+  QVariantList dataList = result.getUserData().toList();
+#else
   QVariantList dataList = result.userData.toList();
+#endif
   QgsFeatureId fid = dataList.at( 0 ).toLongLong();
   QString layerId = dataList.at( 1 ).toString();
   QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( QgsProject::instance()->mapLayer( layerId ) );
