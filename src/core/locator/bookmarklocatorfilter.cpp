@@ -50,7 +50,11 @@ void BookmarkLocatorFilter::fetchResults( const QString &string, const QgsLocato
     if ( result.score > 0 )
     {
       result.filter = this;
+#if _QGIS_VERSION_INT >= 33300
+      result.setUserData( i );
+#else
       result.userData = i;
+#endif
 
       emit resultFetched( result );
     }
@@ -64,7 +68,11 @@ void BookmarkLocatorFilter::triggerResult( const QgsLocatorResult &result )
 
 void BookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
 {
+#if _QGIS_VERSION_INT >= 33300
+  const int row = result.getUserData().toInt();
+#else
   const int row = result.userData.toInt();
+#endif
 
   mLocatorBridge->bookmarks()->setExtentFromBookmark( mLocatorBridge->bookmarks()->index( row, 0 ) );
 

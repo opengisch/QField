@@ -1347,7 +1347,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
       case DeltaLocalStatus:
         // delta file should be already sent!!!
         Q_ASSERT( 0 );
-        FALLTHROUGH
+        [[fallthrough]];
       case DeltaPendingStatus:
       case DeltaBusyStatus:
         // infinite retry, there should be one day, when we can get the status!

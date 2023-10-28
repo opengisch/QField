@@ -134,7 +134,11 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       QgsLocatorResult result;
       result.filter = this;
       result.displayString = tr( "Go to %1%2 %3%4 (Map CRS, %5)" ).arg( locale.toString( firstNumber, 'g', 10 ), firstSuffix, locale.toString( secondNumber, 'g', 10 ), secondSuffix, currentCrs.userFriendlyIdentifier() );
+#if _QGIS_VERSION_INT >= 33300
+      result.setUserData( data );
+#else
       result.userData = data;
+#endif
       result.score = 0.9;
       emit resultFetched( result );
     }
@@ -165,7 +169,11 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       QgsLocatorResult result;
       result.filter = this;
       result.displayString = tr( "Go to %1°N %2°E (%3)" ).arg( locale.toString( point.y(), 'g', 10 ), locale.toString( point.x(), 'g', 10 ), wgs84Crs.userFriendlyIdentifier() );
+#if _QGIS_VERSION_INT >= 33300
+      result.setUserData( data );
+#else
       result.userData = data;
+#endif
       result.score = 1.0;
       emit resultFetched( result );
     }
@@ -180,7 +188,11 @@ void GotoLocatorFilter::triggerResult( const QgsLocatorResult &result )
 
 void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
+#if _QGIS_VERSION_INT >= 33300
+  QVariantMap data = result.getUserData().toMap();
+#else
   QVariantMap data = result.userData.toMap();
+#endif
   QgsGeometry geom( QgsGeometry::fromPointXY( data[QStringLiteral( "point" )].value<QgsPointXY>() ) );
 
   if ( actionId == Navigation )
