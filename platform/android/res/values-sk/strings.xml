@@ -35,10 +35,6 @@
     <string name="grant">Povoliť</string>
     <string name="deny_always">Odmietnuť permanentne</string>
     <string name="deny_once">Odmietnuť raz</string>
-    <string name="import_project_folder">Importovať projekt z priečinka</string>
-    <string name="import_project_archive">Importovať projekt zo ZIPu</string>
-    <string name="import_dataset">Importovať dataset(y)</string>
-    <string name="usb_cable_help">Pomoc s manažmentom úložiska</string>
     <string name="import_error">Chyba importu</string>
     <string name="import_dataset_error">Vybrané dataset(y) neboli správne importované.</string>
     <string name="import_project_archive_error">Vybraný archív projektu nebol správne importovaný.</string>
@@ -51,13 +47,6 @@
     <string name="import_overwrite_cancel">Zrušiť</string>
     <string name="export_error">Chyba exportu</string>
     <string name="export_to_folder_error">Vybraný priečinok nebol správne exportovaný.</string>
-    <string name="send_to">Odoslať kam...</string>
-    <string name="send_compressed_to">Odoslať skomprimovaný súbor kam...</string>
-    <string name="export_to_folder">Exportovať do priečinka</string>
-    <string name="add_to_favorite">Pridať k obľúbeným</string>
-    <string name="remove_from_favorite">Odstrániť z obľúbených</string>
-    <string name="remove_dataset">Odstrániť dataset</string>
-    <string name="remove_folder">Odstrániť projektový priečinok</string>
     <string name="delete_confirm_title">Potvrdiť odstránenie</string>
     <string name="delete_confirm_dataset">Tento dataset bude navždy vymazaný, pokračovať v odstránení?</string>
     <string name="delete_confirm_folder">Tento projektový priečinok bude navždy vymazaný, pokračovať v odstránení?</string>

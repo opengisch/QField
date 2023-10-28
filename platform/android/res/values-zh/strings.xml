@@ -34,10 +34,6 @@
     <string name="grant">允许</string>
     <string name="deny_always">始终拒绝</string>
     <string name="deny_once">仅拒绝一次 </string>
-    <string name="import_project_folder">从文件夹导入工程</string>
-    <string name="import_project_archive">从ZIP导入工程</string>
-    <string name="import_dataset">导入数据集</string>
-    <string name="usb_cable_help">存储管理帮助</string>
     <string name="import_error">导入错误</string>
     <string name="import_dataset_error">无法正确导入所选数据集。</string>
     <string name="import_project_archive_error">所选工程存档未正确导入。</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">取消</string>
     <string name="export_error">导出错误</string>
     <string name="export_to_folder_error">所选工程文件夹未正确导出。</string>
-    <string name="send_to">发送到...</string>
-    <string name="send_compressed_to">将文件夹压缩并发送到...</string>
-    <string name="export_to_folder">导出到文件夹...</string>
-    <string name="add_to_favorite">添加到收藏夹</string>
-    <string name="remove_from_favorite">从收藏夹中移除</string>
-    <string name="remove_dataset">移除数据集</string>
-    <string name="remove_folder">移除工程文件夹</string>
     <string name="delete_confirm_title">确认移除</string>
     <string name="delete_confirm_dataset">数据集将被永久删除，是否继续删除？</string>
     <string name="delete_confirm_folder">工程文件夹将被永久删除，是否继续删除？</string>
@@ -68,6 +57,7 @@
     <string name="storage_information_dismiss">我稍后阅读</string>
     <string name="import_project_wait">QField正在导入工程，请稍候</string>
     <string name="import_dataset_wait">QField正在导入数据集，请稍候</string>
+    <string name="update_project_wait">QField正在更新本地工程，请稍候</string>
     <string name="upload_pending_attachments">目前正在将附件上传到QField云</string>
     <string name="operation_unsupported">不支持的操作</string>
     <string name="import_operation_unsupported">您的设备不支持此导入操作。</string>

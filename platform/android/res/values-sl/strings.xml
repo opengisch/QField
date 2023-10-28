@@ -34,10 +34,6 @@
     <string name="grant">Dovoli</string>
     <string name="deny_always">Trajno zavrni</string>
     <string name="deny_once">Zavrni enkrat</string>
-    <string name="import_project_folder">Uvozi projekt iz mape</string>
-    <string name="import_project_archive">Uvozi projekt iz ZIP datoteke</string>
-    <string name="import_dataset">Uvozi zbirko(e) podatkov</string>
-    <string name="usb_cable_help">Pomoč za upravljanje shrambe</string>
     <string name="import_error">Napaka pri uvozu</string>
     <string name="import_dataset_error">Izbrane(ih) zbirke podatkov ni bilo mogoče uvoziti pravilno.</string>
     <string name="import_project_archive_error">Izbrani projekt ni bil uvožen pravilno.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Prekliči</string>
     <string name="export_error">Napaka pri izvozu</string>
     <string name="export_to_folder_error">Izbrana mapa projekta ni bila pravilno izvožena.</string>
-    <string name="send_to">Pošlji v...</string>
-    <string name="send_compressed_to">Pošlji stisnjeno mapo v ...</string>
-    <string name="export_to_folder">Izvozi v mapo...</string>
-    <string name="add_to_favorite">Dodaj med priljubljene</string>
-    <string name="remove_from_favorite">Odstrani iz priljubljenih</string>
-    <string name="remove_dataset">Odstrani zbirko podatkov</string>
-    <string name="remove_folder">Odstrani mapo projekta</string>
     <string name="delete_confirm_title">Potrditev izbrisa</string>
     <string name="delete_confirm_dataset">Zbirka podatkov bo trajno izbrisana. Želiš nadaljevati z odstranitvijo?</string>
     <string name="delete_confirm_folder">Projektna mapa bo trajno izbrisana. Želiš nadaljevati z odstranitvijo?</string>

@@ -36,10 +36,6 @@
     <string name="grant">مسموح</string>
     <string name="deny_always">الحظر دائماً</string>
     <string name="deny_once">حظر مرة واحدة</string>
-    <string name="import_project_folder">استيراد مشروع من مجلد</string>
-    <string name="import_project_archive">استيراد مشورع من ملف مغضوط ZIP</string>
-    <string name="import_dataset">استيراد قاعدة بيانات (أو أكثر)</string>
-    <string name="usb_cable_help">تعليمات إدارة التخزين</string>
     <string name="import_error">خطأ في الاستيراد</string>
     <string name="import_dataset_error">لا يمكن استراد قاعدة البيانات (أو أكثر) المُحددة بشكل صحيح</string>
     <string name="import_project_archive_error">لا يمكن استيراد أرشيف المشروع المُحدد بشكل صحيح</string>
@@ -52,13 +48,6 @@
     <string name="import_overwrite_cancel">إلغاء الأمر</string>
     <string name="export_error">خطأ في التصدير</string>
     <string name="export_to_folder_error">لم يتم تصدير مجلد المشورع بشكل صحيح.</string>
-    <string name="send_to">إرسال إلى ...</string>
-    <string name="send_compressed_to">إرسال مجلد مضغوط إلى ...</string>
-    <string name="export_to_folder">تصدير إلى مجلد</string>
-    <string name="add_to_favorite">إضافة إلى المُفضّلة</string>
-    <string name="remove_from_favorite">إزالة من المُفضّلة</string>
-    <string name="remove_dataset">إزالة قاعدة البيانات</string>
-    <string name="remove_folder">إزالة مجلد المشروع</string>
     <string name="delete_confirm_title">تأكيد الإزالة</string>
     <string name="delete_confirm_dataset">سيتم حذف قاعدة البيانات بشكل نهائي، أمتأكدٌ من الإزالة؟</string>
     <string name="delete_confirm_folder">سيتم حذف مجلد المشروع بشكل نهائي، أمتأكدٌ من الإزالة؟</string>

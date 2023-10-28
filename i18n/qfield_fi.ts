@@ -2393,6 +2393,14 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <source>Import Actions</source>
         <translation>Tuo toimet</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Projektin toimet</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

@@ -2393,6 +2393,14 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>Import Actions</source>
         <translation>Importar Ações</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Ações de Projeto</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

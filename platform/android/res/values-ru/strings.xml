@@ -33,4 +33,5 @@
     <string name="grant">Разрешения</string>
     <string name="deny_always">Запретить навсегда</string>
     <string name="deny_once">Запретить однажды</string>
+    <string name="delete_confirm">Удалить</string>
     </resources>

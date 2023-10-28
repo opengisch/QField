@@ -34,10 +34,6 @@
     <string name="grant">Zezwól</string>
     <string name="deny_always">Odmów na stałe</string>
     <string name="deny_once">Odmów tym razem</string>
-    <string name="import_project_folder">Importuj projekt z katalogu</string>
-    <string name="import_project_archive">Importuj projekt z pliku ZIP</string>
-    <string name="import_dataset">Importuj zestaw(y) danych</string>
-    <string name="usb_cable_help">Pomoc zarządzania pamięcią</string>
     <string name="import_error">Błąd importu</string>
     <string name="import_dataset_error">Nie można poprawnie zaimportować wybranych zestawów danych.</string>
     <string name="import_project_archive_error">Wybrane archiwum projektów nie zostało poprawnie zaimportowane.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Anuluj</string>
     <string name="export_error">Błąd eksportu</string>
     <string name="export_to_folder_error">Wybrany folder projektu nie został poprawnie wyeksportowany.</string>
-    <string name="send_to">Wyślij do...</string>
-    <string name="send_compressed_to">Wyślij skompresowany katalog do...</string>
-    <string name="export_to_folder">Eksportuj do katalogu...</string>
-    <string name="add_to_favorite">Dodaj do ulubionych</string>
-    <string name="remove_from_favorite">Usuń z ulubionych</string>
-    <string name="remove_dataset">Usuń zestaw danych</string>
-    <string name="remove_folder">Usuń katalog projektu</string>
     <string name="delete_confirm_title">Potwierdzenie usunięcia</string>
     <string name="delete_confirm_dataset">Ten zestaw danych zostanie trwale usunięty, czy na pewno kontynuować jego usunięcie?</string>
     <string name="delete_confirm_folder">Projekt zostanie trwale usunięty, czy kontynuować?</string>
@@ -68,6 +57,7 @@
     <string name="storage_information_dismiss">Poczytam później</string>
     <string name="import_project_wait">Proszę czekać, QField importuje projekt</string>
     <string name="import_dataset_wait">Proszę czekać, QField importuje zestaw(y) danych</string>
+    <string name="update_project_wait">Proszę czekać, QField aktualizuje projekt lokalny</string>
     <string name="upload_pending_attachments">Właśnie wysyłam załączniki do QFieldCloud</string>
     <string name="operation_unsupported">Brak wsparcia dla operacji</string>
     <string name="import_operation_unsupported">Twoje urządzenie nie wspiera tej operacji importu.</string>

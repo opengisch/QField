@@ -35,10 +35,6 @@ Merci pour votre soutien !</string>
     <string name="grant">Autoriser</string>
     <string name="deny_always">Interdire pour toujours</string>
     <string name="deny_once">Interdire pour cette fois</string>
-    <string name="import_project_folder">Importer un projet à partir du répertoire</string>
-    <string name="import_project_archive">Importer un projet à partir du Zip</string>
-    <string name="import_dataset">Importer jeu(x) de données</string>
-    <string name="usb_cable_help">Aide sur la gestion du stockage</string>
     <string name="import_error">Erreur d\'import</string>
     <string name="import_dataset_error">Le(s) jeu(x) de données sélectionné(s) pourrai(en)t ne pas être importé(s) correctement.</string>
     <string name="import_project_archive_error">L\'archive de projet sélectionnée n\'a pas été importée correctement.</string>
@@ -51,13 +47,6 @@ Merci pour votre soutien !</string>
     <string name="import_overwrite_cancel">Annuler</string>
     <string name="export_error">Erreur d\'exportation</string>
     <string name="export_to_folder_error">Le dossier de projet sélectionné n\'a pas été exporté correctement.</string>
-    <string name="send_to">Envoyer vers...</string>
-    <string name="send_compressed_to">Envoyer le dossier compressé à...</string>
-    <string name="export_to_folder">Exporter vers un dossier...</string>
-    <string name="add_to_favorite">Ajouter aux favoris</string>
-    <string name="remove_from_favorite">Retirer des favoris</string>
-    <string name="remove_dataset">Retirer le jeu de données</string>
-    <string name="remove_folder">Retirer le répertoire de projet</string>
     <string name="delete_confirm_title">Confirmation de retrait</string>
     <string name="delete_confirm_dataset">Le jeu de données va être effacé définitivement, procéder à la suppression ?</string>
     <string name="delete_confirm_folder">Le répertoire de projet va être effacé définitivement, procéder à la suppression ?</string>

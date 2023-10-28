@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Linkek menü</translation>
     </message>
 </context>
 <context>
@@ -453,7 +453,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>A böngészési módba váltás előtt fejezze be vagy szakítsa meg az elem digitalizálását</translation>
     </message>
 </context>
 <context>
@@ -1732,11 +1732,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotaggelés engedélyezve</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geoteggelés letiltva</translation>
     </message>
 </context>
 <context>
@@ -2292,7 +2292,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Projekt műveletek</translation>
     </message>
 </context>
 <context>
@@ -2379,11 +2379,19 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Elem műveletek</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Import műveletek</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Projekt műveletek</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>Projekt aktualizálása ZIP-ből</translation>
     </message>
 </context>
 <context>
@@ -2744,11 +2752,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Ez az érték javítja a helymeghatározó eszközről rögzített Z értékeket. Ha 1.6 értéket ad meg , QField automatikusan levon 1.6-et minden rögzített értékből. Győződjön meg róla, hogy a tényleges antenna magasságot viszi be, pl. az árbóc magassága + antenna fázis centrum külpontossága.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortometrikus az eszköztől</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
@@ -2851,7 +2859,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a zip fájl nem létezik: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
@@ -2859,27 +2867,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Hiba output könyvtár nem létezik: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Hiba az output könyvtár nem könyvtár: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Hiba output könyvtár nem írható: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen alkönyvtár létrehozás: %1%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Nem lehet ide írni %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a fájl olvasása közben: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
@@ -2887,7 +2895,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a zip archive megnyitása során: &apos;%1&apos; (Hibakód: %2)</translation>
     </message>
 </context>
 <context>
@@ -2953,7 +2961,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3029,15 +3037,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Válassza ki a soros portot az alábbi listából:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Nem található soros port, frissítse a listát miután az eszközt csatlakoztatta.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Lista frissítés</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
@@ -3045,22 +3053,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Soros port cím:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Nem található soros porti eszköz</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Az olvasási kísérlet a soros portról hibával tért vissza</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>Az elégséges jogosultság hiányában a kapcsolódás elutasítva</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
@@ -3092,11 +3100,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Cím:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -3220,7 +3228,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Általános beállítások</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -3240,7 +3248,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Felhasznált idő (másodpercek a nyomrögzítés kezdetétől)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3288,7 +3296,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>A követés folytatása</translation>
     </message>
 </context>
 <context>
@@ -3343,7 +3351,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Felhasznált idő (másodpercek a nyomrögzítés kezdetétől)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3461,11 +3469,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Cím:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -3612,15 +3620,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Alapértelmezett projekt</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Alaptérkép</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Alapértelmezett projekt</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -3628,7 +3636,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Alapértelmezett projekt betöltése az indításnál</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
@@ -3636,11 +3644,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Korábbi projekt műveletek</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Üdvözöljük a QField-ben. Először használja a programot? Próbálja ki a lentebb listázott projekteket.</translation>
     </message>
 </context>
 <context>
@@ -4050,7 +4058,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Helymeghatározási hiba: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -4062,7 +4070,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nyomtatás képként</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -4070,19 +4078,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Nyomtatás</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Helymeghatározó eszköz hiba: %1</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>A térképvászon követi a pozíciót és az irányt</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Impotálás %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
@@ -4122,11 +4130,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Nincs elérhető szenzor</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Réteg:</translation>
     </message>
     <message>
         <source>Feature:</source>
@@ -4150,11 +4158,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Illesztés bekapcsolva</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Illesztés kikapcsolva</translation>
     </message>
 </context>
 <context>

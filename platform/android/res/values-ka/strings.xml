@@ -34,10 +34,6 @@
     <string name="grant">დათანხმება</string>
     <string name="deny_always">სამუდამოდ აკრძალვა</string>
     <string name="deny_once">ერთჯერადად აკრძალვა</string>
-    <string name="import_project_folder">პროექტის იმპორტი საქაღალდიდან</string>
-    <string name="import_project_archive">პროექტის იმპორტი ZIP არქივიდან</string>
-    <string name="import_dataset">მონაცემთა ნაკრებ(ებ)ის იმპორტი</string>
-    <string name="usb_cable_help">დახმარება მეხსიერების მენეჯმენტის შესახებ</string>
     <string name="import_error">იმპორტის შეცდომა</string>
     <string name="import_dataset_error">მონაცემთა ნაკრებ(ებ)ის იმპორტი სათანადოდ ვერ შესრულდა.</string>
     <string name="import_project_archive_error">არჩეული პროექტის არქივის იმპორტის პრობლემა.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">შეწყვეტა</string>
     <string name="export_error">ექსპორტის შეცდომა</string>
     <string name="export_to_folder_error">არჩეული პროექტის საქაღალდის ექსპორტის პრობლემა.</string>
-    <string name="send_to">გაგზავნა...</string>
-    <string name="send_compressed_to">კომპრესირებული საქაღალდის გაგზავნა...</string>
-    <string name="export_to_folder">საქაღალდეში ექსპორტი</string>
-    <string name="add_to_favorite">ფავორიტებში დამატება</string>
-    <string name="remove_from_favorite">ფავორიტებიდან წაშლა</string>
-    <string name="remove_dataset">მონაცემთა ნაკრების წაშლა</string>
-    <string name="remove_folder">პროექტის საქაღალდის წაშლა</string>
     <string name="delete_confirm_title">წაშლის დასტური</string>
     <string name="delete_confirm_dataset">მონაცემთა ნაკლები სამუდამოდ წაიშლება, დარწმუნებული ბრძანდებით?</string>
     <string name="delete_confirm_folder">პროექტის საქაღალდე წაიშლება სამუდამოდ, დარწმუნებული ბრძანდებით?</string>

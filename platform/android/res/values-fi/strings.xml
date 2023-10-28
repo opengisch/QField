@@ -36,10 +36,6 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="grant">Salli</string>
     <string name="deny_always">Kiellä pysyyvästi</string>
     <string name="deny_once">Kiellä nyt</string>
-    <string name="import_project_folder">Tuo projekti hakemistosta</string>
-    <string name="import_project_archive">Tuo projekti zip-tiedostosta</string>
-    <string name="import_dataset">Tuo datasetti(tit)</string>
-    <string name="usb_cable_help">Tallennuksen hallinnan ohje</string>
     <string name="import_error">Tuontivirhe</string>
     <string name="import_dataset_error">Valittuja tietojoukkoja ei voitu tuoda oikein.</string>
     <string name="import_project_archive_error">Valittua projektiarkistoa ei tuotu oikein.</string>
@@ -52,13 +48,6 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="import_overwrite_cancel">Peruuta</string>
     <string name="export_error">Vientivirhe</string>
     <string name="export_to_folder_error">Valittua projektikansiota ei viety oikein.</string>
-    <string name="send_to">Lähetä ...</string>
-    <string name="send_compressed_to">Lähetä pakattu hakemisto sijaintiin ...</string>
-    <string name="export_to_folder">Vie hakemistoon ...</string>
-    <string name="add_to_favorite">Lisää suosikkeihin</string>
-    <string name="remove_from_favorite">Poista suosikeista</string>
-    <string name="remove_dataset">Poista datasetti</string>
-    <string name="remove_folder">Poista projektin hakemisto</string>
     <string name="delete_confirm_title">Poiston vahvistus</string>
     <string name="delete_confirm_dataset">Tietojoukko poistetaan pysyvästi, haluatko jatkaa poistoa?</string>
     <string name="delete_confirm_folder">Projektin hakemisto poistetaan pysyvästi, haluatko jatkaa poistoa?</string>

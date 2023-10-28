@@ -34,10 +34,6 @@
     <string name="grant">Permite</string>
     <string name="deny_always">Refuză Permanent</string>
     <string name="deny_once">Refuză o dată</string>
-    <string name="import_project_folder">Importați Proiectul din Folder</string>
-    <string name="import_project_archive">Importați proiectul din ZIP</string>
-    <string name="import_dataset">Imporați Set(uri) de Date</string>
-    <string name="usb_cable_help">Ajutor la Gestionarea Stocării</string>
     <string name="import_error">Eroare la Import</string>
     <string name="import_dataset_error">Setul de date() selectat nu a fost importat corect.</string>
     <string name="import_project_archive_error">Arhiva proiectului selectat nu a fost importată corect.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Anulați</string>
     <string name="export_error">Eroare la Export</string>
     <string name="export_to_folder_error">Folderul proiectului selectat nu a fost exportat corespunzător.</string>
-    <string name="send_to">Trimite la...</string>
-    <string name="send_compressed_to">Trimite-ți Folderul Compresat către...</string>
-    <string name="export_to_folder">Exportați în Folderul...</string>
-    <string name="add_to_favorite">Adaugăți la Favorite</string>
-    <string name="remove_from_favorite">Eliminați de la Favorite</string>
-    <string name="remove_dataset">Eliminați Setul de Date</string>
-    <string name="remove_folder">Eliminați Folderul Proiectului</string>
     <string name="delete_confirm_title">Confirmați Eliminarea</string>
     <string name="delete_confirm_dataset">Atenție! Setul de date va fi șters, continuați cu eliminarea?</string>
     <string name="delete_confirm_folder">Atenție! Folderul proiectului va fi șters, continuați cu eliminarea?</string>

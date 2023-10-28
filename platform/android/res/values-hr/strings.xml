@@ -34,10 +34,6 @@
     <string name="grant">Dozvoli</string>
     <string name="deny_always">Odbij trajno</string>
     <string name="deny_once">Odbij jedanput</string>
-    <string name="import_project_folder">Uvezi projekt iz mape</string>
-    <string name="import_project_archive">Uvezi projekt iz ZIP datoteke</string>
-    <string name="import_dataset">Uvezi skup(ove) podataka</string>
-    <string name="usb_cable_help">Pomoć oko upravljanja pohranom</string>
     <string name="import_error">Greška uvoza</string>
     <string name="import_dataset_error">Odabrani skup(ovi) podataka se ne može ispravno uvesti.</string>
     <string name="import_project_archive_error">Odabrani arhiv projekta nije ispravno uvezen.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Otkaži</string>
     <string name="export_error">Greška izvoza</string>
     <string name="export_to_folder_error">Odabrana mapa projekta nije ispravno izvezena.</string>
-    <string name="send_to">Pošalji na...</string>
-    <string name="send_compressed_to">Pošalji komprimiranu mapu u...</string>
-    <string name="export_to_folder">Izvezi u mapu...</string>
-    <string name="add_to_favorite">Dodaj u favorite</string>
-    <string name="remove_from_favorite">Ukloni iz favorita</string>
-    <string name="remove_dataset">Ukloni skup podataka</string>
-    <string name="remove_folder">Ukloni mapu projekta</string>
     <string name="delete_confirm_title">Potvrda uklanjanja</string>
     <string name="delete_confirm_dataset">Skup podataka biti će trajno izbrisan, nastaviti sa uklanjanjem?</string>
     <string name="delete_confirm_folder">Mapa projekta biti će trajno izbrisana, nastaviti sa uklanjanjem?</string>

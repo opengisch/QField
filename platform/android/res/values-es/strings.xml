@@ -34,10 +34,6 @@
     <string name="grant">Permitir</string>
     <string name="deny_always">Denegar de forma permanente</string>
     <string name="deny_once">Denegar una vez</string>
-    <string name="import_project_folder">Importar proyecto desde carpeta</string>
-    <string name="import_project_archive">Importar proyecto desde ZIP</string>
-    <string name="import_dataset">Importar conjunto(s) de datos</string>
-    <string name="usb_cable_help">Ayuda sobre gestión de almacenamiento</string>
     <string name="import_error">Error de importación</string>
     <string name="import_dataset_error">Los conjuntos de dato(s) seleccionados no se pudieron importar correctamente.</string>
     <string name="import_project_archive_error">El archivo del proyecto seleccionado no se importó correctamente.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Cancelar</string>
     <string name="export_error">Error de exportación</string>
     <string name="export_to_folder_error">La carpeta de proyecto seleccionada no se exportó correctamente.</string>
-    <string name="send_to">Enviar a...</string>
-    <string name="send_compressed_to">Enviar carpeta comprimida a...</string>
-    <string name="export_to_folder">Exporta a carpeta...</string>
-    <string name="add_to_favorite">Añadir a Favoritos</string>
-    <string name="remove_from_favorite">Eliminar de Favoritos</string>
-    <string name="remove_dataset">Eliminar conjunto de datos</string>
-    <string name="remove_folder">Eliminar carpeta de proyecto</string>
     <string name="delete_confirm_title">Confirmar eliminación</string>
     <string name="delete_confirm_dataset">El conjunto de datos será eliminado permanentemente, ¿continuar con la eliminación?</string>
     <string name="delete_confirm_folder">La carpeta del proyecto será eliminada permanentemente, ¿continuar con la eliminación?</string>

@@ -34,10 +34,6 @@
     <string name="grant">Zulassen</string>
     <string name="deny_always">Dauerhaft verweigern</string>
     <string name="deny_once">Einmalig verweigern</string>
-    <string name="import_project_folder">Importiere Projekt aus Ordner</string>
-    <string name="import_project_archive">Projekt von ZIP importieren</string>
-    <string name="import_dataset">Importiere Daten</string>
-    <string name="usb_cable_help">Hilfe zum Dateimanagement</string>
     <string name="import_error">Import Fehler!</string>
     <string name="import_dataset_error">Die ausgewählten Datensätze konnten nicht importiert werden.</string>
     <string name="import_project_archive_error">Das ausgewählte Projektarchiv konnte nicht importiert werden.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Abbrechen</string>
     <string name="export_error">Fehler beim Exportieren</string>
     <string name="export_to_folder_error">Der gewählte Projektordner wurde nicht korrekt exportiert.</string>
-    <string name="send_to">Senden an...</string>
-    <string name="send_compressed_to">Als ZIP senden an...</string>
-    <string name="export_to_folder">In Ordner exportieren</string>
-    <string name="add_to_favorite">Zu Favoriten hinzufügen</string>
-    <string name="remove_from_favorite">Von Favoriten entfernen</string>
-    <string name="remove_dataset">Datensatz entfernen</string>
-    <string name="remove_folder">Projektordner entfernen</string>
     <string name="delete_confirm_title">Datensatz entfernen</string>
     <string name="delete_confirm_dataset">Der Datensatz wird dauerhaft entfernt. Dieser Vorgang kann nicht rückgängig gemacht werden.</string>
     <string name="delete_confirm_folder">Der Projektordner wird dauerhaft entfernt. Dieser Vorgang kann nicht rückgängig gemacht werden.</string>

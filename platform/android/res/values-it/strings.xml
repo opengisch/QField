@@ -34,10 +34,6 @@
     <string name="grant">Consenti</string>
     <string name="deny_always">Nega sempre</string>
     <string name="deny_once">Nega solo una volta</string>
-    <string name="import_project_folder">Importa il Progetto da una cartella</string>
-    <string name="import_project_archive">Importa il Progetto da uno ZIP</string>
-    <string name="import_dataset">Importa uno o più Dataset</string>
-    <string name="usb_cable_help">Guida alla gestione dell\'archiviazione</string>
     <string name="import_error">Errore di importazione</string>
     <string name="import_dataset_error">Non è stato possibile importare correttamente i Dataset selezionati. </string>
     <string name="import_project_archive_error">L\'archivio del progetto selezionato non è stato importato correttamente.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Cancella</string>
     <string name="export_error">Errore di esportazione</string>
     <string name="export_to_folder_error">La cartella del progetto selezionata non è stata esportata correttamente.</string>
-    <string name="send_to">Invia a...</string>
-    <string name="send_compressed_to">Invia cartella compressa a...</string>
-    <string name="export_to_folder">Esporta nella cartella...</string>
-    <string name="add_to_favorite">Aggiungi ai Preferiti</string>
-    <string name="remove_from_favorite">Rimuovi dai Preferiti</string>
-    <string name="remove_dataset">Rimuovi il cataset</string>
-    <string name="remove_folder">Rimuovi la cartella del progetto</string>
     <string name="delete_confirm_title">Conferma di rimozione</string>
     <string name="delete_confirm_dataset">Il dataset verrà cancellato in modo permanente, procedere con la rimozione? </string>
     <string name="delete_confirm_folder">La cartella del progetto verrà cancellata in modo permanente, procedere con la rimozione?</string>

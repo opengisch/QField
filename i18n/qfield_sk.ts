@@ -2394,6 +2394,14 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>Import Actions</source>
         <translation>Importovať akcie</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Projektové akcie</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

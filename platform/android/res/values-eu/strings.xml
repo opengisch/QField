@@ -30,10 +30,6 @@
     <string name="grant">Onartu</string>
     <string name="deny_always">Ukatu betiko</string>
     <string name="deny_once">Ukatu behin</string>
-    <string name="import_project_folder">Inportatu proiektua karpetatik</string>
-    <string name="import_project_archive">Inportatu proiektua ZIP fitxategitik</string>
-    <string name="import_dataset">Inportatu datu multzoa(k)</string>
-    <string name="usb_cable_help">Biltegi-kudeaketaren laguntza</string>
     <string name="import_error">Inportazio-errorea</string>
     <string name="import_dataset_error">Hautatutako datu multzoa(k) ezin izan d(ir)a ongi inportatu.</string>
     <string name="import_project_archive_error">Hautatutako proiektu-fitxategia ez da ongi inportatu</string>
@@ -43,13 +39,6 @@
     <string name="import_overwrite_cancel">Utzi</string>
     <string name="export_error">Esportazio-errorea</string>
     <string name="export_to_folder_error">Hautatutako proiektu-karpeta ez da ongi esportatu.</string>
-    <string name="send_to">Bidali hona...</string>
-    <string name="send_compressed_to">Bidali karpeta konprimatua hona...</string>
-    <string name="export_to_folder">Esportatu karpetara...</string>
-    <string name="add_to_favorite">Gehitu gogokoei</string>
-    <string name="remove_from_favorite">Kendu gogokoetatik</string>
-    <string name="remove_dataset">Kendu datu multzoa</string>
-    <string name="remove_folder">Kendu proiektu-karpeta</string>
     <string name="delete_confirm_title">Baieztatu kentzea</string>
     <string name="delete_confirm_dataset">Datu multzo hau betiko ezabatuko da, jarraitu?</string>
     <string name="delete_confirm_folder">Proiektu-karpeta betiko ezabatuko da, jarraitu?</string>

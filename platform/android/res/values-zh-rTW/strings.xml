@@ -34,10 +34,6 @@
     <string name="grant">允許</string>
     <string name="deny_always">始终拒绝</string>
     <string name="deny_once">拒絕一次</string>
-    <string name="import_project_folder">從資料夾匯入專案</string>
-    <string name="import_project_archive">從ZIP匯入專案</string>
-    <string name="import_dataset">匯入數據集</string>
-    <string name="usb_cable_help">儲存管理幫助</string>
     <string name="import_error">匯入錯誤</string>
     <string name="import_dataset_error">無法正確匯入所選數據集</string>
     <string name="import_project_archive_error">無法正確匯入所選專案</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">取消</string>
     <string name="export_error">匯出錯誤</string>
     <string name="export_to_folder_error">無法正確匯出所選資料夾</string>
-    <string name="send_to">發送到...</string>
-    <string name="send_compressed_to">將資料夾壓縮並發送到...</string>
-    <string name="export_to_folder">匯出到資料夾...</string>
-    <string name="add_to_favorite">加入收藏</string>
-    <string name="remove_from_favorite">從收藏中移除</string>
-    <string name="remove_dataset">移除數據集</string>
-    <string name="remove_folder">移除專案資料夾</string>
     <string name="delete_confirm_title">確認移除</string>
     <string name="delete_confirm_dataset">數據集將被永久刪除，是否繼續刪除?</string>
     <string name="delete_confirm_folder">專案資料夾將被永久刪除，是否繼續刪除?</string>

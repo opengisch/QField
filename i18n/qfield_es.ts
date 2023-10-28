@@ -2391,6 +2391,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Import Actions</source>
         <translation>Acciones de importación</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Acciones del proyecto</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

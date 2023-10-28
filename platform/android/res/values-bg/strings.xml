@@ -34,10 +34,6 @@
     <string name="grant">Позволи</string>
     <string name="deny_always">Откажи завинаги</string>
     <string name="deny_once">Откажи еднократно</string>
-    <string name="import_project_folder">Импортирай проект от директория</string>
-    <string name="import_project_archive">Импортирай проект от ZIP</string>
-    <string name="import_dataset">Импортирай файл(ове)</string>
-    <string name="usb_cable_help">Помощ с управление на паметта</string>
     <string name="import_error">Грешка при импортиране</string>
     <string name="import_dataset_error">Избраният файл/файлове не бяха импортини правилно.</string>
     <string name="import_project_archive_error">Избраната архивирана директория не беше импортирана правилно.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Откажи</string>
     <string name="export_error">Грешка при експортиране</string>
     <string name="export_to_folder_error">Избраната директория не беше експортирана правилно.</string>
-    <string name="send_to">Сподели...</string>
-    <string name="send_compressed_to">Сподели компресираната директория...</string>
-    <string name="export_to_folder">Експортирай в директория...</string>
-    <string name="add_to_favorite">Добави в любими</string>
-    <string name="remove_from_favorite">Премахни от любими</string>
-    <string name="remove_dataset">Премахни файл</string>
-    <string name="remove_folder">Изтрий директорията на проекта</string>
     <string name="delete_confirm_title">Потвърди изтриването</string>
     <string name="delete_confirm_dataset">Данните ще бъдат изтрити завинаги. Искаш ли да продължиш с изтриването?</string>
     <string name="delete_confirm_folder">Директорията ще бъде изтрита завинаги. Искаш ли да продължиш с изтриването?</string>

@@ -2386,6 +2386,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Import Actions</source>
         <translation>Importuj działania</translation>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Działania projektu</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>Zaktualizuj projekt z archiwum ZIP</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
@@ -2753,18 +2761,18 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Użyj klawiszy głośności do rysowania</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli włączone, naciśnięcie klawisza głośności (+) na urządzeniu w trakcie sesji rysowania doda nowy wierzchołek, a naciśnięcie klawisza głośności (-) usunie ostatnio wprowadzony wierzchołek w trakcie sesji rysowania.</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Digitizing Logger</source>
-        <translation type="unfinished"/>
+        <translation>Dziennik rysowania</translation>
     </message>
     <message>
         <source>Authentication required</source>

@@ -34,10 +34,6 @@
     <string name="grant">許可</string>
     <string name="deny_always">必ず拒否</string>
     <string name="deny_once">一度だけ拒否</string>
-    <string name="import_project_folder">プロジェクトをフォルダからインポート</string>
-    <string name="import_project_archive">プロジェクトをZIPファイルからインポート</string>
-    <string name="import_dataset">データセットをインポート</string>
-    <string name="usb_cable_help">ストレージ管理に関するヘルプ</string>
     <string name="import_error">インポートエラー</string>
     <string name="import_dataset_error">択したデータセットが正しくインポートされませんでした。</string>
     <string name="import_project_archive_error">選択したプロジェクトのアーカイブが正しくインポートされませんでした。</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">キャンセル</string>
     <string name="export_error">出力エラー</string>
     <string name="export_to_folder_error">選択したプロジェクトフォルダが正しく出力されませんでした。</string>
-    <string name="send_to">送信...</string>
-    <string name="send_compressed_to">圧縮フォルダの送信先...</string>
-    <string name="export_to_folder">フォルダの出力先...</string>
-    <string name="add_to_favorite">お気に入りに追加</string>
-    <string name="remove_from_favorite">お気に入りから削除</string>
-    <string name="remove_dataset">データセットを削除</string>
-    <string name="remove_folder">プロジェクトフォルダを削除</string>
     <string name="delete_confirm_title">削除の確認</string>
     <string name="delete_confirm_dataset">データセットは完全に削除されます、削除しますか？</string>
     <string name="delete_confirm_folder">プロジェクトフォルダは完全に削除されます、削除しますか？</string>

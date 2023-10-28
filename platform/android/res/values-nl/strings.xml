@@ -34,10 +34,6 @@
     <string name="grant">Toestaan</string>
     <string name="deny_always">Permanent Weigeren</string>
     <string name="deny_once">Eenmalig Weigeren</string>
-    <string name="import_project_folder">Project importeren uit map</string>
-    <string name="import_project_archive">Project Importeren uit ZIP</string>
-    <string name="import_dataset">Importeer Dataset(s)</string>
-    <string name="usb_cable_help">Hulp bij opslagbeheer</string>
     <string name="import_error">Importfout</string>
     <string name="import_dataset_error">De geselecteerde dataset(s) konden niet correct worden geïmporteerd.</string>
     <string name="import_project_archive_error">Het geselecteerde projectarchief is niet goed geïmporteerd.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Annuleren</string>
     <string name="export_error">Exportfout</string>
     <string name="export_to_folder_error">De geselecteerde projectmap is niet goed geëxporteerd.</string>
-    <string name="send_to">Versturen naar...</string>
-    <string name="send_compressed_to">Verstuur gecomprimeerde map naar...</string>
-    <string name="export_to_folder">Exporteren naar map...</string>
-    <string name="add_to_favorite">Toevoegen aan favorieten</string>
-    <string name="remove_from_favorite">Verwijder van Favorieten</string>
-    <string name="remove_dataset">Verwijder Dataset</string>
-    <string name="remove_folder">Verwijder Projectmap</string>
     <string name="delete_confirm_title">Verwijderingsbevestiging</string>
     <string name="delete_confirm_dataset">De dataset wordt definitief verwijderd, doorgaan met verwijderen?</string>
     <string name="delete_confirm_folder">De projectmap wordt permanent verwijderd, doorgaan met verwijderen?</string>

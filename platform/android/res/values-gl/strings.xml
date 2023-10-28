@@ -34,10 +34,6 @@
     <string name="grant">Permitir</string>
     <string name="deny_always">Denegar Permanentemente</string>
     <string name="deny_once">Denegar Unha Vez</string>
-    <string name="import_project_folder">Importar Proxecto dende Directorio</string>
-    <string name="import_project_archive">Importar Proxecto dende ZIP</string>
-    <string name="import_dataset">Importar Conxunto(s) de Datos</string>
-    <string name="usb_cable_help">Axuda da Xestión do Almacenamento</string>
     <string name="import_error">Erro de Importación</string>
     <string name="import_dataset_error">Non se puideron importar axeitadamente os conxunto(s) de datos seleccionados.</string>
     <string name="import_project_archive_error">O ficheiro do proxecto seleccionado non se importou axeitadamente.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Cancelar</string>
     <string name="export_error">Erro de Exportación</string>
     <string name="export_to_folder_error">Non se puido exportar axeitadamente o directorio do proxecto seleccionado.</string>
-    <string name="send_to">Enviar a...</string>
-    <string name="send_compressed_to">Enviar Directorio Comprimido a...</string>
-    <string name="export_to_folder">Exportar a Directorio...</string>
-    <string name="add_to_favorite">Engadir a Favoritos</string>
-    <string name="remove_from_favorite">Eliminar de Favoritos</string>
-    <string name="remove_dataset">Eliminar Conxunto de Datos</string>
-    <string name="remove_folder">Eliminar Directorio do Proxecto</string>
     <string name="delete_confirm_title">Confirmación da Eliminación</string>
     <string name="delete_confirm_dataset">O conxunto de datos eliminarase permanentemente, continuar coa eliminación?</string>
     <string name="delete_confirm_folder">O directorio do proxecto eliminarase permanentemente, continuar coa eliminación?</string>

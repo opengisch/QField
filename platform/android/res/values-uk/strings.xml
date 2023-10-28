@@ -34,10 +34,6 @@
     <string name="grant">Дозволити</string>
     <string name="deny_always">Заборонити назавжди</string>
     <string name="deny_once">Відмовити один раз</string>
-    <string name="import_project_folder">Імпорт проекту з папки</string>
-    <string name="import_project_archive">Імпорт проекту з ZIP</string>
-    <string name="import_dataset">Імпорт наборів даних</string>
-    <string name="usb_cable_help">Довідка з керування сховищем</string>
     <string name="import_error">Помилка імпорту</string>
     <string name="import_dataset_error">Вибрані набори даних не вдалося імпортувати належним чином.</string>
     <string name="import_project_archive_error">Вибраний архів проекту імпортовано неправильно.</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Скасувати</string>
     <string name="export_error">Помилка експорту</string>
     <string name="export_to_folder_error">Вибрану папку проекту експортовано неправильно.</string>
-    <string name="send_to">Відправити...</string>
-    <string name="send_compressed_to">Надіслати стиснуту папку до...</string>
-    <string name="export_to_folder">Експорт до папки...</string>
-    <string name="add_to_favorite">Додати в обране</string>
-    <string name="remove_from_favorite">Видалити з вибраного</string>
-    <string name="remove_dataset">Видалити набір даних</string>
-    <string name="remove_folder">Видалити папку проекту</string>
     <string name="delete_confirm_title">Підтвердження видалення</string>
     <string name="delete_confirm_dataset">Набір даних буде остаточно видалено. Продовжити видалення?</string>
     <string name="delete_confirm_folder">Папку проекту буде остаточно видалено. Продовжити видалення?</string>

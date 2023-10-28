@@ -2392,6 +2392,14 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
         <source>Import Actions</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

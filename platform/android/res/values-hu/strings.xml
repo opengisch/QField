@@ -34,10 +34,6 @@
     <string name="grant">Engedélyez</string>
     <string name="deny_always">Véglegesen megtagad</string>
     <string name="deny_once">Megtagad egyszer</string>
-    <string name="import_project_folder">Projekt importálása mappából</string>
-    <string name="import_project_archive">Projekt importálása ZIP-ből</string>
-    <string name="import_dataset">Adatállomány(ok) importálása</string>
-    <string name="usb_cable_help">Tárhelykezelési súgó</string>
     <string name="import_error">Import hiba</string>
     <string name="import_dataset_error">A kiválasztott adatállomány(ok) nem importálhatók megfelelően.</string>
     <string name="import_project_archive_error">A kiválasztott tömörített projekt nem importálódott megfelelően</string>
@@ -50,13 +46,6 @@
     <string name="import_overwrite_cancel">Mégsem</string>
     <string name="export_error">Export hiba</string>
     <string name="export_to_folder_error">A kiválasztott projekt könyvtár nem exportálódott megfelelően.</string>
-    <string name="send_to">Küldés...</string>
-    <string name="send_compressed_to">Tömörített mappa küldése...</string>
-    <string name="export_to_folder">Exportálás mappába...</string>
-    <string name="add_to_favorite">Hozzáadás a kedvencekhez</string>
-    <string name="remove_from_favorite">Eltávolítás a kedvencek  közül</string>
-    <string name="remove_dataset">Adatállomány eltávolítása</string>
-    <string name="remove_folder">Projekt mappa eltávolítása</string>
     <string name="delete_confirm_title">Eltávolítás megerősítése</string>
     <string name="delete_confirm_dataset">Az adatállomány végleges törlésre kerül. Folytassam az eltávolítást?</string>
     <string name="delete_confirm_folder">A projekt mappát véglegesen törlöm, folytassuk az eltávolítást?</string>
