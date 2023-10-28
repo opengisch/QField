@@ -14,6 +14,7 @@ Popup {
   property bool isPortraitMode: mainWindow.height > mainWindow.width
 
   property string currentPath
+  property var currentPosition
 
   signal finished(string path)
   signal canceled()
@@ -210,6 +211,7 @@ Popup {
           onClicked: {
             if (cameraItem.state == "PhotoCapture") {
               captureSession.imageCapture.captureToFile(qgisProject.homePath+ '/DCIM/')
+              currentPosition = positionSource.positionInformation
             } else if (cameraItem.state == "VideoCapture") {
               if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
                 captureSession.recorder.record()
@@ -224,7 +226,7 @@ Popup {
             } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
               if (cameraItem.state == "PhotoPreview") {
                 if (settings.geoTagging && positionSource.active) {
-                  FileUtils.addImageMetadata(currentPath, positionSource.positionInformation)
+                  FileUtils.addImageMetadata(currentPath, currentPosition)
                 }
               }
               cameraItem.finished(currentPath)
