@@ -198,8 +198,13 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
       result.displayString = QStringLiteral( "@%1" ).arg( field );
       result.group = mLayerName;
       result.description = tr( "Limit the search to the field '%1'" ).arg( field );
+#if _QGIS_VERSION_INT >= 33300
+      result.setUserData( QVariantMap( { { QStringLiteral( "type" ), QVariant::fromValue( ResultType::FieldRestriction ) },
+                                         { QStringLiteral( "search_text" ), QStringLiteral( "%1 @%2 " ).arg( prefix(), field ) } } ) );
+#else
       result.userData = QVariantMap( { { QStringLiteral( "type" ), QVariant::fromValue( ResultType::FieldRestriction ) },
                                        { QStringLiteral( "search_text" ), QStringLiteral( "%1 @%2 " ).arg( prefix(), field ) } } );
+#endif
       result.score = 1;
       emit resultFetched( result );
     }
@@ -220,7 +225,11 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
       result.displayString = mDispExpression.evaluate( &mContext ).toString();
       result.group = mLayerName;
 
+#if _QGIS_VERSION_INT >= 33300
+      result.setUserData( QVariantList() << f.id() << mLayerId );
+#else
       result.userData = QVariantList() << f.id() << mLayerId;
+#endif
       result.score = static_cast<double>( searchString.length() ) / result.displayString.size();
       result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
       if ( mLayerIsSpatial )
@@ -274,7 +283,11 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
       continue; //not sure how this result slipped through...
     result.group = mLayerName;
     result.description = mDispExpression.evaluate( &mContext ).toString();
+#if _QGIS_VERSION_INT >= 33300
+    result.setUserData( QVariantList() << f.id() << mLayerId );
+#else
     result.userData = QVariantList() << f.id() << mLayerId;
+#endif
     result.score = static_cast<double>( searchString.length() ) / result.displayString.size();
     result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
     if ( mLayerIsSpatial )
@@ -297,7 +310,11 @@ void ActiveLayerFeaturesLocatorFilter::triggerResult( const QgsLocatorResult &re
 
 void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
+#if _QGIS_VERSION_INT >= 33300
+  QVariantMap data = result.getUserData().toMap();
+#else
   QVariantMap data = result.userData.toMap();
+#endif
   switch ( data.value( QStringLiteral( "type" ) ).value<ResultType>() )
   {
     case ResultType::FieldRestriction:
@@ -308,7 +325,11 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
 
     case ResultType::Feature:
     {
+#if _QGIS_VERSION_INT >= 33300
+      QVariantList dataList = result.getUserData().toList();
+#else
       QVariantList dataList = result.userData.toList();
+#endif
       QgsFeatureId fid = dataList.at( 0 ).toLongLong();
       QString layerId = dataList.at( 1 ).toString();
       QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( QgsProject::instance()->mapLayer( layerId ) );
