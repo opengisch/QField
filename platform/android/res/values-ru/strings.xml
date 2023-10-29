@@ -9,6 +9,7 @@
     <string name="noexternalstorage_dialog">Похоже, что внешний накопитель (/sdcard) недоступен. Это происходит при подключении устройства к компьютеру через USB.\nQGIS запустится из внутренней памяти, что не рекомендуется, потому что ее объем может быть слишком мал. \nlt предлагает нажать ОТМЕНА, отсоединить все USB - кабели и перезапустить QGIS. </string>
     <string name="primary_storage">Внутренняя память устройства</string>
     <string name="secondary_storage">директория файлов QField</string>
+    <string name="secondary_storage_extra">Дополнительные директории</string>
     <string name="secondary_storage_read_only">Внешний накопитель (только для чтения) </string>
     <string name="inaccessible">недоступно</string>
     <string name="loading">Загрузка</string>

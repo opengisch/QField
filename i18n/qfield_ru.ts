@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Поддержка QField</translation>
+        <translation>Поддержать QField</translation>
     </message>
     <message>
         <source>Changelog</source>
@@ -19,14 +19,14 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню ссылок</translation>
     </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ограничить поиск полем &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -34,7 +34,7 @@
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Установить в качестве пункта назначения</translation>
+        <translation>Установить объект в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Объекты активного слоя</translation>
     </message>
 </context>
 <context>
@@ -111,11 +111,11 @@
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>не NULL</translation>
+        <translation>Не пустое</translation>
     </message>
     <message>
         <source>Unique</source>
-        <translation>Уникальный</translation>
+        <translation>Уникальное</translation>
     </message>
 </context>
 <context>
@@ -190,7 +190,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Подключиться к %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -206,11 +206,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Выберите устройство Bluetooth из списка ниже:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Имя устройства Bluetooth</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -218,15 +218,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Адрес устройства Bluetooth</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Сканировать устроства поблизости</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Устпойства Bluetooth не обнаружены,сканируйте чтобы получить список устройств поблизости</translation>
     </message>
 </context>
 <context>
@@ -244,7 +244,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Успешно подключено</translation>
+        <translation>Подключено успешно</translation>
     </message>
     <message>
         <source>Disconnected</source>
@@ -256,31 +256,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Невозможно найти удалённый хост</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Невозможно найти UUID сервиса на удалённом хосте</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Попытка чтения или записи с сокета возвратила ошибку</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Протокол не поддерживается на этой платформе</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Совершена попытка операции, когда сокет был в состоянии не поддерживающем эту операцию</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Удалённый хост закрыл соединение</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Неизвестная ошибка</translation>
     </message>
 </context>
 <context>
@@ -345,14 +345,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>Нельзя редактировать закладки проекта</translation>
     </message>
 </context>
 <context>
     <name>BrowserPanel</name>
     <message>
         <source>Browser</source>
-        <translation>Обозреватель</translation>
+        <translation>Браузер</translation>
     </message>
 </context>
 <context>
@@ -386,7 +386,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Поддержка QField</translation>
+        <translation>Поддержать QField</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
@@ -416,7 +416,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>Пусто</translation>
     </message>
 </context>
 <context>
@@ -430,7 +430,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Обнаружен NFC тэг текста</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -438,14 +438,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Наведите камеру на код</translation>
     </message>
 </context>
 <context>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Слой %1 только для чтения.</translation>
+        <translation>Слой %1 неизменяемый</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -453,7 +453,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Закончите или отмените оцифровку объекта перед переключением в режим просмотра</translation>
     </message>
 </context>
 <context>
@@ -491,11 +491,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>Ожидается, что все элементы массива будут объектами, но элемент с номером #%1 не является</translation>
+        <translation>Ожидалось, что все элементы массива будут объектами, но элемент с номером #%1 не является</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>Ожидается, что все элементы массива будут объектом, содержащим ключ &quot;%1&quot;, но элемент с номером #%2 не является</translation>
+        <translation>Ожидалось, что все элементы массива будут объектом, содержащим ключ &quot;%1&quot;, но элемент с номером #%2 не является</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
@@ -506,23 +506,23 @@ Cancel to make a minimal device scan instead.</source>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation>Выражение значения по умолчанию для поля %2 оцифрованного регистратора содержит ошибку синтаксического анализатора: %3</translation>
+        <translation>Выражение значения по умолчанию для поля %2 журнала оцифроки содержит ошибку разбора: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation>Выражение значения по умолчанию для поля %2 оцифрованного регистратора имеет ошибку оценки: %3</translation>
+        <translation>Выражение значения по умолчанию для поля %2 журнала оцифровки имеет ошибку вычисления: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>Не удалось добавить функцию слоя журналов оцифровки</translation>
+        <translation>Не удалось добавить объект слоя журнала оцифровки</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation>Ошибка фиксации изменения уровня журналов оцифровки</translation>
+        <translation>Ошибка фиксации изменений слоя журнала оцифровки</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation>Ошибка редактирования слоя оцифровки журналов</translation>
+        <translation>Ошибка редактирования слоя журнала оцифровки</translation>
     </message>
 </context>
 <context>
@@ -537,51 +537,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>Количество собранных точек не соответствует ограничениям</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
-        <translation>Удалить оцифрованную геометрию?</translation>
+        <translation>Отказаться от оцифрованной геометрии?</translation>
     </message>
 </context>
 <context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню элементов</translation>
     </message>
 </context>
 <context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Оцифруйте путь чтобы отобразить профиль высот</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Отрисовка профиля высот</translation>
     </message>
 </context>
 <context>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>Геометрия не может быть изменена на мультигеометрию</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно изменить геометрию</translation>
     </message>
 </context>
 <context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Скопировать “%1” в буфер обмена</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Калькулятор</translation>
     </message>
 </context>
 <context>
@@ -646,7 +646,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Вы собираетесь отказаться от нового объекта, продолжить?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
@@ -657,11 +657,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Остановить запись трека данного объекта для редактирования атрибутов</translation>
+        <translation>Остановить трассировку данного объекта для редактирования атрибутов</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Остановить запись трека данного объекта для редактирования атрибутов</translation>
+        <translation>Остановить трассировку данного объекта для редактирования атрибутов</translation>
     </message>
     <message>
         <source>Changes saved</source>
@@ -669,7 +669,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Последние изменения не сохранены</translation>
+        <translation type="vanished">Последние изменения отменены</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -706,7 +706,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 
 Геометрии объектов будут объединены в объект &apos;%1&apos;, который сохранит свои атрибуты.</numerusform><numerusform>Объединить %n выделенных объектов?
 
-Геометрии объектов будут объединены в объект &apos;%1&apos;, который сохранит свои атрибуты.</numerusform><numerusform>Объединить %n выделенных объектов?
+Геометрии объектов будут объединены в объект &apos;%1&apos;, который сохранит свои атрибуты.</numerusform><numerusform>Объединить %n выделенных объектов(а)?
 
 Геометрии объектов будут объединены в объект &apos;%1&apos;, который сохранит свои атрибуты.</numerusform></translation>
     </message>
@@ -748,7 +748,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>Не удалось обновить объект</translation>
+        <translation>Невозможно обновить объект</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
@@ -756,7 +756,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>Выражение значения по умолчанию для %1:%2 содержит ошибку синтаксического анализатора: %3</translation>
+        <translation>Выражение значения по умолчанию для %1:%2 содержит ошибку разбора: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
@@ -768,12 +768,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>Слой &quot;%1&quot; был получен, но вновь созданный объект %2 не может быть добавлен</translation>
+        <translation>Слой &quot;%1&quot; был зафиксированн, но вновь созданный объект %2 не может быть получен</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>Слой &quot;%1&quot; не может быть зафиксирован с помощью вновь созданного объекта %2. Причина:
+        <translation>Слой &quot;%1&quot; не может быть зафиксирован с новым созданным объектом %2. Причина:
 %3</translation>
     </message>
     <message>
@@ -801,7 +801,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Установить объект в качестве навигации</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -820,15 +820,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation>Кольцо недействительно</translation>
+        <translation>Кольцо невалидно</translation>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation>Кольцо пересекает существующие кольца (не пересекается)</translation>
+        <translation>Кольцо пересекает существующие кольца (оно не обособлено)</translation>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>Кольцо не имеет существующего кольца, в которое можно было бы поместиться.</translation>
+        <translation>Для этого кольца нет кольца, в которое оно могло бы поместиться.</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
@@ -836,11 +836,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fill ring</source>
-        <translation>Заполнить кольцо</translation>
+        <translation>Добавление кольца</translation>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation>Вы хотите заполнить кольцо новым многоугольником?</translation>
+        <translation>Вы хотите заполнить кольцо новым полигоном?</translation>
     </message>
 </context>
 <context>
@@ -851,15 +851,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation type="vanished">Кольцо недействительно</translation>
+        <translation type="vanished">Кольцо невалидно</translation>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation type="vanished">Кольцо пересекает существующие кольца (не пересекается)</translation>
+        <translation type="vanished">Кольцо пересекает существующие кольца (оно не обособлено)</translation>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="vanished">Кольцо не имеет существующего кольца, в которое можно было бы поместиться.</translation>
+        <translation type="vanished">Для того кольца нет кольца, в которое могло бы поместиться.</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
@@ -867,11 +867,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fill ring</source>
-        <translation type="vanished">Заполнить кольцо</translation>
+        <translation type="vanished">Добавить кольцо</translation>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation type="vanished">Вы хотите заполнить кольцо новым многоугольником?</translation>
+        <translation type="vanished">Вы хотите заполнить кольцо новым полигоном?</translation>
     </message>
 </context>
 <context>
@@ -897,11 +897,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation>Инструмент &quot;Заполнить кольцо&quot;</translation>
+        <translation>Инструмент Добавление кольца</translation>
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Инструмент Стёрка</translation>
     </message>
 </context>
 <context>
@@ -912,7 +912,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Установить точку навигации</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -920,15 +920,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to coordinate</source>
-        <translation>Перейти по координатам</translation>
+        <translation>Перейти к координатам</translation>
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Перейти к %1%2 %3%4 (СК карты, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Перейти к  %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -973,11 +973,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>Настройка отслеживания</translation>
+        <translation>Настройка записи трека</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Этот слой недействителен. Это может быть связано с проблемой сети, отсутствующим файлом или неправильной конфигурацией проекта.</translation>
+        <translation>Этот слой невалиден. Это может быть связано с проблемой сети, отсутствующим файлом или неправильной конфигурацией проекта.</translation>
     </message>
     <message>
         <source>Show on map</source>
@@ -985,7 +985,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show labels</source>
-        <translation>Показать ярлыки</translation>
+        <translation>Показать подписи</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -993,7 +993,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Увеличить до группы</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
@@ -1013,7 +1013,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Показать список функций</translation>
+        <translation>Показать список объектов</translation>
     </message>
     <message>
         <source>The layer has no features</source>
@@ -1021,15 +1021,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Трек слоя %1 остановлен</translation>
+        <translation>Запись трека на слое %1 остановлена</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Слой только для чтения</translation>
+        <translation type="vanished">Нередактируемый слой</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Слой с фиксацией геометрии</translation>
+        <translation type="vanished">Слой с неизменяемой геометрией</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -1037,23 +1037,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Этот слой настроен как «Заблокированная геометрия», что запрещает добавление и удаление объектов, а также изменение геометрии существующих объектов.</translation>
+        <translation>Этот слой настроен как «Неизменяемая геометрия», что запрещает добавление и удаление объектов, а также изменение геометрии существующих объектов.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Отобразить перечень</translation>
+        <translation>Отобразить список видимых объектов</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Отобразить меню объектов</translation>
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Неизменяемый слой</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
-        <translation type="unfinished"/>
+        <translation>Слой с неизменяемой геометрией</translation>
     </message>
 </context>
 <context>
@@ -1075,7 +1075,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Невозможно принять удаление в слое &quot;%1&quot;. Причина:
+        <translation>Невозможно выполнить удаление в слое &quot;%1&quot;. Причина:
 %3</translation>
     </message>
     <message>
@@ -1105,7 +1105,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>В данный момент на этом слое ведется запись трека</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1124,7 +1124,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation>директория файлов QField</translation>
+        <translation>Директория файлов QField</translation>
     </message>
     <message>
         <source>Imported projects</source>
@@ -1136,7 +1136,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation type="unfinished"/>
+        <translation>Дополнительные директории</translation>
     </message>
     <message>
         <source>Sample projects</source>
@@ -1147,7 +1147,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation type="vanished">Возвращает список объектов по всем доступным для поиска слоям с соответствующими атрибутами.</translation>
+        <translation type="vanished">Возвращает список объектов по всем доступным для поиска слоям с соответствующими поиску атрибутами.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
@@ -1167,27 +1167,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Выдает список объектов активного слоя с подходящими атрибутами. Сужение поиска до одного атрибута производится указанием его имени с префиком &apos;@&apos;</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Выдает список объектов из всех слоев с соответствующим отображаемым именем</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Возвращает точку из пары координат X и Y или широты и долготы WGS84, введенных в строке поиска.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Выдаёт список пользовательских закладок и закладок открытого проекта с соответсвующими именами</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Вычисляет значение выражения введённого в поисковую строку</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Возвращает список мест и адресов в Финляндии с совпадающими словами</translation>
     </message>
 </context>
 <context>
@@ -1198,7 +1198,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Для поиска объектов в активном слое, выберите активный слой в легенде.</translation>
     </message>
 </context>
 <context>
@@ -1217,11 +1217,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Этот фильтр может использоваться даже когда он отключен путём указания префикса %1 в поисковой строке.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Включить %1 по умолчанию</translation>
     </message>
 </context>
 <context>
@@ -1252,7 +1252,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Профилировщик времени выполнения журнала</translation>
     </message>
 </context>
 <context>
@@ -1267,7 +1267,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>Невозможно изменить геометрию элемента %1 в %2</translation>
+        <translation>Невозможно изменить геометрию объекта %1 в %2</translation>
     </message>
 </context>
 <context>
@@ -1294,11 +1294,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Переместиться к выбранному объекту(м)</translation>
+        <translation>Переместить выбранный(ые) объект(ы)</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Дублировать выбранный объект(ы)</translation>
+        <translation>Дублировать выбранный(ые) объект(ы)</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
@@ -1322,11 +1322,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Установить в качестве пункта назначения</translation>
+        <translation>Установить объект в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>Передвинуть объект</translation>
+        <translation>Переместить объект</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -1342,7 +1342,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Печать объекта(ов) в PDF</translation>
+        <translation type="vanished">Печать объекта(ов) атласа в PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
@@ -1350,23 +1350,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Распечатать</translation>
+        <translation type="vanished">Печать объекта(ов) атласа в изображение</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Распечатать</translation>
+        <translation>Печать объекта атласа в изображение</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Печать объекта(ов) атласа</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Печать…</translation>
+        <translation>Идёт печать…</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Объект(ы) атласа успешно напечатан(ы) в PDF и сохранен(ы) в папке вашего проекта</translation>
     </message>
 </context>
 <context>
@@ -1385,7 +1385,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">центроид</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1401,7 +1401,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Расст.</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1409,14 +1409,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Азимут</translation>
     </message>
 </context>
 <context>
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно разобрать позицию IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -1493,15 +1493,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно сохранить источник файла</translation>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Выберите файл изображения</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Все изображения (*.jpg *.jpeg *.png *.bmp);;изображения JPEG(*.jpg *.jpeg);;изображения PNG (*.jpg *.jpeg);;изображения BMP (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
@@ -1712,7 +1712,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Расст.</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
@@ -2653,7 +2653,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Азимут</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
@@ -2693,7 +2693,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Подключиться к %1</translation>
     </message>
     <message>
         <source>User interface appearance:</source>
@@ -2860,7 +2860,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>центроид</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
@@ -3132,11 +3132,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно найти удалённый хост</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Попытка чтения или записи с сокета возвратила ошибку</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -3265,7 +3265,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Азимут</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
@@ -3368,7 +3368,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Азимут</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
@@ -3501,11 +3501,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно найти удалённый хост</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Попытка чтения или записи с сокета возвратила ошибку</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
