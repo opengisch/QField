@@ -198,7 +198,7 @@ void FlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, 
 
     QMap<int, int> treeLevelMap;
     mIndexMap.clear();
-    const QList<QModelIndex> keys = mRowMap.keys();
+    const QList<QPersistentModelIndex> keys = mRowMap.keys();
     for ( const auto &index : keys )
     {
       int row = mRowMap[index];
@@ -291,7 +291,7 @@ void FlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first
 
     QMap<int, int> treeLevelMap;
     mIndexMap.clear();
-    const QList<QModelIndex> keys = mRowMap.keys();
+    const QList<QPersistentModelIndex> keys = mRowMap.keys();
     for ( const auto &index : keys )
     {
       int row = mRowMap[index];
