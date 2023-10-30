@@ -156,8 +156,8 @@ ApplicationWindow {
     state: "browse"
   }
 
-  onChangeMode: {
-    if ( stateMachine.state == mode )
+  onChangeMode: (mode) => {
+    if ( stateMachine.state === mode )
       return
 
     stateMachine.lastState = stateMachine.state
