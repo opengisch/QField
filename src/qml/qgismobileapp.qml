@@ -1262,7 +1262,7 @@ ApplicationWindow {
     CloseTool {
       id: abortRequestGeometry
       visible: digitizingToolbar.geometryRequested
-      toolImage: Theme.getThemeVectorIcon( "ic_edit_geometry_white" )
+      toolImage: Theme.getThemeIcon( "ic_edit_geometry_white" )
       toolText: qsTr( 'Cancel addition' )
       onClosedTool: digitizingToolbar.cancel()
     }
