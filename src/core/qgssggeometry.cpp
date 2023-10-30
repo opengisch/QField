@@ -164,7 +164,7 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon *polygon, 
   Q_ASSERT( polygon );
 
   QgsGeometry geom( polygon->clone() );
-  geom = geom.buffer( 0.0000001, 1, Qgis::EndCapStyle::Flat, Qgis::JoinStyle::Miter, 5 );
+  geom = geom.buffer( 0.0000001, 5 );
   QgsPolygon *bufferedPolygon = qgsgeometry_cast<QgsPolygon *>( geom.constGet() );
   QgsTessellator t( visibleExtent.xMinimum(), visibleExtent.yMaximum(), false, false, false, true );
   if ( bufferedPolygon )
