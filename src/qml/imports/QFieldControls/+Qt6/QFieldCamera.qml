@@ -40,6 +40,14 @@ Popup {
     }
   }
 
+  onAboutToShow: {
+      var textInfo = 'AVAILABLE CAMERAS:\n'
+      for (var videoInput of mediaDevices.videoInputs) {
+        textInfo += videoInput.description + ' (' + videoInput.id + ')\n'
+      }
+      labelInfo.text = textInfo
+  }
+
   Settings {
     id: settings
     property bool geoTagging: true
@@ -322,6 +330,14 @@ Popup {
           font: durationLabel.font
         }
       }
+    }
+
+    Label {
+      id: labelInfo
+      anchors.fill: parent
+      color: "white"
+      font: Theme.defaultFont
+      horizontalAlignment: Text.Center
     }
 
     QfToolButton {
