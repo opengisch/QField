@@ -570,7 +570,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>Geometria sa nedá modifikovať</translation>
     </message>
 </context>
 <context>
@@ -899,7 +899,7 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Guma</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1837,7 @@ Dôvod:
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Registrovať</translation>
+        <translation>Prihlásiť</translation>
     </message>
     <message>
         <source>New user?</source>
@@ -1915,7 +1915,7 @@ Dôvod:
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Zdravíme&lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation>Zdravíme &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -2213,7 +2213,7 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Zdravíme&lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation>Zdravíme &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2400,7 +2400,7 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizovať projekt zo ZIP súboru</translation>
     </message>
 </context>
 <context>
@@ -2769,11 +2769,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Na digitalizáciu použite tlačidlá na zvýšenie/zníženie hlasitosti</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí môžete vrcholy pridávať tlačidlom zvýšenia hlasitosti na Vašom zariadení, alebo odstrániť posledný pridaný vrchol tlačidlom zníženia hlasitosti.</translation>
     </message>
 </context>
 <context>
@@ -3185,19 +3185,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Trasovanie: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Trasovanie</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavenia požiadaviek</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Požiadavka na časový údaj</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3205,11 +3205,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí budú vrcholy pridávané v nastavenom minimálnom časovom rozostupe.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Požiadavka na vzdialenosť</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3217,39 +3217,39 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí budú vrcholy pridávané v nastavenom minimálnom rozostupe.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Požiadavka na údaje zo snímača</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí budú vrcholy nahrávané ak senzory zaznamenajú nové dáta.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Počkajte na všetky aktívne požiadavky</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí sa budú nahrávať iba vrcholy, ktoré spĺňajú všetky aktívne požiadavky. Po vypnutí budú nahrávané vrcholy, ktoré spĺňajú aspoň jednu aktívnu požiadavku.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Všeobecné nastavenia</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Chybné zabezpečenie vzdialenosti</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Maximálna tolerovaná vzdialenosť [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí sa nebudú pridávať vrcholy, ktoré nespĺňajú nastavenie maximálneho rozostupu medzi vrcholmi.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3305,7 +3305,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Obnoviť polohovanie</translation>
     </message>
 </context>
 <context>
