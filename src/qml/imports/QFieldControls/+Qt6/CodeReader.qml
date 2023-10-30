@@ -285,8 +285,8 @@ Popup {
           iconColor: "white"
           bgcolor: Theme.darkGraySemiOpaque
 
-          visible: settings.cameraActive && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
-          state: cameraLoader.item.camera.torchMode === Camera.TorchOn ? "On" : "Off"
+          visible: settings.cameraActive && cameraLoader.active && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
+          state: cameraLoader.active &&  cameraLoader.item.camera.torchMode === Camera.TorchOn ? "On" : "Off"
           states: [
             State {
               name: "Off"
