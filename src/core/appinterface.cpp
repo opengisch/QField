@@ -169,10 +169,10 @@ void AppInterface::logRuntimeProfiler()
 #endif
 }
 
-void AppInterface::sendLog( const QString &message )
+void AppInterface::sendLog( const QString &message, const QString &cloudUser )
 {
 #if WITH_SENTRY
-  sentry_wrapper::capture_event( message.toUtf8().constData() );
+  sentry_wrapper::capture_event( message.toUtf8().constData(), cloudUser.toUtf8().constData() );
 #endif
 }
 

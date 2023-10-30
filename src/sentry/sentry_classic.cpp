@@ -184,11 +184,19 @@ namespace sentry_wrapper
     sentry_close();
   }
 
-  void capture_event( const char *message )
+  void capture_event( const char *message, const char *cloudUser )
   {
-    sentry_capture_event( sentry_value_new_message_event(
+    sentry_value_t event = sentry_value_new_message_event(
       SENTRY_LEVEL_INFO,
       "custom",
-      message ) );
+      message );
+
+    sentry_value_t cloud = sentry_value_new_object();
+    sentry_value_set_by_key( cloud, "user", sentry_value_new_string( cloudUser ) );
+    sentry_value_t contexts = sentry_value_new_object();
+    sentry_value_set_by_key( contexts, "cloud", cloud );
+    sentry_value_set_by_key( event, "contexts", contexts );
+
+    sentry_capture_event( event );
   }
 } // namespace sentry_wrapper
