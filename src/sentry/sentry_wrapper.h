@@ -19,5 +19,5 @@ namespace sentry_wrapper
   void init();
   void close();
   void install_message_handler();
-  void capture_event( const char *message );
+  void capture_event( const char *message, const char *cloudUser );
 } // namespace sentry_wrapper

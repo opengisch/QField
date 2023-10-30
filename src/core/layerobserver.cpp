@@ -271,7 +271,7 @@ void LayerObserver::onEditingStopped()
 
   if ( vl->source().contains( QStringLiteral( "data.gpkg" ) ) && mLocalAndSourcePkAttrAreEqual )
   {
-    AppInterface::instance()->sendLog( QStringLiteral( "Called LayerObserver::onEditingStopped!" ) );
+    AppInterface::instance()->sendLog( QStringLiteral( "Called LayerObserver::onEditingStopped!" ), QString() );
     mLocalAndSourcePkAttrAreEqual = false;
   }
 
