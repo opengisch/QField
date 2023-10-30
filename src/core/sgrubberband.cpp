@@ -109,7 +109,7 @@ QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &poin
 QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &points )
 {
   QgsGeometry geom( new QgsPolygon( new QgsLineString( points ) ) );
-  geom = geom.buffer( 0.0000001, 1, Qgis::EndCapStyle::Flat, Qgis::JoinStyle::Miter, 5 );
+  geom = geom.buffer( 0.0000001, 5 );
   // QgsTesselator doesn't allow for coordinates distance smaller than 0.001
   geom.removeDuplicateNodes( 0.001 );
   QgsPolygon *polygon = qgsgeometry_cast<QgsPolygon *>( geom.constGet() );
