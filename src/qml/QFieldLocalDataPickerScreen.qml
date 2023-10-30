@@ -260,7 +260,7 @@ Page {
           property Item pressedItem
           anchors.fill: parent
           anchors.rightMargin: 48
-          onClicked: {
+          onClicked: (mouse) => {
             if (itemMenu.visible) {
               itemMenu.close();
             } else if (importMenu.visible) {
@@ -283,7 +283,7 @@ Page {
               }
             }
           }
-          onPressed: {
+          onPressed: (mouse) => {
             if (itemMenu.visible || importMenu.visible)
               return;
 
@@ -309,7 +309,7 @@ Page {
             }
           }
 
-          onPressAndHold: {
+          onPressAndHold: (mouse) => {
             var item = table.itemAt(
                   table.contentX + mouse.x,
                   table.contentY + mouse.y
