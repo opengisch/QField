@@ -143,13 +143,75 @@ Page {
     QfButton {
         id: submitLog
         Layout.fillWidth: true
-        text: qsTr( 'Send application log' )
+        text: qsTr("Send application log")
         visible: qfieldSettings.enableInfoCollection && platformUtilities.capabilities & PlatformUtilities.SentryFramework
 
         onClicked: {
-            iface.sendLog("Manual log submission")
-            displayToast(qsTr("Your application log is being sent"))
+            applicationLogDialog.open()
         }
+    }
+  }
+
+  Dialog {
+    id: applicationLogDialog
+    title: qsTr("Send application log")
+    focus: true
+    font: Theme.defaultFont
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height - 80 ) / 2
+
+    onAboutToShow: {
+      appliationLogInput.text = ''
+    }
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: applicationLogLabelMetrics
+        font: applicationLogLabel.font
+        text: applicationLogLabel.text
+      }
+
+      Label {
+        id: applicationLogLabel
+        width: mainWindow.width - 60 < applicationLogLabelMetrics.width ? mainWindow.width - 60 : applicationLogLabelMetrics.width
+        text: qsTr("this will send a log of your current session to the development team. You only need to do this when you are asked for it.")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      QfTextField {
+        id: appliationLogInput
+        width: applicationLogLabel.width
+        placeholderText: qsTr("Type optional details")
+      }
+
+      CheckBox {
+        id: includeCloudInformationCheckBox
+        width: applicationLogLabel.width
+        topPadding: 5
+        bottomPadding: 5
+        text: qsTr('Include cloud user details')
+        font: Theme.defaultFont
+        visible: cloudConnection.status === QFieldCloudConnection.LoggedIn
+        checked: cloudConnection.status === QFieldCloudConnection.LoggedIn
+        indicator.height: 16
+        indicator.width: 16
+        indicator.implicitHeight: 24
+        indicator.implicitWidth: 24
+      }
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      var applicationLogMessage = appliationLogInput.text.trim()
+      iface.sendLog(applicationLogMessage != '' ? applicationLogMessage : 'Manual log submission', includeCloudInformationCheckBox.checked ? cloudConnection.username : '')
+      displayToast(qsTr("Your application log is being sent"))
     }
   }
 
