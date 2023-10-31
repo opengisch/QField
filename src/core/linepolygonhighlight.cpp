@@ -159,13 +159,13 @@ void LinePolygonHighlight::visibleExtentChanged()
 void LinePolygonHighlight::mapCrsChanged()
 {
   mDirty = true;
-  update();
+  updateTransform();
 }
 
 void LinePolygonHighlight::makeDirty()
 {
   mDirty = true;
-  update();
+  updateTransform();
 }
 
 QgsGeometryWrapper *LinePolygonHighlight::geometry() const
