@@ -47,7 +47,7 @@ jobs:
         uses: jurplel/install-qt-action@v3
         with:
           version: 6.5.3
-          modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtmultimedia qtwebview qtsensors'
+          modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors'
           target: ios
           cache: true
 
