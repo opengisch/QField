@@ -71,7 +71,7 @@ jobs:
         uses: jurplel/install-qt-action@v3
         with:
           version: 6.5.3
-          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
+          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors'
           target: android
           arch: ${{ matrix.qt_arch }}
           cache: false
@@ -80,7 +80,7 @@ jobs:
         uses: jurplel/install-qt-action@v3
         with:
           version: 6.5.3
-          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors'
+          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors'
           target: desktop
           cache: false
 
