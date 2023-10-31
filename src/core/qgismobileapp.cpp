@@ -1093,7 +1093,7 @@ void QgisMobileapp::readProjectFile()
     }
   }
 
-  if ( mProject->elevationProperties()->terrainProvider()->type() == QStringLiteral( "flat" ) )
+  if ( mProject->elevationProperties()->terrainProvider()->type() == QStringLiteral( "flat" ) && qgsDoubleNear( mProject->elevationProperties()->terrainProvider()->offset(), 0.0 ) && qgsDoubleNear( mProject->elevationProperties()->terrainProvider()->scale(), 1.0 ) )
   {
     QgsRasterLayer *elevationLayer = LayerUtils::createOnlineElevationLayer();
     mProject->addMapLayer( elevationLayer, false, true );
