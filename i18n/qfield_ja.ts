@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>検索をフィールド &apos;%1&apos; に制限します。</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>アクティブレイヤーからの地物</translation>
     </message>
 </context>
 <context>
@@ -430,7 +430,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>NFCテキストタグを検出</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -438,7 +438,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>デバイスをコードの中央に配置する</translation>
     </message>
 </context>
 <context>
@@ -453,7 +453,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>閲覧モードに切り替える前に、地物のデジタイジング機能を終了または解除する。</translation>
     </message>
 </context>
 <context>
@@ -566,11 +566,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>ジオメトリを複数パーツに変更することはできませんでした</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>ジオメトリを変更することができませんでした</translation>
     </message>
 </context>
 <context>
@@ -895,7 +895,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>消しゴムツール</translation>
     </message>
 </context>
 <context>
@@ -1161,27 +1161,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>アクティブレイヤーから、属性が一致するフィーチャーのリストを返します。マッチングを単一の属性に制限するには、その属性の名前の先頭に &apos;@&apos; を付けます。</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>検索可能なすべてのレイヤーのうち、表示名が一致する地物のリストを返します。</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>検索バーに入力されたX座標とY座標、またはWGS84緯度と経度の組み合わせから点を返します。</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーおよび現在開いているプロジェクトのブックマークのうち、名前が一致するものの一覧を返します。</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>検索バーに入力された式の値を返します。</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>一致する条件でフィンランド国内の場所と住所のリストを返します。</translation>
     </message>
 </context>
 <context>
@@ -1192,7 +1192,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>アクティブレイヤー内の地物を検索するには、凡例からベクターレイヤーを選択します。</translation>
     </message>
 </context>
 <context>
@@ -1246,7 +1246,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>ログ・ランタイム・プロファイラー</translation>
     </message>
 </context>
 <context>
@@ -1731,11 +1731,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>ジオタグが有効です</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>ジオタグが無効です</translation>
     </message>
 </context>
 <context>
@@ -2395,7 +2395,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>ZIPファイルからプロジェクトを更新する</translation>
     </message>
 </context>
 <context>
@@ -2760,15 +2760,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>デバイスからのオルソメトリック</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>ボリュームキーを使ってデジタル化する</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、デジタイズ中にデバイスのボリューム・アップ・キーを押すと頂点が追加され、ボリューム・ダウン・キーを押すと最後に入力した頂点が削除されます。</translation>
     </message>
 </context>
 <context>
@@ -3180,19 +3180,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>トラッキング: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>トラッキング</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>条件設定</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>最小時間条件</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3200,11 +3200,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、最後の頂点と新しい頂点の間の時間が、設定された最小値を満たしたときに、頂点の追加が行われます。</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>最小距離条件</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3212,39 +3212,39 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、最後の頂点と新しい頂点の間の距離が、設定された最小値を満たしたときに、頂点の追加が行われます。</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>センサーデータ条件</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、センサーが新しいデータを取り込んだときに頂点の追加が行われます。</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>すべてのアクティブ条件を満たすまで待機する</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、すべてのアクティブな条件が満たされたときにのみ頂点が記録されます。無効にすると、個々の条件のうち一つが満たされたときに、頂点が追加されます。</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>一般設定</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>誤った距離のセーフガード</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>最大許容距離 [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、最後の頂点と新しい頂点の間の距離が設定された最大値より大きい場合、頂点の追加は行われません。</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3300,7 +3300,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>トラッキングをやり直す</translation>
     </message>
 </context>
 <context>
