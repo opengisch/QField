@@ -50,15 +50,19 @@ VisibilityFadingRow {
     }
   }
 
-  function canvasClicked(point)
+  function canvasClicked(point, type)
   {
-    if ( featureModel.vertexModel.currentVertexIndex == -1 )
+    if (type === "stylus") {
+      if ( featureModel.vertexModel.currentVertexIndex == -1 )
+        featureModel.vertexModel.selectVertexAtPosition(point, 10)
+      else
+      {
+        digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+        featureModel.vertexModel.currentVertexIndex = -1
+        vertexEditorToolbar.currentVertexModified = false
+      }
+    } else {
       featureModel.vertexModel.selectVertexAtPosition(point, 10)
-    else
-    {
-      digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
-      featureModel.vertexModel.currentVertexIndex = -1
-      vertexEditorToolbar.currentVertexModified = false
     }
 
     return true // handled
