@@ -121,7 +121,6 @@ VisibilityFadingRow {
     onClicked: {
       applyChanges(qfieldSettings.autoSave)
       if (featureModel.vertexModel.currentVertexIndex != -1) {
-        // When already cycling through vertices, toggle the mid-point selection process
         if (featureModel.vertexModel.editingMode === VertexModel.AddVertex) {
           featureModel.vertexModel.editingMode = VertexModel.EditVertex
         } else {
