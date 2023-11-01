@@ -11,6 +11,7 @@ Repeater {
 
   property MapSettings mapSettings
   property bool isVisible: false
+  property bool isCycling: model.currentVertexIndex !== -1
   property bool isAddingVertex: model.editingMode === VertexModel.AddVertex
 
   delegate: Rectangle {
@@ -24,11 +25,11 @@ Repeater {
 
     x: mapToScreen.screenPoint.x - width/2
     y: mapToScreen.screenPoint.y - width/2
-    opacity: (isAddingVertex && !ExistingVertex) || (!isAddingVertex && ExistingVertex)
+    opacity: !isCycling || (isAddingVertex && !ExistingVertex) || (!isAddingVertex && ExistingVertex)
             ? 1.0
             : 0.25
 
-    width: (opacity == 1.0 ? 16 : 8) * (CurrentVertex ? 1.33 : 1) / (rotation == 0? 1 : 1.25)
+    width: ((isAddingVertex && !ExistingVertex) || (!isAddingVertex && ExistingVertex) ? 16 : 8) * (CurrentVertex ? 1.33 : 1) / (rotation == 0? 1 : 1.25)
     height: width
     radius: ExistingVertex ? width / 2 : 0
     rotation: ExistingVertex ? 0 : 45

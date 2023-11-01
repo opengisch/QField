@@ -25,6 +25,7 @@ VisibilityFadingRow {
 
   function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
   {
+    featureModel.vertexModel.currentVertexIndex = -1
     vertexEditorToolbar.featureModel = featureModel
     vertexEditorToolbar.mapSettings = mapSettings
     digitizingLogger.digitizingLayer = featureModel.currentLayer

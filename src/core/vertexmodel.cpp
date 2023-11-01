@@ -88,7 +88,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
 
 void VertexModel::refreshGeometry()
 {
-  mCurrentIndex = -1;
+  setCurrentVertexIndex( -1 );
   QgsGeometry geom = mOriginalGeometry;
 
   if ( mMapSettings )
@@ -495,14 +495,8 @@ void VertexModel::addVertexNearestToPosition( const QgsPoint &mapPoint )
 
   if ( closestRow > -1 )
   {
-    beginResetModel();
-    mVertices[closestRow].type = ExistingVertex;
-    setCurrentVertex( closestRow );
-    createCandidates();
-    setEditingMode( EditVertex );
-    endResetModel();
-
-    setDirty( true );
+    setEditingMode( AddVertex );
+    setCurrentVertex( closestRow, true );
   }
 }
 
