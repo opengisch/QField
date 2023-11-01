@@ -1250,6 +1250,18 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Log runtime profiler</source>
         <translation>Rexistrar perfilar de execución</translation>
     </message>
+    <message>
+        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type optional details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>

@@ -1252,6 +1252,18 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>Log runtime profiler</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type optional details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>

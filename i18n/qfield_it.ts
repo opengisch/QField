@@ -1252,6 +1252,18 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
         <source>Log runtime profiler</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type optional details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>
