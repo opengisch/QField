@@ -6,8 +6,9 @@ import org.qfield 1.0
 
 Repeater {
     id: vertexRubberband
+
     property MapSettings mapSettings
-    property bool isVisible: true
+    property bool isVisible: false
 
     delegate: Rectangle {
       MapToScreen {
