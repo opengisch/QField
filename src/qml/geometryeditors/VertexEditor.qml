@@ -87,9 +87,8 @@ VisibilityFadingRow {
           digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
 
       digitizingLogger.writeCoordinates();
-      applyChanges( true )
-      if( !qfieldSettings.autoSave )
-        finished()
+      applyChanges(true)
+      finished()
     }
   }
 

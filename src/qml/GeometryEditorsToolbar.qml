@@ -53,7 +53,7 @@ VisibilityFadingRow {
   }
 
   function init() {
-    var lastUsed = settings.value( "/QField/GeometryEditorLastUsed2", -1 )
+    var lastUsed = settings.value("/QField/GeometryEditorLastUsed", -1)
     if (lastUsed >= 0 && lastUsed < editors.rowCount())
     {
       selectorRow.stateVisible = false
@@ -66,8 +66,9 @@ VisibilityFadingRow {
   }
 
   function cancelEditors() {
-    if ( toolbarRow.item )
+    if (toolbarRow.item) {
       toolbarRow.item.cancel()
+    }
     featureModel.vertexModel.clear()
   }
 
@@ -163,8 +164,7 @@ VisibilityFadingRow {
     target: toolbarRow.item
 
     function onFinished() {
-        featureModel.vertexModel.clear()
-        toolbarRow.source = ''
+      featureModel.vertexModel.clear()
     }
   }
 
@@ -177,6 +177,7 @@ VisibilityFadingRow {
     onClicked: {
       toolbarRow.item.cancel()
       toolbarRow.source = ''
+      vertexRubberband.isVisible = false
       selectorRow.stateVisible = true
       image = Theme.getThemeIcon("ic_edit_geometry_white")
     }
