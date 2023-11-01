@@ -522,7 +522,7 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
     }
   }
 
-  if ( closestRow >= 0 && closestDistance / mapSettings()->mapSettings().mapUnitsPerPixel() < threshold )
+  if ( closestRow >= 0 && closestDistance / mapSettings()->mapUnitsPerPoint() < threshold )
   {
     if ( mVertices[closestRow].type != ExistingVertex )
     {
