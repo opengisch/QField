@@ -3,6 +3,7 @@ import QtQml.Models 2.14
 
 import org.qgis 1.0
 import org.qfield 1.0
+
 import Theme 1.0
 
 /**
@@ -33,7 +34,7 @@ VisibilityFadingRow {
   property GeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
-  property string image: ''
+  property string image: Theme.getThemeIcon("ic_edit_geometry_white")
 
   spacing: 4
 
@@ -52,7 +53,7 @@ VisibilityFadingRow {
   }
 
   function init() {
-    var lastUsed = settings.value( "/QField/GeometryEditorLastUsed", -1 )
+    var lastUsed = settings.value( "/QField/GeometryEditorLastUsed2", -1 )
     if (lastUsed >= 0 && lastUsed < editors.rowCount())
     {
       selectorRow.stateVisible = false
@@ -159,12 +160,12 @@ VisibilityFadingRow {
   }
 
   Connections {
-      target: toolbarRow.item
+    target: toolbarRow.item
 
-      function onFinished() {
-          featureModel.vertexModel.clear()
-          toolbarRow.source = ''
-      }
+    function onFinished() {
+        featureModel.vertexModel.clear()
+        toolbarRow.source = ''
+    }
   }
 
   QfToolButton {
@@ -177,6 +178,7 @@ VisibilityFadingRow {
       toolbarRow.item.cancel()
       toolbarRow.source = ''
       selectorRow.stateVisible = true
+      image = Theme.getThemeIcon("ic_edit_geometry_white")
     }
   }
 }
