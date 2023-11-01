@@ -73,7 +73,7 @@ void LinePolygonHighlight::setLineWidth( float width )
   mDirty = true;
 
   emit lineWidthChanged();
-  update();
+  updateTransform();
 }
 
 QColor LinePolygonHighlight::color() const
@@ -90,7 +90,7 @@ void LinePolygonHighlight::setColor( const QColor &color )
   mDirty = true;
 
   emit colorChanged();
-  update();
+  updateTransform();
 }
 
 QgsQuickMapSettings *LinePolygonHighlight::mapSettings() const
@@ -195,5 +195,5 @@ void LinePolygonHighlight::setGeometry( QgsGeometryWrapper *geometry )
   mDirty = true;
   emit qgsGeometryChanged();
 
-  update();
+  updateTransform();
 }
