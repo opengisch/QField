@@ -73,17 +73,17 @@ VisibilityFadingRow {
   }
 
   // returns true if handled
-  function canvasClicked(point) {
+  function canvasClicked(point, type) {
     if ( toolbarRow.item && toolbarRow.visible )
-      return toolbarRow.item.canvasClicked(point)
+      return toolbarRow.item.canvasClicked(point, type)
     else
       return false
   }
 
   // returns true if handled
-  function canvasLongPressed(point) {
+  function canvasLongPressed(point, type) {
     if ( toolbarRow.item && toolbarRow.visible )
-      return toolbarRow.item.canvasLongPressed(point)
+      return toolbarRow.item.canvasLongPressed(point, type)
     else
       return false
   }

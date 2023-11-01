@@ -439,6 +439,10 @@ ApplicationWindow {
               return;
           }
 
+          // Check if geometry editor is taking over
+          if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) && geometryEditorsToolbar.canvasClicked( point, type ) )
+              return;
+
           if ( type === "stylus" ) {
               if ( pointInItem( point, digitizingToolbar ) ||
                    pointInItem( point, zoomToolbar ) ||
@@ -449,10 +453,6 @@ ApplicationWindow {
                    pointInItem( point, locatorItem ) ) {
                   return;
               }
-
-              // Check if geometry editor is taking over
-              if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && geometryEditorsToolbar.canvasClicked(point) )
-                  return;
 
               if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
                    ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
@@ -472,6 +472,14 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: (point) => {
+          // Check if geometry editor is taking over
+          if ( geometryEditorsToolbar.stateVisible ) {
+            if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) ) {
+              geometryEditorsToolbar.canvasClicked( point, '' )
+            }
+            return
+          }
+
           if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state != "FeatureFormEdit")
           {
               identifyTool.isMenuRequest = false
@@ -485,8 +493,8 @@ ApplicationWindow {
             return
           }
 
-          if ( geometryEditorsToolbar.canvasLongPressed( point ) ) {
-            // for instance, the vertex editor will select a vertex if possible
+          // Check if geometry editor is taking over
+          if ( geometryEditorsToolbar.canvasLongPressed( point, type ) ) {
             return
           }
 
@@ -508,6 +516,11 @@ ApplicationWindow {
           identifyTool.isMenuRequest = false
           identifyTool.identify(point)
         } else {
+          // Check if geometry editor is taking over
+          if ( geometryEditorsToolbar.canvasLongPressed(point) ) {
+            return
+          }
+
           canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
           canvasMenu.popup(point.x, point.y)
           identifyTool.isMenuRequest = true
