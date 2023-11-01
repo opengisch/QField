@@ -19,7 +19,7 @@ VisibilityFadingRow {
   property int currentVertexId: -1
   property bool currentVertexModified: false
 
-  readonly property bool blocking: featureModel.vertexModel.dirty
+  readonly property bool blocking: featureModel ? featureModel.vertexModel.dirty : false
 
   spacing: 4
 
@@ -27,6 +27,7 @@ VisibilityFadingRow {
   {
     vertexEditorToolbar.featureModel = featureModel
     vertexEditorToolbar.mapSettings = mapSettings
+    digitizingLogger.digitizingLayer = featureModel.currentLayer
   }
 
   function cancel()
@@ -66,7 +67,7 @@ VisibilityFadingRow {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.dirty && !qfieldSettings.autoSave
+    visible: featureModel && featureModel.vertexModel.dirty && !qfieldSettings.autoSave
     bgcolor: "#900000"
     onClicked: {
       digitizingLogger.clearCoordinates();
@@ -78,7 +79,7 @@ VisibilityFadingRow {
     id: applyButton
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     round: true
-    visible: featureModel.vertexModel.dirty
+    visible: featureModel && featureModel.vertexModel.dirty
     bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
@@ -96,7 +97,7 @@ VisibilityFadingRow {
     id: removeVertexButton
     iconSource: Theme.getThemeIcon( "ic_remove_vertex_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.canRemoveVertex // for now, TODO multi geom
+    visible: featureModel && featureModel.vertexModel.canRemoveVertex
     bgcolor: Theme.darkGray
 
     onClicked: {
@@ -112,11 +113,11 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: addVertexButton
-    iconSource: featureModel.vertexModel.editingMode === VertexModel.AddVertex
+    iconSource: featureModel && featureModel.vertexModel.editingMode === VertexModel.AddVertex
                 ? Theme.getThemeVectorIcon("ic_location_valid_white_24dp")
                 : Theme.getThemeIcon("ic_add_vertex_white_24dp")
     round: true
-    visible:  !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible:  !screenHovering && featureModel && featureModel.vertexModel.canAddVertex
     bgcolor: Theme.darkGray
 
     onClicked: {
@@ -132,8 +133,8 @@ VisibilityFadingRow {
     id: previousVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    visible: (!screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex
-    bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+    visible: featureModel && ((!screenHovering && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
+    bgcolor: featureModel && featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified)
@@ -148,8 +149,8 @@ VisibilityFadingRow {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    visible: (!screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex
-    bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+    visible: featureModel && ((!screenHovering && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
+    bgcolor: featureModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified)
@@ -166,7 +167,6 @@ VisibilityFadingRow {
 
     project: qgisProject
     mapSettings: mapSettings
-    digitizingLayer: featureModel.currentLayer
 
     positionInformation: positionSource.positionInformation
     positionLocked: gnssLockButton.checked
