@@ -118,14 +118,16 @@ VisibilityFadingRow {
         iconSource: Theme.getThemeVectorIcon(iconPath)
         visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
-          // close current tool if any
-          if (toolbarRow.item)
+          // close current tool
+          if (toolbarRow.item) {
             toolbarRow.item.cancel()
+          }
+
           selectorRow.stateVisible = false
           geometryEditorsToolbar.image = Theme.getThemeVectorIcon(iconPath)
           toolbarRow.load(toolbar, iconPath, name)
 
-          settings.setValue( "/QField/GeometryEditorLastUsed", index )
+          settings.setValue("/QField/GeometryEditorLastUsed", index)
         }
       }
     }
@@ -180,6 +182,7 @@ VisibilityFadingRow {
       vertexRubberband.isVisible = false
       selectorRow.stateVisible = true
       image = Theme.getThemeIcon("ic_edit_geometry_white")
+      settings.setValue("/QField/GeometryEditorLastUsed", -1)
     }
   }
 }
