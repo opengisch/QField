@@ -472,6 +472,40 @@ void VertexModel::next()
   }
 }
 
+void VertexModel::addVertexNearestToPosition( const QgsPoint &mapPoint )
+{
+  double closestDistance = std::numeric_limits<double>::max();
+
+  int closestRow = -1;
+
+  for ( int r = 0; r < mVertices.count(); r++ )
+  {
+    if ( mVertices[r].type == ExistingVertex )
+    {
+      continue;
+    }
+
+    double dist = mVertices[r].point.distance( mapPoint );
+    if ( dist < closestDistance )
+    {
+      closestDistance = dist;
+      closestRow = r;
+    }
+  }
+
+  if ( closestRow > -1 )
+  {
+    beginResetModel();
+    mVertices[closestRow].type = ExistingVertex;
+    setCurrentVertex( closestRow );
+    createCandidates();
+    setEditingMode( EditVertex );
+    endResetModel();
+
+    setDirty( true );
+  }
+}
+
 void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold )
 {
   QgsPoint mapPoint( mapSettings()->screenToCoordinate( point ) );
@@ -486,7 +520,7 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
 
   for ( int r = 0; r < mVertices.count(); r++ )
   {
-    double dist = mVertices.at( r ).point.distance( mapPoint );
+    double dist = mVertices[r].point.distance( mapPoint );
     if ( dist < closestDistance )
     {
       closestDistance = dist;
@@ -496,7 +530,7 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
 
   if ( closestRow >= 0 && closestDistance / mapSettings()->mapSettings().mapUnitsPerPixel() < threshold )
   {
-    if ( mVertices.at( closestRow ).type != ExistingVertex )
+    if ( mVertices[closestRow].type != ExistingVertex )
     {
       // makes a new vertex as an existing vertex
       beginResetModel();

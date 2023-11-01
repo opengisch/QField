@@ -163,7 +163,14 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! next vertex or segment
     Q_INVOKABLE void next();
 
+    //! Selects the vertex at the given screen \a point within a given \a threshold
     Q_INVOKABLE void selectVertexAtPosition( const QPointF &point, double threshold );
+
+    //! Selects the vertex at the given \a mapPoint within a given \a threshold
+    void selectVertexAtPosition( const QgsPoint &mapPoint, double threshold );
+
+    //! Adds a new vertex on the segment having its mid-point nearest to the \a mapPoint
+    Q_INVOKABLE void addVertexNearestToPosition( const QgsPoint &mapPoint );
 
     Q_INVOKABLE void removeCurrentVertex();
 
@@ -225,9 +232,6 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     void setCurrentVertexIndex( int currentIndex );
 
     Vertex vertex( int row ) const;
-
-    //! Selects the vertex at the given \a mapPoint and
-    void selectVertexAtPosition( const QgsPoint &mapPoint, double threshold );
 
   signals:
     //! \copydoc editingMode

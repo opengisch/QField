@@ -102,11 +102,12 @@ VisibilityFadingRow {
     onClicked: {
       if (featureModel.vertexModel.canRemoveVertex){
         featureModel.vertexModel.removeCurrentVertex()
-        if (screenHovering)
+        if (screenHovering) {
           featureModel.vertexModel.currentVertexIndex = -1
+        }
       }
-      //on remove we have to apply directly after the action
-      applyChanges( qfieldSettings.autoSave )
+
+      applyChanges(qfieldSettings.autoSave)
     }
   }
 
@@ -120,11 +121,18 @@ VisibilityFadingRow {
     bgcolor: Theme.darkGray
 
     onClicked: {
-      applyChanges( qfieldSettings.autoSave )
-      if (featureModel.vertexModel.editingMode === VertexModel.AddVertex)
-        featureModel.vertexModel.editingMode = VertexModel.EditVertex
-      else
-        featureModel.vertexModel.editingMode = VertexModel.AddVertex
+      applyChanges(qfieldSettings.autoSave)
+      if (featureModel.vertexModel.currentVertexIndex != -1) {
+        // When already cycling through vertices, toggle the mid-point selection process
+        if (featureModel.vertexModel.editingMode === VertexModel.AddVertex) {
+          featureModel.vertexModel.editingMode = VertexModel.EditVertex
+        } else {
+          featureModel.vertexModel.editingMode = VertexModel.AddVertex
+        }
+      } else {
+        featureModel.vertexModel.addVertexNearestToPosition(coordinateLocator.currentCoordinate)
+        applyChanges(qfieldSettings.autoSave)
+      }
     }
   }
 
@@ -137,9 +145,11 @@ VisibilityFadingRow {
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified)
-          digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+      {
+        digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+      }
 
-      applyChanges( qfieldSettings.autoSave )
+      applyChanges(qfieldSettings.autoSave)
       featureModel.vertexModel.previous()
     }
   }
@@ -153,9 +163,11 @@ VisibilityFadingRow {
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified)
-          digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+      {
+        digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+      }
 
-      applyChanges( qfieldSettings.autoSave )
+      applyChanges(qfieldSettings.autoSave)
       featureModel.vertexModel.next()
     }
   }
