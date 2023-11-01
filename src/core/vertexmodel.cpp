@@ -500,13 +500,13 @@ void VertexModel::addVertexNearestToPosition( const QgsPoint &mapPoint )
   }
 }
 
-void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold )
+void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold, bool autoInsert )
 {
   QgsPoint mapPoint( mapSettings()->screenToCoordinate( point ) );
-  selectVertexAtPosition( mapPoint, threshold );
+  selectVertexAtPosition( mapPoint, threshold, autoInsert );
 }
 
-void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double threshold )
+void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double threshold, bool autoInsert )
 {
   double closestDistance = std::numeric_limits<double>::max();
 
@@ -526,13 +526,21 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
   {
     if ( mVertices[closestRow].type != ExistingVertex )
     {
-      // makes a new vertex as an existing vertex
-      beginResetModel();
-      mVertices[closestRow].type = ExistingVertex;
-      setCurrentVertex( closestRow );
-      createCandidates();
-      setEditingMode( EditVertex );
-      endResetModel();
+      if ( autoInsert )
+      {
+        // makes a new vertex as an existing vertex
+        beginResetModel();
+        mVertices[closestRow].type = ExistingVertex;
+        setCurrentVertex( closestRow );
+        createCandidates();
+        setEditingMode( EditVertex );
+        endResetModel();
+      }
+      else
+      {
+        setEditingMode( AddVertex );
+        setCurrentVertex( closestRow, true );
+      }
     }
     else
     {

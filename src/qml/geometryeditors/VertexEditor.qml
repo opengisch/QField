@@ -62,7 +62,7 @@ VisibilityFadingRow {
         vertexEditorToolbar.currentVertexModified = false
       }
     } else {
-      featureModel.vertexModel.selectVertexAtPosition(point, 10)
+      featureModel.vertexModel.selectVertexAtPosition(point, 10, false)
     }
 
     return true // handled
