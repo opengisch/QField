@@ -27,6 +27,8 @@ Popup {
 
     onAboutToShow: {
         if (selectedDate !== undefined) {
+            calendar.month = selectedDate.getMonth();
+            calendar.year = selectedDate.getFullYear();
             hoursSpinBox.value = selectedDate.getHours();
             minutesSpinBox.value = selectedDate.getMinutes();
             secondsSpinBox.value = selectedDate.getSeconds();
@@ -83,6 +85,7 @@ Popup {
                     QfToolButton {
                         enabled: true
                         iconSource: Theme.getThemeIcon( 'ic_doublearrow_left_black_24dp' )
+                        iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
 
@@ -103,6 +106,7 @@ Popup {
                     QfToolButton {
                         enabled: true
                         iconSource: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
+                        iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
 
@@ -128,6 +132,7 @@ Popup {
                     Layout.row: 0
                     Layout.fillWidth: true
                     font: Theme.tipFont
+                    color: Theme.mainTextColor
                 }
 
                 Row {
@@ -137,6 +142,7 @@ Popup {
                     QfToolButton {
                         enabled: true
                         iconSource: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
+                        iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
 
@@ -156,6 +162,7 @@ Popup {
                     QfToolButton {
                         enabled: true
                         iconSource: Theme.getThemeIcon( 'ic_doublearrow_right_black_24dp' )
+                        iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
 
@@ -181,6 +188,14 @@ Popup {
                     Layout.columnSpan: 3
                     Layout.row: 1
                     Layout.fillWidth: true
+
+                    delegate: Text {
+                        text: model.shortName
+                        font: Theme.tipFont
+                        color: Theme.secondaryTextColor
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
                 }
 
                 MonthGrid {
@@ -236,7 +251,7 @@ Popup {
                             font.pointSize: Theme.tipFont.pointSize
                             font.bold: parent.isSelectedDate ? true : false
                             font.underline: parent.isNow ? true : false
-                            color: parent.isSelectedDate ? "white" : "black"
+                            color: parent.isSelectedDate ? "white" : Theme.mainTextColor
                         }
                     }
 
