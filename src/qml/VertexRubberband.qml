@@ -47,11 +47,16 @@ Repeater {
       anchors.fill: parent
       anchors.margins: 1
       radius: ExistingVertex ? width / 2 : 0
-      color: CurrentVertex ? "#200000FF" : "#40FF0000"
+      color: CurrentVertex
+             ? isAddingVertex
+               ? Theme.vertexNewColorSemiOpaque
+               : Theme.vertexSelectedColorSemiOpaque
+             : Theme.vertexColorSemiOpaque
       border.color: CurrentVertex
                     ? isAddingVertex
-                      ? Theme.mainColor : "#0000FF"
-                    : "#FF0000"
+                      ? Theme.vertexNewColor
+                      : Theme.vertexSelectedColor
+                    : Theme.vertexColor
       border.width: (VertexModel.ExistingVertex ? 4 : 2) * (CurrentVertex ? 1.5 : 1)
     }
   }

@@ -52,6 +52,13 @@ QtObject {
     readonly property color bookmarkRed: "#c0392b"
     readonly property color bookmarkBlue: "#64b5f6"
 
+    readonly property color vertexColor: "#FF0000"
+    readonly property color vertexColorSemiOpaque: "#40FF0000"
+    readonly property color vertexSelectedColor: "#0000FF"
+    readonly property color vertexSelectedColorSemiOpaque: "#200000FF"
+    readonly property color vertexNewColor: "#4CAF50"
+    readonly property color vertexNewColorSemiOpaque: "#404CAF50"
+
     readonly property color accentColor: '#4CAF50'
     readonly property color accentLightColor: '#994CAF50'
 
