@@ -412,7 +412,7 @@ Popup {
                   ? qsTr('Revert local changes')
                   : qsTr('Reset project')
             enabled: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 || cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            icon.source: Theme.getThemeIcon('ic_undo_white_24dp')
+            icon.source: Theme.getThemeVectorIcon('ic_undo_white_24dp')
 
             onClicked: {
               if (!cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
