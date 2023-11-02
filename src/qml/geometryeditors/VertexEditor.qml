@@ -54,7 +54,7 @@ VisibilityFadingRow {
   {
     if (type === "stylus") {
       if ( featureModel.vertexModel.currentVertexIndex == -1 )
-        featureModel.vertexModel.selectVertexAtPosition(point, 10)
+        featureModel.vertexModel.selectVertexAtPosition(point, 14)
       else
       {
         digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
@@ -62,10 +62,10 @@ VisibilityFadingRow {
         vertexEditorToolbar.currentVertexModified = false
       }
     } else {
-      featureModel.vertexModel.selectVertexAtPosition(point, 10, false)
+      featureModel.vertexModel.selectVertexAtPosition(point, 14, false)
     }
 
-    return true // handled
+    return true
   }
 
   QfToolButton {

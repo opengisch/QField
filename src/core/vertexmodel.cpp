@@ -544,6 +544,7 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
     }
     else
     {
+      setEditingMode( EditVertex );
       setCurrentVertex( closestRow );
     }
   }
