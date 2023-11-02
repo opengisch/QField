@@ -1250,15 +1250,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>这会将您当前的会话日志发送给开发团队。您只需在被请求时执行此操作即可。</translation>
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>可选类型详细信息</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>包括云用户详细信息</translation>
     </message>
 </context>
 <context>

@@ -1251,11 +1251,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Wpisz opcjonalne szczegóły</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Zawiera szczegóły użytkownik chmury</translation>
     </message>
 </context>
 <context>
@@ -2765,7 +2765,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Ta wartość koryguje wartości Z rejestrowane z urządzenia pozycjonującego. Np. jeśli podano wartość 1,6, QField automatycznie odejmie 1,6 od każdej zarejestrowanej wartości. Upewnij się, że podano efektywną wysokość anteny, np. długość tyczki + korekcję centrum fazowego anteny.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -3221,7 +3221,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli włączone, dodawane nowe wierzchołki pojawią się, kiedy odległość między ostatnim i nowym wierzchołkiem spełni skonfigurowaną wartość minimalną.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
@@ -3356,7 +3356,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jeśli oba warunki są wyłączone, nowe wierzchołki będą dodawane, kiedy tylko pojawi się nowy pomiar w urządzeniu lokalizacyjnym.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
