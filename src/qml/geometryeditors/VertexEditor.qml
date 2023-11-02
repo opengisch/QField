@@ -69,6 +69,18 @@ VisibilityFadingRow {
   }
 
   QfToolButton {
+    id: undoButton
+    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
+    round: true
+    visible: featureModel && featureModel.vertexModel.canUndo
+    bgcolor: "#900000"
+    onClicked: {
+      featureModel.vertexModel.undoHistory()
+      mapSettings.setCenter(featureModel.vertexModel.currentPoint)
+    }
+  }
+
+  QfToolButton {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     round: true

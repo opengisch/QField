@@ -80,15 +80,96 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
   mGeometryWkbType = geometry.wkbType();
   mRingCount = 0;
   refreshGeometry();
-  setCurrentVertex( -1 );
   endResetModel();
   emit geometryChanged();
   emit geometryTypeChanged();
 }
 
+void VertexModel::clearHistory()
+{
+  mHistory.clear();
+  mHistoryIndex = -1;
+}
+
+void VertexModel::addToHistory( VertexChangeType type )
+{
+  if ( mHistoryTraversing )
+  {
+    return;
+  }
+
+  if ( mHistory.size() < mHistoryIndex )
+  {
+    while ( mHistory.size() < mHistoryIndex )
+    {
+      mHistory.removeLast();
+    }
+  }
+
+  if ( mHistory.isEmpty() || mHistory.last().type != type || ( mHistory.last().type == VertexMove && mHistory.last().index != mCurrentIndex ) )
+  {
+    mHistory << VertexChange( type, mCurrentIndex, mVertices.at( mCurrentIndex ) );
+  }
+
+  mHistoryIndex = mHistory.size() - 1;
+  emit historyChanged();
+}
+
+void VertexModel::undoHistory()
+{
+  if ( mHistoryIndex >= 0 )
+  {
+    mHistoryTraversing = true;
+
+    const VertexChange &change = mHistory.at( mHistoryIndex );
+    switch ( change.type )
+    {
+      case VertexMove:
+      {
+        setCurrentVertexIndex( change.index );
+        mVertices[change.index].originalPoint = change.vertex.originalPoint;
+        setCurrentPoint( change.vertex.point );
+        break;
+      }
+
+      case VertexAddition:
+      {
+        setCurrentVertexIndex( change.index + 1 );
+        removeCurrentVertex();
+        break;
+      }
+
+      case VertexDeletion:
+      {
+        setCurrentVertexIndex( -1 );
+        beginResetModel();
+        mVertices.insert( std::max( 0, change.index - 1 ), change.vertex );
+        createCandidates();
+        endResetModel();
+        setCurrentVertexIndex( change.index );
+
+        break;
+      }
+
+      case NoChange:
+        break;
+    }
+
+    mHistoryIndex--;
+    mHistoryTraversing = false;
+    emit historyChanged();
+  }
+}
+
+bool VertexModel::canUndo()
+{
+  return mHistoryIndex >= 0;
+}
+
 void VertexModel::refreshGeometry()
 {
-  setCurrentVertexIndex( -1 );
+  clearHistory();
+  setCurrentVertex( -1 );
   QgsGeometry geom = mOriginalGeometry;
 
   if ( mMapSettings )
@@ -564,6 +645,8 @@ void VertexModel::removeCurrentVertex()
   if ( !mVertices.at( mCurrentIndex ).originalPoint.isEmpty() )
     mVerticesDeleted << mVertices.at( mCurrentIndex ).originalPoint;
 
+  addToHistory( VertexDeletion );
+
   beginResetModel();
   mVertices.removeAt( mCurrentIndex );
   createCandidates();
@@ -610,11 +693,17 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   setDirty( true );
   beginResetModel();
 
+  addToHistory( mMode == AddVertex ? VertexAddition : VertexMove );
+
   vertex.point = point;
   if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
+  {
     vertex.point.addZValue();
+  }
   if ( QgsWkbTypes::hasM( mGeometryWkbType ) )
+  {
     vertex.point.addMValue();
+  }
 
   if ( mMode == AddVertex )
   {

@@ -63,6 +63,9 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex)
     Q_PROPERTY( bool isHovering MEMBER mIsHovering )
 
+    //! returns TRUE if an undo operation is available
+    Q_PROPERTY( bool canUndo READ canUndo NOTIFY historyChanged )
+
     /**
      * The index of the currently active vertex. If no vertex is selected, this is -1.
      */
@@ -112,6 +115,28 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
         bool currentVertex;
         PointType type;
         int ring;
+    };
+
+    enum VertexChangeType
+    {
+      NoChange,
+      VertexMove,
+      VertexAddition,
+      VertexDeletion
+    };
+    Q_ENUM( VertexChangeType )
+
+    struct VertexChange
+    {
+        VertexChange( VertexChangeType type, int &index, const Vertex &vertex )
+          : type( type )
+          , index( index )
+          , vertex( vertex )
+        {}
+
+        VertexChangeType type = NoChange;
+        int index = -1;
+        Vertex vertex;
     };
 
     explicit VertexModel( QObject *parent = nullptr );
@@ -233,6 +258,14 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     Vertex vertex( int row ) const;
 
+    void clearHistory();
+
+    void addToHistory( VertexChangeType type );
+
+    Q_INVOKABLE void undoHistory();
+
+    bool canUndo();
+
   signals:
     //! \copydoc editingMode
     void editingModeChanged();
@@ -257,18 +290,17 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     void currentVertexIndexChanged();
 
-    /**
-     * The coordinate reference system in which the geometry is
-     */
+    //!Emitted when the coordinate reference system has changed
     void crsChanged();
 
-    /**
-     * The geometry in layer coordinates
-     */
+    //! Emitted when the geometry has changed
     void geometryChanged();
 
     //! \copydoc geometryType
     void geometryTypeChanged();
+
+    //! Emitted when the history has been modified
+    void historyChanged();
 
   private:
     void refreshGeometry();
@@ -313,6 +345,10 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     bool mCanPreviousVertex = false;
     bool mCanNextVertex = false;
     bool mIsHovering = false;
+
+    QList<VertexChange> mHistory;
+    int mHistoryIndex = -1;
+    bool mHistoryTraversing = false;
 
     friend class VertexModelTest;
 };
