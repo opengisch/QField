@@ -98,9 +98,9 @@ void VertexModel::addToHistory( VertexChangeType type )
     return;
   }
 
-  if ( mHistory.size() < mHistoryIndex )
+  if ( mHistory.size() > mHistoryIndex + 1 )
   {
-    while ( mHistory.size() < mHistoryIndex )
+    while ( mHistory.size() > mHistoryIndex + 1 )
     {
       mHistory.removeLast();
     }
