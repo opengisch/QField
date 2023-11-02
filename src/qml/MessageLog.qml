@@ -179,7 +179,7 @@ Page {
       Label {
         id: applicationLogLabel
         width: mainWindow.width - 60 < applicationLogLabelMetrics.width ? mainWindow.width - 60 : applicationLogLabelMetrics.width
-        text: qsTr("this will send a log of your current session to the development team. You only need to do this when you are asked for it.")
+        text: qsTr("This will send a log of your current session to the development team. You only need to do this when you are asked for it.")
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
         color: Theme.mainTextColor
@@ -211,7 +211,7 @@ Page {
     onAccepted: {
       var applicationLogMessage = appliationLogInput.text.trim()
       iface.sendLog(applicationLogMessage != '' ? applicationLogMessage : 'Manual log submission', includeCloudInformationCheckBox.checked ? cloudConnection.username : '')
-      displayToast(qsTr("Your application log is being sent"))
+      displayToast(qsTr("Your application log is being sent…"))
     }
   }
 
