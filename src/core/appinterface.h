@@ -76,7 +76,7 @@ class AppInterface : public QObject
     /**
      * Sends a logs reporting through to sentry when enabled.
      */
-    Q_INVOKABLE void sendLog( const QString &message );
+    Q_INVOKABLE void sendLog( const QString &message, const QString &cloudUser );
 
     /**
      * Initalizes sentry connection.

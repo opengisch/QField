@@ -58,7 +58,7 @@ void install_message_handler() {
   originalMessageHandler = qInstallMessageHandler(qfMessageHandler);
 }
 
-void capture_event(const char *message) {
+void capture_event(const char *message, const char *cloudUser) {
   SentryId *eventId =
       [SentrySDK captureMessage:[NSString stringWithUTF8String:message]];
 #if 0
