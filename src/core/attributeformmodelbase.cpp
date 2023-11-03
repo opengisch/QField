@@ -162,6 +162,8 @@ void AttributeFormModelBase::resetModel()
   mConstraints.clear();
   mEditorWidgetCodes.clear();
 
+  setConstraintsHardValid( true );
+  setConstraintsSoftValid( true );
   setHasTabs( false );
 
   if ( !mFeatureModel )
