@@ -1239,15 +1239,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation>Dziennik twojej aplikacji jest wysyłany</translation>
+        <translation type="vanished">Dziennik twojej aplikacji jest wysyłany</translation>
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Zapis profilera uruchomieniowego</translation>
     </message>
     <message>
         <source>Type optional details</source>
@@ -1256,6 +1252,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Include cloud user details</source>
         <translation>Zawiera szczegóły użytkownik chmury</translation>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation>Ta funkcja wyśle dziennik twojej bieżącej sesji do zespołu programistów. Jest to potrzebne, tylko jeżeli zostaniesz o to poproszony.</translation>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
+        <translation>Dziennik twojej aplikacji jest wysyłany...</translation>
     </message>
 </context>
 <context>
@@ -2769,7 +2773,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortometryczna z urządzenia</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>

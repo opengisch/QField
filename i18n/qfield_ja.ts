@@ -1242,15 +1242,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation>アプリのログが送信されています</translation>
+        <translation type="vanished">アプリのログが送信されています</translation>
     </message>
     <message>
         <source>Log runtime profiler</source>
         <translation>ログ・ランタイム・プロファイラー</translation>
-    </message>
-    <message>
-        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type optional details</source>
@@ -1258,6 +1254,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
         <translation type="unfinished"/>
     </message>
 </context>

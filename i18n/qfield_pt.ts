@@ -453,7 +453,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Termine ou desative a digitalização do elemento antes de mudar para modo de navegação</translation>
     </message>
 </context>
 <context>
@@ -1246,23 +1246,27 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation>O registo da sua aplicação está a ser enviada</translation>
+        <translation type="vanished">O registo da sua aplicação está a ser enviada</translation>
     </message>
     <message>
         <source>Log runtime profiler</source>
         <translation>Registar perfil de tempo de execução</translation>
     </message>
     <message>
-        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Introduza detalhes opcionais</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Incluir detalhes do utilizador da cloud</translation>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation>Isto enviará um log da sua sessão atual para a equipa de desenvolvimento. Só precisa fazer isso quando solicitado.</translation>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
+        <translation>O log da sua aplicação está a ser enviado...</translation>
     </message>
 </context>
 <context>
@@ -1747,11 +1751,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging ativado</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging desativado</translation>
     </message>
 </context>
 <context>
@@ -2411,7 +2415,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Atualizar projeto do ZIP</translation>
     </message>
 </context>
 <context>
@@ -3196,19 +3200,19 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Rastreamento: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Rastreamento</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Requisitos de configurações</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de tempo</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3216,11 +3220,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, as adições de vértices ocorrrem quando o tempo entre o último e o novo vértice atingis um valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de distância</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3228,27 +3232,27 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, as adições de vértices ocorrrem quando a distância entre o último e o novo vértice atingis um valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de dados do sensor</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, as adições de vértices ocorrrem quando os sensores recolherem novos dados.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Esperar todos os requisitos ativos</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, os vértices só serão registados quando todos os requisitos ativos forem cumpridos. Quando desativado, o requisito individual cumprido acionará adição de vértices.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações Gerais</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -3260,7 +3264,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, a adição de vértices não acorrerá quanda a distância entre o último e o novo vértices for maior que um valor máximo configurado.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3316,7 +3320,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Retomar rastreamento</translation>
     </message>
 </context>
 <context>

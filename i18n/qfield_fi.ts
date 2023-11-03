@@ -1244,14 +1244,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation>Sovellutuslokisi lähetetään</translation>
+        <translation type="vanished">Sovellutuslokisi lähetetään</translation>
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1260,6 +1256,14 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
         <translation type="unfinished"/>
     </message>
 </context>

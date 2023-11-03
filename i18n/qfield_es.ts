@@ -1246,14 +1246,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation>El registro de su aplicación se está enviando</translation>
+        <translation type="vanished">El registro de su aplicación se está enviando</translation>
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1262,6 +1258,14 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
         <translation type="unfinished"/>
     </message>
 </context>

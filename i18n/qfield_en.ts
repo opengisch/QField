@@ -1267,14 +1267,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation>Your application log is being sent</translation>
+        <translation type="vanished">Your application log is being sent</translation>
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>this will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1283,6 +1279,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Include cloud user details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
