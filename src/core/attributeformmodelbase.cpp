@@ -26,9 +26,11 @@
 #include <qgsattributeeditortextelement.h>
 #include <qgsdatetimefieldformatter.h>
 #include <qgseditorwidgetsetup.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgsmapthemecollection.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
+#include <qgsvaluerelationfieldformatter.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
@@ -113,6 +115,8 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
         bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
         if ( changed )
         {
+          mExpressionContext.popScope();
+          mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
           synchronizeFieldValue( fieldIndex, value );
         }
         updateDefaultValues( fieldIndex );
@@ -244,6 +248,7 @@ void AttributeFormModelBase::resetModel()
 void AttributeFormModelBase::applyFeatureModel()
 {
   mExpressionContext = mFeatureModel->createExpressionContext();
+  mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
   for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
   {
     updateAttributeValue( invisibleRootItem()->child( i ) );
@@ -642,7 +647,7 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
 
         QgsExpression exp( expression );
         exp.prepare( &mExpressionContext );
-        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || QgsValueRelationFieldFormatter::expressionRequiresFormScope( expression ) )
         {
           needUpdate = true;
           break;
