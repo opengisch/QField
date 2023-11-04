@@ -3200,11 +3200,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation>Rastreamento: %1</translation>
+        <translation>Tracking: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation>Rastreamento</translation>
+        <translation>Tracking</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
@@ -3256,7 +3256,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation>Proteção de distância errada</translation>
+        <translation>Proteção na recolha de distância errada</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
@@ -3316,11 +3316,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Rastreamento na camada % 1 iniciada</translation>
+        <translation>Tracking iniciado na camada % 1</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation>Retomar rastreamento</translation>
+        <translation>Retomar tracking</translation>
     </message>
 </context>
 <context>

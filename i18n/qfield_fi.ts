@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Kohteet aktiivisilta tasoilta</translation>
     </message>
 </context>
 <context>
@@ -430,7 +430,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>NFC teksti tagi havaittu</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -438,7 +438,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Keskitä laitteesi koodiin. </translation>
     </message>
 </context>
 <context>
