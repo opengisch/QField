@@ -57,6 +57,7 @@
     <string name="storage_information_dismiss">Lereina máis tarde</string>
     <string name="import_project_wait">Por favor, agarda mentras QFIELD importa o proxecto.</string>
     <string name="import_dataset_wait">Por favor, agarda mentras QFIELD importa o(s) conxunto(s) de datos </string>
+    <string name="update_project_wait">Por favor, agarde mentres QField actualiza o proxecto local</string>
     <string name="upload_pending_attachments">Subindo actualmente os ficheiros anexos a QFieldCloud</string>
     <string name="operation_unsupported">Operación Non Admitida</string>
     <string name="import_operation_unsupported">O dispositivo no admite esta operación de importación.</string>

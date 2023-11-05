@@ -537,7 +537,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation>A conta das posicions recollidas non cumpre os requisitos</translation>
+        <translation>A conta das posicións recollidas non cumpre os requisitos</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -1252,19 +1252,19 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Poñer detalles opcionais</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Incluír os detalles do usuario da nube</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Isto enviará un rexistro do contido da sesión ó equipo de desenvolvemento. Só precisará facer isto cando se lle solicite.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>O rexistro da aplicación está sendo enviado...</translation>
     </message>
 </context>
 <context>
@@ -2413,7 +2413,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar proxecto dende ZIP</translation>
     </message>
 </context>
 <context>
