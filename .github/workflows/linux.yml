@@ -58,7 +58,6 @@ jobs:
         run: |
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
-          rm /home/runner/work/QField/Qt/6.6.0/gcc_64/plugins/sqldrivers/libqsqlmimer.so
 
           # TODO: Enable spix when it supports Qt 6.5
           cmake -S "${{ github.workspace }}" \
@@ -94,6 +93,7 @@ jobs:
 
       - name: Package
         run: |
+          rm /home/runner/work/QField/Qt/6.6.0/gcc_64/plugins/sqldrivers/libqsqlmimer.so
           export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
