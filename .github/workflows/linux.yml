@@ -58,6 +58,7 @@ jobs:
         run: |
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
+          rm /home/runner/work/QField/Qt/6.6.0/gcc_64/plugins/sqldrivers/libqsqlmimer.so
 
           # TODO: Enable spix when it supports Qt 6.5
           cmake -S "${{ github.workspace }}" \
