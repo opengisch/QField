@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Limitar la búsqueda al campo &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Objetos de la capa activa</translation>
     </message>
 </context>
 <context>
@@ -430,7 +430,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Etiqueta de texto NFC detectada</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -438,7 +438,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centrar su dispositivo en un código</translation>
     </message>
 </context>
 <context>
@@ -453,7 +453,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Finalizar o descartar el objeto digitalizado antes de cambiar al modo exploración</translation>
     </message>
 </context>
 <context>
@@ -566,11 +566,11 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo modificar la geometría en múltiples partes</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo modifica la geometría</translation>
     </message>
 </context>
 <context>
@@ -899,7 +899,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Herramienta de borrado</translation>
     </message>
 </context>
 <context>
@@ -1165,7 +1165,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve una lista de objetos de la capa activa con atributos coincidentes. Restringir la coincidencia n a un solo atributo se hace identificando su nombre precedido de una &apos;@&apos;.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
@@ -1173,7 +1173,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve un punto a partir de un par de coordenadas X e Y - o latitud y longitud WGS84 - tecleados en la barra de búsqueda.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
