@@ -26,6 +26,7 @@ vcpkg_from_github(
         profiler.patch # Remove when updating to QGIS 3.34
         exif_orientation_fix.patch # Remove when updating to QGIS 3.34.1
         layout_fix.patch # Remove when updating to QGIS 3.34
+        qsharedmemory_android.patch # Qt 6.6 removed dummy QSharedMemory implementation on Android
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
