@@ -1,0 +1,13 @@
+diff --git a/src/auth/awss3/core/qgsauthawss3method.cpp b/src/auth/awss3/core/qgsauthawss3method.cpp
+index 2248f3438cb..c76871443a0 100644
+--- a/src/auth/awss3/core/qgsauthawss3method.cpp
++++ b/src/auth/awss3/core/qgsauthawss3method.cpp
+@@ -118,7 +118,7 @@ bool QgsAuthAwsS3Method::updateNetworkRequest( QNetworkRequest &request, const Q
+   const QByteArray signingKey = QMessageAuthenticationCode::hash( "aws4_request",
+                                 QMessageAuthenticationCode::hash( "s3",
+                                     QMessageAuthenticationCode::hash( region,
+-                                        QMessageAuthenticationCode::hash( date, "AWS4" + password,
++                                        QMessageAuthenticationCode::hash( date, QByteArray( "AWS4" + password ),
+                                             QCryptographicHash::Sha256 ),
+                                         QCryptographicHash::Sha256 ),
+                                     QCryptographicHash::Sha256 ),
