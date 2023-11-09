@@ -21,7 +21,7 @@ jobs:
         with:
           submodules: recursive
 
-      - name: 🌾 Prepare vars
+      - name: 🌾 Prepare variables
         id: vars
         run: |
           ./scripts/ci/env_gh.sh
@@ -30,6 +30,7 @@ jobs:
           echo "BUILD_ROOT=${BUILD_ROOT}" >> $GITHUB_ENV
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
+          echo "INSTALL_QT_VERSION=6.6.0" >> $GITHUB_ENV
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
@@ -44,7 +45,7 @@ jobs:
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: 6.6.0
+          version: ${{ env.INSTALL_QT_VERSION }}
           modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors'
           target: desktop
 
@@ -93,7 +94,7 @@ jobs:
 
       - name: Package
         run: |
-          rm /home/runner/work/QField/Qt/6.6.0/gcc_64/plugins/sqldrivers/libqsqlmimer.so
+          rm /home/runner/work/QField/Qt/${{ env.INSTALL_QT_VERSION }}/gcc_64/plugins/sqldrivers/libqsqlmimer.so
           export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
