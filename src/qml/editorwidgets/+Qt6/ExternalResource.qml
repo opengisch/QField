@@ -94,7 +94,7 @@ EditorWidgetBase {
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
       } else if (isAudio || isVideo) {
         mediaFrame.height = 48
-        player.source = 'file://' + prefixToRelativePath + value
+        player.sourceUrl = 'file://' + prefixToRelativePath + value
       }
     } else {
       image.source = ''
@@ -260,7 +260,7 @@ EditorWidgetBase {
       id: player
       active: isAudio || isVideo
 
-      property string source: ''
+      property string sourceUrl: ''
 
       anchors.left: parent.left
       anchors.top: parent.top
@@ -276,7 +276,7 @@ EditorWidgetBase {
 
           property bool firstFrameDrawn: false
 
-          source: player.source
+          source: player.sourceUrl
 
           onHasVideoChanged: {
             mediaFrame.height = hasVideo ? 254 : 48
