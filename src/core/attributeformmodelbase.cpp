@@ -639,25 +639,28 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
 
     if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) || item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
     {
-      const thread_local QRegularExpression sRegEx( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)", QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
-      QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
-      while ( matchIt.hasNext() )
+      if ( !mEditorWidgetCodesRequirements.contains( code ) )
       {
-        const QRegularExpressionMatch match = matchIt.next();
-        QString expression = match.captured( 1 );
-        expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
-
-        QgsExpression exp( expression );
-        exp.prepare( &mExpressionContext );
-        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || QgsValueRelationFieldFormatter::expressionRequiresFormScope( expression ) )
+        CodeRequirements codeRequirements;
+        const thread_local QRegularExpression sRegEx( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)", QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
+        QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
+        while ( matchIt.hasNext() )
         {
-          needUpdate = true;
-          break;
+          const QRegularExpressionMatch match = matchIt.next();
+          QString expression = match.captured( 1 );
+          expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
+
+          QgsExpression exp( expression );
+          exp.prepare( &mExpressionContext );
+          codeRequirements.referencedColumns.unite( exp.referencedColumns() );
+          codeRequirements.formScope = codeRequirements.formScope || QgsValueRelationFieldFormatter::expressionRequiresFormScope( expression );
         }
+        mEditorWidgetCodesRequirements.insert( code, codeRequirements );
       }
 
-      if ( needUpdate )
+      if ( mEditorWidgetCodesRequirements[code].referencedColumns.contains( fieldName ) || mEditorWidgetCodesRequirements[code].referencedColumns.contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || mEditorWidgetCodesRequirements[code].formScope )
       {
+        const thread_local QRegularExpression sRegEx( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)", QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
         QRegularExpressionMatch match = sRegEx.match( code );
         while ( match.hasMatch() )
         {
@@ -693,22 +696,24 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
     }
     else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "text" ) )
     {
-      const thread_local QRegularExpression sRegEx( QStringLiteral( "\\[%(.*?)%\\]" ), QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
-      QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
-      while ( matchIt.hasNext() )
+      if ( !mEditorWidgetCodesRequirements.contains( code ) )
       {
-        const QRegularExpressionMatch match = matchIt.next();
-
-        QgsExpression exp( match.captured( 1 ) );
-        exp.prepare( &mExpressionContext );
-        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+        CodeRequirements codeRequirements;
+        const thread_local QRegularExpression sRegEx( QStringLiteral( "\\[%(.*?)%\\]" ), QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
+        QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
+        while ( matchIt.hasNext() )
         {
-          needUpdate = true;
-          break;
+          const QRegularExpressionMatch match = matchIt.next();
+
+          QgsExpression expression( match.captured( 1 ) );
+          expression.prepare( &mExpressionContext );
+          codeRequirements.referencedColumns.unite( expression.referencedColumns() );
+          codeRequirements.formScope = codeRequirements.formScope || QgsValueRelationFieldFormatter::expressionRequiresFormScope( expression );
         }
+        mEditorWidgetCodesRequirements.insert( code, codeRequirements );
       }
 
-      if ( needUpdate )
+      if ( mEditorWidgetCodesRequirements[code].referencedColumns.contains( fieldName ) || mEditorWidgetCodesRequirements[code].referencedColumns.contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || mEditorWidgetCodesRequirements[code].formScope )
       {
         code = QgsExpression::replaceExpressionText( code, &mExpressionContext );
         item->setData( code, AttributeFormModel::EditorWidgetCode );
