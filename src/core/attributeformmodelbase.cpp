@@ -159,7 +159,7 @@ void AttributeFormModelBase::resetModel()
   clear();
 
   mVisibilityExpressions.clear();
-  mConstraints.clear();
+  mFields.clear();
   mEditorWidgetCodes.clear();
   mEditorWidgetCodesRequirements.clear();
 
@@ -463,7 +463,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
         updateAttributeValue( item );
 
-        mConstraints.insert( item, field.constraints() );
+        mFields.insert( item, fieldIndex );
 
         parent->appendRow( item );
         break;
@@ -569,11 +569,11 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
 void AttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant value )
 {
-  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
-  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = constraintIterator.key();
-    const int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    QStandardItem *item = fieldIterator.key();
+    const int fidx = fieldIterator.value();
     if ( fidx != fieldIndex )
       continue;
 
@@ -591,11 +591,11 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   mExpressionContext.setFields( fields );
   mExpressionContext.setFeature( mFeatureModel->feature() );
 
-  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
-  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = constraintIterator.key();
-    const int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    QStandardItem *item = fieldIterator.key();
+    const int fidx = fieldIterator.value();
     if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
       continue;
 
@@ -760,14 +760,14 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     }
   }
 
-  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
   QMap<int, bool> hardConstraintsCache;
   QMap<int, bool> softConstraintsCache;
   bool validityChanged = false;
-  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = constraintIterator.key();
-    int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    QStandardItem *item = fieldIterator.key();
+    int fidx = fieldIterator.value();
     if ( fieldIndex != -1 && fidx != fieldIndex )
     {
       const QString fieldName = mLayer->fields().at( fieldIndex ).name();
