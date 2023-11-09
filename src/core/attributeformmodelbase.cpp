@@ -26,9 +26,11 @@
 #include <qgsattributeeditortextelement.h>
 #include <qgsdatetimefieldformatter.h>
 #include <qgseditorwidgetsetup.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgsmapthemecollection.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
+#include <qgsvaluerelationfieldformatter.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
@@ -113,6 +115,8 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
         bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
         if ( changed )
         {
+          mExpressionContext.popScope();
+          mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
           synchronizeFieldValue( fieldIndex, value );
         }
         updateDefaultValues( fieldIndex );
@@ -155,9 +159,12 @@ void AttributeFormModelBase::resetModel()
   clear();
 
   mVisibilityExpressions.clear();
-  mConstraints.clear();
+  mFields.clear();
   mEditorWidgetCodes.clear();
+  mEditorWidgetCodesRequirements.clear();
 
+  setConstraintsHardValid( true );
+  setConstraintsSoftValid( true );
   setHasTabs( false );
 
   if ( !mFeatureModel )
@@ -244,6 +251,7 @@ void AttributeFormModelBase::resetModel()
 void AttributeFormModelBase::applyFeatureModel()
 {
   mExpressionContext = mFeatureModel->createExpressionContext();
+  mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
   for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
   {
     updateAttributeValue( invisibleRootItem()->child( i ) );
@@ -455,7 +463,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
         updateAttributeValue( item );
 
-        mConstraints.insert( item, field.constraints() );
+        mFields.insert( item, fieldIndex );
 
         parent->appendRow( item );
         break;
@@ -561,11 +569,11 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
 void AttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant value )
 {
-  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
-  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = constraintIterator.key();
-    const int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    QStandardItem *item = fieldIterator.key();
+    const int fidx = fieldIterator.value();
     if ( fidx != fieldIndex )
       continue;
 
@@ -583,11 +591,11 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   mExpressionContext.setFields( fields );
   mExpressionContext.setFeature( mFeatureModel->feature() );
 
-  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
-  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = constraintIterator.key();
-    const int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    QStandardItem *item = fieldIterator.key();
+    const int fidx = fieldIterator.value();
     if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
       continue;
 
@@ -617,6 +625,29 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   updateEditorWidgetCodes( fieldName );
 }
 
+bool AttributeFormModelBase::codeRequiresUpdate( const QString &fieldName, const QString &code, const QRegularExpression &regEx )
+{
+  if ( !mEditorWidgetCodesRequirements.contains( code ) )
+  {
+    CodeRequirements codeRequirements;
+    QRegularExpressionMatchIterator matchIt = regEx.globalMatch( code );
+    while ( matchIt.hasNext() )
+    {
+      const QRegularExpressionMatch match = matchIt.next();
+      QString expression = match.captured( 1 );
+      expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
+
+      QgsExpression exp( expression );
+      exp.prepare( &mExpressionContext );
+      codeRequirements.referencedColumns.unite( exp.referencedColumns() );
+      codeRequirements.formScope = codeRequirements.formScope || QgsValueRelationFieldFormatter::expressionRequiresFormScope( expression );
+    }
+    mEditorWidgetCodesRequirements.insert( code, codeRequirements );
+  }
+
+  return mEditorWidgetCodesRequirements[code].referencedColumns.contains( fieldName ) || mEditorWidgetCodesRequirements[code].referencedColumns.contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || mEditorWidgetCodesRequirements[code].formScope;
+}
+
 void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
 {
   QMap<QStandardItem *, QString>::ConstIterator editorWidgetCodesIterator( mEditorWidgetCodes.constBegin() );
@@ -628,28 +659,10 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
       continue;
     }
     QString code = editorWidgetCodesIterator.value();
-    bool needUpdate = false;
-
     if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) || item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
     {
       const thread_local QRegularExpression sRegEx( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)", QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
-      QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
-      while ( matchIt.hasNext() )
-      {
-        const QRegularExpressionMatch match = matchIt.next();
-        QString expression = match.captured( 1 );
-        expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
-
-        QgsExpression exp( expression );
-        exp.prepare( &mExpressionContext );
-        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
-        {
-          needUpdate = true;
-          break;
-        }
-      }
-
-      if ( needUpdate )
+      if ( codeRequiresUpdate( fieldName, code, sRegEx ) )
       {
         QRegularExpressionMatch match = sRegEx.match( code );
         while ( match.hasMatch() )
@@ -687,21 +700,7 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
     else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "text" ) )
     {
       const thread_local QRegularExpression sRegEx( QStringLiteral( "\\[%(.*?)%\\]" ), QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
-      QRegularExpressionMatchIterator matchIt = sRegEx.globalMatch( code );
-      while ( matchIt.hasNext() )
-      {
-        const QRegularExpressionMatch match = matchIt.next();
-
-        QgsExpression exp( match.captured( 1 ) );
-        exp.prepare( &mExpressionContext );
-        if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
-        {
-          needUpdate = true;
-          break;
-        }
-      }
-
-      if ( needUpdate )
+      if ( codeRequiresUpdate( fieldName, code, sRegEx ) )
       {
         code = QgsExpression::replaceExpressionText( code, &mExpressionContext );
         item->setData( code, AttributeFormModel::EditorWidgetCode );
@@ -761,14 +760,14 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     }
   }
 
-  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
   QMap<int, bool> hardConstraintsCache;
   QMap<int, bool> softConstraintsCache;
   bool validityChanged = false;
-  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = constraintIterator.key();
-    int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    QStandardItem *item = fieldIterator.key();
+    int fidx = fieldIterator.value();
     if ( fieldIndex != -1 && fidx != fieldIndex )
     {
       const QString fieldName = mLayer->fields().at( fieldIndex ).name();
