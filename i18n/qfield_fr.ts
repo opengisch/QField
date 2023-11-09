@@ -452,7 +452,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Finir ou abandonner la numérisation de l&apos;entité en cours avant de basculer en mode Navigation</translation>
     </message>
 </context>
 <context>

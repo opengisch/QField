@@ -59,5 +59,9 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="storage_information_dismiss">Luen myöhemmin</string>
     <string name="import_project_wait">Ole hyvä odota kun QField on tuomassa projektia</string>
     <string name="import_dataset_wait">Ole hyvä odota kun QField on tuomassa datajoukkoa(joukkoja).</string>
+    <string name="update_project_wait">Odota hetki, QField on päivittämässä paikallista projektia. </string>
     <string name="upload_pending_attachments">Lähetetään parhaillaan liitteitä QFieldCloudiin</string>
-    </resources>
+    <string name="operation_unsupported">Toimintoa ei ole tuettu</string>
+    <string name="import_operation_unsupported">Laitteesi ei tue tätä tuonti toimintoa</string>
+    <string name="export_operation_unsupported">Laitteesi ei tue tätä vienti toimintoa</string>
+</resources>
