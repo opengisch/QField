@@ -341,27 +341,28 @@ Page {
         }
       }
 
-      Component.onCompleted: {
-        if (visible) {
-          if (htmlItem === undefined) {
-            // avoid cost of WevView creation until needed
-            htmlItem = Qt.createQmlObject('import QtWebView 1.14;
-              WebView {
-                id: htmlItem;
-                height: 0;
-                opacity: 0;
-                anchors { top: parent.top; left: parent.left; right: parent.right; }
-                onLoadingChanged: { if (!loading) { runJavaScript("document.body.offsetHeight", function(result) { anchors.left = parent.left; width = parent.width; height = (result + 18); opacity = 1.0; } ) } }
-              }'
-              , htmlContent);
-          }
-          htmlItem.loadHtml(htmlCode)
-        }
-      }
       onHtmlCodeChanged: {
-        if (visible && htmlItem) {
-          htmlItem.loadHtml(htmlCode);
+        if (htmlItem === undefined) {
+          htmlItem = Qt.createQmlObject('import QtWebView 1.14;
+            WebView {
+              id: htmlItem;
+              height: 0;
+              opacity: 0;
+              anchors { top: parent.top; left: parent.left; right: parent.right; }
+              onLoadingChanged: {
+                if (!loading) {
+                  runJavaScript("document.body.offsetHeight", function(result) {
+                    anchors.left = parent.left;
+                    width = parent.width;
+                    height = (result + 18);
+                    opacity = 1.0;
+                  });
+                }
+              }
+            }'
+            , htmlContent);
         }
+        htmlItem.loadHtml(htmlCode);
       }
     }
   }
