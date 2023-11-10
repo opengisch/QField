@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_32_2)
-set(QGIS_SHA512 689d6b17166fe5c91f91c801b93f384e9539f56708cf90aa8dda93bc3b69005ccc279e1a82b4a850116c34851989afe71f17acdbe468dbc0814c7e3003538180)
+set(QGIS_REF 664a8cfb8dc2ed756c81eee36e1f5d59556d94fa)
+set(QGIS_SHA512 81023a824c6063fd653c2d737cf7257fa3d3ccb857df63ab84e8f6fd528785fb308e7a63f0dac877622b8ad24f7a21ecf4d0e9b87640dd655033357c86b0b44b)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -10,7 +10,6 @@ vcpkg_from_github(
     PATCHES
         # Make qgis support python's debug library
         qgspython.patch
-        gdal.patch
         keychain.patch
         libxml2.patch
         exiv2.patch
@@ -18,17 +17,6 @@ vcpkg_from_github(
         bigobj.patch
         poly2tri.patch
         mesh.patch
-        project_load.patch
-        vectortilelabels.patch # Remove when updating to QGIS 3.34
-        version.patch # Remove when updating to QGIS 3.34
-        snapping_properties.patch # Remove when updating to QGIS 3.34
-        exiv2-0.28.patch # Remove when updating to QGIS 3.34
-        profiler.patch # Remove when updating to QGIS 3.34
-        exif_orientation_fix.patch # Remove when updating to QGIS 3.34.1
-        layout_fix.patch # Remove when updating to QGIS 3.34
-        qsharedmemory_android.patch # Qt 6.6 removed dummy QSharedMemory implementation on Android
-        wcs_capabilities_qt66.patch # Qt 6.6 compilation fix
-        auth_awss3_qt66.patch # Qt 6.6 compilation fix
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -48,6 +36,7 @@ list(APPEND QGIS_OPTIONS "-DWITH_GRASS7:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_SPATIALITE:BOOL=ON")
 list(APPEND QGIS_OPTIONS "-DWITH_QSPATIALITE:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_PDAL:BOOL=OFF")
+list(APPEND QGIS_OPTIONS "-DWITH_DRACO:BOOL=ON")
 
 list(APPEND QGIS_OPTIONS "-DBISON_EXECUTABLE=${BISON}")
 list(APPEND QGIS_OPTIONS "-DFLEX_EXECUTABLE=${FLEX}")
