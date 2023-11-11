@@ -275,7 +275,7 @@ Item {
       anchors.topMargin: 24
       model: searchField.displayText !== '' ? locator.proxyModel() : locatorFilters
       width: parent.width
-      height: resultsList.count > 0 ? Math.min( childrenRect.height, mainWindow.height / 2 - searchFieldRect.height - 10 ) : 0
+      height: resultsList.count > 0 ? Math.min( contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10 ) : 0
       clip: true
 
       delegate: searchField.displayText !== '' ? resultsComponent : filtersComponent
@@ -288,10 +288,10 @@ Item {
         id: delegateRect
 
         anchors.margins: 10
-        height: textArea.childrenRect.height + textArea.topPadding + textArea.bottomPadding
         width: resultsList.width
+        height: textArea.childrenRect.height + textArea.topPadding + textArea.bottomPadding
         color: "transparent"
-        opacity: 0.95
+        opacity: (Prefix === 'f' && dashBoard.activeLayer == undefined) ? 0.35 : 0.95
 
         Ripple {
           clip: true
@@ -316,7 +316,7 @@ Item {
             id: nameCell
             anchors.left: parent.left
             anchors.right: parent.right
-            text: Name + ' (' + Prefix + ')'
+            text: Name + ' (' + Prefix + ')' + (Prefix === 'f' && dashBoard.activeLayer ? ' — ' + dashBoard.activeLayer.name : '')
             leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
@@ -352,7 +352,11 @@ Item {
           anchors.fill: parent
 
           onClicked: {
-            searchField.text = Prefix + ' ';
+            if (Prefix === 'f' && dashBoard.activeLayer == undefined) {
+              displayToast(qsTr('Activate a vector layer in the legend first to use this functionality'), 'warning')
+            } else {
+              searchField.text = Prefix + ' '
+            }
           }
         }
       }

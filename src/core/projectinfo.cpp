@@ -310,6 +310,8 @@ void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "activeLayer" ), layer->id() );
   mSettings.endGroup();
+
+  emit activeLayerChanged();
 }
 
 QgsMapLayer *ProjectInfo::activeLayer() const
