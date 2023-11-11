@@ -416,7 +416,7 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
             }
             else if ( !r.isEmpty() )
             {
-              r.scale( 5 );
+              r.scale( 1.25 );
             }
           }
 
