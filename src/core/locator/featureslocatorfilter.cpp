@@ -228,7 +228,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
       }
       else if ( !r.isEmpty() )
       {
-        r.scale( 5 );
+        r.scale( 1.25 );
       }
     }
 
