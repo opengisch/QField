@@ -1,0 +1,37 @@
+From 104767ae480f7adba7ed3f50b7f5bfe29934668d Mon Sep 17 00:00:00 2001
+From: Viktor Szakats <commit@vsz.me>
+Date: Wed, 11 Oct 2023 16:06:12 +0000
+Subject: [PATCH] cmake: fix `HAVE_H_ERRNO_ASSIGNABLE` detection
+
+Fix `HAVE_H_ERRNO_ASSIGNABLE` to not run, only compile its test snippet,
+aligning this with autotools. This fixes an error when doing
+cross-builds and also actually detects this feature. It affected systems
+not allowlisted into this, e.g. SerenityOS.
+
+We used this detection result to enable `HAVE_GETADDRINFO_THREADSAFE`.
+
+Follow-up to 04a3a377d83fd72c4cf7a96c9cb6d44785e33264 #11979
+Ref: #12095 (closed in favour of this patch)
+Ref: #11964 (effort to sync cmake detections with autotools)
+
+Reported-by: Kartatz on Github
+Assisted-by: Kartatz on Github
+Fixes #12093
+Closes #12094
+---
+ CMake/OtherTests.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMake/OtherTests.cmake b/CMake/OtherTests.cmake
+index d67a9059bcdea..f1902d73a31f5 100644
+--- a/CMake/OtherTests.cmake
++++ b/CMake/OtherTests.cmake
+@@ -172,7 +172,7 @@ if(NOT DEFINED HAVE_GETADDRINFO_THREADSAFE)
+     }" HAVE_H_ERRNO)
+ 
+   if(NOT HAVE_H_ERRNO)
+-    check_c_source_runs("${_source_epilogue}
++    check_c_source_compiles("${_source_epilogue}
+       int main(void)
+       {
+         h_errno = 2;
