@@ -33,17 +33,21 @@ jobs:
 
           echo "INSTALL_QT_VERSION=6.6.0" >> $GITHUB_ENV
 
-      - uses: Apple-Actions/import-codesign-certs@v2
+      - name: ⛓️ Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
         with:
-          p12-file-base64: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_BASE64_DIST || secrets.APPLE_CODESIGN_CERT_BASE64_DEV }}
-          p12-password: ${{ env.CI_USE_IOS_DIST_CERT && secrets.APPLE_CODESIGN_CERT_PASS_DIST || secrets.APPLE_CODESIGN_CERT_PASS_DEV }}
+          ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
-      - uses: Apple-Actions/download-provisioning-profiles@v1
-        with:
-          bundle-id: ch.opengis.qfield
-          issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+      - name: 🔏 Setup code signing
+        env:
+          bundle_id: ch.opengis.qfield
+          issuer_id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+          api_key_id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
+          api_private_key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: |
+          bundle install
+          bundle exec fastlane ios setup_signing type:${{env.CI_USE_IOS_DIST_CERT && 'app-store' || 'development' }} #  --verbose
 
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
@@ -58,9 +62,9 @@ jobs:
         with:
           version: ${{ env.INSTALL_QT_VERSION }}
           target: desktop
-          cache: false
+          cache: true
 
-      - name: Prepare ios build env
+      - name: 🍹 Prepare ios build env
         run: |
           brew install automake bison flex gnu-sed s3cmd gettext
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
@@ -68,11 +72,12 @@ jobs:
           echo $(brew --prefix s3cmd)/bin >> $GITHUB_PATH
           echo $(brew --prefix gettext)/bin >> $GITHUB_PATH
 
-      - uses: maxim-lobanov/setup-xcode@v1.6.0
+      - name: 🍭 Setup XCode
+        uses: maxim-lobanov/setup-xcode@v1.6.0
         with:
           xcode-version: latest-stable
 
-      - name: ccache
+      - name: 🍮 ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
           key: ccache-ios
@@ -107,7 +112,7 @@ jobs:
                 -D ENABLE_ARC=ON \
                 -D QT_IOS_TEAM_ID="${{ secrets.IOS_TEAM_ID }}" \
                 -D QT_IOS_CODE_SIGN_IDENTITY="${{env.CI_USE_IOS_DIST_CERT && 'Apple Distribution' || 'Apple Development' }}" \
-                -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{env.CI_USE_IOS_DIST_CERT && secrets.IOS_PROVISIONING_PROFILE_SPECIFIER || secrets.IOS_PROVISIONING_PROFILE_SPECIFIER_DEV }}" \
+                -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{env.CI_USE_IOS_DIST_CERT && 'match Distribution ch.opengis.qfield' || 'match Development ch.opengis.qfield'}}"
                 -D QT_IOS_EXPORT_METHOD="${{env.CI_USE_IOS_DIST_CERT && 'app-store' || 'development' }}" \
                 -D CMAKE_SYSTEM_NAME=iOS \
                 -D CMAKE_SYSTEM_PROCESSOR=aarch64 \
@@ -126,35 +131,21 @@ jobs:
           path: |
             /Users/runner/builddir/**/*.log
 
-      # Not required, packaging does it all
-      # - name: 🌋 Build
-      #   run: |
-      #     cmake --build /Users/runner/builddir --config ${{ env.BUILD_TYPE }} # --target qfield
-
-      - name: Package
+      - name: 📦 Package
         run: |
           cmake --build  /Users/runner/builddir --target bundle --config Release
 
       - name: 🍺 Deploy
         env:
-          PLIST_URL: https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList
-          IPA_URL: https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
+          S3_BUCKET: qfieldapks
+          S3_REGION: ch-dk-2
+          S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY}}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY}}
         run: |
-          mv /Users/runner/builddir/qfieldIpa/qfield.ipa qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
-          if [[ -n "${{ secrets.S3CFG }}" ]]
-          then
-            echo "${{ secrets.S3CFG }}" > ~/.s3cfg
-            envsubst < ${{ github.workspace }}/platform/ios/installation-template.html > qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html
-            envsubst < ${{ github.workspace }}/platform/ios/installation-template.plist > qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.plist
-            s3cmd put --acl-public -m 'text/html' qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html
-            s3cmd put --acl-public -m 'application/xml' qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList
-            s3cmd put --acl-public qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
+          bundle exec fastlane ios upload_s3
+          echo "Install the ipa from https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/ios/${{ env.CI_PACKAGE_FILE_SUFFIX }}/index.html"
 
-            echo "Install the ipa from https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html"
-            rm ~/.s3cfg
-          fi
-
-      - name: 📦 Upload qfield Ipa
+      - name: 📤 Upload qfield Ipa
         uses: actions/upload-artifact@v3
         with:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
@@ -169,26 +160,6 @@ jobs:
           api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
-# Disabled: Is not able to resolve the id of the build at the moment
-#
-#      - name: Enable public testers
-#        if:env.CI_USE_IOS_DIST_CERT
-#        run: |
-#          source ./scripts/version_number.sh
-#          source ./scripts/ci/generate-version-details.sh
-#          # Enable public testers
-#          pip install PyJWT cryptography
-#
-#          # retry a couple of times, appstore needs some time
-#          for i in {1..100};
-#          do
-#              build_id=$(./scripts/ci/appstore_connect.py --key_id ${{ secrets.IOS_APPSTORE_KEY_ID }} --issuer_id ${{ secrets.IOS_APPSTORE_ISSUER_ID }} --private_key "${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}" build_id_by_version ${APK_VERSION_CODE}) &&
-#              break ||
-#              sleep 15;
-#          done
-#          public_testers_id="7bca90ae-e44b-4d20-bf71-17a8dced5a01"
-#          ./scripts/ci/appstore_connect.py  --key_id ${{ secrets.IOS_APPSTORE_KEY_ID }} --issuer_id ${{ secrets.IOS_APPSTORE_ISSUER_ID }} --private_key "${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}" add_to_beta_group ${public_testers_id} ${build_id}
-
       - name: 🚀 Upload Release Asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-release-asset@v1
@@ -200,7 +171,7 @@ jobs:
           asset_name: qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           asset_content_type: application/zip
 
-      - name: Upload debug symbols
+      - name: 📮 Upload debug symbols
         # if: release or labeled PR
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
