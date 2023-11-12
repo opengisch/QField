@@ -42,6 +42,7 @@
       "name": "sentry-native",
       "platform": "!android & !ios & !osx"
     },
+    "spix-qt6",
     "catch2",
     {
       "name": "sentry-cocoa",

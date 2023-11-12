@@ -74,14 +74,13 @@ jobs:
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
-          # TODO: Enable spix when it supports Qt 6.5
           cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Xcode \
                 -T buildsystem=1 \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D WITH_VCPKG=ON \
-                -D WITH_SPIX=OFF \
+                -D WITH_SPIX=ON \
                 -D WITH_NFC=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
@@ -108,7 +107,6 @@ jobs:
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          # At the moment this does nothing as QField isn't built with spix
           ctest --output-on-failure -R smoke -C ${{ env.BUILD_TYPE }}
 
       - name: 📦 Package
