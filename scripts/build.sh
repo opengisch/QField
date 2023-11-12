@@ -8,14 +8,31 @@ export APK_VERSION_CODE=${APK_VERSION_CODE:-1}
 export APP_VERSION_STR=${APP_VERSION_STR:-dev}
 
 triplet=${triplet:-arm64-android}
+install_qt_version="6.6.0"
 
-docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev
+if [[ ${triplet} == arm-android ]]; then
+	install_qt_arch="android_armv7"
+elif [[ ${triplet} == arm-neon-android ]]; then
+	install_qt_arch="android_armv7"
+elif [[ ${triplet} == arm64-android ]]; then
+	install_qt_arch="android_arm64_v8a"
+elif [[ ${triplet} == x86-android ]]; then
+	install_qt_arch="android_x86"
+elif [[ ${triplet} == x64-android ]]; then
+	install_qt_arch="android_x86_64"
+else
+	install_qt_arch="android_arm64_v8a"
+fi
+
+docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev --build-arg INSTALL_QT_ARCH=${install_qt_arch} --build-arg INSTALL_QT_VERSION=${install_qt_version}
 
 docker run -it --rm qfield_and_dev env
 docker run -it --rm \
 	-v "$SRC_DIR":/usr/src/qfield:Z \
 	$(if [ -n "$CACHE_DIR" ]; then echo "-v $CACHE_DIR:/io/.cache:Z"; fi) \
 	-e triplet=${triplet} \
+	-e install_qt_version=${install_qt_version} \
+	-e install_qt_arch=${install_qt_arch} \
 	-e STOREPASS \
 	-e KEYNAME \
 	-e KEYPASS \
