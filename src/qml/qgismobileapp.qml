@@ -397,8 +397,8 @@ ApplicationWindow {
         }
 
         onHoveredChanged: {
-            if (skipHover) {
-              skipHover = hovered
+            if ( skipHover ) {
+              dummyHoverTimer.restart()
               return
             }
 
@@ -414,7 +414,17 @@ ApplicationWindow {
     /* The second hover handler is a workaround what appears to be an issue with
      * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
+     * The timer is needed as adding additional fingers onto a device re-triggers hovered
+     * changes in unpredictable order.
      */
+    Timer {
+      id: dummyHoverTimer
+      interval: 100
+      repeat: false
+
+      onTriggered: hoverHandler.skipHover = hoverHandler.hovered
+    }
+
     HoverHandler {
         id: dummyHoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen
