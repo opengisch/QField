@@ -68,7 +68,9 @@ RUN yes | /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager --licenses 
 
 RUN mkdir /home/devel
 WORKDIR /home/devel
+ARG INSTALL_QT_ARCH
+ARG INSTALL_QT_VERSION
 RUN pip3 install aqtinstall cmake && \
-    /usr/local/bin/aqt install-qt linux android 6.5.3 android_arm64_v8a -m qtcharts qt5compat qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors --autodesktop
+    /usr/local/bin/aqt install-qt linux android "${INSTALL_QT_VERSION}" "${INSTALL_QT_ARCH}" -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors --autodesktop
 ENV ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk/${NDK_VERSION}
 ENV ANDROID_NDK_VERSION=${NDK_VERSION}

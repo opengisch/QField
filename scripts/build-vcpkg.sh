@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "building for ${triplet}"
+echo "building for ${triplet} on Qt ${install_qt_version} (${install_qt_arch})"
 
 export SOURCE_DIR=/usr/src/qfield
 
 CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
-export Qt6_DIR=/home/devel/6.6.0/android_arm64_v8a
+export Qt6_DIR=/home/devel/${install_qt_version}/${install_qt_arch}
 
 [[ -z ${APP_NAME} ]] && APP_NAME="QField"
 [[ -z ${APP_PACKAGE_NAME} ]] && APP_PACKAGE_NAME="qfield"
@@ -20,8 +20,8 @@ cmake -S "${SOURCE_DIR}" \
 	-G Ninja \
 	-D BUILD_WITH_QT6=ON \
 	-D CMAKE_PREFIX_PATH=${Qt6_DIR} \
-	-D QT_HOST_PATH=/home/devel/6.6.0/gcc_64 \
-	-D QT_HOST_PATH_CMAKE_DIR=/home/devel/6.6.0/gcc_64/lib/cmake \
+	-D QT_HOST_PATH=/home/devel/${install_qt_version}/gcc_64 \
+	-D QT_HOST_PATH_CMAKE_DIR=/home/devel/${install_qt_version}/gcc_64/lib/cmake \
 	-D VCPKG_TARGET_TRIPLET="${triplet}" \
 	-D SYSTEM_QT=ON \
 	-D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
