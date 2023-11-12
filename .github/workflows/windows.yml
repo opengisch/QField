@@ -64,7 +64,6 @@ jobs:
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
-          # TODO: Enable spix when it supports Qt 6.5
           cmake -S "${SOURCE_DIR}" \
                 -G Ninja \
                 -B "${CMAKE_BUILD_DIR}" \
@@ -73,7 +72,7 @@ jobs:
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET="x64-windows-static" \
                 -D WITH_VCPKG=ON \
-                -D WITH_SPIX=OFF \
+                -D WITH_SPIX=ON \
                 -D WITH_NFC=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
@@ -111,7 +110,7 @@ jobs:
           SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E "smoke_test"
+          ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
       - name: Package
         shell: bash

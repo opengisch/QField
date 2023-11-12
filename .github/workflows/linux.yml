@@ -60,13 +60,12 @@ jobs:
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
-          # TODO: Enable spix when it supports Qt 6.5
           cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D WITH_VCPKG=ON \
-                -D WITH_SPIX=OFF \
+                -D WITH_SPIX=ON \
                 -D WITH_NFC=OFF \
                 -D SYSTEM_QT=ON \
                 -D APP_VERSION="${APP_VERSION}" \
@@ -113,7 +112,7 @@ jobs:
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E "smoke_test"
+          xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
       - name: 📑 Upload package logs
         uses: actions/upload-artifact@v3
