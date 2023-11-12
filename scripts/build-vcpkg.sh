@@ -8,9 +8,9 @@ CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
 export Qt6_DIR=/home/devel/${install_qt_version}/${install_qt_arch}
 
-[[ -z ${APP_NAME} ]] && APP_NAME="QField"
-[[ -z ${APP_PACKAGE_NAME} ]] && APP_PACKAGE_NAME="qfield"
-[[ -z ${APP_ICON} ]] && APP_ICON="qfield_logo"
+[[ -z ${APP_NAME} ]] && APP_NAME="QField Home"
+[[ -z ${APP_PACKAGE_NAME} ]] && APP_PACKAGE_NAME="qfield_home"
+[[ -z ${APP_ICON} ]] && APP_ICON="qfield_logo_beta"
 
 echo "Package name ${APP_PACKAGE_NAME}"
 
@@ -29,9 +29,9 @@ cmake -S "${SOURCE_DIR}" \
 	-D ANDROID_SDK_ROOT=/opt/android-sdk-linux \
 	-D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \
 	-D WITH_SPIX=OFF \
-	-D APP_VERSION="v1.0.0" \
-	-D APK_VERSION_CODE="${APK_VERSION_CODE}" \
-	-D APP_VERSION_STR="${APP_VERSION_STR}" \
+	-D APK_VERSION_CODE="1" \
+	-D APP_VERSION="" \
+	-D APP_VERSION_STR="Home" \
 	-D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
 	-D APP_ICON="${APP_ICON}" \
 	-D APP_NAME="${APP_NAME}" \
