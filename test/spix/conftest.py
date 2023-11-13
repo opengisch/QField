@@ -123,19 +123,19 @@ def app(request, process, process_communicate):
         try:
             exit_code = process.poll()
             if exit_code is not None:
-                process_communicate(process)
+                process_communicate()
                 assert exit_code is None
             app.existsAndVisible("mainWindow")
             yield app
             break
         except (ConnectionRefusedError, OSError) as e:
             if time.time() - start > 30:
-                process_communicate(process)
+                process_communicate()
                 assert False  # Could not start app after 30 seconds
             print(str(e))
             time.sleep(0.2)
         except Exception as e:
-            process_communicate(process)
+            process_communicate()
             assert False  # Unexcpected exception while starting up app
 
     try:
