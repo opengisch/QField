@@ -329,9 +329,10 @@ Page {
         round: true
 
         // Since the project menu only has one action for now, hide if PlatformUtilities.UpdateProjectFromArchive is missing
-        property bool isLocalProject: QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' &&
-                                      (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz')) &&
-                                      platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
+        property bool isLocalProject: qgisProject
+                                      && QFieldCloudUtils.getProjectId(qgisProject.fileName) === ''
+                                      && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
+                                      && platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
         visible: (projectFolderView && isLocalProject && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
