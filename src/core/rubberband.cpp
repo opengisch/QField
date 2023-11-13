@@ -209,7 +209,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     {
       transformPoints( allVertices );
 
-      SGRubberband *rb = new SGRubberband( allVertices, geomType, mColor, mWidth * mMapSettings->devicePixelRatio() );
+      SGRubberband *rb = new SGRubberband( allVertices, geomType, mColor, mOutlineColor, mWidth * mMapSettings->devicePixelRatio() );
       rb->setFlag( QSGNode::OwnedByParent );
       n->appendChildNode( rb );
 
@@ -218,7 +218,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
         QVector<QgsPoint> allButCurrentVertices = mRubberbandModel->flatVertices( true );
         transformPoints( allButCurrentVertices );
 
-        SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mWidthCurrentPoint * mMapSettings->devicePixelRatio() );
+        SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mOutlineColor, mWidthCurrentPoint * mMapSettings->devicePixelRatio() );
         rbCurrentPoint->setFlag( QSGNode::OwnedByParent );
         n->appendChildNode( rbCurrentPoint );
       }
@@ -268,6 +268,21 @@ void Rubberband::setColor( const QColor &color )
   mColor = color;
 
   emit colorChanged();
+}
+
+QColor Rubberband::outlineColor() const
+{
+  return mOutlineColor;
+}
+
+void Rubberband::setOutlineColor( const QColor &color )
+{
+  if ( mOutlineColor == color )
+    return;
+
+  mOutlineColor = color;
+
+  emit outlineColorChanged();
 }
 
 float Rubberband::lineWidthCurrentPoint() const
