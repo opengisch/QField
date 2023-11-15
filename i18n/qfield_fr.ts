@@ -1197,6 +1197,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>To search features within the active layer, select a vector layer through the legend.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LocatorSettings</name>
@@ -1754,6 +1758,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Geotagging disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>

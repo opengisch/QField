@@ -1198,6 +1198,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>To search features within the active layer, select a vector layer through the legend.</source>
         <translation>Para pesquisar elementos na camada ativa, selecione uma camada vetorial através da legenda.</translation>
     </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LocatorSettings</name>
@@ -1756,6 +1760,14 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Geotagging disabled</source>
         <translation>Geotagging desativado</translation>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

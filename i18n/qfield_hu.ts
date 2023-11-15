@@ -1195,6 +1195,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>To search features within the active layer, select a vector layer through the legend.</source>
         <translation>Az aktív réteg elemei közötti kereséshez válasszon ki egy réteget a jelmagyarázatban.</translation>
     </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LocatorSettings</name>
@@ -1753,6 +1757,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Geotagging disabled</source>
         <translation>Geoteggelés letiltva</translation>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -1194,6 +1194,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>To search features within the active layer, select a vector layer through the legend.</source>
         <translation>アクティブレイヤー内の地物を検索するには、凡例からベクターレイヤーを選択します。</translation>
     </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LocatorSettings</name>
@@ -1752,6 +1756,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Geotagging disabled</source>
         <translation>ジオタグが無効です</translation>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

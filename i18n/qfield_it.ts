@@ -1198,6 +1198,10 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
         <source>To search features within the active layer, select a vector layer through the legend.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LocatorSettings</name>
@@ -1755,6 +1759,14 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Geotagging disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
