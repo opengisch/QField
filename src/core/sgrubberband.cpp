@@ -23,9 +23,10 @@
 #include <qgssurface.h>
 #include <qgstessellator.h>
 
-SGRubberband::SGRubberband( const QVector<QgsPoint> &points, Qgis::GeometryType type, const QColor &color, const QColor &outlineColor, float width )
+SGRubberband::SGRubberband( const QVector<QgsPoint> &points, Qgis::GeometryType type, const QColor &color, float width, const QColor &outlineColor, float outlineWidth )
   : QSGNode()
   , mWidth( width )
+  , mOutlineWidth( outlineWidth )
 {
   mMaterial.setColor( color );
   mOutlineMaterial.setColor( outlineColor );
@@ -112,7 +113,7 @@ QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &poin
   node->setFlag( QSGNode::OwnsGeometry );
   node->setFlag( QSGNode::OwnedByParent );
 
-  outlineSGGeom->setLineWidth( static_cast<float>( mWidth * 3 ) );
+  outlineSGGeom->setLineWidth( static_cast<float>( mOutlineWidth ) );
   outlineSGGeom->setDrawingMode( QSGGeometry::DrawLineStrip );
   outlineNode->setGeometry( outlineSGGeom );
   outlineNode->setMaterial( &mOutlineMaterial );
