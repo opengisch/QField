@@ -1198,7 +1198,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Activar primeiro unha capa vectorial na lenda para utilizar esta funcionalidade</translation>
     </message>
 </context>
 <context>
@@ -1761,11 +1761,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Grade activada</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Grade desactivada</translation>
     </message>
 </context>
 <context>

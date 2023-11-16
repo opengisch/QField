@@ -1196,7 +1196,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>请先激活图例中的矢量图层以便使用此功能</translation>
     </message>
 </context>
 <context>
@@ -1759,11 +1759,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>网格已激活</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>网格已禁用</translation>
     </message>
 </context>
 <context>

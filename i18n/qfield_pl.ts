@@ -1193,7 +1193,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Najpierw aktywuj warstwę wektorową w legendzie, aby użyć tej funkcji</translation>
     </message>
 </context>
 <context>
@@ -1756,11 +1756,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Siatka włączona</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Siatka wyłączona</translation>
     </message>
 </context>
 <context>
@@ -3692,7 +3692,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4206,7 +4206,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
