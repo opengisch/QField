@@ -3583,17 +3583,20 @@ ApplicationWindow {
   property bool alreadyCloseRequested: false
 
   onClosing: (close) => {
-      if( !alreadyCloseRequested )
-      {
-        close.accepted = false
-        alreadyCloseRequested = true
-        displayToast( qsTr( "Press back again to close project and app" ) )
-        closingTimer.start()
-      }
-      else
-      {
-        close.accepted = true
-      }
+    if (screenLocker.enabled) {
+       close.accepted = false
+       displayToast(qsTr("Unlock the screen to to close project and app"))
+       return
+    }
+
+    if (!alreadyCloseRequested) {
+      close.accepted = false
+      alreadyCloseRequested = true
+      displayToast(qsTr("Press back again to close project and app"))
+      closingTimer.start()
+    } else {
+      close.accepted = true
+    }
   }
 
   Timer {
