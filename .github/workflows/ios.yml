@@ -56,6 +56,7 @@ jobs:
           modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors'
           target: ios
           cache: true
+          cache-key-prefix: install-qt-action-ios
 
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
@@ -63,6 +64,7 @@ jobs:
           version: ${{ env.INSTALL_QT_VERSION }}
           target: desktop
           cache: true
+          cache-key-prefix: install-qt-action-mac
 
       - name: 🍹 Prepare ios build env
         run: |
@@ -112,7 +114,7 @@ jobs:
                 -D ENABLE_ARC=ON \
                 -D QT_IOS_TEAM_ID="${{ secrets.IOS_TEAM_ID }}" \
                 -D QT_IOS_CODE_SIGN_IDENTITY="${{env.CI_USE_IOS_DIST_CERT && 'Apple Distribution' || 'Apple Development' }}" \
-                -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{env.CI_USE_IOS_DIST_CERT && 'match Distribution ch.opengis.qfield' || 'match Development ch.opengis.qfield'}}"
+                -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{env.CI_USE_IOS_DIST_CERT && 'match Distribution ch.opengis.qfield' || 'match Development ch.opengis.qfield'}}" \
                 -D QT_IOS_EXPORT_METHOD="${{env.CI_USE_IOS_DIST_CERT && 'app-store' || 'development' }}" \
                 -D CMAKE_SYSTEM_NAME=iOS \
                 -D CMAKE_SYSTEM_PROCESSOR=aarch64 \
