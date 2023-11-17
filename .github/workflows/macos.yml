@@ -32,6 +32,19 @@ jobs:
 
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
 
+      - name: ⛓️ Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
+
+      - name: 🔏 Setup code signing
+        env:
+          bundle_id: ch.opengis.qfield
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: |
+          bundle install
+          bundle exec fastlane ios setup_signing type:${{env.CI_USE_IOS_DIST_CERT && 'app-store' || 'development' }} #  --verbose
+
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
