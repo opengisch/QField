@@ -214,6 +214,14 @@ QgsPoint RubberbandModel::lastCoordinate() const
   return mPointList.at( mCurrentCoordinateIndex > 0 ? mCurrentCoordinateIndex - 1 : 0 );
 }
 
+QgsPoint RubberbandModel::penultimateCoordinate() const
+{
+  if ( mPointList.size() < 3 )
+    return QgsPoint();
+
+  return mPointList.at( mCurrentCoordinateIndex > 1 ? mCurrentCoordinateIndex - 2 : 0 );
+}
+
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
   // play safe, but try to find out

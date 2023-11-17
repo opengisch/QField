@@ -37,6 +37,7 @@ Item {
   property variant sourceLocation: undefined // Screen coordinate
 
   readonly property variant currentCoordinate: !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate
+  property var commonAngleInDegrees: null
 
   // some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when
   // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
@@ -48,15 +49,49 @@ Item {
     return !!mapSettings.visibleExtent || true ? mapSettings.coordinateToScreen(currentCoordinate) : 0
   }
 
+  property variant rubberbandModel: null;
+
   readonly property alias snappedCoordinate: snappingUtils.snappedCoordinate // In map coordinates, derived from snappinResult
   readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
   readonly property alias topSnappingResult: snappingUtils.snappingResult // The snappingResult itself, only one (compared to QGIS where it's usually a list)
+
   SnappingUtils {
     id: snappingUtils
 
     enabled: locator.visible
     mapSettings: locator.mapSettings
-    inputCoordinate: sourceLocation === undefined ? Qt.point( locator.width / 2, locator.height / 2 ) : sourceLocation // In screen coordinates
+    inputCoordinate: {
+      // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
+      const location = sourceLocation === undefined
+        ? Qt.point( locator.width / 2, locator.height / 2 )
+        : sourceLocation;
+
+      if ( snapToCommonAngleButton.isSnapToCommonAngleEnabled ) {
+        locator.commonAngleInDegrees = getCommonAngleInDegrees(
+          location,
+          locator.rubberbandModel,
+          snapToCommonAngleButton.snapToCommonAngleDegrees,
+          snapToCommonAngleButton.isSnapToCommonAngleRelative,
+        );
+
+        const coords = calculateSnapToAngleLineEndCoords(snappedPoint, locator.commonAngleInDegrees, 1000);
+
+        snapToCommonAngleLines.endCoordX = coords.x || 0;
+        snapToCommonAngleLines.endCoordY = coords.y || 0;
+        return snapPointToCommonAngle(
+          location,
+          locator.rubberbandModel,
+          locator.commonAngleInDegrees,
+          snapToCommonAngleButton.isSnapToCommonAngleRelative,
+        );
+      } else {
+        locator.commonAngleInDegrees = null;
+        snapToCommonAngleLines.endCoordX = 0;
+        snapToCommonAngleLines.endCoordY = 0;
+      }
+
+      return location;
+    }
     config: qgisProject ? qgisProject.snappingConfig : snappingUtils.emptySnappingConfig()
 
     property variant snappedCoordinate
@@ -200,6 +235,40 @@ Item {
     }
   }
 
+  Shape {
+    id: snapToCommonAngleLines
+
+    property double endCoordX: 0
+    property double endCoordY: 0
+
+    visible: !!locator.commonAngleInDegrees || ( endCoordX !== 0 && endCoordY !== 0 )
+    width: parent.width
+    height: parent.height
+    anchors.centerIn: parent
+
+    // outer line
+    ShapePath {
+      strokeWidth: 4
+      strokeColor: "#fff"
+      strokeStyle: ShapePath.DashLine
+      dashPattern: [ 5, 3 ]
+      startX: snappedPoint.x; startY: snappedPoint.y
+
+      PathLine { x: snapToCommonAngleLines.endCoordX; y: snapToCommonAngleLines.endCoordY }
+    }
+
+    // inner line
+    ShapePath {
+      strokeWidth: 2
+      strokeColor: "#000"
+      strokeStyle: ShapePath.DashLine
+      dashPattern: [ 10, 6 ]
+      startX: snappedPoint.x; startY: snappedPoint.y
+
+      PathLine { x: snapToCommonAngleLines.endCoordX; y: snapToCommonAngleLines.endCoordY }
+    }
+  }
+
   ParallelAnimation {
     id: flashAnimation
 
@@ -238,5 +307,133 @@ Item {
   function flash()
   {
     flashAnimation.start()
+  }
+
+
+  /**
+   * Computes the possible common angle
+   *
+   * @param {QPointF} currentPoint - the current point being proposed
+   * @param {Rubberband} rubberbandModel - holds all previously added points in the current digitizing session
+   * @param {number} commonAngleStepDeg - the common angle in degrees we are trying to snap to
+   * @param {boolean} isRelativeAngle - whether the angle should be calculated relative to the last geometry segment
+   * @returns {number|undefined} - the closest common angle. Returns`undefined` if there is no nearby point that forms a common angle.
+   */
+  function getCommonAngleInDegrees(currentPoint, rubberbandModel, commonAngleStepDeg, isRelativeAngle) {
+    if (!rubberbandModel) {
+      return;
+    }
+
+    const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
+    const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20;
+    const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40;
+    const previousPoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.lastCoordinate );
+    const rubberbandPointsCount = rubberbandModel.vertexCount;
+
+    // we need at least 1 alredy digitized point (and the other one is wanna be digitized)
+    if (rubberbandPointsCount < 2) {
+      return;
+    }
+
+    const distanceFromLastPoint = Math.sqrt( (currentPoint.x - previousPoint.x ) ** 2 + ( currentPoint.y - previousPoint.y ) ** 2 );
+    if ( distanceFromLastPoint < MINIMAL_PIXEL_DISTANCE_TRESHOLD ) {
+      return;
+    }
+
+    const commonAngle = commonAngleStepDeg * Math.PI / 180;
+    // see if soft common angle constraint should be performed
+    // only if not in HardLock mode
+    let softAngle = Math.atan2(
+      currentPoint.y - previousPoint.y,
+      currentPoint.x - previousPoint.x
+    );
+    let deltaAngle = 0;
+    if ( isRelativeAngle && rubberbandPointsCount >= 3 ) {
+      // compute the angle relative to the last segment (0° is aligned with last segment)
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.penultimateCoordinate );
+      deltaAngle = Math.atan2(
+        previousPoint.y - penultimatePoint.y,
+        previousPoint.x - penultimatePoint.x
+      );
+      softAngle -= deltaAngle;
+    }
+    const quo = Math.round( softAngle / commonAngle );
+    if ( Math.abs( softAngle - quo * commonAngle ) * 180.0 * Math.PI <= SOFT_CONSTRAINT_TOLERANCE_DEGREES ) {
+      // also check the distance in pixel to the line, otherwise it's too sticky at long ranges
+      softAngle = quo * commonAngle;
+      // http://mathworld.wolfram.com/Point-LineDistance2-Dimensional.html
+      // use the direction vector (cos(a),sin(a)) from previous point. |x2-x1|=1 since sin2+cos2=1
+      const dist = Math.abs(
+        Math.cos( softAngle + deltaAngle ) * ( previousPoint.y - currentPoint.y )
+        - Math.sin( softAngle + deltaAngle ) * ( previousPoint.x - currentPoint.x )
+      );
+      if ( dist < SOFT_CONSTRAINT_TOLERANCE_PIXEL ) {
+        return 180.0 / Math.PI * softAngle;
+      }
+    }
+  }
+
+  /**
+   * Computes a new point that forms a common angle
+   *
+   * @param {QPointF} currentPoint - the current point being proposed
+   * @param {Rubberband} rubberbandModel - holds all previously added points in the current digitizing session
+   * @param {number} commonAngleDegrees - the common angle in degrees we are snapping to
+   * @param {boolean} isRelativeAngle - whether the angle should be calculated relative to the last geometry segment
+   * @returns {QPointF} - the resulting snapped to common angle point. If no snapping was possible, then `currentPoint` is returned.
+   */
+  function snapPointToCommonAngle(currentPoint, rubberbandModel, commonAngleDegrees, isRelativeAngle) {
+    if ( !rubberbandModel ) {
+      return currentPoint;
+    }
+
+    // if null or undefined, no common angle is determined
+    if (commonAngleDegrees == null) {
+        return currentPoint;
+    }
+
+    const angleValue = commonAngleDegrees * Math.PI / 180;
+    const returnPoint = currentPoint;
+    const previousPoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.lastCoordinate );
+    const rubberbandPointsCount = rubberbandModel.vertexCount;
+
+    if ( isRelativeAngle && rubberbandPointsCount >= 3 ) {
+      // compute the angle relative to the last segment (0° is aligned with last segment)
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.penultimateCoordinate );
+      angleValue += Math.atan2(
+        previousPoint.y - penultimatePoint.y,
+        previousPoint.x - penultimatePoint.x,
+      );
+    }
+
+    const cosa = Math.cos( angleValue );
+    const sina = Math.sin( angleValue );
+    const v = ( currentPoint.x - previousPoint.x ) * cosa + ( currentPoint.y - previousPoint.y ) * sina;
+
+    returnPoint.x = ( previousPoint.x + cosa * v );
+    returnPoint.y = ( previousPoint.y + sina * v );
+
+    return returnPoint;
+  }
+
+  /**
+    * Calculates snap to angle guide line end coordinate.
+    * @param {QPointF} currentPoint - the current point being proposed
+    * @param {number} angleDegrees - angle of the line in degrees.
+    * @param {number} screenSize - size of the screen. Used to make sure the end of the line is outside the screen.
+    */
+  function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, screenSize) {
+    // if the angle is null or undefined, return empty coordinate map
+    if ( angleDegrees == null) {
+      return {};
+    }
+
+    const x1 = currentPoint.x;
+    const y1 = currentPoint.y;
+    const angleRadians = angleDegrees * Math.PI / 180;
+    const x2 = x1 + screenSize * Math.cos(angleRadians);
+    const y2 = y1 + screenSize * Math.sin(angleRadians);
+
+    return {x: x2, y: y2};
   }
 }
