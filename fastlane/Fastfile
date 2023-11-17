@@ -36,8 +36,8 @@ platform :ios do
       duration: 1200
     )
     sync_code_signing(
-      type: "adhoc",
-      app_identifier: ['ch.opengis.qfield'],
+      type: "development",
+      app_identifier: ['ch.opengis.qfield', 'ch.opengis.qfield-dev'],
       force_for_new_devices: true,
       readonly: false
     )
