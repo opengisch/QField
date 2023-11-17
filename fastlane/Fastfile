@@ -21,7 +21,7 @@ platform :ios do
     aws_s3(
       ipa: "/Users/runner/builddir/qfieldIpa/QField.ipa",
       endpoint: "https://sos-ch-dk-2.exo.io",
-      app_directory: 'ci-builds/ios/#{ENV["CI_PACKAGE_FILE_SUFFIX"]}'
+      app_directory: "ci-builds/ios/#{ENV['CI_PACKAGE_FILE_SUFFIX']}"
     )
   end
 
