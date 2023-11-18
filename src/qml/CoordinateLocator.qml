@@ -176,7 +176,13 @@ Item {
       target: snappingUtils
 
       function onSnappingResultChanged() {
-        crosshairCircle.border.color = overrideLocation == undefined ? ( snappingUtils.snappingResult.isValid ? "#9b59b6" : locator.mainColor ) : "#AD1457"
+        crosshairCircle.border.color = overrideLocation == undefined
+            ? (
+                snappingUtils.snappingResult.isValid
+                    ? "#9b59b6"
+                    : locator.mainColor
+            )
+            : "#AD1457"
         crosshairCircle.width = snappingUtils.snappingResult.isValid ? 32: 48
       }
     }
