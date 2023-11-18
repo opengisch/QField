@@ -12,6 +12,7 @@
     </qresource>
     <qresource prefix="/">
         <file>themes/qfield/nodpi/ic_3x3_grid_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_undo_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_flash_auto_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_flash_on_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_flash_off_black_24dp.svg</file>
@@ -37,27 +38,22 @@
         <file>themes/qfield/hdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_remove_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_save_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_undo_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_add_circle_outline_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_remove_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_save_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_undo_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_add_circle_outline_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_remove_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_save_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_undo_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_add_circle_outline_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_remove_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_save_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_undo_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_add_circle_outline_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_remove_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_save_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_undo_white_24dp.png</file>
         <file>themes/qfield/nodpi/ic_create_white_24dp.svg</file>
         <file>themes/qfield/hdpi/ic_create_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_create_white_24dp.png</file>

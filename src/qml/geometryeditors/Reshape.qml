@@ -17,16 +17,22 @@ VisibilityFadingRow {
 
     spacing: 4
 
-    function canvasClicked(point)
+    function canvasClicked(point, type)
     {
-        drawPolygonToolbar.addVertex();
-        return true; // handled
+      if (type === "stylus") {
+        drawPolygonToolbar.addVertex()
+        return true
+      }
+      return false
     }
 
-    function canvasLongPressed(point)
+    function canvasLongPressed(point, type)
     {
-        drawPolygonToolbar.confirm();
-        return true; // handled
+      if (type === "stylus") {
+        drawPolygonToolbar.confirm()
+        return true
+      }
+      return false
     }
 
     DigitizingToolbar {

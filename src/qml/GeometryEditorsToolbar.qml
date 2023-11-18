@@ -3,6 +3,7 @@ import QtQml.Models 2.14
 
 import org.qgis 1.0
 import org.qfield 1.0
+
 import Theme 1.0
 
 /**
@@ -33,7 +34,7 @@ VisibilityFadingRow {
   property GeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
-  property string image: ''
+  property string image: Theme.getThemeIcon("ic_edit_geometry_white")
 
   spacing: 4
 
@@ -52,7 +53,7 @@ VisibilityFadingRow {
   }
 
   function init() {
-    var lastUsed = settings.value( "/QField/GeometryEditorLastUsed", -1 )
+    var lastUsed = settings.value("/QField/GeometryEditorLastUsed", -1)
     if (lastUsed >= 0 && lastUsed < editors.rowCount())
     {
       selectorRow.stateVisible = false
@@ -65,23 +66,24 @@ VisibilityFadingRow {
   }
 
   function cancelEditors() {
-    if ( toolbarRow.item )
+    if (toolbarRow.item) {
       toolbarRow.item.cancel()
+    }
     featureModel.vertexModel.clear()
   }
 
   // returns true if handled
-  function canvasClicked(point) {
+  function canvasClicked(point, type) {
     if ( toolbarRow.item && toolbarRow.visible )
-      return toolbarRow.item.canvasClicked(point)
+      return toolbarRow.item.canvasClicked(point, type)
     else
       return false
   }
 
   // returns true if handled
-  function canvasLongPressed(point) {
+  function canvasLongPressed(point, type) {
     if ( toolbarRow.item && toolbarRow.visible )
-      return toolbarRow.item.canvasLongPressed(point)
+      return toolbarRow.item.canvasLongPressed(point, type)
     else
       return false
   }
@@ -116,14 +118,16 @@ VisibilityFadingRow {
         iconSource: Theme.getThemeVectorIcon(iconPath)
         visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
-          // close current tool if any
-          if (toolbarRow.item)
+          // close current tool
+          if (toolbarRow.item) {
             toolbarRow.item.cancel()
+          }
+
           selectorRow.stateVisible = false
           geometryEditorsToolbar.image = Theme.getThemeVectorIcon(iconPath)
           toolbarRow.load(toolbar, iconPath, name)
 
-          settings.setValue( "/QField/GeometryEditorLastUsed", index )
+          settings.setValue("/QField/GeometryEditorLastUsed", index)
         }
       }
     }
@@ -159,12 +163,11 @@ VisibilityFadingRow {
   }
 
   Connections {
-      target: toolbarRow.item
+    target: toolbarRow.item
 
-      function onFinished() {
-          featureModel.vertexModel.clear()
-          toolbarRow.source = ''
-      }
+    function onFinished() {
+      featureModel.vertexModel.clear()
+    }
   }
 
   QfToolButton {
@@ -176,7 +179,10 @@ VisibilityFadingRow {
     onClicked: {
       toolbarRow.item.cancel()
       toolbarRow.source = ''
+      vertexRubberband.isVisible = false
       selectorRow.stateVisible = true
+      image = Theme.getThemeIcon("ic_edit_geometry_white")
+      settings.setValue("/QField/GeometryEditorLastUsed", -1)
     }
   }
 }

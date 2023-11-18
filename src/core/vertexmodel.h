@@ -63,6 +63,9 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex)
     Q_PROPERTY( bool isHovering MEMBER mIsHovering )
 
+    //! returns TRUE if an undo operation is available
+    Q_PROPERTY( bool canUndo READ canUndo NOTIFY historyChanged )
+
     /**
      * The index of the currently active vertex. If no vertex is selected, this is -1.
      */
@@ -114,6 +117,28 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
         int ring;
     };
 
+    enum VertexChangeType
+    {
+      NoChange,
+      VertexMove,
+      VertexAddition,
+      VertexDeletion
+    };
+    Q_ENUM( VertexChangeType )
+
+    struct VertexChange
+    {
+        VertexChange( VertexChangeType type, int &index, const Vertex &vertex )
+          : type( type )
+          , index( index )
+          , vertex( vertex )
+        {}
+
+        VertexChangeType type = NoChange;
+        int index = -1;
+        Vertex vertex;
+    };
+
     explicit VertexModel( QObject *parent = nullptr );
     ~VertexModel() override = default;
 
@@ -163,7 +188,14 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! next vertex or segment
     Q_INVOKABLE void next();
 
-    Q_INVOKABLE void selectVertexAtPosition( const QPointF &point, double threshold );
+    //! Selects the vertex at the given screen \a point within a given \a threshold
+    Q_INVOKABLE void selectVertexAtPosition( const QPointF &point, double threshold, bool autoInsert = true );
+
+    //! Selects the vertex at the given \a mapPoint within a given \a threshold
+    void selectVertexAtPosition( const QgsPoint &mapPoint, double threshold, bool autoInsert = true );
+
+    //! Adds a new vertex on the segment having its mid-point nearest to the \a mapPoint
+    Q_INVOKABLE void addVertexNearestToPosition( const QgsPoint &mapPoint );
 
     Q_INVOKABLE void removeCurrentVertex();
 
@@ -226,8 +258,13 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     Vertex vertex( int row ) const;
 
-    //! Selects the vertex at the given \a mapPoint and
-    void selectVertexAtPosition( const QgsPoint &mapPoint, double threshold );
+    void clearHistory();
+
+    void addToHistory( VertexChangeType type );
+
+    Q_INVOKABLE void undoHistory();
+
+    bool canUndo();
 
   signals:
     //! \copydoc editingMode
@@ -253,18 +290,17 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     void currentVertexIndexChanged();
 
-    /**
-     * The coordinate reference system in which the geometry is
-     */
+    //!Emitted when the coordinate reference system has changed
     void crsChanged();
 
-    /**
-     * The geometry in layer coordinates
-     */
+    //! Emitted when the geometry has changed
     void geometryChanged();
 
     //! \copydoc geometryType
     void geometryTypeChanged();
+
+    //! Emitted when the history has been modified
+    void historyChanged();
 
   private:
     void refreshGeometry();
@@ -309,6 +345,10 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     bool mCanPreviousVertex = false;
     bool mCanNextVertex = false;
     bool mIsHovering = false;
+
+    QList<VertexChange> mHistory;
+    int mHistoryIndex = -1;
+    bool mHistoryTraversing = false;
 
     friend class VertexModelTest;
 };

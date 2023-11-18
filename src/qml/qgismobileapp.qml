@@ -439,6 +439,10 @@ ApplicationWindow {
               return;
           }
 
+          // Check if geometry editor is taking over
+          if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) && geometryEditorsToolbar.canvasClicked( point, type ) )
+              return;
+
           if ( type === "stylus" ) {
               if ( pointInItem( point, digitizingToolbar ) ||
                    pointInItem( point, zoomToolbar ) ||
@@ -449,10 +453,6 @@ ApplicationWindow {
                    pointInItem( point, locatorItem ) ) {
                   return;
               }
-
-              // Check if geometry editor is taking over
-              if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && geometryEditorsToolbar.canvasClicked(point) )
-                  return;
 
               if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
                    ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
@@ -472,6 +472,14 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: (point) => {
+          // Check if geometry editor is taking over
+          if ( geometryEditorsToolbar.stateVisible ) {
+            if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) ) {
+              geometryEditorsToolbar.canvasClicked( point, '' )
+            }
+            return
+          }
+
           if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state != "FeatureFormEdit")
           {
               identifyTool.isMenuRequest = false
@@ -485,8 +493,8 @@ ApplicationWindow {
             return
           }
 
-          if ( geometryEditorsToolbar.canvasLongPressed( point ) ) {
-            // for instance, the vertex editor will select a vertex if possible
+          // Check if geometry editor is taking over
+          if ( geometryEditorsToolbar.canvasLongPressed( point, type ) ) {
             return
           }
 
@@ -508,6 +516,11 @@ ApplicationWindow {
           identifyTool.isMenuRequest = false
           identifyTool.identify(point)
         } else {
+          // Check if geometry editor is taking over
+          if ( geometryEditorsToolbar.canvasLongPressed(point) ) {
+            return
+          }
+
           canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
           canvasMenu.popup(point.x, point.y)
           identifyTool.isMenuRequest = true
@@ -706,19 +719,19 @@ ApplicationWindow {
 
     /* Rubberband for vertices  */
     Item {
-      // highlighting vertices
-      VertexRubberband {
-        id: vertexRubberband
-        model: geometryEditingVertexModel
-        mapSettings: mapCanvas.mapSettings
-      }
-
       // highlighting geometry (point, line, surface)
       Rubberband {
         id: editingRubberband
         vertexModel: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
         lineWidth: 4
+      }
+
+      // highlighting vertices
+      VertexRubberband {
+        id: vertexRubberband
+        model: geometryEditingVertexModel
+        mapSettings: mapCanvas.mapSettings
       }
     }
 
@@ -1198,28 +1211,31 @@ ApplicationWindow {
       }
     }
 
-    CloseTool {
+    QfCloseButton {
       id: closeMeasureTool
       visible: stateMachine.state === 'measure'
       toolImage: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
       toolText: qsTr( 'Close measure tool' )
-      onClosedTool: mainWindow.closeMeasureTool()
+
+      onClose: mainWindow.closeMeasureTool()
     }
 
-    CloseTool {
+    QfCloseButton {
       id: closeGeometryEditorsTool
       visible: ( stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0 )
       toolImage: geometryEditorsToolbar.image
       toolText: qsTr( 'Stop editing' )
-      onClosedTool: geometryEditorsToolbar.cancelEditors()
+
+      onClose: geometryEditorsToolbar.cancelEditors()
     }
 
-    CloseTool {
+    QfCloseButton {
       id: abortRequestGeometry
       visible: digitizingToolbar.geometryRequested
       toolImage: Theme.getThemeIcon( "ic_edit_geometry_white" )
       toolText: qsTr( 'Cancel addition' )
-      onClosedTool: digitizingToolbar.cancel()
+
+      onClose: digitizingToolbar.cancel()
     }
   }
 

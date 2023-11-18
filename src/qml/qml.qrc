@@ -70,8 +70,8 @@
         <file>Changelog.qml</file>
         <file>Nyuki.qml</file>
         <file>LayerLoginDialog.qml</file>
-        <file>CloseTool.qml</file>
         <file>imports/Theme/Theme.qml</file>
+        <file>imports/Theme/QfCloseButton.qml</file>
         <file>imports/Theme/QfToolButton.qml</file>
         <file>imports/Theme/QfButton.qml</file>
         <file>imports/Theme/QfSwitch.qml</file>

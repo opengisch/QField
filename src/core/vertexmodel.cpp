@@ -80,15 +80,97 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
   mGeometryWkbType = geometry.wkbType();
   mRingCount = 0;
   refreshGeometry();
-  setCurrentVertex( -1 );
   endResetModel();
   emit geometryChanged();
   emit geometryTypeChanged();
 }
 
+void VertexModel::clearHistory()
+{
+  mHistory.clear();
+  mHistoryIndex = -1;
+  emit historyChanged();
+}
+
+void VertexModel::addToHistory( VertexChangeType type )
+{
+  if ( mHistoryTraversing )
+  {
+    return;
+  }
+
+  if ( mHistory.size() > mHistoryIndex + 1 )
+  {
+    while ( mHistory.size() > mHistoryIndex + 1 )
+    {
+      mHistory.removeLast();
+    }
+  }
+
+  if ( mHistory.isEmpty() || mHistory.last().type != type || ( mHistory.last().type == VertexMove && mHistory.last().index != mCurrentIndex ) )
+  {
+    mHistory << VertexChange( type, mCurrentIndex, mVertices.at( mCurrentIndex ) );
+  }
+
+  mHistoryIndex = mHistory.size() - 1;
+  emit historyChanged();
+}
+
+void VertexModel::undoHistory()
+{
+  if ( mHistoryIndex >= 0 )
+  {
+    mHistoryTraversing = true;
+
+    const VertexChange &change = mHistory.at( mHistoryIndex );
+    switch ( change.type )
+    {
+      case VertexMove:
+      {
+        setCurrentVertexIndex( change.index );
+        mVertices[change.index].originalPoint = change.vertex.originalPoint;
+        setCurrentPoint( change.vertex.point );
+        break;
+      }
+
+      case VertexAddition:
+      {
+        setCurrentVertexIndex( change.index + 1 );
+        removeCurrentVertex();
+        break;
+      }
+
+      case VertexDeletion:
+      {
+        setCurrentVertexIndex( -1 );
+        beginResetModel();
+        mVertices.insert( std::max( 0, change.index - 1 ), change.vertex );
+        createCandidates();
+        endResetModel();
+        setCurrentVertexIndex( change.index );
+
+        break;
+      }
+
+      case NoChange:
+        break;
+    }
+
+    mHistoryIndex--;
+    mHistoryTraversing = false;
+    emit historyChanged();
+  }
+}
+
+bool VertexModel::canUndo()
+{
+  return mHistoryIndex >= 0;
+}
+
 void VertexModel::refreshGeometry()
 {
-  mCurrentIndex = -1;
+  clearHistory();
+  setCurrentVertex( -1 );
   QgsGeometry geom = mOriginalGeometry;
 
   if ( mMapSettings )
@@ -402,6 +484,7 @@ void VertexModel::clear()
   updateCanAddVertex();
   emit vertexCountChanged();
   setDirty( false );
+  clearHistory();
   endResetModel();
 }
 
@@ -472,13 +555,7 @@ void VertexModel::next()
   }
 }
 
-void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold )
-{
-  QgsPoint mapPoint( mapSettings()->screenToCoordinate( point ) );
-  selectVertexAtPosition( mapPoint, threshold );
-}
-
-void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double threshold )
+void VertexModel::addVertexNearestToPosition( const QgsPoint &mapPoint )
 {
   double closestDistance = std::numeric_limits<double>::max();
 
@@ -486,7 +563,12 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
 
   for ( int r = 0; r < mVertices.count(); r++ )
   {
-    double dist = mVertices.at( r ).point.distance( mapPoint );
+    if ( mVertices[r].type == ExistingVertex )
+    {
+      continue;
+    }
+
+    double dist = mVertices[r].point.distance( mapPoint );
     if ( dist < closestDistance )
     {
       closestDistance = dist;
@@ -494,20 +576,58 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
     }
   }
 
-  if ( closestRow >= 0 && closestDistance / mapSettings()->mapSettings().mapUnitsPerPixel() < threshold )
+  if ( closestRow > -1 )
   {
-    if ( mVertices.at( closestRow ).type != ExistingVertex )
+    setEditingMode( AddVertex );
+    setCurrentVertex( closestRow, true );
+  }
+}
+
+void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold, bool autoInsert )
+{
+  QgsPoint mapPoint( mapSettings()->screenToCoordinate( point ) );
+  selectVertexAtPosition( mapPoint, threshold, autoInsert );
+}
+
+void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double threshold, bool autoInsert )
+{
+  double closestDistance = std::numeric_limits<double>::max();
+
+  int closestRow = -1;
+
+  for ( int r = 0; r < mVertices.count(); r++ )
+  {
+    double dist = mVertices[r].point.distance( mapPoint );
+    if ( dist < closestDistance )
     {
-      // makes a new vertex as an existing vertex
-      beginResetModel();
-      mVertices[closestRow].type = ExistingVertex;
-      setCurrentVertex( closestRow );
-      createCandidates();
-      setEditingMode( EditVertex );
-      endResetModel();
+      closestDistance = dist;
+      closestRow = r;
+    }
+  }
+
+  if ( closestRow >= 0 && closestDistance / mapSettings()->mapUnitsPerPoint() < threshold )
+  {
+    if ( mVertices[closestRow].type != ExistingVertex )
+    {
+      if ( autoInsert )
+      {
+        // makes a new vertex as an existing vertex
+        beginResetModel();
+        mVertices[closestRow].type = ExistingVertex;
+        setCurrentVertex( closestRow );
+        createCandidates();
+        setEditingMode( EditVertex );
+        endResetModel();
+      }
+      else
+      {
+        setEditingMode( AddVertex );
+        setCurrentVertex( closestRow, true );
+      }
     }
     else
     {
+      setEditingMode( EditVertex );
       setCurrentVertex( closestRow );
     }
   }
@@ -526,6 +646,8 @@ void VertexModel::removeCurrentVertex()
 
   if ( !mVertices.at( mCurrentIndex ).originalPoint.isEmpty() )
     mVerticesDeleted << mVertices.at( mCurrentIndex ).originalPoint;
+
+  addToHistory( VertexDeletion );
 
   beginResetModel();
   mVertices.removeAt( mCurrentIndex );
@@ -573,11 +695,17 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   setDirty( true );
   beginResetModel();
 
+  addToHistory( mMode == AddVertex ? VertexAddition : VertexMove );
+
   vertex.point = point;
   if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
+  {
     vertex.point.addZValue();
+  }
   if ( QgsWkbTypes::hasM( mGeometryWkbType ) )
+  {
     vertex.point.addMValue();
+  }
 
   if ( mMode == AddVertex )
   {
