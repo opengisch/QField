@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QFieldin tukeminen</translation>
+        <translation>Tue QFieldiä</translation>
     </message>
     <message>
         <source>Changelog</source>
@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Rajaa hakukenttään &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -60,7 +60,7 @@
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>Tämä ruudukko on osa “&lt;i&gt;%1&lt;/i&gt;” pakettia, joka on ladattavissa %2&lt;/a&gt;.</translation>
+        <translation>Tämä ruudukko on osa “&lt;i&gt;%1&lt;/i&gt;” pakettia, joka on ladattavissa &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
@@ -326,7 +326,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>Kopioitu kirjanmerkin yksityiskohdat leikepöydälle</translation>
+        <translation>Kirjanmerkin yksityiskohdat kopioitu leikepöydälle</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -334,7 +334,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Olet poistamassa kirjanmerkkiä, jatketaanko?</translation>
+        <translation>Oletko varma, että haluat poistaa kirjainmerkin?</translation>
     </message>
 </context>
 <context>
@@ -345,7 +345,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation>Projektin  kirjanmerkkejä ai voi muokata</translation>
+        <translation>Projektin kirjanmerkkejä ai voi muokata</translation>
     </message>
 </context>
 <context>
@@ -386,7 +386,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QFieldin tukeminen</translation>
+        <translation>Tue QFieldiä</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
@@ -453,7 +453,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Lopeta tai hylkää digitointi ennen kuin siirryt selaustilaan</translation>
     </message>
 </context>
 <context>
@@ -566,11 +566,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>Geometriaa ei voitu muokata kohteen useaan eri osaan</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>Geometriaa ei voida muokata</translation>
     </message>
 </context>
 <context>
@@ -897,7 +897,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Poistotyökalu</translation>
     </message>
 </context>
 <context>
@@ -1147,7 +1147,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="vanished">Palauttaa pisteen hakukenttään kirjoitetusta parista X- ja Y-koordinaatteja</translation>
+        <translation type="vanished">Siirtyy hakukenttään kirjoitettujen X- ja Y-koordinaattien perusteella kohteeseen.</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
@@ -1163,27 +1163,27 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Palauttaa aktiiviselta tasolta kohteet listana, joissa on vastaava attribuutti.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Palauttaa listan kohteista kaikista haettavista tasoista, jotka vastaavat näyttönimen kanssa.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Siirtyy hakukenttään kirjoitettujen X- ja Y - tai WGS84 Latitudi ja Longitude koordinaattien perusteella kohteeseen.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Palauttaa hakukenttään syötetyn nimen perusteella listan käyttäjistä, joilla on projekti avattuna kirjainmerkkeihin. </translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Palauttaa hakupalkkiin syötetyn lausekkeen arvon. </translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Palauttaa listan sijainneista Suomessa, jotka vastaavat hakukentään syötetyn lauseen kanssa.</translation>
     </message>
 </context>
 <context>
@@ -1194,11 +1194,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Hakeaksesi kohteita aktiiviselta tasolta, valitse selitteestä aktiiviseksi oikea vektoritaso.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Aktivoi ensin vektoritaso selitteestä, jotta voit käyttää tätä toiminnallisuutta. </translation>
     </message>
 </context>
 <context>
@@ -1252,23 +1252,23 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Lokita profiloijan suoritusaikaa</translation>
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Kirjoita valinnaiset tiedot</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Sisällytä pilvikäyttäjien tiedot</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä toiminto lähettää tämän hetkisen session lokitiedot kehittäjäyhteisölle. Sinun tarvitsee tehdä tämä vain, jos sinua on käsketty tekemään niin.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Sovelluksesi lokitiedot on lähetetty</translation>
     </message>
 </context>
 <context>
@@ -1753,19 +1753,19 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Paikkatiedon merkintä (Geotagging) päällä</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Paikkatiedon merkintä (Geotagging) pois päältä</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Ruudukko käytössä</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Ruudukko pois käytöstä</translation>
     </message>
 </context>
 <context>
@@ -2427,7 +2427,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä projekti ZIP-tiedostosta.</translation>
     </message>
 </context>
 <context>
@@ -2784,23 +2784,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Pienempi laatutarkkuus käyttää vähemmän muistia ja piirtää nopeammin.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä arvo korjaa Z-arvot, jotka tallennettu paikannuslaitteella. Jos arvo 1.6 on syötetty, QField automaattisesti vähentää 1.6 jokaisesta tallennetusta arvosta. varmista että syötät todellisen antennin korkeuden esim. sauvan pituus + vastaanottimen pohjan keskipistestä mitattu laitteen korkeus.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Laitteen ortometrinen korkeus</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Käytä äänenvoimakkuuspainikkeita digitoidaksesi.</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Jos tämä asetus on päällä, painamalla laitteen ääni kovemmalle painiketta lisäät taitepisteen, kun taas painamalla ääni hiljemmalle painiketta poistat viimeisimmän lisätyn taitepisteen.</translation>
     </message>
 </context>
 <context>
@@ -2895,43 +2895,43 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Virhe, ZIP-tiedostoa ei ole olemassa: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Virhe, ZIP-tiedoston tiedostonimi on tyhjä.</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Virhe, tulostiedoston dir-kohdehakemistoa ei ole olemassa:  &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Virhe, tulostiedoston dir-kohdehakemisto ei ole kohteessa:  &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Virhe, tulostiedoston dir-kohdehakemistoon ei voida tallentaa: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Alihakemiston luonti epäonnistui %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Ei voitu tallentaa kohteeseen %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Virhe luettaessa tiedostoa: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Virhe haettaessa tiedostoa: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Virhe avattaessa ZIP-pakkausta: &apos;%1&apos; (Virhe koodi: %2)</translation>
     </message>
 </context>
 <context>
@@ -3073,11 +3073,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Valitse sarjaportti allaolevasta listasta:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Sarjaporttia ei havaittu, päivitä lista kun laite on kytketty.</translation>
     </message>
     <message>
         <source>Refresh list</source>
@@ -3085,30 +3085,30 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Sarjaportin näyttönimi:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Sarjaportin osoite:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Laitteen sarjaporttia ei löydetty.</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Yritys lukea sarjaporttia palautti virheen</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>Yhteys evättiin koska tarvittavia oikeuksia ei ollut</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Sarjaportin vastaanottimen virhe (%1)</translation>
     </message>
 </context>
 <context>
@@ -3212,19 +3212,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Sijainnin nauhoitus: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Sijainnin nauhoitus</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Vaatimusasetuksen</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Aikavaatimus</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3232,11 +3232,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Tämän asetuksen ollessa aktiivinen taitepiste lisätään, kun edellisen ja uuden taitepisteen välille määritetty tallennusaika saavuttaa määritetyn minimiarvon.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Etäisyysvaatimus</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3244,39 +3244,39 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Tämän asetuksen ollessa aktiivinen taitepiste lisätään, kun edellisen ja uuden taitepisteen välinen etäisyys saavuttaa määritetyn minimiarvon.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Sensoridatan vaatimus</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Tämän asetuksen ollessa aktiivinen taitepiste lisätään, kun sensorit tallentavat uutta dataa.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Odota aktiivisten vaatimusten täyttymistä</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Tämän asetuksen ollessa aktiivinen taitepisteet tallentuvat ainoastaan, kun kaikki määritetyt vaatimukset täyttyvät. Asetuksen ollessa poissa käytöstä taitepiste lisätään, kun yksittäinen vaatimus täyttyy.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Yleiset asetukset</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Etäisyyden suojavyöhyke</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Etäisyyden maksimitoleranssi [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Tämän asetuksen ollessa aktiivinen taitepistettä ei lisätä, kun etäisyys viimeisimmän ja uuden taitepisteen välillä on suurempi kuin määritetty maksimi arvo.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3332,7 +3332,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Jatka nauhoittamista</translation>
     </message>
 </context>
 <context>
@@ -3684,7 +3684,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Tervetuloa käyttämään QFieldiä. Käytätkö sovellusta ensimmäistä kertaa? Kokeile esimerkkiprojekteja, jotka on listattu alla viimeisimmissä projekteissa.</translation>
     </message>
 </context>
 <context>
@@ -4194,10 +4194,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Tarttuminen päällä</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
+        <translation>Tarttuminen pois päältä</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>

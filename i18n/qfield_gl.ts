@@ -4198,6 +4198,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Snapping turned off</source>
         <translation>Axuste apagado</translation>
     </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

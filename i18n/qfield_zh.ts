@@ -4196,6 +4196,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Snapping turned off</source>
         <translation>捕捉已关闭</translation>
     </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
+        <translation>请解锁屏幕以便关闭工程和应用程序</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

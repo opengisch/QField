@@ -4199,6 +4199,10 @@ fermer le projet et quitter l&apos;application</translation>
         <source>Snapping turned off</source>
         <translation>Capture désactivée</translation>
     </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

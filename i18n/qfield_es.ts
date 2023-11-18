@@ -4198,6 +4198,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Snapping turned off</source>
         <translation>Autoajuste desactivado</translation>
     </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

@@ -4230,6 +4230,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Snapping turned off</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

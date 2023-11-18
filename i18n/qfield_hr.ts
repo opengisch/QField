@@ -4196,6 +4196,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Snapping turned off</source>
         <translation>Hvatanje elemenata je isključeno</translation>
     </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
