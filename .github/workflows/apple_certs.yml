@@ -24,7 +24,6 @@ jobs:
 
       - name: 🔏 Sync certs
         env:
-          bundle_id: ch.opengis.qfield
           issuer_id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
           api_key_id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api_private_key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
