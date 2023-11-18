@@ -1,5 +1,5 @@
 /***************************************************************************
-  rubberband.h - Rubberband
+  rubberbandshape.h - RubberbandShape
 
  ---------------------
  begin                : 11.6.2016
@@ -13,9 +13,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef RUBBERBAND_H
-#define RUBBERBAND_H
+#ifndef RUBBERBANDSHAPE_H
+#define RUBBERBANDSHAPE_H
 
+#include <QList>
 #include <QQuickItem>
 #include <qgspoint.h>
 #include <qgswkbtypes.h>
@@ -25,32 +26,33 @@ class VertexModel;
 class QgsQuickMapSettings;
 
 /**
- * @brief The Rubberband class is used to draw rubber bands on the map canvas.
+ * @brief The RubberbandShape class is used to provide the shape data to draw rubber bands
+ * on the map canvas using the QML Shape item.
  * It is aimed to be used with either a VertexModel or a RubberbandModel.
- * Setting one will remove  the former definition of the other.
  */
-class Rubberband : public QQuickItem
+class RubberbandShape : public QQuickItem
 {
     Q_OBJECT
 
     Q_PROPERTY( RubberbandModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+
     //! Color of the main rubberband
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     //! Color of the rubberband outline
     Q_PROPERTY( QColor outlineColor READ outlineColor WRITE setOutlineColor NOTIFY outlineColorChanged )
     //! Line width of the main rubberband
     Q_PROPERTY( qreal lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
-    //! Color of the aleternative rubberband for current point
-    Q_PROPERTY( QColor colorCurrentPoint READ colorCurrentPoint WRITE setColorCurrentPoint NOTIFY colorCurrentPointChanged )
-    //! Line width  of the aleternative rubberband for current point
-    Q_PROPERTY( qreal lineWidthCurrentPoint READ lineWidthCurrentPoint WRITE setLineWidthCurrentPoint NOTIFY lineWidthCurrentPointChanged )
+
     //! Geometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
     Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
 
+    Q_PROPERTY( QPolygonF polyline READ polyline NOTIFY polylineChanged )
+    Q_PROPERTY( Qgis::GeometryType polylineType READ polylineType NOTIFY polylineTypeChanged )
+
   public:
-    explicit Rubberband( QQuickItem *parent = nullptr );
+    explicit RubberbandShape( QQuickItem *parent = nullptr );
 
     RubberbandModel *model() const;
     void setModel( RubberbandModel *model );
@@ -91,6 +93,10 @@ class Rubberband : public QQuickItem
     //! \copydoc geometryType
     void setGeometryType( const Qgis::GeometryType geometryType );
 
+    QPolygonF polyline() const { return mPolyline; }
+
+    Qgis::GeometryType polylineType() const { return mPolylineType; }
+
   signals:
     void modelChanged();
     void vertexModelChanged();
@@ -108,6 +114,10 @@ class Rubberband : public QQuickItem
     //! \copydoc geometryType
     void geometryTypeChanged();
 
+    void polylineChanged();
+
+    void polylineTypeChanged();
+
   private slots:
     void markDirty();
     void visibleExtentChanged();
@@ -118,22 +128,21 @@ class Rubberband : public QQuickItem
 
   private:
     void updateTransform();
-
-    void transformPoints( QVector<QgsPoint> &points );
+    void createPolyline();
 
     RubberbandModel *mRubberbandModel = nullptr;
     VertexModel *mVertexModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mDirty = false;
-    QColor mColor = QColor( 192, 57, 43, 90 );
-    float mWidth = 1.8;
+    QColor mColor = QColor( 192, 57, 43, 150 );
     QColor mOutlineColor = QColor( 255, 255, 255, 100 );
-    QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
-    float mWidthCurrentPoint = 1.2;
+    float mWidth = 2;
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Null;
     QgsPoint mGeometryCorner;
     double mGeometryMUPP = 0.0;
+    QPolygonF mPolyline;
+    Qgis::GeometryType mPolylineType = Qgis::GeometryType::Null;
 };
 
 
-#endif // RUBBERBAND_H
+#endif // RUBBERBANDSHAPE_H

@@ -105,8 +105,8 @@
 #include "referencingfeaturelistmodel.h"
 #include "relationutils.h"
 #include "resourcesource.h"
-#include "rubberband.h"
 #include "rubberbandmodel.h"
+#include "rubberbandshape.h"
 #include "scalebarmeasurement.h"
 #include "sensorlistmodel.h"
 #include "snappingresult.h"
@@ -425,7 +425,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
-  qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
+  qmlRegisterType<RubberbandShape>( "org.qgis", 1, 0, "RubberbandShape" );
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
   qmlRegisterType<ResourceSource>( "org.qgis", 1, 0, "ResourceSource" );
   qmlRegisterType<ProjectInfo>( "org.qgis", 1, 0, "ProjectInfo" );

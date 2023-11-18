@@ -585,7 +585,8 @@ ApplicationWindow {
     /** A rubberband for ditizing **/
     Rubberband {
       id: digitizingRubberband
-      lineWidth: 2.5
+      anchors.fill: parent
+      lineWidth: 4
 
       mapSettings: mapCanvas.mapSettings
 

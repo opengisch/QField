@@ -90,13 +90,12 @@ set(QFIELD_CORE_SRCS
     qgssggeometry.cpp
     recentprojectlistmodel.cpp
     referencingfeaturelistmodel.cpp
-    rubberband.cpp
+    rubberbandshape.cpp
     rubberbandmodel.cpp
     scalebarmeasurement.cpp
     screendimmer.cpp
     sensorlistmodel.cpp
     settings.cpp
-    sgrubberband.cpp
     snappingresult.cpp
     submodel.cpp
     tracker.cpp
@@ -199,13 +198,12 @@ set(QFIELD_CORE_HDRS
     qgssggeometry.h
     recentprojectlistmodel.h
     referencingfeaturelistmodel.h
-    rubberband.h
+    rubberbandshape.h
     rubberbandmodel.h
     scalebarmeasurement.h
     screendimmer.h
     sensorlistmodel.h
     settings.h
-    sgrubberband.h
     snappingresult.h
     submodel.h
     tracker.h

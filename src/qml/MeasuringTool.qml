@@ -20,6 +20,20 @@ Item {
                                                      rubberband.model.currentCoordinate)
   }
 
+  Rubberband {
+    id: rubberband
+    lineWidth: 2.5
+    color: '#80000000'
+
+    model: RubberbandModel {
+      frozen: false
+      geometryType: isClosingArea || isArea
+                    ? Qgis.GeometryType.Polygon
+                    : Qgis.GeometryType.Line
+      crs: rubberband.mapSettings.destinationCrs
+    }
+  }
+
   Repeater {
     id: vertices
     model: rubberband.model.vertices
@@ -44,20 +58,6 @@ Item {
       color: "#20000000"
       border.color: '#80000000'
       border.width: 2
-    }
-  }
-
-  Rubberband {
-    id: rubberband
-    lineWidth: 2.5
-    color: '#80000000'
-
-    model: RubberbandModel {
-      frozen: false
-      geometryType: isClosingArea || isArea
-                    ? Qgis.GeometryType.Polygon
-                    : Qgis.GeometryType.Line
-      crs: rubberband.mapSettings.destinationCrs
     }
   }
 
