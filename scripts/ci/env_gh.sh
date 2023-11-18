@@ -1,13 +1,18 @@
 #!/bin/bash -e
 
-if [[ ${GITHUB_REF} == *"refs/heads"* ]]; then
-	TMP_CI_BRANCH=${GITHUB_REF#refs/heads/}
-elif [[ ${GITHUB_REF} == *"refs/tags"* ]]; then
-	TMP_CI_TAG=${GITHUB_REF#refs/tags/}
-	TMP_CI_BRANCH=${TMP_CI_TAG}
+echo "GITHUB_REF_NAME: ${GITHUB_REF_NAME}"
+echo "GITHUB_REF_TYPE: ${GITHUB_REF_TYPE}"
+
+TMP_CI_BRANCH=${GITHUB_REF_NAME}
+if [[ ${GITHUB_REF_TYPE} == "tag" ]]; then
+	TMP_CI_TAG=${GITHUB_REF_NAME}
+	TMP_CI_BRANCH=${GITHUB_REF_NAME}
+elif [[ ${GITHUB_REF_TYPE} == "branch" ]]; then
+	TMP_CI_TAG=""
+	TMP_CI_BRANCH=${GITHUB_REF_NAME}
 else
-	TMP_CI_BRANCH=${TMP_CI_BRANCH:=""}
-	TMP_CI_TAG=${TMP_CI_TAG:=""}
+	TMP_CI_TAG=""
+	TMP_CI_BRANCH=""
 fi
 
 TMP_CI_COMMIT_BEFORE=$(jq --raw-output .before "${GITHUB_EVENT_PATH}")
