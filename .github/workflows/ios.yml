@@ -27,7 +27,6 @@ jobs:
 
       - name: 🌾 Prepare variables
         id: vars
-        shell: bash
         run: |
           ./scripts/ci/env_gh.sh
 
