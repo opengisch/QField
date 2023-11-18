@@ -58,8 +58,6 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     Q_PROPERTY( bool canPreviousVertex READ canPreviousVertex NOTIFY canPreviousVertexChanged )
     //! determines if one can go to next vertex
     Q_PROPERTY( bool canNextVertex READ canNextVertex NOTIFY canNextVertexChanged )
-    //! geometry type
-    Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
     //! determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex)
     Q_PROPERTY( bool isHovering MEMBER mIsHovering )
 
