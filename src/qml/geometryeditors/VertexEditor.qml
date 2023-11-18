@@ -90,6 +90,7 @@ VisibilityFadingRow {
     onClicked: {
       digitizingLogger.clearCoordinates();
       cancel()
+      finished()
     }
   }
 
