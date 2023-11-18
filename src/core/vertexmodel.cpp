@@ -89,6 +89,7 @@ void VertexModel::clearHistory()
 {
   mHistory.clear();
   mHistoryIndex = -1;
+  emit historyChanged();
 }
 
 void VertexModel::addToHistory( VertexChangeType type )
@@ -483,6 +484,7 @@ void VertexModel::clear()
   updateCanAddVertex();
   emit vertexCountChanged();
   setDirty( false );
+  clearHistory();
   endResetModel();
 }
 
