@@ -39,11 +39,10 @@ jobs:
 
       - name: 🔏 Setup code signing
         env:
-          bundle_id: ch.opengis.qfield
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
           bundle install
-          bundle exec fastlane ios setup_signing type:${{env.CI_USE_IOS_DIST_CERT && 'app-store' || 'development' }} #  --verbose
+          bundle exec fastlane ios setup_signing type:${{env.CI_USE_IOS_DIST_CERT && 'app-store' || 'development' }} app_identifier:ch.opengis.qfield #  --verbose
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
