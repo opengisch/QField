@@ -141,14 +141,13 @@ jobs:
           S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY}}
           S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY}}
         run: |
-          bundle exec fastlane ios upload_s3
-          echo "Install the ipa from https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/ios/${{ env.CI_PACKAGE_FILE_SUFFIX }}/index.html"
+          bundle exec fastlane ios upload_s3 ipa:/Users/runner/builddir/qfieldIpa/QField.ipa
 
       - name: 📦 Upload qfield Ipa
         uses: actions/upload-artifact@v3
         with:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
-          path: qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
+          path: /Users/runner/builddir/qfieldIpa/QField.ipa
 
       - name: 🚀 Release to TestFlight
         if: ${{ env.CI_USE_IOS_DIST_CERT }}
@@ -157,7 +156,7 @@ jobs:
           api_key_id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api_private_key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
         run: |
-          bundle exec fastlane ios upload_testflight
+          bundle exec fastlane ios upload_testflight ipa:/Users/runner/builddir/qfieldIpa/QField.ipa
 
       - name: 🚀 Upload Release Asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
@@ -166,7 +165,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
+          asset_path: /Users/runner/builddir/qfieldIpa/QField.ipa
           asset_name: qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           asset_content_type: application/zip
 
