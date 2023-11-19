@@ -231,6 +231,12 @@ void LocalFilesModel::reloadModel()
         else
         {
           const QString suffix = fi.suffix().toLower();
+          if ( suffix == QStringLiteral( "jpg" ) && items.contains( fi.completeBaseName() ) )
+          {
+            // Skip project preview images
+            continue;
+          }
+
           if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
           {
             projects << Item( ItemMetaType::Project, ItemType::ProjectFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
