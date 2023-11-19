@@ -304,6 +304,35 @@ Item {
     target: null
     enabled: interactive && !pinchArea.isDragging
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedModifiers: Qt.NoModifier
+    grabPermissions: PointerHandler.TakeOverForbidden
+    acceptedButtons: Qt.MiddleButton
+
+    property var oldPos
+
+    onActiveChanged: {
+      if (active) {
+        freeze('pan')
+        oldPos = centroid.position
+      } else {
+        unfreeze('pan')
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        var oldPos1 = oldPos
+        oldPos = centroid.position
+        mapCanvasWrapper.pan(centroid.position, oldPos1)
+      }
+    }
+  }
+
+  DragHandler {
+    target: null
+    enabled: interactive && !pinchArea.isDragging
+    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedModifiers: Qt.ShiftModifier
     grabPermissions: PointerHandler.TakeOverForbidden
     acceptedButtons: Qt.MiddleButton
 
