@@ -424,7 +424,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>închidere</translation>
+        <translation type="vanished">închidere</translation>
     </message>
 </context>
 <context>
@@ -2934,6 +2934,13 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>închidere</translation>
     </message>
 </context>
 <context>

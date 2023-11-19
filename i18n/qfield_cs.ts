@@ -423,7 +423,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>zavřít</translation>
+        <translation type="vanished">zavřít</translation>
     </message>
 </context>
 <context>
@@ -2933,6 +2933,13 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Chyba otevírání archivu zip: &apos;%1&apos; (kód chyby: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>zavřít</translation>
     </message>
 </context>
 <context>

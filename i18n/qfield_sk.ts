@@ -423,7 +423,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>zavrieť</translation>
+        <translation type="vanished">zavrieť</translation>
     </message>
 </context>
 <context>
@@ -2933,6 +2933,13 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Chyba pri otváraní zip archívu: &apos;%1&apos; (Chybový kód: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>zavrieť</translation>
     </message>
 </context>
 <context>

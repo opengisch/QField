@@ -423,7 +423,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>zatvori</translation>
+        <translation type="vanished">zatvori</translation>
     </message>
 </context>
 <context>
@@ -2928,6 +2928,13 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Greška - otvaranje zip arhiva: &apos;%1&apos; (Kôd greške: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>zatvori</translation>
     </message>
 </context>
 <context>

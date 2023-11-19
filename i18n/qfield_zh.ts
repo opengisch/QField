@@ -423,7 +423,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>关闭</translation>
+        <translation type="vanished">关闭</translation>
     </message>
 </context>
 <context>
@@ -2928,6 +2928,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>打开ZIP归档文件时出错: &apos;%1&apos; (错误代码: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>

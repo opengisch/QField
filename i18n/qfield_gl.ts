@@ -423,7 +423,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>pechar</translation>
+        <translation type="vanished">pechar</translation>
     </message>
 </context>
 <context>
@@ -2930,6 +2930,13 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Erro ó abrir os ficheiros comprimidos: &apos;%1&apos; (Código de erro: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>pechar</translation>
     </message>
 </context>
 <context>

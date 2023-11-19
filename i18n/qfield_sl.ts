@@ -422,7 +422,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>Zapri</translation>
+        <translation type="vanished">Zapri</translation>
     </message>
 </context>
 <context>
@@ -2914,6 +2914,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>Zapri</translation>
     </message>
 </context>
 <context>

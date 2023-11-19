@@ -423,7 +423,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>sulje</translation>
+        <translation type="vanished">sulje</translation>
     </message>
 </context>
 <context>
@@ -2932,6 +2932,13 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Virhe avattaessa ZIP-pakkausta: &apos;%1&apos; (Virhe koodi: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>sulje</translation>
     </message>
 </context>
 <context>

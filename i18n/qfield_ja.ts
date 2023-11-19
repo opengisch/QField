@@ -423,7 +423,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>閉じる</translation>
+        <translation type="vanished">閉じる</translation>
     </message>
 </context>
 <context>
@@ -2928,6 +2928,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>ZIPアーカイブがエラーで開けませんでした: &apos;%1&apos; (エラーコード: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>閉じる</translation>
     </message>
 </context>
 <context>

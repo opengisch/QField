@@ -423,7 +423,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>cerrar</translation>
+        <translation type="vanished">cerrar</translation>
     </message>
 </context>
 <context>
@@ -2930,6 +2930,13 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Error al abrir el archivo zip: &apos;%1&apos; (Código de error: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>cerrar</translation>
     </message>
 </context>
 <context>

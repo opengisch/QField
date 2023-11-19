@@ -423,7 +423,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>fechar</translation>
+        <translation type="vanished">fechar</translation>
     </message>
 </context>
 <context>
@@ -2932,6 +2932,13 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Erro ao abrir ficheiro zip: &apos;%1&apos; (Error code: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>fechar</translation>
     </message>
 </context>
 <context>

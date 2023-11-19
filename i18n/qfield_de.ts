@@ -423,7 +423,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>Schließen</translation>
+        <translation type="vanished">Schließen</translation>
     </message>
 </context>
 <context>
@@ -2925,6 +2925,13 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>Schließen</translation>
     </message>
 </context>
 <context>

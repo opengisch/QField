@@ -423,7 +423,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>chiudi</translation>
+        <translation type="vanished">chiudi</translation>
     </message>
 </context>
 <context>
@@ -2935,6 +2935,13 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>chiudi</translation>
     </message>
 </context>
 <context>

@@ -423,7 +423,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>sluiten</translation>
+        <translation type="vanished">sluiten</translation>
     </message>
 </context>
 <context>
@@ -2930,6 +2930,13 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Fout bij openen zip archief: &apos;%1&apos; (Error code: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>sluiten</translation>
     </message>
 </context>
 <context>

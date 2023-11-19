@@ -423,7 +423,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>zamknij</translation>
+        <translation type="vanished">zamknij</translation>
     </message>
 </context>
 <context>
@@ -2925,6 +2925,13 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Błąd otwierania archiwum zip: &quot;%1&quot; (kod błędu: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>zamknij</translation>
     </message>
 </context>
 <context>

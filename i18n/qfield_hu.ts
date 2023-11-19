@@ -423,7 +423,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation>lezár</translation>
+        <translation type="vanished">lezár</translation>
     </message>
 </context>
 <context>
@@ -2924,6 +2924,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Hiba a zip archive megnyitása során: &apos;%1&apos; (Hibakód: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation>lezár</translation>
     </message>
 </context>
 <context>
