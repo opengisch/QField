@@ -7,8 +7,8 @@ import Theme 1.0
 Item {
   id: locator
   property MapSettings mapSettings
-  property color mainColor: "#263238"
-  property color highlightColor: "#CFD8DC"
+  property color mainColor: "#CFD8DC"
+  property color highlightColor: "#263238"
 
   /**
    * Set the current layer on which snapping should be performed.
@@ -190,7 +190,7 @@ Item {
     Rectangle {
       anchors.centerIn: parent
 
-      color: highlightColor
+      color: parent.border.color
 
       width: 3
       height: parent.height * 4 / 6 + 3
@@ -198,7 +198,7 @@ Item {
     Rectangle {
       anchors.centerIn: parent
 
-      color: highlightColor
+      color: parent.border.color
 
       width: parent.width * 4 / 6 + 3
       height: 3
@@ -207,17 +207,18 @@ Item {
     Rectangle {
       anchors.centerIn: parent
 
-      color: parent.border.color
+      color: highlightColor
       border.color: parent.color
       border.width: 1.2
 
       width: 1
       height: parent.height * 4 / 6
     }
+
     Rectangle {
       anchors.centerIn: parent
 
-      color: parent.border.color
+      color: highlightColor
 
       width: parent.width * 4 / 6
       height: 1
