@@ -142,13 +142,15 @@ Item {
     x: displayPosition.x - radius
     y: displayPosition.y - radius
 
-    border.width: 1.2
     color: "transparent"
     antialiasing: true
 
     width: 48
     height: width
     radius: width / 2
+
+    border.color: mainColor
+    border.width: 1.2
 
     Behavior on x {
       enabled: !overrideLocation && !sourceLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
@@ -159,8 +161,6 @@ Item {
       enabled: !overrideLocation && !sourceLocation
       NumberAnimation { duration: 100 }
     }
-
-    border.color: mainColor
 
     Behavior on border.color {
       ColorAnimation {
