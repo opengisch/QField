@@ -1115,7 +1115,7 @@ ApplicationWindow {
 
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: ApplicationWindow.overlay
+      parent: Overlay.overlay
   }
 
   QfDropShadow {
@@ -3267,7 +3267,7 @@ ApplicationWindow {
 
     BrowserPanel {
       id: browserPopup
-      parent: ApplicationWindow.overlay
+      parent: Overlay.overlay
 
       onCancel: {
         qfieldAuthRequestHandler.abortAuthBrowser();
@@ -3277,7 +3277,7 @@ ApplicationWindow {
 
     Popup {
       id: loginDialogPopup
-      parent: ApplicationWindow.overlay
+      parent: Overlay.overlay
 
       property var realm: ""
 
@@ -3416,7 +3416,7 @@ ApplicationWindow {
 
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: ApplicationWindow.overlay
+      parent: Overlay.overlay
   }
 
   QFieldCloudScreen {
@@ -3438,7 +3438,7 @@ ApplicationWindow {
     id: cloudPopup
     visible: false
     focus: visible
-    parent: ApplicationWindow.overlay
+    parent: Overlay.overlay
 
     width: parent.width
     height: parent.height
@@ -3447,7 +3447,7 @@ ApplicationWindow {
   QFieldCloudPackageLayersFeedback {
     id: cloudPackageLayersFeedback
     visible: false
-    parent: ApplicationWindow.overlay
+    parent: Overlay.overlay
 
     width: parent.width
     height: parent.height
@@ -3521,7 +3521,7 @@ ApplicationWindow {
     id: changelogPopup
     objectName: 'changelogPopup'
 
-    parent: ApplicationWindow.overlay
+    parent: Overlay.overlay
 
     property var expireDate: new Date(2038,1,19)
     visible: settings && settings.value( "/QField/ChangelogVersion", "" ) !== appVersion && expireDate > new Date()
