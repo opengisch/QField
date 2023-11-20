@@ -220,9 +220,9 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
         QVector<QgsPoint> allButCurrentVertices = mRubberbandModel->flatVertices( true );
         transformPoints( allButCurrentVertices );
 
-        float width = mWidthCurrentPoint * mMapSettings->devicePixelRatio();
-        float outlineWidth = ( mWidthCurrentPoint + 2 ) * mMapSettings->devicePixelRatio();
-        SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, width, mOutlineColor, outlineWidth );
+        float widthCurrentPoint = mWidthCurrentPoint * mMapSettings->devicePixelRatio();
+        float outlineWidthCurrentPoint = ( mWidthCurrentPoint + 2 ) * mMapSettings->devicePixelRatio();
+        SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, widthCurrentPoint, mOutlineColor, outlineWidthCurrentPoint );
         rbCurrentPoint->setFlag( QSGNode::OwnedByParent );
         n->appendChildNode( rbCurrentPoint );
       }
