@@ -4202,7 +4202,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Odblokuj ekran aby zamknąć projekt i aplikację</translation>
     </message>
 </context>
 <context>
