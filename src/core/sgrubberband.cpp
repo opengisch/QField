@@ -23,10 +23,13 @@
 #include <qgssurface.h>
 #include <qgstessellator.h>
 
-SGRubberband::SGRubberband( const QVector<QgsPoint> &points, Qgis::GeometryType type, const QColor &color, float width )
+SGRubberband::SGRubberband( const QVector<QgsPoint> &points, Qgis::GeometryType type, const QColor &color, float width, const QColor &outlineColor, float outlineWidth )
   : QSGNode()
+  , mWidth( width )
+  , mOutlineWidth( outlineWidth )
 {
   mMaterial.setColor( color );
+  mOutlineMaterial.setColor( outlineColor );
 
   if ( points.isEmpty() )
     return;
@@ -39,13 +42,13 @@ SGRubberband::SGRubberband( const QVector<QgsPoint> &points, Qgis::GeometryType 
 
     case Qgis::GeometryType::Line:
     {
-      appendChildNode( createLineGeometry( points, width ) );
+      appendChildNode( createLineGeometry( points ) );
       break;
     }
 
     case Qgis::GeometryType::Polygon:
     {
-      appendChildNode( createLineGeometry( points, width ) );
+      appendChildNode( createLineGeometry( points ) );
 
       if ( points.size() > 2 )
       {
@@ -85,25 +88,41 @@ SGRubberband::SGRubberband( const QVector<QgsPoint> &points, Qgis::GeometryType 
   }
 }
 
-QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &points, float width )
+QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &points )
 {
+  // outline node contains the regular node that the outline node is rendered behind the regular node
   QSGGeometryNode *node = new QSGGeometryNode;
+  QSGGeometryNode *outlineNode = new QSGGeometryNode;
   QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), points.count() );
+  QSGGeometry *outlineSGGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), points.count() );
   QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
+  QSGGeometry::Point2D *outlineVertices = outlineSGGeom->vertexDataAsPoint2D();
 
   int i = 0;
   for ( const QgsPoint &pt : points )
   {
-    vertices[i++].set( static_cast<float>( pt.x() ), static_cast<float>( pt.y() ) );
+    outlineVertices[i].set( static_cast<float>( pt.x() ), static_cast<float>( pt.y() ) );
+    vertices[i].set( static_cast<float>( pt.x() ), static_cast<float>( pt.y() ) );
+    i += 1;
   }
 
-  sgGeom->setLineWidth( static_cast<float>( width ) );
+  sgGeom->setLineWidth( static_cast<float>( mWidth ) );
   sgGeom->setDrawingMode( QSGGeometry::DrawLineStrip );
   node->setGeometry( sgGeom );
   node->setMaterial( &mMaterial );
   node->setFlag( QSGNode::OwnsGeometry );
   node->setFlag( QSGNode::OwnedByParent );
-  return node;
+
+  outlineSGGeom->setLineWidth( static_cast<float>( mOutlineWidth ) );
+  outlineSGGeom->setDrawingMode( QSGGeometry::DrawLineStrip );
+  outlineNode->setGeometry( outlineSGGeom );
+  outlineNode->setMaterial( &mOutlineMaterial );
+  outlineNode->setFlag( QSGNode::OwnsGeometry );
+  outlineNode->setFlag( QSGNode::OwnedByParent );
+
+  outlineNode->appendChildNode( node );
+
+  return outlineNode;
 }
 
 QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &points )

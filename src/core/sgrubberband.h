@@ -32,13 +32,16 @@ class RubberbandModel;
 class SGRubberband : public QSGNode
 {
   public:
-    SGRubberband( const QVector<QgsPoint> &points, Qgis::GeometryType type, const QColor &color, float width );
+    SGRubberband( const QVector<QgsPoint> &points, Qgis::GeometryType type, const QColor &color, float width, const QColor &outlineColor, float outlineWidth );
 
   private:
-    QSGGeometryNode *createLineGeometry( const QVector<QgsPoint> &points, float width );
+    QSGGeometryNode *createLineGeometry( const QVector<QgsPoint> &points );
     QSGGeometryNode *createPolygonGeometry( const QVector<QgsPoint> &points );
 
     QSGFlatColorMaterial mMaterial;
+    QSGFlatColorMaterial mOutlineMaterial;
+    float mWidth;
+    float mOutlineWidth;
 };
 
 #endif // QGSSGRUBBERBAND_H
