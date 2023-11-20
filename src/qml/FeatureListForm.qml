@@ -590,7 +590,7 @@ Rectangle {
   Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
           // if visible overlays (such as embedded feature forms) are present, don't take over
-          if (ApplicationWindow.overlay.visibleChildren.length > 1 || (ApplicationWindow.overlay.visibleChildren.length === 1 && !toast.visible))
+          if (Overlay.overlay && Overlay.overlay.visibleChildren.length > 1 || (Overlay.overlay.visibleChildren.length === 1 && !toast.visible))
               return;
 
           if (state != "FeatureList") {
