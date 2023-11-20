@@ -460,6 +460,10 @@ Item {
                             } else {
                                 applyAutoCompletion(true)
                             }
+                        } else if (text !== '') {
+                          // the last return-triggered auto completion didn't match anything, we have to reset the item state
+                          text = ''
+                          searchableLabel.completer = comboBox.displayText
                         }
                     }
                 }
