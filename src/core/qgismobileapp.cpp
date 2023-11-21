@@ -70,7 +70,7 @@
 #include "layertreemodel.h"
 #include "layerutils.h"
 #include "legendimageprovider.h"
-#include "linepolygonhighlight.h"
+#include "linepolygonshape.h"
 #include "localfilesimageprovider.h"
 #include "localfilesmodel.h"
 #include "locatormodelsuperbridge.h"
@@ -448,7 +448,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
   qmlRegisterType<LocatorFiltersModel>( "org.qfield", 1, 0, "LocatorFiltersModel" );
-  qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LinePolygonHighlight" );
+  qmlRegisterType<LinePolygonShape>( "org.qfield", 1, 0, "LinePolygonShape" );
   qmlRegisterType<LocalFilesModel>( "org.qfield", 1, 0, "LocalFilesModel" );
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );

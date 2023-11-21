@@ -666,7 +666,7 @@ ApplicationWindow {
       navigation: navigation
     }
 
-    LinePolygonHighlight {
+    LinePolygon {
       id: elevationProfileHighlight
 
       visible: elevationProfile.visible

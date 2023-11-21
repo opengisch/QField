@@ -61,7 +61,7 @@ set(QFIELD_CORE_SRCS
     layertreemapcanvasbridge.cpp
     layertreemodel.cpp
     legendimageprovider.cpp
-    linepolygonhighlight.cpp
+    linepolygonshape.cpp
     localfilesimageprovider.cpp
     localfilesmodel.cpp
     maptoscreen.cpp
@@ -87,7 +87,6 @@ set(QFIELD_CORE_SRCS
     qgismobileapp.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
-    qgssggeometry.cpp
     recentprojectlistmodel.cpp
     referencingfeaturelistmodel.cpp
     rubberbandshape.cpp
@@ -169,7 +168,7 @@ set(QFIELD_CORE_HDRS
     layertreemapcanvasbridge.h
     layertreemodel.h
     legendimageprovider.h
-    linepolygonhighlight.h
+    linepolygonshape.h
     localfilesimageprovider.h
     localfilesmodel.h
     maptoscreen.h
@@ -195,7 +194,6 @@ set(QFIELD_CORE_HDRS
     qgismobileapp.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
-    qgssggeometry.h
     recentprojectlistmodel.h
     referencingfeaturelistmodel.h
     rubberbandshape.h

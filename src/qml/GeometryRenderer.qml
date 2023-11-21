@@ -35,8 +35,8 @@ Item {
   Component {
     id: linePolygonHighlight
 
-    LinePolygonHighlight {
-      id: linePolygonHighlightItem
+    LinePolygon {
+      id: linePolygonItem
       mapSettings: geometryRenderer.mapSettings
 
       geometry: geometryRenderer.geometryWrapper
