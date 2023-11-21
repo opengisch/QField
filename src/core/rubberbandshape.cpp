@@ -206,11 +206,6 @@ void RubberbandShape::createPolylines()
   emit polylinesChanged();
 }
 
-QSGNode *RubberbandShape::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )
-{
-  return n;
-}
-
 void RubberbandShape::setGeometryType( const Qgis::GeometryType geometryType )
 {
   if ( mGeometryType == geometryType )

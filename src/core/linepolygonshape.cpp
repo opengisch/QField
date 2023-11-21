@@ -31,11 +31,6 @@ LinePolygonShape::LinePolygonShape( QQuickItem *parent )
   setAntialiasing( true );
 }
 
-QSGNode *LinePolygonShape::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )
-{
-  return n;
-}
-
 void LinePolygonShape::createPolylines()
 {
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();

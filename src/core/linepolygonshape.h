@@ -79,9 +79,6 @@ class LinePolygonShape : public QQuickItem
     void visibleExtentChanged();
     void makeDirty();
 
-  protected:
-    QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * ) override;
-
   private:
     void updateTransform();
     void createPolylines();

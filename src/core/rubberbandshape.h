@@ -127,9 +127,6 @@ class RubberbandShape : public QQuickItem
     void visibleExtentChanged();
     void rotationChanged();
 
-  protected:
-    QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * ) override;
-
   private:
     void updateTransform();
     void createPolylines();
