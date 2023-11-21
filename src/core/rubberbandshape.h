@@ -38,6 +38,9 @@ class RubberbandShape : public QQuickItem
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
+    //! Geometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
+    Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
+
     //! Color of the main rubberband
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     //! Color of the rubberband outline
@@ -45,10 +48,9 @@ class RubberbandShape : public QQuickItem
     //! Line width of the main rubberband
     Q_PROPERTY( qreal lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
 
-    //! Geometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
-    Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
-
+    //! List of polylines representing the rubber band
     Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
+    //! The geometry type associated to the polylines
     Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
 
   public:
@@ -93,8 +95,10 @@ class RubberbandShape : public QQuickItem
     //! \copydoc geometryType
     void setGeometryType( const Qgis::GeometryType geometryType );
 
+    //! \copydoc polylines
     QList<QPolygonF> polylines() const { return mPolylines; }
 
+    //! \copydoc polylinesType
     Qgis::GeometryType polylinesType() const { return mPolylinesType; }
 
   signals:
@@ -113,9 +117,9 @@ class RubberbandShape : public QQuickItem
     void lineWidthCurrentPointChanged();
     //! \copydoc geometryType
     void geometryTypeChanged();
-
+    //! \copydoc polylines
     void polylinesChanged();
-
+    //! \copydoc polylinesType
     void polylinesTypeChanged();
 
   private slots:

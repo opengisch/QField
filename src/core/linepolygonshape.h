@@ -36,7 +36,9 @@ class LinePolygonShape : public QQuickItem
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
+    //! List of polylines representing the geometry
     Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
+    //! The geometry type associated to the polylines
     Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
 
   public:
@@ -54,8 +56,10 @@ class LinePolygonShape : public QQuickItem
     float lineWidth() const;
     void setLineWidth( float width );
 
+    //! \copydoc polylines
     QList<QPolygonF> polylines() const { return mPolylines; }
 
+    //! \copydoc polylinesType
     Qgis::GeometryType polylinesType() const { return mPolylinesType; }
 
   signals:
@@ -64,7 +68,9 @@ class LinePolygonShape : public QQuickItem
     void mapSettingsChanged();
     void qgsGeometryChanged();
     void updated();
+    //! \copydoc polylines
     void polylinesChanged();
+    //! \copydoc polylinesType
     void polylinesTypeChanged();
 
   private slots:
