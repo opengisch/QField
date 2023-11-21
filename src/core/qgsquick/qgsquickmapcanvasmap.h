@@ -19,8 +19,8 @@
 #include "qgsquickmapsettings.h"
 
 #include <QFutureSynchronizer>
+#include <QQuickItem>
 #include <QTimer>
-#include <QtQuick/QQuickItem>
 #include <qgsmapsettings.h>
 #include <qgspoint.h>
 
