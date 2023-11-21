@@ -48,8 +48,8 @@ class RubberbandShape : public QQuickItem
     //! Geometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
     Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
 
-    Q_PROPERTY( QPolygonF polyline READ polyline NOTIFY polylineChanged )
-    Q_PROPERTY( Qgis::GeometryType polylineType READ polylineType NOTIFY polylineTypeChanged )
+    Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
+    Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
 
   public:
     explicit RubberbandShape( QQuickItem *parent = nullptr );
@@ -93,9 +93,9 @@ class RubberbandShape : public QQuickItem
     //! \copydoc geometryType
     void setGeometryType( const Qgis::GeometryType geometryType );
 
-    QPolygonF polyline() const { return mPolyline; }
+    QList<QPolygonF> polylines() const { return mPolylines; }
 
-    Qgis::GeometryType polylineType() const { return mPolylineType; }
+    Qgis::GeometryType polylinesType() const { return mPolylinesType; }
 
   signals:
     void modelChanged();
@@ -114,9 +114,9 @@ class RubberbandShape : public QQuickItem
     //! \copydoc geometryType
     void geometryTypeChanged();
 
-    void polylineChanged();
+    void polylinesChanged();
 
-    void polylineTypeChanged();
+    void polylinesTypeChanged();
 
   private slots:
     void markDirty();
@@ -128,7 +128,7 @@ class RubberbandShape : public QQuickItem
 
   private:
     void updateTransform();
-    void createPolyline();
+    void createPolylines();
 
     RubberbandModel *mRubberbandModel = nullptr;
     VertexModel *mVertexModel = nullptr;
@@ -140,8 +140,8 @@ class RubberbandShape : public QQuickItem
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Null;
     QgsPoint mGeometryCorner;
     double mGeometryMUPP = 0.0;
-    QPolygonF mPolyline;
-    Qgis::GeometryType mPolylineType = Qgis::GeometryType::Null;
+    QList<QPolygonF> mPolylines;
+    Qgis::GeometryType mPolylinesType = Qgis::GeometryType::Null;
 };
 
 

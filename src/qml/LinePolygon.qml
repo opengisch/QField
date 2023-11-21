@@ -33,7 +33,7 @@ LinePolygonShape {
       strokeColor: linePolygonShape.color
       strokeWidth: linePolygonShape.lineWidth / linePolygonShape.scale
       strokeStyle: ShapePath.SolidLine
-      fillColor: linePolygonShape.polylineType === Qgis.GeometryType.Polygon
+      fillColor: linePolygonShape.polylinesType === Qgis.GeometryType.Polygon
                  ? Qt.hsla(strokeColor.hslHue, strokeColor.hslSaturation, strokeColor.hslLightness, 0.25)
                  : "transparent"
       joinStyle: ShapePath.RoundJoin

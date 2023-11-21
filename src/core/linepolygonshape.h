@@ -37,7 +37,7 @@ class LinePolygonShape : public QQuickItem
     Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
     Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
-    Q_PROPERTY( Qgis::GeometryType polylineType READ polylineType NOTIFY polylineTypeChanged )
+    Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
 
   public:
     explicit LinePolygonShape( QQuickItem *parent = nullptr );
@@ -56,7 +56,7 @@ class LinePolygonShape : public QQuickItem
 
     QList<QPolygonF> polylines() const { return mPolylines; }
 
-    Qgis::GeometryType polylineType() const { return mPolylineType; }
+    Qgis::GeometryType polylinesType() const { return mPolylinesType; }
 
   signals:
     void colorChanged();
@@ -65,7 +65,7 @@ class LinePolygonShape : public QQuickItem
     void qgsGeometryChanged();
     void updated();
     void polylinesChanged();
-    void polylineTypeChanged();
+    void polylinesTypeChanged();
 
   private slots:
     void rotationChanged();
@@ -88,7 +88,7 @@ class LinePolygonShape : public QQuickItem
     QgsPoint mGeometryCorner;
     double mGeometryMUPP = 0.0;
     QList<QPolygonF> mPolylines;
-    Qgis::GeometryType mPolylineType = Qgis::GeometryType::Null;
+    Qgis::GeometryType mPolylinesType = Qgis::GeometryType::Null;
 };
 
 #endif // LINEPOLYGONSHAPE_H

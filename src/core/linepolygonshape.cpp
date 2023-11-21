@@ -97,10 +97,10 @@ void LinePolygonShape::createPolylines()
     }
   }
 
-  if ( geomType != mPolylineType )
+  if ( geomType != mPolylinesType )
   {
-    mPolylineType = geomType;
-    emit polylineTypeChanged();
+    mPolylinesType = geomType;
+    emit polylinesTypeChanged();
   }
 
   emit polylinesChanged();

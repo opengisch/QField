@@ -134,7 +134,7 @@ void RubberbandShape::updateTransform()
     mGeometryCorner = QgsPoint( extent.xMinimum(), extent.yMaximum() );
     mGeometryMUPP = mMapSettings->mapUnitsPerPoint();
 
-    createPolyline();
+    createPolylines();
     mDirty = false;
   }
 
@@ -163,13 +163,14 @@ void RubberbandShape::markDirty()
   updateTransform();
 }
 
-void RubberbandShape::createPolyline()
+void RubberbandShape::createPolylines()
 {
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   const double scaleFactor = 1.0 / mMapSettings->mapUnitsPerPoint();
 
-  mPolyline.clear();
+  mPolylines.clear();
 
+  QPolygonF polyline;
   QVector<QgsPoint> allVertices = QVector<QgsPoint>();
   Qgis::GeometryType geomType = mGeometryType;
   if ( mRubberbandModel && !mRubberbandModel->isEmpty() )
@@ -192,16 +193,17 @@ void RubberbandShape::createPolyline()
   {
     point.setX( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor );
     point.setY( ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
-    mPolyline << QPointF( point.x(), point.y() );
+    polyline << QPointF( point.x(), point.y() );
   }
+  mPolylines << polyline;
 
-  if ( geomType != mPolylineType )
+  if ( geomType != mPolylinesType )
   {
-    mPolylineType = geomType;
-    emit polylineTypeChanged();
+    mPolylinesType = geomType;
+    emit polylinesTypeChanged();
   }
 
-  emit polylineChanged();
+  emit polylinesChanged();
 }
 
 QSGNode *RubberbandShape::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )

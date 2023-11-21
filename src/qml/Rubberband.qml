@@ -18,19 +18,19 @@ RubberbandShape {
       joinStyle: ShapePath.RoundJoin
       capStyle: ShapePath.RoundCap
 
-      PathPolyline { path: rubberbandShape.polyline }
+      PathPolyline { path: rubberbandShape.polylines[0] }
     }
     ShapePath {
       strokeColor: rubberbandShape.color
       strokeWidth: rubberbandShape.lineWidth / rubberbandShape.scale
       strokeStyle: ShapePath.SolidLine
-      fillColor: rubberbandShape.polylineType === Qgis.GeometryType.Polygon
+      fillColor: rubberbandShape.polylinesType === Qgis.GeometryType.Polygon
                  ? Qt.hsla(strokeColor.hslHue, strokeColor.hslSaturation, strokeColor.hslLightness, 0.25)
                  : "transparent"
       joinStyle: ShapePath.RoundJoin
       capStyle: ShapePath.RoundCap
 
-      PathPolyline { path: rubberbandShape.polyline }
+      PathPolyline { path: rubberbandShape.polylines[0] }
     }
   }
 }
