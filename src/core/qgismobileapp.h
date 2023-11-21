@@ -31,10 +31,6 @@
 // QField includes
 #include "appcoordinateoperationhandlers.h"
 #include "bookmarkmodel.h"
-#include "focusstack.h"
-#include "geometryeditorsmodel.h"
-#include "multifeaturelistmodel.h"
-#include "platformutilities.h"
 #include "qfield_core_export.h"
 #include "qfieldappauthrequesthandler.h"
 #include "qgsgpkgflusher.h"
@@ -230,7 +226,6 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     QgsApplication *mApp;
 };
 
-Q_DECLARE_METATYPE( Qgis::GeometryType )
 Q_DECLARE_METATYPE( QgsFeatureId )
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 Q_DECLARE_METATYPE( QgsFeatureIds )
