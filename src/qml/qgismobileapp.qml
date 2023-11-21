@@ -904,9 +904,9 @@ ApplicationWindow {
         return newX;
     }
     y: {
-        var newY = coordinateLocator.displayPosition.y + 10
+        var newY = coordinateLocator.displayPosition.y + 14
         if (newY + height > mapCanvas.y + mapCanvas.height)
-            newY -= height - 20;
+            newY -= height - 28;
         return newY;
     }
 
