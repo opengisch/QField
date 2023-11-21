@@ -1202,7 +1202,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Чтобы использовать эту функциональность, сначала активируйте вектор слой в легенде</translation>
     </message>
 </context>
 <context>
@@ -1260,19 +1260,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Введите необязательные детали</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Включать данные облачного пользователя</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Данное действие приведёт к отправке лога вашей текущей сессии команде разработчиков.  Это нужно только тогда, когда вас об этом попросили.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Ваш лог приложения отправляется...</translation>
     </message>
 </context>
 <context>
@@ -1525,27 +1525,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Выберите видео файл</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Все видео (*.mp4 *.mkv *.mov);;Видео MP4 (*.mp4);;Видео MKV(*.mkv);;Видео MOV (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Аудиофайлы (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Все файлы (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Выберите файл</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Аудиофайлы (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1630,39 +1630,39 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки устройства позиционирования</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Имя:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Оставьте пустым для автоматического заполнения</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Тип соединения:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Последовательный порт (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -1736,7 +1736,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Погрешность позиционирования слишком низкая для данного уровня точности</translation>
     </message>
 </context>
 <context>
@@ -1750,26 +1750,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Запись Аудио</translation>
     </message>
 </context>
 <context>
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Добавление геотэгов включено</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Добавление геотэгов выключено</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Сетка включена</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Сетка выключена</translation>
     </message>
 </context>
 <context>
@@ -1813,11 +1813,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось загрузить вложение, хранящееся в `%1`, причина:
+%2</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка входа в систему из-за неожиданного перенаправления, пожалуйста, повторите попытку позже</translation>
     </message>
 </context>
 <context>
@@ -1839,7 +1840,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось войти в систему</translation>
     </message>
     <message>
         <source>Server URL
@@ -1857,23 +1858,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Выйти</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Вход в систему, пожалуйста, подождите</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Войти</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation type="unfinished"/>
+        <translation>Новый пользователь?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation type="unfinished"/>
+        <translation>Зарегистрируйте аккаунт</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -1908,11 +1909,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>У QFieldCloud возникли проблемы с упаковкой вашего проекта</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Некоторые слои были неправильно упакованы на QFieldCloud. Возможно, эти слои неправильно сконфигурированы или их источник данных недоступен с сервера QFieldCloud. Проверь журналы последнего задания по упаковке на сайте qfield.cloud.</translation>
     </message>
 </context>
 <context>
@@ -1947,7 +1948,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Этот проект QFieldCloud был впервые загружен с помощью другого облачного аккаунта. Пожалуйста, войди в систему с оригинальной учётной записью для этого проекта, чтобы воспользоваться функционалом QFieldCloud, .</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2011,7 +2012,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Возвращает все измененные объекты в локальных слоях в исходное состояние. Вы не сможете восстановить эти изменения.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -2190,7 +2191,8 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Не удалось загрузить вложение, хранящееся в `%1`, причина:
+%2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
