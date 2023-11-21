@@ -31,7 +31,7 @@ LinePolygonShape {
     ShapePath {
       id: shapePath
       strokeColor: linePolygonShape.color
-      strokeWidth: linePolygonShape.lineWidth
+      strokeWidth: linePolygonShape.lineWidth / linePolygonShape.scale
       strokeStyle: ShapePath.SolidLine
       fillColor: linePolygonShape.polylineType === Qgis.GeometryType.Polygon
                  ? Qt.hsla(strokeColor.hslHue, strokeColor.hslSaturation, strokeColor.hslLightness, 0.25)
