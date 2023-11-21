@@ -1,4 +1,5 @@
 import QtQuick 2.14
+import QtQuick.Shapes 1.14
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -6,6 +7,7 @@ import Theme 1.0
 
 Item {
   id: locator
+
   property MapSettings mapSettings
   property color mainColor: "#CFD8DC"
   property color highlightColor: "#263238"
@@ -123,34 +125,18 @@ Item {
     }
   }
 
-  Rectangle {
-    id: crosshairCircleInnerBuffer
-    anchors.centerIn: crosshairCircle
-
-    width: crosshairCircle.width
-    height: crosshairCircle.height
-
-    border.color: highlightColor
-    border.width: 2
-    color: "transparent"
-    radius: width / 2
-  }
-
-  Rectangle {
+  Shape {
     id: crosshairCircle
 
-    x: displayPosition.x - radius
-    y: displayPosition.y - radius
+    property bool isSnapped: false
+    property real halfWidth: width / 2
+    property real arcSpacing: isSnapped ? 0 : 20
 
-    color: "transparent"
-    antialiasing: true
-
-    width: 48
+    width: isSnapped ? 32 : 48
     height: width
-    radius: width / 2
 
-    border.color: mainColor
-    border.width: 1.2
+    x: displayPosition.x - halfWidth
+    y: displayPosition.y - halfWidth
 
     Behavior on x {
       enabled: !overrideLocation && !sourceLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
@@ -162,66 +148,55 @@ Item {
       NumberAnimation { duration: 100 }
     }
 
-    Behavior on border.color {
-      ColorAnimation {
-        duration: 200
-      }
-    }
-
     Behavior on width {
       SmoothedAnimation { duration: 2000 }
     }
 
-    Connections {
-      target: snappingUtils
+    ShapePath {
+      id: crosshairPathBuffer
+      strokeColor: "#FFFFFF"
+      strokeWidth: crosshairPath.strokeWidth + 2
+      fillColor: "transparent"
+    }
 
-      function onSnappingResultChanged() {
-        crosshairCircle.border.color = overrideLocation == undefined
-            ? (
-                snappingUtils.snappingResult.isValid
-                    ? "#9b59b6"
-                    : locator.mainColor
-            )
-            : "#AD1457"
-        crosshairCircle.width = snappingUtils.snappingResult.isValid ? 32: 48
+    ShapePath {
+      id: crosshairPath
+      strokeColor: overrideLocation !== undefined ? Theme.positionColor : "#000000"
+      strokeWidth: 2
+      fillColor: "transparent"
+
+      PathAngleArc {
+        centerX: crosshairCircle.halfWidth; centerY: crosshairCircle.halfWidth
+        radiusX: crosshairCircle.halfWidth; radiusY: crosshairCircle.halfWidth
+        startAngle: 0 + crosshairCircle.arcSpacing; sweepAngle: 90 - crosshairCircle.arcSpacing * 2
       }
-    }
-
-    Rectangle {
-      anchors.centerIn: parent
-
-      color: parent.border.color
-
-      width: 3
-      height: parent.height * 4 / 6 + 3
-    }
-    Rectangle {
-      anchors.centerIn: parent
-
-      color: parent.border.color
-
-      width: parent.width * 4 / 6 + 3
-      height: 3
-    }
-
-    Rectangle {
-      anchors.centerIn: parent
-
-      color: highlightColor
-      border.color: parent.color
-      border.width: 1.2
-
-      width: 1
-      height: parent.height * 4 / 6
-    }
-
-    Rectangle {
-      anchors.centerIn: parent
-
-      color: highlightColor
-
-      width: parent.width * 4 / 6
-      height: 1
+      PathAngleArc {
+        centerX: crosshairCircle.halfWidth; centerY: crosshairCircle.halfWidth
+        radiusX: crosshairCircle.halfWidth; radiusY: crosshairCircle.halfWidth
+        startAngle: 90 + crosshairCircle.arcSpacing; sweepAngle: 90 - crosshairCircle.arcSpacing * 2
+      }
+      PathAngleArc {
+        centerX: crosshairCircle.halfWidth; centerY: crosshairCircle.halfWidth
+        radiusX: crosshairCircle.halfWidth; radiusY: crosshairCircle.halfWidth
+        startAngle: 180 + crosshairCircle.arcSpacing; sweepAngle: 90 - crosshairCircle.arcSpacing * 2
+      }
+      PathAngleArc {
+        centerX: crosshairCircle.halfWidth; centerY: crosshairCircle.halfWidth
+        radiusX: crosshairCircle.halfWidth; radiusY: crosshairCircle.halfWidth
+        startAngle: 270 + crosshairCircle.arcSpacing; sweepAngle: 90 - crosshairCircle.arcSpacing * 2
+      }
+      PathMove {
+        x: crosshairCircle.halfWidth; y: crosshairCircle.halfWidth - 8
+      }
+      PathLine {
+        x: crosshairCircle.halfWidth; y: crosshairCircle.halfWidth + 8
+      }
+      PathMove {
+        x: crosshairCircle.halfWidth - 8; y: crosshairCircle.halfWidth
+      }
+      PathLine {
+        x: crosshairCircle.halfWidth + 8; y: crosshairCircle.halfWidth
+      }
     }
   }
 
@@ -246,24 +221,17 @@ Item {
         easing.type: Easing.InOutCubic
       }
     }
+  }
 
-    SequentialAnimation {
-      ScaleAnimator {
-        target: crosshairCircleInnerBuffer
-        from: 1
-        to: 0.7
-        duration: 150
+  Component.onCompleted: {
+    crosshairPathBuffer.pathElements = crosshairPath.pathElements
+  }
 
-        easing.type: Easing.InOutQuad
-      }
-      ScaleAnimator {
-        target: crosshairCircleInnerBuffer
-        from: 0.7
-        to: 1
-        duration: 150
+  Connections {
+    target: snappingUtils
 
-        easing.type: Easing.InOutCubic
-      }
+    function onSnappingResultChanged() {
+      crosshairCircle.isSnapped = overrideLocation == undefined && snappingUtils.snappingResult.isValid
     }
   }
 
