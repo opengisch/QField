@@ -64,6 +64,12 @@ jobs:
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
           echo "INSTALL_QT_VERSION=6.6.0" >> $GITHUB_ENV
 
+      - name: 💎 Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
@@ -199,9 +205,10 @@ jobs:
         if: ${{ matrix.all_files_access == 'OFF' }}
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG_SLUG: opengisch
+          SENTRY_PROJECT_SLUG: qfield
         run: |
-          curl -sL https://sentry.io/get-cli/ | bash
-          sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/intermediates/merged_native_libs/release
+          bundle exec fastlane run sentry_upload_dif path:${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/intermediates/merged_native_libs/release
 
 
   deploy_to_playstore:

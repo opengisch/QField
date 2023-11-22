@@ -37,14 +37,19 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
+      - name: 💎 Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
       - name: 🔏 Setup code signing
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
-          bundle install
           bundle exec fastlane ios setup_signing type:${{env.CI_USE_IOS_DIST_CERT && 'appstore' || 'development' }}  app_identifier:ch.opengis.qfield #  --verbose
 
-      - name: 💐 Install Qt
+      - name: 💐 Install Qt (iOS)
         uses: jurplel/install-qt-action@v3
         with:
           version: ${{ env.INSTALL_QT_VERSION }}
@@ -53,7 +58,7 @@ jobs:
           cache: true
           cache-key-prefix: install-qt-action-ios
 
-      - name: 💐 Install Qt
+      - name: 💐 Install Qt (Desktop)
         uses: jurplel/install-qt-action@v3
         with:
           version: ${{ env.INSTALL_QT_VERSION }}
@@ -171,6 +176,7 @@ jobs:
         # if: release or labeled PR
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG_SLUG: opengisch
+          SENTRY_PROJECT_SLUG: qfield
         run: |
-          curl -sL https://sentry.io/get-cli/ | bash
-          sentry-cli upload-dif -o opengisch -p qfield /Users/runner/builddir
+          bundle exec fastlane run sentry_upload_dif path:/Users/runner/builddir
