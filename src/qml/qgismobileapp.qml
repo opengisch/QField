@@ -631,8 +631,8 @@ ApplicationWindow {
     /** A rubberband for the different geometry editors **/
     Rubberband {
       id: geometryEditorsRubberband
-      lineWidth: 2.5
-      color: '#80000000'
+      lineWidth: 4
+      color: '#96000000'
 
       mapSettings: mapCanvas.mapSettings
 

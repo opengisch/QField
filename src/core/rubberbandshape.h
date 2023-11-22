@@ -137,7 +137,7 @@ class RubberbandShape : public QQuickItem
     bool mDirty = false;
     QColor mColor = QColor( 192, 57, 43, 150 );
     QColor mOutlineColor = QColor( 255, 255, 255, 100 );
-    float mWidth = 2;
+    float mWidth = 4;
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Null;
     QgsPoint mGeometryCorner;
     double mGeometryMUPP = 0.0;
