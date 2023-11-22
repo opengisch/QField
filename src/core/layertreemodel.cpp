@@ -440,7 +440,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     return QVariant();
 
   const QModelIndex sourceIndex = mapToSource( index );
-  if ( !sourceIndex.isValid() )
+  if ( !sourceIndex.isValid() || !sourceIndex.internalPointer() )
     return QVariant();
 
   switch ( role )
