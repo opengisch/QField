@@ -50,15 +50,13 @@ void LinePolygonShape::createPolylines()
     {
       case Qgis::GeometryType::Line:
       {
-        QgsMultiPolylineXY lines = geometry.isMultipart() ? geometry.asMultiPolyline() : QgsMultiPolylineXY() << geometry.asPolyline();
-        for ( QgsPolylineXY &line : lines )
+        const QgsMultiPolylineXY lines = geometry.isMultipart() ? geometry.asMultiPolyline() : QgsMultiPolylineXY() << geometry.asPolyline();
+        for ( const QgsPolylineXY &line : lines )
         {
           QPolygonF polyline;
-          for ( QgsPointXY &point : line )
+          for ( const QgsPointXY &point : line )
           {
-            point.setX( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor );
-            point.setY( ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
-            polyline << QPointF( point.x(), point.y() );
+            polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
           }
           mPolylines << polyline;
         }
@@ -67,17 +65,15 @@ void LinePolygonShape::createPolylines()
 
       case Qgis::GeometryType::Polygon:
       {
-        QgsMultiPolygonXY polygons = geometry.isMultipart() ? geometry.asMultiPolygon() : QgsMultiPolygonXY() << geometry.asPolygon();
-        for ( QgsPolygonXY &polygon : polygons )
+        const QgsMultiPolygonXY polygons = geometry.isMultipart() ? geometry.asMultiPolygon() : QgsMultiPolygonXY() << geometry.asPolygon();
+        for ( const QgsPolygonXY &polygon : polygons )
         {
-          for ( QgsPolylineXY line : polygon )
+          for ( const QgsPolylineXY line : polygon )
           {
             QPolygonF polyline;
-            for ( QgsPointXY &point : line )
+            for ( const QgsPointXY &point : line )
             {
-              point.setX( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor );
-              point.setY( ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
-              polyline << QPointF( point.x(), point.y() );
+              polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
             }
             mPolylines << polyline;
           }

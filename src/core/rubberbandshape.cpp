@@ -189,11 +189,9 @@ void RubberbandShape::createPolylines()
       geomType = mVertexModel->geometryType();
     }
   }
-  for ( QgsPoint &point : allVertices )
+  for ( const QgsPoint &point : std::as_const( allVertices ) )
   {
-    point.setX( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor );
-    point.setY( ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
-    polyline << QPointF( point.x(), point.y() );
+    polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
   }
   mPolylines << polyline;
 
