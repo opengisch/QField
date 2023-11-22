@@ -89,10 +89,10 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     void updateTemporalState();
     void adjustTemporalStateFromAddedLayers( const QList<QgsMapLayer *> &layers );
 
-    QMap<QPersistentModelIndex, int> mRowMap;
-    QMap<int, QPersistentModelIndex> mIndexMap;
+    QMap<QModelIndex, int> mRowMap;
+    QMap<int, QModelIndex> mIndexMap;
     QMap<int, int> mTreeLevelMap;
-    QList<QPersistentModelIndex> mCollapsedItems;
+    QList<QModelIndex> mCollapsedItems;
 
     QgsLayerTreeModel *mLayerTreeModel = nullptr;
     QString mMapTheme;
