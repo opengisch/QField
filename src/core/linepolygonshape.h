@@ -1,9 +1,9 @@
 /***************************************************************************
-              locatorhighlight.h
+              linepolygonshape.h
                ----------------------------------------------------
-              date                 : 28.11.2018
-              copyright            : (C) 2018 by Denis Rouzaud
-              email                : denis@opengis.ch
+              date                 : 21.11.2023
+              copyright            : (C) 2023 by Mathieu Pellerin
+              email                : mathieu at opengis dot ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -13,22 +13,21 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef LOCATORHIGHLIGHT_H
-#define LOCATORHIGHLIGHT_H
+#ifndef LINEPOLYGONSHAPE_H
+#define LINEPOLYGONSHAPE_H
 
 #include "qgsgeometrywrapper.h"
 #include "qgsquickmapsettings.h"
 
-#include <QtQuick/QQuickItem>
+#include <QQuickItem>
 
 class QgsGeometry;
 
-
 /**
- * LocatorHighlight allows highlighting geometries
- * on the canvas for the specific needs of the locator.
+ * @brief The LinePolygonShape class is used to provide the shape data to draw geometries
+ * on the map canvas using the QML Shape item.
  */
-class LinePolygonHighlight : public QQuickItem
+class LinePolygonShape : public QQuickItem
 {
     Q_OBJECT
 
@@ -37,8 +36,13 @@ class LinePolygonHighlight : public QQuickItem
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
+    //! List of polylines representing the geometry
+    Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
+    //! The geometry type associated to the polylines
+    Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
+
   public:
-    explicit LinePolygonHighlight( QQuickItem *parent = nullptr );
+    explicit LinePolygonShape( QQuickItem *parent = nullptr );
 
     QgsGeometryWrapper *geometry() const;
     void setGeometry( QgsGeometryWrapper *geometry );
@@ -52,12 +56,22 @@ class LinePolygonHighlight : public QQuickItem
     float lineWidth() const;
     void setLineWidth( float width );
 
+    //! \copydoc polylines
+    QList<QPolygonF> polylines() const { return mPolylines; }
+
+    //! \copydoc polylinesType
+    Qgis::GeometryType polylinesType() const { return mPolylinesType; }
+
   signals:
     void colorChanged();
     void lineWidthChanged();
     void mapSettingsChanged();
     void qgsGeometryChanged();
     void updated();
+    //! \copydoc polylines
+    void polylinesChanged();
+    //! \copydoc polylinesType
+    void polylinesTypeChanged();
 
   private slots:
     void rotationChanged();
@@ -65,11 +79,9 @@ class LinePolygonHighlight : public QQuickItem
     void visibleExtentChanged();
     void makeDirty();
 
-  protected:
-    QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * ) override;
-
   private:
     void updateTransform();
+    void createPolylines();
 
     QColor mColor;
     float mWidth = 0;
@@ -78,6 +90,8 @@ class LinePolygonHighlight : public QQuickItem
     QgsGeometryWrapper *mGeometry = nullptr;
     QgsPoint mGeometryCorner;
     double mGeometryMUPP = 0.0;
+    QList<QPolygonF> mPolylines;
+    Qgis::GeometryType mPolylinesType = Qgis::GeometryType::Null;
 };
 
-#endif // LOCATORHIGHLIGHT_H
+#endif // LINEPOLYGONSHAPE_H

@@ -16,12 +16,13 @@
  ***************************************************************************/
 
 #include "appinterface.h"
+#include "platformutilities.h"
 #include "qfield.h"
 #include "qgismobileapp.h"
+#include "ziputils.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif
-#include "ziputils.h"
 
 #include <QDirIterator>
 #include <QFileInfo>

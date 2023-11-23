@@ -17,7 +17,7 @@
 #define FOCUSSTACK_H
 
 #include <QList>
-#include <QtQuick/QQuickItem>
+#include <QQuickItem>
 
 class FocusStack : public QObject
 {

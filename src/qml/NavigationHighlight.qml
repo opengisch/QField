@@ -9,7 +9,7 @@ Item {
   id: navigationHighlight
   property Navigation navigation
 
-  LinePolygonHighlight {
+  LinePolygon {
     visible: positionSource.active
     mapSettings: navigation.mapSettings
     geometry:   QgsGeometryWrapper {

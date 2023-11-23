@@ -158,9 +158,34 @@ Popup {
       }
     }
 
+    Video {
+      id: videoPreview
+
+      visible: cameraItem.state == "VideoPreview"
+
+      anchors.fill: parent
+
+      loops: MediaPlayer.Infinite
+
+      muted: true
+    }
+
+    Image {
+      id: photoPreview
+
+      visible: cameraItem.state == "PhotoPreview"
+
+      anchors.fill: parent
+
+      fillMode: Image.PreserveAspectFit
+      smooth: true
+      focus: visible
+    }
+
     PinchHandler {
       enabled: cameraItem.visible && cameraItem.isCapturing
       target: null
+      grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
       acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
 
       property real oldScale: 1.0
@@ -196,30 +221,6 @@ Popup {
           camera.zoomOut(0.25)
         }
       }
-    }
-
-    Video {
-      id: videoPreview
-
-      visible: cameraItem.state == "VideoPreview"
-
-      anchors.fill: parent
-
-      loops: MediaPlayer.Infinite
-
-      muted: true
-    }
-
-    Image {
-      id: photoPreview
-
-      visible: cameraItem.state == "PhotoPreview"
-
-      anchors.fill: parent
-
-      fillMode: Image.PreserveAspectFit
-      smooth: true
-      focus: visible
     }
 
     Rectangle {
@@ -302,7 +303,7 @@ Popup {
 
           QfToolButton {
             id: zoomButton
-            visible: cameraItem.isCapturing
+            visible: cameraItem.isCapturing && (camera.maximumZoomFactor !== 1.0 || camera.minimumZoomFactor !== 1.0)
 
             x: cameraItem.isPortraitMode ? (parent.width / 4) - (width / 2) : (parent.width - width) / 2
             y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) * 3 - (height / 2)

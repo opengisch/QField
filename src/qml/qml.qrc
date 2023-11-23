@@ -15,6 +15,7 @@
         <file>ElevationProfile.qml</file>
         <file>FeatureForm.qml</file>
         <file>FeatureListForm.qml</file>
+        <file>LinePolygon.qml</file>
         <file>LocationMarker.qml</file>
         <file>MapCanvas.qml</file>
         <file>MeasuringTool.qml</file>
@@ -67,6 +68,7 @@
         <file>FeatureListSelectionHighlight.qml</file>
         <file>editorwidgets/ValueRelation.qml</file>
         <file>RelationCombobox.qml</file>
+        <file>Rubberband.qml</file>
         <file>Changelog.qml</file>
         <file>Nyuki.qml</file>
         <file>LayerLoginDialog.qml</file>

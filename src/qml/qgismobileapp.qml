@@ -585,7 +585,7 @@ ApplicationWindow {
     /** A rubberband for ditizing **/
     Rubberband {
       id: digitizingRubberband
-      lineWidth: 2.5
+      anchors.fill: parent
 
       mapSettings: mapCanvas.mapSettings
 
@@ -630,8 +630,7 @@ ApplicationWindow {
     /** A rubberband for the different geometry editors **/
     Rubberband {
       id: geometryEditorsRubberband
-      lineWidth: 2.5
-      color: '#80000000'
+      color: '#96000000'
 
       mapSettings: mapCanvas.mapSettings
 
@@ -665,7 +664,7 @@ ApplicationWindow {
       navigation: navigation
     }
 
-    LinePolygonHighlight {
+    LinePolygon {
       id: elevationProfileHighlight
 
       visible: elevationProfile.visible
@@ -724,7 +723,6 @@ ApplicationWindow {
         id: editingRubberband
         vertexModel: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
-        lineWidth: 4
       }
 
       // highlighting vertices

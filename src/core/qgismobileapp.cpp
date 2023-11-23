@@ -59,6 +59,7 @@
 #include "featuremodel.h"
 #include "featureutils.h"
 #include "fileutils.h"
+#include "focusstack.h"
 #include "geometry.h"
 #include "geometryeditorsmodel.h"
 #include "geometryutils.h"
@@ -70,7 +71,7 @@
 #include "layertreemodel.h"
 #include "layerutils.h"
 #include "legendimageprovider.h"
-#include "linepolygonhighlight.h"
+#include "linepolygonshape.h"
 #include "localfilesimageprovider.h"
 #include "localfilesmodel.h"
 #include "locatormodelsuperbridge.h"
@@ -81,6 +82,7 @@
 #include "navigationmodel.h"
 #include "nearfieldreader.h"
 #include "orderedrelationmodel.h"
+#include "platformutilities.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
 #include "positioningutils.h"
@@ -105,8 +107,8 @@
 #include "referencingfeaturelistmodel.h"
 #include "relationutils.h"
 #include "resourcesource.h"
-#include "rubberband.h"
 #include "rubberbandmodel.h"
+#include "rubberbandshape.h"
 #include "scalebarmeasurement.h"
 #include "sensorlistmodel.h"
 #include "snappingresult.h"
@@ -425,7 +427,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
-  qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
+  qmlRegisterType<RubberbandShape>( "org.qgis", 1, 0, "RubberbandShape" );
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
   qmlRegisterType<ResourceSource>( "org.qgis", 1, 0, "ResourceSource" );
   qmlRegisterType<ProjectInfo>( "org.qgis", 1, 0, "ProjectInfo" );
@@ -448,7 +450,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
   qmlRegisterType<LocatorFiltersModel>( "org.qfield", 1, 0, "LocatorFiltersModel" );
-  qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LinePolygonHighlight" );
+  qmlRegisterType<LinePolygonShape>( "org.qfield", 1, 0, "LinePolygonShape" );
   qmlRegisterType<LocalFilesModel>( "org.qfield", 1, 0, "LocalFilesModel" );
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );

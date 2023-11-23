@@ -15,8 +15,7 @@
  ***************************************************************************/
 
 #include "distancearea.h"
-#include "geometry.h"
-#include "rubberband.h"
+#include "rubberbandmodel.h"
 
 #include <qgslinestring.h>
 #include <qgspolygon.h>

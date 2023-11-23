@@ -17,7 +17,6 @@
 #include "activelayerfeatureslocatorfilter.h"
 #include "featurelistextentcontroller.h"
 #include "locatormodelsuperbridge.h"
-#include "qgsgeometrywrapper.h"
 #include "qgsquickmapsettings.h"
 
 #include <QAction>
