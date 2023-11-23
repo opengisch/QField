@@ -1190,8 +1190,8 @@ ApplicationWindow {
   Row {
     id: mainMenuBar
     visible: !screenLocker.enabled
-    width: childrenRect.width + 8
-    height: childrenRect.height + 8
+    width: childrenRect.width
+    height: childrenRect.height
     topPadding: mainWindow.sceneTopMargin + 4
     leftPadding: 4
     spacing: 4
@@ -1243,6 +1243,7 @@ ApplicationWindow {
     anchors.left: mainMenuBar.left
     anchors.top: mainMenuBar.bottom
     anchors.leftMargin: 4
+    anchors.topMargin: 4
     spacing: 4
 
     QfToolButtonDrawer {
