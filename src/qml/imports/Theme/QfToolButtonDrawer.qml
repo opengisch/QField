@@ -11,6 +11,7 @@ Container {
   property bool downward: true
   property bool vertical: true
   property bool collapsed: true
+  property alias round: toggleButton.round
   property alias bgcolor: toggleButton.bgcolor
   property alias iconSource: toggleButton.iconSource
   property alias iconColor: toggleButton.iconColor
@@ -44,7 +45,7 @@ Container {
 
   contentItem: Rectangle {
     radius: size / 2
-    color: Qt.hsla(toggleButton.bgcolor.hslHue, toggleButton.bgcolor.hslSaturation, toggleButton.bgcolor.hslLightness, 0.4)
+    color: Qt.hsla(toggleButton.bgcolor.hslHue, toggleButton.bgcolor.hslSaturation, toggleButton.bgcolor.hslLightness, 0.3)
     clip: true
 
     ListView {
