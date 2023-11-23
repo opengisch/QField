@@ -586,7 +586,6 @@ ApplicationWindow {
     Rubberband {
       id: digitizingRubberband
       anchors.fill: parent
-      lineWidth: 4
 
       mapSettings: mapCanvas.mapSettings
 
@@ -631,7 +630,6 @@ ApplicationWindow {
     /** A rubberband for the different geometry editors **/
     Rubberband {
       id: geometryEditorsRubberband
-      lineWidth: 4
       color: '#96000000'
 
       mapSettings: mapCanvas.mapSettings
@@ -725,7 +723,6 @@ ApplicationWindow {
         id: editingRubberband
         vertexModel: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
-        lineWidth: 4
       }
 
       // highlighting vertices

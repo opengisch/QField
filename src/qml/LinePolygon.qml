@@ -9,7 +9,7 @@ LinePolygonShape {
   id: linePolygonShape
 
   onPolylinesChanged: {
-    var pathElements = []
+    const pathElements = []
     for(const polyline of polylines) {
       var pathPolyline = componentPathPolyline.createObject(shapePath)
       pathPolyline.path = polyline

@@ -68,7 +68,6 @@ Item {
 
   Rubberband {
     id: rubberband
-    lineWidth: 4
     color: '#96000000'
 
     model: RubberbandModel {

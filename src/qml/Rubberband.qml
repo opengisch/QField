@@ -18,7 +18,9 @@ RubberbandShape {
       joinStyle: ShapePath.RoundJoin
       capStyle: ShapePath.RoundCap
 
-      PathPolyline { path: rubberbandShape.polylines[0] }
+      PathPolyline {
+        path: rubberbandShape.polylines[0]
+      }
     }
     ShapePath {
       strokeColor: rubberbandShape.color
@@ -30,7 +32,9 @@ RubberbandShape {
       joinStyle: ShapePath.RoundJoin
       capStyle: ShapePath.RoundCap
 
-      PathPolyline { path: rubberbandShape.polylines[0] }
+      PathPolyline {
+        path: rubberbandShape.polylines[0]
+      }
     }
   }
 }

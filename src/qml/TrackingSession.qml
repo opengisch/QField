@@ -89,7 +89,6 @@ Item {
     id: rubberband
     visible: tracker.visible
 
-    lineWidth: 4
     color: Qt.rgba(Math.min(0.75, Math.random()),
                    Math.min(0.75,Math.random()),
                    Math.min(0.75,Math.random()),
