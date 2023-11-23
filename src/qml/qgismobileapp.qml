@@ -1254,6 +1254,14 @@ ApplicationWindow {
       iconSource: Theme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
       iconColor: "white"
       spacing: 4
+      visible: stateMachine.state === "digitize"
+               && dashBoard.activeLayer
+               && dashBoard.activeLayer.isValid
+               && (
+                 dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
+                 || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
+                 || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
+                 )
 
       QfToolButton {
         id: snappingButton
@@ -1261,14 +1269,6 @@ ApplicationWindow {
         height: 40
         padding: 2
         round: true
-        visible: stateMachine.state === "digitize"
-                 && dashBoard.activeLayer
-                 && dashBoard.activeLayer.isValid
-                 && (
-                   dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
-                   )
         state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
         iconSource: Theme.getThemeVectorIcon( "ic_snapping_white_24dp" )
         iconColor: "white"
@@ -1310,14 +1310,6 @@ ApplicationWindow {
         height: 40
         padding: 2
         round: true
-        visible: stateMachine.state === "digitize"
-                 && dashBoard.activeLayer
-                 && dashBoard.activeLayer.isValid
-                 && (
-                   dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
-                   )
         state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
         iconSource: Theme.getThemeVectorIcon( "ic_topology_white_24dp" )
         iconColor: "white"
