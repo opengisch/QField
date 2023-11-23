@@ -1249,6 +1249,7 @@ ApplicationWindow {
     spacing: 4
 
     QfToolButtonDrawer {
+      id: mainToolbarDrawer
       name: "digitizingDrawer"
       size: 48
       round: true
@@ -2114,6 +2115,48 @@ ApplicationWindow {
             padding = Math.max(item.padding, padding);
         }
         return result + padding * 2;
+    }
+
+    Row {
+      bottomPadding: parent.topMargin
+
+      QfToolButton {
+        icon.source: Theme.getThemeVectorIcon( "ic_undo" )
+        height: 48
+        width: 48
+        enabled: featureHistory.isUndoEnabled
+        opacity: enabled ? 1 : 0.5
+
+        onClicked: {
+          const msg = featureHistory.undoMessage();
+
+          if ( featureHistory.undo() ) {
+            displayToast( msg );
+          }
+
+          dashBoard.close();
+          mainMenu.close();
+        }
+      }
+
+      QfToolButton {
+        icon.source: Theme.getThemeVectorIcon( "ic_redo" )
+        height: 48
+        width: 48
+        enabled: featureHistory.isRedoEnabled
+        opacity: enabled ? 1 : 0.5
+
+        onClicked: {
+          const msg = featureHistory.redoMessage();
+
+          if ( featureHistory.redo() ) {
+            displayToast( msg );
+          }
+
+          dashBoard.close();
+          mainMenu.close();
+        }
+      }
     }
 
     MenuItem {

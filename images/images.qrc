@@ -531,6 +531,8 @@
         <file>themes/qfield/nodpi/ic_hide_green_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_chevron_down.svg</file>
         <file>themes/qfield/nodpi/ic_chevron_up.svg</file>
+        <file>themes/qfield/nodpi/ic_undo.svg</file>
+        <file>themes/qfield/nodpi/ic_redo.svg</file>
         <file>themes/qfield/nodpi/ic_arrow_left_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_opacity_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_common_angle_white_24dp.svg</file>
