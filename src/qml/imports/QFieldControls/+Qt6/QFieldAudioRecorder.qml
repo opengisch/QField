@@ -3,6 +3,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Shapes 1.14
 import QtMultimedia
+import QtCore
 
 import org.qfield 1.0
 
@@ -32,6 +33,14 @@ Popup {
   onAboutToShow: {
     preRecording = true;
     player.source = ''
+
+    if (microphonePermission.status !== Qt.PermissionStatus.Granted) {
+      microphonePermission.request()
+    }
+  }
+
+  MicrophonePermission {
+    id: microphonePermission
   }
 
   CaptureSession {

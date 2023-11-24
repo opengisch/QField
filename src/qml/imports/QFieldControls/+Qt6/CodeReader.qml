@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Shapes
 import QtMultimedia
+import QtCore
 import Qt.labs.settings 1.0
 
 import org.qfield 1.0
@@ -36,13 +37,21 @@ Popup {
       settings.cameraActive = true
     }
     decodedString = ''
-    barcodeDecoder.clearDecodedString();
+    barcodeDecoder.clearDecodedString()
+
+    if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
+      cameraPermission.request()
+    }
   }
 
   onAboutToHide: {
     if (cameraLoader.active) {
       cameraLoader.item.camera.torchMode = Camera.TorchOff
     }
+  }
+
+  CameraPermission {
+    id: cameraPermission
   }
 
   Settings {
@@ -171,7 +180,7 @@ Popup {
           // A note on the conditional expression below:
           // - On Android, loading and unloading the source component leads to freeze (as of Qt 6.5.2)
           // - On Linux, not loading and unloading the source component leads to blank VideoOutput (as of Qt 6.5.2)
-          active: codeReader.openedOnce && (Qt.platform.os === "android" || codeReader.visible)
+          active: codeReader.openedOnce && (Qt.platform.os === "android" || codeReader.visible) && cameraPermission.status === Qt.PermissionStatus.Granted
           anchors.fill: parent
 
           sourceComponent: Component {
