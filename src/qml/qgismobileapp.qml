@@ -1190,8 +1190,8 @@ ApplicationWindow {
   Row {
     id: mainMenuBar
     visible: !screenLocker.enabled
-    width: childrenRect.width + 8
-    height: childrenRect.height + 8
+    width: childrenRect.width
+    height: childrenRect.height
     topPadding: mainWindow.sceneTopMargin + 4
     leftPadding: 4
     spacing: 4
@@ -1243,147 +1243,159 @@ ApplicationWindow {
     anchors.left: mainMenuBar.left
     anchors.top: mainMenuBar.bottom
     anchors.leftMargin: 4
+    anchors.topMargin: 4
     spacing: 4
 
-    QfToolButton {
-      id: snappingButton
+    QfToolButtonDrawer {
+      name: "digitizingDrawer"
+      size: 48
       round: true
+      bgcolor: Theme.darkGray
+      iconSource: Theme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
+      iconColor: "white"
+      spacing: 4
       visible: stateMachine.state === "digitize"
-          && dashBoard.activeLayer
-          && dashBoard.activeLayer.isValid
-          && (
-                   dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
-        )
-      state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
-      iconSource: Theme.getThemeVectorIcon( "ic_snapping_white_24dp" )
-      iconColor: "white"
-      bgcolor: Theme.darkGray
+               && dashBoard.activeLayer
+               && dashBoard.activeLayer.isValid
+               && (
+                 dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
+                 || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
+                 || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
+                 )
 
-      states: [
-        State {
+      QfToolButton {
+        id: snappingButton
+        width: 40
+        height: 40
+        padding: 2
+        round: true
+        state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
+        iconSource: Theme.getThemeVectorIcon( "ic_snapping_white_24dp" )
+        iconColor: "white"
+        bgcolor: Theme.darkGray
 
-          name: "Off"
-          PropertyChanges {
-            target: snappingButton
-            iconColor: "white"
-            bgcolor: Theme.darkGraySemiOpaque
+        states: [
+          State {
+
+            name: "Off"
+            PropertyChanges {
+              target: snappingButton
+              iconColor: "white"
+              bgcolor: Theme.darkGraySemiOpaque
+            }
+          },
+
+          State {
+            name: "On"
+            PropertyChanges {
+              target: snappingButton
+              iconColor: Theme.mainColor
+              bgcolor: Theme.darkGray
+            }
           }
-        },
+        ]
 
-        State {
-          name: "On"
-          PropertyChanges {
-            target: snappingButton
-            iconColor: Theme.mainColor
-            bgcolor: Theme.darkGray
-          }
+        onClicked: {
+          var snappingConfig = qgisProject.snappingConfig
+          snappingConfig.enabled = !snappingConfig.enabled
+          qgisProject.snappingConfig = snappingConfig
+          projectInfo.saveSnappingConfiguration()
+          displayToast( snappingConfig.enabled ? qsTr( "Snapping turned on" ) : qsTr( "Snapping turned off" ) )
         }
-      ]
-
-      onClicked: {
-        var snappingConfig = qgisProject.snappingConfig
-        snappingConfig.enabled = !snappingConfig.enabled
-        qgisProject.snappingConfig = snappingConfig
-        projectInfo.saveSnappingConfiguration()
-        displayToast( snappingConfig.enabled ? qsTr( "Snapping turned on" ) : qsTr( "Snapping turned off" ) )
-      }
-    }
-
-    QfToolButton {
-      id: topologyButton
-      round: true
-      visible: stateMachine.state === "digitize"
-          && dashBoard.activeLayer
-          && dashBoard.activeLayer.isValid
-          && (
-                   dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
-        )
-      state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
-      iconSource: Theme.getThemeVectorIcon( "ic_topology_white_24dp" )
-      iconColor: "white"
-      bgcolor: Theme.darkGray
-
-      states: [
-        State {
-
-          name: "Off"
-          PropertyChanges {
-            target: topologyButton
-            iconColor: "white"
-            bgcolor: Theme.darkGraySemiOpaque
-          }
-        },
-
-        State {
-          name: "On"
-          PropertyChanges {
-            target: topologyButton
-            iconColor: Theme.mainColor
-            bgcolor: Theme.darkGray
-          }
-        }
-      ]
-
-      onClicked: {
-        qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
-        displayToast( qgisProject.topologicalEditing ? qsTr( "Topological editing turned on" ) : qsTr( "Topological editing turned off" ) );
-      }
-    }
-
-    QfToolButton {
-      id: freehandButton
-      round: true
-      visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize"
-               && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
-                   (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon
-                    || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line))
-                   || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid &&
-                   (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-                    || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
-      iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
-      iconColor: "white"
-      bgcolor: Theme.darkGray
-
-      property bool freehandDigitizing: false
-      state: freehandDigitizing ? "On" : "Off"
-
-      states: [
-        State {
-          name: "Off"
-          PropertyChanges {
-            target: freehandButton
-            iconColor: "white"
-            bgcolor: Theme.darkGraySemiOpaque
-          }
-        },
-
-        State {
-          name: "On"
-          PropertyChanges {
-            target: freehandButton
-            iconColor: Theme.mainColor
-            bgcolor: Theme.darkGray
-          }
-        }
-      ]
-
-      onClicked: {
-        freehandDigitizing = !freehandDigitizing
-
-        if (freehandDigitizing && positioningSettings.positioningCoordinateLock) {
-          positioningSettings.positioningCoordinateLock = false;
-        }
-
-        displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
-        settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
       }
 
-      Component.onCompleted: {
-        freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
+      QfToolButton {
+        id: topologyButton
+        width: 40
+        height: 40
+        padding: 2
+        round: true
+        state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
+        iconSource: Theme.getThemeVectorIcon( "ic_topology_white_24dp" )
+        iconColor: "white"
+        bgcolor: Theme.darkGray
+
+        states: [
+          State {
+
+            name: "Off"
+            PropertyChanges {
+              target: topologyButton
+              iconColor: "white"
+              bgcolor: Theme.darkGraySemiOpaque
+            }
+          },
+
+          State {
+            name: "On"
+            PropertyChanges {
+              target: topologyButton
+              iconColor: Theme.mainColor
+              bgcolor: Theme.darkGray
+            }
+          }
+        ]
+
+        onClicked: {
+          qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
+          displayToast( qgisProject.topologicalEditing ? qsTr( "Topological editing turned on" ) : qsTr( "Topological editing turned off" ) );
+        }
+      }
+
+      QfToolButton {
+        id: freehandButton
+        width: visible ? 40 : 0
+        height: visible ? 40 : 0
+        padding: 2
+        round: true
+        visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize"
+                 && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
+                      (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon
+                       || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line))
+                     || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid &&
+                         (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
+                          || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
+        iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
+        iconColor: "white"
+        bgcolor: Theme.darkGray
+
+        property bool freehandDigitizing: false
+        state: freehandDigitizing ? "On" : "Off"
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: freehandButton
+              iconColor: "white"
+              bgcolor: Theme.darkGraySemiOpaque
+            }
+          },
+
+          State {
+            name: "On"
+            PropertyChanges {
+              target: freehandButton
+              iconColor: Theme.mainColor
+              bgcolor: Theme.darkGray
+            }
+          }
+        ]
+
+        onClicked: {
+          freehandDigitizing = !freehandDigitizing
+
+          if (freehandDigitizing && positioningSettings.positioningCoordinateLock) {
+            positioningSettings.positioningCoordinateLock = false;
+          }
+
+          displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
+          settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
+        }
+
+        Component.onCompleted: {
+          freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
+        }
       }
     }
 

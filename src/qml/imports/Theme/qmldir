@@ -5,6 +5,7 @@ QfSlider 1.0 QfSlider.qml
 QfSwitch 1.0 QfSwitch.qml
 QfButton 1.0 QfButton.qml
 QfToolButton 1.0 QfToolButton.qml
+QfToolButtonDrawer 1.0 QfToolButtonDrawer.qml
 QfTextField 1.0 QfTextField.qml
 QfCollapsibleMessage 1.0 QfCollapsibleMessage.qml
 QfDropShadow 1.0 QfDropShadow.qml
