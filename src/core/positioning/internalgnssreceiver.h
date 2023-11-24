@@ -45,6 +45,8 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
 
+    bool mPermissionChecked = false;
+
     std::unique_ptr<QGeoPositionInfoSource> mGeoPositionSource;
     std::unique_ptr<QGeoSatelliteInfoSource> mGeoSatelliteSource;
     bool mActive = false;

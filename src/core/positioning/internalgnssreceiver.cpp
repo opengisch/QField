@@ -20,6 +20,10 @@
 #include <QGuiApplication>
 #include <qgsapplication.h>
 
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
+#include <QPermissions>
+#endif
+
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
   , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
@@ -103,13 +107,36 @@ void InternalGnssReceiver::handleDisconnectDevice()
 
 void InternalGnssReceiver::handleConnectDevice()
 {
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
+  if ( !mPermissionChecked )
+  {
+    QLocationPermission locationPermission;
+    locationPermission.setAccuracy( QLocationPermission::Precise );
+    qApp->requestPermission( locationPermission, [=]( const QPermission &permission ) {
+      if ( permission.status() == Qt::PermissionStatus::Granted )
+      {
+        mPermissionChecked = true;
+        handleConnectDevice();
+      }
+      else
+      {
+        setValid( false );
+        mLastError = tr( "Location permission denied" );
+        emit lastErrorChanged( mLastError );
+      }
+    } );
+    return;
+  }
+#endif
   if ( mGeoPositionSource )
   {
     mGeoPositionSource->startUpdates();
     mActive = true;
   }
   if ( mGeoSatelliteSource )
+  {
     mGeoSatelliteSource->startUpdates();
+  }
 }
 
 void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positionInfo )
