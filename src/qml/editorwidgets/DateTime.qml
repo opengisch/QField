@@ -36,7 +36,42 @@ EditorWidgetBase {
 
   property bool isDateTimeType: field.isDateOrTime
   property bool fieldIsDate: LayerUtils.fieldType( field ) === 'QDate'
-  property var currentValue: isDateTimeType ? value : Qt.formatDateTime(value, config['field_format'])
+  property var currentValue: {
+    label.text = formatDateTime( value );
+  }
+
+  function formatDateTime(value) {
+    // Will handle both null and undefined as date values
+    if ( value == null || value === '' ) {
+      return qsTr('(no date)')
+    } else {
+      const displayFormat = config['display_format'] == null
+          ? 'yyyy-MM-dd'
+          : config['display_format'];
+
+      if ( main.isDateTimeType )
+      {
+        // if the field is a QDate, the automatic conversion to JS date [1]
+        // leads to the creation of date time object with the time zone.
+        // For instance shapefiles has support for dates but not date/time or time.
+        // So a date coming from a shapefile as 2001-01-01 will become 2000-12-31 19:00:00 -05 in QML/JS (in the carribeans).
+        // And when formatting this with the display format, this is shown as 2000-12-31.
+        // So we detect if the field is a date only and revert the time zone offset.
+        // [1] http://doc.qt.io/qt-5/qtqml-cppintegration-data.html#basic-qt-data-types
+        if (main.fieldIsDate) {
+          const date = new Date(value);
+          return Qt.formatDateTime(new Date(date.getTime() + date.getTimezoneOffset() * 60000), displayFormat);
+        } else {
+          return Qt.formatDateTime(value, displayFormat);
+        }
+      }
+      else
+      {
+        const date = Date.fromLocaleString(Qt.locale(), value, config['field_format']);
+        return Qt.formatDateTime(date, displayFormat);
+      }
+    }
+  }
 
 
   Rectangle {
@@ -76,38 +111,7 @@ EditorWidgetBase {
                       else if (config['display_format'] === "HH:mm" ) { "99:99;_" }
                       else { "" }
 
-      text: if ( value === undefined || value == '' )
-            {
-              qsTr('(no date)')
-            }
-            else
-            {
-              var displayFormat = config['display_format'] == null
-                  ? 'yyyy-MM-dd'
-                  : config['display_format']
-
-              if ( main.isDateTimeType )
-              {
-                // if the field is a QDate, the automatic conversion to JS date [1]
-                // leads to the creation of date time object with the time zone.
-                // For instance shapefiles has support for dates but not date/time or time.
-                // So a date coming from a shapefile as 2001-01-01 will become 2000-12-31 19:00:00 -05 in QML/JS (in the carribeans).
-                // And when formatting this with the display format, this is shown as 2000-12-31.
-                // So we detect if the field is a date only and revert the time zone offset.
-                // [1] http://doc.qt.io/qt-5/qtqml-cppintegration-data.html#basic-qt-data-types
-                if (main.fieldIsDate) {
-                  const date = new Date(value)
-                  Qt.formatDateTime(new Date(date.getTime() + date.getTimezoneOffset() * 60000), displayFormat)
-                } else {
-                  Qt.formatDateTime(value, displayFormat)
-                }
-              }
-              else
-              {
-                const date = Date.fromLocaleString(Qt.locale(), value, config['field_format'])
-                Qt.formatDateTime(date, displayFormat)
-              }
-            }
+      text: main.currentValue
 
       background: Rectangle {
         id: backgroundRect
