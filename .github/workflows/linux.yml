@@ -30,7 +30,7 @@ jobs:
           echo "BUILD_ROOT=${BUILD_ROOT}" >> $GITHUB_ENV
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
-          echo "INSTALL_QT_VERSION=6.6.0" >> $GITHUB_ENV
+          echo "INSTALL_QT_VERSION=6.6.1" >> $GITHUB_ENV
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest

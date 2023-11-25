@@ -30,7 +30,7 @@ jobs:
         run: |
           ./scripts/ci/env_gh.sh
 
-          echo "INSTALL_QT_VERSION=6.6.0" >> $GITHUB_ENV
+          echo "INSTALL_QT_VERSION=6.6.1" >> $GITHUB_ENV
 
       - name: ⛓️ Setup SSH
         uses: webfactory/ssh-agent@v0.8.0

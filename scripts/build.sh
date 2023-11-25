@@ -8,7 +8,7 @@ export APK_VERSION_CODE=${APK_VERSION_CODE:-1}
 export APP_VERSION_STR=${APP_VERSION_STR:-dev}
 
 triplet=${triplet:-arm64-android}
-install_qt_version="6.6.0"
+install_qt_version="6.6.1"
 
 if [[ ${triplet} == arm-android ]]; then
 	install_qt_arch="android_armv7"
