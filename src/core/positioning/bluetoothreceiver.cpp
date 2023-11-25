@@ -17,6 +17,11 @@
 #include "bluetoothreceiver.h"
 
 #include <QDebug>
+#include <QGuiApplication>
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
+#include <QPermissions>
+#endif
 
 BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   : NmeaGnssReceiver( parent )
@@ -87,6 +92,27 @@ void BluetoothReceiver::handleDisconnectDevice()
 
 void BluetoothReceiver::handleConnectDevice()
 {
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
+  if ( !mPermissionChecked )
+  {
+    QBluetoothPermission bluetoothPermission;
+    bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
+    qApp->requestPermission( bluetoothPermission, [=]( const QPermission &permission ) {
+      if ( permission.status() == Qt::PermissionStatus::Granted )
+      {
+        mPermissionChecked = true;
+        handleConnectDevice();
+      }
+      else
+      {
+        setValid( false );
+        mLastError = tr( "Bluetooth permission denied" );
+        emit lastErrorChanged( mLastError );
+      }
+    } );
+    return;
+  }
+#endif
   if ( mAddress.isEmpty() )
   {
     return;

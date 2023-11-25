@@ -17,8 +17,13 @@
 #include "bluetoothdevicemodel.h"
 
 #include <QDebug>
+#include <QGuiApplication>
 #include <QSettings>
 #include <qgis.h>
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
+#include <QPermissions>
+#endif
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -52,6 +57,27 @@ void BluetoothDeviceModel::initiateDiscoveryAgent()
 
 void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 {
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
+  if ( !mPermissionChecked )
+  {
+    QBluetoothPermission bluetoothPermission;
+    bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
+    qApp->requestPermission( bluetoothPermission, [=]( const QPermission &permission ) {
+      if ( permission.status() == Qt::PermissionStatus::Granted )
+      {
+        mPermissionChecked = true;
+        startServiceDiscovery( fullDiscovery );
+      }
+      else
+      {
+        mLastError = tr( "Bluetooth permission denied" );
+        emit lastErrorChanged( mLastError );
+      }
+    } );
+    return;
+  }
+#endif
+
   if ( !mServiceDiscoveryAgent )
     initiateDiscoveryAgent();
 

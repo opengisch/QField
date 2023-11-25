@@ -110,11 +110,14 @@ void InternalGnssReceiver::handleConnectDevice()
 #if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
   if ( !mPermissionChecked )
   {
+    qDebug() << "1111";
     QLocationPermission locationPermission;
     locationPermission.setAccuracy( QLocationPermission::Precise );
     qApp->requestPermission( locationPermission, [=]( const QPermission &permission ) {
+      qDebug() << "2222";
       if ( permission.status() == Qt::PermissionStatus::Granted )
       {
+        qDebug() << "3333";
         mPermissionChecked = true;
         handleConnectDevice();
       }

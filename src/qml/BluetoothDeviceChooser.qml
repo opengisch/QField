@@ -107,6 +107,11 @@ Item {
           bluetoothDeviceComboBox.currentIndex = selectedBluetoothDevice
         }
 
+        function onLastErrorChanged(lastError) {
+            displayToast(qsTr('Scanning error: %1').arg(lastError), 'error')
+            console.log(lastError)
+        }
+
         function onScanningStatusChanged(scanningStatus) {
           if( scanningStatus === BluetoothDeviceModel.Scanning )
           {
