@@ -49,7 +49,7 @@ Item {
     return !!mapSettings.visibleExtent || true ? mapSettings.coordinateToScreen(currentCoordinate) : 0
   }
 
-  property variant rubberbandModel: null;
+  property variant rubberbandModel: undefined
 
   readonly property alias snappedCoordinate: snappingUtils.snappedCoordinate // In map coordinates, derived from snappinResult
   readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
