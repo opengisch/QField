@@ -1491,7 +1491,7 @@ ApplicationWindow {
 
           Repeater {
             // list of common angles to snap to
-            model: [10, 15, 30, 45]
+            model: [10, 15, 30, 45, 90]
             delegate: MenuItem {
               required property int modelData
 
