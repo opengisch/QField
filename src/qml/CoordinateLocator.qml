@@ -245,9 +245,12 @@ Item {
     width: parent.width
     height: parent.height
     anchors.centerIn: parent
+    opacity: 0.5
 
     // outer line
     ShapePath {
+      id: outerLine
+
       strokeWidth: 4
       strokeColor: "#fff"
       strokeStyle: ShapePath.DashLine
@@ -259,10 +262,10 @@ Item {
 
     // inner line
     ShapePath {
-      strokeWidth: 2
+      strokeWidth: outerLine.strokeWidth / 2
       strokeColor: "#000"
       strokeStyle: ShapePath.DashLine
-      dashPattern: [ 10, 6 ]
+      dashPattern: outerLine.dashPattern.map(v => v * 2)
       startX: snappedPoint.x; startY: snappedPoint.y
 
       PathLine { x: snapToCommonAngleLines.endCoordX; y: snapToCommonAngleLines.endCoordY }
