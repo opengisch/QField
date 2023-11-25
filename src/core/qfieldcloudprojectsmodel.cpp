@@ -36,6 +36,8 @@
 #include <qgsproject.h>
 #include <qgsproviderregistry.h>
 
+#include <appinterface.h>
+
 #define MAX_REDIRECTS_ALLOWED 10
 #define MAX_PARALLEL_REQUESTS 6
 #define CACHE_PROJECT_DATA_SECS 5
@@ -1778,13 +1780,18 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
       if ( !hasError )
       {
-        const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
-        const QStringList gpkgFileNames = projectFileNames( mProject->homePath(), unprefixedGpkgFileNames );
-        // we need to close the project to safely flush the gpkg files
-        mProject->setFileName( QString() );
+        const bool currentProjectReloadNeeded = project->id == mCurrentProjectId;
+        QStringList gpkgFileNames;
+        if ( currentProjectReloadNeeded )
+        {
+          // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+          const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
+          gpkgFileNames = projectFileNames( mProject->homePath(), unprefixedGpkgFileNames );
+          mProject->clear();
 
-        for ( const QString &fileName : gpkgFileNames )
-          mGpkgFlusher->stop( fileName );
+          for ( const QString &fileName : gpkgFileNames )
+            mGpkgFlusher->stop( fileName );
+        }
 
         // move the files from their temporary location to their permanent one
         if ( !projectMoveDownloadedFilesToPermanentStorage( projectId ) )
@@ -1793,10 +1800,11 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
           return;
         }
 
-        deleteGpkgShmAndWal( gpkgFileNames );
-
-        for ( const QString &fileName : gpkgFileNames )
-          mGpkgFlusher->start( fileName );
+        if ( currentProjectReloadNeeded )
+        {
+          deleteGpkgShmAndWal( gpkgFileNames );
+          AppInterface::instance()->reloadProject();
+        }
 
         project->errorStatus = NoErrorStatus;
         project->packagingStatus = PackagingFinishedStatus;

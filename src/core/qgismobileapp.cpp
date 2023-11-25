@@ -318,20 +318,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mMapCanvas->mapSettings()->setProject( mProject );
   mBookmarkModel->setMapSettings( mMapCanvas->mapSettings() );
 
-  QFieldCloudProjectsModel *qFieldCloudProjectsModel = rootObjects().first()->findChild<QFieldCloudProjectsModel *>();
-
-  connect( qFieldCloudProjectsModel, &QFieldCloudProjectsModel::projectDownloaded, this, [=]( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString ) {
-    Q_UNUSED( projectName )
-    Q_UNUSED( errorString )
-    if ( !hasError )
-    {
-      if ( projectId == QFieldCloudUtils::getProjectId( mProjectFilePath ) )
-      {
-        reloadProjectFile();
-      }
-    }
-  } );
-
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
                                                           static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
 
