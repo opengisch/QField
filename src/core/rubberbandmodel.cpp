@@ -131,14 +131,14 @@ void RubberbandModel::removeVertices( int index, int count )
     return;
 
   mPointList.remove( index, count );
-  emit verticesRemoved( index, count );
-  emit vertexCountChanged();
 
   if ( mCurrentCoordinateIndex >= mPointList.size() )
   {
     setCurrentCoordinateIndex( mPointList.size() - 1 );
-    emit currentCoordinateChanged();
   }
+
+  emit verticesRemoved( index, count );
+  emit vertexCountChanged();
 }
 
 int RubberbandModel::currentCoordinateIndex() const
