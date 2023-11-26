@@ -731,7 +731,9 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
 
         if ( layer )
-          return layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+        {
+          return ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() );
+        }
       }
 
       return false;

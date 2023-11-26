@@ -69,6 +69,8 @@ void FeatureModel::setFeature( const QgsFeature &feature )
   mAttributesAllowEdit.clear();
   emit featureChanged();
   endResetModel();
+
+  updateGeometryLocked();
 }
 
 void FeatureModel::setFeatures( const QList<QgsFeature> &features )
@@ -138,7 +140,24 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
       ( *sRememberings )[mLayer].rememberedFeature = mFeature;
       ( *sRememberings )[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
     }
+
+    mGeometryLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+    const bool geometryLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
+    if ( geometryLockedExpressionActive )
+    {
+      mGeometryLockedExpression = mLayer->customProperty( QStringLiteral( "QFieldSync/geometry_locked_expression" ), QString() ).toString().trimmed();
+    }
+    else
+    {
+      mGeometryLockedExpression.clear();
+    }
   }
+  else
+  {
+    mGeometryLockedByDefault = false;
+    mGeometryLockedExpression.clear();
+  }
+  updateGeometryLocked();
   emit currentLayerChanged();
 }
 
@@ -340,6 +359,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
         emit dataChanged( index, index, QVector<int>() << role );
         // emit a feature changed signal so the attribute form's currentFeature has up-to-date values
         emit featureChanged();
+        updateGeometryLocked();
       }
       return success;
     }
@@ -365,6 +385,26 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
   }
 
   return false;
+}
+
+void FeatureModel::updateGeometryLocked()
+{
+  bool geometryLocked = mGeometryLockedByDefault;
+
+  if ( mLayer && !mGeometryLockedExpression.isEmpty() )
+  {
+    QgsExpressionContext expressionContext = createExpressionContext();
+    expressionContext.setFeature( mFeature );
+    QgsExpression expression( mGeometryLockedExpression );
+    expression.prepare( &expressionContext );
+    geometryLocked = expression.evaluate( &expressionContext ).toBool();
+  }
+
+  if ( mGeometryLocked != geometryLocked )
+  {
+    mGeometryLocked = geometryLocked;
+    emit geometryLockedChanged();
+  }
 }
 
 void FeatureModel::updateDefaultValues()

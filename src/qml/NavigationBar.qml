@@ -303,7 +303,7 @@ Rectangle {
 
     visible: stateMachine.state === "digitize"
              && ! selection.focusedGeometry.isNull
-             && ! selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+             && ! featureFormList.model.featureModel.geometryLocked
              && ( projectInfo.editRights || editButton.isCreatedCloudFeature )
              && parent.state == "Navigation" && !readOnly && projectInfo.editRights
 
@@ -675,7 +675,7 @@ Rectangle {
       icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
       enabled: (
                  (projectInfo.editRights || editButton.isCreatedCloudFeature)
-                 && (!selection.focusedLayer || !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false ))
+                 && (!selection.focusedLayer || !featureFormList.model.featureModel.geometryLocked)
       )
       visible: enabled
 
