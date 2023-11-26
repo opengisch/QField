@@ -43,11 +43,12 @@ class FeatureModel : public QAbstractListModel
     //! the vertex model is used to highlight vertices on the map
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
+    Q_PROPERTY( bool geometryLocked READ geometryLocked NOTIFY geometryLockedChanged )
     Q_PROPERTY( QgsVectorLayer *currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation WRITE setPositionInformation NOTIFY positionInformationChanged )
     Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
     Q_PROPERTY( bool positionLocked READ positionLocked WRITE setPositionLocked NOTIFY positionLockedChanged )
-    Q_PROPERTY( CloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged );
+    Q_PROPERTY( CloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
   public:
@@ -144,6 +145,8 @@ class FeatureModel : public QAbstractListModel
     VertexModel *vertexModel();
     //! \copydoc vertexModel
     void setVertexModel( VertexModel *model );
+
+    bool geometryLocked() const { return mGeometryLocked; }
 
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex &parent ) const override;
@@ -275,6 +278,7 @@ class FeatureModel : public QAbstractListModel
     void linkedRelationOrderingFieldChanged();
     void vertexModelChanged();
     void geometryChanged();
+    void geometryLockedChanged();
     void currentLayerChanged();
     void positionInformationChanged();
     void topSnappingResultChanged();
@@ -289,6 +293,14 @@ class FeatureModel : public QAbstractListModel
     bool startEditing();
     void setLinkedFeatureValues();
     void updateDefaultValues();
+    void updateGeometryLocked();
+
+    // The current feature geometry locked state
+    bool mGeometryLocked = false;
+    // The vector layer locked geometry setting
+    bool mGeometryLockedByDefault = false;
+    // The vector layer locked geometry expression
+    QString mGeometryLockedExpression;
 
     ModelModes mModelMode = SingleFeatureModel;
     QPointer<QgsVectorLayer> mLayer;
