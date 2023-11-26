@@ -74,7 +74,7 @@ Item {
           snapToCommonAngleButton.isSnapToCommonAngleRelative,
         );
 
-        const coords = calculateSnapToAngleLineEndCoords(snappedPoint, locator.commonAngleInDegrees, 1000);
+        const coords = calculateSnapToAngleLineEndCoords(snappedPoint, locator.commonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000);
 
         snapToCommonAngleLines.endCoordX = coords.x || 0;
         snapToCommonAngleLines.endCoordY = coords.y || 0;
@@ -395,7 +395,7 @@ Item {
         return currentPoint;
     }
 
-    const angleValue = commonAngleDegrees * Math.PI / 180;
+    let angleValue = commonAngleDegrees * Math.PI / 180;
     const returnPoint = currentPoint;
     const previousPoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.lastCoordinate );
     const rubberbandPointsCount = rubberbandModel.vertexCount;
@@ -406,7 +406,7 @@ Item {
       angleValue += Math.atan2(
         previousPoint.y - penultimatePoint.y,
         previousPoint.x - penultimatePoint.x,
-      );
+      )
     }
 
     const cosa = Math.cos( angleValue );
@@ -423,17 +423,31 @@ Item {
     * Calculates snap to angle guide line end coordinate.
     * @param {QPointF} currentPoint - the current point being proposed
     * @param {number} angleDegrees - angle of the line in degrees.
+    * @param {boolean} isRelativeAngle - whether the angle should be calculated relative to the last geometry segment
     * @param {number} screenSize - size of the screen. Used to make sure the end of the line is outside the screen.
     */
-  function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, screenSize) {
+  function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, isRelativeAngle, screenSize) {
+    const rubberbandPointsCount = rubberbandModel.vertexCount;
+
     // if the angle is null or undefined, return empty coordinate map
     if ( angleDegrees == null) {
       return {};
     }
 
+    let deltaAngle = 0
+    if ( isRelativeAngle && rubberbandPointsCount >= 3 ) {
+      // compute the angle relative to the last segment (0° is aligned with last segment)
+      const previousPoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.lastCoordinate );
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.penultimateCoordinate );
+      deltaAngle = Math.atan2(
+        previousPoint.y - penultimatePoint.y,
+        previousPoint.x - penultimatePoint.x
+      );
+    }
+
     const x1 = currentPoint.x;
     const y1 = currentPoint.y;
-    const angleRadians = angleDegrees * Math.PI / 180;
+    const angleRadians = angleDegrees * Math.PI / 180 + deltaAngle;
     const x2 = x1 + screenSize * Math.cos(angleRadians);
     const y2 = y1 + screenSize * Math.sin(angleRadians);
 
