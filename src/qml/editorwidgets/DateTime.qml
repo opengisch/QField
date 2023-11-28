@@ -37,13 +37,15 @@ EditorWidgetBase {
   property bool isDateTimeType: field.isDateOrTime
   property bool fieldIsDate: LayerUtils.fieldType( field ) === 'QDate'
   property var currentValue: {
-    label.text = formatDateTime( value );
+    const formattedDate = formatDateTime( value );
+    label.text = formattedDate;
+    return formattedDate;
   }
 
   function formatDateTime(value) {
     // Will handle both null and undefined as date values
     if ( value == null || value === '' ) {
-      return qsTr('(no date)')
+      return qsTr('(no date)');
     } else {
       const displayFormat = config['display_format'] == null
           ? 'yyyy-MM-dd'
