@@ -65,11 +65,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
     ViewStatus *open( const QString &uri, bool editing ) override;
 
     bool checkPositioningPermissions() const override;
-
     bool checkCameraPermissions() const override;
-
     bool checkMicrophonePermissions() const override;
-
     bool checkWriteExternalStoragePermissions() const override;
 
     void setScreenLockPermission( const bool allowLock ) override;

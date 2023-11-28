@@ -39,7 +39,7 @@ Popup {
     decodedString = ''
     barcodeDecoder.clearDecodedString()
 
-    if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
+    if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request()
     }
   }
@@ -50,7 +50,7 @@ Popup {
     }
   }
 
-  CameraPermission {
+  QfCameraPermission {
     id: cameraPermission
   }
 

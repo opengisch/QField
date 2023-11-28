@@ -43,13 +43,19 @@ Popup {
   }
 
   onAboutToShow: {
-    if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
+    if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request()
+    }
+    if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+      microphonePermission.request()
     }
   }
 
-  CameraPermission {
+  QfCameraPermission {
     id: cameraPermission
+  }
+  QfMicrophonePermission {
+    id: microphonePermission
   }
 
   Settings {

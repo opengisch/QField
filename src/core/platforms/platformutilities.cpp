@@ -419,3 +419,29 @@ PlatformUtilities *PlatformUtilities::instance()
 {
   return sPlatformUtils;
 }
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
+Qt::PermissionStatus PlatformUtilities::checkCameraPermission() const
+{
+  QCameraPermission cameraPermission;
+  return qApp->checkPermission( cameraPermission );
+}
+
+void PlatformUtilities::requestCameraPermission( std::function<void( Qt::PermissionStatus )> func )
+{
+  QCameraPermission cameraPermission;
+  qApp->requestPermission( cameraPermission, [=]( const QPermission &permission ) { func( permission.status() ); } );
+}
+
+Qt::PermissionStatus PlatformUtilities::checkMicrophonePermission() const
+{
+  QMicrophonePermission microphonePermission;
+  return qApp->checkPermission( microphonePermission );
+}
+
+void PlatformUtilities::requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func )
+{
+  QMicrophonePermission microphonePermission;
+  qApp->requestPermission( microphonePermission, [=]( const QPermission &permission ) { func( permission.status() ); } );
+}
+#endif

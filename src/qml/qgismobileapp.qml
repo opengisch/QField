@@ -1697,7 +1697,7 @@ ApplicationWindow {
         }
       }
       function followOrientation() {
-        if (!isNan(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 10) {
+        if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 10) {
           gnssButton.followActiveSkipRotationChanged = true
           mapCanvas.mapSettings.rotation = -positionSource.orientation
         }
@@ -2325,16 +2325,11 @@ ApplicationWindow {
     id: positioningSettings
 
     onPositioningActivatedChanged: {
-      if ( positioningActivated ) {
-        if ( platformUtilities.checkPositioningPermissions() ) {
-          displayToast( qsTr( "Activating positioning service" ) )
-          positionSource.active = true
-        } else {
-          displayToast( qsTr( "QField has no permissions to use positioning." ), 'warning' )
-          positioningSettings.positioningActivated = false
-        }
+      if (positioningActivated) {
+        displayToast( qsTr( "Activating positioning service" ) )
+        positionSource.active = true
       } else {
-          positionSource.active = false
+        positionSource.active = false
       }
     }
   }

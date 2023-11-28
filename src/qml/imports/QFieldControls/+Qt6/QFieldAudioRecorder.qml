@@ -34,12 +34,12 @@ Popup {
     preRecording = true;
     player.source = ''
 
-    if (microphonePermission.status !== Qt.PermissionStatus.Granted) {
+    if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request()
     }
   }
 
-  MicrophonePermission {
+  QfMicrophonePermission {
     id: microphonePermission
   }
 
