@@ -1406,8 +1406,11 @@ ApplicationWindow {
         width: visible ? 40 : 0
         height: visible ? 40 : 0
         round: true
-        visible: dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-          || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
+        visible: dashBoard.activeLayer
+          && (
+            dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
+            || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
+          )
         iconSource: Theme.getThemeVectorIcon( "ic_common_angle_white_24dp" )
         iconColor: "white"
         bgcolor: Theme.darkGray
