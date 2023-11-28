@@ -63,10 +63,10 @@ Item {
     inputCoordinate: {
       // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
       const location = sourceLocation === undefined
-        ? Qt.point( locator.width / 2, locator.height / 2 )
+        ? Qt.point(locator.width / 2, locator.height / 2)
         : sourceLocation;
 
-      if ( snapToCommonAngleButton.isSnapToCommonAngleEnabled ) {
+      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled) {
         locator.commonAngleInDegrees = getCommonAngleInDegrees(
           location,
           locator.rubberbandModel,
@@ -78,6 +78,7 @@ Item {
 
         snapToCommonAngleLines.endCoordX = coords.x || 0;
         snapToCommonAngleLines.endCoordY = coords.y || 0;
+
         return snapPointToCommonAngle(
           location,
           locator.rubberbandModel,
@@ -312,7 +313,6 @@ Item {
     flashAnimation.start()
   }
 
-
   /**
    * Computes the possible common angle
    *
@@ -330,7 +330,7 @@ Item {
     const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
     const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20;
     const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40;
-    const previousPoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.lastCoordinate );
+    const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
     const rubberbandPointsCount = rubberbandModel.vertexCount;
 
     // we need at least 1 alredy digitized point (and the other one is wanna be digitized)
@@ -338,8 +338,8 @@ Item {
       return;
     }
 
-    const distanceFromLastPoint = Math.sqrt( (currentPoint.x - previousPoint.x ) ** 2 + ( currentPoint.y - previousPoint.y ) ** 2 );
-    if ( distanceFromLastPoint < MINIMAL_PIXEL_DISTANCE_TRESHOLD ) {
+    const distanceFromLastPoint = Math.sqrt((currentPoint.x - previousPoint.x) ** 2 + (currentPoint.y - previousPoint.y) ** 2);
+    if (distanceFromLastPoint < MINIMAL_PIXEL_DISTANCE_TRESHOLD) {
       return;
     }
 
@@ -351,26 +351,26 @@ Item {
       currentPoint.x - previousPoint.x
     );
     let deltaAngle = 0;
-    if ( isRelativeAngle && rubberbandPointsCount >= 3 ) {
+    if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
-      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.penultimateCoordinate );
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
       deltaAngle = Math.atan2(
         previousPoint.y - penultimatePoint.y,
         previousPoint.x - penultimatePoint.x
       );
       softAngle -= deltaAngle;
     }
-    const quo = Math.round( softAngle / commonAngle );
-    if ( Math.abs( softAngle - quo * commonAngle ) * 180.0 * Math.PI <= SOFT_CONSTRAINT_TOLERANCE_DEGREES ) {
+    const quo = Math.round(softAngle / commonAngle);
+    if (Math.abs(softAngle - quo * commonAngle) * 180.0 * Math.PI <= SOFT_CONSTRAINT_TOLERANCE_DEGREES) {
       // also check the distance in pixel to the line, otherwise it's too sticky at long ranges
       softAngle = quo * commonAngle;
       // http://mathworld.wolfram.com/Point-LineDistance2-Dimensional.html
       // use the direction vector (cos(a),sin(a)) from previous point. |x2-x1|=1 since sin2+cos2=1
       const dist = Math.abs(
-        Math.cos( softAngle + deltaAngle ) * ( previousPoint.y - currentPoint.y )
-        - Math.sin( softAngle + deltaAngle ) * ( previousPoint.x - currentPoint.x )
+        Math.cos(softAngle + deltaAngle) * (previousPoint.y - currentPoint.y) -
+        Math.sin(softAngle + deltaAngle) * (previousPoint.x - currentPoint.x)
       );
-      if ( dist < SOFT_CONSTRAINT_TOLERANCE_PIXEL ) {
+      if (dist < SOFT_CONSTRAINT_TOLERANCE_PIXEL) {
         return 180.0 / Math.PI * softAngle;
       }
     }
@@ -386,59 +386,59 @@ Item {
    * @returns {QPointF} - the resulting snapped to common angle point. If no snapping was possible, then `currentPoint` is returned.
    */
   function snapPointToCommonAngle(currentPoint, rubberbandModel, commonAngleDegrees, isRelativeAngle) {
-    if ( !rubberbandModel ) {
+    if (!rubberbandModel) {
       return currentPoint;
     }
 
     // if null or undefined, no common angle is determined
     if (commonAngleDegrees == null) {
-        return currentPoint;
+      return currentPoint;
     }
 
     let angleValue = commonAngleDegrees * Math.PI / 180;
     const returnPoint = currentPoint;
-    const previousPoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.lastCoordinate );
+    const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
     const rubberbandPointsCount = rubberbandModel.vertexCount;
 
-    if ( isRelativeAngle && rubberbandPointsCount >= 3 ) {
+    if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
-      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.penultimateCoordinate );
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
       angleValue += Math.atan2(
         previousPoint.y - penultimatePoint.y,
         previousPoint.x - penultimatePoint.x,
       )
     }
 
-    const cosa = Math.cos( angleValue );
-    const sina = Math.sin( angleValue );
-    const v = ( currentPoint.x - previousPoint.x ) * cosa + ( currentPoint.y - previousPoint.y ) * sina;
+    const cosa = Math.cos(angleValue);
+    const sina = Math.sin(angleValue);
+    const v = (currentPoint.x - previousPoint.x) * cosa + (currentPoint.y - previousPoint.y) * sina;
 
-    returnPoint.x = ( previousPoint.x + cosa * v );
-    returnPoint.y = ( previousPoint.y + sina * v );
+    returnPoint.x = (previousPoint.x + cosa * v);
+    returnPoint.y = (previousPoint.y + sina * v);
 
     return returnPoint;
   }
 
   /**
-    * Calculates snap to angle guide line end coordinate.
-    * @param {QPointF} currentPoint - the current point being proposed
-    * @param {number} angleDegrees - angle of the line in degrees.
-    * @param {boolean} isRelativeAngle - whether the angle should be calculated relative to the last geometry segment
-    * @param {number} screenSize - size of the screen. Used to make sure the end of the line is outside the screen.
-    */
+   * Calculates snap to angle guide line end coordinate.
+   * @param {QPointF} currentPoint - the current point being proposed
+   * @param {number} angleDegrees - angle of the line in degrees.
+   * @param {boolean} isRelativeAngle - whether the angle should be calculated relative to the last geometry segment
+   * @param {number} screenSize - size of the screen. Used to make sure the end of the line is outside the screen.
+   */
   function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, isRelativeAngle, screenSize) {
     const rubberbandPointsCount = rubberbandModel.vertexCount;
 
     // if the angle is null or undefined, return empty coordinate map
-    if ( angleDegrees == null) {
+    if (angleDegrees == null) {
       return {};
     }
 
     let deltaAngle = 0
-    if ( isRelativeAngle && rubberbandPointsCount >= 3 ) {
+    if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
-      const previousPoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.lastCoordinate );
-      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen( rubberbandModel.penultimateCoordinate );
+      const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
       deltaAngle = Math.atan2(
         previousPoint.y - penultimatePoint.y,
         previousPoint.x - penultimatePoint.x
@@ -451,6 +451,9 @@ Item {
     const x2 = x1 + screenSize * Math.cos(angleRadians);
     const y2 = y1 + screenSize * Math.sin(angleRadians);
 
-    return {x: x2, y: y2};
+    return {
+      x: x2,
+      y: y2
+    };
   }
 }
