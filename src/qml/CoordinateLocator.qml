@@ -43,10 +43,13 @@ Item {
   // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
   readonly property point displayPosition: {
     // this property gets initially evaluated before the `currentCoordinate`
-    if ( ! currentCoordinate )
-      currentCoordinate = !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate
+    const coordinate = currentCoordinate
+      ? currentCoordinate
+      : !!overrideLocation
+        ? overrideLocation
+        : snappingUtils.snappedCoordinate;
 
-    return !!mapSettings.visibleExtent || true ? mapSettings.coordinateToScreen(currentCoordinate) : 0
+    return mapSettings.coordinateToScreen(coordinate);
   }
 
   property variant rubberbandModel: undefined
