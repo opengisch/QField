@@ -427,6 +427,10 @@ Item {
    * @param {number} screenSize - size of the screen. Used to make sure the end of the line is outside the screen.
    */
   function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, isRelativeAngle, screenSize) {
+    if ( rubberbandModel == null ) {
+      return {};
+    }
+
     const rubberbandPointsCount = rubberbandModel.vertexCount;
 
     // if the angle is null or undefined, return empty coordinate map
