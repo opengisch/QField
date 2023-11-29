@@ -134,8 +134,8 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     //! \copydoc frozen
     void setFrozen( const bool &frozen );
 
-    //! Returns all vertice points in the model, with the option to skip the current vertex
-    QVector<QgsPoint> flatVertices( bool skipCurrentPoint = false ) const;
+    //! Returns a copy of all vertice points in the model, with the option to skip the current vertex
+    QVector<QgsPoint> verticesCopy( bool skipCurrentPoint = false ) const;
 
     /**
      * The target CRS into which points should be reprojected.
