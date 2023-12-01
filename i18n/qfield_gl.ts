@@ -4207,7 +4207,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquear a pantalla para pechar o proxecto e a aplicación</translation>
     </message>
 </context>
 <context>
