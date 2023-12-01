@@ -43,6 +43,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
 
     Q_PROPERTY( QgsPoint firstCoordinate READ firstCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( QgsPoint lastCoordinate READ lastCoordinate NOTIFY currentCoordinateChanged )
+    Q_PROPERTY( QgsPoint penultimateCoordinate READ penultimateCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
@@ -91,6 +92,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
 
     QgsPoint firstCoordinate() const;
     QgsPoint lastCoordinate() const;
+    QgsPoint penultimateCoordinate() const;
     QgsPoint currentCoordinate() const;
     void setCurrentCoordinate( const QgsPoint &currentCoordinate );
 

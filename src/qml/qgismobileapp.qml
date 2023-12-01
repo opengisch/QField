@@ -330,8 +330,9 @@ ApplicationWindow {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate )
             } else if ( !freehandHandler.active ) {
                 // after a click, it seems that the position is sent once at 0,0 => weird)
-                if (point.position !== Qt.point(0, 0))
+                if (point.position !== Qt.point(0, 0)) {
                     coordinateLocator.sourceLocation = point.position
+                }
             }
         }
 
@@ -686,6 +687,7 @@ ApplicationWindow {
       currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
       positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+      rubberbandModel: digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
@@ -1394,6 +1396,130 @@ ApplicationWindow {
 
         Component.onCompleted: {
           freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
+        }
+      }
+
+      QfToolButton {
+        id: snapToCommonAngleButton
+
+        width: visible ? 40 : 0
+        height: visible ? 40 : 0
+        round: true
+        visible: dashBoard.activeLayer
+          && (
+            dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
+            || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
+          )
+        iconSource: Theme.getThemeVectorIcon( "ic_common_angle_white_24dp" )
+        iconColor: "white"
+        bgcolor: Theme.darkGray
+
+        property bool isSnapToCommonAngleEnabled: false
+        property bool isSnapToCommonAngleRelative: false
+        property int snapToCommonAngleDegrees: 45
+
+        state: isSnapToCommonAngleEnabled ? "On" : "Off"
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: snapToCommonAngleButton
+              iconColor: "white"
+              bgcolor: Theme.darkGraySemiOpaque
+            }
+          },
+
+          State {
+            name: "On"
+            PropertyChanges {
+              target: snapToCommonAngleButton
+              iconColor: Theme.mainColor
+              bgcolor: Theme.darkGray
+            }
+          }
+        ]
+
+        onClicked: {
+          isSnapToCommonAngleEnabled = !isSnapToCommonAngleEnabled;
+
+          displayToast(
+            isSnapToCommonAngleEnabled
+            ? qsTr( "Snap to %1° angle turned on" ).arg( snapToCommonAngleDegrees )
+            : qsTr( "Snap to common angle turned off" )
+          );
+        }
+
+        onPressAndHold: {
+          snapToCommonAngleMenu.popup( parent.x, parent.y );
+        }
+
+        onIsSnapToCommonAngleEnabledChanged: {
+          settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsEnabled", isSnapToCommonAngleEnabled );
+        }
+
+        onIsSnapToCommonAngleRelativeChanged: {
+          settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsRelative", isSnapToCommonAngleRelative );
+        }
+
+        onSnapToCommonAngleDegreesChanged: {
+          settings.setValue( "/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleDegrees );
+        }
+
+        Component.onCompleted: {
+          isSnapToCommonAngleEnabled = settings.valueBool( "/QField/Digitizing/SnapToCommonAngleIsEnabled", false );
+          isSnapToCommonAngleRelative = settings.valueBool( "/QField/Digitizing/SnapToCommonAngleIsRelative", false );
+          snapToCommonAngleDegrees = settings.valueInt( "/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleDegrees );
+        }
+
+
+        Menu {
+          id: snapToCommonAngleMenu
+
+          MenuItem {
+            text: qsTr( "Relative angle" )
+            font: Theme.defaultFont
+            height: 48
+            leftPadding: 10
+
+            checkable: true
+            checked: snapToCommonAngleButton.isSnapToCommonAngleRelative
+            onCheckedChanged: {
+              snapToCommonAngleButton.isSnapToCommonAngleRelative = checked;
+            }
+          }
+
+          MenuSeparator { width: parent.width }
+
+          Repeater {
+            // list of common angles to snap to
+            model: [10, 15, 30, 45, 90]
+            delegate: MenuItem {
+              required property int modelData
+
+              text: qsTr( "Snap every %1°" ).arg( modelData )
+
+              font: Theme.defaultFont
+              height: 48
+              leftPadding: 10
+
+              checkable: true
+              enabled: !checked
+              checked: modelData === snapToCommonAngleButton.snapToCommonAngleDegrees
+              onCheckedChanged: {
+                if ( !checked ) {
+                  return;
+                }
+
+                snapToCommonAngleButton.isSnapToCommonAngleEnabled = true;
+                snapToCommonAngleButton.snapToCommonAngleDegrees = modelData;
+
+                displayToast( qsTr( "Snap to %1° angle turned on" ).arg( modelData ) );
+
+                snapToCommonAngleMenu.close();
+              }
+            }
+          }
         }
       }
     }

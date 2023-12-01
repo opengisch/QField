@@ -39,6 +39,11 @@ bool Settings::valueBool( const QString &key, bool defaultValue )
   return QSettings::value( key, defaultValue ).toBool();
 }
 
+int Settings::valueInt( const QString &key, int defaultValue )
+{
+  return QSettings::value( key, defaultValue ).toInt();
+}
+
 void Settings::remove( const QString &key )
 {
   QSettings::remove( key );

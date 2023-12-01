@@ -39,6 +39,13 @@ class Settings : public QSettings
     Q_INVOKABLE bool valueBool( const QString &key, bool defaultValue );
 
     /**
+     * Properly evaluates the returned value to be int.
+     * If the normal value() is used instead, a string "1" or "-456"
+     * will be returned.
+     */
+    Q_INVOKABLE int valueInt( const QString &key, int defaultValue );
+
+    /**
      * Removes the given \a key from settings.
      */
     Q_INVOKABLE void remove( const QString &key );
