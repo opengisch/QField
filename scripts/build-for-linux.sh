@@ -1,6 +1,6 @@
 #!/bin/bash
 QT_PREFIX=${HOME}/.qt
-QT_VERSION=6.6.0
+QT_VERSION=6.6.1
 
 set -e
 

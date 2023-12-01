@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Shapes
 import QtQuick.Window
 import QtMultimedia
+import QtCore
 import Qt.labs.settings
 
 import Theme 1.0
@@ -41,6 +42,22 @@ Popup {
     }
   }
 
+  onAboutToShow: {
+    if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
+      cameraPermission.request()
+    }
+    if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+      microphonePermission.request()
+    }
+  }
+
+  QfCameraPermission {
+    id: cameraPermission
+  }
+  QfMicrophonePermission {
+    id: microphonePermission
+  }
+
   Settings {
     id: settings
     property bool geoTagging: true
@@ -67,7 +84,7 @@ Popup {
       camera: Camera {
         id: camera
 
-        active: cameraItem.visible
+        active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted
         cameraDevice: mediaDevices.defaultVideoInput
 
         function zoomIn(increase) {

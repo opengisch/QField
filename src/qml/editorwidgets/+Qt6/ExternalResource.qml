@@ -552,9 +552,7 @@ EditorWidgetBase {
       visible: false
 
       Component.onCompleted: {
-        if (platformUtilities.checkMicrophonePermissions()) {
-          open()
-        }
+        open()
       }
 
       onFinished: {
@@ -586,15 +584,11 @@ EditorWidgetBase {
 
       Component.onCompleted: {
         if (isVideo) {
-          if (platformUtilities.checkCameraPermissions() && platformUtilities.checkMicrophonePermissions()) {
-            qfieldCamera.state = 'VideoCapture'
-            open()
-          }
+          qfieldCamera.state = 'VideoCapture'
+          open()
         } else {
-          if (platformUtilities.checkCameraPermissions()) {
-            qfieldCamera.state = 'PhotoCapture'
-            open()
-          }
+          qfieldCamera.state = 'PhotoCapture'
+          open()
         }
       }
 

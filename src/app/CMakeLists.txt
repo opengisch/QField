@@ -125,6 +125,18 @@ function(create_executable)
     target_link_libraries(${exe_TARGET} PUBLIC Qt6::Core5Compat)
     qt_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
     qt_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::Core5Compat)
+
+    if(IOS)
+      target_link_libraries(
+        ${exe_TARGET}
+        PUBLIC ${QT_PKG}::QDarwinCameraPermissionPlugin
+               ${QT_PKG}::QDarwinMicrophonePermissionPlugin
+               ${QT_PKG}::QDarwinLocationPermissionPlugin)
+      qt_import_plugins(
+        ${exe_TARGET} INCLUDE ${QT_PKG}::QDarwinCameraPermissionPlugin
+        ${QT_PKG}::QDarwinMicrophonePermissionPlugin
+        ${QT_PKG}::QDarwinLocationPermissionPlugin)
+    endif()
   else()
     qt5_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
   endif()

@@ -56,6 +56,8 @@ class BluetoothReceiver : public NmeaGnssReceiver
     //! Used to wait for previous connection to finish disconnecting
     void doConnectDevice();
 
+    bool mPermissionChecked = false;
+
     QString mAddress;
 
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;

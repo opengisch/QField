@@ -120,6 +120,10 @@
 #include "valuemapmodel.h"
 #include "vertexmodel.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
+#include "permissions.h"
+#endif
+
 #include <QDateTime>
 #include <QFileInfo>
 #include <QFontDatabase>
@@ -175,6 +179,10 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
 #include <qgsvectorlayertemporalproperties.h>
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
+#include <QPermissions>
+#endif
 
 #define QUOTE( string ) _QUOTE( string )
 #define _QUOTE( string ) #string
@@ -478,6 +486,10 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   qmlRegisterType<BarcodeVideoFilter>( "org.qfield", 1, 0, "BarcodeVideoFilter" );
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
+  qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
+  qmlRegisterType<MicrophonePermission>( "org.qfield", 1, 0, "QfMicrophonePermission" );
 #endif
   qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );

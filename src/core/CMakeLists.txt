@@ -211,7 +211,10 @@ set(QFIELD_CORE_HDRS
     viewstatus.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
-if(NOT BUILD_WITH_QT6)
+if(BUILD_WITH_QT6)
+  list(APPEND QFIELD_CORE_SRCS permissions.cpp)
+  list(APPEND QFIELD_CORE_HDRS permissions.h)
+else()
   list(APPEND QFIELD_CORE_SRCS barcodevideofilter.cpp)
   list(APPEND QFIELD_CORE_HDRS barcodevideofilter.h)
 endif()

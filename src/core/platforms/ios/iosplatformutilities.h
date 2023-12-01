@@ -35,8 +35,6 @@ class IosPlatformUtilities : public PlatformUtilities
     QString applicationDirectory() const override;
     QStringList appDataDirs() const override;
 
-    bool checkPositioningPermissions() const override;
-    bool checkCameraPermissions() const override;
     void setScreenLockPermission( const bool allowLock ) override;
     virtual ResourceSource *getCameraPicture( QQuickItem *parent,
                                               const QString &prefix,
@@ -57,6 +55,13 @@ class IosPlatformUtilities : public PlatformUtilities
 
     double systemFontPointSize() const override { return 16.0; }
     bool isSystemDarkTheme() const override;
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
+    Qt::PermissionStatus checkCameraPermission() const override;
+    void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func ) override;
+    virtual Qt::PermissionStatus checkMicrophonePermission() const override;
+    virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func ) override;
+#endif
 };
 
 #endif

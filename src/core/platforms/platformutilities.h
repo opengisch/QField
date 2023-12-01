@@ -25,6 +25,10 @@
 #include <QObject>
 #include <qgsfield.h>
 
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
+#include <QPermission>
+#endif
+
 class QFieldCloudConnection;
 class ProjectSource;
 class ResourceSource;
@@ -217,29 +221,33 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * permissions.
      * It will return true, if at least coarse permissions are granted. It will
      * ask for fine permissions if none are granted.
+     * \deprecated Since QField 3.1
      */
-    Q_INVOKABLE virtual bool checkPositioningPermissions() const;
+    Q_DECL_DEPRECATED Q_INVOKABLE virtual bool checkPositioningPermissions() const;
 
     /**
      * Checks for camera permissions on the device.
      * If the permissions are not given, the user will be asked to grant
      * permissions.
+     * \deprecated Since QField 3.1
      */
-    Q_INVOKABLE virtual bool checkCameraPermissions() const;
+    Q_DECL_DEPRECATED Q_INVOKABLE virtual bool checkCameraPermissions() const;
 
     /**
      * Checks for camera microphone on the device.
      * If the permissions are not given, the user will be asked to grant
      * permissions.
+     * \deprecated Since QField 3.1
      */
-    Q_INVOKABLE virtual bool checkMicrophonePermissions() const;
+    Q_DECL_DEPRECATED Q_INVOKABLE virtual bool checkMicrophonePermissions() const;
 
     /**
      * Checks for permissions to write exeternal storage.
      * If the permissions are not given, the user will be asked to grant
      * permissions.
+     * \deprecated Since QField 3.1
      */
-    Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
+    Q_DECL_DEPRECATED Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
 
     /**
      * Sets whether the device screen is allowed to go in lock mode.
@@ -293,6 +301,13 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual bool isSystemDarkTheme() const;
 
     static PlatformUtilities *instance();
+
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
+    virtual Qt::PermissionStatus checkCameraPermission() const;
+    virtual void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func );
+    virtual Qt::PermissionStatus checkMicrophonePermission() const;
+    virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func );
+#endif
 
   private:
     /**

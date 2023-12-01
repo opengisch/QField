@@ -21,11 +21,11 @@
 #include "iosresourcesource.h"
 #include "qfield.h"
 
-#import <AVFoundation/AVFoundation.h>
-#import <CoreLocation/CoreLocation.h>
+#include <AVFoundation/AVFoundation.h>
+#include <CoreLocation/CoreLocation.h>
 #include <MobileCoreServices/MobileCoreServices.h>
-#import <UIKit/UIDocumentInteractionController.h>
-#import <UIKit/UIKit.h>
+#include <UIKit/UIDocumentInteractionController.h>
+#include <UIKit/UIKit.h>
 
 #include <QGuiApplication>
 #include <QStandardPaths>
@@ -99,13 +99,6 @@ QStringList IosPlatformUtilities::appDataDirs() const {
   return QStringList() << QStringLiteral("%1/QField/")
                               .arg(QStandardPaths::writableLocation(
                                   QStandardPaths::DocumentsLocation));
-}
-
-bool IosPlatformUtilities::checkPositioningPermissions() const { return true; }
-
-bool IosPlatformUtilities::checkCameraPermissions() const {
-  // see https://stackoverflow.com/a/20464727/1548052
-  return true;
 }
 
 void IosPlatformUtilities::setScreenLockPermission(const bool allowLock) {
@@ -198,3 +191,55 @@ bool IosPlatformUtilities::isSystemDarkTheme() const {
   }
   return false;
 }
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+Qt::PermissionStatus IosPlatformUtilities::checkCameraPermission() const {
+  switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo]) {
+  case AVAuthorizationStatusNotDetermined: {
+    return Qt::PermissionStatus::Undetermined;
+  }
+  case AVAuthorizationStatusAuthorized: {
+    return Qt::PermissionStatus::Granted;
+  }
+  case AVAuthorizationStatusDenied:
+  case AVAuthorizationStatusRestricted: {
+    return Qt::PermissionStatus::Denied;
+  }
+    return Qt::PermissionStatus::Undetermined;
+  }
+}
+
+void IosPlatformUtilities::requestCameraPermission(
+    std::function<void(Qt::PermissionStatus)> func) {
+  [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo
+                           completionHandler:^(BOOL granted) {
+                               func(granted ? Qt::PermissionStatus::Granted
+                                            : Qt::PermissionStatus::Denied);
+                           }];
+}
+
+Qt::PermissionStatus IosPlatformUtilities::checkMicrophonePermission() const {
+  switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio]) {
+  case AVAuthorizationStatusNotDetermined: {
+    return Qt::PermissionStatus::Undetermined;
+  }
+  case AVAuthorizationStatusAuthorized: {
+    return Qt::PermissionStatus::Granted;
+  }
+  case AVAuthorizationStatusDenied:
+  case AVAuthorizationStatusRestricted: {
+    return Qt::PermissionStatus::Denied;
+  }
+    return Qt::PermissionStatus::Undetermined;
+  }
+}
+
+void IosPlatformUtilities::requestMicrophonePermission(
+    std::function<void(Qt::PermissionStatus)> func) {
+  [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio
+                           completionHandler:^(BOOL granted) {
+                               func(granted ? Qt::PermissionStatus::Granted
+                                            : Qt::PermissionStatus::Denied);
+                           }];
+}
+#endif
