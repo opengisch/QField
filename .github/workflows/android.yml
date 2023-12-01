@@ -193,7 +193,7 @@ jobs:
           S3CFG: ${{ secrets.S3CFG }}
 
       - name: Upload release assets
-        uses: AButler/upload-release-assets@v2.0
+        uses: AButler/upload-release-assets@v3.0
         if: ${{ github.event_name == 'release' && matrix.all_files_access == 'OFF' }}
         with:
           files: /tmp/qfield-*.apk
