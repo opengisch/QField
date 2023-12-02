@@ -228,12 +228,20 @@ Cancel to make a minimal device scan instead.</source>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation>Bluetotth eszközt nem észleltem, keress a közeli eszközök listázásáért</translation>
     </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
         <translation type="vanished">Belső eszköz</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -281,6 +289,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Unknown error</source>
         <translation type="vanished">Ismeretlen hiba</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -924,6 +936,13 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Ugrás %1° N%2°E (%3)</translation>
+    </message>
+</context>
+<context>
+    <name>InternalGnssReceiver</name>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3725,95 +3744,95 @@ Cancel to make a minimal device scan instead.</source>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Tallózó módban van</translation>
+        <translation type="vanished">Tallózó módban van</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Digitalizáló módban van a %1 rétegen</translation>
+        <translation type="vanished">Digitalizáló módban van a %1 rétegen</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>Digitalizáló módban van</translation>
+        <translation type="vanished">Digitalizáló módban van</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>Mérés módban van</translation>
+        <translation type="vanished">Mérés módban van</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Szakasz</translation>
+        <translation type="vanished">Szakasz</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>Kerület</translation>
+        <translation type="vanished">Kerület</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>Hossz</translation>
+        <translation type="vanished">Hossz</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Terület</translation>
+        <translation type="vanished">Terület</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Mérőeszköz bezárása</translation>
+        <translation type="vanished">Mérőeszköz bezárása</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Szerkesztés befejezése</translation>
+        <translation type="vanished">Szerkesztés befejezése</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Hozzáadás törlése</translation>
+        <translation type="vanished">Hozzáadás törlése</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Topologikus szerkesztést bekapcsoltuk</translation>
+        <translation type="vanished">Topologikus szerkesztést bekapcsoltuk</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Topologikus szerkesztést kikapcsoltuk</translation>
+        <translation type="vanished">Topologikus szerkesztést kikapcsoltuk</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Szabadkézi digitalizálás bekapcsolva</translation>
+        <translation type="vanished">Szabadkézi digitalizálás bekapcsolva</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Szabadkézi digitalizálás kikapcsolva</translation>
+        <translation type="vanished">Szabadkézi digitalizálás kikapcsolva</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>A koordinátához tartozó kurzor zárolt a pozíciónál</translation>
+        <translation type="vanished">A koordinátához tartozó kurzor zárolt a pozíciónál</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>A koordináta kurzor zárolása feloldva</translation>
+        <translation type="vanished">A koordináta kurzor zárolása feloldva</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Kapott pozíció</translation>
+        <translation type="vanished">Kapott pozíció</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Pozíció keresés</translation>
+        <translation type="vanished">Pozíció keresés</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>A térkép követi a pozíciót</translation>
+        <translation type="vanished">A térkép követi a pozíciót</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Várok a pozícióra</translation>
+        <translation type="vanished">Várok a pozícióra</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3825,27 +3844,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>A térkép befejezte a pozíció követést</translation>
+        <translation type="vanished">A térkép befejezte a pozíció követést</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Nem sikerült az elemet létrehozni!</translation>
+        <translation type="vanished">Nem sikerült az elemet létrehozni!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Nem sikerült az elemet menteni!</translation>
+        <translation type="vanished">Nem sikerült az elemet menteni!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Főmenü</translation>
+        <translation type="vanished">Főmenü</translation>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Mérőeszköz</translation>
+        <translation type="vanished">Mérőeszköz</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Nyomtatás PDF-be</translation>
+        <translation type="vanished">Nyomtatás PDF-be</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3853,11 +3872,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation>Kezdőképernyőre lépés</translation>
+        <translation type="vanished">Kezdőképernyőre lépés</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation>Projekt mappa nyitás</translation>
+        <translation type="vanished">Projekt mappa nyitás</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3865,15 +3884,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Beállítások</translation>
+        <translation type="vanished">Beállítások</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Üzenet napló</translation>
+        <translation type="vanished">Üzenet napló</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>QField névjegy</translation>
+        <translation type="vanished">QField névjegy</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3881,23 +3900,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>A pozíciós szolgáltatás aktiválása</translation>
+        <translation type="vanished">A pozíciós szolgáltatás aktiválása</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>A QFieldnek nincs joga a pozicionálás használatára.</translation>
+        <translation type="vanished">A QFieldnek nincs joga a pozicionálás használatára.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Térkép lehetőségek</translation>
+        <translation type="vanished">Térkép lehetőségek</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Könyvjelző hozzáadása</translation>
+        <translation type="vanished">Könyvjelző hozzáadása</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Beállítás célként</translation>
+        <translation type="vanished">Beállítás célként</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3905,7 +3924,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Névtelen könyvjelző</translation>
+        <translation type="vanished">Névtelen könyvjelző</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3913,7 +3932,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Koordináták másolása</translation>
+        <translation type="vanished">Koordináták másolása</translation>
     </message>
     <message>
         <source>X</source>
@@ -3925,7 +3944,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>A koordináták a vágólapra másolva</translation>
+        <translation type="vanished">A koordináták a vágólapra másolva</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -3961,23 +3980,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>köpontosítás az elhelyeszkedésre</translation>
+        <translation type="vanished">köpontosítás az elhelyeszkedésre</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Könyvjelző hozzáadása a helyhez</translation>
+        <translation type="vanished">Könyvjelző hozzáadása a helyhez</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Helykoordináták másolása</translation>
+        <translation type="vanished">Helykoordináták másolása</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Kijelentkezve</translation>
+        <translation type="vanished">Kijelentkezve</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Bejelentkezve</translation>
+        <translation type="vanished">Bejelentkezve</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3985,15 +4004,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Navigációs beállítások</translation>
+        <translation type="vanished">Navigációs beállítások</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Cél törlése</translation>
+        <translation type="vanished">Cél törlése</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>%1 pontosság</translation>
+        <translation type="vanished">%1 pontosság</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
@@ -4001,19 +4020,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Pozicionálási beállítások</translation>
+        <translation type="vanished">Pozicionálási beállítások</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Pozicionálás engedélyezése</translation>
+        <translation type="vanished">Pozicionálás engedélyezése</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Pozíció megjelenítés</translation>
+        <translation type="vanished">Pozíció megjelenítés</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Helymeghatározás beállítások</translation>
+        <translation type="vanished">Helymeghatározás beállítások</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4025,11 +4044,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Jelenlegi helye ismeretlen</translation>
+        <translation type="vanished">Jelenlegi helye ismeretlen</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation>Tartózkodási helyem</translation>
+        <translation type="vanished">Tartózkodási helyem</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4037,27 +4056,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Pontosság</translation>
+        <translation type="vanished">Pontosság</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>Az aktuális hely a vágólapra másolva</translation>
+        <translation type="vanished">Az aktuális hely a vágólapra másolva</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Az aktuális réteget átváltottuk a szelektált geometriát tartalmazó rétegre.</translation>
+        <translation type="vanished">Az aktuális réteget átváltottuk a szelektált geometriát tartalmazó rétegre.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Multi geometria szerkesztése még nem támogatott.</translation>
+        <translation type="vanished">Multi geometria szerkesztése még nem támogatott.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>%1 betöltése</translation>
+        <translation type="vanished">%1 betöltése</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4065,7 +4084,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Kapcsolódás...</translation>
+        <translation type="vanished">Kapcsolódás...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4073,23 +4092,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>%1 projekt sikertelen letöltés</translation>
+        <translation type="vanished">%1 projekt sikertelen letöltés</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>%1 projektet sikeresen letöltöttem, most megnyitható</translation>
+        <translation type="vanished">%1 projektet sikeresen letöltöttem, most megnyitható</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>A módosítások nem jutottak el a QFieldCloud-ba: %1</translation>
+        <translation type="vanished">A módosítások nem jutottak el a QFieldCloud-ba: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>A módosítások sikeresen átküldve a QFieldCloud-ba</translation>
+        <translation type="vanished">A módosítások sikeresen átküldve a QFieldCloud-ba</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Nyomj visszát a projekt és az alkalmazás lezárásához</translation>
+        <translation type="vanished">Nyomj visszát a projekt és az alkalmazás lezárásához</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4097,11 +4116,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>Irány</translation>
+        <translation type="vanished">Irány</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Képernyő zárolás</translation>
+        <translation type="vanished">Képernyő zárolás</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4109,98 +4128,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Nyomtatás...</translation>
+        <translation type="vanished">Nyomtatás...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Nyomtatás</translation>
+        <translation type="vanished">Nyomtatás</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>Helymeghatározó eszköz hiba: %1</translation>
-    </message>
-    <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>A térképvászon követi a pozíciót és az irányt</translation>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation>Impotálás %1</translation>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Szenzorok</translation>
-    </message>
-    <message>
-        <source>Select sensor below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation>Nincs elérhető szenzor</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation>Réteg:</translation>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation>Elem:</translation>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation>Elem űrlap megnyitás</translation>
+        <translation type="vanished">Helymeghatározó eszköz hiba: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Elem megkettőzése</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Az elem sikeresen megkettőzve</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation>Elem duplikálás nem lehetséges</translation>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation>Illesztés bekapcsolva</translation>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation>Illesztés kikapcsolva</translation>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>

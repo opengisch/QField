@@ -228,12 +228,20 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation>Nenalezena žádná Bluetooth zařízení, zvolte Skenovat pro naplnění seznamu zařízení nablízku.</translation>
     </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
         <translation type="vanished">Vnitřní zařízeni</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -281,6 +289,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Unknown error</source>
         <translation type="vanished">Neznámá chyba</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -929,6 +941,13 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Jít na  %1°N %2°E (%3)</translation>
+    </message>
+</context>
+<context>
+    <name>InternalGnssReceiver</name>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3734,95 +3753,95 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Nyní jste v režimu procházení</translation>
+        <translation type="vanished">Nyní jste v režimu procházení</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Nyní jste v režimu digitalizace ve vrstvě %1</translation>
+        <translation type="vanished">Nyní jste v režimu digitalizace ve vrstvě %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>Nyní jste v digitalizačním režimu</translation>
+        <translation type="vanished">Nyní jste v digitalizačním režimu</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>Nyní jste v režimu měření</translation>
+        <translation type="vanished">Nyní jste v režimu měření</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Zem. dél.</translation>
+        <translation type="vanished">Zem. dél.</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Zem. šíř.</translation>
+        <translation type="vanished">Zem. šíř.</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segment</translation>
+        <translation type="vanished">Segment</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>Obvod</translation>
+        <translation type="vanished">Obvod</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>Délka</translation>
+        <translation type="vanished">Délka</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Výměra</translation>
+        <translation type="vanished">Výměra</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Zavřít nástroj měření</translation>
+        <translation type="vanished">Zavřít nástroj měření</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Zastavit úpravy</translation>
+        <translation type="vanished">Zastavit úpravy</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Zrušit přidávání</translation>
+        <translation type="vanished">Zrušit přidávání</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Byla zapnuta topologická úprava</translation>
+        <translation type="vanished">Byla zapnuta topologická úprava</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Byla vypnuta topologická úprava</translation>
+        <translation type="vanished">Byla vypnuta topologická úprava</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Zapnutá ruční digitalizace</translation>
+        <translation type="vanished">Zapnutá ruční digitalizace</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Vypnutá digitalizace od ruky</translation>
+        <translation type="vanished">Vypnutá digitalizace od ruky</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Souřadnicový kurzor je nyní přichycen na polohu</translation>
+        <translation type="vanished">Souřadnicový kurzor je nyní přichycen na polohu</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Souřadnicový kurzor není přichycen</translation>
+        <translation type="vanished">Souřadnicový kurzor není přichycen</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Získávání polohy</translation>
+        <translation type="vanished">Získávání polohy</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Získávání polohy</translation>
+        <translation type="vanished">Získávání polohy</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Čekání na určení polohy...</translation>
+        <translation type="vanished">Čekání na určení polohy...</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Čekání na určení polohy</translation>
+        <translation type="vanished">Čekání na určení polohy</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3834,27 +3853,27 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Canvas stopped following location</translation>
+        <translation type="vanished">Canvas stopped following location</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Nepodařilo se vytvořit prvek!</translation>
+        <translation type="vanished">Nepodařilo se vytvořit prvek!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Nepodařilo se uložit prvek!</translation>
+        <translation type="vanished">Nepodařilo se uložit prvek!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Hlavní menu</translation>
+        <translation type="vanished">Hlavní menu</translation>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Nástroj měření</translation>
+        <translation type="vanished">Nástroj měření</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Tisk do PDF</translation>
+        <translation type="vanished">Tisk do PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3862,11 +3881,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation>Jít na domovskou obrazovku</translation>
+        <translation type="vanished">Jít na domovskou obrazovku</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation>Otevřít složku projektu</translation>
+        <translation type="vanished">Otevřít složku projektu</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3874,15 +3893,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Nastavení</translation>
+        <translation type="vanished">Nastavení</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Výpis zpráv</translation>
+        <translation type="vanished">Výpis zpráv</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>O QField</translation>
+        <translation type="vanished">O QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3890,23 +3909,23 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Aktivace služby určování polohy</translation>
+        <translation type="vanished">Aktivace služby určování polohy</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>QField nemá oprávnění k použití polohy.</translation>
+        <translation type="vanished">QField nemá oprávnění k použití polohy.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Volby výřezu mapy</translation>
+        <translation type="vanished">Volby výřezu mapy</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Přidat záložku</translation>
+        <translation type="vanished">Přidat záložku</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Nastavit jako cíl</translation>
+        <translation type="vanished">Nastavit jako cíl</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3914,7 +3933,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Bezejmenná záložka</translation>
+        <translation type="vanished">Bezejmenná záložka</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3922,7 +3941,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopírovat souřadnice</translation>
+        <translation type="vanished">Kopírovat souřadnice</translation>
     </message>
     <message>
         <source>X</source>
@@ -3934,11 +3953,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>Souřadnice byly zkopírovány do schránky</translation>
+        <translation type="vanished">Souřadnice byly zkopírovány do schránky</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Nastavení přesného pohledu</translation>
+        <translation type="vanished">Nastavení přesného pohledu</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -3966,27 +3985,27 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>Vždy zobrazovat přesný pohled</translation>
+        <translation type="vanished">Vždy zobrazovat přesný pohled</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Vycentrovat na polohu</translation>
+        <translation type="vanished">Vycentrovat na polohu</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Přidat záložku na polohu</translation>
+        <translation type="vanished">Přidat záložku na polohu</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Kopírovat souřadnice polohy</translation>
+        <translation type="vanished">Kopírovat souřadnice polohy</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Odhlášeno</translation>
+        <translation type="vanished">Odhlášeno</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Přihlášeno</translation>
+        <translation type="vanished">Přihlášeno</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3994,35 +4013,35 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Volby pro navigaci</translation>
+        <translation type="vanished">Volby pro navigaci</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Vymazat cíl</translation>
+        <translation type="vanished">Vymazat cíl</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>Přesnost %1</translation>
+        <translation type="vanished">Přesnost %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Zapnout zvukovou zpětnou vazbu blízkosti</translation>
+        <translation type="vanished">Zapnout zvukovou zpětnou vazbu blízkosti</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Volby pro určování polohy</translation>
+        <translation type="vanished">Volby pro určování polohy</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Povolit polohu</translation>
+        <translation type="vanished">Povolit polohu</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Zobrazit informaci o poloze</translation>
+        <translation type="vanished">Zobrazit informaci o poloze</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Nastavení polohy</translation>
+        <translation type="vanished">Nastavení polohy</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4034,11 +4053,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Aktuální poloha není známa</translation>
+        <translation type="vanished">Aktuální poloha není známa</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation>Moje poloha</translation>
+        <translation type="vanished">Moje poloha</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4046,27 +4065,27 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Přesnost</translation>
+        <translation type="vanished">Přesnost</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>Aktuální poloha zkopírována do schránky</translation>
+        <translation type="vanished">Aktuální poloha zkopírována do schránky</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Aktuální vrstva byla přepnuta na vrstvu, která má vybranou geometrii.</translation>
+        <translation type="vanished">Aktuální vrstva byla přepnuta na vrstvu, která má vybranou geometrii.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Úpravy vrstvy s multi-geometrií zatím nejsou podporovány.</translation>
+        <translation type="vanished">Úpravy vrstvy s multi-geometrií zatím nejsou podporovány.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Nahrávám %1</translation>
+        <translation type="vanished">Nahrávám %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4074,7 +4093,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Připojuji se...</translation>
+        <translation type="vanished">Připojuji se...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4082,23 +4101,23 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Projekt %1 se nepodařilo stáhnout</translation>
+        <translation type="vanished">Projekt %1 se nepodařilo stáhnout</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Projekt %1 byl úspěšně stáhnut, nyní je možné ho otevřít</translation>
+        <translation type="vanished">Projekt %1 byl úspěšně stáhnut, nyní je možné ho otevřít</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Nepodařilo se přenést změny na QFieldCloud: %1</translation>
+        <translation type="vanished">Nepodařilo se přenést změny na QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Změny byly úspěšně přeneseny na QFieldCloud</translation>
+        <translation type="vanished">Změny byly úspěšně přeneseny na QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Opětovným stisknutím tlačítka zavřete projekt a aplikaci</translation>
+        <translation type="vanished">Opětovným stisknutím tlačítka zavřete projekt a aplikaci</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4106,11 +4125,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>Azimut</translation>
+        <translation type="vanished">Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Uzamknout obrazovku</translation>
+        <translation type="vanished">Uzamknout obrazovku</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4118,98 +4137,22 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Tisknu...</translation>
+        <translation type="vanished">Tisknu...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Vytisknout</translation>
+        <translation type="vanished">Vytisknout</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>Chyba polohovacího zařízení: %1</translation>
-    </message>
-    <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation>Import URL selhal</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select sensor below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Více informací</translation>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Chyba polohovacího zařízení: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Duplikovat prvek</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Prvek úspěšně zduplikován</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>

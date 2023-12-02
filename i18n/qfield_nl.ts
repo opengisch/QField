@@ -228,12 +228,20 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation>Geen Bluetooth apparaten gevonden, scan om apparaten te vinden.</translation>
     </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
         <translation type="vanished">Intern apparaat</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -281,6 +289,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Unknown error</source>
         <translation type="vanished">Onbekende fout</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -925,6 +937,13 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Ga naar %1°N %2°E (%3)</translation>
+    </message>
+</context>
+<context>
+    <name>InternalGnssReceiver</name>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3731,31 +3750,31 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>U bevindt zich nu in de bladermodus</translation>
+        <translation type="vanished">U bevindt zich nu in de bladermodus</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>U bevindt zich nu in de digitaliseringsmodus op laag %1</translation>
+        <translation type="vanished">U bevindt zich nu in de digitaliseringsmodus op laag %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>U bevindt zich nu in de digitaliseringsmodus</translation>
+        <translation type="vanished">U bevindt zich nu in de digitaliseringsmodus</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>U bevindt zich nu in de meetmodus</translation>
+        <translation type="vanished">U bevindt zich nu in de meetmodus</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segment</translation>
+        <translation type="vanished">Segment</translation>
     </message>
     <message>
         <source>Perimeter</source>
@@ -3763,63 +3782,63 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Length</source>
-        <translation>Lengte</translation>
+        <translation type="vanished">Lengte</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Oppervlak</translation>
+        <translation type="vanished">Oppervlak</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Sluit meetgereedschap</translation>
+        <translation type="vanished">Sluit meetgereedschap</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Stop met bewerken</translation>
+        <translation type="vanished">Stop met bewerken</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Toevoeging annuleren</translation>
+        <translation type="vanished">Toevoeging annuleren</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Topologische bewerking ingeschakeld</translation>
+        <translation type="vanished">Topologische bewerking ingeschakeld</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Topologische bewerking uitgeschakeld</translation>
+        <translation type="vanished">Topologische bewerking uitgeschakeld</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Digitaliseren uit de vrije hand ingeschakeld</translation>
+        <translation type="vanished">Digitaliseren uit de vrije hand ingeschakeld</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Digitaliseren uit de vrije hand uitgeschakeld</translation>
+        <translation type="vanished">Digitaliseren uit de vrije hand uitgeschakeld</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Coördinaatcursor nu vergrendeld op positie</translation>
+        <translation type="vanished">Coördinaatcursor nu vergrendeld op positie</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Coördinaatcursor ontgrendeld</translation>
+        <translation type="vanished">Coördinaatcursor ontgrendeld</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Positie ontvangen</translation>
+        <translation type="vanished">Positie ontvangen</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Zoeken naar positie</translation>
+        <translation type="vanished">Zoeken naar positie</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Canvas volgt locatie</translation>
+        <translation type="vanished">Canvas volgt locatie</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Wachten op locatie</translation>
+        <translation type="vanished">Wachten op locatie</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3831,27 +3850,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Canvas is gestopt met het volgen van de locatie</translation>
+        <translation type="vanished">Canvas is gestopt met het volgen van de locatie</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Kan object niet creëren!</translation>
+        <translation type="vanished">Kan object niet creëren!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Kan object niet opslaan!</translation>
+        <translation type="vanished">Kan object niet opslaan!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Hoofdmenu</translation>
+        <translation type="vanished">Hoofdmenu</translation>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Meetgereedschap</translation>
+        <translation type="vanished">Meetgereedschap</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Afdrukken naar PDF</translation>
+        <translation type="vanished">Afdrukken naar PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3859,7 +3878,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation>Naar het beginscherm</translation>
+        <translation type="vanished">Naar het beginscherm</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
@@ -3871,15 +3890,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Settings</source>
-        <translation>Instellingen</translation>
+        <translation type="vanished">Instellingen</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Logboekmeldingen</translation>
+        <translation type="vanished">Logboekmeldingen</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>Over QField</translation>
+        <translation type="vanished">Over QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3887,23 +3906,23 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Positioneringsservice activeren</translation>
+        <translation type="vanished">Positioneringsservice activeren</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>QField heeft onvoldoende rechten voor localisering.</translation>
+        <translation type="vanished">QField heeft onvoldoende rechten voor localisering.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Kaartcanvas opties</translation>
+        <translation type="vanished">Kaartcanvas opties</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Voeg bladwijzer toe</translation>
+        <translation type="vanished">Voeg bladwijzer toe</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Instellen als bestemming</translation>
+        <translation type="vanished">Instellen als bestemming</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3911,7 +3930,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Naamloze bladwijzer</translation>
+        <translation type="vanished">Naamloze bladwijzer</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3919,7 +3938,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopieer Coördinaten</translation>
+        <translation type="vanished">Kopieer Coördinaten</translation>
     </message>
     <message>
         <source>X</source>
@@ -3931,7 +3950,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>Coördinaten gekopieerd naar klembord</translation>
+        <translation type="vanished">Coördinaten gekopieerd naar klembord</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -3967,23 +3986,23 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Centreren op locatie</translation>
+        <translation type="vanished">Centreren op locatie</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Bladwijzer toevoegen aan locatie</translation>
+        <translation type="vanished">Bladwijzer toevoegen aan locatie</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Coördinaten van locatie kopiëren</translation>
+        <translation type="vanished">Coördinaten van locatie kopiëren</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Uitgelogd</translation>
+        <translation type="vanished">Uitgelogd</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Ingelogd</translation>
+        <translation type="vanished">Ingelogd</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3991,15 +4010,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Navigatie-opties</translation>
+        <translation type="vanished">Navigatie-opties</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Bestemming wissen</translation>
+        <translation type="vanished">Bestemming wissen</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>%1 Precisie</translation>
+        <translation type="vanished">%1 Precisie</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
@@ -4007,19 +4026,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Positioneringsopties</translation>
+        <translation type="vanished">Positioneringsopties</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Schakel positionering in</translation>
+        <translation type="vanished">Schakel positionering in</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Toon Positie Informatie</translation>
+        <translation type="vanished">Toon Positie Informatie</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Positionerings-instellingen</translation>
+        <translation type="vanished">Positionerings-instellingen</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4031,11 +4050,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Huidige locatie onbekend</translation>
+        <translation type="vanished">Huidige locatie onbekend</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation>Mijn locatie</translation>
+        <translation type="vanished">Mijn locatie</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4043,27 +4062,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Nauwkeurigheid</translation>
+        <translation type="vanished">Nauwkeurigheid</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/B</translation>
+        <translation type="vanished">N/B</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>Huidige locatie gekopieerd naar klembord</translation>
+        <translation type="vanished">Huidige locatie gekopieerd naar klembord</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>De huidige laag is overgeschakeld naar de laag die de geselecteerde geometrie bevat.</translation>
+        <translation type="vanished">De huidige laag is overgeschakeld naar de laag die de geselecteerde geometrie bevat.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Het bewerken van een laag met meerdere geometrieën wordt nog niet ondersteund.</translation>
+        <translation type="vanished">Het bewerken van een laag met meerdere geometrieën wordt nog niet ondersteund.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Laden %1</translation>
+        <translation type="vanished">Laden %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4071,7 +4090,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Verbinden...</translation>
+        <translation type="vanished">Verbinden...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4079,23 +4098,23 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Kan project %1 niet downloaden</translation>
+        <translation type="vanished">Kan project %1 niet downloaden</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Project %1 is gedownload, het is nu beschikbaar om te openen</translation>
+        <translation type="vanished">Project %1 is gedownload, het is nu beschikbaar om te openen</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Wijzigingen bereikten QFieldCloud niet: %1</translation>
+        <translation type="vanished">Wijzigingen bereikten QFieldCloud niet: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Wijzigingen zijn met succes naar QFieldCloud gepusht</translation>
+        <translation type="vanished">Wijzigingen zijn met succes naar QFieldCloud gepusht</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Druk nogmaals op terug om het project en app te sluiten</translation>
+        <translation type="vanished">Druk nogmaals op terug om het project en app te sluiten</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4107,7 +4126,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Vergrendel Scherm</translation>
+        <translation type="vanished">Vergrendel Scherm</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4115,7 +4134,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Printing...</translation>
+        <translation type="vanished">Printing...</translation>
     </message>
     <message>
         <source>Print</source>
@@ -4126,87 +4145,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>Canvas volgt locatie en kompas oriëntatie</translation>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Sensoren</translation>
-    </message>
-    <message>
-        <source>Select sensor below</source>
-        <translation>Selecteer sensor</translation>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation>Selecteer layout</translation>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Geen print layout beschikbaar</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Meer info</translation>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation>Geen sensor beschikbaar</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation>Laag:</translation>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Duplicate Feature</source>
-        <translation>Dubbel object</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Succesvol object gedupliceerd</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -228,12 +228,20 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation>Bluetooth laitteita ei löydetty, skannaa löytääksesi läheiset laitteet.</translation>
     </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
         <translation type="vanished">Sisäinen laite</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -281,6 +289,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Unknown error</source>
         <translation type="vanished">Tuntematon virhe</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -925,6 +937,13 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Mene %1°N %2°E (%3)</translation>
+    </message>
+</context>
+<context>
+    <name>InternalGnssReceiver</name>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3733,95 +3752,95 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Olet selaustilassa</translation>
+        <translation type="vanished">Olet selaustilassa</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Olet nyt digitointitilassa tasolla %1</translation>
+        <translation type="vanished">Olet nyt digitointitilassa tasolla %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>Olet digitointitilassa</translation>
+        <translation type="vanished">Olet digitointitilassa</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>Olet mittaustilassa</translation>
+        <translation type="vanished">Olet mittaustilassa</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segmentti</translation>
+        <translation type="vanished">Segmentti</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>Piiri</translation>
+        <translation type="vanished">Piiri</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>Pituus</translation>
+        <translation type="vanished">Pituus</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Alue</translation>
+        <translation type="vanished">Alue</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Sulje mittaustyökalu</translation>
+        <translation type="vanished">Sulje mittaustyökalu</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Keskeytä muokkaus</translation>
+        <translation type="vanished">Keskeytä muokkaus</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Peruuta lisäys</translation>
+        <translation type="vanished">Peruuta lisäys</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Topologinen muokkaus päällä</translation>
+        <translation type="vanished">Topologinen muokkaus päällä</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Topologinen muokkaus pois päältä</translation>
+        <translation type="vanished">Topologinen muokkaus pois päältä</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Vapaalla kädellä digitointi päällä</translation>
+        <translation type="vanished">Vapaalla kädellä digitointi päällä</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Vapaalla kädellä digitointi pois päältä</translation>
+        <translation type="vanished">Vapaalla kädellä digitointi pois päältä</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Koordinaattikursori lukittu sijaintiin</translation>
+        <translation type="vanished">Koordinaattikursori lukittu sijaintiin</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Koordinaattikursori vapautettu</translation>
+        <translation type="vanished">Koordinaattikursori vapautettu</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Saatiin sijainti</translation>
+        <translation type="vanished">Saatiin sijainti</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Haetaan sijaintia</translation>
+        <translation type="vanished">Haetaan sijaintia</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Karttapohja seuraa sijaintia</translation>
+        <translation type="vanished">Karttapohja seuraa sijaintia</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Odotetaan sijaintitietoa</translation>
+        <translation type="vanished">Odotetaan sijaintitietoa</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3833,27 +3852,27 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Karttapohja ei seuraa sijaintia</translation>
+        <translation type="vanished">Karttapohja ei seuraa sijaintia</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Kohteen luonti epäonnistui!</translation>
+        <translation type="vanished">Kohteen luonti epäonnistui!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Kohteen tallennus epäonnistui!</translation>
+        <translation type="vanished">Kohteen tallennus epäonnistui!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Päävalikko</translation>
+        <translation type="vanished">Päävalikko</translation>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Mittaustyökalu</translation>
+        <translation type="vanished">Mittaustyökalu</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Tulosta PDF:ksi</translation>
+        <translation type="vanished">Tulosta PDF:ksi</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3861,11 +3880,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation>Palaa aloitussivulle</translation>
+        <translation type="vanished">Palaa aloitussivulle</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation>Avaa projektihakemisto</translation>
+        <translation type="vanished">Avaa projektihakemisto</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3873,15 +3892,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Asetukset</translation>
+        <translation type="vanished">Asetukset</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Viestiloki</translation>
+        <translation type="vanished">Viestiloki</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>Lisätietoja QFieldistä</translation>
+        <translation type="vanished">Lisätietoja QFieldistä</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3889,23 +3908,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Aktivoidaan paikannuspalvelu</translation>
+        <translation type="vanished">Aktivoidaan paikannuspalvelu</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>QFieldillä ei ole oikeutta käyttää paikannusta.</translation>
+        <translation type="vanished">QFieldillä ei ole oikeutta käyttää paikannusta.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Karttaikkunan asetukset</translation>
+        <translation type="vanished">Karttaikkunan asetukset</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Lisää kirjanmerkki</translation>
+        <translation type="vanished">Lisää kirjanmerkki</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Aseta kohteeksi</translation>
+        <translation type="vanished">Aseta kohteeksi</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3913,7 +3932,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Kirjanmerkki ilman otsikkoa</translation>
+        <translation type="vanished">Kirjanmerkki ilman otsikkoa</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3921,7 +3940,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopioi koordinaatit</translation>
+        <translation type="vanished">Kopioi koordinaatit</translation>
     </message>
     <message>
         <source>X</source>
@@ -3933,11 +3952,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>Koordinaatit kopioitu leikepöydälle</translation>
+        <translation type="vanished">Koordinaatit kopioitu leikepöydälle</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Tarkat näkymän asetukset</translation>
+        <translation type="vanished">Tarkat näkymän asetukset</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -3965,27 +3984,27 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>Näytä aina tarkka näkymä</translation>
+        <translation type="vanished">Näytä aina tarkka näkymä</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Keskitä sijaintiin</translation>
+        <translation type="vanished">Keskitä sijaintiin</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Lisää kirjanmerkki sijaintiin</translation>
+        <translation type="vanished">Lisää kirjanmerkki sijaintiin</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Kopioi sijainnin koordinaatit</translation>
+        <translation type="vanished">Kopioi sijainnin koordinaatit</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Olet kirjautunut ulos</translation>
+        <translation type="vanished">Olet kirjautunut ulos</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Olet kirjautunut sisään</translation>
+        <translation type="vanished">Olet kirjautunut sisään</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3993,35 +4012,35 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Navigoinnin asetukset</translation>
+        <translation type="vanished">Navigoinnin asetukset</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Tyhjennä kohde</translation>
+        <translation type="vanished">Tyhjennä kohde</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>%1 tarkkuus</translation>
+        <translation type="vanished">%1 tarkkuus</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Ota äänen läheisyyspalaute käyttöön</translation>
+        <translation type="vanished">Ota äänen läheisyyspalaute käyttöön</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Paikannuksen asetukset</translation>
+        <translation type="vanished">Paikannuksen asetukset</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Ota paikannus käyttöön</translation>
+        <translation type="vanished">Ota paikannus käyttöön</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Näytä sijainnin tiedot</translation>
+        <translation type="vanished">Näytä sijainnin tiedot</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Paikannusasetukset</translation>
+        <translation type="vanished">Paikannusasetukset</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4033,11 +4052,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Nykyinen sijainti tuntematon</translation>
+        <translation type="vanished">Nykyinen sijainti tuntematon</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation>Sijaintini</translation>
+        <translation type="vanished">Sijaintini</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4045,27 +4064,27 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Tarkkuus</translation>
+        <translation type="vanished">Tarkkuus</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>Nykyinen sijainti kopioitu leikepöydälle</translation>
+        <translation type="vanished">Nykyinen sijainti kopioitu leikepöydälle</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Nykyinen taso vaihdettiin siihen jossa valitut geometriat.</translation>
+        <translation type="vanished">Nykyinen taso vaihdettiin siihen jossa valitut geometriat.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Monigeometrisen tason muokkausta ei vielä tueta.</translation>
+        <translation type="vanished">Monigeometrisen tason muokkausta ei vielä tueta.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Ladataan %1</translation>
+        <translation type="vanished">Ladataan %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4073,7 +4092,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Yhdistetään...</translation>
+        <translation type="vanished">Yhdistetään...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4081,23 +4100,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Projektin %1 lataus epäonnistui</translation>
+        <translation type="vanished">Projektin %1 lataus epäonnistui</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Projektin %1 lataus onnistui, sen voi nyt avata</translation>
+        <translation type="vanished">Projektin %1 lataus onnistui, sen voi nyt avata</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Muutosten vienti QFieldCloudiin epäonnistui: %1</translation>
+        <translation type="vanished">Muutosten vienti QFieldCloudiin epäonnistui: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Muutokset ajettu onnistuneesti QFieldCloudiin</translation>
+        <translation type="vanished">Muutokset ajettu onnistuneesti QFieldCloudiin</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Paina uudestaan takaisin sulkeaksesi projektin ja sovelluksen</translation>
+        <translation type="vanished">Paina uudestaan takaisin sulkeaksesi projektin ja sovelluksen</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4105,11 +4124,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>Atsimuutti</translation>
+        <translation type="vanished">Atsimuutti</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Lukitse näyttö</translation>
+        <translation type="vanished">Lukitse näyttö</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4117,98 +4136,22 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Tulostetaan...</translation>
+        <translation type="vanished">Tulostetaan...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Tulosta</translation>
+        <translation type="vanished">Tulosta</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>Sijaintilaitteen virhe: %1</translation>
-    </message>
-    <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>Karttapohja seuraa sijaintia ja kompassin suuntaa</translation>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation>Tuodaan %1</translation>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation>Tuonti URL:ista epäonnistui</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Sensorit</translation>
-    </message>
-    <message>
-        <source>Select sensor below</source>
-        <translation>Valitse sensori alta</translation>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation>Poistetaan yhteys sensoriin &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>Yhdistetään sensoriin &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation>Valitse asettelu alta</translation>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation>Sensorivirhe: %1</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Tulosteen asettelua ei käytettävissä</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Opi lisää</translation>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation>Sensoria ei käytettävissä</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation>Taso:</translation>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation>Ominaisuus:</translation>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation>Avaa ominaisuuden lomake</translation>
+        <translation type="vanished">Sijaintilaitteen virhe: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Monista ominaisuus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Ominaisuus monistettu onnistuneesti</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation>Ominaisuuden monistaminen ei käytössä</translation>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation>Tarttuminen päällä</translation>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation>Tarttuminen pois päältä</translation>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>

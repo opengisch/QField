@@ -228,12 +228,20 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation>Non se detectaron dispositivos Bluetooth, explorar para introducir dispositivos próximos.</translation>
     </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
         <translation type="vanished">Dispositivo interno</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -281,6 +289,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Unknown error</source>
         <translation type="vanished">Erro descoñecido</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -925,6 +937,13 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Ir a %1°N %2°E (%3)</translation>
+    </message>
+</context>
+<context>
+    <name>InternalGnssReceiver</name>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3731,95 +3750,95 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Agora estás en modo buscador</translation>
+        <translation type="vanished">Agora estás en modo buscador</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Agora estás en modo dixitalizar na capa %1</translation>
+        <translation type="vanished">Agora estás en modo dixitalizar na capa %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>Agora estás en modo dixitalizar</translation>
+        <translation type="vanished">Agora estás en modo dixitalizar</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>Agora estás en modo medición</translation>
+        <translation type="vanished">Agora estás en modo medición</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segmento</translation>
+        <translation type="vanished">Segmento</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>Perímetro</translation>
+        <translation type="vanished">Perímetro</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>Lonxitude</translation>
+        <translation type="vanished">Lonxitude</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Área</translation>
+        <translation type="vanished">Área</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Pechar a ferramenta de medición</translation>
+        <translation type="vanished">Pechar a ferramenta de medición</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Parar a edición</translation>
+        <translation type="vanished">Parar a edición</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Cancelar o engadido</translation>
+        <translation type="vanished">Cancelar o engadido</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Edición topolóxica acesa</translation>
+        <translation type="vanished">Edición topolóxica acesa</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Edición topolóxica apagada</translation>
+        <translation type="vanished">Edición topolóxica apagada</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Activada a dixitalización a man alzada</translation>
+        <translation type="vanished">Activada a dixitalización a man alzada</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Dixitalización a man alzada apagada</translation>
+        <translation type="vanished">Dixitalización a man alzada apagada</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Cursor de coordenadas bloqueado agora á posición</translation>
+        <translation type="vanished">Cursor de coordenadas bloqueado agora á posición</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Cursor de coordenadas desbloqueado</translation>
+        <translation type="vanished">Cursor de coordenadas desbloqueado</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Posición recibida</translation>
+        <translation type="vanished">Posición recibida</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Buscando a posición</translation>
+        <translation type="vanished">Buscando a posición</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>A vista do mapa segue a localización</translation>
+        <translation type="vanished">A vista do mapa segue a localización</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Agardando pola localización</translation>
+        <translation type="vanished">Agardando pola localización</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3831,27 +3850,27 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>A vista do mapa detivo o seguimento da localización</translation>
+        <translation type="vanished">A vista do mapa detivo o seguimento da localización</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Non se puido crear a entidade!</translation>
+        <translation type="vanished">Non se puido crear a entidade!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Non se puido gardar a entidade!</translation>
+        <translation type="vanished">Non se puido gardar a entidade!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Menú Principal</translation>
+        <translation type="vanished">Menú Principal</translation>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Ferramenta de Medición</translation>
+        <translation type="vanished">Ferramenta de Medición</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Imprimir a PDF</translation>
+        <translation type="vanished">Imprimir a PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3859,11 +3878,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation>Ir á pantalla de inicio</translation>
+        <translation type="vanished">Ir á pantalla de inicio</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation>Abrir cartafol de proxecto</translation>
+        <translation type="vanished">Abrir cartafol de proxecto</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3871,15 +3890,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Settings</source>
-        <translation>Configuración</translation>
+        <translation type="vanished">Configuración</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Rexistro de Mensaxes</translation>
+        <translation type="vanished">Rexistro de Mensaxes</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>Acerca de QField</translation>
+        <translation type="vanished">Acerca de QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3887,23 +3906,23 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Activando o servizo de posicionamento</translation>
+        <translation type="vanished">Activando o servizo de posicionamento</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>QField non ten permisos para utilizar o posicionamento.</translation>
+        <translation type="vanished">QField non ten permisos para utilizar o posicionamento.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Opcións da Vista do Mapa</translation>
+        <translation type="vanished">Opcións da Vista do Mapa</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Engadir Marcador</translation>
+        <translation type="vanished">Engadir Marcador</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Establecer como Destino</translation>
+        <translation type="vanished">Establecer como Destino</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3911,7 +3930,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Marcador sen título</translation>
+        <translation type="vanished">Marcador sen título</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3919,7 +3938,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Copiar Coordenadas</translation>
+        <translation type="vanished">Copiar Coordenadas</translation>
     </message>
     <message>
         <source>X</source>
@@ -3931,11 +3950,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>Coordenadas copiadas ó portapapeis</translation>
+        <translation type="vanished">Coordenadas copiadas ó portapapeis</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Configuración da Vista Precisa</translation>
+        <translation type="vanished">Configuración da Vista Precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -3963,27 +3982,27 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>Amosar Sempre a Vista Precisa</translation>
+        <translation type="vanished">Amosar Sempre a Vista Precisa</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Centrar á Localización</translation>
+        <translation type="vanished">Centrar á Localización</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Engadir Marcador na Localización</translation>
+        <translation type="vanished">Engadir Marcador na Localización</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copiar Coordenadas da Localización</translation>
+        <translation type="vanished">Copiar Coordenadas da Localización</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Saíches da sesión</translation>
+        <translation type="vanished">Saíches da sesión</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Iniciaches sesión</translation>
+        <translation type="vanished">Iniciaches sesión</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3991,35 +4010,35 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Opcións de Navegación</translation>
+        <translation type="vanished">Opcións de Navegación</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Borrar Destino</translation>
+        <translation type="vanished">Borrar Destino</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>Precisión de %1</translation>
+        <translation type="vanished">Precisión de %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Activar a Retroalimentación de Proximidade do Audio</translation>
+        <translation type="vanished">Activar a Retroalimentación de Proximidade do Audio</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Opcións de Posicionamento</translation>
+        <translation type="vanished">Opcións de Posicionamento</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Activar Posicionamento</translation>
+        <translation type="vanished">Activar Posicionamento</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Amosar Información da Posición</translation>
+        <translation type="vanished">Amosar Información da Posición</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Configuración do Posicionamento</translation>
+        <translation type="vanished">Configuración do Posicionamento</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4031,11 +4050,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Posición actual descoñecida</translation>
+        <translation type="vanished">Posición actual descoñecida</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation>A miña posición</translation>
+        <translation type="vanished">A miña posición</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4043,27 +4062,27 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Precisión</translation>
+        <translation type="vanished">Precisión</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>Sen Datos</translation>
+        <translation type="vanished">Sen Datos</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>Posición actual copiada ó portapapeis</translation>
+        <translation type="vanished">Posición actual copiada ó portapapeis</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Cambiouse a capa actual para a que contén a xeometría seleccionada.</translation>
+        <translation type="vanished">Cambiouse a capa actual para a que contén a xeometría seleccionada.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Aínda non se admite a edición de capas multixeometría.</translation>
+        <translation type="vanished">Aínda non se admite a edición de capas multixeometría.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Cargando %1</translation>
+        <translation type="vanished">Cargando %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4071,7 +4090,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Conectando....</translation>
+        <translation type="vanished">Conectando....</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4079,23 +4098,23 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Non se puido descargar o proxecto %1</translation>
+        <translation type="vanished">Non se puido descargar o proxecto %1</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Proxecto %1 descargado con éxito, agora está dispoñible para abrir</translation>
+        <translation type="vanished">Proxecto %1 descargado con éxito, agora está dispoñible para abrir</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Os cambios non puideron chegar a QFieldCloud: %1</translation>
+        <translation type="vanished">Os cambios non puideron chegar a QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Cambios enviados con éxito a QFieldCloud</translation>
+        <translation type="vanished">Cambios enviados con éxito a QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Premer atrás de novo para pechar o proxecto e a aplicación</translation>
+        <translation type="vanished">Premer atrás de novo para pechar o proxecto e a aplicación</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4103,11 +4122,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>Acimut</translation>
+        <translation type="vanished">Acimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Bloquear a Pantalla</translation>
+        <translation type="vanished">Bloquear a Pantalla</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4115,99 +4134,23 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Imprimindo...</translation>
+        <translation type="vanished">Imprimindo...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Imprimir</translation>
+        <translation type="vanished">Imprimir</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>Erro do dispositivo de posicionamento: %1</translation>
-    </message>
-    <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>A vista do mapa segue a localización e a orientación da brúxula</translation>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation>Importando %1</translation>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation>Produciuse un erro na importación do URL</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Sensores</translation>
-    </message>
-    <message>
-        <source>Select sensor below</source>
-        <translation>Seleccionar sensor abaixo</translation>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation>Desconectando o  sensor &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>Conectando o sensor &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation>Seleccionar deseño abaixo</translation>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation>Erro do sensor: %1</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Non hai dispoñible ningún deseño para imprimir</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Aprender máis</translation>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation>Non hai ningún sensor dispoñible</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation>Capa:</translation>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation>Entidade:</translation>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation>Abrir Formulario de Entidade</translation>
+        <translation type="vanished">Erro do dispositivo de posicionamento: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Duplicar Entidade</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Entidade duplicada con éxito</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation>Non está dispoñible a duplicación de entidades</translation>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation>Axuste aceso</translation>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation>Axuste apagado</translation>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>Desbloquear a pantalla para pechar o proxecto e a aplicación</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

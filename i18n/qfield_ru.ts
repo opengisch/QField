@@ -228,12 +228,20 @@ Cancel to make a minimal device scan instead.</source>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation>Устпойства Bluetooth не обнаружены,сканируйте чтобы получить список устройств поблизости</translation>
     </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
         <translation type="vanished">Внутренний датчик</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -281,6 +289,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Unknown error</source>
         <translation type="vanished">Неизвестная ошибка</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -929,6 +941,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Перейти к  %1°N %2°E (%3)</translation>
+    </message>
+</context>
+<context>
+    <name>InternalGnssReceiver</name>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3732,31 +3751,31 @@ Cancel to make a minimal device scan instead.</source>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Вы перешли в режим просмотра</translation>
+        <translation type="vanished">Вы перешли в режим просмотра</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Вы перешли в режим оцифровки на слое %1</translation>
+        <translation type="vanished">Вы перешли в режим оцифровки на слое %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>Вы перешли в режим оцифровки</translation>
+        <translation type="vanished">Вы перешли в режим оцифровки</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>Вы перешли в режим измерения</translation>
+        <translation type="vanished">Вы перешли в режим измерения</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Долгота</translation>
+        <translation type="vanished">Долгота</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Широта</translation>
+        <translation type="vanished">Широта</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Сегмент</translation>
+        <translation type="vanished">Сегмент</translation>
     </message>
     <message>
         <source>Perimeter</source>
@@ -3764,63 +3783,63 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Length</source>
-        <translation>Длина</translation>
+        <translation type="vanished">Длина</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Площадь</translation>
+        <translation type="vanished">Площадь</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Закрыть инструмент измерений</translation>
+        <translation type="vanished">Закрыть инструмент измерений</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Прекратить редактирование</translation>
+        <translation type="vanished">Прекратить редактирование</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Отменить добавление</translation>
+        <translation type="vanished">Отменить добавление</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Топологическое редактирование включено</translation>
+        <translation type="vanished">Топологическое редактирование включено</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Топологическое редактирование отключено</translation>
+        <translation type="vanished">Топологическое редактирование отключено</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Свободная оцифровка включена</translation>
+        <translation type="vanished">Свободная оцифровка включена</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Свободная оцифровка выключена</translation>
+        <translation type="vanished">Свободная оцифровка выключена</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Курсор ввода заблокирован на местоположении</translation>
+        <translation type="vanished">Курсор ввода заблокирован на местоположении</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Курсор ввода разблокирован</translation>
+        <translation type="vanished">Курсор ввода разблокирован</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Местоположение получено</translation>
+        <translation type="vanished">Местоположение получено</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Поиск местоположения</translation>
+        <translation type="vanished">Поиск местоположения</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Карта движется за позицией</translation>
+        <translation type="vanished">Карта движется за позицией</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Ожидание местоположения</translation>
+        <translation type="vanished">Ожидание местоположения</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3832,27 +3851,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Карта прекратила движение за позицией</translation>
+        <translation type="vanished">Карта прекратила движение за позицией</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Не удалось создать объект!</translation>
+        <translation type="vanished">Не удалось создать объект!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Не удалось сохранить объект!</translation>
+        <translation type="vanished">Не удалось сохранить объект!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Главное меню</translation>
+        <translation type="vanished">Главное меню</translation>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Инструмент измерений</translation>
+        <translation type="vanished">Инструмент измерений</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Печать в PDF</translation>
+        <translation type="vanished">Печать в PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3860,11 +3879,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation>Перейти на главный экран</translation>
+        <translation type="vanished">Перейти на главный экран</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation>Открыть каталог проекта</translation>
+        <translation type="vanished">Открыть каталог проекта</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3872,15 +3891,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Настройки</translation>
+        <translation type="vanished">Настройки</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Журнал сообщений</translation>
+        <translation type="vanished">Журнал сообщений</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>О программе QField</translation>
+        <translation type="vanished">О программе QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3888,11 +3907,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Активирование службы геолокации</translation>
+        <translation type="vanished">Активирование службы геолокации</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>у QField нет разрешений на использование геолокации</translation>
+        <translation type="vanished">у QField нет разрешений на использование геолокации</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
@@ -3900,11 +3919,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Добавить закладку</translation>
+        <translation type="vanished">Добавить закладку</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Установить в качестве пункта назначения</translation>
+        <translation type="vanished">Установить в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3912,7 +3931,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Закладка без названия</translation>
+        <translation type="vanished">Закладка без названия</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3920,7 +3939,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Копировать координаты</translation>
+        <translation type="vanished">Копировать координаты</translation>
     </message>
     <message>
         <source>X</source>
@@ -3932,7 +3951,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>Координаты скопированы в буфер обмена</translation>
+        <translation type="vanished">Координаты скопированы в буфер обмена</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -4008,19 +4027,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Настройки геолокации</translation>
+        <translation type="vanished">Настройки геолокации</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Включить геолокацию</translation>
+        <translation type="vanished">Включить геолокацию</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Показывать информацию о местоположении</translation>
+        <translation type="vanished">Показывать информацию о местоположении</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Настройки геолокации</translation>
+        <translation type="vanished">Настройки геолокации</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4044,11 +4063,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Точность</translation>
+        <translation type="vanished">Точность</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>Н/Д</translation>
+        <translation type="vanished">Н/Д</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
@@ -4056,15 +4075,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Слой содержащий выбранную геометрию установлен как текущий</translation>
+        <translation type="vanished">Слой содержащий выбранную геометрию установлен как текущий</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Редактирование слоя с мультигеометрией пока не поддерживается.</translation>
+        <translation type="vanished">Редактирование слоя с мультигеометрией пока не поддерживается.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Загрузка %1</translation>
+        <translation type="vanished">Загрузка %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4072,7 +4091,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Соединение...</translation>
+        <translation type="vanished">Соединение...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4080,23 +4099,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Не удалось загрузить проект %1</translation>
+        <translation type="vanished">Не удалось загрузить проект %1</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Проект %1 успешно загружен и доступен для открытия</translation>
+        <translation type="vanished">Проект %1 успешно загружен и доступен для открытия</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Изменения не поступившие в QFieldCloud: %1</translation>
+        <translation type="vanished">Изменения не поступившие в QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Изменения успешно отправлены в QFieldCloud</translation>
+        <translation type="vanished">Изменения успешно отправлены в QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Нажмите назад еще раз чтобы закрыть приложение</translation>
+        <translation type="vanished">Нажмите назад еще раз чтобы закрыть приложение</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4108,7 +4127,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Заблокировать экран</translation>
+        <translation type="vanished">Заблокировать экран</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4116,7 +4135,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Печать…</translation>
+        <translation type="vanished">Печать…</translation>
     </message>
     <message>
         <source>Print</source>
@@ -4127,87 +4146,11 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Датчики</translation>
-    </message>
-    <message>
-        <source>Select sensor below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Duplicate Feature</source>
-        <translation>Дублировать объект</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Объект успешно продублирован</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>

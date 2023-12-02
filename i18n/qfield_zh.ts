@@ -228,12 +228,20 @@ Cancel to make a minimal device scan instead.</source>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation>未检测到蓝牙设备，请移至附近的设备。</translation>
     </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation>扫描错误: %1</translation>
+    </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
         <translation type="vanished">内部设备</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation>蓝牙权限被拒绝</translation>
     </message>
 </context>
 <context>
@@ -281,6 +289,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Unknown error</source>
         <translation type="vanished">未知错误</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation>蓝牙权限被拒绝</translation>
     </message>
 </context>
 <context>
@@ -923,6 +935,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Go to %1°N %2°E (%3)</source>
         <translation>转到 %1°N %2°E (%3)</translation>
+    </message>
+</context>
+<context>
+    <name>InternalGnssReceiver</name>
+    <message>
+        <source>Location permission denied</source>
+        <translation>定位权限被拒绝</translation>
     </message>
 </context>
 <context>
@@ -3729,95 +3748,95 @@ Cancel to make a minimal device scan instead.</source>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>浏览模式</translation>
+        <translation type="vanished">浏览模式</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>图层 %1 数字化模式</translation>
+        <translation type="vanished">图层 %1 数字化模式</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>数字化模式</translation>
+        <translation type="vanished">数字化模式</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>测量模式</translation>
+        <translation type="vanished">测量模式</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>经度</translation>
+        <translation type="vanished">经度</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>纬度</translation>
+        <translation type="vanished">纬度</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>分段</translation>
+        <translation type="vanished">分段</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>周长</translation>
+        <translation type="vanished">周长</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>长度</translation>
+        <translation type="vanished">长度</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>面积</translation>
+        <translation type="vanished">面积</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>关闭测量工具</translation>
+        <translation type="vanished">关闭测量工具</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>停止编辑</translation>
+        <translation type="vanished">停止编辑</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>取消添加</translation>
+        <translation type="vanished">取消添加</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>拓扑编辑已打开</translation>
+        <translation type="vanished">拓扑编辑已打开</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>拓扑编辑已关闭</translation>
+        <translation type="vanished">拓扑编辑已关闭</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>手绘数字化已打开</translation>
+        <translation type="vanished">手绘数字化已打开</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>手绘数字化已关闭</translation>
+        <translation type="vanished">手绘数字化已关闭</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>坐标光标现已锁定定位</translation>
+        <translation type="vanished">坐标光标现已锁定定位</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>坐标光标已解锁</translation>
+        <translation type="vanished">坐标光标已解锁</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>获取定位信息</translation>
+        <translation type="vanished">获取定位信息</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>搜索定位</translation>
+        <translation type="vanished">搜索定位</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>地图跟随位置</translation>
+        <translation type="vanished">地图跟随位置</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>等待位置信息</translation>
+        <translation type="vanished">等待位置信息</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3829,27 +3848,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>地图停止跟随位置</translation>
+        <translation type="vanished">地图停止跟随位置</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>创建要素失败！</translation>
+        <translation type="vanished">创建要素失败！</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>保存要素失败！</translation>
+        <translation type="vanished">保存要素失败！</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>菜单</translation>
+        <translation type="vanished">菜单</translation>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>测量工具</translation>
+        <translation type="vanished">测量工具</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>输出为PDF</translation>
+        <translation type="vanished">输出为PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3857,11 +3876,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation>转到主页</translation>
+        <translation type="vanished">转到主页</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation>打开工程文件夹</translation>
+        <translation type="vanished">打开工程文件夹</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3869,15 +3888,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>设置</translation>
+        <translation type="vanished">设置</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>信息日志</translation>
+        <translation type="vanished">信息日志</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>关于QField</translation>
+        <translation type="vanished">关于QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3885,23 +3904,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>激活定位设备</translation>
+        <translation type="vanished">激活定位设备</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>QField没有使用定位的权限。</translation>
+        <translation type="vanished">QField没有使用定位的权限。</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>地图画布选项</translation>
+        <translation type="vanished">地图画布选项</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>添加书签</translation>
+        <translation type="vanished">添加书签</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>设为目标</translation>
+        <translation type="vanished">设为目标</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3909,7 +3928,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>无标题书签</translation>
+        <translation type="vanished">无标题书签</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3917,7 +3936,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>复制坐标</translation>
+        <translation type="vanished">复制坐标</translation>
     </message>
     <message>
         <source>X</source>
@@ -3929,11 +3948,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>坐标已复制到剪贴板</translation>
+        <translation type="vanished">坐标已复制到剪贴板</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>精确视图设置</translation>
+        <translation type="vanished">精确视图设置</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -3961,27 +3980,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>显示精确视图</translation>
+        <translation type="vanished">显示精确视图</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>定位居中</translation>
+        <translation type="vanished">定位居中</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>在定位处添加书签</translation>
+        <translation type="vanished">在定位处添加书签</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>复制定位坐标</translation>
+        <translation type="vanished">复制定位坐标</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>已注销</translation>
+        <translation type="vanished">已注销</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>已登录</translation>
+        <translation type="vanished">已登录</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3989,35 +4008,35 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>导航选项</translation>
+        <translation type="vanished">导航选项</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>清除目标</translation>
+        <translation type="vanished">清除目标</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>%1 精度</translation>
+        <translation type="vanished">%1 精度</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>启用声音引发回馈</translation>
+        <translation type="vanished">启用声音引发回馈</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>定位选项</translation>
+        <translation type="vanished">定位选项</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>启用定位</translation>
+        <translation type="vanished">启用定位</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>显示定位信息</translation>
+        <translation type="vanished">显示定位信息</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>定位设置</translation>
+        <translation type="vanished">定位设置</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4029,11 +4048,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>当前位置未知</translation>
+        <translation type="vanished">当前位置未知</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation>我的位置</translation>
+        <translation type="vanished">我的位置</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4041,27 +4060,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>精度</translation>
+        <translation type="vanished">精度</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>不可用</translation>
+        <translation type="vanished">不可用</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>当前位置已复制到剪贴板</translation>
+        <translation type="vanished">当前位置已复制到剪贴板</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>当前图层切换至包含被选中几何对象的图层</translation>
+        <translation type="vanished">当前图层切换至包含被选中几何对象的图层</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>尚不支持编辑几何图形集图层。</translation>
+        <translation type="vanished">尚不支持编辑几何图形集图层。</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>正在加载 %1</translation>
+        <translation type="vanished">正在加载 %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4069,7 +4088,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>正在连接…</translation>
+        <translation type="vanished">正在连接…</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4077,23 +4096,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>工程 %1 下载失败</translation>
+        <translation type="vanished">工程 %1 下载失败</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>工程 %1 已成功下载，现在可以打开</translation>
+        <translation type="vanished">工程 %1 已成功下载，现在可以打开</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>修改无法上传至QFieldCloud: %1</translation>
+        <translation type="vanished">修改无法上传至QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>修改已成功上传至QFieldCloud</translation>
+        <translation type="vanished">修改已成功上传至QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>再次点击返回键将关闭工程和应用</translation>
+        <translation type="vanished">再次点击返回键将关闭工程和应用</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4101,11 +4120,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>方位角</translation>
+        <translation type="vanished">方位角</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>锁屏</translation>
+        <translation type="vanished">锁屏</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4113,99 +4132,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>正在输出...</translation>
+        <translation type="vanished">正在输出...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>输出</translation>
+        <translation type="vanished">输出</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>定位设备错误: %1</translation>
-    </message>
-    <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>地图遵循位置和指南针方向</translation>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation>导入 %1</translation>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation>导入URL失败</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>传感器</translation>
-    </message>
-    <message>
-        <source>Select sensor below</source>
-        <translation>请选择传感器</translation>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation>断开传感器 &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>连接传感器 &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation>请选择布局</translation>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation>传感器错误: %1</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>无可用打印布局</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>点击了解更多信息</translation>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation>无可用传感器</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation>图层:</translation>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation>要素:</translation>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation>打开要素从</translation>
+        <translation type="vanished">定位设备错误: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>复制要素</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>已成功复制要素</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation>要素复制不可用</translation>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation>捕捉已打开</translation>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation>捕捉已关闭</translation>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>请解锁屏幕以便关闭工程和应用程序</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
