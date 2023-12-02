@@ -1415,7 +1415,7 @@ ApplicationWindow {
         bgcolor: Theme.darkGray
 
         property bool isSnapToCommonAngleEnabled: false
-        property bool isSnapToCommonAngleRelative: false
+        property bool isSnapToCommonAngleRelative: true
         property int snapToCommonAngleDegrees: 45
 
         state: isSnapToCommonAngleEnabled ? "On" : "Off"
@@ -1442,6 +1442,7 @@ ApplicationWindow {
 
         onClicked: {
           isSnapToCommonAngleEnabled = !isSnapToCommonAngleEnabled;
+          settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsEnabled", isSnapToCommonAngleEnabled );
 
           displayToast(
             isSnapToCommonAngleEnabled
@@ -1454,21 +1455,9 @@ ApplicationWindow {
           snapToCommonAngleMenu.popup( parent.x, parent.y );
         }
 
-        onIsSnapToCommonAngleEnabledChanged: {
-          settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsEnabled", isSnapToCommonAngleEnabled );
-        }
-
-        onIsSnapToCommonAngleRelativeChanged: {
-          settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsRelative", isSnapToCommonAngleRelative );
-        }
-
-        onSnapToCommonAngleDegreesChanged: {
-          settings.setValue( "/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleDegrees );
-        }
-
         Component.onCompleted: {
           isSnapToCommonAngleEnabled = settings.valueBool( "/QField/Digitizing/SnapToCommonAngleIsEnabled", false );
-          isSnapToCommonAngleRelative = settings.valueBool( "/QField/Digitizing/SnapToCommonAngleIsRelative", false );
+          isSnapToCommonAngleRelative = settings.valueBool( "/QField/Digitizing/SnapToCommonAngleIsRelative", true );
           snapToCommonAngleDegrees = settings.valueInt( "/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleDegrees );
         }
 
@@ -1486,6 +1475,7 @@ ApplicationWindow {
             checked: snapToCommonAngleButton.isSnapToCommonAngleRelative
             onCheckedChanged: {
               snapToCommonAngleButton.isSnapToCommonAngleRelative = checked;
+              settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsRelative", snapToCommonAngleButton.isSnapToCommonAngleRelative );
             }
           }
 
@@ -1513,6 +1503,7 @@ ApplicationWindow {
 
                 snapToCommonAngleButton.isSnapToCommonAngleEnabled = true;
                 snapToCommonAngleButton.snapToCommonAngleDegrees = modelData;
+                settings.setValue( "/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleButton.snapToCommonAngleDegrees );
 
                 displayToast( qsTr( "Snap to %1° angle turned on" ).arg( modelData ) );
 
