@@ -64,8 +64,17 @@ if(GDAL_USE_ICONV AND VCPKG_TARGET_IS_WINDOWS)
     list(APPEND FEATURE_OPTIONS -D_ICONV_SECOND_ARGUMENT_IS_NOT_CONST=ON)
 endif()
 
-if(VCPKG_TARGET_IS_IOS AND GDAL_USE_JPEG)
+# Because we use static precompiled qt with vendored libs, we therefore fall back to using vendored libs on gdal as well
+if(VCPKG_TARGET_IS_IOS)
+  if(GDAL_USE_JPEG)
     list(APPEND FEATURE_OPTIONS -DGDAL_USE_JPEG_INTERNAL=ON)
+  endif()
+  if(GDAL_USE_TIFF)
+    list(APPEND FEATURE_OPTIONS -DGDAL_USE_TIFF_INTERNAL=ON)
+  endif()
+  if(GDAL_USE_GEOTIFF)
+    list(APPEND FEATURE_OPTIONS -DGDAL_USE_GEOTIFF_INTERNAL=ON)
+  endif()
 endif()
 
 # Compatibility with older Android versions https://github.com/OSGeo/gdal/pull/5941
