@@ -200,7 +200,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ env.CI_TAG }}
 
-      - name: Upload debug symbols
+      - name: 📮 Upload debug symbols
         # if: release or labeled PR
         if: ${{ matrix.all_files_access == 'OFF' }}
         env:
