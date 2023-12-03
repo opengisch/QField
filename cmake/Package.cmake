@@ -119,7 +119,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
     endif()
 
     set(QT_IOS_PROVISIONING_PROFILES_KEY
-        "<key>provisioningProfiles</key>\n    <dict>\n        <key>ch.opengis.qfield</key>\n        <string>${QT_IOS_PROVISIONING_PROFILE_SPECIFIER}</string>\n     </dict>\n"
+        "<key>provisioningProfiles</key>\n    <dict>\n        <key>${IOS_APP_IDENTIFIER}</key>\n        <string>${QT_IOS_PROVISIONING_PROFILE_SPECIFIER}</string>\n     </dict>\n"
     )
 
     if(ENABLE_BITCODE)
