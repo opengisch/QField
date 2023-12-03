@@ -6,6 +6,8 @@ import QtMultimedia
 import QtCore
 import Qt.labs.settings
 
+import org.qfield 1.0
+
 import Theme 1.0
 
 Popup {
