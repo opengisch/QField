@@ -230,7 +230,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Błąd skanowania: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Odmowa dostępu do bluetooth</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Odmowa dostępu do bluetooth</translation>
     </message>
 </context>
 <context>
@@ -938,7 +938,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Odmowa dostępu do lokalizacji</translation>
     </message>
 </context>
 <context>
