@@ -58,5 +58,9 @@
     <string name="storage_information_dismiss">Přečtu si to později</string>
     <string name="import_project_wait">Chvilku strpení, než QField naimportuje projekt</string>
     <string name="import_dataset_wait">Chvilku strpení, než QField naimportuje dataset(y)</string>
+    <string name="update_project_wait">Prosím čekejte, dokud se projekt v QFieldu aktualizuje.</string>
     <string name="upload_pending_attachments">Nahrávám přílohy do QFieldCloudu</string>
-    </resources>
+    <string name="operation_unsupported">Operace nepodporována</string>
+    <string name="import_operation_unsupported">Váše zařízení nepodporuje tuto importní operaci.</string>
+    <string name="export_operation_unsupported">Váše zařízení nepodporuje tuto exportní operaci.</string>
+</resources>

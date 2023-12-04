@@ -230,7 +230,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Skenovací chyba: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth povolení odmítnuto</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth povolení odmítnuto</translation>
     </message>
 </context>
 <context>
@@ -442,7 +442,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>NFC text tag zjištěn</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -1206,7 +1206,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí seznam míst  a adres ve Finsku s odpovídajícími termíny.</translation>
     </message>
 </context>
 <context>
@@ -1217,11 +1217,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Pro vyhledávání funkcí v aktivní vrstvě vyberte vektorovou vrstvu prostřednictvím legendy.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Aktivujte nejprve v legendě vektorovou vrstvu, abyste mohli použít tuto funkčnost.</translation>
     </message>
 </context>
 <context>
@@ -1244,7 +1244,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Povolit %1 lokátor jako výchozí.</translation>
     </message>
 </context>
 <context>
@@ -1279,19 +1279,19 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte volitelné podrobnosti</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Zahrnout podrobnosti o uživateli v cloudu.</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Toto pošle protokol vaší aktuální relace vývojovému týmu. Musíte to udělat pouze tehdy, když vás o to požádají.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Vaše protokolování aplikace je odesíláno ...</translation>
     </message>
 </context>
 <context>
@@ -1776,11 +1776,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging povoleno</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagování deaktivováno</translation>
     </message>
     <message>
         <source>Grid enabled</source>
@@ -1966,7 +1966,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Tento projekt QFieldCloud byl původně stažen s jiným cloudovým účtem. Přihlaste se prosím s původním účtem pro tento projekt k použití funkcionality QFieldCloud.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2189,7 +2189,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se získat nejnovější data balíčku.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
@@ -2431,7 +2431,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte níže URL pro stažení a import projektu nebo datové sady:</translation>
     </message>
     <message>
         <source>Item Actions</source>
@@ -2692,7 +2692,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Měřená (M) hodnota přiřazená k vrcholům:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -2792,15 +2792,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Nejlepší kvalita</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Nižší kvalita</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Nejnižší kvalita</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
@@ -2808,7 +2808,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Tato hodnota opraví hodnoty Z zaznamenané z polohovacího zařízení. Pokud je zadána hodnota 1,6, QField automaticky odečte 1,6 od každé zaznamenané hodnoty. Ujistěte se, že vložíte efektivní výšku antény, tj. délku tyče + ofset fáze středu antény.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -2816,11 +2816,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Použijte tlačítka hlasitosti k digitalizaci</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je povoleno, stisknutí tlačítka pro zvýšení hlasitosti zařízení přidá vrchol, zatímco stisknutí tlačítka pro snížení hlasitosti odstraní poslední zadaný vrchol během digitalizačních sezení.</translation>
     </message>
 </context>
 <context>
@@ -2907,7 +2907,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>průměrováno</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -3239,7 +3239,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Sledování: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
@@ -3259,11 +3259,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Když je povoleno, přidání vrcholů se provede, když čas mezi posledním a novým vrcholem dosáhne konfigurované minimální hodnoty.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Požadavek na vzdálenost</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3271,27 +3271,27 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Při povolení se přidávání vrcholů provede, když vzdálenost mezi posledním a novým vrcholem dosáhne nastavené minimální hodnoty.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Požadavek na senzorová data</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Při povolení budou vrcholy přidávány, když senzory zachytí nová data.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Počkat na všechny aktivní požadavky.</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je povoleno, vrcholy budou zaznamenány pouze tehdy, když jsou splněny všechny aktivní požadavky. Pokud je zakázáno, každý splněný požadavek vyvolá přidání vrcholu.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Obecná nastavení</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -3299,15 +3299,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Maximálně tolerovaná vzdálenost [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Při povolení se přidání vrcholu neprovede, pokud je vzdálenost mezi posledním a novým vrcholem větší, než konfigurovaná maximální hodnota.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Měřená (M) hodnota přiřazená k vrcholům:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -3347,7 +3347,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Aktivujte funkčnost měření a ujistěte se, že geometrický typ vrstvy vektoru použitý pro sledovací sezení má M dimenzi.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3410,7 +3410,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Měřená (M) hodnota přiřazená k vrcholům:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -3450,7 +3450,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aktivujte funkčnost měření a ujistěte se, že geometrický typ vrstvy vektoru použitý pro sledovací sezení má M dimenzi.</translation>
     </message>
 </context>
 <context>
@@ -3711,7 +3711,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Vítejte v QFieldu. Poprvé používáte tuto aplikaci? Vyzkoušejte vzorové projekty uvedené níže.</translation>
     </message>
 </context>
 <context>
