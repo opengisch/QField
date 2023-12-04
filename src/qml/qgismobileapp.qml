@@ -451,6 +451,7 @@ ApplicationWindow {
                    pointInItem( point, mainMenuBar ) ||
                    pointInItem( point, geometryEditorsToolbar ) ||
                    pointInItem( point, locationToolbar ) ||
+                   pointInItem( point, digitizingToolbarContainer ) ||
                    pointInItem( point, locatorItem ) ) {
                   return;
               }
@@ -1039,7 +1040,7 @@ ApplicationWindow {
     anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
     spacing: 8
 
-    visible: !screenLocker.enabled && locationToolbar.height / mapCanvas.height < 0.41
+    visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / mapCanvas.height < 0.41
 
     QfToolButton {
       id: zoomInButton
@@ -1570,10 +1571,8 @@ ApplicationWindow {
     id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
-    anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: informationView.visible
-                          ? 4
-                          : mainWindow.sceneBottomMargin + 4
+    anchors.bottom: digitizingToolbarContainer.top
+    anchors.bottomMargin: 4
     spacing: 4
 
     QfToolButton {
@@ -1872,6 +1871,18 @@ ApplicationWindow {
         }
     }
 
+  }
+
+  Column {
+    id: digitizingToolbarContainer
+    anchors.right: mapCanvas.right
+    anchors.rightMargin: 4
+    anchors.bottom: mapCanvas.bottom
+    anchors.bottomMargin: informationView.visible
+                          ? 4
+                          : mainWindow.sceneBottomMargin + 4
+    spacing: 4
+
     DigitizingToolbar {
       id: digitizingToolbar
 
@@ -2050,36 +2061,36 @@ ApplicationWindow {
     }
 
     ConfirmationToolbar {
-        id: moveFeaturesToolbar
+      id: moveFeaturesToolbar
 
-        property bool moveFeaturesRequested: false
-        property var startPoint: undefined // QgsPoint or undefined
-        property var endPoint: undefined // QgsPoint or undefined
-        signal moveConfirmed
-        signal moveCanceled
+      property bool moveFeaturesRequested: false
+      property var startPoint: undefined // QgsPoint or undefined
+      property var endPoint: undefined // QgsPoint or undefined
+      signal moveConfirmed
+      signal moveCanceled
 
-        stateVisible: moveFeaturesRequested
+      stateVisible: moveFeaturesRequested
 
-        onConfirm: {
-            endPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y)
-            moveFeaturesRequested = false
-            moveConfirmed()
+      onConfirm: {
+        endPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y)
+        moveFeaturesRequested = false
+        moveConfirmed()
+      }
+      onCancel: {
+        startPoint = undefined
+        endPoint = undefined
+        moveFeaturesRequested = false
+        moveCanceled()
+      }
+
+      function initializeMoveFeatures() {
+        if ( featureForm  && featureForm.selection.model.selectedCount === 1 ) {
+          featureForm.extentController.zoomToSelected()
         }
-        onCancel: {
-            startPoint = undefined
-            endPoint = undefined
-            moveFeaturesRequested = false
-            moveCanceled()
-        }
 
-        function initializeMoveFeatures() {
-            if ( featureForm  && featureForm.selection.model.selectedCount === 1 ) {
-              featureForm.extentController.zoomToSelected()
-            }
-
-            startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y)
-            moveFeaturesRequested = true
-        }
+        startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y)
+        moveFeaturesRequested = true
+      }
     }
   }
 
