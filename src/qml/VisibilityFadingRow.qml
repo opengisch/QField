@@ -18,7 +18,7 @@ Row {
       NumberAnimation {
         target: visibilityFadingRow
         property: "opacity"
-        duration: 400
+        duration: 250
       }
     }
   }
