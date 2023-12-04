@@ -39,10 +39,26 @@ export CI_COMMIT_RANGE=${CI_COMMIT_RANGE:="${TMP_CI_COMMIT_BEFORE}...${TMP_CI_CO
 export CI_REPO_SLUG=${CI_REPO_SLUG:=${GITHUB_REPOSITORY}}
 export CI_UPLOAD_ARTIFACT_ID=${CI_UPLOAD_ARTIFACT_ID:=${TMP_CI_UPLOAD_ARTIFACT_ID}}
 export CI_RUN_NUMBER=${GITHUB_RUN_NUMBER}
-if [[ "${CI_TAG}" || ${GITHUB_REF} == "master" && ${CI_PULL_REQUEST} == "false" ]]; then
-	export CI_USE_IOS_DIST_CERT=1
+
+if [[ "${CI_TAG}" ]]; then
+	export IOS_CODE_SIGN_IDENTITY="Apple Distribution"
+	export IOS_APP_IDENTIFIER="ch.opengis.qfield"
+	export IOS_PROVISIONING_PROFILE_SPECIFIER="match AppStore ch.opengis.qfield"
+	export IOS_EXPORT_METHOD="app-store"
+	export IOS_SIGN_TYPE="appstore"
+elif [[ ${GITHUB_REF} == "master" && ${CI_PULL_REQUEST} == "false" ]]; then
+	# To be improved for nightly builds / beta...
+	export IOS_CODE_SIGN_IDENTITY="Apple Development"
+	export IOS_APP_IDENTIFIER="ch.opengis.qfield-dev"
+	export IOS_PROVISIONING_PROFILE_SPECIFIER="match Development ch.opengis.qfield-dev"
+	export IOS_EXPORT_METHOD="development"
+	export IOS_SIGN_TYPE="development"
 else
-	export CI_USE_IOS_DIST_CERT=
+	export IOS_CODE_SIGN_IDENTITY="Apple Development"
+	export IOS_APP_IDENTIFIER="ch.opengis.qfield-dev"
+	export IOS_PROVISIONING_PROFILE_SPECIFIER="match Development ch.opengis.qfield-dev"
+	export IOS_EXPORT_METHOD="development"
+	export IOS_SIGN_TYPE="development"
 fi
 
 if [[ "${CI_TAG}" ]]; then
@@ -78,6 +94,11 @@ fi
 	echo "CI_RUN_NUMBER=${CI_RUN_NUMBER}"
 	echo "CI_USE_IOS_DIST_CERT=${CI_USE_IOS_DIST_CERT}"
 	echo "APP_PACKAGE_NAME=${APP_PACKAGE_NAME}"
+	echo "IOS_CODE_SIGN_IDENTITY=${IOS_CODE_SIGN_IDENTITY}"
+	echo "IOS_APP_IDENTIFIER=${IOS_APP_IDENTIFIER}"
+	echo "IOS_PROVISIONING_PROFILE_SPECIFIER=${IOS_PROVISIONING_PROFILE_SPECIFIER}"
+	echo "IOS_EXPORT_METHOD=${IOS_EXPORT_METHOD}"
+	echo "IOS_SIGN_TYPE=${IOS_SIGN_TYPE}"
 } >>$GITHUB_ENV
 
 echo ""
@@ -95,3 +116,8 @@ echo "CI_UPLOAD_ARTIFACT_ID: ${CI_UPLOAD_ARTIFACT_ID}"
 echo "CI_RUN_NUMBER: ${CI_RUN_NUMBER}"
 echo "CI_USE_IOS_DIST_CERT: ${CI_USE_IOS_DIST_CERT}"
 echo "APP_PACKAGE_NAME: ${APP_PACKAGE_NAME}"
+echo "IOS_CODE_SIGN_IDENTITY: ${IOS_CODE_SIGN_IDENTITY}"
+echo "IOS_APP_IDENTIFIER: ${IOS_APP_IDENTIFIER}"
+echo "IOS_PROVISIONING_PROFILE_SPECIFIER: ${IOS_PROVISIONING_PROFILE_SPECIFIER}"
+echo "IOS_EXPORT_METHOD: ${IOS_EXPORT_METHOD}"
+echo "IOS_SIGN_TYPE: ${IOS_SIGN_TYPE}"
