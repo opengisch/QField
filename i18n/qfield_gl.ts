@@ -230,7 +230,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro de escaneado: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permiso do Bluetooth denegado</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permiso do Bluetooth denegado</translation>
     </message>
 </context>
 <context>
@@ -943,7 +943,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permiso de posicionamento denegado</translation>
     </message>
 </context>
 <context>
