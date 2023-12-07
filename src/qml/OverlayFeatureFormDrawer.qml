@@ -22,14 +22,14 @@ Drawer {
       if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
           parent.width
       } else {
-          Math.min(Math.max( 200, parent.width / 3), parent.width)
+          Math.min(Math.max(200, parent.width / 2.25), parent.width)
       }
   }
   height: {
      if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
          parent.height
      } else {
-         Math.min(Math.max( 200, parent.height / 2 ), parent.height)
+         Math.min(Math.max(200, parent.height / 2), parent.height)
      }
   }
 

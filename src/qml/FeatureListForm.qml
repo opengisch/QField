@@ -65,7 +65,7 @@ Rectangle {
           }
           else
           {
-              Math.min(Math.max( 200, parent.width / 2.6), parent.width)
+              Math.min(Math.max(200, parent.width / 2.25), parent.width)
           }
       }
       else
