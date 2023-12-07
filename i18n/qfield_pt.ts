@@ -230,7 +230,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro de verificação: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permissão Bluetooth negada</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permissão Bluetooth negada</translation>
     </message>
 </context>
 <context>
@@ -945,7 +945,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permissão de localização negada</translation>
     </message>
 </context>
 <context>
@@ -1219,7 +1219,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Para usar esta funcionalidade, ative primeiro uma camada vetorial na legenda</translation>
     </message>
 </context>
 <context>
@@ -1782,11 +1782,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Grelha ativada</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Grelha desativada</translation>
     </message>
 </context>
 <context>
