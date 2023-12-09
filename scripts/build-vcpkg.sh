@@ -18,7 +18,6 @@ echo "Package name ${APP_PACKAGE_NAME}"
 cmake -S "${SOURCE_DIR}" \
 	-B "${CMAKE_BUILD_DIR}" \
 	-G Ninja \
-	-D BUILD_WITH_QT6=ON \
 	-D CMAKE_PREFIX_PATH=${Qt6_DIR} \
 	-D QT_HOST_PATH=/home/devel/${install_qt_version}/gcc_64 \
 	-D QT_HOST_PATH_CMAKE_DIR=/home/devel/${install_qt_version}/gcc_64/lib/cmake \
