@@ -52,9 +52,9 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "ANDROID_NDK_VERSION=23.1.7779620" >> $GITHUB_ENV
-          echo "ANDROID_BUILD_TOOLS_VERSION=30.0.3" >> $GITHUB_ENV
-          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/23.1.7779620" >> $GITHUB_ENV
+          echo "ANDROID_NDK_VERSION=25.1.8937393" >> $GITHUB_ENV
+          echo "ANDROID_BUILD_TOOLS_VERSION=33.0.0" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.1.8937393" >> $GITHUB_ENV
           echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
@@ -121,6 +121,9 @@ jobs:
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
 
+          sudo apt remove libgles2
+          sudo apt remove libegl1
+
           cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
@@ -136,7 +139,7 @@ jobs:
                 -D WITH_SPIX=OFF \
                 -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
                 -D QT_HOST_PATH=/home/runner/work/QField/Qt/${{ env.INSTALL_QT_VERSION }}/gcc_64 \
-                -D QT_HOST_PATH_CMAKE_DIR:PATH=/home/runner/work/QField/Qt/${{ env.INSTALL_QT_VERSION }}/gcc_64 \
+                -D QT_HOST_PATH_CMAKE_DIR:PATH=/home/runner/work/QField/Qt/${{ env.INSTALL_QT_VERSION }}/gcc_64/lib/cmake \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
