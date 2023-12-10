@@ -13,7 +13,7 @@ on:
 jobs:
   build:
     name: build (macos)
-    runs-on: macos-11
+    runs-on: macos-12
 
     steps:
       - name: 🐣 Checkout
@@ -83,10 +83,8 @@ jobs:
           cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Xcode \
-                -T buildsystem=1 \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D WITH_VCPKG=ON \
-                -D WITH_SPIX=ON \
                 -D WITH_NFC=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
