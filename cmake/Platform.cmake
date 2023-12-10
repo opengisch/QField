@@ -20,8 +20,6 @@ elseif(VCPKG_TARGET_TRIPLET STREQUAL "x86-android")
 endif()
 
 if(ANDROID_ABI)
-  set(ANDROID_NDK_VERSION "$ENV{ANDROID_NDK_VERSION}" CACHE STRING "Android NDK version")
-  set(ANDROID_NDK_HOME "$ENV{ANDROID_NDK_HOME}" CACHE STRING "Android NDK home path")
   set(ANDROID_BUILD_TOOLS_VERSION "33.0.0" CACHE STRING "Android build-tools version")
   set(ANDROID_TARGET_PLATFORM 33 CACHE INT "Target Android platform SDK version")
   set(ANDROID_PLATFORM 21 CACHE INT "Minimum Android platform SDK version")
