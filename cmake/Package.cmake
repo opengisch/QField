@@ -83,7 +83,7 @@ if(ANDROID AND ANDROIDDEPLOYQT_EXECUTABLE)
     set(ANDROID_TEMPLATE_FOLDER "${CMAKE_BINARY_DIR}/android-template")
     file(COPY ${CMAKE_SOURCE_DIR}/platform/android/ DESTINATION ${ANDROID_TEMPLATE_FOLDER}/)
     set(SRC_FOLDER "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/${APP_PACKAGE_NAME}")
-    if (NOT APP_PACKAGE_NAME EQUAL "qield")
+    if (NOT APP_PACKAGE_NAME STREQUAL "qfield")
         file(REMOVE_RECURSE ${SRC_FOLDER}) # remove any pre-existing content
         file(RENAME "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/qfield" ${SRC_FOLDER})
     endif()
