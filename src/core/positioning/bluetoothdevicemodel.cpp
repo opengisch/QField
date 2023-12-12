@@ -62,19 +62,29 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
   {
     QBluetoothPermission bluetoothPermission;
     bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
-    qApp->requestPermission( bluetoothPermission, [=]( const QPermission &permission ) {
-      if ( permission.status() == Qt::PermissionStatus::Granted )
-      {
-        mPermissionChecked = true;
-        startServiceDiscovery( fullDiscovery );
-      }
-      else
-      {
-        mLastError = tr( "Bluetooth permission denied" );
-        emit lastErrorChanged( mLastError );
-      }
-    } );
-    return;
+    Qt::PermissionStatus permissionStatus = qApp->checkPermission( bluetoothPermission );
+    if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+    {
+      qApp->requestPermission( bluetoothPermission, this, [=]( const QPermission &permission ) {
+        if ( permission.status() == Qt::PermissionStatus::Granted )
+        {
+          mPermissionChecked = true;
+          startServiceDiscovery( fullDiscovery );
+        }
+        else
+        {
+          mLastError = tr( "Bluetooth permission denied" );
+          emit lastErrorChanged( mLastError );
+        }
+      } );
+      return;
+    }
+    else if ( permissionStatus == Qt::PermissionStatus::Denied )
+    {
+      mLastError = tr( "Bluetooth permission denied" );
+      emit lastErrorChanged( mLastError );
+      return;
+    }
   }
 #endif
 

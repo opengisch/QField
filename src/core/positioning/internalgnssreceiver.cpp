@@ -112,20 +112,31 @@ void InternalGnssReceiver::handleConnectDevice()
   {
     QLocationPermission locationPermission;
     locationPermission.setAccuracy( QLocationPermission::Precise );
-    qApp->requestPermission( locationPermission, [=]( const QPermission &permission ) {
-      if ( permission.status() == Qt::PermissionStatus::Granted )
-      {
-        mPermissionChecked = true;
-        handleConnectDevice();
-      }
-      else
-      {
-        setValid( false );
-        mLastError = tr( "Location permission denied" );
-        emit lastErrorChanged( mLastError );
-      }
-    } );
-    return;
+    Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
+    if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+    {
+      qApp->requestPermission( locationPermission, [=]( const QPermission &permission ) {
+        if ( permission.status() == Qt::PermissionStatus::Granted )
+        {
+          mPermissionChecked = true;
+          handleConnectDevice();
+        }
+        else
+        {
+          setValid( false );
+          mLastError = tr( "Location permission denied" );
+          emit lastErrorChanged( mLastError );
+        }
+      } );
+      return;
+    }
+    else if ( permissionStatus == Qt::PermissionStatus::Denied )
+    {
+      setValid( false );
+      mLastError = tr( "Location permission denied" );
+      emit lastErrorChanged( mLastError );
+      return;
+    }
   }
 #endif
   if ( mGeoPositionSource )
