@@ -100,7 +100,6 @@ void FeatureHistory::onBeforeCommitChanges()
   QMap<QgsFeatureId, QgsFeature> modifiedFeatures;
   QgsFeature f;
 
-  // ? is it possible to use the iterator in a less ugly way? something like normal `for ( QgsFeature &f : it ) {}`
   while ( featuresIt.nextFeature( f ) )
     modifiedFeatures.insert( f.id(), f );
 
@@ -125,7 +124,7 @@ void FeatureHistory::onCommittedFeaturesAdded( const QString &localLayerId, cons
     return;
   }
 
-  qInfo() << "FeatureHistory::onCommittedFeaturesAdded: adding create committed features";
+  qDebug() << "FeatureHistory::onCommittedFeaturesAdded: adding create committed features";
 
   FeatureModifications modifications = mTempHistoryStep.take( vl->id() );
 
@@ -203,8 +202,8 @@ void FeatureHistory::onTimerTimeout()
   mTempHistoryStep.clear();
   mRedoHistory.clear();
 
-  emit isUndoEnabledChanged();
-  emit isRedoEnabledChanged();
+  emit isUndoAvailableChanged();
+  emit isRedoAvailableChanged();
 }
 
 QMap<QString, FeatureHistory::FeatureModifications> FeatureHistory::reverseModifications( QMap<QString, FeatureModifications> &modificationsByLayerId )
@@ -320,8 +319,6 @@ bool FeatureHistory::applyModifications( QMap<QString, FeatureModifications> &mo
         QgsMessageLog::logMessage( tr( "Failed to rollback undo featurue modifications in layer \"%1\"" ).arg( vl->name() ) );
       }
 
-      // OGR error creating feature -4: failed to execute insert : UNIQUE constraint failed: area.fid
-
       return false;
     }
   }
@@ -348,8 +345,8 @@ bool FeatureHistory::undo()
 
   mRedoHistory.append( reversedModifications );
 
-  emit isUndoEnabledChanged();
-  emit isRedoEnabledChanged();
+  emit isUndoAvailableChanged();
+  emit isRedoAvailableChanged();
 
   return true;
 }
@@ -372,20 +369,20 @@ bool FeatureHistory::redo()
 
   mUndoHistory.append( reversedModifications );
 
-  emit isUndoEnabledChanged();
-  emit isRedoEnabledChanged();
+  emit isUndoAvailableChanged();
+  emit isRedoAvailableChanged();
 
   return true;
 }
 
 
-bool FeatureHistory::isUndoEnabled()
+bool FeatureHistory::isUndoAvailable()
 {
   return !mUndoHistory.isEmpty();
 }
 
 
-bool FeatureHistory::isRedoEnabled()
+bool FeatureHistory::isRedoAvailable()
 {
   return !mRedoHistory.isEmpty();
 }

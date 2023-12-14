@@ -1249,7 +1249,6 @@ ApplicationWindow {
     spacing: 4
 
     QfToolButtonDrawer {
-      id: mainToolbarDrawer
       name: "digitizingDrawer"
       size: 48
       round: true
@@ -2121,10 +2120,11 @@ ApplicationWindow {
       bottomPadding: parent.topMargin
 
       QfToolButton {
-        icon.source: Theme.getThemeVectorIcon( "ic_undo" )
+        icon.source: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+        iconColor: Theme.mainTextColor
         height: 48
         width: 48
-        enabled: featureHistory.isUndoEnabled
+        enabled: featureHistory.isUndoAvailable
         opacity: enabled ? 1 : 0.5
 
         onClicked: {
@@ -2140,10 +2140,11 @@ ApplicationWindow {
       }
 
       QfToolButton {
-        icon.source: Theme.getThemeVectorIcon( "ic_redo" )
+        icon.source: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
+        iconColor: Theme.mainTextColor
         height: 48
         width: 48
-        enabled: featureHistory.isRedoEnabled
+        enabled: featureHistory.isRedoAvailable
         opacity: enabled ? 1 : 0.5
 
         onClicked: {

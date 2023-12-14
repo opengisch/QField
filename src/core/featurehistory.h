@@ -12,8 +12,8 @@ class FeatureHistory : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( bool isUndoEnabled READ isUndoEnabled NOTIFY isUndoEnabledChanged )
-    Q_PROPERTY( bool isRedoEnabled READ isRedoEnabled NOTIFY isRedoEnabledChanged )
+    Q_PROPERTY( bool isUndoAvailable READ isUndoAvailable NOTIFY isUndoAvailableChanged )
+    Q_PROPERTY( bool isRedoAvailable READ isRedoAvailable NOTIFY isRedoAvailableChanged )
 
   public:
     /**
@@ -48,8 +48,38 @@ class FeatureHistory : public QObject
     //! Get the redo message to be show in the UI. NOTE should be called before calling \a redo.
     Q_INVOKABLE const QString redoMessage();
 
-    bool isUndoEnabled();
-    bool isRedoEnabled();
+    bool isUndoAvailable();
+    bool isRedoAvailable();
+
+  signals:
+    void isUndoAvailableChanged();
+    void isRedoAvailableChanged();
+
+  private slots:
+    /**
+     * Monitors the current project for new layers.
+     *
+     * @param layers layers added
+     */
+    void onLayersAdded( const QList<QgsMapLayer *> &layers );
+
+    //! The project file has been changed
+    void onHomePathChanged();
+
+    //! Called when features are added on the layer
+    void onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures );
+
+    //! Called after features are committed for deletion.
+    void onCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds );
+
+    //! Called before features are committed. Used to prepare the old state of the features and store it in \a mHistry.
+    void onBeforeCommitChanges();
+
+    //! Called after features are committed. Used because the added features do not have FID before they are committed.
+    void onAfterCommitChanges();
+
+    //! Timer's timeout slot. Used to collect multiple feature changes (calls of \a onBeforeCommitChanges and \a onAfterCommitChanges) into one undo step.
+    void onTimerTimeout();
 
   private:
     static const int sTimeoutMs = 50;
@@ -89,36 +119,6 @@ class FeatureHistory : public QObject
 
     //! Layer ids being observed for changes. Should reset when the project is changed. Used to prevent double event listeners.
     QSet<QString> mObservedLayerIds;
-
-  signals:
-    void isUndoEnabledChanged();
-    void isRedoEnabledChanged();
-
-  private slots:
-    /**
-     * Monitors the current project for new layers.
-     *
-     * @param layers layers added
-     */
-    void onLayersAdded( const QList<QgsMapLayer *> &layers );
-
-    //! The project file has been changed
-    void onHomePathChanged();
-
-    //! Called when features are added on the layer
-    void onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures );
-
-    //! Called after features are committed for deletion.
-    void onCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds );
-
-    //! Called before features are committed. Used to prepare the old state of the features and store it in \a mHistry.
-    void onBeforeCommitChanges();
-
-    //! Called after features are committed. Used because the added features do not have FID before they are committed.
-    void onAfterCommitChanges();
-
-    //! Timer's timeout slot. Used to collect multiple feature changes (calls of \a onBeforeCommitChanges and \a onAfterCommitChanges) into one undo step.
-    void onTimerTimeout();
 };
 
 #endif // FEATUREHISTORY_H
