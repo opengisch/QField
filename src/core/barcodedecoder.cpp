@@ -133,7 +133,7 @@ void BarcodeDecoder::setVideoSink( QVideoSink *sink )
 
 void BarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
 {
-  if ( mDecodingThread )
+  if ( mDecodingThread || !frame.isValid() )
     return;
 
   QImage image = frame.toImage();
