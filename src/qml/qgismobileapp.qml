@@ -1474,7 +1474,8 @@ ApplicationWindow {
 
             checkable: true
             checked: snapToCommonAngleButton.isSnapToCommonAngleRelative
-            onCheckedChanged: {
+
+            onTriggered: {
               snapToCommonAngleButton.isSnapToCommonAngleRelative = checked;
               settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsRelative", snapToCommonAngleButton.isSnapToCommonAngleRelative );
             }
@@ -1495,9 +1496,10 @@ ApplicationWindow {
               leftPadding: 10
 
               checkable: true
-              enabled: !checked
               checked: modelData === snapToCommonAngleButton.snapToCommonAngleDegrees
-              onCheckedChanged: {
+              enabled: modelData !== snapToCommonAngleButton.snapToCommonAngleDegrees
+
+              onTriggered: {
                 if ( !checked ) {
                   return;
                 }
