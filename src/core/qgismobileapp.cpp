@@ -1363,10 +1363,13 @@ void QgisMobileapp::saveProjectPreviewImage()
   if ( !mProjectFilePath.isEmpty() && mMapCanvas && !mMapCanvas->isRendering() )
   {
     const QImage grab = mMapCanvas->image();
-    const int pixels = std::min( grab.width(), grab.height() );
-    const QRect rect( ( grab.width() - pixels ) / 2, ( grab.height() - pixels ) / 2, pixels, pixels );
-    const QImage img = grab.copy( rect );
-    img.save( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) );
+    if ( !grab.isNull() )
+    {
+      const int pixels = std::min( grab.width(), grab.height() );
+      const QRect rect( ( grab.width() - pixels ) / 2, ( grab.height() - pixels ) / 2, pixels, pixels );
+      const QImage img = grab.copy( rect );
+      img.save( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) );
+    }
   }
 }
 
