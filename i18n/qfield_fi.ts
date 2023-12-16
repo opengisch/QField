@@ -230,7 +230,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Skannnausvirhe: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetoothin käyttöoikeus estetty</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetoothin käyttöoikeus estetty</translation>
     </message>
 </context>
 <context>
@@ -499,7 +499,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation>Odotettiin JSON dokumentin olevan delta-statuksen taulukko </translation>
+        <translation>Odotettiin JSON-dokumentin olevan delta-statuksen taulukko </translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
@@ -863,11 +863,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation type="vanished">Piiri leikkaa olemassa olevia piirejä (se ei ole erillinen)</translation>
+        <translation type="vanished">Piiri leikkaa olemassaolevia piirejä (se ei ole erillinen)</translation>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="vanished">Piirille ei ole olemassa olevaa piiriä johon sovittautua</translation>
+        <translation type="vanished">Piirille ei ole olemassaolevaa piiriä johon sovittautua</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
@@ -893,7 +893,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>GeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation>Taitepiste-työkalu</translation>
+        <translation>Taitepistetyökalu</translation>
     </message>
     <message>
         <source>Split Tool</source>
@@ -943,7 +943,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Kohteen käyttöoikeus estetty</translation>
     </message>
 </context>
 <context>
