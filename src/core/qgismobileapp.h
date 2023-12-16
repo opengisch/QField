@@ -196,7 +196,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     QgsMapLayerProxyModel *mLayerList = nullptr;
     AppInterface *mIface = nullptr;
     Settings mSettings;
-    QgsQuickMapCanvasMap *mMapCanvas = nullptr;
+    QPointer<QgsQuickMapCanvasMap> mMapCanvas;
     bool mFirstRenderingFlag;
     LegendImageProvider *mLegendImageProvider = nullptr;
     LocalFilesImageProvider *mLocalFilesImageProvider = nullptr;
