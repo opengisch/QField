@@ -230,7 +230,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Error de escaneo: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Denegado el permiso de Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Denegado el permiso de Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -945,7 +945,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Denegado el permiso de ubicación</translation>
     </message>
 </context>
 <context>
@@ -1188,7 +1188,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve una lista de objetos a lo largo de todas las capas en las que se puede buscar con nombres coincidentes.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
@@ -1196,15 +1196,15 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve una lista de marcadores de usuario y proyecto actualmente abiertos con nombres coincidentes.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve el valor de una expresión escrita en la barra de búsqueda.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve una lista de localizaciones y direcciones dentro de Finlandia en las que coinciden los términos</translation>
     </message>
 </context>
 <context>
@@ -1215,11 +1215,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Para buscar objetos en la capa activa seleccione una capa vectorial en la leyenda.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Primero debe activar una capa vectorial en la leyenda para usar esta funcionalidad</translation>
     </message>
 </context>
 <context>
@@ -1277,19 +1277,19 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Escriba detalles opcionales</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Incluya detalles del usuario de la nube</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Se enviará un registro de su sesión actual al equipo de desarrollo. Sólo hace falta realizarlo cuando se pida.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>El registro de su aplicación se está enviando...</translation>
     </message>
 </context>
 <context>
@@ -1774,19 +1774,19 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geoetiquetado habilitado</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geoetiquetado deshabilitado</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Grid habilitado</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Grid deshabilitado</translation>
     </message>
 </context>
 <context>
@@ -2444,7 +2444,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Actualiza proyecto desde ZIP</translation>
     </message>
 </context>
 <context>
@@ -2809,15 +2809,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortométrica desde el dispositivo</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Utiliza teclas de volumen para digitalizar</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Si se habilita, presionar la tecla de subir volumen del dispositivo adicionará un vértice mientras que presionar la tecla de bajar el volumen eliminará el último vértice registrado durante la sesión de digitalización.</translation>
     </message>
 </context>
 <context>
@@ -3236,19 +3236,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Registrando: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Registrando</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Requisitos</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de tiempo</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3256,11 +3256,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, las adiciones de vértices se producirán cuando el tiempo entre el último y el nuevo vértice alcance un valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de distancia</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3268,39 +3268,39 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, las adiciones de vértices se producirán cuando la distancia entre el último y el nuevo vértice alcance un valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de datos del sensor</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, las adiciones de vértices se producirán cuando los sensores capturen nuevos datos.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Espera por todos los requisitos activos</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, los vértices solo se registrarán cuando se cumplan todas las restricciones activas. Si la configuración está deshabilitada, las restricciones individuales cumplidas activarán una adición de vértice.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes Generales</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Salvaguarda de distancia errónea</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Máxima distancia tolerada [1%]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, las adiciones de vértices no se producirán cuando la distancia entre el último y el nuevo vértice es mayor que un valor máximo configurado.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3356,7 +3356,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Reanudar registro</translation>
     </message>
 </context>
 <context>
