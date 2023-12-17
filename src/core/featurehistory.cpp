@@ -220,7 +220,6 @@ QMap<QString, FeatureHistory::FeatureModifications> FeatureHistory::reverseModif
       continue;
     }
 
-    QString displayString;
     FeatureModifications modifications = modificationsByLayerId.value( layerId );
     FeatureModifications reversedModifications;
 
@@ -399,6 +398,7 @@ const QString FeatureHistory::undoMessage()
 
   for ( const FeatureModifications &modifiedFeatures : modifiedFeaturesByLayerId.values() )
   {
+    // cppcheck-suppress useStlAlgorithm
     totalChanges += modifiedFeatures.createdFeatures.count()
                     + modifiedFeatures.updatedFeatures.count()
                     + modifiedFeatures.deletedFeatures.count();
@@ -428,6 +428,7 @@ const QString FeatureHistory::redoMessage()
 
   for ( const FeatureModifications &modifiedFeatures : modifiedFeaturesByLayerId.values() )
   {
+    // cppcheck-suppress useStlAlgorithm
     totalChanges += modifiedFeatures.createdFeatures.count()
                     + modifiedFeatures.updatedFeatures.count()
                     + modifiedFeatures.deletedFeatures.count();
