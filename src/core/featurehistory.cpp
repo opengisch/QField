@@ -4,9 +4,11 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
 
+#include <tracker.h>
 
-FeatureHistory::FeatureHistory( const QgsProject *project )
+FeatureHistory::FeatureHistory( const QgsProject *project, TrackingModel *trackingModel )
   : mProject( project )
+  , mTrackingModel( trackingModel )
 {
   connect( mProject, &QgsProject::homePathChanged, this, &FeatureHistory::onHomePathChanged );
   connect( mProject, &QgsProject::layersAdded, this, &FeatureHistory::onLayersAdded );
@@ -72,6 +74,12 @@ void FeatureHistory::onBeforeCommitChanges()
     return;
   }
 
+  Tracker *layerTracker = mTrackingModel->trackerForLayer( vl );
+  if ( layerTracker && layerTracker->isActive() )
+  {
+    return;
+  }
+
   QgsVectorLayerEditBuffer *eb = vl->editBuffer();
 
   if ( !eb )
@@ -117,9 +125,15 @@ void FeatureHistory::onCommittedFeaturesAdded( const QString &localLayerId, cons
     return;
   }
 
-  const QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
+  QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
 
   if ( !vl )
+  {
+    return;
+  }
+
+  Tracker *layerTracker = mTrackingModel->trackerForLayer( vl );
+  if ( layerTracker && layerTracker->isActive() )
   {
     return;
   }
@@ -156,6 +170,12 @@ void FeatureHistory::onAfterCommitChanges()
   QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
 
   if ( !vl )
+  {
+    return;
+  }
+
+  Tracker *layerTracker = mTrackingModel->trackerForLayer( vl );
+  if ( layerTracker && layerTracker->isActive() )
   {
     return;
   }

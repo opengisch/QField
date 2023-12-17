@@ -5,8 +5,10 @@
 #include <QTimer>
 #include <qgsproject.h>
 
+#include <trackingmodel.h>
 
 typedef QPair<QgsFeature, QgsFeature> OldNewFeaturePair;
+
 
 class FeatureHistory : public QObject
 {
@@ -34,7 +36,7 @@ class FeatureHistory : public QObject
      *
      * @param project
      */
-    explicit FeatureHistory( const QgsProject *project );
+    explicit FeatureHistory( const QgsProject *project, TrackingModel *trackingModel );
 
     //! Perform undo of the most recent modification step
     Q_INVOKABLE bool undo();
@@ -95,6 +97,9 @@ class FeatureHistory : public QObject
 
     //! The current project instance.
     const QgsProject *mProject = nullptr;
+
+    //! Tracking model. Used to check if the currently modified layer is in tracking, so all changes should be ignored to prevent cluttering the undo history.
+    TrackingModel *mTrackingModel = nullptr;
 
     //! If currently applying undo or redo feature modifications.
     bool mIsApplyingModifications = false;
