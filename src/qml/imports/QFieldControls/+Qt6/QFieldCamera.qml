@@ -52,6 +52,9 @@ Popup {
       microphonePermission.request()
     }
   }
+  onAboutToHide: {
+    camera.stop();
+  }
 
   QfCameraPermission {
     id: cameraPermission

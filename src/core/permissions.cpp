@@ -21,17 +21,12 @@
 
 CameraPermission::CameraPermission( QObject *parent )
   : QObject( parent )
+  , mStatus( PlatformUtilities::instance()->checkCameraPermission() )
 {
 }
 
 Qt::PermissionStatus CameraPermission::status()
 {
-  if ( !mStatusChecked )
-  {
-    mStatus = PlatformUtilities::instance()->checkCameraPermission();
-    mStatusChecked = true;
-  }
-
   return mStatus;
 }
 
@@ -49,17 +44,12 @@ void CameraPermission::request()
 
 MicrophonePermission::MicrophonePermission( QObject *parent )
   : QObject( parent )
+  , mStatus( PlatformUtilities::instance()->checkCameraPermission() )
 {
 }
 
 Qt::PermissionStatus MicrophonePermission::status()
 {
-  if ( !mStatusChecked )
-  {
-    mStatus = PlatformUtilities::instance()->checkMicrophonePermission();
-    mStatusChecked = true;
-  }
-
   return mStatus;
 }
 

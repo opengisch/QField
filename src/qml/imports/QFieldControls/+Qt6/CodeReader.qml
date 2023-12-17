@@ -47,6 +47,7 @@ Popup {
   onAboutToHide: {
     if (cameraLoader.active) {
       cameraLoader.item.camera.torchMode = Camera.TorchOff
+      cameraLoader.item.camera.stop()
     }
   }
 
