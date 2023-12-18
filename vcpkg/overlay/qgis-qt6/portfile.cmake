@@ -17,6 +17,7 @@ vcpkg_from_github(
         bigobj.patch
         poly2tri.patch
         mesh.patch
+	wrongattributeerrormessage.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
