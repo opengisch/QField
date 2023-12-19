@@ -1301,7 +1301,7 @@ ApplicationWindow {
           var snappingConfig = qgisProject.snappingConfig
           snappingConfig.enabled = !snappingConfig.enabled
           qgisProject.snappingConfig = snappingConfig
-          projectInfo.saveSnappingConfiguration()
+          projectInfo.snappingEnabled = snappingConfig.enabled
           displayToast( snappingConfig.enabled ? qsTr( "Snapping turned on" ) : qsTr( "Snapping turned off" ) )
         }
       }

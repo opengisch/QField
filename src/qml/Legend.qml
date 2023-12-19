@@ -273,7 +273,7 @@ ListView {
 
         onClicked: {
           SnappingEnabled = !SnappingEnabled
-          projectInfo.saveSnappingConfiguration()
+          projectInfo.saveLayerSnappingConfiguration(VectorLayerPointer)
         }
       }
     }

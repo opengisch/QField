@@ -59,7 +59,7 @@ class ProjectInfo : public QObject
     Q_PROPERTY( QString stateMode READ stateMode WRITE setStateMode NOTIFY stateModeChanged )
 
     /**
-     * The active layer for the currently oepened project.
+     * The active layer for the currently opened project.
      */
     Q_PROPERTY( QgsMapLayer *activeLayer READ activeLayer WRITE setActiveLayer NOTIFY activeLayerChanged )
 
@@ -67,6 +67,11 @@ class ProjectInfo : public QObject
      * The tracking model object, used to save and restore tracking session for individual vector layers.
      */
     Q_PROPERTY( TrackingModel *trackingModel READ trackingModel WRITE setTrackingModel NOTIFY trackingModelChanged )
+
+    /**
+     * The snapping enabled state for the currently opened project.
+     */
+    Q_PROPERTY( bool snappingEnabled READ snappingEnabled WRITE setSnappingEnabled NOTIFY snappingEnabledChanged )
 
   public:
     explicit ProjectInfo( QObject *parent = nullptr );
@@ -110,7 +115,7 @@ class ProjectInfo : public QObject
     /**
      * Saves the current snapping configuration settings
      */
-    Q_INVOKABLE void saveSnappingConfiguration();
+    Q_INVOKABLE void saveLayerSnappingConfiguration( QgsMapLayer *layer );
 
     /**
      * Saves the state \a mode for the current project
@@ -133,6 +138,16 @@ class ProjectInfo : public QObject
      */
     QgsMapLayer *activeLayer() const;
 
+    /**
+     * Returns the saved snapping enabed state for the current project
+     */
+    bool snappingEnabled() const;
+
+    /**
+     * Saves the snapping \a enabled state for the current project
+     */
+    void setSnappingEnabled( bool enabled );
+
     //! Save an ongoing vector \a layer tracking session details
     Q_INVOKABLE void saveTracker( QgsVectorLayer *layer );
 
@@ -150,6 +165,7 @@ class ProjectInfo : public QObject
     void stateModeChanged();
     void activeLayerChanged();
     void trackingModelChanged();
+    void snappingEnabledChanged();
 
   private slots:
 
