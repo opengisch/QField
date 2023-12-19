@@ -224,8 +224,6 @@ void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
     return;
 
   const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
-  QgsMapLayerStyle style;
-  style.readFromLayer( layer );
 
   // Prefix id with :: to avoid loss of slash on linux paths
   QString id( QStringLiteral( "::" ) );
@@ -239,8 +237,12 @@ void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
     id += layer->id();
   }
 
-  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerstyles" ).arg( mFilePath ) );
-  mSettings.setValue( id, style.xmlData() );
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerStyles/%2" ).arg( mFilePath, id ) );
+  mSettings.setValue( QStringLiteral( "opacity" ), layer->opacity() );
+  if ( QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer ) )
+  {
+    mSettings.setValue( QStringLiteral( "labelsEnabled" ), vlayer->labelsEnabled() );
+  }
   mSettings.endGroup();
 }
 
@@ -269,21 +271,54 @@ void ProjectInfo::saveLayerTreeState()
   }
 }
 
-void ProjectInfo::saveSnappingConfiguration()
+bool ProjectInfo::snappingEnabled() const
+{
+  if ( mFilePath.isEmpty() )
+    return false;
+
+  return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/layerSnapping/enabled" ).arg( mFilePath ), false ).toBool();
+}
+
+void ProjectInfo::setSnappingEnabled( bool enabled )
 {
   if ( mFilePath.isEmpty() )
     return;
 
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerSnapping" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "enabled" ), enabled );
+  mSettings.endGroup();
+
+  emit snappingEnabledChanged();
+}
+
+void ProjectInfo::saveLayerSnappingConfiguration( QgsMapLayer *layer )
+{
+  if ( mFilePath.isEmpty() || !layer )
+    return;
+
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer );
+  if ( !vlayer )
+    return;
+
   QgsSnappingConfig config = QgsProject::instance()->snappingConfig();
+  QgsSnappingConfig::IndividualLayerSettings layerConfig = config.individualLayerSettings( vlayer );
 
-  const QDomDocumentType documentType = QDomImplementation().createDocumentType( QStringLiteral( "qgis" ), QStringLiteral( "http://mrcc.com/qgis.dtd" ), QStringLiteral( "SYSTEM" ) );
-  QDomDocument document( documentType );
+  const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
 
-  document.appendChild( document.createElement( QStringLiteral( "qgis" ) ) );
-  config.writeProject( document );
+  // Prefix id with :: to avoid loss of slash on linux paths
+  QString id( QStringLiteral( "::" ) );
+  if ( isDataset )
+  {
+    // For non-project datasets, the layer id is random, use the source URI
+    id += layer->source();
+  }
+  else
+  {
+    id += layer->id();
+  }
 
-  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-  mSettings.setValue( QStringLiteral( "snappingconfig" ), document.toString() );
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerSnapping/%2" ).arg( mFilePath, id ) );
+  mSettings.setValue( QStringLiteral( "enabled" ), layerConfig.enabled() );
   mSettings.endGroup();
 }
 
@@ -355,18 +390,17 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
     mapCanvas->mapSettings()->setIsTemporal( isTemporal );
   }
 
-  settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerstyles" ).arg( projectFilePath ) );
-  const QStringList ids = settings.allKeys();
+  settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerStyles" ).arg( projectFilePath ) );
+  QStringList ids = settings.childGroups();
   if ( !ids.isEmpty() )
   {
     const bool isDataset = project->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
     const QList<QgsMapLayer *> mapLayers = isDataset ? project->layerStore()->mapLayers().values() : QList<QgsMapLayer *>();
 
-    for ( QString id : ids )
+    for ( QString &id : ids )
     {
-      const QString xmlData = settings.value( id ).toString();
-      if ( xmlData.isEmpty() )
-        continue;
+      const double opacity = settings.value( QStringLiteral( "%1/opacity" ).arg( id ), 1.0 ).toDouble();
+      const bool labelsEnabled = settings.value( QStringLiteral( "%1/labelsEnabled" ).arg( id ), false ).toBool();
 
       // Remove the :: prefix to get actual layer id or source
       id = id.mid( 2 );
@@ -390,8 +424,14 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
 
       if ( layer )
       {
-        QgsMapLayerStyle style( xmlData );
-        style.writeToLayer( layer );
+        layer->setOpacity( opacity );
+        if ( QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer ) )
+        {
+          if ( vlayer->labeling() )
+          {
+            vlayer->setLabelsEnabled( labelsEnabled );
+          }
+        }
       }
     }
   }
@@ -413,14 +453,58 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
     mapCollection.applyTheme( QStringLiteral( "::QFieldLayerTreeState" ), layerTree->layerTreeModel()->rootGroup(), layerTree->layerTreeModel() );
   }
 
-  const QString snappingConfig = settings.value( QStringLiteral( "/qgis/projectInfo/%1/snappingconfig" ).arg( projectFilePath ), QString() ).toString();
-  if ( !snappingConfig.isEmpty() )
+  settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerSnapping" ).arg( projectFilePath ) );
+  const QStringList values = settings.allKeys();
+  if ( !values.isEmpty() )
   {
-    QDomDocument document;
-    document.setContent( snappingConfig );
+    QgsSnappingConfig config = project->snappingConfig();
+    if ( values.contains( QStringLiteral( "enabled" ) ) )
+    {
+      config.setEnabled( settings.value( QStringLiteral( "enabled" ), true ).toBool() );
+    }
 
-    QgsSnappingConfig config( project );
-    config.readProject( document );
+    ids = settings.childGroups();
+    if ( !ids.isEmpty() )
+    {
+      const bool isDataset = project->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+      const QList<QgsMapLayer *> mapLayers = isDataset ? project->layerStore()->mapLayers().values() : QList<QgsMapLayer *>();
+
+      for ( QString id : ids )
+      {
+        const double enabled = settings.value( QStringLiteral( "%1/enabled" ).arg( id ), false ).toBool();
+
+        // Remove the :: prefix to get actual layer id or source
+        id = id.mid( 2 );
+
+        QgsMapLayer *layer = nullptr;
+        if ( isDataset )
+        {
+          for ( QgsMapLayer *ml : mapLayers )
+          {
+            if ( ml && ml->source() == id )
+            {
+              layer = ml;
+              break;
+            }
+          }
+        }
+        else
+        {
+          layer = project->layerStore()->mapLayer( id );
+        }
+
+        if ( layer )
+        {
+          if ( QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer ) )
+          {
+            QgsSnappingConfig::IndividualLayerSettings layerConfig = config.individualLayerSettings( vlayer );
+            layerConfig.setEnabled( enabled );
+            config.setIndividualLayerSettings( vlayer, layerConfig );
+          }
+        }
+      }
+    }
     project->setSnappingConfig( config );
   }
+  settings.endGroup();
 }
