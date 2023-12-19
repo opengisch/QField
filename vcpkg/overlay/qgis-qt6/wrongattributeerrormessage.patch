@@ -7,7 +7,7 @@ index 8b0ac5a4cc9..c8890ebd36d 100644
        if ( !ok )
        {
 -        pushError( tr( "wrong data type for attribute %1 of feature %2: %3" ).arg( qgisAttributeId ) .arg( f.id() ).arg( qType ) );
-+        pushError( tr( "wrong data type for attribute %1 (%2) of feature %3" ).arg( mAttributeFields.at( qgisAttributeId ).name(), OGR_GetFieldTypeName( type ), QString::number( f.id() ) ) );
++        pushError( tr( "Could not convert value for attribute \"%1\" to type %2" ).arg( mAttributeFields.at( qgisAttributeId ).name(), OGR_GetFieldTypeName( type ) ) );
          returnValue = false;
        }
      }
