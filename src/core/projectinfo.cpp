@@ -293,7 +293,7 @@ void ProjectInfo::setSnappingEnabled( bool enabled )
 
 void ProjectInfo::saveLayerSnappingConfiguration( QgsMapLayer *layer )
 {
-  if ( mFilePath.isEmpty() || !layer )
+  if ( mFilePath.isEmpty() )
     return;
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer );
@@ -397,7 +397,7 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
     const bool isDataset = project->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
     const QList<QgsMapLayer *> mapLayers = isDataset ? project->layerStore()->mapLayers().values() : QList<QgsMapLayer *>();
 
-    for ( QString &id : ids )
+    for ( QString id : std::as_const( ids ) )
     {
       const double opacity = settings.value( QStringLiteral( "%1/opacity" ).arg( id ), 1.0 ).toDouble();
       const bool labelsEnabled = settings.value( QStringLiteral( "%1/labelsEnabled" ).arg( id ), false ).toBool();
@@ -469,7 +469,7 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
       const bool isDataset = project->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
       const QList<QgsMapLayer *> mapLayers = isDataset ? project->layerStore()->mapLayers().values() : QList<QgsMapLayer *>();
 
-      for ( QString id : ids )
+      for ( QString id : std::as_const( ids ) )
       {
         const double enabled = settings.value( QStringLiteral( "%1/enabled" ).arg( id ), false ).toBool();
 
