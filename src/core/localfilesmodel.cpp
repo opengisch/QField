@@ -231,7 +231,7 @@ void LocalFilesModel::reloadModel()
         else
         {
           const QString suffix = fi.suffix().toLower();
-          if ( suffix == QStringLiteral( "jpg" ) && items.contains( fi.completeBaseName() ) )
+          if ( ( suffix == QStringLiteral( "png" ) || suffix == QStringLiteral( "jpg" ) ) && items.contains( fi.completeBaseName() ) )
           {
             // Skip project preview images
             continue;
