@@ -319,7 +319,7 @@ ApplicationWindow {
         }
 
         onPointChanged: {
-            if (skipHover) {
+            if (skipHover || !hovered) {
               return
             }
 
@@ -344,7 +344,9 @@ ApplicationWindow {
 
         onHoveredChanged: {
             if ( skipHover ) {
-              dummyHoverTimer.restart()
+              if ( !hovered ) {
+                dummyHoverTimer.restart()
+              }
               return
             }
 
@@ -365,10 +367,12 @@ ApplicationWindow {
      */
     Timer {
       id: dummyHoverTimer
-      interval: 100
+      interval: 750
       repeat: false
 
-      onTriggered: hoverHandler.skipHover = hoverHandler.hovered
+      onTriggered: {
+        hoverHandler.skipHover = false
+      }
     }
 
     HoverHandler {
@@ -380,6 +384,7 @@ ApplicationWindow {
 
         onHoveredChanged: {
             if ( hovered ) {
+                dummyHoverTimer.stop()
                 hoverHandler.skipHover = true
             }
         }
