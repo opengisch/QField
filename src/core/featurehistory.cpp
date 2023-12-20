@@ -13,6 +13,8 @@ FeatureHistory::FeatureHistory( const QgsProject *project, TrackingModel *tracki
   connect( mProject, &QgsProject::homePathChanged, this, &FeatureHistory::onHomePathChanged );
   connect( mProject, &QgsProject::layersAdded, this, &FeatureHistory::onLayersAdded );
   connect( &mTimer, &QTimer::timeout, this, &FeatureHistory::onTimerTimeout );
+
+  connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &FeatureHistory::onLayerInTrackingChanged );
 }
 
 
@@ -74,12 +76,6 @@ void FeatureHistory::onBeforeCommitChanges()
     return;
   }
 
-  Tracker *layerTracker = mTrackingModel->trackerForLayer( vl );
-  if ( layerTracker && layerTracker->isActive() )
-  {
-    return;
-  }
-
   QgsVectorLayerEditBuffer *eb = vl->editBuffer();
 
   if ( !eb )
@@ -111,7 +107,7 @@ void FeatureHistory::onBeforeCommitChanges()
   while ( featuresIt.nextFeature( f ) )
     modifiedFeatures.insert( f.id(), f );
 
-  qInfo() << "FeatureHistory::onBeforeCommitChanges: vl->id()=" << vl->id() << "sourcePkAttrPair=" << changedFids;
+  qInfo() << "FeatureHistory::onBeforeCommitChanges: vl->id()=" << vl->id() << "changedFids=" << changedFids;
 
   // NOTE no need to keep track of added features, as they are always present in the layer after commit
   mTempModifiedFeaturesByLayerId.insert( vl->id(), modifiedFeatures );
@@ -128,12 +124,6 @@ void FeatureHistory::onCommittedFeaturesAdded( const QString &localLayerId, cons
   QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
 
   if ( !vl )
-  {
-    return;
-  }
-
-  Tracker *layerTracker = mTrackingModel->trackerForLayer( vl );
-  if ( layerTracker && layerTracker->isActive() )
   {
     return;
   }
@@ -174,12 +164,6 @@ void FeatureHistory::onAfterCommitChanges()
     return;
   }
 
-  Tracker *layerTracker = mTrackingModel->trackerForLayer( vl );
-  if ( layerTracker && layerTracker->isActive() )
-  {
-    return;
-  }
-
   const QString layerId = vl->id();
   FeatureModifications modifications = mTempHistoryStep.take( layerId );
   QMap<QgsFeatureId, QgsFeature> modifiedFeaturesOld = mTempModifiedFeaturesByLayerId.take( layerId );
@@ -214,6 +198,24 @@ void FeatureHistory::onLayersAdded( const QList<QgsMapLayer *> &layers )
   addLayerListeners();
 }
 
+void FeatureHistory::onLayerInTrackingChanged( QgsVectorLayer *vl, bool isTracking )
+{
+  qDebug() << "START TRACKING" << vl->id() << isTracking;
+  if ( isTracking )
+  {
+    disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &FeatureHistory::onBeforeCommitChanges );
+    disconnect( vl, &QgsVectorLayer::afterCommitChanges, this, &FeatureHistory::onAfterCommitChanges );
+    disconnect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &FeatureHistory::onCommittedFeaturesAdded );
+    disconnect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &FeatureHistory::onCommittedFeaturesRemoved );
+  }
+  else
+  {
+    connect( vl, &QgsVectorLayer::beforeCommitChanges, this, &FeatureHistory::onBeforeCommitChanges );
+    connect( vl, &QgsVectorLayer::afterCommitChanges, this, &FeatureHistory::onAfterCommitChanges );
+    connect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &FeatureHistory::onCommittedFeaturesAdded );
+    connect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &FeatureHistory::onCommittedFeaturesRemoved );
+  }
+}
 
 void FeatureHistory::onTimerTimeout()
 {

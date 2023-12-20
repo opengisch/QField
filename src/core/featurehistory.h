@@ -83,6 +83,9 @@ class FeatureHistory : public QObject
     //! Timer's timeout slot. Used to collect multiple feature changes (calls of \a onBeforeCommitChanges and \a onAfterCommitChanges) into one undo step.
     void onTimerTimeout();
 
+    //! Layer in tracking changed. If layer is in tracking mode, we should not track changes.
+    void onLayerInTrackingChanged( QgsVectorLayer *vl, bool isTracking );
+
   private:
     static const int sTimeoutMs = 50;
 
