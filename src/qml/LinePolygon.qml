@@ -9,13 +9,17 @@ LinePolygonShape {
   id: linePolygonShape
 
   onPolylinesChanged: {
-    const pathElements = []
-    for(const polyline of polylines) {
-      var pathPolyline = componentPathPolyline.createObject(shapePath)
-      pathPolyline.path = polyline
-      pathElements.push(pathPolyline)
+    if (polylines.length > 0) {
+      const pathElements = []
+      for(const polyline of polylines) {
+        var pathPolyline = componentPathPolyline.createObject(shapePath)
+        pathPolyline.path = polyline
+        pathElements.push(pathPolyline)
+      }
+      shapePath.pathElements = pathElements
+    } else {
+      shapePath.pathElements = [componentPathPolyline.createObject(shapePath)]
     }
-    shapePath.pathElements = pathElements
   }
 
   Component {
