@@ -319,7 +319,7 @@ ApplicationWindow {
         }
 
         onPointChanged: {
-            if (skipHover || !hovered) {
+            if (skipHover || !mapCanvasMap.hovered) {
               return
             }
 
@@ -1217,30 +1217,63 @@ ApplicationWindow {
     }
 
     Rectangle {
+      id: debug0
+      anchors.verticalCenter: parent.verticalCenter
+      width: 48
+      height: 48
+
+      color: hoverHandler.hovered ? "red" : "green"
+
+      Text {
+        anchors.centerIn: parent
+        font: Theme.tipFont
+        text: 'h.h'
+      }
+    }
+
+    Rectangle {
       id: debug1
       anchors.verticalCenter: parent.verticalCenter
-      width: 20
-      height: 20
+      width: 48
+      height: 48
 
       color: mapCanvasMap.hovered ? "red" : "green"
+
+      Text {
+        anchors.centerIn: parent
+        font: Theme.tipFont
+        text: 'm.h'
+      }
     }
 
     Rectangle {
       id: debug2
       anchors.verticalCenter: parent.verticalCenter
-      width: 20
-      height: 20
+      width: 48
+      height: 48
 
       color: mapCanvasMap.pinch.isDragging ? "red" : "green"
+
+      Text {
+        anchors.centerIn: parent
+        font: Theme.tipFont
+        text: 'm.p'
+      }
     }
 
     Rectangle {
       id: debug3
       anchors.verticalCenter: parent.verticalCenter
-      width: 20
-      height: 20
+      width: 48
+      height: 48
 
       color: mapCanvasMap.mouse.pressed ? "red" : "green"
+
+      Text {
+        anchors.centerIn: parent
+        font: Theme.tipFont
+        text: 'm.m'
+      }
     }
 
     QfCloseButton {
