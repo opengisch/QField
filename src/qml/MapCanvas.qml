@@ -29,9 +29,6 @@ Item {
   property alias quality: mapCanvasWrapper.quality
   property alias forceDeferredLayersRepaint: mapCanvasWrapper.forceDeferredLayersRepaint
 
-  property alias pinch: pinchArea
-  property alias mouse: mouseArea
-
   property bool interactive: true
   property bool hovered: false
   property bool pinched: pinchArea.isDragging
