@@ -1216,6 +1216,33 @@ ApplicationWindow {
       }
     }
 
+    Rectangle {
+      id: debug1
+      anchors.verticalCenter: parent.verticalCenter
+      width: 20
+      height: 20
+
+      color: mapCanvasMap.hovered ? "red" : "green"
+    }
+
+    Rectangle {
+      id: debug2
+      anchors.verticalCenter: parent.verticalCenter
+      width: 20
+      height: 20
+
+      color: mapCanvasMap.pinch.isDragging ? "red" : "green"
+    }
+
+    Rectangle {
+      id: debug3
+      anchors.verticalCenter: parent.verticalCenter
+      width: 20
+      height: 20
+
+      color: mapCanvasMap.mouse.pressed ? "red" : "green"
+    }
+
     QfCloseButton {
       id: closeMeasureTool
       visible: stateMachine.state === 'measure'
