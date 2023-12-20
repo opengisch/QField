@@ -201,28 +201,18 @@ Popup {
       focus: visible
     }
 
-    PinchHandler {
+    PinchArea {
+      id: pinchArea
       enabled: cameraItem.visible && cameraItem.isCapturing
-      target: null
-      grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
-      acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
+      anchors.fill: parent
 
-      property real oldScale: 1.0
-
-      onActiveChanged: {
-        if (active) {
-          oldScale = 1.0
-        }
-      }
-
-      onActiveScaleChanged: {
-        if (activeScale > oldScale) {
-          camera.zoomIn(0.05)
-        } else {
-          camera.zoomOut(0.05)
-        }
-        oldScale = activeScale
-      }
+      onPinchUpdated: (pinch) => {
+                        if (pinch.scale > pinch.previousScale) {
+                          camera.zoomIn(0.05)
+                        } else {
+                          camera.zoomOut(0.05)
+                        }
+                      }
     }
 
     WheelHandler {

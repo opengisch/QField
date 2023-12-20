@@ -319,7 +319,7 @@ ApplicationWindow {
         }
 
         onPointChanged: {
-            if (skipHover) {
+            if (skipHover || !mapCanvasMap.hovered) {
               return
             }
 
@@ -343,8 +343,15 @@ ApplicationWindow {
         }
 
         onHoveredChanged: {
+            if ( mapCanvasMap.pinched ) {
+              return
+            }
+
             if ( skipHover ) {
-              dummyHoverTimer.restart()
+              if ( !hovered ) {
+                mapCanvasMap.hovered = false
+                dummyHoverTimer.restart()
+              }
               return
             }
 
@@ -365,10 +372,12 @@ ApplicationWindow {
      */
     Timer {
       id: dummyHoverTimer
-      interval: 100
+      interval: 750
       repeat: false
 
-      onTriggered: hoverHandler.skipHover = hoverHandler.hovered
+      onTriggered: {
+        hoverHandler.skipHover = false
+      }
     }
 
     HoverHandler {
@@ -380,6 +389,7 @@ ApplicationWindow {
 
         onHoveredChanged: {
             if ( hovered ) {
+                dummyHoverTimer.stop()
                 hoverHandler.skipHover = true
             }
         }

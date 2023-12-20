@@ -31,6 +31,7 @@ Item {
 
   property bool interactive: true
   property bool hovered: false
+  property bool pinched: pinchArea.isDragging
   property bool freehandDigitizing: false
 
   // for signals, type can be "stylus" for any device click or "touch"
