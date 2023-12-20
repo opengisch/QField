@@ -200,7 +200,6 @@ void FeatureHistory::onLayersAdded( const QList<QgsMapLayer *> &layers )
 
 void FeatureHistory::onLayerInTrackingChanged( QgsVectorLayer *vl, bool isTracking )
 {
-  qDebug() << "START TRACKING" << vl->id() << isTracking;
   if ( isTracking )
   {
     disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &FeatureHistory::onBeforeCommitChanges );
