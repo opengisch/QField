@@ -667,7 +667,7 @@ void QgisMobileapp::onMapCanvasRefreshed()
   disconnect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
   if ( !mProjectFilePath.isEmpty() )
   {
-    if ( !QFileInfo::exists( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) ) )
+    if ( !QFileInfo::exists( QStringLiteral( "%1.png" ).arg( mProjectFilePath ) ) )
     {
       saveProjectPreviewImage();
     }
@@ -1371,7 +1371,7 @@ void QgisMobileapp::saveProjectPreviewImage()
       const int pixels = std::min( grab.width(), grab.height() );
       const QRect rect( ( grab.width() - pixels ) / 2, ( grab.height() - pixels ) / 2, pixels, pixels );
       const QImage img = grab.copy( rect );
-      img.save( QStringLiteral( "%1.jpg" ).arg( mProjectFilePath ) );
+      img.save( QStringLiteral( "%1.png" ).arg( mProjectFilePath ) );
     }
   }
 }
