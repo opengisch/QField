@@ -345,6 +345,7 @@ ApplicationWindow {
         onHoveredChanged: {
             if ( skipHover ) {
               if ( !hovered ) {
+                mapCanvasMap.hovered = false
                 dummyHoverTimer.restart()
               }
               return
