@@ -343,6 +343,10 @@ ApplicationWindow {
         }
 
         onHoveredChanged: {
+            if ( mapCanvasMap.pinched ) {
+              return
+            }
+
             if ( skipHover ) {
               if ( !hovered ) {
                 mapCanvasMap.hovered = false
