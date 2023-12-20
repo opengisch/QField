@@ -413,6 +413,7 @@ Popup {
                   : qsTr('Reset project')
             enabled: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 || cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             icon.source: Theme.getThemeVectorIcon('ic_undo_white_24dp')
+            icon.color: "white"
 
             onClicked: {
               if (!cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {

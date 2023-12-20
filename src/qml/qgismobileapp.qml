@@ -2128,6 +2128,50 @@ ApplicationWindow {
         return result + padding * 2;
     }
 
+    Row {
+      bottomPadding: parent.topMargin
+
+      QfToolButton {
+        icon.source: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+        iconColor: Theme.mainTextColor
+        height: 48
+        width: 48
+        enabled: featureHistory.isUndoAvailable
+        opacity: enabled ? 1 : 0.5
+
+        onClicked: {
+          const msg = featureHistory.undoMessage();
+
+          if ( featureHistory.undo() ) {
+            displayToast( msg );
+          }
+
+          dashBoard.close();
+          mainMenu.close();
+        }
+      }
+
+      QfToolButton {
+        icon.source: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
+        iconColor: Theme.mainTextColor
+        height: 48
+        width: 48
+        enabled: featureHistory.isRedoAvailable
+        opacity: enabled ? 1 : 0.5
+
+        onClicked: {
+          const msg = featureHistory.redoMessage();
+
+          if ( featureHistory.redo() ) {
+            displayToast( msg );
+          }
+
+          dashBoard.close();
+          mainMenu.close();
+        }
+      }
+    }
+
     MenuItem {
       text: qsTr( 'Measure Tool' )
 

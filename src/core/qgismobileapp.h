@@ -51,6 +51,7 @@ class TrackingModel;
 class LocatorFiltersModel;
 class QgsProject;
 class LayerObserver;
+class FeatureHistory;
 class MessageLogModel;
 class QgsPrintLayout;
 
@@ -208,6 +209,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
     std::unique_ptr<LayerObserver> mLayerObserver;
+    std::unique_ptr<FeatureHistory> mFeatureHistory;
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 
     std::unique_ptr<BookmarkModel> mBookmarkModel;
