@@ -2138,10 +2138,11 @@ ApplicationWindow {
 
       Label {
         anchors.verticalCenter: parent.verticalCenter
-        width: parent.width - undoButton.width * 2 - parent.spacing * 3
+        width: parent.width - undoButton.width * 2 - parent.spacing * 4
         height: parent.height
-        text: "Edits"
+        text: qsTr("History")
         font: Theme.defaultFont
+        color: Theme.mainTextDisabledColor
         leftPadding: 50
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -2153,11 +2154,11 @@ ApplicationWindow {
         enabled: featureHistory && featureHistory.isUndoAvailable
         height: 36
         width: 36
+        padding: 6
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
-        iconColor: enabled ? "white" : Theme.mainTextColor
-        opacity: enabled ? 1 : 0.25
-        bgcolor: enabled ? Theme.mainColor : "transparent"
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: "transparent"
 
         onClicked: {
           const msg = featureHistory.undoMessage();
@@ -2176,12 +2177,12 @@ ApplicationWindow {
         anchors.verticalCenter: parent.verticalCenter
         height: 36
         width: 36
+        padding: 6
         round: true
         enabled: featureHistory && featureHistory.isRedoAvailable
         iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
-        iconColor: enabled ? "white" : Theme.mainTextColor
-        opacity: enabled ? 1 : 0.25
-        bgcolor: enabled ? Theme.mainColor : "transparent"
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: "transparent"
 
         onClicked: {
           const msg = featureHistory.redoMessage();
