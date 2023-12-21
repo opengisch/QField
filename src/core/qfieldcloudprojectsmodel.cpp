@@ -481,13 +481,14 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     project->isPrivate = projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false );
     project->canRepackage = projectData.value( "can_repackage" ).toBool();
     project->needsRepackaging = projectData.value( "needs_repackaging" ).toBool();
+    project->updatedAt = QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate );
+    project->isOutdated = project->lastLocalUpdatedAt.isValid() ? project->updatedAt > project->lastLocalUpdatedAt : false;
     project->lastRefreshedAt = QDateTime::currentDateTimeUtc();
 
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "name" ), project->name );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "owner" ), project->owner );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "description" ), project->description );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "userRole" ), project->userRole );
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "updatedAt" ), project->updatedAt );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "isPrivate" ), project->isPrivate );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "canRepackage" ), project->canRepackage );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "needsRepackaging" ), project->needsRepackaging );
@@ -1813,12 +1814,16 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         project->localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
         project->lastLocalExportedAt = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
         project->lastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
+        project->lastLocalUpdatedAt = project->updatedAt;
+        project->isOutdated = false;
+
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastExportedAt" ), project->lastExportedAt );
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastExportId" ), project->lastExportId );
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportedAt" ), project->lastLocalExportedAt );
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportId" ), project->lastLocalExportId );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalUpdatedAt" ), project->lastLocalUpdatedAt );
 
-        rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportedAtRole;
+        rolesChanged << StatusRole << OutdatedRole << LocalPathRole << CheckoutRole << LastLocalExportedAtRole;
 
         emit dataChanged( projectIndex, projectIndex, rolesChanged );
         emit projectDownloadFinished( projectId );
@@ -1842,6 +1847,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[ModificationRole] = "Modification";
   roles[CheckoutRole] = "Checkout";
   roles[StatusRole] = "Status";
+  roles[OutdatedRole] = "Oudated";
   roles[ErrorStatusRole] = "ErrorStatus";
   roles[ErrorStringRole] = "ErrorString";
   roles[DownloadProgressRole] = "DownloadProgress";
@@ -1875,6 +1881,12 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     cloudProject->lastLocalExportId = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalExportId" ) ).toString();
     cloudProject->lastLocalExportedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalExportedAt" ) ).toString();
     cloudProject->lastLocalPushDeltas = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+    cloudProject->lastLocalUpdatedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalUpdatedAt" ) ).toDateTime();
+
+    if ( cloudProject->updatedAt > cloudProject->lastLocalUpdatedAt )
+    {
+      cloudProject->isOutdated = true;
+    }
 
     // generate local export id if not present. Possible reasons for missing localExportId are:
     // - just upgraded QField that introduced the field
@@ -1895,17 +1907,15 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
                                                    projectDetails.value( "name" ).toString(),
                                                    projectDetails.value( "description" ).toString(),
                                                    projectDetails.value( "user_role" ).toString(),
-                                                   QString(),
                                                    RemoteCheckout,
                                                    ProjectStatus::Idle,
+                                                   QDateTime::fromString( projectDetails.value( "data_last_updated_at" ).toString(), Qt::ISODate ),
                                                    projectDetails.value( "can_repackage" ).toBool(),
                                                    projectDetails.value( "needs_repackaging" ).toBool() );
 
-    const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( cloudProject->id );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "owner" ), cloudProject->owner );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "name" ), cloudProject->name );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "description" ), cloudProject->description );
-    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "updatedAt" ), cloudProject->updatedAt );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "userRole" ), cloudProject->userRole );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "canRepackage" ), cloudProject->canRepackage );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "needsRepackaging" ), cloudProject->needsRepackaging );
@@ -1956,7 +1966,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString updatedAt = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
       const QString userRole = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
 
-      CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, QString(), LocalCheckout, ProjectStatus::Idle, false, false );
+      CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, LocalCheckout, ProjectStatus::Idle, QDateTime(), false, false );
 
       cloudProject->localPath = QFieldCloudUtils::localProjectFilePath( username, cloudProject->id );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
@@ -2007,6 +2017,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return static_cast<int>( mProjects.at( index.row() )->checkout );
     case StatusRole:
       return static_cast<int>( mProjects.at( index.row() )->status );
+    case OutdatedRole:
+      return mProjects.at( index.row() )->isOutdated;
     case ErrorStatusRole:
       return static_cast<int>( mProjects.at( index.row() )->errorStatus );
     case ErrorStringRole:

@@ -49,6 +49,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ModificationRole,
       CheckoutRole,
       StatusRole,
+      OutdatedRole,
       ErrorStatusRole,
       ErrorStringRole,
       DownloadProgressRole,
@@ -350,9 +351,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
           const QString &name,
           const QString &description,
           const QString &userRole,
-          const QString &updatedAt,
           const ProjectCheckouts &checkout,
           const ProjectStatus &status,
+          const QDateTime &updatedAt,
           bool canRepackage,
           bool needsRepackaging )
           : id( id )
@@ -361,9 +362,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
           , name( name )
           , description( description )
           , userRole( userRole )
-          , updatedAt( updatedAt )
           , checkout( checkout )
           , status( status )
+          , updatedAt( updatedAt )
           , canRepackage( canRepackage )
           , needsRepackaging( needsRepackaging )
         {}
@@ -377,12 +378,12 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString name;
         QString description;
         QString userRole;
-        QString updatedAt;
         ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
         ProjectCheckouts checkout;
         ProjectStatus status;
         bool canRepackage = false;
         bool needsRepackaging = false;
+        bool isOutdated = false;
 
         ProjectModifications modification = ProjectModification::NoModification;
         QString localPath;
@@ -413,6 +414,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString lastLocalExportedAt;
         QString lastLocalExportId;
         QString lastLocalPushDeltas;
+
+        QDateTime updatedAt;
+        QDateTime lastLocalUpdatedAt;
 
         QDateTime lastRefreshedAt;
         QMap<JobType, Job> jobs;

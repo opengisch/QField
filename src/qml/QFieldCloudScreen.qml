@@ -391,6 +391,10 @@ Page {
                                     default:
                                       break
                                   }
+
+                                  if (Oudated) {
+                                    status += qsTr( ', oudated project data');
+                                  }
                                 }
 
                                 var localChanges = ( LocalDeltasCount > 0 ) ? qsTr('Has changes. ') : ''
