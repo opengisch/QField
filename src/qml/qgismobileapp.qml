@@ -2130,13 +2130,18 @@ ApplicationWindow {
     }
 
     Row {
+      id: featureHistoryRow
+      property bool isAvailable: featureHistory && (featureHistory.isUndoAvailable || featureHistory.isRedoAvailable)
       spacing: 4
+      height: isAvailable ? 48 : 0
+      clip: true
 
       Label {
-        text: "Undo"
-        font: Theme.defaultFont
+        anchors.verticalCenter: parent.verticalCenter
         width: parent.width - undoButton.width * 2 - parent.spacing * 3
-        height: 48
+        height: parent.height
+        text: "Edits"
+        font: Theme.defaultFont
         leftPadding: 50
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -2191,7 +2196,11 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      visible: featureHistoryRow.isAvailable
+      width: parent.width
+      height: featureHistoryRow.isAvailable ? undefined : 0
+    }
 
     MenuItem {
       text: qsTr( 'Measure Tool' )
