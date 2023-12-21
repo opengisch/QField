@@ -2130,15 +2130,29 @@ ApplicationWindow {
     }
 
     Row {
-      bottomPadding: parent.topMargin
+      spacing: 4
+
+      Label {
+        text: "Undo"
+        font: Theme.defaultFont
+        width: parent.width - undoButton.width * 2 - parent.spacing * 3
+        height: 48
+        leftPadding: 50
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+      }
 
       QfToolButton {
-        icon.source: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
-        iconColor: Theme.mainTextColor
-        height: 48
-        width: 48
+        id: undoButton
+        anchors.verticalCenter: parent.verticalCenter
         enabled: featureHistory.isUndoAvailable
-        opacity: enabled ? 1 : 0.5
+        height: 36
+        width: 36
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+        iconColor: enabled ? "white" : Theme.mainTextColor
+        opacity: enabled ? 1 : 0.25
+        bgcolor: enabled ? Theme.mainColor : "transparent"
 
         onClicked: {
           const msg = featureHistory.undoMessage();
@@ -2153,12 +2167,16 @@ ApplicationWindow {
       }
 
       QfToolButton {
-        icon.source: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
-        iconColor: Theme.mainTextColor
-        height: 48
-        width: 48
+        id: redoButton
+        anchors.verticalCenter: parent.verticalCenter
+        height: 36
+        width: 36
+        round: true
         enabled: featureHistory.isRedoAvailable
-        opacity: enabled ? 1 : 0.5
+        iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
+        iconColor: enabled ? "white" : Theme.mainTextColor
+        opacity: enabled ? 1 : 0.25
+        bgcolor: enabled ? Theme.mainColor : "transparent"
 
         onClicked: {
           const msg = featureHistory.redoMessage();
@@ -2172,6 +2190,8 @@ ApplicationWindow {
         }
       }
     }
+
+    MenuSeparator { width: parent.width }
 
     MenuItem {
       text: qsTr( 'Measure Tool' )
