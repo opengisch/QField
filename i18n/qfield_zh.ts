@@ -666,6 +666,29 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>FeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation>无法撤消在图层 &quot;%1&quot; 中已创建的要素</translation>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation>无法撤消在图层 &quot;%1&quot; 中已删除的要素</translation>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation>无法撤消在图层 &quot;%1&quot; 中已更新的要素</translation>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation>无法在图层 &quot;%1&quot; 中提交撤消要素的修改</translation>
+    </message>
+    <message>
+        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
+        <translation>无法在图层 &quot;%1&quot; 中回退撤消要素的修改</translation>
+    </message>
+</context>
+<context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
