@@ -2136,7 +2136,7 @@ ApplicationWindow {
         iconColor: Theme.mainTextColor
         height: 48
         width: 48
-        enabled: featureHistory.isUndoAvailable
+        enabled: featureHistory && featureHistory.isUndoAvailable
         opacity: enabled ? 1 : 0.5
 
         onClicked: {
@@ -2156,7 +2156,7 @@ ApplicationWindow {
         iconColor: Theme.mainTextColor
         height: 48
         width: 48
-        enabled: featureHistory.isRedoAvailable
+        enabled: featureHistory && featureHistory.isRedoAvailable
         opacity: enabled ? 1 : 0.5
 
         onClicked: {
