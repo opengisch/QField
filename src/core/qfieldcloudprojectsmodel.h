@@ -382,6 +382,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
         ProjectCheckouts checkout;
         ProjectStatus status;
+        QDateTime updatedAt;
         bool canRepackage = false;
         bool needsRepackaging = false;
         bool isOutdated = false;
@@ -415,8 +416,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString lastLocalExportedAt;
         QString lastLocalExportId;
         QString lastLocalPushDeltas;
-
-        QDateTime updatedAt;
         QDateTime lastLocalUpdatedAt;
 
         QDateTime lastRefreshedAt;
