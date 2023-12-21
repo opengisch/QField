@@ -49,7 +49,7 @@ Item {
         ? overrideLocation
         : snappingUtils.snappedCoordinate;
 
-    return coordinate !== undefined ? mapSettings.coordinateToScreen(coordinate) : Qt.point();
+    return !!mapSettings.visibleExtent && coordinate !== undefined ? mapSettings.coordinateToScreen(coordinate) : Qt.point();
   }
 
   property variant rubberbandModel: undefined
