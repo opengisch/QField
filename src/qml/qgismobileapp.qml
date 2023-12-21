@@ -2162,16 +2162,15 @@ ApplicationWindow {
         width: 44
         padding: 6
         round: true
-        iconSource: Theme.getThemeVectorIcon( "ic_project_folder_black_24dp" )
+        iconSource: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
         iconColor: Theme.mainTextColor
         bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
           dashBoard.close()
-          qfieldLocalDataPickerScreen.projectFolderView = true
-          qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath)
-          qfieldLocalDataPickerScreen.visible = true
+          changeMode( 'measure' )
+          highlighted = false
         }
       }
 
@@ -2246,21 +2245,6 @@ ApplicationWindow {
     }
 
     MenuSeparator { width: parent.width }
-
-    MenuItem {
-      text: qsTr( 'Measure Tool' )
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        changeMode( 'measure' )
-        highlighted = false
-      }
-    }
 
     MenuItem {
       id: printItem
@@ -2345,6 +2329,23 @@ ApplicationWindow {
           toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/sensors/') })
         }
         highlighted = false
+      }
+    }
+
+    MenuItem {
+      text: qsTr( "Project Folder" )
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_project_folder_black_24dp" )
+      height: 48
+      leftPadding: 10
+      rightPadding: 40
+
+      onTriggered: {
+        dashBoard.close()
+        qfieldLocalDataPickerScreen.projectFolderView = true
+        qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath)
+        qfieldLocalDataPickerScreen.visible = true
       }
     }
 
