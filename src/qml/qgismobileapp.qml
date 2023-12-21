@@ -2135,6 +2135,8 @@ ApplicationWindow {
       height: printItem.height
       clip: true
 
+      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
+
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
         height: 44
@@ -2143,7 +2145,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: "transparent"
+        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2162,7 +2164,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_project_folder_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: "transparent"
+        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2181,7 +2183,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: "transparent"
+        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2200,7 +2202,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: "transparent"
+        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
           const msg = featureHistory.undoMessage();
@@ -2224,7 +2226,7 @@ ApplicationWindow {
         enabled: featureHistory && featureHistory.isRedoAvailable
         iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: "transparent"
+        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
           const msg = featureHistory.redoMessage();
