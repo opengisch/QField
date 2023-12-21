@@ -71,6 +71,10 @@ VisibilityFadingRow {
 
       featureModel.currentLayer.removeSelection()
     }
+
+    onCancel: {
+      rubberbandModel.reset()
+    }
   }
 
   function init(featureModel, mapSettings, editorRubberbandModel, editorRenderer)
