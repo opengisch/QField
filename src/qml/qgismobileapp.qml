@@ -2150,7 +2150,7 @@ ApplicationWindow {
       QfToolButton {
         id: undoButton
         anchors.verticalCenter: parent.verticalCenter
-        enabled: featureHistory.isUndoAvailable
+        enabled: featureHistory && featureHistory.isUndoAvailable
         height: 36
         width: 36
         round: true
@@ -2177,7 +2177,7 @@ ApplicationWindow {
         height: 36
         width: 36
         round: true
-        enabled: featureHistory.isRedoAvailable
+        enabled: featureHistory && featureHistory.isRedoAvailable
         iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
         iconColor: enabled ? "white" : Theme.mainTextColor
         opacity: enabled ? 1 : 0.25
