@@ -165,6 +165,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     enum class ProjectRefreshReason
     {
       Package,
+      DeltaUploaded
     };
 
     Q_ENUM( ProjectRefreshReason )

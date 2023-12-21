@@ -481,9 +481,23 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     project->isPrivate = projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false );
     project->canRepackage = projectData.value( "can_repackage" ).toBool();
     project->needsRepackaging = projectData.value( "needs_repackaging" ).toBool();
-    project->updatedAt = QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate );
-    project->isOutdated = project->lastLocalUpdatedAt.isValid() ? project->updatedAt > project->lastLocalUpdatedAt : false;
     project->lastRefreshedAt = QDateTime::currentDateTimeUtc();
+    project->updatedAt = QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate );
+
+    if ( !project->isOutdated && refreshReason == ProjectRefreshReason::DeltaUploaded )
+    {
+      // When pushing deltas to the cloud, the server hasn't had the time to refresh
+      // its last updated at value; we therefore consider an arbitrary last updated at
+      // value to be an hour from now. This is to avoid subsequently telling users
+      // they have an oudated project when the only thing that changed is the delta(s)
+      // they pushed.
+      project->lastLocalUpdatedAt = project->lastRefreshedAt.addSecs( 60 * 60 );
+      QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "lastLocalUpdatedAt" ), project->lastLocalUpdatedAt );
+    }
+    else
+    {
+      project->isOutdated = project->lastLocalUpdatedAt.isValid() ? project->updatedAt > project->lastLocalUpdatedAt : false;
+    }
 
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "name" ), project->name );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "owner" ), project->owner );
@@ -1332,6 +1346,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
 
       emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
       emit pushFinished( projectId, false );
+      projectRefreshData( projectId, ProjectRefreshReason::DeltaUploaded );
     }
   } );
 
@@ -1396,6 +1411,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
         {
           emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
           emit pushFinished( projectId, false );
+          projectRefreshData( projectId, ProjectRefreshReason::DeltaUploaded );
         }
     }
   } );
@@ -1883,6 +1899,9 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     cloudProject->lastLocalPushDeltas = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
     cloudProject->lastLocalUpdatedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalUpdatedAt" ) ).toDateTime();
 
+    qDebug() << cloudProject->name;
+    qDebug() << cloudProject->updatedAt;
+    qDebug() << cloudProject->lastLocalUpdatedAt;
     if ( cloudProject->updatedAt > cloudProject->lastLocalUpdatedAt )
     {
       cloudProject->isOutdated = true;
