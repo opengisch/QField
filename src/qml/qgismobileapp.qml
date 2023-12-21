@@ -2118,9 +2118,10 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 0;
+        var result = actionsRow.children.length * 44;
         var padding = 0;
-        for (var i = 0; i < count; ++i) {
+        // Skip first Row item
+        for (var i = 1; i < count; ++i) {
             var item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.padding, padding);
@@ -2129,63 +2130,121 @@ ApplicationWindow {
     }
 
     Row {
-      bottomPadding: parent.topMargin
+      id: actionsRow
+      spacing: 4
+      height: printItem.height
+      clip: true
+
+      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
 
       QfToolButton {
-        icon.source: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+        anchors.verticalCenter: parent.verticalCenter
+        height: 44
+        width: 44
+        padding: 6
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
         iconColor: Theme.mainTextColor
-        height: 48
-        width: 48
-        enabled: featureHistory.isUndoAvailable
-        opacity: enabled ? 1 : 0.5
+        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
-          const msg = featureHistory.undoMessage();
-
-          if ( featureHistory.undo() ) {
-            displayToast( msg );
-          }
-
-          dashBoard.close();
-          mainMenu.close();
+          mainMenu.close()
+          dashBoard.close()
+          welcomeScreen.visible = true
+          welcomeScreen.focus = true
+          highlighted = false
         }
       }
 
       QfToolButton {
-        icon.source: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
+        anchors.verticalCenter: parent.verticalCenter
+        height: 44
+        width: 44
+        padding: 6
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
         iconColor: Theme.mainTextColor
-        height: 48
-        width: 48
-        enabled: featureHistory.isRedoAvailable
-        opacity: enabled ? 1 : 0.5
+        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
-          const msg = featureHistory.redoMessage();
+          mainMenu.close()
+          dashBoard.close()
+          changeMode( 'measure' )
+          highlighted = false
+        }
+      }
 
-          if ( featureHistory.redo() ) {
-            displayToast( msg );
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 44
+        width: 44
+        padding: 6
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
+        iconColor: Theme.mainTextColor
+        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          mainMenu.close()
+          dashBoard.close()
+          screenLocker.enabled = true
+        }
+      }
+
+      QfToolButton {
+        id: undoButton
+        property bool isEnabled: featureHistory && featureHistory.isUndoAvailable
+        anchors.verticalCenter: parent.verticalCenter
+        height: 44
+        width: 44
+        padding: 6
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: isEnabled && hovered ? actionsRow.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          if (isEnabled) {
+            const msg = featureHistory.undoMessage();
+
+            if ( featureHistory.undo() ) {
+              displayToast( msg );
+            }
+
+            dashBoard.close();
+            mainMenu.close();
           }
+        }
+      }
 
-          dashBoard.close();
-          mainMenu.close();
+      QfToolButton {
+        id: redoButton
+        property bool isEnabled: featureHistory && featureHistory.isRedoAvailable
+        anchors.verticalCenter: parent.verticalCenter
+        height: 44
+        width: 44
+        padding: 6
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
+        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: isEnabled && hovered ? actionsRow.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          if (isEnabled) {
+            const msg = featureHistory.redoMessage();
+
+            if ( featureHistory.redo() ) {
+              displayToast( msg );
+            }
+
+            dashBoard.close();
+            mainMenu.close();
+          }
         }
       }
     }
 
-    MenuItem {
-      text: qsTr( 'Measure Tool' )
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        changeMode( 'measure' )
-        highlighted = false
-      }
-    }
+    MenuSeparator { width: parent.width }
 
     MenuItem {
       id: printItem
@@ -2273,53 +2332,20 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator { width: parent.width }
-
     MenuItem {
-      id: openProjectMenuItem
-      text: qsTr( "Go to Home Screen" )
+      text: qsTr( "Project Folder" )
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
+      icon.source: Theme.getThemeVectorIcon( "ic_project_folder_black_24dp" )
       height: 48
       leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        welcomeScreen.visible = true
-        welcomeScreen.focus = true
-        highlighted = false
-      }
-    }
-
-    MenuItem {
-      id: openProjectFolderMenuItem
-      text: qsTr( "Open Project Folder" )
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_folder_open_black_24dp" )
-      height: 48
-      leftPadding: 10
+      rightPadding: 40
 
       onTriggered: {
         dashBoard.close()
         qfieldLocalDataPickerScreen.projectFolderView = true
         qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath)
         qfieldLocalDataPickerScreen.visible = true
-      }
-    }
-
-    MenuItem {
-      text: qsTr( 'Lock Screen' )
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        screenLocker.enabled = true
-        dashBoard.close()
       }
     }
 

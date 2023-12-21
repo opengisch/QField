@@ -70,7 +70,7 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: undoButton
-    iconSource: Theme.getThemeVectorIcon( "ic_undo_white_24dp" )
+    iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
     iconColor: "white"
     round: true
     visible: featureModel && featureModel.vertexModel.canUndo
