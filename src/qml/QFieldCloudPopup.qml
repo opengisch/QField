@@ -605,11 +605,15 @@ Popup {
   function show() {
     visible = !visible
 
-    if ( cloudProjectsModel.currentProjectId && cloudConnection.hasToken && cloudConnection.status === QFieldCloudConnection.Disconnected )
+    if ( cloudProjectsModel.currentProjectId && cloudConnection.hasToken && cloudConnection.status === QFieldCloudConnection.Disconnected ) {
       cloudConnection.login();
+    }
 
-    if ( cloudConnection.status === QFieldCloudConnection.Connecting )
+    if ( cloudConnection.status === QFieldCloudConnection.Connecting ) {
       displayToast(qsTr('Connecting cloud'))
+    } else if ( cloudProjectsModel.currentProjectData.Outdated ) {
+      displayToast(qsTr('This project has updated data on the cloud, you should synchronize.'))
+    }
   }
 
   function projectUpload(shouldDownloadUpdates) {
