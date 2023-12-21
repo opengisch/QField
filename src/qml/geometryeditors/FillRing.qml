@@ -77,6 +77,10 @@ VisibilityFadingRow {
         addPolygonDialog.show();
       }
     }
+
+    onCancel: {
+      rubberbandModel.reset()
+    }
   }
 
   Dialog {
