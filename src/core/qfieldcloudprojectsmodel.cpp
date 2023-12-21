@@ -489,7 +489,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
       // When pushing deltas to the cloud, the server hasn't had the time to refresh
       // its last updated at value; we therefore consider an arbitrary last updated at
       // value to be an hour from now. This is to avoid subsequently telling users
-      // they have an oudated project when the only thing that changed is the delta(s)
+      // they have an outdated project when the only thing that changed is the delta(s)
       // they pushed.
       project->lastLocalUpdatedAt = project->lastRefreshedAt.addSecs( 60 * 60 );
       QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "lastLocalUpdatedAt" ), project->lastLocalUpdatedAt );
@@ -509,6 +509,11 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
 
     emit dataChanged( projectIndex, projectIndex, QVector<int>::fromList( roleNames().keys() ) );
     emit projectRefreshed( projectId, refreshReason );
+
+    if ( mCurrentProjectId == projectId )
+    {
+      emit currentProjectDataChanged();
+    }
   } );
 }
 
@@ -1863,7 +1868,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[ModificationRole] = "Modification";
   roles[CheckoutRole] = "Checkout";
   roles[StatusRole] = "Status";
-  roles[OutdatedRole] = "Oudated";
+  roles[OutdatedRole] = "Outdated";
   roles[ErrorStatusRole] = "ErrorStatus";
   roles[ErrorStringRole] = "ErrorString";
   roles[DownloadProgressRole] = "DownloadProgress";
@@ -1899,9 +1904,6 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     cloudProject->lastLocalPushDeltas = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
     cloudProject->lastLocalUpdatedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalUpdatedAt" ) ).toDateTime();
 
-    qDebug() << cloudProject->name;
-    qDebug() << cloudProject->updatedAt;
-    qDebug() << cloudProject->lastLocalUpdatedAt;
     if ( cloudProject->updatedAt > cloudProject->lastLocalUpdatedAt )
     {
       cloudProject->isOutdated = true;
