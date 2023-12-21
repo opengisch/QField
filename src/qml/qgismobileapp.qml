@@ -2194,49 +2194,53 @@ ApplicationWindow {
 
       QfToolButton {
         id: undoButton
+        property bool isEnabled: featureHistory && featureHistory.isUndoAvailable
         anchors.verticalCenter: parent.verticalCenter
-        enabled: featureHistory && featureHistory.isUndoAvailable
         height: 44
         width: 44
         padding: 6
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
-        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: isEnabled && hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
-          const msg = featureHistory.undoMessage();
+          if (isEnabled) {
+            const msg = featureHistory.undoMessage();
 
-          if ( featureHistory.undo() ) {
-            displayToast( msg );
+            if ( featureHistory.undo() ) {
+              displayToast( msg );
+            }
+
+            dashBoard.close();
+            mainMenu.close();
           }
-
-          dashBoard.close();
-          mainMenu.close();
         }
       }
 
       QfToolButton {
         id: redoButton
+        property bool isEnabled: featureHistory && featureHistory.isRedoAvailable
         anchors.verticalCenter: parent.verticalCenter
         height: 44
         width: 44
         padding: 6
         round: true
-        enabled: featureHistory && featureHistory.isRedoAvailable
         iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
-        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: isEnabled && hovered ? actionsRow.hoveredColor : "#00ffffff"
 
         onClicked: {
-          const msg = featureHistory.redoMessage();
+          if (isEnabled) {
+            const msg = featureHistory.redoMessage();
 
-          if ( featureHistory.redo() ) {
-            displayToast( msg );
+            if ( featureHistory.redo() ) {
+              displayToast( msg );
+            }
+
+            dashBoard.close();
+            mainMenu.close();
           }
-
-          dashBoard.close();
-          mainMenu.close();
         }
       }
     }
