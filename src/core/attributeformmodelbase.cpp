@@ -143,6 +143,7 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
     disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::resetModel );
     disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::applyFeatureModel );
     disconnect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::applyFeatureModel );
+    disconnect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::applyFeatureModel );
   }
 
   mFeatureModel = featureModel;
@@ -150,6 +151,7 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
   connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::resetModel );
   connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::applyFeatureModel );
   connect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::applyFeatureModel );
+  connect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::applyFeatureModel );
 
   emit featureModelChanged();
 }
@@ -251,12 +253,47 @@ void AttributeFormModelBase::resetModel()
 void AttributeFormModelBase::applyFeatureModel()
 {
   mExpressionContext = mFeatureModel->createExpressionContext();
+  if ( mFeatureModel->linkedParentFeature().isValid() )
+  {
+    mExpressionContext << QgsExpressionContextUtils::parentFormScope( mFeatureModel->linkedParentFeature() );
+  }
   mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+
   for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
   {
     updateAttributeValue( invisibleRootItem()->child( i ) );
   }
+
   updateVisibilityAndConstraints();
+}
+
+void AttributeFormModelBase::applyParentDefaultValues()
+{
+  if ( mFeatureModel->linkedParentFeature().isValid() )
+  {
+    const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == mFeatureModel->feature().id();
+    QgsFields fields = mFeatureModel->feature().fields();
+    mExpressionContext.setFields( fields );
+    mExpressionContext.setFeature( mFeatureModel->feature() );
+
+    QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+    for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+    {
+      QStandardItem *item = fieldIterator.key();
+      const int fidx = fieldIterator.value();
+      if ( !fields.at( fidx ).defaultValueDefinition().isValid() || ( !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() && !featureIsNew ) )
+        continue;
+
+      if ( fields.at( fidx ).defaultValueDefinition().expression().indexOf( "@current_parent_" ) > -1 )
+      {
+        QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
+        exp.prepare( &mExpressionContext );
+        const QVariant defaultValue = exp.evaluate( &mExpressionContext );
+        item->setData( defaultValue, AttributeFormModel::AttributeValue );
+        synchronizeFieldValue( fidx, defaultValue );
+      }
+    }
+  }
 }
 
 QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() const

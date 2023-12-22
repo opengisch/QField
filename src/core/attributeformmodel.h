@@ -103,6 +103,9 @@ class AttributeFormModel : public QSortFilterProxyModel
     //! Forces the form to update the fields visibility and constraints
     Q_INVOKABLE void applyFeatureModel();
 
+    //! Applies default values linked to a parent feature
+    Q_INVOKABLE void applyParentDefaultValues();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();

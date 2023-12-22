@@ -372,5 +372,6 @@ EditorWidgetBase {
             embeddedPopup.applyGeometry(geometry)
         }
         embeddedPopup.open()
+        embeddedPopup.attributeFormModel.applyParentDefaultValues()
     }
 }

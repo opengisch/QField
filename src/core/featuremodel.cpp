@@ -244,6 +244,7 @@ void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
     return;
 
   mLinkedParentFeature = feature;
+  emit linkedParentFeatureChanged();
 
   if ( mLinkedRelation.isValid() )
     setLinkedFeatureValues();

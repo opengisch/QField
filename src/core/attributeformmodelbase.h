@@ -61,6 +61,9 @@ class AttributeFormModelBase : public QStandardItemModel
     //! Applies feature model data such as attribute values, constraints, visibility to the attribute form model
     void applyFeatureModel();
 
+    //! Applies default values linked to a parent feature
+    void applyParentDefaultValues();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();
