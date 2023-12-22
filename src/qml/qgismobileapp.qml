@@ -956,7 +956,7 @@ ApplicationWindow {
                        .arg( UnitTypes.formatAngle( digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees ) )
                      : '')
 
-                .arg(currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon
+                .arg(currentRubberband && currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon
                      ? digitizingGeometryMeasure.perimeterValid
                        ? '%1: %2\n'
                          .arg( qsTr( 'Perimeter') )
