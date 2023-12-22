@@ -21,8 +21,8 @@ EditorWidgetBase {
 
     currentLayer: _rel.referencedLayer
     keyField: _rel.resolveReferencedField(field.name)
-    addNull: config['AllowNULL'] // no, it is not a misspelled version of config['AllowNull']
-    orderByValue: config['OrderByValue']
+    addNull: !!config['AllowNULL'] // no, it is not a misspelled version of config['AllowNull']
+    orderByValue: !!config['OrderByValue']
     attributeField: field
     currentFormFeature: currentFeature
     filterExpression: ""
