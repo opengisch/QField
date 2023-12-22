@@ -743,25 +743,28 @@ bool FeatureModel::create()
     return false;
   }
 
-  // Gather any relationship children which would have relied on an auto-generated field value
-  const QList<QgsRelation> relations = mProject->relationManager()->referencedRelations( mLayer );
   QList<QPair<QgsRelation, QgsFeatureRequest>> revisitRelations;
-  QgsFeature temporaryFeature = mFeature;
-  for ( const QgsRelation &relation : relations )
+  if ( mProject )
   {
-    const QgsAttributeList rereferencedFields = relation.referencedFields();
-    bool needsRevisit = false;
-    for ( const int fieldIndex : rereferencedFields )
+    // Gather any relationship children which would have relied on an auto-generated field value
+    const QList<QgsRelation> relations = mProject->relationManager()->referencedRelations( mLayer );
+    QgsFeature temporaryFeature = mFeature;
+    for ( const QgsRelation &relation : relations )
     {
-      if ( mLayer->dataProvider() && !mLayer->dataProvider()->defaultValueClause( fieldIndex ).isEmpty() )
+      const QgsAttributeList rereferencedFields = relation.referencedFields();
+      bool needsRevisit = false;
+      for ( const int fieldIndex : rereferencedFields )
       {
-        temporaryFeature.setAttribute( fieldIndex, QVariant() );
-        needsRevisit = true;
+        if ( mLayer->dataProvider() && !mLayer->dataProvider()->defaultValueClause( fieldIndex ).isEmpty() )
+        {
+          temporaryFeature.setAttribute( fieldIndex, QVariant() );
+          needsRevisit = true;
+        }
       }
-    }
-    if ( needsRevisit )
-    {
-      revisitRelations << qMakePair( relation, relation.getRelatedFeaturesRequest( temporaryFeature ) );
+      if ( needsRevisit )
+      {
+        revisitRelations << qMakePair( relation, relation.getRelatedFeaturesRequest( temporaryFeature ) );
+      }
     }
   }
 
