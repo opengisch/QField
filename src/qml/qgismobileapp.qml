@@ -3353,8 +3353,6 @@ ApplicationWindow {
 
       settings.setValue( "/QField/FirstRunFlag", false )
 
-      console.log(cloudProjectsModel.currentProjectData.Name)
-      console.log(cloudProjectsModel.currentProjectData.Outdated)
       if (cloudProjectsModel.currentProjectData.Outdated) {
         displayToast(qsTr('This project has updated data on the cloud, you should synchronize.'))
       }

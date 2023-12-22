@@ -491,7 +491,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
       // value to be an hour from now. This is to avoid subsequently telling users
       // they have an outdated project when the only thing that changed is the delta(s)
       // they pushed.
-      project->lastLocalUpdatedAt = project->lastRefreshedAt.addSecs( 60 * 60 );
+      project->lastLocalUpdatedAt = project->lastRefreshedAt.addSecs( 60 * 30 );
       QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "lastLocalUpdatedAt" ), project->lastLocalUpdatedAt );
     }
     else
