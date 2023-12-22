@@ -218,6 +218,24 @@ class FeatureGatherer : public QThread
     {
       mWasCanceled = false;
 
+      const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == mFeature.id();
+      if ( featureIsNew )
+      {
+        const auto fieldPairs = mRelation.fieldPairs();
+        for ( QgsRelation::FieldPair fieldPair : fieldPairs )
+        {
+          {
+            if ( mRelation.referencedLayer() && mRelation.referencedLayer()->dataProvider() )
+            {
+              if ( !mRelation.referencedLayer()->dataProvider()->defaultValueClause( mFeature.fieldNameIndex( fieldPair.second ) ).isEmpty() )
+              {
+                mFeature.setAttribute( fieldPair.second, QVariant() );
+              }
+            }
+          }
+        }
+      }
+
       QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
       QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
       QgsExpression expression( mRelation.referencingLayer()->displayExpression() );

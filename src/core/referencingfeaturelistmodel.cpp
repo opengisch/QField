@@ -283,11 +283,29 @@ bool ReferencingFeatureListModel::checkParentPrimaries()
   if ( !mRelation.isValid() || !mFeature.isValid() )
     return false;
 
+  const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == mFeature.id();
   const auto fieldPairs = mRelation.fieldPairs();
   for ( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
+    if ( featureIsNew )
+    {
+      if ( mRelation.referencedLayer() && mRelation.referencedLayer()->dataProvider() )
+      {
+        if ( mFeature.attribute( fieldPair.second ) == mRelation.referencedLayer()->dataProvider()->defaultValueClause( mFeature.fieldNameIndex( fieldPair.second ) ) )
+        {
+          // Insure that the child feature layer's lnked attribute supports NULL values,
+          // used until we can replace with the provider-set value upon parent feature creation
+          if ( mRelation.referencingLayer()->fields().field( fieldPair.first ).constraints().constraints() & QgsFieldConstraints::ConstraintNotNull )
+          {
+            return false;
+          }
+        }
+      }
+    }
     if ( mFeature.attribute( fieldPair.second ).isNull() )
+    {
       return false;
+    }
   }
   return true;
 }
