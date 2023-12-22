@@ -2118,7 +2118,8 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = actionsRow.children.length * 44;
+        var actionRowResult = actionsRow.childrenRect.width
+        var result = 0;
         var padding = 0;
         // Skip first Row item
         for (var i = 1; i < count; ++i) {
@@ -2126,12 +2127,12 @@ ApplicationWindow {
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.padding, padding);
         }
-        return result + padding * 2;
+        return Math.max(actionRowResult, result + padding * 2);
     }
 
     Row {
       id: actionsRow
-      spacing: 4
+      spacing: 2
       height: printItem.height
       clip: true
 
