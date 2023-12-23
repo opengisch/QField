@@ -161,11 +161,12 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: addVertexButton
-    iconSource: Theme.getThemeIcon( "ic_add_vertex_white_24dp" )
     round: true
     enabled: !screenHovering
     bgcolor: {
-        if (!showConfirmButton)
+        if (!enabled)
+          Theme.darkGraySemiOpaque
+        else if (!showConfirmButton)
           Theme.darkGray
         else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === Qgis.GeometryType.Point ||
                  Number( rubberbandModel.geometryType ) === Qgis.GeometryType.Null)
@@ -173,20 +174,13 @@ VisibilityFadingRow {
         else
           Theme.darkGray
     }
-
-    states: [
-        State { when: addVertexButton.enabled;
-            PropertyChanges {   target: addVertexButton; opacity: 1.0    }
-        },
-        State { when: !addVertexButton.enabled;
-            PropertyChanges {   target: addVertexButton; opacity: 0.0    }
-        }
-    ]
-    transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
+    iconSource: Theme.getThemeIcon( "ic_add_vertex_white_24dp" )
+    iconColor: enabled ? "white" : Theme.darkGraySemiOpaque
 
     property bool lastAdditionAveraged: false
     property bool averagedPositionPressAndHeld: false
     property bool averagedPositionAutoRelease: false
+
     Connections {
       target: positionSource
 
