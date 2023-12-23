@@ -450,10 +450,6 @@ ApplicationWindow {
               return;
           }
 
-          // Check if geometry editor is taking over
-          if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) && geometryEditorsToolbar.canvasClicked( point, type ) )
-              return;
-
           if ( type === "stylus" ) {
               if ( pointInItem( point, digitizingToolbar ) ||
                    pointInItem( point, zoomToolbar ) ||
@@ -465,6 +461,10 @@ ApplicationWindow {
                    pointInItem( point, locatorItem ) ) {
                   return;
               }
+
+              // Check if geometry editor is taking over
+              if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) && geometryEditorsToolbar.canvasClicked( point, type ) )
+                  return;
 
               if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
                    ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
