@@ -336,6 +336,7 @@ Page {
         height: childrenRect.height
         anchors {
           left: parent.left
+          rightMargin: 12
           right: parent.right
           top: htmlLabel.bottom
         }
