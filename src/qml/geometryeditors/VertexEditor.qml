@@ -132,10 +132,11 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: addVertexButton
-    iconSource: Theme.getThemeIcon("ic_add_vertex_white_24dp")
     round: true
-    visible:  !screenHovering && featureModel && featureModel.vertexModel.canAddVertex && featureModel.vertexModel.editingMode !== VertexModel.AddVertex
-    bgcolor: Theme.darkGray
+    enabled: !screenHovering && featureModel && featureModel.vertexModel.canAddVertex && featureModel.vertexModel.editingMode !== VertexModel.AddVertex
+    bgcolor: enabled ? Theme.darkGray : Theme.darkGraySemiOpaque
+    iconSource: Theme.getThemeIcon("ic_add_vertex_white_24dp")
+    iconColor: enabled ? "white" : Theme.darkGraySemiOpaque
 
     onClicked: {
       applyChanges(qfieldSettings.autoSave)
@@ -154,10 +155,12 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: previousVertexButton
-    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    visible: featureModel && ((!screenHovering && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
-    bgcolor: featureModel && featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+    enabled: !screenHovering
+    visible: featureModel && (featureModel.vertexModel.canAddVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
+    bgcolor: enabled && featureModel && featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+    iconColor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? "white" : Theme.darkGraySemiOpaque
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified)
@@ -172,10 +175,12 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: nextVertexButton
-    iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    visible: featureModel && ((!screenHovering && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
-    bgcolor: featureModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+    enabled: !screenHovering
+    visible: featureModel && (featureModel.vertexModel.canAddVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
+    bgcolor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+    iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
+    iconColor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? "white" : Theme.darkGraySemiOpaque
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified)
