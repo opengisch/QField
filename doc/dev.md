@@ -3,8 +3,7 @@
 ## Getting the source code
 
 First check out the source code.
-The following commands will fetch the latest code and also make
-sure that submodules are properly initialized.
+The following commands will fetch the latest code.
 
 ```sh
 # For this document we will assume you are inside a folder for development.
@@ -15,7 +14,6 @@ sure that submodules are properly initialized.
 # You are free to choose yours.
 
 git clone git@github.com:opengisch/QField.git
-git submodule update --init --recursive
 # Alternatively you can use the following URL in case you have not set up SSH keys for github
 #   https://github.com/opengisch/QField.git
 ```
