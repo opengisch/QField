@@ -148,7 +148,7 @@
     },
     "egl": {
       "description": "EGL",
-      "supports": "linux",
+      "supports": "linux | android",
       "dependencies": [
         "egl"
       ]
