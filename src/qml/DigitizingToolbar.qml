@@ -164,15 +164,16 @@ VisibilityFadingRow {
     round: true
     enabled: !screenHovering
     bgcolor: {
-        if (!enabled)
+        if (!enabled) {
           Theme.darkGraySemiOpaque
-        else if (!showConfirmButton)
+        } else if (!showConfirmButton) {
           Theme.darkGray
-        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === Qgis.GeometryType.Point ||
-                 Number( rubberbandModel.geometryType ) === Qgis.GeometryType.Null)
+        } else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === Qgis.GeometryType.Point ||
+                   Number( rubberbandModel.geometryType ) === Qgis.GeometryType.Null) {
           Theme.mainColor
-        else
+        } else {
           Theme.darkGray
+        }
     }
     iconSource: Theme.getThemeIcon( "ic_add_vertex_white_24dp" )
     iconColor: enabled ? "white" : Theme.darkGraySemiOpaque
