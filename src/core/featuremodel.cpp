@@ -195,18 +195,15 @@ void FeatureModel::setLinkedFeatureValues()
   beginResetModel();
   mLinkedAttributeIndexes.clear();
   const bool parentFeatureIsNew = std::numeric_limits<QgsFeatureId>::min() == mLinkedParentFeature.id();
-  const auto fieldPairs = mLinkedRelation.fieldPairs();
+  const QList<QgsRelation::FieldPair> fieldPairs = mLinkedRelation.fieldPairs();
   for ( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
     mFeature.setAttribute( fieldPair.first, linkedParentFeature().attribute( fieldPair.second ) );
-    if ( parentFeatureIsNew && mLinkedRelation.referencedLayer() )
+    if ( parentFeatureIsNew && mLinkedRelation.referencedLayer() && mLinkedRelation.referencedLayer()->dataProvider() )
     {
-      if ( mLinkedRelation.referencedLayer()->dataProvider() )
+      if ( mFeature.attribute( fieldPair.first ).toString() == mLinkedRelation.referencedLayer()->dataProvider()->defaultValueClause( mLinkedParentFeature.fieldNameIndex( fieldPair.second ) ) )
       {
-        if ( mFeature.attribute( fieldPair.first ).toString() == mLinkedRelation.referencedLayer()->dataProvider()->defaultValueClause( mLinkedParentFeature.fieldNameIndex( fieldPair.second ) ) )
-        {
-          mFeature.setAttribute( fieldPair.first, QVariant() );
-        }
+        mFeature.setAttribute( fieldPair.first, QVariant() );
       }
     }
     mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( fieldPair.first ) );
@@ -785,7 +782,7 @@ bool FeatureModel::create()
       if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
       {
         // Revisit relations in need of attribute updates
-        for ( auto revisitRelation : revisitRelations )
+        for ( const QPair<QgsRelation, QgsFeatureRequest> &revisitRelation : std::as_const( revisitRelations ) )
         {
           const QList<QgsRelation::FieldPair> fieldPairs = revisitRelation.first.fieldPairs();
           revisitRelation.first.referencingLayer()->startEditing();
