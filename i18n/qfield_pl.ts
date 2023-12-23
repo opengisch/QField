@@ -164,7 +164,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>znaleziono %n urządzenie</numerusform><numerusform>znaleziono %n urządzenia</numerusform><numerusform>znaleziono %n urządzeń</numerusform><numerusform>znaleziono %n urządzenie</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -465,7 +465,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Zakończ lub odrzuć digitizację obiektu przed przełączeniem do trybu przeglądania</translation>
     </message>
 </context>
 <context>
@@ -669,15 +669,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się cofnąć utworzenia obiektów na warstwie &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się cofnąć usunięcia obiektów na warstwie &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się cofnąć zmian obiektów na warstwie &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
@@ -739,11 +739,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Pomyślnie połączono %n obiekt</numerusform><numerusform>Pomyślnie połączono %n obiekty</numerusform><numerusform>Pomyślnie połączono %n obiektów</numerusform><numerusform>Pomyślnie połączono %n obiekt</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nie udało się połączyć %n obiektu</numerusform><numerusform>Nie udało się połączyć %n obiektów</numerusform><numerusform>Nie udało się połączyć %n obiektów</numerusform><numerusform>Nie udało się połączyć %n obiektu</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
@@ -752,11 +752,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Czy na pewno %n wybrany obiekt ma zostać usunięty?</numerusform><numerusform>Czy na pewno %n wybrane obiekty mają zostać usunięte?</numerusform><numerusform>Czy na pewno %n wybranych obiektów ma zostać usunięte?</numerusform><numerusform>Czy na pewno %n wybrany obiekt ma zostać usunięty?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Pomyślnie usunięto %n obiekt</numerusform><numerusform>Pomyślnie usunięto %n obiekty</numerusform><numerusform>Pomyślnie usunięto %n obiektów</numerusform><numerusform>Pomyślnie usunięto %n obiekt</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
@@ -2009,7 +2009,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Jest %n lokalna zmiana</numerusform><numerusform>Są %n lokalne zmiany</numerusform><numerusform>Jest %n lokalnych zmian</numerusform><numerusform>Jest %n lokalna zmiana</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
@@ -2589,7 +2589,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished"><numerusform>znaleziono %n urządzenie</numerusform><numerusform>znaleziono %n urządzenia</numerusform><numerusform>znaleziono %n urządzeń</numerusform><numerusform>znaleziono %n urządzenie</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
