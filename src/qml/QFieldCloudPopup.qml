@@ -611,7 +611,9 @@ Popup {
 
     if ( cloudConnection.status === QFieldCloudConnection.Connecting ) {
       displayToast(qsTr('Connecting cloud'))
-    } else if ( cloudProjectsModel.currentProjectData.Outdated ) {
+    } else if ( cloudProjectsModel.currentProjectData.ProjectFileOutdated ) {
+      displayToast(qsTr('This project has an updated project file on the cloud, you are advised to synchronize.'), 'warning')
+    } else if ( cloudProjectsModel.currentProjectData.ProjectOutdated ) {
       displayToast(qsTr('This project has updated data on the cloud, you should synchronize.'))
     }
   }

@@ -3326,6 +3326,10 @@ ApplicationWindow {
         if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
           cloudPopup.show()
         }
+
+        if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
+        }
       } else {
         projectInfo.hasInsertRights = true
         projectInfo.hasEditRights = true
@@ -3352,10 +3356,6 @@ ApplicationWindow {
       layoutListInstantiator.model.reloadModel()
 
       settings.setValue( "/QField/FirstRunFlag", false )
-
-      if (cloudProjectsModel.currentProjectData.Outdated) {
-        displayToast(qsTr('This project has updated data on the cloud, you should synchronize.'))
-      }
     }
 
     function onSetMapExtent(extent) {
@@ -3593,6 +3593,11 @@ ApplicationWindow {
         displayToast(qsTr('Signed in'))
         // Go ahead and upload pending attachments in the background
         platformUtilities.uploadPendingAttachments(cloudConnection);
+
+        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
+        if (cloudProjectId !== '') {
+          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
+        }
       }
       previousStatus = cloudConnection.status
     }

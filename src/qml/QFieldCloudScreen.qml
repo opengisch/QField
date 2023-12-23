@@ -387,7 +387,7 @@ Page {
                                       break
                                     case QFieldCloudProjectsModel.LocalAndRemoteCheckout:
                                       status = qsTr( 'Available locally' )
-                                      if (Outdated) {
+                                      if (ProjectOutdated) {
                                         status += qsTr( ', updated data available on the cloud');
                                       }
                                       break
