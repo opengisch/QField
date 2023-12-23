@@ -131,21 +131,19 @@ EditorWidgetBase {
             MouseArea {
               anchors.fill: parent
               onClicked: {
-                if( save() ) {
-                  //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
-                  if( relationEditorModel.parentPrimariesAvailable ) {
-                    displayToast( qsTr( 'Adding child feature in layer %1' ).arg( relationEditorModel.relation.referencingLayer.name ) )
-                    if ( relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null )
-                    {
-                      requestGeometry( relationEditor, relationEditorModel.relation.referencingLayer );
-                      return;
-                    }
-                    showAddFeaturePopup()
-                  }
-                  else
+                //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
+                if( relationEditorModel.parentPrimariesAvailable ) {
+                  displayToast( qsTr( 'Adding child feature in layer %1' ).arg( relationEditorModel.relation.referencingLayer.name ) )
+                  if ( relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null )
                   {
-                    displayToast (qsTr( 'Cannot add child feature: parent primary keys are not available' ), 'warning' )
+                    requestGeometry( relationEditor, relationEditorModel.relation.referencingLayer );
+                    return;
                   }
+                  showAddFeaturePopup()
+                }
+                else
+                {
+                  displayToast (qsTr( 'Cannot add child feature: attribute value linking parent and children is not set' ), 'warning' )
                 }
               }
             }
@@ -374,5 +372,6 @@ EditorWidgetBase {
             embeddedPopup.applyGeometry(geometry)
         }
         embeddedPopup.open()
+        embeddedPopup.attributeFormModel.applyParentDefaultValues()
     }
 }

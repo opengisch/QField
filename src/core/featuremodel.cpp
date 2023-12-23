@@ -194,10 +194,18 @@ void FeatureModel::setLinkedFeatureValues()
 {
   beginResetModel();
   mLinkedAttributeIndexes.clear();
-  const auto fieldPairs = mLinkedRelation.fieldPairs();
+  const bool parentFeatureIsNew = std::numeric_limits<QgsFeatureId>::min() == mLinkedParentFeature.id();
+  const QList<QgsRelation::FieldPair> fieldPairs = mLinkedRelation.fieldPairs();
   for ( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
-    mFeature.setAttribute( mFeature.fieldNameIndex( fieldPair.first ), linkedParentFeature().attribute( fieldPair.second ) );
+    mFeature.setAttribute( fieldPair.first, linkedParentFeature().attribute( fieldPair.second ) );
+    if ( parentFeatureIsNew && mLinkedRelation.referencedLayer() && mLinkedRelation.referencedLayer()->dataProvider() )
+    {
+      if ( mFeature.attribute( fieldPair.first ).toString() == mLinkedRelation.referencedLayer()->dataProvider()->defaultValueClause( mLinkedParentFeature.fieldNameIndex( fieldPair.second ) ) )
+      {
+        mFeature.setAttribute( fieldPair.first, QVariant() );
+      }
+    }
     mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( fieldPair.first ) );
   }
   endResetModel();
@@ -233,6 +241,7 @@ void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
     return;
 
   mLinkedParentFeature = feature;
+  emit linkedParentFeatureChanged();
 
   if ( mLinkedRelation.isValid() )
     setLinkedFeatureValues();
@@ -731,6 +740,31 @@ bool FeatureModel::create()
     return false;
   }
 
+  QList<QPair<QgsRelation, QgsFeatureRequest>> revisitRelations;
+  if ( mProject )
+  {
+    // Gather any relationship children which would have relied on an auto-generated field value
+    const QList<QgsRelation> relations = mProject->relationManager()->referencedRelations( mLayer );
+    QgsFeature temporaryFeature = mFeature;
+    for ( const QgsRelation &relation : relations )
+    {
+      const QgsAttributeList rereferencedFields = relation.referencedFields();
+      bool needsRevisit = false;
+      for ( const int fieldIndex : rereferencedFields )
+      {
+        if ( mLayer->dataProvider() && !mLayer->dataProvider()->defaultValueClause( fieldIndex ).isEmpty() )
+        {
+          temporaryFeature.setAttribute( fieldIndex, QVariant() );
+          needsRevisit = true;
+        }
+      }
+      if ( needsRevisit )
+      {
+        revisitRelations << qMakePair( relation, relation.getRelatedFeaturesRequest( temporaryFeature ) );
+      }
+    }
+  }
+
   // The connection below will be triggered when the new feature is committed and will provide
   // the saved feature ID needed to fetch the saved feature back from the data provider
   QgsFeatureId createdFeatureId;
@@ -747,6 +781,24 @@ bool FeatureModel::create()
       QgsFeature feat;
       if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
       {
+        // Revisit relations in need of attribute updates
+        for ( const QPair<QgsRelation, QgsFeatureRequest> &revisitRelation : std::as_const( revisitRelations ) )
+        {
+          const QList<QgsRelation::FieldPair> fieldPairs = revisitRelation.first.fieldPairs();
+          revisitRelation.first.referencingLayer()->startEditing();
+          QgsFeatureIterator it = revisitRelation.first.referencingLayer()->getFeatures( revisitRelation.second );
+          QgsFeature childFeature;
+          while ( it.nextFeature( childFeature ) )
+          {
+            for ( const QgsRelation::FieldPair fieldPair : fieldPairs )
+            {
+              childFeature.setAttribute( fieldPair.referencingField(), feat.attribute( fieldPair.referencedField() ) );
+            }
+            revisitRelation.first.referencingLayer()->updateFeature( childFeature );
+          }
+          revisitRelation.first.referencingLayer()->commitChanges();
+        }
+
         setFeature( feat );
       }
       else
