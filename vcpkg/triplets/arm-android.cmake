@@ -5,6 +5,7 @@ set(VCPKG_CMAKE_SYSTEM_NAME Android)
 set(VCPKG_BUILD_TYPE release)
 set(VCPKG_MAKE_BUILD_TRIPLET "--host=armv7a-linux-androideabi")
 set(VCPKG_CMAKE_CONFIGURE_OPTIONS -DANDROID_ABI=armeabi-v7a -DANDROID_ARM_NEON=OFF)
+set(ANDROID_SDK_ROOT $ENV{ANDROID_SDK_ROOT})
 
 set(VCPKG_CXX_FLAGS "-fstack-protector-strong")
 set(VCPKG_C_FLAGS "-fstack-protector-strong")

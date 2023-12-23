@@ -73,23 +73,6 @@ jobs:
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
-      - name: 💐 Install Qt (Android)
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: ${{ env.INSTALL_QT_VERSION }}
-          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors'
-          target: android
-          arch: ${{ matrix.qt_arch }}
-          cache: false
-
-      - name: 💐 Install Qt (Desktop)
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: ${{ env.INSTALL_QT_VERSION }}
-          modules: 'qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors'
-          target: desktop
-          cache: false
-
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1
         with:
@@ -117,29 +100,28 @@ jobs:
       - name: 🌱 Install dependencies and generate project files
         env:
           WORKSPACE: ${{ github.workspace }}
+          ANDROID_SDK_ROOT: /usr/local/lib/android/sdk/
         run: |
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
 
+          # TODO: isolate properly from host environment
           sudo apt remove libgles2
           sudo apt remove libegl1
+          # END TODO
 
           cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D CMAKE_CXX_COMPILER_LAUNCHER=ccache \
-                -D SYSTEM_QT=ON \
-                -D ANDROID_SDK=/usr/local/lib/android/sdk/ \
-                -D ANDROID_SDK_ROOT=/usr/local/lib/android/sdk/ \
+                -D ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT} \
                 -D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
                 -D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_ALL_FILES_ACCESS="${{ matrix.all_files_access }}" \
                 -D WITH_SPIX=OFF \
                 -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
-                -D QT_HOST_PATH=/home/runner/work/QField/Qt/${{ env.INSTALL_QT_VERSION }}/gcc_64 \
-                -D QT_HOST_PATH_CMAKE_DIR:PATH=/home/runner/work/QField/Qt/${{ env.INSTALL_QT_VERSION }}/gcc_64/lib/cmake \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
