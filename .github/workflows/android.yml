@@ -126,7 +126,6 @@ jobs:
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_ALL_FILES_ACCESS="${{ matrix.all_files_access }}" \
                 -D WITH_SPIX=OFF \
-                -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
