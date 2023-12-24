@@ -16,8 +16,6 @@ echo "Package name ${APP_PACKAGE_NAME}"
 cmake -S "${SOURCE_DIR}" \
 	-B "${CMAKE_BUILD_DIR}" \
 	-G Ninja \
-	-D QT_HOST_PATH="/usr/src/qfield/build-${triplet}/vcpkg_installed/x64-linux" \
-	-D QT_HOST_PATH_CMAKE_DIR="/usr/src/qfield/build-${triplet}/vcpkg_installed/x64-linux/share" \
 	-D VCPKG_TARGET_TRIPLET="${triplet}" \
 	-D SYSTEM_QT=OFF \
 	-D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
