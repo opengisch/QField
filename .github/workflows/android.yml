@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: true
       matrix:
@@ -52,9 +52,8 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "ANDROID_NDK_VERSION=25.1.8937393" >> $GITHUB_ENV
+          echo "ANDROID_NDK_VERSION=25.2.9519653" >> $GITHUB_ENV
           echo "ANDROID_BUILD_TOOLS_VERSION=33.0.0" >> $GITHUB_ENV
-          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.1.8937393" >> $GITHUB_ENV
           echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
@@ -62,7 +61,6 @@ jobs:
           echo "BUILD_ROOT=${BUILD_ROOT}" >> $GITHUB_ENV
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
-          echo "INSTALL_QT_VERSION=6.6.1" >> $GITHUB_ENV
 
       - name: 💎 Setup ruby
         uses: ruby/setup-ruby@v1
@@ -77,10 +75,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libegl1-mesa libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2
-
-          # TODO: isolate properly from host environment
-          sudo apt-get remove libgles2 libegl1
-          # END TODO
 
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1
@@ -98,13 +92,6 @@ jobs:
           mkdir /tmp/sentry-android-ndk
           wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/6.34.0/sentry-android-ndk-6.34.0.aar -O /tmp/sentry.zip
           unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
-
-      - name: 🌱 Update ndk
-        run: |
-          echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
-          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --uninstall "ndk-bundle"
-          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager "platforms;android-33" "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" tools platform-tools
-          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses
 
       - name: 🌱 Install dependencies and generate project files
         env:
