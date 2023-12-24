@@ -36,6 +36,7 @@ RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
   tar \
   libarchive-tools \
   autoconf \
+  autoconf-archive \
   python3-pip \
   pkg-config \
   libtool \
@@ -48,6 +49,20 @@ RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
   apt-transport-https \
   ca-certificates \
   software-properties-common \
+  gperf \
+  autopoint \
+  '^libxcb.*-dev' \
+  libx11-xcb-dev \
+  libegl1-mesa \
+  libegl1-mesa-dev \
+  libglu1-mesa-dev \
+  libxrender-dev \
+  libxi-dev \
+  libxkbcommon-dev \
+  libxkbcommon-x11-dev \
+  libgstreamer-gl1.0-0 \
+  libgstreamer-plugins-base1.0-0 \
+  libfuse2 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
@@ -70,7 +85,5 @@ RUN mkdir /home/devel
 WORKDIR /home/devel
 ARG INSTALL_QT_ARCH
 ARG INSTALL_QT_VERSION
-RUN pip3 install aqtinstall cmake && \
-    /usr/local/bin/aqt install-qt linux android "${INSTALL_QT_VERSION}" "${INSTALL_QT_ARCH}" -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors --autodesktop
 ENV ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk/${NDK_VERSION}
 ENV ANDROID_NDK_VERSION=${NDK_VERSION}
