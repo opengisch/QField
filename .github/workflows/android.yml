@@ -78,6 +78,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libegl1-mesa libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2
 
+          # TODO: isolate properly from host environment
+          sudo apt-get remove libgles2 libegl1
+          # END TODO
+
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1
         with:
@@ -109,11 +113,6 @@ jobs:
         run: |
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
-
-          # TODO: isolate properly from host environment
-          sudo apt remove libgles2
-          sudo apt remove libegl1
-          # END TODO
 
           cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \

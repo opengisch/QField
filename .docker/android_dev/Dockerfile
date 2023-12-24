@@ -83,7 +83,5 @@ RUN yes | /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager --licenses 
 
 RUN mkdir /home/devel
 WORKDIR /home/devel
-ARG INSTALL_QT_ARCH
-ARG INSTALL_QT_VERSION
 ENV ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk/${NDK_VERSION}
 ENV ANDROID_NDK_VERSION=${NDK_VERSION}
