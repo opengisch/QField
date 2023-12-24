@@ -109,15 +109,6 @@ else()
 endif()
 
 if (ANDROID)
-  # Qt by default assumes that cmake files live in `lib/cmake`. Point to `share` instead.
-  # See https://github.com/qt/qtbase/blob/39290c508e2c7fa816c6f79b3eb284adc0cad3c0/src/corelib/Qt6AndroidMacros.cmake#L1016C16-L1026
-  get_filename_component(QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI} "${Qt6_DIR}/.." ABSOLUTE)
-  message(STATUS "QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI}: ${QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI}}")
-
-  set(QT_HOST_PATH "${VCPKG_INSTALLED_DIR}/x64-linux")
-  set(QT_HOST_PATH_CMAKE_DIR "${VCPKG_INSTALLED_DIR}/x64-linux/share")
-  message(STATUS "QT_HOST_PATH: ${QT_HOST_PATH}")
-
   if(VCPKG_TARGET_TRIPLET STREQUAL "arm-android" OR VCPKG_TARGET_TRIPLET STREQUAL "arm-neon-android")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fstack-protector-strong -lunwind -Wl,--exclude-libs=libunwind.a")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fstack-protector-strong -lunwind -Wl,--exclude-libs=libunwind.a")
@@ -158,6 +149,17 @@ find_package(GDAL REQUIRED)
 find_package(Qca REQUIRED)
 find_package(LibZip REQUIRED)
 find_package(QtKeychain REQUIRED)
+
+if(ANDROID)
+  # Qt by default assumes that cmake files live in `lib/cmake`. Point to `share` instead.
+  # See https://github.com/qt/qtbase/blob/39290c508e2c7fa816c6f79b3eb284adc0cad3c0/src/corelib/Qt6AndroidMacros.cmake#L1016C16-L1026
+  get_filename_component(QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI} "${Qt6_DIR}/.." ABSOLUTE)
+  message(STATUS "QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI}: ${QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI}}")
+
+  set(QT_HOST_PATH "${VCPKG_INSTALLED_DIR}/x64-linux")
+  set(QT_HOST_PATH_CMAKE_DIR "${VCPKG_INSTALLED_DIR}/x64-linux/share")
+  message(STATUS "QT_HOST_PATH: ${QT_HOST_PATH}")
+endif()
 
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
