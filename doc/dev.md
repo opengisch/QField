@@ -154,15 +154,6 @@ Make sure you have the following tools installed
 
 - cmake
 - The Android SDK including NDK
-- Qt for Android
-- This list is incomplete, please let us know what is missing
-
-To install Qt, `aqtinstall` is a nifty little helper
-
-```sh
-pip3 install aqtinstall
-aqt install-qt linux android 6.5.0 android_arm64_v8a -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors  --autodesktop
-```
 
 #### Configure
 
