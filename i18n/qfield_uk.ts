@@ -3750,7 +3750,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Неможливо додати дочірню функцію: батьківські первинні ключі недоступні</translation>
+        <translation type="vanished">Неможливо додати дочірню функцію: батьківські первинні ключі недоступні</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3771,6 +3771,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Не вдалося видалити елемент посилання</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4192,7 +4196,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Неможливо додати дочірню функцію: батьківські первинні ключі недоступні</translation>
+        <translation type="vanished">Неможливо додати дочірню функцію: батьківські первинні ключі недоступні</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4213,6 +4217,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Не вдалося видалити елемент посилання</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

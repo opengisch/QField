@@ -3751,7 +3751,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Impossibile aggiungere elemento figlio: nessuna chiave primaria padre disponibile</translation>
+        <translation type="vanished">Impossibile aggiungere elemento figlio: nessuna chiave primaria padre disponibile</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3772,6 +3772,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Impossibile eliminare l&apos;elemento di riferimento</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4193,7 +4197,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Impossibile aggiungere elemento figlio: nessuna chiave primaria padre disponibile</translation>
+        <translation type="vanished">Impossibile aggiungere elemento figlio: nessuna chiave primaria padre disponibile</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4214,6 +4218,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Impossibile eliminare l&apos;elemento di riferimento</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

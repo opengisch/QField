@@ -3744,7 +3744,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Ne mogu dodati podelement: primarni ključevi roditeljskog elementa nisu dostupni</translation>
+        <translation type="vanished">Ne mogu dodati podelement: primarni ključevi roditeljskog elementa nisu dostupni</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3765,6 +3765,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Neuspješno brisanje referenciranog elementa</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4186,7 +4190,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Ne mogu dodati podelement: primarni ključevi roditeljskog elementa nisu dostupni </translation>
+        <translation type="vanished">Ne mogu dodati podelement: primarni ključevi roditeljskog elementa nisu dostupni </translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4207,6 +4211,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Neuspješno brisanje referenciranog elementa</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

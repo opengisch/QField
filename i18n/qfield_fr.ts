@@ -3745,7 +3745,7 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Impossible d&apos;ajouter l&apos;entité enfant: les clés primaires du parent ne sont pas disponibles</translation>
+        <translation type="vanished">Impossible d&apos;ajouter l&apos;entité enfant: les clés primaires du parent ne sont pas disponibles</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3766,6 +3766,10 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Échec de la suppression de l&apos;entité référencée.</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4189,7 +4193,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Impossible d&apos;ajouter l&apos;entité enfant: les clés primaires du parent ne sont pas disponibles</translation>
+        <translation type="vanished">Impossible d&apos;ajouter l&apos;entité enfant: les clés primaires du parent ne sont pas disponibles</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4210,6 +4214,10 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Échec de la suppression de l&apos;entité référencée.</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

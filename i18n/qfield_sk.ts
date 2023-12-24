@@ -3749,7 +3749,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Priradenie podradeného prvku nie je možné: nadradené primárne kľúče nie sú dostupné</translation>
+        <translation type="vanished">Priradenie podradeného prvku nie je možné: nadradené primárne kľúče nie sú dostupné</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3770,6 +3770,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Odstránenie referenčného prvku zlyhalo</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4191,7 +4195,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Priradenie podradeného prvku nie je možné: nadradené primárne kľúče nie sú dostupné</translation>
+        <translation type="vanished">Priradenie podradeného prvku nie je možné: nadradené primárne kľúče nie sú dostupné</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4212,6 +4216,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Odstránenie referenčného prvku zlyhalo</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

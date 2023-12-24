@@ -3741,7 +3741,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
+        <translation type="vanished">Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3762,6 +3762,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Nie udało się usunąć odnośnego obiektu</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4183,7 +4187,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
+        <translation type="vanished">Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4204,6 +4208,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Nie udało się usunąć odnośnego obiektu</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

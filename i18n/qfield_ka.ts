@@ -3735,7 +3735,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>შვილობილი ტოპოგრაფიული ელემენტის დამატება შეუძლებელია: მშობელი საკვანძო ველი არ არის ხელმისაწვდომი</translation>
+        <translation type="vanished">შვილობილი ტოპოგრაფიული ელემენტის დამატება შეუძლებელია: მშობელი საკვანძო ველი არ არის ხელმისაწვდომი</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3756,6 +3756,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>მითითებული ტოპოგრაფიული ელემენტის წაშლა ვერ მოხდა</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4177,7 +4181,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>შვილობილი ტოპოგრაფიული ელემენტის დამატება შეუძლებელია: მშობელი საკვანძო ველი არ არის ხელმისაწვდომი</translation>
+        <translation type="vanished">შვილობილი ტოპოგრაფიული ელემენტის დამატება შეუძლებელია: მშობელი საკვანძო ველი არ არის ხელმისაწვდომი</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4198,6 +4202,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>მითითებული ტოპოგრაფიული ელემენტის წაშლა ვერ მოხდა</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

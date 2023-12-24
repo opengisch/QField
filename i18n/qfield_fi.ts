@@ -3748,7 +3748,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Ei voida lisätä alakohdetta: pääavaimia ei ole käytettävissä.</translation>
+        <translation type="vanished">Ei voida lisätä alakohdetta: pääavaimia ei ole käytettävissä.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3769,6 +3769,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Viittaavan kohteen poisto epäonnistui</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4190,7 +4194,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Ei voida lisätä alakohdetta: pääavaimia ei ole käytettävissä.</translation>
+        <translation type="vanished">Ei voida lisätä alakohdetta: pääavaimia ei ole käytettävissä.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4211,6 +4215,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Viittaavan kohteen poisto epäonnistui</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

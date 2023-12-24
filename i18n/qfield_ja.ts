@@ -3744,7 +3744,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>子地物を追加できません。親の主キーが有効ではありません。</translation>
+        <translation type="vanished">子地物を追加できません。親の主キーが有効ではありません。</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3765,6 +3765,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>参照している地物を削除できませんでした</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4186,7 +4190,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>子地物を追加できません。親の主キーが有効ではありません。</translation>
+        <translation type="vanished">子地物を追加できません。親の主キーが有効ではありません。</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4207,6 +4211,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>参照している地物を削除できませんでした</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

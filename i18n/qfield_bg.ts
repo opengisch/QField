@@ -3748,7 +3748,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Не може да се добави наследник: слоят източник няма начален ключ.</translation>
+        <translation type="vanished">Не може да се добави наследник: слоят източник няма начален ключ.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3769,6 +3769,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Неуспешено изтриване на обект</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4190,7 +4194,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Не може да се добави наследник: слоят източник няма начален ключ.</translation>
+        <translation type="vanished">Не може да се добави наследник: слоят източник няма начален ключ.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4211,6 +4215,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Неуспешено изтриване на обект</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

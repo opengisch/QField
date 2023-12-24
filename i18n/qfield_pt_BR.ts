@@ -3737,7 +3737,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Não é possível adicionar elemento filho: chaves primárias pai não estão disponíveis </translation>
+        <translation type="vanished">Não é possível adicionar elemento filho: chaves primárias pai não estão disponíveis </translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3758,6 +3758,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Falha ao excluir o recurso de referência</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4179,7 +4183,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Não é possível adicionar elemento filho: chaves primárias pai não estão disponíveis </translation>
+        <translation type="vanished">Não é possível adicionar elemento filho: chaves primárias pai não estão disponíveis </translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4200,6 +4204,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Falha ao excluir o recurso de referência</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

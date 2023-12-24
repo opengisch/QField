@@ -3778,7 +3778,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Cannot add child feature: parent primary keys are not available</translation>
+        <translation type="vanished">Cannot add child feature: parent primary keys are not available</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3799,6 +3799,10 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Failed to delete referencing feature</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4220,7 +4224,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Cannot add child feature: parent primary keys are not available</translation>
+        <translation type="vanished">Cannot add child feature: parent primary keys are not available</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4241,6 +4245,10 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Failed to delete referencing feature</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

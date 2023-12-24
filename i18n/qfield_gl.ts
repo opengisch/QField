@@ -3746,7 +3746,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Non se pode engadir a entidade filla: non están dispoñibles as claves primarias da capa de orixe</translation>
+        <translation type="vanished">Non se pode engadir a entidade filla: non están dispoñibles as claves primarias da capa de orixe</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3767,6 +3767,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Non se puido eliminar a entidade de referencia</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4188,7 +4192,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Non se pode engadir a entidade filla: non están dispoñibles as claves primarias da capa de orixe</translation>
+        <translation type="vanished">Non se pode engadir a entidade filla: non están dispoñibles as claves primarias da capa de orixe</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4209,6 +4213,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Non se puido eliminar a entidade de referencia</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

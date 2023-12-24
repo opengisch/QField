@@ -3749,7 +3749,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nelze přidat podřízený prvek: základní primární klíče nejsou k dispozici.</translation>
+        <translation type="vanished">Nelze přidat podřízený prvek: základní primární klíče nejsou k dispozici.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3770,6 +3770,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Smazání referenčního prvku se nezdařilo</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4191,7 +4195,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nelze přidat podřízený prvek: základní primární klíče nejsou k dispozici.</translation>
+        <translation type="vanished">Nelze přidat podřízený prvek: základní primární klíče nejsou k dispozici.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4212,6 +4216,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Smazání referenčního prvku se nezdařilo</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

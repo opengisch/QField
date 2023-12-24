@@ -3750,7 +3750,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nu se poate adăuga elementul secundar: Cheile primare principale nu sunt disponibile</translation>
+        <translation type="vanished">Nu se poate adăuga elementul secundar: Cheile primare principale nu sunt disponibile</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3771,6 +3771,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Nu s-a putut șterge elementul de referențiere</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4192,7 +4196,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nu se poate adăuga elementul secundar: Cheile primare principale nu sunt disponibile</translation>
+        <translation type="vanished">Nu se poate adăuga elementul secundar: Cheile primare principale nu sunt disponibile</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4213,6 +4217,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Nu s-a putut șterge elementul de referențiere</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

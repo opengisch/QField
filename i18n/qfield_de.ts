@@ -3763,6 +3763,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>Failed to delete referencing feature</source>
         <translation>Referenziertes Feature konnte nicht gelöscht werden</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4204,6 +4208,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Referenziertes Feature konnte nicht gelöscht werden</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
