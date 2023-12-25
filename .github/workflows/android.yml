@@ -48,6 +48,19 @@ jobs:
         with:
           submodules: recursive
 
+      - name: ♻️ Check disk space
+        run: df . -h
+
+      - name: 🧹 Reclaim disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+
+      - name: ♻️ Check disk space
+        run: df . -h
+
       - name: 🌾 Prepare variables
         id: vars
         shell: bash
