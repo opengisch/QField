@@ -3768,7 +3768,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>无法添加子要素：未设置链接父与子的属性值</translation>
     </message>
 </context>
 <context>
@@ -4214,7 +4214,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>无法添加子要素：未设置链接父与子的属性值</translation>
     </message>
 </context>
 </TS>

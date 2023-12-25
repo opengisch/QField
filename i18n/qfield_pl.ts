@@ -534,7 +534,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>Edycja warstwy dziennika digitalizacji nie powiodła się</translation>
     </message>
 </context>
 <context>
@@ -771,7 +771,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation type="unfinished"/>
+        <translation>Nie można skonwertować wartości &quot;%1&quot; %4 na wartość zgodną dla pola %2(%3).</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
@@ -2097,7 +2097,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished"><numerusform>%n załącznik jest wysyłany w tle</numerusform><numerusform>%n załączniki są wysyłane w tle</numerusform><numerusform>%n załączników jest wysyłanych w tle</numerusform><numerusform>%n załącznik jest wysyłany w tle</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
