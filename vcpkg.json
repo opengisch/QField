@@ -16,6 +16,7 @@
         "qml"
       ]
     },
+    "qtimageformats",
     "qtwebview",
     "qtconnectivity",
     "qtdeclarative",
@@ -29,7 +30,8 @@
     {
       "name": "qtmultimedia",
       "features": [
-        "qml"
+        "qml",
+        "ffmpeg"
       ]
     },
     "qtserialport",
