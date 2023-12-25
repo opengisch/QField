@@ -53,7 +53,6 @@ RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
   autopoint \
   '^libxcb.*-dev' \
   libx11-xcb-dev \
-  libegl1-mesa \
   libegl1-mesa-dev \
   libglu1-mesa-dev \
   libxrender-dev \
@@ -63,6 +62,7 @@ RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
   libgstreamer-gl1.0-0 \
   libgstreamer-plugins-base1.0-0 \
   libfuse2 \
+  nasm \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8

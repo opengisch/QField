@@ -31,7 +31,10 @@
       "name": "qtmultimedia",
       "features": [
         "qml",
-        "ffmpeg"
+        {
+          "name": "ffmpeg",
+          "platform": "linux"
+        }
       ]
     },
     "qtserialport",
