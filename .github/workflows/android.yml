@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - android_more_dynamic
   pull_request:
   release:
     types: ['published']

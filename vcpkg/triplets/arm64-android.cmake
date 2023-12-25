@@ -1,7 +1,40 @@
 set(VCPKG_TARGET_ARCHITECTURE arm64)
 set(VCPKG_CRT_LINKAGE dynamic)
 set(VCPKG_LIBRARY_LINKAGE static)
-if(PORT MATCHES "^qt")
+set(DYNAMIC_PACKAGES
+  "zlib"
+  "egl-registry"
+  "bzip2"
+  "pthreads"
+  "opengl-registry"
+  "libpng"
+  "gettext-libintl"
+  "brotli"
+  "getopt"
+  "expat"
+  "pthread"
+  "openssl"
+  "opengl"
+  "lz4"
+  "libuuid"
+  "freetype"
+  "dirent"
+  "libiconv"
+  "gettext"
+  "gperf"
+  "double-conversion"
+  "egl"
+  "sqlite3"
+  "zstd"
+  "pcre2"
+  "fontconfig"
+  "libpq"
+  "libjpeg-turbo"
+  "libb2"
+  "icu"
+  "harfbuzz"
+)
+if(PORT MATCHES "^qt" OR PORT IN_LIST DYNAMIC_PACKAGES)
     set(VCPKG_LIBRARY_LINKAGE dynamic)
 endif()
 set(VCPKG_CMAKE_SYSTEM_NAME Android)
