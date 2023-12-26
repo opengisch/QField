@@ -12,6 +12,7 @@ if(DEFINED ENV{KEYNAME}
       --deployment bundled
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
+      --gdbserver
       --release
       --aab
     WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR
@@ -35,6 +36,7 @@ else()
       --deployment bundled
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
+      --gdbserver
     WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR
     COMMAND_ERROR_IS_FATAL ANY)
 endif()
