@@ -76,7 +76,7 @@ function(create_executable)
       FetchContent_Declare(
         android_openssl
         GIT_REPOSITORY https://github.com/KDAB/android_openssl.git
-        GIT_TAG ef412c6ebf131fae29a873d0c5db6c6b9dd494fd)
+        GIT_TAG 74e464a98b2ccd21ac84d820f996b8c356d0929b)
       FetchContent_MakeAvailable(android_openssl)
       include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
     else()

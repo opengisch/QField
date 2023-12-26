@@ -90,6 +90,8 @@ int main( int argc, char **argv )
     return 0;
   }
 
+  qputenv( "ANDROID_OPENSSL_SUFFIX", "_3" );
+
   initGraphics();
 
   // Read settings, use a dummy app to get access to QSettings
