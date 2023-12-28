@@ -1,7 +1,7 @@
 set(VCPKG_TARGET_ARCHITECTURE x64)
 set(VCPKG_CRT_LINKAGE dynamic)
 set(VCPKG_LIBRARY_LINKAGE static)
-if(PORT MATCHES "^qt")
+if(PORT MATCHES "^qt" AND NOT PORT MATCHES "^qtkeychain")
     set(VCPKG_LIBRARY_LINKAGE dynamic)
 endif()
 set(VCPKG_CMAKE_SYSTEM_NAME Android)
