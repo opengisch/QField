@@ -669,23 +669,23 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao desfazer os elementos criados na camada &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao desfazer elementos apagados na camada &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao desfazer a atualização dos elementos na camada &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao confirmar a alteração de desfazer do elemento na camada &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha aos reverter e desfazer as alterações do elemento na camada &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -3772,7 +3772,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível adicionar elemento filho: o valor do atributo que liga pai e filho não está definido</translation>
     </message>
 </context>
 <context>
@@ -4218,7 +4218,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível adicionar elemento filho: o valor do atributo que liga pai e filho não está definido</translation>
     </message>
 </context>
 </TS>
