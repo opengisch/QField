@@ -72,13 +72,11 @@ function(create_executable)
                                                  ${CMAKE_SOURCE_DIR}/src/qml)
 
       set(PROJECT_NAME ${exe_TARGET})
-      include(FetchContent)
-      FetchContent_Declare(
-        android_openssl
-        GIT_REPOSITORY https://github.com/KDAB/android_openssl.git
-        GIT_TAG ef412c6ebf131fae29a873d0c5db6c6b9dd494fd)
-      FetchContent_MakeAvailable(android_openssl)
-      include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
+      # include(FetchContent) FetchContent_Declare( android_openssl
+      # GIT_REPOSITORY https://github.com/KDAB/android_openssl.git GIT_TAG
+      # ef412c6ebf131fae29a873d0c5db6c6b9dd494fd)
+      # FetchContent_MakeAvailable(android_openssl)
+      # include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
     else()
       add_library(${exe_TARGET} SHARED ${QFIELD_SOURCES})
     endif()
