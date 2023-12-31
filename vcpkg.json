@@ -52,6 +52,11 @@
     {
       "name": "sentry-cocoa",
       "platform": "ios | osx"
+    },
+    {
+      "name": "qttools",
+      "default-features": false,
+      "host": true
     }
   ]
 }
