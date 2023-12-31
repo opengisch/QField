@@ -33,7 +33,7 @@
         "qml",
         {
           "name": "ffmpeg",
-          "platform": "linux"
+          "platform": "linux | android"
         }
       ]
     },
