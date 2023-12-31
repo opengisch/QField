@@ -9,4 +9,6 @@ set(STATIC_PORTS
     libb2
     freeglut
     icu
+    qgis-qt6
+    ffmpeg
 )
