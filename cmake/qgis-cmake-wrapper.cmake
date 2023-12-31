@@ -64,7 +64,7 @@ endfunction()
 #endif()
 
 
-if(FALSE) # Should possibly have a "static only" check
+if(TRUE) # Should possibly have a "static only" check
   find_package(PkgConfig QUIET)
 
   _find_and_link_library(authmethod_basic_a QGIS::Core)
