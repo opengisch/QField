@@ -17,7 +17,7 @@ vcpkg_from_github(
         bigobj.patch
         poly2tri.patch
         mesh.patch
-	wrongattributeerrormessage.patch
+        wrongattributeerrormessage.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -46,7 +46,6 @@ list(APPEND QGIS_OPTIONS "-DFLEX_EXECUTABLE=${FLEX}")
 list(APPEND QGIS_OPTIONS "-DQGIS_INCLUDE_SUBDIR=include/qgis")
 list(APPEND QGIS_OPTIONS "-DBUILD_WITH_QT6=ON")
 list(APPEND QGIS_OPTIONS "-DQGIS_MACAPP_FRAMEWORK=FALSE")
-list(APPEND QGIS_OPTIONS "-DCMAKE_DISABLE_FIND_PACKAGE_HDF5=TRUE")
 
 if("opencl" IN_LIST FEATURES)
     list(APPEND QGIS_OPTIONS -DUSE_OPENCL:BOOL=ON)
