@@ -1,14 +1,14 @@
 set(STATIC_PORTS
     gdal
     catch2
-    libiconv
+    #    libiconv
     freexl
     libspatialite
     qhull
     harfbuzz
     libb2
     freeglut
-    icu
+    #    icu
     qca-qt6 # OSSL plugin not discovered unless static
     qgis-qt6
     ffmpeg

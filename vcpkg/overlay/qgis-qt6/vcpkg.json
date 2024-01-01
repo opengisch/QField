@@ -38,7 +38,6 @@
 	      [
                 "brotli",
                 "concurrent",
-                "dbus",
                 "default-features",
                 "doubleconversion",
                 "freetype",
@@ -51,7 +50,6 @@
                 "pcre2",
                 "png",
                 "sql",
-                "sql-psql",
                 "sql-sqlite",
                 "testlib",
                 "thread",
