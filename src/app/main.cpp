@@ -52,7 +52,7 @@
 
 #if HAVE_STATIC_QCA_PLUGINS
 #include <QtPlugin>
-// Q_IMPORT_PLUGIN( opensslPlugin )
+Q_IMPORT_PLUGIN( opensslPlugin )
 #endif
 
 void initGraphics()

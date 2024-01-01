@@ -9,6 +9,7 @@ set(STATIC_PORTS
     libb2
     freeglut
     icu
+    qca-qt6 # OSSL plugin not discovered unless static
     qgis-qt6
     ffmpeg
 )

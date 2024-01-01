@@ -21,6 +21,7 @@ vcpkg_from_github(
         connect_fix.patch
 )
 
+
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
   set(QCA_FEATURE_INSTALL_DIR_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/Qca)
   set(QCA_FEATURE_INSTALL_DIR_RELEASE ${CURRENT_PACKAGES_DIR}/bin/Qca)
