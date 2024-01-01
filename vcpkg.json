@@ -11,6 +11,10 @@
     },
     "qgis-qt6",
     {
+      "name": "qtbase",
+      "default-features": false
+    },
+    {
       "name": "qtsensors",
       "features": [
         "qml"

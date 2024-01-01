@@ -32,7 +32,34 @@
         "name": "libtasn1",
         "platform": "ios"
       },
-      "qtbase",
+      {
+        "name": "qtbase",
+	      "features":
+	      [
+                "brotli",
+                "concurrent",
+                "dbus",
+                "default-features",
+                "doubleconversion",
+                "freetype",
+                "gui",
+                "harfbuzz",
+                "jpeg",
+                "network",
+                "opengl",
+                "openssl",
+                "pcre2",
+                "png",
+                "sql",
+                "sql-psql",
+                "sql-sqlite",
+                "testlib",
+                "thread",
+                "widgets",
+                "zstd"
+	      ],
+              "default-features": false
+      },
       "qtsvg",
       "qtlocation",
       {
