@@ -68,7 +68,7 @@ jobs:
 
       - name: 🍹 Prepare ios build env
         run: |
-          brew install automake bison flex gnu-sed s3cmd gettext
+          brew install automake bison flex gnu-sed s3cmd gettext nasm
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo $(brew --prefix s3cmd)/bin >> $GITHUB_PATH

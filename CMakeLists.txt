@@ -2,7 +2,7 @@
 # CMake settings
 cmake_minimum_required(VERSION 3.19)
 
-set(VCPKG_TAG 18368dba5b9cab3e4cf7643f2a640058bb450bed)
+set(VCPKG_TAG f1c6efee2245009540dde947e0e3d008f3aa7dbb)
 
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
@@ -149,6 +149,17 @@ find_package(GDAL REQUIRED)
 find_package(Qca REQUIRED)
 find_package(LibZip REQUIRED)
 find_package(QtKeychain REQUIRED)
+
+if(ANDROID)
+  # Qt by default assumes that cmake files live in `lib/cmake`. Point to `share` instead.
+  # See https://github.com/qt/qtbase/blob/39290c508e2c7fa816c6f79b3eb284adc0cad3c0/src/corelib/Qt6AndroidMacros.cmake#L1016C16-L1026
+  get_filename_component(QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI} "${Qt6_DIR}/.." ABSOLUTE)
+  message(STATUS "QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI}: ${QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI}}")
+
+  set(QT_HOST_PATH "${VCPKG_INSTALLED_DIR}/x64-linux")
+  set(QT_HOST_PATH_CMAKE_DIR "${VCPKG_INSTALLED_DIR}/x64-linux/share")
+  message(STATUS "QT_HOST_PATH: ${QT_HOST_PATH}")
+endif()
 
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
