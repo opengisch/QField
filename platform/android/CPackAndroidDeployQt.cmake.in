@@ -18,7 +18,7 @@ if(DEFINED ENV{KEYNAME}
     COMMAND_ERROR_IS_FATAL ANY)
   execute_process(
     COMMAND
-      "@ANDROID_SDK@/build-tools/@ANDROID_BUILD_TOOLS_VERSION@/apksigner" sign
+      "@ANDROID_SDK_ROOT@/build-tools/@ANDROID_BUILD_TOOLS_VERSION@/apksigner" sign
       --v2-signing-enabled true
       --ks @CMAKE_SOURCE_DIR@/keystore.p12 --ks-key-alias "$ENV{KEYNAME}"
       --ks-pass "pass:$ENV{STOREPASS}"

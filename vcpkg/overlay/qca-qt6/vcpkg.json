@@ -4,7 +4,10 @@
   "description": "Qt Cryptographic Architecture (QCA).",
   "homepage": "https://cgit.kde.org/qca.git/",
   "dependencies": [
-    "qtbase",
+    {
+      "name": "qtbase",
+      "default-features": false
+    },
     "qt5compat",
     "openssl",
     {

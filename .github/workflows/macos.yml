@@ -55,7 +55,7 @@ jobs:
 
       - name: 🔨 Prepare build env
         run: |
-          brew install automake bison flex gnu-sed create-dmg autoconf-archive
+          brew install automake bison flex gnu-sed create-dmg autoconf-archive nasm
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
 

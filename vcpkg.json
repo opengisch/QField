@@ -11,11 +11,16 @@
     },
     "qgis-qt6",
     {
+      "name": "qtbase",
+      "default-features": false
+    },
+    {
       "name": "qtsensors",
       "features": [
         "qml"
       ]
     },
+    "qtimageformats",
     "qtwebview",
     "qtconnectivity",
     "qtdeclarative",
@@ -29,7 +34,11 @@
     {
       "name": "qtmultimedia",
       "features": [
-        "qml"
+        "qml",
+        {
+          "name": "ffmpeg",
+          "platform": "linux | android"
+        }
       ]
     },
     "qtserialport",
@@ -47,6 +56,11 @@
     {
       "name": "sentry-cocoa",
       "platform": "ios | osx"
+    },
+    {
+      "name": "qttools",
+      "default-features": false,
+      "host": true
     }
   ]
 }
