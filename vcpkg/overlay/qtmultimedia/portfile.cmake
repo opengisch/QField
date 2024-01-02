@@ -9,7 +9,6 @@ set(${PORT}_PATCHES
                     fix_camera_android.patch
                     fix_camera_leak_android.patch
                     fix_camera_thread_android.patch
-                    debug.patch
 )
 
 #Maybe TODO: ALSA + PulseAudio? (Missing Ports) -> check ALSA since it was added
