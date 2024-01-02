@@ -109,7 +109,6 @@ jobs:
       - name: 🌱 Install dependencies and generate project files
         env:
           WORKSPACE: ${{ github.workspace }}
-          ANDROID_SDK_ROOT: /usr/local/lib/android/sdk/
         run: |
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
