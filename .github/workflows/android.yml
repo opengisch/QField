@@ -217,6 +217,7 @@ jobs:
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-neon-android.apk
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk
 
       - name: Upload to Google Play Store
         run: |
@@ -233,6 +234,7 @@ jobs:
               qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk \
               qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-neon-android.apk \
               qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 
@@ -261,9 +263,11 @@ jobs:
 
             - [arm-neon-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-neon-android.apk)
             - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
+            - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
             - [**all access arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk)
             - [all access arm-neon-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-neon-android.apk)
             - [all access x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
+            - [all access x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
             </details>
 
   comment_commit:
@@ -289,8 +293,10 @@ jobs:
 
             - [arm-neon-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-neon-android.apk)
             - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
+            - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
             - [**all access arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk)
             - [all access arm-neon-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-neon-android.apk)
             - [all access x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
+            - [all access x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
             </details>
 
