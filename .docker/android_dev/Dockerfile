@@ -1,87 +1,71 @@
+# syntax=docker/dockerfile:1.4
 FROM ubuntu:22.04
-ARG NDK_VERSION=25.1.8937393
 
-ENV ANDROID_SDK_HOME /opt/android-sdk-linux
-ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
-ENV ANDROID_HOME /opt/android-sdk-linux
-ENV ANDROID_SDK /opt/android-sdk-linux
+ADD https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip /android-sdk-10406996.zip
+ADD https://dl.google.com/android/repository/android-ndk-r25c-linux.zip /android-ndk-r25c-linux.zip
 
-ENV DEBIAN_FRONTEND noninteractive
+# Add apt packages
 
-# Install required tools
-# Dependencies to execute Android builds
+## vcpkg prerequisites
+ENV APT_PACKAGES="git curl zip unzip tar"
 
-RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
-  curl \
-  expect \
-  git \
-  make \
-  libc6:i386 \
-  libgcc1:i386 \
-  libncurses5:i386 \
-  libstdc++6:i386 \
-  zlib1g:i386 \
-  openjdk-11-jdk \
-  wget \
-  unzip \
-  vim \
-  openssh-client \
-  locales \
-  cmake \
-  git \
-  build-essential \
-  curl \
-  zip \
-  unzip \
-  tar \
-  libarchive-tools \
-  autoconf \
-  autoconf-archive \
-  python3-pip \
-  pkg-config \
-  libtool \
-  flex \
-  bison \
-  ninja-build \
-  jq \
-  dirmngr \
-  gnupg \
-  apt-transport-https \
-  ca-certificates \
-  software-properties-common \
-  gperf \
-  autopoint \
-  '^libxcb.*-dev' \
-  libx11-xcb-dev \
-  libegl1-mesa-dev \
-  libglu1-mesa-dev \
-  libxrender-dev \
-  libxi-dev \
-  libxkbcommon-dev \
-  libxkbcommon-x11-dev \
-  libgstreamer-gl1.0-0 \
-  libgstreamer-plugins-base1.0-0 \
-  libfuse2 \
-  nasm \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
-  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+## Common build prereqs
+ENV APT_PACKAGES="$APT_PACKAGES g++ vim pkg-config cmake ca-certificates"
 
-ENV LANG en_US.UTF-8
+ENV APT_PACKAGES="$APT_PACKAGES autoconf nasm bison python2 flex build-essential libtool libtool-bin gettext automake autoconf-archive"
 
-RUN groupadd android && useradd -d /opt/android-sdk-linux -g android -u 1000 android
+## Python related
+ENV APT_PACKAGES="$APT_PACKAGES python3-setuptools python3-pip python3-venv"
 
-COPY tools /opt/tools
+## freeglut
+ENV APT_PACKAGES="$APT_PACKAGES libxi-dev libgl1-mesa-dev libglu1-mesa-dev mesa-common-dev libxrandr-dev libxxf86vm-dev"
 
-COPY licenses /opt/licenses
+# glfw3
+ENV APT_PACKAGES="$APT_PACKAGES libxinerama-dev libxcursor-dev"
 
-WORKDIR /opt/android-sdk-linux
+# qt5-base
+ENV APT_PACKAGES="$APT_PACKAGES libxext-dev libxfixes-dev libxrender-dev \
+  libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libxcb-util0-dev \
+  libxkbcommon-dev libxcb-keysyms1-dev \
+  libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev libxcb-sync-dev \
+  libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev \
+  libxcb-render-util0-dev libxcb-xinerama0-dev libxcb-xkb-dev libxcb-xinput-dev \
+  libxcb-cursor-dev libxkbcommon-x11-dev"
 
-RUN /opt/tools/entrypoint.sh built-in
+## qtbase for android
+ENV APT_PACKAGES="$APT_PACKAGES openjdk-17-jre-headless openjdk-17-jdk-headless"
 
-RUN yes | /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager --licenses && /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager "ndk;${NDK_VERSION}"
+RUN <<END_OF_SCRIPT bash
+export DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir /home/devel
-WORKDIR /home/devel
-ENV ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk/${NDK_VERSION}
-ENV ANDROID_NDK_VERSION=${NDK_VERSION}
+# Apt prereqs itself
+apt-get -y update
+apt-get -y --no-install-recommends install ca-certificates
+
+# Add apt repos
+
+# Run apt things
+apt-get -y update
+apt-get -y dist-upgrade
+
+apt-get -y --no-install-recommends install $APT_PACKAGES
+
+# Android NDK
+unzip /android-ndk-r25c-linux.zip
+rm -f android-ndk-r25c-linux.zip
+
+# Android SDK
+unzip /android-sdk-10406996.zip -d android-sdk
+rm -f android-sdk-10406996.zip
+
+shopt -s extglob
+mkdir /android-sdk/cmdline-tools/latest
+mv /android-sdk/cmdline-tools/!(latest) /android-sdk/cmdline-tools/latest
+yes | /android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-33"
+END_OF_SCRIPT
+
+ENV ANDROID_NDK_HOME /android-ndk-r25c
+ENV ANDROID_SDK_ROOT /android-sdk
+
+WORKDIR /usr/src
