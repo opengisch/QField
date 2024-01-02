@@ -16,8 +16,8 @@ index 897b0fcfa9..3b54a2a01d 100644
    message(STATUS "Found zlib: ${ZLIB_LIBRARIES}")
  
 -  find_package(EXIV2 REQUIRED)
-+  find_package(exiv2 REQUIRED)
-+  set(EXIV2_LIBRARY exiv2lib)
++  find_package(exiv2 CONFIG REQUIRED)
++  set(EXIV2_LIBRARY Exiv2::exiv2lib)
  
    # optional
    if (WITH_POSTGRESQL)

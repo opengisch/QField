@@ -8,7 +8,6 @@ export APK_VERSION_CODE=${APK_VERSION_CODE:-1}
 export APP_VERSION_STR=${APP_VERSION_STR:-dev}
 
 triplet=${triplet:-arm64-android}
-install_qt_version="6.6.1"
 
 if [[ ${triplet} == arm-android ]]; then
 	install_qt_arch="android_armv7"
@@ -24,7 +23,7 @@ else
 	install_qt_arch="android_arm64_v8a"
 fi
 
-docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev --build-arg INSTALL_QT_ARCH=${install_qt_arch} --build-arg INSTALL_QT_VERSION=${install_qt_version}
+docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev
 
 docker run -it --rm qfield_and_dev env
 docker run -it --rm \

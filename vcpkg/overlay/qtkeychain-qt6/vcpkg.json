@@ -18,7 +18,10 @@
       "name": "vcpkg-cmake-config",
       "host": true
     },
-    "qtbase"
+    {
+      "name": "qtbase",
+      "default-features": false
+    }
   ],
   "default-features": [
     "translations"
@@ -27,7 +30,10 @@
     "translations": {
       "description": "Build qtkeychain translations",
       "dependencies": [
-        "qttools"
+	{
+	  "name": "qttools",
+	  "host": true
+	}
       ]
     }
   }

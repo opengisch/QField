@@ -11,8 +11,8 @@ vcpkg_add_to_path("${PERL_EXE_PATH}")
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO KDE/qca
-    REF v2.3.6
-    SHA512 983cd023482a2c16e4976a8b75ff739239f82aab039dc879c0cbfb842487d77fb4b153bf3c855bed0ec6b1a48f2c4f654c181982a945e2f83cb9953c4896c70d
+    REF 2c9f46cf259304e7c15e7fc53fb5b573389dd0dc
+    SHA512 036178efd0d08a471095f1adccfbbde27fededf602bc68508dccb454803593efa343288551d91da3b0e13c5090f4b8488cb95930ea24aeda49d7d366f6030dbd
     PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
@@ -20,6 +20,7 @@ vcpkg_from_github(
         ios.patch
         connect_fix.patch
 )
+
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
   set(QCA_FEATURE_INSTALL_DIR_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/Qca)
@@ -90,6 +91,8 @@ file(REMOVE_RECURSE
     "${CURRENT_PACKAGES_DIR}/debug/include"
     "${CURRENT_PACKAGES_DIR}/debug/share"
 )
+
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/share/qca")
 
 # Handle copyright
 file(INSTALL "${SOURCE_PATH}/COPYING" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME copyright)
