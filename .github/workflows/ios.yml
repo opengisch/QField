@@ -127,7 +127,7 @@ jobs:
                 -D WITH_CCACHE=ON
 
       - name: 📑 Upload Dep Build Logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: build-logs-${{ env.TRIPLET }}
@@ -148,7 +148,7 @@ jobs:
           bundle exec fastlane ios upload_s3 ipa:/Users/runner/builddir/qfieldIpa/QField.ipa
 
       - name: 📤 Upload qfield Ipa
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           path: /Users/runner/builddir/qfieldIpa/QField.ipa
