@@ -23,7 +23,7 @@ else
 	install_qt_arch="android_arm64_v8a"
 fi
 
-docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev
+DOCKER_BUILDKIT=1 docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev
 
 docker run -it --rm qfield_and_dev env
 docker run -it --rm \
