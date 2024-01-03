@@ -30,8 +30,6 @@ jobs:
         run: |
           ./scripts/ci/env_gh.sh
 
-          echo "INSTALL_QT_VERSION=6.6.1" >> $GITHUB_ENV
-
       - name: ⛓️ Setup SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
@@ -49,30 +47,15 @@ jobs:
         run: |
           bundle exec fastlane ios setup_signing type:${{ env.IOS_SIGN_TYPE }}  app_identifier:${{ env.IOS_APP_IDENTIFIER }} #  --verbose
 
-      - name: 💐 Install Qt (iOS)
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: ${{ env.INSTALL_QT_VERSION }}
-          modules: 'qt5compat qtcharts qtpositioning qtconnectivity qtimageformats qtmultimedia qtwebview qtsensors'
-          target: ios
-          cache: true
-          cache-key-prefix: install-qt-action-ios
-
-      - name: 💐 Install Qt (Desktop)
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: ${{ env.INSTALL_QT_VERSION }}
-          target: desktop
-          cache: true
-          cache-key-prefix: install-qt-action-mac
 
       - name: 🍹 Prepare ios build env
         run: |
-          brew install automake bison flex gnu-sed s3cmd gettext nasm
+          brew install automake bison flex gnu-sed s3cmd gettext autoconf-archive nasm
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo $(brew --prefix s3cmd)/bin >> $GITHUB_PATH
           echo $(brew --prefix gettext)/bin >> $GITHUB_PATH
+          echo $(brew --prefix autoconf-archive)/bin >> $GITHUB_PATH
 
       - name: 🍭 Setup XCode
         uses: maxim-lobanov/setup-xcode@v1.6.0
@@ -89,16 +72,13 @@ jobs:
         run: |
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
-          mkdir -p build
           cmake -S "${{ github.workspace }}" \
                 -B "/Users/runner/builddir" \
                 -G "Xcode" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
-                -D SYSTEM_QT=ON \
                 -D VCPKG_TARGET_TRIPLET="${{ env.TRIPLET }}" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=OFF \
-                -D CMAKE_PREFIX_PATH=${Qt6_DIR} \
                 -D WITH_BLUETOOTH=OFF \
                 -D WITH_SERIALPORT=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
@@ -120,8 +100,6 @@ jobs:
                 -D CMAKE_SYSTEM_NAME=iOS \
                 -D CMAKE_SYSTEM_PROCESSOR=aarch64 \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
-                -D QT_HOST_PATH=${{ github.workspace }}/../Qt/${{ env.INSTALL_QT_VERSION }}/macos \
-                -D QT_HOST_PATH_CMAKE_DIR:PATH=${{ github.workspace }}/../Qt/${{ env.INSTALL_QT_VERSION }}/macos \
                 -D ENABLE_TESTS=OFF \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D WITH_CCACHE=ON

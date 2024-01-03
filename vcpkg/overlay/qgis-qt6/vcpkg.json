@@ -45,7 +45,6 @@
                 "harfbuzz",
                 "jpeg",
                 "network",
-                "opengl",
                 "openssl",
                 "pcre2",
                 "png",
