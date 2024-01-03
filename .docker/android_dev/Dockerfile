@@ -1,16 +1,13 @@
 # syntax=docker/dockerfile:1.4
 FROM ubuntu:22.04
 
-ADD https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip /android-sdk-10406996.zip
-ADD https://dl.google.com/android/repository/android-ndk-r25c-linux.zip /android-ndk-r25c-linux.zip
-
 # Add apt packages
 
 ## vcpkg prerequisites
 ENV APT_PACKAGES="git curl zip unzip tar"
 
 ## Common build prereqs
-ENV APT_PACKAGES="$APT_PACKAGES g++ vim pkg-config cmake ca-certificates"
+ENV APT_PACKAGES="$APT_PACKAGES g++ vim pkg-config cmake ninja-build ca-certificates"
 
 ENV APT_PACKAGES="$APT_PACKAGES autoconf nasm bison python2 flex build-essential libtool libtool-bin gettext automake autoconf-archive"
 
@@ -23,7 +20,7 @@ ENV APT_PACKAGES="$APT_PACKAGES libxi-dev libgl1-mesa-dev libglu1-mesa-dev mesa-
 # glfw3
 ENV APT_PACKAGES="$APT_PACKAGES libxinerama-dev libxcursor-dev"
 
-# qt5-base
+# qtbase
 ENV APT_PACKAGES="$APT_PACKAGES libxext-dev libxfixes-dev libxrender-dev \
   libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libxcb-util0-dev \
   libxkbcommon-dev libxcb-keysyms1-dev \
@@ -36,6 +33,7 @@ ENV APT_PACKAGES="$APT_PACKAGES libxext-dev libxfixes-dev libxrender-dev \
 ENV APT_PACKAGES="$APT_PACKAGES openjdk-17-jre-headless openjdk-17-jdk-headless"
 
 RUN <<END_OF_SCRIPT bash
+set -e
 export DEBIAN_FRONTEND=noninteractive
 
 # Apt prereqs itself
@@ -50,6 +48,9 @@ apt-get -y dist-upgrade
 
 apt-get -y --no-install-recommends install $APT_PACKAGES
 
+curl -o /android-sdk-10406996.zip https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
+curl -o /android-ndk-r25c-linux.zip https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+
 # Android NDK
 unzip /android-ndk-r25c-linux.zip
 rm -f android-ndk-r25c-linux.zip
@@ -62,9 +63,10 @@ shopt -s extglob
 mkdir /android-sdk/cmdline-tools/latest
 mv /android-sdk/cmdline-tools/!(latest) /android-sdk/cmdline-tools/latest
 yes | /android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
-/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-33"
+/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-33" "build-tools;29.0.2" "platform-tools" "tools"
 END_OF_SCRIPT
 
+ENV ANDROID_NDK_VERSION 25.2.9519653
 ENV ANDROID_NDK_HOME /android-ndk-r25c
 ENV ANDROID_SDK_ROOT /android-sdk
 
