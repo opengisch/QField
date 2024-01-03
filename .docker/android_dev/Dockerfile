@@ -66,7 +66,6 @@ yes | /android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
 /android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-33" "build-tools;29.0.2" "platform-tools" "tools"
 END_OF_SCRIPT
 
-ENV ANDROID_NDK_VERSION 25.2.9519653
 ENV ANDROID_NDK_HOME /android-ndk-r25c
 ENV ANDROID_SDK_ROOT /android-sdk
 
