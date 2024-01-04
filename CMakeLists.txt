@@ -269,6 +269,7 @@ if(WITH_VCPKG)
     )
   endforeach()
 
+  # This is needed for gdal to successfully access remote datasets through encrypted connections
   file(DOWNLOAD https://curl.se/ca/cacert.pem "${CMAKE_BINARY_DIR}/cacert.pem" TLS_VERIFY ON STATUS DOWNLOAD_STATUS)
   list(GET DOWNLOAD_STATUS 0 STATUS_CODE)
   list(GET DOWNLOAD_STATUS 1 ERROR_MESSAGE)
