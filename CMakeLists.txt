@@ -137,7 +137,7 @@ if (ANDROID)
   endif()
 endif()
 
-find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Multimedia REQUIRED)
+find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
