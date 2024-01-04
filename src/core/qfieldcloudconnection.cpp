@@ -40,9 +40,7 @@ QFieldCloudConnection::QFieldCloudConnection()
   , mToken( QSettings().value( QStringLiteral( "/QFieldCloud/token" ) ).toByteArray() )
 {
   QgsNetworkAccessManager::instance()->setTimeout( 60 * 60 * 1000 );
-#if QT_VERSION >= QT_VERSION_CHECK( 5, 15, 0 )
   QgsNetworkAccessManager::instance()->setTransferTimeout( 5 * 60 * 1000 );
-#endif
   // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
   const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( qfield::appVersion, qfield::appVersionStr, qfield::gitRev );
   QgsSettings().setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );
