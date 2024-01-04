@@ -41,7 +41,10 @@
         }
       ]
     },
-    "qtserialport",
+    {
+      "name": "qtserialport",
+      "platform": "!ios"
+    },
     {
       "name": "qca-qt6",
       "default-features": false
