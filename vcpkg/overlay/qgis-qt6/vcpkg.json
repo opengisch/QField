@@ -34,8 +34,8 @@
       },
       {
         "name": "qtbase",
-	      "features":
-	      [
+          "features":
+          [
                 "brotli",
                 "concurrent",
                 "default-features",
@@ -45,7 +45,10 @@
                 "harfbuzz",
                 "jpeg",
                 "network",
-                "openssl",
+                {
+                    "name":"openssl",
+                    "platform": "!ios"
+                },
                 "pcre2",
                 "png",
                 "sql",
@@ -54,7 +57,7 @@
                 "thread",
                 "widgets",
                 "zstd"
-	      ],
+          ],
               "default-features": false
       },
       "qtsvg",
