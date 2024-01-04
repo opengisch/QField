@@ -136,14 +136,14 @@
           ],
           "platform": "android"
         },
-	{
+        {
           "name": "qtbase",
           "default-features": false,
           "features": [
             "opengl"
           ],
           "platform": "!ios"
-	}
+        }
       ]
     },
     "doubleconversion": {
