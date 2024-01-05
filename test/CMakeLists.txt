@@ -9,8 +9,6 @@ function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_core
-    ${QGIS_CORE_LIBRARY}
-    ${QGIS_ANALYSIS_LIBRARY}
     ${QT_PKG}::Test
     ${QT_PKG}::Core
     ${QT_PKG}::Gui
@@ -34,8 +32,6 @@ macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_core
-    ${QGIS_CORE_LIBRARY}
-    ${QGIS_ANALYSIS_LIBRARY}
     ${QT_PKG}::Test
     ${QT_PKG}::Core
     ${QT_PKG}::Gui
@@ -51,7 +47,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   # https://bugreports.qt.io/browse/QTBUG-80847
   get_target_property(QT_TARGET_TYPE ${QT_PKG}::Core TYPE)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
-    include("${CMAKE_SOURCE_DIR}/cmake/QtQmlImportScanner.cmake")
+    find_package(${QT_PKG} COMPONENTS QmlImportScanner)
 
     file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
     file(COPY ${test_qmlfiles}
@@ -73,8 +69,6 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_core
     qfield_qml
-    ${QGIS_CORE_LIBRARY}
-    ${QGIS_ANALYSIS_LIBRARY}
     ${QT_PKG}::Test
     ${QT_PKG}::Core
     ${QT_PKG}::Gui

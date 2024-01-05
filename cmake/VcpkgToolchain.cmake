@@ -49,10 +49,6 @@ set(VCPKG_INSTALLED_VERSION ${VCPKG_VERSION} CACHE STRING "" FORCE)
 
 message(STATUS "Building with vcpkg libraries version ${VCPKG_INSTALLED_VERSION}")
 
-if(NOT BUILD_WITH_QT6)
-  set(VCPKG_MANIFEST_DIR "${CMAKE_SOURCE_DIR}/.qt5")
-endif()
-
 if(_BUILD_FOR_ANDROID)
   if(NOT DEFINED ENV{ANDROID_NDK_HOME})
     message(FATAL_ERROR "ANDROID_NDK_HOME environment variable is not set")
