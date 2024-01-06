@@ -189,7 +189,7 @@ export Qt6_DIR=6.5.0/ios
 ### Configure
 
 ```sh
-cmake -S . -B build-x64-ios -DVCPKG_TARGET_TRIPLET=x64-ios -GXcode -DWITH_VCPKG=ON -DSYSTEM_QT=ON -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_FIND_ROOT_PATH=$Qt6_DIR
+cmake -S . -B build-x64-ios -DVCPKG_TARGET_TRIPLET=x64-ios -GXcode -DWITH_VCPKG=ON -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_FIND_ROOT_PATH=$Qt6_DIR
 cmake --build build-x64-ios
 ```
 
@@ -222,7 +222,6 @@ export Qt6_DIR=$QT_ROOT/6.5.0/ios/
 cmake -S . -B build-arm64-ios \
 	-DCMAKE_PREFIX_PATH=$QT_ROOT/6.5.0/ios/lib/cmake/Qt6 \
 	-DCMAKE_FIND_ROOT_PATH=$QT_ROOT/6.5.0/ios/ \
-	-DSYSTEM_QT=ON \
 	-DVCPKG_TARGET_TRIPLET=arm64-ios \
 	-DWITH_VCPKG=ON \
 	-DVCPKG_BUILD_TYPE=release \

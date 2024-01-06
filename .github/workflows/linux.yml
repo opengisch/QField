@@ -64,7 +64,6 @@ jobs:
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=ON \
                 -D WITH_NFC=OFF \
-                -D SYSTEM_QT=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
