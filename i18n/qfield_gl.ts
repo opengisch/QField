@@ -669,23 +669,23 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Non se puideron desfacer as entidades creadas na capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido desfacer a eliminación das entidades da capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido desfacer a actualización das entidades da capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido remitir a modificación de desfacer entidade na capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Non se puideron reverter as modificación de desfacer entidades na capa &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -3770,7 +3770,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode engadir a entidade filla: non se estableceu o valor de atributo que enlaza pais con fillas</translation>
     </message>
 </context>
 <context>
@@ -4216,7 +4216,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode engadir a entidade filla: non se estableceu o valor de atributo que enlaza pais con fillas</translation>
     </message>
 </context>
 </TS>

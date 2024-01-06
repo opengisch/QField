@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Prvky z aktívnej hladiny</translation>
     </message>
 </context>
 <context>
@@ -230,7 +230,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Skenovanie chyby: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Povolenie Bluetooth zamietnuté</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Povolenie Bluetooth zamietnuté</translation>
     </message>
 </context>
 <context>
@@ -442,7 +442,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Bola rozpoznaná textová značka NFC</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -450,7 +450,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Vycentrujte zariadenie na kód</translation>
     </message>
 </context>
 <context>
@@ -465,7 +465,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Pred spustením prehliadacieho režimu dokončite alebo zrušte digitalizovanie prvku </translation>
     </message>
 </context>
 <context>
@@ -669,23 +669,23 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Vytvorené prvky v hladine &quot;%1&quot; sa nepodarilo vrátiť späť</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Vymazané prvky v hladine &quot;%1&quot; sa nepodarilo vrátiť späť</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizované prvky  v hladine &quot;%1&quot; sa nepodarilo vrátiť späť</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Späťvzatie modifikácie prvku v hladine &quot;%1&quot; sa nepodarilo</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Späťvzatie modifikácií prvku v hladine &quot;%1&quot; sa nepodarilo</translation>
     </message>
 </context>
 <context>
@@ -968,7 +968,7 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Povolenie polohy zamietnuté</translation>
     </message>
 </context>
 <context>
@@ -1192,7 +1192,7 @@ Dôvod:
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="vanished">Vráti bod z X a Y súradnic zadaných do vyhľadávacieho panelu.</translation>
+        <translation type="vanished">Zobrazí bod z X a Y súradnic zadaných do vyhľadávacieho panelu.</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
@@ -1208,27 +1208,27 @@ Dôvod:
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazí zoznam prvkov z aktívnej vrstvy so zodpovedajúcimi atribútmi. Označenie jedného atribútu: &apos;@&apos; a názov atribútu.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazí zoznam prvkov vo všetkých prehľadávateľných vrstvách so zodpovedajúcim názvom.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Po zadaní do vyhľadávacieho panelu zobrazí bod podľa X a Y súradnice, príp. podľa zemepisnej šírky a dĺžky (WGS84)</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazí zoznam používateľských a aktuálne otvorených záložiek projektu so zodpovedajúcimi názvami.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazí hodnotu výrazu vpísaného do vyhľadávacieho panelu.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazí zoznam lokalít a adresných bodov vo Fínsku</translation>
     </message>
 </context>
 <context>
@@ -1239,11 +1239,11 @@ Dôvod:
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Ak chcete vyhľadávať prvky v aktívnej vrstve, vyberte vektorovú vrstvu cez legendu.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Pre použitie tejto funkcie je nutné v legende aktivovať vektorovú vrstvu</translation>
     </message>
 </context>
 <context>
@@ -1297,23 +1297,23 @@ Dôvod:
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Log runtime profiler</translation>
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Napíšte ľubovoľné detaily</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Uveďte údaje cloudového užívateľa</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Týmto pošlete výpis z aktuálnej relácie vývojovému tímu. Musíte to urobiť len vtedy, keď vás o to požiadajú.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Výpis z aplikácie za posiela...</translation>
     </message>
 </context>
 <context>
@@ -1798,19 +1798,19 @@ Dôvod:
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging zapnutý</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging vypnutý</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Mriežka zapnutá</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Mriežka vypnutá</translation>
     </message>
 </context>
 <context>
@@ -2835,7 +2835,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortometricky od zariadenia</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
@@ -3773,7 +3773,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Nie je možné pridať podradený prvok: hodnota atribútu spájajúca nadradený a podradený prvok nie je nastavená</translation>
     </message>
 </context>
 <context>
@@ -4219,7 +4219,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Nie je možné pridať podradený prvok: hodnota atribútu spájajúca nadradený a podradený prvok nie je nastavená</translation>
     </message>
 </context>
 </TS>

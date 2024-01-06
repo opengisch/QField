@@ -58,6 +58,7 @@
     <string name="storage_information_dismiss">Prečítam si neskôr</string>
     <string name="import_project_wait">QField importuje projekt, počkajte prosím</string>
     <string name="import_dataset_wait">QField importuje dataset(y), počkajte prosím</string>
+    <string name="update_project_wait">Počkajte prosím, QField aktualizuje lokálny projekt.</string>
     <string name="upload_pending_attachments">Nahrávanie príloh do QFieldCloud</string>
     <string name="operation_unsupported">Nepodporovaná operácia</string>
     <string name="import_operation_unsupported">Vaše zariadenie nepodporuje túto možnosť importu.</string>
