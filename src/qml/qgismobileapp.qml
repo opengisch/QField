@@ -3595,7 +3595,7 @@ ApplicationWindow {
         platformUtilities.uploadPendingAttachments(cloudConnection);
 
         var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
-        if (cloudProjectId !== '') {
+        if (cloudProjectId) {
           cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
         }
       }
