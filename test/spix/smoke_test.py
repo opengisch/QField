@@ -183,5 +183,30 @@ def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
     assert screenshot_check("test_svg", "test_svg")
 
 
+@pytest.mark.project_file("test_postgis_ssl.qgz")
+def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check that a SSL-enabled postgis layer loads properly
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    time.sleep(4)
+    assert process_alive()
+
+    # Insure layer has loaded properly by checking for error messages
+    messagesCount = 0
+    for i in range(0, 10):
+        message = app.getStringProperty(
+            "mainWindow/messageLog/messageItem_{}/messageText".format(i), "text"
+        )
+        if message == "":
+            break
+        extra.append(extras.html("Message logs content: {}".format(message)))
+        messagesCount = messagesCount + 1
+    extra.append(extras.html("Message logs count: {}".format(messagesCount)))
+    assert messagesCount == 0
+
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__]))
