@@ -111,6 +111,22 @@ void ChangelogContents::request()
     changelog = changelog.replace( regexpAllTitles, QStringLiteral( "\n###\n##\\1\n\n\n" ) );
     changelog = "Up to release **" + versionNumbersOnly + "**" + changelog;
 
+#if defined( Q_OS_ANDROID )
+    const QString platformName = QLatin1String( "android" );
+#elif defined( Q_OS_IOS )
+    const QString platformName = QLatin1String( "ios" );
+#elif defined( Q_OS_WIN )
+    const QString platformName = QLatin1String( "windows" );
+#elif defined( Q_OS_MACOS )
+    const QString platformName = QLatin1String( "macos" );
+#elif defined( Q_OS_LINUX )
+    const QString platformName = QLatin1String( "ios" );
+#else
+    const QString platformName = QString();
+#endif
+    QRegularExpression regexpPlatform( QStringLiteral( "<!--\\s*platformbegin:\\s*((?!%1).)*-->(.|\r|\n)*?<!--\\s*platformend\\s*-->" ).arg( platformName ) );
+    changelog = changelog.replace( regexpPlatform, QString() );
+
     mStatus = SuccessStatus;
     mMarkdown = changelog;
 
