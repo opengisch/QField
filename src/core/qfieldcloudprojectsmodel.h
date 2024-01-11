@@ -49,6 +49,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ModificationRole,
       CheckoutRole,
       StatusRole,
+      ProjectOutdatedRole,
+      ProjectFileOutdatedRole,
       ErrorStatusRole,
       ErrorStringRole,
       DownloadProgressRole,
@@ -164,6 +166,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     enum class ProjectRefreshReason
     {
       Package,
+      DeltaUploaded
     };
 
     Q_ENUM( ProjectRefreshReason )
@@ -247,6 +250,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Updates the project modification for given \a projectId.
     Q_INVOKABLE void refreshProjectModification( const QString &projectId );
+
+    //! Refreshes the project file (.qgs, .qgz) outdated status.
+    Q_INVOKABLE void refreshProjectFileOutdatedStatus( const QString &projectId );
 
     //! Returns the model role names.
     QHash<int, QByteArray> roleNames() const override;
@@ -350,9 +356,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
           const QString &name,
           const QString &description,
           const QString &userRole,
-          const QString &updatedAt,
           const ProjectCheckouts &checkout,
           const ProjectStatus &status,
+          const QDateTime &dataLastUpdatedAt,
           bool canRepackage,
           bool needsRepackaging )
           : id( id )
@@ -361,9 +367,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
           , name( name )
           , description( description )
           , userRole( userRole )
-          , updatedAt( updatedAt )
           , checkout( checkout )
           , status( status )
+          , dataLastUpdatedAt( dataLastUpdatedAt )
           , canRepackage( canRepackage )
           , needsRepackaging( needsRepackaging )
         {}
@@ -377,12 +383,14 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString name;
         QString description;
         QString userRole;
-        QString updatedAt;
         ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
         ProjectCheckouts checkout;
         ProjectStatus status;
+        QDateTime dataLastUpdatedAt;
         bool canRepackage = false;
         bool needsRepackaging = false;
+        bool isOutdated = false;
+        bool projectFileIsOutdated = false;
 
         ProjectModifications modification = ProjectModification::NoModification;
         QString localPath;
@@ -414,6 +422,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString lastLocalExportId;
         QString lastLocalPushDeltas;
 
+        QDateTime lastLocalDataLastUpdatedAt;
         QDateTime lastRefreshedAt;
         QMap<JobType, Job> jobs;
     };

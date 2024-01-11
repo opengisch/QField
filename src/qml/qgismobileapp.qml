@@ -3326,6 +3326,10 @@ ApplicationWindow {
         if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
           cloudPopup.show()
         }
+
+        if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
+        }
       } else {
         projectInfo.hasInsertRights = true
         projectInfo.hasEditRights = true
@@ -3589,6 +3593,11 @@ ApplicationWindow {
         displayToast(qsTr('Signed in'))
         // Go ahead and upload pending attachments in the background
         platformUtilities.uploadPendingAttachments(cloudConnection);
+
+        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
+        if (cloudProjectId) {
+          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
+        }
       }
       previousStatus = cloudConnection.status
     }
