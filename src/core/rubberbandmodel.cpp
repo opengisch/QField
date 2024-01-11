@@ -42,7 +42,7 @@ QVector<QgsPoint> RubberbandModel::vertices() const
   return mPointList;
 }
 
-QVector<QgsPoint> RubberbandModel::flatVertices( bool skipCurrentPoint ) const
+QVector<QgsPoint> RubberbandModel::verticesCopy( bool skipCurrentPoint ) const
 {
   QVector<QgsPoint> points;
   for ( const QgsPoint &pt : mPointList )

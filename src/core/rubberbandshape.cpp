@@ -175,7 +175,7 @@ void RubberbandShape::createPolylines()
   Qgis::GeometryType geomType = mGeometryType;
   if ( mRubberbandModel && !mRubberbandModel->isEmpty() )
   {
-    allVertices = mRubberbandModel->flatVertices();
+    allVertices = mRubberbandModel->vertices();
     if ( geomType == Qgis::GeometryType::Null )
     {
       geomType = mRubberbandModel->geometryType();
