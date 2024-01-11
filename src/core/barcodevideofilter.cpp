@@ -16,9 +16,6 @@
 
 #include "barcodevideofilter.h"
 
-#include <QOpenGLContext>
-#include <QOpenGLFunctions>
-
 class BarcodeVideoFilterRunnable : public QVideoFilterRunnable
 {
   public:
@@ -69,38 +66,7 @@ void BarcodeVideoFilter::decodeVideoFrame( QVideoFrame *input )
     return;
   }
 
-#if QT_VERSION >= QT_VERSION_CHECK( 5, 15, 0 )
   QImage image = input->image();
-#else
-  QImage image;
-  if ( input->handleType() == QAbstractVideoBuffer::NoHandle )
-  {
-    const QImage::Format imageFormat = QVideoFrame::imageFormatFromPixelFormat( input->pixelFormat() );
-    image = QImage( input->bits(),
-                    input->width(),
-                    input->height(),
-                    input->bytesPerLine(),
-                    imageFormat );
-  }
-  else if ( input->handleType() == QAbstractVideoBuffer::GLTextureHandle )
-  {
-    // Code taken from https://stackoverflow.com/questions/27829830/convert-qvideoframe-to-qimage
-    QImage img( input->width(), input->height(), QImage::Format_ARGB32 );
-    GLuint textureId = static_cast<GLuint>( input->handle().toInt() );
-    QOpenGLContext *ctx = QOpenGLContext::currentContext();
-    QOpenGLFunctions *f = ctx->functions();
-    GLuint fbo;
-    f->glGenFramebuffers( 1, &fbo );
-    GLint prevFbo;
-    f->glGetIntegerv( GL_FRAMEBUFFER_BINDING, &prevFbo );
-    f->glBindFramebuffer( GL_FRAMEBUFFER, fbo );
-    f->glFramebufferTexture2D( GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureId, 0 );
-    f->glReadPixels( 0, 0, input->width(), input->height(), GL_RGBA, GL_UNSIGNED_BYTE, img.bits() );
-    f->glBindFramebuffer( GL_FRAMEBUFFER, static_cast<GLuint>( prevFbo ) );
-    image = img.rgbSwapped();
-  }
-#endif
-
   if ( !image.isNull() && image.format() != QImage::Format_ARGB32 )
   {
     image = image.convertToFormat( QImage::Format_ARGB32 );

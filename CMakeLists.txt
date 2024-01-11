@@ -137,11 +137,11 @@ if (ANDROID)
   endif()
 endif()
 
-find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Multimedia REQUIRED)
+find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia REQUIRED)
 
-# PrintSupport isn't required, because it doesn't exist for ios
-# qgis will deal with it an define a public 'QT_NO_PRINTER'
-find_package(${QT_PKG} COMPONENTS PrintSupport QUIET)
+if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  find_package(${QT_PKG} COMPONENTS PrintSupport REQUIRED)
+endif()
 
 find_package(QGIS COMPONENTS Core Analysis REQUIRED)
 find_package(PROJ REQUIRED)
@@ -158,6 +158,14 @@ if(ANDROID)
 
   set(QT_HOST_PATH "${VCPKG_INSTALLED_DIR}/x64-linux")
   set(QT_HOST_PATH_CMAKE_DIR "${VCPKG_INSTALLED_DIR}/x64-linux/share")
+  message(STATUS "QT_HOST_PATH: ${QT_HOST_PATH}")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  set(QT_HOST_PATH "${VCPKG_INSTALLED_DIR}/x64-osx")
+  set(QT_HOST_PATH_CMAKE_DIR "${VCPKG_INSTALLED_DIR}/x64-osx/share")
+  # The QmlImportScanner is not discovered on the host path, it should probably be caught by
+  # https://github.com/qt/qtbase/blob/8c14b0c/cmake/QtConfig.cmake.in#L104-L122
+  # at least we know where to find it:
+  set(Qt6QmlImportScanner_DIR "${VCPKG_INSTALLED_DIR}/share/Qt6QmlImportScanner")
   message(STATUS "QT_HOST_PATH: ${QT_HOST_PATH}")
 endif()
 
@@ -261,6 +269,7 @@ if(WITH_VCPKG)
     )
   endforeach()
 
+  # This is needed for gdal to successfully access remote datasets through encrypted connections
   file(DOWNLOAD https://curl.se/ca/cacert.pem "${CMAKE_BINARY_DIR}/cacert.pem" TLS_VERIFY ON STATUS DOWNLOAD_STATUS)
   list(GET DOWNLOAD_STATUS 0 STATUS_CODE)
   list(GET DOWNLOAD_STATUS 1 ERROR_MESSAGE)
