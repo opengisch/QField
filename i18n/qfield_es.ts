@@ -669,23 +669,23 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falló al deshacer creación de objetos en la capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falló al deshacer eliminación de objetos en la capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falló al deshacer modificación de objetos en la capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falló al cometer deshacer modificación de objeto en la capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falló al revertir deshacer modificaciones de objeto en la capa &quot;%1&quot;  </translation>
     </message>
 </context>
 <context>
@@ -1296,7 +1296,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Registro de perfilador en tiempo de ejecución</translation>
     </message>
     <message>
         <source>Type optional details</source>
@@ -3770,7 +3770,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
     </message>
 </context>
 <context>
@@ -4216,7 +4216,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
     </message>
 </context>
 </TS>
