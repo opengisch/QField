@@ -75,6 +75,10 @@ QtObject {
 
     readonly property int popupScreenEdgeMargin: 40
 
+    readonly property int menuItemIconlessLeftPadding: 54
+    readonly property int menuItemLeftPadding: 14
+    readonly property int menuItemCheckLeftPadding: 20
+
     function getThemeIcon(name) {
       var ppiName
       if ( ppi >= 360 )

@@ -516,7 +516,7 @@ Page {
           font: Theme.defaultFont
           width: parent.width
           height: visible ? 48 : 0
-          leftPadding: 10
+          leftPadding: Theme.menuItemLeftPadding
 
           text: qsTr( "Download Project" )
           onTriggered: {
@@ -530,7 +530,7 @@ Page {
           font: Theme.defaultFont
           width: parent.width
           height: visible ? 48 : 0
-          leftPadding: 10
+          leftPadding: Theme.menuItemLeftPadding
 
           text: qsTr( "Open Project" )
           onTriggered: {
@@ -547,7 +547,7 @@ Page {
           font: Theme.defaultFont
           width: parent.width
           height: visible ? 48 : 0
-          leftPadding: 10
+          leftPadding: Theme.menuItemLeftPadding
 
           text: qsTr( "Remove Stored Project" )
           onTriggered: {
@@ -563,7 +563,7 @@ Page {
           font: Theme.defaultFont
           width: parent.width
           height: visible ? 48 : 0
-          leftPadding: 10
+          leftPadding: Theme.menuItemLeftPadding
 
           text: qsTr( "Cancel Project Download" )
           onTriggered: {

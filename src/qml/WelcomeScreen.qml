@@ -657,6 +657,7 @@ Page {
                   font: Theme.defaultFont
                   width: parent.width
                   height: visible ? 48: 0
+                  leftPadding: Theme.menuItemCheckLeftPadding
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.defaultProject
 
@@ -673,6 +674,7 @@ Page {
                   font: Theme.defaultFont
                   width: parent.width
                   height: visible ? 48: 0
+                  leftPadding: Theme.menuItemCheckLeftPadding
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.baseMapProject
 
@@ -694,7 +696,7 @@ Page {
                   font: Theme.defaultFont
                   width: parent.width
                   height: visible ? 48: 0
-                  leftPadding: 50
+                  leftPadding: Theme.menuItemIconlessLeftPadding
 
                   text: qsTr( "Remove from Recent Projects" )
                   onTriggered: {
