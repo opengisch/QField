@@ -154,7 +154,7 @@ EditorWidgetBase {
     font: Theme.defaultFont
     icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
     height: 48
-    leftPadding: 10
+    leftPadding: Theme.menuItemLeftPadding
 
     onTriggered: {
       platformUtilities.copyTextToClipboard(value)
@@ -167,7 +167,7 @@ EditorWidgetBase {
     font: Theme.defaultFont
     icon.source: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
     height: 48
-    leftPadding: 10
+    leftPadding: Theme.menuItemLeftPadding
 
     onTriggered: {
       var text = platformUtilities.getTextFromClipboard();
@@ -185,7 +185,7 @@ EditorWidgetBase {
     font: Theme.defaultFont
     icon.source: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
     height: 48
-    leftPadding: 10
+    leftPadding: Theme.menuItemLeftPadding
 
     onTriggered: {
       requestBarcode(topItem)

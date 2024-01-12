@@ -393,7 +393,7 @@ Popup {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {

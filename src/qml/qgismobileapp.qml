@@ -1480,7 +1480,7 @@ ApplicationWindow {
             text: qsTr( "Relative angle" )
             font: Theme.defaultFont
             height: 48
-            leftPadding: 10
+            leftPadding: Theme.menuItemCheckLeftPadding
 
             checkable: true
             checked: snapToCommonAngleButton.isSnapToCommonAngleRelative
@@ -1503,7 +1503,7 @@ ApplicationWindow {
 
               font: Theme.defaultFont
               height: 48
-              leftPadding: 10
+              leftPadding: Theme.menuItemCheckLeftPadding
 
               checkable: true
               checked: modelData === snapToCommonAngleButton.snapToCommonAngleDegrees
@@ -2118,7 +2118,7 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var actionRowResult = actionsRow.childrenRect.width
+        var actionRowResult = actionsRow.childrenRect.width + 4
         var result = 0;
         var padding = 0;
         // Skip first Row item
@@ -2132,6 +2132,8 @@ ApplicationWindow {
 
     Row {
       id: actionsRow
+      leftPadding: 2
+      rightPadding: 2
       spacing: 2
       height: printItem.height
       clip: true
@@ -2140,9 +2142,8 @@ ApplicationWindow {
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        height: 44
-        width: 44
-        padding: 6
+        height: 48
+        width: 48
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
         iconColor: Theme.mainTextColor
@@ -2159,9 +2160,8 @@ ApplicationWindow {
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        height: 44
-        width: 44
-        padding: 6
+        height: 48
+        width: 48
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
         iconColor: Theme.mainTextColor
@@ -2177,9 +2177,8 @@ ApplicationWindow {
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        height: 44
-        width: 44
-        padding: 6
+        height: 48
+        width: 48
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
         iconColor: Theme.mainTextColor
@@ -2196,9 +2195,8 @@ ApplicationWindow {
         id: undoButton
         property bool isEnabled: featureHistory && featureHistory.isUndoAvailable
         anchors.verticalCenter: parent.verticalCenter
-        height: 44
-        width: 44
-        padding: 6
+        height: 48
+        width: 48
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
         iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
@@ -2222,9 +2220,8 @@ ApplicationWindow {
         id: redoButton
         property bool isEnabled: featureHistory && featureHistory.isRedoAvailable
         anchors.verticalCenter: parent.verticalCenter
-        height: 44
-        width: 44
-        padding: 6
+        height: 48
+        width: 48
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
         iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
@@ -2254,7 +2251,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon( "ic_print_black_24dp" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
       arrow: Canvas {
@@ -2302,7 +2299,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon( "ic_sensor_on_black_24dp" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
       arrow: Canvas {
@@ -2339,7 +2336,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon( "ic_project_folder_black_24dp" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
       onTriggered: {
@@ -2357,7 +2354,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 50
+      leftPadding: Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
         dashBoard.close()
@@ -2371,7 +2368,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 50
+      leftPadding: Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
         dashBoard.close()
@@ -2385,7 +2382,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 50
+      leftPadding: Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
         dashBoard.close()
@@ -2422,7 +2419,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       enabled: false
     }
@@ -2445,7 +2442,7 @@ ApplicationWindow {
                      : Theme.getThemeVectorIcon( "ic_sensor_off_black_24dp" )
 
         font: Theme.defaultFont
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         onTriggered: {
           if (SensorStatus == Qgis.DeviceConnectionStatus.Connected) {
@@ -2492,7 +2489,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       enabled: false
     }
@@ -2508,7 +2505,7 @@ ApplicationWindow {
         text: Title
 
         font: Theme.defaultFont
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         onTriggered: {
             highlighted = false
@@ -2605,7 +2602,7 @@ ApplicationWindow {
       text: qsTr( "Add Bookmark" )
       icon.source: Theme.getThemeIcon( "ic_bookmark_black_24dp" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
@@ -2626,7 +2623,7 @@ ApplicationWindow {
       text: qsTr( "Set as Destination" )
       icon.source: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
@@ -2638,7 +2635,7 @@ ApplicationWindow {
       id: copyCoordinatesItem
       text: qsTr( "Copy Coordinates" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
 
@@ -2657,7 +2654,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         screenLocker.enabled = true
@@ -2721,7 +2718,7 @@ ApplicationWindow {
           text: qsTr('Open Feature Form')
           font: Theme.defaultFont
           icon.source: Theme.getThemeIcon( "ic_baseline-list_alt-24px" )
-          leftPadding: 10
+          leftPadding: Theme.menuItemLeftPadding
 
           onTriggered: {
             featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
@@ -2735,7 +2732,7 @@ ApplicationWindow {
           font: Theme.defaultFont
           enabled: projectInfo.insertRights
           icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
-          leftPadding: 10
+          leftPadding: Theme.menuItemLeftPadding
 
           onTriggered: {
             featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
@@ -2787,7 +2784,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
       arrow: Canvas {
@@ -2819,7 +2816,7 @@ ApplicationWindow {
       id: cancelNavigationItem
       text: qsTr( "Clear Destination" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
@@ -2850,7 +2847,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.10, 2, navigation.distanceUnits))
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       enabled: !checked
@@ -2866,7 +2863,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.25, 2, navigation.distanceUnits))
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       enabled: !checked
@@ -2882,7 +2879,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.5, 2, navigation.distanceUnits))
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       enabled: !checked
@@ -2898,7 +2895,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(1, 2, navigation.distanceUnits))
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       enabled: !checked
@@ -2914,7 +2911,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(2.5, 2, navigation.distanceUnits))
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       enabled: !checked
@@ -2930,7 +2927,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(5, 2, navigation.distanceUnits))
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       enabled: !checked
@@ -2946,7 +2943,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(10, 2, navigation.distanceUnits))
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       enabled: !checked
@@ -2964,7 +2961,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Always Show Precise View" )
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       checkable: true
@@ -2979,7 +2976,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Enable Audio Proximity Feedback" )
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       checkable: true
@@ -3025,7 +3022,7 @@ ApplicationWindow {
       id: positioningItem
       text: qsTr( "Enable Positioning" )
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       checkable: true
@@ -3040,7 +3037,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Show Position Information" )
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       checkable: true
@@ -3055,7 +3052,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Positioning Settings" )
       height: 48
-      leftPadding: 50
+      leftPadding: Theme.menuItemIconlessLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
@@ -3069,7 +3066,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Center to Location" )
       height: 48
-      leftPadding: 50
+      leftPadding: Theme.menuItemIconlessLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
@@ -3081,7 +3078,7 @@ ApplicationWindow {
       text: qsTr( "Add Bookmark at Location" )
       icon.source: Theme.getThemeIcon( "ic_bookmark_black_24dp" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
@@ -3105,7 +3102,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Copy Location Coordinates" )
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
 

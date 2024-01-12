@@ -512,7 +512,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
 
       onTriggered: {
           toggleMultiSelection();
@@ -528,7 +528,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
           featureListMenu.close();
@@ -550,7 +550,7 @@ Rectangle {
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
       font: Theme.defaultFont
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: multiMergeClicked();
     }
@@ -562,7 +562,7 @@ Rectangle {
       enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
 
       font: Theme.defaultFont
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: multiMoveClicked();
     }
@@ -574,7 +574,7 @@ Rectangle {
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
 
       font: Theme.defaultFont
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: multiDuplicateClicked();
     }
@@ -588,7 +588,7 @@ Rectangle {
       height: enabled ? undefined : 0
 
       font: Theme.defaultFont
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: multiDeleteClicked();
     }
@@ -619,7 +619,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
           featureListMenu.close();
@@ -635,7 +635,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: extentController.zoomToSelected();
     }
@@ -645,7 +645,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 15
+      leftPadding: Theme.menuItemCheckLeftPadding
 
       checkable: true
       checked: extentController.autoZoom
@@ -659,7 +659,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: destinationClicked();
     }
@@ -681,7 +681,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: moveClicked();
     }
@@ -698,7 +698,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: duplicateClicked();
     }
@@ -715,7 +715,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: deleteClicked();
     }
@@ -750,7 +750,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: Theme.menuItemLeftPadding
 
       enabled: false
     }
@@ -767,7 +767,8 @@ Rectangle {
         text: Title
 
         font: Theme.defaultFont
-        leftPadding: 10
+        height: 48
+        leftPadding: Theme.menuItemLeftPadding
 
         onTriggered: {
             displayToast( qsTr( 'Printing...') )

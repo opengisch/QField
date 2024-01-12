@@ -386,7 +386,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Send to..." )
         onTriggered: { platformUtilities.sendDatasetTo(itemMenu.itemPath); }
@@ -401,7 +401,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Export to folder..." )
         onTriggered: { platformUtilities.exportDatasetTo(itemMenu.itemPath); }
@@ -417,7 +417,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Remove dataset" )
         onTriggered: { platformUtilities.removeDataset(itemMenu.itemPath); }
@@ -432,7 +432,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Export to folder..." )
         onTriggered: { platformUtilities.exportFolderTo(itemMenu.itemPath); }
@@ -447,7 +447,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Send compressed folder to..." )
         onTriggered: { platformUtilities.sendCompressedFolderTo(itemMenu.itemPath); }
@@ -463,7 +463,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Remove project folder" )
         onTriggered: { platformUtilities.removeFolder(itemMenu.itemPath); }
@@ -497,7 +497,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Import project from folder" )
         onTriggered: { platformUtilities.importProjectFolder(); }
@@ -511,7 +511,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Import project from ZIP" )
         onTriggered: { platformUtilities.importProjectArchive(); }
@@ -525,8 +525,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Import dataset(s)" )
         onTriggered: { platformUtilities.importDatasets(); }
@@ -544,7 +543,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Import URL" )
         onTriggered: {
@@ -562,7 +561,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Storage management help" )
         onTriggered: { Qt.openUrlExternally("https://docs.qfield.org/get-started/storage/") }
@@ -596,7 +595,7 @@ Page {
         font: Theme.defaultFont
         width: parent.width
         height: enabled ? undefined : 0
-        leftPadding: 10
+        leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr( "Update project from ZIP" )
         onTriggered: { platformUtilities.updateProjectFromArchive(projectInfo.filePath); }

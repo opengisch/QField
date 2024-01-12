@@ -187,7 +187,7 @@ Item {
 
             font: Theme.defaultFont
             height: 48
-            leftPadding: 10
+            leftPadding: Theme.menuItemLeftPadding
             icon.source: Theme.getThemeVectorIcon( 'ic_speaker_white_24dp' )
 
             onTriggered: {
