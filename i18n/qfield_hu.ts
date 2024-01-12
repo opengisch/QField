@@ -2128,6 +2128,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No changes to revert</source>
         <translation>Nincsenek elvethető változások</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2363,6 +2371,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Project Actions</source>
         <translation>Projekt műveletek</translation>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

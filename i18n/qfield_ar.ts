@@ -2128,6 +2128,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No changes to revert</source>
         <translation>لا يوجد تغيرات لاسترجاعها</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2364,6 +2372,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
         <translation type="unfinished"/>
     </message>
 </context>

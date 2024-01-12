@@ -2135,6 +2135,14 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>No changes to revert</source>
         <translation>Žiadne zmeny pre vrátenie</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2372,6 +2380,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     <message>
         <source>Project Actions</source>
         <translation>Projektové akcie</translation>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

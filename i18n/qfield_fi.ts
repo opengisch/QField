@@ -2133,6 +2133,14 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
         <source>No changes to revert</source>
         <translation>Ei palautettavia muutoksia</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2371,6 +2379,10 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Project Actions</source>
         <translation>Projektin toimet</translation>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

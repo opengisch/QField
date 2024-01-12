@@ -2132,6 +2132,14 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>No changes to revert</source>
         <translation>Geen wijzigingen om terug te zetten</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2368,6 +2376,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
         <translation type="unfinished"/>
     </message>
 </context>

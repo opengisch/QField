@@ -2134,6 +2134,14 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
         <source>No changes to revert</source>
         <translation>Nessuna modifica da ripristinare</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2373,6 +2381,10 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
         <translation type="unfinished"/>
     </message>
 </context>

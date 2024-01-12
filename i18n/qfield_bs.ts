@@ -2133,6 +2133,14 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
         <source>No changes to revert</source>
         <translation>Nema promjena za vraćanje</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2369,6 +2377,10 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
     <message>
         <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2127,6 +2127,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>No changes to revert</source>
         <translation>Brak zmian do cofnięcia</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Ten projekt posiada zaktualizowany plik projektu w chmurze, zalecana jest synchronizacja.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>Ten projekt posiada zaktualizowane dane w chmurze, zalecana jest synchronizacja.</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2172,7 +2180,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Zakończono tworzenie pracy, ale w odpowiedzi serwera brakuje wymaganych pól: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
@@ -2364,6 +2372,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Project Actions</source>
         <translation>Działania projektu</translation>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
+        <translation>, zaktualizowane dane dostępne w chmurze</translation>
     </message>
 </context>
 <context>

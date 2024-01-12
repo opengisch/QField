@@ -2134,6 +2134,14 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>No changes to revert</source>
         <translation>Sem alterações para reverter</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2371,6 +2379,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Project Actions</source>
         <translation>Ações de Projeto</translation>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
