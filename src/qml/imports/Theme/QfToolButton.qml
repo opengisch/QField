@@ -55,7 +55,7 @@ RoundButton {
       anchor: parent
       active: button.down
       color: Theme.darkTheme
-             ? bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10ffffff" : "#22aaaaaa"
+             ? bgcolor == "#ffffff" ? "#10000000" : "#10ffffff"
              : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
     }
   }
