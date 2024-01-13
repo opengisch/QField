@@ -96,10 +96,17 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual QString systemLocalDataLocation( const QString &subDir ) const;
 
     /**
-     * \returns a QGIS project which should be opened. This depends on platform specific
-     *          implementations. This is currently only available on Android via Intents.
+     * Returns TRUE is a project file has been provided and should be opened at launch.
+     * \see loadQgsProject
      */
-    virtual QString qgsProject() const;
+    virtual bool hasQgsProject() const;
+
+    /**
+     * Loads the project file provided during launch.
+     * \see hasQgsProject
+     */
+    virtual void loadQgsProject() const;
+
     /**
      * \returns a list of data directories where user data is searched.
      *          User data are pg_service.conf, authentication config, grids, ...

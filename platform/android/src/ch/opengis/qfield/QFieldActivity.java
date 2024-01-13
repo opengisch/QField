@@ -117,6 +117,7 @@ public class QFieldActivity extends QtActivity {
     public static native void volumeKeyDown(int volumeKeyCode);
     public static native void volumeKeyUp(int volumeKeyCode);
 
+    private Intent projectIntent;
     private float originalBrightness;
     private boolean handleVolumeKeys = false;
     private String pathsToExport;
@@ -182,7 +183,8 @@ public class QFieldActivity extends QtActivity {
         super.onNewIntent(intent);
         if (intent.getAction() == Intent.ACTION_VIEW ||
             intent.getAction() == Intent.ACTION_SEND) {
-            openProject(getPathFromIntent(intent));
+            projectIntent = intent;
+            processProjectIntent();
         }
     }
 
@@ -222,117 +224,146 @@ public class QFieldActivity extends QtActivity {
         return false;
     }
 
-    private String getPathFromIntent(Intent intent) {
-        String scheme = intent.getScheme();
-        String action = intent.getAction();
-        String type = intent.getType();
+    private void processProjectIntent() {
+        showBlockingProgressDialog(getString(R.string.processing_message));
 
-        Uri uri = null;
-        if (action.compareTo(Intent.ACTION_SEND) == 0) {
-            uri = (Uri)intent.getParcelableExtra(Intent.EXTRA_STREAM);
-            scheme = "";
-        } else {
-            uri = intent.getData();
-        }
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                String scheme = projectIntent.getScheme();
+                String action = projectIntent.getAction();
+                String type = projectIntent.getType();
+                Context context = getApplication().getApplicationContext();
 
-        Context context = getApplication().getApplicationContext();
-
-        String filePath = QFieldUtils.getPathFromUri(context, uri);
-        String importDatasetPath = "";
-        String importProjectPath = "";
-        File externalFilesDir = getExternalFilesDir(null);
-        if (externalFilesDir != null) {
-            importDatasetPath =
-                externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
-            new File(importDatasetPath).mkdir();
-            importProjectPath =
-                externalFilesDir.getAbsolutePath() + "/Imported Projects/";
-            new File(importProjectPath).mkdir();
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
-            (scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0 ||
-             action.compareTo(Intent.ACTION_SEND) == 0) &&
-            importDatasetPath != "") {
-            DocumentFile documentFile =
-                DocumentFile.fromSingleUri(context, uri);
-            String fileName = documentFile.getName();
-            long fileBytes = documentFile.length();
-            if (fileName == null) {
-                if (type == null) {
-                    return filePath;
-                }
-                // File name not provided
-                fileName = new SimpleDateFormat("yyyyMMdd_HHmmss")
-                               .format(new Date().getTime()) +
-                           "." + QFieldUtils.getExtensionFromMimeType(type);
-            }
-            String fileBaseName = fileName;
-            String fileExtension = "";
-            if (fileName.lastIndexOf(".") > -1) {
-                fileBaseName = fileName.substring(0, fileName.lastIndexOf("."));
-                fileExtension = fileName.substring(fileName.lastIndexOf("."));
-            }
-
-            ContentResolver resolver = getContentResolver();
-            if (type != null && type.equals("application/zip")) {
-                String projectName = "";
-                try {
-                    InputStream input = resolver.openInputStream(uri);
-                    projectName = QFieldUtils.getArchiveProjectName(input);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                Uri uri = null;
+                if (action.compareTo(Intent.ACTION_SEND) == 0) {
+                    uri = (Uri)projectIntent.getParcelableExtra(
+                        Intent.EXTRA_STREAM);
+                    scheme = "";
+                } else {
+                    uri = projectIntent.getData();
                 }
 
-                if (projectName != "") {
-                    String projectPath = importProjectPath + fileBaseName + "/";
-                    int i = 1;
-                    while (new File(projectPath).exists()) {
-                        projectPath =
-                            importProjectPath + fileBaseName + "_" + i + "/";
-                        i++;
+                String filePath = QFieldUtils.getPathFromUri(context, uri);
+                String importDatasetPath = "";
+                String importProjectPath = "";
+                File externalFilesDir = getExternalFilesDir(null);
+                if (externalFilesDir != null) {
+                    importDatasetPath = externalFilesDir.getAbsolutePath() +
+                                        "/Imported Datasets/";
+                    new File(importDatasetPath).mkdir();
+                    importProjectPath = externalFilesDir.getAbsolutePath() +
+                                        "/Imported Projects/";
+                    new File(importProjectPath).mkdir();
+                }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
+                    (scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0 ||
+                     action.compareTo(Intent.ACTION_SEND) == 0) &&
+                    importDatasetPath != "") {
+                    DocumentFile documentFile =
+                        DocumentFile.fromSingleUri(context, uri);
+                    String fileName = documentFile.getName();
+                    long fileBytes = documentFile.length();
+                    if (fileName == null) {
+                        if (type != null) {
+                            // File name not provided
+                            fileName =
+                                new SimpleDateFormat("yyyyMMdd_HHmmss")
+                                    .format(new Date().getTime()) +
+                                "." +
+                                QFieldUtils.getExtensionFromMimeType(type);
+                        }
                     }
-                    new File(projectPath).mkdir();
-                    try {
-                        InputStream input = resolver.openInputStream(uri);
-                        QFieldUtils.zipToFolder(input, projectPath);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+
+                    if (fileName != null) {
+                        String fileBaseName = fileName;
+                        String fileExtension = "";
+                        if (fileName.lastIndexOf(".") > -1) {
+                            fileBaseName = fileName.substring(
+                                0, fileName.lastIndexOf("."));
+                            fileExtension =
+                                fileName.substring(fileName.lastIndexOf("."));
+                        }
+
+                        ContentResolver resolver = getContentResolver();
+                        if (type != null && type.equals("application/zip")) {
+                            String projectName = "";
+                            try {
+                                InputStream input =
+                                    resolver.openInputStream(uri);
+                                projectName =
+                                    QFieldUtils.getArchiveProjectName(input);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
+                            if (projectName != "") {
+                                String projectPath =
+                                    importProjectPath + fileBaseName + "/";
+                                int i = 1;
+                                while (new File(projectPath).exists()) {
+                                    projectPath = importProjectPath +
+                                                  fileBaseName + "_" + i + "/";
+                                    i++;
+                                }
+                                new File(projectPath).mkdir();
+                                try {
+                                    InputStream input =
+                                        resolver.openInputStream(uri);
+                                    QFieldUtils.zipToFolder(input, projectPath);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                Log.v("QField",
+                                      "Opening decompressed project: " +
+                                          projectPath + projectName);
+                                dismissBlockingProgressDialog();
+                                openProject(projectPath + projectName);
+                                return;
+                            }
+                        }
+
+                        Boolean canWrite = filePath != ""
+                                               ? new File(filePath).canWrite()
+                                               : false;
+                        if (!canWrite) {
+                            Log.v("QField",
+                                  "Content intent detected: " + action + " : " +
+                                      projectIntent.getDataString() + " : " +
+                                      type + " : " + fileName);
+                            String importFilePath =
+                                importDatasetPath + fileName;
+                            int i = 1;
+                            while (new File(importFilePath).exists()) {
+                                importFilePath = importDatasetPath +
+                                                 fileBaseName + "_" + i +
+                                                 fileExtension;
+                                i++;
+                            }
+                            Log.v("QField",
+                                  "Importing document to file path: " +
+                                      importFilePath);
+                            try {
+                                InputStream input =
+                                    resolver.openInputStream(uri);
+                                QFieldUtils.inputStreamToFile(
+                                    input, importFilePath, fileBytes);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            dismissBlockingProgressDialog();
+                            openProject(importFilePath);
+                            return;
+                        }
                     }
-                    Log.v("QField", "Opening decompressed project: " +
-                                        projectPath + projectName);
-                    return projectPath + projectName;
                 }
-            }
 
-            Boolean canWrite =
-                filePath != "" ? new File(filePath).canWrite() : false;
-            if (!canWrite) {
-                Log.v("QField", "Content intent detected: " + action + " : " +
-                                    intent.getDataString() + " : " + type +
-                                    " : " + fileName);
-                String importFilePath = importDatasetPath + fileName;
-                int i = 1;
-                while (new File(importFilePath).exists()) {
-                    importFilePath = importDatasetPath + fileBaseName + "_" +
-                                     i + fileExtension;
-                    i++;
-                }
-                Log.v("QField",
-                      "Importing document to file path: " + importFilePath);
-                try {
-                    InputStream input = resolver.openInputStream(uri);
-                    QFieldUtils.inputStreamToFile(input, importFilePath,
-                                                  fileBytes);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return importFilePath;
+                Log.v("QField", "Opening document file path: " + filePath);
+                dismissBlockingProgressDialog();
+                openProject(filePath);
             }
-        }
-
-        Log.v("QField", "Opening document file path: " + filePath);
-        return filePath;
+        });
     }
 
     private double statusBarMargin() {
@@ -526,7 +557,8 @@ public class QFieldActivity extends QtActivity {
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW ||
             sourceIntent.getAction() == Intent.ACTION_SEND) {
-            intent.putExtra("QGS_PROJECT", getPathFromIntent(sourceIntent));
+            projectIntent = sourceIntent;
+            intent.putExtra("QGS_PROJECT", "trigger_load");
         }
         setIntent(intent);
     }
@@ -682,35 +714,48 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void sendDatasetTo(String paths) {
-        String[] filePaths = paths.split("--;--");
-        File file;
-        if (filePaths.length == 1) {
-            file = new File(paths);
-        } else {
-            File temporaryFile = new File(filePaths[0]);
-            file = new File(getCacheDir(), temporaryFile.getName() + ".zip");
-            try {
-                OutputStream out = new FileOutputStream(file.getAbsolutePath());
-                boolean success = QFieldUtils.filesToZip(out, filePaths);
-                out.close();
-                if (!success) {
-                    return;
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                String[] filePaths = paths.split("--;--");
+                File file;
+                if (filePaths.length == 1) {
+                    file = new File(paths);
+                } else {
+                    showBlockingProgressDialog(
+                        getString(R.string.processing_message));
+                    File temporaryFile = new File(filePaths[0]);
+                    file = new File(getCacheDir(),
+                                    temporaryFile.getName() + ".zip");
+                    try {
+                        OutputStream out =
+                            new FileOutputStream(file.getAbsolutePath());
+                        boolean success =
+                            QFieldUtils.filesToZip(out, filePaths);
+                        out.close();
+                        if (!success) {
+                            return;
+                        }
+                    } catch (Exception e) {
+                        dismissBlockingProgressDialog();
+                        e.printStackTrace();
+                        return;
+                    }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+
+                DocumentFile documentFile = DocumentFile.fromFile(file);
+                Context context = getApplication().getApplicationContext();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_STREAM,
+                                FileProvider.getUriForFile(
+                                    context,
+                                    context.getPackageName() + ".fileprovider",
+                                    file));
+                intent.setType(documentFile.getType());
+                startActivity(Intent.createChooser(intent, null));
                 return;
             }
-        }
-
-        DocumentFile documentFile = DocumentFile.fromFile(file);
-        Context context = getApplication().getApplicationContext();
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(
-            Intent.EXTRA_STREAM,
-            FileProvider.getUriForFile(
-                context, context.getPackageName() + ".fileprovider", file));
-        intent.setType(documentFile.getType());
-        startActivity(Intent.createChooser(intent, null));
+        });
         return;
     }
 
@@ -762,19 +807,32 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void sendCompressedFolderTo(String path) {
-        File file = new File(path);
-        File temporaryFile = new File(getCacheDir(), file.getName() + ".zip");
-        QFieldUtils.folderToZip(file.getPath(), temporaryFile.getPath());
+        showBlockingProgressDialog(getString(R.string.processing_message));
 
-        DocumentFile documentFile = DocumentFile.fromFile(temporaryFile);
-        Context context = getApplication().getApplicationContext();
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_STREAM,
-                        FileProvider.getUriForFile(
-                            context, context.getPackageName() + ".fileprovider",
-                            temporaryFile));
-        intent.setType(documentFile.getType());
-        startActivity(Intent.createChooser(intent, null));
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                File file = new File(path);
+                File temporaryFile =
+                    new File(getCacheDir(), file.getName() + ".zip");
+                QFieldUtils.folderToZip(file.getPath(),
+                                        temporaryFile.getPath());
+                dismissBlockingProgressDialog();
+
+                DocumentFile documentFile =
+                    DocumentFile.fromFile(temporaryFile);
+                Context context = getApplication().getApplicationContext();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_STREAM,
+                                FileProvider.getUriForFile(
+                                    context,
+                                    context.getPackageName() + ".fileprovider",
+                                    temporaryFile));
+                intent.setType(documentFile.getType());
+                startActivity(Intent.createChooser(intent, null));
+                return;
+            }
+        });
         return;
     }
 
