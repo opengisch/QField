@@ -144,9 +144,23 @@ QString AndroidPlatformUtilities::systemSharedDataLocation() const
   return mSystemGenericDataLocation;
 }
 
-QString AndroidPlatformUtilities::qgsProject() const
+bool AndroidPlatformUtilities::hasQgsProject() const
 {
-  return getIntentExtra( "QGS_PROJECT" );
+  return !getIntentExtra( "QGS_PROJECT" ).isEmpty();
+}
+
+void AndroidPlatformUtilities::loadQgsProject() const
+{
+  if ( mActivity.isValid() && hasQgsProject() )
+  {
+    runOnAndroidMainThread( [] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "processProjectIntent" );
+      }
+    } );
+  }
 }
 
 QStringList AndroidPlatformUtilities::appDataDirs() const

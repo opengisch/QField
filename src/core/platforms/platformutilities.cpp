@@ -16,6 +16,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appinterface.h"
 #include "fileutils.h"
 #include "platformutilities.h"
 #include "projectsource.h"
@@ -135,9 +136,17 @@ QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) cons
   return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + '/' + subDir;
 }
 
-QString PlatformUtilities::qgsProject() const
+bool PlatformUtilities::hasQgsProject() const
 {
-  return qApp->arguments().count() > 1 ? qApp->arguments().last() : QString();
+  return qApp->arguments().count() > 1 && !qApp->arguments().last().isEmpty();
+}
+
+void PlatformUtilities::loadQgsProject() const
+{
+  if ( hasQgsProject() )
+  {
+    AppInterface::instance()->loadFile( qApp->arguments().last() );
+  }
 }
 
 QStringList PlatformUtilities::appDataDirs() const
