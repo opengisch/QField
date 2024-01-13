@@ -6,8 +6,8 @@ set -e
 if [[ "${S3CFG}" ]]; then
 	echo -e "\e[31mAbout to upload build artifacts\e[0m"
 
-	#FILENAME_AAB="${CI_PACKAGE_NAME}-${CI_PACKAGE_FILE_SUFFIX}-${TRIPLET}.aab"
-	FILENAME_APK="${CI_PACKAGE_NAME}-${CI_PACKAGE_FILE_SUFFIX}-${TRIPLET}.apk"
+	#FILENAME_AAB="${CI_PACKAGE_NAME}-${CI_PACKAGE_FILE_SUFFIX}-${NAME}.aab"
+	FILENAME_APK="${CI_PACKAGE_NAME}-${CI_PACKAGE_FILE_SUFFIX}-${NAME}.apk"
 
 	# skip AAB upload until we need it
 	#mv ${CMAKE_BUILD_DIR}/android-build/build/outputs/bundle/release/android-build-release.aab /tmp/${FILENAME_AAB}
