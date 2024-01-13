@@ -46,7 +46,7 @@ void AppInterface::removeRecentProject( const QString &path )
 
 bool AppInterface::hasProjectOnLaunch() const
 {
-  if ( !PlatformUtilities::instance()->qgsProject().isNull() )
+  if ( PlatformUtilities::instance()->hasQgsProject() )
   {
     return true;
   }

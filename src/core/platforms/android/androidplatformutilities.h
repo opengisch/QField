@@ -35,7 +35,9 @@ class AndroidPlatformUtilities : public PlatformUtilities
     PlatformUtilities::Capabilities capabilities() const override;
     void afterUpdate() override;
     QString systemSharedDataLocation() const override;
-    QString qgsProject() const override;
+
+    bool hasQgsProject() const override;
+    void loadQgsProject() const override;
 
     QStringList appDataDirs() const override;
     QString applicationDirectory() const override;

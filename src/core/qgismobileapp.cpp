@@ -630,10 +630,10 @@ void QgisMobileapp::onAfterFirstRendering()
 
   if ( mFirstRenderingFlag )
   {
-    if ( !PlatformUtilities::instance()->qgsProject().isNull() )
+    if ( PlatformUtilities::instance()->hasQgsProject() )
     {
       PlatformUtilities::instance()->checkWriteExternalStoragePermissions();
-      loadProjectFile( PlatformUtilities::instance()->qgsProject() );
+      PlatformUtilities::instance()->loadQgsProject();
     }
     else
     {
