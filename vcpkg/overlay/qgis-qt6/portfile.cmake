@@ -263,4 +263,4 @@ file(REMOVE_RECURSE # Added for debug porpose
 )
 
 # Handle copyright
-file(INSTALL ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/qgis RENAME copyright)
+vcpkg_install_copyright(FILE_LIST ${SOURCE_PATH}/COPYING)
