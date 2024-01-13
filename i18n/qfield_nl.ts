@@ -230,7 +230,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Fout bij het scannen: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik van Bluetooth niet toegestaan </translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik van Bluetooth niet toegestaan </translation>
     </message>
 </context>
 <context>
@@ -306,7 +306,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation>Bladwijzereigenschappen</translation>
+        <translation>Bladwijzer eigenschappen</translation>
     </message>
     <message>
         <source>Name</source>
@@ -932,7 +932,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Gum</translation>
     </message>
 </context>
 <context>
@@ -1083,7 +1083,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Toon Objecten Menu</translation>
     </message>
     <message>
         <source>Read-only layer</source>
@@ -1676,7 +1676,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Niet invullen, gebeurt automatisch</translation>
     </message>
     <message>
         <source>Connection type:</source>
@@ -1774,7 +1774,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>De nauwkeurigheid van de plaatsbepaling is te laag voor dit precisie niveau</translation>
     </message>
 </context>
 <context>
@@ -1788,26 +1788,26 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Geluids recorder </translation>
     </message>
 </context>
 <context>
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Locatie aanduiding aan</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Locatie aanduiding uit</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Raster aan</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Raster uit</translation>
     </message>
 </context>
 <context>
@@ -2134,11 +2134,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Dit project heeft een bijgewerkt project bestand in de Cloud, je moet synchroniseren.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Dit project heeft bijgewerkte data in de Cloud, je moet synchroniseren.</translation>
     </message>
 </context>
 <context>
@@ -2245,7 +2245,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>Netwerkfout. Kan bestand `%1` niet downloaden.</translation>
+        <translation>Netwerk fout. Kan bestand `%1` niet downloaden.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
@@ -2356,11 +2356,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Projectdownload annuleren</translation>
+        <translation>Project download annuleren</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation>Houd een cloudproject ingedrukt voor een menu met aanvullende acties.</translation>
+        <translation>Houd een cloud project ingedrukt voor een menu met aanvullende acties.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -2455,7 +2455,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Geheugen beheer hulp</translation>
     </message>
     <message>
         <source>Import URL</source>
@@ -2490,7 +2490,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Gemaximaliseerde eigenschappen-formulier</translation>
+        <translation>Gemaximaliseerde eigenschap formulier</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -2514,7 +2514,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Indien ingeschakeld, worden de door de gebruiker opgeslagen en momenteel geopende projectbladwijzers op de kaart weergegeven.</translation>
+        <translation>Indien ingeschakeld, worden de door de gebruiker opgeslagen en momenteel geopende project bladwijzers op de kaart weergegeven.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -2824,15 +2824,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Beste kwaliteit </translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Mindere kwaliteit </translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Laagste kwaliteit </translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
@@ -2848,7 +2848,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik de volume knoppen om te digitaliseren </translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
@@ -2887,7 +2887,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Validation Error</source>
-        <translation>Validatiefout</translation>
+        <translation>Validatie fout</translation>
     </message>
     <message>
         <source>Multiple Projects</source>
@@ -2899,7 +2899,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation>Het project bevat geen geldig QGIS projectbestand</translation>
+        <translation>Het project bevat geen geldig QGIS project bestand</translation>
     </message>
     <message>
         <source>Invalid job</source>

@@ -34,7 +34,7 @@
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Establecer entidad como destino</translation>
+        <translation>Establecer objeto como destino</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -164,7 +164,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation><numerusform>1 dispositivo encontrado</numerusform><numerusform>%n dispositivos encontrados</numerusform><numerusform>%n dispositivos encontrados</numerusform></translation>
+        <translation><numerusform>1 dispositivo encontrado</numerusform><numerusform>%n dispositivos encontrados</numerusform><numerusform>%n dispositivo(s) encontrado(s)</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -214,7 +214,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation type="vanished">N/D</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -2134,11 +2134,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Este proyecto tiene un archivo de proyecto actualizado en la nube, se recomienda sincronizarlo.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Este proyecto tiene datos actualizados en la nube, deberías sincronizarlos.</translation>
     </message>
 </context>
 <context>
@@ -2380,7 +2380,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, datos actualizados disponibles en la nube</translation>
     </message>
 </context>
 <context>

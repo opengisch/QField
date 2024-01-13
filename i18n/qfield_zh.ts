@@ -2132,11 +2132,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>该工程在云端有更新的工程文件，建议您进行同步。</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>该工程已更新了云端的数据，您应该同步。</translation>
     </message>
 </context>
 <context>
@@ -2378,7 +2378,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, 云端可用的更新数据</translation>
     </message>
 </context>
 <context>
