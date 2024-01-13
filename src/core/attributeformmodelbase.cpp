@@ -775,6 +775,7 @@ void _checkChildrenValidity( QStandardItem *parent, bool &hardValidity, bool &so
 
 void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
 {
+  const QString fieldName = fieldIndex > -1 && fieldIndex < mLayer->fields().size() ? mLayer->fields().at( fieldIndex ).name() : QString();
   QgsFields fields = mFeatureModel->feature().fields();
   mExpressionContext.setFields( fields );
   mExpressionContext.setFeature( mFeatureModel->feature() );
@@ -782,7 +783,9 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
   bool visibilityChanged = false;
   for ( const VisibilityExpression &it : std::as_const( mVisibilityExpressions ) )
   {
-    if ( fieldIndex == -1 || it.first.referencedAttributeIndexes( fields ).contains( fieldIndex ) )
+    // If triggered by an updated field index (fieldIndex), check if the visibility
+    // expression refers to that field
+    if ( fieldIndex == -1 || it.first.referencedColumns().contains( fieldName ) || it.first.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
     {
       QgsExpression exp = it.first;
       exp.prepare( &mExpressionContext );
@@ -807,9 +810,10 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     int fidx = fieldIterator.value();
     if ( fieldIndex != -1 && fidx != fieldIndex )
     {
-      const QString fieldName = mLayer->fields().at( fieldIndex ).name();
-      const QgsExpression expression = mLayer->fields().at( fieldIndex ).constraints().constraintExpression();
-      if ( !expression.referencedColumns().contains( fieldName ) )
+      // Check whether the current field iterator index (fidx) has an expression constraints referencing the
+      // updated field index (fieldIndex) which triggered a constraints update
+      const QgsExpression expression = mLayer->fields().at( fidx ).constraints().constraintExpression();
+      if ( !expression.referencedColumns().contains( fieldName ) && !expression.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
       {
         continue;
       }
