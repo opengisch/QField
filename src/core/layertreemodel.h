@@ -34,6 +34,7 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
 
     void updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
     int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0, int treeLevel = 0 );
+    void clearMap();
 
     void removeFromMap( const QModelIndex &parent, int first, int last );
     void insertInMap( const QModelIndex &parent, int first, int last );
@@ -101,7 +102,7 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
 
     bool mIsTemporal = false;
 
-    bool mFrozen = false;
+    int mFrozen = 0;
 };
 
 class FlatLayerTreeModel : public QSortFilterProxyModel

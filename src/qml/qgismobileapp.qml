@@ -3206,9 +3206,9 @@ ApplicationWindow {
       busyOverlay.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
       busyOverlay.state = "visible"
 
-      navigation.clearDestinationFeature();
+      navigation.clearDestinationFeature()
 
-      projectInfo.filePath = '';
+      projectInfo.filePath = ''
       readProjectTimer.start()
     }
 
