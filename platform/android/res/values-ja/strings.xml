@@ -62,4 +62,5 @@
     <string name="operation_unsupported">サポートされていない操作です</string>
     <string name="import_operation_unsupported">お使いのデバイスはこのインポート操作に対応していません。</string>
     <string name="export_operation_unsupported">お使いのデバイスはこのエクスポート操作に対応していません。</string>
+    <string name="processing_message">処理中です...</string>
 </resources>

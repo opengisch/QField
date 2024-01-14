@@ -230,7 +230,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>スキャンエラー: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetoothのパーミッションが拒否されました</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetoothのパーミッションが拒否されました</translation>
     </message>
 </context>
 <context>
@@ -669,23 +669,23 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>レイヤ &quot;%1&quot; に作成された地物の取り消しに失敗しました。</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>レイヤ &quot;%1&quot; で削除された地物の取り消しに失敗しました。</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>レイヤ &quot;%1&quot; で更新された地物の取り消しに失敗しました。</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>レイヤ &quot;%1&quot; に編集された地物のコミットに失敗しました。</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>レイヤ &quot;%1&quot; に編集された地物のロールバックに失敗しました。</translation>
     </message>
 </context>
 <context>
@@ -964,7 +964,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>位置情報関連のパーミッションが拒否されました</translation>
     </message>
 </context>
 <context>
@@ -1238,7 +1238,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>この機能を使うには、まず凡例のベクター・レイヤーをアクティブにします</translation>
     </message>
 </context>
 <context>
@@ -1296,19 +1296,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>オプションの詳細を入力する</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>クラウドユーザーの詳細を含める</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>これにより、現在のセッションのログが開発チームに送信されます。これは、要求されたときだけ行う必要があります。</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>アプリのログを送信中です...</translation>
     </message>
 </context>
 <context>
@@ -1801,11 +1801,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>グリッドが有効にされました</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>グリッドが無効にされました</translation>
     </message>
 </context>
 <context>
@@ -2132,11 +2132,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>このプロジェクトはクラウド上でプロジェクトファイルが更新されています。ファイルの同期をしてください。</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>このプロジェクトはクラウド上でプロジェクトファイルが更新されています。ファイルの同期をしてください。</translation>
     </message>
 </context>
 <context>
@@ -2378,7 +2378,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>クラウド上で利用可能な更新データがあります</translation>
     </message>
 </context>
 <context>
@@ -3780,7 +3780,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>子の地物を追加できません：親と子をつなぐ属性値が設定されていません</translation>
     </message>
 </context>
 <context>
@@ -4226,7 +4226,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>子の地物を追加できません：親と子をつなぐ属性値が設定されていません</translation>
     </message>
 </context>
 </TS>

@@ -62,4 +62,4 @@
     <string name="operation_unsupported">Operação não suportada</string>
     <string name="import_operation_unsupported">O seu dispositivo não tem suporte para esta operação de importação.</string>
     <string name="export_operation_unsupported">O seu dispositivo não tem suporte para esta operação de exportação.</string>
-</resources>
+    </resources>

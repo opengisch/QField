@@ -62,4 +62,5 @@
     <string name="operation_unsupported">不支持的操作</string>
     <string name="import_operation_unsupported">您的设备不支持此导入操作。</string>
     <string name="export_operation_unsupported">您的设备不支持此导出操作。</string>
+    <string name="processing_message">数据处理…</string>
 </resources>

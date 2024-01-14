@@ -63,4 +63,4 @@ Merci pour votre soutien !</string>
     <string name="operation_unsupported">Opération non supportée</string>
     <string name="import_operation_unsupported">Votre appareil ne prend pas en charge cette procédure d\'importation.</string>
     <string name="export_operation_unsupported">Votre appareil ne prend pas en charge cette procédure d’exportation</string>
-</resources>
+    </resources>

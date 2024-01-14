@@ -2137,11 +2137,11 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Tento projekt má aktualizovaný projektový soubor v cloudu, doporučuje se synchronizovat.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Tento projekt má aktualizovaná data v cloudu, měli byste synchronizovat.</translation>
     </message>
 </context>
 <context>
@@ -2196,7 +2196,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Dokončeno získání stavu úlohy, ale projekt byl smazán.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
@@ -2208,7 +2208,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt je zaneprázdněný.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
