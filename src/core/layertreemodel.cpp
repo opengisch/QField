@@ -115,7 +115,8 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   QAbstractProxyModel::setSourceModel( mLayerTreeModel );
-  connect( mProject, &QgsProject::cleared, this, [=] { updateTemporalState(); buildMap( nullptr ); } );
+  connect( mProject, &QgsProject::aboutToBeCleared, this, [=] { mFrozen++; clearMap(); } );
+  connect( mProject, &QgsProject::cleared, this, [=] { mFrozen--; } );
   connect( mProject, &QgsProject::readProject, this, [=] { buildMap( mLayerTreeModel ); } );
   connect( mProject, &QgsProject::layersAdded, this, &FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModelBase::updateMap );
@@ -125,12 +126,12 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
 
 void FlatLayerTreeModelBase::freeze()
 {
-  mFrozen = true;
+  mFrozen++;
 }
 
 void FlatLayerTreeModelBase::unfreeze( bool resetModel )
 {
-  mFrozen = false;
+  mFrozen = 0;
   if ( resetModel )
     buildMap( mLayerTreeModel );
 }
@@ -329,6 +330,22 @@ void FlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first
     mTreeLevelMap = treeLevelMap;
     endRemoveRows();
   }
+}
+
+void FlatLayerTreeModelBase::clearMap()
+{
+  if ( mIsTemporal )
+  {
+    mIsTemporal = false;
+    emit isTemporalChanged();
+  }
+
+  beginResetModel();
+  mRowMap.clear();
+  mIndexMap.clear();
+  mCollapsedItems.clear();
+  mTreeLevelMap.clear();
+  endResetModel();
 }
 
 int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
