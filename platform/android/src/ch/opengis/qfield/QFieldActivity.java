@@ -714,6 +714,8 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void sendDatasetTo(String paths) {
+        showBlockingProgressDialog(getString(R.string.processing_message));
+
         executorService.execute(new Runnable() {
             @Override
             public void run() {
@@ -722,8 +724,6 @@ public class QFieldActivity extends QtActivity {
                 if (filePaths.length == 1) {
                     file = new File(paths);
                 } else {
-                    showBlockingProgressDialog(
-                        getString(R.string.processing_message));
                     File temporaryFile = new File(filePaths[0]);
                     file = new File(getCacheDir(),
                                     temporaryFile.getName() + ".zip");
@@ -742,8 +742,9 @@ public class QFieldActivity extends QtActivity {
                         return;
                     }
                 }
-
                 DocumentFile documentFile = DocumentFile.fromFile(file);
+                dismissBlockingProgressDialog();
+
                 Context context = getApplication().getApplicationContext();
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.putExtra(Intent.EXTRA_STREAM,
