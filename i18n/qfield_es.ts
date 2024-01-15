@@ -34,7 +34,7 @@
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Establecer entidad como destino</translation>
+        <translation>Establecer objeto como destino</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -164,7 +164,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation><numerusform>1 dispositivo encontrado</numerusform><numerusform>%n dispositivos encontrados</numerusform><numerusform>%n dispositivos encontrados</numerusform></translation>
+        <translation><numerusform>1 dispositivo encontrado</numerusform><numerusform>%n dispositivos encontrados</numerusform><numerusform>%n dispositivo(s) encontrado(s)</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -214,7 +214,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation type="vanished">N/D</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
@@ -230,7 +230,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Error de escaneo: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Denegado el permiso de Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -292,7 +292,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Denegado el permiso de Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -666,6 +666,29 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
 </context>
 <context>
+    <name>FeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation>Falló al deshacer creación de objetos en la capa &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation>Falló al deshacer eliminación de objetos en la capa &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation>Falló al deshacer modificación de objetos en la capa &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation>Falló al cometer deshacer modificación de objeto en la capa &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
+        <translation>Falló al revertir deshacer modificaciones de objeto en la capa &quot;%1&quot;  </translation>
+    </message>
+</context>
+<context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
@@ -945,7 +968,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Denegado el permiso de ubicación</translation>
     </message>
 </context>
 <context>
@@ -1188,7 +1211,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve una lista de objetos a lo largo de todas las capas en las que se puede buscar con nombres coincidentes.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
@@ -1196,15 +1219,15 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve una lista de marcadores de usuario y proyecto actualmente abiertos con nombres coincidentes.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve el valor de una expresión escrita en la barra de búsqueda.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Devuelve una lista de localizaciones y direcciones dentro de Finlandia en las que coinciden los términos</translation>
     </message>
 </context>
 <context>
@@ -1215,11 +1238,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Para buscar objetos en la capa activa seleccione una capa vectorial en la leyenda.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Primero debe activar una capa vectorial en la leyenda para usar esta funcionalidad</translation>
     </message>
 </context>
 <context>
@@ -1273,23 +1296,23 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Registro de perfilador en tiempo de ejecución</translation>
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Escriba detalles opcionales</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Incluya detalles del usuario de la nube</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Se enviará un registro de su sesión actual al equipo de desarrollo. Sólo hace falta realizarlo cuando se pida.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>El registro de su aplicación se está enviando...</translation>
     </message>
 </context>
 <context>
@@ -1774,19 +1797,19 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geoetiquetado habilitado</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geoetiquetado deshabilitado</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Grid habilitado</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Grid deshabilitado</translation>
     </message>
 </context>
 <context>
@@ -2109,6 +2132,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No changes to revert</source>
         <translation>Ningún cambio que revertir</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Este proyecto tiene un archivo de proyecto actualizado en la nube, se recomienda sincronizarlo.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>Este proyecto tiene datos actualizados en la nube, deberías sincronizarlos.</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2347,6 +2378,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Project Actions</source>
         <translation>Acciones del proyecto</translation>
     </message>
+    <message>
+        <source>, updated data available on the cloud</source>
+        <translation>, datos actualizados disponibles en la nube</translation>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2444,7 +2479,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Actualiza proyecto desde ZIP</translation>
     </message>
 </context>
 <context>
@@ -2809,15 +2844,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortométrica desde el dispositivo</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Utiliza teclas de volumen para digitalizar</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Si se habilita, presionar la tecla de subir volumen del dispositivo adicionará un vértice mientras que presionar la tecla de bajar el volumen eliminará el último vértice registrado durante la sesión de digitalización.</translation>
     </message>
 </context>
 <context>
@@ -3236,19 +3271,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Registrando: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Registrando</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Requisitos</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de tiempo</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3256,11 +3291,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, las adiciones de vértices se producirán cuando el tiempo entre el último y el nuevo vértice alcance un valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de distancia</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3268,39 +3303,39 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, las adiciones de vértices se producirán cuando la distancia entre el último y el nuevo vértice alcance un valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de datos del sensor</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, las adiciones de vértices se producirán cuando los sensores capturen nuevos datos.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Espera por todos los requisitos activos</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, los vértices solo se registrarán cuando se cumplan todas las restricciones activas. Si la configuración está deshabilitada, las restricciones individuales cumplidas activarán una adición de vértice.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes Generales</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Salvaguarda de distancia errónea</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Máxima distancia tolerada [1%]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está habilitado, las adiciones de vértices no se producirán cuando la distancia entre el último y el nuevo vértice es mayor que un valor máximo configurado.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3356,7 +3391,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Reanudar registro</translation>
     </message>
 </context>
 <context>
@@ -3723,7 +3758,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>No se puede añadir el objeto hijo: la clave primaria del padre no está disponible</translation>
+        <translation type="vanished">No se puede añadir el objeto hijo: la clave primaria del padre no está disponible</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3745,100 +3780,104 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Failed to delete referencing feature</source>
         <translation>No se pudo borrar el objeto que hace referencia</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="vanished">Ahora está en modo exploración</translation>
+        <translation>Ahora está en modo exploración</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="vanished">Ahora está en modo digitalización en la capa %1</translation>
+        <translation>Ahora está en modo digitalización en la capa %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="vanished">Ahora está en modo digitalización</translation>
+        <translation>Ahora está en modo digitalización</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="vanished">Ahora está en modo medición</translation>
+        <translation>Ahora está en modo medición</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="vanished">Segmento</translation>
+        <translation>Segmento</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="vanished">Perímetro</translation>
+        <translation>Perímetro</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="vanished">Longitud</translation>
+        <translation>Longitud</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="vanished">Área</translation>
+        <translation>Área</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="vanished">Cerrar herramienta de medida</translation>
+        <translation>Cerrar herramienta de medida</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="vanished">Detener edición</translation>
+        <translation>Detener edición</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="vanished">Cancelar adición</translation>
+        <translation>Cancelar adición</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="vanished">Edición topológica activada</translation>
+        <translation>Edición topológica activada</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="vanished">Edición topológica desactivada</translation>
+        <translation>Edición topológica desactivada</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="vanished">Digitalización a mano alzada activada</translation>
+        <translation>Digitalización a mano alzada activada</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="vanished">Digitalización a mano alzada desactivada</translation>
+        <translation>Digitalización a mano alzada desactivada</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">Cursor de coordenadas ahora bloqueado a la posiciòn</translation>
+        <translation>Cursor de coordenadas ahora bloqueado a la posiciòn</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="vanished">Cursor de coordenadas desbloqueado</translation>
+        <translation>Cursor de coordenadas desbloqueado</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">Posición recibida</translation>
+        <translation>Posición recibida</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">Buscando posición</translation>
+        <translation>Buscando posición</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">El lienzo sigue la localización</translation>
+        <translation>El lienzo sigue la localización</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="vanished">Esperando localización</translation>
+        <translation>Esperando localización</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3850,19 +3889,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">El lienzo dejó de seguir la localización</translation>
+        <translation>El lienzo dejó de seguir la localización</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">¡No se pudo crear el objeto!</translation>
+        <translation>¡No se pudo crear el objeto!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">¡No se pudo guardar el objeto!</translation>
+        <translation>¡No se pudo guardar el objeto!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="vanished">Menú principal</translation>
+        <translation>Menú principal</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -3870,7 +3909,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">Imprimir a PDF</translation>
+        <translation>Imprimir a PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3890,15 +3929,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Configuración</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation type="vanished">Registro de mensajes</translation>
+        <translation>Registro de mensajes</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">Acerca de QField</translation>
+        <translation>Acerca de QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3906,7 +3945,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="vanished">Activando el servicio de posicionamiento</translation>
+        <translation>Activando el servicio de posicionamiento</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -3914,15 +3953,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="vanished">Opciones de lienzo de mapa</translation>
+        <translation>Opciones de lienzo de mapa</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="vanished">Añadir marcador</translation>
+        <translation>Añadir marcador</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="vanished">Establecer como destino</translation>
+        <translation>Establecer como destino</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3930,7 +3969,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="vanished">Marcador sin título</translation>
+        <translation>Marcador sin título</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3938,7 +3977,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">Copiar coordenadas</translation>
+        <translation>Copiar coordenadas</translation>
     </message>
     <message>
         <source>X</source>
@@ -3950,11 +3989,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="vanished">Coordenadas copiadas al portapapeles</translation>
+        <translation>Coordenadas copiadas al portapapeles</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="vanished">Configuración de vista precisa</translation>
+        <translation>Configuración de vista precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -3982,27 +4021,27 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="vanished">Mostrar siempre una vista precisa</translation>
+        <translation>Mostrar siempre una vista precisa</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="vanished">Centrar a localización</translation>
+        <translation>Centrar a localización</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Añadir marcador en la localización</translation>
+        <translation>Añadir marcador en la localización</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Copiar coordenadas de la localización</translation>
+        <translation>Copiar coordenadas de la localización</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="vanished">Cerrar sesión</translation>
+        <translation>Cerrar sesión</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="vanished">Iniciar sesión</translation>
+        <translation>Iniciar sesión</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -4010,35 +4049,35 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="vanished">Opciones de navegación</translation>
+        <translation>Opciones de navegación</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="vanished">Borrar destino</translation>
+        <translation>Borrar destino</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="vanished">%1 Precisión</translation>
+        <translation>%1 Precisión</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">Habilitar el audio de proximidad</translation>
+        <translation>Habilitar el audio de proximidad</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="vanished">Opciones de posicionamiento</translation>
+        <translation>Opciones de posicionamiento</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="vanished">Habilitar posicionamiento</translation>
+        <translation>Habilitar posicionamiento</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Mostrar información de la posición</translation>
+        <translation>Mostrar información de la posición</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation type="vanished">Configuración de posicionamiento</translation>
+        <translation>Configuración de posicionamiento</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4050,11 +4089,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">Ubicación actual desconocida</translation>
+        <translation>Ubicación actual desconocida</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="vanished">Mi localización</translation>
+        <translation>Mi localización</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4062,27 +4101,27 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="vanished">Precisión</translation>
+        <translation>Precisión</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="vanished">Ubicación actual copiada al portapapeles</translation>
+        <translation>Ubicación actual copiada al portapapeles</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="vanished">La capa actual se cambió a la que tiene la geometría seleccionada.</translation>
+        <translation>La capa actual se cambió a la que tiene la geometría seleccionada.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">La edición de capas de geometría múltiples aún no está soportada.</translation>
+        <translation>La edición de capas de geometría múltiples aún no está soportada.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="vanished">Cargando %1</translation>
+        <translation>Cargando %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4090,7 +4129,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="vanished">Conectando…</translation>
+        <translation>Conectando…</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4098,23 +4137,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="vanished">El proyecto %1 no se pudo descargar</translation>
+        <translation>El proyecto %1 no se pudo descargar</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="vanished">Proyecto %1 descargado correctamente, ahora está disponible para abrirlo</translation>
+        <translation>Proyecto %1 descargado correctamente, ahora está disponible para abrirlo</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="vanished">Los cambios no se pudieron subir a QFieldCloud: %1</translation>
+        <translation>Los cambios no se pudieron subir a QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="vanished">Cambios subidos correctamente a QFieldCloud</translation>
+        <translation>Cambios subidos correctamente a QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="vanished">Pulsar atrás otra vez para cerrar el proyecto y la aplicación</translation>
+        <translation>Pulsar atrás otra vez para cerrar el proyecto y la aplicación</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4122,11 +4161,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="vanished">Azimut</translation>
+        <translation>Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="vanished">Bloquear pantalla</translation>
+        <translation>Bloquear pantalla</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4134,22 +4173,118 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="vanished">Imprimiendo...</translation>
+        <translation>Imprimiendo...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="vanished">Imprimir</translation>
+        <translation>Imprimir</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="vanished">Error de dispositivo de posicionamiento: %1</translation>
+        <translation>Error de dispositivo de posicionamiento: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Duplicar objeto</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
+        <translation>Objeto duplicado con éxito</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>Autoajuste activado</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Autoajuste desactivado</translation>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap every %1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation>El lienzo sigue la ubicación y la orientación de la brújula</translation>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation>No hay diseño de impresión disponible</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Aprende más</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Sensores</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation>Ningún sensor disponible</translation>
+    </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Carpeta del proyecto</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>Seleccione el sensor a continuación</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>Error de sensor: %1</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>Desconectando el sensor &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>Conectando el sensor &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation>Seleccione el diseño a continuación</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Capa:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Objeto:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>Abrir formulario de objetos</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>Duplicado de objetos no disponible</translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>Importando %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>Falló la importación de URL</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4165,7 +4300,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>No se puede añadir el objeto hijo: la clave primaria del padre no está disponible</translation>
+        <translation type="vanished">No se puede añadir el objeto hijo: la clave primaria del padre no está disponible</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4186,6 +4321,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>No se pudo borrar el objeto que hace referencia</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
     </message>
 </context>
 </TS>

@@ -164,7 +164,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>znaleziono %n urządzenie</numerusform><numerusform>znaleziono %n urządzenia</numerusform><numerusform>znaleziono %n urządzeń</numerusform><numerusform>znaleziono %n urządzenie</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -465,7 +465,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Zakończ lub odrzuć digitizację obiektu przed przełączeniem do trybu przeglądania</translation>
     </message>
 </context>
 <context>
@@ -534,7 +534,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>Edycja warstwy dziennika digitalizacji nie powiodła się</translation>
     </message>
 </context>
 <context>
@@ -666,6 +666,29 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
+    <name>FeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation>Nie udało się cofnąć utworzenia obiektów na warstwie &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation>Nie udało się cofnąć usunięcia obiektów na warstwie &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation>Nie udało się cofnąć zmian obiektów na warstwie &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
@@ -716,11 +739,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Pomyślnie połączono %n obiekt</numerusform><numerusform>Pomyślnie połączono %n obiekty</numerusform><numerusform>Pomyślnie połączono %n obiektów</numerusform><numerusform>Pomyślnie połączono %n obiekt</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nie udało się połączyć %n obiektu</numerusform><numerusform>Nie udało się połączyć %n obiektów</numerusform><numerusform>Nie udało się połączyć %n obiektów</numerusform><numerusform>Nie udało się połączyć %n obiektu</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
@@ -729,11 +752,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Czy na pewno %n wybrany obiekt ma zostać usunięty?</numerusform><numerusform>Czy na pewno %n wybrane obiekty mają zostać usunięte?</numerusform><numerusform>Czy na pewno %n wybranych obiektów ma zostać usunięte?</numerusform><numerusform>Czy na pewno %n wybrany obiekt ma zostać usunięty?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Pomyślnie usunięto %n obiekt</numerusform><numerusform>Pomyślnie usunięto %n obiekty</numerusform><numerusform>Pomyślnie usunięto %n obiektów</numerusform><numerusform>Pomyślnie usunięto %n obiekt</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
@@ -748,7 +771,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation type="unfinished"/>
+        <translation>Nie można skonwertować wartości &quot;%1&quot; %4 na wartość zgodną dla pola %2(%3).</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
@@ -1986,7 +2009,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Jest %n lokalna zmiana</numerusform><numerusform>Są %n lokalne zmiany</numerusform><numerusform>Jest %n lokalnych zmian</numerusform><numerusform>Jest %n lokalna zmiana</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
@@ -2074,7 +2097,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished"><numerusform>%n załącznik jest wysyłany w tle</numerusform><numerusform>%n załączniki są wysyłane w tle</numerusform><numerusform>%n załączników jest wysyłanych w tle</numerusform><numerusform>%n załącznik jest wysyłany w tle</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -2103,6 +2126,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>No changes to revert</source>
         <translation>Brak zmian do cofnięcia</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Ten projekt posiada zaktualizowany plik projektu w chmurze, zalecana jest synchronizacja.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>Ten projekt posiada zaktualizowane dane w chmurze, zalecana jest synchronizacja.</translation>
     </message>
 </context>
 <context>
@@ -2149,7 +2180,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Zakończono tworzenie pracy, ale w odpowiedzi serwera brakuje wymaganych pól: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
@@ -2341,6 +2372,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Project Actions</source>
         <translation>Działania projektu</translation>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
+        <translation>, zaktualizowane dane dostępne w chmurze</translation>
     </message>
 </context>
 <context>
@@ -2566,7 +2601,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished"><numerusform>znaleziono %n urządzenie</numerusform><numerusform>znaleziono %n urządzenia</numerusform><numerusform>znaleziono %n urządzeń</numerusform><numerusform>znaleziono %n urządzenie</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -3718,7 +3753,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
+        <translation type="vanished">Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3740,100 +3775,104 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Failed to delete referencing feature</source>
         <translation>Nie udało się usunąć odnośnego obiektu</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="vanished">Jesteś teraz w trybie przeglądania</translation>
+        <translation>Jesteś teraz w trybie przeglądania</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="vanished">Jesteś teraz w trybie edycji warstwy %1</translation>
+        <translation>Jesteś teraz w trybie edycji warstwy %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="vanished">Jesteś teraz w trybie edycji</translation>
+        <translation>Jesteś teraz w trybie edycji</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="vanished">Jesteś teraz w trybie pomiaru</translation>
+        <translation>Jesteś teraz w trybie pomiaru</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Dłu</translation>
+        <translation>Dłu</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Szer</translation>
+        <translation>Szer</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="vanished">Segment</translation>
+        <translation>Segment</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="vanished">Obwód</translation>
+        <translation>Obwód</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="vanished">Długość</translation>
+        <translation>Długość</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="vanished">Powierzchnia</translation>
+        <translation>Powierzchnia</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="vanished">Zamknij narzędzie pomiaru</translation>
+        <translation>Zamknij narzędzie pomiaru</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="vanished">Zatrzymaj edycję</translation>
+        <translation>Zatrzymaj edycję</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="vanished">Anuluj edycję</translation>
+        <translation>Anuluj edycję</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="vanished">Edycja topologiczna włączona</translation>
+        <translation>Edycja topologiczna włączona</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="vanished">Edycja topologiczna wyłączona</translation>
+        <translation>Edycja topologiczna wyłączona</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="vanished">Edycja odręczna włączona</translation>
+        <translation>Edycja odręczna włączona</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="vanished">Edycja odręczna wyłączona</translation>
+        <translation>Edycja odręczna wyłączona</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">Kursor lokalizacji zablokowany na pozycji</translation>
+        <translation>Kursor lokalizacji zablokowany na pozycji</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="vanished">Kursor lokalizacji odblokowany</translation>
+        <translation>Kursor lokalizacji odblokowany</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">Pobrano pozycję</translation>
+        <translation>Pobrano pozycję</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">Szukanie pozycji</translation>
+        <translation>Szukanie pozycji</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">Widok mapy podąża za lokalizacją</translation>
+        <translation>Widok mapy podąża za lokalizacją</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="vanished">Czekanie na lokalizację</translation>
+        <translation>Czekanie na lokalizację</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3845,19 +3884,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">Widok mapy nie podąża za lokalizacją</translation>
+        <translation>Widok mapy nie podąża za lokalizacją</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">Nie można utworzyć obiektu!</translation>
+        <translation>Nie można utworzyć obiektu!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">Nie można zapisać obiektu!</translation>
+        <translation>Nie można zapisać obiektu!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="vanished">Menu główne</translation>
+        <translation>Menu główne</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -3865,7 +3904,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">Drukuj do PDF</translation>
+        <translation>Drukuj do PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3885,15 +3924,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Ustawienia</translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation type="vanished">Dziennik</translation>
+        <translation>Dziennik</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">O QField</translation>
+        <translation>O QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3901,7 +3940,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="vanished">Aktywacja usługi lokalizacji</translation>
+        <translation>Aktywacja usługi lokalizacji</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -3909,15 +3948,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="vanished">Opcje widoku mapy</translation>
+        <translation>Opcje widoku mapy</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="vanished">Dodaj zakładkę</translation>
+        <translation>Dodaj zakładkę</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="vanished">Ustaw jako cel</translation>
+        <translation>Ustaw jako cel</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3925,7 +3964,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="vanished">Nienazwana zakładka</translation>
+        <translation>Nienazwana zakładka</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3933,7 +3972,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">Skopiuj współrzędne</translation>
+        <translation>Skopiuj współrzędne</translation>
     </message>
     <message>
         <source>X</source>
@@ -3945,11 +3984,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="vanished">Skopiowano współrzędne do schowka</translation>
+        <translation>Skopiowano współrzędne do schowka</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="vanished">Ustawienia Widoku precyzyjnego</translation>
+        <translation>Ustawienia Widoku precyzyjnego</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -3977,27 +4016,27 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="vanished">Zawsze pokazuj Widok precyzyjny</translation>
+        <translation>Zawsze pokazuj Widok precyzyjny</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="vanished">Wyśrodkuj do położenia</translation>
+        <translation>Wyśrodkuj do położenia</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Dodaj zakładkę w tym położeniu</translation>
+        <translation>Dodaj zakładkę w tym położeniu</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Skopiuj współrzędne położenia</translation>
+        <translation>Skopiuj współrzędne położenia</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="vanished">Wylogowano</translation>
+        <translation>Wylogowano</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="vanished">Zalogowano</translation>
+        <translation>Zalogowano</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -4005,35 +4044,35 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="vanished">Opcje nawigacji</translation>
+        <translation>Opcje nawigacji</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="vanished">Wyczyść cel</translation>
+        <translation>Wyczyść cel</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="vanished">Dokładność %1</translation>
+        <translation>Dokładność %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">Włącz powiadomienie dźwiękowe zbliżenia</translation>
+        <translation>Włącz powiadomienie dźwiękowe zbliżenia</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="vanished">Ustawienia pozycjonowania</translation>
+        <translation>Ustawienia pozycjonowania</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="vanished">Włącz pozycjonowanie</translation>
+        <translation>Włącz pozycjonowanie</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Pokaż informacje o aktualnej pozycji</translation>
+        <translation>Pokaż informacje o aktualnej pozycji</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation type="vanished">Ustawienia lokalizacji</translation>
+        <translation>Ustawienia lokalizacji</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4045,11 +4084,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">Bieżąca lokalizacja nieznana</translation>
+        <translation>Bieżąca lokalizacja nieznana</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="vanished">Moja lokalizacja</translation>
+        <translation>Moja lokalizacja</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4057,27 +4096,27 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="vanished">Dokładność</translation>
+        <translation>Dokładność</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">Niedostępne</translation>
+        <translation>Niedostępne</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="vanished">Skopiowano bieżącą lokalizację do schowka</translation>
+        <translation>Skopiowano bieżącą lokalizację do schowka</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="vanished">Aktualna warstwa została przełączona na warstwę zawierającą wybraną geometrię.</translation>
+        <translation>Aktualna warstwa została przełączona na warstwę zawierającą wybraną geometrię.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">Edycja warstw z wieloma geometriami nie jest jeszcze obsługiwana.</translation>
+        <translation>Edycja warstw z wieloma geometriami nie jest jeszcze obsługiwana.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="vanished">Wczytywanie %1</translation>
+        <translation>Wczytywanie %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4085,7 +4124,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="vanished">Łączenie...</translation>
+        <translation>Łączenie...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4093,23 +4132,23 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="vanished">Nie można było pobrać projektu %1</translation>
+        <translation>Nie można było pobrać projektu %1</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="vanished">Pomyślnie pobrano projekt %1, jest on gotowy do otwarcia</translation>
+        <translation>Pomyślnie pobrano projekt %1, jest on gotowy do otwarcia</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="vanished">Nie udało się wysłać zmian do QFieldCloud: %1</translation>
+        <translation>Nie udało się wysłać zmian do QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="vanished">Zmiany wysłane pomyślnie do QFieldCloud</translation>
+        <translation>Zmiany wysłane pomyślnie do QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="vanished">Wciśnij wstecz ponownie, aby zamknąć projekt i aplikację</translation>
+        <translation>Wciśnij wstecz ponownie, aby zamknąć projekt i aplikację</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4117,11 +4156,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="vanished">Azymut</translation>
+        <translation>Azymut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="vanished">Zablokuj ekran</translation>
+        <translation>Zablokuj ekran</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4129,23 +4168,119 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="vanished">Drukowanie...</translation>
+        <translation>Drukowanie...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="vanished">Drukuj</translation>
+        <translation>Drukuj</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="vanished">Błąd urządzenia lokalizacyjnego: %1</translation>
+        <translation>Błąd urządzenia lokalizacyjnego: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Powiel obiekt</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
+        <translation>Obiekt powielony pomyślnie</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>Przyciąganie włączone</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Przyciąganie wyłączone</translation>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap every %1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation>Widok mapy podąża za lokalizacją i orientacją kompasu</translation>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation>Brak dostępnego układu wydruku</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Dowiedz się więcej</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Czujniki</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation>Brak dostępnego czujnika</translation>
+    </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Katalog projektu</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>Wybierz czujnik poniżej</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>Błąd czujnika: %1</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>Rozłączanie czujnika &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>Łączenie z czujnikiem &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation>Wybierz układ wydruku poniżej</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Warstwa:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Obiekt:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>Otwórz formularz obiektu</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>Duplikacja obiektu niedostępna</translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>Importowanie %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>Import URL nie powiódł się.</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
+        <translation>Odblokuj ekran aby zamknąć projekt i aplikację</translation>
     </message>
 </context>
 <context>
@@ -4160,7 +4295,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
+        <translation type="vanished">Nie można dodać elementu potomnego: klucze główne dla elementu nadrzędnego są niedostępne</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4181,6 +4316,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>Nie udało się usunąć odnośnego obiektu</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
