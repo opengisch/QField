@@ -665,6 +665,29 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>FeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
@@ -2096,6 +2119,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No changes to revert</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2330,6 +2361,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3729,100 +3764,104 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete referencing feature</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="vanished">Način za pregled opisnih podatkov</translation>
+        <translation>Način za pregled opisnih podatkov</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="vanished">Zdaj si v načinu digitalizacije na sloju %1</translation>
+        <translation>Zdaj si v načinu digitalizacije na sloju %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="vanished">Zdaj si v načinu digitalizacije</translation>
+        <translation>Zdaj si v načinu digitalizacije</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="vanished">Sedaj uporabljaš orodje za merjenje</translation>
+        <translation>Sedaj uporabljaš orodje za merjenje</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="vanished">Odsek</translation>
+        <translation>Odsek</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="vanished">Obseg</translation>
+        <translation>Obseg</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="vanished">Dolžina</translation>
+        <translation>Dolžina</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="vanished">Površina</translation>
+        <translation>Površina</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="vanished">Zapri orodje za merjenje</translation>
+        <translation>Zapri orodje za merjenje</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="vanished">Zaustavi urejanje</translation>
+        <translation>Zaustavi urejanje</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="vanished">Prekliči dodajanje</translation>
+        <translation>Prekliči dodajanje</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="vanished">Topološko urejanje vklopljeno</translation>
+        <translation>Topološko urejanje vklopljeno</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="vanished">Topološko urejanje izklopljeno</translation>
+        <translation>Topološko urejanje izklopljeno</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="vanished">Prostoročno digitaliziranje vklopljeno</translation>
+        <translation>Prostoročno digitaliziranje vklopljeno</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="vanished">Prostoročno digitaliziranje izklopljeno </translation>
+        <translation>Prostoročno digitaliziranje izklopljeno </translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">Kazalec koordinat je sedaj zaklenjen na lokacijo</translation>
+        <translation>Kazalec koordinat je sedaj zaklenjen na lokacijo</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="vanished">Kazalec koordinat je odklenjen</translation>
+        <translation>Kazalec koordinat je odklenjen</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">Lokacija določena</translation>
+        <translation>Lokacija določena</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">Iskanje lokacije</translation>
+        <translation>Iskanje lokacije</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">Zaslon sledi lokaciji</translation>
+        <translation>Zaslon sledi lokaciji</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="vanished">Čakam na lokacijo</translation>
+        <translation>Čakam na lokacijo</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3834,19 +3873,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">Zaslon lokaciji ne sledi več</translation>
+        <translation>Zaslon lokaciji ne sledi več</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">Objekta ni mogoče ustvariti!</translation>
+        <translation>Objekta ni mogoče ustvariti!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">Objekta ni mogoče shraniti!</translation>
+        <translation>Objekta ni mogoče shraniti!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="vanished">Glavni meni</translation>
+        <translation>Glavni meni</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -3854,7 +3893,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">Tisk v PDF formatu</translation>
+        <translation>Tisk v PDF formatu</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3874,15 +3913,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Nastavitve</translation>
+        <translation>Nastavitve</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation type="vanished">Dnevnik sporočil</translation>
+        <translation>Dnevnik sporočil</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">O QField-u</translation>
+        <translation>O QField-u</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3890,7 +3929,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="vanished">Aktiviranje lociranja</translation>
+        <translation>Aktiviranje lociranja</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -3902,11 +3941,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="vanished">Dodaj zaznamek</translation>
+        <translation>Dodaj zaznamek</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="vanished">Nastavi kot cilj</translation>
+        <translation>Nastavi kot cilj</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3914,7 +3953,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="vanished">Zaznamek brez naslova</translation>
+        <translation>Zaznamek brez naslova</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3922,7 +3961,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">Kopiraj koordinate</translation>
+        <translation>Kopiraj koordinate</translation>
     </message>
     <message>
         <source>X</source>
@@ -3934,11 +3973,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="vanished">Koordinate so kopirane v odložišče</translation>
+        <translation>Koordinate so kopirane v odložišče</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="vanished">Natančne nastavitve pogleda</translation>
+        <translation>Natančne nastavitve pogleda</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -3966,7 +4005,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="vanished">Vedno pokaži natančen pogled</translation>
+        <translation>Vedno pokaži natančen pogled</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -3974,19 +4013,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Dodaj zaznamek na lokaciji</translation>
+        <translation>Dodaj zaznamek na lokaciji</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Kopiraj koordinate lokacije</translation>
+        <translation>Kopiraj koordinate lokacije</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="vanished">Odjavljen</translation>
+        <translation>Odjavljen</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="vanished">Prijavljen</translation>
+        <translation>Prijavljen</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3994,35 +4033,35 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="vanished">Možnosti navigacije</translation>
+        <translation>Možnosti navigacije</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="vanished">Počisti cilj</translation>
+        <translation>Počisti cilj</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="vanished"> Natančnost %1</translation>
+        <translation> Natančnost %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">Omogoči povratno informacijo učinka bližine zvoka</translation>
+        <translation>Omogoči povratno informacijo učinka bližine zvoka</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="vanished">Nastavitve lokacije</translation>
+        <translation>Nastavitve lokacije</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="vanished">Omogočite lokacijo</translation>
+        <translation>Omogočite lokacijo</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Pokaži informacije o lokaciji</translation>
+        <translation>Pokaži informacije o lokaciji</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation type="vanished">Nastavitve lokacije</translation>
+        <translation>Nastavitve lokacije</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4034,11 +4073,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">Trenutna lokacija neznana</translation>
+        <translation>Trenutna lokacija neznana</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="vanished">Moja lokacija</translation>
+        <translation>Moja lokacija</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4046,27 +4085,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="vanished">Natančnost</translation>
+        <translation>Natančnost</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">Ni na voljo</translation>
+        <translation>Ni na voljo</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="vanished">Trenutna lokacija je kopirana v odložišče</translation>
+        <translation>Trenutna lokacija je kopirana v odložišče</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="vanished">Preklop trenutnega sloja na tistega, ki vsebuje izbrano geometrijo.</translation>
+        <translation>Preklop trenutnega sloja na tistega, ki vsebuje izbrano geometrijo.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">Urejanje večgeometrijskega sloja še ni omogočeno.</translation>
+        <translation>Urejanje večgeometrijskega sloja še ni omogočeno.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="vanished">Nalaganje %1</translation>
+        <translation>Nalaganje %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4074,7 +4113,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="vanished">Povezovanje...</translation>
+        <translation>Povezovanje...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4082,23 +4121,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="vanished">Projekta %1 ni bilo mogoče prenesti</translation>
+        <translation>Projekta %1 ni bilo mogoče prenesti</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="vanished">Projekt %1 je bil uspešno prenesen, zdaj ga je mogoče odpreti</translation>
+        <translation>Projekt %1 je bil uspešno prenesen, zdaj ga je mogoče odpreti</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="vanished">Spremembe se niso prenesle v QFieldCloud: %1</translation>
+        <translation>Spremembe se niso prenesle v QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="vanished">Spremembe so bile uspešno prenesene v QFieldCloud</translation>
+        <translation>Spremembe so bile uspešno prenesene v QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="vanished">Pritisni nazaj še enkrat, da zapreš projekt in aplikacijo.</translation>
+        <translation>Pritisni nazaj še enkrat, da zapreš projekt in aplikacijo.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4106,11 +4145,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="vanished">Azimut</translation>
+        <translation>Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="vanished">Zakleni zaslon</translation>
+        <translation>Zakleni zaslon</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4118,22 +4157,118 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="vanished">Tiskam...</translation>
+        <translation>Tiskam...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="vanished">Tisk</translation>
+        <translation>Tisk</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="vanished">Napaka naprave za določanje lokacije: %1</translation>
+        <translation>Napaka naprave za določanje lokacije: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Podvoji objekt</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
+        <translation>Objekt je bil uspešno podvojen</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap every %1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Preberi več</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Senzorji</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Mapa projekta</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>Spodaj izberite senzor</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>Napaka senzorja: %1</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>Odklop senzorja &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>Povezovanje senzorja &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Sloj:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Objekt:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>Uvažam %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>Uvoz URL ni uspel</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4169,6 +4304,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
 </context>

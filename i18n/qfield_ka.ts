@@ -666,6 +666,29 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>FeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
@@ -2100,6 +2123,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No changes to revert</source>
         <translation>დასაბრუნებელი არაფერია</translation>
     </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -2334,6 +2365,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, updated data available on the cloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3712,7 +3747,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>შვილობილი ტოპოგრაფიული ელემენტის დამატება შეუძლებელია: მშობელი საკვანძო ველი არ არის ხელმისაწვდომი</translation>
+        <translation type="vanished">შვილობილი ტოპოგრაფიული ელემენტის დამატება შეუძლებელია: მშობელი საკვანძო ველი არ არის ხელმისაწვდომი</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3734,56 +3769,60 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete referencing feature</source>
         <translation>მითითებული ტოპოგრაფიული ელემენტის წაშლა ვერ მოხდა</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="vanished">თვალიერების რეჟიმი გააქტიურებულია</translation>
+        <translation>თვალიერების რეჟიმი გააქტიურებულია</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="vanished">ციფრული რედაქტირების რეჟიმი ფენაზე %1 გააქტიურებულია</translation>
+        <translation>ციფრული რედაქტირების რეჟიმი ფენაზე %1 გააქტიურებულია</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="vanished">ციფრული რედაქტირების რეჟიმი გააქტიურებულია</translation>
+        <translation>ციფრული რედაქტირების რეჟიმი გააქტიურებულია</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="vanished">გაზომვების რეჟიმი გააქტიურებულია</translation>
+        <translation>გაზომვების რეჟიმი გააქტიურებულია</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">გრძედი</translation>
+        <translation>გრძედი</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">განედი</translation>
+        <translation>განედი</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="vanished">სეგმენტი</translation>
+        <translation>სეგმენტი</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="vanished">პერიმეტრი</translation>
+        <translation>პერიმეტრი</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="vanished">სიგრძე</translation>
+        <translation>სიგრძე</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="vanished">არეალი</translation>
+        <translation>არეალი</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="vanished">ხელსაწყოს დახურვა</translation>
+        <translation>ხელსაწყოს დახურვა</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="vanished">რედაქტორების დასრულება</translation>
+        <translation>რედაქტორების დასრულება</translation>
     </message>
     <message>
         <source>Cancel addition</source>
@@ -3791,19 +3830,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="vanished">ტოპოლოგიური ცვლილების რეჟიმი ჩართულია</translation>
+        <translation>ტოპოლოგიური ცვლილების რეჟიმი ჩართულია</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="vanished">ტოპოლოგიური ცვლილების რეჟიმი გამორთულია</translation>
+        <translation>ტოპოლოგიური ცვლილების რეჟიმი გამორთულია</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="vanished">გაციფრულების თავისუფალი რეჟიმი ჩართულია</translation>
+        <translation>გაციფრულების თავისუფალი რეჟიმი ჩართულია</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="vanished">გაციფრულების თავისუფალი რეჟიმი გამორთულია</translation>
+        <translation>გაციფრულების თავისუფალი რეჟიმი გამორთულია</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
@@ -3815,19 +3854,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">პოზიცია მიღებულია</translation>
+        <translation>პოზიცია მიღებულია</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">პოზიციის ძებნა</translation>
+        <translation>პოზიციის ძებნა</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">რუკის ფენა თვალს ადევნებს ადგილმდებარეობას</translation>
+        <translation>რუკის ფენა თვალს ადევნებს ადგილმდებარეობას</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="vanished">ველოდებით ადგილმდებარეობას</translation>
+        <translation>ველოდებით ადგილმდებარეობას</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3839,19 +3878,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">რუკის ფენამ შეწყვიტა ადგილმდებარეობის თვალის დევნა</translation>
+        <translation>რუკის ფენამ შეწყვიტა ადგილმდებარეობის თვალის დევნა</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">ტოპოგრაფიული ელემენტის შექმნის პრობლემა!</translation>
+        <translation>ტოპოგრაფიული ელემენტის შექმნის პრობლემა!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">ტოპოგრაფიული ელემენტის შენახვია ვერ მოხდა!</translation>
+        <translation>ტოპოგრაფიული ელემენტის შენახვია ვერ მოხდა!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="vanished">ძირითადი მენიუ</translation>
+        <translation>ძირითადი მენიუ</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -3859,7 +3898,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">PDF-ში ბეჭდვა</translation>
+        <translation>PDF-ში ბეჭდვა</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3879,15 +3918,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">პარამეტრები</translation>
+        <translation>პარამეტრები</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation type="vanished">შეტყობინება ჟურნალიდან</translation>
+        <translation>შეტყობინება ჟურნალიდან</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">QField-ის შესახებ</translation>
+        <translation>QField-ის შესახებ</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3903,11 +3942,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="vanished">რუკის ფენის პარამეტრები</translation>
+        <translation>რუკის ფენის პარამეტრები</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="vanished">სანიშნის დამატება</translation>
+        <translation>სანიშნის დამატება</translation>
     </message>
     <message>
         <source>Set as Destination</source>
@@ -3919,7 +3958,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="vanished">უსათაური სანიშნე</translation>
+        <translation>უსათაური სანიშნე</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3927,7 +3966,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">კოორდინატების კოპირება</translation>
+        <translation>კოორდინატების კოპირება</translation>
     </message>
     <message>
         <source>X</source>
@@ -3939,7 +3978,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="vanished">კოორდინატები დაკოპირდა ბუფერში</translation>
+        <translation>კოორდინატები დაკოპირდა ბუფერში</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -3975,23 +4014,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="vanished">ცენტრირება ლოკაციაზე</translation>
+        <translation>ცენტრირება ლოკაციაზე</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">სანიშნის დამატება ადგილმდებარეობაზე</translation>
+        <translation>სანიშნის დამატება ადგილმდებარეობაზე</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">ადგილმდებარეობის კოორდინატების კოპირება</translation>
+        <translation>ადგილმდებარეობის კოორდინატების კოპირება</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="vanished">ანგარიშიდან გამოსვლა</translation>
+        <translation>ანგარიშიდან გამოსვლა</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="vanished">ანგარიშში შესვლა წარმატებით შესრულდა</translation>
+        <translation>ანგარიშში შესვლა წარმატებით შესრულდა</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3999,11 +4038,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="vanished">ნავიგაციის საშუალებები</translation>
+        <translation>ნავიგაციის საშუალებები</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="vanished">მიმართულების გაწმენდა</translation>
+        <translation>მიმართულების გაწმენდა</translation>
     </message>
     <message>
         <source>%1 Precision</source>
@@ -4015,19 +4054,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="vanished">პოზიციონირების პარამეტრები</translation>
+        <translation>პოზიციონირების პარამეტრები</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="vanished">პოზიციონირების გააქტიურება</translation>
+        <translation>პოზიციონირების გააქტიურება</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">პოზიციის ინფორმაციის ჩვენება</translation>
+        <translation>პოზიციის ინფორმაციის ჩვენება</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation type="vanished">პოზიციონირების პარამეტრები</translation>
+        <translation>პოზიციონირების პარამეტრები</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4039,11 +4078,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">მიმდინარე ადგილმდებარეობა უცნობია</translation>
+        <translation>მიმდინარე ადგილმდებარეობა უცნობია</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="vanished">ჩემი ადგილმდებარეობა</translation>
+        <translation>ჩემი ადგილმდებარეობა</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4051,15 +4090,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="vanished">სიზუსტე</translation>
+        <translation>სიზუსტე</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="vanished">მიმდინარე ლოკაცია დაკოპირდა</translation>
+        <translation>მიმდინარე ლოკაცია დაკოპირდა</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
@@ -4071,7 +4110,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="vanished">იტვირთება %1</translation>
+        <translation>იტვირთება %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4079,7 +4118,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="vanished">დაკავშირება...</translation>
+        <translation>დაკავშირება...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4087,11 +4126,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="vanished">პროექტ %1-ის ჩამოტვირთვის შეცდომა</translation>
+        <translation>პროექტ %1-ის ჩამოტვირთვის შეცდომა</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="vanished">პროექტი %1 წარმატებით ჩამოიტვირთა და ხელმისაწვდომია გამოსაყენებლად</translation>
+        <translation>პროექტი %1 წარმატებით ჩამოიტვირთა და ხელმისაწვდომია გამოსაყენებლად</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
@@ -4103,7 +4142,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="vanished">პროექტისა და აპლიკაციის დასახურად დააჭირეთ უკან გასვლა კვლავ</translation>
+        <translation>პროექტისა და აპლიკაციის დასახურად დააჭირეთ უკან გასვლა კვლავ</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4111,11 +4150,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="vanished">აზიმუტი</translation>
+        <translation>აზიმუტი</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="vanished">ჩაკეტილი ეკრანი</translation>
+        <translation>ჩაკეტილი ეკრანი</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4123,22 +4162,118 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="vanished">იბეჭდება...</translation>
+        <translation>იბეჭდება...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="vanished">ბეჭდვა</translation>
+        <translation>ბეჭდვა</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="vanished">პოზიციონირების მოწყობილობის შეცდომა: %1</translation>
+        <translation>პოზიციონირების მოწყობილობის შეცდომა: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>ტოპო ელემენტის დუბლირება</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
+        <translation>ტოპო ელემენტის დუბლირება წარმატებით შესრულდა</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap every %1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation>საბეჭდი შაბლონი ვერ ვიპოვე</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>გაიგეთ მეტი</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>სენსორები</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation>სენსორები ხელმისაწვდომი არ არის</translation>
+    </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>პროექტის საქაღალდე</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>აირჩიეთ სენსორი</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>სენსორის შეცდომა: %1</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>სენსორ &apos;%1&apos;-სთან კავშირის გაწყვეტა...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>სენსორ &apos;%1&apos;-სთან დაკავშირება...</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation>აირჩიეთ შაბლონი</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>%1-ის იმპორტი</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>URL იმპორტის შეცდომა</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4154,7 +4289,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>შვილობილი ტოპოგრაფიული ელემენტის დამატება შეუძლებელია: მშობელი საკვანძო ველი არ არის ხელმისაწვდომი</translation>
+        <translation type="vanished">შვილობილი ტოპოგრაფიული ელემენტის დამატება შეუძლებელია: მშობელი საკვანძო ველი არ არის ხელმისაწვდომი</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4175,6 +4310,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation>მითითებული ტოპოგრაფიული ელემენტის წაშლა ვერ მოხდა</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
