@@ -3785,95 +3785,95 @@ Cancel to make a minimal device scan instead.</source>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="vanished">أنت الآن في وضع الاستعراض</translation>
+        <translation>أنت الآن في وضع الاستعراض</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="vanished">أنت الآن في وضع الترقيم في الطبقة %1</translation>
+        <translation>أنت الآن في وضع الترقيم في الطبقة %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="vanished">أنت الآن في وضع الترقيم</translation>
+        <translation>أنت الآن في وضع الترقيم</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="vanished">أنت الآن في وضع القياس</translation>
+        <translation>أنت الآن في وضع القياس</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">عرض</translation>
+        <translation>عرض</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">طول</translation>
+        <translation>طول</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="vanished">القطعة</translation>
+        <translation>القطعة</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="vanished">المحيط</translation>
+        <translation>المحيط</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="vanished">الطول</translation>
+        <translation>الطول</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="vanished">المساحة</translation>
+        <translation>المساحة</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="vanished">إغلاق أداة القياس</translation>
+        <translation>إغلاق أداة القياس</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="vanished">إيقاف التحرير</translation>
+        <translation>إيقاف التحرير</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="vanished">إلغاء الإضافة</translation>
+        <translation>إلغاء الإضافة</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="vanished">تم تشغيل التحرير الطبقي</translation>
+        <translation>تم تشغيل التحرير الطبقي</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="vanished">تم إيقاف التحرير الطبقي</translation>
+        <translation>تم إيقاف التحرير الطبقي</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="vanished">تشغيل وضع التحرير باليد الحرة</translation>
+        <translation>تشغيل وضع التحرير باليد الحرة</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="vanished">إطفاء وضع التحرير باليد الحرة</translation>
+        <translation>إطفاء وضع التحرير باليد الحرة</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">تم قفل مؤشر الإحداثيات على الموقع</translation>
+        <translation>تم قفل مؤشر الإحداثيات على الموقع</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="vanished">تم إلغاء قفل مؤشر الإحداثيات</translation>
+        <translation>تم إلغاء قفل مؤشر الإحداثيات</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">الموقع المُستقبل</translation>
+        <translation>الموقع المُستقبل</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">البحث عن موقع</translation>
+        <translation>البحث عن موقع</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">يجري تتبع الموقع</translation>
+        <translation>يجري تتبع الموقع</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="vanished">جار انتظار تحديد الموقع</translation>
+        <translation>جار انتظار تحديد الموقع</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3885,19 +3885,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">تم إيقاف تتبع الموقع</translation>
+        <translation>تم إيقاف تتبع الموقع</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">فشل إنشاء الميزة</translation>
+        <translation>فشل إنشاء الميزة</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">فشل حفظ الميزة</translation>
+        <translation>فشل حفظ الميزة</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="vanished">القائمة الرئيسية</translation>
+        <translation>القائمة الرئيسية</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -3905,7 +3905,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">طباعة إلى ملف PDF</translation>
+        <translation>طباعة إلى ملف PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3925,15 +3925,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">الإعدادات</translation>
+        <translation>الإعدادات</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation type="vanished">ملخص الرسائل</translation>
+        <translation>ملخص الرسائل</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">حول QFeild</translation>
+        <translation>حول QFeild</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3941,7 +3941,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="vanished">جار تفعيل خدمة التموضع</translation>
+        <translation>جار تفعيل خدمة التموضع</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -3949,15 +3949,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="vanished">خيارات سياج الخريطة</translation>
+        <translation>خيارات سياج الخريطة</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="vanished">إضافة علامة مرجعية</translation>
+        <translation>إضافة علامة مرجعية</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="vanished">ضبط كوجهة</translation>
+        <translation>ضبط كوجهة</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3965,7 +3965,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="vanished">علامة مرجعية بدون تسمية</translation>
+        <translation>علامة مرجعية بدون تسمية</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3973,7 +3973,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">نسخ الإحداثيات</translation>
+        <translation>نسخ الإحداثيات</translation>
     </message>
     <message>
         <source>X</source>
@@ -3985,11 +3985,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="vanished">تم نسخ الإحداثيات إلى الحافظة</translation>
+        <translation>تم نسخ الإحداثيات إلى الحافظة</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="vanished">إعدادات المظهر الدقيق</translation>
+        <translation>إعدادات المظهر الدقيق</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -4017,27 +4017,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="vanished">إظهار المظهر الدقيق دائماً</translation>
+        <translation>إظهار المظهر الدقيق دائماً</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="vanished">التوسيط إلى الموقع</translation>
+        <translation>التوسيط إلى الموقع</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">إضافة لاعمة مرجعية عند الموقع</translation>
+        <translation>إضافة لاعمة مرجعية عند الموقع</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">نسخ إحداثيات الموقع</translation>
+        <translation>نسخ إحداثيات الموقع</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="vanished">تم تسجيل الخروج</translation>
+        <translation>تم تسجيل الخروج</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="vanished">تم تسجيل الدخول</translation>
+        <translation>تم تسجيل الدخول</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -4045,35 +4045,35 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="vanished">خيارات الملاحة</translation>
+        <translation>خيارات الملاحة</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="vanished">تصفير المسافة</translation>
+        <translation>تصفير المسافة</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="vanished">الدقة %1</translation>
+        <translation>الدقة %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">نفعيل التصحيح الصوتي التقريبي</translation>
+        <translation>نفعيل التصحيح الصوتي التقريبي</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="vanished">خيارات التموضع</translation>
+        <translation>خيارات التموضع</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="vanished">تمكين التموضع</translation>
+        <translation>تمكين التموضع</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">إظهار معلومات التموضع</translation>
+        <translation>إظهار معلومات التموضع</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation type="vanished">إعدادات التموضع</translation>
+        <translation>إعدادات التموضع</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4085,11 +4085,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">الموقع الحالي غير معروف</translation>
+        <translation>الموقع الحالي غير معروف</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="vanished">موقعي</translation>
+        <translation>موقعي</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4097,27 +4097,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="vanished">الدقة</translation>
+        <translation>الدقة</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">غير محدد</translation>
+        <translation>غير محدد</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="vanished">تم نسخ الموقع الحالي إلى الحافظة</translation>
+        <translation>تم نسخ الموقع الحالي إلى الحافظة</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="vanished">تحولت الطبقة الحالية إلى الطبقة أحادية الرسم المحدد.</translation>
+        <translation>تحولت الطبقة الحالية إلى الطبقة أحادية الرسم المحدد.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">تحرير الطبقة متعددة الرسومات غير مدعوم حالياً.</translation>
+        <translation>تحرير الطبقة متعددة الرسومات غير مدعوم حالياً.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="vanished">جار تحميل %1</translation>
+        <translation>جار تحميل %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4125,7 +4125,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="vanished">جار الاتصال ...</translation>
+        <translation>جار الاتصال ...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4133,23 +4133,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="vanished">فشل تحميل مشروع %1</translation>
+        <translation>فشل تحميل مشروع %1</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="vanished">تم تحميل مشروع %1 بنجاح، وهو جاهز للفتح الآن</translation>
+        <translation>تم تحميل مشروع %1 بنجاح، وهو جاهز للفتح الآن</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="vanished">فشل وصول التغيرات إلى  : %1QFieldCloud</translation>
+        <translation>فشل وصول التغيرات إلى  : %1QFieldCloud</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="vanished">تم نشر التغيرات بنجاح إلى QFieldCloud</translation>
+        <translation>تم نشر التغيرات بنجاح إلى QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="vanished">اضغط زر الرجوع مرة أخرى للخروج من التطبيق</translation>
+        <translation>اضغط زر الرجوع مرة أخرى للخروج من التطبيق</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4181,10 +4181,106 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>تكرار الميزة</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
+        <translation>تم تكرار الميزة بنجاح</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap every %1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>مجلد المشروع</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>

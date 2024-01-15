@@ -3821,95 +3821,95 @@ Cancel to make a minimal device scan instead.</translation>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="vanished">You are now in browse mode</translation>
+        <translation>You are now in browse mode</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="vanished">You are now in digitize mode on layer %1</translation>
+        <translation>You are now in digitize mode on layer %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="vanished">You are now in digitize mode</translation>
+        <translation>You are now in digitize mode</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="vanished">You are now in measure mode</translation>
+        <translation>You are now in measure mode</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="vanished">Segment</translation>
+        <translation>Segment</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="vanished">Perimeter</translation>
+        <translation>Perimeter</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="vanished">Length</translation>
+        <translation>Length</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="vanished">Area</translation>
+        <translation>Area</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="vanished">Close measure tool</translation>
+        <translation>Close measure tool</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="vanished">Stop editing</translation>
+        <translation>Stop editing</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="vanished">Cancel addition</translation>
+        <translation>Cancel addition</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="vanished">Topological editing turned on</translation>
+        <translation>Topological editing turned on</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="vanished">Topological editing turned off</translation>
+        <translation>Topological editing turned off</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="vanished">Freehand digitizing turned on</translation>
+        <translation>Freehand digitizing turned on</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="vanished">Freehand digitizing turned off</translation>
+        <translation>Freehand digitizing turned off</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">Coordinate cursor now locked to position</translation>
+        <translation>Coordinate cursor now locked to position</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="vanished">Coordinate cursor unlocked</translation>
+        <translation>Coordinate cursor unlocked</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">Received position</translation>
+        <translation>Received position</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">Searching for position</translation>
+        <translation>Searching for position</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">Canvas follows location</translation>
+        <translation>Canvas follows location</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="vanished">Waiting for location</translation>
+        <translation>Waiting for location</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3921,19 +3921,19 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">Canvas stopped following location</translation>
+        <translation>Canvas stopped following location</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">Failed to create feature!</translation>
+        <translation>Failed to create feature!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">Failed to save feature!</translation>
+        <translation>Failed to save feature!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="vanished">Main Menu</translation>
+        <translation>Main Menu</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -3941,7 +3941,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">Print to PDF</translation>
+        <translation>Print to PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3961,15 +3961,15 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Settings</translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation type="vanished">Message Log</translation>
+        <translation>Message Log</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">About QField</translation>
+        <translation>About QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3977,7 +3977,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="vanished">Activating positioning service</translation>
+        <translation>Activating positioning service</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -3985,15 +3985,15 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="vanished">Map Canvas Options</translation>
+        <translation>Map Canvas Options</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="vanished">Add Bookmark</translation>
+        <translation>Add Bookmark</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="vanished">Set as Destination</translation>
+        <translation>Set as Destination</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -4001,7 +4001,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="vanished">Untitled bookmark</translation>
+        <translation>Untitled bookmark</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -4009,7 +4009,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">Copy Coordinates</translation>
+        <translation>Copy Coordinates</translation>
     </message>
     <message>
         <source>X</source>
@@ -4021,11 +4021,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="vanished">Coordinates copied to clipboard</translation>
+        <translation>Coordinates copied to clipboard</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="vanished">Precise View Settings</translation>
+        <translation>Precise View Settings</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -4053,27 +4053,27 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="vanished">Always Show Precise View</translation>
+        <translation>Always Show Precise View</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="vanished">Center to Location</translation>
+        <translation>Center to Location</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Add Bookmark at Location</translation>
+        <translation>Add Bookmark at Location</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Copy Location Coordinates</translation>
+        <translation>Copy Location Coordinates</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="vanished">Signed out</translation>
+        <translation>Signed out</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="vanished">Signed in</translation>
+        <translation>Signed in</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -4081,35 +4081,35 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="vanished">Navigation Options</translation>
+        <translation>Navigation Options</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="vanished">Clear Destination</translation>
+        <translation>Clear Destination</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="vanished">%1 Precision</translation>
+        <translation>%1 Precision</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">Enable Audio Proximity Feedback</translation>
+        <translation>Enable Audio Proximity Feedback</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="vanished">Positioning Options</translation>
+        <translation>Positioning Options</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="vanished">Enable Positioning</translation>
+        <translation>Enable Positioning</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Show Position Information</translation>
+        <translation>Show Position Information</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation type="vanished">Positioning Settings</translation>
+        <translation>Positioning Settings</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4121,11 +4121,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">Current location unknown</translation>
+        <translation>Current location unknown</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="vanished">My location</translation>
+        <translation>My location</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4133,27 +4133,27 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="vanished">Accuracy</translation>
+        <translation>Accuracy</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="vanished">Current location copied to clipboard</translation>
+        <translation>Current location copied to clipboard</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="vanished">Current layer switched to the one holding the selected geometry.</translation>
+        <translation>Current layer switched to the one holding the selected geometry.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">Editing of multi geometry layer is not supported yet.</translation>
+        <translation>Editing of multi geometry layer is not supported yet.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="vanished">Loading %1</translation>
+        <translation>Loading %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4161,7 +4161,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="vanished">Connecting...</translation>
+        <translation>Connecting...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4169,23 +4169,23 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="vanished">Project %1 failed to download</translation>
+        <translation>Project %1 failed to download</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="vanished">Project %1 successfully downloaded, it&apos;s now available to open</translation>
+        <translation>Project %1 successfully downloaded, it&apos;s now available to open</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="vanished">Changes failed to reach QFieldCloud: %1</translation>
+        <translation>Changes failed to reach QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="vanished">Changes successfully pushed to QFieldCloud</translation>
+        <translation>Changes successfully pushed to QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="vanished">Press back again to close project and app</translation>
+        <translation>Press back again to close project and app</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4193,11 +4193,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="vanished">Azimuth</translation>
+        <translation>Azimuth</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="vanished">Lock Screen</translation>
+        <translation>Lock Screen</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4205,23 +4205,119 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="vanished">Printing...</translation>
+        <translation>Printing...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="vanished">Print</translation>
+        <translation>Print</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="vanished">Positioning device error: %1</translation>
+        <translation>Positioning device error: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="obsolete">Duplicate Feature</translation>
+        <translation type="unfinished">Duplicate Feature</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation type="obsolete">Successfully duplicated feature</translation>
+        <translation type="unfinished">Successfully duplicated feature</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap every %1°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project Folder</source>
+        <translation type="unfinished">Project Folder</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

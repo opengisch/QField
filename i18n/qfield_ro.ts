@@ -3793,95 +3793,95 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="vanished">Acum sunteți in modul de navigare</translation>
+        <translation>Acum sunteți in modul de navigare</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="vanished">Acum sunteți în modul digitizare pe stratul %1</translation>
+        <translation>Acum sunteți în modul digitizare pe stratul %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="vanished">Acum sunteți in modul de digitizare</translation>
+        <translation>Acum sunteți in modul de digitizare</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="vanished">Acum sunteți in modul de măsurare</translation>
+        <translation>Acum sunteți in modul de măsurare</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation>Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation>Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="vanished">Segment</translation>
+        <translation>Segment</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="vanished">Perimetru</translation>
+        <translation>Perimetru</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="vanished">Lungime</translation>
+        <translation>Lungime</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="vanished">Arie</translation>
+        <translation>Arie</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="vanished">Închide instrumentul pentru măsurare</translation>
+        <translation>Închide instrumentul pentru măsurare</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="vanished">Opriți editarea</translation>
+        <translation>Opriți editarea</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="vanished">Anulați adăugarea</translation>
+        <translation>Anulați adăugarea</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="vanished">Editarea topologică a pornit</translation>
+        <translation>Editarea topologică a pornit</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="vanished">Editarea topologică a fost dezactivată</translation>
+        <translation>Editarea topologică a fost dezactivată</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="vanished">Digitizarea cu mâna libera este pornită</translation>
+        <translation>Digitizarea cu mâna libera este pornită</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="vanished">Digitizarea cu mâna libera este oprită</translation>
+        <translation>Digitizarea cu mâna libera este oprită</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">Cursorul cu coordonate este blocat în poziție</translation>
+        <translation>Cursorul cu coordonate este blocat în poziție</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="vanished">Cursorul cu coordonate este deblocat</translation>
+        <translation>Cursorul cu coordonate este deblocat</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">Poziție primită</translation>
+        <translation>Poziție primită</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">Căutam poziția</translation>
+        <translation>Căutam poziția</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">Canvasul urmărește locația</translation>
+        <translation>Canvasul urmărește locația</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="vanished">Așteptăm după locație</translation>
+        <translation>Așteptăm după locație</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3893,19 +3893,19 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">Canvasul nu mai urmărește locația</translation>
+        <translation>Canvasul nu mai urmărește locația</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">Creara elementului a eșuat!</translation>
+        <translation>Creara elementului a eșuat!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">Salvarea elementului a eșuat!</translation>
+        <translation>Salvarea elementului a eșuat!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="vanished">Meniul Principal</translation>
+        <translation>Meniul Principal</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -3913,7 +3913,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">Creează PDF</translation>
+        <translation>Creează PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3933,15 +3933,15 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Setări</translation>
+        <translation>Setări</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation type="vanished">Mesaj Jurnal Modificări</translation>
+        <translation>Mesaj Jurnal Modificări</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">Despre QField</translation>
+        <translation>Despre QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3949,7 +3949,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="vanished">Se activează serviciul de poziționare</translation>
+        <translation>Se activează serviciul de poziționare</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -3957,15 +3957,15 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="vanished">Opțiuni ale Canvasului Hărții</translation>
+        <translation>Opțiuni ale Canvasului Hărții</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="vanished">Adaugați Semn de Carte</translation>
+        <translation>Adaugați Semn de Carte</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="vanished">Setați ca Destinație</translation>
+        <translation>Setați ca Destinație</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3973,7 +3973,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="vanished">Semn de carte nedenumit</translation>
+        <translation>Semn de carte nedenumit</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3981,7 +3981,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">Copiați Coordonate</translation>
+        <translation>Copiați Coordonate</translation>
     </message>
     <message>
         <source>X</source>
@@ -3993,11 +3993,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="vanished">Coordonate copiate în clipboard</translation>
+        <translation>Coordonate copiate în clipboard</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="vanished">Setări Vizualizare cu Precizie</translation>
+        <translation>Setări Vizualizare cu Precizie</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -4025,27 +4025,27 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="vanished">Arată întotdeauna Vizualizarea Precisă</translation>
+        <translation>Arată întotdeauna Vizualizarea Precisă</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="vanished">Centrați pe Locație</translation>
+        <translation>Centrați pe Locație</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Adăugați un Semn de Carte la Locație</translation>
+        <translation>Adăugați un Semn de Carte la Locație</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Copiază Coordonatele Locației</translation>
+        <translation>Copiază Coordonatele Locației</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="vanished">Deconectat</translation>
+        <translation>Deconectat</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="vanished">Conectat</translation>
+        <translation>Conectat</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -4053,35 +4053,35 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="vanished">Opțiuni Navigație</translation>
+        <translation>Opțiuni Navigație</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="vanished">Curăță Destinația</translation>
+        <translation>Curăță Destinația</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="vanished">%1 Precizie</translation>
+        <translation>%1 Precizie</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">Activați Feedback-ul Audio de Proximitate </translation>
+        <translation>Activați Feedback-ul Audio de Proximitate </translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="vanished">Opțiuni de Poziționare</translation>
+        <translation>Opțiuni de Poziționare</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="vanished">Activare Poziționare</translation>
+        <translation>Activare Poziționare</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Arată Informațiile Poziției</translation>
+        <translation>Arată Informațiile Poziției</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation type="vanished">Setări de Poziționare</translation>
+        <translation>Setări de Poziționare</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4093,11 +4093,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">Locația Curentă necunoscută</translation>
+        <translation>Locația Curentă necunoscută</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="vanished">Locația mea</translation>
+        <translation>Locația mea</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4105,27 +4105,27 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="vanished">Acurateţe</translation>
+        <translation>Acurateţe</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="vanished">Locația Curentă a fost copiată în clipboard</translation>
+        <translation>Locația Curentă a fost copiată în clipboard</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="vanished">Stratul curent a trecut la cel care conține geometria selectată.</translation>
+        <translation>Stratul curent a trecut la cel care conține geometria selectată.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">Editarea stratului cu geometrie multiplă nu este permisă încă.</translation>
+        <translation>Editarea stratului cu geometrie multiplă nu este permisă încă.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="vanished">Încărcare %1</translation>
+        <translation>Încărcare %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4133,7 +4133,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="vanished">Se contectează...</translation>
+        <translation>Se contectează...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4141,23 +4141,23 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="vanished">Proiectul %1 nu a reușit descărcarea</translation>
+        <translation>Proiectul %1 nu a reușit descărcarea</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="vanished">Proiectul %1 descărcat cu succes, acum disponibil pentru deschidere</translation>
+        <translation>Proiectul %1 descărcat cu succes, acum disponibil pentru deschidere</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="vanished">Modificările nu au reușit să ajungă la QFieldCloud: %1</translation>
+        <translation>Modificările nu au reușit să ajungă la QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="vanished">Modificările au reușit să ajungă la QFieldCloud</translation>
+        <translation>Modificările au reușit să ajungă la QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="vanished">Apăsați pe Back pentru a închide proiectul și aplicația</translation>
+        <translation>Apăsați pe Back pentru a închide proiectul și aplicația</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4165,11 +4165,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="vanished">Azimut</translation>
+        <translation>Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="vanished">Blocare Ecran</translation>
+        <translation>Blocare Ecran</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4177,22 +4177,118 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="vanished">Imprimare...</translation>
+        <translation>Imprimare...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="vanished">Imprimare</translation>
+        <translation>Imprimare</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="vanished">Eroare de poziționare a dispozitivului: %1</translation>
+        <translation>Eroare de poziționare a dispozitivului: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Duplică Element</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
+        <translation>Element duplicat cu succes</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap every %1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Folderul Proiectului</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>

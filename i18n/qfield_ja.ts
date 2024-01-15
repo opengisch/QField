@@ -3787,95 +3787,95 @@ Cancel to make a minimal device scan instead.</source>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="vanished">閲覧モード</translation>
+        <translation>閲覧モード</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="vanished">レイヤ %1 は編集モードになりました</translation>
+        <translation>レイヤ %1 は編集モードになりました</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="vanished">編集モード</translation>
+        <translation>編集モード</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="vanished">計測モード</translation>
+        <translation>計測モード</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">経度</translation>
+        <translation>経度</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">緯度</translation>
+        <translation>緯度</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="vanished">セグメント</translation>
+        <translation>セグメント</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="vanished">周囲長</translation>
+        <translation>周囲長</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="vanished">長さ</translation>
+        <translation>長さ</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="vanished">面積</translation>
+        <translation>面積</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="vanished">計測ツールを非表示にする</translation>
+        <translation>計測ツールを非表示にする</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="vanished">編集をやめる</translation>
+        <translation>編集をやめる</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="vanished">追加をキャンセルする</translation>
+        <translation>追加をキャンセルする</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="vanished">トポロジー編集をオンにする</translation>
+        <translation>トポロジー編集をオンにする</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="vanished">トポロジー編集をオフにする</translation>
+        <translation>トポロジー編集をオフにする</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="vanished">フリーハンドでの編集をオンにしました</translation>
+        <translation>フリーハンドでの編集をオンにしました</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="vanished">フリーハンドでの編集をオフにしました</translation>
+        <translation>フリーハンドでの編集をオフにしました</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">座標カーソルが現在位置にロックされるようになりました</translation>
+        <translation>座標カーソルが現在位置にロックされるようになりました</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="vanished">座標カーソルのロックが解除されました</translation>
+        <translation>座標カーソルのロックが解除されました</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">現在地を受信しました</translation>
+        <translation>現在地を受信しました</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">現在地を探しています</translation>
+        <translation>現在地を探しています</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">地図上で現在の位置情報を追尾します</translation>
+        <translation>地図上で現在の位置情報を追尾します</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="vanished">位置情報を受信しています</translation>
+        <translation>位置情報を受信しています</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -3887,19 +3887,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">地図上で現在の位置情報を追尾するのを停止しました</translation>
+        <translation>地図上で現在の位置情報を追尾するのを停止しました</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">地物を作成できませんでした!</translation>
+        <translation>地物を作成できませんでした!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">地物を保存できませんでした!</translation>
+        <translation>地物を保存できませんでした!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="vanished">メインメニュー</translation>
+        <translation>メインメニュー</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -3907,7 +3907,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">PDFを印刷する</translation>
+        <translation>PDFを印刷する</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -3927,15 +3927,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">設定</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation type="vanished">メッセージログ</translation>
+        <translation>メッセージログ</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">QFieldについて</translation>
+        <translation>QFieldについて</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -3943,7 +3943,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="vanished">位置情報取得機能を有効にしています</translation>
+        <translation>位置情報取得機能を有効にしています</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -3951,15 +3951,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="vanished">地図キャンバスオプション</translation>
+        <translation>地図キャンバスオプション</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="vanished">ブックマークを追加</translation>
+        <translation>ブックマークを追加</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="vanished">目的地として設定</translation>
+        <translation>目的地として設定</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3967,7 +3967,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="vanished">無題のブックマーク</translation>
+        <translation>無題のブックマーク</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3975,7 +3975,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">座標をコピー</translation>
+        <translation>座標をコピー</translation>
     </message>
     <message>
         <source>X</source>
@@ -3987,11 +3987,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="vanished">座標をクリップボードにコピー</translation>
+        <translation>座標をクリップボードにコピー</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="vanished">ビュー精度の設定</translation>
+        <translation>ビュー精度の設定</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -4019,27 +4019,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="vanished">いつもビュー精度を表示する</translation>
+        <translation>いつもビュー精度を表示する</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="vanished">現在位置を中央に表示</translation>
+        <translation>現在位置を中央に表示</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">現在位置でブックマークを追加</translation>
+        <translation>現在位置でブックマークを追加</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">位置座標をコピー</translation>
+        <translation>位置座標をコピー</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="vanished">サインアウト</translation>
+        <translation>サインアウト</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="vanished">サインイン</translation>
+        <translation>サインイン</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -4047,35 +4047,35 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="vanished">ナビゲーションオプション</translation>
+        <translation>ナビゲーションオプション</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="vanished">目的地をクリア</translation>
+        <translation>目的地をクリア</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="vanished">%1精度</translation>
+        <translation>%1精度</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">音声近接フィードバックを有効にする</translation>
+        <translation>音声近接フィードバックを有効にする</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="vanished">位置情報表示オプション</translation>
+        <translation>位置情報表示オプション</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="vanished">位置情報表示を有効にする</translation>
+        <translation>位置情報表示を有効にする</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">座標情報を表示する</translation>
+        <translation>座標情報を表示する</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation type="vanished">現在位置表示設定</translation>
+        <translation>現在位置表示設定</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -4087,11 +4087,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">不明な現在位置</translation>
+        <translation>不明な現在位置</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="vanished">マイ・ロケーション</translation>
+        <translation>マイ・ロケーション</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -4099,27 +4099,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="vanished">精度</translation>
+        <translation>精度</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="vanished">現在位置をクリップボードにコピー</translation>
+        <translation>現在位置をクリップボードにコピー</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="vanished">選択されたジオメトリが属するレイヤに切り替わりました</translation>
+        <translation>選択されたジオメトリが属するレイヤに切り替わりました</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">マルチジオメトリレイヤーの編集は現在サポートされていません。</translation>
+        <translation>マルチジオメトリレイヤーの編集は現在サポートされていません。</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="vanished">%1 を読み込んでいます</translation>
+        <translation>%1 を読み込んでいます</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4127,7 +4127,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="vanished">接続しています...</translation>
+        <translation>接続しています...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -4135,23 +4135,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="vanished">プロジェクト %1 のダウンロードに失敗しました</translation>
+        <translation>プロジェクト %1 のダウンロードに失敗しました</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="vanished">プロジェクト %1 が正常にダウンロードされて開けるようになりました</translation>
+        <translation>プロジェクト %1 が正常にダウンロードされて開けるようになりました</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="vanished">変更内容がQFieldCloudにプッシュされませんでした: %1</translation>
+        <translation>変更内容がQFieldCloudにプッシュされませんでした: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="vanished">変更内容がQFieldCloudに正常にプッシュされました</translation>
+        <translation>変更内容がQFieldCloudに正常にプッシュされました</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="vanished">もう一度戻るボタンを押してプロジェクトとアプリを閉じてください。</translation>
+        <translation>もう一度戻るボタンを押してプロジェクトとアプリを閉じてください。</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4159,11 +4159,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="vanished">方位角</translation>
+        <translation>方位角</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="vanished">スクリーンをロック</translation>
+        <translation>スクリーンをロック</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -4171,22 +4171,118 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="vanished">印刷しています...</translation>
+        <translation>印刷しています...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="vanished">印刷</translation>
+        <translation>印刷</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="vanished">測位デバイスエラー: %1</translation>
+        <translation>測位デバイスエラー: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>地物をコピー</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
+        <translation>地物をコピーしました</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>スナッピングを有効にしました</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>スナッピングを無効にしました</translation>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap every %1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation>キャンバスは位置とコンパスの向きに従います</translation>
+    </message>
+    <message>
+        <source>No print layout available</source>
+        <translation>使用可能な印刷レイアウトがありません</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>詳細はこちら</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>センサー</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation>使用可能なセンサーがありません</translation>
+    </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>プロジェクトフォルダ</translation>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>下からセンサーを選択</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>センサーエラー: %1</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>センサー &apos;%1&apos;の接続を解除しています...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>センサー &apos;%1&apos; に接続しています...</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation>下からレイヤーを選択</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>レイヤー:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>地物:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>属性フォームを開く</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>地物のコピーは利用できません</translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>%1をインポートしています</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>URLのインポートに失敗しました</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
 </context>
