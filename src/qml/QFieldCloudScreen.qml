@@ -554,6 +554,10 @@ Page {
             cloudProjectsModel.removeLocalProject(projectActions.projectId)
             iface.removeRecentProject(projectActions.projectLocalPath);
             welcomeScreen.model.reloadModel()
+
+            if (projectActions.projectLocalPath === qgisProject.fileName) {
+              qgisProject.fileName = ""
+            }
           }
         }
 
