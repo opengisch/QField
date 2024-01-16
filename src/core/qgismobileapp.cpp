@@ -687,8 +687,6 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
 
     mAuthRequestHandler->clearStoredRealms();
 
-    // Clear project to empty the layer tree prior to freezing during project load
-    mProject->clear();
     mProjectFilePath = path;
     mProjectFileName = !name.isEmpty() ? name : fi.completeBaseName();
 
@@ -704,9 +702,6 @@ void QgisMobileapp::reloadProjectFile()
   if ( mProjectFilePath.isEmpty() )
     QgsMessageLog::logMessage( tr( "No project file currently opened" ), QStringLiteral( "QField" ), Qgis::Warning );
 
-  // Clear project to empty the layer tree prior to freezing during project load
-  mProject->clear();
-
   emit loadProjectTriggered( mProjectFilePath, mProjectFileName );
 }
 
@@ -720,6 +715,7 @@ void QgisMobileapp::readProjectFile()
 
   const QString suffix = fi.suffix().toLower();
 
+  mProject->clear();
   mProject->layerTreeRegistryBridge()->setLayerInsertionMethod( Qgis::LayerTreeInsertionMethod::OptimalInInsertionGroup );
 
   mTrackingModel->reset();
