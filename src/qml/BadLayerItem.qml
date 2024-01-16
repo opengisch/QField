@@ -91,7 +91,8 @@ Page {
     }
 
     Label {
-      text: qsTr( "You may check the Portable Project section in the QField documentation for more help." )
+      text: qsTr( "You may check the [Portable Project](https://docs.qfield.org/how-to/movable-project) documentation page for more help." )
+      textFormat: Text.MarkdownText
       font: Theme.tipFont
       color: Theme.secondaryTextColor
 
@@ -101,6 +102,8 @@ Page {
       Layout.minimumHeight: contentHeight
       Layout.maximumHeight: contentHeight
       Layout.topMargin: 5
+
+      onLinkActivated: Qt.openUrlExternally(link)
     }
   }
 }
