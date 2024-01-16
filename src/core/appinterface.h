@@ -88,6 +88,11 @@ class AppInterface : public QObject
      */
     Q_INVOKABLE void closeSentry() const;
 
+    /**
+     * Clears the currently opened project
+     */
+    Q_INVOKABLE void clearProject() const;
+
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
 

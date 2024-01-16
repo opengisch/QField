@@ -556,7 +556,7 @@ Page {
             welcomeScreen.model.reloadModel()
 
             if (projectActions.projectLocalPath === qgisProject.fileName) {
-              qgisProject.fileName = ""
+              iface.clearProject()
             }
           }
         }
