@@ -1043,7 +1043,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       }
       else
       {
-        if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() )
+        if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() && !layer.value( QStringLiteral( "is_localized" ) ).toBool() )
         {
           QString errorSummary = layer.value( QStringLiteral( "error_summary" ) ).toString() + layer.value( QStringLiteral( "provider_error_summary" ) ).toString();
 
