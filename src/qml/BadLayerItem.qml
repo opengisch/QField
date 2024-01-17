@@ -91,7 +91,10 @@ Page {
     }
 
     Label {
-      text: qsTr( "You may check the <a href=\"https://docs.qfield.org/how-to/movable-project\">Portable Project</a> documentation page for more help." )
+      text: qsTr( 'You may check the %1Portable Project%2 documentation page for more help.')
+        .arg( "<a href=\"https://docs.qfield.org/how-to/movable-project\">" )
+        .arg( "</a>" )
+
       textFormat: Text.RichText
       font: Theme.tipFont
       color: Theme.secondaryTextColor
