@@ -194,7 +194,7 @@ void AppInterface::closeSentry() const
 
 void AppInterface::clearProject() const
 {
-  QgsProject::instance()->clear();
+  mApp->clearProject();
 }
 
 void AppInterface::importUrl( const QString &url )
