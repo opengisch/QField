@@ -3,72 +3,72 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>Developed by</translation>
+        <translation>Dikembangkan oleh</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Support QField</translation>
+        <translation>Dukung QField</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Riwayat Pembaruan</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Dokumentasi</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Tautan Menu</translation>
     </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Batasi pencarian sesuai field &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
-        <translation>Open form</translation>
+        <translation>Buka borang</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Set feature as destination</translation>
+        <translation>Atur feature sebagai tempat tujuan</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Feature has no geometry</translation>
+        <translation>Feature tidak punya data bentuk</translation>
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Feature dari layer aktif</translation>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>File %1 does not exist</translation>
+        <translation>File %1 tidak ditemukan</translation>
     </message>
 </context>
 <context>
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>No transform available between %1 and %2</translation>
+        <translation>Tidak tersedia perubahan antara %1 dan %2</translation>
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation>Grid ini bagian dari paket &quot;&lt;i&gt;%1&lt;/i&gt;&quot;, bisa diunduh di&lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
+        <translation>Grid ini bisa diunduh di &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>projection</source>
-        <translation>projection</translation>
+        <translation>proyeksi</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
@@ -206,11 +206,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Pilih perangkat Bluetooth dari daftar di bawah ini:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Nama perangkat Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -218,19 +218,19 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Alamat perangkat Bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Pindai perangkat sekitar</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Tidak ada perangkat Bluetooth terdeteksi, coba pindai untuk mencari perangkat terdekat.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Proses pemindaian gagal: %1</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Izin Bluetooth ditolak</translation>
     </message>
 </context>
 <context>
@@ -264,19 +264,19 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tidak bisa menemukan remote host</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tidak bisa menemukan layanan UUID di remote host</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Koneksi dari soket data gagal</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Protokol tidak didukung perangkat ini</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -284,15 +284,15 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Remote host menutup koneksi</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Penyebab gagal tidak diketahui</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Izin Bluetooth ditolak</translation>
     </message>
 </context>
 <context>
@@ -428,7 +428,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -442,7 +442,7 @@ Cancel to make a minimal device scan instead.</translation>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Perangkat NFC terdeteksi</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -589,11 +589,11 @@ Cancel to make a minimal device scan instead.</translation>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Salin &quot;%1&quot; ke clipboard</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Kalkulator</translation>
     </message>
 </context>
 <context>
@@ -930,7 +930,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Penghapus</translation>
     </message>
 </context>
 <context>
@@ -964,7 +964,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Izin lokasi ditolak</translation>
     </message>
 </context>
 <context>
@@ -1077,11 +1077,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Tampilkan daftar feature</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Tampilkan Menu Feature</translation>
     </message>
     <message>
         <source>Read-only layer</source>
@@ -3220,11 +3220,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Tidak bisa menemukan remote host</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Koneksi dari soket data gagal</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -3589,11 +3589,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Tidak bisa menemukan remote host</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Koneksi dari soket data gagal</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>

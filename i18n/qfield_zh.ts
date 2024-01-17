@@ -4199,19 +4199,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>捕捉到已打开的 %1° 角</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>捕捉到已关闭的公共角</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>相对角度</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>每隔 %1° 捕捉一次</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4267,7 +4267,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation>打开要素从</translation>
+        <translation>打开要素表单</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>

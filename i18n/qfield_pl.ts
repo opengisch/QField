@@ -2184,7 +2184,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Pobieram status zadania, ale nie przełączono jeszcze zadania &quot;%2&quot;.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
@@ -2192,7 +2192,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>odpowiedź stanu zadania(%1) nie zawiera wszystkich oczekiwanych kluczy: status(string)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
@@ -3322,7 +3322,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Błędna odległość bezpieczeństwa</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
@@ -3330,7 +3330,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Kiedy włączone, węzeł nie zostanie dodany kiedy odległość między ostatnim i nowym węzłem jest większa niż skonfigurowana wartość maksymalna. </translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -4196,19 +4196,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Włączono przyciąganie do kąta %1°</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Wyłączono przyciąganie do kąta %1°</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Kąt względny</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Przyciągaj do każdej wartości %1°</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
