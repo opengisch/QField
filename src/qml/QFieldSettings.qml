@@ -515,7 +515,7 @@ Page {
                           wrapMode: Text.WordWrap
                           Layout.fillWidth: true
 
-                          onLinkActivated: Qt.openUrlExternally(link)
+                          onLinkActivated: (link) => { Qt.openUrlExternally(link) }
                       }
 
                       Label {
@@ -568,7 +568,7 @@ Page {
                           wrapMode: Text.WordWrap
                           Layout.fillWidth: true
 
-                          onLinkActivated: Qt.openUrlExternally(link)
+                          onLinkActivated: (link) => { Qt.openUrlExternally(link) }
                       }
                   }
 

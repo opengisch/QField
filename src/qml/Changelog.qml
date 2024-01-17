@@ -85,7 +85,7 @@ Popup {
                             }
                         }
 
-                        onLinkActivated: Qt.openUrlExternally(link)
+                        onLinkActivated: (link) => { Qt.openUrlExternally(link) }
                     }
 
                     BusyIndicator {

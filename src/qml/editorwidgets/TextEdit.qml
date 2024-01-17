@@ -37,7 +37,7 @@ EditorWidgetBase {
                                ? config['UseHtml'] === true ? value : stringUtilities.insertLinks(value)
                                : stringUtilities.insertLinks(value).replace('\n','')
 
-    onLinkActivated: Qt.openUrlExternally(link)
+    onLinkActivated: (link) => { Qt.openUrlExternally(link) }
   }
 
   TextField {
