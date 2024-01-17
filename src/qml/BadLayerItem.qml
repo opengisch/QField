@@ -91,8 +91,8 @@ Page {
     }
 
     Label {
-      text: qsTr( "You may check the [Portable Project](https://docs.qfield.org/how-to/movable-project) documentation page for more help." )
-      textFormat: Text.MarkdownText
+      text: qsTr( "You may check the <a href=\"https://docs.qfield.org/how-to/movable-project\">Portable Project</a> documentation page for more help." )
+      textFormat: Text.RichText
       font: Theme.tipFont
       color: Theme.secondaryTextColor
 
@@ -103,7 +103,7 @@ Page {
       Layout.maximumHeight: contentHeight
       Layout.topMargin: 5
 
-      onLinkActivated: Qt.openUrlExternally(link)
+      onLinkActivated: (link) => { Qt.openUrlExternally(link) }
     }
   }
 }
