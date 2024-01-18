@@ -472,7 +472,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DateTime</name>
     <message>
         <source>(no date)</source>
-        <translation>（无日期）</translation>
+        <translation>(无日期)</translation>
     </message>
     <message>
         <source>Date value set to today.</source>
