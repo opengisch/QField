@@ -304,6 +304,10 @@ Popup {
               trackingModel.stopTracker(layer);
               displayToast(qsTr('Track on layer %1 stopped').arg(layer.name))
             } else {
+              if (!positionSource.active) {
+                positioningSettings.positioningActivated = true
+              }
+
               var tracker;
               var idx = projectInfo.restoreTracker(layer)
               if (idx.valid) {
@@ -465,7 +469,6 @@ Popup {
     return layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer'
         && !layerTree.data( index, FlatLayerTreeModel.ReadOnly )
         && layerTree.data( index, FlatLayerTreeModel.Trackable )
-        && positionSource.active
   }
 
   function isShowFeaturesListButtonVisible() {
