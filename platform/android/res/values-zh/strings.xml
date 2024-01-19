@@ -1,24 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">完成解包，启动 QGIS。</string>
+    <string name="done_unpacking_msg">完成解包，启动QGIS。</string>
     <string name="unpacking_title">QField准备就绪</string>
     <string name="unpacking_msg">仅在首次打开应用程序时才执行此操作，并且不应持续太长时间。</string>
-    <string name="unpacking_msg_following">快到了，抓紧</string>
+    <string name="unpacking_msg_following">马上，请稍候！</string>
     <string name="use_internal_storage">使用内部储存</string>
     <string name="external_storage_unavailable">正在解压安装数据，这可能需要一些时间。</string>
-    <string name="noexternalstorage_dialog">看起来您的外部存储(/sdcard)不可用。当你通过USB将你的设备连接到PC上时，就会发生这种情况。\nQGIS可以从内部存储运行，但不建议这样做，因为它的容量可能太小。建议选择取消，断开USB并重启QGIS。</string>
+    <string name="noexternalstorage_dialog">看起来您的外部存储 (/sdcard) 不可用。当通过USB将您的设备连接到PC时，就会发生这种情况。QGIS可以从内部存储运行，但不建议这样做，因为它的容量可能太小。建议选择取消，断开USB并重启QGIS。</string>
     <string name="primary_storage">内部储存</string>
     <string name="secondary_storage">QField文件目录</string>
     <string name="secondary_storage_extra">附加文件目录</string>
-    <string name="secondary_storage_read_only">外部储存器（只读）</string>
+    <string name="secondary_storage_read_only">外部储存器 (只读)</string>
     <string name="inaccessible">无法访问</string>
     <string name="loading">正在加载</string>
     <string name="select_project">选择QGIS工程或数据集</string>
     <string name="recent_projects">最近工程和数据集</string>
     <string name="rate_title">评价QField</string>
-    <string name="rate_message">如果你喜欢使用QField，请花点时间来评价它。感谢您的支持!</string>
+    <string name="rate_message">如果您喜欢使用QField，请花点时间对其评价。感谢您的支持!</string>
     <string name="rate_now">评价</string>
-    <string name="remind_later">稍后提醒我</string>
+    <string name="remind_later">稍后提醒</string>
     <string name="no_thanks">不用了，谢谢！</string>
     <string name="favorite_directories">收藏的目录</string>
     <string name="favorites_sample_projects">示例工程</string>
@@ -53,12 +53,12 @@
     <string name="delete_cancel">取消</string>
     <string name="storage_information_title">存储信息</string>
     <string name="storage_information_message">无论您是原来使用过 QField 1.x 的用户，想了解为什么您的工程和数据集丢失了，还是刚接触QField，我们都建议您花一点时间阅读存储处理文档。此文档的快捷方式仍可在标题栏的操作菜单中访问。</string>
-    <string name="storage_information_view">给我看看文档</string>
-    <string name="storage_information_dismiss">我稍后阅读</string>
+    <string name="storage_information_view">查看文档</string>
+    <string name="storage_information_dismiss">稍后阅读</string>
     <string name="import_project_wait">QField正在导入工程，请稍候</string>
     <string name="import_dataset_wait">QField正在导入数据集，请稍候</string>
     <string name="update_project_wait">QField正在更新本地工程，请稍候</string>
-    <string name="upload_pending_attachments">目前正在将附件上传到QField云</string>
+    <string name="upload_pending_attachments">目前正在将附件上传到QFieldCloud</string>
     <string name="operation_unsupported">不支持的操作</string>
     <string name="import_operation_unsupported">您的设备不支持此导入操作。</string>
     <string name="export_operation_unsupported">您的设备不支持此导出操作。</string>
