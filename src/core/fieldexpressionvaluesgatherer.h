@@ -49,6 +49,7 @@ class FeatureExpressionValuesGatherer : public QThread
                                               const QStringList &identifierFields = QStringList() )
       : mSource( new QgsVectorLayerFeatureSource( layer ) )
       , mDisplayExpression( displayExpression.isEmpty() ? layer->displayExpression() : displayExpression )
+      , mExpressionContext( layer->createExpressionContext() )
       , mRequest( request )
       , mIdentifierFields( identifierFields )
     {
