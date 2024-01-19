@@ -1360,6 +1360,14 @@ bool QgisMobileapp::event( QEvent *event )
   return QQmlApplicationEngine::event( event );
 }
 
+void QgisMobileapp::clearProject()
+{
+  mAuthRequestHandler->clearStoredRealms();
+  mProjectFileName = QString();
+  mProjectFilePath = QString();
+  mProject->clear();
+}
+
 void QgisMobileapp::saveProjectPreviewImage()
 {
   if ( !mProjectFilePath.isEmpty() && mMapCanvas && !mMapCanvas->isRendering() )

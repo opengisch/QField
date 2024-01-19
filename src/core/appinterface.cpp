@@ -29,6 +29,7 @@
 #include <QImageReader>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
+#include <qgsproject.h>
 #include <qgsruntimeprofiler.h>
 #include <qgsziputils.h>
 
@@ -189,6 +190,11 @@ void AppInterface::closeSentry() const
 #if WITH_SENTRY
   sentry_wrapper::close();
 #endif
+}
+
+void AppInterface::clearProject() const
+{
+  mApp->clearProject();
 }
 
 void AppInterface::importUrl( const QString &url )

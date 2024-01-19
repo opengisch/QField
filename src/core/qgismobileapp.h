@@ -161,6 +161,11 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 
     bool event( QEvent *event ) override;
 
+    /**
+     * Clear the currently opened project back to a blank project
+     */
+    void clearProject();
+
   signals:
     /**
      * Emitted when a project file is being loaded
