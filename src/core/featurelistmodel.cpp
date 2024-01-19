@@ -262,39 +262,43 @@ void FeatureListModel::gatherFeatureList()
 
   request.setSubsetOfAttributes( referencedColumns, fields );
 
-  if ( !mFilterExpression.isEmpty()
-       && ( !QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression )
-            || QgsValueRelationFieldFormatter::expressionIsUsable( mFilterExpression, mCurrentFormFeature ) ) )
-  {
-    QgsExpression exp( mFilterExpression );
-    QgsExpressionContext filterContext = QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( mCurrentLayer ) );
-
-    if ( mCurrentFormFeature.isValid() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
-      filterContext.appendScope( QgsExpressionContextUtils::formScope( mCurrentFormFeature ) );
-
-    request.setExpressionContext( filterContext );
-    request.setFilterExpression( mFilterExpression );
-  }
-
   QString fieldDisplayString = displayValueIndex >= 0
                                  ? QgsExpression::quotedColumnRef( mDisplayValueField )
                                  : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
 
+  QString searchTermExpression;
   if ( !mSearchTerm.isEmpty() )
   {
     QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
-    QString searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
+    searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
 
     const QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
     for ( const QString &searchTermPart : searchTermParts )
     {
       searchTermExpression += QStringLiteral( " OR %1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
     }
+  }
 
+  if ( !mSearchTerm.isEmpty() || !mFilterExpression.isEmpty() )
+  {
+    QgsExpressionContext filterContext = QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( mCurrentLayer ) );
+
+    if ( mCurrentFormFeature.isValid() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
+      filterContext.appendScope( QgsExpressionContextUtils::formScope( mCurrentFormFeature ) );
+
+    request.setExpressionContext( filterContext );
     if ( mFilterExpression.isEmpty() )
+    {
       request.setFilterExpression( QStringLiteral( " (%1) " ).arg( searchTermExpression ) );
+    }
+    else if ( mSearchTerm.isEmpty() )
+    {
+      request.setFilterExpression( mFilterExpression );
+    }
     else
+    {
       request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
+    }
   }
 
   cleanupGatherer();
