@@ -116,9 +116,6 @@ int main( int argc, char **argv )
 
   QtWebView::initialize();
 
-  if ( !customLanguage.isEmpty() )
-    QgsApplication::setTranslation( customLanguage );
-
   PlatformUtilities *platformUtils = PlatformUtilities::instance();
   platformUtils->initSystem();
 
@@ -128,6 +125,15 @@ int main( int argc, char **argv )
   delete dummyApp;
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
+
+  if ( !customLanguage.isEmpty() )
+  {
+    QLocale customLocale( customLanguage );
+    QLocale::setDefault( customLocale );
+    QgsApplication::setTranslation( customLanguage );
+    // Set locale to emit QgsApplication's localeChanged signal
+    QgsApplication::setLocale( QLocale() );
+  }
 
   const QString qfieldFont( qgetenv( "QFIELD_FONT_TTF" ) );
   if ( !qfieldFont.isEmpty() )
