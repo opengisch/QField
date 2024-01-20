@@ -648,6 +648,9 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           case Qgis::LayerType::Group:
             layerType = QStringLiteral( "grouplayer" );
             break;
+          case Qgis::LayerType::TiledScene:
+            layerType = QStringLiteral( "tiledscenelayer" );
+            break;
         }
       }
       return layerType;
@@ -1262,7 +1265,7 @@ void FlatLayerTreeModelBase::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, b
 QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer )
 {
   QgsRectangle extent;
-  extent.setMinimal();
+  extent.setNull();
 
   const QModelIndex sourceIndex = mapToSource( index );
   if ( !sourceIndex.isValid() )

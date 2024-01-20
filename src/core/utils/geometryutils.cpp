@@ -88,7 +88,7 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
       {
         QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
         ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
-        geom.avoidIntersections( avoidIntersectionsLayers, ignoredFeature );
+        geom.avoidIntersectionsV2( avoidIntersectionsLayers, ignoredFeature );
       }
 
       if ( geom.isEmpty() ) //intersection removal might have removed the whole geometry

@@ -707,7 +707,7 @@ void FeatureModel::applyGeometry()
         {
           ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
         }
-        geometry.avoidIntersections( intersectionLayers, ignoredFeature );
+        geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
       }
     }
   }
