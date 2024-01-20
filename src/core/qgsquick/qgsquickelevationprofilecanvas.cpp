@@ -244,6 +244,7 @@ void QgsQuickElevationProfileCanvas::setupLayerConnections( QgsMapLayer *layer, 
     case Qgis::LayerType::Annotation:
     case Qgis::LayerType::PointCloud:
     case Qgis::LayerType::Group:
+    case Qgis::LayerType::TiledScene:
       break;
   }
 }
