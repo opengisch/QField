@@ -85,7 +85,8 @@ EditorWidgetBase {
         editedValue = !isNull ? !actualValue : true
       } else {
         if (!isNull) {
-          editedValue = value === config['CheckedState'] ? config['UncheckedState'] : config['CheckedState']
+          // Type coercion is desired here as custom unchecked/checked states are stored as strings yet value could be integers
+          editedValue = value == config['CheckedState'] ? config['UncheckedState'] : config['CheckedState']
         } else {
           editedValue = config['CheckedState']
         }
