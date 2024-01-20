@@ -1377,7 +1377,7 @@ QgisMobileapp::~QgisMobileapp()
   saveProjectPreviewImage();
 
   delete mOfflineEditing;
-  mProject->removeAllMapLayers();
+  mProject->clear();
   delete mProject;
   delete mAppMissingGridHandler;
 
