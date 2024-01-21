@@ -297,6 +297,10 @@
         }
       ]
     },
+    "securetransport": {
+      "description": "Enabled Secure Transport",
+      "supports": "ios"
+    },
     "pcre2": {
       "description": "Enable PCRE2 support",
       "dependencies": [

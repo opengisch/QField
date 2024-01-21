@@ -130,6 +130,7 @@ list(APPEND FEATURE_CORE_OPTIONS -DCMAKE_DISABLE_FIND_PACKAGE_Slog2:BOOL=ON)
  FEATURES
     "openssl"             FEATURE_openssl
     "brotli"              FEATURE_brotli
+    "securetransport"     FEATURE_securetransport
     #"brotli"              CMAKE_REQUIRE_FIND_PACKAGE_WrapBrotli
     #"openssl"             CMAKE_REQUIRE_FIND_PACKAGE_WrapOpenSSL
  INVERTED_FEATURES
@@ -141,10 +142,6 @@ if("openssl" IN_LIST FEATURES)
     list(APPEND FEATURE_NET_OPTIONS -DINPUT_openssl=linked)
 else()
     list(APPEND FEATURE_NET_OPTIONS -DINPUT_openssl=no)
-endif()
-
-if(VCPKG_TARGET_IS_IOS)
-    list(APPEND FEATURE_NET_OPTIONS -DFEATURE_securetransport=ON)
 endif()
 
 list(APPEND FEATURE_NET_OPTIONS -DCMAKE_DISABLE_FIND_PACKAGE_Libproxy:BOOL=ON)
