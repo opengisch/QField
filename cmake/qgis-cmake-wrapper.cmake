@@ -120,6 +120,10 @@ if(TRUE) # Should possibly have a "static only" check
   endif()
   # End Terrible hack
 
+  find_package(PDAL CONFIG REQUIRED)
+  target_include_directories(QGIS::Core INTERFACE ${PDAL_INCLUDE_DIRS})
+  target_link_libraries(QGIS::Core INTERFACE ${PDAL_LIBRARIES})
+
   find_library(Qca-ossl_LIBRARIES NAMES qca-ossl PATH_SUFFIXES Qca/crypto)
   target_link_libraries(QGIS::Core INTERFACE ${Qca-ossl_LIBRARIES})
 

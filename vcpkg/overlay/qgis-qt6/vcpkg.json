@@ -26,6 +26,16 @@
       "libpq",
       "protobuf",
       "proj",
+      {
+        "name": "pdal",
+        "default-features": false,
+        "features": [
+          "draco",
+          "e57",
+          "i3s",
+          "zstd"
+        ]
+      },
       "geos",
       "poly2tri",
       {
