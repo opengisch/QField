@@ -131,7 +131,11 @@ Vă rugăm să le examinați și să reconfigurați proiectul QGIS.</translation
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation>Pentru mai multe informații, puteți verifica secțiunea Proiectului Portabil din documentația QField.</translation>
+        <translation type="vanished">Pentru mai multe informații, puteți verifica secțiunea Proiectului Portabil din documentația QField.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

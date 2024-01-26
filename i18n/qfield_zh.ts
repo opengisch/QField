@@ -130,7 +130,11 @@
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation>您可以查看QField文档中的“便携式工程”章节获取更多帮助。</translation>
+        <translation type="vanished">您可以查看QField文档中的“便携式工程”章节获取更多帮助。</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>您可以查看 %1便携式工程%2 文档页获取更多帮助。</translation>
     </message>
 </context>
 <context>

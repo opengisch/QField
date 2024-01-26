@@ -130,7 +130,11 @@
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation>Для большей информации вы можете обратиться к разделу Portable Project документации QField</translation>
+        <translation type="vanished">Для большей информации вы можете обратиться к разделу Portable Project документации QField</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

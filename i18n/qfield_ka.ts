@@ -132,6 +132,10 @@
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BarcodeReader</name>

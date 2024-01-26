@@ -130,7 +130,11 @@
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation>További segítséghez megnézheti a Hordozható projekt fejezetet a QField dokumentációjában.</translation>
+        <translation type="vanished">További segítséghez megnézheti a Hordozható projekt fejezetet a QField dokumentációjában.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

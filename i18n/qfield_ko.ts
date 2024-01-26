@@ -130,7 +130,11 @@
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation>큐필트 설명서(QField documentation)의 휴대용 프로젝트(Portable Project section)에서 자세한 도움말을 확인할 수 있습니다.</translation>
+        <translation type="vanished">큐필트 설명서(QField documentation)의 휴대용 프로젝트(Portable Project section)에서 자세한 도움말을 확인할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
