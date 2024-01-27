@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>További segítséghez megnézheti a %1Portable Project%2 dokumentáció oldalt.</translation>
     </message>
 </context>
 <context>
@@ -234,7 +234,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Szkennelési hiba: %1</translation>
     </message>
 </context>
 <context>
@@ -245,7 +245,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth engedély megtagadva</translation>
     </message>
 </context>
 <context>
@@ -296,7 +296,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth engedély megtagadva</translation>
     </message>
 </context>
 <context>
@@ -673,19 +673,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült új elemet hozzáadni &quot;%1&quot; réteghez.</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült az elemtörlés visszavonása a &quot;%1&quot; rétegen</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült az elemek aktualizálása a &quot;%1&quot; rétegen</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült véglegesíteni az elem módosítás visszavonását a &quot;%1&quot; rétegen</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
@@ -969,7 +969,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Helymeghatározás engedély megtagadva</translation>
     </message>
 </context>
 <context>
@@ -1243,7 +1243,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>A funkcionalitás használatához előbb tegye aktívvá a réteget a jelmagyarázatban</translation>
     </message>
 </context>
 <context>
@@ -1301,19 +1301,19 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Írja be az opcionális részleteket</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Adja meg a felhő felhasználó adatait</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Ez elküldi az aktuális munkamenetének naplóját a fejlesztőcsapatnak. Ezt csak akkor szükséges megtennie, ha erre kérik.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Az alkalmazás napló küldése...</translation>
     </message>
 </context>
 <context>
@@ -1477,7 +1477,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült értelmezni az IMU pozíciót: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -1806,11 +1806,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Rács bekapcsolva</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Rács kikapcsolva</translation>
     </message>
 </context>
 <context>
@@ -2134,11 +2134,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Ehhez a projekthez van egy frissített fájl a felhőben, javasoljuk hogy szinkronizáljon.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>A projekthez frissített adatok vannak a felhőben, szinkronizálni kellene.</translation>
     </message>
 </context>
 <context>
@@ -2378,7 +2378,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, frissített adatok érhetők el a felhőben</translation>
     </message>
 </context>
 <context>
@@ -2846,11 +2846,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Használja a hangerő gombot a digitalizáláshoz</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Amennyiben engedélyezte, a hangerő növelés hozzáad egy  új töréspontot a hangerő csökkentés pedig eltávolítja a legutóbbi töréspontot a digitalizálás során.</translation>
     </message>
 </context>
 <context>
@@ -2977,7 +2977,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a fájlok beszerzése során: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
@@ -3165,7 +3165,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Vételi hiba a soros vonalon (%1)</translation>
     </message>
 </context>
 <context>
@@ -3228,15 +3228,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A csatlakozást a távoli gép visszautasította</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>UDP vételi hiba (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>A csatlakozást a távoli gép visszautasította</translation>
     </message>
 </context>
 <context>
@@ -3269,19 +3269,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nyomkövetés: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Nyomkövtés</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Követelmény beállítások</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Időkorlát</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3289,11 +3289,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Amikor engedélyezett, töréspont hozzáadás történik amikor legutóbbi és az új töréspont között eltelt idő eléri a beállított minimum értéket.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Távolság korlát</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3301,23 +3301,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Amikor engedélyezett, töréspont hozzáadás történik, amikor a legutóbbi és az új töréspont közötti távolság eléri a beállított minimum értéket</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Szenzor adat szerint</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Amikor engedélyezett töréspont hozzáadás történik, amikor a szenzorról új adat érkezik.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Várjon az összes aktív korlátra</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Amikor engedélyezett, töréspontot csak akkor rögzít, ha minden aktív korlátozás teljesül. Kikapcsolt állapotban az egyes korlátok elérése esetén az új töréspont hozzáadása megtörténik.</translation>
     </message>
     <message>
         <source>General Settings</source>
@@ -3329,11 +3329,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Maximum tolerált távolság [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Amikor engedélyezett, töréspont hozzáadás nem történik meg, amikor a legutóbbi és az új töréspont közötti távolság nagyobb a beállított maximum értéknél.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3377,7 +3377,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>A mérési funkció aktívvá tételéhez, győződjön meg róla, hogy a nyomkövetési munkamenetben használ vektor réteg geometriája tartalmaz M dimenziót.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3424,7 +3424,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Ha engedélyezve van, a csúcsok csak akkor rögzíthetők, ha mindkét aktív korlátozás teljesül. Ha nincs engedélyezve, már egy korlátozás teljesítése csúcsösszeadást vált ki.</translation>
+        <translation type="vanished">Amikor engedélyezett, töréspontot csak akkor rögzít, ha mindkét aktív korlátozás teljesül. Kikapcsolt állapotban az egyes korlátok elérése esetén az új töréspont hozzáadása megtörténik.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3480,7 +3480,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A mérési funkció aktívvá tételéhez, győződjön meg róla, hogy a nyomkövetési munkamenetben használ vektor réteg geometriája tartalmaz M dimenziót.</translation>
     </message>
 </context>
 <context>
@@ -3597,15 +3597,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A csatlakozást a távoli gép visszautasította</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>UDP vételi hiba (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>A csatlakozást a távoli gép visszautasította</translation>
     </message>
 </context>
 <context>
@@ -3725,7 +3725,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Egyéni alaptérkép adathalmazok</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -3991,7 +3991,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pontos nézet beállítások</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -4019,7 +4019,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Mindig a pontos nézetet mutat</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -4199,19 +4199,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Illesztés %1° szöghöz bekapcsolva</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Illesztés a szokásos szögekhez kikapcsolva</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Relatív szög</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Illesztés minden %1°-nál</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4219,11 +4219,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Nincs elérhető nyomtatási elrendezés</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Tudjon meg többet</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -4239,23 +4239,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Válasszon szenzort alúl</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Szenzor hiba: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Lecsatlakozás szenzorról &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Csatlakozás szenzorhoz &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Válasszon réteget alúl</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -4279,11 +4279,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen URL import</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Oldja fel a képernyő zárolását a projekt és az alkalmazás bezárásához</translation>
     </message>
 </context>
 <context>

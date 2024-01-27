@@ -57,5 +57,10 @@
     <string name="storage_information_dismiss">Később olvasom el</string>
     <string name="import_project_wait">Kérjük várjon, amíg a QGIS importálja a projektet</string>
     <string name="import_dataset_wait">Kérjük várjon, amíg a QField importálja az adatállomány(oka)t</string>
+    <string name="update_project_wait">Kérjük várjon, amíg a QField aktualizálja a helyi projektet</string>
     <string name="upload_pending_attachments">A csatolmányok feltöltése a QFieldCloud-ba most</string>
-    </resources>
+    <string name="operation_unsupported">Nem támogatott művelet</string>
+    <string name="import_operation_unsupported">Az eszköze nem támogatja ezt az import műveletet.</string>
+    <string name="export_operation_unsupported">Az eszköze nem támogatja ezt az export műveletet.</string>
+    <string name="processing_message">Feldolgozás...</string>
+</resources>
