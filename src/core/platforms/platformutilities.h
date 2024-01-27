@@ -171,7 +171,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual ResourceSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix );
+    Q_INVOKABLE virtual ResourceSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent = nullptr );
 
     /**
      * Get a video from camera and copy it to the requested prefix
@@ -179,7 +179,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param videoFilePath The path (including subfolders and name) of the file
      * @return The name of the video or null
      */
-    Q_INVOKABLE virtual ResourceSource *getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix );
+    Q_INVOKABLE virtual ResourceSource *getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent = nullptr );
 
     /**
      * Get a picture from gallery and copy it to the requested prefix
@@ -187,7 +187,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual ResourceSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath );
+    Q_INVOKABLE virtual ResourceSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr );
 
     /**
      * Get a video from gallery and copy it to the requested prefix
@@ -195,7 +195,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param videoFilePath The path (including subfolders and name) of the video
      * @return The name of the video or null
      */
-    Q_INVOKABLE virtual ResourceSource *getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath );
+    Q_INVOKABLE virtual ResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr );
 
     /**
      * Get a file from the operating system and copy it to the requested prefix
@@ -203,7 +203,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param filePath The path (including subfolders and name) of the file
      * @return The name of the file or null
      */
-    Q_INVOKABLE virtual ResourceSource *getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType = AllFiles );
+    Q_INVOKABLE virtual ResourceSource *getFile( const QString &prefix, const QString &filePath, FileType fileType = AllFiles, QObject *parent = nullptr );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
@@ -333,6 +333,6 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
 
     void copySampleProjects();
 
-    ResourceSource *createResource( const QString &prefix, const QString &filePath, const QString &fileName );
+    ResourceSource *createResource( const QString &prefix, const QString &filePath, const QString &fileName, QObject *parent );
 };
 #endif // PLATFORMUTILITIES_H

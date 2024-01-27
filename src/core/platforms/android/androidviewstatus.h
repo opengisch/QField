@@ -22,7 +22,7 @@
 class AndroidViewStatus : public ViewStatus
 {
   public:
-    AndroidViewStatus( QObject *parent );
+    AndroidViewStatus( QObject *parent = nullptr );
 
   private slots:
     void handleResourceOpened( const QString &path );

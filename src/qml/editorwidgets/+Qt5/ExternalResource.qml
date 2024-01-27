@@ -413,7 +413,7 @@ EditorWidgetBase {
         var filepath = getResourceFilePath()
         // Pictures taken by cameras will always be JPG
         filepath = filepath.replace('{extension}', 'JPG')
-        __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
+        __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
       } else {
         platformUtilities.createDir(qgisProject.homePath, 'DCIM')
         cameraLoader.isVideo = false
@@ -442,7 +442,7 @@ EditorWidgetBase {
         var filepath = getResourceFilePath()
         // Video taken by cameras will always be MP4
         filepath = filepath.replace('{extension}', 'MP4')
-        __resourceSource = platformUtilities.getCameraVideo(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath))
+        __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
       } else {
         platformUtilities.createDir(qgisProject.homePath, 'DCIM')
         cameraLoader.isVideo = true
@@ -489,9 +489,9 @@ EditorWidgetBase {
       Qt.inputMethod.hide()
       var filepath = getResourceFilePath()
       if (documentViewer == document_AUDIO) {
-        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles)
+        __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles, this)
       } else {
-        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
+        __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, this)
       }
     }
   }
@@ -515,9 +515,9 @@ EditorWidgetBase {
       Qt.inputMethod.hide()
       var filepath = getResourceFilePath()
       if (documentViewer == document_VIDEO) {
-        __resourceSource = platformUtilities.getGalleryVideo(this, qgisProject.homePath+'/', filepath)
+        __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath+'/', filepath, this)
       } else {
-        __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
+        __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath, this)
       }
     }
   }

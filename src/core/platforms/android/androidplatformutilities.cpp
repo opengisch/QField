@@ -74,7 +74,6 @@ inline void runOnAndroidMainThread( const std::function<void()> &runnable )
 #include <QMimeDatabase>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <QQuickItem>
 #include <QScreen>
 #include <QSettings>
 #include <QStandardPaths>
@@ -483,7 +482,7 @@ QJniObject AndroidPlatformUtilities::getNativeExtras() const
 }
 #endif
 
-ResourceSource *AndroidPlatformUtilities::processCameraActivity( QQuickItem *parent, const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo )
+ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent )
 {
   if ( !checkCameraPermissions() )
     return nullptr;
@@ -495,7 +494,7 @@ ResourceSource *AndroidPlatformUtilities::processCameraActivity( QQuickItem *par
   AndroidResourceSource *resourceSource = nullptr;
   if ( mActivity.isValid() )
   {
-    resourceSource = new AndroidResourceSource( parent, prefix );
+    resourceSource = new AndroidResourceSource( prefix, parent );
 
     runOnAndroidMainThread( [prefix, filePath, suffix, isVideo] {
       auto activity = qtAndroidContext();
@@ -522,17 +521,17 @@ ResourceSource *AndroidPlatformUtilities::processCameraActivity( QQuickItem *par
   return resourceSource;
 }
 
-ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+ResourceSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent )
 {
-  return processCameraActivity( parent, prefix, pictureFilePath, suffix, false );
+  return processCameraActivity( prefix, pictureFilePath, suffix, false, parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix )
+ResourceSource *AndroidPlatformUtilities::getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent )
 {
-  return processCameraActivity( parent, prefix, videoFilePath, suffix, true );
+  return processCameraActivity( prefix, videoFilePath, suffix, true, parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::processGalleryActivity( QQuickItem *parent, const QString &prefix, const QString &filePath, const QString &mimeType )
+ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
 {
   const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
@@ -541,7 +540,7 @@ ResourceSource *AndroidPlatformUtilities::processGalleryActivity( QQuickItem *pa
   AndroidResourceSource *resourceSource = nullptr;
   if ( mActivity.isValid() )
   {
-    resourceSource = new AndroidResourceSource( parent, prefix );
+    resourceSource = new AndroidResourceSource( prefix, parent );
 
     runOnAndroidMainThread( [prefix, filePath, mimeType] {
       auto activity = qtAndroidContext();
@@ -567,20 +566,18 @@ ResourceSource *AndroidPlatformUtilities::processGalleryActivity( QQuickItem *pa
   return resourceSource;
 }
 
-ResourceSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+ResourceSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent )
 {
-  return processGalleryActivity( parent, prefix, pictureFilePath, QStringLiteral( "image/*" ) );
+  return processGalleryActivity( prefix, pictureFilePath, QStringLiteral( "image/*" ), parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath )
+ResourceSource *AndroidPlatformUtilities::getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent )
 {
-  return processGalleryActivity( parent, prefix, videoFilePath, QStringLiteral( "video/*" ) );
+  return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ), parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType )
+ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, FileType fileType, QObject *parent )
 {
-  Q_UNUSED( parent )
-
   const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
@@ -600,7 +597,7 @@ ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QSt
   AndroidResourceSource *resourceSource = nullptr;
   if ( mActivity.isValid() )
   {
-    resourceSource = new AndroidResourceSource( parent, prefix );
+    resourceSource = new AndroidResourceSource( prefix, parent );
 
     runOnAndroidMainThread( [prefix, filePath, mimeType] {
       auto activity = qtAndroidContext();

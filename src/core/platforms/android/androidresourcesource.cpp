@@ -21,8 +21,8 @@
 #include <QFile>
 #include <QSettings>
 
-AndroidResourceSource::AndroidResourceSource( QObject *parent, const QString &prefix )
-  : ResourceSource( parent, prefix )
+AndroidResourceSource::AndroidResourceSource( const QString &prefix, QObject *parent )
+  : ResourceSource( parent, prefix, QString() )
   , mPrefix( prefix )
 {
   connect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );

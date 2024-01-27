@@ -28,7 +28,7 @@ class AndroidResourceSource : public ResourceSource
      *
      * @param prefix The project folder. Base directory path for all relative paths.
      */
-    explicit AndroidResourceSource( QObject *parent, const QString &prefix );
+    explicit AndroidResourceSource( const QString &prefix, QObject *parent );
 
   private slots:
     void handleResourceReceived( const QString &path );
