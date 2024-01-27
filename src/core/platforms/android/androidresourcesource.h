@@ -18,13 +18,7 @@
 
 #include "resourcesource.h"
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QAndroidActivityResultReceiver>
-#else
-#include <QtCore/private/qandroidextras_p.h>
-#endif
-
-class AndroidResourceSource : public ResourceSource, public QAndroidActivityResultReceiver
+class AndroidResourceSource : public ResourceSource
 {
     Q_OBJECT
 
@@ -34,13 +28,10 @@ class AndroidResourceSource : public ResourceSource, public QAndroidActivityResu
      *
      * @param prefix The project folder. Base directory path for all relative paths.
      */
-    explicit AndroidResourceSource( const QString &prefix );
+    explicit AndroidResourceSource( QObject *parent, const QString &prefix );
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
-#else
-    void handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data ) override;
-#endif
+  private slots:
+    void handleResourceReceived( const QString &path );
 
   private:
     /**

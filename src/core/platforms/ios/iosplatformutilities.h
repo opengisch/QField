@@ -50,7 +50,7 @@ class IosPlatformUtilities : public PlatformUtilities
     virtual ResourceSource *
       getGalleryVideo( QQuickItem *parent, const QString &prefix,
                        const QString &videoFilePath ) override;
-    virtual ViewStatus *open( const QString &uri, bool editing = false ) override;
+    virtual ViewStatus *open( const QString &uri, bool editing = false, QObject *parent = nullptr ) override;
     virtual ProjectSource *openProject( QObject *parent = nullptr ) override;
 
     double systemFontPointSize() const override { return 16.0; }

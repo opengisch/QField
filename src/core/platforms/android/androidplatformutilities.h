@@ -64,7 +64,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     ResourceSource *getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath ) override;
     ResourceSource *getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType ) override;
 
-    ViewStatus *open( const QString &uri, bool editing ) override;
+    ViewStatus *open( const QString &filePath, bool isEditing, QObject *parent ) override;
 
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
@@ -89,8 +89,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
   private:
     // separate multiple permissions using a semi-column (;)
     bool checkAndAcquirePermissions( const QString &permissions ) const;
-    ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo );
-    ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType );
+    ResourceSource *processCameraActivity( QQuickItem *parent, const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo );
+    ResourceSource *processGalleryActivity( QQuickItem *parent, const QString &prefix, const QString &filePath, const QString &mimeType );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;

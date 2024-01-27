@@ -190,7 +190,7 @@ EditorWidgetBase {
         if (!UrlUtils.isRelativeOrFileUrl(value)) { // matches `http://...` but not `file://...` paths
           Qt.openUrlExternally(value)
         } else if (FileUtils.fileExists(prefixToRelativePath + value)) {
-          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled)
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this)
         }
       }
     }
@@ -310,8 +310,8 @@ EditorWidgetBase {
               : image.height
 
       onClicked: {
-        if ( FileUtils.fileExists( prefixToRelativePath + value ) ) {
-          __viewStatus = platformUtilities.open( prefixToRelativePath + value, isEnabled );
+        if (FileUtils.fileExists(prefixToRelativePath + value)) {
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
         }
       }
     }
@@ -622,8 +622,7 @@ EditorWidgetBase {
   Connections {
     target: __resourceSource
     function onResourceReceived(path) {
-      if( path )
-      {
+      if( path ) {
         var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
         if(maximumWidhtHeight > 0) {
           FileUtils.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight)
@@ -647,8 +646,7 @@ EditorWidgetBase {
     }
 
     onStatusReceived: {
-      if( status )
-      {
+      if( status ) {
         //default message (we would have the passed error message still)
         displayToast( qsTr("Cannot handle this file type"), 'error')
       }

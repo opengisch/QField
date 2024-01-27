@@ -54,6 +54,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -61,6 +62,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.Html;
 import android.util.DisplayMetrics;
@@ -114,8 +116,12 @@ public class QFieldActivity extends QtActivity {
 
     public static native void openProject(String url);
     public static native void openPath(String path);
+
     public static native void volumeKeyDown(int volumeKeyCode);
     public static native void volumeKeyUp(int volumeKeyCode);
+
+    public static native void resourceReceived(String path);
+    public static native void resourceOpened(String path);
 
     private Intent projectIntent;
     private float originalBrightness;
@@ -124,6 +130,18 @@ public class QFieldActivity extends QtActivity {
     private String projectPath;
     private double sceneTopMargin = 0;
     private double sceneBottomMargin = 0;
+
+    private static final int CAMERA_RESOURCE = 600;
+    private static final int GALLERY_RESOURCE = 601;
+    private static final int FILE_PICKER_RESOURCE = 602;
+    private static final int OPEN_RESOURCE = 603;
+    private String resourcePrefix;
+    private String resourceFilePath;
+    private String resourceSuffix;
+    private String resourceTempFilePath;
+    private File resourceFile;
+    private File resourceCacheFile;
+    private boolean resourceIsEditing;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -865,6 +883,129 @@ public class QFieldActivity extends QtActivity {
         return;
     }
 
+    private void getCameraResource(String prefix, String filePath,
+                                   String suffix, boolean isVideo) {
+        resourcePrefix = prefix;
+        resourceFilePath = filePath;
+        resourceSuffix = suffix;
+
+        String timeStamp =
+            new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        resourceTempFilePath = "QFieldCamera" + timeStamp;
+
+        Intent cameraIntent = isVideo
+                                  ? new Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+                                  : new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+            Log.d("QField", "Camera intent resolved");
+            File storageDir =
+                getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            try {
+                File tempFile = File.createTempFile(resourceTempFilePath,
+                                                    suffix, storageDir);
+
+                if (tempFile != null) {
+                    Log.d("QField", "Temporary camera file created");
+                    if (tempFile.exists()) {
+                        Log.d(
+                            "QField",
+                            "Temporary camera file exists already, it will be overwritten");
+                    }
+
+                    resourceTempFilePath = tempFile.getAbsolutePath();
+
+                    Uri fileURI = FileProvider.getUriForFile(
+                        this, "ch.opengis.qfield.fileprovider", tempFile);
+
+                    Log.d("QField",
+                          "Camera temporary file uri: " + fileURI.toString());
+                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileURI);
+                    startActivityForResult(cameraIntent, CAMERA_RESOURCE);
+                }
+            } catch (IOException e) {
+                Log.d("QField", e.getMessage());
+            }
+        } else {
+            Log.d("QField", "Could not resolve camera intent");
+        }
+        return;
+    }
+
+    private void getGalleryResource(String prefix, String filePath,
+                                    String mimeType) {
+        resourcePrefix = prefix;
+        resourceFilePath = filePath;
+
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
+        intent.setType(mimeType);
+        startActivityForResult(intent, FILE_PICKER_RESOURCE);
+        return;
+    }
+
+    private void getFilePickerResource(String prefix, String filePath,
+                                       String mimeType) {
+        resourcePrefix = prefix;
+        resourceFilePath = filePath;
+
+        Intent intent = new Intent();
+        intent.setType(mimeType);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        Log.d("QField", "Gallery intent created");
+        startActivityForResult(intent, GALLERY_RESOURCE);
+        return;
+    }
+
+    private void openResource(String filePath, String mimeType,
+                              boolean isEditing) {
+        resourceFilePath = filePath;
+        resourceIsEditing = isEditing;
+
+        resourceFile = new File(filePath);
+        resourceCacheFile = new File(getCacheDir(), resourceFile.getName());
+
+        // Copy resource to a temporary file
+        if (QFieldUtils.copyFile(resourceFile, resourceCacheFile)) {
+            Uri contentUri =
+                Build.VERSION.SDK_INT < 24
+                    ? Uri.fromFile(resourceFile)
+                    : FileProvider.getUriForFile(
+                          this, BuildConfig.APPLICATION_ID + ".fileprovider",
+                          resourceCacheFile);
+
+            Intent intent =
+                new Intent(isEditing ? Intent.ACTION_EDIT : Intent.ACTION_VIEW);
+            if (isEditing) {
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                if (mimeType.contains("image/")) {
+                    intent.setDataAndType(contentUri, "image/*");
+                } else {
+                    intent.setDataAndType(contentUri, mimeType);
+                }
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
+            } else {
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.setDataAndType(contentUri, mimeType);
+            }
+            try {
+                startActivityForResult(intent, OPEN_RESOURCE);
+            } catch (IllegalArgumentException e) {
+                Log.d("QField", e.getMessage());
+            } catch (Exception e) {
+                Log.d("QField", e.getMessage());
+            }
+        } else {
+            resourceOpened("");
+        }
+
+        return;
+    }
+
     void importDatasets(Uri[] datasetUris) {
         File externalFilesDir = getExternalFilesDir(null);
         if (externalFilesDir == null || datasetUris.length == 0) {
@@ -1198,7 +1339,113 @@ public class QFieldActivity extends QtActivity {
 
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        if (requestCode == IMPORT_DATASET && resultCode == Activity.RESULT_OK) {
+        if (requestCode == CAMERA_RESOURCE) {
+            if (resultCode == RESULT_OK) {
+                File file = new File(resourceTempFilePath);
+                String finalFilePath = QFieldUtils.replaceFilenameTags(
+                    resourceFilePath, file.getName());
+                File result = new File(resourcePrefix + finalFilePath);
+                Log.d("QField",
+                      "Taken camera picture: " + file.getAbsolutePath());
+                try {
+                    InputStream in = new FileInputStream(file);
+                    QFieldUtils.inputStreamToFile(in, result.getPath(),
+                                                  file.length());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                // Let the android scan new media folders/files to make them
+                // visible through MTP
+                result.setReadable(true);
+                result.setWritable(true);
+                MediaScannerConnection.scanFile(
+                    this, new String[] {result.getParentFile().toString()},
+                    null, null);
+                resourceReceived(finalFilePath);
+            } else {
+                resourceReceived("");
+            }
+        } else if (requestCode == GALLERY_RESOURCE) {
+            if (resultCode == RESULT_OK) {
+                Uri uri = data.getData();
+                DocumentFile documentFile = DocumentFile.fromSingleUri(
+                    getApplication().getApplicationContext(), uri);
+                String finalFilePath = QFieldUtils.replaceFilenameTags(
+                    resourceFilePath, documentFile.getName());
+                File result = new File(resourcePrefix + finalFilePath);
+                Log.d("QField",
+                      "Selected gallery file: " + data.getData().toString());
+                try {
+                    InputStream in = getContentResolver().openInputStream(uri);
+                    QFieldUtils.inputStreamToFile(in, result.getPath(),
+                                                  documentFile.length());
+                } catch (Exception e) {
+                    Log.d("QField", e.getMessage());
+                }
+
+                // Let the android scan new media folders/files to make them
+                // visible through MTP
+                result.setReadable(true);
+                result.setWritable(true);
+                MediaScannerConnection.scanFile(
+                    this, new String[] {result.getParentFile().toString()},
+                    null, null);
+                resourceReceived(finalFilePath);
+            } else {
+                resourceReceived("");
+            }
+        } else if (requestCode == FILE_PICKER_RESOURCE) {
+            if (resultCode == RESULT_OK) {
+                Uri uri = data.getData();
+                DocumentFile documentFile = DocumentFile.fromSingleUri(
+                    getApplication().getApplicationContext(), uri);
+                String finalFilePath = QFieldUtils.replaceFilenameTags(
+                    resourceFilePath, documentFile.getName());
+                File result = new File(resourcePrefix + finalFilePath);
+                Log.d("QField", "Selected file picker file: " +
+                                    data.getData().toString());
+                try {
+                    InputStream in = getContentResolver().openInputStream(uri);
+                    QFieldUtils.inputStreamToFile(in, result.getPath(),
+                                                  documentFile.length());
+                } catch (Exception e) {
+                    Log.d("QField", e.getMessage());
+                }
+                resourceReceived(finalFilePath);
+            } else {
+                resourceReceived("");
+            }
+        } else if (requestCode == OPEN_RESOURCE) {
+            if (resultCode == RESULT_OK) {
+                try {
+                    if (resourceIsEditing) {
+                        Log.d(
+                            "QField",
+                            "Copy file back from uri " + data.getDataString() +
+                                " to file: " + resourceFile.getAbsolutePath());
+                        InputStream in = getContentResolver().openInputStream(
+                            data.getData());
+                        OutputStream out = new FileOutputStream(resourceFile);
+                        // Transfer bytes from in to out
+                        byte[] buf = new byte[1024];
+                        int len;
+                        while ((len = in.read(buf)) > 0) {
+                            out.write(buf, 0, len);
+                        }
+                        out.close();
+                    }
+                    resourceOpened(resourceFile.getAbsolutePath());
+                } catch (SecurityException e) {
+                    resourceOpened("");
+                } catch (IOException e) {
+                    resourceOpened("");
+                }
+            } else {
+                resourceOpened("");
+            }
+        } else if (requestCode == IMPORT_DATASET &&
+                   resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling import dataset(s)");
             File externalFilesDir = getExternalFilesDir(null);
             if (externalFilesDir == null || data == null) {

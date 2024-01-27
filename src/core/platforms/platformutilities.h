@@ -211,7 +211,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * be opened. An optional \a editing parameter can be set to true to indicate
      * to supported systems the resource is expected to be edited.
      */
-    Q_INVOKABLE virtual ViewStatus *open( const QString &uri, bool editing = false );
+    Q_INVOKABLE virtual ViewStatus *open( const QString &uri, bool editing = false, QObject *parent = nullptr );
 
     /**
      * Indicates the system that we want to open a project.
@@ -315,6 +315,13 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual Qt::PermissionStatus checkMicrophonePermission() const;
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func );
 #endif
+
+  signals:
+    //! Emitted when a resource has been received.
+    void resourceReceived( const QString &path );
+
+    //! Emitted when a resource has been opened.
+    void resourceOpened( const QString &path );
 
   private:
     /**

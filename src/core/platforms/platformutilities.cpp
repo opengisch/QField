@@ -333,7 +333,7 @@ ResourceSource *PlatformUtilities::getFile( QQuickItem *parent, const QString &p
   return createResource( prefix, filePath, fileName );
 }
 
-ViewStatus *PlatformUtilities::open( const QString &uri, bool )
+ViewStatus *PlatformUtilities::open( const QString &uri, bool, QObject * )
 {
   QDesktopServices::openUrl( QStringLiteral( "file://%1" ).arg( uri ) );
   return nullptr;

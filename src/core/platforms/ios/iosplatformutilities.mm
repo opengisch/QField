@@ -145,7 +145,7 @@ IosPlatformUtilities::getGalleryVideo(QQuickItem *parent, const QString &prefix,
   return videoSource;
 }
 
-ViewStatus *IosPlatformUtilities::open(const QString &uri, bool) {
+ViewStatus *IosPlatformUtilities::open(const QString &uri, bool, QObject *) {
   // Code from https://bugreports.qt.io/browse/QTBUG-42942
   NSString *nsFilePath = uri.toNSString();
   NSURL *nsFileUrl = [NSURL fileURLWithPath:nsFilePath];
