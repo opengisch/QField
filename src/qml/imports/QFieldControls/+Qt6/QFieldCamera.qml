@@ -119,6 +119,13 @@ Popup {
       }
       recorder: MediaRecorder {
         id: recorder
+
+        onRecorderStateChanged: {
+          if (cameraItem.state == "VideoPreview" && recorderState === MediaRecorder.StoppedState) {
+            videoPreview.source = captureSession.recorder.actualLocation
+            videoPreview.play()
+          }
+        }
       }
     }
 
@@ -179,13 +186,11 @@ Popup {
 
     Video {
       id: videoPreview
+      anchors.fill: parent
 
       visible: cameraItem.state == "VideoPreview"
 
-      anchors.fill: parent
-
       loops: MediaPlayer.Infinite
-
       muted: true
     }
 
@@ -291,12 +296,11 @@ Popup {
                   if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
                     captureSession.recorder.record()
                   } else {
+                    cameraItem.state = "VideoPreview"
                     captureSession.recorder.stop()
-                    videoPreview.source = captureSession.recorder.actualLocation
                     var path = captureSession.recorder.actualLocation.toString()
                     var filePos = path.indexOf('file://')
                     currentPath = filePos === 0 ? path.substring(7) : path
-                    cameraItem.state = "VideoPreview"
                   }
                 } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
                   if (cameraItem.state == "PhotoPreview") {
@@ -415,9 +419,11 @@ Popup {
       round: true
 
       onClicked: {
-        // Oddly enough, we can't reset a video capture
         if (cameraItem.state == "PhotoPreview") {
           cameraItem.state = "PhotoCapture"
+        } else if (cameraItem.state == "VideoPreview") {
+          videoPreview.stop()
+          cameraItem.state = "VideoCapture"
         } else {
           if (currentPath != '') {
             platformUtilities.rmFile(currentPath)
