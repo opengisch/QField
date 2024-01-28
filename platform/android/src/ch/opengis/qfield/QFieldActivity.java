@@ -973,12 +973,11 @@ public class QFieldActivity extends QtActivity {
 
         // Copy resource to a temporary file
         if (QFieldUtils.copyFile(resourceFile, resourceCacheFile)) {
-            Uri contentUri =
-                Build.VERSION.SDK_INT < 24
-                    ? Uri.fromFile(resourceFile)
-                    : FileProvider.getUriForFile(
-                          this, BuildConfig.APPLICATION_ID + ".fileprovider",
-                          resourceCacheFile);
+            Uri contentUri = Build.VERSION.SDK_INT < 24
+                                 ? Uri.fromFile(resourceFile)
+                                 : FileProvider.getUriForFile(
+                                       this, "ch.opengis.qfield.fileprovider",
+                                       resourceCacheFile);
 
             Intent intent =
                 new Intent(isEditing ? Intent.ACTION_EDIT : Intent.ACTION_VIEW);
