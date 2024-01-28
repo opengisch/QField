@@ -26,6 +26,7 @@ class AndroidViewStatus : public ViewStatus
 
   private slots:
     void handleResourceOpened( const QString &path );
+    void handleResourceCanceled( const QString &message );
 };
 
 #endif // ANDROIDVIEWSTATUS_H

@@ -946,6 +946,17 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
   return;
 }
 
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, resourceCanceled )( JNIEnv *env, jobject obj, jstring message )
+{
+  if ( PlatformUtilities::instance() )
+  {
+    const char *messageStr = env->GetStringUTFChars( message, NULL );
+    emit PlatformUtilities::instance()->resourceCanceled( QString( messageStr ) );
+    env->ReleaseStringUTFChars( message, messageStr );
+  }
+  return;
+}
+
 #ifdef __cplusplus
 }
 #endif

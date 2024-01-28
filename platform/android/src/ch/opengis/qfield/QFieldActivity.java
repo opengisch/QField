@@ -122,6 +122,7 @@ public class QFieldActivity extends QtActivity {
 
     public static native void resourceReceived(String path);
     public static native void resourceOpened(String path);
+    public static native void resourceCanceled(String message);
 
     private Intent projectIntent;
     private float originalBrightness;
@@ -893,10 +894,9 @@ public class QFieldActivity extends QtActivity {
             new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         resourceTempFilePath = "QFieldCamera" + timeStamp;
 
-        Intent cameraIntent = isVideo
-                                  ? new Intent(MediaStore.ACTION_VIDEO_CAPTURE)
-                                  : new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+        Intent intent = isVideo ? new Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+                                : new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (intent.resolveActivity(getPackageManager()) != null) {
             Log.d("QField", "Camera intent resolved");
             File storageDir =
                 getExternalFilesDir(Environment.DIRECTORY_PICTURES);
@@ -919,20 +919,35 @@ public class QFieldActivity extends QtActivity {
 
                     Log.d("QField",
                           "Camera temporary file uri: " + fileURI.toString());
-                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileURI);
-                    startActivityForResult(cameraIntent, CAMERA_RESOURCE);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, fileURI);
+                    Log.d("QField", "Camera intent starting");
+                    startActivityForResult(intent, CAMERA_RESOURCE);
                 }
             } catch (IOException e) {
                 Log.d("QField", e.getMessage());
+                resourceCanceled("");
             }
         } else {
             Log.d("QField", "Could not resolve camera intent");
+            resourceCanceled("");
         }
         return;
     }
 
     private void getGalleryResource(String prefix, String filePath,
                                     String mimeType) {
+        resourcePrefix = prefix;
+        resourceFilePath = filePath;
+
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType(mimeType);
+        Log.d("QField", "Gallery intent starting");
+        startActivityForResult(intent, GALLERY_RESOURCE);
+        return;
+    }
+
+    private void getFilePickerResource(String prefix, String filePath,
+                                       String mimeType) {
         resourcePrefix = prefix;
         resourceFilePath = filePath;
 
@@ -943,20 +958,8 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
         intent.setType(mimeType);
+        Log.d("QField", "File picker intent starting");
         startActivityForResult(intent, FILE_PICKER_RESOURCE);
-        return;
-    }
-
-    private void getFilePickerResource(String prefix, String filePath,
-                                       String mimeType) {
-        resourcePrefix = prefix;
-        resourceFilePath = filePath;
-
-        Intent intent = new Intent();
-        intent.setType(mimeType);
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        Log.d("QField", "Gallery intent created");
-        startActivityForResult(intent, GALLERY_RESOURCE);
         return;
     }
 
@@ -993,14 +996,17 @@ public class QFieldActivity extends QtActivity {
                 intent.setDataAndType(contentUri, mimeType);
             }
             try {
+                Log.d("QField", "Open intent starting");
                 startActivityForResult(intent, OPEN_RESOURCE);
             } catch (IllegalArgumentException e) {
                 Log.d("QField", e.getMessage());
+                resourceCanceled("");
             } catch (Exception e) {
                 Log.d("QField", e.getMessage());
+                resourceCanceled("");
             }
         } else {
-            resourceOpened("");
+            resourceCanceled("");
         }
 
         return;
@@ -1364,7 +1370,7 @@ public class QFieldActivity extends QtActivity {
                     null, null);
                 resourceReceived(finalFilePath);
             } else {
-                resourceReceived("");
+                resourceCanceled("");
             }
         } else if (requestCode == GALLERY_RESOURCE) {
             if (resultCode == RESULT_OK) {
@@ -1393,7 +1399,7 @@ public class QFieldActivity extends QtActivity {
                     null, null);
                 resourceReceived(finalFilePath);
             } else {
-                resourceReceived("");
+                resourceCanceled("");
             }
         } else if (requestCode == FILE_PICKER_RESOURCE) {
             if (resultCode == RESULT_OK) {
@@ -1412,9 +1418,10 @@ public class QFieldActivity extends QtActivity {
                 } catch (Exception e) {
                     Log.d("QField", e.getMessage());
                 }
+
                 resourceReceived(finalFilePath);
             } else {
-                resourceReceived("");
+                resourceCanceled("");
             }
         } else if (requestCode == OPEN_RESOURCE) {
             if (resultCode == RESULT_OK) {
@@ -1437,12 +1444,12 @@ public class QFieldActivity extends QtActivity {
                     }
                     resourceOpened(resourceFile.getAbsolutePath());
                 } catch (SecurityException e) {
-                    resourceOpened("");
+                    resourceCanceled(e.getMessage());
                 } catch (IOException e) {
-                    resourceOpened("");
+                    resourceCanceled(e.getMessage());
                 }
             } else {
-                resourceOpened("");
+                resourceCanceled("");
             }
         } else if (requestCode == IMPORT_DATASET &&
                    resultCode == Activity.RESULT_OK) {

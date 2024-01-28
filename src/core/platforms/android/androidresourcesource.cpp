@@ -26,11 +26,13 @@ AndroidResourceSource::AndroidResourceSource( const QString &prefix, QObject *pa
   , mPrefix( prefix )
 {
   connect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
+  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
 }
 
 void AndroidResourceSource::handleResourceReceived( const QString &path )
 {
   disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
 
   if ( QSettings().value( QStringLiteral( "QField/nativeCameraLaunched" ), false ).toBool() )
   {
@@ -46,5 +48,16 @@ void AndroidResourceSource::handleResourceReceived( const QString &path )
   else
   {
     emit resourceReceived( QString() );
+  }
+}
+
+void AndroidResourceSource::handleResourceCanceled( const QString &message )
+{
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
+
+  if ( QSettings().value( QStringLiteral( "QField/nativeCameraLaunched" ), false ).toBool() )
+  {
+    QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), false );
   }
 }

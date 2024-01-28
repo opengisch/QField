@@ -21,12 +21,22 @@ AndroidViewStatus::AndroidViewStatus( QObject *parent )
   : ViewStatus( parent )
 {
   connect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
+  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
 }
 
 void AndroidViewStatus::handleResourceOpened( const QString &path )
 {
   disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
 
-  emit statusReceived( path.isEmpty() ? tr( "Error viewing resource" ) : QString() );
+  emit finished();
+}
+
+void AndroidViewStatus::handleResourceCanceled( const QString &message )
+{
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
+
+  emit statusReceived( message );
   emit finished();
 }

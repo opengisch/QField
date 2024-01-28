@@ -323,6 +323,9 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     //! Emitted when a resource has been opened.
     void resourceOpened( const QString &path );
 
+    //! Emitted when a resource has been opened.
+    void resourceCanceled( const QString &message );
+
   private:
     /**
      * This method can be used to implement platform specific initialization tasks to be performed after an app update.

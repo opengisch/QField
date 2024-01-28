@@ -32,6 +32,7 @@ class AndroidResourceSource : public ResourceSource
 
   private slots:
     void handleResourceReceived( const QString &path );
+    void handleResourceCanceled( const QString &message );
 
   private:
     /**
