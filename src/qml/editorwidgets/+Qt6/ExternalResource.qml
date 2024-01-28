@@ -278,20 +278,25 @@ EditorWidgetBase {
 
           onHasVideoChanged: {
             mediaFrame.height = hasVideo ? 254 : 48
+            if (!player.firstFrameDrawn && hasVideo) {
+              play();
+            }
           }
 
           onDurationChanged: {
             positionSlider.to = duration / 1000;
             positionSlider.value = 0;
-            if (hasVideo) {
+            if (!player.firstFrameDrawn && hasVideo) {
               play();
             }
           }
 
           onPositionChanged: {
-            if (!player.firstFrameDrawn && playbackState == MediaPlayer.PlayingState) {
+            if (!player.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
               player.firstFrameDrawn = true;
-              pause();
+              if (hasVideo) {
+                pause();
+              }
             }
             positionSlider.value = position / 1000;
           }
@@ -589,7 +594,7 @@ EditorWidgetBase {
         }
       }
 
-      onFinished: {
+      onFinished: (path) => {
         var filepath = getResourceFilePath()
         filepath = filepath.replace('{filename}', FileUtils.fileName(path))
         filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path))
