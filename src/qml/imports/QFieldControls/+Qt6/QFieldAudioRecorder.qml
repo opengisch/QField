@@ -187,7 +187,18 @@ Popup {
             height: 120
             iconSource: ''
             round: true
-            bgcolor: recorder.recorderState === MediaRecorder.RecordingState ? "#808080" : "#FF0000"
+            bgcolor: recorder.recorderState === MediaRecorder.RecordingState ? "#99FF0000" : "#FF0000"
+
+            Rectangle {
+              anchors.centerIn: parent
+              width: parent.width / 2
+              height: width
+
+              radius: recorder.recorderState === MediaRecorder.RecordingState ? 10 : width / 2
+              color: "#FFFFFF"
+
+              Behavior on radius { PropertyAnimation { duration: 250; easing.type: Easing.InOutQuad } }
+            }
 
             onClicked: {
               if (preRecording) {
