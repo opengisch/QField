@@ -73,6 +73,7 @@ jobs:
         id: vars
         shell: bash
         run: |
+          echo "JAVA_HOME=${JAVA_HOME_17_X64}" >> $GITHUB_ENV
           echo "ANDROID_NDK_VERSION=25.2.9519653" >> $GITHUB_ENV
           echo "ANDROID_BUILD_TOOLS_VERSION=33.0.0" >> $GITHUB_ENV
           echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
