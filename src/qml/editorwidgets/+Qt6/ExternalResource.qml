@@ -636,7 +636,7 @@ EditorWidgetBase {
   Connections {
     target: __viewStatus
 
-    onFinished: {
+    function onFinished() {
       if (isImage) {
         // In order to make sure the image shown reflects edits, reset the source
         var imageSource = image.source;
@@ -645,9 +645,8 @@ EditorWidgetBase {
       }
     }
 
-    onStatusReceived: {
-      if( status ) {
-        //default message (we would have the passed error message still)
+    function onStatusReceived(statusText) {
+      if (statusText !== "") {
         displayToast( qsTr("Cannot handle this file type"), 'error')
       }
     }
