@@ -93,7 +93,7 @@ EditorWidgetBase {
         image.source = 'file://' + prefixToRelativePath + value
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
       } else if (isAudio || isVideo) {
-        mediaFrame.height = 48
+        player.firstFrameDrawn = false
         player.sourceUrl = 'file://' + prefixToRelativePath + value
       }
     } else {
@@ -101,7 +101,7 @@ EditorWidgetBase {
       image.visible = documentViewer == document_IMAGE
       image.opacity = 0.15
       geoTagBadge.visible = false
-      mediaFrame.height = 48
+      player.sourceUrl = '';
     }
   }
 
@@ -261,6 +261,7 @@ EditorWidgetBase {
       active: isAudio || isVideo
 
       property string sourceUrl: ''
+      property bool firstFrameDrawn: false
 
       anchors.left: parent.left
       anchors.top: parent.top
@@ -271,29 +272,25 @@ EditorWidgetBase {
       sourceComponent: Component {
         Video {
           visible: isVideo
-
           anchors.fill: parent
-
-          property bool firstFrameDrawn: false
 
           source: player.sourceUrl
 
           onHasVideoChanged: {
             mediaFrame.height = hasVideo ? 254 : 48
-            firstFrameDrawn = false
-            if (hasVideo) {
-              play();
-            }
           }
 
           onDurationChanged: {
             positionSlider.to = duration / 1000;
             positionSlider.value = 0;
+            if (hasVideo) {
+              play();
+            }
           }
 
           onPositionChanged: {
-            if (!firstFrameDrawn && playbackState == MediaPlayer.PlayingState) {
-              firstFrameDrawn = true;
+            if (!player.firstFrameDrawn && playbackState == MediaPlayer.PlayingState) {
+              player.firstFrameDrawn = true;
               pause();
             }
             positionSlider.value = position / 1000;
