@@ -871,18 +871,18 @@ Page {
   function adjustWelcomeScreen() {
     if (visible) {
       const currentProjectButtonVisible = !!qgisProject.fileName;
+      currentProjectButton.visible = currentProjectButtonVisible
 
       if (firstShown) {
         welcomeText.text = " ";
-        currentProjectButton.visible = currentProjectButtonVisible
       } else {
-        var firstRun = !settings.value( "/QField/FirstRunFlag", false )
+        var firstRun = !settings.valueBool( "/QField/FirstRunDone", false )
         if ( firstRun ) {
           welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try the sample projects listed below." )
+          settings.setValue( "/QField/FirstRunDone", true )
         } else {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
-        currentProjectButton.visible = currentProjectButtonVisible
       }
     }
   }

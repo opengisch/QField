@@ -3351,8 +3351,6 @@ ApplicationWindow {
       }
 
       layoutListInstantiator.model.reloadModel()
-
-      settings.setValue( "/QField/FirstRunFlag", false )
     }
 
     function onSetMapExtent(extent) {
