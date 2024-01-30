@@ -49,7 +49,6 @@ Navigation::Navigation()
 
 Navigation::~Navigation()
 {
-  mModel->save();
 }
 
 bool Navigation::isActive() const
