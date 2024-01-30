@@ -77,6 +77,7 @@ void NavigationModel::setDestination( const QgsPoint &point )
     endInsertRows();
   }
 
+  save();
   emit destinationChanged();
 }
 
@@ -125,6 +126,7 @@ void NavigationModel::setCrs( QgsCoordinateReferenceSystem crs )
   }
 
   mCrs = crs;
+  save();
 }
 
 QHash<int, QByteArray> NavigationModel::roleNames() const
@@ -184,4 +186,5 @@ void NavigationModel::clear()
   beginResetModel();
   mPoints.clear();
   endResetModel();
+  save();
 }
