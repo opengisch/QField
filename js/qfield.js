@@ -1,3 +1,4 @@
+/*
 $(window).scroll(function() {
   if ($(document).scrollTop() > 50) {
     $('div.navbar').addClass('shrink');
@@ -10,4 +11,20 @@ $(window).scroll(function() {
     $('.shadow-background').removeClass('unobtrusive');
     $('#qfield-logo').removeClass('unobtrusive');
   }
+});
+*/
+
+document.addEventListener("DOMContentLoaded", function() {
+  // customer success stories
+  (() => {
+    const elCustomers = document.querySelector('#customers');
+    elCustomers.querySelectorAll('.customer-logos img').forEach((elImg) => {
+      elImg.addEventListener('click', () => {
+        elCustomers.querySelectorAll(`*[title="${elImg.title}"]`).forEach((el) => {
+          [...el.parentElement.children].forEach((elSibling) => elSibling.classList.remove('customer-active'));
+          el.classList.add('customer-active');
+        });
+      });
+    });
+  })();
 });
