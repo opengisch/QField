@@ -143,6 +143,38 @@ text-align: justify;
  max-width:100%;
 }
 
+#testimonials {
+  background-color: #ddd;
+  padding: 3em 0;
+}
+
+#testimonials>h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+#testimonials .testimonials-container {
+  max-width:1140px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#testimonials .testimonial {
+  padding-bottom: 2em;
+}
+
+#testimonials .testimonial hr {
+  border-color: #212121;
+  width: 50%;
+  margin-bottom: 0;
+}
+
+#testimonials .stars {
+  color: #212121;
+}
+
 #about { 
   background-color: #212121;
   height: auto;
