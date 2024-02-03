@@ -3325,7 +3325,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Hibás távolság biztosítás</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
