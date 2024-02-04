@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - update_fastlane
   pull_request:
   release:
     types: ['published']
@@ -54,7 +55,6 @@ jobs:
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
-          bundle install
           bundle exec fastlane ios setup_signing type:development app_identifier:ch.opengis.qfield #  --verbose
 
       - name: 🐩 Install CMake and Ninja
@@ -139,6 +139,15 @@ jobs:
         with:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
+
+      - name: 🚀 Notarize
+        #        if: ${{ env.CI_TAG }}
+        env:
+          issuer_id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+          api_key_id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
+          api_private_key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+        run: |
+          bundle exec fastlane mac notarize_app package:${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg bundle_id:ch.opengis.qfield
 
       - name: 🚀 Upload release asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null

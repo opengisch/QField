@@ -64,3 +64,36 @@ platform :ios do
     )
   end
 end
+
+platform :mac do
+  lane :setup_signing do |options|
+    signing_type = options[:type] # "development", "appstore"
+    app_identifier = options[:app_identifier] # "ch.opengis.qfield", "ch.opengis.qfield-dev"
+
+    setup_ci if is_ci
+
+    match(
+      type: signing_type,
+      app_identifier: app_identifier
+    )
+  end
+
+  lane :notarize_app do |options|
+    package = options[:package]
+    bundle_id = options[:bundle_id]
+
+    setup_ci if is_ci
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV["api_key_id"],
+      issuer_id: ENV["issuer_id"],
+      key_content: ENV["api_private_key"],
+      duration: 1200
+    )
+
+    notarize(
+      package: package,
+      bundle_id: bundle_id
+    )
+  end
+end
