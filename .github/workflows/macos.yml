@@ -55,7 +55,8 @@ jobs:
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
-          bundle exec fastlane ios setup_signing type:developer_id app_identifier:ch.opengis.qfield #  --verbose
+          # todo: type:developer_id
+          bundle exec fastlane ios setup_signing type:development app_identifier:ch.opengis.qfield #  --verbose
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
