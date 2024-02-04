@@ -689,7 +689,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült visszapörgetni a módosítások visszavonás át a &quot;%1&quot; rétegen</translation>
     </message>
 </context>
 <context>
