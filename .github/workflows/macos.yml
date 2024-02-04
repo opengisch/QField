@@ -146,6 +146,7 @@ jobs:
   package:
     name: package (macos)
     runs-on: macos-13
+    needs: build
 
     steps:
       - name: 📦 Donwload package
