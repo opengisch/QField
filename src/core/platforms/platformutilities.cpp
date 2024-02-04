@@ -250,25 +250,17 @@ void PlatformUtilities::removeFolder( const QString &path ) const
   Q_UNUSED( path )
 }
 
-ResourceSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+ResourceSource *PlatformUtilities::getCameraPicture( const QString &, const QString &, const QString &, QObject * )
 {
-  Q_UNUSED( parent )
-  Q_UNUSED( prefix )
-  Q_UNUSED( pictureFilePath )
-  Q_UNUSED( suffix )
   return nullptr;
 }
 
-ResourceSource *PlatformUtilities::getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix )
+ResourceSource *PlatformUtilities::getCameraVideo( const QString &, const QString &, const QString &, QObject * )
 {
-  Q_UNUSED( parent )
-  Q_UNUSED( prefix )
-  Q_UNUSED( videoFilePath )
-  Q_UNUSED( suffix )
   return nullptr;
 }
 
-ResourceSource *PlatformUtilities::createResource( const QString &prefix, const QString &filePath, const QString &fileName )
+ResourceSource *PlatformUtilities::createResource( const QString &prefix, const QString &filePath, const QString &fileName, QObject *parent )
 {
   QFileInfo fi( fileName );
   if ( fi.exists() )
@@ -276,7 +268,7 @@ ResourceSource *PlatformUtilities::createResource( const QString &prefix, const 
     // if the file is already in the prefixed path, no need to copy
     if ( fileName.startsWith( prefix ) )
     {
-      return new ResourceSource( nullptr, prefix, fileName );
+      return new ResourceSource( parent, prefix, fileName );
     }
     else
     {
@@ -286,36 +278,32 @@ ResourceSource *PlatformUtilities::createResource( const QString &prefix, const 
       QDir prefixDir( prefix );
       if ( prefixDir.mkpath( destinationInfo.absolutePath() ) && QFile::copy( fileName, destinationFile ) )
       {
-        return new ResourceSource( nullptr, prefix, destinationFile );
+        return new ResourceSource( parent, prefix, destinationFile );
       }
     }
 
     QgsMessageLog::logMessage( tr( "Failed to save file resource" ), "QField", Qgis::Critical );
   }
 
-  return new ResourceSource( nullptr, prefix, QString() );
+  return new ResourceSource( parent, prefix, QString() );
 }
 
-ResourceSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+ResourceSource *PlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent )
 {
-  Q_UNUSED( parent )
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Image File" ), prefix,
                                                    tr( "All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)" ) );
-  return createResource( prefix, pictureFilePath, fileName );
+  return createResource( prefix, pictureFilePath, fileName, parent );
 }
 
-ResourceSource *PlatformUtilities::getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath )
+ResourceSource *PlatformUtilities::getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent )
 {
-  Q_UNUSED( parent )
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Video File" ), prefix,
                                                    tr( "All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)" ) );
-  return createResource( prefix, videoFilePath, fileName );
+  return createResource( prefix, videoFilePath, fileName, parent );
 }
 
-ResourceSource *PlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType )
+ResourceSource *PlatformUtilities::getFile( const QString &prefix, const QString &filePath, FileType fileType, QObject *parent )
 {
-  Q_UNUSED( parent )
-
   QString filter;
   switch ( fileType )
   {
@@ -330,18 +318,17 @@ ResourceSource *PlatformUtilities::getFile( QQuickItem *parent, const QString &p
   }
 
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select File" ), prefix, filter );
-  return createResource( prefix, filePath, fileName );
+  return createResource( prefix, filePath, fileName, parent );
 }
 
-ViewStatus *PlatformUtilities::open( const QString &uri, bool )
+ViewStatus *PlatformUtilities::open( const QString &uri, bool, QObject * )
 {
   QDesktopServices::openUrl( QStringLiteral( "file://%1" ).arg( uri ) );
   return nullptr;
 }
 
-ProjectSource *PlatformUtilities::openProject( QObject *parent )
+ProjectSource *PlatformUtilities::openProject( QObject * )
 {
-  Q_UNUSED( parent );
   QSettings settings;
   ProjectSource *source = new ProjectSource();
   QString fileName { QFileDialog::getOpenFileName( nullptr,

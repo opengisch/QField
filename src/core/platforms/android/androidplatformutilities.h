@@ -58,13 +58,13 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void sendCompressedFolderTo( const QString &path ) const override;
     void removeFolder( const QString &path ) const override;
 
-    ResourceSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
-    ResourceSource *getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix ) override;
-    ResourceSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
-    ResourceSource *getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath ) override;
-    ResourceSource *getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType ) override;
+    ResourceSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent = nullptr ) override;
+    ResourceSource *getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent = nullptr ) override;
+    ResourceSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr ) override;
+    ResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr ) override;
+    ResourceSource *getFile( const QString &prefix, const QString &filePath, FileType fileType, QObject *parent = nullptr ) override;
 
-    ViewStatus *open( const QString &uri, bool editing ) override;
+    ViewStatus *open( const QString &filePath, bool isEditing, QObject *parent = nullptr ) override;
 
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
@@ -89,8 +89,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
   private:
     // separate multiple permissions using a semi-column (;)
     bool checkAndAcquirePermissions( const QString &permissions ) const;
-    ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo );
-    ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType );
+    ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent = nullptr );
+    ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;

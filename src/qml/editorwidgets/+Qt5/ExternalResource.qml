@@ -191,7 +191,7 @@ EditorWidgetBase {
         if (!UrlUtils.isRelativeOrFileUrl(value)) { // matches `http://...` but not `file://...` paths
           Qt.openUrlExternally(value)
         } else if (FileUtils.fileExists(prefixToRelativePath + value)) {
-          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled)
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this)
         }
       }
     }
@@ -301,8 +301,8 @@ EditorWidgetBase {
               : image.height
 
       onClicked: {
-        if ( FileUtils.fileExists( prefixToRelativePath + value ) ) {
-          __viewStatus = platformUtilities.open( prefixToRelativePath + value, isEnabled );
+        if (FileUtils.fileExists(prefixToRelativePath + value)) {
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
         }
       }
     }
@@ -413,7 +413,7 @@ EditorWidgetBase {
         var filepath = getResourceFilePath()
         // Pictures taken by cameras will always be JPG
         filepath = filepath.replace('{extension}', 'JPG')
-        __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
+        __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
       } else {
         platformUtilities.createDir(qgisProject.homePath, 'DCIM')
         cameraLoader.isVideo = false
@@ -442,7 +442,7 @@ EditorWidgetBase {
         var filepath = getResourceFilePath()
         // Video taken by cameras will always be MP4
         filepath = filepath.replace('{extension}', 'MP4')
-        __resourceSource = platformUtilities.getCameraVideo(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath))
+        __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
       } else {
         platformUtilities.createDir(qgisProject.homePath, 'DCIM')
         cameraLoader.isVideo = true
@@ -489,9 +489,9 @@ EditorWidgetBase {
       Qt.inputMethod.hide()
       var filepath = getResourceFilePath()
       if (documentViewer == document_AUDIO) {
-        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles)
+        __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles, this)
       } else {
-        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
+        __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, this)
       }
     }
   }
@@ -515,9 +515,9 @@ EditorWidgetBase {
       Qt.inputMethod.hide()
       var filepath = getResourceFilePath()
       if (documentViewer == document_VIDEO) {
-        __resourceSource = platformUtilities.getGalleryVideo(this, qgisProject.homePath+'/', filepath)
+        __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath+'/', filepath, this)
       } else {
-        __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
+        __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath, this)
       }
     }
   }
@@ -618,6 +618,7 @@ EditorWidgetBase {
 
   Connections {
     target: __resourceSource
+
     function onResourceReceived(path) {
       if( path )
       {
@@ -634,7 +635,7 @@ EditorWidgetBase {
   Connections {
     target: __viewStatus
 
-    onFinished: {
+    function onFinished() {
       if (isImage) {
         // In order to make sure the image shown reflects edits, reset the source
         var imageSource = image.source;
@@ -643,10 +644,8 @@ EditorWidgetBase {
       }
     }
 
-    onStatusReceived: {
-      if( status )
-      {
-        //default message (we would have the passed error message still)
+    function onStatusReceived(statusText) {
+      if (statusText !== "") {
         displayToast( qsTr("Cannot handle this file type"), 'error')
       }
     }

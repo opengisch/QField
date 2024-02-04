@@ -386,8 +386,11 @@ QString DeltaFileWrapper::crsByLayerId( const QgsProject *project, const QString
 
     if ( authid.startsWith( QStringLiteral( "EPSG:" ) ) )
       return authid;
-
+#if _QGIS_VERSION_INT >= 33500
+    return project->mapLayer( layerId )->crs().toWkt( Qgis::CrsWktVariant::Preferred );
+#else
     return project->mapLayer( layerId )->crs().toWkt( QgsCoordinateReferenceSystem::WKT_PREFERRED );
+#endif
   }
 
   return QString();

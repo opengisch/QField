@@ -36,21 +36,19 @@ class IosPlatformUtilities : public PlatformUtilities
     QStringList appDataDirs() const override;
 
     void setScreenLockPermission( const bool allowLock ) override;
-    virtual ResourceSource *getCameraPicture( QQuickItem *parent,
-                                              const QString &prefix,
+    virtual ResourceSource *getCameraPicture( const QString &prefix,
                                               const QString &pictureFilePath,
-                                              const QString &suffix ) override;
-    virtual ResourceSource *getCameraVideo( QQuickItem *parent,
-                                            const QString &prefix,
+                                              const QString &suffix,
+                                              QObject *parent = nullptr ) override;
+    virtual ResourceSource *getCameraVideo( const QString &prefix,
                                             const QString &videoFilePath,
-                                            const QString &suffix ) override;
+                                            const QString &suffix,
+                                            QObject *parent = nullptr ) override;
     virtual ResourceSource *
-      getGalleryPicture( QQuickItem *parent, const QString &prefix,
-                         const QString &pictureFilePath ) override;
+      getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr ) override;
     virtual ResourceSource *
-      getGalleryVideo( QQuickItem *parent, const QString &prefix,
-                       const QString &videoFilePath ) override;
-    virtual ViewStatus *open( const QString &uri, bool editing = false ) override;
+      getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr ) override;
+    virtual ViewStatus *open( const QString &uri, bool editing = false, QObject *parent = nullptr ) override;
     virtual ProjectSource *openProject( QObject *parent = nullptr ) override;
 
     double systemFontPointSize() const override { return 16.0; }

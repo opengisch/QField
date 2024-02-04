@@ -15,68 +15,49 @@
  ***************************************************************************/
 
 #include "androidresourcesource.h"
-#include "qgsapplication.h"
-#include "qgsmessagelog.h"
+#include "platformutilities.h"
 
-#include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QSettings>
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QAndroidJniEnvironment>
-#include <QtAndroid>
-#else
-#include <QJniEnvironment>
-#include <QtCore/private/qandroidextras_p.h>
-#endif
-
-AndroidResourceSource::AndroidResourceSource( const QString &prefix )
-  : ResourceSource( nullptr, prefix )
-  , QAndroidActivityResultReceiver()
+AndroidResourceSource::AndroidResourceSource( const QString &prefix, QObject *parent )
+  : ResourceSource( parent, prefix, QString() )
   , mPrefix( prefix )
 {
+  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
+  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
 }
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
-#else
-void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data )
-#endif
+void AndroidResourceSource::handleResourceReceived( const QString &path )
 {
-  if ( receiverRequestCode == 171 )
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
+
+  if ( QSettings().value( QStringLiteral( "QField/nativeCameraLaunched" ), false ).toBool() )
   {
-    const bool nativeCameraLaunched = QSettings().value( QStringLiteral( "QField/nativeCameraLaunched" ), false ).toBool();
-    if ( nativeCameraLaunched )
-    {
-      QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), false );
-    }
+    QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), false );
+  }
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
-#else
-    jint RESULT_OK = QJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
-#endif
-    if ( resultCode == RESULT_OK )
-    {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-      QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
-      QAndroidJniObject media_path = QAndroidJniObject::fromString( "RESOURCE_FILENAME" );
-#else
-      QJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
-      QJniObject media_path = QJniObject::fromString( "RESOURCE_FILENAME" );
-#endif
+  if ( !path.isEmpty() )
+  {
+    QString relativePath = path;
+    relativePath.remove( mPrefix );
+    emit resourceReceived( relativePath );
+  }
+  else
+  {
+    emit resourceReceived( QString() );
+  }
+}
 
-      media_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
-                                            media_path.object<jstring>() );
+void AndroidResourceSource::handleResourceCanceled( const QString &message )
+{
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
 
-      QString media_relative_path = media_path.toString().remove( mPrefix );
-
-      emit resourceReceived( media_relative_path );
-    }
-    else
-    {
-      emit resourceReceived( QString() );
-    }
+  if ( QSettings().value( QStringLiteral( "QField/nativeCameraLaunched" ), false ).toBool() )
+  {
+    QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), false );
   }
 }

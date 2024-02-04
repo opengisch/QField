@@ -15,44 +15,28 @@
  ***************************************************************************/
 
 #include "androidviewstatus.h"
-#include "qgsmessagelog.h"
+#include "platformutilities.h"
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QtAndroid>
-#else
-#include <QtCore/private/qandroidextras_p.h>
-#endif
-
-AndroidViewStatus::AndroidViewStatus()
-  : ViewStatus( nullptr )
-  , QAndroidActivityResultReceiver()
+AndroidViewStatus::AndroidViewStatus( QObject *parent )
+  : ViewStatus( parent )
 {
+  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
+  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
 }
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-void AndroidViewStatus::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
-#else
-void AndroidViewStatus::handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data )
-#endif
+void AndroidViewStatus::handleResourceOpened( const QString &path )
 {
-  Q_UNUSED( resultCode )
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
 
-  //on open file externally
-  if ( receiverRequestCode == 102 )
-  {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
-    QAndroidJniObject errorMessage = QAndroidJniObject::fromString( "ERROR_MESSAGE" );
-#else
-    QJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
-    QJniObject errorMessage = QJniObject::fromString( "ERROR_MESSAGE" );
-#endif
-    errorMessage = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
-                                            errorMessage.object<jstring>() );
-    if ( !errorMessage.toString().isEmpty() )
-    {
-      emit statusReceived( errorMessage.toString() );
-    }
-    emit finished();
-  }
+  emit finished();
+}
+
+void AndroidViewStatus::handleResourceCanceled( const QString &message )
+{
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
+  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
+
+  emit statusReceived( message );
+  emit finished();
 }

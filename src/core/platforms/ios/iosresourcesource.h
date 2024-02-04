@@ -23,7 +23,7 @@ class IosResourceSource : public ResourceSource
     Q_OBJECT
 
   public:
-    explicit IosResourceSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &resourceFilePath = QString() );
+    explicit IosResourceSource( const QString &prefix = QString(), const QString &resourceFilePath = QString(), QObject *parent = nullptr );
 
     QString resourceFilePath() const { return mResourceFilePath; }
     QString prefixPath() const { return mPrefixPath; }

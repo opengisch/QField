@@ -109,43 +109,43 @@ void IosPlatformUtilities::setScreenLockPermission(const bool allowLock) {
   }
 }
 
-ResourceSource *IosPlatformUtilities::getCameraPicture(
-    QQuickItem *parent, const QString &prefix, const QString &pictureFilePath,
-    const QString &suffix) {
+ResourceSource *
+IosPlatformUtilities::getCameraPicture(const QString &prefix,
+                                       const QString &pictureFilePath,
+                                       const QString &suffix, QObject *parent) {
   IosResourceSource *pictureSource =
-      new IosResourceSource(parent, prefix, pictureFilePath);
+      new IosResourceSource(prefix, pictureFilePath, parent);
   pictureSource->takePicture();
   return pictureSource;
 }
 
 ResourceSource *
-IosPlatformUtilities::getCameraVideo(QQuickItem *parent, const QString &prefix,
+IosPlatformUtilities::getCameraVideo(const QString &prefix,
                                      const QString &videoFilePath,
-                                     const QString &suffix) {
+                                     const QString &suffix, QObject *parent) {
   IosResourceSource *pictureSource =
-      new IosResourceSource(parent, prefix, videoFilePath);
+      new IosResourceSource(prefix, videoFilePath, parent);
   pictureSource->takeVideo();
   return pictureSource;
 }
 
 ResourceSource *IosPlatformUtilities::getGalleryPicture(
-    QQuickItem *parent, const QString &prefix, const QString &pictureFilePath) {
+    const QString &prefix, const QString &pictureFilePath, QObject *parent) {
   IosResourceSource *pictureSource =
-      new IosResourceSource(parent, prefix, pictureFilePath);
+      new IosResourceSource(prefix, pictureFilePath, parent);
   pictureSource->pickGalleryPicture();
   return pictureSource;
 }
 
-ResourceSource *
-IosPlatformUtilities::getGalleryVideo(QQuickItem *parent, const QString &prefix,
-                                      const QString &videoFilePath) {
+ResourceSource *IosPlatformUtilities::getGalleryVideo(
+    const QString &prefix, const QString &videoFilePath, QObject *parent) {
   IosResourceSource *videoSource =
-      new IosResourceSource(parent, prefix, videoFilePath);
+      new IosResourceSource(prefix, videoFilePath, parent);
   videoSource->pickGalleryVideo();
   return videoSource;
 }
 
-ViewStatus *IosPlatformUtilities::open(const QString &uri, bool) {
+ViewStatus *IosPlatformUtilities::open(const QString &uri, bool, QObject *) {
   // Code from https://bugreports.qt.io/browse/QTBUG-42942
   NSString *nsFilePath = uri.toNSString();
   NSURL *nsFileUrl = [NSURL fileURLWithPath:nsFilePath];

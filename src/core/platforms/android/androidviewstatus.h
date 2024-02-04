@@ -19,22 +19,14 @@
 
 #include "viewstatus.h"
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QAndroidActivityResultReceiver>
-#else
-#include <QtCore/private/qandroidextras_p.h>
-#endif
-
-class AndroidViewStatus : public ViewStatus, public QAndroidActivityResultReceiver
+class AndroidViewStatus : public ViewStatus
 {
   public:
-    AndroidViewStatus();
+    AndroidViewStatus( QObject *parent = nullptr );
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
-#else
-    void handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data ) override;
-#endif
+  private slots:
+    void handleResourceOpened( const QString &path );
+    void handleResourceCanceled( const QString &message );
 };
 
 #endif // ANDROIDVIEWSTATUS_H

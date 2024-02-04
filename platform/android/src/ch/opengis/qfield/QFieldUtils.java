@@ -398,6 +398,24 @@ public class QFieldUtils {
         return true;
     }
 
+    public static boolean copyFile(File src, File dst) {
+        try {
+            InputStream in = new FileInputStream(src);
+            OutputStream out = new FileOutputStream(dst);
+            // Transfer bytes from in to out
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = in.read(buf)) > 0) {
+                out.write(buf, 0, len);
+            }
+            out.close();
+        } catch (Exception e) {
+            Log.e("QField", "copyFile exception: " + e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Deletes the provided directory.
      * @param file      the directory to be deleted

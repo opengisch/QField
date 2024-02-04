@@ -482,7 +482,7 @@ QJniObject AndroidPlatformUtilities::getNativeExtras() const
 }
 #endif
 
-ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo )
+ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent )
 {
   if ( !checkCameraPermissions() )
     return nullptr;
@@ -491,157 +491,93 @@ ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldCameraActivity" ) );
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-#else
-  QJniObject activity = QJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldCameraActivity" ) );
-  QJniObject intent = QJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-  QJniObject packageName = QJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-#endif
-  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QAndroidJniObject isVideo_label = QAndroidJniObject::fromString( "isVideo" );
-  QAndroidJniObject isVideo_value = QAndroidJniObject::fromString( "yes" );
-  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
-  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( filePath );
-  QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
-  QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
-  QAndroidJniObject suffix_label = QAndroidJniObject::fromString( "suffix" );
-  QAndroidJniObject suffix_value = QAndroidJniObject::fromString( suffix );
-#else
-  QJniObject isVideo_label = QJniObject::fromString( "isVideo" );
-  QJniObject isVideo_value = QJniObject::fromString( "yes" );
-  QJniObject filePath_label = QJniObject::fromString( "filePath" );
-  QJniObject filePath_value = QJniObject::fromString( filePath );
-  QJniObject prefix_label = QJniObject::fromString( "prefix" );
-  QJniObject prefix_value = QJniObject::fromString( prefix );
-  QJniObject suffix_label = QJniObject::fromString( "suffix" );
-  QJniObject suffix_value = QJniObject::fromString( suffix );
-#endif
-  if ( isVideo )
+  AndroidResourceSource *resourceSource = nullptr;
+  if ( mActivity.isValid() )
   {
-    intent.callObjectMethod( "putExtra",
-                             "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                             isVideo_label.object<jstring>(),
-                             isVideo_value.object<jstring>() );
-  }
+    resourceSource = new AndroidResourceSource( prefix, parent );
 
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           filePath_label.object<jstring>(),
-                           filePath_value.object<jstring>() );
-
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           prefix_label.object<jstring>(),
-                           prefix_value.object<jstring>() );
-
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           suffix_label.object<jstring>(),
-                           suffix_value.object<jstring>() );
-
-  QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
-
-  AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
-
+    runOnAndroidMainThread( [prefix, filePath, suffix, isVideo] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
+        QAndroidJniObject prefixJni = QAndroidJniObject::fromString( prefix );
+        QAndroidJniObject filePathJni = QAndroidJniObject::fromString( filePath );
+        QAndroidJniObject suffixJni = QAndroidJniObject::fromString( suffix );
 #else
-  QtAndroidPrivate::startActivity( intent.object<jobject>(), 171, pictureSource );
+        QJniObject prefixJni = QJniObject::fromString( prefix );
+        QJniObject filePathJni = QJniObject::fromString( filePath );
+        QJniObject suffixJni = QJniObject::fromString( suffix );
 #endif
-  return pictureSource;
+        QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
+        activity.callMethod<void>( "getCameraResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V",
+                                   prefixJni.object<jstring>(),
+                                   filePathJni.object<jstring>(),
+                                   suffixJni.object<jstring>(),
+                                   isVideo );
+      }
+    } );
+  }
+  return resourceSource;
 }
 
-ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+ResourceSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent )
 {
-  Q_UNUSED( parent )
-
-  return processCameraActivity( prefix, pictureFilePath, suffix, false );
+  return processCameraActivity( prefix, pictureFilePath, suffix, false, parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix )
+ResourceSource *AndroidPlatformUtilities::getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent )
 {
-  Q_UNUSED( parent )
-
-  return processCameraActivity( prefix, videoFilePath, suffix, true );
+  return processCameraActivity( prefix, videoFilePath, suffix, true, parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType )
+ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
 {
   const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
 
+  AndroidResourceSource *resourceSource = nullptr;
+  if ( mActivity.isValid() )
+  {
+    resourceSource = new AndroidResourceSource( prefix, parent );
+
+    runOnAndroidMainThread( [prefix, filePath, mimeType] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldGalleryActivity" ) );
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
-  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( filePath );
-  QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
-  QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
-  QAndroidJniObject mimeType_label = QAndroidJniObject::fromString( "mimeType" );
-  QAndroidJniObject mimeType_value = QAndroidJniObject::fromString( mimeType );
+        QAndroidJniObject prefixJni = QAndroidJniObject::fromString( prefix );
+        QAndroidJniObject filePathJni = QAndroidJniObject::fromString( filePath );
+        QAndroidJniObject mimeTypeJni = QAndroidJniObject::fromString( mimeType );
 #else
-  QJniObject activity = QJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldGalleryActivity" ) );
-  QJniObject intent = QJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-  QJniObject packageName = QJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QJniObject filePath_label = QJniObject::fromString( "filePath" );
-  QJniObject filePath_value = QJniObject::fromString( filePath );
-  QJniObject prefix_label = QJniObject::fromString( "prefix" );
-  QJniObject prefix_value = QJniObject::fromString( prefix );
-  QJniObject mimeType_label = QJniObject::fromString( "mimeType" );
-  QJniObject mimeType_value = QJniObject::fromString( mimeType );
+        QJniObject prefixJni = QJniObject::fromString( prefix );
+        QJniObject filePathJni = QJniObject::fromString( filePath );
+        QJniObject mimeTypeJni = QJniObject::fromString( mimeType );
 #endif
-  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
-
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           filePath_label.object<jstring>(),
-                           filePath_value.object<jstring>() );
-
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           prefix_label.object<jstring>(),
-                           prefix_value.object<jstring>() );
-
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           mimeType_label.object<jstring>(),
-                           mimeType_value.object<jstring>() );
-
-  AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
-#else
-  QtAndroidPrivate::startActivity( intent.object<jobject>(), 171, pictureSource );
-#endif
-  return pictureSource;
+        QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
+        activity.callMethod<void>( "getGalleryResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+                                   prefixJni.object<jstring>(),
+                                   filePathJni.object<jstring>(),
+                                   mimeTypeJni.object<jstring>() );
+      }
+    } );
+  }
+  return resourceSource;
 }
 
-ResourceSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+ResourceSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent )
 {
-  Q_UNUSED( parent )
-
-  return processGalleryActivity( prefix, pictureFilePath, QStringLiteral( "image/*" ) );
+  return processGalleryActivity( prefix, pictureFilePath, QStringLiteral( "image/*" ), parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath )
+ResourceSource *AndroidPlatformUtilities::getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent )
 {
-  Q_UNUSED( parent )
-
-  return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ) );
+  return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ), parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType )
+ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, FileType fileType, QObject *parent )
 {
-  Q_UNUSED( parent )
-
   const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
@@ -658,99 +594,72 @@ ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QSt
       break;
   }
 
+  AndroidResourceSource *resourceSource = nullptr;
+  if ( mActivity.isValid() )
+  {
+    resourceSource = new AndroidResourceSource( prefix, parent );
+
+    runOnAndroidMainThread( [prefix, filePath, mimeType] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldFilePickerActivity" ) );
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
-  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( filePath );
-  QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
-  QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
-  QAndroidJniObject mimeType_label = QAndroidJniObject::fromString( "mimeType" );
-  QAndroidJniObject mimeType_value = QAndroidJniObject::fromString( mimeType );
+        QAndroidJniObject prefixJni = QAndroidJniObject::fromString( prefix );
+        QAndroidJniObject filePathJni = QAndroidJniObject::fromString( filePath );
+        QAndroidJniObject mimeTypeJni = QAndroidJniObject::fromString( mimeType );
 #else
-  QJniObject activity = QJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldFilePickerActivity" ) );
-  QJniObject intent = QJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-  QJniObject packageName = QJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QJniObject filePath_label = QJniObject::fromString( "filePath" );
-  QJniObject filePath_value = QJniObject::fromString( filePath );
-  QJniObject prefix_label = QJniObject::fromString( "prefix" );
-  QJniObject prefix_value = QJniObject::fromString( prefix );
-  QJniObject mimeType_label = QJniObject::fromString( "mimeType" );
-  QJniObject mimeType_value = QJniObject::fromString( mimeType );
+        QJniObject prefixJni = QJniObject::fromString( prefix );
+        QJniObject filePathJni = QJniObject::fromString( filePath );
+        QJniObject mimeTypeJni = QJniObject::fromString( mimeType );
 #endif
-
-  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
-
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           filePath_label.object<jstring>(),
-                           filePath_value.object<jstring>() );
-
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           prefix_label.object<jstring>(),
-                           prefix_value.object<jstring>() );
-
-  intent.callObjectMethod( "putExtra",
-                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           mimeType_label.object<jstring>(),
-                           mimeType_value.object<jstring>() );
-
-  AndroidResourceSource *fileSource = new AndroidResourceSource( prefix );
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QtAndroid::startActivity( intent.object<jobject>(), 171, fileSource );
-#else
-  QtAndroidPrivate::startActivity( intent.object<jobject>(), 171, fileSource );
-#endif
-
-  return fileSource;
+        QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
+        activity.callMethod<void>( "getFilePickerResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+                                   prefixJni.object<jstring>(),
+                                   filePathJni.object<jstring>(),
+                                   mimeTypeJni.object<jstring>() );
+      }
+    } );
+  }
+  return resourceSource;
 }
 
-ViewStatus *AndroidPlatformUtilities::open( const QString &uri, bool editing )
+ViewStatus *AndroidPlatformUtilities::open( const QString &filePath, bool isEditing, QObject *parent )
 {
-  if ( QFileInfo( uri ).isDir() )
+  if ( QFileInfo( filePath ).isDir() )
     return nullptr;
 
   checkWriteExternalStoragePermissions();
 
   QMimeDatabase db;
+  const QString mimeType = db.mimeTypeForFile( filePath ).name();
 
+  AndroidViewStatus *viewStatus = nullptr;
+  if ( mActivity.isValid() )
+  {
+    if ( parent )
+    {
+      viewStatus = new AndroidViewStatus( parent );
+    }
+
+    runOnAndroidMainThread( [filePath, mimeType, isEditing] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldOpenExternallyActivity" ) );
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QAndroidJniObject filepath_label = QAndroidJniObject::fromString( "filepath" );
-  QAndroidJniObject filepath = QAndroidJniObject::fromString( uri );
-  QAndroidJniObject filetype_label = QAndroidJniObject::fromString( "filetype" );
-  QAndroidJniObject filetype = QAndroidJniObject::fromString( db.mimeTypeForFile( uri ).name() );
-  QAndroidJniObject fileediting_label = QAndroidJniObject::fromString( "fileediting" );
-  QAndroidJniObject fileediting = QAndroidJniObject::fromString( editing ? "true" : "false" );
+        QAndroidJniObject filePathJni = QAndroidJniObject::fromString( filePath );
+        QAndroidJniObject mimeTypeJni = QAndroidJniObject::fromString( mimeType );
 #else
-  QJniObject activity = QJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldOpenExternallyActivity" ) );
-  QJniObject intent = QJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-  QJniObject packageName = QJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QJniObject filepath_label = QJniObject::fromString( "filepath" );
-  QJniObject filepath = QJniObject::fromString( uri );
-  QJniObject filetype_label = QJniObject::fromString( "filetype" );
-  QJniObject filetype = QJniObject::fromString( db.mimeTypeForFile( uri ).name() );
-  QJniObject fileediting_label = QJniObject::fromString( "fileediting" );
-  QJniObject fileediting = QJniObject::fromString( editing ? "true" : "false" );
+        QJniObject filePathJni = QJniObject::fromString( filePath );
+        QJniObject mimeTypeJni = QJniObject::fromString( mimeType );
 #endif
-
-  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
-  intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filepath_label.object<jstring>(), filepath.object<jstring>() );
-  intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filetype_label.object<jstring>(), filetype.object<jstring>() );
-  intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", fileediting_label.object<jstring>(), fileediting.object<jstring>() );
-
-  AndroidViewStatus *viewStatus = new AndroidViewStatus();
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QtAndroid::startActivity( intent.object<jobject>(), 102, viewStatus );
-#else
-  QtAndroidPrivate::startActivity( intent.object<jobject>(), 102, viewStatus );
-#endif
-
+        QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
+        activity.callMethod<void>( "openResource", "(Ljava/lang/String;Ljava/lang/String;Z)V",
+                                   filePathJni.object<jstring>(),
+                                   mimeTypeJni.object<jstring>(),
+                                   isEditing );
+      }
+    } );
+  }
   return viewStatus;
 }
 
@@ -1011,6 +920,39 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
   if ( AppInterface::instance() )
   {
     emit AppInterface::instance()->volumeKeyUp( volumeKeyCode == ANDROID_VOLUME_DOWN ? Qt::Key_VolumeDown : Qt::Key_VolumeUp );
+  }
+  return;
+}
+
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, resourceReceived )( JNIEnv *env, jobject obj, jstring path )
+{
+  if ( PlatformUtilities::instance() )
+  {
+    const char *pathStr = env->GetStringUTFChars( path, NULL );
+    emit PlatformUtilities::instance()->resourceReceived( QString( pathStr ) );
+    env->ReleaseStringUTFChars( path, pathStr );
+  }
+  return;
+}
+
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, resourceOpened )( JNIEnv *env, jobject obj, jstring path )
+{
+  if ( PlatformUtilities::instance() )
+  {
+    const char *pathStr = env->GetStringUTFChars( path, NULL );
+    emit PlatformUtilities::instance()->resourceOpened( QString( pathStr ) );
+    env->ReleaseStringUTFChars( path, pathStr );
+  }
+  return;
+}
+
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, resourceCanceled )( JNIEnv *env, jobject obj, jstring message )
+{
+  if ( PlatformUtilities::instance() )
+  {
+    const char *messageStr = env->GetStringUTFChars( message, NULL );
+    emit PlatformUtilities::instance()->resourceCanceled( QString( messageStr ) );
+    env->ReleaseStringUTFChars( message, messageStr );
   }
   return;
 }

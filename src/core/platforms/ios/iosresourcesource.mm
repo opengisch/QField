@@ -115,8 +115,9 @@ public:
   CameraDelegate *_cameraDelegate = nullptr;
 };
 
-IosResourceSource::IosResourceSource(QObject *parent, const QString &prefix,
-                                     const QString &resourceFilePath)
+IosResourceSource::IosResourceSource(const QString &prefix,
+                                     const QString &resourceFilePath,
+                                     QObject *parent)
     : ResourceSource(parent, prefix, resourceFilePath),
       mDelegate(new CameraDelegateContainer()) {
   mParent = qobject_cast<QQuickItem *>(parent);
