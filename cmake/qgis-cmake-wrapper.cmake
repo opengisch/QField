@@ -191,10 +191,6 @@ if(TRUE) # Should possibly have a "static only" check
     target_link_libraries(QGIS::Core INTERFACE
       ${QT_PKG}::DBus
     )
-    if(PKG_CONFIG_FOUND)
-      pkg_check_modules(glib2 REQUIRED IMPORTED_TARGET glib-2.0)
-      target_link_libraries(QGIS::Core INTERFACE PkgConfig::glib2)
-    endif()
   endif()
   target_link_libraries(QGIS::Analysis INTERFACE QGIS::Core)
 endif()
