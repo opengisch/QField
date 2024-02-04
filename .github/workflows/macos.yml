@@ -164,6 +164,7 @@ jobs:
       - name: 🪐 Create universal package
         run: |
           ls
+          ls *
           cp QField-dev-x64-osx-qt6.dmg QField-universal.dmg
           hdiutil attach QField-dev-x64-osx-qt6.dmg
           hdiutil attach QField-dev-arm64-osx-qt6.dmg
