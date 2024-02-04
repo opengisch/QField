@@ -1,4 +1,12 @@
 {
+  "vcpkg-configuration": {
+    "overlay-ports": [
+      "vcpkg/ports"
+    ],
+    "overlay-triplets": [
+      "vcpkg/triplets"
+    ]
+  },
   "name": "qfield",
   "version-string": "dev",
   "port-version": 1,
