@@ -144,6 +144,14 @@ jobs:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
+      - name: 📑 Upload logs
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: logs-${{ matrix.triplet }}
+          path: |
+            ${{ env.CMAKE_BUILD_DIR }}/**/*.log
+
   package:
     name: package (macos)
     runs-on: macos-13
@@ -186,14 +194,6 @@ jobs:
           asset_path: ${{ env.ARTIFACT_PATHNAME }}
           asset_name: ${{ env.ARTIFACT_NAME }}
           overwrite: true
-
-      - name: 📑 Upload logs
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: logs-${{ matrix.triplet }}
-          path: |
-            ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 
       - name: 📮 Upload debug symbols
         # if: release or labeled PR
