@@ -40,7 +40,8 @@ export CI_REPO_SLUG=${CI_REPO_SLUG:=${GITHUB_REPOSITORY}}
 export CI_UPLOAD_ARTIFACT_ID=${CI_UPLOAD_ARTIFACT_ID:=${TMP_CI_UPLOAD_ARTIFACT_ID}}
 export CI_RUN_NUMBER=${GITHUB_RUN_NUMBER}
 
-if [[ "${CI_TAG}" ]]; then
+#if [[ "${CI_TAG}" ]]; then
+if true; then
 	export IOS_CODE_SIGN_IDENTITY="Apple Distribution"
 	export IOS_APP_IDENTIFIER="ch.opengis.qfield"
 	export IOS_PROVISIONING_PROFILE_SPECIFIER="match AppStore ch.opengis.qfield"
