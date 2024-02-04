@@ -12,7 +12,7 @@
     <key>stripSwiftSymbols</key>
     <true/>
     <key>teamID</key>
-    <string>@QT_IOS_TEAM_ID@</string>
+    <string>@CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM@</string>
     @QT_IOS_UPLOAD_SYMBOL_KEY@
     @QT_IOS_ENABLE_BITCODE_KEY@
 </dict>
