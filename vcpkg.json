@@ -2,11 +2,17 @@
   "name": "qfield",
   "version-string": "dev",
   "port-version": 1,
-  "homepage": "https://github.com/opengisch/qfield",
   "description": "A simplified and touch optimized frontend for QGIS.",
+  "homepage": "https://github.com/opengisch/qfield",
   "dependencies": [
+    "catch2",
     {
       "name": "gdal",
+      "default-features": false
+    },
+    "nu-book-zxing-cpp",
+    {
+      "name": "qca-qt6",
       "default-features": false
     },
     "qgis-qt6",
@@ -15,30 +21,29 @@
       "default-features": false
     },
     {
-      "name": "qtsensors",
-      "features": [
-        "qml"
-      ]
-    },
-    "qtimageformats",
-    "qtwebview",
-    "qtconnectivity",
-    "qtdeclarative",
-    "qtlocation",
-    {
       "name": "qtcharts",
       "features": [
         "qml"
       ]
     },
+    "qtconnectivity",
+    "qtdeclarative",
+    "qtimageformats",
+    "qtlocation",
     {
       "name": "qtmultimedia",
       "features": [
-        "qml",
         {
           "name": "ffmpeg",
           "platform": "linux | android"
-        }
+        },
+        "qml"
+      ]
+    },
+    {
+      "name": "qtsensors",
+      "features": [
+        "qml"
       ]
     },
     {
@@ -46,24 +51,19 @@
       "platform": "!ios"
     },
     {
-      "name": "qca-qt6",
+      "name": "qttools",
+      "host": true,
       "default-features": false
     },
-    "nu-book-zxing-cpp",
-    {
-      "name": "sentry-native",
-      "platform": "!android & !ios & !osx"
-    },
-    "spix-qt6",
-    "catch2",
+    "qtwebview",
     {
       "name": "sentry-cocoa",
       "platform": "ios | osx"
     },
     {
-      "name": "qttools",
-      "default-features": false,
-      "host": true
-    }
+      "name": "sentry-native",
+      "platform": "!android & !ios & !osx"
+    },
+    "spix-qt6"
   ]
 }
