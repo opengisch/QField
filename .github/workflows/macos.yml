@@ -26,8 +26,6 @@ jobs:
     steps:
       - name: 🐣 Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: 🌾 Prepare variables
         id: vars
@@ -158,25 +156,51 @@ jobs:
     needs: build
 
     steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v4
+
       - name: 📦 Donwload package
         uses: actions/download-artifact@v4
 
+      - name: 🔨 Prepare build env
+        run: |
+          brew install create-dmg
+
+      - name: ⛓️ Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
+
+      - name: 💎 Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      - name: 🔏 Setup code signing
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: |
+          # todo: type:developer_id
+          bundle exec fastlane ios setup_signing type:development app_identifier:ch.opengis.qfield #  --verbose
+
       - name: 🪐 Create universal package
         run: |
-          ls
-          ls *
-          cp QField-dev-x64-osx-qt6.dmg QField-universal.dmg
-          hdiutil attach QField-dev-x64-osx-qt6.dmg
-          hdiutil attach QField-dev-arm64-osx-qt6.dmg
-          hdiutil attach QField-universal.dmg
-          echo "hdiutil info"
-          hdiutil info
-          echo "diskutil list"
-          diskutil list
-          echo "ls /Volumes/QField-dev-x64-osx-qt6"
-          ls /Volumes/QField-dev-x64-osx-qt6
-          lipo -create -output /Volumes/QField-universal/qfield.app/Contents/MacOS/qfield /Volumes/QField-dev-x64-osx-qt6/qfield.app/Contents/MacOS/qfield /Volumes/QField-dev-arm64-osx-qt6/qfield.app/Contents/MacOS/qfield
-          hdiutil detach
+          mv QField-dev-arm64-osx-qt6/QField-Installer.dmg qfield-arm64.dmg
+          mv QField-dev-x64-osx-qt6/QField-Installer.dmg qfield-x64.dmg
+
+          hdiutil attach qfield-x64.dmg
+          hdiutil attach qfield-arm64.dmg
+
+          mkdir qfield-universal
+          cp -r /Volumes/QField-dev-x64-osx-qt6/qfield.app qfield-universal
+
+          lipo -create -output qfield-universal/qfield.app/Contents/MacOS/qfield /Volumes/qfield-arm64/qfield.app/Contents/MacOS/qfield /Volumes/qfield-x64/qfield.app/Contents/MacOS/qfield
+
+          create-dmg --volname "QField" --hide-extension qfield.app --volicon "/Volumes/qfield-arm64/qfield.app/Contents/Resources/qfield_logo.icns" --background "/Volumes/qfield-arm64/.background/installer_background.png" --window-pos 200 120 --window-size 512 320 --icon-size 100 --icon "qfield.app" 130 160 --app-drop-link 400 155 --codesign "Apple Development" qfield-universal.dmg qfield-universal/qfield.app
+
+          hdiutil detach /dev/disk2s1
+          hdiutil detach /dev/disk3s1
 
           #      - name: 🚀 Notarize
           #        #        if: ${{ env.CI_TAG }}
