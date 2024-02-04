@@ -176,36 +176,8 @@ if(TRUE) # Should possibly have a "static only" check
         ${QT_PKG}::MacExtras
       )
     endif()
-    find_path(LIBTASN1_INCLUDE_DIR
-        NAMES libtasn1.h
-        PATHS
-        ${LIB_DIR}/include
-        "$ENV{LIB_DIR}/include"
-        $ENV{INCLUDE}
-        /usr/local/include
-        /usr/include
-    )
-
-    find_library(LIBTASN1_LIBRARY
-        NAMES tasn1
-        PATHS
-        ${LIB_DIR}
-        $ENV{LIB_DIR}/lib
-        "$ENV{LIB_DIR}"
-        $ENV{LIB}
-        /usr/local/lib
-        /usr/lib
-    )
-
-    include(FindPackageHandleStandardArgs)
-    find_package_handle_standard_args(
-      Libtasn1
-      REQUIRED_VARS LIBTASN1_INCLUDE_DIR LIBTASN1_LIBRARY
-      FOUND_VAR LIBTASN1_FOUND
-    )
-    target_link_libraries(QGIS::Core INTERFACE
-      ${LIBTASN1_LIBRARY}
-    )
+    pkg_check_modules(libtasn1 REQUIRED IMPORTED_TARGET libtasn1)
+    target_link_libraries(QGIS::Core INTERFACE PkgConfig::libtasn1)
 
     # QtKeychain
     target_link_libraries(QGIS::Core INTERFACE "-framework Foundation" "-framework Security")
