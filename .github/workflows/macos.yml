@@ -132,7 +132,7 @@ jobs:
       - name: 📦 Upload package
         uses: actions/upload-artifact@v4
         with:
-          name: "QField-dev-${{ matrix.triplet }}-experimental-qt6"
+          name: "QField-dev-${{ matrix.triplet }}-qt6"
           path: ${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg
 
       - name: 📊 Upload test report
@@ -142,14 +142,38 @@ jobs:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
-      - name: 🚀 Notarize
-        #        if: ${{ env.CI_TAG }}
-        env:
-          issuer_id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
-          api_key_id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
-          api_private_key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+  package:
+    name: package (macos)
+    runs-on: macos-13
+
+    steps:
+      - name: 📦 Donwload package
+        uses: actions/download-artifact@v4
+
+      - name: 🪐 Create universal package
         run: |
-          bundle exec fastlane mac notarize_app package:${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg bundle_id:ch.opengis.qfield
+          ls
+          cp QField-dev-x64-osx-qt6.dmg QField-universal.dmg
+          hdiutil attach QField-dev-x64-osx-qt6.dmg
+          hdiutil attach QField-dev-arm64-osx-qt6.dmg
+          hdiutil attach QField-universal.dmg
+          echo "hdiutil info"
+          hdiutil info
+          echo "diskutil list"
+          diskutil list
+          echo "ls /Volumes/QField-dev-x64-osx-qt6"
+          ls /Volumes/QField-dev-x64-osx-qt6
+          lipo -create -output /Volumes/QField-universal/qfield.app/Contents/MacOS/qfield /Volumes/QField-dev-x64-osx-qt6/qfield.app/Contents/MacOS/qfield /Volumes/QField-dev-arm64-osx-qt6/qfield.app/Contents/MacOS/qfield
+          hdiutil detach
+
+          #      - name: 🚀 Notarize
+          #        #        if: ${{ env.CI_TAG }}
+          #        env:
+          #          issuer_id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+          #          api_key_id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
+          #          api_private_key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+          #        run: |
+          #          bundle exec fastlane mac notarize_app package:${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg bundle_id:ch.opengis.qfield
 
       - name: 🚀 Upload release asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
@@ -176,3 +200,6 @@ jobs:
           SENTRY_PROJECT_SLUG: qfield
         run: |
           bundle exec fastlane run sentry_upload_dif path:${{ env.CMAKE_BUILD_DIR }}
+
+      - uses: m-kuhn/action-tmate@patch-1
+        if: always()
