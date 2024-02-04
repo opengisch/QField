@@ -62,6 +62,12 @@ platform :ios do
       force_for_new_devices: true,
       readonly: false
     )
+    sync_code_signing(
+      type: "developer_id",
+      app_identifier: ['ch.opengis.qfield'],
+      force_for_new_devices: true,
+      readonly: false
+    )
   end
 end
 
