@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-12
+          - os: macos-13
             triplet: x64-osx
           - os: macos-14
             triplet: arm64-osx
