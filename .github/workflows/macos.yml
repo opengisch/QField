@@ -55,7 +55,7 @@ jobs:
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
-          bundle exec fastlane ios setup_signing type:development app_identifier:ch.opengis.qfield #  --verbose
+          bundle exec fastlane ios setup_signing type:developer_id app_identifier:ch.opengis.qfield #  --verbose
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
@@ -102,9 +102,9 @@ jobs:
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
-                -D MACOS_CODE_SIGN_IDENTITY="Apple Development" \
+                -D MACOS_CODE_SIGN_IDENTITY="Developer ID Application" \
                 -D CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM="${{ secrets.IOS_TEAM_ID }}" \
-                -D CMAKE_XCODE_ATTRIBUTE__CODE_SIGN_IDENTITY="${{ env.IOS_CODE_SIGN_IDENTITY }}" \
+                -D CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY="Developer ID Application" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D WITH_CCACHE=ON
 
