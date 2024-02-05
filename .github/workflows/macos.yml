@@ -226,9 +226,6 @@ jobs:
             echo "Retry ..."
           done
 
-          hdiutil detach /dev/disk2s1
-          hdiutil detach /dev/disk3s1
-
           #      - name: 🚀 Notarize
           #        #        if: ${{ env.CI_TAG }}
           #        env:
