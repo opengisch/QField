@@ -104,6 +104,7 @@ jobs:
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D MACOS_CODE_SIGN_IDENTITY="Apple Development" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
+                -D CMAKE_OSX_DEPLOYMENT_TARGET=10.15 \
                 -D WITH_CCACHE=ON
 
       - name: 🌋 Build
