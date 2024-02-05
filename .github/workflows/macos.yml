@@ -206,7 +206,10 @@ jobs:
 
           lipo -create -output qfield-universal/qfield.app/Contents/MacOS/qfield /Volumes/QField\ Installer/qfield.app/Contents/MacOS/qfield /Volumes/QField\ Installer\ 1/qfield.app/Contents/MacOS/qfield
 
-          while ! create-dmg \
+          n=0
+          until [ "$n" -ge 10 ]
+          do
+            create-dmg \
               --volname "QField" \
               --hide-extension qfield.app \
               --volicon "/Volumes/QField Installer/qfield.app/Contents/Resources/qfield_logo.icns" \
@@ -218,30 +221,9 @@ jobs:
               --app-drop-link 400 155 \
               --codesign "Apple Development" \
               qfield-universal.dmg \
-              qfield-universal/qfield.app || (( count++ >= 10 ));
-          do
-              sleep 1
-              echo "Retry ..."
-          done
-
-          echo "!Failed 10 attempts retrying with sudo"
-
-          while ! sudo create-dmg \
-              --volname "QField" \
-              --hide-extension qfield.app \
-              --volicon "/Volumes/QField Installer/qfield.app/Contents/Resources/qfield_logo.icns" \
-              --background "/Volumes/QField Installer/.background/installer_background.png" \
-              --window-pos 200 120 \
-              --window-size 512 320 \
-              --icon-size 100 \
-              --icon "qfield.app" 130 160 \
-              --app-drop-link 400 155 \
-              --codesign "Apple Development" \
-              qfield-universal.dmg \
-              qfield-universal/qfield.app || (( count++ >= 10 ));
-          do
-              sleep 1
-              echo "Retry"
+              qfield-universal/qfield.app && break
+            sleep 1
+            echo "Retry ..."
           done
 
           hdiutil detach /dev/disk2s1
