@@ -333,7 +333,7 @@ Popup {
         Text {
           id: lockText
 
-          property var padlockIcon: Theme.getThemeIcon('ic_lock_black_24dp')
+          property var padlockIcon: Theme.getThemeVectorIcon('ic_lock_black_24dp')
           property var padlockSize: fontMetrics.height - 5
 
           property bool isReadOnly: index !== undefined && layerTree.data(index, FlatLayerTreeModel.ReadOnly)
