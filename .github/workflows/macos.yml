@@ -17,8 +17,10 @@ jobs:
         include:
           - os: macos-12
             triplet: x64-osx
+            deployment-target: "10.15"
           - os: macos-14
             triplet: arm64-osx
+            deployment-target: "11.0"
     name: build (macos)
     runs-on: ${{ matrix.os }}
 
@@ -73,7 +75,7 @@ jobs:
           xcode-version: latest-stable
 
       - name: 🍮 ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: hendrikmuhs/ccache-action@v1.2.11
         with:
           key: ccache-${{ matrix.triplet }}-qt6
           max-size: 200M
@@ -104,7 +106,7 @@ jobs:
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D MACOS_CODE_SIGN_IDENTITY="Apple Development" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
-                -D CMAKE_OSX_DEPLOYMENT_TARGET=10.15 \
+                -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ matrix.deployment-target }} \
                 -D WITH_CCACHE=ON
 
       - name: 🌋 Build
