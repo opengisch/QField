@@ -12,8 +12,17 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        include:
+          - os: macos-12
+            triplet: x64-osx
+            deployment-target: "10.15"
+          - os: macos-14
+            triplet: arm64-osx
+            deployment-target: "11.0"
     name: build (macos)
-    runs-on: macos-12
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: 🐣 Checkout
@@ -55,9 +64,10 @@ jobs:
 
       - name: 🔨 Prepare build env
         run: |
-          brew install automake bison flex gnu-sed create-dmg autoconf-archive nasm
+          brew install automake bison flex gnu-sed create-dmg autoconf-archive nasm libtool
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
+          echo $(brew --prefix libtool)/bin >> $GITHUB_PATH
 
       - name: 🍭 Setup XCode
         uses: maxim-lobanov/setup-xcode@v1.6.0
@@ -65,9 +75,9 @@ jobs:
           xcode-version: latest-stable
 
       - name: 🍮 ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: hendrikmuhs/ccache-action@v1.2.11
         with:
-          key: ccache-macos-qt6
+          key: ccache-${{ matrix.triplet }}-qt6
           max-size: 200M
 
       - name: 🐍 Setup Python
@@ -96,6 +106,7 @@ jobs:
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D MACOS_CODE_SIGN_IDENTITY="Apple Development" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
+                -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ matrix.deployment-target }} \
                 -D WITH_CCACHE=ON
 
       - name: 🌋 Build
@@ -106,8 +117,8 @@ jobs:
 
       - name: 🧫 Test
         env:
-          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-osx/share/proj
-          QFIELD_SYSTEM_SHARED_DATA_PATH: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-osx/share
+          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share/proj
+          QFIELD_SYSTEM_SHARED_DATA_PATH: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
@@ -117,19 +128,19 @@ jobs:
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-macos.dmg" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.triplet }}.dmg" >> $GITHUB_ENV
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v4
         with:
-          name: "QField-dev-x64-osx-experimental-qt6"
+          name: "QField-dev-${{ matrix.triplet }}-experimental-qt6"
           path: ${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg
 
       - name: 📊 Upload test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: "test-report-x64-osx-${{ env.BUILD_TYPE }}"
+          name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
       - name: 🚀 Upload release asset
@@ -145,7 +156,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: logs-x64-osx
+          name: logs-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 

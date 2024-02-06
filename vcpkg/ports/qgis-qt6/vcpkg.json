@@ -30,7 +30,7 @@
       "poly2tri",
       {
         "name": "libtasn1",
-        "platform": "ios"
+        "platform": "ios | osx"
       },
       {
         "name": "qtbase",
