@@ -934,8 +934,12 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         if ( layer && layer->renderer() )
         {
           bool ok = false;
-          return layer->renderer()->legendKeyToExpression( symbolNode->data( QgsLayerTreeModelLegendNode::RuleKeyRole ).toString(),
-                                                           layer, ok );
+#if _QGIS_VERSION_INT >= 33500
+          const QString ruleKey = symbolNode->data( static_cast<int>( QgsLayerTreeModelLegendNode::CustomRole::RuleKey ) ).toString();
+#else
+          const QString ruleKey = symbolNode->data( QgsLayerTreeModelLegendNode::RuleKeyRole ).toString();
+#endif
+          return layer->renderer()->legendKeyToExpression( ruleKey, layer, ok );
         }
       }
       return QString();
