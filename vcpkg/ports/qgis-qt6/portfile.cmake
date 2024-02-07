@@ -15,9 +15,10 @@ vcpkg_from_github(
         exiv2.patch
         crssync.patch
         bigobj.patch
-        poly2tri.patch
         mesh.patch
         wrongattributeerrormessage.patch
+	poly2tri1.patch
+	poly2tri2.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -26,7 +27,6 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindGEOS.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindEXIV2.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindExpat.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
-file(REMOVE ${SOURCE_PATH}/cmake/FindPoly2Tri.cmake)
 
 vcpkg_find_acquire_program(FLEX)
 vcpkg_find_acquire_program(BISON)
@@ -38,6 +38,7 @@ list(APPEND QGIS_OPTIONS "-DWITH_SPATIALITE:BOOL=ON")
 list(APPEND QGIS_OPTIONS "-DWITH_QSPATIALITE:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_PDAL:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_DRACO:BOOL=ON")
+list(APPEND QGIS_OPTIONS "-DWITH_INTERNAL_POLY2TRI:BOOL=OFF")
 
 list(APPEND QGIS_OPTIONS "-DBISON_EXECUTABLE=${BISON}")
 list(APPEND QGIS_OPTIONS "-DFLEX_EXECUTABLE=${FLEX}")
@@ -157,8 +158,6 @@ if(VCPKG_TARGET_IS_WINDOWS)
         set( SPATIALINDEX_LIB_NAME "spatialindex-32" )
     endif()
     FIND_LIB_OPTIONS(SPATIALINDEX ${SPATIALINDEX_LIB_NAME} ${SPATIALINDEX_LIB_NAME}d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-    list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
-    list(APPEND QGIS_OPTIONS -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
 else() # Build in UNIX
     list(APPEND QGIS_OPTIONS -DGSL_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
     list(APPEND QGIS_OPTIONS -DPROJ_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
@@ -168,21 +167,6 @@ else() # Build in UNIX
     if("server" IN_LIST FEATURES)
         FIND_LIB_OPTIONS(FCGI fcgi fcgi LIBRARY ${VCPKG_TARGET_SHARED_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
-    endif()
-    list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
-    if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a")
-        set(QT_POLY2TRI_DIR_RELEASE "${CURRENT_INSTALLED_DIR}/lib")
-        set(QT_POLY2TRI_DIR_DEBUG "${CURRENT_INSTALLED_DIR}/debug/lib")
-    elseif(EXISTS "${Qt6_DIR}/../../libqt_poly2tri.a")
-        set(QT_POLY2TRI_DIR_RELEASE "${Qt6_DIR}/../..")
-        set(QT_POLY2TRI_DIR_DEBUG "${Qt6_DIR}/../..")
-    else()
-        list(APPEND QGIS_OPTIONS -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
-    endif()
-    if(DEFINED QT_POLY2TRI_DIR_RELEASE)
-        list(APPEND QGIS_OPTIONS -DPoly2Tri_INCLUDE_DIR:PATH=${CMAKE_CURRENT_LIST_DIR}/poly2tri)
-        list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_DEBUG}/debug/lib/libqt_poly2tri_debug.a) # static qt only
-        list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_RELEASE}/lib/libqt_poly2tri.a) # static qt only
     endif()
 endif()
 
