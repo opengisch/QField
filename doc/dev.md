@@ -197,37 +197,53 @@ cmake --build build-x64-ios
 ## iOS application (ARM-64 processors architecture)
 
 ```sh
-# Firstly, some compilation dependencies need to be installed
-brew install cmake flex bison python pkg-config autoconf automake libtool
+# Firstly, some compilation dependencies need to be installed, Homebrew could be used.
 
-# Secondly, Xcode must be installed through the AppStore, then configured
+/bin/bash -c "$( curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh )" # Installing Homebrew
+( echo; echo 'eval "$( /opt/homebrew/bin/brew shellenv )"' ) >> $HOME/.zprofile
+eval "$( /opt/homebrew/bin/brew shellenv )"
+
+brew install cmake flex bison python pkg-config autoconf automake libtool autoconf-archive # Compilation Tools
+
+
+# Secondly, Xcode must be installed through the AppStore, then configured.
+
 xcode-select --install
+xcodebuild -downloadPlatform iOS
 sudo xcode-select --switch /Library/Developer/CommandLineTools
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-QT_ROOT=$HOME/Documents/qt6
+
+# Thirdly, Installing Qt (Can be installed using 'aqtinstall' or the official tools).
+
+QT_VERSION="6.6.1"
+QT_ROOT="$HOME/Documents/qt6"
+
+python3 -m pip install --upgrade pip && python3 -m pip install --upgrade setuptools && pip3 install aqtinstall
+aqt install-qt mac ios ${QT_VERSION} -O ${QT_ROOT} -m qt5compat qtcharts qtpositioning qtconnectivity qtmultimedia qtwebview qtsensors --autodesktop
 
 
-# Install Qt (Could be installed with 'aqtinstall' or with the official tools)
-pip3 install aqtinstall
-aqt install-qt mac ios 6.5.0 -O $QT_ROOT -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors --autodesktop
+# Fourthly, use CMake to configure the sources and set up the environment for the system to find the build tools.
 
-# Setup the environment for the build tools
-export PATH="$(brew --prefix flex)/bin:$(brew --prefix bison)/bin:$PATH"
+export PATH="$( brew --prefix flex )/bin:$PATH" && export PATH="$( brew --prefix bison )/bin:$PATH"
 
-export Qt6_DIR=$QT_ROOT/6.5.0/ios/
-
-# Configure using CMake
+QT_ROOT="${QT_ROOT}/${QT_VERSION}"
+export Qt6_DIR=${QT_ROOT}
+export QT_HOST_PATH=${QT_ROOT}/macos/lib/cmake
+export Qt6HostInfo_DIR=${QT_ROOT}/macos/lib/cmake/Qt6HostInfo
 
 cmake -S . -B build-arm64-ios \
-	-DCMAKE_PREFIX_PATH=$QT_ROOT/6.5.0/ios/lib/cmake/Qt6 \
-	-DCMAKE_FIND_ROOT_PATH=$QT_ROOT/6.5.0/ios/ \
+	-DCMAKE_FIND_ROOT_PATH=${QT_ROOT}/ios \
+	-DCMAKE_PREFIX_PATH=${QT_ROOT}/ios/lib/cmake \
+	-DQT_HOST_PATH_CMAKE_DIR=${QT_ROOT}/macos/lib/cmake \
+	-DQt6HostInfo_DIR=${QT_ROOT}/macos/lib/cmake/Qt6HostInfo \
 	-DVCPKG_TARGET_TRIPLET=arm64-ios \
-	-DWITH_VCPKG=ON \
 	-DVCPKG_BUILD_TYPE=release \
 	-DCMAKE_SYSTEM_NAME=iOS \
 	-DCMAKE_OSX_SYSROOT=iphoneos \
 	-DCMAKE_OSX_ARCHITECTURES=arm64 \
+	-DWITH_VCPKG=ON \
+	-DSYSTEM_QT=ON \
 	-GXcode
 
 # The "build/CMakeFiles/[version]/CMakeSystem.cmake" file may need to be modified.
@@ -235,7 +251,8 @@ cmake -S . -B build-arm64-ios \
 
 # In "Xcode" build settings, it is possible that the additional flag "CoreFoundation" had to be removed manually.
 
-# Then, compile. To install an app on iOS, it must be signed using Xcode tools.
+
+# Finally, compile. To install an app on iOS, it must be signed using Xcode tools.
 cmake --build build-arm64-ios
 ```
 
