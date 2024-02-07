@@ -38,24 +38,44 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case BookmarkModel::BookmarkId:
+#if _QGIS_VERSION_INT >= 33500
+      return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Id ) );
+#else
       return mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleId );
+#endif
 
     case BookmarkModel::BookmarkName:
+#if _QGIS_VERSION_INT >= 33500
+      return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Name ) );
+#else
       return mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleName );
+#endif
 
     case BookmarkModel::BookmarkGroup:
+#if _QGIS_VERSION_INT >= 33500
+      return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) );
+#else
       return mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleGroup );
+#endif
 
     case BookmarkModel::BookmarkPoint:
     {
+#if _QGIS_VERSION_INT >= 33500
+      QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+#else
       QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
+#endif
       QgsGeometry geom( new QgsPoint( rect.center() ) );
       return geom;
     }
 
     case BookmarkModel::BookmarkCrs:
     {
+#if _QGIS_VERSION_INT >= 33500
+      QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+#else
       QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
+#endif
       return rect.crs();
     }
 
@@ -96,7 +116,11 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
   if ( !sourceIndex.isValid() || !mMapSettings )
     return;
 
+#if _QGIS_VERSION_INT >= 33500
+  QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+#else
   QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
+#endif
 
   QgsCoordinateTransform transform( rect.crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
   QgsRectangle transformedRect;
