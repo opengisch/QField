@@ -242,7 +242,7 @@ ListView {
         bgcolor: 'transparent'
         opacity: 0.5
 
-        icon.source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
+        icon.source: Theme.getThemeVectorIcon( 'ic_lock_black_24dp' )
         icon.color: Theme.mainTextColor
 
         onClicked: {

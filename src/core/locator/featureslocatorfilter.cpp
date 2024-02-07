@@ -64,7 +64,11 @@ QStringList FeaturesLocatorFilter::prepare( const QString &string, const QgsLoca
     QgsFeatureRequest req;
     req.setSubsetOfAttributes( expression.referencedAttributeIndexes( layer->fields() ).values() );
     if ( !expression.needsGeometry() )
+#if _QGIS_VERSION_INT >= 33500
+      req.setFlags( Qgis::FeatureRequestFlag::NoGeometry );
+#else
       req.setFlags( QgsFeatureRequest::NoGeometry );
+#endif
     QString enhancedSearch = string;
     enhancedSearch.replace( " ", "%" );
     req.setFilterExpression( QStringLiteral( "%1 ILIKE '%%2%'" )

@@ -86,7 +86,11 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
     req.setSubsetOfAttributes( qgis::setToList( mDispExpression.referencedAttributeIndexes( layer->fields() ) ) );
     if ( !mDispExpression.needsGeometry() )
     {
+#if _QGIS_VERSION_INT >= 33500
+      req.setFlags( Qgis::FeatureRequestFlag::NoGeometry );
+#else
       req.setFlags( QgsFeatureRequest::NoGeometry );
+#endif
     }
     QString enhancedSearch = searchString;
     enhancedSearch.replace( ' ', '%' );
@@ -159,7 +163,11 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
   QgsFeatureRequest req;
   if ( !mDispExpression.needsGeometry() )
   {
+#if _QGIS_VERSION_INT >= 33500
+    req.setFlags( Qgis::FeatureRequestFlag::NoGeometry );
+#else
     req.setFlags( QgsFeatureRequest::NoGeometry );
+#endif
   }
   req.setFilterExpression( expression );
   if ( isRestricting )
