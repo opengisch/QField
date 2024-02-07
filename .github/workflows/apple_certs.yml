@@ -4,6 +4,9 @@ name: 🗝️ Generate certificates and synchronize profiles
 on:
   schedule:
     - cron:  '30 2 * * *'
+  push:
+    branches:
+      - update_fastlane
   workflow_dispatch:
 
 jobs:
@@ -22,6 +25,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
+      - uses: m-kuhn/action-tmate@patch-1
+        env:
+          SSH_PRIV_KEY: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }} 
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+  
       - name: 🔏 Sync certs
         env:
           issuer_id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
