@@ -27,6 +27,16 @@
       "protobuf",
       "proj",
       "geos",
+      {
+        "name": "pdal",
+        "default-features": false,
+        "features": [
+          "draco",
+          "e57",
+          "i3s",
+          "zstd"
+        ]
+      },
       "poly2tri",
       {
         "name": "libtasn1",
@@ -34,31 +44,31 @@
       },
       {
         "name": "qtbase",
-          "features":
-          [
-                "brotli",
-                "concurrent",
-                "default-features",
-                "doubleconversion",
-                "freetype",
-                "gui",
-                "harfbuzz",
-                "jpeg",
-                "network",
-                {
-                    "name":"openssl",
-                    "platform": "!ios"
-                },
-                "pcre2",
-                "png",
-                "sql",
-                "sql-sqlite",
-                "testlib",
-                "thread",
-                "widgets",
-                "zstd"
-          ],
-              "default-features": false
+        "features":
+        [
+          "brotli",
+          "concurrent",
+          "default-features",
+          "doubleconversion",
+          "freetype",
+          "gui",
+          "harfbuzz",
+          "jpeg",
+          "network",
+          {
+            "name":"openssl",
+            "platform": "!ios"
+          },
+          "pcre2",
+          "png",
+          "sql",
+          "sql-sqlite",
+          "testlib",
+          "thread",
+          "widgets",
+          "zstd"
+        ],
+        "default-features": false
       },
       "qtsvg",
       "qtlocation",

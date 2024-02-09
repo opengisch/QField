@@ -18,6 +18,10 @@
       "name": "gdal",
       "default-features": false
     },
+    {
+      "name": "pdal",
+      "default-features": false
+    },
     "nu-book-zxing-cpp",
     {
       "name": "qca-qt6",
