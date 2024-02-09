@@ -17,8 +17,8 @@ Item {
   property bool hasReachedTarget: hasAcceptableAccuracy && navigation.distance - positionSource.positionInformation.hacc - (precision / 10) <= 0
   property bool hasAlarmSnoozed: false
 
-  property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - positionSource.orientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - positionSource.orientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -navigation.verticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
   property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x,
                                           preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
@@ -323,7 +323,7 @@ Item {
     y: positionCenter.y + positionY - width / 2
     width: 28
     height: width
-    rotation: navigation.bearing - positionSource.orientation
+    rotation: navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0)
 
     ShapePath {
       strokeWidth: 1
