@@ -21,6 +21,11 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: 'c-cpp'
+    
       - name: 🌾 Prepare variables
         id: vars
         run: |
@@ -140,3 +145,8 @@ jobs:
           SENTRY_PROJECT_SLUG: qfield
         run: |
           bundle exec fastlane run sentry_upload_dif path:${{ env.CMAKE_BUILD_DIR }}
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:c-cpp"
