@@ -3,6 +3,8 @@
 [![Sponsor](https://img.shields.io/static/v1?label=Support&message=%E2%9D%A4)](https://github.com/sponsors/opengisch)
 [![Contribute](https://img.shields.io/static/v1?label=Contribute&message=💪)](#contribute)
 [![Release](https://img.shields.io/github/release/opengisch/QField.svg?label=Release)](https://github.com/opengisch/QField/releases)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/8392/badge)](https://www.bestpractices.dev/projects/8392)
+
 
 # QField for QGIS
 
