@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: 
+        language:
 #          - 'c-cpp' # Tested as part of the linux builds
           - 'python'
           - 'ruby'
