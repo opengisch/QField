@@ -7,13 +7,16 @@ Popup {
   id: toast
 
   property string type: 'info'
+  property int edgeSpacing: 52
 
+  x: edgeSpacing
   y: parent.height - 112
   z: 10001
 
-  width: parent.width
-  height: 40
+  width: mainWindow.width - edgeSpacing * 2
+  height: toastMessage.contentHeight + 20
   margins: 0
+  padding: 0
   closePolicy: Popup.NoAutoClose
 
   opacity: 0
@@ -29,7 +32,7 @@ Popup {
     id: toastContent
     z: 1
     width: toastRow.width + 20
-    height: toastMessage.height + 10
+    height: toastMessage.contentHeight + 10
     anchors.centerIn: parent
 
     color: "#66212121"
@@ -55,8 +58,8 @@ Popup {
 
         property int absoluteWidth: toastFontMetrics.boundingRect(text).width + 10
 
-        width: 40 + absoluteWidth + (toastIndicator.visible ? toastIndicator.width + 10 : 0) + (toastAction.visible ? toastAction.width + 10 : 0) > mainWindow.width
-               ? mainWindow.width - (toastIndicator.visible ? toastIndicator.width + 10 : 0) - (toastAction.visible ? toastAction.width + 10 : 0) - 40
+        width: 40 + absoluteWidth + (toastIndicator.visible ? toastIndicator.width + 10 : 0) + (toastAction.visible ? toastAction.width + 10 : 0) > toast.width
+               ? toast.width - (toastIndicator.visible ? toastIndicator.width + 10 : 0) - (toastAction.visible ? toastAction.width + 10 : 0) - 40
                : absoluteWidth
         wrapMode: Text.Wrap
         topPadding: 3
@@ -89,6 +92,14 @@ Popup {
     }
   }
 
+  MouseArea {
+    anchors.fill: parent
+    onPressed:  {
+      toast.close()
+      toast.opacity = 0
+    }
+  }
+
   FontMetrics {
     id: toastFontMetrics
     font: toastMessage.font
@@ -106,14 +117,6 @@ Popup {
     if ( opacity == 0 ) {
       toastContent.visible = false
       toast.close()
-    }
-  }
-
-  MouseArea {
-    anchors.fill: parent
-    onClicked: {
-      toast.close()
-      toast.opacity = 0
     }
   }
 
