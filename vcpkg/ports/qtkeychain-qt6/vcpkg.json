@@ -7,7 +7,7 @@
   "dependencies": [
     {
       "name": "libsecret",
-      "platform": "!(windows | uwp | osx)"
+      "platform": "!(windows | uwp | osx | android | ios)"
     },
     {
       "name": "qttools",
