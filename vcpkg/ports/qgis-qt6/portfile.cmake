@@ -8,9 +8,9 @@ vcpkg_from_github(
     SHA512   ${QGIS_SHA512}
     HEAD_REF master
     PATCHES
+	56284.patch
         # Make qgis support python's debug library
         qgspython.patch
-        keychain.patch
         libxml2.patch
         exiv2.patch
         crssync.patch
@@ -21,7 +21,6 @@ vcpkg_from_github(
 	poly2tri2.patch
 )
 
-file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindGEOS.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindEXIV2.cmake)

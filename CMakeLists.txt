@@ -148,7 +148,6 @@ find_package(PROJ REQUIRED)
 find_package(GDAL REQUIRED)
 find_package(Qca REQUIRED)
 find_package(LibZip REQUIRED)
-find_package(QtKeychain REQUIRED)
 
 if(ANDROID)
   # Qt by default assumes that cmake files live in `lib/cmake`. Point to `share` instead.

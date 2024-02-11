@@ -3,8 +3,8 @@ message(WARNING "qtkeychain is a third-party extension to Qt and is not affiliat
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO frankosterfeld/qtkeychain
-    REF 8bbaa6d8302cf0747d9786ace4dd13c7fb746502
-    SHA512 fdb9f36a37440bbfded98bc8dc67acb7ab9c856e38af1796ea173330f83cecff1c0feab4e30bf3b173279a3f030bf492e824ff99f453009b07b79bef8e93a0b0
+    REF "${VERSION}"
+    SHA512 bf84b19090e667a2946297e63d9813574193d80e4eecbde2fdfca317a66da3f029b3abef326f4ffb32de032a48004f9cf1bc818468af612723d762652dc25eb6
     HEAD_REF master
 )
 
@@ -17,10 +17,13 @@ if(VCPKG_CROSSCOMPILING)
    endif()
 endif()
 
-# Opportunity to build without dependency on qt5-tools/qt5-declarative
-set(BUILD_TRANSLATIONS OFF)
-if("translations" IN_LIST FEATURES)
-    set(BUILD_TRANSLATIONS ON)
+list(APPEND QTKEYCHAIN_OPTIONS -DBUILD_TEST_APPLICATION:BOOL=OFF)
+
+# FIXME: Why does build translations fail on arm64-windows?
+if (VCPKG_TARGET_IS_WINDOWS AND VCPKG_TARGET_ARCHITECTURE STREQUAL arm64)
+     list(APPEND QTKEYCHAIN_OPTIONS -DBUILD_TRANSLATIONS:BOOL=OFF)
+else()
+     list(APPEND QTKEYCHAIN_OPTIONS -DBUILD_TRANSLATIONS:BOOL=ON)
 endif()
 
 vcpkg_cmake_configure(
@@ -28,9 +31,7 @@ vcpkg_cmake_configure(
     SOURCE_PATH ${SOURCE_PATH}
     OPTIONS
         -DBUILD_WITH_QT6=ON
-        -DBUILD_TEST_APPLICATION=OFF
-        -DBUILD_TRANSLATIONS=${BUILD_TRANSLATIONS}
-        ${QTKEYCHAIN_OPTIONS}
+         ${QTKEYCHAIN_OPTIONS}
 )
 vcpkg_cmake_install()
 

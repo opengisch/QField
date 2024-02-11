@@ -340,7 +340,6 @@ target_link_libraries(
          GDAL::GDAL
          SQLite::SQLite3
          Qca::qca
-         QtKeychain::QtKeychain
          libzip::zip)
 
 if(WITH_BLUETOOTH)
