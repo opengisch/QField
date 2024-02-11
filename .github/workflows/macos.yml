@@ -9,13 +9,16 @@ on:
   release:
     types: ['published']
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     strategy:
       matrix:
         include:
-          - os: macos-12
+          - os: macos-13
             triplet: x64-osx
             deployment-target: "10.15"
           - os: macos-14
