@@ -20,8 +20,12 @@
     },
     "nu-book-zxing-cpp",
     {
-      "name": "qca-qt6",
-      "default-features": false
+      "name": "qca",
+      "default-features": false,
+      "features":
+      [
+          "ossl"
+      ]
     },
     "qgis-qt6",
     {

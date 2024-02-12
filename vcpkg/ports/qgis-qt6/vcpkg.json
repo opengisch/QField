@@ -67,9 +67,12 @@
         "host": true
       },
       {
-        "name": "qca-qt6",
+        "name": "qca",
         "default-features": false,
-        "features": []
+        "features":
+        [
+            "ossl"
+        ]
       },
       "qtkeychain-qt6"
     ],

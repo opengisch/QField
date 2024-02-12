@@ -8,7 +8,7 @@ set(STATIC_PORTS
     harfbuzz
     libb2
     freeglut
-    qca-qt6 # OSSL plugin not discovered unless static
+    qca # OSSL plugin not discovered unless static
     qgis-qt6
     ffmpeg
 )
