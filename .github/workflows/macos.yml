@@ -45,7 +45,7 @@ jobs:
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
 
       - name: ⛓️ Setup SSH
-        uses: webfactory/ssh-agent@v0.8.0
+        uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
