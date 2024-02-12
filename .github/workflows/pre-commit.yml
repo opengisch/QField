@@ -57,7 +57,7 @@ jobs:
               shellcheck
 
       - name: Run pre-commit hooks
-        uses: pre-commit/action@v3.0.0
+        uses: pre-commit/action@v3.0.1
 
       - name: Comment
         uses: thollander/actions-comment-pull-request@main
