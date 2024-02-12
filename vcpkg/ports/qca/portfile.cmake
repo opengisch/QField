@@ -55,6 +55,9 @@ endif()
 if ("gnupg" IN_LIST FEATURES)
     list(APPEND PLUGINS gnupg)
 endif()
+if ("ossl" IN_LIST FEATURES)
+    list(APPEND PLUGINS ossl)
+endif()
 
 # Configure and build
 vcpkg_cmake_configure(
