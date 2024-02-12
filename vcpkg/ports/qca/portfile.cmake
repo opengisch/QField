@@ -35,6 +35,7 @@ endif()
 # So we do it here:
 message(STATUS "Importing certstore")
 file(REMOVE "${SOURCE_PATH}/certs/rootcerts.pem")
+
 # Using file(DOWNLOAD) to use https
 file(DOWNLOAD https://raw.githubusercontent.com/mozilla/gecko-dev/master/security/nss/lib/ckfw/builtins/certdata.txt
     "${CURRENT_BUILDTREES_DIR}/cert/certdata.txt"
