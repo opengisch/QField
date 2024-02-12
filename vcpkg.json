@@ -20,7 +20,7 @@
     },
     "nu-book-zxing-cpp",
     {
-      "name": "qca-qt6",
+      "name": "qca",
       "default-features": false
     },
     "qgis-qt6",
