@@ -1,10 +1,15 @@
 {
-    "name": "qgis-qt6",
+    "name": "qgis",
     "version-string": "current",
     "homepage": "https://qgis.org",
     "description": "QGIS is a free, open source, cross platform (lin/win/mac) geographical information system (GIS)",
     "dependencies": [
       "expat",
+      {
+        "name": "qgis",
+	"host": true,
+	"default-features": false
+      },
       "draco",
       "libxml2",
       "libzip",

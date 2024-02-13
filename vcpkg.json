@@ -27,7 +27,17 @@
           "ossl"
       ]
     },
-    "qgis-qt6",
+    {
+      "name": "qca",
+      "default-features": false,
+      "host": true
+    },
+    "qgis",
+    {
+      "name": "qgis",
+      "default-features": false,
+      "host": true
+    },
     {
       "name": "qtbase",
       "default-features": false
