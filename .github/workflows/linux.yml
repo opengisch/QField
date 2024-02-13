@@ -21,11 +21,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: 'c-cpp'
-
       - name: 🌾 Prepare variables
         id: vars
         run: |
@@ -87,6 +82,11 @@ jobs:
           name: build-logs-x64-linux
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/**/*.log
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: 'c-cpp'
 
       - name: 🌋 Build
         run: |
