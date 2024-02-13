@@ -2384,7 +2384,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, hai datos actualizados dispoñibles na nube</translation>
     </message>
 </context>
 <context>
@@ -4213,11 +4213,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Ángulo relativo</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Fotografar cada %1º</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
