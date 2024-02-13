@@ -16,7 +16,7 @@ index f7f32a998f..6338b1e539 100644
  add_subdirectory(providers)
  
 -add_subdirectory(crssync)
-+if (NOT FORCE_STATIC_LIBS)
++if ("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
 +  add_subdirectory(crssync)
 +endif()
  
