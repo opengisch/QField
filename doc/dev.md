@@ -193,7 +193,8 @@ cmake -S . -B build-x64-ios \
   -DWITH_VCPKG=ON \
   -DCMAKE_SYSTEM_NAME=iOS \
   -DCMAKE_OSX_SYSROOT=iphonesimulator \
-  -DCMAKE_SYSTEM_PROCESSOR=x86_64
+  -DCMAKE_SYSTEM_PROCESSOR=x86_64 \
+  -DWITH_SERIALPORT=OFF
 
 # Build
 cmake --build build-x64-ios
