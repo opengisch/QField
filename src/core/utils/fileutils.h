@@ -61,7 +61,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      * @param hashAlgorithm hash algorithm (md5, sha1, sha256 etc)
      * @return QByteArray checksum
      */
-    Q_INVOKABLE static QByteArray fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm = QCryptographicHash::Sha256 );
+    Q_INVOKABLE static QByteArray fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm );
 
   private:
     static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
