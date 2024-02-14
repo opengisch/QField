@@ -977,7 +977,10 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     return;
   }
 
-  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/packages/%1/latest/?skip_metadata=1" ).arg( projectId ) );
+  QVariantMap params;
+  params.insert( "skip_metadata", "1" );
+
+  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/packages/%1/latest/" ).arg( projectId ), params );
 
   emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole << StatusRole );
 
