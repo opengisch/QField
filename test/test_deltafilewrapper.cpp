@@ -156,7 +156,7 @@ TEST_CASE( "DeltaFileWrapper" )
   REQUIRE( attachmentFile.flush() );
 
   QString attachmentFileName = attachmentFile.fileName();
-  QString attachmentFileChecksum = FileUtils::fileChecksum( attachmentFileName ).toHex();
+  QString attachmentFileChecksumSha256 = FileUtils::fileChecksum( attachmentFileName, QCryptographicHash::Sha256 ).toHex();
 
   std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=int:integer&field=dbl:double&field=str:string&field=attachment:string" ), QStringLiteral( "layer_name" ), QStringLiteral( "memory" ) );
   layer->setEditorWidgetSetup( layer->fields().indexFromName( QStringLiteral( "attachment" ) ), QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), QVariantMap() ) );
@@ -835,7 +835,7 @@ TEST_CASE( "DeltaFileWrapper" )
           }
         ]
       )"""" )
-                                                           .arg( attachmentFileName, attachmentFileChecksum )
+                                                           .arg( attachmentFileName, attachmentFileChecksumSha256 )
                                                            .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
@@ -981,7 +981,7 @@ TEST_CASE( "DeltaFileWrapper" )
           }
         ]
       )"""" )
-                                                           .arg( attachmentFileName, attachmentFileChecksum )
+                                                           .arg( attachmentFileName, attachmentFileChecksumSha256 )
                                                            .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
@@ -1384,7 +1384,7 @@ TEST_CASE( "DeltaFileWrapper" )
           }
         ]
       )"""" )
-                                                           .arg( attachmentFileName, attachmentFileChecksum )
+                                                           .arg( attachmentFileName, attachmentFileChecksumSha256 )
                                                            .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
@@ -1826,7 +1826,7 @@ TEST_CASE( "DeltaFileWrapper" )
           "version": "1.0"
         }
       )"""" )
-                                .arg( layer->id(), attachmentFileName, attachmentFileChecksum )
+                                .arg( layer->id(), attachmentFileName, attachmentFileChecksumSha256 )
                                 .toUtf8() ) );
     REQUIRE( deltaFile.flush() );
 
@@ -1943,7 +1943,7 @@ TEST_CASE( "DeltaFileWrapper" )
           }
         ]
       )"""" )
-                                                                                             .arg( attachmentFileName, attachmentFileChecksum )
+                                                                                             .arg( attachmentFileName, attachmentFileChecksumSha256 )
                                                                                              .toUtf8() ) );
   }
 
@@ -2000,7 +2000,7 @@ TEST_CASE( "DeltaFileWrapper" )
           }
         ]
       )"""" )
-                                                                                             .arg( attachmentFileName, attachmentFileChecksum )
+                                                                                             .arg( attachmentFileName, attachmentFileChecksumSha256 )
                                                                                              .toUtf8() ) );
   }
 
