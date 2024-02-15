@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Vous devez consulter la page de documentation %1Portable Project%2 pour plus d&apos;aide.</translation>
     </message>
 </context>
 <context>
@@ -233,7 +233,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur d&apos;analyse : %1</translation>
     </message>
 </context>
 <context>
@@ -244,7 +244,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Autorisation Bluetooth refusée</translation>
     </message>
 </context>
 <context>
@@ -295,7 +295,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Autorisation Bluetooth refusée</translation>
     </message>
 </context>
 <context>
@@ -445,7 +445,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Balise de texte NFC détectée</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -581,7 +581,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>La géométrie ne peut pas être modifiée en multi-parties</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
@@ -672,23 +672,23 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;annuler la création des entités de la couche &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;annuler la suppression des entités de la couche &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;annuler la mise à jour des entités de la couche &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Échec de l&apos;annulation de la modification de l&apos;entité dans la couche &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Échec de restauration de l&apos;annulation de la modification de l&apos;entité dans la couche &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -937,7 +937,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Outil de suppression</translation>
     </message>
 </context>
 <context>
@@ -971,7 +971,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permission de localisation refusée</translation>
     </message>
 </context>
 <context>
@@ -1214,7 +1214,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Renvoie une liste d&apos;entités dans toutes les couches interrogeables qui correspondent aux attributs</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
@@ -1222,7 +1222,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Renvoie une liste d&apos;utilisateurs avec pour chacun les signets des projets actuellement ouverts.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
@@ -1241,11 +1241,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>sélectionner une couche vecteur dans la légende pour rechercher des entités de cette couche active</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Activer une couche vecteur dans la légende avant d&apos;utiliser cette fonctionnalité</translation>
     </message>
 </context>
 <context>
@@ -1311,11 +1311,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Cela enverra le log de votre session actuelle à l&apos;équipe de développement. Vous ne devez l&apos;envoyer uniquement si cela vous a été demandé.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Le log de votre application est en cours d&apos;envoi ...</translation>
     </message>
 </context>
 <context>
@@ -1800,19 +1800,19 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Géolocalisation activée</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Géolocalisation désactivée</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Grille activée</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Grille désactivée</translation>
     </message>
 </context>
 <context>
@@ -2138,11 +2138,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Ce projet dispose d&apos;une mise à jour sur le cloud, il est conseillé de le synchroniser.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Ce projet a mis à jour les données sur le cloud, vous devez les synchroniser.</translation>
     </message>
 </context>
 <context>
@@ -2382,7 +2382,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, mise à jour des données disponible sur le cloud</translation>
     </message>
 </context>
 <context>
@@ -2481,7 +2481,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Mettre à jour le projet à partir du ZIP</translation>
     </message>
 </context>
 <context>
@@ -2845,7 +2845,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortho-métrique de l&apos;appareil</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
@@ -3272,19 +3272,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Suivi: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Suivi</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres du suivi</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Critère de temps</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3292,11 +3292,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quand activé, l&apos;ajout de nouveau sommet sera possible si le délai avec le sommet précédent respecte la valeur minimum définie.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Critère de distance</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3304,23 +3304,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quand activé, l&apos;ajout de nouveau sommet sera possible si la distance avec le sommet précédent respecte la valeur minimum définie.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Paramétrage du capteur</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsqu&apos;il est activé, les ajouts de sommets se produiront lorsque les capteurs auront capturé de nouvelles données.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>En attente que toutes les conditions activées soient respectées</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, les sommets ne seront enregistrés que si toutes les exigences requises sont remplies. Si désactivée, les exigences individuelles requise déclencheront des ajouts de sommets.</translation>
     </message>
     <message>
         <source>General Settings</source>
@@ -3332,11 +3332,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Distance maximum tolérée [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quand activé, l&apos;ajout de nouveau sommet ne sera pas possible si la distance avec le sommet précédent dépasse la valeur maximum définie.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3392,7 +3392,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Reprendre le suivi</translation>
     </message>
 </context>
 <context>
@@ -3785,7 +3785,7 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;ajouter une entité enfant : la valeur de l&apos;attribut dans la relation liant le parent et les enfants n&apos;est pas définie</translation>
     </message>
 </context>
 <context>
@@ -4029,7 +4029,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Du centre à l&apos;emplacement</translation>
+        <translation>Centrer sur la localisation actuelle</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
@@ -4206,19 +4206,19 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Accrochage d&apos;angle %1° activé</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Accrochage d&apos;angle désactivé</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>angle relatif</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Accrochage chaque %1°</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4290,7 +4290,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Déverrouiller l&apos;écran pour fermer le projet et l&apos;application</translation>
     </message>
 </context>
 <context>
@@ -4329,7 +4329,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;ajouter une entité enfant : la valeur de l&apos;attribut dans la relation liant le parent et les enfants n&apos;est pas définie</translation>
     </message>
 </context>
 </TS>
