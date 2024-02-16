@@ -1222,7 +1222,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Renvoie une liste d&apos;utilisateurs avec pour chacun les signets des projets actuellement ouverts.</translation>
+        <translation>Renvoie une liste d&apos;utilisateurs avec les signets de leurs projets actuellement ouverts.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
