@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_34_1)
-set(QGIS_SHA512 1c14d16bef06c533b119f6e97c56bd216d9376533ef1a727e553964a5c3dacdd6e813adeebbf3a7850a2f4fa526b733fe39bf3951a87791b460cd748f3002420)
+set(QGIS_REF ef1d7a1104e5d574e3ba4949feab2a350e1c4d2e)
+set(QGIS_SHA512 fa70b54d0e319333dd0576798adf74c107969ff93a6658d34af16d169933fcce74e55ea1bade9f52fe3ad541b5b57372b608d2212e2ba455f200803fdbe53420)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -8,17 +8,13 @@ vcpkg_from_github(
     SHA512   ${QGIS_SHA512}
     HEAD_REF master
     PATCHES
-	56284.patch
-        # Make qgis support python's debug library
-        qgspython.patch
+        qgspython.patch # Make qgis support python's debug library
         libxml2.patch
         exiv2.patch
         crssync.patch
         bigobj.patch
         mesh.patch
         wrongattributeerrormessage.patch
-	poly2tri1.patch
-	poly2tri2.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
