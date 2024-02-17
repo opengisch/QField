@@ -906,6 +906,8 @@ Page {
                       text: qsTr("Bad accuracy below [m]")
                       font: Theme.defaultFont
                       color: Theme.mainTextColor
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
                       enabled: accuracyIndicator.checked
                       visible: accuracyIndicator.checked
                       Layout.leftMargin: 8
@@ -941,6 +943,8 @@ Page {
                       text: qsTr("Excellent accuracy above [m]")
                       font: Theme.defaultFont
                       color: Theme.mainTextColor
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
                       enabled: accuracyIndicator.checked
                       visible: accuracyIndicator.checked
                       Layout.leftMargin: 8
@@ -1044,6 +1048,8 @@ Page {
                       text: qsTr("Minimum number of positions collected")
                       font: Theme.defaultFont
                       color: Theme.mainTextColor
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
                       enabled: averagedPositioning.checked
                       visible: averagedPositioning.checked
                       Layout.leftMargin: 8
@@ -1145,6 +1151,9 @@ Page {
                       enabled: antennaHeightActivated.checked
                       visible: antennaHeightActivated.checked
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
                       textFormat: Text.RichText
                       Layout.leftMargin: 8
                   }
