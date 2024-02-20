@@ -794,6 +794,76 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
     }
+
+    Rectangle {
+      id: titleDecorationBackground
+
+      visible: titleDecoration.text != ''
+
+      anchors.left: parent.left
+      anchors.leftMargin: 56
+      anchors.top: parent.top
+      anchors.topMargin: mainWindow.sceneTopMargin + 4
+
+      width: parent.width - anchors.leftMargin * 2
+      height: 48
+      radius: 4
+
+      color:'#55000000'
+
+      Text {
+        id: titleDecoration
+
+        width: parent.width - 4
+        height: parent.height
+        leftPadding: 2
+        rightPadding: 2
+
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        wrapMode: Text.WordWrap
+        elide: Text.ElideRight
+
+        font.pointSize: Theme.tipFont.pointSize
+        font.bold: true
+
+        text: ''
+      }
+    }
+
+    Rectangle {
+      id: copyrightDecorationBackground
+
+      visible: copyrightDecoration.text != ''
+
+      anchors.left: parent.left
+      anchors.leftMargin: 56
+      anchors.bottom: parent.bottom
+      anchors.bottomMargin: 56
+
+      width: parent.width - anchors.leftMargin * 2
+      height: 48
+      radius: 4
+
+      color:'#55000000'
+      Text {
+        id: copyrightDecoration
+
+        width: parent.width - 4
+        height: parent.height
+        leftPadding: 2
+        rightPadding: 2
+
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignBottom
+        wrapMode: Text.WordWrap
+        elide: Text.ElideRight
+
+        font: Theme.tinyFont
+
+        text: ''
+      }
+    }
   }
 
   Column {
@@ -3290,6 +3360,20 @@ ApplicationWindow {
       dashBoard.activeLayer = projectInfo.activeLayer
 
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
+
+      var titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
+      titleDecoration.text = titleDecorationConfiguration["text"];
+      titleDecoration.color = titleDecorationConfiguration["color"];
+      titleDecoration.style = titleDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
+      titleDecoration.styleColor = titleDecorationConfiguration["outlineColor"];
+      titleDecorationBackground.color = titleDecorationConfiguration["backgroundColor"];
+
+      var copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration();
+      copyrightDecoration.text = copyrightDecorationConfiguration["text"];
+      copyrightDecoration.color = copyrightDecorationConfiguration["color"];
+      copyrightDecoration.style = copyrightDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
+      copyrightDecoration.styleColor = copyrightDecorationConfiguration["outlineColor"];
+      copyrightDecorationBackground.color = copyrightDecorationConfiguration["backgroundColor"];
 
       recentProjectListModel.reloadModel()
 

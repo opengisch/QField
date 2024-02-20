@@ -20,6 +20,8 @@
 #include <QDateTime>
 #include <QFileInfo>
 #include <QString>
+#include <QTextDocument>
+#include <qgscolorutils.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
 #include <qgsmaplayerstyle.h>
@@ -507,4 +509,126 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
     project->setSnappingConfig( config );
   }
   settings.endGroup();
+}
+
+QVariantMap ProjectInfo::getTitleDecorationConfiguration()
+{
+  QVariantMap configuration;
+  const QString configurationName = QStringLiteral( "TitleLabel" );
+
+  if ( QgsProject::instance()->readBoolEntry( configurationName, QStringLiteral( "/Enabled" ), false ) )
+  {
+    QString text = QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/Label" ), QString() );
+    if ( !text.isEmpty() )
+    {
+      text.replace( QStringLiteral( "\n" ), QStringLiteral( "<br>" ) );
+      QTextDocument doc;
+      doc.setHtml( text );
+      text = doc.toPlainText();
+    }
+
+    QColor backgroundColor = QgsColorUtils::colorFromString( QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/BackgroundColor" ), QStringLiteral( "0,0,0,99" ) ) );
+    QColor color = QColor( Qt::black );
+    QColor outlineColor = QColor( Qt::white );
+    bool hasOutline = false;
+
+    QDomDocument doc;
+    QDomElement elem;
+    const QString textXml = QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/Font" ) );
+    if ( !textXml.isEmpty() )
+    {
+      doc.setContent( textXml );
+      elem = doc.documentElement();
+      QgsReadWriteContext rwContext;
+      rwContext.setPathResolver( QgsProject::instance()->pathResolver() );
+      QgsTextFormat textFormat;
+      textFormat.readXml( elem, rwContext );
+
+      color = textFormat.color();
+      color.setAlphaF( textFormat.opacity() );
+      if ( textFormat.buffer().enabled() )
+      {
+        hasOutline = true;
+        outlineColor = textFormat.buffer().color();
+        outlineColor.setAlphaF( textFormat.buffer().opacity() );
+      }
+    }
+
+    configuration["text"] = text;
+    configuration["backgroundColor"] = backgroundColor;
+    configuration["color"] = color;
+    configuration["hasOutline"] = hasOutline;
+    configuration["outlineColor"] = outlineColor;
+  }
+  else
+  {
+    configuration["text"] = QString();
+    configuration["backgroundColor"] = QColor( Qt::transparent );
+    configuration["color"] = QColor( Qt::black );
+    configuration["hasOutline"] = false;
+    configuration["outlineColor"] = QColor( Qt::white );
+  }
+
+  return configuration;
+}
+
+QVariantMap ProjectInfo::getCopyrightDecorationConfiguration()
+{
+  QVariantMap configuration;
+  const QString configurationName = QStringLiteral( "CopyrightLabel" );
+
+  if ( QgsProject::instance()->readBoolEntry( configurationName, QStringLiteral( "/Enabled" ), false ) )
+  {
+    QString text = QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/Label" ), QString() );
+    if ( !text.isEmpty() )
+    {
+      text.replace( QStringLiteral( "\n" ), QStringLiteral( "<br>" ) );
+      QTextDocument doc;
+      doc.setHtml( text );
+      text = doc.toPlainText();
+    }
+
+    QColor backgroundColor = QColor( Qt::transparent );
+    QColor color = QColor( Qt::black );
+    QColor outlineColor = QColor( Qt::white );
+    bool hasOutline = false;
+
+    QDomDocument doc;
+    QDomElement elem;
+    const QString textXml = QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/Font" ) );
+    if ( !textXml.isEmpty() )
+    {
+      doc.setContent( textXml );
+      elem = doc.documentElement();
+      QgsReadWriteContext rwContext;
+      rwContext.setPathResolver( QgsProject::instance()->pathResolver() );
+      QgsTextFormat textFormat;
+      textFormat.readXml( elem, rwContext );
+
+      color = textFormat.color();
+      color.setAlphaF( textFormat.opacity() );
+      if ( textFormat.buffer().enabled() )
+      {
+        hasOutline = true;
+        outlineColor = textFormat.buffer().color();
+        outlineColor.setAlphaF( textFormat.buffer().opacity() );
+      }
+    }
+
+    configuration["text"] = text;
+    configuration["backgroundColor"] = backgroundColor;
+    configuration["color"] = color;
+    configuration["hasOutline"] = hasOutline;
+    configuration["outlineColor"] = outlineColor;
+  }
+  else
+  {
+    configuration["text"] = QString();
+    configuration["backgroundColor"] = QColor( Qt::transparent );
+    configuration["color"] = QColor( Qt::black );
+    configuration["hasOutline"] = false;
+    configuration["outlineColor"] = QColor( Qt::white );
+  }
+
+  return configuration;
 }

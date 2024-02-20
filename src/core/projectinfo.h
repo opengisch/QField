@@ -157,6 +157,10 @@ class ProjectInfo : public QObject
     //! Restore various project settings
     static void restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree );
 
+    Q_INVOKABLE QVariantMap getTitleDecorationConfiguration();
+
+    Q_INVOKABLE QVariantMap getCopyrightDecorationConfiguration();
+
   signals:
 
     void filePathChanged();
