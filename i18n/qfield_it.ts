@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Limita la ricerca al campo &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Elementi dal livello attivo</translation>
     </message>
 </context>
 <context>
@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Puoi controllare la pagina di documentazione del%1Portable Project%2 per ulteriori aiuti.</translation>
     </message>
 </context>
 <context>
@@ -234,7 +234,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Errore di scansione: %1</translation>
     </message>
 </context>
 <context>
@@ -245,7 +245,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permesso Bluetooth negato</translation>
     </message>
 </context>
 <context>
@@ -296,7 +296,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permesso Bluetooth negato</translation>
     </message>
 </context>
 <context>
@@ -446,7 +446,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>NFC text tag rilevato</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -454,7 +454,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centra il tuo dispositivo su un code</translation>
     </message>
 </context>
 <context>
@@ -469,7 +469,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Termina o chiudi la funzione di digitalizzazione prima di passare alla modalità navigazione</translation>
     </message>
 </context>
 <context>
@@ -586,7 +586,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>La geometria non può essere modificata</translation>
     </message>
 </context>
 <context>
@@ -597,7 +597,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Calcolatrice</translation>
     </message>
 </context>
 <context>
@@ -673,15 +673,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile annullare gli elementi creati nel layer &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile ripristinare gli elementi eliminati nel layer &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile ripristinare gli elementi aggiornati nel layer &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
@@ -745,7 +745,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
 
 Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che manterrà i propri attributi.</numerusform><numerusform>Vuoi davvero fondere questi %n elementi?
 
-Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che manterrà i propri attributi.</numerusform></translation>
+Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che manterrà i propri attributi.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
@@ -972,7 +972,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Autorizzazione alla posizione negata</translation>
     </message>
 </context>
 <context>
@@ -1093,11 +1093,11 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Layer in sola lettura</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
-        <translation type="unfinished"/>
+        <translation>Layer con geometria bloccata</translation>
     </message>
 </context>
 <context>
@@ -1149,7 +1149,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>Questo layer sta attualmente monitorando la posizione del dispositivo.</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1211,27 +1211,27 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Restituisce un elenco di elementi dal layer attivo con attributi corrispondenti. La restrizione della corrispondenza a un singolo elemento viene effettuata identificando il suo nome preceduto da un &apos;@&apos;.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Restituisce un elenco di elementi in tutti i layer ricercabili con attributi corrispondenti al nome visualizzato.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Restituisce un punto da una coppia di coordinate X e Y - o latitudine e longitudine WGS84 - digitate nella barra di ricerca.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Restituisce una lista di utenti e segnalibri di progetti attualmente aperti con nomi corrispondenti.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Restituisce il valore di un&apos;espressione digitata nella barra di ricerca.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Restituisce un elenco di località e indirizzi in Finlandia con termini corrispondenti.</translation>
     </message>
 </context>
 <context>
@@ -1242,11 +1242,11 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Per cercare le funzioni all&apos;interno del layer attivo, seleziona un layer vettoriale tramite la legenda.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Attiva prima uno strato vettoriale nella legenda per utilizzare questa funzionalità.</translation>
     </message>
 </context>
 <context>
@@ -1261,15 +1261,15 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Barra Ricerca Impostazioni</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Quando disabilitato, questo filtro di localizzazione può ancora essere utilizzato digitando il prefisso %1 nella barra di ricerca.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Abilita il localizzatore %1 come impostazione predefinita</translation>
     </message>
 </context>
 <context>

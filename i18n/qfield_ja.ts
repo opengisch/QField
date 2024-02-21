@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>詳しくは %1Portable Project%2 ドキュメント・ページを参照してください。</translation>
     </message>
 </context>
 <context>
@@ -4203,19 +4203,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>%1°度にスナップがオンになりました</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>共通アングルへのスナップはオフになりました</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>相対角度</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°毎にスナップ</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4287,7 +4287,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトとアプリを終了するには、画面のロックを解除してください</translation>
     </message>
 </context>
 <context>

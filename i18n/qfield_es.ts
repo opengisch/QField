@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Puede comprobar la página de documentación de %1Proyectos portátiles%2 para más ayuda.</translation>
     </message>
 </context>
 <context>
@@ -4205,19 +4205,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste a ángulo de %1º activado</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste a ángulo común desactivado</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Ángulo relativo</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar cada %1º</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4289,7 +4289,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquear la pantalla para cerrar el proyecto y la aplicación</translation>
     </message>
 </context>
 <context>

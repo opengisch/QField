@@ -57,5 +57,10 @@
     <string name="storage_information_dismiss">Leggerò più tardi</string>
     <string name="import_project_wait">Attendere mentre QField importa il progetto</string>
     <string name="import_dataset_wait">Attendere mentre QField importa i set di dati.</string>
+    <string name="update_project_wait">Attendere QField sta aggiornando il progetto locale</string>
     <string name="upload_pending_attachments">Caricando gli allegati in QFieldCloud</string>
-    </resources>
+    <string name="operation_unsupported">Operazione on supportata</string>
+    <string name="import_operation_unsupported">Il tuo dispositivo non supporta questa operazione di importazione.</string>
+    <string name="export_operation_unsupported">Il tuo dispositivo non supporta questa operazione di esportazione.</string>
+    <string name="processing_message">Elaborazione...</string>
+</resources>
