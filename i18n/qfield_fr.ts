@@ -925,7 +925,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Split Tool</source>
-        <translation>Outil Séparation</translation>
+        <translation>Outil de découpage</translation>
     </message>
     <message>
         <source>Reshape Tool</source>
@@ -933,7 +933,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation>Outil Remplissage</translation>
+        <translation>Outil Remplissage d&apos;Anneau</translation>
     </message>
     <message>
         <source>Erase Tool</source>
