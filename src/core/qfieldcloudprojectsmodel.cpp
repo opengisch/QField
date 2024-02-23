@@ -1032,6 +1032,8 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       project->downloadBytesTotal += std::max( fileSize, 0 );
     }
 
+    emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadSizeRole );
+
     const QJsonObject layers = payload.value( QStringLiteral( "layers" ) ).toObject();
     bool hasLayerExportErrror = false;
     for ( const QString &layerKey : layers.keys() )
@@ -1923,6 +1925,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[ProjectFileOutdatedRole] = "ProjectFileOutdated";
   roles[ErrorStatusRole] = "ErrorStatus";
   roles[ErrorStringRole] = "ErrorString";
+  roles[DownloadSizeRole] = "DownloadSize";
   roles[DownloadProgressRole] = "DownloadProgress";
   roles[PackagingStatusRole] = "PackagingStatus";
   roles[PackagedLayerErrorsRole] = "PackagedLayerErrors";
@@ -2107,6 +2110,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mProjects.at( index.row() )->packagingStatus;
     case PackagedLayerErrorsRole:
       return QVariant( mProjects.at( index.row() )->packagedLayerErrors );
+    case DownloadSizeRole:
+      return mProjects.at( index.row() )->downloadBytesTotal;
     case DownloadProgressRole:
       return mProjects.at( index.row() )->downloadProgress;
     case UploadDeltaProgressRole:

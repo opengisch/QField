@@ -194,7 +194,11 @@ Popup {
                     } else {
                       if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus
                           || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0) {
-                        return qsTr( 'Downloading, %1% fetched' ).arg( Math.round(cloudProjectsModel.currentProjectData.DownloadProgress * 100) )
+                        if (cloudProjectsModel.currentProjectData.DownloadSize > 0) {
+                          return qsTr( 'Downloading, %1% of %2 fetched' ).arg( Math.round(cloudProjectsModel.currentProjectData.DownloadProgress * 100 ) ).arg( FileUtils.representFileSize( cloudProjectsModel.currentProjectData.DownloadSize ) )
+                        } else {
+                          return qsTr( 'Downloading, %1% fetched' ).arg( Math.round(cloudProjectsModel.currentProjectData.DownloadProgress * 100 ) )
+                        }
                       } else {
                         return qsTr( 'Reaching out to QFieldCloud to download project' )
                       }
@@ -212,7 +216,10 @@ Popup {
           wrapMode: Text.WordWrap
           horizontalAlignment: Text.AlignHCenter
           Layout.fillWidth: true
-          Layout.margins: 10
+          Layout.leftMargin: 10
+          Layout.rightMargin: 10
+          Layout.topMargin: 60
+          Layout.bottomMargin: 20
         }
 
         Rectangle {

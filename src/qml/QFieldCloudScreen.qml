@@ -265,7 +265,7 @@ Page {
 
                 ProgressBar {
                     anchors.bottom: line.bottom
-                    anchors.bottomMargin: -4
+                    anchors.bottomMargin: -6
                     anchors.left: line.left
                     anchors.leftMargin: line.leftPadding
                     width: line.width - 20
@@ -354,7 +354,11 @@ Page {
                                       status = qsTr('QFieldCloud is preparing the latest data just for you; this might take some time, please hold tight')
                                     } else {
                                       if (PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus || DownloadProgress > 0.0) {
-                                        status = qsTr( 'Downloading, %1% fetched' ).arg( Math.round(DownloadProgress * 100) )
+                                        if (DownloadSize > 0) {
+                                          status = qsTr( 'Downloading, %1% of %2 fetched' ).arg( Math.round(DownloadProgress * 100) ).arg( FileUtils.representFileSize( DownloadSize ) )
+                                        } else {
+                                          status = qsTr( 'Downloading, %1% fetched' ).arg( Math.round(DownloadProgress * 100) )
+                                        }
                                       } else {
                                         status = qsTr( 'Reaching out to QFieldCloud to download project' )
                                       }
