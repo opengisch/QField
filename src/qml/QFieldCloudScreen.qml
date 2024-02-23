@@ -270,7 +270,7 @@ Page {
                     anchors.leftMargin: line.leftPadding
                     width: line.width - 20
                     height: 6
-                    indeterminate: PackagingStatus !== QFieldCloudProjectsModel.PackagingFinishedStatus
+                    indeterminate: DownloadProgress === 0
                     value: DownloadProgress
                     visible: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading
                     z: 1
@@ -340,8 +340,6 @@ Page {
                             id: projectNote
                             leftPadding: 3
                             text: {
-                              return 'PackagingStatus: ' + PackagingStatus + ', DownloadProgress: ' + DownloadProgress + ', Status: ' + Status;
-
                               if ( cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
                                 return qsTr( '(Available locally)' )
                               } else {
@@ -352,13 +350,14 @@ Page {
                                   case QFieldCloudProjectsModel.ProjectStatus.Idle:
                                     break
                                   case QFieldCloudProjectsModel.ProjectStatus.Downloading:
-                                    switch (PackagingStatus) {
-                                      case QFieldCloudProjectsModel.PackagingFinishedStatus:
-                                        status = qsTr( 'Downloading, %1% fetched…' ).arg( Math.round(DownloadProgress * 100) )
-                                        break;
-                                      default:
-                                        status = qsTr('QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…')
-                                        break;
+                                    if (PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus) {
+                                      status = qsTr('QFieldCloud is preparing the latest data just for you; this might take some time, please hold tight')
+                                    } else {
+                                      if (DownloadProgress > 0.0) {
+                                        status = qsTr( 'Downloading, %1% fetched' ).arg( Math.round(DownloadProgress * 100) )
+                                      } else {
+                                        status = qsTr( 'Reaching out to QFieldCloud to download project' )
+                                      }
                                     }
                                     break
                                   case QFieldCloudProjectsModel.ProjectStatus.Uploading:
