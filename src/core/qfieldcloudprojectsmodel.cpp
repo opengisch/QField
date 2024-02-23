@@ -1879,8 +1879,6 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         }
 
         project->errorStatus = NoErrorStatus;
-        project->packagingStatus = PackagingFinishedStatus;
-        project->packagingStatusString = QString();
         project->checkout = ProjectCheckout::LocalAndRemoteCheckout;
         project->localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
         project->lastLocalExportedAt = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
