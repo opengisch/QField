@@ -340,6 +340,8 @@ Page {
                             id: projectNote
                             leftPadding: 3
                             text: {
+                              return 'PackagingStatus: ' + PackagingStatus + ', DownloadProgress: ' + DownloadProgress + ', Status: ' + Status;
+
                               if ( cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
                                 return qsTr( '(Available locally)' )
                               } else {

@@ -478,7 +478,7 @@ void QFieldCloudProjectsModel::projectCancelDownload( const QString &projectId )
   project->packagingStatusString = tr( "aborted" );
   project->status = ProjectStatus::Idle;
 
-  emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ErrorStatusRole << PackagingErrorStatus );
+  emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ErrorStatusRole << PackagingStatusRole );
 }
 
 void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason )
@@ -769,6 +769,8 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     {
       QgsLogger::debug( QStringLiteral( "Project %1: repackaging triggered." ).arg( projectId ) );
 
+      project->packagingStatus = PackagingBusyStatus;
+      emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
       projectStartJob( projectId, JobType::Package );
 
       QObject *tempProjectJobFinishedParent = new QObject( this ); // we need this to unsubscribe
@@ -809,11 +811,19 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
 
           project->jobs.take( jobType );
 
+          project->packagingStatus = PackagingErrorStatus;
+          project->packagingStatusString = errorString;
+          emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
+
           emit projectDownloadFinished( projectId, tr( "Packaging job finished unsuccessfully for `%1`. %2" )
                                                      .arg( project->name )
                                                      .arg( errorString ) );
           return;
         }
+
+        project->packagingStatus = PackagingFinishedStatus;
+        project->packagingStatusString = QString();
+        emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
 
         projectDownload( projectId );
       } );
@@ -915,16 +925,11 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     if ( hasError )
     {
       project->errorStatus = DownloadErrorStatus;
-      project->packagingStatus = PackagingErrorStatus;
-      project->packagingStatusString = errorString;
-
-      QgsMessageLog::logMessage( QStringLiteral( "Downloading project `%1` finished with an error: %2" ).arg( projectId ).arg( project->packagingStatusString ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Downloading project `%1` finished with an error: %2" ).arg( projectId ).arg( errorString ) );
     }
     else
     {
       project->errorStatus = NoErrorStatus;
-      project->packagingStatus = PackagingFinishedStatus;
-      project->packagingStatusString = QString();
     }
 
     project->status = ProjectStatus::Idle;
