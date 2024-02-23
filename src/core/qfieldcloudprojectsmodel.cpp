@@ -1751,12 +1751,10 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     Q_UNUSED( bytesTotal )
 
-    // it means the NetworkReply has failed and retried
     project->downloadBytesReceived -= project->downloadFileTransfers[fileName].bytesTransferred;
     project->downloadBytesReceived += bytesReceived;
     project->downloadFileTransfers[fileName].bytesTransferred = bytesReceived;
     project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
-
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
   } );
 
@@ -1795,6 +1793,11 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     if ( !hasError )
     {
+      project->downloadBytesReceived -= project->downloadFileTransfers[fileName].bytesTransferred;
+      project->downloadBytesReceived += project->downloadFileTransfers[fileName].bytesTotal;
+      project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
+      emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
+
       QFile file( project->downloadFileTransfers[fileName].tmpFile );
 
       if ( file.open( QIODevice::ReadWrite ) )
