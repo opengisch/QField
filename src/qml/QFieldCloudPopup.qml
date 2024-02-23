@@ -190,7 +190,7 @@ Popup {
           text: switch(cloudProjectsModel.currentProjectData.Status ) {
                   case QFieldCloudProjectsModel.Downloading:
                     switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
-                      case QFieldCloudProjectsModel.PackagingFinishedStatus:
+                      case QFieldCloudProjectsModel.PackagingFinishedStatus || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0:
                         return qsTr('Downloading %1%…').arg( parseInt(cloudProjectsModel.currentProjectData.DownloadProgress * 100) )
                       default:
                         return qsTr('QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…')
