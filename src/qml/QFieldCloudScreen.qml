@@ -270,7 +270,7 @@ Page {
                     anchors.leftMargin: line.leftPadding
                     width: line.width - 20
                     height: 6
-                    indeterminate: DownloadProgress === 0
+                    indeterminate: PackagingStatus !== QFieldCloudProjectsModel.PackagingFinishedStatus && DownloadProgress === 0.0
                     value: DownloadProgress
                     visible: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading
                     z: 1
@@ -350,10 +350,10 @@ Page {
                                   case QFieldCloudProjectsModel.ProjectStatus.Idle:
                                     break
                                   case QFieldCloudProjectsModel.ProjectStatus.Downloading:
-                                    if (PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus) {
+                                    if (PackagingStatus === QFieldCloudProjectsModel.PackagingBusyStatus) {
                                       status = qsTr('QFieldCloud is preparing the latest data just for you; this might take some time, please hold tight')
                                     } else {
-                                      if (DownloadProgress > 0.0) {
+                                      if (PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus || DownloadProgress > 0.0) {
                                         status = qsTr( 'Downloading, %1% fetched' ).arg( Math.round(DownloadProgress * 100) )
                                       } else {
                                         status = qsTr( 'Reaching out to QFieldCloud to download project' )
