@@ -532,6 +532,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     project->owner = projectData.value( "owner" ).toString();
     project->description = projectData.value( "description" ).toString();
     project->userRole = projectData.value( "user_role" ).toString();
+    project->userRoleOrigin = projectData.value( "user_role_origin" ).toString();
     project->isPrivate = projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false );
     project->canRepackage = projectData.value( "can_repackage" ).toBool();
     project->needsRepackaging = projectData.value( "needs_repackaging" ).toBool();
@@ -543,6 +544,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "owner" ), project->owner );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "description" ), project->description );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "userRole" ), project->userRole );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "userRoleOrigin" ), project->userRoleOrigin );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "isPrivate" ), project->isPrivate );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "canRepackage" ), project->canRepackage );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "needsRepackaging" ), project->needsRepackaging );
@@ -1927,6 +1929,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[LastLocalExportedAtRole] = "LastLocalExportedAt";
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[UserRoleRole] = "UserRole";
+  roles[UserRoleOriginRole] = "UserRoleOrigin";
   roles[DeltaListRole] = "DeltaList";
 
   return roles;
@@ -1969,6 +1972,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
                                                    projectDetails.value( "name" ).toString(),
                                                    projectDetails.value( "description" ).toString(),
                                                    projectDetails.value( "user_role" ).toString(),
+                                                   projectDetails.value( "user_role_origin" ).toString(),
                                                    RemoteCheckout,
                                                    ProjectStatus::Idle,
                                                    QDateTime::fromString( projectDetails.value( "data_last_updated_at" ).toString(), Qt::ISODate ),
@@ -1979,6 +1983,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "name" ), cloudProject->name );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "description" ), cloudProject->description );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "userRole" ), cloudProject->userRole );
+    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "userRoleOrigin" ), cloudProject->userRoleOrigin );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "canRepackage" ), cloudProject->canRepackage );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "needsRepackaging" ), cloudProject->needsRepackaging );
 
@@ -2027,8 +2032,9 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString description = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "description" ) ).toString();
       const QString updatedAt = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
       const QString userRole = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
+      const QString userRoleOrigin = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRoleOrigin" ) ).toString();
 
-      CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, LocalCheckout, ProjectStatus::Idle, QDateTime(), false, false );
+      CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, userRoleOrigin, LocalCheckout, ProjectStatus::Idle, QDateTime(), false, false );
 
       cloudProject->localPath = QFieldCloudUtils::localProjectFilePath( username, cloudProject->id );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
@@ -2115,6 +2121,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mProjects.at( index.row() )->lastLocalPushDeltas;
     case UserRoleRole:
       return mProjects.at( index.row() )->userRole;
+    case UserRoleOriginRole:
+      return mProjects.at( index.row() )->userRoleOrigin;
     case DeltaListRole:
       return QVariant::fromValue<DeltaListModel *>( mProjects.at( index.row() )->deltaListModel );
   }
@@ -2309,10 +2317,11 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
   {
     case PrivateProjects:
       // the list will include public "community" projects that are present locally so they can appear in the "My projects" list
-      ok = mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::PrivateRole ).toBool() || !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty();
+      ok = mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::UserRoleOriginRole ).toString() != QStringLiteral( "public" )
+           || !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty();
       break;
     case PublicProjects:
-      ok = !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::PrivateRole ).toBool();
+      ok = mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" );
       break;
   }
   return ok;
