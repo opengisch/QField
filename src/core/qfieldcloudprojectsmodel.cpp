@@ -478,7 +478,7 @@ void QFieldCloudProjectsModel::projectCancelDownload( const QString &projectId )
   project->packagingStatusString = tr( "aborted" );
   project->status = ProjectStatus::Idle;
 
-  emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ErrorStatusRole << PackagingErrorStatus );
+  emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ErrorStatusRole << PackagingStatusRole );
 }
 
 void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason )
@@ -769,6 +769,8 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     {
       QgsLogger::debug( QStringLiteral( "Project %1: repackaging triggered." ).arg( projectId ) );
 
+      project->packagingStatus = PackagingBusyStatus;
+      emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
       projectStartJob( projectId, JobType::Package );
 
       QObject *tempProjectJobFinishedParent = new QObject( this ); // we need this to unsubscribe
@@ -809,11 +811,19 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
 
           project->jobs.take( jobType );
 
+          project->packagingStatus = PackagingErrorStatus;
+          project->packagingStatusString = errorString;
+          emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
+
           emit projectDownloadFinished( projectId, tr( "Packaging job finished unsuccessfully for `%1`. %2" )
                                                      .arg( project->name )
                                                      .arg( errorString ) );
           return;
         }
+
+        project->packagingStatus = PackagingFinishedStatus;
+        project->packagingStatusString = QString();
+        emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
 
         projectDownload( projectId );
       } );
@@ -915,16 +925,11 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     if ( hasError )
     {
       project->errorStatus = DownloadErrorStatus;
-      project->packagingStatus = PackagingErrorStatus;
-      project->packagingStatusString = errorString;
-
-      QgsMessageLog::logMessage( QStringLiteral( "Downloading project `%1` finished with an error: %2" ).arg( projectId ).arg( project->packagingStatusString ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Downloading project `%1` finished with an error: %2" ).arg( projectId ).arg( errorString ) );
     }
     else
     {
       project->errorStatus = NoErrorStatus;
-      project->packagingStatus = PackagingFinishedStatus;
-      project->packagingStatusString = QString();
     }
 
     project->status = ProjectStatus::Idle;
@@ -1026,6 +1031,8 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize ) );
       project->downloadBytesTotal += std::max( fileSize, 0 );
     }
+
+    emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadSizeRole );
 
     const QJsonObject layers = payload.value( QStringLiteral( "layers" ) ).toObject();
     bool hasLayerExportErrror = false;
@@ -1746,12 +1753,10 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     Q_UNUSED( bytesTotal )
 
-    // it means the NetworkReply has failed and retried
     project->downloadBytesReceived -= project->downloadFileTransfers[fileName].bytesTransferred;
     project->downloadBytesReceived += bytesReceived;
     project->downloadFileTransfers[fileName].bytesTransferred = bytesReceived;
     project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
-
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
   } );
 
@@ -1790,6 +1795,11 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     if ( !hasError )
     {
+      project->downloadBytesReceived -= project->downloadFileTransfers[fileName].bytesTransferred;
+      project->downloadBytesReceived += project->downloadFileTransfers[fileName].bytesTotal;
+      project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
+      emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
+
       QFile file( project->downloadFileTransfers[fileName].tmpFile );
 
       if ( file.open( QIODevice::ReadWrite ) )
@@ -1871,8 +1881,6 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         }
 
         project->errorStatus = NoErrorStatus;
-        project->packagingStatus = PackagingFinishedStatus;
-        project->packagingStatusString = QString();
         project->checkout = ProjectCheckout::LocalAndRemoteCheckout;
         project->localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
         project->lastLocalExportedAt = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
@@ -1917,6 +1925,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[ProjectFileOutdatedRole] = "ProjectFileOutdated";
   roles[ErrorStatusRole] = "ErrorStatus";
   roles[ErrorStringRole] = "ErrorString";
+  roles[DownloadSizeRole] = "DownloadSize";
   roles[DownloadProgressRole] = "DownloadProgress";
   roles[PackagingStatusRole] = "PackagingStatus";
   roles[PackagedLayerErrorsRole] = "PackagedLayerErrors";
@@ -2101,6 +2110,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mProjects.at( index.row() )->packagingStatus;
     case PackagedLayerErrorsRole:
       return QVariant( mProjects.at( index.row() )->packagedLayerErrors );
+    case DownloadSizeRole:
+      return mProjects.at( index.row() )->downloadBytesTotal;
     case DownloadProgressRole:
       return mProjects.at( index.row() )->downloadProgress;
     case UploadDeltaProgressRole:

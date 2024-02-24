@@ -189,16 +189,24 @@ Popup {
           color: Theme.secondaryTextColor
           text: switch(cloudProjectsModel.currentProjectData.Status ) {
                   case QFieldCloudProjectsModel.Downloading:
-                    switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
-                      case QFieldCloudProjectsModel.PackagingFinishedStatus:
-                        return qsTr('Downloading %1%…').arg( parseInt(cloudProjectsModel.currentProjectData.DownloadProgress * 100) )
-                      default:
-                        return qsTr('QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…')
+                    if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProjectsModel.PackagingBusyStatus) {
+                      return qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight')
+                    } else {
+                      if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus
+                          || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0) {
+                        if (cloudProjectsModel.currentProjectData.DownloadSize > 0) {
+                          return qsTr( 'Downloading, %1% of %2 fetched' ).arg( Math.round(cloudProjectsModel.currentProjectData.DownloadProgress * 100 ) ).arg( FileUtils.representFileSize( cloudProjectsModel.currentProjectData.DownloadSize ) )
+                        } else {
+                          return qsTr( 'Downloading, %1% fetched' ).arg( Math.round(cloudProjectsModel.currentProjectData.DownloadProgress * 100 ) )
+                        }
+                      } else {
+                        return qsTr( 'Reaching out to QFieldCloud to download project' )
+                      }
                     }
                   case QFieldCloudProjectsModel.Uploading:
                     switch ( cloudProjectsModel.currentProjectData.UploadDeltaStatus ) {
                       case QFieldCloudProjectsModel.DeltaFileLocalStatus:
-                        return qsTr('Uploading %1%…').arg( parseInt(cloudProjectsModel.currentProjectData.UploadDeltaProgress * 100) );
+                        return qsTr('Uploading %1%…').arg( Math.round(cloudProjectsModel.currentProjectData.UploadDeltaProgress * 100 ) );
                       default:
                         return qsTr('QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…')
                     }
@@ -208,15 +216,18 @@ Popup {
           wrapMode: Text.WordWrap
           horizontalAlignment: Text.AlignHCenter
           Layout.fillWidth: true
-          Layout.margins: 10
+          Layout.leftMargin: 10
+          Layout.rightMargin: 10
+          Layout.topMargin: 60
+          Layout.bottomMargin: 20
         }
 
         Rectangle {
           id: cloudAnimation
           Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
           Layout.margins: 10
-          width: 64
-          height: 64
+          width: 128
+          height: 128
           color: 'transparent'
           visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading ||
                    cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
@@ -229,7 +240,7 @@ Popup {
             source: switch(cloudProjectsModel.currentProjectData.Status ) {
                     case QFieldCloudProjectsModel.Downloading:
                       switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
-                        case QFieldCloudProjectsModel.PackagingFinishedStatus:
+                        case QFieldCloudProjectsModel.PackagingFinishedStatus || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0:
                           return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
                         default:
                           return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
@@ -265,6 +276,16 @@ Popup {
               running: cloudAnimation.visible
               loops: Animation.Infinite
             }
+          }
+
+          ProgressBar {
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width
+            height: 6
+            indeterminate: cloudProjectsModel.currentProjectData.PackagingStatus !== QFieldCloudProjectsModel.PackagingFinishedStatus && cloudProjectsModel.currentProjectData.DownloadProgress === 0.0
+            value: cloudProjectsModel.currentProjectData.DownloadProgress ? cloudProjectsModel.currentProjectData.DownloadProgress : 0
+            visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.ProjectStatus.Downloading
           }
         }
 

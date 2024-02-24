@@ -54,6 +54,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ErrorStatusRole,
       ErrorStringRole,
       DownloadProgressRole,
+      DownloadSizeRole,
       PackagingStatusRole,
       PackagedLayerErrorsRole,
       UploadDeltaProgressRole,
