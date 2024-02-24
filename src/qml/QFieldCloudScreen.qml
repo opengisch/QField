@@ -351,7 +351,7 @@ Page {
                                     break
                                   case QFieldCloudProjectsModel.ProjectStatus.Downloading:
                                     if (PackagingStatus === QFieldCloudProjectsModel.PackagingBusyStatus) {
-                                      status = qsTr('QFieldCloud is preparing the latest data just for you; this might take some time, please hold tight')
+                                      status = qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight')
                                     } else {
                                       if (PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus || DownloadProgress > 0.0) {
                                         if (DownloadSize > 0) {

@@ -190,7 +190,7 @@ Popup {
           text: switch(cloudProjectsModel.currentProjectData.Status ) {
                   case QFieldCloudProjectsModel.Downloading:
                     if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProjectsModel.PackagingBusyStatus) {
-                      return qsTr('QFieldCloud is preparing the latest data just for you; this might take some time, please hold tight')
+                      return qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight')
                     } else {
                       if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus
                           || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0) {
@@ -206,7 +206,7 @@ Popup {
                   case QFieldCloudProjectsModel.Uploading:
                     switch ( cloudProjectsModel.currentProjectData.UploadDeltaStatus ) {
                       case QFieldCloudProjectsModel.DeltaFileLocalStatus:
-                        return qsTr('Uploading %1%…').arg( parseInt(cloudProjectsModel.currentProjectData.UploadDeltaProgress * 100) );
+                        return qsTr('Uploading %1%…').arg( Math.round(cloudProjectsModel.currentProjectData.UploadDeltaProgress * 100 ) );
                       default:
                         return qsTr('QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…')
                     }
