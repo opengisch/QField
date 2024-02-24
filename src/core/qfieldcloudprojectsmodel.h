@@ -65,6 +65,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       LastLocalExportedAtRole,
       LastLocalPushDeltasRole,
       UserRoleRole,
+      UserRoleOriginRole,
       DeltaListRole,
     };
 
@@ -356,6 +357,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
           const QString &name,
           const QString &description,
           const QString &userRole,
+          const QString &userRoleOrigin,
           const ProjectCheckouts &checkout,
           const ProjectStatus &status,
           const QDateTime &dataLastUpdatedAt,
@@ -367,6 +369,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
           , name( name )
           , description( description )
           , userRole( userRole )
+          , userRoleOrigin( userRoleOrigin )
           , checkout( checkout )
           , status( status )
           , dataLastUpdatedAt( dataLastUpdatedAt )
@@ -383,6 +386,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString name;
         QString description;
         QString userRole;
+        QString userRoleOrigin;
         ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
         ProjectCheckouts checkout;
         ProjectStatus status;
