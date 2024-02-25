@@ -445,6 +445,32 @@ Popup {
                 cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, checked)
               }
             }
+
+            Timer {
+              id: autoPushTimer
+              running: !!cloudProjectsModel.currentProjectData.AutoPushEnabled
+              interval: (!cloudProjectsModel.currentProjectData.AutoPushDelay - 0) * 60 * 1000
+              repeat: true
+
+              onRunningChanged: {
+                if (running && pushButton.enabled) {
+                  var dt = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
+                  if (dt) {
+                    dt = new Date(dt)
+                    var now = new Date()
+                    if ((now - dt) >= interval) {
+                      projectUpload(false)
+                    }
+                  }
+                }
+              }
+
+              onTriggered: {
+                if (pushButton.enabled) {
+                  projectUpload(false)
+                }
+              }
+            }
           }
 
           Text {
