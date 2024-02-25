@@ -412,6 +412,41 @@ Popup {
             onClicked: projectUpload(false)
           }
 
+          RowLayout {
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+
+            Label {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
+              topPadding: 10
+              bottomPadding: 10
+              font: Theme.tipFont
+              wrapMode: Text.WordWrap
+              color: autoPush.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+
+              text:  qsTr('Automatically push changes every %n minute(s)','',0 + cloudProjectsModel.currentProjectData.AutoPushDelay)
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, !autoPush.checked)
+              }
+            }
+
+            QfSwitch {
+              id: autoPush
+              Layout.preferredWidth: implicitContentWidth
+              Layout.alignment: Qt.AlignVCenter
+              width: implicitContentWidth
+              small: true
+
+              checked: !!cloudProjectsModel.currentProjectData.AutoPushEnabled
+              onClicked:  {
+                cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, checked)
+              }
+            }
+          }
+
           Text {
             id: pushText
             font: Theme.tipFont

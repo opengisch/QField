@@ -1948,8 +1948,25 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[UserRoleRole] = "UserRole";
   roles[UserRoleOriginRole] = "UserRoleOrigin";
   roles[DeltaListRole] = "DeltaList";
+  roles[AutoPushEnabledRole] = "AutoPushEnabled";
+  roles[AutoPushDelayRole] = "AutoPushDelay";
 
   return roles;
+}
+
+void QFieldCloudProjectsModel::projectSetAutoPushEnabled( const QString &projectId, bool enabled )
+{
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+
+  if ( projectIndex.isValid() )
+  {
+    qDebug() << "IN!";
+    CloudProject *project = mProjects[projectIndex.row()];
+    project->autoPushEnabled = !project->autoPushEnabled;
+    qDebug() << ( project->autoPushEnabled ? "enabled" : "disabled" );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "autoPushEnabled" ), project->autoPushEnabled );
+    emit dataChanged( projectIndex, projectIndex, QVector<int>() << AutoPushEnabledRole );
+  }
 }
 
 void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
@@ -1969,6 +1986,8 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     cloudProject->lastLocalDataLastUpdatedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalDataLastUpdatedAt" ) ).toDateTime();
     cloudProject->isOutdated = cloudProject->dataLastUpdatedAt > cloudProject->lastLocalDataLastUpdatedAt;
     cloudProject->projectFileIsOutdated = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "projectFileOudated" ), false ).toBool();
+    cloudProject->autoPushEnabled = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "autoPushEnabled" ), false ).toBool();
+    cloudProject->autoPushDelay = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "autoPushDelay" ), 30 ).toInt();
 
     // generate local export id if not present. Possible reasons for missing localExportId are:
     // - just upgraded QField that introduced the field
@@ -2144,6 +2163,10 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mProjects.at( index.row() )->userRoleOrigin;
     case DeltaListRole:
       return QVariant::fromValue<DeltaListModel *>( mProjects.at( index.row() )->deltaListModel );
+    case AutoPushEnabledRole:
+      return mProjects.at( index.row() )->autoPushEnabled;
+    case AutoPushDelayRole:
+      return mProjects.at( index.row() )->autoPushDelay;
   }
 
   return QVariant();
