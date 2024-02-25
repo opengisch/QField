@@ -364,6 +364,19 @@ class DeltaFileWrapper : public QObject
      */
     QJsonValue attributeToJsonValue( const QVariant &value );
 
+
+    /**
+     * Append generated \a delta.
+     */
+    void appendDelta( const QJsonObject &delta );
+
+
+    /**
+     * Merge the generated \a delta into stored deltas.
+     */
+    void mergeDelta( const QJsonObject &delta );
+
+
     /**
      * The current project instance
      */
@@ -379,6 +392,10 @@ class DeltaFileWrapper : public QObject
      */
     QJsonArray mDeltas;
 
+    /**
+     * The list of pending JSON deltas.
+     */
+    QJsonArray mPendingDeltas;
 
     /**
      * The root deltas JSON object.
