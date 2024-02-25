@@ -30,7 +30,6 @@ Popup {
       onFinished: {
         if (connectionSettings.visible) {
           connectionSettings.visible = false;
-          projects.visible = true;
         } else {
           popup.close()
         }
@@ -466,6 +465,67 @@ Popup {
             Layout.bottomMargin: 5
           }
 
+          RowLayout {
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+
+            Label {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
+              topPadding: 10
+              bottomPadding: 10
+              font: Theme.tipFont
+              wrapMode: Text.WordWrap
+              color: autoPush.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+
+              text:  qsTr('Automatically push changes every %n minute(s)','',0 + cloudProjectsModel.currentProjectData.AutoPushIntervalMins)
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, !autoPush.checked)
+              }
+            }
+
+            QfSwitch {
+              id: autoPush
+              Layout.preferredWidth: implicitContentWidth
+              Layout.alignment: Qt.AlignVCenter
+              width: implicitContentWidth
+              small: true
+
+              checked: !!cloudProjectsModel.currentProjectData.AutoPushEnabled
+              onClicked:  {
+                cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, checked)
+              }
+            }
+
+            Timer {
+              id: autoPushTimer
+              running: !!cloudProjectsModel.currentProjectData.AutoPushEnabled
+              interval: (!cloudProjectsModel.currentProjectData.AutoPushIntervalMins - 0) * 60 * 1000
+              repeat: true
+
+              onRunningChanged: {
+                if (running && pushButton.enabled) {
+                  const dtStr = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
+                  if (dtStr) {
+                    const dt = new Date(dtStr)
+                    const now = new Date()
+                    if ((now - dt) >= interval) {
+                      projectUpload(false)
+                    }
+                  }
+                }
+              }
+
+              onTriggered: {
+                if (pushButton.enabled) {
+                  projectUpload(false)
+                }
+              }
+            }
+          }
+
           Text {
             id: lastExportPushText
             font: Theme.tipFont
@@ -642,21 +702,19 @@ Popup {
   function projectUpload(shouldDownloadUpdates) {
     if (cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) {
       cloudProjectsModel.projectUpload(cloudProjectsModel.currentProjectId, shouldDownloadUpdates)
-      return
     }
   }
 
   function revertLocalChangesFromCurrentProject() {
     if (cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) {
-      if ( cloudProjectsModel.revertLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId) )
+      if (cloudProjectsModel.revertLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId)) {
         displayToast(qsTr('Local changes reverted'))
-      else
+      } else {
         displayToast(qsTr('Failed to revert changes'), 'error')
-
-      return
+      }
+    } else {
+      displayToast(qsTr('No changes to revert'))
     }
-
-    displayToast(qsTr('No changes to revert'))
   }
 
   function resetCurrentProject() {

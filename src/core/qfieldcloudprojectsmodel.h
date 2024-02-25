@@ -68,6 +68,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       UserRoleRole,
       UserRoleOriginRole,
       DeltaListRole,
+      AutoPushEnabledRole,
+      AutoPushIntervalMinsRole,
     };
 
     Q_ENUM( ColumnRole )
@@ -274,6 +276,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Cancels ongoing cloud project download with \a projectId.
     Q_INVOKABLE void projectCancelDownload( const QString &projectId );
 
+    //! Toggles the cloud project auto-push enabled state
+    Q_INVOKABLE void projectSetAutoPushEnabled( const QString &projectId, bool enabled );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
@@ -290,7 +295,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectDownloadFinished( const QString &projectId, const QString &errorString = QString() );
     void deltaListModelChanged();
 
-    //
     void networkDeltaUploaded( const QString &projectId );
     void networkDeltaStatusChecked( const QString &projectId );
     void networkAttachmentsUploaded( const QString &projectId );
@@ -429,6 +433,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
         QDateTime lastLocalDataLastUpdatedAt;
         QDateTime lastRefreshedAt;
+
+        bool autoPushEnabled = false;
+        int autoPushIntervalMins = 30;
+
         QMap<JobType, Job> jobs;
     };
 

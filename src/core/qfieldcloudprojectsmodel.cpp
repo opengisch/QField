@@ -1278,6 +1278,8 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
     return;
   }
 
+  deltaFileWrapper->setIsPushing( true );
+
   project->status = ProjectStatus::Uploading;
   project->deltaFileId = deltaFileWrapper->id();
   project->deltaFileUploadStatus = DeltaLocalStatus;
@@ -1324,6 +1326,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
 
   if ( deltaFileToUpload.isEmpty() )
   {
+    deltaFileWrapper->setIsPushing( false );
     project->status = ProjectStatus::Idle;
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
     return;
@@ -1358,13 +1361,15 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
       // TODO check why exactly we failed
       // maybe the project does not exist, then create it?
       QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), project->deltaFileUploadStatusString ) );
+
+      mLayerObserver->deltaFileWrapper()->setIsPushing( false );
+
       projectCancelUpload( projectId );
       return;
     }
 
     project->uploadDeltaProgress = 1;
     project->deltaFileUploadStatus = DeltaPendingStatus;
-
     project->deltaLayersToDownload = mLayerObserver->deltaFileWrapper()->deltaLayerIds();
 
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaProgressRole << UploadDeltaStatusRole );
@@ -1394,6 +1399,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
       DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
       deltaFileWrapper->reset();
       deltaFileWrapper->resetId();
+      deltaFileWrapper->setIsPushing( false );
 
       if ( !deltaFileWrapper->toFile() )
         QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
@@ -1430,6 +1436,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
       case DeltaErrorStatus:
         delete networkDeltaStatusCheckedParent;
         deltaFileWrapper->resetId();
+        deltaFileWrapper->setIsPushing( false );
 
         if ( !deltaFileWrapper->toFile() )
           QgsMessageLog::logMessage( QStringLiteral( "Failed update committed delta file." ) );
@@ -1443,6 +1450,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
 
         deltaFileWrapper->reset();
         deltaFileWrapper->resetId();
+        deltaFileWrapper->setIsPushing( false );
 
         if ( !deltaFileWrapper->toFile() )
           QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( deltaFileWrapper->errorString() ) );
@@ -1940,8 +1948,23 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[UserRoleRole] = "UserRole";
   roles[UserRoleOriginRole] = "UserRoleOrigin";
   roles[DeltaListRole] = "DeltaList";
+  roles[AutoPushEnabledRole] = "AutoPushEnabled";
+  roles[AutoPushIntervalMinsRole] = "AutoPushIntervalMins";
 
   return roles;
+}
+
+void QFieldCloudProjectsModel::projectSetAutoPushEnabled( const QString &projectId, bool enabled )
+{
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+
+  if ( projectIndex.isValid() )
+  {
+    CloudProject *project = mProjects[projectIndex.row()];
+    project->autoPushEnabled = !project->autoPushEnabled;
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "autoPushEnabled" ), project->autoPushEnabled );
+    emit dataChanged( projectIndex, projectIndex, QVector<int>() << AutoPushEnabledRole );
+  }
 }
 
 void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
@@ -1961,6 +1984,8 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     cloudProject->lastLocalDataLastUpdatedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalDataLastUpdatedAt" ) ).toDateTime();
     cloudProject->isOutdated = cloudProject->dataLastUpdatedAt > cloudProject->lastLocalDataLastUpdatedAt;
     cloudProject->projectFileIsOutdated = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "projectFileOudated" ), false ).toBool();
+    cloudProject->autoPushEnabled = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "autoPushEnabled" ), false ).toBool();
+    cloudProject->autoPushIntervalMins = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "autoPushIntervalMins" ), 30 ).toInt();
 
     // generate local export id if not present. Possible reasons for missing localExportId are:
     // - just upgraded QField that introduced the field
@@ -2136,6 +2161,10 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mProjects.at( index.row() )->userRoleOrigin;
     case DeltaListRole:
       return QVariant::fromValue<DeltaListModel *>( mProjects.at( index.row() )->deltaListModel );
+    case AutoPushEnabledRole:
+      return mProjects.at( index.row() )->autoPushEnabled;
+    case AutoPushIntervalMinsRole:
+      return mProjects.at( index.row() )->autoPushIntervalMins;
   }
 
   return QVariant();

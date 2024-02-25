@@ -36,6 +36,7 @@ class DeltaFileWrapper : public QObject
     Q_OBJECT
 
     Q_PROPERTY( int count READ count NOTIFY countChanged )
+    Q_PROPERTY( bool isPushing READ isPushing NOTIFY isPushingChanged )
 
   public:
     /**
@@ -321,6 +322,19 @@ class DeltaFileWrapper : public QObject
      */
     Q_INVOKABLE bool applyReversed();
 
+    /**
+     * Returns TRUE if the pushing state is active.
+     */
+    bool isPushing() const { return mIsPushing; }
+
+
+    /**
+     * Sets the pushing state.
+     *
+     * @param isPushing set to TRUE to reflect an ongoing pushing state.
+     */
+    void setIsPushing( bool isPushing );
+
   signals:
     /**
      * Emitted when the `deltas` list has changed.
@@ -328,6 +342,12 @@ class DeltaFileWrapper : public QObject
      * @todo TEST
      */
     void countChanged();
+
+
+    /**
+     * Emmitted when the pushing state has changed.
+     */
+    void isPushingChanged();
 
 
     /**
@@ -364,6 +384,37 @@ class DeltaFileWrapper : public QObject
      */
     QJsonValue attributeToJsonValue( const QVariant &value );
 
+
+    /**
+     * Append generated \a delta.
+     */
+    void appendDelta( const QJsonObject &delta );
+
+
+    /**
+     * Merge the generated \a delta into stored deltas.
+     */
+    void mergeDelta( const QJsonObject &delta );
+
+
+    /**
+     * Merge the generated create \a delta into stored deltas. Should only be called from `mergeDelta` method.
+     */
+    void mergeCreateDelta( const QJsonObject &delta );
+
+
+    /**
+     * Merge the generated delete \a delta into stored deltas. Should only be called from `mergeDelta` method.
+     */
+    void mergeDeleteDelta( const QJsonObject &delta );
+
+
+    /**
+     * Merge the generated patch \a delta into stored deltas. Should only be called from `mergeDelta` method.
+     */
+    void mergePatchDelta( const QJsonObject &delta );
+
+
     /**
      * The current project instance
      */
@@ -379,6 +430,10 @@ class DeltaFileWrapper : public QObject
      */
     QJsonArray mDeltas;
 
+    /**
+     * The list of pending JSON deltas.
+     */
+    QList<QJsonObject> mPendingDeltas;
 
     /**
      * The root deltas JSON object.
@@ -414,6 +469,12 @@ class DeltaFileWrapper : public QObject
      * Holds whether the deltas in the memory differ from the deltas in the file.
      */
     bool mIsDirty = false;
+
+
+    /**
+     * Holds whether the pushing state has been activated.
+     */
+    bool mIsPushing = false;
 
 
     /**
