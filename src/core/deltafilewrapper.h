@@ -322,8 +322,17 @@ class DeltaFileWrapper : public QObject
      */
     Q_INVOKABLE bool applyReversed();
 
+    /**
+     * Returns TRUE if the pushing state is active.
+     */
     bool isPushing() const { return mIsPushing; }
 
+
+    /**
+     * Sets the pushing state.
+     *
+     * @param isPushing set to TRUE to reflect an ongoing pushing state.
+     */
     void setIsPushing( bool isPushing );
 
   signals:
@@ -335,6 +344,9 @@ class DeltaFileWrapper : public QObject
     void countChanged();
 
 
+    /**
+     * Emmitted when the pushing state has changed.
+     */
     void isPushingChanged();
 
 
@@ -383,6 +395,10 @@ class DeltaFileWrapper : public QObject
      * Merge the generated \a delta into stored deltas.
      */
     void mergeDelta( const QJsonObject &delta );
+
+    void mergeCreateDelta( const QJsonObject &delta );
+    void mergeDeleteDelta( const QJsonObject &delta );
+    void mergePatchDelta( const QJsonObject &delta );
 
 
     /**
@@ -441,7 +457,11 @@ class DeltaFileWrapper : public QObject
     bool mIsDirty = false;
 
 
+    /**
+     * Holds whether the pushing state has been activated.
+     */
     bool mIsPushing = false;
+
 
     /**
      * Whether the delta file is currently being applied.

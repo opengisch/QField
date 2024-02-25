@@ -69,7 +69,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       UserRoleOriginRole,
       DeltaListRole,
       AutoPushEnabledRole,
-      AutoPushDelayRole,
+      AutoPushIntervalMinsRole,
     };
 
     Q_ENUM( ColumnRole )
@@ -435,7 +435,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QDateTime lastRefreshedAt;
 
         bool autoPushEnabled = false;
-        int autoPushDelay = 30; // in minutes
+        int autoPushIntervalMins = 30;
 
         QMap<JobType, Job> jobs;
     };

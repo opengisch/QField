@@ -425,7 +425,7 @@ Popup {
               wrapMode: Text.WordWrap
               color: autoPush.checked ? Theme.mainTextColor : Theme.secondaryTextColor
 
-              text:  qsTr('Automatically push changes every %n minute(s)','',0 + cloudProjectsModel.currentProjectData.AutoPushDelay)
+              text:  qsTr('Automatically push changes every %n minute(s)','',0 + cloudProjectsModel.currentProjectData.AutoPushIntervalMins)
 
               MouseArea {
                 anchors.fill: parent
@@ -449,15 +449,15 @@ Popup {
             Timer {
               id: autoPushTimer
               running: !!cloudProjectsModel.currentProjectData.AutoPushEnabled
-              interval: (!cloudProjectsModel.currentProjectData.AutoPushDelay - 0) * 60 * 1000
+              interval: (!cloudProjectsModel.currentProjectData.AutoPushIntervalMins - 0) * 60 * 1000
               repeat: true
 
               onRunningChanged: {
                 if (running && pushButton.enabled) {
-                  var dt = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
-                  if (dt) {
-                    dt = new Date(dt)
-                    var now = new Date()
+                  const dtStr = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
+                  if (dtStr) {
+                    const dt = new Date(dtStr)
+                    const now = new Date()
                     if ((now - dt) >= interval) {
                       projectUpload(false)
                     }
@@ -707,13 +707,14 @@ Popup {
 
   function revertLocalChangesFromCurrentProject() {
     if (cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) {
-      if ( cloudProjectsModel.revertLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId) )
+      if (cloudProjectsModel.revertLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId)) {
         displayToast(qsTr('Local changes reverted'))
-      else
+      } else {
         displayToast(qsTr('Failed to revert changes'), 'error')
+      }
+    } else {
+      displayToast(qsTr('No changes to revert'))
     }
-
-    displayToast(qsTr('No changes to revert'))
   }
 
   function resetCurrentProject() {
