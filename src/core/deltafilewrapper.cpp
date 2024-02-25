@@ -795,6 +795,8 @@ void DeltaFileWrapper::appendDelta( const QJsonObject &delta )
 
 void DeltaFileWrapper::mergeCreateDelta( const QJsonObject &delta )
 {
+  Q_ASSERT( delta.value( QStringLiteral( "method" ) ) == "create" );
+
   const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
   mLocalPkDeltaIdx[localLayerId][localPk] = static_cast<int>( mDeltas.count() );
@@ -808,6 +810,8 @@ void DeltaFileWrapper::mergeCreateDelta( const QJsonObject &delta )
 
 void DeltaFileWrapper::mergeDeleteDelta( const QJsonObject &delta )
 {
+  Q_ASSERT( delta.value( QStringLiteral( "method" ) ) == "delete" );
+
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
   QMap<QString, int> layerPkDeltaIdx = mLocalPkDeltaIdx.value( localLayerId );
   QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
@@ -828,6 +832,8 @@ void DeltaFileWrapper::mergeDeleteDelta( const QJsonObject &delta )
 
 void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
 {
+  Q_ASSERT( delta.value( QStringLiteral( "method" ) ) == "patch" );
+
   QJsonObject oldData = delta.value( QStringLiteral( "old" ) ).toObject();
   QJsonObject newData = delta.value( QStringLiteral( "new" ) ).toObject();
 

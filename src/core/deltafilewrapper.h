@@ -396,8 +396,22 @@ class DeltaFileWrapper : public QObject
      */
     void mergeDelta( const QJsonObject &delta );
 
+
+    /**
+     * Merge the generated create \a delta into stored deltas. Should only be called from `mergeDelta` method.
+     */
     void mergeCreateDelta( const QJsonObject &delta );
+
+
+    /**
+     * Merge the generated delete \a delta into stored deltas. Should only be called from `mergeDelta` method.
+     */
     void mergeDeleteDelta( const QJsonObject &delta );
+
+
+    /**
+     * Merge the generated patch \a delta into stored deltas. Should only be called from `mergeDelta` method.
+     */
     void mergePatchDelta( const QJsonObject &delta );
 
 
