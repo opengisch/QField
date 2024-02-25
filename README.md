@@ -36,6 +36,11 @@ Check the [documentation](https://docs.qfield.org/)
 
 <a href="https://qfield.org/get_latest?platform=macos" target="_blank">Download the latest MacOS beta version</a>.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=opengisch/QField&type=Date)](https://star-history.com/#opengisch/QField&Date)
+
+
 ## Contribute
 
 QField is an open source project, licensed under the terms of the GPLv2 or later. This means that it is free to use and modify and will stay like that.
