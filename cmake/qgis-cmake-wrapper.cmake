@@ -63,10 +63,6 @@ endfunction()
 #  set(CMAKE_USE_PTHREADS_INIT 1)
 #endif()
 
-if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
-  target_compile_definitions(QGIS::Core INTERFACE QT_NO_PRINTER=1)
-endif()
-
 if(TRUE) # Should possibly have a "static only" check
   find_package(PkgConfig QUIET)
 
