@@ -1998,11 +1998,11 @@ Motiv:
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Descărcare %1%...</translation>
+        <translation type="vanished">Descărcare %1%...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud pregătește cele mai recente date pentru dvs. Acest lucru ar putea dura cateva momente, vă rugăm așteptați...</translation>
+        <translation type="vanished">QFieldCloud pregătește cele mai recente date pentru dvs. Acest lucru ar putea dura cateva momente, vă rugăm așteptați...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2146,6 +2146,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2312,11 +2328,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Descărcarea, %1% preluată…</translation>
+        <translation type="vanished">Descărcarea, %1% preluată…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud pregătește cele mai recente date pentru dvs. Acest lucru ar putea dura cateva momente, vă rugăm așteptați...</translation>
+        <translation type="vanished">QFieldCloud pregătește cele mai recente date pentru dvs. Acest lucru ar putea dura cateva momente, vă rugăm așteptați...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2388,6 +2404,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>

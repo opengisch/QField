@@ -1996,11 +1996,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Scaricamento %1%…</translation>
+        <translation type="vanished">Scaricamento %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud sta preparando i dati più recenti proprio per te. Potrebbe volerci del tempo, tieni duro...</translation>
+        <translation type="vanished">QFieldCloud sta preparando i dati più recenti proprio per te. Potrebbe volerci del tempo, tieni duro...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2144,6 +2144,22 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2313,11 +2329,11 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Scaricamento, %1% recuperato...</translation>
+        <translation type="vanished">Scaricamento, %1% recuperato...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud sta preparando i dati più recenti proprio per te. Potrebbe volerci del tempo, tieni duro...</translation>
+        <translation type="vanished">QFieldCloud sta preparando i dati più recenti proprio per te. Potrebbe volerci del tempo, tieni duro...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2389,6 +2405,22 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>

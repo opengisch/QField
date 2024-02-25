@@ -1995,11 +1995,11 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Skidanje %1%…</translation>
+        <translation type="vanished">Skidanje %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud prirema posljednje podatke za vas. Ovo može potrajati…</translation>
+        <translation type="vanished">QFieldCloud prirema posljednje podatke za vas. Ovo može potrajati…</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2143,6 +2143,22 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2309,11 +2325,11 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Skidanje %1% preuzeto…</translation>
+        <translation type="vanished">Skidanje %1% preuzeto…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud priprema posljednje podatke za vas. Ovo može potrajati…</translation>
+        <translation type="vanished">QFieldCloud priprema posljednje podatke za vas. Ovo može potrajati…</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2385,6 +2401,22 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
     <message>
         <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>

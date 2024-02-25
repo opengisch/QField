@@ -1992,11 +1992,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>%1% をダウンロードしています…</translation>
+        <translation type="vanished">%1% をダウンロードしています…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
+        <translation type="vanished">QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2141,6 +2141,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
         <translation>このプロジェクトはクラウド上でプロジェクトファイルが更新されています。ファイルの同期をしてください。</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2306,11 +2322,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>ダウンロード中、 %1% がフェッチされました…</translation>
+        <translation type="vanished">ダウンロード中、 %1% がフェッチされました…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
+        <translation type="vanished">QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2383,6 +2399,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>, updated data available on the cloud</source>
         <translation>クラウド上で利用可能な更新データがあります</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

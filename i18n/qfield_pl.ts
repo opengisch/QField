@@ -1989,11 +1989,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Pobieranie %1%…</translation>
+        <translation type="vanished">Pobieranie %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud przygotowuje właśnie najnowsze dane dla Ciebie. Może to chwilę potrwać, proszę o chwilę cierpliwości...</translation>
+        <translation type="vanished">QFieldCloud przygotowuje właśnie najnowsze dane dla Ciebie. Może to chwilę potrwać, proszę o chwilę cierpliwości...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2138,6 +2138,22 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
         <translation>Ten projekt posiada zaktualizowane dane w chmurze, zalecana jest synchronizacja.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2303,11 +2319,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Pobieranie, %1% pobrano...</translation>
+        <translation type="vanished">Pobieranie, %1% pobrano...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud przygotowuje właśnie najnowsze dane dla Ciebie. Może to chwilę potrwać, proszę o chwilę cierpliwości...</translation>
+        <translation type="vanished">QFieldCloud przygotowuje właśnie najnowsze dane dla Ciebie. Może to chwilę potrwać, proszę o chwilę cierpliwości...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2380,6 +2396,22 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>, updated data available on the cloud</source>
         <translation>, zaktualizowane dane dostępne w chmurze</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

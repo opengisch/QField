@@ -1994,11 +1994,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Downloaden %1%…</translation>
+        <translation type="vanished">Downloaden %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud bereidt de nieuwste gegevens speciaal voor u voor. Dit kan even duren, houdt u alstublieft goed vast...</translation>
+        <translation type="vanished">QFieldCloud bereidt de nieuwste gegevens speciaal voor u voor. Dit kan even duren, houdt u alstublieft goed vast...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2143,6 +2143,22 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
         <translation>Dit project heeft bijgewerkte data in de Cloud, je moet synchroniseren.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2308,11 +2324,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Bezig met downloaden, %1% opgehaald...</translation>
+        <translation type="vanished">Bezig met downloaden, %1% opgehaald...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud bereidt de nieuwste gegevens speciaal voor u voor. Dit kan even duren, houdt u alstublieft goed vast...</translation>
+        <translation type="vanished">QFieldCloud bereidt de nieuwste gegevens speciaal voor u voor. Dit kan even duren, houdt u alstublieft goed vast...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2384,6 +2400,22 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>

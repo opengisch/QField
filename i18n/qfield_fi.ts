@@ -1994,11 +1994,11 @@ syy: %2</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Ladataan %1%…</translation>
+        <translation type="vanished">Ladataan %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud valmistelee viimeisintä dataa sinulle.
+        <translation type="vanished">QFieldCloud valmistelee viimeisintä dataa sinulle.
 Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
@@ -2143,6 +2143,22 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2309,11 +2325,11 @@ syy: %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Ladataan, %1% haettu…</translation>
+        <translation type="vanished">Ladataan, %1% haettu…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud valmistelee viimeisintä dataa sinulle.
+        <translation type="vanished">QFieldCloud valmistelee viimeisintä dataa sinulle.
 Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
@@ -2386,6 +2402,22 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>

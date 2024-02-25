@@ -1996,11 +1996,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Transferindo %1%...</translation>
+        <translation type="vanished">Transferindo %1%...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>O QFieldCloud está a preparar os dados mais atualizados apenas para você. Isto pode levar alguns instantes, por favor, aguarde...</translation>
+        <translation type="vanished">O QFieldCloud está a preparar os dados mais atualizados apenas para você. Isto pode levar alguns instantes, por favor, aguarde...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2145,6 +2145,22 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
         <translation>Este projeto possui dados atualizados na nuvem, você deve sincronizar.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2310,11 +2326,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Transferindo, %1% obtido...</translation>
+        <translation type="vanished">Transferindo, %1% obtido...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>O QFieldCloud está a preparar os dados mais atualizados apenas para você. Isto pode levar alguns instantes, por favor, aguarde...</translation>
+        <translation type="vanished">O QFieldCloud está a preparar os dados mais atualizados apenas para você. Isto pode levar alguns instantes, por favor, aguarde...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2387,6 +2403,22 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>, updated data available on the cloud</source>
         <translation>, dados atualizados disponíveis na nuvem</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

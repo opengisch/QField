@@ -1992,11 +1992,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Letöltés %1%...</translation>
+        <translation type="vanished">Letöltés %1%...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud előkészíti az legfrissebb adatokat önnek. Ez eltarthat egy ideig, kérem várjon...</translation>
+        <translation type="vanished">QFieldCloud előkészíti az legfrissebb adatokat önnek. Ez eltarthat egy ideig, kérem várjon...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2139,6 +2139,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
         <translation>A projekthez frissített adatok vannak a felhőben, szinkronizálni kellene.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2302,11 +2318,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Letöltés folyamatban, %1% letöltve...</translation>
+        <translation type="vanished">Letöltés folyamatban, %1% letöltve...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud előkészíti az legfrissebb adatokat önnek. Ez eltarthat egy ideig, kérem várjon...</translation>
+        <translation type="vanished">QFieldCloud előkészíti az legfrissebb adatokat önnek. Ez eltarthat egy ideig, kérem várjon...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2379,6 +2395,22 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>, updated data available on the cloud</source>
         <translation>, frissített adatok érhetők el a felhőben</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

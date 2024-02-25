@@ -1997,11 +1997,11 @@ Dôvod:
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation>Sťahovanie %1%…</translation>
+        <translation type="vanished">Sťahovanie %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud pre Vás pripravuje aktuálne dáta. Môže to chvíľu trvať, počkajte prosím.</translation>
+        <translation type="vanished">QFieldCloud pre Vás pripravuje aktuálne dáta. Môže to chvíľu trvať, počkajte prosím.</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2145,6 +2145,22 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2311,11 +2327,11 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation>Sťahovanie, %1% hotovo…</translation>
+        <translation type="vanished">Sťahovanie, %1% hotovo…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud pre Vás pripravuje aktuálne dáta. Môže to chvíľu trvať, počkajte prosím.</translation>
+        <translation type="vanished">QFieldCloud pre Vás pripravuje aktuálne dáta. Môže to chvíľu trvať, počkajte prosím.</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2387,6 +2403,22 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>, updated data available on the cloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
 </context>
