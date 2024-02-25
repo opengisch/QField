@@ -1,5 +1,5 @@
-set(QGIS_REF ef1d7a1104e5d574e3ba4949feab2a350e1c4d2e)
-set(QGIS_SHA512 fa70b54d0e319333dd0576798adf74c107969ff93a6658d34af16d169933fcce74e55ea1bade9f52fe3ad541b5b57372b608d2212e2ba455f200803fdbe53420)
+set(QGIS_REF final-3_36_0)
+set(QGIS_SHA512 9617d049bd41a58d179fdccff0576727e03dba84bfe23c233f98ffa621575d80c772200f82aa0d75c6ad9e7d7f7d4d4ef4182a03cd6f58a6970307bd2aeb1d93)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -15,6 +15,7 @@ vcpkg_from_github(
         bigobj.patch
         mesh.patch
         wrongattributeerrormessage.patch
+        sts.patch # Obsolete in QGIS >= 3.36.1
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
@@ -28,6 +29,7 @@ vcpkg_find_acquire_program(BISON)
 
 list(APPEND QGIS_OPTIONS "-DENABLE_TESTS:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_QTWEBKIT:BOOL=OFF")
+list(APPEND QGIS_OPTIONS "-DWITH_QTPRINTER:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_GRASS7:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_SPATIALITE:BOOL=ON")
 list(APPEND QGIS_OPTIONS "-DWITH_QSPATIALITE:BOOL=OFF")
