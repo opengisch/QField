@@ -3372,8 +3372,8 @@ ApplicationWindow {
     property bool hasInsertRights: true
     property bool hasEditRights: true
 
-    property bool insertRights: hasInsertRights && (cloudProjectsModel.currentProjectId == '' || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle)
-    property bool editRights: hasEditRights && (cloudProjectsModel.currentProjectId == '' || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle)
+    property bool insertRights: hasInsertRights
+    property bool editRights: hasEditRights
   }
 
   BusyIndicator {
