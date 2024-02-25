@@ -412,6 +412,59 @@ Popup {
             onClicked: projectUpload(false)
           }
 
+          Text {
+            id: pushText
+            font: Theme.tipFont
+            color: Theme.secondaryTextColor
+            visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
+            text: qsTr('Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.')
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            Layout.bottomMargin: 20
+            Layout.fillWidth: true
+          }
+
+          QfButton {
+            id: discardButton
+            Layout.fillWidth: true
+            bgcolor: Theme.darkRed
+            text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
+                  ? qsTr('Revert local changes')
+                  : qsTr('Reset project')
+            enabled: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 || cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
+            icon.source: Theme.getThemeVectorIcon('ic_undo_black_24dp')
+
+            onClicked: {
+              if (!cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
+                revertDialog.open();
+              } else {
+                resetDialog.open();
+              }
+            }
+          }
+
+          Text {
+            id: discardText
+            font: Theme.tipFont
+            color: Theme.secondaryTextColor
+            text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
+                  ? qsTr('Revert all modified features in the local layers. You cannot restore those changes.')
+                  : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.\n\nWhile you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.')
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            Layout.bottomMargin: 10
+            Layout.fillWidth: true
+          }
+
+          Rectangle {
+            color: Theme.controlBorderColor
+            height: 1
+            Layout.fillWidth: true
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            Layout.bottomMargin: 5
+          }
+
           RowLayout {
             Layout.leftMargin: 10
             Layout.rightMargin: 10
@@ -471,59 +524,6 @@ Popup {
                 }
               }
             }
-          }
-
-          Text {
-            id: pushText
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
-            visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            text: qsTr('Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.')
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-            Layout.bottomMargin: 20
-            Layout.fillWidth: true
-          }
-
-          QfButton {
-            id: discardButton
-            Layout.fillWidth: true
-            bgcolor: Theme.darkRed
-            text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-                  ? qsTr('Revert local changes')
-                  : qsTr('Reset project')
-            enabled: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 || cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            icon.source: Theme.getThemeVectorIcon('ic_undo_black_24dp')
-
-            onClicked: {
-              if (!cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
-                revertDialog.open();
-              } else {
-                resetDialog.open();
-              }
-            }
-          }
-
-          Text {
-            id: discardText
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
-            text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-                  ? qsTr('Revert all modified features in the local layers. You cannot restore those changes.')
-                  : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.\n\nWhile you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.')
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-            Layout.bottomMargin: 10
-            Layout.fillWidth: true
-          }
-
-          Rectangle {
-            color: Theme.controlBorderColor
-            height: 1
-            Layout.fillWidth: true
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
-            Layout.bottomMargin: 5
           }
 
           Text {
