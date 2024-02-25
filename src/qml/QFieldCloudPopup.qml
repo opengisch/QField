@@ -30,7 +30,6 @@ Popup {
       onFinished: {
         if (connectionSettings.visible) {
           connectionSettings.visible = false;
-          projects.visible = true;
         } else {
           popup.close()
         }
@@ -642,7 +641,6 @@ Popup {
   function projectUpload(shouldDownloadUpdates) {
     if (cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) {
       cloudProjectsModel.projectUpload(cloudProjectsModel.currentProjectId, shouldDownloadUpdates)
-      return
     }
   }
 
@@ -652,8 +650,6 @@ Popup {
         displayToast(qsTr('Local changes reverted'))
       else
         displayToast(qsTr('Failed to revert changes'), 'error')
-
-      return
     }
 
     displayToast(qsTr('No changes to revert'))
