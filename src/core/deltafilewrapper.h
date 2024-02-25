@@ -36,6 +36,7 @@ class DeltaFileWrapper : public QObject
     Q_OBJECT
 
     Q_PROPERTY( int count READ count NOTIFY countChanged )
+    Q_PROPERTY( bool isPushing READ isPushing NOTIFY isPushingChanged )
 
   public:
     /**
@@ -321,6 +322,10 @@ class DeltaFileWrapper : public QObject
      */
     Q_INVOKABLE bool applyReversed();
 
+    bool isPushing() const { return mIsPushing; }
+
+    void setIsPushing( bool isPushing );
+
   signals:
     /**
      * Emitted when the `deltas` list has changed.
@@ -328,6 +333,9 @@ class DeltaFileWrapper : public QObject
      * @todo TEST
      */
     void countChanged();
+
+
+    void isPushingChanged();
 
 
     /**
@@ -395,7 +403,7 @@ class DeltaFileWrapper : public QObject
     /**
      * The list of pending JSON deltas.
      */
-    QJsonArray mPendingDeltas;
+    QList<QJsonObject> mPendingDeltas;
 
     /**
      * The root deltas JSON object.
@@ -432,6 +440,8 @@ class DeltaFileWrapper : public QObject
      */
     bool mIsDirty = false;
 
+
+    bool mIsPushing = false;
 
     /**
      * Whether the delta file is currently being applied.

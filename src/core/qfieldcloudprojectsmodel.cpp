@@ -1278,6 +1278,8 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
     return;
   }
 
+  deltaFileWrapper->setIsPushing( true );
+
   project->status = ProjectStatus::Uploading;
   project->deltaFileId = deltaFileWrapper->id();
   project->deltaFileUploadStatus = DeltaLocalStatus;
@@ -1324,6 +1326,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
 
   if ( deltaFileToUpload.isEmpty() )
   {
+    deltaFileWrapper->setIsPushing( false );
     project->status = ProjectStatus::Idle;
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
     return;
@@ -1358,13 +1361,15 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
       // TODO check why exactly we failed
       // maybe the project does not exist, then create it?
       QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), project->deltaFileUploadStatusString ) );
+
+      mLayerObserver->deltaFileWrapper()->setIsPushing( false );
+
       projectCancelUpload( projectId );
       return;
     }
 
     project->uploadDeltaProgress = 1;
     project->deltaFileUploadStatus = DeltaPendingStatus;
-
     project->deltaLayersToDownload = mLayerObserver->deltaFileWrapper()->deltaLayerIds();
 
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaProgressRole << UploadDeltaStatusRole );
@@ -1394,6 +1399,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
       DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
       deltaFileWrapper->reset();
       deltaFileWrapper->resetId();
+      deltaFileWrapper->setIsPushing( false );
 
       if ( !deltaFileWrapper->toFile() )
         QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
@@ -1430,6 +1436,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
       case DeltaErrorStatus:
         delete networkDeltaStatusCheckedParent;
         deltaFileWrapper->resetId();
+        deltaFileWrapper->setIsPushing( false );
 
         if ( !deltaFileWrapper->toFile() )
           QgsMessageLog::logMessage( QStringLiteral( "Failed update committed delta file." ) );
@@ -1443,6 +1450,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
 
         deltaFileWrapper->reset();
         deltaFileWrapper->resetId();
+        deltaFileWrapper->setIsPushing( false );
 
         if ( !deltaFileWrapper->toFile() )
           QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( deltaFileWrapper->errorString() ) );

@@ -942,6 +942,24 @@ void DeltaFileWrapper::mergeDelta( const QJsonObject &delta )
   }
 }
 
+void DeltaFileWrapper::setIsPushing( bool isPushing )
+{
+  if ( mIsPushing == isPushing )
+    return;
+
+  mIsPushing = isPushing;
+  emit isPushingChanged();
+
+  if ( !mIsPushing && !mPendingDeltas.isEmpty() )
+  {
+    for ( const QJsonObject delta : std::as_const( mPendingDeltas ) )
+    {
+      mergeDelta( delta );
+    }
+    mPendingDeltas.clear();
+  }
+}
+
 QJsonValue DeltaFileWrapper::geometryToJsonValue( const QgsGeometry &geom ) const
 {
   if ( geom.isNull() )
