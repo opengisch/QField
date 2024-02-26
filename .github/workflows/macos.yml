@@ -129,6 +129,7 @@ jobs:
 
       - name: 📦 Package
         run: |
+          echo "Killing XProtect..."; sudo pkill -9 XProtect >/dev/null || true; # see https://github.com/actions/runner-images/issues/7522
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.triplet }}.dmg" >> $GITHUB_ENV
