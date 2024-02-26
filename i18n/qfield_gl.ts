@@ -2150,15 +2150,19 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Descargando, %1% de %2 actualizado</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Descargando, %1% actualizado</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Chegando a QFieldCloud para descargar o proxecto</translation>
+    </message>
+    <message numerus="yes">
+        <source>Automatically push changes every %n minute(s)</source>
+        <translation><numerusform>Enviar automaticamente os cambios cada %n minuto</numerusform><numerusform>Enviar automaticamente os cambios cada %n minuto(s)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -2408,15 +2412,15 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Descargando, %1% de %2 actualizado</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Descargando, %1% actualizado</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Chegando a QFieldCloud para descargar o proxecto</translation>
     </message>
 </context>
 <context>

@@ -2160,6 +2160,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
+    <message numerus="yes">
+        <source>Automatically push changes every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
