@@ -279,6 +279,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Toggles the cloud project auto-push enabled state
     Q_INVOKABLE void projectSetAutoPushEnabled( const QString &projectId, bool enabled );
 
+    //! Sets the interval in \a minutes between which the project will auto-push changes
+    Q_INVOKABLE void projectSetAutoPushIntervalMins( const QString &projectId, int minutes );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();

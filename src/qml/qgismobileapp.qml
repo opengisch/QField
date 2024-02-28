@@ -3377,7 +3377,7 @@ ApplicationWindow {
 
       recentProjectListModel.reloadModel()
 
-      var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
+      const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
       cloudProjectsModel.currentProjectId = cloudProjectId
       cloudProjectsModel.refreshProjectModification(cloudProjectId)
       if (cloudProjectId !== '') {
@@ -3411,6 +3411,8 @@ ApplicationWindow {
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
           cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
         }
+
+        cloudPopup.applyAutoPushProjectSettings();
       } else {
         projectInfo.hasInsertRights = true
         projectInfo.hasEditRights = true

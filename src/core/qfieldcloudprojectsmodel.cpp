@@ -1961,9 +1961,22 @@ void QFieldCloudProjectsModel::projectSetAutoPushEnabled( const QString &project
   if ( projectIndex.isValid() )
   {
     CloudProject *project = mProjects[projectIndex.row()];
-    project->autoPushEnabled = !project->autoPushEnabled;
+    project->autoPushEnabled = enabled;
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "autoPushEnabled" ), project->autoPushEnabled );
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << AutoPushEnabledRole );
+  }
+}
+
+void QFieldCloudProjectsModel::projectSetAutoPushIntervalMins( const QString &projectId, int minutes )
+{
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+
+  if ( projectIndex.isValid() )
+  {
+    CloudProject *project = mProjects[projectIndex.row()];
+    project->autoPushIntervalMins = minutes;
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "autoPushIntervalMins" ), project->autoPushIntervalMins );
+    emit dataChanged( projectIndex, projectIndex, QVector<int>() << AutoPushIntervalMinsRole );
   }
 }
 

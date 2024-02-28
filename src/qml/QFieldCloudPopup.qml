@@ -476,13 +476,19 @@ Popup {
               bottomPadding: 10
               font: Theme.tipFont
               wrapMode: Text.WordWrap
-              color: autoPush.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+              color: autoPush.checked || autoPush.forceAutoPush ? Theme.mainTextColor : Theme.secondaryTextColor
 
               text:  qsTr('Automatically push changes every %n minute(s)','',0 + cloudProjectsModel.currentProjectData.AutoPushIntervalMins)
 
               MouseArea {
                 anchors.fill: parent
-                onClicked: cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, !autoPush.checked)
+                onClicked: {
+                  if (autoPush.forceAutoPush) {
+                    displayToast(qsTr('The current project does not allow for auto-push to be turned off'))
+                  } else {
+                    cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, !autoPush.checked)
+                  }
+                }
               }
             }
 
@@ -493,7 +499,9 @@ Popup {
               width: implicitContentWidth
               small: true
 
+              property bool forceAutoPush: false
               checked: !!cloudProjectsModel.currentProjectData.AutoPushEnabled
+
               onClicked:  {
                 cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, checked)
               }
@@ -720,5 +728,21 @@ Popup {
   function resetCurrentProject() {
     cloudProjectsModel.discardLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId)
     cloudProjectsModel.downloadProject(cloudProjectsModel.currentProjectId, true)
+  }
+
+  function applyAutoPushProjectSettings() {
+    if (cloudProjectsModel.currentProjectId !== '') {
+      const forceAutoPush = iface.readProjectBoolEntry("qfieldsync", "forceAutoPush", false)
+      if (forceAutoPush) {
+        autoPush.forceAutoPush = true
+        autoPush.enabled = false
+        const forceAutoPushIntervalMins = iface.readProjectNumEntry("qfieldsync", "forceAutoPushIntervalMins", 30)
+        cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, true)
+        cloudProjectsModel.projectSetAutoPushIntervalMins(cloudProjectsModel.currentProjectId, forceAutoPushIntervalMins)
+      } else {
+        autoPush.forceAutoPush = false
+        autoPush.enabled = true
+      }
+    }
   }
 }
