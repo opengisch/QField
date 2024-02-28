@@ -49,6 +49,7 @@ class AppInterface : public QObject
     Q_INVOKABLE QString readProjectEntry( const QString &scope, const QString &key, const QString &def = QString() ) const;
     Q_INVOKABLE int readProjectNumEntry( const QString &scope, const QString &key, int def = 0 ) const;
     Q_INVOKABLE double readProjectDoubleEntry( const QString &scope, const QString &key, double def = 0.0 ) const;
+    Q_INVOKABLE bool readProjectBoolEntry( const QString &scope, const QString &key, bool def = false ) const;
 
     Q_INVOKABLE bool print( const QString &layoutName );
     Q_INVOKABLE bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );

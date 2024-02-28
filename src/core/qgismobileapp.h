@@ -138,6 +138,8 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      */
     double readProjectDoubleEntry( const QString &scope, const QString &key, double def = 0.0 ) const;
 
+    bool readProjectBoolEntry( const QString &scope, const QString &key, bool def = false ) const;
+
     /**
      * Prints a given layout from the currently opened project to a PDF file
      * \param layoutName the layout name that will be printed
