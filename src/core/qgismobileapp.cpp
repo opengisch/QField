@@ -1194,6 +1194,14 @@ double QgisMobileapp::readProjectDoubleEntry( const QString &scope, const QStrin
   return mProject->readDoubleEntry( scope, key, def );
 }
 
+bool QgisMobileapp::readProjectBoolEntry( const QString &scope, const QString &key, bool def ) const
+{
+  if ( !mProject )
+    return def;
+
+  return mProject->readBoolEntry( scope, key, def );
+}
+
 bool QgisMobileapp::print( const QString &layoutName )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();

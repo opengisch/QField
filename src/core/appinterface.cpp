@@ -96,6 +96,11 @@ double AppInterface::readProjectDoubleEntry( const QString &scope, const QString
   return mApp->readProjectDoubleEntry( scope, key, def );
 }
 
+bool AppInterface::readProjectBoolEntry( const QString &scope, const QString &key, bool def ) const
+{
+  return mApp->readProjectBoolEntry( scope, key, def );
+}
+
 bool AppInterface::print( const QString &layoutName )
 {
   return mApp->print( layoutName );
