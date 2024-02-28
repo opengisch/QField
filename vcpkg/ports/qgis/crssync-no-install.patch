@@ -1,0 +1,12 @@
+diff --git a/src/crssync/CMakeLists.txt b/src/crssync/CMakeLists.txt
+index 278272161a9..d29045fae55 100644
+--- a/src/crssync/CMakeLists.txt
++++ b/src/crssync/CMakeLists.txt
+@@ -26,7 +26,4 @@ else ()
+     )
+   endif()
+ 
+-  install(CODE "message(\"Installing crssync ...\")")
+-  install(TARGETS crssync RUNTIME DESTINATION ${QGIS_LIBEXEC_DIR})
+-
+ endif()

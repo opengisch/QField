@@ -9,6 +9,6 @@ set(STATIC_PORTS
     libb2
     freeglut
     qca # OSSL plugin not discovered unless static
-    qgis-qt6
+    qgis
     ffmpeg
 )

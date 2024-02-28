@@ -11,11 +11,11 @@ vcpkg_from_github(
         qgspython.patch # Make qgis support python's debug library
         libxml2.patch
         exiv2.patch
-        crssync.patch
         bigobj.patch
         mesh.patch
         wrongattributeerrormessage.patch
         sts.patch # Obsolete in QGIS >= 3.36.1
+        crssync-no-install.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
@@ -137,9 +137,6 @@ if(VCPKG_TARGET_IS_WINDOWS)
     FIND_LIB_OPTIONS(GDAL gdal gdald LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(POSTGRES libpq libpq LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QCA qca qcad LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-    if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
-      FIND_LIB_OPTIONS(ZSTD zstd_static zstd_staticd LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-    endif()
     if("server" IN_LIST FEATURES)
         FIND_LIB_OPTIONS(FCGI libfcgi libfcgi LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
@@ -223,6 +220,11 @@ if(VCPKG_TARGET_IS_WINDOWS)
     copy_path(plugins tools)
     copy_path(resources share)
     copy_path(svg share)
+endif()
+
+# crssync only runs when building natively. If we are cross-compiling, copy the srs.cb from the host installation.
+if(NOT HOST_TRIPLET STREQUAL TARGET_TRIPLET)
+  file(COPY "${CURRENT_HOST_INSTALLED_DIR}/share/qgis/resources/srs.db" DESTINATION "${CURRENT_PACKAGES_DIR}/share/qgis/resources")
 endif()
 
 file(GLOB QGIS_CMAKE_PATH ${CURRENT_PACKAGES_DIR}/*.cmake)
