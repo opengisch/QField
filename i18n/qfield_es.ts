@@ -2146,23 +2146,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empaqueta los datos más recientes solo para usted; Esto puede llevar algún tiempo, por favor espere</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Descargando, %1% de %2 obtenido</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Descargando, %1% obtenido</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Emviar cambios automáticamente cada %n minuto(s)</numerusform><numerusform>Enviar cambios automáticamente cada %n minuto(s)</numerusform><numerusform>Enviar automáticamente los cambios cada %n minuto(s)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -2408,19 +2408,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empaqueta los datos más recientes solo para usted; Esto puede llevar algún tiempo, por favor espere</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Descargando, %1% de %2 obtenido</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Descargando, %1% obtenido</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
     </message>
 </context>
 <context>

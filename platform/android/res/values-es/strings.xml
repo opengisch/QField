@@ -62,4 +62,5 @@
     <string name="operation_unsupported">Operación no soportada</string>
     <string name="import_operation_unsupported">Su dispositivo no soporta esta operación de importación</string>
     <string name="export_operation_unsupported">Su dispositivo no soporta esta operación de exportación</string>
-    </resources>
+    <string name="processing_message">Procesando...</string>
+</resources>
