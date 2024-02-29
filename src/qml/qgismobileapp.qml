@@ -3411,8 +3411,6 @@ ApplicationWindow {
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
           cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
         }
-
-        cloudPopup.applyAutoPushProjectSettings();
       } else {
         projectInfo.hasInsertRights = true
         projectInfo.hasEditRights = true

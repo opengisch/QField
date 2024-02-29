@@ -68,6 +68,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       UserRoleRole,
       UserRoleOriginRole,
       DeltaListRole,
+      ForceAutoPushRole,
       AutoPushEnabledRole,
       AutoPushIntervalMinsRole,
     };
@@ -276,6 +277,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Cancels ongoing cloud project download with \a projectId.
     Q_INVOKABLE void projectCancelDownload( const QString &projectId );
 
+    //! Forces the cloud project auto-push enabled state to be TRUE
+    Q_INVOKABLE void projectSetForceAutoPush( const QString &projectId, bool force );
+
     //! Toggles the cloud project auto-push enabled state
     Q_INVOKABLE void projectSetAutoPushEnabled( const QString &projectId, bool enabled );
 
@@ -437,6 +441,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QDateTime lastLocalDataLastUpdatedAt;
         QDateTime lastRefreshedAt;
 
+        bool forceAutoPush = false;
         bool autoPushEnabled = false;
         int autoPushIntervalMins = 30;
 

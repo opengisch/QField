@@ -159,6 +159,21 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
 
   mCurrentProjectId = currentProjectId;
 
+  if ( mCurrentProjectId != QString() )
+  {
+    const bool forceAutoPush = mProject->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPush" ), false );
+    if ( forceAutoPush )
+    {
+      projectSetForceAutoPush( mCurrentProjectId, true );
+      projectSetAutoPushEnabled( mCurrentProjectId, true );
+      projectSetAutoPushIntervalMins( mCurrentProjectId, mProject->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ) ) );
+    }
+    else
+    {
+      projectSetForceAutoPush( mCurrentProjectId, false );
+    }
+  }
+
   emit currentProjectIdChanged();
   emit currentProjectDataChanged();
 }
@@ -1948,10 +1963,23 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[UserRoleRole] = "UserRole";
   roles[UserRoleOriginRole] = "UserRoleOrigin";
   roles[DeltaListRole] = "DeltaList";
+  roles[ForceAutoPushRole] = "ForceAutoPush";
   roles[AutoPushEnabledRole] = "AutoPushEnabled";
   roles[AutoPushIntervalMinsRole] = "AutoPushIntervalMins";
 
   return roles;
+}
+
+void QFieldCloudProjectsModel::projectSetForceAutoPush( const QString &projectId, bool force )
+{
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+
+  if ( projectIndex.isValid() )
+  {
+    CloudProject *project = mProjects[projectIndex.row()];
+    project->forceAutoPush = force;
+    emit dataChanged( projectIndex, projectIndex, QVector<int>() << ForceAutoPushRole );
+  }
 }
 
 void QFieldCloudProjectsModel::projectSetAutoPushEnabled( const QString &projectId, bool enabled )
@@ -2174,6 +2202,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mProjects.at( index.row() )->userRoleOrigin;
     case DeltaListRole:
       return QVariant::fromValue<DeltaListModel *>( mProjects.at( index.row() )->deltaListModel );
+    case ForceAutoPushRole:
+      return mProjects.at( index.row() )->forceAutoPush;
     case AutoPushEnabledRole:
       return mProjects.at( index.row() )->autoPushEnabled;
     case AutoPushIntervalMinsRole:
