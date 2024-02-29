@@ -138,6 +138,15 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      */
     double readProjectDoubleEntry( const QString &scope, const QString &key, double def = 0.0 ) const;
 
+    /**
+     * Reads a boolean from the specified \a scope and \a key from the currently opened project
+     *
+     * \param scope entry scope (group) name
+     * \param key entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values
+     * \param def default value to return if the specified \a key does not exist within the \a scope
+     *
+     * \returns entry value as boolean from \a scope given its \a key
+     */
     bool readProjectBoolEntry( const QString &scope, const QString &key, bool def = false ) const;
 
     /**
