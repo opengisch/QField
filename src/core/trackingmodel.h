@@ -77,8 +77,13 @@ class TrackingModel : public QAbstractItemModel
 
     void reset();
 
+    Q_INVOKABLE void requestTrackingSettings( QgsVectorLayer *layer, bool skipSettings = false );
+
   signals:
+
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
+
+    void trackingSettingsRequested( QModelIndex trackerIndex, bool skipSettings );
 
   private:
     QList<Tracker *> mTrackers;
