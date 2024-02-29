@@ -264,6 +264,7 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
         const bool sensorDataRequirementActive = layer->customProperty( "QFieldSync/tracking_sensor_data_requirement_active", false ).toBool();
         const bool allRequirementsActive = layer->customProperty( "QFieldSync/tracking_all_requirements_active", false ).toBool();
         const bool erroneousDistanceSafeguardActive = layer->customProperty( "QFieldSync/tracking_erroneous_distance_safeguard_active", false ).toBool();
+        const bool erroneousDistanceSafeguardMaximumMeters = layer->customProperty( "QFieldSync/tracking_erroneous_distance_safeguard_maximum_meters", 250 ).toInt();
         const int measurementType = layer->customProperty( "QFieldSync/tracking_measurement_type", false ).toInt();
 
         Tracker *tracker = new Tracker( vl );
@@ -271,6 +272,7 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
         tracker->setMinimumDistance( distanceRequirementActive ? distanceRequirementMinimumMeters : 0 );
         tracker->setSensorCapture( sensorDataRequirementActive );
         tracker->setConjunction( allRequirementsActive );
+        tracker->setMaximumDistance( erroneousDistanceSafeguardActive ? erroneousDistanceSafeguardMaximumMeters : 0 );
         tracker->setMeasureType( static_cast<Tracker::MeasureType>( measurementType ) );
 
         QgsExpressionContext context = vl->createExpressionContext();

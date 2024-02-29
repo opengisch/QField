@@ -304,10 +304,6 @@ Popup {
               trackingModel.stopTracker(layer);
               displayToast(qsTr('Track on layer %1 stopped').arg(layer.name))
             } else {
-              if (!positionSource.active) {
-                positioningSettings.positioningActivated = true
-              }
-
               var tracker;
               var idx = projectInfo.restoreTracker(layer)
               if (idx.valid) {

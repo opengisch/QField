@@ -591,6 +591,15 @@ ApplicationWindow {
         id: trackings
         model: trackingModel
 
+        onCountChanged: {
+          if (count > 0) {
+            // Start positioning if not yet active
+            if (!positionSource.active) {
+              positioningSettings.positioningActivated = true
+            }
+          }
+        }
+
         TrackingSession {}
     }
 
