@@ -75,6 +75,8 @@ class TrackingModel : public QAbstractItemModel
 
     void reset();
 
+    Q_INVOKABLE void createProjectTrackers( QgsProject *project );
+
   signals:
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
 
