@@ -56,6 +56,8 @@ class TrackingModel : public QAbstractItemModel
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
     virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
+    //! Creates tracking sessions defined in a project being opened
+    Q_INVOKABLE void createProjectTrackers( QgsProject *project );
     //! Creates a tracking session for the provided vector \a layer.
     Q_INVOKABLE QModelIndex createTracker( QgsVectorLayer *layer );
     //! Starts tracking for the provided vector \a layer provided it has a tracking session created.
@@ -74,8 +76,6 @@ class TrackingModel : public QAbstractItemModel
     Tracker *trackerForLayer( QgsVectorLayer *layer );
 
     void reset();
-
-    Q_INVOKABLE void createProjectTrackers( QgsProject *project );
 
   signals:
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
