@@ -139,7 +139,6 @@
           "name": "qtbase",
           "default-features": false,
           "features": [
-            "egl",
             "fontconfig",
             "xcb",
             "xcb-xlib",
