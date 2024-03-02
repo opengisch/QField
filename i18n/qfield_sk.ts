@@ -2167,6 +2167,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>Automatically push changes every %n minute(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
+    <message>
+        <source>The current project does not allow for auto-push to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

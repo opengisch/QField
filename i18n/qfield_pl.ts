@@ -2159,6 +2159,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Automatically push changes every %n minute(s)</source>
         <translation><numerusform>Automatycznie wysyłaj zmiany co %n minutę</numerusform><numerusform>Automatycznie wysyłaj zmiany co %n minuty</numerusform><numerusform>Automatycznie wysyłaj zmiany co %n minut</numerusform><numerusform>Automatycznie wysyłaj zmiany co %n minut(y)</numerusform></translation>
     </message>
+    <message>
+        <source>The current project does not allow for auto-push to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

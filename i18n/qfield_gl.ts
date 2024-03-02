@@ -2164,6 +2164,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Automatically push changes every %n minute(s)</source>
         <translation><numerusform>Enviar automaticamente os cambios cada %n minuto</numerusform><numerusform>Enviar automaticamente os cambios cada %n minuto(s)</numerusform></translation>
     </message>
+    <message>
+        <source>The current project does not allow for auto-push to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

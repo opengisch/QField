@@ -2196,6 +2196,10 @@ While you can still view and use the project, it is strongly recommended to rese
             <numerusform></numerusform>
         </translation>
     </message>
+    <message>
+        <source>The current project does not allow for auto-push to be turned off</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

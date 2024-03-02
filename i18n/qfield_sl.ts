@@ -581,11 +581,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>Geometrije ni bilo mogoče spremeniti v več delov</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>Geometrije ni bilo mogoče spremeniti</translation>
     </message>
 </context>
 <context>
@@ -930,7 +930,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Orodje za brisanje</translation>
     </message>
 </context>
 <context>
@@ -1861,7 +1861,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Loading…</source>
-        <translation type="unfinished"/>
+        <translation>Nalagam ...</translation>
     </message>
 </context>
 <context>
@@ -2150,6 +2150,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-push to be turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
