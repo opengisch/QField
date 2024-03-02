@@ -61,10 +61,6 @@
     "icu",
     "jpeg",
     "network",
-    {
-      "name": "opengl",
-      "platform": "!ios"
-    },
     "openssl",
     "pcre2",
     "png",
@@ -151,6 +147,14 @@
             "gles2"
           ],
           "platform": "android"
+        },
+        {
+          "name": "qtbase",
+          "default-features": false,
+          "features": [
+            "opengl"
+          ],
+          "platform": "!ios"
         }
       ]
     },
@@ -162,7 +166,7 @@
     },
     "egl": {
       "description": "EGL",
-      "supports": "linux",
+      "supports": "linux | android",
       "dependencies": [
         "egl"
       ]
