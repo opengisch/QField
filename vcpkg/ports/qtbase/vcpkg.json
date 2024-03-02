@@ -65,10 +65,7 @@
       "name": "opengl",
       "platform": "!ios"
     },
-    {
-      "name": "openssl",
-      "platform": "!ios"
-    },
+    "openssl",
     "pcre2",
     "png",
     {
