@@ -55,6 +55,7 @@ jobs:
         run: |
             sudo apt install -y \
               shellcheck
+            . <(curl https://aka.ms/vcpkg-init.sh -L)
 
       - name: Run pre-commit hooks
         uses: pre-commit/action@v3.0.1

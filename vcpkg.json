@@ -21,22 +21,21 @@
     "nu-book-zxing-cpp",
     {
       "name": "qca",
-      "default-features": false,
-      "features":
-      [
-          "ossl"
-      ]
+      "host": true,
+      "default-features": false
     },
     {
       "name": "qca",
       "default-features": false,
-      "host": true
+      "features": [
+        "ossl"
+      ]
     },
     "qgis",
     {
       "name": "qgis",
-      "default-features": false,
-      "host": true
+      "host": true,
+      "default-features": false
     },
     {
       "name": "qtbase",
