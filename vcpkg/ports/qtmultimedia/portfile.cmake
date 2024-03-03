@@ -6,9 +6,6 @@ set(${PORT}_PATCHES
                     remove_export_macro.patch
                     static_find_modules.patch
                     fix_avfoundation_target.patch
-                    fix_camera_android.patch
-                    fix_camera_leak_android.patch
-                    fix_camera_thread_android.patch
 )
 
 #Maybe TODO: ALSA + PulseAudio? (Missing Ports) -> check ALSA since it was added

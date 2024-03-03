@@ -32,7 +32,7 @@
       "protobuf",
       "proj",
       "geos",
-      "poly2tri",
+      "jhasse-poly2tri",
       {
         "name": "libtasn1",
         "platform": "ios | osx"
@@ -54,6 +54,10 @@
                     "name":"openssl",
                     "platform": "!ios"
                 },
+                {
+                    "name":"securetransport",
+                    "platform": "ios"
+                },                    
                 "pcre2",
                 "png",
                 "sql",

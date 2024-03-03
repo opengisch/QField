@@ -1,0 +1,12 @@
+diff --git a/src/providers/wfs/qgsbasenetworkrequest.h b/src/providers/wfs/qgsbasenetworkrequest.h
+index dd33441e5b6..e9b28c49216 100644
+--- a/src/providers/wfs/qgsbasenetworkrequest.h
++++ b/src/providers/wfs/qgsbasenetworkrequest.h
+@@ -22,6 +22,7 @@
+ #include <QNetworkReply>
+ #include <QUrl>
+ #include <QAuthenticator>
++#include <QThread>
+ 
+ #include "qgsauthorizationsettings.h"
+ 

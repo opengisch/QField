@@ -9,6 +9,7 @@ set(QT_IS_LATEST ON)
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/qt_install_submodule.cmake")
 
 set(${PORT}_PATCHES
+
         allow_outside_prefix.patch
         config_install.patch
         fix_cmake_build.patch
@@ -39,7 +40,7 @@ if(VCPKG_TARGET_IS_LINUX)
     message(WARNING "qtbase currently requires packages from the system package manager. "
     "They can be installed on Ubuntu systems via sudo apt-get install " 
     "'^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev "
-    "libxkbcommon-x11-dev.")
+    "libxkbcommon-x11-dev libegl1-mesa-dev.")
 endif()
 
 # Features can be found via searching for qt_feature in all configure.cmake files in the source:
@@ -130,6 +131,7 @@ list(APPEND FEATURE_CORE_OPTIONS -DCMAKE_DISABLE_FIND_PACKAGE_Slog2:BOOL=ON)
  FEATURES
     "openssl"             FEATURE_openssl
     "brotli"              FEATURE_brotli
+    "securetransport"     FEATURE_securetransport
     #"brotli"              CMAKE_REQUIRE_FIND_PACKAGE_WrapBrotli
     #"openssl"             CMAKE_REQUIRE_FIND_PACKAGE_WrapOpenSSL
  INVERTED_FEATURES
@@ -141,10 +143,6 @@ if("openssl" IN_LIST FEATURES)
     list(APPEND FEATURE_NET_OPTIONS -DINPUT_openssl=linked)
 else()
     list(APPEND FEATURE_NET_OPTIONS -DINPUT_openssl=no)
-endif()
-
-if(VCPKG_TARGET_IS_IOS)
-    list(APPEND FEATURE_NET_OPTIONS -DFEATURE_securetransport=ON)
 endif()
 
 list(APPEND FEATURE_NET_OPTIONS -DCMAKE_DISABLE_FIND_PACKAGE_Libproxy:BOOL=ON)
@@ -168,6 +166,7 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_GUI_OPTIONS
     "xrender"             FEATURE_xrender # requires FEATURE_xcb_native_painting; otherwise disabled. 
     "xrender"             FEATURE_xcb_native_painting # experimental
     "gles2"               FEATURE_opengles2
+    "gles3"               FEATURE_opengles3
     #Cannot be required since Qt will look in CONFIG mode first but is controlled via CMAKE_DISABLE_FIND_PACKAGE_Vulkan below
     #"vulkan"              CMAKE_REQUIRE_FIND_PACKAGE_WrapVulkanHeaders 
     "egl"                 FEATURE_egl
@@ -186,6 +185,7 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_GUI_OPTIONS
     "opengl"              CMAKE_DISABLE_FIND_PACKAGE_WrapOpenGL
     "egl"                 CMAKE_DISABLE_FIND_PACKAGE_EGL
     "gles2"               CMAKE_DISABLE_FIND_PACKAGE_GLESv2
+    "gles3"               CMAKE_DISABLE_FIND_PACKAGE_GLESv3
     "fontconfig"          CMAKE_DISABLE_FIND_PACKAGE_Fontconfig
     #"freetype"            CMAKE_DISABLE_FIND_PACKAGE_WrapSystemFreetype # Bug in qt cannot be deactivated
     "harfbuzz"            CMAKE_DISABLE_FIND_PACKAGE_WrapSystemHarfbuzz
@@ -200,7 +200,7 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_GUI_OPTIONS
     # There are more X features but I am unsure how to safely disable them! Most of them seem to be found automaticall with find_package(X11)
      )
 
-if( "gles2" IN_LIST FEATURES)
+if("gles2" IN_LIST FEATURES)
     list(APPEND FEATURE_GUI_OPTIONS -DINPUT_opengl='es2')
     list(APPEND FEATURE_GUI_OPTIONS -DFEATURE_opengl_desktop=OFF)
 endif()
@@ -222,7 +222,7 @@ else()
     list(APPEND FEATURE_GUI_OPTIONS -DINPUT_xkbcommon=no)
 endif()
 
-# Disable GLES3
+# Disable OpenGL ES 3.1 and 3.2
 list(APPEND FEATURE_GUI_OPTIONS -DFEATURE_opengles3:BOOL=OFF)
 list(APPEND FEATURE_GUI_OPTIONS -DFEATURE_opengles31:BOOL=OFF)
 list(APPEND FEATURE_GUI_OPTIONS -DFEATURE_opengles32:BOOL=OFF)
@@ -260,20 +260,14 @@ endforeach()
 # printsupport features:
 # vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_PRINTSUPPORT_OPTIONS
     # )
+list(APPEND FEATURE_PRINTSUPPORT_OPTIONS -DCMAKE_DISABLE_FIND_PACKAGE_CUPS:BOOL=ON)
 
-if(VCPKG_TARGET_IS_LINUX)
-    list(APPEND FEATURE_PRINTSUPPORT_OPTIONS -DFEATURE_printsupport=ON)
-    list(APPEND FEATURE_PRINTSUPPORT_OPTIONS -DFEATURE_cups=ON)
-else()
-    list(APPEND FEATURE_PRINTSUPPORT_OPTIONS -DCMAKE_DISABLE_FIND_PACKAGE_CUPS:BOOL=ON)
-endif()
-
-# widgets features:
-# vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_WIDGETS_OPTIONS
-    # "gtk3"             FEATURE_gtk3
-    # There are a lot of additional features here to deactivate parts of widgets.
-    # )
-list(APPEND FEATURE_WIDGETS_OPTIONS -DCMAKE_DISABLE_FIND_PACKAGE_GTK3:BOOL=ON)
+vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_WIDGETS_OPTIONS
+    FEATURES
+    "gtk3"              FEATURE_gtk3
+    INVERTED_FEATURES
+    "gtk3"              CMAKE_DISABLE_FIND_PACKAGE_GTK3
+)
 
 set(TOOL_NAMES
         androiddeployqt
