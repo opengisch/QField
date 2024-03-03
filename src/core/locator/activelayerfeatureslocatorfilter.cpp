@@ -317,10 +317,10 @@ void ActiveLayerFeaturesLocatorFilter::triggerResult( const QgsLocatorResult &re
 
 void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
-#if _QGIS_VERSION_INT >= 33300
-  QVariantMap data = result.getUserData().toMap();
+#if _QGIS_VERSION_INT >= 33601
+  QVariantMap data = result.userData().toMap();
 #else
-  QVariantMap data = result.userData.toMap();
+  QVariantMap data = result.getUserData().toMap();
 #endif
   switch ( data.value( QStringLiteral( "type" ) ).value<ResultType>() )
   {
@@ -332,10 +332,10 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
 
     case ResultType::Feature:
     {
-#if _QGIS_VERSION_INT >= 33300
-      QVariantList dataList = result.getUserData().toList();
+#if _QGIS_VERSION_INT >= 33601
+      QVariantList dataList = result.userData().toList();
 #else
-      QVariantList dataList = result.userData.toList();
+      QVariantList dataList = result.getUserData().toList();
 #endif
       QgsFeatureId fid = dataList.at( 0 ).toLongLong();
       QString layerId = dataList.at( 1 ).toString();

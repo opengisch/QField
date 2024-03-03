@@ -68,10 +68,10 @@ void BookmarkLocatorFilter::triggerResult( const QgsLocatorResult &result )
 
 void BookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
 {
-#if _QGIS_VERSION_INT >= 33300
-  const int row = result.getUserData().toInt();
+#if _QGIS_VERSION_INT >= 33601
+  const int row = result.userData().toInt();
 #else
-  const int row = result.userData.toInt();
+  const int row = result.getUserData().toInt();
 #endif
 
   mLocatorBridge->bookmarks()->setExtentFromBookmark( mLocatorBridge->bookmarks()->index( row, 0 ) );

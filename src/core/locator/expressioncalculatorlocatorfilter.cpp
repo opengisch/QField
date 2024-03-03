@@ -76,10 +76,10 @@ void ExpressionCalculatorLocatorFilter::triggerResult( const QgsLocatorResult &r
 
 void ExpressionCalculatorLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
-#if _QGIS_VERSION_INT >= 33300
-  QString resultString = result.getUserData().toString();
+#if _QGIS_VERSION_INT >= 33601
+  QString resultString = result.userData().toString();
 #else
-  QString resultString = result.userData.toString();
+  QString resultString = result.getUserData().toString();
 #endif
 
   switch ( actionId )
