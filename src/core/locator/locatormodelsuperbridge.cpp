@@ -42,9 +42,9 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   locator()->registerFilter( new BookmarkLocatorFilter( this ) );
   locator()->registerFilter( new ExpressionCalculatorLocatorFilter( this ) );
 
-  // Finnish's Digitransit geocoder
-  mFinlandGeocoder = new PeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
-  locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
+  // Finnish's Digitransit geocoder (disabled until API access can be sorted)
+  //mFinlandGeocoder = new PeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
+  //locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
 }
 
 Navigation *LocatorModelSuperBridge::navigation() const
