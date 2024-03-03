@@ -1,4 +1,4 @@
-name: 🌍 Sync Translations
+name: 🧼 Clean S3
 on:
   schedule:
     - cron: "5 1 */7 * *"
