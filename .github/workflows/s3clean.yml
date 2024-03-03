@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: |
-          echo ${{ secrets.S3CMD_CFG }} > ~/.s3cfg
+          echo "${{ secrets.S3CMD_CFG }}" > ~/.s3cfg
           # Delete files older than 120 days
           s3cmd ls -r s3://qfieldapks/ | awk -v dys="120" 'BEGIN { depoch=(dys*86400);cepoch=(systime()-depoch) } { gsub("-"," ",$1);gsub(":"," ",$2 );if (mktime($1" "$2" 00")<=cepoch) { print "s3cmd del "$4 } }' | bash
