@@ -187,7 +187,7 @@ jobs:
           # This script will rename the artifact and move it to /tmp
           NAME=${{ matrix.artifact_name }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/upload_artifacts.sh
         env:
-          S3CFG: ${{ secrets.S3CFG }}
+          S3CFG: ${{ secrets.S3CMD_CFG }}
 
       - name: Upload release assets
         uses: AButler/upload-release-assets@v3.0
