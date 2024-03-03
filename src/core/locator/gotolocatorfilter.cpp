@@ -188,10 +188,10 @@ void GotoLocatorFilter::triggerResult( const QgsLocatorResult &result )
 
 void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
-#if _QGIS_VERSION_INT >= 33300
-  QVariantMap data = result.getUserData().toMap();
+#if _QGIS_VERSION_INT >= 33601
+  QVariantMap data = result.userData().toMap();
 #else
-  QVariantMap data = result.userData.toMap();
+  QVariantMap data = result.getUserData().toMap();
 #endif
   QgsGeometry geom( QgsGeometry::fromPointXY( data[QStringLiteral( "point" )].value<QgsPointXY>() ) );
 
