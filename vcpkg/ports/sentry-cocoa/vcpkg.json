@@ -2,7 +2,7 @@
   "name": "sentry-cocoa",
   "version-string": "current",
   "description": "Sentry SDK for ios",
-  "homepage": "https://qgis.org",
+  "homepage": "https://sentry.io/for/cocoa",
   "dependencies": [
     {
       "name": "vcpkg-cmake",
