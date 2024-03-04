@@ -56,6 +56,8 @@ class TrackingModel : public QAbstractItemModel
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
     virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
+    //! Creates tracking sessions defined in a project being opened
+    Q_INVOKABLE void createProjectTrackers( QgsProject *project );
     //! Creates a tracking session for the provided vector \a layer.
     Q_INVOKABLE QModelIndex createTracker( QgsVectorLayer *layer );
     //! Starts tracking for the provided vector \a layer provided it has a tracking session created.
@@ -75,8 +77,19 @@ class TrackingModel : public QAbstractItemModel
 
     void reset();
 
+    /**
+     * Forwards a tracking setup request to the user interface consisting of a settings panel followed by
+     * a feature form (unless suppressed by the project configuration).
+     * \a layer the vector layer associated with the tracking
+     * \a skipSettings set to TRUE if the settings panel should be omitted and only show the feature form
+     */
+    Q_INVOKABLE void requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings = false );
+
   signals:
+
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
+
+    void trackingSetupRequested( QModelIndex trackerIndex, bool skipSettings );
 
   private:
     QList<Tracker *> mTrackers;

@@ -17,6 +17,9 @@
 #include "rubberbandmodel.h"
 #include "trackingmodel.h"
 
+#include <qgsproject.h>
+#include <qgsvectorlayerutils.h>
+
 TrackingModel::TrackingModel( QObject *parent )
   : QAbstractItemModel( parent )
 {
@@ -238,5 +241,59 @@ void TrackingModel::setTrackerVisibility( QgsVectorLayer *layer, bool visible )
   {
     int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
     setData( index( listIndex, 0, QModelIndex() ), visible, Visible );
+  }
+}
+
+void TrackingModel::createProjectTrackers( QgsProject *project )
+{
+  if ( !project )
+    return;
+
+  const QList<QgsMapLayer *> layers = project->mapLayers().values();
+  for ( QgsMapLayer *layer : layers )
+  {
+    if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
+    {
+      const bool trackingSessionActive = layer->customProperty( "QFieldSync/tracking_session_active", false ).toBool();
+      if ( trackingSessionActive )
+      {
+        const bool timeRequirementActive = layer->customProperty( "QFieldSync/tracking_time_requirement_active", false ).toBool();
+        const int timeRequirementIntervalSeconds = layer->customProperty( "QFieldSync/tracking_time_requirement_interval_seconds", 30 ).toInt();
+        const bool distanceRequirementActive = layer->customProperty( "QFieldSync/tracking_distance_requirement_active", false ).toBool();
+        const int distanceRequirementMinimumMeters = layer->customProperty( "QFieldSync/tracking_distance_requirement_minimum_meters", 30 ).toInt();
+        const bool sensorDataRequirementActive = layer->customProperty( "QFieldSync/tracking_sensor_data_requirement_active", false ).toBool();
+        const bool allRequirementsActive = layer->customProperty( "QFieldSync/tracking_all_requirements_active", false ).toBool();
+        const bool erroneousDistanceSafeguardActive = layer->customProperty( "QFieldSync/tracking_erroneous_distance_safeguard_active", false ).toBool();
+        const bool erroneousDistanceSafeguardMaximumMeters = layer->customProperty( "QFieldSync/tracking_erroneous_distance_safeguard_maximum_meters", 250 ).toInt();
+        const int measurementType = layer->customProperty( "QFieldSync/tracking_measurement_type", false ).toInt();
+
+        Tracker *tracker = new Tracker( vl );
+        tracker->setTimeInterval( timeRequirementActive ? timeRequirementIntervalSeconds : 0 );
+        tracker->setMinimumDistance( distanceRequirementActive ? distanceRequirementMinimumMeters : 0 );
+        tracker->setSensorCapture( sensorDataRequirementActive );
+        tracker->setConjunction( allRequirementsActive );
+        tracker->setMaximumDistance( erroneousDistanceSafeguardActive ? erroneousDistanceSafeguardMaximumMeters : 0 );
+        tracker->setMeasureType( static_cast<Tracker::MeasureType>( measurementType ) );
+
+        QgsExpressionContext context = vl->createExpressionContext();
+        QgsFeature feature = QgsVectorLayerUtils::createFeature( vl, QgsGeometry(), QgsAttributeMap(), &context );
+        tracker->setFeature( feature );
+
+        beginInsertRows( QModelIndex(), mTrackers.count(), mTrackers.count() );
+        mTrackers.append( tracker );
+        endInsertRows();
+
+        requestTrackingSetup( vl, true );
+      }
+    }
+  }
+}
+
+void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings )
+{
+  Tracker *tracker = trackerForLayer( layer );
+  if ( tracker )
+  {
+    emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), skipSettings );
   }
 }

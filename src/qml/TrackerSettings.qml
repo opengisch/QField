@@ -21,6 +21,34 @@ Popup {
   closePolicy: Popup.CloseOnEscape
 
   property var tracker: undefined
+
+  Connections {
+    target: trackingModel
+
+    function onTrackingSetupRequested(trackerIndex, skipSettings) {
+      tracker = trackings.itemAt(trackerIndex.row).tracker
+
+      if (!skipSettings) {
+        trackerSettings.open()
+        trackerSettings.focus = true
+      } else {
+        featureModel.resetAttributes()
+        tracker.feature = featureModel.feature
+
+        if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
+          embeddedFeatureForm.active = true
+        } else {
+          trackingModel.startTracker(tracker.vectorLayer)
+
+          displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
+          if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
+            projectInfo.saveTracker(featureModel.currentLayer)
+          }
+        }
+      }
+    }
+  }
+
   onTrackerChanged: {
     if (tracker != undefined) {
       featureModel.currentLayer = tracker.vectorLayer
