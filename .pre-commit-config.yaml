@@ -2,7 +2,6 @@
 # See https://pre-commit.com/hooks.html for more hooks
 exclude: |
   (?x)^(
-    vcpkg/ |
     3rdparty/ |
     .clang-format$
   )
@@ -13,7 +12,11 @@ repos:
   rev: v3.2.0
   hooks:
     - id: trailing-whitespace
-      exclude: ^i18n
+      exclude: |
+        (?x)^(
+          i18n/|
+          vcpkg/
+        )
     - id: check-yaml
     - id: check-added-large-files
       args: ['--maxkb=8000']
@@ -34,6 +37,13 @@ repos:
     language: system
     types: [file, shell]
     exclude: .docker/android_dev/tools/android-accept-licenses.sh
+
+  - id: vcpkg-format
+    name: vcpkg-format
+    description: Formatting vcpkg manifests
+    entry: ./scripts/vcpkg-format.py
+    language: script
+    files: '.*vcpkg\.json'
 
 # Shellcheck
 - repo: https://github.com/jumanjihouse/pre-commit-hooks

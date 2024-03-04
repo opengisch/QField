@@ -32,7 +32,7 @@
       ]
     },
     "gnupg": {
-      "description": "Build with gnupg"      
+      "description": "Build with gnupg"
     },
     "ossl": {
       "description": "Build with openssl",
