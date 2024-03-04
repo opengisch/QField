@@ -283,17 +283,17 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
         mTrackers.append( tracker );
         endInsertRows();
 
-        requestTrackingSettings( vl, true );
+        requestTrackingSetup( vl, true );
       }
     }
   }
 }
 
-void TrackingModel::requestTrackingSettings( QgsVectorLayer *layer, bool skipSettings )
+void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings )
 {
   Tracker *tracker = trackerForLayer( layer );
   if ( tracker )
   {
-    emit trackingSettingsRequested( index( mTrackers.indexOf( tracker ), 0 ), skipSettings );
+    emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), skipSettings );
   }
 }

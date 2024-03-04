@@ -77,13 +77,19 @@ class TrackingModel : public QAbstractItemModel
 
     void reset();
 
-    Q_INVOKABLE void requestTrackingSettings( QgsVectorLayer *layer, bool skipSettings = false );
+    /**
+     * Forwards a tracking setup request to the user interface consisting of a settings panel followed by
+     * a feature form (unless suppressed by the project configuration).
+     * \a layer the vector layer associated with the tracking
+     * \a skipSettings set to TRUE if the settings panel should be omitted and only show the feature form
+     */
+    Q_INVOKABLE void requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings = false );
 
   signals:
 
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
 
-    void trackingSettingsRequested( QModelIndex trackerIndex, bool skipSettings );
+    void trackingSetupRequested( QModelIndex trackerIndex, bool skipSettings );
 
   private:
     QList<Tracker *> mTrackers;

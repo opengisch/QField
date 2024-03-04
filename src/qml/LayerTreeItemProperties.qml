@@ -319,7 +319,7 @@ Popup {
                 tracker.conjunction = positioningSettings.trackerMeetAllConstraints
                 tracker.measureType = positioningSettings.trackerMeasureType
               }
-              trackingModel.requestTrackingSettings(layer)
+              trackingModel.requestTrackingSetup(layer)
             }
           }
         }
