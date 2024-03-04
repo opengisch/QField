@@ -582,7 +582,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>La geometria non può essere modificata in più parti.</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
@@ -685,7 +685,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile eseguire annulla la modifica dell&apos;elemento nel layer &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
@@ -938,7 +938,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Strumento di cancellazione</translation>
     </message>
 </context>
 <context>
@@ -1304,11 +1304,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Digitare i dettagli opzionali</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Includere dettagli utente cloud</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
@@ -1561,11 +1561,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona File Immagine</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Tutte le immagini (*.jpg *.jpeg *.png *.bmp);;Immagini JPEG (*.jpg *.jpeg);;Immagini PNG (*.jpg *.jpeg);;Immagini BMP (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
@@ -1573,7 +1573,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Tutti i video (*.mp4 *.mkv *.mov);;Video MP4 (*.mp4);;Video MKV (*.mkv);;Video MOV (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
@@ -1581,11 +1581,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Tutti i file (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Selezione un File</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
@@ -1809,11 +1809,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Griglia attivata</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Griglia disattivata</translation>
     </message>
 </context>
 <context>
@@ -2164,7 +2164,7 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Automaticamente invia modifiche ogni %n minuto(i)</numerusform><numerusform>Automaticamente invia modifiche ogni %n minuto(i)</numerusform><numerusform>Automaticamente invia modifiche ogni %n minuto(i)</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
@@ -2409,7 +2409,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Azioni del progetto</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
@@ -2516,19 +2516,19 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Azioni dell&apos;oggetto</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Importa Azioni</translation>
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Azioni del progetto</translation>
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Aggiorna progetto da ZIP</translation>
     </message>
 </context>
 <context>
@@ -2781,7 +2781,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocità di terra</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2837,31 +2837,31 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema chiaro</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema scuro</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Dimensione del carattere dell&apos;interfaccia utente.</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Piccolo</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normale</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Extra-grande</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
@@ -2873,15 +2873,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Migliore qualità</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Bassa qualità</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Qualità minima</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
@@ -2893,11 +2893,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Orthometrico dal dispositivo</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Usa i tasti del volume per digitalizzare</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
@@ -3000,11 +3000,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Errore il nome del file zip è vuoto</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Errore: la directory di output non esiste: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
@@ -3020,7 +3020,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile scrivere su %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
@@ -3368,19 +3368,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Quando abilitato, i vertici verranno registrati solo quando vengono soddisfatti tutti i requisiti attivi. Quando disabilitato, il soddisfacimento di un singolo requisito attiverà l&apos;aggiunta del vertice.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni Generali</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Distanza di salvaguardia errata</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Distanza massima tollerata [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
@@ -3400,7 +3400,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocità di terra</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3503,7 +3503,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Velocità di terra</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -4310,11 +4310,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Layer:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Elemento:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
