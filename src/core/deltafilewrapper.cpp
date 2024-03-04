@@ -970,6 +970,7 @@ void DeltaFileWrapper::mergeDelta( const QJsonObject &delta )
   }
   else
   {
+    qWarning() << QStringLiteral( "Unknown delta method: %s" ).arg( deltaMethod );
     Q_ASSERT( 0 );
   }
 }
