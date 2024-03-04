@@ -184,7 +184,7 @@ def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
 
 
 @pytest.mark.project_file("test_postgis_ssl.qgz")
-def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
+def test_postgis_ssl(app, screenshot_path, screenshot_check, extra, process_alive):
     """
     Starts a test app and check that a SSL-enabled postgis layer loads properly
     """
