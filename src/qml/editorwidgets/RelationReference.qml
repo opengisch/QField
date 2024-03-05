@@ -54,7 +54,9 @@ EditorWidgetBase {
     enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
     anchors { right: openFormButton.left; top: parent.top; }
 
-    width: enabled ? 48 : 0
+    property bool isVisible: listModel.currentLayer !== undefined && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Unknown && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Null
+    visible: isVisible
+    width: isVisible && enabled ? 48 : 0
     height: 48
 
     iconSource: Theme.getThemeVectorIcon("ic_view_black_24dp")
