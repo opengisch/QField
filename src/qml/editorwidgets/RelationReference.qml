@@ -51,7 +51,7 @@ EditorWidgetBase {
   QfToolButton  {
     id: viewButton
 
-    enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
+    enabled: relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
     anchors { right: openFormButton.left; top: parent.top; }
 
     property bool isVisible: listModel.currentLayer !== undefined && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Unknown && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Null
