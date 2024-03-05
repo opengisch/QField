@@ -2164,7 +2164,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>当前工程不允许关闭自动推送</translation>
     </message>
 </context>
 <context>
