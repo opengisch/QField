@@ -136,7 +136,7 @@ The most common one is `arm64`. The platform to build for is specified via tripl
 The following triplets are possible:
 
 - `arm64-android`
-- `arm-android`
+- `arm-neon-android`
 - `x64-android`
 - `x86-android`
 
@@ -177,68 +177,60 @@ You also need the Qt sdk for ios installed.
 
 ```sh
 brew install flex bison
-aqt install-qt mac ios 6.5.0 -O 6.5.0 -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors --autodesktop
 ```
 
 ```sh
 export PATH="$(brew --prefix flex)/bin:$PATH"
 export PATH="$(brew --prefix bison)/bin:$PATH"
-export Qt6_DIR=6.5.0/ios
 ```
 
 ### Configure
 
 ```sh
-cmake -S . -B build-x64-ios -DVCPKG_TARGET_TRIPLET=x64-ios -GXcode -DWITH_VCPKG=ON -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_FIND_ROOT_PATH=$Qt6_DIR
+cmake -S . -B build-x64-ios \
+  -DVCPKG_TARGET_TRIPLET=x64-ios \
+  -GXcode \
+  -DWITH_VCPKG=ON \
+  -DCMAKE_SYSTEM_NAME=iOS \
+  -DCMAKE_OSX_SYSROOT=iphonesimulator \
+  -DCMAKE_SYSTEM_PROCESSOR=x86_64 \
+  -DWITH_SERIALPORT=OFF
+
+# Build
 cmake --build build-x64-ios
 ```
-
 
 ## iOS application (ARM-64 processors architecture)
 
 ```sh
 # Firstly, some compilation dependencies need to be installed
-brew install cmake flex bison python pkg-config autoconf automake libtool
+# Homebrew can be used for this : https://docs.brew.sh/Installation
+brew install cmake flex bison python pkg-config autoconf automake libtool autoconf-archive nasm
 
 # Secondly, Xcode must be installed through the AppStore, then configured
 xcode-select --install
 sudo xcode-select --switch /Library/Developer/CommandLineTools
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
-
-QT_ROOT=$HOME/Documents/qt6
-
-
-# Install Qt (Could be installed with 'aqtinstall' or with the official tools)
-pip3 install aqtinstall
-aqt install-qt mac ios 6.5.0 -O $QT_ROOT -m qt5compat qtcharts qtpositioning qtserialport qtconnectivity qtmultimedia qtwebview qtsensors --autodesktop
+xcodebuild -downloadPlatform iOS
 
 # Setup the environment for the build tools
 export PATH="$(brew --prefix flex)/bin:$(brew --prefix bison)/bin:$PATH"
 
-export Qt6_DIR=$QT_ROOT/6.5.0/ios/
-
 # Configure using CMake
 
 cmake -S . -B build-arm64-ios \
-	-DCMAKE_PREFIX_PATH=$QT_ROOT/6.5.0/ios/lib/cmake/Qt6 \
-	-DCMAKE_FIND_ROOT_PATH=$QT_ROOT/6.5.0/ios/ \
 	-DVCPKG_TARGET_TRIPLET=arm64-ios \
 	-DWITH_VCPKG=ON \
 	-DVCPKG_BUILD_TYPE=release \
 	-DCMAKE_SYSTEM_NAME=iOS \
 	-DCMAKE_OSX_SYSROOT=iphoneos \
 	-DCMAKE_OSX_ARCHITECTURES=arm64 \
+        -DCMAKE_SYSTEM_PROCESSOR=aarch64 \
 	-GXcode
-
-# The "build/CMakeFiles/[version]/CMakeSystem.cmake" file may need to be modified.
-# The "CMAKE_SYSTEM_PROCESSOR" variable must be set to "aarch64" manually (only if the cmake configuration fails).
-
-# In "Xcode" build settings, it is possible that the additional flag "CoreFoundation" had to be removed manually.
 
 # Then, compile. To install an app on iOS, it must be signed using Xcode tools.
 cmake --build build-arm64-ios
 ```
-
 
 ## Contribute
 
