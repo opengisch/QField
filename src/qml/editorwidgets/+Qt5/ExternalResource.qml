@@ -78,6 +78,12 @@ EditorWidgetBase {
   onCurrentValueChanged: {
     if (currentValue != undefined && currentValue !== '')
     {
+      const isHttp = value.startsWith('http://') || value.startsWith('https://');
+      var fullValue = isHttp ? value : prefixToRelativePath + value
+      isImage = !config.UseLink && FileUtils.mimeTypeName(fullValue).startsWith("image/")
+      isAudio = !config.UseLink && FileUtils.mimeTypeName(fullValue).startsWith("audio/")
+      isVideo = !config.UseLink && FileUtils.mimeTypeName(fullValue).startsWith("video/")
+
       image.visible = isImage
       geoTagBadge.visible = isImage
       player.visible = isVideo
@@ -89,11 +95,11 @@ EditorWidgetBase {
         image.hasImage = true
         image.opacity = 1
         image.anchors.topMargin = 0
-        image.source = 'file://' + prefixToRelativePath + value
-        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
+        image.source = (!isHttp ? 'file://' : '') + fullValue
+        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue)
       } else if (isAudio || isVideo) {
         mediaFrame.height = 48
-        player.source = 'file://' + prefixToRelativePath + value
+        player.source = (!isHttp ? 'file://' : '') + fullValue
       }
     } else {
       image.source = ''
