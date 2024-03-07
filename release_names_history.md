@@ -25,3 +25,4 @@
 - Insightful Indri (2.8)
 - Amazonia (3.0)
 - Borneo (3.1)
+- Congo (3.2)
