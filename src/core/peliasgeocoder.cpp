@@ -104,7 +104,6 @@ QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, c
   }
 
   QNetworkRequest request( url );
-  QgsSetRequestInitiatorClass( request, QStringLiteral( "PeliasGeocoder" ) );
 
   QgsBlockingNetworkRequest newReq;
   const QgsBlockingNetworkRequest::ErrorCode errorCode = newReq.get( request, false, feedback );
