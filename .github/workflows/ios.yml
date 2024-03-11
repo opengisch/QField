@@ -112,6 +112,7 @@ jobs:
                 -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{ env.IOS_PROVISIONING_PROFILE_SPECIFIER }}" \
                 -D QT_IOS_EXPORT_METHOD="${{ env.IOS_EXPORT_METHOD }}" \
                 -D IOS_APP_IDENTIFIER="${{ env.IOS_APP_IDENTIFIER }}" \
+                -D QT_HOST_PATH="/Users/runner/builddir/vcpkg_installed/arm64-osx" \
                 -D CMAKE_SYSTEM_NAME=iOS \
                 -D CMAKE_SYSTEM_PROCESSOR=aarch64 \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
