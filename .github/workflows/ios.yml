@@ -59,12 +59,13 @@ jobs:
 
       - name: 🍹 Prepare ios build env
         run: |
-          brew install automake bison flex gnu-sed s3cmd gettext autoconf-archive nasm
+          brew install automake bison flex gnu-sed s3cmd gettext autoconf-archive nasm libtool
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo $(brew --prefix s3cmd)/bin >> $GITHUB_PATH
           echo $(brew --prefix gettext)/bin >> $GITHUB_PATH
           echo $(brew --prefix autoconf-archive)/bin >> $GITHUB_PATH
+          echo $(brew --prefix libtool)/bin >> $GITHUB_PATH
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
@@ -77,7 +78,7 @@ jobs:
           xcode-version: latest-stable
 
       - name: 🍮 ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: hendrikmuhs/ccache-action@v1.2.11
         with:
           key: ccache-ios
           max-size: 200M
