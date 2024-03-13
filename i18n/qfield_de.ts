@@ -394,7 +394,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>Was gibt es neues in Qfield</translation>
+        <translation>Was gibt es Neues in QField</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
