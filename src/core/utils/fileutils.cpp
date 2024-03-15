@@ -199,7 +199,7 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
     metadata["Exif.GPSInfo.GPSLatitude"] = std::abs( positionInformation.latitude() );
     metadata["Exif.GPSInfo.GPSLatitudeRef"] = positionInformation.latitude() >= 0 ? "N" : "S";
     metadata["Exif.GPSInfo.GPSLongitude"] = std::abs( positionInformation.longitude() );
-    metadata["Exif.GPSInfo.GPSLongitudeRef"] = positionInformation.latitude() >= 0 ? "E" : "W";
+    metadata["Exif.GPSInfo.GPSLongitudeRef"] = positionInformation.longitude() >= 0 ? "E" : "W";
     if ( positionInformation.elevationValid() )
     {
       metadata["Exif.GPSInfo.GPSAltitude"] = std::abs( positionInformation.elevation() );
