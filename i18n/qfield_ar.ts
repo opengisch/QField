@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>الميزات من الطبقة النشطة</translation>
     </message>
 </context>
 <context>
@@ -60,7 +60,7 @@
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>هذه الشبكة هي جزء من حزمة &lt;i&gt;% 1&lt;/i&gt;، وهي متاحة لتحميل من &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation>هذه الشبكة هي جزء من حزمة &lt;i&gt;%1&lt;/i&gt;، وهي متاحة لتحميل من &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>يمكنك مراجعة %1صفحة وثائق المشروع%2 لمزيد من المساعدة.</translation>
     </message>
 </context>
 <context>
@@ -210,11 +210,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>حدد جهاز بلوتوث من القائمة أدناه:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>اسم جهاز البلوتوث:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -222,11 +222,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>عنوان جهاز البلوتوث:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>البحث عن الأجهزة القريبة</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
