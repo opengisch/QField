@@ -40,7 +40,7 @@
 
 #define MAX_REDIRECTS_ALLOWED 10
 #define MAX_PARALLEL_REQUESTS 6
-#define CACHE_PROJECT_DATA_SECS 5
+#define CACHE_PROJECT_DATA_SECS 1
 
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   : mProject( QgsProject::instance() )
