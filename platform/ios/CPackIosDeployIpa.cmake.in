@@ -13,4 +13,5 @@ execute_process(
     -archivePath "${QT_IOS_TARGET_ARCHIVE_PATH}"
     -exportOptionsPlist "@QT_IOS_EXPORT_OPTIONS_FILE@"
     -exportPath "${QT_IOS_TARGET_IPA_PATH}"
+    -destination "generic/platform=iOS"
     COMMAND_ERROR_IS_FATAL ANY)
