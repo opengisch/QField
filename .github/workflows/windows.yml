@@ -81,7 +81,7 @@ jobs:
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded\$<\$<CONFIG:Debug>:Debug>" \
                 -D PKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x64-windows-static/tools/pkgconf/pkgconf.exe \
-                -D WITH_BLUETOOTH=OFF `# Not yet properly tested/supported and we have a conflict of double defined symbol in QtBluetooth/QtMultimedia` \
+                -D WITH_BLUETOOTH=ON \
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 ${EXTRA_CMAKE_ARGS}
 
