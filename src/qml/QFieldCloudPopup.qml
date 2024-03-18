@@ -509,7 +509,7 @@ Popup {
             Timer {
               id: autoPushTimer
               running: !!cloudProjectsModel.currentProjectData.AutoPushEnabled
-              interval: (!cloudProjectsModel.currentProjectData.AutoPushIntervalMins - 0) * 60 * 1000
+              interval: (cloudProjectsModel.currentProjectData.AutoPushIntervalMins) * 60 * 1000
               repeat: true
 
               onRunningChanged: {
