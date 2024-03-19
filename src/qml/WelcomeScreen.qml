@@ -772,6 +772,23 @@ Page {
     }
   }
 
+  QfToolButton {
+    id: exitButton
+    visible: false
+    anchors {
+      top: parent.top
+      right: parent.right
+      topMargin: mainWindow.sceneTopMargin
+    }
+    iconSource: Theme.getThemeVectorIcon('ic_shutdown_24dp')
+    iconColor: Theme.mainTextColor
+
+    onClicked: {
+      mainWindow.closeAlreadyRequested = true;
+      mainWindow.close();
+    }
+  }
+
   // Sparkles & unicorns
   Rectangle {
     anchors.fill: parent
@@ -878,6 +895,7 @@ Page {
     if (visible) {
       const currentProjectButtonVisible = !!qgisProject.fileName;
       currentProjectButton.visible = currentProjectButtonVisible;
+      exitButton.visible = currentProjectButtonVisible;
       if (firstShown) {
         welcomeText.text = " ";
       } else {
