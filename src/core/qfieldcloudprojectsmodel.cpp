@@ -154,25 +154,25 @@ QString QFieldCloudProjectsModel::currentProjectId() const
 
 void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId )
 {
-  if ( mCurrentProjectId == currentProjectId )
-    return;
-
-  mCurrentProjectId = currentProjectId;
-
-  if ( mCurrentProjectId != QString() )
+  if ( currentProjectId != QString() )
   {
     const bool forceAutoPush = mProject->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPush" ), false );
     if ( forceAutoPush )
     {
-      projectSetForceAutoPush( mCurrentProjectId, true );
-      projectSetAutoPushEnabled( mCurrentProjectId, true );
-      projectSetAutoPushIntervalMins( mCurrentProjectId, mProject->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ) ) );
+      projectSetForceAutoPush( currentProjectId, true );
+      projectSetAutoPushEnabled( currentProjectId, true );
+      projectSetAutoPushIntervalMins( currentProjectId, mProject->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ) ) );
     }
     else
     {
-      projectSetForceAutoPush( mCurrentProjectId, false );
+      projectSetForceAutoPush( currentProjectId, false );
     }
   }
+
+  if ( mCurrentProjectId == currentProjectId )
+    return;
+
+  mCurrentProjectId = currentProjectId;
 
   emit currentProjectIdChanged();
   emit currentProjectDataChanged();
@@ -1410,6 +1410,8 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
     {
       project->status = ProjectStatus::Idle;
       project->modification ^= LocalModification;
+      project->lastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
+      QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), project->lastLocalPushDeltas );
 
       DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
       deltaFileWrapper->reset();
@@ -1419,7 +1421,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
       if ( !deltaFileWrapper->toFile() )
         QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
 
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
+      emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ModificationRole << LastLocalPushDeltasRole );
       emit pushFinished( projectId, false );
       projectRefreshData( projectId, ProjectRefreshReason::DeltaUploaded );
     }

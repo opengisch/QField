@@ -509,7 +509,7 @@ Popup {
             Timer {
               id: autoPushTimer
               running: !!cloudProjectsModel.currentProjectData.AutoPushEnabled
-              interval: (!cloudProjectsModel.currentProjectData.AutoPushIntervalMins - 0) * 60 * 1000
+              interval: (cloudProjectsModel.currentProjectData.AutoPushIntervalMins) * 60 * 1000
               repeat: true
 
               onRunningChanged: {
@@ -539,43 +539,43 @@ Popup {
             color: Theme.secondaryTextColor
             text: {
               var exportText = ''
-              var dt = cloudProjectsModel.currentProjectData.LastLocalExportedAt
+              var exportDt = cloudProjectsModel.currentProjectData.LastLocalExportedAt
               var timeDeltaMinutes = null
 
-              if (dt) {
-                dt = new Date(dt)
-                timeDeltaMinutes = parseInt( Math.max( new Date() - dt, 0 ) / (60 * 1000) );
+              if (exportDt) {
+                exportDt = new Date(exportDt)
+                timeDeltaMinutes = parseInt( Math.max( new Date() - exportDt, 0 ) / (60 * 1000) )
 
                 if ( timeDeltaMinutes < 1)
                   exportText = qsTr( 'Last synchronized just now' )
                 else if (timeDeltaMinutes < 60)
                   exportText = qsTr( 'Last synchronized %1 minutes ago' ).arg( timeDeltaMinutes )
-                else if (dt.toLocaleDateString() === new Date().toLocaleDateString())
-                  exportText = qsTr( 'Last synchronized at %1' ).arg( dt.toLocaleTimeString() )
+                else if (exportDt.toLocaleDateString() === new Date().toLocaleDateString())
+                  exportText = qsTr( 'Last synchronized at %1' ).arg( exportDt.toLocaleTimeString() )
                 else
-                  exportText = qsTr( 'Last synchronized on %1' ).arg( dt.toLocaleString() )
+                  exportText = qsTr( 'Last synchronized on %1' ).arg( exportDt.toLocaleString() )
               }
 
               var pushText = ''
-              dt = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
+              var pushDt = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
 
-              if (dt) {
-                dt = new Date(dt)
-                timeDeltaMinutes = parseInt( Math.max( new Date() - dt, 0 ) / (60 * 1000) );
+              if (pushDt) {
+                pushDt = new Date(pushDt)
+                timeDeltaMinutes = parseInt( Math.max( new Date() - pushDt, 0 ) / (60 * 1000) )
 
                 if ( timeDeltaMinutes < 1 )
-                  exportText = qsTr( 'Last changes pushed just now' )
+                  pushText = qsTr( 'Last changes pushed just now' )
                 else if (timeDeltaMinutes < 60)
-                  exportText = qsTr( 'Last changes pushed %1 minutes ago' ).arg( timeDeltaMinutes )
-                else if (dt.toLocaleDateString() === new Date().toLocaleDateString())
-                  pushText = qsTr( 'Last changes pushed at %1' ).arg( dt.toLocaleTimeString() )
+                  pushText = qsTr( 'Last changes pushed %1 minutes ago' ).arg( timeDeltaMinutes )
+                else if (pushDt.toLocaleDateString() === new Date().toLocaleDateString())
+                  pushText = qsTr( 'Last changes pushed at %1' ).arg( pushDt.toLocaleTimeString() )
                 else
-                  pushText = qsTr( 'Last changes pushed on %1' ).arg( dt.toLocaleString() )
+                  pushText = qsTr( 'Last changes pushed on %1' ).arg( pushDt.toLocaleString() )
               } else {
                 pushText = qsTr( 'No changes pushed yet' )
               }
 
-              return exportText + '\n' + pushText
+              return pushDt > exportDt ? pushText + '\n' + exportText : exportText + '\n' + pushText
             }
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
