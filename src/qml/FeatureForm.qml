@@ -690,7 +690,7 @@ Page {
 
             anchors { right: parent.right; top: constraintDescriptionLabel.bottom; verticalCenter: menuButton.verticalCenter }
 
-            onCheckedChanged: {
+            onClicked: {
               RememberValue = checked
             }
 
