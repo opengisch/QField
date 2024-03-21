@@ -700,6 +700,7 @@ Page {
               } else {
                 displayToast(qsTr("The last entered value for this field will not be reused when creating new features"))
               }
+              projectInfo.saveLayerRememberedFields(form.model.featureModel.currentLayer)
             }
           }
 

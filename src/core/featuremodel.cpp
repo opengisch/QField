@@ -383,6 +383,11 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
       QMutex *mutex = sMutex;
       QMutexLocker locker( mutex );
       ( *sRememberings )[mLayer].rememberedAttributes[index.row()] = value.toBool();
+
+      QgsEditFormConfig config = mLayer->editFormConfig();
+      config.setReuseLastValue( index.row(), value.toBool() );
+      mLayer->setEditFormConfig( config );
+
       emit dataChanged( index, index, QVector<int>() << role );
       break;
     }

@@ -118,6 +118,11 @@ class ProjectInfo : public QObject
     Q_INVOKABLE void saveLayerSnappingConfiguration( QgsMapLayer *layer );
 
     /**
+     * Saves the vector \a layer fields that are remembered during feature additions
+     */
+    Q_INVOKABLE void saveLayerRememberedFields( QgsMapLayer *layer );
+
+    /**
      * Saves the state \a mode for the current project
      */
     void setStateMode( const QString &mode );

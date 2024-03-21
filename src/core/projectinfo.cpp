@@ -324,6 +324,51 @@ void ProjectInfo::saveLayerSnappingConfiguration( QgsMapLayer *layer )
   mSettings.endGroup();
 }
 
+void ProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
+{
+  if ( mFilePath.isEmpty() )
+    return;
+
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer );
+  if ( !vlayer )
+    return;
+
+  QStringList rememberedFieldNames;
+  QStringList notRememberedFieldNames;
+  QgsEditFormConfig config = vlayer->editFormConfig();
+  const QgsFields fields = vlayer->fields();
+  for ( int i = 0; i < fields.size(); i++ )
+  {
+    if ( config.reuseLastValue( i ) )
+    {
+      rememberedFieldNames << fields.at( i ).name();
+    }
+    else
+    {
+      notRememberedFieldNames << fields.at( i ).name();
+    }
+  }
+
+  const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+
+  // Prefix id with :: to avoid loss of slash on linux paths
+  QString id( QStringLiteral( "::" ) );
+  if ( isDataset )
+  {
+    // For non-project datasets, the layer id is random, use the source URI
+    id += layer->source();
+  }
+  else
+  {
+    id += layer->id();
+  }
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerFields/%2" ).arg( mFilePath, id ) );
+  mSettings.setValue( QStringLiteral( "remembered" ), rememberedFieldNames );
+  mSettings.setValue( QStringLiteral( "notRemembered" ), notRememberedFieldNames );
+  mSettings.endGroup();
+}
+
 void ProjectInfo::setStateMode( const QString &mode )
 {
   if ( mFilePath.isEmpty() )
@@ -434,6 +479,60 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
             vlayer->setLabelsEnabled( labelsEnabled );
           }
         }
+      }
+    }
+  }
+  settings.endGroup();
+
+
+  settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerFields" ).arg( projectFilePath ) );
+  ids = settings.childGroups();
+  if ( !ids.isEmpty() )
+  {
+    const bool isDataset = project->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+    const QList<QgsMapLayer *> mapLayers = isDataset ? project->layerStore()->mapLayers().values() : QList<QgsMapLayer *>();
+
+    for ( QString id : std::as_const( ids ) )
+    {
+      const QStringList rememberedFieldNames = settings.value( QStringLiteral( "%1/remembered" ).arg( id ), QStringList() ).toStringList();
+      const QStringList notRememberedFieldNames = settings.value( QStringLiteral( "%1/notRemembered" ).arg( id ), QStringList() ).toStringList();
+
+      // Remove the :: prefix to get actual layer id or source
+      id = id.mid( 2 );
+
+      QgsMapLayer *layer = nullptr;
+      if ( isDataset )
+      {
+        for ( QgsMapLayer *ml : mapLayers )
+        {
+          if ( ml && ml->source() == id )
+          {
+            layer = ml;
+            break;
+          }
+        }
+      }
+      else
+      {
+        layer = project->layerStore()->mapLayer( id );
+      }
+
+      if ( QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer ) )
+      {
+        QgsEditFormConfig config = vlayer->editFormConfig();
+        const QgsFields fields = vlayer->fields();
+        for ( const QString fieldName : fields.names() )
+        {
+          if ( rememberedFieldNames.contains( fieldName ) )
+          {
+            config.setReuseLastValue( fields.indexFromName( fieldName ), true );
+          }
+          else if ( notRememberedFieldNames.contains( fieldName ) )
+          {
+            config.setReuseLastValue( fields.indexFromName( fieldName ), false );
+          }
+        }
+        vlayer->setEditFormConfig( config );
       }
     }
   }
