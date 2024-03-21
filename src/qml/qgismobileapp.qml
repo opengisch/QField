@@ -2002,7 +2002,7 @@ ApplicationWindow {
         positionInformation: positionSource.positionInformation
         topSnappingResult: coordinateLocator.topSnappingResult
         positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
-        cloudUserInformation: cloudConnection.userInformation
+        cloudUserInformation: projectInfo.cloudUserInformation
         geometry: Geometry {
           id: digitizingGeometry
           rubberbandModel: digitizingRubberband.model
@@ -3457,6 +3457,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
     trackingModel: trackings.model
+    cloudUserInformation: cloudConnection.userInformation
 
     property var distanceUnits: Qgis.DistanceUnit.Meters
     property var areaUnits: Qgis.AreaUnit.SquareMeters
@@ -3951,7 +3952,7 @@ ApplicationWindow {
     positionInformation: positionSource.positionInformation
     positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
     vertexModel: geometryEditingVertexModel
-    cloudUserInformation: cloudConnection.userInformation
+    cloudUserInformation: projectInfo.cloudUserInformation
   }
 
   VertexModel {

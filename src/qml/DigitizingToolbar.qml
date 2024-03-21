@@ -81,7 +81,7 @@ VisibilityFadingRow {
     positionInformation: positionSource.positionInformation
     positionLocked: gnssLockButton.checked
     topSnappingResult: coordinateLocator.topSnappingResult
-    cloudUserInformation: cloudConnection.userInformation
+    cloudUserInformation: projectInfo.cloudUserInformation
   }
 
   QfToolButton {

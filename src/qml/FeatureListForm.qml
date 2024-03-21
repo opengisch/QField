@@ -359,7 +359,7 @@ Rectangle {
         currentLayer: featureForm.selection.focusedLayer
         feature: featureForm.selection.focusedFeature
         features: featureForm.selection.model.selectedFeatures
-        cloudUserInformation: cloudConnection.userInformation
+        cloudUserInformation: projectInfo.cloudUserInformation
       }
     }
 

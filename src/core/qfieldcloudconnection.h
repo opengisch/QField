@@ -18,6 +18,7 @@
 
 #include "networkmanager.h"
 #include "networkreply.h"
+#include "qfieldcloudutils.h"
 
 #include <QJsonDocument>
 #include <QObject>
@@ -26,21 +27,6 @@
 
 class QNetworkRequest;
 
-struct CloudUserInformation
-{
-    Q_GADGET
-
-  public:
-    CloudUserInformation() = default;
-
-    CloudUserInformation( const QString &username, const QString &email )
-      : username( username )
-      , email( email )
-    {}
-
-    QString username;
-    QString email;
-};
 
 class QFieldCloudConnection : public QObject
 {
