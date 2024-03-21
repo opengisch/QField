@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Objecten van de actieve laag</translation>
     </message>
 </context>
 <context>
@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Je kunt de %1Portable Project%2 documentatiepagina bekijken voor meer hulp.</translation>
     </message>
 </context>
 <context>
@@ -276,7 +276,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Poging om te lezen of schrijven van socket leverde een fout op</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
@@ -284,7 +284,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Er is een bewerking uitgevoerd terwijl de socket zich in een staat bevond die dit niet toeliet</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
@@ -322,7 +322,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Kopiëren bladwijzergegevens</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -342,7 +342,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Bladwijzergegevens gekopieerd naar klembord</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -446,7 +446,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>NFC-tekstlabel gedetecteerd</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -469,7 +469,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>De digitaliseringsfunctie beëindigen of afbreken voordat u overschakelt naar de bladermodus</translation>
     </message>
 </context>
 <context>
@@ -1091,7 +1091,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Alleen-lezen laag</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
@@ -1571,7 +1571,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
@@ -1587,7 +1587,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Audiobestanden (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -2146,7 +2146,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud is de nieuwste gegevens speciaal voor u aan het inpakken; dit kan even duren.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -2154,15 +2154,15 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Downloaden, %1% opgehaald</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud benaderen om project te downloaden</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Automatisch wijzigingen doorvoeren om de %n minuten</numerusform><numerusform>Automatisch wijzigingen doorvoeren om de %n minuten</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
@@ -2404,7 +2404,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Projectacties</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
@@ -2412,7 +2412,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud is de nieuwste gegevens speciaal voor u aan het inpakken; dit kan even duren.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -2420,18 +2420,18 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Downloaden, %1% opgehaald</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud benaderen om project te downloaden</translation>
     </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Projectmap</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
@@ -2455,7 +2455,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Projectbestand</translation>
     </message>
     <message>
         <source>Vector dataset</source>
@@ -2479,7 +2479,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Verzend gecomprimeerde map naar...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -2515,11 +2515,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Importacties</translation>
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Projectacties</translation>
     </message>
     <message>
         <source>Update project from ZIP</source>
@@ -2772,11 +2772,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Tijdstempel (milliseconden sinds epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Grondsnelheid</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2808,11 +2808,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Toevoegen</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Wijzigen</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -3270,7 +3270,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -3391,11 +3391,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Tijdstempel (milliseconden sinds epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Grondsnelheid</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3494,11 +3494,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tijdstempel (milliseconden sinds epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Grondsnelheid</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3639,7 +3639,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -3826,7 +3826,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
     </message>
 </context>
 <context>
@@ -4201,7 +4201,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Positioneringsfout: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -4213,7 +4213,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Afdrukken naar afbeelding</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -4253,7 +4253,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Relatieve hoek</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
@@ -4281,7 +4281,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Projectmap</translation>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -4289,15 +4289,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Sensorfout: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Sensor &apos;%1&apos; loskoppelen...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Sensor &apos;%1&apos; verbinden...</translation>
     </message>
     <message>
         <source>Select layout below</source>
@@ -4309,27 +4309,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Object:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Open Objectformulier</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Object duplicatie niet beschikbaar</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Importeren van %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>URL importeren mislukt</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Ontgrendel het scherm om project en app af te sluiten</translation>
     </message>
 </context>
 <context>
@@ -4368,7 +4368,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
     </message>
 </context>
 </TS>

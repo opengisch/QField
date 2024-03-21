@@ -57,5 +57,10 @@
     <string name="storage_information_dismiss">Ik lees later</string>
     <string name="import_project_wait">Een ogenblik geduld terwijl QField het project importeert</string>
     <string name="import_dataset_wait">Een ogenblik geduld terwijl QField de dataset(s) importeert</string>
+    <string name="update_project_wait">Even geduld terwijl QField het lokale project bijwerkt</string>
     <string name="upload_pending_attachments">Momenteel bijlagen aan het uploaden naar QFieldCloud</string>
-    </resources>
+    <string name="operation_unsupported">Niet-ondersteunde bewerking</string>
+    <string name="import_operation_unsupported">Uw apparaat ondersteunt deze importbewerking niet.</string>
+    <string name="export_operation_unsupported">Uw apparaat ondersteunt deze exportbewerking niet.</string>
+    <string name="processing_message">Verwerking...</string>
+</resources>
