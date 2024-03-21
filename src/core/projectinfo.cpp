@@ -333,20 +333,12 @@ void ProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
   if ( !vlayer )
     return;
 
-  QStringList rememberedFieldNames;
-  QStringList notRememberedFieldNames;
+  QVariantMap rememberedFields;
   QgsEditFormConfig config = vlayer->editFormConfig();
   const QgsFields fields = vlayer->fields();
   for ( int i = 0; i < fields.size(); i++ )
   {
-    if ( config.reuseLastValue( i ) )
-    {
-      rememberedFieldNames << fields.at( i ).name();
-    }
-    else
-    {
-      notRememberedFieldNames << fields.at( i ).name();
-    }
+    rememberedFields.insert( fields.at( i ).name(), config.reuseLastValue( i ) );
   }
 
   const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
@@ -364,8 +356,7 @@ void ProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
   }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerFields/%2" ).arg( mFilePath, id ) );
-  mSettings.setValue( QStringLiteral( "remembered" ), rememberedFieldNames );
-  mSettings.setValue( QStringLiteral( "notRemembered" ), notRememberedFieldNames );
+  mSettings.setValue( QStringLiteral( "remembered" ), rememberedFields );
   mSettings.endGroup();
 }
 
@@ -494,8 +485,7 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
 
     for ( QString id : std::as_const( ids ) )
     {
-      const QStringList rememberedFieldNames = settings.value( QStringLiteral( "%1/remembered" ).arg( id ), QStringList() ).toStringList();
-      const QStringList notRememberedFieldNames = settings.value( QStringLiteral( "%1/notRemembered" ).arg( id ), QStringList() ).toStringList();
+      const QVariantMap rememberedFields = settings.value( QStringLiteral( "%1/remembered" ).arg( id ), QStringList() ).toMap();
 
       // Remove the :: prefix to get actual layer id or source
       id = id.mid( 2 );
@@ -520,17 +510,10 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
       if ( QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer ) )
       {
         QgsEditFormConfig config = vlayer->editFormConfig();
-        const QgsFields fields = vlayer->fields();
-        for ( const QString fieldName : fields.names() )
+        const QStringList fieldNames = rememberedFields.keys();
+        for ( const QString fieldName : fieldNames )
         {
-          if ( rememberedFieldNames.contains( fieldName ) )
-          {
-            config.setReuseLastValue( fields.indexFromName( fieldName ), true );
-          }
-          else if ( notRememberedFieldNames.contains( fieldName ) )
-          {
-            config.setReuseLastValue( fields.indexFromName( fieldName ), false );
-          }
+          config.setReuseLastValue( vlayer->fields().indexFromName( fieldName ), rememberedFields[fieldName].toBool() );
         }
         vlayer->setEditFormConfig( config );
       }
