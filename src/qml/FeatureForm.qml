@@ -667,7 +667,7 @@ Page {
 
           QfToolButton {
             id: menuButton
-            anchors { right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
+            anchors { right: rememberButton.left; top: constraintDescriptionLabel.bottom; }
 
             visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item.hasMenu
             enabled: visible
@@ -682,22 +682,25 @@ Page {
             }
           }
 
-          CheckBox {
-            id: rememberCheckbox
-            checked: RememberValue ? true : false
+          QfToolButton {
+            id: rememberButton
             visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
-            width: visible ? undefined : 0
+            width: visible ? 48 : 0
+
+            iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
+            iconColor: RememberValue ? Theme.mainColor : Theme.mainTextDisabledColor
+            bgcolor: "transparent"
 
             anchors { right: parent.right; top: constraintDescriptionLabel.bottom; verticalCenter: menuButton.verticalCenter }
 
             onClicked: {
-              RememberValue = checked
+              RememberValue = !RememberValue
+              if (RememberValue) {
+                displayToast(qsTr("The last entered value for this field will be remembered and reused when creating new features"))
+              } else {
+                displayToast(qsTr("The last entered value for this field will not be reused when creating new features"))
+              }
             }
-
-            indicator.height: 16
-            indicator.width: 16
-            icon.height: 16
-            icon.width: 16
           }
 
           Label {
