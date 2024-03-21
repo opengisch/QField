@@ -110,10 +110,20 @@ void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
 
   if ( mAllowMulti )
   {
-    if ( mAttributeField.type() == QVariant::Map )
+    if ( mAttributeField.type() == QVariant::Map || mAttributeField.type() == QVariant::List )
     {
-      //store as QVariantList because the field type supports data structure
-      checkedEntries = attributeValue.toStringList();
+      if ( attributeValue.canConvert( QVariant::String ) )
+      {
+        QString value = attributeValue.value<QString>();
+        if ( !value.isEmpty() )
+        {
+          checkedEntries = attributeValue.toStringList();
+        }
+      }
+      else
+      {
+        checkedEntries = attributeValue.toStringList();
+      }
     }
     else
     {
