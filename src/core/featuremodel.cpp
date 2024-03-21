@@ -138,7 +138,12 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
       QMutex *mutex = sMutex;
       QMutexLocker locker( mutex );
       ( *sRememberings )[mLayer].rememberedFeature = mFeature;
-      ( *sRememberings )[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
+      ( *sRememberings )[mLayer].rememberedAttributes.reserve( layer->fields().size() );
+      const QgsEditFormConfig config = mLayer->editFormConfig();
+      for ( int i = 0; i < layer->fields().size(); i++ )
+      {
+        ( *sRememberings )[mLayer].rememberedAttributes << config.reuseLastValue( i );
+      }
     }
 
     mGeometryLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
