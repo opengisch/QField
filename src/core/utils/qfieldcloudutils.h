@@ -53,6 +53,14 @@ class QFieldCloudUtils : public QObject
     static bool isCloudAction( const QgsMapLayer *layer );
 
     /**
+     * Returns if the \layer is file-based or online layer.
+     *
+     * @param layer to be checked
+     * @return const bool true if the layer is file-based
+     */
+    static bool isFileBasedLayer( const QgsMapLayer *layer );
+
+    /**
      * Returns the cloud project id.
      *
      * @param fileName file name of the project to be checked
