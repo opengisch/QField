@@ -279,7 +279,6 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   {
     mCollectedPositionInformations << positionInformation;
     mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
-    emit averagedPositionCountChanged();
   }
   else
   {
@@ -301,6 +300,10 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   }
 
   emit positionInformationChanged();
+  if ( mAveragedPosition )
+  {
+    emit averagedPositionCountChanged();
+  }
 }
 
 void Positioning::processCompassReading()
