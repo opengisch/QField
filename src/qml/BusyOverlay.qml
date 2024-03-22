@@ -69,13 +69,34 @@ Rectangle {
     to: 1.0
   }
 
-  Text {
-    id: busyMessage
+  Rectangle{
+    id: busyMessageShield
     anchors.top: busyIndicator.bottom
+    anchors.topMargin: 10
     anchors.horizontalCenter: parent.horizontalCenter
-    horizontalAlignment: Text.AlignHCenter
-    font: Theme.tipFont
-    color: Theme.mainColor
-    text: ''
+    color: Theme.darkGraySemiOpaque
+    radius: 4
+
+    width: busyMessage.width
+    height: busyMessage.contentHeight + 5
+
+    Text {
+      id: busyMessage
+
+      property int absoluteWidth: busyMessageFontMetrics.boundingRect(text).width + 10
+      width: Math.min(mainWindow.width - 20, absoluteWidth)
+
+      anchors.centerIn: parent
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.tipFont
+      color: "white"
+      text: ''
+      wrapMode: Text.WordWrap
+    }
+  }
+
+  FontMetrics {
+    id: busyMessageFontMetrics
+    font: busyMessage.font
   }
 }
