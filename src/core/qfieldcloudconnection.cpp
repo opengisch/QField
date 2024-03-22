@@ -25,7 +25,7 @@
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
 #include <QSettings>
-#include <QTextDocument>
+#include <QTextDocumentFragment>
 #include <QTimer>
 #include <QUrlQuery>
 #include <qgsapplication.h>
@@ -507,11 +507,15 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
       break;
   }
 
+  errorMessage = QTextDocumentFragment::fromHtml( errorMessage ).toPlainText().trimmed();
+
   QString httpErrorMessage = QStringLiteral( "[HTTP/%1] %2 " ).arg( mHttpCode ).arg( reply->url().toString() );
   httpErrorMessage += ( mHttpCode >= 400 )
                         ? tr( "Server Error." )
                         : tr( "Network Error." );
   httpErrorMessage += mPayload.left( 200 );
+  httpErrorMessage = QTextDocumentFragment::fromHtml( httpErrorMessage ).toPlainText().trimmed();
+  QString payloadPlainText = QTextDocumentFragment::fromHtml( mPayload ).toPlainText().trimmed();
 
   if ( mPayload.size() > 200 )
     errorMessage += QStringLiteral( "…" );
@@ -519,17 +523,15 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   if ( errorMessage.isEmpty() )
   {
     errorMessage = httpErrorMessage;
-    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( errorMessage, mPayload ).arg( reply->errorString() ) );
+    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( errorMessage, payloadPlainText ).arg( reply->errorString() ) );
   }
   else
   {
-    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3\n%4" ).arg( errorMessage, httpErrorMessage, mPayload ).arg( reply->errorString() ) );
+    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3\n%4" ).arg( errorMessage, httpErrorMessage, payloadPlainText ).arg( reply->errorString() ) );
   }
 
   // strip HTML tags
-  QTextDocument doc;
-  doc.setHtml( errorMessage );
-  errorMessage = doc.toPlainText();
+  errorMessage = QTextDocumentFragment::fromHtml( httpErrorMessage ).toPlainText();
 
   mMessage = errorMessage;
 }
