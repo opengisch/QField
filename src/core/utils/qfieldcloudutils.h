@@ -25,6 +25,40 @@ class QFieldCloudProjectsModel;
 class DeltaFileWrapperTest;
 class TestLayerObserver;
 
+struct CloudUserInformation
+{
+    Q_GADGET
+
+  public:
+    CloudUserInformation() = default;
+
+    CloudUserInformation( const QString &username, const QString &email )
+    {}
+
+    explicit CloudUserInformation( const QJsonObject cloudUserInformation )
+      : username( cloudUserInformation.value( QStringLiteral( "username" ) ).toString() )
+      , email( cloudUserInformation.value( QStringLiteral( "email" ) ).toString() )
+    {}
+
+    QJsonObject toJson() const
+    {
+      QJsonObject cloudUserInformation;
+
+      cloudUserInformation.insert( "username", username );
+      cloudUserInformation.insert( "email", email );
+
+      return cloudUserInformation;
+    }
+
+    bool isEmpty() const
+    {
+      return username.isEmpty() && email.isEmpty();
+    }
+
+    QString username;
+    QString email;
+};
+
 class QFieldCloudUtils : public QObject
 {
     Q_OBJECT

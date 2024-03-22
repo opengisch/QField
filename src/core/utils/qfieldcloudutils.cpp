@@ -27,6 +27,7 @@
 
 static QString sLocalCloudDirectory;
 
+
 void QFieldCloudUtils::setLocalCloudDirectory( const QString &path )
 {
   sLocalCloudDirectory = path;
