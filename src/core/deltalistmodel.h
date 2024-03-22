@@ -65,8 +65,10 @@ class DeltaListModel : public QAbstractListModel
     DeltaListModel() = default;
     explicit DeltaListModel( QJsonDocument deltasStatusList );
 
+    Q_PROPERTY( int rowCount READ rowCount NOTIFY rowCountChanged )
+
     //! Returns number of rows.
-    int rowCount( const QModelIndex &parent ) const override;
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 
     //! Returns the data at given \a index with given \a role.
     QVariant data( const QModelIndex &index, int role ) const override;
@@ -88,6 +90,9 @@ class DeltaListModel : public QAbstractListModel
 
     //! Returns a combined output for all deltas, separated by a new line.
     QString combinedOutput() const;
+
+  signals:
+    void rowCountChanged();
 
   private:
     QJsonDocument mJson;

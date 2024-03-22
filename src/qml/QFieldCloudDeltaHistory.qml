@@ -62,7 +62,7 @@ Popup {
             }
             iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
             iconColor: Theme.mainTextColor
-            bgcolor: "white"
+            bgcolor: Theme.mainBackgroundColor
 
             onClicked: {
               popup.close();
@@ -74,10 +74,23 @@ Popup {
             spacing: 4
             width: parent.width
 
+            Label {
+              leftPadding: 48
+              rightPadding: 48
+              width: parent.width
+              visible: !!model && model.rowCount === 0
+
+              text: qsTr( "No changes have been pushed yet!" )
+              color: Theme.mainTextDisabledColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
             ListView {
                 id: deltaList
                 width: parent.width
-                height: mainWindow.height - 160
+                height: visible ? mainWindow.height - 160 : 0
+                visible: deltaList.model && deltaList.model.rowCount !== 0
                 clip: true
 
                 delegate: Rectangle {
