@@ -15,9 +15,9 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQml 2.14
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQml 2.15
 
 import org.qgis 1.0
 
@@ -197,7 +197,7 @@ Item {
   TapHandler {
     enabled: interactive && hovered && !pinchArea.isDragging
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything | PointerHandler.ApprovesCancellation
-    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
     acceptedButtons: Qt.LeftButton | Qt.RightButton
 
     property bool longPressActive: false
@@ -232,6 +232,7 @@ Item {
     target: null
     grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
     acceptedButtons: Qt.NoButton | Qt.LeftButton
+    dragThreshold: 10
 
     property var oldPos
     property real oldTranslationY
