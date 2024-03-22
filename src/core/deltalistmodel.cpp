@@ -88,6 +88,9 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
     mIsValid = true;
     mDeltas.append( delta );
   }
+
+  connect( this, &DeltaListModel::rowsInserted, this, &DeltaListModel::rowCountChanged );
+  connect( this, &DeltaListModel::rowsRemoved, this, &DeltaListModel::rowCountChanged );
 }
 
 int DeltaListModel::rowCount( const QModelIndex &parent ) const
