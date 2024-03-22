@@ -22,6 +22,7 @@
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QImage>
+#include <QImageReader>
 #include <QMimeDatabase>
 #include <qgis.h>
 #include <qgsexiftools.h>
@@ -37,6 +38,11 @@ QString FileUtils::mimeTypeName( const QString &filePath )
   QMimeDatabase db;
   QMimeType mimeType = db.mimeTypeForFile( filePath );
   return mimeType.name();
+}
+
+bool FileUtils::isImageMimeTypeSupported( const QString &mimeType )
+{
+  return QImageReader::supportedMimeTypes().contains( mimeType.toLatin1() );
 }
 
 QString FileUtils::fileName( const QString &filePath )

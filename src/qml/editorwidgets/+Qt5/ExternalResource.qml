@@ -80,9 +80,10 @@ EditorWidgetBase {
     {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
       var fullValue = isHttp ? value : prefixToRelativePath + value
-      isImage = !config.UseLink && FileUtils.mimeTypeName(fullValue).startsWith("image/")
-      isAudio = !config.UseLink && FileUtils.mimeTypeName(fullValue).startsWith("audio/")
-      isVideo = !config.UseLink && FileUtils.mimeTypeName(fullValue).startsWith("video/")
+      var mimeType = FileUtils.mimeTypeName(fullValue)
+      isImage = !config.UseLink && mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType)
+      isAudio = !config.UseLink && mimeType.startsWith("audio/")
+      isVideo = !config.UseLink && mimeType.startsWith("video/")
 
       image.visible = isImage
       geoTagBadge.visible = isImage
