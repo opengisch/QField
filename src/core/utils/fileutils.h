@@ -35,6 +35,8 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
 
     //! Returns the mimetype of a filepath as string
     Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
+    //! Returns TRUE if the provided mimetype is a supported image
+    Q_INVOKABLE static bool isImageMimeTypeSupported( const QString &mimeType );
     //! Returns the filename of a filepath - if no file name exists it's empty
     Q_INVOKABLE static QString fileName( const QString &filePath );
     //! Returns true if the file exists (false if it's a directory)
