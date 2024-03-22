@@ -29,7 +29,11 @@ Popup {
 
       onFinished: {
         if (connectionSettings.visible) {
-          connectionSettings.visible = false;
+          if ( cloudConnection.status === QFieldCloudConnection.LoggedIn ) {
+            connectionSettings.visible = false;
+          } else {
+            popup.close()
+          }
         } else {
           popup.close()
         }

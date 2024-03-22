@@ -97,25 +97,31 @@ Drawer {
         QfToolButton {
           id: cloudButton
           anchors.verticalCenter: parent.verticalCenter
-          iconSource: switch(cloudProjectsModel.currentProjectData.Status ) {
-                        case QFieldCloudProjectsModel.Downloading:
-                          switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
-                            case QFieldCloudProjectsModel.PackagingFinishedStatus:
-                              return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
-                            default:
-                              return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-                          }
-                        case QFieldCloudProjectsModel.Uploading:
-                          switch ( cloudProjectsModel.currentProjectData.UploadDeltaStatus ) {
-                            case QFieldCloudProjectsModel.DeltaFileLocalStatus:
-                              return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
-                            default:
-                              return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-                          }
-                        case QFieldCloudProjectsModel.Idle:
-                          return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-                        default: Theme.getThemeVectorIcon( 'ic_cloud_24dp' );
-                      }
+          iconSource: {
+            if ( cloudConnection.status === QFieldCloudConnection.LoggedIn ){
+              switch(cloudProjectsModel.currentProjectData.Status ) {
+                case QFieldCloudProjectsModel.Downloading:
+                  switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
+                    case QFieldCloudProjectsModel.PackagingFinishedStatus:
+                      return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
+                    default:
+                      return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  }
+                case QFieldCloudProjectsModel.Uploading:
+                  switch ( cloudProjectsModel.currentProjectData.UploadDeltaStatus ) {
+                    case QFieldCloudProjectsModel.DeltaFileLocalStatus:
+                      return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
+                    default:
+                      return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  }
+                case QFieldCloudProjectsModel.Idle:
+                  return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                default: Theme.getThemeVectorIcon( 'ic_cloud_24dp' );
+              }
+            } else {
+              return Theme.getThemeVectorIcon( 'ic_cloud_24dp' );
+            }
+          }
           bgcolor: "transparent"
 
           onClicked: {
