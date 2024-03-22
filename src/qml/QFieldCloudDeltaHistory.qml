@@ -62,7 +62,7 @@ Popup {
             }
             iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
             iconColor: Theme.mainTextColor
-            bgcolor: "white"
+            bgcolor: Theme.mainBackgroundColor
 
             onClicked: {
               popup.close();
