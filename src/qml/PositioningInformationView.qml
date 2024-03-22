@@ -14,6 +14,9 @@ Rectangle {
   property bool coordinatesIsXY: CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
   property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
 
+  property double distanceUnitFactor: UnitTypes.fromUnitToUnitFactor(Qgis.DistanceUnit.Meters, projectInfo.distanceUnits)
+  property string distanceUnitAbbreviation: UnitTypes.toAbbreviatedString(projectInfo.distanceUnits)
+
   property double antennaHeight: NaN
   property double rowHeight: 30
   property color backgroundColor: Theme.mainBackgroundColor
@@ -93,15 +96,15 @@ Rectangle {
         color: textColor
         text: {
           var altitude = qsTr( "Altitude" ) + ': '
-          if ( positionSource.positionInformation && positionSource.positionInformation.elevationValid ) {
-            altitude += Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 3 ) + ' m '
+          if (positionSource.positionInformation && positionSource.positionInformation.elevationValid) {
+            altitude += Number(positionSource.projectedPosition.z * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation + ' '
             var details = []
             if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile) {
               details.push('grid')
             } else if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
               details.push('ortho.')
             }
-            if ( !isNaN( parseFloat( antennaHeight ) ) ) {
+            if (!isNaN(parseFloat(antennaHeight))) {
               details.push('ant.')
             }
             if (details.length > 0) {
@@ -143,7 +146,9 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr( "N/A" ) )
+        text: qsTr("H. Accuracy") + ': ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid
+                                            ? Number(positionSource.positionInformation.hacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
+                                            : qsTr("N/A"))
       }
     }
 
@@ -158,7 +163,9 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.vaccValid ? positionSource.positionInformation.vacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "V. Accuracy" ) + ': ' + (positionSource.positionInformation && positionSource.positionInformation.vaccValid
+                                              ? Number(positionSource.positionInformation.vacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
+                                              : qsTr("N/A"))
       }
     }
 
