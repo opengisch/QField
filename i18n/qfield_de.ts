@@ -668,6 +668,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Du bist dabei den Editiermodus zu verlassen, alle Änderungen werden dann verworfen. Fortfahren?</translation>
     </message>
+    <message>
+        <source>The last entered value for this field will be remembered and reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
