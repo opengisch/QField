@@ -393,19 +393,19 @@ void QFieldCloudProjectsModel::refreshProjectFileOutdatedStatus( const QString &
     }
 
     const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
-    const QString lastProjectFileSha256 = QFieldCloudUtils::projectSetting( project->id, QStringLiteral( "lastProjectFileSha256" ), QString() ).toString();
+    const QString lastProjectFileMd5 = QFieldCloudUtils::projectSetting( project->id, QStringLiteral( "lastProjectFileMd5" ), QString() ).toString();
     for ( const auto file : files )
     {
       QVariantHash fileDetails = file.toObject().toVariantHash();
       const QString fileName = fileDetails.value( "name" ).toString().toLower();
       if ( fileName.endsWith( QStringLiteral( ".qgs" ) ) || fileName.endsWith( QStringLiteral( ".qgz" ) ) )
       {
-        if ( lastProjectFileSha256.isEmpty() )
+        if ( lastProjectFileMd5.isEmpty() )
         {
           // First check, store for future comparison
-          QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "lastProjectFileSha256" ), fileDetails.value( "sha256" ).toString() );
+          QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "lastProjectFileMd5" ), fileDetails.value( "md5sum" ).toString() );
         }
-        else if ( lastProjectFileSha256 != fileDetails.value( "sha256" ).toString() )
+        else if ( lastProjectFileMd5 != fileDetails.value( "md5sum" ).toString() )
         {
           project->projectFileIsOutdated = true;
           QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "projectFileOudated" ), true );
@@ -977,7 +977,10 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     return;
   }
 
-  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/packages/%1/latest/" ).arg( projectId ) );
+  QVariantMap params;
+  params.insert( "skip_metadata", "1" );
+
+  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/packages/%1/latest/" ).arg( projectId ), params );
 
   emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole << StatusRole );
 
@@ -1027,20 +1030,20 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
       QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
       QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId, fileName );
-      QString cloudChecksum = fileObject.value( QStringLiteral( "sha256" ) ).toString();
-      QString localChecksum = FileUtils::fileChecksum( projectFileName, QCryptographicHash::Sha256 ).toHex();
+      QString cloudChecksumMd5 = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
+      QString localChecksumMd5 = FileUtils::fileChecksum( projectFileName, QCryptographicHash::Md5 ).toHex();
 
       if (
         !fileObject.value( QStringLiteral( "size" ) ).isDouble()
         || fileName.isEmpty()
-        || cloudChecksum.isEmpty() )
+        || cloudChecksumMd5.isEmpty() )
       {
-        QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), sha256(string)" ).arg( projectId ) );
+        QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( projectId ) );
         emit projectDownloadFinished( projectId, tr( "Latest package data structure error." ) );
         return;
       }
 
-      if ( cloudChecksum == localChecksum )
+      if ( cloudChecksumMd5 == localChecksumMd5 )
         continue;
 
       project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize ) );
@@ -1919,7 +1922,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportedAt" ), project->lastLocalExportedAt );
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportId" ), project->lastLocalExportId );
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), project->lastLocalDataLastUpdatedAt );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastProjectFileSha256" ), QString() );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastProjectFileMd5" ), QString() );
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "projectFileOudated" ), false );
 
         rolesChanged << StatusRole << ProjectOutdatedRole << ProjectFileOutdatedRole << LocalPathRole << CheckoutRole << LastLocalExportedAtRole;
