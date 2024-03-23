@@ -2096,6 +2096,7 @@ ApplicationWindow {
       }
 
       onCancel: {
+          coordinateLocator.sourceLocation = undefined
           if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
               elevationProfile.clear()
               elevationProfile.refresh()
@@ -2121,6 +2122,7 @@ ApplicationWindow {
             geometryRequestedItem.requestedGeometryReceived(digitizingFeature.geometry)
             digitizingRubberband.model.reset()
             geometryRequested = false
+            coordinateLocator.sourceLocation = undefined
             return;
         }
 
@@ -2162,6 +2164,7 @@ ApplicationWindow {
           digitizingRubberband.model.reset()
           digitizingFeature.resetFeature();
         }
+        coordinateLocator.sourceLocation = undefined
       }
     }
 

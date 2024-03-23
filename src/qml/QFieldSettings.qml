@@ -58,6 +58,10 @@ Page {
     onDigitizingVolumeKeysChanged: {
       platformUtilities.setHandleVolumeKeys(digitizingVolumeKeys && stateMachine.state != 'browse')
     }
+
+    onFingerTapDigitizingChanged: {
+      coordinateLocator.sourceLocation = undefined
+    }
   }
 
   ListModel {
