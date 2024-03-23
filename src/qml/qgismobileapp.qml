@@ -358,7 +358,11 @@ ApplicationWindow {
             if ( hovered ) {
                 hasBeenHovered = true;
             } else {
-                coordinateLocator.sourceLocation = undefined
+                if ( currentRubberband.model.vertexCount > 1 ) {
+                  coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( currentRubberband.model.lastCoordinate )
+                } else {
+                  coordinateLocator.sourceLocation = undefined
+                }
             }
         }
     }
