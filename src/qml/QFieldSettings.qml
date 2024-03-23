@@ -104,7 +104,7 @@ Page {
       }
       ListElement {
           title: qsTr( "Consider mouse as a touchscreen device" )
-          description: qsTr( "If disabled, the mouse will act as a stylus pen." )
+          description: qsTr( "When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior." )
           settingAlias: "mouseAsTouchScreen"
           isVisible: true
       }
