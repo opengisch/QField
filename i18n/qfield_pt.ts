@@ -1883,6 +1883,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>Loading…</source>
         <translation>A carregar...</translation>
     </message>
+    <message>
+        <source>No changes have been pushed yet!</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>

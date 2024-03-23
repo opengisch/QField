@@ -1882,6 +1882,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <source>Loading…</source>
         <translation>Učitavanje</translation>
     </message>
+    <message>
+        <source>No changes have been pushed yet!</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>

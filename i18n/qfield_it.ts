@@ -1883,6 +1883,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>Loading…</source>
         <translation>Caricamento in corso...</translation>
     </message>
+    <message>
+        <source>No changes have been pushed yet!</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>

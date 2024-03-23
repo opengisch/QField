@@ -1883,6 +1883,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Loading…</source>
         <translation>Učitavam...</translation>
     </message>
+    <message>
+        <source>No changes have been pushed yet!</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>

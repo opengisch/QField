@@ -1879,6 +1879,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Loading…</source>
         <translation>Betöltés...</translation>
     </message>
+    <message>
+        <source>No changes have been pushed yet!</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>

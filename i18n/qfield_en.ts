@@ -1904,6 +1904,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Loading…</source>
         <translation>Loading…</translation>
     </message>
+    <message>
+        <source>No changes have been pushed yet!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>

@@ -1885,6 +1885,10 @@ Motiv:
         <source>Loading…</source>
         <translation>Încărcare...</translation>
     </message>
+    <message>
+        <source>No changes have been pushed yet!</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>

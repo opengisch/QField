@@ -1882,6 +1882,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Loading…</source>
         <translation>Chargement...</translation>
     </message>
+    <message>
+        <source>No changes have been pushed yet!</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>
