@@ -996,9 +996,18 @@ void DeltaFileWrapper::setIsPushing( bool isPushing )
 QJsonValue DeltaFileWrapper::geometryToJsonValue( const QgsGeometry &geom ) const
 {
   if ( geom.isNull() )
+  {
     return QJsonValue::Null;
+  }
 
-  return QJsonValue( geom.asWkt() );
+  QString wkt = geom.asWkt();
+
+  if ( wkt.trimmed().isEmpty() )
+  {
+    return QJsonValue::Null;
+  }
+
+  return QJsonValue( wkt );
 }
 
 
