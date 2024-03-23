@@ -20,6 +20,7 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias digitizingVolumeKeys: registry.digitizingVolumeKeys
   property alias autoSave: registry.autoSave
+  property alias fingerTapDigitizing: registry.fingerTapDigitizing
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
   property alias quality: registry.quality
@@ -41,6 +42,7 @@ Page {
     property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
     property bool digitizingVolumeKeys: platformUtilities.capabilities & PlatformUtilities.VolumeKeys
     property bool autoSave: false
+    property bool fingerTapDigitizing: false
     property bool mouseAsTouchScreen: false
     property bool enableInfoCollection: true
     property double quality: 1.0
@@ -92,6 +94,12 @@ Page {
           title: qsTr( "Use volume keys to digitize" )
           description: qsTr( "If enabled, pressing the device's volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions." )
           settingAlias: "digitizingVolumeKeys"
+          isVisible: true
+      }
+      ListElement {
+          title: qsTr( "Allow finger tap on canvas to add vertices" )
+          description: qsTr( "When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location." )
+          settingAlias: "fingerTapDigitizing"
           isVisible: true
       }
       ListElement {
