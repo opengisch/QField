@@ -398,7 +398,9 @@ ApplicationWindow {
                 // Unfortunately, Qt fails to set the hovered property to false when stylus leaves proximity
                 // of the screen, we've got to compensate for that
                 mapCanvasMap.hovered = false
-                coordinateLocator.sourceLocation = undefined
+                if ( !qfieldSettings.fingerTapDigitizing ) {
+                    coordinateLocator.sourceLocation = undefined
+                }
             }
         }
     }
