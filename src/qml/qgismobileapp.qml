@@ -471,19 +471,27 @@ ApplicationWindow {
               }
 
               // Check if geometry editor is taking over
-              if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) && geometryEditorsToolbar.canvasClicked( point, type ) )
-                  return;
-
-              if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
-                   ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
-                  if ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Point ||
-                          Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Null ) {
-                      digitizingToolbar.confirm()
-                  } else {
-                      digitizingToolbar.addVertex()
+              const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock
+              if ( geometryEditorsToolbar.stateVisible ) {
+                  if ( !positionLocked ) {
+                       geometryEditorsToolbar.canvasClicked( point, type )
                   }
+                  return
+              }
+
+              if ( !featureForm.visible || digitizingToolbar.geometryRequested ) {
+                 if ( !positionLocked ) {
+                     if ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === "measure" ) {
+                         if ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Point ||
+                                 Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Null ) {
+                             digitizingToolbar.confirm()
+                         } else {
+                             digitizingToolbar.addVertex()
+                         }
+                     }
+                 }
               } else {
-                  if (!overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested) {
+                  if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit" ) {
                       identifyTool.isMenuRequest = false
                       identifyTool.identify(point)
                   }
@@ -493,15 +501,15 @@ ApplicationWindow {
 
       onConfirmedClicked: (point) => {
           // Check if geometry editor is taking over
+          const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock
           if ( geometryEditorsToolbar.stateVisible ) {
-            if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) ) {
-              geometryEditorsToolbar.canvasClicked( point, '' )
-            }
-            return
+              if ( !positionLocked ) {
+                geometryEditorsToolbar.canvasClicked( point, '' )
+              }
+              return
           }
 
-          if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state != "FeatureFormEdit")
-          {
+          if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
               identifyTool.isMenuRequest = false
               identifyTool.identify(point)
           }
