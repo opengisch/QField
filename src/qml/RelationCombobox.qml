@@ -169,7 +169,7 @@ Item {
             Rectangle {
               width:parent.width
               height: featureListModel.displayGroupName ? 30 : 5
-              color: Theme.controlBorderColor
+              color: Theme.controlBackgroundAlternateColor
 
               Text {
                 anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
@@ -194,7 +194,7 @@ Item {
             anchors.margins: 10
             height: radioButton.visible ? radioButton.height : checkBoxButton.height
             width: parent ? parent.width : undefined
-            color: model.checked ? Theme.mainColor : Theme.controlBackgroundAlternateColor
+            color: model.checked ? Theme.mainColor : searchFeaturePopup.Material ? searchFeaturePopup.Material.dialogColor : Theme.mainBackgroundColor
 
             Row {
               RadioButton {
