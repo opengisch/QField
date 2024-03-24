@@ -750,11 +750,13 @@ bool FeatureModel::create()
     return false;
   }
 
+  bool hasRelations = false;
   QList<QPair<QgsRelation, QgsFeatureRequest>> revisitRelations;
   if ( mProject )
   {
     // Gather any relationship children which would have relied on an auto-generated field value
     const QList<QgsRelation> relations = mProject->relationManager()->referencedRelations( mLayer );
+    hasRelations = !relations.isEmpty();
     QgsFeature temporaryFeature = mFeature;
     for ( const QgsRelation &relation : relations )
     {
@@ -791,25 +793,32 @@ bool FeatureModel::create()
       QgsFeature feat;
       if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
       {
-        // Revisit relations in need of attribute updates
-        for ( const QPair<QgsRelation, QgsFeatureRequest> &revisitRelation : std::as_const( revisitRelations ) )
-        {
-          const QList<QgsRelation::FieldPair> fieldPairs = revisitRelation.first.fieldPairs();
-          revisitRelation.first.referencingLayer()->startEditing();
-          QgsFeatureIterator it = revisitRelation.first.referencingLayer()->getFeatures( revisitRelation.second );
-          QgsFeature childFeature;
-          while ( it.nextFeature( childFeature ) )
-          {
-            for ( const QgsRelation::FieldPair fieldPair : fieldPairs )
-            {
-              childFeature.setAttribute( fieldPair.referencingField(), feat.attribute( fieldPair.referencedField() ) );
-            }
-            revisitRelation.first.referencingLayer()->updateFeature( childFeature );
-          }
-          revisitRelation.first.referencingLayer()->commitChanges();
-        }
-
         setFeature( feat );
+
+        if ( hasRelations )
+        {
+          // Revisit relations in need of attribute updates
+          for ( const QPair<QgsRelation, QgsFeatureRequest> &revisitRelation : std::as_const( revisitRelations ) )
+          {
+            const QList<QgsRelation::FieldPair> fieldPairs = revisitRelation.first.fieldPairs();
+            revisitRelation.first.referencingLayer()->startEditing();
+            QgsFeatureIterator it = revisitRelation.first.referencingLayer()->getFeatures( revisitRelation.second );
+            QgsFeature childFeature;
+            while ( it.nextFeature( childFeature ) )
+            {
+              for ( const QgsRelation::FieldPair fieldPair : fieldPairs )
+              {
+                childFeature.setAttribute( fieldPair.referencingField(), feat.attribute( fieldPair.referencedField() ) );
+              }
+              revisitRelation.first.referencingLayer()->updateFeature( childFeature );
+            }
+            revisitRelation.first.referencingLayer()->commitChanges();
+          }
+
+          // We need to update default values after creation to insure expression relying on relation children compute properly
+          updateDefaultValues();
+          save();
+        }
       }
       else
       {
