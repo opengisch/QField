@@ -94,6 +94,7 @@ class FeatureListModel : public QAbstractItemModel
       KeyFieldRole = Qt::UserRole + 1,
       DisplayStringRole,
       GroupFieldRole,
+      FirstInGroupRole,
     };
 
     Q_ENUM( FeatureListRoles )
@@ -238,6 +239,7 @@ class FeatureListModel : public QAbstractItemModel
         QString displayString;
         QVariant key;
         QVariant group;
+        bool firstInGroup = false;
         QgsFeatureId fid;
         double fuzzyScore;
     };

@@ -163,12 +163,12 @@ Item {
             }
           }
 
-          section.property: featureListModel.displayGroupName && featureListModel.groupField != "" ? "groupFieldValue" : ""
+          section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
           section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
           section.delegate: Component {
             Rectangle {
               width:parent.width
-              height: 30
+              height: featureListModel.displayGroupName ? 30 : 5
               color: Theme.controlBorderColor
 
               Text {
@@ -177,6 +177,7 @@ Item {
                 font.pointSize: Theme.resultFont.pointSize
                 color: Theme.mainTextColor
                 text: section
+                visible: featureListModel.displayGroupName
               }
             }
           }
@@ -352,6 +353,31 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
             }
+
+            delegate: ItemDelegate {
+                    topPadding: firstInGroup ? sectionBackground.height + padding / 2 : padding / 2
+                    implicitWidth: comboBox.width
+                    width: comboBox.width
+                    text: displayString
+
+                    Rectangle {
+                      id: sectionBackground
+                      width:parent.width
+                      height: featureListModel.displayGroupName ? 30 : 1
+                      color: Theme.mainBackgroundColor
+                      visible: firstInGroup
+
+                      Text {
+                        anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                        font.bold: true
+                        font.pointSize: Theme.resultFont.pointSize
+                        color: Theme.mainTextColor
+                        text: groupFieldValue
+                        visible: featureListModel.displayGroupName
+                      }
+                    }
+            }
+
 
             background: Item {
                 implicitWidth: 120
