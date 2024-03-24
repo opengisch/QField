@@ -98,7 +98,7 @@ Item {
           anchors.left: parent.left
           anchors.right: parent.right
 
-          placeholderText: displayText == '' ? qsTr("Search…") : ''
+          placeholderText: !focus && displayText == '' ? qsTr("Search…") : ''
           placeholderTextColor: Theme.mainColor
 
           height: fontMetrics.height * 2.5
