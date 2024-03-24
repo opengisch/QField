@@ -321,15 +321,15 @@ Item {
                 anchors.fill: parent
                 propagateComposedEvents: true
 
-                onClicked: { mouse.accepted = false; }
-                onPressed: {
-                    forceActiveFocus();
-                    mouse.accepted = false;
+                onClicked: (mouse) => { mouse.accepted = false }
+                onPressed: (mouse) => {
+                    forceActiveFocus()
+                    mouse.accepted = false
                 }
-                onReleased: mouse.accepted = false;
-                onDoubleClicked: mouse.accepted = false;
-                onPositionChanged: mouse.accepted = false;
-                onPressAndHold: mouse.accepted = false;
+                onReleased: (mouse) => { mouse.accepted = false }
+                onDoubleClicked: (mouse) => { mouse.accepted = false }
+                onPositionChanged: (mouse) => { mouse.accepted = false }
+                onPressAndHold: (mouse) => { mouse.accepted = false }
             }
 
             Component.onCompleted: {
@@ -337,9 +337,6 @@ Item {
             }
 
             font: Theme.defaultFont
-            popup.font: Theme.defaultFont
-            popup.topMargin: mainWindow.sceneTopMargin
-            popup.bottomMargin: mainWindow.sceneTopMargin
 
             contentItem: Text {
                 leftPadding: enabled ? 5 : 0
@@ -354,28 +351,42 @@ Item {
                 elide: Text.ElideRight
             }
 
-            delegate: ItemDelegate {
-                    topPadding: firstInGroup ? sectionBackground.height + padding / 2 : padding / 2
-                    implicitWidth: comboBox.width
-                    width: comboBox.width
-                    text: displayString
+            popup: Popup {
+                y: comboBox.height - 1
+                width: comboBox.width
+                implicitHeight: contentItem.implicitHeight
+                padding: 1
+                font: Theme.defaultFont
+                topMargin: mainWindow.sceneTopMargin
+                bottomMargin: mainWindow.sceneTopMargin
 
-                    Rectangle {
-                      id: sectionBackground
-                      width:parent.width
-                      height: featureListModel.displayGroupName ? 30 : 1
-                      color: Theme.mainBackgroundColor
-                      visible: firstInGroup
+                contentItem: ListView {
+                    clip: true
+                    implicitHeight: contentHeight
+                    model: comboBox.popup.visible ? comboBox.delegateModel : null
+                    currentIndex: comboBox.highlightedIndex
 
-                      Text {
-                        anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
-                        font.bold: true
-                        font.pointSize: Theme.resultFont.pointSize
-                        color: Theme.mainTextColor
-                        text: groupFieldValue
-                        visible: featureListModel.displayGroupName
+                    section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+                    section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+                    section.delegate: Component {
+                      Rectangle {
+                        width:parent.width
+                        height: featureListModel.displayGroupName ? 30 : 5
+                        color: Theme.mainBackgroundColor
+
+                        Text {
+                          anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                          font.bold: true
+                          font.pointSize: Theme.resultFont.pointSize
+                          color: Theme.mainTextColor
+                          text: section
+                          visible: featureListModel.displayGroupName
+                        }
                       }
                     }
+
+                    ScrollIndicator.vertical: ScrollIndicator { }
+                }
             }
 
 
