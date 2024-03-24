@@ -362,7 +362,7 @@ Item {
 
                 contentItem: ListView {
                     clip: true
-                    implicitHeight: contentHeight
+                    implicitHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneTopMargin, contentHeight)
                     model: comboBox.popup.visible ? comboBox.delegateModel : null
                     currentIndex: comboBox.highlightedIndex
 
