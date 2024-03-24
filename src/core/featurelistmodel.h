@@ -42,22 +42,34 @@ class FeatureListModel : public QAbstractItemModel
        * The vector layer to list
        */
     Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
+
     /**
        * The primary key field
        */
     Q_PROPERTY( QString keyField READ keyField WRITE setKeyField NOTIFY keyFieldChanged )
+
     /**
        * The display value field
        */
     Q_PROPERTY( QString displayValueField READ displayValueField WRITE setDisplayValueField NOTIFY displayValueFieldChanged )
 
     /**
-      * Whether the features should be ordered by value
+       * The grouping key field
+       */
+    Q_PROPERTY( QString groupField READ groupField WRITE setGroupField NOTIFY groupFieldChanged )
+
+    /**
+      * Set to TRUE if the group name will be displayed in the list
+      */
+    Q_PROPERTY( bool displayGroupName READ displayGroupName WRITE setDisplayGroupName NOTIFY displayGroupNameChanged )
+
+    /**
+      * Set to TRUE if features should be ordered by value
       */
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
     /**
-      * Whether a null values is allowed in the list
+      * Set to TRUE if null values are allowed in the list
       */
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
 
@@ -81,6 +93,7 @@ class FeatureListModel : public QAbstractItemModel
     {
       KeyFieldRole = Qt::UserRole + 1,
       DisplayStringRole,
+      GroupRole,
     };
 
     Q_ENUM( FeatureListRoles )
@@ -111,6 +124,12 @@ class FeatureListModel : public QAbstractItemModel
 
     QString displayValueField() const;
     void setDisplayValueField( const QString &displayValueField );
+
+    QString groupField() const;
+    void setGroupField( const QString &groupField );
+
+    bool displayGroupName() const;
+    void setDisplayGroupName( bool displayGroupName );
 
     /**
      * Get the row for a given key value.
@@ -176,6 +195,8 @@ class FeatureListModel : public QAbstractItemModel
     void currentLayerChanged();
     void keyFieldChanged();
     void displayValueFieldChanged();
+    void groupFieldChanged();
+    void displayGroupNameChanged();
     void orderByValueChanged();
     void addNullChanged();
     void filterExpressionChanged();
@@ -198,9 +219,10 @@ class FeatureListModel : public QAbstractItemModel
   private:
     struct Entry
     {
-        Entry( const QString &displayString, const QVariant &key, const QgsFeatureId &fid )
+        Entry( const QString &displayString, const QVariant &key, const QVariant &group, const QgsFeatureId &fid )
           : displayString( displayString )
           , key( key )
+          , group( group )
           , fid( fid )
           , fuzzyScore( 0 )
         {}
@@ -215,6 +237,7 @@ class FeatureListModel : public QAbstractItemModel
 
         QString displayString;
         QVariant key;
+        QVariant group;
         QgsFeatureId fid;
         double fuzzyScore;
     };
@@ -237,6 +260,8 @@ class FeatureListModel : public QAbstractItemModel
     QList<Entry> mEntries;
     QString mKeyField;
     QString mDisplayValueField;
+    QString mGroupField;
+    bool mDisplayGroupName = false;
     bool mOrderByValue = false;
     bool mAddNull = false;
     QString mFilterExpression;
