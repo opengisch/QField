@@ -815,7 +815,7 @@ bool FeatureModel::create()
             revisitRelation.first.referencingLayer()->commitChanges();
           }
 
-          // We need to update default values after creation to insure expression relying on relation children computer properly
+          // We need to update default values after creation to insure expression relying on relation children compute properly
           updateDefaultValues();
           save();
         }
