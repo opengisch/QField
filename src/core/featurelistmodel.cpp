@@ -90,6 +90,9 @@ QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
       return mEntries.value( index.row() ).displayString;
 
     case KeyFieldRole:
+      return mEntries.value( index.row() ).key;
+
+    case GroupFieldRole:
       return mEntries.value( index.row() ).group;
   }
 
@@ -102,7 +105,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
 
   roles[KeyFieldRole] = "keyFieldValue";
   roles[DisplayStringRole] = "displayString";
-  roles[GroupRole] = "GroupRole";
+  roles[GroupFieldRole] = "groupFieldValue";
 
   return roles;
 }

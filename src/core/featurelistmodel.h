@@ -93,7 +93,7 @@ class FeatureListModel : public QAbstractItemModel
     {
       KeyFieldRole = Qt::UserRole + 1,
       DisplayStringRole,
-      GroupRole,
+      GroupFieldRole,
     };
 
     Q_ENUM( FeatureListRoles )

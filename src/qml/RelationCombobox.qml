@@ -163,6 +163,24 @@ Item {
             }
           }
 
+          section.property: featureListModel.displayGroupName && featureListModel.groupField != "" ? "groupFieldValue" : ""
+          section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+          section.delegate: Component {
+            Rectangle {
+              width:parent.width
+              height: 30
+              color: Theme.controlBorderColor
+
+              Text {
+                anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                font.bold: true
+                font.pointSize: Theme.resultFont.pointSize
+                color: Theme.mainTextColor
+                text: section
+              }
+            }
+          }
+
           delegate: Rectangle {
             id: delegateRect
 
