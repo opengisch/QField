@@ -670,11 +670,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>将记忆此字段最后输入的值，并在创建新要素时重复使用</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>创建新要素时，不会重复使用此字段最后输入的值</translation>
     </message>
 </context>
 <context>
@@ -1881,7 +1881,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>尚未推送任何更改！</translation>
     </message>
 </context>
 <context>
