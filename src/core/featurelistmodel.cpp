@@ -94,9 +94,6 @@ QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
 
     case GroupFieldRole:
       return mEntries.value( index.row() ).group;
-
-    case FirstInGroupRole:
-      return mEntries.value( index.row() ).firstInGroup;
   }
 
   return QVariant();
@@ -109,7 +106,6 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   roles[KeyFieldRole] = "keyFieldValue";
   roles[DisplayStringRole] = "displayString";
   roles[GroupFieldRole] = "groupFieldValue";
-  roles[FirstInGroupRole] = "firstInGroup";
 
   return roles;
 }
@@ -422,19 +418,6 @@ void FeatureListModel::processFeatureList()
                ? entry1.displayString.toLower() < entry2.displayString.toLower()
                : entry1.fuzzyScore > entry2.fuzzyScore;
     } );
-  }
-
-  if ( !mGroupField.isEmpty() )
-  {
-    QVariant currentGroupValue;
-    for ( Entry &entry : entries )
-    {
-      if ( entry.group != currentGroupValue )
-      {
-        entry.firstInGroup = true;
-        currentGroupValue = entry.group;
-      }
-    }
   }
 
   beginResetModel();
