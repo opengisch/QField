@@ -20,6 +20,7 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias digitizingVolumeKeys: registry.digitizingVolumeKeys
   property alias autoSave: registry.autoSave
+  property alias fingerTapDigitizing: registry.fingerTapDigitizing
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
   property alias quality: registry.quality
@@ -41,6 +42,7 @@ Page {
     property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
     property bool digitizingVolumeKeys: platformUtilities.capabilities & PlatformUtilities.VolumeKeys
     property bool autoSave: false
+    property bool fingerTapDigitizing: false
     property bool mouseAsTouchScreen: false
     property bool enableInfoCollection: true
     property double quality: 1.0
@@ -56,32 +58,18 @@ Page {
     onDigitizingVolumeKeysChanged: {
       platformUtilities.setHandleVolumeKeys(digitizingVolumeKeys && stateMachine.state != 'browse')
     }
+
+    onFingerTapDigitizingChanged: {
+      coordinateLocator.sourceLocation = undefined
+    }
   }
 
   ListModel {
-      id: settingsModel
+      id: canvasSettingsModel
       ListElement {
           title: qsTr( "Show scale bar" )
           description: ''
           settingAlias: "showScaleBar"
-          isVisible: true
-      }
-      ListElement {
-          title: qsTr( "Maximized attribute form" )
-          description: ''
-          settingAlias: "fullScreenIdentifyView"
-          isVisible: true
-      }
-      ListElement {
-          title: qsTr( "Fixed scale navigation" )
-          description: qsTr( "When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature." )
-          settingAlias: "locatorKeepScale"
-          isVisible: true
-      }
-      ListElement {
-          title: qsTr( "Show digitizing information" )
-          description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool." )
-          settingAlias: "numericalDigitizingInformation"
           isVisible: true
       }
       ListElement {
@@ -90,10 +78,14 @@ Page {
           settingAlias: "showBookmarks"
           isVisible: true
       }
+  }
+
+  ListModel {
+      id: digitizingEditingSettingsModel
       ListElement {
-          title: qsTr( "Use native camera" )
-          description: qsTr( "If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos." )
-          settingAlias: "nativeCamera"
+          title: qsTr( "Show digitizing information" )
+          description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool." )
+          settingAlias: "numericalDigitizingInformation"
           isVisible: true
       }
       ListElement {
@@ -109,9 +101,50 @@ Page {
           isVisible: true
       }
       ListElement {
+          title: qsTr( "Allow finger tap on canvas to add vertices" )
+          description: qsTr( "When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location." )
+          settingAlias: "fingerTapDigitizing"
+          isVisible: true
+      }
+      ListElement {
           title: qsTr( "Consider mouse as a touchscreen device" )
-          description: qsTr( "If disabled, the mouse will act as a stylus pen." )
+          description: qsTr( "When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior." )
           settingAlias: "mouseAsTouchScreen"
+          isVisible: true
+      }
+      Component.onCompleted: {
+          for (var i = 0; i < count; i++) {
+              if (get(i).settingAlias === 'digitizingVolumeKeys') {
+                  setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.VolumeKeys ? true : false)
+              } else {
+                  setProperty(i, 'isVisible', true)
+              }
+          }
+      }
+  }
+
+  ListModel {
+      id: interfaceSettingsModel
+      ListElement {
+          title: qsTr( "Maximized attribute form" )
+          description: ''
+          settingAlias: "fullScreenIdentifyView"
+          isVisible: true
+      }
+      ListElement {
+          title: qsTr( "Fixed scale navigation" )
+          description: qsTr( "When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature." )
+          settingAlias: "locatorKeepScale"
+          isVisible: true
+      }
+  }
+
+  ListModel {
+      id: advancedSettingsModel
+      ListElement {
+          title: qsTr( "Use native camera" )
+          description: qsTr( "If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos." )
+          settingAlias: "nativeCamera"
           isVisible: true
       }
       ListElement {
@@ -121,15 +154,13 @@ Page {
           isVisible: true
       }
       Component.onCompleted: {
-          for (var i = 0; i < settingsModel.count; i++) {
-              if (settingsModel.get(i).settingAlias === 'digitizingVolumeKeys') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.VolumeKeys ? true : false)
-              } else if (settingsModel.get(i).settingAlias === 'nativeCamera') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera ? true : false)
-              } else if (settingsModel.get(i).settingAlias === 'enableInfoCollection') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.SentryFramework ? true : false)
+          for (var i = 0; i < count; i++) {
+              if (get(i).settingAlias === 'nativeCamera') {
+                  setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera ? true : false)
+              } else if (get(i).settingAlias === 'enableInfoCollection') {
+                  setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.SentryFramework ? true : false)
               } else {
-                  settingsModel.setProperty(i, 'isVisible', true)
+                  setProperty(i, 'isVisible', true)
               }
           }
       }
@@ -176,6 +207,60 @@ Page {
       }
     }
 
+    Component {
+      id: listItem
+
+      Rectangle {
+        width: parent ? parent.width - 16 : undefined
+        height: isVisible ? line.height : 0
+        color: "transparent"
+        clip: true
+
+        Row {
+          id: line
+          width: parent.width
+
+          Column {
+            width: parent.width - toggle.width
+
+            Label {
+              width: parent.width
+              padding: 8
+              leftPadding: 20
+              text: title
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              wrapMode: Text.WordWrap
+              MouseArea {
+                anchors.fill: parent
+                onClicked: toggle.toggle()
+              }
+            }
+
+            Label {
+              width: parent.width
+              visible: description !== ''
+              padding: description !== '' ? 8 : 0
+              topPadding: 0
+              leftPadding: 20
+              text: description
+              font: Theme.tipFont
+              color: Theme.secondaryTextColor
+              wrapMode: Text.WordWrap
+            }
+          }
+
+          QfSwitch {
+            id: toggle
+            width: implicitContentWidth
+            checked: registry[settingAlias]
+            Layout.alignment: Qt.AlignTop | Qt.AlignRight
+            onCheckedChanged: registry[settingAlias] = checked
+          }
+        }
+      }
+    }
+
     SwipeView {
       id: swipeView
       width: mainWindow.width
@@ -211,11 +296,159 @@ Page {
                       rowSpacing: 5
 
                       Label {
+                        text: qsTr('Map Canvas')
+                        font: Theme.strongFont
+                        color: Theme.mainColor
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                        Layout.topMargin: 5
+                        Layout.columnSpan: 2
+                      }
+
+                      Rectangle {
+                        Layout.fillWidth: true
+                        Layout.columnSpan: 2
+                        height: 1
+                        color: Theme.mainColor
+                      }
+                  }
+
+                  ListView {
+                    Layout.preferredWidth: mainWindow.width
+                    Layout.preferredHeight: childrenRect.height
+                    interactive: false
+
+                    model: canvasSettingsModel
+
+                    delegate: listItem
+                  }
+
+                  GridLayout {
+                      Layout.fillWidth: true
+                      Layout.leftMargin: 20
+                      Layout.rightMargin: 20
+
+                      columns: 2
+                      columnSpacing: 0
+                      rowSpacing: 5
+
+                      Label {
+                          Layout.fillWidth: true
+                          Layout.columnSpan: 2
+                          text: qsTr( "Map canvas rendering quality:" )
+                          font: Theme.defaultFont
+                          color: Theme.mainTextColor
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      ComboBox {
+                          id: renderingQualityComboBox
+                          enabled: true
+                          Layout.fillWidth: true
+                          Layout.columnSpan: 2
+                          Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+
+                          popup.font: Theme.defaultFont
+                          popup.topMargin: mainWindow.sceneTopMargin
+                          popup.bottomMargin: mainWindow.sceneTopMargin
+
+                          model: ListModel {
+                            ListElement { name: qsTr('Best quality'); value: 1.0 }
+                            ListElement { name: qsTr('Lower quality'); value: 0.75 }
+                            ListElement { name: qsTr('Lowest quality'); value: 0.5 }
+                          }
+                          textRole: "name"
+                          valueRole: "value"
+
+                          property bool initialized: false
+
+                          onCurrentValueChanged: {
+                              if (initialized) {
+                                quality = currentValue
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              currentIndex = indexOfValue(quality)
+                              initialized = true
+                          }
+                      }
+
+                      Label {
+                          text: qsTr( "A lower quality trades rendering precision in favor of lower memory usage and rendering time." )
+                          font: Theme.tipFont
+                          color: Theme.secondaryTextColor
+                          textFormat: Qt.RichText
+                          wrapMode: Text.WordWrap
+                          Layout.fillWidth: true
+                          Layout.columnSpan: 2
+
+                          onLinkActivated: (link) => { Qt.openUrlExternally(link) }
+                      }
+
+                      Label {
+                        text: qsTr('Digitizing & Editing')
+                        font: Theme.strongFont
+                        color: Theme.mainColor
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                        Layout.topMargin: 5
+                        Layout.columnSpan: 2
+                      }
+
+                      Rectangle {
+                        Layout.fillWidth: true
+                        Layout.columnSpan: 2
+                        height: 1
+                        color: Theme.mainColor
+                      }
+                  }
+
+                  ListView {
+                    Layout.preferredWidth: mainWindow.width
+                    Layout.preferredHeight: childrenRect.height
+                    interactive: false
+
+                    model: digitizingEditingSettingsModel
+
+                    delegate: listItem
+                  }
+
+                  GridLayout {
+                      Layout.fillWidth: true
+                      Layout.leftMargin: 20
+                      Layout.rightMargin: 20
+
+                      columns: 2
+                      columnSpacing: 0
+                      rowSpacing: 5
+
+                      Label {
+                        text: qsTr('User Interface')
+                        font: Theme.strongFont
+                        color: Theme.mainColor
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                        Layout.topMargin: 5
+                        Layout.columnSpan: 2
+                      }
+
+                      Rectangle {
+                        Layout.fillWidth: true
+                        Layout.columnSpan: 2
+                        height: 1
+                        color: Theme.mainColor
+                      }
+
+                      Label {
                           text: qsTr("Customize search bar")
                           font: Theme.defaultFont
                           color: Theme.mainTextColor
                           wrapMode: Text.WordWrap
                           Layout.fillWidth: true
+                          Layout.topMargin: 5
 
                           MouseArea {
                               anchors.fill: parent
@@ -240,62 +473,15 @@ Page {
                       }
                   }
 
+
                   ListView {
                     Layout.preferredWidth: mainWindow.width
                     Layout.preferredHeight: childrenRect.height
                     interactive: false
 
-                    model: settingsModel
+                    model: interfaceSettingsModel
 
-                    delegate: Rectangle {
-                      width: parent ? parent.width - 16 : undefined
-                      height: isVisible ? line.height : 0
-                      color: "transparent"
-                      clip: true
-
-                      Row {
-                        id: line
-                        width: parent.width
-
-                        Column {
-                          width: parent.width - toggle.width
-
-                          Label {
-                            width: parent.width
-                            padding: 8
-                            leftPadding: 20
-                            text: title
-                            font: Theme.defaultFont
-                            color: Theme.mainTextColor
-                            wrapMode: Text.WordWrap
-                            MouseArea {
-                              anchors.fill: parent
-                              onClicked: toggle.toggle()
-                            }
-                          }
-
-                          Label {
-                            width: parent.width
-                            visible: description !== ''
-                            padding: description !== '' ? 8 : 0
-                            topPadding: 0
-                            leftPadding: 20
-                            text: description
-                            font: Theme.tipFont
-                            color: Theme.secondaryTextColor
-                            wrapMode: Text.WordWrap
-                          }
-                        }
-
-                        QfSwitch {
-                          id: toggle
-                          width: implicitContentWidth
-                          checked: registry[settingAlias]
-                          Layout.alignment: Qt.AlignTop | Qt.AlignRight
-                          onCheckedChanged: registry[settingAlias] = checked
-                        }
-                      }
-                    }
+                    delegate: listItem
                   }
 
                   GridLayout {
@@ -360,7 +546,7 @@ Page {
 
                       Label {
                           Layout.fillWidth: true
-                          text: qsTr( "User interface appearance:" )
+                          text: qsTr( "Appearance:" )
                           font: Theme.defaultFont
                           color: Theme.mainTextColor
 
@@ -404,7 +590,7 @@ Page {
 
                       Label {
                           Layout.fillWidth: true
-                          text: qsTr( "User interface font size:" )
+                          text: qsTr( "Font size:" )
                           font: Theme.defaultFont
                           color: Theme.mainTextColor
 
@@ -449,7 +635,7 @@ Page {
 
                       Label {
                           Layout.fillWidth: true
-                          text: qsTr( "User interface language:" )
+                          text: qsTr( "Language:" )
                           font: Theme.defaultFont
                           color: Theme.mainTextColor
 
@@ -517,59 +703,45 @@ Page {
 
                           onLinkActivated: (link) => { Qt.openUrlExternally(link) }
                       }
+                  }
+
+                  GridLayout {
+                      Layout.fillWidth: true
+                      Layout.leftMargin: 20
+                      Layout.rightMargin: 20
+
+                      columns: 2
+                      columnSpacing: 0
+                      rowSpacing: 5
+
+                      visible: platformUtilities.capabilities & PlatformUtilities.NativeCamera || platformUtilities.capabilities & PlatformUtilities.SentryFramework
 
                       Label {
-                          Layout.fillWidth: true
-                          text: qsTr( "Map canvas rendering quality:" )
-                          font: Theme.defaultFont
-                          color: Theme.mainTextColor
-
-                          wrapMode: Text.WordWrap
+                        text: qsTr('Advanced')
+                        font: Theme.strongFont
+                        color: Theme.mainColor
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                        Layout.topMargin: 5
+                        Layout.columnSpan: 2
                       }
 
-                      ComboBox {
-                          id: renderingQualityComboBox
-                          enabled: true
-                          Layout.fillWidth: true
-                          Layout.alignment: Qt.AlignVCenter
-                          font: Theme.defaultFont
-
-                          popup.font: Theme.defaultFont
-                          popup.topMargin: mainWindow.sceneTopMargin
-                          popup.bottomMargin: mainWindow.sceneTopMargin
-
-                          model: ListModel {
-                            ListElement { name: qsTr('Best quality'); value: 1.0 }
-                            ListElement { name: qsTr('Lower quality'); value: 0.75 }
-                            ListElement { name: qsTr('Lowest quality'); value: 0.5 }
-                          }
-                          textRole: "name"
-                          valueRole: "value"
-
-                          property bool initialized: false
-
-                          onCurrentValueChanged: {
-                              if (initialized) {
-                                quality = currentValue
-                              }
-                          }
-
-                          Component.onCompleted: {
-                              currentIndex = indexOfValue(quality)
-                              initialized = true
-                          }
+                      Rectangle {
+                        Layout.fillWidth: true
+                        Layout.columnSpan: 2
+                        height: 1
+                        color: Theme.mainColor
                       }
+                  }
 
-                      Label {
-                          text: qsTr( "A lower quality trades rendering precision in favor of lower memory usage and rendering time." )
-                          font: Theme.tipFont
-                          color: Theme.secondaryTextColor
-                          textFormat: Qt.RichText
-                          wrapMode: Text.WordWrap
-                          Layout.fillWidth: true
+                  ListView {
+                    Layout.preferredWidth: mainWindow.width
+                    Layout.preferredHeight: childrenRect.height
+                    interactive: false
 
-                          onLinkActivated: (link) => { Qt.openUrlExternally(link) }
-                      }
+                    model: advancedSettingsModel
+
+                    delegate: listItem
                   }
 
                   Item {
