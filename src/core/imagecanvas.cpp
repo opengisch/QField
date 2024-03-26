@@ -45,14 +45,15 @@ void ImageCanvas::fitCanvas()
   double scale = 1.0;
   if ( !mBackgroundImage.isNull() )
   {
-    const QSize backgroundImageSize = mBackgroundImage.size();
-    if ( backgroundImageSize.width() > size().width() )
+    const QSizeF itemSize( size().width() - 30, size().height() - 30 );
+    const QSizeF backgroundImageSize = mBackgroundImage.size();
+    if ( backgroundImageSize.width() > itemSize.width() )
     {
-      scale = size().width() / backgroundImageSize.width();
+      scale = itemSize.width() / backgroundImageSize.width();
     }
     if ( backgroundImageSize.height() * scale > size().height() )
     {
-      scale = size().height() / backgroundImageSize.height();
+      scale = itemSize.height() / backgroundImageSize.height();
     }
   }
 
@@ -116,11 +117,16 @@ void ImageCanvas::paint( QPainter *painter )
 {
   if ( !mBackgroundImage.isNull() )
   {
-    const QSize scaledSize = mBackgroundImage.size() * mZoomFactor;
-    painter->drawImage( QRect( ( size().width() / 2 - scaledSize.width() / 2 ) + mOffset.x(),
-                               ( size().height() / 2 - scaledSize.height() / 2 ) + mOffset.y(),
-                               scaledSize.width(),
-                               scaledSize.height() ),
-                        mBackgroundImage );
+    const QSizeF scaledImageSize = mBackgroundImage.size() * mZoomFactor;
+    const QRectF imageRect( ( size().width() / 2 - scaledImageSize.width() / 2 ) + mOffset.x(),
+                            ( size().height() / 2 - scaledImageSize.height() / 2 ) + mOffset.y(),
+                            scaledImageSize.width(),
+                            scaledImageSize.height() );
+
+    painter->setPen( Qt::NoPen );
+    painter->setBrush( QBrush( fillColor().darker( 125 ) ) );
+
+    painter->drawRect( imageRect.translated( 5, 5 ) );
+    painter->drawImage( imageRect, mBackgroundImage );
   }
 }
