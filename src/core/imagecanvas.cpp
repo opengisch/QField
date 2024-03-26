@@ -56,8 +56,8 @@ void ImageCanvas::fitCanvas()
     }
   }
 
-  mZoom = scale;
-  emit zoomChanged();
+  mZoomFactor = scale;
+  emit zoomFactorChanged();
 
   mOffset = QPoint( 0, 0 );
   emit offsetChanged();
@@ -65,30 +65,41 @@ void ImageCanvas::fitCanvas()
   update();
 }
 
-double ImageCanvas::zoom() const
+void ImageCanvas::pan( const QPointF &oldPosition, const QPointF &newPosition )
 {
-  return mZoom;
+  setOffset( QPointF( mOffset.x() + ( newPosition.x() - oldPosition.x() ),
+                      mOffset.y() + ( newPosition.y() - oldPosition.y() ) ) );
 }
 
-void ImageCanvas::setZoom( double zoom )
+void ImageCanvas::zoom( double scale )
 {
-  if ( mZoom == zoom )
+  setZoomFactor( mZoomFactor * scale );
+}
+
+double ImageCanvas::zoomFactor() const
+{
+  return mZoomFactor;
+}
+
+void ImageCanvas::setZoomFactor( double factor )
+{
+  if ( mZoomFactor == factor )
   {
     return;
   }
 
-  mZoom = zoom;
-  emit zoomChanged();
+  mZoomFactor = factor;
+  emit zoomFactorChanged();
 
   update();
 }
 
-QPoint ImageCanvas::offset() const
+QPointF ImageCanvas::offset() const
 {
   return mOffset;
 }
 
-void ImageCanvas::setOffset( const QPoint &offset )
+void ImageCanvas::setOffset( const QPointF &offset )
 {
   if ( mOffset == offset )
   {
@@ -105,7 +116,7 @@ void ImageCanvas::paint( QPainter *painter )
 {
   if ( !mBackgroundImage.isNull() )
   {
-    const QSize scaledSize = mBackgroundImage.size() * mZoom;
+    const QSize scaledSize = mBackgroundImage.size() * mZoomFactor;
     painter->drawImage( QRect( ( size().width() / 2 - scaledSize.width() / 2 ) + mOffset.x(),
                                ( size().height() / 2 - scaledSize.height() / 2 ) + mOffset.y(),
                                scaledSize.width(),

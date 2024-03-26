@@ -25,8 +25,8 @@ class ImageCanvas : public QQuickPaintedItem
 {
     Q_OBJECT
 
-    Q_PROPERTY( double zoom READ zoom WRITE setZoom NOTIFY zoomChanged )
-    Q_PROPERTY( QPoint offset READ offset WRITE setOffset NOTIFY offsetChanged )
+    Q_PROPERTY( double zoomFactor READ zoomFactor WRITE setZoomFactor NOTIFY zoomFactorChanged )
+    Q_PROPERTY( QPointF offset READ offset WRITE setOffset NOTIFY offsetChanged )
 
   public:
     ImageCanvas();
@@ -34,25 +34,28 @@ class ImageCanvas : public QQuickPaintedItem
 
     void paint( QPainter *painter ) override;
 
-    double zoom() const;
-    void setZoom( double scale );
+    double zoomFactor() const;
+    void setZoomFactor( double factor );
 
-    QPoint offset() const;
-    void setOffset( const QPoint &offset );
+    QPointF offset() const;
+    void setOffset( const QPointF &offset );
 
     Q_INVOKABLE void createBlankCanvas( int width, int height, QColor backgroundColor = QColor( 255, 255, 255 ) );
     Q_INVOKABLE void createCanvasFromImage( const QString &path );
 
     Q_INVOKABLE void fitCanvas();
 
+    Q_INVOKABLE void pan( const QPointF &oldPosition, const QPointF &newPosition );
+    Q_INVOKABLE void zoom( double scale );
+
   signals:
 
-    void zoomChanged();
+    void zoomFactorChanged();
     void offsetChanged();
 
   private:
-    double mZoom = 1.0;
-    QPoint mOffset = QPoint( 0, 0 );
+    double mZoomFactor = 1.0;
+    QPointF mOffset = QPointF( 0, 0 );
 
     QImage mBackgroundImage;
 };
