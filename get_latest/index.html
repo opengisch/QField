@@ -27,7 +27,7 @@ try {
       } else if (queryParams['platform'] == "macos") {
         downloadUrl += "x64-osx.dmg"
       } else if (queryParams['platform'] == "macos-arm") {
-        downloadUrl += "arm64-osx.dmg "
+        downloadUrl += "arm64-osx.dmg"
       }
       if (json['assets'].find(asset => asset["browser_download_url"] === downloadUrl)) {
         return downloadUrl;
