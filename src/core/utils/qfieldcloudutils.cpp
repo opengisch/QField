@@ -24,6 +24,8 @@
 #include <QString>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
+#include <qgsprovidermetadata.h>
+#include <qgsproviderregistry.h>
 
 static QString sLocalCloudDirectory;
 
@@ -59,9 +61,50 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
 
   const QString layerAction( layer->customProperty( QStringLiteral( "QFieldSync/cloud_action" ) ).toString().toUpper() );
 
-  if ( layerAction == QStringLiteral( "NO_ACTION" ) || layerAction == QStringLiteral( "REMOVE" ) )
-    return false;
+  if ( isFileBasedLayer( layer ) )
+  {
+    if ( layerAction == QStringLiteral( "REMOVE" ) )
+    {
+      return false;
+    }
+  }
+  else
+  {
+    if ( layerAction == QStringLiteral( "NO_ACTION" ) || layerAction == QStringLiteral( "REMOVE" ) )
+    {
+      return false;
+    }
+  }
+
   return true;
+}
+
+bool QFieldCloudUtils::isFileBasedLayer( const QgsMapLayer *layer )
+{
+  if ( layer->type() == Qgis::LayerType::VectorTile )
+  {
+    QgsDataSourceUri uri;
+    uri.setEncodedUri( layer->source() );
+    return QFile::exists( uri.param( "url" ) );
+  }
+
+  if ( !layer->dataProvider() )
+  {
+    return false;
+  }
+
+  QgsProviderMetadata *providerMetadata = QgsProviderRegistry::instance()->providerMetadata( layer->dataProvider()->name() );
+  QVariantMap metadata = providerMetadata->decodeUri( layer->source() );
+
+  const QString filename = metadata.value( QStringLiteral( "path" ), QString() ).toString();
+  const QString resolvedFilename = QgsProject::instance()->pathResolver().writePath( filename );
+
+  if ( resolvedFilename.startsWith( QStringLiteral( "localized:" ) ) )
+  {
+    return QFile::exists( resolvedFilename.mid( 10 ) );
+  }
+
+  return QFile::exists( filename );
 }
 
 const QString QFieldCloudUtils::getProjectId( const QString &fileName )
