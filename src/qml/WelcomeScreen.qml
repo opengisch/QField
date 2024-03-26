@@ -863,6 +863,16 @@ Page {
     }
   }
 
+  ImageCanvas {
+    anchors.fill: parent
+
+    fillColor: "#cccccc"
+
+    Component.onCompleted: {
+      createCanvasFromImage('/home/webmaster/Desktop/2024-03-21-00 00_2024-03-21-23 59_Landsat_8-9_L1_True_color.jpg')
+    }
+  }
+
   function burstSomeSparkles(x, y) {
     emitterParticles.burst(50, x, y)
     emitterUnicorns.burst(1, x, y)
