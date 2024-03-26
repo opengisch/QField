@@ -130,7 +130,7 @@ jobs:
         run: |
           cmake --build  /Users/runner/builddir --target bundle --config Release
 
-      - uses: m-kuhn/tmate-action@patch-1
+      - uses: m-kuhn/action-tmate@patch-1
         if: always()
 
       - name: 🍺 Deploy
