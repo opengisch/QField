@@ -34,6 +34,8 @@ EditorWidgetBase {
     currentFormFeature: currentFeature
     keyField: config['Key']
     displayValueField: config['Value']
+    groupField: config['Group']
+    displayGroupName: config['DisplayGroupName']
     addNull: config['AllowNull']
     orderByValue: config['OrderByValue']
     filterExpression: config['FilterExpression']

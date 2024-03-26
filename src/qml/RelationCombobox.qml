@@ -98,7 +98,7 @@ Item {
           anchors.left: parent.left
           anchors.right: parent.right
 
-          placeholderText: displayText == '' ? qsTr("Search…") : ''
+          placeholderText: !focus && displayText == '' ? qsTr("Search…") : ''
           placeholderTextColor: Theme.mainColor
 
           height: fontMetrics.height * 2.5
@@ -163,6 +163,25 @@ Item {
             }
           }
 
+          section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+          section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+          section.delegate: Component {
+            Rectangle {
+              width:parent.width
+              height: featureListModel.displayGroupName ? 30 : 5
+              color: Theme.controlBackgroundAlternateColor
+
+              Text {
+                anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                font.bold: true
+                font.pointSize: Theme.resultFont.pointSize
+                color: Theme.mainTextColor
+                text: section
+                visible: featureListModel.displayGroupName
+              }
+            }
+          }
+
           delegate: Rectangle {
             id: delegateRect
 
@@ -175,7 +194,7 @@ Item {
             anchors.margins: 10
             height: radioButton.visible ? radioButton.height : checkBoxButton.height
             width: parent ? parent.width : undefined
-            color: model.checked ? Theme.mainColor : Theme.controlBackgroundAlternateColor
+            color: model.checked ? Theme.mainColor : searchFeaturePopup.Material ? searchFeaturePopup.Material.dialogColor : Theme.mainBackgroundColor
 
             Row {
               RadioButton {
@@ -302,15 +321,15 @@ Item {
                 anchors.fill: parent
                 propagateComposedEvents: true
 
-                onClicked: { mouse.accepted = false; }
-                onPressed: {
-                    forceActiveFocus();
-                    mouse.accepted = false;
+                onClicked: (mouse) => { mouse.accepted = false }
+                onPressed: (mouse) => {
+                    forceActiveFocus()
+                    mouse.accepted = false
                 }
-                onReleased: mouse.accepted = false;
-                onDoubleClicked: mouse.accepted = false;
-                onPositionChanged: mouse.accepted = false;
-                onPressAndHold: mouse.accepted = false;
+                onReleased: (mouse) => { mouse.accepted = false }
+                onDoubleClicked: (mouse) => { mouse.accepted = false }
+                onPositionChanged: (mouse) => { mouse.accepted = false }
+                onPressAndHold: (mouse) => { mouse.accepted = false }
             }
 
             Component.onCompleted: {
@@ -318,9 +337,6 @@ Item {
             }
 
             font: Theme.defaultFont
-            popup.font: Theme.defaultFont
-            popup.topMargin: mainWindow.sceneTopMargin
-            popup.bottomMargin: mainWindow.sceneTopMargin
 
             contentItem: Text {
                 leftPadding: enabled ? 5 : 0
@@ -334,6 +350,45 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
             }
+
+            popup: Popup {
+                y: comboBox.height - 1
+                width: comboBox.width
+                implicitHeight: contentItem.implicitHeight
+                padding: 1
+                font: Theme.defaultFont
+                topMargin: mainWindow.sceneTopMargin
+                bottomMargin: mainWindow.sceneTopMargin
+
+                contentItem: ListView {
+                    clip: true
+                    implicitHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneTopMargin, contentHeight)
+                    model: comboBox.popup.visible ? comboBox.delegateModel : null
+                    currentIndex: comboBox.highlightedIndex
+
+                    section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+                    section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+                    section.delegate: Component {
+                      Rectangle {
+                        width:parent.width
+                        height: featureListModel.displayGroupName ? 30 : 5
+                        color: Theme.mainBackgroundColor
+
+                        Text {
+                          anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                          font.bold: true
+                          font.pointSize: Theme.resultFont.pointSize
+                          color: Theme.mainTextColor
+                          text: section
+                          visible: featureListModel.displayGroupName
+                        }
+                      }
+                    }
+
+                    ScrollIndicator.vertical: ScrollIndicator { }
+                }
+            }
+
 
             background: Item {
                 implicitWidth: 120

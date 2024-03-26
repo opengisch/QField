@@ -80,13 +80,20 @@ int FeatureListModel::columnCount( const QModelIndex &parent ) const
 
 QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
 {
-  if ( role == Qt::DisplayRole || role == DisplayStringRole )
+  if ( index.row() < 0 || index.row() >= mEntries.size() )
+    return QVariant();
+
+  switch ( role )
   {
-    return mEntries.value( index.row() ).displayString;
-  }
-  else if ( role == KeyFieldRole )
-  {
-    return mEntries.value( index.row() ).key;
+    case Qt::DisplayRole:
+    case DisplayStringRole:
+      return mEntries.value( index.row() ).displayString;
+
+    case KeyFieldRole:
+      return mEntries.value( index.row() ).key;
+
+    case GroupFieldRole:
+      return mEntries.value( index.row() ).group;
   }
 
   return QVariant();
@@ -98,6 +105,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
 
   roles[KeyFieldRole] = "keyFieldValue";
   roles[DisplayStringRole] = "displayString";
+  roles[GroupFieldRole] = "groupFieldValue";
 
   return roles;
 }
@@ -165,6 +173,38 @@ void FeatureListModel::setDisplayValueField( const QString &displayValueField )
   reloadLayer();
 
   emit displayValueFieldChanged();
+}
+
+QString FeatureListModel::groupField() const
+{
+  return mGroupField;
+}
+
+void FeatureListModel::setGroupField( const QString &groupField )
+{
+  if ( mGroupField == groupField )
+    return;
+
+  mGroupField = groupField;
+
+  reloadLayer();
+
+  emit groupFieldChanged();
+}
+
+bool FeatureListModel::displayGroupName() const
+{
+  return mDisplayGroupName;
+}
+
+void FeatureListModel::setDisplayGroupName( bool displayGroupName )
+{
+  if ( mDisplayGroupName == displayGroupName )
+    return;
+
+  mDisplayGroupName = displayGroupName;
+
+  emit displayGroupNameChanged();
 }
 
 int FeatureListModel::findKey( const QVariant &key ) const
@@ -255,6 +295,9 @@ void FeatureListModel::gatherFeatureList()
   if ( !keyField().isNull() )
     referencedColumns << mKeyField;
 
+  if ( !groupField().isNull() )
+    referencedColumns << mGroupField;
+
   referencedColumns << mDisplayValueField;
 
   QgsFields fields = mCurrentLayer->fields();
@@ -303,7 +346,7 @@ void FeatureListModel::gatherFeatureList()
 
   cleanupGatherer();
 
-  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() );
+  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() << groupField() );
   connect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
   mGatherer->start();
 }
@@ -318,7 +361,7 @@ void FeatureListModel::processFeatureList()
   QList<Entry> entries;
 
   if ( mAddNull )
-    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QgsFeatureId() ) );
+    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId() ) );
 
   const QVector<FeatureExpressionValuesGatherer::Entry> gatheredEntries = mGatherer->entries();
   mGatherer->deleteLater();
@@ -328,7 +371,7 @@ void FeatureListModel::processFeatureList()
   {
     Entry entry;
 
-    entry = Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.featureId );
+    entry = Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId );
 
     if ( !mSearchTerm.isEmpty() )
     {
@@ -340,7 +383,7 @@ void FeatureListModel::processFeatureList()
     entries.append( entry );
   }
 
-  if ( mOrderByValue || !mSearchTerm.isEmpty() )
+  if ( mOrderByValue || !mGroupField.isEmpty() || !mSearchTerm.isEmpty() )
   {
     std::sort( entries.begin(), entries.end(), [=]( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() )
@@ -348,6 +391,11 @@ void FeatureListModel::processFeatureList()
 
       if ( entry2.key.isNull() )
         return false;
+
+      if ( !mGroupField.isEmpty() && entry1.group != entry2.group )
+      {
+        return entry1.group < entry2.group;
+      }
 
       if ( !mSearchTerm.isEmpty() )
       {
