@@ -12,8 +12,9 @@ Item {
 
     fillColor: "#cccccc"
 
-    Component.onCompleted: {
-      createCanvasFromImage('/home/webmaster/Desktop/2024-03-21-00 00_2024-03-21-23 59_Landsat_8-9_L1_True_color.jpg')
+    Behavior on zoomFactor {
+      enabled: true
+      NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
     }
   }
 
@@ -39,5 +40,9 @@ Item {
     target: null
 
     onWheel: (event) => { imageCanvas.zoomFactor = imageCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
+  }
+
+  Component.onCompleted: {
+    imageCanvas.createCanvasFromImage('/home/webmaster/Desktop/2024-03-21-00 00_2024-03-21-23 59_Landsat_8-9_L1_True_color.jpg')
   }
 }
