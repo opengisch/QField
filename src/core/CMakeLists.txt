@@ -56,6 +56,7 @@ set(QFIELD_CORE_SRCS
     geometry.cpp
     geometryeditorsmodel.cpp
     identifytool.cpp
+    imagecanvas.cpp
     layerobserver.cpp
     featurehistory.cpp
     layerresolver.cpp
@@ -164,6 +165,7 @@ set(QFIELD_CORE_HDRS
     geometry.h
     geometryeditorsmodel.h
     identifytool.h
+    imagecanvas.h
     layerobserver.h
     featurehistory.h
     layerresolver.h
