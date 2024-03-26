@@ -5,6 +5,7 @@ execute_process(COMMAND xcodebuild
             -project "@PROJECT_BINARY_DIR@/@CMAKE_PROJECT_NAME@.xcodeproj"
             -scheme "qfield"
             -archivePath "${QT_IOS_TARGET_ARCHIVE_PATH}"
+            -destination "generic/platform=iOS"
             archive
             COMMAND_ERROR_IS_FATAL ANY)
 execute_process(
@@ -12,4 +13,5 @@ execute_process(
     -archivePath "${QT_IOS_TARGET_ARCHIVE_PATH}"
     -exportOptionsPlist "@QT_IOS_EXPORT_OPTIONS_FILE@"
     -exportPath "${QT_IOS_TARGET_IPA_PATH}"
+    -destination "generic/platform=iOS"
     COMMAND_ERROR_IS_FATAL ANY)
