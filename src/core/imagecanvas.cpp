@@ -30,7 +30,6 @@ void ImageCanvas::createBlankCanvas( int width, int height, QColor backgroundCol
   mBackgroundImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
   mBackgroundImage.fill( backgroundColor );
 
-  mCanvasScale = -1;
   fitCanvas();
 }
 
@@ -38,7 +37,6 @@ void ImageCanvas::createCanvasFromImage( const QString &path )
 {
   mBackgroundImage = QImage( path );
 
-  mCanvasScale = -1;
   fitCanvas();
 }
 
@@ -57,23 +55,48 @@ void ImageCanvas::fitCanvas()
       scale = size().height() / backgroundImageSize.height();
     }
   }
-  setCanvasScale( scale );
+
+  mZoom = scale;
+  emit zoomChanged();
+
+  mOffset = QPoint( 0, 0 );
+  emit offsetChanged();
+
+  update();
 }
 
-double ImageCanvas::canvasScale() const
+double ImageCanvas::zoom() const
 {
-  return mCanvasScale;
+  return mZoom;
 }
 
-void ImageCanvas::setCanvasScale( double scale )
+void ImageCanvas::setZoom( double zoom )
 {
-  if ( mCanvasScale == scale )
+  if ( mZoom == zoom )
   {
     return;
   }
 
-  mCanvasScale = scale;
-  emit canvasScaleChanged();
+  mZoom = zoom;
+  emit zoomChanged();
+
+  update();
+}
+
+QPoint ImageCanvas::offset() const
+{
+  return mOffset;
+}
+
+void ImageCanvas::setOffset( const QPoint &offset )
+{
+  if ( mOffset == offset )
+  {
+    return;
+  }
+
+  mOffset = offset;
+  emit offsetChanged();
 
   update();
 }
@@ -82,9 +105,9 @@ void ImageCanvas::paint( QPainter *painter )
 {
   if ( !mBackgroundImage.isNull() )
   {
-    const QSize scaledSize = mBackgroundImage.size() * mCanvasScale;
-    painter->drawImage( QRect( size().width() / 2 - scaledSize.width() / 2,
-                               size().height() / 2 - scaledSize.height() / 2,
+    const QSize scaledSize = mBackgroundImage.size() * mZoom;
+    painter->drawImage( QRect( ( size().width() / 2 - scaledSize.width() / 2 ) + mOffset.x(),
+                               ( size().height() / 2 - scaledSize.height() / 2 ) + mOffset.y(),
                                scaledSize.width(),
                                scaledSize.height() ),
                         mBackgroundImage );
