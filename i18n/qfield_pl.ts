@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Sprawdź sekcję %1Portable Project%2 w dokumentacji, aby uzyskać więcej pomocy.</translation>
     </message>
 </context>
 <context>
@@ -670,11 +670,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio wprowadzona wartość dla tego pola będzie zapamiętana i użyta ponownie przy tworzeniu nowych obiektów</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio wprowadzona wartość dla tego pola nie będzie użyta ponownie przy tworzeniu nowych obiektów</translation>
     </message>
 </context>
 <context>
@@ -1878,7 +1878,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Nie wysłano jeszcze żadnych zmian!</translation>
     </message>
 </context>
 <context>
@@ -2173,7 +2173,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Obecny projekt nie umożliwia wyłączenia automatycznego przesyłania</translation>
     </message>
 </context>
 <context>
