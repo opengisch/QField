@@ -64,17 +64,20 @@ Popup {
 
         Behavior on zoomFactor {
           enabled: true
-          NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+          NumberAnimation { duration: 100; easing.type: Easing.OutQuad; }
         }
 
 
         PinchArea {
           id: pinchArea
+          enabled: sketcher.visible
           anchors.fill: parent
 
+          pinch.target: null
+
           onPinchUpdated: (pinch) => {
-                            drawingCanvas.pan(pinch.center, pinch.previousCenter)
-                            drawingCanvas.scale = drawingCanvas.scale * pinch.previousScale / pinch.scale
+                            drawingCanvas.pan(pinch.previousCenter, pinch.center)
+                            drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * pinch.previousScale / pinch.scale
                           }
         }
 
@@ -88,7 +91,7 @@ Popup {
           property point oldPosition
 
           onActiveChanged: {
-            if (active && centroid.pressedButtons === Qt.LeftButton) {
+            if (active && centroid.pressedButtons !== Qt.RightButton) {
               drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
             } else {
               drawingCanvas.strokeEnd(centroid.position)
