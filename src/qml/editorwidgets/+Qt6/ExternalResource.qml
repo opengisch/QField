@@ -236,10 +236,10 @@ EditorWidgetBase {
         property bool hasGeoTag: false
         id: geoTagBadge
         visible: false
-        anchors.top: image.top
+        anchors.bottom: image.bottom
         anchors.right: image.right
         anchors.rightMargin: 10
-        anchors.topMargin: 12
+        anchors.bottomMargin: 12
         fillMode: Image.PreserveAspectFit
         width: 24
         height: 24
