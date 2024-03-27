@@ -68,17 +68,19 @@ Popup {
         }
 
 
-        PinchArea {
-          id: pinchArea
+        PinchHandler {
+          id: pinchHandler
           enabled: sketcher.visible
-          anchors.fill: parent
+          target: null
 
-          pinch.target: null
+          property point oldPosition
 
-          onPinchUpdated: (pinch) => {
-                            drawingCanvas.pan(pinch.previousCenter, pinch.center)
-                            drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * pinch.previousScale / pinch.scale
+          onScaleChanged: (delta) => {
+                            drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * delta
                           }
+          onTranslationChanged: (delta) => {
+                                  drawingCanvas.pan(Qt.point(0, 0), Qt.point(delta.x, delta.y))
+                                }
         }
 
         DragHandler {
@@ -86,7 +88,6 @@ Popup {
           enabled: sketcher.visible
           target: null
           acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
-          dragThreshold: 10
 
           property point oldPosition
 
