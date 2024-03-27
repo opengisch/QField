@@ -75,13 +75,13 @@ void DrawingCanvas::fitCanvas()
   double scale = 1.0;
   if ( !mBackgroundImage.isNull() )
   {
-    const QSizeF itemSize( size().width() - 30, size().height() - 30 );
+    const QSizeF itemSize( size().width() - 30, size().height() - 100 );
     const QSizeF backgroundImageSize = mBackgroundImage.size();
     if ( backgroundImageSize.width() > itemSize.width() )
     {
       scale = itemSize.width() / backgroundImageSize.width();
     }
-    if ( backgroundImageSize.height() * scale > size().height() )
+    if ( backgroundImageSize.height() * scale > itemSize.height() )
     {
       scale = itemSize.height() / backgroundImageSize.height();
     }
