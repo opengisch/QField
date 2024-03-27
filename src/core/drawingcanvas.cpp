@@ -1,5 +1,5 @@
 /***************************************************************************
- imagecanvas.cpp - ImageCanvas
+ drawingcanvas.cpp - DrawingCanvas
 
  ---------------------
  begin                : 24.03.2024
@@ -14,18 +14,18 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "imagecanvas.h"
+#include "drawingcanvas.h"
 
 #include <QPainter>
 
 #include <cmath>
 
-ImageCanvas::ImageCanvas()
+DrawingCanvas::DrawingCanvas()
   : QQuickPaintedItem()
 {
 }
 
-void ImageCanvas::createBlankCanvas( int width, int height, QColor backgroundColor )
+void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundColor )
 {
   mBackgroundImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
   mBackgroundImage.fill( backgroundColor );
@@ -33,14 +33,14 @@ void ImageCanvas::createBlankCanvas( int width, int height, QColor backgroundCol
   fitCanvas();
 }
 
-void ImageCanvas::createCanvasFromImage( const QString &path )
+void DrawingCanvas::createCanvasFromImage( const QString &path )
 {
   mBackgroundImage = QImage( path );
 
   fitCanvas();
 }
 
-void ImageCanvas::fitCanvas()
+void DrawingCanvas::fitCanvas()
 {
   double scale = 1.0;
   if ( !mBackgroundImage.isNull() )
@@ -66,23 +66,23 @@ void ImageCanvas::fitCanvas()
   update();
 }
 
-void ImageCanvas::pan( const QPointF &oldPosition, const QPointF &newPosition )
+void DrawingCanvas::pan( const QPointF &oldPosition, const QPointF &newPosition )
 {
   setOffset( QPointF( mOffset.x() + ( newPosition.x() - oldPosition.x() ),
                       mOffset.y() + ( newPosition.y() - oldPosition.y() ) ) );
 }
 
-void ImageCanvas::zoom( double scale )
+void DrawingCanvas::zoom( double scale )
 {
   setZoomFactor( mZoomFactor * scale );
 }
 
-double ImageCanvas::zoomFactor() const
+double DrawingCanvas::zoomFactor() const
 {
   return mZoomFactor;
 }
 
-void ImageCanvas::setZoomFactor( double factor )
+void DrawingCanvas::setZoomFactor( double factor )
 {
   if ( mZoomFactor == factor )
   {
@@ -95,12 +95,12 @@ void ImageCanvas::setZoomFactor( double factor )
   update();
 }
 
-QPointF ImageCanvas::offset() const
+QPointF DrawingCanvas::offset() const
 {
   return mOffset;
 }
 
-void ImageCanvas::setOffset( const QPointF &offset )
+void DrawingCanvas::setOffset( const QPointF &offset )
 {
   if ( mOffset == offset )
   {
@@ -113,7 +113,7 @@ void ImageCanvas::setOffset( const QPointF &offset )
   update();
 }
 
-void ImageCanvas::paint( QPainter *painter )
+void DrawingCanvas::paint( QPainter *painter )
 {
   if ( !mBackgroundImage.isNull() )
   {
