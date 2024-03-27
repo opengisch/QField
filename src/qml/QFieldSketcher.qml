@@ -54,7 +54,7 @@ Popup {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        fillColor: "#cccccc"
+        fillColor: Theme.mainBackgroundColor
         frameColor: Theme.mainColor
 
         Behavior on zoomFactor {
