@@ -3892,6 +3892,11 @@ ApplicationWindow {
     visible: false
   }
 
+  QFieldSketcher {
+    id: sketcher
+    visible: true
+  }
+
   Connections {
     target: locatorItem
 
