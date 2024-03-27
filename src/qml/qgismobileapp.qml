@@ -429,7 +429,7 @@ ApplicationWindow {
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
-      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !cloudPopup.visible && !codeReader.visible
+      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !cloudPopup.visible && !codeReader.visible && !sketcher.visible
       interactive: isEnabled && !screenLocker.enabled
       incrementalRendering: true
       quality: qfieldSettings.quality
