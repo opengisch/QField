@@ -12,7 +12,6 @@ Popup {
   signal finished(var path)
   signal cancelled()
 
-
   width: mainWindow.width - Theme.popupScreenEdgeMargin
   height: mainWindow.height - Theme.popupScreenEdgeMargin * 2
   x: (parent.width - width) / 2
@@ -41,7 +40,7 @@ Popup {
       }
 
       onApply: {
-        sketcher.finished('')
+        sketcher.finished(drawingCanvas.save())
         sketcher.close()
       }
     }
@@ -99,11 +98,10 @@ Popup {
 
         onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
       }
-
-      Component.onCompleted: {
-        //drawingCanvas.createBlankCanvas(800, 800, "#FFFFFF")
-        drawingCanvas.createCanvasFromImage('/home/webmaster/Desktop/giphy.gif')
-      }
     }
+  }
+
+  function loadImage(path) {
+    drawingCanvas.createCanvasFromImage(path)
   }
 }

@@ -321,6 +321,43 @@ EditorWidgetBase {
       }
     }
 
+    QfToolButton {
+      id: sketchButton
+      anchors.top: image.top
+      anchors.right: image.right
+      visible: image.status === Image.Ready && isEnabled
+
+      round: true
+      iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
+      iconColor: "white"
+      bgcolor: Theme.darkGraySemiOpaque
+
+      onClicked: {
+        sketcher.loadImage(image.source)
+        sketcher.open()
+      }
+    }
+
+    Connections {
+      target: sketcher
+      enabled: true
+
+      function onFinished(path) {
+        var filepath = getResourceFilePath()
+        filepath = filepath.replace('{filename}', FileUtils.fileName(path))
+        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path))
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
+
+        valueChangeRequested(filepath, false)
+
+        enabled = false
+      }
+
+      function onCancelled() {
+        enabled = false
+      }
+    }
+
     RowLayout {
       id: playerControls
 

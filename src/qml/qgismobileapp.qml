@@ -3894,7 +3894,7 @@ ApplicationWindow {
 
   QFieldSketcher {
     id: sketcher
-    visible: true
+    visible: false
   }
 
   Connections {

@@ -47,6 +47,8 @@ class DrawingCanvas : public QQuickPaintedItem
     Q_INVOKABLE void createBlankCanvas( int width, int height, QColor backgroundColor = QColor( 255, 255, 255 ) );
     Q_INVOKABLE void createCanvasFromImage( const QString &path );
 
+    Q_INVOKABLE QString save() const;
+
     Q_INVOKABLE void fitCanvas();
 
     Q_INVOKABLE void pan( const QPointF &oldPosition, const QPointF &newPosition );
