@@ -52,7 +52,7 @@ class DrawingCanvas : public QQuickPaintedItem
     Q_INVOKABLE void pan( const QPointF &oldPosition, const QPointF &newPosition );
     Q_INVOKABLE void zoom( double scale );
 
-    Q_INVOKABLE void strokeBegin( const QPointF &point );
+    Q_INVOKABLE void strokeBegin( const QPointF &point, const QColor color = QColor( 0, 0, 0 ) );
     Q_INVOKABLE void strokeMove( const QPointF &point );
     Q_INVOKABLE void strokeEnd( const QPointF &point );
 

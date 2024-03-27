@@ -865,6 +865,7 @@ Page {
 
   QFieldSketcher {
     anchors.fill: parent
+    anchors.margins: 20
   }
 
   function burstSomeSparkles(x, y) {
