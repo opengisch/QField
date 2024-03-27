@@ -22,6 +22,11 @@ Popup {
   closePolicy: Popup.CloseOnEscape
   dim: true
 
+  Settings {
+    id: settings
+    property color strokeColor: "#000000"
+  }
+
   Page {
     width: parent.width
     height: parent.height
@@ -61,42 +66,89 @@ Popup {
           enabled: true
           NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
         }
-      }
 
-      DragHandler {
-        id: dragHandler
-        enabled: sketcher.visible
-        target: null
-        acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
-        dragThreshold: 10
 
-        property point oldPosition
+        PinchArea {
+          id: pinchArea
+          anchors.fill: parent
 
-        onActiveChanged: {
-          if (active && centroid.pressedButtons === Qt.LeftButton) {
-            drawingCanvas.strokeBegin(centroid.position, "#ffffff")
-          } else {
-            drawingCanvas.strokeEnd(centroid.position)
-          }
+          onPinchUpdated: (pinch) => {
+                            drawingCanvas.pan(pinch.center, pinch.previousCenter)
+                            drawingCanvas.scale = drawingCanvas.scale * pinch.previousScale / pinch.scale
+                          }
         }
 
-        onCentroidChanged: {
-          if (active) {
-            if (centroid.pressedButtons === Qt.RightButton) {
-              drawingCanvas.pan(oldPosition, centroid.position)
+        DragHandler {
+          id: dragHandler
+          enabled: sketcher.visible
+          target: null
+          acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
+          dragThreshold: 10
+
+          property point oldPosition
+
+          onActiveChanged: {
+            if (active && centroid.pressedButtons === Qt.LeftButton) {
+              drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
             } else {
-              drawingCanvas.strokeMove(centroid.position)
+              drawingCanvas.strokeEnd(centroid.position)
             }
           }
-          oldPosition = centroid.position
+
+          onCentroidChanged: {
+            if (active) {
+              if (centroid.pressedButtons === Qt.RightButton) {
+                drawingCanvas.pan(oldPosition, centroid.position)
+              } else {
+                drawingCanvas.strokeMove(centroid.position)
+              }
+            }
+            oldPosition = centroid.position
+          }
+        }
+
+        WheelHandler {
+          enabled: sketcher.visible
+          target: null
+
+          onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
         }
       }
+    }
 
-      WheelHandler {
-        enabled: sketcher.visible
-        target: null
+    RowLayout {
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.bottom: parent.bottom
+      anchors.bottomMargin: 5
+      spacing: 2
 
-        onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
+      Repeater {
+        model: ["#000000", "#ffffff", "#e41a1c", "#377eb8", "#4daf4a"]
+
+        QfToolButton {
+          property color colorValue: modelData
+
+          width: 36
+          height: 36
+          round: true
+          scale: settings.strokeColor == colorValue ? 1 : 0.66
+          opacity: settings.strokeColor == colorValue ? 1 : 0.66
+
+          Behavior on scale {
+            enabled: true
+            NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+          }
+          Behavior on opacity {
+            enabled: true
+            NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+          }
+
+          bgcolor: colorValue
+
+          onClicked: {
+            settings.strokeColor = colorValue
+          }
+        }
       }
     }
   }
