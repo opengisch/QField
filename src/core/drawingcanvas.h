@@ -1,5 +1,5 @@
 /***************************************************************************
- imagecanvas.h - ImageCanvas
+ drawingcanvas.h - DrawingCanvas
 
  ---------------------
  begin                : 24.03.2024
@@ -14,14 +14,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef IMAGECANVAS_H
-#define IMAGECANVAS_H
+#ifndef DRAWINGCANVAS_H
+#define DRAWINGCANVAS_H
 
 #include <QImage>
 #include <QObject>
 #include <QQuickPaintedItem>
 
-class ImageCanvas : public QQuickPaintedItem
+class DrawingCanvas : public QQuickPaintedItem
 {
     Q_OBJECT
 
@@ -29,8 +29,8 @@ class ImageCanvas : public QQuickPaintedItem
     Q_PROPERTY( QPointF offset READ offset WRITE setOffset NOTIFY offsetChanged )
 
   public:
-    ImageCanvas();
-    ~ImageCanvas() = default;
+    DrawingCanvas();
+    ~DrawingCanvas() = default;
 
     void paint( QPainter *painter ) override;
 
@@ -60,4 +60,4 @@ class ImageCanvas : public QQuickPaintedItem
     QImage mBackgroundImage;
 };
 
-#endif // IMAGECANVAS_H
+#endif // DRAWINGCANVAS_H

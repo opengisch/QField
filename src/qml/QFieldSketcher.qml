@@ -6,8 +6,8 @@ import org.qfield 1.0
 Item {
   id: sketcher
 
-  ImageCanvas {
-    id: imageCanvas
+  DrawingCanvas {
+    id: drawingCanvas
     anchors.fill: parent
 
     fillColor: "#cccccc"
@@ -29,7 +29,7 @@ Item {
 
     onCentroidChanged: {
       if (active) {
-        imageCanvas.pan(oldPosition, centroid.position)
+        drawingCanvas.pan(oldPosition, centroid.position)
       }
       oldPosition = centroid.position
     }
@@ -43,7 +43,6 @@ Item {
   }
 
   Component.onCompleted: {
-    //imageCanvas.createCanvasFromImage('/home/webmaster/Desktop/2024-03-21-00 00_2024-03-21-23 59_Landsat_8-9_L1_True_color.jpg')
-    imageCanvas.createBlankCanvas(800, 800, "#FFFFFF")
+    drawingCanvas.createBlankCanvas(800, 800, "#FFFFFF")
   }
 }
