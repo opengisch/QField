@@ -30,7 +30,7 @@ Item {
 
     onActiveChanged: {
       if (active && centroid.pressedButtons === Qt.LeftButton) {
-        drawingCanvas.strokeBegin(centroid.position)
+        drawingCanvas.strokeBegin(centroid.position, "#ffffff")
       } else {
         drawingCanvas.strokeEnd(centroid.position)
       }
@@ -56,6 +56,7 @@ Item {
   }
 
   Component.onCompleted: {
-    drawingCanvas.createBlankCanvas(800, 800, "#FFFFFF")
+    //drawingCanvas.createBlankCanvas(800, 800, "#FFFFFF")
+    drawingCanvas.createCanvasFromImage('/home/webmaster/Desktop/giphy.gif')
   }
 }

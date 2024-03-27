@@ -145,9 +145,10 @@ void DrawingCanvas::setOffset( const QPointF &offset )
   update();
 }
 
-void DrawingCanvas::strokeBegin( const QPointF &point )
+void DrawingCanvas::strokeBegin( const QPointF &point, const QColor color )
 {
   mCurrentStroke.points.clear();
+  mCurrentStroke.color = color;
   mCurrentStroke.points << itemToCanvas( point );
 }
 
@@ -199,16 +200,16 @@ void DrawingCanvas::drawStroke( QPainter *painter, Stroke &stroke, bool onCanvas
 
 QPointF DrawingCanvas::itemToCanvas( const QPointF &point )
 {
-  const QPointF canvasTopLeft( size().width() / 2 - ( mBackgroundImage.size().width() * mZoomFactor / 2 ),
-                               size().height() / 2 - ( mBackgroundImage.size().height() * mZoomFactor / 2 ) );
+  const QPointF canvasTopLeft( size().width() / 2 - ( mBackgroundImage.size().width() * mZoomFactor / 2 ) + mOffset.x(),
+                               size().height() / 2 - ( mBackgroundImage.size().height() * mZoomFactor / 2 ) + mOffset.y() );
   return QPointF( ( point.x() - canvasTopLeft.x() ) / mZoomFactor,
                   ( point.y() - canvasTopLeft.y() ) / mZoomFactor );
 }
 
 QPointF DrawingCanvas::canvasToItem( const QPointF &point )
 {
-  const QPointF canvasTopLeft( size().width() / 2 - ( mBackgroundImage.size().width() * mZoomFactor / 2 ),
-                               size().height() / 2 - ( mBackgroundImage.size().height() * mZoomFactor / 2 ) );
+  const QPointF canvasTopLeft( size().width() / 2 - ( mBackgroundImage.size().width() * mZoomFactor / 2 ) + mOffset.x(),
+                               size().height() / 2 - ( mBackgroundImage.size().height() * mZoomFactor / 2 ) + mOffset.y() );
   return QPointF( canvasTopLeft.x() + ( point.x() * mZoomFactor ),
                   canvasTopLeft.y() + ( point.y() * mZoomFactor ) );
 }
@@ -231,7 +232,7 @@ void DrawingCanvas::paint( QPainter *painter )
 
     painter->setPen( Qt::NoPen );
     painter->setBrush( QBrush( shadowColor ) );
-    painter->drawRect( imageRect.translated( 5, 5 ) );
+    painter->drawRect( imageRect.translated( 3, 3 ) );
 
     painter->drawImage( imageRect, mBackgroundImage );
     painter->drawImage( imageRect, mDrawingImage );
