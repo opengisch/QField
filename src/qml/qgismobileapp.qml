@@ -3913,7 +3913,7 @@ ApplicationWindow {
     state: iface.hasProjectOnLaunch() ? "visible" : "hidden"
   }
 
-  property bool alreadyCloseRequested: false
+  property bool closeAlreadyRequested: false
 
   onClosing: (close) => {
     if (screenLocker.enabled) {
@@ -3922,9 +3922,9 @@ ApplicationWindow {
        return
     }
 
-    if (!alreadyCloseRequested) {
+    if (!closeAlreadyRequested) {
       close.accepted = false
-      alreadyCloseRequested = true
+      closeAlreadyRequested = true
       displayToast(qsTr("Press back again to close project and app"))
       closingTimer.start()
     } else {
@@ -3936,7 +3936,7 @@ ApplicationWindow {
     id: closingTimer
     interval: 2000
     onTriggered: {
-        alreadyCloseRequested = false
+        closeAlreadyRequested = false
     }
   }
 
