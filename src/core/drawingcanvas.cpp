@@ -18,6 +18,7 @@
 
 #include <QPainter>
 #include <QPainterPath>
+#include <QStandardPaths>
 
 #include <cmath>
 
@@ -39,7 +40,7 @@ void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundC
 
 void DrawingCanvas::createCanvasFromImage( const QString &path )
 {
-  mBackgroundImage = QImage( path );
+  mBackgroundImage = QImage( QUrl( path ).toLocalFile() );
 
   if ( !mBackgroundImage.isNull() )
   {
@@ -52,6 +53,21 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
   }
 
   fitCanvas();
+}
+
+QString DrawingCanvas::save() const
+{
+  QImage image( mBackgroundImage.size(), QImage::Format_ARGB32 );
+  image.fill( Qt::transparent );
+
+  QPainter painter( &image );
+  painter.drawImage( 0, 0, mBackgroundImage );
+  painter.drawImage( 0, 0, mDrawingImage );
+
+  const QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.png";
+  image.save( path );
+
+  return path;
 }
 
 void DrawingCanvas::fitCanvas()
