@@ -52,18 +52,37 @@ class DrawingCanvas : public QQuickPaintedItem
     Q_INVOKABLE void pan( const QPointF &oldPosition, const QPointF &newPosition );
     Q_INVOKABLE void zoom( double scale );
 
-  signals:
+    Q_INVOKABLE void strokeBegin( const QPointF &point );
+    Q_INVOKABLE void strokeMove( const QPointF &point );
+    Q_INVOKABLE void strokeEnd( const QPointF &point );
 
+  signals:
     void frameColorChanged();
     void zoomFactorChanged();
     void offsetChanged();
 
   private:
+    struct Stroke
+    {
+        double width = 5.0;
+        QColor color = QColor( 0, 0, 0 );
+        QColor fillColor = QColor( Qt::transparent );
+        QList<QPointF> points;
+    };
+
+    void drawStroke( QPainter *painter, Stroke &stroke, bool onCanvas = true );
+
+    QPointF itemToCanvas( const QPointF &point );
+    QPointF canvasToItem( const QPointF &point );
+
     QColor mFrameColor;
     double mZoomFactor = 1.0;
     QPointF mOffset = QPointF( 0, 0 );
 
     QImage mBackgroundImage;
+    QImage mDrawingImage;
+
+    Stroke mCurrentStroke;
 };
 
 #endif // DRAWINGCANVAS_H

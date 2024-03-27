@@ -23,14 +23,26 @@ Item {
     id: dragHandler
     enabled: sketcher.visible
     target: null
-    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
     dragThreshold: 10
 
     property point oldPosition
 
+    onActiveChanged: {
+      if (active && centroid.pressedButtons === Qt.LeftButton) {
+        drawingCanvas.strokeBegin(centroid.position)
+      } else {
+        drawingCanvas.strokeEnd(centroid.position)
+      }
+    }
+
     onCentroidChanged: {
       if (active) {
-        drawingCanvas.pan(oldPosition, centroid.position)
+        if (centroid.pressedButtons === Qt.RightButton) {
+          drawingCanvas.pan(oldPosition, centroid.position)
+        } else {
+          drawingCanvas.strokeMove(centroid.position)
+        }
       }
       oldPosition = centroid.position
     }
