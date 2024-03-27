@@ -25,6 +25,7 @@ class DrawingCanvas : public QQuickPaintedItem
 {
     Q_OBJECT
 
+    Q_PROPERTY( QColor frameColor READ frameColor WRITE setFrameColor NOTIFY frameColorChanged )
     Q_PROPERTY( double zoomFactor READ zoomFactor WRITE setZoomFactor NOTIFY zoomFactorChanged )
     Q_PROPERTY( QPointF offset READ offset WRITE setOffset NOTIFY offsetChanged )
 
@@ -33,6 +34,9 @@ class DrawingCanvas : public QQuickPaintedItem
     ~DrawingCanvas() = default;
 
     void paint( QPainter *painter ) override;
+
+    QColor frameColor() const;
+    void setFrameColor( const QColor &color );
 
     double zoomFactor() const;
     void setZoomFactor( double factor );
@@ -50,10 +54,12 @@ class DrawingCanvas : public QQuickPaintedItem
 
   signals:
 
+    void frameColorChanged();
     void zoomFactorChanged();
     void offsetChanged();
 
   private:
+    QColor mFrameColor;
     double mZoomFactor = 1.0;
     QPointF mOffset = QPointF( 0, 0 );
 

@@ -77,6 +77,24 @@ void DrawingCanvas::zoom( double scale )
   setZoomFactor( mZoomFactor * scale );
 }
 
+QColor DrawingCanvas::frameColor() const
+{
+  return mFrameColor;
+}
+
+void DrawingCanvas::setFrameColor( const QColor &color )
+{
+  if ( mFrameColor == color )
+  {
+    return;
+  }
+
+  mFrameColor = color;
+  emit frameColorChanged();
+
+  update();
+}
+
 double DrawingCanvas::zoomFactor() const
 {
   return mZoomFactor;
@@ -123,10 +141,17 @@ void DrawingCanvas::paint( QPainter *painter )
                             scaledImageSize.width(),
                             scaledImageSize.height() );
 
-    painter->setPen( Qt::NoPen );
-    painter->setBrush( QBrush( fillColor().darker( 125 ) ) );
+    QColor shadowColor = mFrameColor;
+    shadowColor.setAlphaF( shadowColor.alphaF() / 2 );
 
+    painter->setPen( Qt::NoPen );
+    painter->setBrush( QBrush( shadowColor ) );
     painter->drawRect( imageRect.translated( 5, 5 ) );
+
     painter->drawImage( imageRect, mBackgroundImage );
+
+    painter->setPen( QPen( mFrameColor ) );
+    painter->setBrush( Qt::NoBrush );
+    painter->drawRect( imageRect );
   }
 }

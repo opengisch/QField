@@ -11,6 +11,7 @@ Item {
     anchors.fill: parent
 
     fillColor: "#cccccc"
+    frameColor: Theme.mainColor
 
     Behavior on zoomFactor {
       enabled: true
@@ -39,7 +40,7 @@ Item {
     enabled: sketcher.visible
     target: null
 
-    onWheel: (event) => { imageCanvas.zoomFactor = imageCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
+    onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
   }
 
   Component.onCompleted: {
