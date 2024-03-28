@@ -31,26 +31,6 @@ Popup {
     width: parent.width
     height: parent.height
     padding: 0
-    header: PageHeader {
-      id: pageHeader
-      title: qsTr("Sketcher")
-
-      showBackButton: false
-      showApplyButton: true
-      showCancelButton: true
-
-      topMargin: mainWindow.sceneTopMargin
-
-      onCancel: {
-        sketcher.cancelled()
-        sketcher.close()
-      }
-
-      onApply: {
-        sketcher.finished(drawingCanvas.save())
-        sketcher.close()
-      }
-    }
 
     DrawingCanvas {
       id: drawingCanvas
@@ -95,6 +75,7 @@ Popup {
       onActiveChanged: {
         if (active && centroid.pressedButtons !== Qt.RightButton) {
           drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
+          oldPosition = centroid.position
         } else {
           drawingCanvas.strokeEnd(centroid.position)
         }
@@ -104,11 +85,11 @@ Popup {
         if (active) {
           if (centroid.pressedButtons === Qt.RightButton) {
             drawingCanvas.pan(oldPosition, centroid.position)
+            oldPosition = centroid.position
           } else {
             drawingCanvas.strokeMove(centroid.position)
           }
         }
-        oldPosition = centroid.position
       }
     }
 
@@ -124,7 +105,7 @@ Popup {
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.bottom: parent.bottom
     anchors.bottomMargin: mainWindow.sceneBottomMargin + 5
-    spacing: 2
+    spacing: 3
 
     Repeater {
       model: ["#000000", "#ffffff", "#e41a1c", "#377eb8", "#4daf4a"]
@@ -132,8 +113,8 @@ Popup {
       QfToolButton {
         property color colorValue: modelData
 
-        width: 36
-        height: 36
+        width: 48
+        height: 48
         round: true
         scale: settings.strokeColor == colorValue ? 1 : 0.66
         opacity: settings.strokeColor == colorValue ? 1 : 0.66
@@ -153,6 +134,44 @@ Popup {
           settings.strokeColor = colorValue
         }
       }
+    }
+  }
+
+  QfToolButton {
+    id: backButton
+
+    anchors.left: parent.left
+    anchors.leftMargin: 5
+    anchors.top: parent.top
+    anchors.topMargin: mainWindow.sceneTopMargin + 5
+
+    iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+    iconColor: "white"
+    bgcolor: Theme.darkGraySemiOpaque
+    round: true
+
+    onClicked: {
+      sketcher.cancelled()
+      sketcher.close()
+    }
+  }
+
+  QfToolButton {
+    id: saveButton
+
+    anchors.right: parent.right
+    anchors.rightMargin: 5
+    anchors.top: parent.top
+    anchors.topMargin: mainWindow.sceneTopMargin + 5
+
+    iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+    iconColor: "white"
+    bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.darkGraySemiOpaque
+    round: true
+
+    onClicked: {
+      sketcher.finished(drawingCanvas.save())
+      sketcher.close()
     }
   }
 

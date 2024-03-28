@@ -25,6 +25,7 @@ class DrawingCanvas : public QQuickPaintedItem
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool isDirty READ isDirty NOTIFY isDirtyChanged )
     Q_PROPERTY( QColor frameColor READ frameColor WRITE setFrameColor NOTIFY frameColorChanged )
     Q_PROPERTY( double zoomFactor READ zoomFactor WRITE setZoomFactor NOTIFY zoomFactorChanged )
     Q_PROPERTY( QPointF offset READ offset WRITE setOffset NOTIFY offsetChanged )
@@ -34,6 +35,9 @@ class DrawingCanvas : public QQuickPaintedItem
     ~DrawingCanvas() = default;
 
     void paint( QPainter *painter ) override;
+
+    bool isDirty() const;
+    void setIsDirty( bool dirty );
 
     QColor frameColor() const;
     void setFrameColor( const QColor &color );
@@ -59,6 +63,7 @@ class DrawingCanvas : public QQuickPaintedItem
     Q_INVOKABLE void strokeEnd( const QPointF &point );
 
   signals:
+    void isDirtyChanged();
     void frameColorChanged();
     void zoomFactorChanged();
     void offsetChanged();
@@ -76,6 +81,8 @@ class DrawingCanvas : public QQuickPaintedItem
 
     QPointF itemToCanvas( const QPointF &point );
     QPointF canvasToItem( const QPointF &point );
+
+    bool mIsDirty = false;
 
     QColor mFrameColor;
     double mZoomFactor = 1.0;

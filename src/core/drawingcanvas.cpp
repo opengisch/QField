@@ -36,6 +36,7 @@ void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundC
   mDrawingImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
   mDrawingImage.fill( Qt::transparent );
 
+  setIsDirty( false );
   fitCanvas();
 }
 
@@ -58,6 +59,7 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
     mDrawingImage = QImage();
   }
 
+  setIsDirty( false );
   fitCanvas();
 }
 
@@ -111,6 +113,22 @@ void DrawingCanvas::pan( const QPointF &oldPosition, const QPointF &newPosition 
 void DrawingCanvas::zoom( double scale )
 {
   setZoomFactor( mZoomFactor * scale );
+}
+
+bool DrawingCanvas::isDirty() const
+{
+  return mIsDirty;
+}
+
+void DrawingCanvas::setIsDirty( bool dirty )
+{
+  if ( mIsDirty == dirty )
+  {
+    return;
+  }
+
+  mIsDirty = dirty;
+  emit isDirtyChanged();
 }
 
 QColor DrawingCanvas::frameColor() const
@@ -201,6 +219,7 @@ void DrawingCanvas::strokeEnd( const QPointF &point )
 
   mCurrentStroke.points.clear();
 
+  setIsDirty( true );
   update();
 }
 
