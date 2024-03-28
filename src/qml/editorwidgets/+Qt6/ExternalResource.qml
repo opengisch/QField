@@ -333,14 +333,16 @@ EditorWidgetBase {
       bgcolor: Theme.darkGraySemiOpaque
 
       onClicked: {
+        sketcherConnection.enabled = true
         sketcher.loadImage(image.source)
         sketcher.open()
       }
     }
 
     Connections {
+      id: sketcherConnection
       target: sketcher
-      enabled: true
+      enabled: false
 
       function onFinished(path) {
         var filepath = getResourceFilePath()
