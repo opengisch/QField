@@ -69,6 +69,7 @@ Popup {
       enabled: sketcher.visible
       target: null
       acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
+      dragThreshold: 0
 
       property point oldPosition
 
