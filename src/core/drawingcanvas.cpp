@@ -189,6 +189,7 @@ void DrawingCanvas::strokeBegin( const QPointF &point, const QColor color )
 {
   mCurrentStroke.points.clear();
   mCurrentStroke.color = color;
+  mCurrentStroke.width = 5 / mZoomFactor;
   mCurrentStroke.points << itemToCanvas( point );
 }
 

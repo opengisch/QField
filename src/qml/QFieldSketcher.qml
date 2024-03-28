@@ -73,9 +73,12 @@ Popup {
       property point oldPosition
 
       onActiveChanged: {
-        if (active && centroid.pressedButtons !== Qt.RightButton) {
-          drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
-          oldPosition = centroid.position
+        if (active) {
+          if (centroid.pressedButtons !== Qt.RightButton) {
+            drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
+          } else {
+            oldPosition = centroid.position
+          }
         } else {
           drawingCanvas.strokeEnd(centroid.position)
         }
