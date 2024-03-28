@@ -25,6 +25,7 @@
 DrawingCanvas::DrawingCanvas()
   : QQuickPaintedItem()
 {
+  setOpaquePainting( true );
 }
 
 void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundColor )
@@ -44,6 +45,11 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
 
   if ( !mBackgroundImage.isNull() )
   {
+    if ( mBackgroundImage.format() != QImage::Format_ARGB32 )
+    {
+      mBackgroundImage.convertTo( QImage::Format_ARGB32 );
+    }
+
     mDrawingImage = QImage( mBackgroundImage.size(), QImage::Format_ARGB32 );
     mDrawingImage.fill( Qt::transparent );
   }

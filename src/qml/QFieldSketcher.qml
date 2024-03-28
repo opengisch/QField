@@ -12,10 +12,10 @@ Popup {
   signal finished(var path)
   signal cancelled()
 
-  width: mainWindow.width - Theme.popupScreenEdgeMargin
-  height: mainWindow.height - Theme.popupScreenEdgeMargin * 2
-  x: (parent.width - width) / 2
-  y: (parent.height - height) / 2
+  width: mainWindow.width
+  height: mainWindow.height
+  x: 0
+  y: 0
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
   padding: 0
 
@@ -39,6 +39,8 @@ Popup {
       showApplyButton: true
       showCancelButton: true
 
+      topMargin: mainWindow.sceneTopMargin
+
       onCancel: {
         sketcher.cancelled()
         sketcher.close()
@@ -50,108 +52,105 @@ Popup {
       }
     }
 
-    ColumnLayout {
-      width: parent.width
-      height: parent.height
+    DrawingCanvas {
+      id: drawingCanvas
+      anchors.fill: parent
 
-      DrawingCanvas {
-        id: drawingCanvas
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+      fillColor: Theme.mainBackgroundColor
+      frameColor: Theme.mainColor
 
-        fillColor: Theme.mainBackgroundColor
-        frameColor: Theme.mainColor
-
-        Behavior on zoomFactor {
-          enabled: true
-          NumberAnimation { duration: 100; easing.type: Easing.OutQuad; }
-        }
-
-
-        PinchHandler {
-          id: pinchHandler
-          enabled: sketcher.visible
-          target: null
-
-          property point oldPosition
-
-          onScaleChanged: (delta) => {
-                            drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * delta
-                          }
-          onTranslationChanged: (delta) => {
-                                  drawingCanvas.pan(Qt.point(0, 0), Qt.point(delta.x, delta.y))
-                                }
-        }
-
-        DragHandler {
-          id: dragHandler
-          enabled: sketcher.visible
-          target: null
-          acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
-
-          property point oldPosition
-
-          onActiveChanged: {
-            if (active && centroid.pressedButtons !== Qt.RightButton) {
-              drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
-            } else {
-              drawingCanvas.strokeEnd(centroid.position)
-            }
-          }
-
-          onCentroidChanged: {
-            if (active) {
-              if (centroid.pressedButtons === Qt.RightButton) {
-                drawingCanvas.pan(oldPosition, centroid.position)
-              } else {
-                drawingCanvas.strokeMove(centroid.position)
-              }
-            }
-            oldPosition = centroid.position
-          }
-        }
-
-        WheelHandler {
-          enabled: sketcher.visible
-          target: null
-
-          onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
-        }
+      Behavior on zoomFactor {
+        enabled: !pinchHandler.active
+        NumberAnimation { duration: 100; easing.type: Easing.OutQuad; }
       }
     }
 
-    RowLayout {
-      anchors.horizontalCenter: parent.horizontalCenter
-      anchors.bottom: parent.bottom
-      anchors.bottomMargin: 5
-      spacing: 2
+    PinchHandler {
+      id: pinchHandler
+      enabled: sketcher.visible
+      target: null
 
-      Repeater {
-        model: ["#000000", "#ffffff", "#e41a1c", "#377eb8", "#4daf4a"]
+      property point oldPosition
 
-        QfToolButton {
-          property color colorValue: modelData
+      onScaleChanged: (delta) => {
+                        if (active) {
+                          drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * delta
+                        }
+                      }
+      onTranslationChanged: (delta) => {
+                              if (active) {
+                                drawingCanvas.pan(Qt.point(0, 0), Qt.point(delta.x, delta.y))
+                              }
+                            }
+    }
 
-          width: 36
-          height: 36
-          round: true
-          scale: settings.strokeColor == colorValue ? 1 : 0.66
-          opacity: settings.strokeColor == colorValue ? 1 : 0.66
+    DragHandler {
+      id: dragHandler
+      enabled: sketcher.visible
+      target: null
+      acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
 
-          Behavior on scale {
-            enabled: true
-            NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+      property point oldPosition
+
+      onActiveChanged: {
+        if (active && centroid.pressedButtons !== Qt.RightButton) {
+          drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
+        } else {
+          drawingCanvas.strokeEnd(centroid.position)
+        }
+      }
+
+      onCentroidChanged: {
+        if (active) {
+          if (centroid.pressedButtons === Qt.RightButton) {
+            drawingCanvas.pan(oldPosition, centroid.position)
+          } else {
+            drawingCanvas.strokeMove(centroid.position)
           }
-          Behavior on opacity {
-            enabled: true
-            NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
-          }
+        }
+        oldPosition = centroid.position
+      }
+    }
 
-          bgcolor: colorValue
+    WheelHandler {
+      enabled: sketcher.visible
+      target: null
 
-          onClicked: {
-            settings.strokeColor = colorValue
-          }
+      onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
+    }
+  }
+
+  RowLayout {
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: mainWindow.sceneBottomMargin + 5
+    spacing: 2
+
+    Repeater {
+      model: ["#000000", "#ffffff", "#e41a1c", "#377eb8", "#4daf4a"]
+
+      QfToolButton {
+        property color colorValue: modelData
+
+        width: 36
+        height: 36
+        round: true
+        scale: settings.strokeColor == colorValue ? 1 : 0.66
+        opacity: settings.strokeColor == colorValue ? 1 : 0.66
+
+        Behavior on scale {
+          enabled: true
+          NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+        }
+        Behavior on opacity {
+          enabled: true
+          NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+        }
+
+        bgcolor: colorValue
+
+        onClicked: {
+          settings.strokeColor = colorValue
         }
       }
     }
