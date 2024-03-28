@@ -236,10 +236,10 @@ EditorWidgetBase {
         property bool hasGeoTag: false
         id: geoTagBadge
         visible: false
-        anchors.top: image.top
+        anchors.bottom: image.bottom
         anchors.right: image.right
         anchors.rightMargin: 10
-        anchors.topMargin: 12
+        anchors.bottomMargin: 12
         fillMode: Image.PreserveAspectFit
         width: 24
         height: 24
@@ -318,6 +318,45 @@ EditorWidgetBase {
         if (FileUtils.fileExists(prefixToRelativePath + value)) {
           __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
         }
+      }
+    }
+
+    QfToolButton {
+      id: sketchButton
+      anchors.top: image.top
+      anchors.right: image.right
+      visible: image.status === Image.Ready && isEnabled
+
+      round: true
+      iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
+      iconColor: "white"
+      bgcolor: Theme.darkGraySemiOpaque
+
+      onClicked: {
+        sketcherConnection.enabled = true
+        sketcher.loadImage(image.source)
+        sketcher.open()
+      }
+    }
+
+    Connections {
+      id: sketcherConnection
+      target: sketcher
+      enabled: false
+
+      function onFinished(path) {
+        var filepath = getResourceFilePath()
+        filepath = filepath.replace('{filename}', FileUtils.fileName(path))
+        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path))
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
+
+        valueChangeRequested(filepath, false)
+
+        enabled = false
+      }
+
+      function onCancelled() {
+        enabled = false
       }
     }
 

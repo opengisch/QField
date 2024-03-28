@@ -50,6 +50,7 @@
 #include "deltalistmodel.h"
 #include "digitizinglogger.h"
 #include "distancearea.h"
+#include "drawingcanvas.h"
 #include "expressionevaluator.h"
 #include "expressionvariablemodel.h"
 #include "featurechecklistmodel.h"
@@ -452,6 +453,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
   qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );
+  qmlRegisterType<DrawingCanvas>( "org.qfield", 1, 0, "DrawingCanvas" );
   qmlRegisterType<SubModel>( "org.qfield", 1, 0, "SubModel" );
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
