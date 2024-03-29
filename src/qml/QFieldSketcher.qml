@@ -106,6 +106,7 @@ Popup {
     }
 
     RowLayout {
+      visible: !drawingCanvas.isEmpty
       anchors.horizontalCenter: parent.horizontalCenter
       anchors.bottom: parent.bottom
       anchors.bottomMargin: mainWindow.sceneBottomMargin + 5
@@ -142,6 +143,94 @@ Popup {
       }
     }
 
+    Rectangle {
+      id: templateContainer
+
+      visible: drawingCanvas.isEmpty
+      width: parent.width
+      height: parent.height / 3
+      x: 0
+      y: parent.height / 7 * 4
+      color: "#55000000"
+
+      ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 10
+
+        Text {
+          Layout.fillWidth: true
+          Layout.alignment: Qt.AlignHCenter
+          text: qsTr('Select drawing template')
+          font: Theme.defaultFont
+          color: Theme.mainColor
+          wrapMode: Text.WordWrap
+          horizontalAlignment: Text.AlignHCenter
+        }
+
+        ListView {
+          id: templateList
+          Layout.preferredWidth: Math.min(parent.width, templateList.contentWidth)
+          Layout.fillHeight: true
+          Layout.alignment: Qt.AlignHCenter
+          model: drawingTemplateModel
+          orientation: ListView.Horizontal
+
+          delegate: Rectangle {
+            id: templateItem
+            width: templateList.height
+            height: templateList.height
+            color: "transparent"
+
+            Image {
+              anchors.fill: parent
+              anchors.margins: 5
+              visible: templatePath !== ''
+              fillMode: Image.PreserveAspectFit
+              source: templatePath !== '' ? 'file://' + templatePath : ''
+            }
+
+            Rectangle {
+              anchors.centerIn: parent
+              anchors.margins: 5
+              visible: templatePath === ''
+              width: mainWindow.width > mainWindow.height ? parent.width : mainWindow.width * parent.height / mainWindow.height
+              height: mainWindow.height > mainWindow.width ? parent.height : mainWindow.height * parent.width / mainWindow.width
+              color: "#ffffff"
+            }
+
+            Rectangle {
+              anchors.centerIn: parent
+              width: titleText.contentWidth + 10
+              height: titleText.contentHeight + 5
+              radius: 4
+              color: "#55000000"
+
+              Text {
+                anchors.centerIn: parent
+                width: templateItem.width
+                id: titleText
+                text: templateTitle
+                font: Theme.tipFont
+                color: "#ffffff"
+                horizontalAlignment: Text.AlignHCenter
+              }
+            }
+
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                if (templatePath !== '') {
+                  drawingCanvas.createCanvasFromImage(templatePath)
+                } else {
+                  drawingCanvas.createBlankCanvas(mainWindow.width, mainWindow.height, "#ffffff")
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     QfToolButton {
       id: backButton
 
@@ -163,6 +252,7 @@ Popup {
 
     QfToolButton {
       id: saveButton
+      visible: !drawingCanvas.isEmpty
 
       anchors.right: parent.right
       anchors.rightMargin: 5
@@ -183,5 +273,9 @@ Popup {
 
   function loadImage(path) {
     drawingCanvas.createCanvasFromImage(path)
+  }
+
+  function clear() {
+    drawingCanvas.clear();
   }
 }

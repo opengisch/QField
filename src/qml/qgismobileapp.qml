@@ -3399,6 +3399,8 @@ ApplicationWindow {
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse')
       dashBoard.activeLayer = projectInfo.activeLayer
 
+      drawingTemplateModel.projectFilePath = path
+
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
 
       var titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
@@ -3894,7 +3896,7 @@ ApplicationWindow {
 
   QFieldSketcher {
     id: sketcher
-    visible: false
+    visible: true
   }
 
   Connections {

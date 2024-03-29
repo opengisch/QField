@@ -268,6 +268,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mProjectsImageProvider = new ProjectsImageProvider();
 
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
+  mDrawingTemplateModel = std::make_unique<DrawingTemplateModel>( this );
 
   // Transition from 1.8 to 1.8.1+
   const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
@@ -560,6 +561,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "layerObserver", mLayerObserver.get() );
   rootContext()->setContextProperty( "featureHistory", mFeatureHistory.get() );
   rootContext()->setContextProperty( "messageLogModel", mMessageLogModel.get() );
+  rootContext()->setContextProperty( "drawingTemplateModel", mDrawingTemplateModel.get() );
 
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 

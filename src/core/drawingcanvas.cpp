@@ -36,13 +36,14 @@ void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundC
   mDrawingImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
   mDrawingImage.fill( Qt::transparent );
 
+  setIsEmpty( false );
   setIsDirty( false );
   fitCanvas();
 }
 
 void DrawingCanvas::createCanvasFromImage( const QString &path )
 {
-  mBackgroundImage = QImage( QUrl( path ).toLocalFile() );
+  mBackgroundImage = QImage( path.startsWith( QStringLiteral( "file://" ) ) ? path.mid( 7 ) : path );
 
   if ( !mBackgroundImage.isNull() )
   {
@@ -53,14 +54,29 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
 
     mDrawingImage = QImage( mBackgroundImage.size(), QImage::Format_ARGB32 );
     mDrawingImage.fill( Qt::transparent );
+    setIsEmpty( false );
   }
   else
   {
     mDrawingImage = QImage();
+    setIsEmpty( false );
   }
 
   setIsDirty( false );
   fitCanvas();
+}
+
+void DrawingCanvas::clear()
+{
+  mBackgroundImage = QImage();
+  mDrawingImage = QImage();
+
+  setZoomFactor( 1.0 );
+  setOffset( QPointF( 0, 0 ) );
+  setIsDirty( false );
+  setIsEmpty( true );
+
+  update();
 }
 
 QString DrawingCanvas::save() const
@@ -113,6 +129,22 @@ void DrawingCanvas::pan( const QPointF &oldPosition, const QPointF &newPosition 
 void DrawingCanvas::zoom( double scale )
 {
   setZoomFactor( mZoomFactor * scale );
+}
+
+bool DrawingCanvas::isEmpty() const
+{
+  return mIsEmpty;
+}
+
+void DrawingCanvas::setIsEmpty( bool empty )
+{
+  if ( mIsEmpty == empty )
+  {
+    return;
+  }
+
+  mIsEmpty = empty;
+  emit isEmptyChanged();
 }
 
 bool DrawingCanvas::isDirty() const
