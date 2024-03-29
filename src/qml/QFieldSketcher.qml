@@ -70,6 +70,7 @@ Popup {
       target: null
       acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
       dragThreshold: 0
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
       property point oldPosition
 
@@ -103,79 +104,79 @@ Popup {
 
       onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
     }
-  }
 
-  RowLayout {
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.bottom: parent.bottom
-    anchors.bottomMargin: mainWindow.sceneBottomMargin + 5
-    spacing: 3
+    RowLayout {
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.bottom: parent.bottom
+      anchors.bottomMargin: mainWindow.sceneBottomMargin + 5
+      spacing: 3
 
-    Repeater {
-      model: ["#000000", "#ffffff", "#e41a1c", "#377eb8", "#4daf4a"]
+      Repeater {
+        model: ["#000000", "#ffffff", "#e41a1c", "#377eb8", "#4daf4a"]
 
-      QfToolButton {
-        property color colorValue: modelData
+        QfToolButton {
+          property color colorValue: modelData
 
-        width: 48
-        height: 48
-        round: true
-        scale: settings.strokeColor == colorValue ? 1 : 0.66
-        opacity: settings.strokeColor == colorValue ? 1 : 0.66
+          width: 48
+          height: 48
+          round: true
+          scale: settings.strokeColor == colorValue ? 1 : 0.66
+          opacity: settings.strokeColor == colorValue ? 1 : 0.66
 
-        Behavior on scale {
-          enabled: true
-          NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
-        }
-        Behavior on opacity {
-          enabled: true
-          NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
-        }
+          Behavior on scale {
+            enabled: true
+            NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+          }
+          Behavior on opacity {
+            enabled: true
+            NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+          }
 
-        bgcolor: colorValue
+          bgcolor: colorValue
 
-        onClicked: {
-          settings.strokeColor = colorValue
+          onClicked: {
+            settings.strokeColor = colorValue
+          }
         }
       }
     }
-  }
 
-  QfToolButton {
-    id: backButton
+    QfToolButton {
+      id: backButton
 
-    anchors.left: parent.left
-    anchors.leftMargin: 5
-    anchors.top: parent.top
-    anchors.topMargin: mainWindow.sceneTopMargin + 5
+      anchors.left: parent.left
+      anchors.leftMargin: 5
+      anchors.top: parent.top
+      anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-    iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
-    iconColor: "white"
-    bgcolor: Theme.darkGraySemiOpaque
-    round: true
+      iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+      iconColor: "white"
+      bgcolor: Theme.darkGraySemiOpaque
+      round: true
 
-    onClicked: {
-      sketcher.cancelled()
-      sketcher.close()
+      onClicked: {
+        sketcher.cancelled()
+        sketcher.close()
+      }
     }
-  }
 
-  QfToolButton {
-    id: saveButton
+    QfToolButton {
+      id: saveButton
 
-    anchors.right: parent.right
-    anchors.rightMargin: 5
-    anchors.top: parent.top
-    anchors.topMargin: mainWindow.sceneTopMargin + 5
+      anchors.right: parent.right
+      anchors.rightMargin: 5
+      anchors.top: parent.top
+      anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-    iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
-    iconColor: "white"
-    bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.darkGraySemiOpaque
-    round: true
+      iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+      iconColor: "white"
+      bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.darkGraySemiOpaque
+      round: true
 
-    onClicked: {
-      sketcher.finished(drawingCanvas.save())
-      sketcher.close()
+      onClicked: {
+        sketcher.finished(drawingCanvas.save())
+        sketcher.close()
+      }
     }
   }
 
