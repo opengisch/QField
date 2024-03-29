@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Você pode verificar a página de documentação do %1Portable Project%2 para obter mais ajuda.</translation>
     </message>
 </context>
 <context>
@@ -670,11 +670,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>O último valor inserido neste campo será lembrado e reutilizado ao criar novos elementos</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>O último valor inserido neste campo não será reutilizado ao criar novos elementos</translation>
     </message>
 </context>
 <context>
@@ -1885,7 +1885,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Nenhuma alteração foi ainda enviada!</translation>
     </message>
 </context>
 <context>
@@ -2160,19 +2160,19 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empacotando os dados mais recentes só para você; isso pode levar algum tempo, por favor aguarde</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Transferência, %1% de %2 obtida</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Transferência, %1% obtida</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Ligando-se ao QFieldCloud para baixar o projeto</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
@@ -2180,7 +2180,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>O projeto atual não permite que o envio automático seja desativado</translation>
     </message>
 </context>
 <context>
@@ -2426,19 +2426,19 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empacotando os dados mais recentes só para você; isso pode levar algum tempo, por favor aguarde</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Transferência, %1% de %2 obtida</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Transferência, %1% obtida</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Ligando-se ao QFieldCloud para baixar o projeto</translation>
     </message>
 </context>
 <context>
@@ -4259,19 +4259,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Snap para ângulo %1° ativado</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Snap para ângulo comum desativado</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Ângulo relativo</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Snap a cada %1°</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4343,7 +4343,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Desbloqueie o ecrã para fechar o projeto e a aplicação</translation>
     </message>
 </context>
 <context>
