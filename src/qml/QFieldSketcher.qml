@@ -112,14 +112,15 @@ Popup {
       spacing: 3
 
       Repeater {
-        model: ["#000000", "#ffffff", "#e41a1c", "#377eb8", "#4daf4a"]
+        model: [["#000000","#ffffff"], ["#ffffff","#000000"], ["#e41a1c","#e41a1c"], ["#377eb8","#377eb8"], ["#4daf4a","#4daf4a"]]
 
         QfToolButton {
-          property color colorValue: modelData
+          property color colorValue: modelData[0]
 
           width: 48
           height: 48
           round: true
+          borderColor: modelData[1]
           scale: settings.strokeColor == colorValue ? 1 : 0.66
           opacity: settings.strokeColor == colorValue ? 1 : 0.66
 
