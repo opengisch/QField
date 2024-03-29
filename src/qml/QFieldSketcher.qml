@@ -151,7 +151,7 @@ Popup {
       height: parent.height / 3
       x: 0
       y: parent.height / 7 * 4
-      color: "#55000000"
+      color: Theme.controlBackgroundAlternateColor
 
       ColumnLayout {
         anchors.fill: parent
