@@ -60,4 +60,4 @@ Please remember that this is the latest development build and is not meant for p
 
 ## Development
 
-For development information, refer to the dedicated [developer documentation](doc/dev.md).
+For development information, refer to the dedicated [developer documentation](doc/dev.md).HellO
