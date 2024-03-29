@@ -23,7 +23,7 @@ class DrawingTemplateModel : public QAbstractListModel
     Q_OBJECT
 
     Q_PROPERTY( QString projectFilePath READ projectFilePath WRITE setProjectFilePath NOTIFY projectFilePathChanged )
-    Q_PROPERTY( QString hasProjectTemplate READ hasProjectTemplate NOTIFY hasProjectTemplateChanged )
+    Q_PROPERTY( bool hasProjectTemplate READ hasProjectTemplate NOTIFY hasProjectTemplateChanged )
 
   public:
     enum TemplateType

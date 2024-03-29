@@ -82,7 +82,7 @@ void DrawingTemplateModel::reloadModel()
   std::sort( mTemplates.begin(), mTemplates.end(), [=]( const Template &t1, const Template &t2 ) {
     if ( t1.type != t2.type )
     {
-      return t1.type == ProjectTemplate;
+      return t2.type == ProjectTemplate;
     }
 
     return t1.title <= t2.title;

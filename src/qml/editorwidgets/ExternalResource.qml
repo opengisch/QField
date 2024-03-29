@@ -206,7 +206,7 @@ EditorWidgetBase {
 
   Rectangle {
     id: mediaFrame
-    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
+    width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.visible
     color: isEnabled ? Theme.controlBackgroundAlternateColor : "transparent"
@@ -451,7 +451,7 @@ EditorWidgetBase {
     height: 48
 
     // QField has historically handled no viewer type as image, let's carry that on
-    visible: (documentViewer == document_FILE || documentViewer == document_IMAGE) && isEnabled
+    visible: documentViewer == document_IMAGE && isEnabled
 
     anchors.right: cameraVideoButton.left
     anchors.top: parent.top
@@ -460,19 +460,7 @@ EditorWidgetBase {
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
-    onClicked: {
-      Qt.inputMethod.hide()
-      if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
-        var filepath = getResourceFilePath()
-        // Pictures taken by cameras will always be JPG
-        filepath = filepath.replace('{extension}', 'JPG')
-        __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
-      } else {
-        platformUtilities.createDir(qgisProject.homePath, 'DCIM')
-        cameraLoader.isVideo = false
-        cameraLoader.active = true
-      }
-    }
+    onClicked: capturePhoto()
   }
 
   QfToolButton {
@@ -489,19 +477,7 @@ EditorWidgetBase {
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
-    onClicked: {
-      Qt.inputMethod.hide()
-      if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
-        var filepath = getResourceFilePath()
-        // Video taken by cameras will always be MP4
-        filepath = filepath.replace('{extension}', 'MP4')
-        __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
-      } else {
-        platformUtilities.createDir(qgisProject.homePath, 'DCIM')
-        cameraLoader.isVideo = true
-        cameraLoader.active = true
-      }
-    }
+    onClicked: captureVideo()
   }
 
   QfToolButton {
@@ -518,10 +494,7 @@ EditorWidgetBase {
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
-    onClicked: {
-      Qt.inputMethod.hide()
-      audioRecorderLoader.active = true
-    }
+    onClicked: captureAudio()
   }
 
   QfToolButton {
@@ -529,50 +502,16 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && (documentViewer == document_FILE || documentViewer == document_AUDIO) && isEnabled
+    visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && documentViewer == document_FILE && isEnabled
 
-    anchors.right: galleryButton.left
+    anchors.right: parent.right
     anchors.top: parent.top
 
     iconSource: Theme.getThemeIcon("ic_file_black_24dp")
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
-    onClicked: {
-      Qt.inputMethod.hide()
-      var filepath = getResourceFilePath()
-      if (documentViewer == document_AUDIO) {
-        __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles, this)
-      } else {
-        __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, this)
-      }
-    }
-  }
-
-  QfToolButton {
-    id: galleryButton
-    width: visible ? 48 : 0
-    height: 48
-
-    // QField has historically handled no viewer type as image, let's carry that on
-    visible: (documentViewer == document_FILE || documentViewer == document_IMAGE || documentViewer == document_VIDEO) && isEnabled
-
-    anchors.right: parent.right
-    anchors.top: parent.top
-
-    iconSource: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
-    iconColor: Theme.mainTextColor
-    bgcolor: "transparent"
-
-    onClicked: {
-      Qt.inputMethod.hide()
-      var filepath = getResourceFilePath()
-      if (documentViewer == document_VIDEO) {
-        __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath+'/', filepath, this)
-      } else {
-        __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath, this)
-      }
-    }
+    onClicked: attachFile()
   }
 
   Loader {
@@ -693,6 +632,154 @@ EditorWidgetBase {
       if (statusText !== "") {
         displayToast( qsTr("Cannot handle this file type"), 'error')
       }
+    }
+  }
+
+  function attachFile() {
+    Qt.inputMethod.hide()
+    var filepath = getResourceFilePath()
+    if (documentViewer == document_AUDIO) {
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles, this)
+    } else {
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, this)
+    }
+  }
+
+  function attachGallery() {
+    Qt.inputMethod.hide()
+    var filepath = getResourceFilePath()
+    if (documentViewer == document_VIDEO) {
+      __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath+'/', filepath, this)
+    } else {
+      __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath, this)
+    }
+  }
+
+  function capturePhoto() {
+    Qt.inputMethod.hide()
+    if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
+      var filepath = getResourceFilePath()
+      // Pictures taken by cameras will always be JPG
+      filepath = filepath.replace('{extension}', 'JPG')
+      __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
+    } else {
+      platformUtilities.createDir(qgisProject.homePath, 'DCIM')
+      cameraLoader.isVideo = false
+      cameraLoader.active = true
+    }
+  }
+
+  function captureVideo() {
+    Qt.inputMethod.hide()
+    if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
+      var filepath = getResourceFilePath()
+      // Video taken by cameras will always be MP4
+      filepath = filepath.replace('{extension}', 'MP4')
+      __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
+    } else {
+      platformUtilities.createDir(qgisProject.homePath, 'DCIM')
+      cameraLoader.isVideo = true
+      cameraLoader.active = true
+    }
+  }
+
+  function captureAudio() {
+    Qt.inputMethod.hide()
+    audioRecorderLoader.active = true
+  }
+
+  Component.onCompleted: {
+    menu.addItem(capturePhotoMenuItem)
+    menu.addItem(captureVideoMenuItem)
+    menu.addItem(captureAudioMenuItem)
+    menu.addItem(separatorGalleryItem)
+    if (platformUtilities.capabilities & PlatformUtilities.FilePicker) {
+      menu.addItem(attachFileMenuItem)
+    }
+    menu.addItem(attachGalleryMenuItem)
+    menu.addItem(separatorDrawingItem)
+    menu.addItem(attachDrawingMenuItem)
+
+    hasMenu = true;
+  }
+
+  MenuItem {
+    id: capturePhotoMenuItem
+    text: qsTr( 'Take a photo' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_camera_photo_black_24dp" )
+    height: 48
+    leftPadding: Theme.menuItemLeftPadding
+
+    onTriggered: capturePhoto()
+  }
+
+  MenuItem {
+    id: captureVideoMenuItem
+    text: qsTr( 'Take a video' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_camera_video_black_24dp" )
+    height: 48
+    leftPadding: Theme.menuItemLeftPadding
+
+    onTriggered: captureVideo()
+  }
+
+  MenuItem {
+    id: captureAudioMenuItem
+    text: qsTr( 'Record an audio clip' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_microphone_black_24dp" )
+    height: 48
+    leftPadding: Theme.menuItemLeftPadding
+
+    onTriggered: captureAudio()
+  }
+
+  MenuSeparator { id: separatorGalleryItem; width: parent.width }
+
+  MenuItem {
+    id: attachGalleryMenuItem
+    text: qsTr( 'Attach a gallery item' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_gallery_black_24dp" )
+    height: 48
+    leftPadding: Theme.menuItemLeftPadding
+
+    onTriggered: attachGallery()
+  }
+
+  MenuItem {
+    id: attachFileMenuItem
+    text: qsTr( 'Attach a file' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_file_black_24dp" )
+    height: 48
+    leftPadding: Theme.menuItemLeftPadding
+
+    onTriggered: attachFile()
+  }
+
+  MenuSeparator { id: separatorDrawingItem; width: parent.width }
+
+  MenuItem {
+    id: attachDrawingMenuItem
+    text: qsTr( 'Draw a sketch' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
+    height: 48
+    leftPadding: Theme.menuItemLeftPadding
+
+    onTriggered: {
+      sketcherConnection.enabled = true
+      sketcher.clear()
+      sketcher.open()
     }
   }
 }
