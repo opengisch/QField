@@ -358,7 +358,11 @@ ApplicationWindow {
             if ( hovered ) {
                 hasBeenHovered = true;
             } else {
-                coordinateLocator.sourceLocation = undefined
+                if ( currentRubberband.model.vertexCount > 1 ) {
+                  coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( currentRubberband.model.lastCoordinate )
+                } else {
+                  coordinateLocator.sourceLocation = undefined
+                }
             }
         }
     }
@@ -394,7 +398,9 @@ ApplicationWindow {
                 // Unfortunately, Qt fails to set the hovered property to false when stylus leaves proximity
                 // of the screen, we've got to compensate for that
                 mapCanvasMap.hovered = false
-                coordinateLocator.sourceLocation = undefined
+                if ( !qfieldSettings.fingerTapDigitizing ) {
+                    coordinateLocator.sourceLocation = undefined
+                }
             }
         }
     }
@@ -467,19 +473,25 @@ ApplicationWindow {
               }
 
               // Check if geometry editor is taking over
-              if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) && geometryEditorsToolbar.canvasClicked( point, type ) )
-                  return;
-
-              if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
-                   ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
-                  if ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Point ||
-                          Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Null ) {
-                      digitizingToolbar.confirm()
-                  } else {
-                      digitizingToolbar.addVertex()
+              const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock
+              if ( geometryEditorsToolbar.stateVisible ) {
+                  if ( !positionLocked ) {
+                       geometryEditorsToolbar.canvasClicked( point, type )
                   }
+                  return
+              }
+
+              if ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === "measure" ) {
+                 if ( !positionLocked && ( !featureForm.visible || digitizingToolbar.geometryRequested ) ) {
+                     if ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Point ||
+                             Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Null ) {
+                         digitizingToolbar.confirm()
+                     } else {
+                         digitizingToolbar.addVertex()
+                     }
+                 }
               } else {
-                  if (!overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested) {
+                  if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit" ) {
                       identifyTool.isMenuRequest = false
                       identifyTool.identify(point)
                   }
@@ -489,15 +501,27 @@ ApplicationWindow {
 
       onConfirmedClicked: (point) => {
           // Check if geometry editor is taking over
+          const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock
           if ( geometryEditorsToolbar.stateVisible ) {
-            if ( !( positionSource.active && positioningSettings.positioningCoordinateLock ) ) {
-              geometryEditorsToolbar.canvasClicked( point, '' )
-            }
-            return
+              if ( !positionLocked ) {
+                geometryEditorsToolbar.canvasClicked( point, '' )
+              }
+              return
           }
 
-          if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state != "FeatureFormEdit")
-          {
+          if ( qfieldSettings.fingerTapDigitizing && ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === "measure" ) ) {
+              if ( !positionLocked && ( !featureForm.visible || digitizingToolbar.geometryRequested ) ) {
+                  console.log(point.position)
+                  coordinateLocator.sourceLocation = point.position
+                  coordinateLocator.sourceLocation = point
+                  if ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Point ||
+                          Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Null ) {
+                      digitizingToolbar.confirm()
+                  } else {
+                      digitizingToolbar.addVertex()
+                  }
+              }
+          } else if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
               identifyTool.isMenuRequest = false
               identifyTool.identify(point)
           }
@@ -2074,6 +2098,7 @@ ApplicationWindow {
       }
 
       onCancel: {
+          coordinateLocator.sourceLocation = undefined
           if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
               elevationProfile.clear()
               elevationProfile.refresh()
@@ -2099,6 +2124,7 @@ ApplicationWindow {
             geometryRequestedItem.requestedGeometryReceived(digitizingFeature.geometry)
             digitizingRubberband.model.reset()
             geometryRequested = false
+            coordinateLocator.sourceLocation = undefined
             return;
         }
 
@@ -2140,6 +2166,7 @@ ApplicationWindow {
           digitizingRubberband.model.reset()
           digitizingFeature.resetFeature();
         }
+        coordinateLocator.sourceLocation = undefined
       }
     }
 
