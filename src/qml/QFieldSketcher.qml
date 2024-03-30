@@ -65,12 +65,47 @@ Popup {
     }
 
     DragHandler {
+      id: stylusDragHandler
+      enabled: sketcher.visible
+      target: null
+      acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
+      acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+      dragThreshold: 0
+
+      property point oldPosition
+
+      onActiveChanged: {
+        if (active) {
+          if (centroid.pressedButtons !== Qt.RightButton) {
+            drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
+          } else {
+            oldPosition = centroid.position
+          }
+        } else {
+          drawingCanvas.strokeEnd(centroid.position)
+        }
+      }
+
+      onCentroidChanged: {
+        if (active) {
+          if (centroid.pressedButtons === Qt.RightButton) {
+            drawingCanvas.pan(oldPosition, centroid.position)
+            oldPosition = centroid.position
+          } else {
+            drawingCanvas.strokeMove(centroid.position)
+          }
+        }
+      }
+    }
+
+    DragHandler {
       id: dragHandler
       enabled: sketcher.visible
       target: null
       acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
+      acceptedDevices: PointerDevice.TouchScreen
       dragThreshold: 0
-      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
       property point oldPosition
 
