@@ -2602,7 +2602,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>Indien uitgeschakeld, werkt de muis als een styluspen.</translation>
+        <translation type="vanished">Indien uitgeschakeld, werkt de muis als een styluspen.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -2630,7 +2630,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>User interface language:</source>
-        <translation>Taal gebruikersinterface:</translation>
+        <translation type="vanished">Taal gebruikersinterface:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2835,10 +2835,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Verbind met %1</translation>
     </message>
     <message>
-        <source>User interface appearance:</source>
-        <translation>Uiterlijk gebruikersinterface:</translation>
-    </message>
-    <message>
         <source>Follow system appearance</source>
         <translation>gebruik systeeminstelling</translation>
     </message>
@@ -2849,10 +2845,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Dark theme</source>
         <translation>Donker</translation>
-    </message>
-    <message>
-        <source>User interface font size:</source>
-        <translation>Grootte lettertype gebruikersinterface:</translation>
     </message>
     <message>
         <source>Tiny</source>
@@ -2908,6 +2900,46 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
         <translation type="unfinished"/>
     </message>
 </context>

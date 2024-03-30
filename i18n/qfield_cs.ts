@@ -2605,7 +2605,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>Pokud je zakázáno, bude myš fungovat jako dotykové pero.</translation>
+        <translation type="vanished">Pokud je zakázáno, bude myš fungovat jako dotykové pero.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -2633,7 +2633,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>User interface language:</source>
-        <translation>Jazyk uživatelského rozhraní:</translation>
+        <translation type="vanished">Jazyk uživatelského rozhraní:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2838,10 +2838,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <translation>Připojit k %1</translation>
     </message>
     <message>
-        <source>User interface appearance:</source>
-        <translation>Vzhled uživatelského rozhraní:</translation>
-    </message>
-    <message>
         <source>Follow system appearance</source>
         <translation>Podle vzhledu systému</translation>
     </message>
@@ -2852,10 +2848,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Dark theme</source>
         <translation>Tmavé téma</translation>
-    </message>
-    <message>
-        <source>User interface font size:</source>
-        <translation>Velikost písma uživatelského rozhraní:</translation>
     </message>
     <message>
         <source>Tiny</source>
@@ -2912,6 +2904,46 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
         <translation>Pokud je povoleno, stisknutí tlačítka pro zvýšení hlasitosti zařízení přidá vrchol, zatímco stisknutí tlačítka pro snížení hlasitosti odstraní poslední zadaný vrchol během digitalizačních sezení.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

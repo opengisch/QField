@@ -2596,7 +2596,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>Ha letiltják az egér az érintő képernyő tollaként működik.</translation>
+        <translation type="vanished">Ha letiltják az egér az érintő képernyő tollaként működik.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -2624,7 +2624,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>User interface language:</source>
-        <translation>Felhasználói felület nyelve:</translation>
+        <translation type="vanished">Felhasználói felület nyelve:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2829,10 +2829,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Csatlakozás ide %1</translation>
     </message>
     <message>
-        <source>User interface appearance:</source>
-        <translation>Felhasználói felület megjelenése:</translation>
-    </message>
-    <message>
         <source>Follow system appearance</source>
         <translation>Kövesd a rendszer megjelenést</translation>
     </message>
@@ -2843,10 +2839,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Dark theme</source>
         <translation>Sötét téma</translation>
-    </message>
-    <message>
-        <source>User interface font size:</source>
-        <translation>Felhasználói felület betűmérete:</translation>
     </message>
     <message>
         <source>Tiny</source>
@@ -2903,6 +2895,46 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
         <translation>Amennyiben engedélyezte, a hangerő növelés hozzáad egy  új töréspontot a hangerő csökkentés pedig eltávolítja a legutóbbi töréspontot a digitalizálás során.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

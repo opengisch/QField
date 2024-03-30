@@ -80,11 +80,11 @@
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Bieżące przekształcenie &quot;&lt;i&gt;%1&lt;/i&gt;&quot; ma dokładność %2 metrów, podczas gdy preferowane przekształcenie &quot;&lt;i&gt;%3&lt;/i&gt;&quot; ma dokładność %4 metrów.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Bieżące przekształcenie &quot;&lt;i&gt;%1&lt;/i&gt;&quot; ma nieznaną dokładność, podczas gdy preferowana przekształcenie &quot;&lt;i&gt;%2&lt;/i&gt;&quot; ma dokładność %3 metrów.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>Użyto przybliżonego przekształcenia z %1 do %2</translation>
     </message>
 </context>
 <context>
@@ -507,11 +507,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation type="unfinished"/>
+        <translation>Oczekiwano, że wszystkie elementy tablicy będą obiektami, ale element w #%1 nim nie jest</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation type="unfinished"/>
+        <translation>Oczekiwano, że wszystkie elementy tablicy będą obiektami zawierającymi klucz &quot;%1&quot;, ale element w #%2 go nie zawiera</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
@@ -693,11 +693,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się zatwierdzić cofnięcia modyfikacji elementu na warstwie &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się przywrócić cofniętych modyfikacji elementu na warstwie &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -791,15 +791,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation type="unfinished"/>
+        <translation>Nie można pobrać elementu %1 po zatwierdzeniu</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Wyrażenie wartości domyślnej dla %1:%2 ma błąd parsera: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Domyślna wartość wyrażenia dla %1:%2 posiada błąd obliczenia: %3</translation>
     </message>
     <message>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
@@ -1054,7 +1054,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
-        <translation type="unfinished"/>
+        <translation>Uruchomiono ponowne ładowanie warstwy %1</translation>
     </message>
     <message>
         <source>Show features list</source>
@@ -1258,7 +1258,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wyzwalacz bez prefiksu</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -2165,7 +2165,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Łączenie się z QFieldCloud w celu pobrania projektu</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
@@ -2431,7 +2431,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Łączenie się z QFieldCloud w celu pobrania projektu</translation>
     </message>
 </context>
 <context>
@@ -2597,7 +2597,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>Jeśli wyłączone, mysz będzie działać jak rysik cyfrowy.</translation>
+        <translation type="vanished">Jeśli wyłączone, mysz będzie działać jak rysik cyfrowy.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -2625,7 +2625,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>User interface language:</source>
-        <translation>Język interfejsu użytkownika:</translation>
+        <translation type="vanished">Język interfejsu użytkownika:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2830,10 +2830,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Połącz z %1</translation>
     </message>
     <message>
-        <source>User interface appearance:</source>
-        <translation>Wygląd interfejsu użytkownika:</translation>
-    </message>
-    <message>
         <source>Follow system appearance</source>
         <translation>Użyj ustawień systemowych</translation>
     </message>
@@ -2844,10 +2840,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Dark theme</source>
         <translation>Styl ciemny</translation>
-    </message>
-    <message>
-        <source>User interface font size:</source>
-        <translation>Rozmiar czcionki interfejsu użytkownika:</translation>
     </message>
     <message>
         <source>Tiny</source>
@@ -2904,6 +2896,46 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
         <translation>Jeśli włączone, naciśnięcie klawisza głośności (+) na urządzeniu w trakcie sesji rysowania doda nowy wierzchołek, a naciśnięcie klawisza głośności (-) usunie ostatnio wprowadzony wierzchołek w trakcie sesji rysowania.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Niech stuknięcie palcem w obszarze mapy dodaje wierzchołki</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
+        <translation>Kiedy włączone, stuknięcie palcem w obszarze mapy doda wierzchołek w dotkniętym miejscu</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Kiedy włączone, myszka będzie działać jako palec. Kiedy wyłączone, myszka będzie zachowywać się jak rysik.</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Obszar mapy</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalizacja i edycja</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Interfejs użytkownika</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Wygląd:</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Rozmiar czcionki:</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Język:</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Zaawansowane</translation>
     </message>
 </context>
 <context>
@@ -3833,7 +3865,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Nie można dodać elementu potomnego: wartość atrybutu łączącego element nadrzędny i potomny nie jest ustawiona</translation>
     </message>
 </context>
 <context>
@@ -4375,7 +4407,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Nie można dodać elementu potomnego: wartość atrybutu łączącego element nadrzędny i potomny nie jest ustawiona</translation>
     </message>
 </context>
 </TS>

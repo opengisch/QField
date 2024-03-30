@@ -2598,7 +2598,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>في حالة التعطيل، سيتم اعتبار الفأرة كقلم تحديد.</translation>
+        <translation type="vanished">في حالة التعطيل، سيتم اعتبار الفأرة كقلم تحديد.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -2626,7 +2626,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>User interface language:</source>
-        <translation>لغة واجهة المستخدم</translation>
+        <translation type="vanished">لغة واجهة المستخدم</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2831,10 +2831,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>جار الاتصال بـ %1</translation>
     </message>
     <message>
-        <source>User interface appearance:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Follow system appearance</source>
         <translation type="unfinished"/>
     </message>
@@ -2844,10 +2840,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>User interface font size:</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2904,6 +2896,46 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
         <translation type="unfinished"/>
     </message>
 </context>

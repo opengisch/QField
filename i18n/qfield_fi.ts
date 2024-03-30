@@ -2604,7 +2604,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>Jos pois käytöstä, hiiri toimii kuin kynä</translation>
+        <translation type="vanished">Jos pois käytöstä, hiiri toimii kuin kynä</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -2632,7 +2632,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>User interface language:</source>
-        <translation>Käyttäjäliittymän kieli:</translation>
+        <translation type="vanished">Käyttäjäliittymän kieli:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2837,10 +2837,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Yhdistä %1</translation>
     </message>
     <message>
-        <source>User interface appearance:</source>
-        <translation>Käyttäjäliittymän ulkoasu:</translation>
-    </message>
-    <message>
         <source>Follow system appearance</source>
         <translation>Seuraa järjestelmän ulkoasua</translation>
     </message>
@@ -2851,10 +2847,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Dark theme</source>
         <translation>Tumma teema</translation>
-    </message>
-    <message>
-        <source>User interface font size:</source>
-        <translation>Käyttäjäliittymän merkin koko:</translation>
     </message>
     <message>
         <source>Tiny</source>
@@ -2911,6 +2903,46 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
         <translation>Jos tämä asetus on päällä, painamalla laitteen ääni kovemmalle painiketta lisäät taitepisteen, kun taas painamalla ääni hiljemmalle painiketta poistat viimeisimmän lisätyn taitepisteen.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

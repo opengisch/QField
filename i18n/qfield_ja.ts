@@ -2600,7 +2600,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>無効した場合、マウスはスタイラスペンとして機能します。</translation>
+        <translation type="vanished">無効した場合、マウスはスタイラスペンとして機能します。</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -2628,7 +2628,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>User interface language:</source>
-        <translation>ユーザーインターフェース言語:</translation>
+        <translation type="vanished">ユーザーインターフェース言語:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2833,10 +2833,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>%1に接続する</translation>
     </message>
     <message>
-        <source>User interface appearance:</source>
-        <translation>ユーザーインターフェイスの外観:</translation>
-    </message>
-    <message>
         <source>Follow system appearance</source>
         <translation>システムの設定に従う</translation>
     </message>
@@ -2847,10 +2843,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Dark theme</source>
         <translation>ダーク・テーマ</translation>
-    </message>
-    <message>
-        <source>User interface font size:</source>
-        <translation>ユーザーインターフェースのフォントサイズ:</translation>
     </message>
     <message>
         <source>Tiny</source>
@@ -2907,6 +2899,46 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
         <translation>有効にすると、デジタイズ中にデバイスのボリューム・アップ・キーを押すと頂点が追加され、ボリューム・ダウン・キーを押すと最後に入力した頂点が削除されます。</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
