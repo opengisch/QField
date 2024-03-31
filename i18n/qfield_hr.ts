@@ -503,7 +503,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation>Očekivan json dokument da bude niz delta statusa</translation>
+        <translation>Očekivano je da JSON dokument bude niz delta statusa</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
