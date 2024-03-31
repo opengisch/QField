@@ -22,7 +22,14 @@ class DrawingTemplateModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    /**
+     * This property holds the project file path where project templates will be looked for.
+     */
     Q_PROPERTY( QString projectFilePath READ projectFilePath WRITE setProjectFilePath NOTIFY projectFilePathChanged )
+
+    /**
+     * This property holds whether the model contains project templates.
+     */
     Q_PROPERTY( bool hasProjectTemplate READ hasProjectTemplate NOTIFY hasProjectTemplateChanged )
 
   public:
@@ -42,9 +49,13 @@ class DrawingTemplateModel : public QAbstractListModel
 
     explicit DrawingTemplateModel( QObject *parent = nullptr );
 
+    //! \copydoc DrawingTemplateModel::projectFilePath
     QString projectFilePath() const;
+
+    //! \copydoc DrawingTemplateModel::projectFilePath
     void setProjectFilePath( const QString &path );
 
+    //! \copydoc DrawingTemplateModel::hasProjectTemplate
     bool hasProjectTemplate() const;
 
     QHash<int, QByteArray> roleNames() const override;
@@ -52,6 +63,9 @@ class DrawingTemplateModel : public QAbstractListModel
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
 
+    /**
+     * Reloads the drawing template model.
+     */
     Q_INVOKABLE void reloadModel();
 
   signals:
