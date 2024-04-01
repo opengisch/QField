@@ -336,7 +336,7 @@ bool FeatureHistory::applyModifications( QMap<QString, FeatureModifications> &mo
 
       if ( !vl->rollBack() )
       {
-        QgsMessageLog::logMessage( tr( "Failed to rollback undo featurue modifications in layer \"%1\"" ).arg( vl->name() ) );
+        QgsMessageLog::logMessage( tr( "Failed to rollback undo feature modifications in layer \"%1\"" ).arg( vl->name() ) );
       }
 
       return false;
