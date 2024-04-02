@@ -696,8 +696,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Nem sikerült véglegesíteni az elem módosítás visszavonását a &quot;%1&quot; rétegen</translation>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation>Nem sikerült visszapörgetni a módosítások visszavonás át a &quot;%1&quot; rétegen</translation>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

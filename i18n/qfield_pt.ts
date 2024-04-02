@@ -696,8 +696,8 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Falha ao confirmar a alteração de desfazer do elemento na camada &quot;%1&quot;</translation>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation>Falha aos reverter e desfazer as alterações do elemento na camada &quot;%1&quot;</translation>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -697,7 +697,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation type="unfinished"/>
     </message>
 </context>

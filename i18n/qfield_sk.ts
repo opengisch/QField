@@ -696,8 +696,8 @@ Zrušiť a spraviť minimálny sken.</translation>
         <translation>Späťvzatie modifikácie prvku v hladine &quot;%1&quot; sa nepodarilo</translation>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation>Späťvzatie modifikácií prvku v hladine &quot;%1&quot; sa nepodarilo</translation>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

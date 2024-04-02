@@ -696,8 +696,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>レイヤ &quot;%1&quot; に編集された地物のコミットに失敗しました。</translation>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation>レイヤ &quot;%1&quot; に編集された地物のロールバックに失敗しました。</translation>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

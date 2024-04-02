@@ -696,8 +696,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>无法在图层 &quot;%1&quot; 中提交撤消要素的修改</translation>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation>无法在图层 &quot;%1&quot; 中回退撤消要素的修改</translation>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation>无法在图层 &quot;%1&quot; 中回滚撤消要素的修改</translation>
     </message>
 </context>
 <context>
@@ -2902,43 +2902,43 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>允许手指在画布上点击以添加顶点</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>启用后，用手指点击地图画布将在点击位置添加一个顶点。</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>启用后，鼠标将像手指一样工作。禁用时，鼠标将与触控笔的行为相匹配。</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>地图画布</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>数字化与编辑</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>用户界面</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>外观:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>字号:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>语言:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>高级</translation>
     </message>
 </context>
 <context>

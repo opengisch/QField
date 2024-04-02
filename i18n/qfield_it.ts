@@ -696,7 +696,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Impossibile eseguire annulla la modifica dell&apos;elemento nel layer &quot;%1&quot;</translation>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation type="unfinished"/>
     </message>
 </context>

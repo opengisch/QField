@@ -696,8 +696,8 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <translation>Falló al cometer deshacer modificación de objeto en la capa &quot;%1&quot;</translation>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation>Falló al revertir deshacer modificaciones de objeto en la capa &quot;%1&quot;  </translation>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

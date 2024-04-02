@@ -696,8 +696,8 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Nie udało się zatwierdzić cofnięcia modyfikacji elementu na warstwie &quot;%1&quot;</translation>
     </message>
     <message>
-        <source>Failed to rollback undo featurue modifications in layer &quot;%1&quot;</source>
-        <translation>Nie udało się przywrócić cofniętych modyfikacji elementu na warstwie &quot;%1&quot;</translation>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
