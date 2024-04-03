@@ -503,7 +503,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation type="unfinished"/>
+        <translation>Oczekiwano, że dokument JSON będzie tablicą stanu przyrostu</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
@@ -522,15 +522,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Wyrażenie wartości domyślnej dla pola %2 rejestratora digitalizacji zawiera błąd parsera: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Wyrażenie wartości domyślnej dla pola %2 rejestratora digitalizacji zawiera błąd wyrażenia: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation type="unfinished"/>
+        <translation>Nie powiodło się dodawanie elementów warstwy dziennika</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
@@ -697,7 +697,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się przywrócić cofniętych modyfikacji elementu w warstwie &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -747,7 +747,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Czy wybrany element %n rzeczywiście powinien zostać scalony?
+
+Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zachowa swoje atrybuty.</numerusform><numerusform>Czy wybrane elementy %n rzeczywiście powinny zostać scalone?
+
+Geometrie cech zostaną połączone w element &quot;%1&quot;, który zachowa swoje atrybuty.</numerusform><numerusform>Czy wybrane elementy %n rzeczywiście powinny zostać scalone?
+
+Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zachowa swoje atrybuty.</numerusform><numerusform>Czy wybrane elementy %n rzeczywiście powinny zostać scalone?
+
+Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zachowa swoje atrybuty.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
@@ -807,12 +815,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation type="unfinished"/>
+        <translation>Warstwa &quot;%1&quot; została zatwierdzona, ale nie można było pobrać nowo utworzonego elementu %2.</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Warstwa &quot;%1&quot; nie może zostać zatwierdzona z nowo utworzonym elementem %2. Powód:
+%3</translation>
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
@@ -2715,7 +2724,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Gdy wskaźnik dokładności jest włączony, plakietka jest dołączona do przycisku lokalizacji i ma kolor &lt;span %1&gt;czerwony&lt;/span&gt; jeśli wartość dokładności jest niższa niż zła, &lt;span %2&gt;żółty&lt;/span&gt; jeśli jest niższa niż doskonała, lub &lt;span %3&gt;zielony&lt;/span&gt; jeśli jest doskonała.&lt;br&gt;&lt;br&gt; Ponadto można włączyć tryb ograniczenia dokładności, który ogranicza dodawanie wierzchołków po zablokowaniu kursora współrzędnych do pozycji o wartości dokładności powyżej złego progu.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -2811,7 +2820,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Podczas digitalizacji elementów z kursorem współrzędnych zablokowanym w bieżącej pozycji, typ pomiaru wybrany powyżej zostanie dodany do geometrii pod warunkiem, że ma wymiar M.</translation>
     </message>
     <message>
         <source>Add</source>
