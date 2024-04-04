@@ -232,9 +232,13 @@ void DrawingCanvas::strokeMove( const QPointF &point )
     return;
   }
 
-  mCurrentStroke.points << itemToCanvas( point );
+  const QPointF lastPoint = canvasToItem( mCurrentStroke.points.last() );
+  if ( std::pow( point.x() - lastPoint.x(), 2 ) + std::pow( point.y() - lastPoint.y(), 2 ) >= 0.1 )
+  {
+    mCurrentStroke.points << itemToCanvas( point );
 
-  update();
+    update();
+  }
 }
 
 void DrawingCanvas::strokeEnd( const QPointF &point )
