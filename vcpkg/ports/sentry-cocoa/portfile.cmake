@@ -1,11 +1,10 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO getsentry/sentry-cocoa
-    REF 7.23.0
-    SHA512 2cc9d1dc39221b31dbbfb650ebbed30356f44d9adac7a8a9c13fdaabc58aa3a7f5d4192d521a4296efe45f17ca0a86c53f9171697340a25c50e75be602033b68
+    REF ${VERSION}
+    SHA512 177959e55e7ef70467df331ab940b28170063d389bf2ec8722fc81cdb09fe3e8a73f539b1182b4865e7e619f69dc623e4b0fce52f01d682e28536eb99c15d2b4
     HEAD_REF master
     PATCHES
-      stdint.patch
       ucontext64.patch
 )
 
