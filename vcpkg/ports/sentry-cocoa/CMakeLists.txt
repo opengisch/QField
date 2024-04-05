@@ -15,6 +15,7 @@ target_include_directories(
   sentry_cocoa
   PRIVATE
     ${CMAKE_SOURCE_DIR}/Sources/Sentry/include
+    ${CMAKE_SOURCE_DIR}/Sources/Sentry/include/HybridPublic
     ${CMAKE_SOURCE_DIR}/Sources/SentryCrash/Recording
     ${CMAKE_SOURCE_DIR}/Sources/SentryCrash/Recording/Tools
     ${CMAKE_SOURCE_DIR}/Sources/SentryCrash/Reporting/Filters
