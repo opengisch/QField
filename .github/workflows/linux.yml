@@ -28,7 +28,6 @@ jobs:
           BUILD_ROOT="/home/runner"
           echo "BUILD_ROOT=${BUILD_ROOT}" >> $GITHUB_ENV
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
-          echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
 
       - name: 💎 Setup ruby
         uses: ruby/setup-ruby@v1
@@ -59,7 +58,7 @@ jobs:
           source ./scripts/ci/generate-version-details.sh
 
           cmake -S "${{ github.workspace }}" \
-                -B "${CMAKE_BUILD_DIR}" \
+                -B "build" \
                 -G Ninja \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D WITH_VCPKG=ON \
@@ -74,6 +73,7 @@ jobs:
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D CMAKE_INSTALL_PREFIX=/usr \
+                -D CMAKE_EXPORT_COMPILE_COMMANDS=ON \
                 -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
 
       - name: 📑 Upload dep build logs
@@ -82,7 +82,7 @@ jobs:
         with:
           name: build-logs-x64-linux
           path: |
-            ${{ env.CMAKE_BUILD_DIR }}/**/*.log
+            build/**/*.log
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
@@ -91,13 +91,19 @@ jobs:
 
       - name: 🌋 Build
         run: |
-          xvfb-run cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+          xvfb-run cmake --build build --config ${{ env.BUILD_TYPE }}
+
+      - uses: ZedThree/clang-tidy-review@v0.18.0
+        id: review
+        with:
+          build_dir: "build"
+          lgtm_comment_body: ''
 
       - name: Package
         run: |
-          export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
-          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
-          echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
+          export LD_LIBRARY_PATH="${{ github.workspace }}/build/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
+          cmake --build  "build" --target bundle --config ${{ env.BUILD_TYPE }}
+          echo "ARTIFACT_PATHNAME=build/QField-x86_64.AppImage" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
 
       - name: 📦 Upload package
@@ -109,10 +115,10 @@ jobs:
 
       - name: 🧫 Test
         env:
-          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj
+          PROJ_LIB: ${{ github.workspace }}/build/vcpkg_installed/x64-linux/share/proj
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
-          cd "${{ env.CMAKE_BUILD_DIR }}"
+          cd build
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
       - name: 📑 Upload package logs
@@ -120,14 +126,14 @@ jobs:
         if: failure()
         with:
           name: package-logs-x64-linux
-          path: ${{ env.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
+          path: build/_CPack_Packages/**/*.log
 
       - name: 📊 Upload test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
-          path: "${{ env.CMAKE_BUILD_DIR }}/report"
+          path: "build/report"
 
       - name: 🚀 Upload release asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
@@ -145,7 +151,7 @@ jobs:
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
         run: |
-          bundle exec fastlane run sentry_upload_dif path:${{ env.CMAKE_BUILD_DIR }}
+          bundle exec fastlane run sentry_upload_dif path:build
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
