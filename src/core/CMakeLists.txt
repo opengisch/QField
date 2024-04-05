@@ -213,13 +213,8 @@ set(QFIELD_CORE_HDRS
     viewstatus.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
-if(BUILD_WITH_QT6)
-  list(APPEND QFIELD_CORE_SRCS permissions.cpp)
-  list(APPEND QFIELD_CORE_HDRS permissions.h)
-else()
-  list(APPEND QFIELD_CORE_SRCS barcodevideofilter.cpp)
-  list(APPEND QFIELD_CORE_HDRS barcodevideofilter.h)
-endif()
+list(APPEND QFIELD_CORE_SRCS permissions.cpp)
+list(APPEND QFIELD_CORE_HDRS permissions.h)
 
 if(WITH_BLUETOOTH)
   list(APPEND QFIELD_CORE_SRCS positioning/bluetoothdevicemodel.cpp
@@ -285,13 +280,6 @@ configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
-if(BUILD_WITH_QT6)
-  target_link_libraries(qfield_core PRIVATE Qt6::CorePrivate)
-endif()
-
-# to include <qpa/qplatformnativeinterface.h>
-target_include_directories(qfield_core SYSTEM
-                           PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
 if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   target_compile_options(qfield_core PRIVATE "-fobjc-arc")
 endif()
@@ -320,19 +308,21 @@ set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 
 target_link_libraries(
   qfield_core
-  PUBLIC ${QT_PKG}::Core
-         ${QT_PKG}::Gui
-         ${QT_PKG}::Xml
-         ${QT_PKG}::Positioning
-         ${QT_PKG}::Widgets
-         ${QT_PKG}::Network
-         ${QT_PKG}::Quick
-         ${QT_PKG}::Svg
-         ${QT_PKG}::Sensors
-         ${QT_PKG}::Sql
-         ${QT_PKG}::Concurrent
-         ${QT_PKG}::WebView
-         ${QT_PKG}::Multimedia
+  PUBLIC Qt::Core
+         Qt::CorePrivate
+         Qt::Gui
+         Qt::GuiPrivate
+         Qt::Xml
+         Qt::Positioning
+         Qt::Widgets
+         Qt::Network
+         Qt::Quick
+         Qt::Svg
+         Qt::Sensors
+         Qt::Sql
+         Qt::Concurrent
+         Qt::WebView
+         Qt::Multimedia
          QGIS::Core
          QGIS::Analysis
          ZXing::ZXing
@@ -344,40 +334,34 @@ target_link_libraries(
 
 if(WITH_BLUETOOTH)
   find_package(
-    ${QT_PKG}
+    Qt6
     COMPONENTS Bluetooth
     REQUIRED)
-  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::Bluetooth)
+  target_link_libraries(qfield_core PUBLIC Qt6::Bluetooth)
 endif()
 
 if(WITH_SERIALPORT)
   find_package(
-    ${QT_PKG}
+    Qt6
     COMPONENTS SerialPort
     REQUIRED)
-  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::SerialPort)
+  target_link_libraries(qfield_core PUBLIC Qt::SerialPort)
 endif()
 
 if(WITH_NFC)
   find_package(
-    ${QT_PKG}
+    Qt6
     COMPONENTS Nfc
     REQUIRED)
-  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::Nfc)
+  target_link_libraries(qfield_core PUBLIC Qt6::Nfc)
 endif()
 
 if(WITH_SENTRY)
   target_link_libraries(qfield_core PRIVATE qfield_sentry)
 endif()
 
-if(ANDROID)
-  if(NOT BUILD_WITH_QT6)
-    target_link_libraries(qfield_core PUBLIC ${QT_PKG}::AndroidExtras)
-  endif()
-endif()
-
-if(TARGET ${QT_PKG}::PrintSupport)
-  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::PrintSupport)
+if(TARGET Qt::PrintSupport)
+  target_link_libraries(qfield_core PUBLIC Qt::PrintSupport)
 endif()
 
 install(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})

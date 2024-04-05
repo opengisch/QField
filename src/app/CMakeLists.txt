@@ -1,4 +1,4 @@
-find_package(${QT_PKG}QuickCompiler QUIET)
+find_package(Qt6QuickCompiler QUIET)
 
 if(MSVC)
   configure_file("${CMAKE_SOURCE_DIR}/platform/windows/appicon.rc.in"
@@ -14,16 +14,12 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 endif()
 
 # lrelease .ts files
-find_package(${QT_PKG} COMPONENTS LinguistTools)
+find_package(Qt6 COMPONENTS LinguistTools)
 
 file(GLOB TS_FILES ${CMAKE_SOURCE_DIR}/i18n/*.ts)
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION
                                                    "${CMAKE_BINARY_DIR}")
-if(BUILD_WITH_QT6)
-  qt_add_translation(QM_FILES ${TS_FILES})
-else()
-  qt5_add_translation(QM_FILES ${TS_FILES})
-endif()
+qt_add_translation(QM_FILES ${TS_FILES})
 
 # include manually copied .qm files
 file(GLOB QM_FILES_MANUAL ${CMAKE_SOURCE_DIR}/i18n/*.qm)
@@ -42,12 +38,10 @@ file(APPEND ${TRANSLATIONS_QRC} "\n    </qresource>\n</RCC>")
 configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
 
-if(BUILD_WITH_QT6)
-  find_package(
-    Qt6
-    COMPONENTS Core5Compat
-    REQUIRED)
-endif()
+find_package(
+  Qt6
+  COMPONENTS Core5Compat
+  REQUIRED)
 
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
@@ -62,19 +56,15 @@ function(create_executable)
       ${TRANSLATIONS_QRC})
 
   if(ANDROID)
-    if(BUILD_WITH_QT6)
-      qt_add_executable(${exe_TARGET} ${QFIELD_SOURCES})
-      set_property(TARGET ${exe_TARGET} PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-                                                 ${ANDROID_PACKAGE_SOURCE_DIR})
-      set_property(TARGET ${exe_TARGET} PROPERTY QT_QML_IMPORT_PATH
-                                                 $ENV{Qt6_DIR}/qml)
-      set_property(TARGET ${exe_TARGET} PROPERTY QT_QML_ROOT_PATH
-                                                 ${CMAKE_SOURCE_DIR}/src/qml)
+    qt_add_executable(${exe_TARGET} ${QFIELD_SOURCES})
+    set_property(TARGET ${exe_TARGET} PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+                                               ${ANDROID_PACKAGE_SOURCE_DIR})
+    set_property(TARGET ${exe_TARGET} PROPERTY QT_QML_IMPORT_PATH
+                                               $ENV{Qt6_DIR}/qml)
+    set_property(TARGET ${exe_TARGET} PROPERTY QT_QML_ROOT_PATH
+                                               ${CMAKE_SOURCE_DIR}/src/qml)
 
-      set(PROJECT_NAME ${exe_TARGET})
-    else()
-      add_library(${exe_TARGET} SHARED ${QFIELD_SOURCES})
-    endif()
+    set(PROJECT_NAME ${exe_TARGET})
   else()
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
@@ -89,12 +79,12 @@ function(create_executable)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_sentry)
   endif()
 
-  get_target_property(QT_TARGET_TYPE ${QT_PKG}::Core TYPE)
+  get_target_property(QT_TARGET_TYPE Qt::Core TYPE)
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5.
   # Retry with Qt6 Same is in tests/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
-    find_package(${QT_PKG} COMPONENTS QmlImportScanner)
+    find_package(Qt6 COMPONENTS QmlImportScanner)
 
     get_target_property(qfield_qmlfiles qfield_qml QML_FILES)
     file(COPY ${qfield_qmlfiles}
@@ -113,24 +103,20 @@ function(create_executable)
     qt_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
                           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
   endif()
-  if(BUILD_WITH_QT6)
-    target_link_libraries(${exe_TARGET} PUBLIC Qt6::Core5Compat)
-    qt_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
-    qt_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::Core5Compat)
+  target_link_libraries(${exe_TARGET} PUBLIC Qt::Core5Compat)
+  qt_import_plugins(${exe_TARGET} INCLUDE Qt::QSvgPlugin)
+  qt_import_plugins(${exe_TARGET} INCLUDE Qt::Core5Compat)
 
-    if(IOS)
-      target_link_libraries(
-        ${exe_TARGET}
-        PUBLIC ${QT_PKG}::QDarwinCameraPermissionPlugin
-               ${QT_PKG}::QDarwinMicrophonePermissionPlugin
-               ${QT_PKG}::QDarwinLocationPermissionPlugin)
-      qt_import_plugins(
-        ${exe_TARGET} INCLUDE ${QT_PKG}::QDarwinCameraPermissionPlugin
-        ${QT_PKG}::QDarwinMicrophonePermissionPlugin
-        ${QT_PKG}::QDarwinLocationPermissionPlugin)
-    endif()
-  else()
-    qt5_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
+  if(IOS)
+    target_link_libraries(
+      ${exe_TARGET}
+      PUBLIC Qt6::QDarwinCameraPermissionPlugin
+             Qt6::QDarwinMicrophonePermissionPlugin
+             Qt6::QDarwinLocationPermissionPlugin)
+    qt_import_plugins(
+      ${exe_TARGET} INCLUDE Qt6::QDarwinCameraPermissionPlugin
+      Qt6::QDarwinMicrophonePermissionPlugin
+      Qt6::QDarwinLocationPermissionPlugin)
   endif()
 
   if(WITH_VCPKG) # this triggers the initialisation of static qca ossl plugin.

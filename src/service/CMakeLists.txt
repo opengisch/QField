@@ -17,18 +17,8 @@ set_target_properties(qfield_service PROPERTIES AUTOMOC TRUE)
 
 target_link_libraries(qfield_service PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
 
-target_link_libraries(qfield_service PUBLIC ${QT_PKG}::Core
-                                            ${QT_PKG}::Positioning)
-
-if(ANDROID)
-  if(NOT BUILD_WITH_QT6)
-    target_link_libraries(qfield_service PUBLIC ${QT_PKG}::AndroidExtras)
-  endif()
-endif()
-
-if(BUILD_WITH_QT6)
-  target_link_libraries(qfield_service PUBLIC Qt6::CorePrivate)
-endif()
+target_link_libraries(qfield_service PUBLIC Qt::Core Qt::Positioning
+                                            Qt::CorePrivate)
 
 install(FILES ${QFIELD_SERVICE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})
 install(

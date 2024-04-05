@@ -14,8 +14,6 @@ set(APP_VERSION "0" CACHE STRING "Application Version (Example: v1.0.0)")
 set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
-set(BUILD_WITH_QT6 ON CACHE BOOL "Build with Qt6")
-
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
@@ -100,13 +98,7 @@ else()
   set(WITH_SENTRY 0)
 endif()
 
-if(BUILD_WITH_QT6)
-  set(QT_PKG Qt6)
-  set(QT_MIN_VERSION 6.5.0)
-else()
-  set(QT_PKG Qt5)
-  set(QT_MIN_VERSION 5.14.0)
-endif()
+set(QT_MIN_VERSION 6.5.0)
 
 if (ANDROID)
   if(VCPKG_TARGET_TRIPLET STREQUAL "arm-android" OR VCPKG_TARGET_TRIPLET STREQUAL "arm-neon-android")
@@ -123,24 +115,12 @@ if (ANDROID)
   list(APPEND CMAKE_FIND_ROOT_PATH /)
 
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
-
-  if(NOT BUILD_WITH_QT6)
-    find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
-
-    include(FetchContent)
-    FetchContent_Declare(android_openssl
-      GIT_REPOSITORY https://github.com/KDAB/android_openssl.git
-      GIT_TAG aa3c67c59160715216e89ae2c48291d6021601fa
-    )
-    FetchContent_MakeAvailable(android_openssl)
-    include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
-  endif()
 endif()
 
-find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia REQUIRED)
+find_package(Qt6 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia REQUIRED)
 
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
-  find_package(${QT_PKG} COMPONENTS PrintSupport REQUIRED)
+  find_package(Qt6 COMPONENTS PrintSupport REQUIRED)
 endif()
 
 find_package(QGIS COMPONENTS Core Analysis REQUIRED)
@@ -188,11 +168,7 @@ endif()
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Android")
-  if (BUILD_WITH_QT6)
-    set(SHARE_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/assets")
-  else()
-    set(SHARE_DIR "${CMAKE_BINARY_DIR}/android-build/assets/share")
-  endif()
+  set(SHARE_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/assets")
 else()
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
 endif()
@@ -210,7 +186,7 @@ if(WITH_SENTRY)
 endif()
 
 if (ENABLE_TESTS)
-  find_package(${QT_PKG} COMPONENTS Test QuickTest)
+  find_package(Qt6 COMPONENTS Test QuickTest)
   enable_testing()
   add_subdirectory(test)
 endif()

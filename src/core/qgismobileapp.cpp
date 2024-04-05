@@ -194,15 +194,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   , mFirstRenderingFlag( true )
   , mApp( app )
 {
-  QQmlFileSelector *fs = new QQmlFileSelector( this );
-  QStringList selectors;
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
-  selectors << QStringLiteral( "Qt6" );
-#else
-  selectors << QStringLiteral( "Qt5" );
-#endif
-  fs->setExtraSelectors( selectors );
-
   // Set a nicer default hyperlink color to be used in QML Text items
   QPalette palette = app->palette();
   palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
