@@ -36,7 +36,7 @@ if(WIN32)
     list(APPEND CPACK_GENERATOR "NSIS")
 endif()
 
-get_target_property(qmake_executable ${QT_PKG}::qmake IMPORTED_LOCATION)
+get_target_property(qmake_executable Qt::qmake IMPORTED_LOCATION)
 
 set(CPACK_OUTPUT_CONFIG_FILE "${CMAKE_BINARY_DIR}/BundleConfig.cmake")
 

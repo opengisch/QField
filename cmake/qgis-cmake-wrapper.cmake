@@ -136,42 +136,27 @@ if(TRUE) # Should possibly have a "static only" check
 
   pkg_check_modules(freexl REQUIRED IMPORTED_TARGET freexl)
   target_link_libraries(QGIS::Core INTERFACE PkgConfig::freexl)
-  if(BUILD_WITH_QT6)
-    _qgis_core_add_dependency(Qt6Keychain::Qt6Keychain Qt6Keychain)
-  else()
-    _qgis_core_add_dependency(Qt5Keychain::Qt5Keychain Qt5Keychain)
-  endif()
+  _qgis_core_add_dependency(Qt6Keychain::Qt6Keychain Qt6Keychain)
 
-  find_package(${QT_PKG} COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning)
+  find_package(Qt6 COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning Core5Compat)
   target_link_libraries(QGIS::Core INTERFACE
-      ${QT_PKG}::Gui
-      ${QT_PKG}::Core
-      ${QT_PKG}::Network
-      ${QT_PKG}::Xml
-      ${QT_PKG}::Svg
-      ${QT_PKG}::Concurrent
-      ${QT_PKG}::Sql
-      ${QT_PKG}::Positioning
+      Qt::Gui
+      Qt::Core
+      Qt::Network
+      Qt::Xml
+      Qt::Svg
+      Qt::Concurrent
+      Qt::Sql
+      Qt::Positioning
+      Qt::Core5Compat
     )
-  if(BUILD_WITH_QT6)
-    find_package(${QT_PKG} COMPONENTS Core5Compat)
-    target_link_libraries(QGIS::Core INTERFACE
-      ${QT_PKG}::Core5Compat
-      )
-  endif()
   if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
-    find_package(${QT_PKG} COMPONENTS SerialPort)
+    find_package(Qt6 COMPONENTS SerialPort)
     target_link_libraries(QGIS::Core INTERFACE
-      ${QT_PKG}::SerialPort
+      Qt::SerialPort
     )
   endif()
   if(APPLE)
-    if(NOT BUILD_WITH_QT6)
-      find_package(${QT_PKG} COMPONENTS MacExtras)
-      target_link_libraries(QGIS::Core INTERFACE
-        ${QT_PKG}::MacExtras
-      )
-    endif()
     pkg_check_modules(libtasn1 REQUIRED IMPORTED_TARGET libtasn1)
     target_link_libraries(QGIS::Core INTERFACE PkgConfig::libtasn1)
 
@@ -183,9 +168,9 @@ if(TRUE) # Should possibly have a "static only" check
      # _find_and_link_library(lcms2 QGIS::Core)
 
     # QtKeychain
-    find_package(${QT_PKG} COMPONENTS DBus REQUIRED)
+    find_package(Qt6 COMPONENTS DBus REQUIRED)
     target_link_libraries(QGIS::Core INTERFACE
-      ${QT_PKG}::DBus
+      Qt::DBus
     )
   endif()
   target_link_libraries(QGIS::Analysis INTERFACE QGIS::Core)

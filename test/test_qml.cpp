@@ -154,15 +154,6 @@ class Setup : public QObject
 
     void qmlEngineAvailable( QQmlEngine *engine )
     {
-      QQmlFileSelector *fs = new QQmlFileSelector( engine );
-      QStringList selectors;
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
-      selectors << QStringLiteral( "Qt6" );
-#else
-      selectors << QStringLiteral( "Qt5" );
-#endif
-      fs->setExtraSelectors( selectors );
-
       qmlInit( engine );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
 

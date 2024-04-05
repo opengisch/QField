@@ -1,10 +1,4 @@
 <RCC>
     <qresource prefix="/qml">
-        <file>imports/QFieldControls/+Qt6/CodeReader.qml</file>
-        <file>imports/QFieldControls/+Qt6/CalendarPanel.qml</file>
-        <file>imports/QFieldControls/+Qt6/QFieldAudioRecorder.qml</file>
-        <file>imports/QFieldControls/+Qt6/QFieldCamera.qml</file>
-        <file>imports/Theme/+Qt6/QfDropShadow.qml</file>
-        <file>imports/Theme/+Qt6/QfOpacityMask.qml</file>
     </qresource>
 </RCC>

@@ -27,21 +27,12 @@ The macro sets the following variables:
 
 #]=======================================================================]
 
-if(BUILD_WITH_QT6)
-  set(Qca_INCLUDE_SUFFIXES
-            QtCrypto
-            qt6/QtCrypto
-            Qca-qt6/QtCrypto
-            qt6/Qca-qt6/QtCrypto)
-  set(Qca_NAMES ${Qca_NAMES} qca-qt6 qca)
-else()
-  set(Qca_INCLUDE_SUFFIXES
-            QtCrypto
-            qt5/QtCrypto
-            Qca-qt5/QtCrypto
-            qt5/Qca-qt5/QtCrypto)
-  set(Qca_NAMES ${Qca_NAMES} qca-qt5 qca)
-endif()
+set(Qca_INCLUDE_SUFFIXES
+          QtCrypto
+          qt6/QtCrypto
+          Qca-qt6/QtCrypto
+          qt6/Qca-qt6/QtCrypto)
+set(Qca_NAMES ${Qca_NAMES} qca-qt6 qca)
 find_path(Qca_INCLUDE_DIR qca.h
           PATHS
             ${Qca_ROOT}/include/

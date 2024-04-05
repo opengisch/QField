@@ -45,10 +45,7 @@ sudo apt install libqt5sensors5-dev libqt5webview5-dev libqt5multimedia5-plugins
 
 ### Configure
 ```sh
-# Building for Qt6 is the standard, but currently no
-# distributions ship Qt 6.5.0
-# To be updated
-cmake -S QField -B build -D BUILD_WITH_QT6=OFF
+cmake -S QField -B build
 ```
 
 If you use a locally built QGIS installed to a different
