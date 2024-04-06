@@ -103,15 +103,19 @@ void DrawingTemplateModel::reloadModel()
 int DrawingTemplateModel::rowCount( const QModelIndex &parent ) const
 {
   if ( !parent.isValid() )
+  {
     return mTemplates.size();
-  else
-    return 0;
+  }
+
+  return 0;
 }
 
 QVariant DrawingTemplateModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mTemplates.size() || index.row() < 0 )
+  {
     return QVariant();
+  }
 
   switch ( static_cast<Role>( role ) )
   {

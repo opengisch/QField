@@ -21,6 +21,8 @@
 #include <QObject>
 #include <QQuickPaintedItem>
 
+#define DEFAULT_STROKE_WIDTH 5
+
 class DrawingCanvas : public QQuickPaintedItem
 {
     Q_OBJECT
@@ -54,7 +56,7 @@ class DrawingCanvas : public QQuickPaintedItem
     Q_PROPERTY( QPointF offset READ offset WRITE setOffset NOTIFY offsetChanged )
 
   public:
-    DrawingCanvas();
+    DrawingCanvas( QQuickItem *parent = nullptr );
     ~DrawingCanvas() = default;
 
     void paint( QPainter *painter ) override;

@@ -22,8 +22,8 @@
 
 #include <cmath>
 
-DrawingCanvas::DrawingCanvas()
-  : QQuickPaintedItem()
+DrawingCanvas::DrawingCanvas( QQuickItem *parent )
+  : QQuickPaintedItem( parent )
 {
   setOpaquePainting( true );
 }
@@ -88,7 +88,7 @@ QString DrawingCanvas::save() const
   painter.drawImage( 0, 0, mBackgroundImage );
   painter.drawImage( 0, 0, mDrawingImage );
 
-  const QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.png";
+  QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.png";
   image.save( path );
 
   return path;
@@ -221,7 +221,7 @@ void DrawingCanvas::strokeBegin( const QPointF &point, const QColor color )
 {
   mCurrentStroke.points.clear();
   mCurrentStroke.color = color;
-  mCurrentStroke.width = 5 / mZoomFactor;
+  mCurrentStroke.width = DEFAULT_STROKE_WIDTH / mZoomFactor;
   mCurrentStroke.points << itemToCanvas( point );
 }
 
