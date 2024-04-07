@@ -957,7 +957,7 @@ ApplicationWindow {
 
       visible: !isNaN(navigation.distance)
                && (positioningSettings.alwaysShowPreciseView
-                   || (hasAcceptableAccuracy && navigation.distance < precision))
+                   || (hasAcceptableAccuracy && projectDistance < precision))
                && !elevationProfile.visible
       width: parent.width
       height: Math.min(mainWindow.height / 2.5, 400)
@@ -2963,7 +2963,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.10, 2, navigation.distanceUnits))
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.10, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -2979,7 +2979,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.25, 2, navigation.distanceUnits))
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.25, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -2995,7 +2995,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.5, 2, navigation.distanceUnits))
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.5, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3011,7 +3011,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(1, 2, navigation.distanceUnits))
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(1, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3027,7 +3027,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(2.5, 2, navigation.distanceUnits))
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(2.5, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3043,7 +3043,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(5, 2, navigation.distanceUnits))
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(5, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3059,7 +3059,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(10, 2, navigation.distanceUnits))
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(10, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
