@@ -180,7 +180,7 @@ Rectangle {
           color: textColor
           text: qsTr( "Dist." ) + ': ' +
                 ( positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                 ? ( UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits ) )
+                 ? ( UnitTypes.formatDistance( navigation.distance * UnitTypes.fromUnitToUnitFactor( navigation.distanceUnits, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits ) )
                  : qsTr( "N/A" ) )
         }
       }

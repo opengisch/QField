@@ -12,19 +12,22 @@ Item {
   id: positioningPreciseView
 
   property double precision: 1
-  property bool hasZ: !isNaN(navigation.verticalDistance)
+  property double projectDistance: navigation.distance * UnitTypes.fromUnitToUnitFactor(navigation.distanceUnits, projectInfo.distanceUnits)
+  property double projectVerticalDistance: navigation.verticalDistance * UnitTypes.fromUnitToUnitFactor(navigation.distanceUnits, projectInfo.distanceUnits)
+
+  property bool hasZ: !isNaN(projectVerticalDistance)
   property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 2.5
-  property bool hasReachedTarget: hasAcceptableAccuracy && navigation.distance - positionSource.positionInformation.hacc - (precision / 10) <= 0
+  property bool hasReachedTarget: hasAcceptableAccuracy && projectDistance - positionSource.positionInformation.hacc - (precision / 10) <= 0
   property bool hasAlarmSnoozed: false
 
-  property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -navigation.verticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
+  property double positionX: Math.min(precision, projectDistance) * Math.cos((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionY: Math.min(precision, projectDistance) * Math.sin((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -projectVerticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
   property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x,
                                           preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
 
-  property string negativeLabel: UnitTypes.formatDistance(-precision, 2, navigation.distanceUnits)
-  property string positiveLabel: UnitTypes.formatDistance(precision, 2, navigation.distanceUnits)
+  property string negativeLabel: UnitTypes.formatDistance(-precision, 2, projectInfo.distanceUnits)
+  property string positiveLabel: UnitTypes.formatDistance(precision, 2, projectInfo.distanceUnits)
 
   Rectangle {
     anchors.fill: parent
@@ -262,7 +265,7 @@ Item {
         width: preciseElevation.width + 2
         height: width
         visible: hasZ
-        rotation: navigation.verticalDistance < 0 ? 180 : 0
+        rotation: projectVerticalDistance < 0 ? 180 : 0
 
         ShapePath {
           strokeWidth: 0
@@ -273,7 +276,7 @@ Item {
           joinStyle: ShapePath.MiterJoin
           startX: preciseVerticalPosition.width / 2
           startY: startX
-          scale: Math.abs(navigation.verticalDistance) <= precision ? Qt.size(1,1) : Qt.size(0,0);
+          scale: Math.abs(projectVerticalDistance) <= precision ? Qt.size(1,1) : Qt.size(0,0);
           PathAngleArc {
             centerX: preciseVerticalPosition.width / 2
             centerY: centerX
@@ -293,7 +296,7 @@ Item {
           joinStyle: ShapePath.MiterJoin
           startX: preciseVerticalPosition.width / 2
           startY: 0
-          scale: Math.abs(navigation.verticalDistance) > precision ? Qt.size(1,1) : Qt.size(0,0);
+          scale: Math.abs(projectVerticalDistance) > precision ? Qt.size(1,1) : Qt.size(0,0);
           PathLine { x: preciseVerticalPosition.width - 2; y: preciseVerticalPosition.width }
           PathLine { x: 2; y: preciseVerticalPosition.width }
           PathLine { x: preciseVerticalPosition.width / 2; y: 0 }
@@ -310,8 +313,8 @@ Item {
         style: Text.Outline
         styleColor: Theme.mainBackgroundColor
 
-        property int decimals: navigation.verticalDistance >= 1000 ? 3 : navigation.verticalDistance >= 0.1 ? 2 : 1
-        text: navigation.verticalDistance != 0.0 ? UnitTypes.formatDistance(navigation.verticalDistance, decimals, navigation.distanceUnits) : 0
+        property int decimals: projectVerticalDistance >= 1000 ? 3 : projectVerticalDistance >= 0.1 ? 2 : 1
+        text: projectVerticalDistance != 0.0 ? UnitTypes.formatDistance(projectVerticalDistance, decimals, projectInfo.distanceUnits) : 0
       }
     }
   }
@@ -335,7 +338,7 @@ Item {
       fillRule: ShapePath.WindingFill
       startX: preciseHorizontalPosition.width / 2
       startY: startX
-      scale: navigation.distance <= precision ? Qt.size(1,1) : Qt.size(0,0);
+      scale: projectDistance <= precision ? Qt.size(1,1) : Qt.size(0,0);
       PathAngleArc {
         centerX: preciseHorizontalPosition.width / 2
         centerY: centerX
@@ -355,7 +358,7 @@ Item {
       joinStyle: ShapePath.MiterJoin
       startX: preciseHorizontalPosition.width / 2
       startY: 0
-      scale: navigation.distance > precision ? Qt.size(1,1) : Qt.size(0,0);
+      scale: projectDistance > precision ? Qt.size(1,1) : Qt.size(0,0);
       PathLine { x: preciseHorizontalPosition.width - 2; y: preciseHorizontalPosition.width }
       PathLine { x: 2; y: preciseHorizontalPosition.width }
       PathLine { x: preciseHorizontalPosition.width / 2; y: 0 }
@@ -397,8 +400,8 @@ Item {
     style: Text.Outline
     styleColor: Theme.mainBackgroundColor
 
-    property int decimals: navigation.distance >= 1000 ? 3 : navigation.distance >= 0.10 ? 2 : 1
-    text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( navigation.distance, decimals, navigation.distanceUnits )
+    property int decimals: projectDistance >= 1000 ? 3 : projectDistance >= 0.10 ? 2 : 1
+    text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( projectDistance, decimals, projectInfo.distanceUnits )
   }
 
   Rectangle {
@@ -436,7 +439,7 @@ Item {
     anchors.margins: 5
 
     visible: (navigation.proximityAlarm || positioningPreciseView.hasAlarmSnoozed)
-             && navigation.distance <= positioningPreciseView.precision
+             && projectDistance <= positioningPreciseView.precision
     enabled: visible
 
     round: true
@@ -453,7 +456,7 @@ Item {
     enabled: positioningPreciseView.hasAlarmSnoozed
 
     function onDistanceChanged() {
-      if (navigation.distance > precision) {
+      if (projectDistance > precision) {
         positioningPreciseView.hasAlarmSnoozed = false;
       }
     }
