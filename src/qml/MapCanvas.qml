@@ -163,10 +163,7 @@ Item {
                       }
 
       onPressed: (mouse) => {
-                   if (mouse.button === Qt.RightButton) {
-                     secondaryDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything;
-                   } else {
-                     mainDragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+                   if (mouse.button !== Qt.RightButton) {
                      if (timer.running) {
                        timer.stop()
                        doublePressed = true
@@ -177,10 +174,7 @@ Item {
                  }
 
       onReleased: (mouse) => {
-                    if (mouse.button === Qt.RightButton) {
-                      secondaryDragHandler.grabPermissions = PointerHandler.TakeOverForbidden
-                    } else {
-                      mainDragHandler.grabPermissions = PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+                    if (mouse.button !== Qt.RightButton) {
                       if (doublePressed) {
                         mapCanvasWrapper.zoom(Qt.point(mouse.x, mouse.y), 0.8)
                       }
@@ -227,17 +221,19 @@ Item {
   }
 
   DragHandler {
-    id: mainDragHandler
+    id: stylusDragHandler
     enabled: interactive && !freehandDigitizing && !pinchArea.isDragging
     target: null
-    grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedButtons: Qt.NoButton | Qt.LeftButton
-    dragThreshold: 10
+    dragThreshold: 5
 
     property var oldPos
     property real oldTranslationY
 
     property bool isZooming: false
+    property bool isPanning: false
     property point zoomCenter
 
     onActiveChanged: {
@@ -248,24 +244,76 @@ Item {
           isZooming = true
           freeze('zoom')
         } else {
+          oldPos = centroid.position
+          isPanning = true
           freeze('pan')
         }
       } else {
-        grabPermissions = PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
-        unfreeze(isZooming ? 'zoom' : 'pan')
+        if (isZooming || isPanning) {
+          unfreeze(isZooming ? 'zoom' : 'pan')
+        }
         isZooming = false
+        isPanning = false
       }
     }
 
     onCentroidChanged: {
-      var oldPos1 = oldPos
-      oldPos = centroid.position
       if (active) {
         if (isZooming) {
           mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60))
           oldTranslationY = translation.y
+        } else if (isPanning) {
+          mapCanvasWrapper.pan(centroid.position, oldPos)
+          oldPos = centroid.position
+        }
+      }
+    }
+  }
+
+  DragHandler {
+    id: mainDragHandler
+    enabled: interactive && !freehandDigitizing && !pinchArea.isDragging
+    target: null
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    acceptedDevices: PointerDevice.TouchScreen
+    dragThreshold: 5
+
+    property var oldPos
+    property real oldTranslationY
+
+    property bool isZooming: false
+    property bool isPanning: false
+    property point zoomCenter
+
+    onActiveChanged: {
+      if (active) {
+        if (mouseArea.doublePressed) {
+          oldTranslationY = 0
+          zoomCenter = centroid.position
+          isZooming = true
+          freeze('zoom')
         } else {
-          mapCanvasWrapper.pan(centroid.position, oldPos1)
+          oldPos = centroid.position
+          isPanning = true
+          freeze('pan')
+        }
+      } else {
+        if (isZooming || isPanning) {
+          unfreeze(isZooming ? 'zoom' : 'pan')
+        }
+        isZooming = false
+        isPanning = false
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        if (isZooming) {
+          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60))
+          oldTranslationY = translation.y
+        } else if (isPanning) {
+          mapCanvasWrapper.pan(centroid.position, oldPos)
+          oldPos = centroid.position
         }
       }
     }
@@ -275,9 +323,10 @@ Item {
     id: secondaryDragHandler
     target: null
     enabled: interactive && !pinchArea.isDragging
+    grabPermissions: PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything;
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
-    grabPermissions: PointerHandler.TakeOverForbidden
     acceptedButtons: Qt.RightButton
+    dragThreshold: 10
 
     property real oldTranslationY
     property point zoomCenter

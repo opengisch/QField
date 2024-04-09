@@ -45,6 +45,8 @@ set(QFIELD_CORE_SRCS
     deltalistmodel.cpp
     digitizinglogger.cpp
     distancearea.cpp
+    drawingcanvas.cpp
+    drawingtemplatemodel.cpp
     expressionevaluator.cpp
     expressionvariablemodel.cpp
     featurechecklistmodel.cpp
@@ -152,6 +154,8 @@ set(QFIELD_CORE_HDRS
     deltalistmodel.h
     digitizinglogger.h
     distancearea.h
+    drawingcanvas.h
+    drawingtemplatemodel.h
     expressionevaluator.h
     expressionvariablemodel.h
     featurechecklistmodel.h

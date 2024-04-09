@@ -50,6 +50,7 @@
 #include "deltalistmodel.h"
 #include "digitizinglogger.h"
 #include "distancearea.h"
+#include "drawingcanvas.h"
 #include "expressionevaluator.h"
 #include "expressionvariablemodel.h"
 #include "featurechecklistmodel.h"
@@ -267,6 +268,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mProjectsImageProvider = new ProjectsImageProvider();
 
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
+  mDrawingTemplateModel = std::make_unique<DrawingTemplateModel>( this );
 
   // Transition from 1.8 to 1.8.1+
   const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
@@ -443,6 +445,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
   qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );
+  qmlRegisterType<DrawingCanvas>( "org.qfield", 1, 0, "DrawingCanvas" );
   qmlRegisterType<SubModel>( "org.qfield", 1, 0, "SubModel" );
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
@@ -558,6 +561,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "layerObserver", mLayerObserver.get() );
   rootContext()->setContextProperty( "featureHistory", mFeatureHistory.get() );
   rootContext()->setContextProperty( "messageLogModel", mMessageLogModel.get() );
+  rootContext()->setContextProperty( "drawingTemplateModel", mDrawingTemplateModel.get() );
 
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 

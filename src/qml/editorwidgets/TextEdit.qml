@@ -160,6 +160,7 @@ EditorWidgetBase {
       platformUtilities.copyTextToClipboard(value)
     }
   }
+
   MenuItem {
     id: pasteTextItem
     text: qsTr( 'Paste Text' )

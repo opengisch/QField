@@ -98,6 +98,7 @@ jobs:
         with:
           build_dir: "build"
           lgtm_comment_body: ''
+          exclude: 'cppcoreguidelines-avoid-magic-numbers,bugprone-easily-swappable-parameters,misc-non-private-member-variables-in-classes,cppcoreguidelines-macro-usage'
 
       - name: Package
         run: |
