@@ -561,6 +561,13 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
 </context>
 <context>
+    <name>DrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
@@ -616,6 +623,30 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Cannot handle this file type</source>
         <translation>Non se pode xestionar este tipo de ficheiros</translation>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2940,6 +2971,13 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Advanced</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldSketcher</name>
+    <message>
+        <source>Select drawing template</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -561,6 +561,13 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
+    <name>DrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation>Puste</translation>
+    </message>
+</context>
+<context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
@@ -616,6 +623,30 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Cannot handle this file type</source>
         <translation>Nie można obsłużyć tego rodzaju pliku</translation>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation>Zrób zdjęcie</translation>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation>Nagraj wideo</translation>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation>Nagraj dźwięk</translation>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation>Dołącz element z galerii</translation>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation>Dołącz plik</translation>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation>Narysuj szkic</translation>
     </message>
 </context>
 <context>
@@ -2945,6 +2976,13 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Advanced</source>
         <translation>Zaawansowane</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>Wybierz szablon rysunku</translation>
     </message>
 </context>
 <context>

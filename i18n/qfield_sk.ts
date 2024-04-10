@@ -561,6 +561,13 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
 </context>
 <context>
+    <name>DrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
@@ -616,6 +623,30 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Cannot handle this file type</source>
         <translation>Nepodporovaný typ súboru</translation>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2943,6 +2974,13 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Advanced</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldSketcher</name>
+    <message>
+        <source>Select drawing template</source>
         <translation type="unfinished"/>
     </message>
 </context>

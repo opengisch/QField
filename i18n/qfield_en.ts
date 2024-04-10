@@ -566,6 +566,13 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
+    <name>DrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
@@ -621,6 +628,30 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Cannot handle this file type</source>
         <translation>Cannot handle this file type</translation>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2975,6 +3006,13 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QFieldSketcher</name>
+    <message>
+        <source>Select drawing template</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
