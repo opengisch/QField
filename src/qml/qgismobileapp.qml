@@ -429,7 +429,15 @@ ApplicationWindow {
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
-      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !cloudPopup.visible && !codeReader.visible && !sketcher.visible
+      property bool isEnabled: !dashBoard.opened &&
+                               !welcomeScreen.visible &&
+                               !qfieldSettings.visible &&
+                               !qfieldLocalDataPickerScreen.visible &&
+                               !qfieldCloudScreen.visible &&
+                               !qfieldCloudPopup.visible &&
+                               !codeReader.visible &&
+                               !sketcher.visible &&
+                               !overlayFeatureFormDrawer.visible
       interactive: isEnabled && !screenLocker.enabled
       incrementalRendering: true
       quality: qfieldSettings.quality
@@ -3447,7 +3455,7 @@ ApplicationWindow {
         }
 
         if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
-          cloudPopup.show()
+          qfieldCloudPopup.show()
         }
 
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
@@ -3781,7 +3789,7 @@ ApplicationWindow {
   }
 
   QFieldCloudPopup {
-    id: cloudPopup
+    id: qfieldCloudPopup
     visible: false
     focus: visible
     parent: Overlay.overlay

@@ -40,7 +40,7 @@ Drawer {
   clip: true
 
   onShowMenu: mainMenu.popup(settingsButton.x + 2, mainWindow.sceneTopMargin + settingsButton.y + 2)
-  onShowCloudMenu: cloudPopup.show()
+  onShowCloudMenu: qfieldCloudPopup.show()
 
   onActiveLayerChanged: {
     if (activeLayer && activeLayer.readOnly && stateMachine.state == "digitize")
