@@ -89,7 +89,7 @@ QString DrawingCanvas::save() const
   painter.drawImage( 0, 0, mDrawingImage );
 
   QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.png";
-  image.save( path );
+  image.save( path, "png", 80 );
 
   return path;
 }
