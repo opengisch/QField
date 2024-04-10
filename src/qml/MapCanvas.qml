@@ -122,74 +122,11 @@ Item {
                         rotationTresholdReached = true
                       }
                     }
-
-
-    MouseArea {
-      id: mouseArea
-      enabled: interactive && !hovered && !pinchArea.isDragging
-      anchors.fill: parent
-      acceptedButtons: Qt.LeftButton | Qt.RightButton
-
-      property bool longPressActive: false
-      property bool doublePressed: false
-
-      Timer {
-        id: timer
-        interval: 350
-        repeat: false
-
-        property var tapPoint
-
-        onTriggered: {
-          confirmedClicked(tapPoint)
-        }
-      }
-
-      onClicked: (mouse) => {
-                   if (mouse.button === Qt.RightButton)
-                   {
-                     mapArea.rightClicked(Qt.point(mouse.x, mouse.y), "touch")
-                   }
-                   else
-                   {
-                     timer.tapPoint = Qt.point(mouse.x, mouse.y)
-                     timer.restart()
-                   }
-                 }
-
-      onPressAndHold: (mouse) => {
-                        mapArea.longPressed(Qt.point(mouse.x, mouse.y), "touch")
-                        longPressActive = true
-                      }
-
-      onPressed: (mouse) => {
-                   if (mouse.button !== Qt.RightButton) {
-                     if (timer.running) {
-                       timer.stop()
-                       doublePressed = true
-                     } else {
-                       doublePressed = false
-                     }
-                   }
-                 }
-
-      onReleased: (mouse) => {
-                    if (mouse.button !== Qt.RightButton) {
-                      if (doublePressed) {
-                        mapCanvasWrapper.zoom(Qt.point(mouse.x, mouse.y), 0.8)
-                      }
-                    }
-                  }
-
-      onCanceled: {
-        timer.stop()
-      }
-    }
   }
 
-  // stylus clicks
   TapHandler {
-    enabled: interactive && hovered && !pinchArea.isDragging
+    id: stylusTapHandler
+    enabled: interactive && !pinchArea.isDragging
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything | PointerHandler.ApprovesCancellation
     acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
     acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -225,7 +162,7 @@ Item {
     enabled: interactive && !freehandDigitizing && !pinchArea.isDragging
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     dragThreshold: 5
 
@@ -238,7 +175,7 @@ Item {
 
     onActiveChanged: {
       if (active) {
-        if (mouseArea.doublePressed) {
+        if (mainTapHandler.doublePressed) {
           oldTranslationY = 0
           zoomCenter = centroid.position
           isZooming = true
@@ -270,12 +207,72 @@ Item {
     }
   }
 
+  Timer {
+    id: timer
+    interval: 350
+    repeat: false
+
+    property var tapPoint
+
+    onTriggered: {
+      mainTapHandler.doublePressed = false
+      confirmedClicked(tapPoint)
+    }
+  }
+
+  TapHandler {
+    id: mainTapHandler
+    enabled: interactive && !hovered && !pinchArea.isDragging
+    acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse
+
+    property bool longPressActive: false
+    property bool doublePressed: false
+
+    onLongPressed: {
+                     mapArea.longPressed(Qt.point(point.position.x, point.position.y), "touch")
+                     longPressActive = true
+                   }
+
+    onPressedChanged: {
+                 if (pressed) {
+                   if (point.pressedButtons !== Qt.RightButton) {
+                     if (timer.running) {
+                       timer.stop()
+                       doublePressed = true
+                     } else {
+                       doublePressed = false
+                     }
+                   }
+                 }
+               }
+
+    onTapped: (eventPoint, button) => {
+                if (button === Qt.RightButton) {
+                  mapArea.rightClicked(Qt.point(mouse.x, mouse.y), "touch")
+                } else {
+                  if (!doublePressed) {
+                    timer.tapPoint = Qt.point(eventPoint.position.x, eventPoint.position.y)
+                    timer.restart()
+                  } else {
+                    mapCanvasWrapper.zoom(Qt.point(eventPoint.position.x, eventPoint.position.y), 0.8)
+                  }
+                }
+              }
+
+    onCanceled: {
+      timer.stop()
+    }
+  }
+
   DragHandler {
     id: mainDragHandler
-    enabled: interactive && !freehandDigitizing && !pinchArea.isDragging
+    enabled: interactive && !hovered && !freehandDigitizing && !pinchArea.isDragging
     target: null
     acceptedButtons: Qt.NoButton | Qt.LeftButton
-    acceptedDevices: PointerDevice.TouchScreen
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse
     dragThreshold: 5
 
     property var oldPos
@@ -287,7 +284,7 @@ Item {
 
     onActiveChanged: {
       if (active) {
-        if (mouseArea.doublePressed) {
+        if (mainTapHandler.doublePressed) {
           oldTranslationY = 0
           zoomCenter = centroid.position
           isZooming = true
