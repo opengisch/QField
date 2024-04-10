@@ -45,25 +45,6 @@ Popup {
       }
     }
 
-    PinchHandler {
-      id: pinchHandler
-      enabled: sketcher.visible
-      target: null
-
-      property point oldPosition
-
-      onScaleChanged: (delta) => {
-                        if (active) {
-                          drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * delta
-                        }
-                      }
-      onTranslationChanged: (delta) => {
-                              if (active) {
-                                drawingCanvas.pan(Qt.point(0, 0), Qt.point(delta.x, delta.y))
-                              }
-                            }
-    }
-
     DragHandler {
       id: stylusDragHandler
       enabled: sketcher.visible
@@ -103,19 +84,15 @@ Popup {
       id: dragHandler
       enabled: sketcher.visible
       target: null
-      acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
+      acceptedButtons: Qt.NoButton | Qt.LeftButton
       acceptedDevices: PointerDevice.TouchScreen
-      dragThreshold: 1
+      dragThreshold: 2
 
       property point oldPosition
 
       onActiveChanged: {
         if (active) {
-          if (centroid.pressedButtons !== Qt.RightButton) {
-            drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
-          } else {
-            oldPosition = centroid.position
-          }
+          drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
         } else {
           drawingCanvas.strokeEnd(centroid.position)
         }
@@ -123,19 +100,38 @@ Popup {
 
       onCentroidChanged: {
         if (active) {
-          if (centroid.pressedButtons === Qt.RightButton) {
-            drawingCanvas.pan(oldPosition, centroid.position)
-            oldPosition = centroid.position
-          } else {
-            drawingCanvas.strokeMove(centroid.position)
-          }
+          drawingCanvas.strokeMove(centroid.position)
         }
       }
     }
 
+    PinchHandler {
+      id: pinchHandler
+      enabled: sketcher.visible
+      acceptedButtons: Qt.NoButton | Qt.LeftButton
+      acceptedDevices: PointerDevice.TouchScreen
+      dragThreshold: 2
+      target: null
+
+      property point oldPosition
+
+      onScaleChanged: (delta) => {
+                        if (active) {
+                          drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * delta
+                        }
+                      }
+      onTranslationChanged: (delta) => {
+                              if (active) {
+                                drawingCanvas.pan(Qt.point(0, 0), Qt.point(delta.x, delta.y))
+                              }
+                            }
+    }
+
     WheelHandler {
+      id: wheelHandler
       enabled: sketcher.visible
       target: null
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
       onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
     }
