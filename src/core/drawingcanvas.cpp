@@ -16,6 +16,7 @@
 
 #include "drawingcanvas.h"
 
+#include <QImageReader>
 #include <QPainter>
 #include <QPainterPath>
 #include <QStandardPaths>
@@ -43,7 +44,9 @@ void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundC
 
 void DrawingCanvas::createCanvasFromImage( const QString &path )
 {
-  mBackgroundImage = QImage( path.startsWith( QStringLiteral( "file://" ) ) ? path.mid( 7 ) : path );
+  QImageReader imageReader( path.startsWith( QStringLiteral( "file://" ) ) ? path.mid( 7 ) : path );
+  imageReader.setAutoTransform( true );
+  mBackgroundImage = imageReader.read();
 
   if ( !mBackgroundImage.isNull() )
   {
