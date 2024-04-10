@@ -71,7 +71,7 @@ Popup {
       acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
       acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
-      dragThreshold: 0
+      dragThreshold: 1
 
       property point oldPosition
 
@@ -105,7 +105,7 @@ Popup {
       target: null
       acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
       acceptedDevices: PointerDevice.TouchScreen
-      dragThreshold: 0
+      dragThreshold: 1
 
       property point oldPosition
 
