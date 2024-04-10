@@ -31,7 +31,7 @@ Item {
 
   property bool interactive: true
   property bool hovered: false
-  property bool pinched: pinchArea.isDragging
+  property bool pinched: pinchHandler.active
   property bool freehandDigitizing: false
 
   // for signals, type can be "stylus" for any device click or "touch"
@@ -90,43 +90,9 @@ Item {
     freeze: false
   }
 
-  PinchArea {
-    id: pinchArea
-    enabled: interactive
-    anchors.fill: parent
-
-    property bool isDragging: false
-
-    property real rotationTreshold: 20.0
-    property bool rotationTresholdReached: false
-    property real previousRotation: 0
-
-    onPinchStarted: {
-      freeze('pinch')
-      isDragging = true
-      previousRotation = 0
-      rotationTresholdReached = false
-    }
-    onPinchFinished: {
-      isDragging = false
-      unfreeze('pinch')
-    }
-
-    onPinchUpdated: (pinch) => {
-                      mapCanvasWrapper.pan(pinch.center, pinch.previousCenter)
-                      mapCanvasWrapper.zoom(pinch.center, pinch.previousScale / pinch.scale)
-                      if (rotationTresholdReached) {
-                        mapCanvasWrapper.rotate(pinch.rotation - previousRotation)
-                        previousRotation = pinch.rotation
-                      } else if (Math.abs(pinch.rotation - previousRotation) > rotationTreshold) {
-                        rotationTresholdReached = true
-                      }
-                    }
-  }
-
   TapHandler {
     id: stylusTapHandler
-    enabled: interactive && !pinchArea.isDragging
+    enabled: interactive
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything | PointerHandler.ApprovesCancellation
     acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
     acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -159,7 +125,7 @@ Item {
 
   DragHandler {
     id: stylusDragHandler
-    enabled: interactive && !freehandDigitizing && !pinchArea.isDragging
+    enabled: interactive && !freehandDigitizing
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
     acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
@@ -222,7 +188,7 @@ Item {
 
   TapHandler {
     id: mainTapHandler
-    enabled: interactive && !hovered && !pinchArea.isDragging
+    enabled: interactive && !hovered
     acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
     acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse
@@ -268,7 +234,7 @@ Item {
 
   DragHandler {
     id: mainDragHandler
-    enabled: interactive && !hovered && !freehandDigitizing && !pinchArea.isDragging
+    enabled: interactive && !hovered && !freehandDigitizing
     target: null
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
@@ -319,7 +285,7 @@ Item {
   DragHandler {
     id: secondaryDragHandler
     target: null
-    enabled: interactive && !pinchArea.isDragging
+    enabled: interactive
     grabPermissions: PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything;
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedButtons: Qt.RightButton
@@ -350,7 +316,7 @@ Item {
 
   DragHandler {
     target: null
-    enabled: interactive && !pinchArea.isDragging
+    enabled: interactive
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedModifiers: Qt.NoModifier
     grabPermissions: PointerHandler.TakeOverForbidden
@@ -378,7 +344,7 @@ Item {
 
   DragHandler {
     target: null
-    enabled: interactive && !pinchArea.isDragging
+    enabled: interactive
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedModifiers: Qt.ShiftModifier
     grabPermissions: PointerHandler.TakeOverForbidden
@@ -405,7 +371,7 @@ Item {
           }
           oldTranslationY = translation.y
           translationThresholdReached = true
-        } else if (Math.abs(oldTranslationY - translation.y) > pinchArea.rotationTreshold) {
+        } else if (Math.abs(oldTranslationY - translation.y) > pinchHandler.rotationTreshold) {
           oldTranslationY = translation.y
           translationThresholdReached = true
         }
@@ -413,8 +379,70 @@ Item {
     }
   }
 
+  PinchHandler {
+      id: pinchHandler
+      enabled: interactive
+      target: null
+      acceptedButtons: Qt.NoButton | Qt.LeftButton
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+      acceptedDevices: PointerDevice.TouchScreen
+      dragThreshold: 5
+
+      property real rotationTreshold: 20.0
+
+      property var oldPos
+      property real oldScale: 1.0
+      property real oldRotation: 0.0
+
+      property bool rotationActive: false
+      property bool rotationTresholdReached: false
+
+      onActiveChanged: {
+          if ( active ) {
+              freeze('pinch')
+              oldScale = 1.0
+              oldRotation = 0.0
+              rotationTresholdReached = false
+              oldPos = centroid.position
+          } else {
+              unfreeze('pinch')
+          }
+      }
+
+      onCentroidChanged: {
+          var oldPos1 = oldPos
+          oldPos = centroid.position
+          if ( active )
+          {
+              mapCanvasWrapper.pan(centroid.position, oldPos1)
+          }
+      }
+
+      onRotationChanged: {
+          if ( active )
+          {
+              if (rotationTresholdReached)
+              {
+                  mapCanvasWrapper.rotate(rotation - oldRotation)
+                  oldRotation = rotation
+              }
+              else if (Math.abs(rotation - oldRotation) > pinchHandler.rotationTreshold)
+              {
+                oldRotation = rotation
+                rotationTresholdReached = true
+              }
+          }
+      }
+
+      onActiveScaleChanged: {
+          mapCanvasWrapper.zoom( pinchHandler.centroid.position, oldScale / pinchHandler.activeScale )
+          mapCanvasWrapper.pan( pinchHandler.centroid.position, oldPos )
+          oldScale = pinchHandler.activeScale
+      }
+  }
+
   WheelHandler {
-    enabled: interactive && !pinchArea.isDragging
+    enabled: interactive
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
