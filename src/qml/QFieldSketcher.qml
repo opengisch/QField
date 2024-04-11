@@ -282,6 +282,25 @@ Popup {
     }
 
     QfToolButton {
+      id: undoButton
+      visible: drawingCanvas.isDirty
+
+      anchors.right: saveButton.left
+      anchors.rightMargin: 5
+      anchors.top: parent.top
+      anchors.topMargin: mainWindow.sceneTopMargin + 5
+
+      iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+      iconColor: "white"
+      bgcolor: Theme.darkGraySemiOpaque
+      round: true
+
+      onClicked: {
+        drawingCanvas.undo()
+      }
+    }
+
+    QfToolButton {
       id: saveButton
       visible: !drawingCanvas.isEmpty
 
@@ -290,7 +309,7 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+      iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
       iconColor: "white"
       bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.darkGraySemiOpaque
       round: true

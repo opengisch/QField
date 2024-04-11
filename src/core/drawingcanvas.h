@@ -113,6 +113,12 @@ class DrawingCanvas : public QQuickPaintedItem
     Q_INVOKABLE void clear();
 
     /**
+     * Undos the last drawing operation.
+     * \see isDirty()
+     */
+    Q_INVOKABLE void undo();
+
+    /**
      * Saves the drawing canvas to a temporary location.
      * \returns the temporary file path of the saved image.
      */
@@ -168,7 +174,7 @@ class DrawingCanvas : public QQuickPaintedItem
         QList<QPointF> points;
     };
 
-    void drawStroke( QPainter *painter, Stroke &stroke, bool onCanvas = true );
+    void drawStroke( QPainter *painter, const Stroke &stroke, bool onCanvas = true );
 
     QPointF itemToCanvas( const QPointF &point );
     QPointF canvasToItem( const QPointF &point );
@@ -183,6 +189,7 @@ class DrawingCanvas : public QQuickPaintedItem
     QImage mBackgroundImage;
     QImage mDrawingImage;
 
+    QList<Stroke> mStrokes;
     Stroke mCurrentStroke;
 };
 

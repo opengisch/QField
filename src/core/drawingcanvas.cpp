@@ -31,6 +31,8 @@ DrawingCanvas::DrawingCanvas( QQuickItem *parent )
 
 void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundColor )
 {
+  clear();
+
   mBackgroundImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
   mBackgroundImage.fill( backgroundColor );
 
@@ -44,6 +46,8 @@ void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundC
 
 void DrawingCanvas::createCanvasFromImage( const QString &path )
 {
+  clear();
+
   QImageReader imageReader( path.startsWith( QStringLiteral( "file://" ) ) ? path.mid( 7 ) : path );
   imageReader.setAutoTransform( true );
   mBackgroundImage = imageReader.read();
@@ -71,6 +75,8 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
 
 void DrawingCanvas::clear()
 {
+  mStrokes.clear();
+
   mBackgroundImage = QImage();
   mDrawingImage = QImage();
 
@@ -257,13 +263,15 @@ void DrawingCanvas::strokeEnd( const QPointF &point )
   painter.setRenderHint( QPainter::Antialiasing, true );
   drawStroke( &painter, mCurrentStroke );
 
+  mStrokes << mCurrentStroke;
   mCurrentStroke.points.clear();
 
   setIsDirty( true );
+
   update();
 }
 
-void DrawingCanvas::drawStroke( QPainter *painter, Stroke &stroke, bool onCanvas )
+void DrawingCanvas::drawStroke( QPainter *painter, const Stroke &stroke, bool onCanvas )
 {
   QPainterPath path( onCanvas ? stroke.points.at( 0 ) : canvasToItem( stroke.points.at( 0 ) ) );
   for ( int i = 1; i < stroke.points.size(); i++ )
@@ -277,6 +285,29 @@ void DrawingCanvas::drawStroke( QPainter *painter, Stroke &stroke, bool onCanvas
   QBrush brush( stroke.fillColor );
   painter->setBrush( brush );
   painter->drawPath( path );
+}
+
+void DrawingCanvas::undo()
+{
+  if ( !mStrokes.isEmpty() )
+  {
+    // Clear current stroke in the off chance an ongoing stroke had not yet ended
+    mCurrentStroke.points.clear();
+    mStrokes.removeLast();
+
+    // Reset image and redraw remaining strokes
+    mDrawingImage.fill( Qt::transparent );
+    for ( const Stroke &stroke : std::as_const( mStrokes ) )
+    {
+      QPainter painter( &mDrawingImage );
+      painter.setRenderHint( QPainter::Antialiasing, true );
+      drawStroke( &painter, stroke );
+    }
+
+    setIsDirty( !mStrokes.isEmpty() );
+
+    update();
+  }
 }
 
 QPointF DrawingCanvas::itemToCanvas( const QPointF &point )
