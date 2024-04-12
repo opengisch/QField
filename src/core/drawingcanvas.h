@@ -174,10 +174,10 @@ class DrawingCanvas : public QQuickPaintedItem
         QList<QPointF> points;
     };
 
-    void drawStroke( QPainter *painter, const Stroke &stroke, bool onCanvas = true );
+    void drawStroke( QPainter *painter, const Stroke &stroke, bool onCanvas = true ) const;
 
-    QPointF itemToCanvas( const QPointF &point );
-    QPointF canvasToItem( const QPointF &point );
+    QPointF itemToCanvas( const QPointF &point ) const;
+    QPointF canvasToItem( const QPointF &point ) const;
 
     bool mIsEmpty = true;
     bool mIsDirty = false;

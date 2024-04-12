@@ -271,7 +271,7 @@ void DrawingCanvas::strokeEnd( const QPointF &point )
   update();
 }
 
-void DrawingCanvas::drawStroke( QPainter *painter, const Stroke &stroke, bool onCanvas )
+void DrawingCanvas::drawStroke( QPainter *painter, const Stroke &stroke, bool onCanvas ) const
 {
   QPainterPath path( onCanvas ? stroke.points.at( 0 ) : canvasToItem( stroke.points.at( 0 ) ) );
   for ( int i = 1; i < stroke.points.size(); i++ )
@@ -310,7 +310,7 @@ void DrawingCanvas::undo()
   }
 }
 
-QPointF DrawingCanvas::itemToCanvas( const QPointF &point )
+QPointF DrawingCanvas::itemToCanvas( const QPointF &point ) const
 {
   const QPointF canvasTopLeft( size().width() / 2 - ( mBackgroundImage.size().width() * mZoomFactor / 2 ) + mOffset.x(),
                                size().height() / 2 - ( mBackgroundImage.size().height() * mZoomFactor / 2 ) + mOffset.y() );
@@ -318,7 +318,7 @@ QPointF DrawingCanvas::itemToCanvas( const QPointF &point )
                   ( point.y() - canvasTopLeft.y() ) / mZoomFactor );
 }
 
-QPointF DrawingCanvas::canvasToItem( const QPointF &point )
+QPointF DrawingCanvas::canvasToItem( const QPointF &point ) const
 {
   const QPointF canvasTopLeft( size().width() / 2 - ( mBackgroundImage.size().width() * mZoomFactor / 2 ) + mOffset.x(),
                                size().height() / 2 - ( mBackgroundImage.size().height() * mZoomFactor / 2 ) + mOffset.y() );
