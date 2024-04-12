@@ -47,7 +47,7 @@ Popup {
 
     DragHandler {
       id: stylusDragHandler
-      enabled: sketcher.visible
+      enabled: sketcher.visible && !drawingCanvas.isEmpty
       target: null
       acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
       acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
@@ -82,7 +82,7 @@ Popup {
 
     DragHandler {
       id: dragHandler
-      enabled: sketcher.visible
+      enabled: sketcher.visible && !drawingCanvas.isEmpty
       target: null
       acceptedButtons: Qt.NoButton | Qt.LeftButton
       acceptedDevices: PointerDevice.TouchScreen
@@ -107,7 +107,7 @@ Popup {
 
     PinchHandler {
       id: pinchHandler
-      enabled: sketcher.visible
+      enabled: sketcher.visible && !drawingCanvas.isEmpty
       acceptedButtons: Qt.NoButton | Qt.LeftButton
       acceptedDevices: PointerDevice.TouchScreen
       dragThreshold: 2
@@ -129,7 +129,7 @@ Popup {
 
     WheelHandler {
       id: wheelHandler
-      enabled: sketcher.visible
+      enabled: sketcher.visible && !drawingCanvas.isEmpty
       target: null
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
@@ -282,6 +282,25 @@ Popup {
     }
 
     QfToolButton {
+      id: undoButton
+      visible: drawingCanvas.isDirty
+
+      anchors.right: saveButton.left
+      anchors.rightMargin: 5
+      anchors.top: parent.top
+      anchors.topMargin: mainWindow.sceneTopMargin + 5
+
+      iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+      iconColor: "white"
+      bgcolor: Theme.darkGraySemiOpaque
+      round: true
+
+      onClicked: {
+        drawingCanvas.undo()
+      }
+    }
+
+    QfToolButton {
       id: saveButton
       visible: !drawingCanvas.isEmpty
 
@@ -290,7 +309,7 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+      iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
       iconColor: "white"
       bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.darkGraySemiOpaque
       round: true
