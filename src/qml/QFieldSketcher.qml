@@ -47,7 +47,7 @@ Popup {
 
     DragHandler {
       id: stylusDragHandler
-      enabled: sketcher.visible
+      enabled: sketcher.visible && !drawingCanvas.isEmpty
       target: null
       acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
       acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
@@ -82,7 +82,7 @@ Popup {
 
     DragHandler {
       id: dragHandler
-      enabled: sketcher.visible
+      enabled: sketcher.visible && !drawingCanvas.isEmpty
       target: null
       acceptedButtons: Qt.NoButton | Qt.LeftButton
       acceptedDevices: PointerDevice.TouchScreen
@@ -107,7 +107,7 @@ Popup {
 
     PinchHandler {
       id: pinchHandler
-      enabled: sketcher.visible
+      enabled: sketcher.visible && !drawingCanvas.isEmpty
       acceptedButtons: Qt.NoButton | Qt.LeftButton
       acceptedDevices: PointerDevice.TouchScreen
       dragThreshold: 2
@@ -129,7 +129,7 @@ Popup {
 
     WheelHandler {
       id: wheelHandler
-      enabled: sketcher.visible
+      enabled: sketcher.visible && !drawingCanvas.isEmpty
       target: null
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
