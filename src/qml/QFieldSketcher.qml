@@ -22,15 +22,18 @@ Popup {
   closePolicy: Popup.CloseOnEscape
   dim: true
 
+  onOpened: {
+    contentItem.forceActiveFocus()
+  }
+
   Settings {
     id: settings
     property color strokeColor: "#000000"
   }
 
-  Page {
+  Pane {
     width: parent.width
     height: parent.height
-    padding: 0
 
     DrawingCanvas {
       id: drawingCanvas

@@ -44,6 +44,10 @@ Popup {
     }
   }
 
+  onOpened: {
+    contentItem.forceActiveFocus()
+  }
+
   onAboutToHide: {
     if (cameraLoader.active) {
       cameraLoader.item.camera.torchMode = Camera.TorchOff
