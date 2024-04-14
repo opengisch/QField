@@ -54,6 +54,7 @@ ListView {
       onPressAndHold: {
         itemProperties.index = legend.model.index(index, 0)
         itemProperties.open()
+        itemProperties.forceActiveFocus()
       }
       onReleased: (mouse) => {
         if (mouse.button === Qt.RightButton) {

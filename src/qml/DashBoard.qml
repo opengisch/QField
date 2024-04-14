@@ -27,6 +27,10 @@ Drawer {
     }
   }
 
+  onOpened: {
+    contentItem.forceActiveFocus()
+  }
+
   width: Math.min( 300, mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge
