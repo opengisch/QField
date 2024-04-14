@@ -18,7 +18,7 @@ Popup {
   width: parent.width - Theme.popupScreenEdgeMargin
   height: parent.height - Theme.popupScreenEdgeMargin * 2
   modal: true
-  closePolicy: Popup.CloseOnEscape
+  closePolicy: Popup.NoAutoClose
 
   property var tracker: undefined
 
@@ -549,6 +549,7 @@ Popup {
     active: false
     onLoaded: {
       item.open()
+      item.forceActiveFocus()
     }
   }
 
@@ -565,7 +566,7 @@ Popup {
       width: parent.width - Theme.popupScreenEdgeMargin
       height: parent.height - Theme.popupScreenEdgeMargin * 2
       modal: true
-      closePolicy: Popup.CloseOnEscape
+      closePolicy: Popup.NoAutoClose
 
       FeatureForm {
         id: form
