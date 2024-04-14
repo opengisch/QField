@@ -29,7 +29,7 @@ PluginManager::PluginManager( QQmlEngine *engine )
 {
 }
 
-void PluginManager::loadPlugin( const QString &pluginPath, bool skipPermissionCheck )
+void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck )
 {
   if ( !skipPermissionCheck )
   {
@@ -46,7 +46,7 @@ void PluginManager::loadPlugin( const QString &pluginPath, bool skipPermissionCh
     else
     {
       mPermissionRequestPluginPath = pluginPath;
-      emit pluginPermissionRequested();
+      emit pluginPermissionRequested( pluginName );
       return;
     }
   }
@@ -94,7 +94,7 @@ void PluginManager::grantRequestedPluginPermission( bool permanent )
     settings.endGroup();
   }
 
-  loadPlugin( mPermissionRequestPluginPath, true );
+  loadPlugin( mPermissionRequestPluginPath, QString(), true );
   mPermissionRequestPluginPath.clear();
 }
 

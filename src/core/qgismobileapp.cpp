@@ -1167,7 +1167,7 @@ void QgisMobileapp::readProjectFile()
   const QString projectPluginPath = mPluginManager->findProjectPlugin( mProjectFilePath );
   if ( !projectPluginPath.isEmpty() )
   {
-    mPluginManager->loadPlugin( projectPluginPath );
+    mPluginManager->loadPlugin( projectPluginPath, tr( "Project Plugin" ) );
   }
 }
 

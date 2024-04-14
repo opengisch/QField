@@ -4026,20 +4026,17 @@ ApplicationWindow {
     x: ( mainWindow.width - width ) / 2
     y: ( mainWindow.height - height ) / 2
 
-    title: qsTr( "Plugin Permission" )
+    title: ''
 
     Column {
-      width: parent.width
-
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: qsTr( "The project contains a plugin, do you want to activate it?" )
+        text: qsTr( "Do you grant permission to activate this plugin?" )
       }
 
       CheckBox {
         id: permanentCheckBox
-        width: parent.width
         text: qsTr('Remember my choice')
         font: Theme.defaultFont
       }
@@ -4059,7 +4056,8 @@ ApplicationWindow {
   Connections {
     target: pluginManager
 
-    function onPluginPermissionRequested() {
+    function onPluginPermissionRequested(pluginName) {
+      pluginPermissionDialog.title = pluginName
       pluginPermissionDialog.open()
     }
   }

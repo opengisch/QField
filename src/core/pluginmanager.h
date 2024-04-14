@@ -28,7 +28,7 @@ class PluginManager : public QObject
     PluginManager( QQmlEngine *engine );
     ~PluginManager() = default;
 
-    void loadPlugin( const QString &pluginPath, bool skipPermissionCheck = false );
+    void loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck = false );
     void unloadPlugin( const QString &pluginPath );
 
     const QString findProjectPlugin( const QString &projectPath ) const;
@@ -37,7 +37,7 @@ class PluginManager : public QObject
     Q_INVOKABLE void denyRequestedPluginPermission( bool permanent = false );
 
   signals:
-    void pluginPermissionRequested();
+    void pluginPermissionRequested( const QString &pluginName );
 
   private:
     QQmlEngine *mEngine = nullptr;
