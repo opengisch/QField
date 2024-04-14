@@ -32,6 +32,7 @@
 #include "appcoordinateoperationhandlers.h"
 #include "bookmarkmodel.h"
 #include "drawingtemplatemodel.h"
+#include "pluginmanager.h"
 #include "qfield_core_export.h"
 #include "qfieldappauthrequesthandler.h"
 #include "qgsgpkgflusher.h"
@@ -232,6 +233,8 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     std::unique_ptr<BookmarkModel> mBookmarkModel;
     std::unique_ptr<DrawingTemplateModel> mDrawingTemplateModel;
     std::unique_ptr<MessageLogModel> mMessageLogModel;
+
+    std::unique_ptr<PluginManager> mPluginManager;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;

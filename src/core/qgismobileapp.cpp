@@ -270,12 +270,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
   mDrawingTemplateModel = std::make_unique<DrawingTemplateModel>( this );
 
-  // Transition from 1.8 to 1.8.1+
-  const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
-  if ( deviceAddress == QStringLiteral( "internal" ) )
-  {
-    settings.setValue( QStringLiteral( "positioningDevice" ), QString() );
-  }
+  mPluginManager = std::make_unique<PluginManager>( this );
 
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
@@ -317,7 +312,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
-
   mMapCanvas->mapSettings()->setProject( mProject );
   mBookmarkModel->setMapSettings( mMapCanvas->mapSettings() );
 
@@ -522,8 +516,9 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
   REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
 
-  qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
+  qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "AppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
+  qmlRegisterUncreatableType<PluginManager>( "org.qfield", 1, 0, "PluginManager", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qfield", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
@@ -545,8 +540,8 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
   rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );
-  rootContext()->setContextProperty( "bookmarkModel", mBookmarkModel.get() );
   rootContext()->setContextProperty( "iface", mIface );
+  rootContext()->setContextProperty( "pluginManager", mPluginManager.get() );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "appVersion", qfield::appVersion );
   rootContext()->setContextProperty( "appVersionStr", qfield::appVersionStr );
@@ -556,7 +551,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
-  rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
+  rootContext()->setContextProperty( "bookmarkModel", mBookmarkModel.get() );
   rootContext()->setContextProperty( "gpkgFlusher", mGpkgFlusher.get() );
   rootContext()->setContextProperty( "layerObserver", mLayerObserver.get() );
   rootContext()->setContextProperty( "featureHistory", mFeatureHistory.get() );
@@ -646,6 +641,8 @@ void QgisMobileapp::onAfterFirstRendering()
 
   if ( mFirstRenderingFlag )
   {
+    mPluginManager->loadPlugin( QStringLiteral( "file:///home/webmaster/Desktop/tinystep.qml" ) );
+
     if ( PlatformUtilities::instance()->hasQgsProject() )
     {
       PlatformUtilities::instance()->checkWriteExternalStoragePermissions();

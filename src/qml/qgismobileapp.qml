@@ -264,6 +264,7 @@ ApplicationWindow {
 
   Item {
     id: mapCanvas
+    objectName: "mapCanvas"
     clip: true
 
     DragHandler {
@@ -3826,7 +3827,7 @@ ApplicationWindow {
 
   WelcomeScreen {
     id: welcomeScreen
-    objectName: 'welcomeScreen'
+    objectName: "welcomeScreen"
     visible: !iface.hasProjectOnLaunch()
 
     model: RecentProjectListModel {

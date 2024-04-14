@@ -27,6 +27,7 @@
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QImageReader>
+#include <QQuickItem>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
@@ -38,6 +39,15 @@ AppInterface *AppInterface::sAppInterface = nullptr;
 AppInterface::AppInterface( QgisMobileapp *app )
   : mApp( app )
 {
+}
+
+QQuickItem *AppInterface::findItemByObjectName( const QString &name )
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    return mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( name );
+  }
+  return nullptr;
 }
 
 void AppInterface::removeRecentProject( const QString &path )

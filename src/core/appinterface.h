@@ -25,6 +25,7 @@
 class QgisMobileapp;
 class QgsRectangle;
 class QgsFeature;
+class QQuickItem;
 
 class AppInterface : public QObject
 {
@@ -93,6 +94,8 @@ class AppInterface : public QObject
      * Clears the currently opened project
      */
     Q_INVOKABLE void clearProject() const;
+
+    Q_INVOKABLE QQuickItem *findItemByObjectName( const QString &name );
 
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
