@@ -4013,4 +4013,54 @@ ApplicationWindow {
     id: screenLocker
     enabled: false
   }
+
+  Dialog {
+    id: pluginPermissionDialog
+    parent: mainWindow.contentItem
+
+    visible: false
+    modal: true
+    font: Theme.defaultFont
+
+    z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
+    title: qsTr( "Plugin Permission" )
+
+    Column {
+      width: parent.width
+
+      Label {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: qsTr( "The project contains a plugin, do you want to activate it?" )
+      }
+
+      CheckBox {
+        id: permanentCheckBox
+        width: parent.width
+        text: qsTr('Remember my choice')
+        font: Theme.defaultFont
+      }
+    }
+
+    onAccepted: {
+      pluginManager.grantRequestedPluginPermission(permanentCheckBox.checked)
+    }
+
+    onRejected: {
+      pluginManager.denyRequestedPluginPermission(permanentCheckBox.checked)
+    }
+
+    standardButtons: Dialog.Yes | Dialog.No
+  }
+
+  Connections {
+    target: pluginManager
+
+    function onPluginPermissionRequested() {
+      pluginPermissionDialog.open()
+    }
+  }
 }

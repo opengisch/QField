@@ -16,11 +16,12 @@
 
 #include "pluginmanager.h"
 
+#include <QDir>
+#include <QFileInfo>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
 #include <QQmlContext>
-#include <QQuickItem>
-#include <QQuickWindow>
+#include <QSettings>
 
 PluginManager::PluginManager( QQmlEngine *engine )
   : QObject( engine )
@@ -28,8 +29,28 @@ PluginManager::PluginManager( QQmlEngine *engine )
 {
 }
 
-void PluginManager::loadPlugin( const QString &pluginPath )
+void PluginManager::loadPlugin( const QString &pluginPath, bool skipPermissionCheck )
 {
+  if ( !skipPermissionCheck )
+  {
+    QSettings settings;
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginPath ) );
+    const QStringList keys = settings.childKeys();
+    if ( keys.contains( QStringLiteral( "permissionGranted" ) ) )
+    {
+      if ( !settings.value( QStringLiteral( "permissionGranted" ) ).toBool() )
+      {
+        return;
+      }
+    }
+    else
+    {
+      mPermissionRequestPluginPath = pluginPath;
+      emit pluginPermissionRequested();
+      return;
+    }
+  }
+
   if ( mLoadedPlugins.contains( pluginPath ) )
   {
     unloadPlugin( pluginPath );
@@ -50,4 +71,42 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
       mLoadedPlugins.remove( pluginPath );
     }
   }
+}
+
+const QString PluginManager::findProjectPlugin( const QString &projectPath ) const
+{
+  QFileInfo fi( projectPath );
+  const QString pluginPath = QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName() );
+  if ( QFileInfo::exists( pluginPath ) )
+  {
+    return pluginPath;
+  }
+  return QString();
+}
+
+void PluginManager::grantRequestedPluginPermission( bool permanent )
+{
+  if ( permanent )
+  {
+    QSettings settings;
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( mPermissionRequestPluginPath ) );
+    settings.setValue( QStringLiteral( "permissionGranted" ), true );
+    settings.endGroup();
+  }
+
+  loadPlugin( mPermissionRequestPluginPath, true );
+  mPermissionRequestPluginPath.clear();
+}
+
+void PluginManager::denyRequestedPluginPermission( bool permanent )
+{
+  if ( permanent )
+  {
+    QSettings settings;
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( mPermissionRequestPluginPath ) );
+    settings.setValue( QStringLiteral( "permissionGranted" ), false );
+    settings.endGroup();
+  }
+
+  mPermissionRequestPluginPath.clear();
 }

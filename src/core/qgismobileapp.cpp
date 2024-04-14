@@ -641,8 +641,6 @@ void QgisMobileapp::onAfterFirstRendering()
 
   if ( mFirstRenderingFlag )
   {
-    mPluginManager->loadPlugin( QStringLiteral( "file:///home/webmaster/Desktop/tinystep.qml" ) );
-
     if ( PlatformUtilities::instance()->hasQgsProject() )
     {
       PlatformUtilities::instance()->checkWriteExternalStoragePermissions();
@@ -698,6 +696,10 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   {
     saveProjectPreviewImage();
 
+    if ( !mProjectFilePath.isEmpty() )
+    {
+      mPluginManager->unloadPlugin( mPluginManager->findProjectPlugin( mProjectFilePath ) );
+    }
     mAuthRequestHandler->clearStoredRealms();
 
     mProjectFilePath = path;
@@ -1161,6 +1163,12 @@ void QgisMobileapp::readProjectFile()
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 
   connect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
+
+  const QString projectPluginPath = mPluginManager->findProjectPlugin( mProjectFilePath );
+  if ( !projectPluginPath.isEmpty() )
+  {
+    mPluginManager->loadPlugin( projectPluginPath );
+  }
 }
 
 QString QgisMobileapp::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
@@ -1381,7 +1389,12 @@ bool QgisMobileapp::event( QEvent *event )
 
 void QgisMobileapp::clearProject()
 {
+  if ( !mProjectFilePath.isEmpty() )
+  {
+    mPluginManager->unloadPlugin( mPluginManager->findProjectPlugin( mProjectFilePath ) );
+  }
   mAuthRequestHandler->clearStoredRealms();
+
   mProjectFileName = QString();
   mProjectFilePath = QString();
   mProject->clear();

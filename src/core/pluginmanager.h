@@ -28,12 +28,22 @@ class PluginManager : public QObject
     PluginManager( QQmlEngine *engine );
     ~PluginManager() = default;
 
-    void loadPlugin( const QString &pluginPath );
+    void loadPlugin( const QString &pluginPath, bool skipPermissionCheck = false );
     void unloadPlugin( const QString &pluginPath );
+
+    const QString findProjectPlugin( const QString &projectPath ) const;
+
+    Q_INVOKABLE void grantRequestedPluginPermission( bool permanent = false );
+    Q_INVOKABLE void denyRequestedPluginPermission( bool permanent = false );
+
+  signals:
+    void pluginPermissionRequested();
 
   private:
     QQmlEngine *mEngine = nullptr;
     QMap<QString, QPointer<QObject>> mLoadedPlugins;
+
+    QString mPermissionRequestPluginPath;
 };
 
 #endif // PLUGINMANAGER_H
