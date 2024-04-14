@@ -361,6 +361,8 @@ void QgisMobileapp::initDeclarative()
 #endif
   addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
 
+  qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
+
   // Register QGIS QML types
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
@@ -380,19 +382,9 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
   qRegisterMetaType<QgsPolymorphicRelation>( "QgsPolymorphicRelation" );
-  qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
   qRegisterMetaType<QgsField>( "QgsField" );
-  qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
-  qRegisterMetaType<GeometryUtils::GeometryOperationResult>( "GeometryOperationResult" );
-  qRegisterMetaType<QFieldCloudConnection::ConnectionStatus>( "QFieldCloudConnection::ConnectionStatus" );
-  qRegisterMetaType<CloudUserInformation>( "CloudUserInformation" );
-  qRegisterMetaType<QFieldCloudProjectsModel::ProjectStatus>( "QFieldCloudProjectsModel::ProjectStatus" );
-  qRegisterMetaType<QFieldCloudProjectsModel::ProjectCheckout>( "QFieldCloudProjectsModel::ProjectCheckout" );
-  qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
-  qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
-  qRegisterMetaType<Positioning::ElevationCorrectionMode>( "Positioning::ElevationCorrectionMode" );
 
   qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" );
   qRegisterMetaType<Qgis::WkbType>( "Qgis::WkbType" );
@@ -402,6 +394,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<Qgis::AngleUnit>( "Qgis::AngleUnit" );
   qRegisterMetaType<Qgis::DeviceConnectionStatus>( "Qgis::DeviceConnectionStatus" );
   qRegisterMetaType<Qgis::SnappingMode>( "Qgis::SnappingMode" );
+
   qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
@@ -418,22 +411,31 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterType<QgsQuickElevationProfileCanvas>( "org.qgis", 1, 0, "ElevationProfileCanvas" );
-
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
   // Register QField QML types
-  qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );
-  qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
-  qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
-  qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
-  qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
-  qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
-  qmlRegisterType<RubberbandShape>( "org.qgis", 1, 0, "RubberbandShape" );
-  qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
-  qmlRegisterType<ResourceSource>( "org.qgis", 1, 0, "ResourceSource" );
-  qmlRegisterType<ProjectInfo>( "org.qgis", 1, 0, "ProjectInfo" );
-  qmlRegisterType<ProjectSource>( "org.qgis", 1, 0, "ProjectSource" );
-  qmlRegisterType<ViewStatus>( "org.qgis", 1, 0, "ViewStatus" );
+  qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
+  qRegisterMetaType<GeometryUtils::GeometryOperationResult>( "GeometryOperationResult" );
+  qRegisterMetaType<QFieldCloudConnection::ConnectionStatus>( "QFieldCloudConnection::ConnectionStatus" );
+  qRegisterMetaType<CloudUserInformation>( "CloudUserInformation" );
+  qRegisterMetaType<QFieldCloudProjectsModel::ProjectStatus>( "QFieldCloudProjectsModel::ProjectStatus" );
+  qRegisterMetaType<QFieldCloudProjectsModel::ProjectCheckout>( "QFieldCloudProjectsModel::ProjectCheckout" );
+  qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
+  qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
+  qRegisterMetaType<Positioning::ElevationCorrectionMode>( "Positioning::ElevationCorrectionMode" );
+
+  qmlRegisterType<MultiFeatureListModel>( "org.qfield", 1, 0, "MultiFeatureListModel" );
+  qmlRegisterType<FeatureListModel>( "org.qfield", 1, 0, "FeatureListModel" );
+  qmlRegisterType<FeatureListModelSelection>( "org.qfield", 1, 0, "FeatureListModelSelection" );
+  qmlRegisterType<FeatureListExtentController>( "org.qfield", 1, 0, "FeaturelistExtentController" );
+  qmlRegisterType<Geometry>( "org.qfield", 1, 0, "Geometry" );
+  qmlRegisterType<ModelHelper>( "org.qfield", 1, 0, "ModelHelper" );
+  qmlRegisterType<RubberbandShape>( "org.qfield", 1, 0, "RubberbandShape" );
+  qmlRegisterType<RubberbandModel>( "org.qfield", 1, 0, "RubberbandModel" );
+  qmlRegisterType<ResourceSource>( "org.qfield", 1, 0, "ResourceSource" );
+  qmlRegisterType<ProjectInfo>( "org.qfield", 1, 0, "ProjectInfo" );
+  qmlRegisterType<ProjectSource>( "org.qfield", 1, 0, "ProjectSource" );
+  qmlRegisterType<ViewStatus>( "org.qfield", 1, 0, "ViewStatus" );
 
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
@@ -459,7 +461,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<RecentProjectListModel>( "org.qfield", 1, 0, "RecentProjectListModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qfield", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
-  qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
+  qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
 #ifdef WITH_BLUETOOTH
@@ -516,8 +518,8 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
   REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
 
-  qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "AppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );
-  qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
+  qmlRegisterUncreatableType<AppInterface>( "org.qfield", 1, 0, "AppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );
+  qmlRegisterUncreatableType<Settings>( "org.qfield", 1, 0, "SettingsInterface", "" );
   qmlRegisterUncreatableType<PluginManager>( "org.qfield", 1, 0, "PluginManager", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qfield", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
