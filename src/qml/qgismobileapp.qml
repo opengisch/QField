@@ -2247,12 +2247,12 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var toolbarWidth = mainMenuActionToolbar.childrenRect.width + 4
-        var result = 0;
-        var padding = 0;
+        const toolbarWidth = mainMenuActionsToolbar.childrenRect.width + 4
+        let result = 0;
+        let padding = 0;
         // Skip first Row item
-        for (var i = 1; i < count; ++i) {
-            var item = itemAt(i);
+        for (let i = 1; i < count; ++i) {
+            const item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.padding, padding);
         }
@@ -2260,7 +2260,7 @@ ApplicationWindow {
     }
 
     Row {
-      id: mainMenuActionToolbar
+      id: mainMenuActionsToolbar
       objectName: "mainMenuActionsToolbar"
       leftPadding: 2
       rightPadding: 2
@@ -2701,12 +2701,12 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-      var toolbarWidth = canvasMenuActionsToolbar.childrenRect.width + 4
-      var result = 0;
-      var padding = 0;
+      const toolbarWidth = canvasMenuActionsToolbar.childrenRect.width + 4
+      let result = 0;
+      let padding = 0;
       // Skip first Row item
-      for (var i = 1; i < count; ++i) {
-          var item = itemAt(i);
+      for (let i = 1; i < count; ++i) {
+          const item = itemAt(i);
           result = Math.max(item.contentItem.implicitWidth, result);
           padding = Math.max(item.padding, padding);
       }
