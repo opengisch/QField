@@ -95,7 +95,15 @@ class AppInterface : public QObject
      */
     Q_INVOKABLE void clearProject() const;
 
-    Q_INVOKABLE QQuickItem *findItemByObjectName( const QString &name );
+    /**
+     * Returns the item matching the provided object \a name
+     */
+    Q_INVOKABLE QQuickItem *findItemByObjectName( const QString &name ) const;
+
+    /**
+     * Adds an \a item in the plugins toolbar container
+     */
+    Q_INVOKABLE void addItemToPluginsToolbar( QQuickItem *item ) const;
 
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }

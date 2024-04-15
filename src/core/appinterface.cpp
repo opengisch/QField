@@ -41,13 +41,22 @@ AppInterface::AppInterface( QgisMobileapp *app )
 {
 }
 
-QQuickItem *AppInterface::findItemByObjectName( const QString &name )
+QQuickItem *AppInterface::findItemByObjectName( const QString &name ) const
 {
   if ( !mApp->rootObjects().isEmpty() )
   {
     return mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( name );
   }
   return nullptr;
+}
+
+void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    QQuickItem *pluginsToolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "pluginsToolbar" ) );
+    item->setParentItem( pluginsToolbar );
+  }
 }
 
 void AppInterface::removeRecentProject( const QString &path )

@@ -1143,6 +1143,16 @@ ApplicationWindow {
     source: featureForm
   }
 
+  Column {
+    id: pluginsToolbar
+    objectName: "pluginsToolbar"
+
+    anchors.right: locatorItem.right
+    anchors.top: locatorItem.bottom
+    anchors.topMargin: 4
+    spacing: 4
+  }
+
   QfToolButton {
     id: alertIcon
     iconSource: Theme.getThemeVectorIcon( "ic_alert_black_24dp" )
@@ -1151,9 +1161,9 @@ ApplicationWindow {
 
     visible: !screenLocker.enabled && messageLog.unreadMessages
 
-    anchors.right: locatorItem.right
-    anchors.top: locatorItem.top
-    anchors.topMargin: 52
+    anchors.right: pluginsToolbar.right
+    anchors.top: pluginsToolbar.bottom
+    anchors.topMargin: 4
 
     onClicked: messageLog.visible = true
   }
