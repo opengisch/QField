@@ -81,6 +81,15 @@ void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
   }
 }
 
+QObject *AppInterface::mainWindow() const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    return mApp->rootObjects().at( 0 );
+  }
+  return nullptr;
+}
+
 QObject *AppInterface::mapCanvas() const
 {
   if ( !mApp->rootObjects().isEmpty() )

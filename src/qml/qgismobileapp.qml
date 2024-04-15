@@ -200,6 +200,8 @@ ApplicationWindow {
    */
   Positioning {
     id: positionSource
+    objectName: "positionSource"
+
     deviceId: positioningSettings.positioningDevice
 
     property bool currentness: false;

@@ -116,6 +116,11 @@ class AppInterface : public QObject
     Q_INVOKABLE void addItemToCanvasActionsToolbar( QQuickItem *item ) const;
 
     /**
+     * Returns the main window.
+     */
+    Q_INVOKABLE QObject *mainWindow() const;
+
+    /**
      * Returns the main map canvas.
      */
     Q_INVOKABLE QObject *mapCanvas() const;
