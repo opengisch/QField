@@ -81,6 +81,15 @@ void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
   }
 }
 
+QObject *AppInterface::mapCanvas() const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    return mApp->rootObjects().at( 0 )->findChild<QObject *>( "mapCanvas" );
+  }
+  return nullptr;
+}
+
 void AppInterface::removeRecentProject( const QString &path )
 {
   return mApp->removeRecentProject( path );
