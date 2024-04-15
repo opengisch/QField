@@ -2247,7 +2247,7 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var actionRowResult = mainMenuActionToolbar.childrenRect.width + 4
+        var toolbarWidth = mainMenuActionToolbar.childrenRect.width + 4
         var result = 0;
         var padding = 0;
         // Skip first Row item
@@ -2256,7 +2256,7 @@ ApplicationWindow {
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.padding, padding);
         }
-        return Math.max(actionRowResult, result + padding * 2);
+        return Math.max(toolbarWidth, result + padding * 2);
     }
 
     Row {
@@ -2674,6 +2674,8 @@ ApplicationWindow {
 
   Menu {
     id: canvasMenu
+    objectName: "canvasMenu"
+
     title: qsTr( "Map Canvas Options" )
     font: Theme.defaultFont
 
@@ -2699,15 +2701,31 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
-        }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+      var toolbarWidth = canvasMenuActionsToolbar.childrenRect.width + 4
+      var result = 0;
+      var padding = 0;
+      // Skip first Row item
+      for (var i = 1; i < count; ++i) {
+          var item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.padding, padding);
+      }
+      return Math.min(Math.max(toolbarWidth, result + padding * 2), mainWindow.width - 20);
     }
+
+    Row {
+      id: canvasMenuActionsToolbar
+      objectName: "canvasMenuActionsToolbar"
+      leftPadding: 2
+      rightPadding: 2
+      spacing: 2
+      height: children.length > 0 ? addBookmarkItem.height : 0
+      clip: true
+
+      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
+    }
+
+    MenuSeparator { width: parent.width; height: canvasMenuActionsToolbar.children.length > 0 ? undefined : 0 }
 
     MenuItem {
         id: xItem

@@ -98,7 +98,7 @@ class AppInterface : public QObject
     /**
      * Returns the item matching the provided object \a name
      */
-    Q_INVOKABLE QQuickItem *findItemByObjectName( const QString &name ) const;
+    Q_INVOKABLE QObject *findItemByObjectName( const QString &name ) const;
 
     /**
      * Adds an \a item in the plugins toolbar container
@@ -109,6 +109,11 @@ class AppInterface : public QObject
      * Adds an \a item in the main menu action toolbar container
      */
     Q_INVOKABLE void addItemToMainMenuActionsToolbar( QQuickItem *item ) const;
+
+    /**
+     * Adds an \a item in the main menu action toolbar container
+     */
+    Q_INVOKABLE void addItemToCanvasActionsToolbar( QQuickItem *item ) const;
 
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }

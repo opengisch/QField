@@ -41,11 +41,11 @@ AppInterface::AppInterface( QgisMobileapp *app )
 {
 }
 
-QQuickItem *AppInterface::findItemByObjectName( const QString &name ) const
+QObject *AppInterface::findItemByObjectName( const QString &name ) const
 {
   if ( !mApp->rootObjects().isEmpty() )
   {
-    return mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( name );
+    return mApp->rootObjects().at( 0 )->findChild<QObject *>( name );
   }
   return nullptr;
 }
@@ -54,8 +54,8 @@ void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
 {
   if ( !mApp->rootObjects().isEmpty() )
   {
-    QQuickItem *pluginsToolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "pluginsToolbar" ) );
-    item->setParentItem( pluginsToolbar );
+    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "pluginsToolbar" ) );
+    item->setParentItem( toolbar );
   }
 }
 
@@ -63,10 +63,21 @@ void AppInterface::addItemToMainMenuActionsToolbar( QQuickItem *item ) const
 {
   if ( !mApp->rootObjects().isEmpty() )
   {
-    QQuickItem *pluginsToolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "mainMenuActionsToolbar" ) );
-    item->setParentItem( pluginsToolbar );
-    const QList<QQuickItem *> childItems = pluginsToolbar->childItems();
+    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "mainMenuActionsToolbar" ) );
+    item->setParentItem( toolbar );
+
+    // Place the item to the left of the Undo/Redo buttons
+    const QList<QQuickItem *> childItems = toolbar->childItems();
     item->stackBefore( childItems.at( childItems.size() - 3 ) );
+  }
+}
+
+void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "canvasMenuActionsToolbar" ) );
+    item->setParentItem( toolbar );
   }
 }
 
