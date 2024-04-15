@@ -700,7 +700,7 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
 
     if ( !mProjectFilePath.isEmpty() )
     {
-      mPluginManager->unloadPlugin( mPluginManager->findProjectPlugin( mProjectFilePath ) );
+      mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
     }
     mAuthRequestHandler->clearStoredRealms();
 
@@ -1166,7 +1166,7 @@ void QgisMobileapp::readProjectFile()
 
   connect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
 
-  const QString projectPluginPath = mPluginManager->findProjectPlugin( mProjectFilePath );
+  const QString projectPluginPath = PluginManager::findProjectPlugin( mProjectFilePath );
   if ( !projectPluginPath.isEmpty() )
   {
     mPluginManager->loadPlugin( projectPluginPath, tr( "Project Plugin" ) );
@@ -1393,7 +1393,7 @@ void QgisMobileapp::clearProject()
 {
   if ( !mProjectFilePath.isEmpty() )
   {
-    mPluginManager->unloadPlugin( mPluginManager->findProjectPlugin( mProjectFilePath ) );
+    mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
   }
   mAuthRequestHandler->clearStoredRealms();
 

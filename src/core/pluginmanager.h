@@ -25,16 +25,16 @@ class PluginManager : public QObject
     Q_OBJECT
 
   public:
-    PluginManager( QQmlEngine *engine );
-    ~PluginManager() = default;
+    explicit PluginManager( QQmlEngine *engine );
+    ~PluginManager() override = default;
 
     void loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck = false );
     void unloadPlugin( const QString &pluginPath );
 
-    const QString findProjectPlugin( const QString &projectPath ) const;
-
     Q_INVOKABLE void grantRequestedPluginPermission( bool permanent = false );
     Q_INVOKABLE void denyRequestedPluginPermission( bool permanent = false );
+
+    static QString findProjectPlugin( const QString &projectPath );
 
   signals:
     void pluginPermissionRequested( const QString &pluginName );

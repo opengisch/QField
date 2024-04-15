@@ -73,17 +73,6 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
   }
 }
 
-const QString PluginManager::findProjectPlugin( const QString &projectPath ) const
-{
-  QFileInfo fi( projectPath );
-  const QString pluginPath = QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName() );
-  if ( QFileInfo::exists( pluginPath ) )
-  {
-    return pluginPath;
-  }
-  return QString();
-}
-
 void PluginManager::grantRequestedPluginPermission( bool permanent )
 {
   if ( permanent )
@@ -109,4 +98,15 @@ void PluginManager::denyRequestedPluginPermission( bool permanent )
   }
 
   mPermissionRequestPluginPath.clear();
+}
+
+QString PluginManager::findProjectPlugin( const QString &projectPath )
+{
+  const QFileInfo fi( projectPath );
+  const QString pluginPath = QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName() );
+  if ( QFileInfo::exists( pluginPath ) )
+  {
+    return pluginPath;
+  }
+  return QString();
 }
