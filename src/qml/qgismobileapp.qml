@@ -2247,7 +2247,7 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var actionRowResult = actionsRow.childrenRect.width + 4
+        var actionRowResult = mainMenuActionToolbar.childrenRect.width + 4
         var result = 0;
         var padding = 0;
         // Skip first Row item
@@ -2260,7 +2260,8 @@ ApplicationWindow {
     }
 
     Row {
-      id: actionsRow
+      id: mainMenuActionToolbar
+      objectName: "mainMenuActionsToolbar"
       leftPadding: 2
       rightPadding: 2
       spacing: 2
@@ -2276,7 +2277,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2294,7 +2295,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2311,7 +2312,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2329,7 +2330,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
         iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           if (isEnabled) {
@@ -2354,7 +2355,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
         iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           if (isEnabled) {

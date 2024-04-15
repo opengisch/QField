@@ -59,6 +59,17 @@ void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
   }
 }
 
+void AppInterface::addItemToMainMenuActionsToolbar( QQuickItem *item ) const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    QQuickItem *pluginsToolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "mainMenuActionsToolbar" ) );
+    item->setParentItem( pluginsToolbar );
+    const QList<QQuickItem *> childItems = pluginsToolbar->childItems();
+    item->stackBefore( childItems.at( childItems.size() - 3 ) );
+  }
+}
+
 void AppInterface::removeRecentProject( const QString &path )
 {
   return mApp->removeRecentProject( path );

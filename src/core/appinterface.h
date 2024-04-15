@@ -105,6 +105,11 @@ class AppInterface : public QObject
      */
     Q_INVOKABLE void addItemToPluginsToolbar( QQuickItem *item ) const;
 
+    /**
+     * Adds an \a item in the main menu action toolbar container
+     */
+    Q_INVOKABLE void addItemToMainMenuActionsToolbar( QQuickItem *item ) const;
+
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
 
