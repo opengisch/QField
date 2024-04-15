@@ -2902,7 +2902,7 @@ ApplicationWindow {
         }
       }
 
-      onObjectAdded: (index, object) => { canvasMenu.insertMenu(index+9, object) }
+      onObjectAdded: (index, object) => { canvasMenu.insertMenu(index + 11, object) }
       onObjectRemoved: (index, object) => { canvasMenu.removeMenu(object) }
     }
   }
