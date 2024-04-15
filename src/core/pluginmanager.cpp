@@ -22,11 +22,13 @@
 #include <QQmlComponent>
 #include <QQmlContext>
 #include <QSettings>
+#include <qgsmessagelog.h>
 
 PluginManager::PluginManager( QQmlEngine *engine )
   : QObject( engine )
   , mEngine( engine )
 {
+  connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
 }
 
 void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck )
@@ -57,6 +59,14 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
   }
 
   QQmlComponent component( mEngine, pluginPath, this );
+  if ( component.status() == QQmlComponent::Status::Error )
+  {
+    for ( const QQmlError &error : component.errors() )
+    {
+      QgsMessageLog::logMessage( error.toString(), QStringLiteral( "Plugin Manager" ), Qgis::MessageLevel::Critical );
+    }
+    return;
+  }
   QObject *object = component.create( mEngine->rootContext() );
   mLoadedPlugins.insert( pluginPath, QPointer<QObject>( object ) );
 }
@@ -69,6 +79,20 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
     {
       mLoadedPlugins[pluginPath]->deleteLater();
       mLoadedPlugins.remove( pluginPath );
+    }
+  }
+}
+
+void PluginManager::handleWarnings( const QList<QQmlError> &warnings )
+{
+  for ( const QQmlError &warning : warnings )
+  {
+    if ( warning.url().isLocalFile() )
+    {
+      if ( mLoadedPlugins.keys().contains( warning.url().toLocalFile() ) )
+      {
+        QgsMessageLog::logMessage( warning.toString(), QStringLiteral( "Plugin Manager" ), Qgis::MessageLevel::Warning );
+      }
     }
   }
 }

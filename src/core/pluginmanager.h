@@ -39,6 +39,9 @@ class PluginManager : public QObject
   signals:
     void pluginPermissionRequested( const QString &pluginName );
 
+  private slots:
+    void handleWarnings( const QList<QQmlError> &warnings );
+
   private:
     QQmlEngine *mEngine = nullptr;
     QMap<QString, QPointer<QObject>> mLoadedPlugins;
