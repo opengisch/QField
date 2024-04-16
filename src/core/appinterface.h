@@ -25,6 +25,7 @@
 class QgisMobileapp;
 class QgsRectangle;
 class QgsFeature;
+class QQuickItem;
 
 class AppInterface : public QObject
 {
@@ -93,6 +94,36 @@ class AppInterface : public QObject
      * Clears the currently opened project
      */
     Q_INVOKABLE void clearProject() const;
+
+    /**
+     * Returns the item matching the provided object \a name
+     */
+    Q_INVOKABLE QObject *findItemByObjectName( const QString &name ) const;
+
+    /**
+     * Adds an \a item in the plugins toolbar container
+     */
+    Q_INVOKABLE void addItemToPluginsToolbar( QQuickItem *item ) const;
+
+    /**
+     * Adds an \a item in the main menu action toolbar container
+     */
+    Q_INVOKABLE void addItemToMainMenuActionsToolbar( QQuickItem *item ) const;
+
+    /**
+     * Adds an \a item in the main menu action toolbar container
+     */
+    Q_INVOKABLE void addItemToCanvasActionsToolbar( QQuickItem *item ) const;
+
+    /**
+     * Returns the main window.
+     */
+    Q_INVOKABLE QObject *mainWindow() const;
+
+    /**
+     * Returns the main map canvas.
+     */
+    Q_INVOKABLE QObject *mapCanvas() const;
 
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }

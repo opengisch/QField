@@ -200,6 +200,8 @@ ApplicationWindow {
    */
   Positioning {
     id: positionSource
+    objectName: "positionSource"
+
     deviceId: positioningSettings.positioningDevice
 
     property bool currentness: false;
@@ -264,6 +266,7 @@ ApplicationWindow {
 
   Item {
     id: mapCanvas
+    objectName: "mapCanvas"
     clip: true
 
     DragHandler {
@@ -1142,6 +1145,16 @@ ApplicationWindow {
     source: featureForm
   }
 
+  Column {
+    id: pluginsToolbar
+    objectName: "pluginsToolbar"
+
+    anchors.right: locatorItem.right
+    anchors.top: locatorItem.bottom
+    anchors.topMargin: 4
+    spacing: 4
+  }
+
   QfToolButton {
     id: alertIcon
     iconSource: Theme.getThemeVectorIcon( "ic_alert_black_24dp" )
@@ -1150,9 +1163,9 @@ ApplicationWindow {
 
     visible: !screenLocker.enabled && messageLog.unreadMessages
 
-    anchors.right: locatorItem.right
-    anchors.top: locatorItem.top
-    anchors.topMargin: 52
+    anchors.right: pluginsToolbar.right
+    anchors.top: pluginsToolbar.bottom
+    anchors.topMargin: 4
 
     onClicked: messageLog.visible = true
   }
@@ -2236,20 +2249,21 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var actionRowResult = actionsRow.childrenRect.width + 4
-        var result = 0;
-        var padding = 0;
+        const toolbarWidth = mainMenuActionsToolbar.childrenRect.width + 4
+        let result = 0;
+        let padding = 0;
         // Skip first Row item
-        for (var i = 1; i < count; ++i) {
-            var item = itemAt(i);
+        for (let i = 1; i < count; ++i) {
+            const item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.padding, padding);
         }
-        return Math.max(actionRowResult, result + padding * 2);
+        return Math.max(toolbarWidth, result + padding * 2);
     }
 
     Row {
-      id: actionsRow
+      id: mainMenuActionsToolbar
+      objectName: "mainMenuActionsToolbar"
       leftPadding: 2
       rightPadding: 2
       spacing: 2
@@ -2265,7 +2279,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2283,7 +2297,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2300,7 +2314,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
         iconColor: Theme.mainTextColor
-        bgcolor: hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           mainMenu.close()
@@ -2318,7 +2332,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
         iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           if (isEnabled) {
@@ -2343,7 +2357,7 @@ ApplicationWindow {
         round: true
         iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
         iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? actionsRow.hoveredColor : "#00ffffff"
+        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           if (isEnabled) {
@@ -2662,6 +2676,8 @@ ApplicationWindow {
 
   Menu {
     id: canvasMenu
+    objectName: "canvasMenu"
+
     title: qsTr( "Map Canvas Options" )
     font: Theme.defaultFont
 
@@ -2687,15 +2703,31 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
-        }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+      const toolbarWidth = canvasMenuActionsToolbar.childrenRect.width + 4
+      let result = 0;
+      let padding = 0;
+      // Skip first Row item
+      for (let i = 1; i < count; ++i) {
+          const item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.padding, padding);
+      }
+      return Math.min(Math.max(toolbarWidth, result + padding * 2), mainWindow.width - 20);
     }
+
+    Row {
+      id: canvasMenuActionsToolbar
+      objectName: "canvasMenuActionsToolbar"
+      leftPadding: 2
+      rightPadding: 2
+      spacing: 2
+      height: children.length > 0 ? addBookmarkItem.height : 0
+      clip: true
+
+      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
+    }
+
+    MenuSeparator { width: parent.width; height: canvasMenuActionsToolbar.children.length > 0 ? undefined : 0 }
 
     MenuItem {
         id: xItem
@@ -2872,7 +2904,7 @@ ApplicationWindow {
         }
       }
 
-      onObjectAdded: (index, object) => { canvasMenu.insertMenu(index+9, object) }
+      onObjectAdded: (index, object) => { canvasMenu.insertMenu(index + 11, object) }
       onObjectRemoved: (index, object) => { canvasMenu.removeMenu(object) }
     }
   }
@@ -3826,7 +3858,7 @@ ApplicationWindow {
 
   WelcomeScreen {
     id: welcomeScreen
-    objectName: 'welcomeScreen'
+    objectName: "welcomeScreen"
     visible: !iface.hasProjectOnLaunch()
 
     model: RecentProjectListModel {
@@ -4011,5 +4043,53 @@ ApplicationWindow {
   ScreenLocker {
     id: screenLocker
     enabled: false
+  }
+
+  Dialog {
+    id: pluginPermissionDialog
+    parent: mainWindow.contentItem
+
+    visible: false
+    modal: true
+    font: Theme.defaultFont
+
+    z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
+    title: ''
+
+    Column {
+      Label {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: qsTr( "Do you grant permission to activate `%1`?" ).arg( pluginPermissionDialog.title )
+      }
+
+      CheckBox {
+        id: permanentCheckBox
+        text: qsTr('Remember my choice')
+        font: Theme.defaultFont
+      }
+    }
+
+    onAccepted: {
+      pluginManager.grantRequestedPluginPermission(permanentCheckBox.checked)
+    }
+
+    onRejected: {
+      pluginManager.denyRequestedPluginPermission(permanentCheckBox.checked)
+    }
+
+    standardButtons: Dialog.Yes | Dialog.No
+  }
+
+  Connections {
+    target: pluginManager
+
+    function onPluginPermissionRequested(pluginName) {
+      pluginPermissionDialog.title = pluginName
+      pluginPermissionDialog.open()
+    }
   }
 }

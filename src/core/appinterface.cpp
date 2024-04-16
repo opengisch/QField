@@ -27,6 +27,7 @@
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QImageReader>
+#include <QQuickItem>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
@@ -38,6 +39,64 @@ AppInterface *AppInterface::sAppInterface = nullptr;
 AppInterface::AppInterface( QgisMobileapp *app )
   : mApp( app )
 {
+}
+
+QObject *AppInterface::findItemByObjectName( const QString &name ) const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    return mApp->rootObjects().at( 0 )->findChild<QObject *>( name );
+  }
+  return nullptr;
+}
+
+void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "pluginsToolbar" ) );
+    item->setParentItem( toolbar );
+  }
+}
+
+void AppInterface::addItemToMainMenuActionsToolbar( QQuickItem *item ) const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "mainMenuActionsToolbar" ) );
+    item->setParentItem( toolbar );
+
+    // Place the item to the left of the Undo/Redo buttons
+    const QList<QQuickItem *> childItems = toolbar->childItems();
+    item->stackBefore( childItems.at( childItems.size() - 3 ) );
+  }
+}
+
+void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "canvasMenuActionsToolbar" ) );
+    item->setParentItem( toolbar );
+  }
+}
+
+QObject *AppInterface::mainWindow() const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    return mApp->rootObjects().at( 0 );
+  }
+  return nullptr;
+}
+
+QObject *AppInterface::mapCanvas() const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    return mApp->rootObjects().at( 0 )->findChild<QObject *>( "mapCanvas" );
+  }
+  return nullptr;
 }
 
 void AppInterface::removeRecentProject( const QString &path )
