@@ -17,6 +17,7 @@ vcpkg_from_github(
         sts.patch # Obsolete in QGIS >= 3.36.1
         crssync-no-install.patch
         include-qthread.patch
+        invoke.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)

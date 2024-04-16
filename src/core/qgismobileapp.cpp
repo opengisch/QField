@@ -373,11 +373,14 @@ void QgisMobileapp::initDeclarative()
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
+  qRegisterMetaType<QgsFeatureRequest>( "QgsFeatureRequest" );
+  qRegisterMetaType<QgsFeatureIterator>( "QgsFeatureIterator" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
   qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
+  qRegisterMetaType<QgsFeatureIds>( "QgsFeatureIds" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );

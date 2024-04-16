@@ -1,0 +1,231 @@
+diff --git a/python/PyQt6/core/auto_generated/qgsfeatureiterator.sip.in b/python/PyQt6/core/auto_generated/qgsfeatureiterator.sip.in
+index 9f8f93d183c..fb171835e72 100644
+--- a/python/PyQt6/core/auto_generated/qgsfeatureiterator.sip.in
++++ b/python/PyQt6/core/auto_generated/qgsfeatureiterator.sip.in
+@@ -214,6 +214,9 @@ Wrapper for iterator of features from vector data provider or vector layer
+ %TypeHeaderCode
+ #include "qgsfeatureiterator.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+   public:
+ 
+     QgsFeatureIterator *__iter__();
+diff --git a/python/PyQt6/core/auto_generated/qgsfeaturerequest.sip.in b/python/PyQt6/core/auto_generated/qgsfeaturerequest.sip.in
+index 09dd1033485..9f457db2ba1 100644
+--- a/python/PyQt6/core/auto_generated/qgsfeaturerequest.sip.in
++++ b/python/PyQt6/core/auto_generated/qgsfeaturerequest.sip.in
+@@ -63,6 +63,9 @@ Examples:
+ %TypeHeaderCode
+ #include "qgsfeaturerequest.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+   public:
+ 
+     class OrderByClause
+diff --git a/python/core/auto_generated/qgsfeatureiterator.sip.in b/python/core/auto_generated/qgsfeatureiterator.sip.in
+index 3f274b03058..d540916ff8b 100644
+--- a/python/core/auto_generated/qgsfeatureiterator.sip.in
++++ b/python/core/auto_generated/qgsfeatureiterator.sip.in
+@@ -214,6 +214,9 @@ Wrapper for iterator of features from vector data provider or vector layer
+ %TypeHeaderCode
+ #include "qgsfeatureiterator.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+   public:
+ 
+     QgsFeatureIterator *__iter__();
+diff --git a/python/core/auto_generated/qgsfeaturerequest.sip.in b/python/core/auto_generated/qgsfeaturerequest.sip.in
+index 09dd1033485..9f457db2ba1 100644
+--- a/python/core/auto_generated/qgsfeaturerequest.sip.in
++++ b/python/core/auto_generated/qgsfeaturerequest.sip.in
+@@ -63,6 +63,9 @@ Examples:
+ %TypeHeaderCode
+ #include "qgsfeaturerequest.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+   public:
+ 
+     class OrderByClause
+diff --git a/scripts/sipify.pl b/scripts/sipify.pl
+index e6f842ac504..f7602158bbd 100755
+--- a/scripts/sipify.pl
++++ b/scripts/sipify.pl
+@@ -1755,6 +1755,9 @@ while ($LINE_IDX < $LINE_COUNT){
+     $IS_OVERRIDE_OR_MAKE_PRIVATE = PREPEND_CODE_VIRTUAL if ( $LINE =~ m/\bFINAL\b/);
+     $IS_OVERRIDE_OR_MAKE_PRIVATE = PREPEND_CODE_MAKE_PRIVATE if ( $LINE =~ m/\bSIP_MAKE_PRIVATE\b/);
+ 
++    # remove Q_INVOKABLE
++    $LINE =~ s/^(\s*)Q_INVOKABLE /$1/;
++
+     # keyword fixes
+     do {no warnings 'uninitialized';
+         $LINE =~ s/^(\s*template\s*<)(?:class|typename) (\w+>)(.*)$/$1$2$3/;
+@@ -1861,9 +1864,6 @@ while ($LINE_IDX < $LINE_COUNT){
+         }
+     }
+ 
+-    # remove Q_INVOKABLE
+-    $LINE =~ s/^(\s*)Q_INVOKABLE /$1/;
+-
+     do {no warnings 'uninitialized';
+         # remove keywords
+         if ( $IS_OVERRIDE_OR_MAKE_PRIVATE != PREPEND_CODE_NO ){
+diff --git a/src/core/project/qgsproject.h b/src/core/project/qgsproject.h
+index ca541a2f914..6a8f901f562 100644
+--- a/src/core/project/qgsproject.h
++++ b/src/core/project/qgsproject.h
+@@ -1185,7 +1185,7 @@ class CORE_EXPORT QgsProject : public QObject, public QgsExpressionContextGenera
+      * \see mapLayer()
+      * \see mapLayers()
+      */
+-    QList<QgsMapLayer *> mapLayersByName( const QString &layerName ) const;
++    Q_INVOKABLE QList<QgsMapLayer *> mapLayersByName( const QString &layerName ) const;
+ 
+     /**
+      * Retrieves a list of matching registered layers by layer \a shortName.
+diff --git a/src/core/qgsfeatureiterator.h b/src/core/qgsfeatureiterator.h
+index b1f0a2c9b44..912f4ae4448 100644
+--- a/src/core/qgsfeatureiterator.h
++++ b/src/core/qgsfeatureiterator.h
+@@ -288,6 +288,9 @@ class QgsAbstractFeatureIteratorFromSource : public QgsAbstractFeatureIterator
+  */
+ class CORE_EXPORT QgsFeatureIterator
+ {
++
++    Q_GADGET
++
+   public:
+ 
+ #ifdef SIP_RUN
+@@ -326,17 +329,17 @@ class CORE_EXPORT QgsFeatureIterator
+     /**
+      * Fetch next feature and stores in \a f, returns TRUE on success.
+      */
+-    bool nextFeature( QgsFeature &f );
++    Q_INVOKABLE bool nextFeature( QgsFeature &f );
+ 
+     /**
+      * Resets the iterator to the starting position.
+      */
+-    bool rewind();
++    Q_INVOKABLE bool rewind();
+ 
+     /**
+      * Call to end the iteration. This frees any resources used by the iterator.
+      */
+-    bool close();
++    Q_INVOKABLE bool close();
+ 
+     /**
+      * Will return if this iterator is valid.
+@@ -346,10 +349,10 @@ class CORE_EXPORT QgsFeatureIterator
+      * \see isClosed to check if the iterator successfully completed and returned all the features.
+      *
+      */
+-    bool isValid() const;
++    Q_INVOKABLE bool isValid() const;
+ 
+     //! find out whether the iterator is still valid or closed already
+-    bool isClosed() const;
++    Q_INVOKABLE bool isClosed() const;
+ 
+     /**
+      * Attach an object that can be queried regularly by the iterator to check
+diff --git a/src/core/qgsfeaturerequest.h b/src/core/qgsfeaturerequest.h
+index 33bd00b83b9..50191e87dfc 100644
+--- a/src/core/qgsfeaturerequest.h
++++ b/src/core/qgsfeaturerequest.h
+@@ -82,6 +82,9 @@
+  */
+ class CORE_EXPORT QgsFeatureRequest
+ {
++
++    Q_GADGET
++
+   public:
+ 
+     /**
+diff --git a/src/core/vector/qgsvectorlayer.h b/src/core/vector/qgsvectorlayer.h
+index 7a9145141a2..7dbb4d76fb9 100644
+--- a/src/core/vector/qgsvectorlayer.h
++++ b/src/core/vector/qgsvectorlayer.h
+@@ -1129,7 +1129,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * \param request feature request describing parameters of features to return
+      * \returns iterator for matching features from provider
+      */
+-    QgsFeatureIterator getFeatures( const QgsFeatureRequest &request = QgsFeatureRequest() ) const FINAL;
++    Q_INVOKABLE QgsFeatureIterator getFeatures( const QgsFeatureRequest &request = QgsFeatureRequest() ) const FINAL;
+ 
+     /**
+      * Queries the layer for features matching a given expression.
+@@ -1143,7 +1143,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * Queries the layer for the feature with the given id.
+      * If there is no such feature, the returned feature will be invalid.
+      */
+-    inline QgsFeature getFeature( QgsFeatureId fid ) const
++    Q_INVOKABLE inline QgsFeature getFeature( QgsFeatureId fid ) const
+     {
+       QgsFeature feature;
+       getFeatures( QgsFeatureRequest( fid ) ).nextFeature( feature );
+@@ -1172,7 +1172,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+       return getFeatures( QgsFeatureRequest( rectangle ) );
+     }
+ 
+-    bool addFeature( QgsFeature &feature, QgsFeatureSink::Flags flags = QgsFeatureSink::Flags() ) FINAL;
++    Q_INVOKABLE bool addFeature( QgsFeature &feature, QgsFeatureSink::Flags flags = QgsFeatureSink::Flags() ) FINAL;
+ 
+     /**
+      * Updates an existing \a feature in the layer, replacing the attributes and geometry for the feature
+@@ -1714,7 +1714,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * \see changeAttributeValue()
+      * \see updateFeature()
+      */
+-    bool changeGeometry( QgsFeatureId fid, QgsGeometry &geometry, bool skipDefaultValue = false );
++    Q_INVOKABLE bool changeGeometry( QgsFeatureId fid, QgsGeometry &geometry, bool skipDefaultValue = false );
+ 
+     /**
+      * Changes an attribute value for a feature (but does not immediately commit the changes).
+@@ -1746,7 +1746,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * \see changeGeometry()
+      * \see updateFeature()
+      */
+-    bool changeAttributeValue( QgsFeatureId fid, int field, const QVariant &newValue, const QVariant &oldValue = QVariant(), bool skipDefaultValues = false );
++    Q_INVOKABLE bool changeAttributeValue( QgsFeatureId fid, int field, const QVariant &newValue, const QVariant &oldValue = QVariant(), bool skipDefaultValues = false );
+ 
+     /**
+      * Changes attributes' values for a feature (but does not immediately
+@@ -1782,7 +1782,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * \see changeAttributeValue()
+      *
+      */
+-    bool changeAttributeValues( QgsFeatureId fid, const QgsAttributeMap &newValues, const QgsAttributeMap &oldValues = QgsAttributeMap(), bool skipDefaultValues = false );
++    Q_INVOKABLE bool changeAttributeValues( QgsFeatureId fid, const QgsAttributeMap &newValues, const QgsAttributeMap &oldValues = QgsAttributeMap(), bool skipDefaultValues = false );
+ 
+     /**
+      * Add an attribute field (but does not commit it)
+@@ -1918,7 +1918,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * to the underlying data provider until a commitChanges() call is made. Any uncommitted
+      * changes can be discarded by calling rollBack().
+      */
+-    bool deleteFeature( QgsFeatureId fid, DeleteContext *context = nullptr );
++    Q_INVOKABLE bool deleteFeature( QgsFeatureId fid, DeleteContext *context = nullptr );
+ 
+     /**
+      * Deletes a set of features from the layer (but does not commit it)
+@@ -1933,7 +1933,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * to the underlying data provider until a commitChanges() call is made. Any uncommitted
+      * changes can be discarded by calling rollBack().
+      */
+-    bool deleteFeatures( const QgsFeatureIds &fids, DeleteContext *context = nullptr );
++    Q_INVOKABLE bool deleteFeatures( const QgsFeatureIds &fids, DeleteContext *context = nullptr );
+ 
+     /**
+      * Attempts to commit to the underlying data provider any buffered changes made since the
