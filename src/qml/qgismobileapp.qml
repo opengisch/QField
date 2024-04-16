@@ -4063,7 +4063,7 @@ ApplicationWindow {
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: qsTr( "Do you grant permission to activate this plugin?" )
+        text: qsTr( "Do you grant permission to activate `%1`?" ).arg( pluginPermissionDialog.title )
       }
 
       CheckBox {
