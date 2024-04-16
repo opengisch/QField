@@ -1,0 +1,675 @@
+From ce3f74347af6e2ff2707b70ad06766317520d76a Mon Sep 17 00:00:00 2001
+From: "Juergen E. Fischer" <jef@norbit.de>
+Date: Wed, 27 Mar 2024 06:35:21 +0100
+Subject: [PATCH] changes to support msvc builds with qt6
+
+---
+ CMakeLists.txt                                | 20 +++++++-------
+ external/mdal/frmts/mdal_h2i.cpp              |  2 +-
+ external/mdal/mdal_utils.cpp                  | 14 +++++-----
+ external/qspatialite/CMakeLists.txt           | 14 +++++-----
+ external/qspatialite/qsql_spatialite.cpp      |  2 +-
+ external/untwine/api/QgisUntwine_win.cpp      |  2 +-
+ python/PyQt6/gui/gui_auto.sip                 |  2 ++
+ python/gui/gui_auto.sip                       |  2 ++
+ src/app/CMakeLists.txt                        |  4 +++
+ src/app/main.cpp                              | 10 +++----
+ src/app/qgisapp.cpp                           |  2 +-
+ src/core/layout/qgslayoutitemlegend.cpp       |  2 +-
+ src/core/mesh/qgstopologicalmesh.cpp          |  2 +-
+ src/core/pal/labelposition.cpp                |  2 +-
+ src/core/pointcloud/qgslazdecoder.cpp         |  2 ++
+ .../pointcloud/qgspointcloudlayerrenderer.cpp |  2 +-
+ src/core/qgsattributetableconfig.h            |  2 +-
+ src/core/qgsexpressioncontext.cpp             |  4 +++
+ src/core/qgsopenclutils.cpp                   | 27 ++++++++++++++++---
+ src/gui/CMakeLists.txt                        |  9 ++++++-
+ src/native/CMakeLists.txt                     |  2 +-
+ src/native/win/qgswinnative.cpp               | 24 ++++++++++++++++-
+ src/native/win/qgswinnative.h                 | 14 +++++++---
+ src/providers/grass/qgsgrass.cpp              |  4 +--
+ src/server/qgis_mapserver.cpp                 |  4 +--
+ 25 files changed, 122 insertions(+), 52 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e69f5558320c..f2a80042cbd5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -85,17 +85,15 @@ if (USE_OPENCL)
+ endif()
+ 
+ # Configure CCache if available
+-if(NOT MSVC)
+-  option(USE_CCACHE "Use ccache" ON)
+-  if (USE_CCACHE)
+-    find_program(CCACHE_FOUND ccache)
+-    if(CCACHE_FOUND)
+-        set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
+-        set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
+-        message(STATUS "ccache found")
+-    endif(CCACHE_FOUND)
+-  endif(USE_CCACHE)
+-endif(NOT MSVC)
++option(USE_CCACHE "Use ccache" ON)
++if (USE_CCACHE)
++  find_program(CCACHE_FOUND ccache)
++  if(CCACHE_FOUND)
++      set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
++      set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
++      message(STATUS "ccache found")
++  endif(CCACHE_FOUND)
++endif(USE_CCACHE)
+ 
+ if (IOS)
+     set (DEFAULT_FORCE_STATIC_LIBS TRUE)
+diff --git a/external/mdal/frmts/mdal_h2i.cpp b/external/mdal/frmts/mdal_h2i.cpp
+index 0b2ca0f33dbb..be5b2b6834ad 100644
+--- a/external/mdal/frmts/mdal_h2i.cpp
++++ b/external/mdal/frmts/mdal_h2i.cpp
+@@ -137,7 +137,7 @@ bool MDAL::DriverH2i::parseJsonFile( const std::string filePath, MetadataH2i &me
+     metadata.dirPath = MDAL::dirName( filePath );
+ 
+   }
+-  catch ( Json::exception &e )
++  catch ( Json::exception & )
+   {
+     return false;
+   }
+diff --git a/external/mdal/mdal_utils.cpp b/external/mdal/mdal_utils.cpp
+index efcbc1b6489a..4691f00b99a8 100644
+--- a/external/mdal/mdal_utils.cpp
++++ b/external/mdal/mdal_utils.cpp
+@@ -17,7 +17,9 @@
+ #include <stdlib.h>
+ 
+ #ifdef _MSC_VER
++#ifndef UNICODE
+ #define UNICODE
++#endif
+ #include <locale>
+ #include <codecvt>
+ #include <stringapiset.h>
+@@ -1113,12 +1115,12 @@ std::vector<std::string> MDAL::Library::libraryFilesInDir( const std::string &di
+ {
+   std::vector<std::string> filesList;
+ #ifdef _WIN32
+-  WIN32_FIND_DATA data;
++  WIN32_FIND_DATAA data;
+   HANDLE hFind;
+   std::string pattern = dirPath;
+   pattern.push_back( '*' );
+ 
+-  hFind = FindFirstFile( pattern.c_str(), &data );
++  hFind = FindFirstFileA( pattern.c_str(), &data );
+ 
+   if ( hFind == INVALID_HANDLE_VALUE )
+     return filesList;
+@@ -1129,7 +1131,7 @@ std::vector<std::string> MDAL::Library::libraryFilesInDir( const std::string &di
+     if ( !fileName.empty() && fileExtension( fileName ) == ".dll" )
+       filesList.push_back( fileName );
+   }
+-  while ( FindNextFile( hFind, &data ) != 0 );
++  while ( FindNextFileA( hFind, &data ) != 0 );
+ 
+   FindClose( hFind );
+ #else
+@@ -1140,8 +1142,8 @@ std::vector<std::string> MDAL::Library::libraryFilesInDir( const std::string &di
+     std::string fileName( de->d_name );
+     if ( !fileName.empty() )
+     {
+-      std::string extentsion = fileExtension( fileName );
+-      if ( extentsion == ".so" || extentsion == ".dylib" )
++      std::string extension = fileExtension( fileName );
++      if ( extension == ".so" || extension == ".dylib" )
+         filesList.push_back( fileName );
+     }
+     de = readdir( dir );
+@@ -1160,7 +1162,7 @@ bool MDAL::Library::loadLibrary()
+ #ifdef _WIN32
+   UINT uOldErrorMode =
+     SetErrorMode( SEM_NOOPENFILEERRORBOX | SEM_FAILCRITICALERRORS );
+-  d->mLibrary = LoadLibrary( d->mLibraryFile.c_str() );
++  d->mLibrary = LoadLibraryA( d->mLibraryFile.c_str() );
+   SetErrorMode( uOldErrorMode );
+ #else
+   d->mLibrary = dlopen( d->mLibraryFile.c_str(), RTLD_LAZY );
+diff --git a/external/qspatialite/CMakeLists.txt b/external/qspatialite/CMakeLists.txt
+index 33536dafe913..527f383303c7 100644
+--- a/external/qspatialite/CMakeLists.txt
++++ b/external/qspatialite/CMakeLists.txt
+@@ -7,18 +7,18 @@ add_definitions(-DQT_SHARED)
+ 
+ include_directories(SYSTEM
+ 	${SQLITE3_INCLUDE_DIR}
+-	${Qt5Sql_PRIVATE_INCLUDE_DIRS}
++	${${QT_VERSION_BASE}Sql_PRIVATE_INCLUDE_DIRS}
+ )
+ 
+-set(QSQLSPATIALITE_SRC qsql_spatialite.cpp smain.cpp)
+-QT5_WRAP_CPP(QSQLSPATIALITE_SRC qsql_spatialite.h smain.h)
++set(QSQLSPATIALITE_SRC qsql_spatialite.cpp smain.cpp qsql_spatialite.h smain.h)
+ 
+ add_library(qsqlspatialite SHARED ${QSQLSPATIALITE_SRC})
++
+ target_link_libraries(qsqlspatialite
+-        ${Qt5Core_LIBRARIES}
+-        ${Qt5Sql_LIBRARIES}
+-        spatialite::spatialite
+-	qgis_core
++  ${QT_VERSION_BASE}::Core
++  ${QT_VERSION_BASE}::Sql
++  spatialite::spatialite
++  qgis_core
+ )
+ 
+ install(TARGETS qsqlspatialite
+diff --git a/external/qspatialite/qsql_spatialite.cpp b/external/qspatialite/qsql_spatialite.cpp
+index 0e8f15a25f76..5a75a04748b3 100644
+--- a/external/qspatialite/qsql_spatialite.cpp
++++ b/external/qspatialite/qsql_spatialite.cpp
+@@ -632,7 +632,7 @@ bool QSpatiaLiteDriver::open( const QString &db, const QString &, const QString
+   bool openReadOnlyOption = false;
+   bool openUriOption = false;
+ 
+-  const auto opts = conOpts.splitRef( QLatin1Char( ';' ) );
++  const auto opts = conOpts.split( QLatin1Char( ';' ) );
+   for ( auto option : opts )
+   {
+     option = option.trimmed();
+diff --git a/external/untwine/api/QgisUntwine_win.cpp b/external/untwine/api/QgisUntwine_win.cpp
+index 7469655df8f8..47d355ce3675 100644
+--- a/external/untwine/api/QgisUntwine_win.cpp
++++ b/external/untwine/api/QgisUntwine_win.cpp
+@@ -28,7 +28,7 @@ bool QgisUntwine::start(Options& options)
+         cmdline += "--" + op.first + " \"" + op.second + "\" ";
+ 
+     PROCESS_INFORMATION processInfo;
+-    STARTUPINFO startupInfo;
++    STARTUPINFOA startupInfo;
+ 
+     ZeroMemory(&processInfo, sizeof(PROCESS_INFORMATION));
+     ZeroMemory(&startupInfo, sizeof(STARTUPINFO));
+diff --git a/python/PyQt6/gui/gui_auto.sip b/python/PyQt6/gui/gui_auto.sip
+index c668cc6c9a90..46863b186a85 100644
+--- a/python/PyQt6/gui/gui_auto.sip
++++ b/python/PyQt6/gui/gui_auto.sip
+@@ -325,7 +325,9 @@
+ %Include auto_generated/editorwidgets/qgsdefaultsearchwidgetwrapper.sip
+ %Include auto_generated/editorwidgets/qgsdoublespinbox.sip
+ %Include auto_generated/editorwidgets/qgshtmlwidgetwrapper.sip
++%If ( HAVE_QSCI_SIP )
+ %Include auto_generated/editorwidgets/qgsjsoneditwidget.sip
++%End
+ %Include auto_generated/editorwidgets/qgsmultiedittoolbutton.sip
+ %Include auto_generated/editorwidgets/qgsrelationaggregatesearchwidgetwrapper.sip
+ %Include auto_generated/editorwidgets/qgsrelationreferencesearchwidgetwrapper.sip
+diff --git a/python/gui/gui_auto.sip b/python/gui/gui_auto.sip
+index c668cc6c9a90..46863b186a85 100644
+--- a/python/gui/gui_auto.sip
++++ b/python/gui/gui_auto.sip
+@@ -325,7 +325,9 @@
+ %Include auto_generated/editorwidgets/qgsdefaultsearchwidgetwrapper.sip
+ %Include auto_generated/editorwidgets/qgsdoublespinbox.sip
+ %Include auto_generated/editorwidgets/qgshtmlwidgetwrapper.sip
++%If ( HAVE_QSCI_SIP )
+ %Include auto_generated/editorwidgets/qgsjsoneditwidget.sip
++%End
+ %Include auto_generated/editorwidgets/qgsmultiedittoolbutton.sip
+ %Include auto_generated/editorwidgets/qgsrelationaggregatesearchwidgetwrapper.sip
+ %Include auto_generated/editorwidgets/qgsrelationreferencesearchwidgetwrapper.sip
+diff --git a/src/app/CMakeLists.txt b/src/app/CMakeLists.txt
+index 928d98718706..7e866fd20488 100644
+--- a/src/app/CMakeLists.txt
++++ b/src/app/CMakeLists.txt
+@@ -514,6 +514,10 @@ if (ANDROID)
+ else()
+   add_executable(${QGIS_APP_NAME} MACOSX_BUNDLE WIN32 ${QGIS_APPMAIN_SRCS})
+ 
++  if(MSVC AND BUILD_WITH_QT6)
++    qt_disable_unicode_defines(${QGIS_APP_NAME})
++  endif(MSVC AND BUILD_WITH_QT6)
++
+   # require c++17
+   target_compile_features(${QGIS_APP_NAME} PRIVATE cxx_std_17)
+ endif()
+diff --git a/src/app/main.cpp b/src/app/main.cpp
+index 92d7c591946a..5d1746945c76 100644
+--- a/src/app/main.cpp
++++ b/src/app/main.cpp
+@@ -177,10 +177,10 @@ void usage( const QString &appName )
+       << QStringLiteral( "        the PostGIS extension\n" )  ; // OK
+ 
+ #ifdef Q_OS_WIN
+-  MessageBox( nullptr,
+-              msg.join( QString() ).toLocal8Bit().constData(),
+-              "QGIS command line options",
+-              MB_OK );
++  MessageBoxA( nullptr,
++               msg.join( QString() ).toLocal8Bit().constData(),
++               "QGIS command line options",
++               MB_OK );
+ #else
+   std::cout << msg.join( QString() ).toLocal8Bit().constData();
+ #endif
+@@ -219,7 +219,7 @@ void myPrint( const char *fmt, ... )
+ #if defined(Q_OS_WIN)
+   char buffer[1024];
+   vsnprintf( buffer, sizeof buffer, fmt, ap );
+-  OutputDebugString( buffer );
++  OutputDebugStringA( buffer );
+ #else
+   vfprintf( stderr, fmt, ap );
+ #endif
+diff --git a/src/app/qgisapp.cpp b/src/app/qgisapp.cpp
+index 3b36ea2c3a43..86c93abe97fe 100644
+--- a/src/app/qgisapp.cpp
++++ b/src/app/qgisapp.cpp
+@@ -13038,7 +13038,7 @@ void QgisApp::openURL( QString url, bool useQgisDocDirectory )
+   CFRelease( urlRef );
+ #elif defined(Q_OS_WIN)
+   if ( url.startsWith( "file://", Qt::CaseInsensitive ) )
+-    ShellExecute( 0, 0, url.mid( 7 ).toLocal8Bit().constData(), 0, 0, SW_SHOWNORMAL );
++    ShellExecuteA( 0, 0, url.mid( 7 ).toLocal8Bit().constData(), 0, 0, SW_SHOWNORMAL );
+   else
+     QDesktopServices::openUrl( url );
+ #else
+diff --git a/src/core/layout/qgslayoutitemlegend.cpp b/src/core/layout/qgslayoutitemlegend.cpp
+index 6d1a02d3cfda..1ccef7dc7c81 100644
+--- a/src/core/layout/qgslayoutitemlegend.cpp
++++ b/src/core/layout/qgslayoutitemlegend.cpp
+@@ -1198,7 +1198,7 @@ void QgsLayoutItemLegend::doUpdateFilterByMap()
+         {
+           mapExtent.transform( mapTransform );
+         }
+-        catch ( QgsCsException &cse )
++        catch ( QgsCsException & )
+         {
+           continue;
+         }
+diff --git a/src/core/mesh/qgstopologicalmesh.cpp b/src/core/mesh/qgstopologicalmesh.cpp
+index b789f224f99d..e6b040f7e067 100644
+--- a/src/core/mesh/qgstopologicalmesh.cpp
++++ b/src/core/mesh/qgstopologicalmesh.cpp
+@@ -703,7 +703,7 @@ QgsMeshEditingError QgsTopologicalMesh::counterClockwiseFaces( QgsMeshFace &face
+   if ( error != QgsMeshEditingError() )
+     return error;
+ 
+-  if ( clockwise > 0 )// clockwise --> reverse the order of the index;
++  if ( clockwise )// clockwise --> reverse the order of the index;
+   {
+     for ( int i = 0; i < faceSize / 2; ++i )
+     {
+diff --git a/src/core/pal/labelposition.cpp b/src/core/pal/labelposition.cpp
+index 724eaaafaba7..323c7c0ffc3c 100644
+--- a/src/core/pal/labelposition.cpp
++++ b/src/core/pal/labelposition.cpp
+@@ -574,7 +574,7 @@ double LabelPosition::getDistanceToPoint( double xp, double yp, bool useOuterBou
+         geos::unique_ptr point( GEOSGeom_createPointFromXY_r( geosctxt, xp, yp ) );
+         contains = ( GEOSPreparedContainsProperly_r( geosctxt, mPreparedOuterBoundsGeos, point.get() ) == 1 );
+       }
+-      catch ( GEOSException &e )
++      catch ( GEOSException & )
+       {
+         contains = false;
+       }
+diff --git a/src/core/pointcloud/qgslazdecoder.cpp b/src/core/pointcloud/qgslazdecoder.cpp
+index 67a4e3b7d462..efde5717dba5 100644
+--- a/src/core/pointcloud/qgslazdecoder.cpp
++++ b/src/core/pointcloud/qgslazdecoder.cpp
+@@ -38,7 +38,9 @@
+ #include "lazperf/readers.hpp"
+ 
+ #if defined(_MSC_VER)
++#ifndef UNICODE
+ #define UNICODE
++#endif
+ #include <locale>
+ #include <codecvt>
+ #endif
+diff --git a/src/core/pointcloud/qgspointcloudlayerrenderer.cpp b/src/core/pointcloud/qgspointcloudlayerrenderer.cpp
+index b4868da229b2..276167147f58 100644
+--- a/src/core/pointcloud/qgspointcloudlayerrenderer.cpp
++++ b/src/core/pointcloud/qgspointcloudlayerrenderer.cpp
+@@ -688,7 +688,7 @@ void QgsPointCloudLayerRenderer::renderTriangulatedSurface( QgsPointCloudRenderC
+   {
+     delaunator.reset( new delaunator::Delaunator( points ) );
+   }
+-  catch ( std::exception &e )
++  catch ( std::exception & )
+   {
+     // something went wrong, better to retrieve initial state
+     QgsDebugMsgLevel( QStringLiteral( "Error with triangulation" ), 4 );
+diff --git a/src/core/qgsattributetableconfig.h b/src/core/qgsattributetableconfig.h
+index ba50862a3312..9daf64a74a2f 100644
+--- a/src/core/qgsattributetableconfig.h
++++ b/src/core/qgsattributetableconfig.h
+@@ -48,7 +48,7 @@ class CORE_EXPORT QgsAttributeTableConfig
+     /**
+      * Defines the configuration of a column in the attribute table.
+      */
+-    struct ColumnConfig
++    struct CORE_EXPORT ColumnConfig
+     {
+       //! Constructor for ColumnConfig
+       ColumnConfig() = default;
+diff --git a/src/core/qgsexpressioncontext.cpp b/src/core/qgsexpressioncontext.cpp
+index b05f99490a5e..8e0b9c2bcedd 100644
+--- a/src/core/qgsexpressioncontext.cpp
++++ b/src/core/qgsexpressioncontext.cpp
+@@ -106,7 +106,11 @@ void QgsExpressionContextScope::addVariable( const QgsExpressionContextScope::St
+ 
+ bool QgsExpressionContextScope::removeVariable( const QString &name )
+ {
++#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
++  return mVariables.remove( name );
++#else
+   return mVariables.remove( name ) > 0;
++#endif
+ }
+ 
+ bool QgsExpressionContextScope::hasVariable( const QString &name ) const
+diff --git a/src/core/qgsopenclutils.cpp b/src/core/qgsopenclutils.cpp
+index 39fab282a0d0..8b193d05049e 100644
+--- a/src/core/qgsopenclutils.cpp
++++ b/src/core/qgsopenclutils.cpp
+@@ -25,6 +25,10 @@
+ #include <QDebug>
+ 
+ #ifdef Q_OS_WIN
++#if defined(UNICODE) && !defined(_UNICODE)
++#pragma message(_UNICODE undefined)
++#define _UNICODE
++#endif
+ #include <windows.h>
+ #include <tchar.h>
+ #endif
+@@ -100,7 +104,12 @@ void QgsOpenClUtils::init()
+     }
+ 
+ #ifdef Q_OS_WIN
+-    HMODULE hModule = GetModuleHandle( "OpenCL.dll" );
++#ifdef _UNICODE
++#define _T(x) L##x
++#else
++#define _T(x) x
++#endif
++    HMODULE hModule = GetModuleHandle( _T( "OpenCL.dll" ) );
+     if ( hModule )
+     {
+       TCHAR pszFileName[1024];
+@@ -114,13 +123,13 @@ void QgsOpenClUtils::init()
+         DWORD dwLen = GetFileVersionInfoSize( pszFileName, &dwUseless );
+         if ( dwLen )
+         {
+-          LPTSTR lpVI = ( LPSTR ) malloc( dwLen );
++          LPTSTR lpVI = ( LPTSTR ) malloc( dwLen * sizeof( TCHAR ) );
+           if ( lpVI )
+           {
+             if ( GetFileVersionInfo( pszFileName, 0, dwLen, lpVI ) )
+             {
+               VS_FIXEDFILEINFO *lpFFI;
+-              if ( VerQueryValue( lpVI, "\\", ( LPVOID * ) &lpFFI, ( UINT * ) &dwUseless ) )
++              if ( VerQueryValue( lpVI, _T( "\\" ), ( LPVOID * ) &lpFFI, ( UINT * ) &dwUseless ) )
+               {
+                 QgsMessageLog::logMessage( QObject::tr( "OpenCL Product version: %1.%2.%3.%4" )
+                                            .arg( lpFFI->dwProductVersionMS >> 16 )
+@@ -163,13 +172,23 @@ void QgsOpenClUtils::init()
+ 
+                   QgsDebugMsgLevel( QString( "d:%1 subBlock:%2" ).arg( d ).arg( subBlock ), 2 );
+ 
+-                  BOOL r = VerQueryValue( lpVI, subBlock.toUtf8(), ( LPVOID * )&lpBuffer, ( UINT * )&dwUseless );
++                  BOOL r = VerQueryValue( lpVI,
++#ifdef UNICODE
++                                          subBlock.toStdWString().c_str(),
++#else
++                                          subBlock.toUtf8(),
++#endif
++                                          ( LPVOID * )&lpBuffer, ( UINT * )&dwUseless );
+ 
+                   if ( r && lpBuffer && lpBuffer != INVALID_HANDLE_VALUE && dwUseless < 1023 )
+                   {
+                     QgsMessageLog::logMessage( QObject::tr( "Found OpenCL version info %1: %2" )
+                                                .arg( d )
++#ifdef UNICODE
++                                               .arg( QString::fromUtf16( ( const ushort * ) lpBuffer ) ),
++#else
+                                                .arg( QString::fromLocal8Bit( lpBuffer ) ),
++#endif
+                                                LOGMESSAGE_TAG, Qgis::MessageLevel::Info );
+                   }
+                 }
+diff --git a/src/gui/CMakeLists.txt b/src/gui/CMakeLists.txt
+index 09b327700271..129136e34f9e 100644
+--- a/src/gui/CMakeLists.txt
++++ b/src/gui/CMakeLists.txt
+@@ -1612,6 +1612,13 @@ else()
+     PROPERTIES COMPILE_FLAGS "-w -Wno-deprecated-declarations")
+ endif()
+ 
++if(MSVC)
++  set_source_files_properties(
++    ${CMAKE_BINARY_DIR}/src/gui/qgis_gui_autogen/mocs_compilation.cpp
++    PROPERTIES COMPILE_FLAGS "/bigobj"
++  )
++endif()
++
+ #############################################################
+ # qgis_gui library
+ 
+@@ -1707,7 +1714,7 @@ GENERATE_EXPORT_HEADER(
+ set(QGIS_GUI_HDRS ${QGIS_GUI_HDRS} ${CMAKE_CURRENT_BINARY_DIR}/qgis_gui.h)
+ 
+ if(NOT APPLE OR NOT QGIS_MACAPP_FRAMEWORK)
+-  if (WIN32 )
++  if (WIN32)
+     include_directories(${CMAKE_SOURCE_DIR}/src/native/win)
+   elseif (APPLE)
+     include_directories(${CMAKE_SOURCE_DIR}/src/native/mac)
+diff --git a/src/native/CMakeLists.txt b/src/native/CMakeLists.txt
+index cedc517814a1..73edb952b1ad 100644
+--- a/src/native/CMakeLists.txt
++++ b/src/native/CMakeLists.txt
+@@ -144,7 +144,7 @@ if (UNIX AND NOT APPLE AND NOT ANDROID)
+   target_link_libraries(qgis_native ${QT_VERSION_BASE}::DBus)
+ endif()
+ 
+-if (MSVC)
++if (MSVC AND NOT BUILD_WITH_QT6)
+   find_package(${QT_VERSION_BASE}WinExtras)
+ 
+   target_link_libraries(qgis_native shell32)
+diff --git a/src/native/win/qgswinnative.cpp b/src/native/win/qgswinnative.cpp
+index 008c207a35aa..dbc83f6819b2 100644
+--- a/src/native/win/qgswinnative.cpp
++++ b/src/native/win/qgswinnative.cpp
+@@ -23,16 +23,24 @@
+ #include <QWindow>
+ #include <QProcess>
+ #include <QAbstractEventDispatcher>
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+ #include <QtWinExtras/QWinTaskbarButton>
+ #include <QtWinExtras/QWinTaskbarProgress>
+ #include <QtWinExtras/QWinJumpList>
+ #include <QtWinExtras/QWinJumpListItem>
+ #include <QtWinExtras/QWinJumpListCategory>
++#endif
+ #include "wintoastlib.h"
+ #include <Dbt.h>
+ #include <memory>
+ #include <type_traits>
+ 
++#ifdef UNICODE
++#define _T(x) L##x
++#else
++#define _T(x) x
++#endif
++
+ 
+ struct LPITEMIDLISTDeleter
+ {
+@@ -57,6 +65,7 @@ void QgsWinNative::initializeMainWindow( QWindow *window,
+     const QString &version )
+ {
+   mWindow = window;
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+   if ( mTaskButton )
+     return; // already initialized!
+ 
+@@ -64,6 +73,7 @@ void QgsWinNative::initializeMainWindow( QWindow *window,
+   mTaskButton->setWindow( window );
+   mTaskProgress = mTaskButton->progress();
+   mTaskProgress->setVisible( false );
++#endif
+ 
+   QString appName = qgetenv( "QGIS_WIN_APP_NAME" );
+   if ( appName.isEmpty() )
+@@ -126,7 +136,7 @@ void QgsWinNative::showFileProperties( const QString &path )
+     info.nShow = SW_SHOWNORMAL;
+     info.fMask = SEE_MASK_INVOKEIDLIST;
+     info.lpIDList = pidl.get();
+-    info.lpVerb = "properties";
++    info.lpVerb = _T( "properties" );
+ 
+     ShellExecuteEx( &info );
+   }
+@@ -134,24 +144,31 @@ void QgsWinNative::showFileProperties( const QString &path )
+ 
+ void QgsWinNative::showUndefinedApplicationProgress()
+ {
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+   mTaskProgress->setMaximum( 0 );
+   mTaskProgress->show();
++#endif
+ }
+ 
+ void QgsWinNative::setApplicationProgress( double progress )
+ {
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+   mTaskProgress->setMaximum( 100 );
+   mTaskProgress->show();
+   mTaskProgress->setValue( static_cast< int >( std::round( progress ) ) );
++#endif
+ }
+ 
+ void QgsWinNative::hideApplicationProgress()
+ {
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+   mTaskProgress->hide();
++#endif
+ }
+ 
+ void QgsWinNative::onRecentProjectsChanged( const std::vector<QgsNative::RecentProjectProperties> &recentProjects )
+ {
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+   QWinJumpList jumplist;
+   jumplist.recent()->clear();
+   for ( const RecentProjectProperties &recentProject : recentProjects )
+@@ -163,6 +180,7 @@ void QgsWinNative::onRecentProjectsChanged( const std::vector<QgsNative::RecentP
+     newProject->setArguments( QStringList( recentProject.path ) );
+     jumplist.recent()->addItem( newProject );
+   }
++#endif
+ }
+ 
+ class NotificationHandler : public WinToastLib::IWinToastHandler
+@@ -228,7 +246,11 @@ bool QgsWinNative::openTerminalAtPath( const QString &path )
+   return process.startDetached( &pid );
+ }
+ 
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+ bool QgsWinNativeEventFilter::nativeEventFilter( const QByteArray &eventType, void *message, long * )
++#else
++bool QgsWinNativeEventFilter::nativeEventFilter( const QByteArray &eventType, void *message, qintptr * )
++#endif
+ {
+   static const QByteArray sWindowsGenericMSG{ "windows_generic_MSG" };
+   if ( !message || eventType != sWindowsGenericMSG )
+diff --git a/src/native/win/qgswinnative.h b/src/native/win/qgswinnative.h
+index 9f0e7479d144..c67902998128 100644
+--- a/src/native/win/qgswinnative.h
++++ b/src/native/win/qgswinnative.h
+@@ -15,8 +15,8 @@
+  *                                                                         *
+  ***************************************************************************/
+ 
+-#ifndef QGSMACNATIVE_H
+-#define QGSMACNATIVE_H
++#ifndef QGSWINNATIVE_H
++#define QGSWINNATIVE_H
+ 
+ #include "qgsnative.h"
+ #include <QAbstractNativeEventFilter>
+@@ -25,8 +25,10 @@
+ #include <ShlObj.h>
+ #pragma comment(lib,"Shell32.lib")
+ 
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+ class QWinTaskbarButton;
+ class QWinTaskbarProgress;
++#endif
+ class QWindow;
+ 
+ 
+@@ -35,7 +37,11 @@ class QgsWinNativeEventFilter : public QObject, public QAbstractNativeEventFilte
+     Q_OBJECT
+   public:
+ 
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+     bool nativeEventFilter( const QByteArray &eventType, void *message, long * ) override;
++#else
++    bool nativeEventFilter( const QByteArray &eventType, void *message, qintptr *result ) override;
++#endif
+ 
+   signals:
+ 
+@@ -70,10 +76,12 @@ class NATIVE_EXPORT QgsWinNative : public QgsNative
+     QWindow *mWindow = nullptr;
+     Capabilities mCapabilities = NativeFilePropertiesDialog | NativeOpenTerminalAtPath;
+     bool mWinToastInitialized = false;
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+     QWinTaskbarButton *mTaskButton = nullptr;
+     QWinTaskbarProgress *mTaskProgress = nullptr;
++#endif
+     QgsWinNativeEventFilter *mNativeEventFilter = nullptr;
+ 
+ };
+ 
+-#endif // QGSMACNATIVE_H
++#endif // QGSWINNATIVE_H
+diff --git a/src/providers/grass/qgsgrass.cpp b/src/providers/grass/qgsgrass.cpp
+index eb8585c112e3..946af31a1ded 100644
+--- a/src/providers/grass/qgsgrass.cpp
++++ b/src/providers/grass/qgsgrass.cpp
+@@ -270,8 +270,8 @@ QString QgsGrass::pathSeparator()
+ #include <windows.h>
+ QString QgsGrass::shortPath( const QString &path )
+ {
+-  TCHAR buf[MAX_PATH];
+-  int len = GetShortPathName( path.toUtf8().constData(), buf, MAX_PATH );
++  char buf[MAX_PATH];
++  int len = GetShortPathNameA( path.toUtf8().constData(), buf, MAX_PATH );
+ 
+   if ( len == 0 || len > MAX_PATH )
+   {
+diff --git a/src/server/qgis_mapserver.cpp b/src/server/qgis_mapserver.cpp
+index 38d9fe5dcb7c..1ed9042085e0 100644
+--- a/src/server/qgis_mapserver.cpp
++++ b/src/server/qgis_mapserver.cpp
+@@ -177,7 +177,7 @@ class TcpServerWorker: public QObject
+           };
+ 
+           // This will delete the connection
+-          QTcpSocket::connect( clientConnection, &QAbstractSocket::disconnected, clientConnection, connectionDeleter, Qt::QueuedConnection );
++          QObject::connect( clientConnection, &QAbstractSocket::disconnected, clientConnection, connectionDeleter, Qt::QueuedConnection );
+ 
+ #if 0     // Debugging output
+           clientConnection->connect( clientConnection, &QAbstractSocket::errorOccurred, clientConnection, [ = ]( QAbstractSocket::SocketError socketError )
+@@ -187,7 +187,7 @@ class TcpServerWorker: public QObject
+ #endif
+ 
+           // Incoming connection parser
+-          QTcpSocket::connect( clientConnection, &QIODevice::readyRead, context, [ = ] {
++          QObject::connect( clientConnection, &QIODevice::readyRead, context, [ = ] {
+ 
+             // Read all incoming data
+             while ( clientConnection->bytesAvailable() > 0 )

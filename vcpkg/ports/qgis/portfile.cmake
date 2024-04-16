@@ -19,6 +19,7 @@ vcpkg_from_github(
         include-qthread.patch
         invoke.patch
         libprotobuf-lite.patch
+        windowsqt6fixes.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
