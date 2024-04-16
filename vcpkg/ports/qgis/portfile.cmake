@@ -18,6 +18,7 @@ vcpkg_from_github(
         crssync-no-install.patch
         include-qthread.patch
         invoke.patch
+        libprotobuf-lite.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)

@@ -1,0 +1,38 @@
+From e3a41d679edfd64d5fa4caa33c8564d9163ebdcd Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Fri, 15 Mar 2024 16:50:00 +0100
+Subject: [PATCH] Switch to conditional protobuf-lite target
+
+The original version number check was completely random numbers
+---
+ CMakeLists.txt          | 3 ---
+ src/core/CMakeLists.txt | 2 +-
+ 2 files changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 564a1fe30bb4..e6f1278f7bf4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -375,9 +375,6 @@ if(WITH_CORE)
+ 
+   find_package(Protobuf CONFIG)
+   find_package(Protobuf REQUIRED)
+-  if(Protobuf_VERSION GREATER_EQUAL 4.23)
+-    set(Protobuf_LITE_LIBRARY protobuf::libprotobuf-lite)
+-  endif()
+ 
+   message(STATUS "Found Protobuf: ${Protobuf_LIBRARIES}")
+   if (NOT Protobuf_PROTOC_EXECUTABLE)
+diff --git a/src/core/CMakeLists.txt b/src/core/CMakeLists.txt
+index 26fca1e2bf99..692753b4e273 100644
+--- a/src/core/CMakeLists.txt
++++ b/src/core/CMakeLists.txt
+@@ -2460,7 +2460,7 @@ target_link_libraries(qgis_core
+   EXPAT::EXPAT
+   ${SQLITE3_LIBRARY}
+   ${LIBZIP_LIBRARY}
+-  ${Protobuf_LITE_LIBRARY}
++  $<TARGET_NAME_IF_EXISTS:protobuf::libprotobuf-lite>
+   ${ZLIB_LIBRARIES}
+   ${EXIV2_LIBRARY}
+   PROJ::proj
