@@ -26,6 +26,35 @@ class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
 
+class FeatureIterator
+{
+    Q_GADGET
+
+  public:
+    FeatureIterator( QgsVectorLayer *layer = nullptr, const QgsFeatureRequest &request = QgsFeatureRequest() )
+    {
+      if ( layer )
+      {
+        mFeatureIterator = layer->getFeatures( request );
+      }
+    }
+
+    Q_INVOKABLE QgsFeature getNextFeature()
+    {
+      QgsFeature feature;
+      mFeatureIterator.nextFeature( feature );
+      return feature;
+    }
+
+    Q_INVOKABLE bool isValid()
+    {
+      return mFeatureIterator.isValid();
+    }
+
+  private:
+    QgsFeatureIterator mFeatureIterator;
+};
+
 class LayerUtils : public QObject
 {
     Q_OBJECT
@@ -82,7 +111,7 @@ class LayerUtils : public QObject
     /**
      * Returns a feature request to get features.
      */
-    Q_INVOKABLE static QgsFeatureRequest createFeatureRequestFromExpression( const QString &expression );
+    Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
 };
 
 #endif // LAYERUTILS_H

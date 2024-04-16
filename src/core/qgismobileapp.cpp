@@ -428,6 +428,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<Positioning::ElevationCorrectionMode>( "Positioning::ElevationCorrectionMode" );
 
   qmlRegisterType<MultiFeatureListModel>( "org.qfield", 1, 0, "MultiFeatureListModel" );
+  qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "FeatureIterator" );
   qmlRegisterType<FeatureListModel>( "org.qfield", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qfield", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListExtentController>( "org.qfield", 1, 0, "FeaturelistExtentController" );
