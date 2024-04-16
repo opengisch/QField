@@ -201,7 +201,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   palette.setColor( QPalette::LinkVisited, QColor( 128, 204, 40 ) );
   app->setPalette( palette );
 
-  mMessageLogModel = std::make_unique<MessageLogModel>( this );
+  mMessageLogModel = new MessageLogModel( this );
 
   QSettings settings;
   if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
@@ -267,10 +267,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLocalFilesImageProvider = new LocalFilesImageProvider();
   mProjectsImageProvider = new ProjectsImageProvider();
 
-  mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
-  mDrawingTemplateModel = std::make_unique<DrawingTemplateModel>( this );
+  mBookmarkModel = new BookmarkModel( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), this );
+  mDrawingTemplateModel = new DrawingTemplateModel( this );
 
-  mPluginManager = std::make_unique<PluginManager>( this );
+  mPluginManager = new PluginManager( this );
 
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
@@ -543,7 +543,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
-  rootContext()->setContextProperty( "pluginManager", mPluginManager.get() );
+  rootContext()->setContextProperty( "pluginManager", mPluginManager );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "appVersion", qfield::appVersion );
   rootContext()->setContextProperty( "appVersionStr", qfield::appVersionStr );
@@ -553,12 +553,12 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
-  rootContext()->setContextProperty( "bookmarkModel", mBookmarkModel.get() );
+  rootContext()->setContextProperty( "bookmarkModel", mBookmarkModel );
   rootContext()->setContextProperty( "gpkgFlusher", mGpkgFlusher.get() );
   rootContext()->setContextProperty( "layerObserver", mLayerObserver.get() );
   rootContext()->setContextProperty( "featureHistory", mFeatureHistory.get() );
-  rootContext()->setContextProperty( "messageLogModel", mMessageLogModel.get() );
-  rootContext()->setContextProperty( "drawingTemplateModel", mDrawingTemplateModel.get() );
+  rootContext()->setContextProperty( "messageLogModel", mMessageLogModel );
+  rootContext()->setContextProperty( "drawingTemplateModel", mDrawingTemplateModel );
 
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 

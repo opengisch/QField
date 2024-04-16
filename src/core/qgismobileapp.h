@@ -230,11 +230,11 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     std::unique_ptr<FeatureHistory> mFeatureHistory;
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 
-    std::unique_ptr<BookmarkModel> mBookmarkModel;
-    std::unique_ptr<DrawingTemplateModel> mDrawingTemplateModel;
-    std::unique_ptr<MessageLogModel> mMessageLogModel;
+    BookmarkModel *mBookmarkModel = nullptr;
+    DrawingTemplateModel *mDrawingTemplateModel = nullptr;
+    MessageLogModel *mMessageLogModel = nullptr;
 
-    std::unique_ptr<PluginManager> mPluginManager;
+    PluginManager *mPluginManager = nullptr;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
