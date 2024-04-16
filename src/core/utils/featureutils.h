@@ -31,7 +31,7 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
   public:
     explicit FeatureUtils( QObject *parent = nullptr );
 
-    static Q_INVOKABLE QgsFeature initFeature( QgsVectorLayer *layer, QgsGeometry geometry = QgsGeometry() );
+    static Q_INVOKABLE QgsFeature createFeature( QgsVectorLayer *layer = nullptr, QgsGeometry geometry = QgsGeometry() );
 
     /**
     * Returns the display name of a given feature.

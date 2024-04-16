@@ -78,6 +78,11 @@ class LayerUtils : public QObject
      * Returns TRUE if the vector \a layer geometry has an M value.
      */
     Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );
+
+    /**
+     * Returns a feature request to get features.
+     */
+    Q_INVOKABLE static QgsFeatureRequest createFeatureRequestFromExpression( const QString &expression );
 };
 
 #endif // LAYERUTILS_H

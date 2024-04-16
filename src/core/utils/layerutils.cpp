@@ -368,3 +368,8 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
 
   return QgsWkbTypes::hasM( layer->wkbType() );
 }
+
+QgsFeatureRequest LayerUtils::createFeatureRequestFromExpression( const QString &expression )
+{
+  return QgsFeatureRequest( QgsExpression( expression ) );
+}

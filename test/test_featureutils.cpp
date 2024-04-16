@@ -26,7 +26,7 @@ TEST_CASE( "FeatureUtils" )
 
   QgsGeometry geometry = QgsGeometry::fromWkt( QStringLiteral( "Polygon (((8 8, 9 8, 8 9, 8 8)))" ) );
 
-  QgsFeature f = FeatureUtils::initFeature( vl.get(), geometry );
+  QgsFeature f = FeatureUtils::createFeature( vl.get(), geometry );
 
   REQUIRE( f.fields() == vl->fields() );
   REQUIRE( f.geometry().equals( geometry ) );
