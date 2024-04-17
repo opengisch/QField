@@ -3,26 +3,28 @@ import QtTest 1.0
 
 import org.qfield 1.0
 
-import QFieldControls 1.0
+import Theme 1.0
+
+import "../../src/qml/editorwidgets" as EditorWidgets
 
 TestCase {
     name: "EditorWidgets"
 
-    TextEdit {
+    EditorWidgets.TextEdit {
         id: textEdit
         property var value: 'one'
         property var config: undefined
         property bool isEnabled: true
     }
 
-    Range {
+    EditorWidgets.Range {
         id: range
         property var value: 1
         property var config: undefined
         property bool isEnabled: true
     }
 
-    DateTime {
+    EditorWidgets.DateTime {
         id: dateTime
 
         property var value: '2022-01-01'
