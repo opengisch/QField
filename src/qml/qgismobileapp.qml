@@ -3930,6 +3930,7 @@ ApplicationWindow {
 
   CodeReader {
     id: codeReader
+    objectName: 'codeReader'
     visible: false
   }
 
