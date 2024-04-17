@@ -39,20 +39,35 @@ class FeatureIterator
       }
     }
 
-    Q_INVOKABLE QgsFeature getNextFeature()
+    Q_INVOKABLE bool hasNext()
     {
-      QgsFeature feature;
-      mFeatureIterator.nextFeature( feature );
-      return feature;
+      if ( !mHasNextChecked )
+      {
+        mHasNext = mFeatureIterator.nextFeature( mCurrentFeature );
+        mHasNextChecked = true;
+      }
+      return mHasNext;
     }
 
-    Q_INVOKABLE bool isValid()
+    Q_INVOKABLE QgsFeature next()
     {
-      return mFeatureIterator.isValid();
+      if ( !mHasNextChecked )
+      {
+        mFeatureIterator.nextFeature( mCurrentFeature );
+      }
+      else
+      {
+        mHasNextChecked = false;
+      }
+      return mCurrentFeature;
     }
 
   private:
     QgsFeatureIterator mFeatureIterator;
+    QgsFeature mCurrentFeature;
+
+    bool mHasNext = false;
+    bool mHasNextChecked = false;
 };
 
 class LayerUtils : public QObject
