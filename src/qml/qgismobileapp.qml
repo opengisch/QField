@@ -3277,8 +3277,8 @@ ApplicationWindow {
   /* The feature form */
   FeatureListForm {
     id: featureForm
-
     objectName: "featureForm"
+
     mapSettings: mapCanvas.mapSettings
     digitizingToolbar: digitizingToolbar
     moveFeaturesToolbar: moveFeaturesToolbar
@@ -3350,10 +3350,10 @@ ApplicationWindow {
     featureModel.currentLayer: dashBoard.activeLayer
   }
 
-  function displayToast( message, type ) {
+  function displayToast(message, type, action_text, action_function) {
     //toastMessage.text = message
-    if( !welcomeScreen.visible )
-      toast.show(message, type)
+    if(!welcomeScreen.visible)
+      toast.show(message, type, action_text, action_function)
   }
 
   Timer {
