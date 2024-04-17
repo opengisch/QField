@@ -385,6 +385,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
   qRegisterMetaType<QgsPolymorphicRelation>( "QgsPolymorphicRelation" );
+  qRegisterMetaType<QgsFields>( "QgsFields" );
   qRegisterMetaType<QgsField>( "QgsField" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
