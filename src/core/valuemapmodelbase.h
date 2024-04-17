@@ -1,5 +1,5 @@
 /***************************************************************************
-                            valuemapmodel.h
+                            valuemapmodelbase.h
 
                               -------------------
               begin                : March 2019
@@ -16,15 +16,16 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef VALUEMAPMODEL_H
-#define VALUEMAPMODEL_H
+#ifndef VALUEMAPMODELBASE_H
+#define VALUEMAPMODELBASE_H
 
-#include "valuemapmodelbase.h"
+#include <QAbstractListModel>
+#include <QVariant>
 
-#include <QSortFilterProxyModel>
-
-
-class ValueMapModel : public QSortFilterProxyModel
+/**
+ * A model that manages the key/value pairs for a ValueMap widget.
+ */
+class ValueMapModelBase : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -37,28 +38,27 @@ class ValueMapModel : public QSortFilterProxyModel
      */
     Q_PROPERTY( QVariant valueMap READ map WRITE setMap NOTIFY mapChanged )
 
-
   public:
-    //! The roles provided by this model
-    enum ValueMapRoles
-    {
-      KeyRole = Qt::UserRole + 1, //!< obtain the key
-      ValueRole                   //!< obtain the value
-    };
-
-    Q_ENUM( ValueMapRoles )
-
-    explicit ValueMapModel( QObject *parent = nullptr );
+    /**
+     * Create a new value map model
+     */
+    explicit ValueMapModelBase( QObject *parent = nullptr );
 
     /**
      * The map, see the property description
      */
-    QVariant map() const;
 
+    QVariant map() const;
     /**
      * The map, see the property description
      */
     void setMap( const QVariant &map );
+
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+
+    QHash<int, QByteArray> roleNames() const override;
 
     /**
      * Returns the row (index) of a key or -1 if not found.
@@ -77,7 +77,8 @@ class ValueMapModel : public QSortFilterProxyModel
     void mapChanged();
 
   private:
-    ValueMapModelBase *mSourceModel = nullptr;
+    QList<QPair<QVariant, QString>> mMap;
+    QVariant mConfiguredMap;
 };
 
-#endif // VALUEMAPMODEL_H
+#endif // VALUEMAPMODELBASE_H

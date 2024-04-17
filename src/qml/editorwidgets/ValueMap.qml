@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import QtQuick.Layouts
 
 import org.qfield 1.0
 import Theme 1.0
@@ -28,10 +29,6 @@ EditorWidgetBase {
     id: comboBox
     anchors { left: parent.left; right: parent.right }
     font: Theme.defaultFont
-
-    popup.font: Theme.defaultFont
-    popup.topMargin: mainWindow.sceneTopMargin
-    popup.bottomMargin: mainWindow.sceneTopMargin
 
     currentIndex: model.keyToIndex(value)
 
@@ -101,5 +98,45 @@ EditorWidgetBase {
         radius: 2
       }
     }
+
+    popup: Popup {
+            y: comboBox.height - 1
+            width: comboBox.width
+            implicitHeight: contentItem.implicitHeight
+            padding: 1
+
+            font: Theme.defaultFont
+            topMargin: mainWindow.sceneTopMargin
+            bottomMargin: mainWindow.sceneTopMargin
+
+            contentItem:
+                ColumnLayout {
+                anchors.fill: parent
+                TextField {
+                    id: textInputFilter
+                    placeholderText: qsTr("Filter")
+                    Layout.preferredHeight: valueMap.height
+                    Layout.fillWidth: true
+
+                    onTextChanged: listModel.setFilterFixedString(text)
+                }
+
+                ListView {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    clip: true
+                    implicitHeight: contentHeight
+                    model: comboBox.popup.visible ? comboBox.delegateModel : null
+                    currentIndex: comboBox.highlightedIndex
+
+                    ScrollIndicator.vertical: ScrollIndicator { }
+                }
+            }
+
+            background: Rectangle {
+                border.color: "#21be2b"
+                radius: 2
+            }
+        }
   }
 }

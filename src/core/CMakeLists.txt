@@ -105,6 +105,7 @@ set(QFIELD_CORE_SRCS
     tracker.cpp
     trackingmodel.cpp
     valuemapmodel.cpp
+    valuemapmodelbase.cpp
     vertexmodel.cpp
     viewstatus.cpp)
 
@@ -217,6 +218,7 @@ set(QFIELD_CORE_HDRS
     tracker.h
     trackingmodel.h
     valuemapmodel.h
+    valuemapmodelbase.h
     vertexmodel.h
     viewstatus.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
