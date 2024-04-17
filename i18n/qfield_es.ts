@@ -3137,6 +3137,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Loading font %1</source>
         <translation type="vanished">Cargando tipo de letra %1</translation>
     </message>
+    <message>
+        <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4412,6 +4416,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Unlock the screen to to close project and app</source>
         <translation>Desbloquear la pantalla para cerrar el proyecto y la aplicación</translation>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

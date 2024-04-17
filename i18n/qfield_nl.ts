@@ -3137,6 +3137,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Loading font %1</source>
         <translation type="vanished">Lettertype %1 laden</translation>
     </message>
+    <message>
+        <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4412,6 +4416,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Unlock the screen to to close project and app</source>
         <translation>Ontgrendel het scherm om project en app af te sluiten</translation>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

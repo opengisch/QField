@@ -3137,6 +3137,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Loading font %1</source>
         <translation type="vanished">Cargando a fonte %1</translation>
     </message>
+    <message>
+        <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4412,6 +4416,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Unlock the screen to to close project and app</source>
         <translation>Desbloquear a pantalla para pechar o proxecto e a aplicación</translation>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

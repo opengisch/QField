@@ -3135,6 +3135,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Loading font %1</source>
         <translation type="vanished">加载字体 %1</translation>
     </message>
+    <message>
+        <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4410,6 +4414,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Unlock the screen to to close project and app</source>
         <translation>请解锁屏幕以便关闭工程和应用程序</translation>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

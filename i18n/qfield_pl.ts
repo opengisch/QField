@@ -3141,6 +3141,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Loading font %1</source>
         <translation type="vanished">Pobieranie czcionki %1</translation>
     </message>
+    <message>
+        <source>Project Plugin</source>
+        <translation>Wtyczka projektu</translation>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4416,6 +4420,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Unlock the screen to to close project and app</source>
         <translation>Odblokuj ekran aby zamknąć projekt i aplikację</translation>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation>Czy zezwalasz na aktywację &quot;%1&quot;?</translation>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation>Zapamiętaj mój wybór</translation>
     </message>
 </context>
 <context>

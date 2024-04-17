@@ -3132,6 +3132,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>Loading font %1</source>
         <translation type="vanished">Lade Schriftart %1</translation>
     </message>
+    <message>
+        <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4406,6 +4410,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
 </context>

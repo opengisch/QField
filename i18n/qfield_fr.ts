@@ -3134,6 +3134,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Loading font %1</source>
         <translation type="vanished">Chargement de la police %1</translation>
     </message>
+    <message>
+        <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4413,6 +4417,14 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Unlock the screen to to close project and app</source>
         <translation>Déverrouiller l&apos;écran pour fermer le projet et l&apos;application</translation>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

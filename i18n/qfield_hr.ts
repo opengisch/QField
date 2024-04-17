@@ -3135,6 +3135,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Loading font %1</source>
         <translation type="vanished">Učitavanja fonta %1</translation>
     </message>
+    <message>
+        <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4409,6 +4413,14 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
 </context>
