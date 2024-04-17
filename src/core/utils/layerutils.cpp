@@ -199,6 +199,15 @@ QString LayerUtils::fieldType( const QgsField &field )
   return QVariant( field.type() ).typeName();
 }
 
+bool LayerUtils::addFeature( QgsVectorLayer *layer, QgsFeature feature )
+{
+  if ( layer )
+  {
+    return layer->addFeature( feature );
+  }
+  return false;
+}
+
 bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges )
 {
   if ( !project )

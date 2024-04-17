@@ -113,6 +113,12 @@ class LayerUtils : public QObject
     static QgsFeature duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
 
     /**
+     * Adds a \a feature into the \a layer.
+     * \note The function will not call startEditing() and commitChanges()
+     */
+    Q_INVOKABLE static bool addFeature( QgsVectorLayer *layer, QgsFeature feature );
+
+    /**
      * Returns the QVariant typeName of a \a field.
      * This is a stable identifier (compared to the provider field name).
      */
