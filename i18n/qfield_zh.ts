@@ -3137,7 +3137,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>工程插件</translation>
     </message>
 </context>
 <context>
@@ -4417,11 +4417,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>是否授予激活 `%1` 的权限？</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>记住我的选择</translation>
     </message>
 </context>
 <context>
