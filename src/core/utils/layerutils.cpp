@@ -199,6 +199,15 @@ QString LayerUtils::fieldType( const QgsField &field )
   return QVariant( field.type() ).typeName();
 }
 
+bool LayerUtils::addFeature( QgsVectorLayer *layer, QgsFeature feature )
+{
+  if ( layer )
+  {
+    return layer->addFeature( feature );
+  }
+  return false;
+}
+
 bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges )
 {
   if ( !project )
@@ -367,4 +376,10 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
     return false;
 
   return QgsWkbTypes::hasM( layer->wkbType() );
+}
+
+FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression )
+{
+  const QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
+  return FeatureIterator( layer, request );
 }

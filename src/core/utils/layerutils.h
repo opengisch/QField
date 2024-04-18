@@ -26,6 +26,50 @@ class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
 
+class FeatureIterator
+{
+    Q_GADGET
+
+  public:
+    FeatureIterator( QgsVectorLayer *layer = nullptr, const QgsFeatureRequest &request = QgsFeatureRequest() )
+    {
+      if ( layer )
+      {
+        mFeatureIterator = layer->getFeatures( request );
+      }
+    }
+
+    Q_INVOKABLE bool hasNext()
+    {
+      if ( !mHasNextChecked )
+      {
+        mHasNext = mFeatureIterator.nextFeature( mCurrentFeature );
+        mHasNextChecked = true;
+      }
+      return mHasNext;
+    }
+
+    Q_INVOKABLE QgsFeature next()
+    {
+      if ( !mHasNextChecked )
+      {
+        mFeatureIterator.nextFeature( mCurrentFeature );
+      }
+      else
+      {
+        mHasNextChecked = false;
+      }
+      return mCurrentFeature;
+    }
+
+  private:
+    QgsFeatureIterator mFeatureIterator;
+    QgsFeature mCurrentFeature;
+
+    bool mHasNext = false;
+    bool mHasNextChecked = false;
+};
+
 class LayerUtils : public QObject
 {
     Q_OBJECT
@@ -69,6 +113,12 @@ class LayerUtils : public QObject
     static QgsFeature duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
 
     /**
+     * Adds a \a feature into the \a layer.
+     * \note The function will not call startEditing() and commitChanges()
+     */
+    Q_INVOKABLE static bool addFeature( QgsVectorLayer *layer, QgsFeature feature );
+
+    /**
      * Returns the QVariant typeName of a \a field.
      * This is a stable identifier (compared to the provider field name).
      */
@@ -78,6 +128,11 @@ class LayerUtils : public QObject
      * Returns TRUE if the vector \a layer geometry has an M value.
      */
     Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );
+
+    /**
+     * Returns a feature request to get features.
+     */
+    Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
 };
 
 #endif // LAYERUTILS_H

@@ -373,15 +373,19 @@ void QgisMobileapp::initDeclarative()
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
+  qRegisterMetaType<QgsFeatureRequest>( "QgsFeatureRequest" );
+  qRegisterMetaType<QgsFeatureIterator>( "QgsFeatureIterator" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
   qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
+  qRegisterMetaType<QgsFeatureIds>( "QgsFeatureIds" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
   qRegisterMetaType<QgsPolymorphicRelation>( "QgsPolymorphicRelation" );
+  qRegisterMetaType<QgsFields>( "QgsFields" );
   qRegisterMetaType<QgsField>( "QgsField" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
@@ -425,6 +429,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<Positioning::ElevationCorrectionMode>( "Positioning::ElevationCorrectionMode" );
 
   qmlRegisterType<MultiFeatureListModel>( "org.qfield", 1, 0, "MultiFeatureListModel" );
+  qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "FeatureIterator" );
   qmlRegisterType<FeatureListModel>( "org.qfield", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qfield", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListExtentController>( "org.qfield", 1, 0, "FeaturelistExtentController" );

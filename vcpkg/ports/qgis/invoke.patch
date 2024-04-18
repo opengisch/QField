@@ -1,0 +1,286 @@
+diff --git a/python/PyQt6/core/auto_generated/qgsfields.sip.in b/python/PyQt6/core/auto_generated/qgsfields.sip.in
+index 2a3168fa393..2df5fa580d3 100644
+--- a/python/PyQt6/core/auto_generated/qgsfields.sip.in
++++ b/python/PyQt6/core/auto_generated/qgsfields.sip.in
+@@ -28,6 +28,9 @@ In addition to storing a list of :py:class:`QgsField` instances, it also:
+ %TypeHeaderCode
+ #include "qgsfields.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+   public:
+ 
+     enum FieldOrigin /BaseType=IntEnum/
+@@ -289,7 +292,7 @@ name of the field.
+ .. seealso:: :py:func:`lookupField`
+ %End
+ 
+-    int lookupField( const QString &fieldName ) const;
++     int lookupField( const QString &fieldName ) const;
+ %Docstring
+ Looks up field's index from the field name.
+ This method matches in the following order:
+diff --git a/python/PyQt6/core/auto_generated/vector/qgsvectorlayer.sip.in b/python/PyQt6/core/auto_generated/vector/qgsvectorlayer.sip.in
+index 169b1823725..f67099d84c9 100644
+--- a/python/PyQt6/core/auto_generated/vector/qgsvectorlayer.sip.in
++++ b/python/PyQt6/core/auto_generated/vector/qgsvectorlayer.sip.in
+@@ -1991,7 +1991,7 @@ Deletes a list of attribute fields (but does not commit it)
+     virtual bool addFeatures( QgsFeatureList &features, QgsFeatureSink::Flags flags = QgsFeatureSink::Flags() ) ${SIP_FINAL};
+ 
+ 
+-    bool deleteFeature( QgsFeatureId fid, DeleteContext *context = 0 );
++    bool deleteFeature( QgsFeatureId fid, QgsVectorLayer::DeleteContext *context = 0 );
+ %Docstring
+ Deletes a feature from the layer (but does not commit it).
+ 
+@@ -2006,7 +2006,7 @@ Deletes a feature from the layer (but does not commit it).
+    changes can be discarded by calling :py:func:`~QgsVectorLayer.rollBack`.
+ %End
+ 
+-    bool deleteFeatures( const QgsFeatureIds &fids, DeleteContext *context = 0 );
++    bool deleteFeatures( const QgsFeatureIds &fids, QgsVectorLayer::DeleteContext *context = 0 );
+ %Docstring
+ Deletes a set of features from the layer (but does not commit it)
+ 
+diff --git a/python/core/auto_generated/qgsfields.sip.in b/python/core/auto_generated/qgsfields.sip.in
+index b898d911e6a..f94f5c453b7 100644
+--- a/python/core/auto_generated/qgsfields.sip.in
++++ b/python/core/auto_generated/qgsfields.sip.in
+@@ -28,6 +28,9 @@ In addition to storing a list of :py:class:`QgsField` instances, it also:
+ %TypeHeaderCode
+ #include "qgsfields.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+   public:
+ 
+     enum FieldOrigin
+@@ -289,7 +292,7 @@ name of the field.
+ .. seealso:: :py:func:`lookupField`
+ %End
+ 
+-    int lookupField( const QString &fieldName ) const;
++     int lookupField( const QString &fieldName ) const;
+ %Docstring
+ Looks up field's index from the field name.
+ This method matches in the following order:
+diff --git a/python/core/auto_generated/vector/qgsvectorlayer.sip.in b/python/core/auto_generated/vector/qgsvectorlayer.sip.in
+index 169b1823725..f67099d84c9 100644
+--- a/python/core/auto_generated/vector/qgsvectorlayer.sip.in
++++ b/python/core/auto_generated/vector/qgsvectorlayer.sip.in
+@@ -1991,7 +1991,7 @@ Deletes a list of attribute fields (but does not commit it)
+     virtual bool addFeatures( QgsFeatureList &features, QgsFeatureSink::Flags flags = QgsFeatureSink::Flags() ) ${SIP_FINAL};
+ 
+ 
+-    bool deleteFeature( QgsFeatureId fid, DeleteContext *context = 0 );
++    bool deleteFeature( QgsFeatureId fid, QgsVectorLayer::DeleteContext *context = 0 );
+ %Docstring
+ Deletes a feature from the layer (but does not commit it).
+ 
+@@ -2006,7 +2006,7 @@ Deletes a feature from the layer (but does not commit it).
+    changes can be discarded by calling :py:func:`~QgsVectorLayer.rollBack`.
+ %End
+ 
+-    bool deleteFeatures( const QgsFeatureIds &fids, DeleteContext *context = 0 );
++    bool deleteFeatures( const QgsFeatureIds &fids, QgsVectorLayer::DeleteContext *context = 0 );
+ %Docstring
+ Deletes a set of features from the layer (but does not commit it)
+ 
+diff --git a/scripts/sipify.pl b/scripts/sipify.pl
+index e6f842ac504..f7602158bbd 100755
+--- a/scripts/sipify.pl
++++ b/scripts/sipify.pl
+@@ -1755,6 +1755,9 @@ while ($LINE_IDX < $LINE_COUNT){
+     $IS_OVERRIDE_OR_MAKE_PRIVATE = PREPEND_CODE_VIRTUAL if ( $LINE =~ m/\bFINAL\b/);
+     $IS_OVERRIDE_OR_MAKE_PRIVATE = PREPEND_CODE_MAKE_PRIVATE if ( $LINE =~ m/\bSIP_MAKE_PRIVATE\b/);
+ 
++    # remove Q_INVOKABLE
++    $LINE =~ s/^(\s*)Q_INVOKABLE /$1/;
++
+     # keyword fixes
+     do {no warnings 'uninitialized';
+         $LINE =~ s/^(\s*template\s*<)(?:class|typename) (\w+>)(.*)$/$1$2$3/;
+@@ -1861,9 +1864,6 @@ while ($LINE_IDX < $LINE_COUNT){
+         }
+     }
+ 
+-    # remove Q_INVOKABLE
+-    $LINE =~ s/^(\s*)Q_INVOKABLE /$1/;
+-
+     do {no warnings 'uninitialized';
+         # remove keywords
+         if ( $IS_OVERRIDE_OR_MAKE_PRIVATE != PREPEND_CODE_NO ){
+diff --git a/src/core/project/qgsproject.h b/src/core/project/qgsproject.h
+index ca541a2f914..6a8f901f562 100644
+--- a/src/core/project/qgsproject.h
++++ b/src/core/project/qgsproject.h
+@@ -1185,7 +1185,7 @@ class CORE_EXPORT QgsProject : public QObject, public QgsExpressionContextGenera
+      * \see mapLayer()
+      * \see mapLayers()
+      */
+-    QList<QgsMapLayer *> mapLayersByName( const QString &layerName ) const;
++    Q_INVOKABLE QList<QgsMapLayer *> mapLayersByName( const QString &layerName ) const;
+ 
+     /**
+      * Retrieves a list of matching registered layers by layer \a shortName.
+diff --git a/src/core/qgsfeature.h b/src/core/qgsfeature.h
+index aec448b1f3a..2c86a70c4a9 100644
+--- a/src/core/qgsfeature.h
++++ b/src/core/qgsfeature.h
+@@ -337,7 +337,7 @@ class CORE_EXPORT QgsFeature
+      * \returns FALSE, if the field index does not exist
+      * \see setAttributes()
+      */
+-    bool setAttribute( int field, const QVariant &attr );
++    Q_INVOKABLE bool setAttribute( int field, const QVariant &attr );
+ #else
+ 
+     /**
+@@ -589,7 +589,7 @@ class CORE_EXPORT QgsFeature
+      * \returns FALSE if attribute name could not be converted to index
+      * \see setFields()
+      */
+-    bool setAttribute( const QString &name, const QVariant &value );
++    Q_INVOKABLE bool setAttribute( const QString &name, const QVariant &value );
+ #else
+ 
+     /**
+@@ -711,7 +711,7 @@ class CORE_EXPORT QgsFeature
+      * \returns The value of the attribute, or an invalid/null variant if no such name exists
+      * \see setFields
+      */
+-    QVariant attribute( const QString &name ) const;
++    Q_INVOKABLE QVariant attribute( const QString &name ) const;
+ #else
+ 
+     /**
+@@ -739,7 +739,7 @@ class CORE_EXPORT QgsFeature
+      * \throws KeyError if the field is not found
+      * \see setFields
+      */
+-    SIP_PYOBJECT attribute( const QString &name ) const;
++    Q_INVOKABLE SIP_PYOBJECT attribute( const QString &name ) const;
+     % MethodCode
+     int fieldIdx = sipCpp->fieldNameIndex( *a0 );
+     if ( fieldIdx == -1 )
+diff --git a/src/core/qgsfields.h b/src/core/qgsfields.h
+index 4384248ef4d..975ebdcaf75 100644
+--- a/src/core/qgsfields.h
++++ b/src/core/qgsfields.h
+@@ -43,6 +43,12 @@ class QgsFieldsPrivate;
+  */
+ class CORE_EXPORT  QgsFields
+ {
++    Q_GADGET
++
++    Q_PROPERTY( bool isEmpty READ isEmpty )
++    Q_PROPERTY( int count READ count )
++    Q_PROPERTY( QStringList names READ names )
++
+   public:
+ 
+     enum FieldOrigin
+@@ -173,7 +179,7 @@ class CORE_EXPORT  QgsFields
+      * \param i  Index of the field which needs to be checked
+      * \returns   TRUE if the field exists
+      */
+-    bool exists( int i ) const;
++    Q_INVOKABLE bool exists( int i ) const;
+ 
+ #ifndef SIP_RUN
+     //! Gets field at particular index (must be in range 0..N-1)
+@@ -354,7 +360,7 @@ class CORE_EXPORT  QgsFields
+      * \returns The field index if found or -1 in case it cannot be found.
+      * \see lookupField For a more tolerant alternative.
+      */
+-    int indexFromName( const QString &fieldName ) const;
++    Q_INVOKABLE int indexFromName( const QString &fieldName ) const;
+ 
+     /**
+      * Gets the field index from the field name.
+@@ -367,7 +373,7 @@ class CORE_EXPORT  QgsFields
+      * \returns The field index if found or -1 in case it cannot be found.
+      * \see lookupField For a more tolerant alternative.
+      */
+-    int indexOf( const QString &fieldName ) const;
++    Q_INVOKABLE int indexOf( const QString &fieldName ) const;
+ 
+     /**
+      * Looks up field's index from the field name.
+@@ -382,7 +388,7 @@ class CORE_EXPORT  QgsFields
+      * \returns The field index if found or -1 in case it cannot be found.
+      * \see indexFromName For a more performant and precise but less tolerant alternative.
+      */
+-    int lookupField( const QString &fieldName ) const;
++    Q_INVOKABLE  int lookupField( const QString &fieldName ) const;
+ 
+     /**
+      * Utility function to get list of attribute indexes
+diff --git a/src/core/vector/qgsvectorlayer.h b/src/core/vector/qgsvectorlayer.h
+index 7a9145141a2..3ecfc116e2c 100644
+--- a/src/core/vector/qgsvectorlayer.h
++++ b/src/core/vector/qgsvectorlayer.h
+@@ -405,6 +405,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+     Q_PROPERTY( QgsEditFormConfig editFormConfig READ editFormConfig WRITE setEditFormConfig NOTIFY editFormConfigChanged )
+     Q_PROPERTY( bool readOnly READ isReadOnly WRITE setReadOnly NOTIFY readOnlyChanged )
+     Q_PROPERTY( bool supportsEditing READ supportsEditing NOTIFY supportsEditingChanged )
++    Q_PROPERTY( QgsFields fields READ fields NOTIFY updatedFields )
+ 
+   public:
+ 
+@@ -1143,7 +1144,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * Queries the layer for the feature with the given id.
+      * If there is no such feature, the returned feature will be invalid.
+      */
+-    inline QgsFeature getFeature( QgsFeatureId fid ) const
++    Q_INVOKABLE inline QgsFeature getFeature( QgsFeatureId fid ) const
+     {
+       QgsFeature feature;
+       getFeatures( QgsFeatureRequest( fid ) ).nextFeature( feature );
+@@ -1665,7 +1666,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+     /**
+      * Returns list of attribute indexes. i.e. a list from 0 ... fieldCount()
+      */
+-    inline QgsAttributeList attributeList() const { return mFields.allAttributesList(); }
++    Q_INVOKABLE inline QgsAttributeList attributeList() const { return mFields.allAttributesList(); }
+ 
+     /**
+      * Returns the list of attributes which make up the layer's primary keys.
+@@ -1746,7 +1747,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * \see changeGeometry()
+      * \see updateFeature()
+      */
+-    bool changeAttributeValue( QgsFeatureId fid, int field, const QVariant &newValue, const QVariant &oldValue = QVariant(), bool skipDefaultValues = false );
++    Q_INVOKABLE bool changeAttributeValue( QgsFeatureId fid, int field, const QVariant &newValue, const QVariant &oldValue = QVariant(), bool skipDefaultValues = false );
+ 
+     /**
+      * Changes attributes' values for a feature (but does not immediately
+@@ -1782,7 +1783,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * \see changeAttributeValue()
+      *
+      */
+-    bool changeAttributeValues( QgsFeatureId fid, const QgsAttributeMap &newValues, const QgsAttributeMap &oldValues = QgsAttributeMap(), bool skipDefaultValues = false );
++    Q_INVOKABLE bool changeAttributeValues( QgsFeatureId fid, const QgsAttributeMap &newValues, const QgsAttributeMap &oldValues = QgsAttributeMap(), bool skipDefaultValues = false );
+ 
+     /**
+      * Add an attribute field (but does not commit it)
+@@ -1918,7 +1919,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * to the underlying data provider until a commitChanges() call is made. Any uncommitted
+      * changes can be discarded by calling rollBack().
+      */
+-    bool deleteFeature( QgsFeatureId fid, DeleteContext *context = nullptr );
++    Q_INVOKABLE bool deleteFeature( QgsFeatureId fid, QgsVectorLayer::DeleteContext *context = nullptr );
+ 
+     /**
+      * Deletes a set of features from the layer (but does not commit it)
+@@ -1933,7 +1934,7 @@ class CORE_EXPORT QgsVectorLayer : public QgsMapLayer, public QgsExpressionConte
+      * to the underlying data provider until a commitChanges() call is made. Any uncommitted
+      * changes can be discarded by calling rollBack().
+      */
+-    bool deleteFeatures( const QgsFeatureIds &fids, DeleteContext *context = nullptr );
++    Q_INVOKABLE bool deleteFeatures( const QgsFeatureIds &fids, QgsVectorLayer::DeleteContext *context = nullptr );
+ 
+     /**
+      * Attempts to commit to the underlying data provider any buffered changes made since the

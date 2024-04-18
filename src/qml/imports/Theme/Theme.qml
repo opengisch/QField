@@ -94,14 +94,14 @@ QtObject {
 
       var theme = 'qfield';
 
-      var path = '/themes/' + theme + '/' + ppiName + '/' + name + '.png';
+      var path = 'qrc:/themes/' + theme + '/' + ppiName + '/' + name + '.png';
       return path;
     }
 
     function getThemeVectorIcon(name) {
       var theme = 'qfield';
 
-      var path = '/themes/' + theme + '/nodpi/' + name + '.svg';
+      var path = 'qrc:/themes/' + theme + '/nodpi/' + name + '.svg';
       return path;
     }
 

@@ -144,7 +144,7 @@ VisibilityFadingRow {
   function fillWithPolygon()
   {
     var polygonGeometry = GeometryUtils.polygonFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs)
-    var feature = FeatureUtils.initFeature(featureModel.currentLayer, polygonGeometry)
+    var feature = FeatureUtils.createFeature(featureModel.currentLayer, polygonGeometry)
 
     // Show form
     formPopupLoader.onFeatureSaved.connect(commitRing)
