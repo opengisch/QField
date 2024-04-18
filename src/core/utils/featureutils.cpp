@@ -27,7 +27,7 @@ FeatureUtils::FeatureUtils( QObject *parent )
 {
 }
 
-QgsFeature FeatureUtils::createFeature( QgsVectorLayer *layer, QgsGeometry geometry )
+QgsFeature FeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry )
 {
   QgsFeature f( layer ? layer->fields() : QgsFields() );
   f.setGeometry( geometry );
