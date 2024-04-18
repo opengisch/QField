@@ -84,10 +84,13 @@ int ValueMapModelBase::rowCount( const QModelIndex &parent ) const
 
 QVariant ValueMapModelBase::data( const QModelIndex &index, int role ) const
 {
+  if ( index.isValid() == false )
+    return QVariant();
+
   if ( role == ValueMapModel::KeyRole )
     return mMap.at( index.row() ).first;
-  else
-    return mMap.at( index.row() ).second;
+
+  return mMap.at( index.row() ).second;
 }
 
 QHash<int, QByteArray> ValueMapModelBase::roleNames() const

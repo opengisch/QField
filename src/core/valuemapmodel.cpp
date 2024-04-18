@@ -49,3 +49,11 @@ QVariant ValueMapModel::keyForValue( const QString &value ) const
 {
   return mSourceModel->keyForValue( value );
 }
+
+bool ValueMapModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+{
+  QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
+
+  QVariant data = sourceModel()->data( index, ValueRole );
+  return data.toString().contains( filterRegularExpression() );
+}

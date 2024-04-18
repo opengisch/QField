@@ -70,6 +70,9 @@ class ValueMapModel : public QSortFilterProxyModel
      */
     Q_INVOKABLE QVariant keyForValue( const QString &value ) const;
 
+  protected:
+    bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
+
   signals:
     /**
      * Emitted when the map changes.
