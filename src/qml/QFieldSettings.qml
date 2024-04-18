@@ -478,7 +478,6 @@ Page {
                           color: Theme.mainTextColor
                           wrapMode: Text.WordWrap
                           Layout.fillWidth: true
-                          Layout.topMargin: 5
 
                           MouseArea {
                               anchors.fill: parent

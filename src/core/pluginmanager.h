@@ -31,7 +31,7 @@ class PluginInformation
     Q_PROPERTY( QString icon READ icon )
 
   public:
-    PluginInformation( const QString uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &icon = QString(), const QString &path = QString() )
+    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &icon = QString(), const QString &path = QString() )
       : mUuid( uuid )
       , mName( name )
       , mDescription( description )
@@ -76,8 +76,14 @@ class PluginManager : public QObject
     Q_INVOKABLE void denyRequestedPluginPermission( bool permanent = false );
     Q_INVOKABLE void clearPluginPermissions();
 
-    Q_INVOKABLE void refreshAppPlugins();
     QList<PluginInformation> availableAppPlugins() const;
+
+    Q_INVOKABLE void enableAppPlugin( const QString &uuid );
+    Q_INVOKABLE void disableAppPlugin( const QString &uuid );
+    Q_INVOKABLE bool isAppPluginEnabled( const QString &uuid ) const;
+
+    void refreshAppPlugins();
+    void restoreAppPlugins();
 
     static QString findProjectPlugin( const QString &projectPath );
 
@@ -94,7 +100,7 @@ class PluginManager : public QObject
 
     QString mPermissionRequestPluginPath;
 
-    QList<PluginInformation> mAvailableAppPlugins;
+    QMap<QString, PluginInformation> mAvailableAppPlugins;
 };
 
 #endif // PLUGINMANAGER_H

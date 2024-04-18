@@ -144,6 +144,24 @@ void PluginManager::clearPluginPermissions()
   settings.endGroup();
 }
 
+void PluginManager::restoreAppPlugins()
+{
+  QSettings settings;
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
+  const QStringList pluginKeys = settings.childGroups();
+  for ( const QString &pluginKey : pluginKeys )
+  {
+    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
+    {
+      const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
+      if ( mAvailableAppPlugins.contains( uuid ) )
+      {
+        loadPlugin( mAvailableAppPlugins[uuid].path(), mAvailableAppPlugins[uuid].name() );
+      }
+    }
+  }
+}
+
 void PluginManager::refreshAppPlugins()
 {
   mAvailableAppPlugins.clear();
@@ -172,7 +190,7 @@ void PluginManager::refreshAppPlugins()
           author = metadata.value( "author" ).toString();
           icon = metadata.value( "icon" ).toString();
         }
-        mAvailableAppPlugins << PluginInformation( candidate.fileName(), name, description, author, icon, path );
+        mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, icon, path ) );
       }
     }
   }
@@ -182,7 +200,51 @@ void PluginManager::refreshAppPlugins()
 
 QList<PluginInformation> PluginManager::availableAppPlugins() const
 {
-  return mAvailableAppPlugins;
+  return mAvailableAppPlugins.values();
+}
+
+void PluginManager::enableAppPlugin( const QString &uuid )
+{
+  if ( mAvailableAppPlugins.contains( uuid ) )
+  {
+    if ( !mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
+    {
+      QSettings settings;
+      QString pluginKey = mAvailableAppPlugins[uuid].path();
+      pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+      settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+      settings.setValue( QStringLiteral( "permissionGranted" ), true );
+      settings.setValue( QStringLiteral( "userEnabled" ), true );
+      settings.setValue( QStringLiteral( "uuid" ), uuid );
+      settings.endGroup();
+
+      loadPlugin( mAvailableAppPlugins[uuid].path(), mAvailableAppPlugins[uuid].name() );
+    }
+  }
+}
+
+void PluginManager::disableAppPlugin( const QString &uuid )
+{
+  if ( mAvailableAppPlugins.contains( uuid ) )
+  {
+    if ( mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
+    {
+      QSettings settings;
+      QString pluginKey = mAvailableAppPlugins[uuid].path();
+      pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+      settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+      settings.setValue( QStringLiteral( "permissionGranted" ), false );
+      settings.setValue( QStringLiteral( "userEnabled" ), false );
+      settings.endGroup();
+
+      unloadPlugin( mAvailableAppPlugins[uuid].path() );
+    }
+  }
+}
+
+bool PluginManager::isAppPluginEnabled( const QString &uuid ) const
+{
+  return mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() );
 }
 
 QString PluginManager::findProjectPlugin( const QString &projectPath )
