@@ -27,7 +27,6 @@ import org.qgis 1.0
 import org.qfield 1.0
 
 import Theme 1.0
-import QFieldControls 1.0
 
 ApplicationWindow {
   id: mainWindow

@@ -8,6 +8,7 @@
         <file>BookmarkRenderer.qml</file>
         <file>BrowserPanel.qml</file>
         <file>BusyOverlay.qml</file>
+        <file>CodeReader.qml</file>
         <file>ConfirmationToolbar.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
@@ -28,6 +29,8 @@
         <file>PositioningSettings.qml</file>
         <file>PositioningInformationView.qml</file>
         <file>PositioningPreciseView.qml</file>
+        <file>QFieldAudioRecorder.qml</file>
+        <file>QFieldCamera.qml</file>
         <file>QFieldSettings.qml</file>
         <file>ScaleBar.qml</file>
         <file>SensorInformationView.qml</file>
@@ -81,12 +84,9 @@
         <file>imports/Theme/QfSwitch.qml</file>
         <file>imports/Theme/QfTextField.qml</file>
         <file>imports/Theme/QfCollapsibleMessage.qml</file>
+        <file>imports/Theme/QfSlider.qml</file>
+        <file>imports/Theme/QfCalendarPanel.qml</file>
         <file>imports/Theme/qmldir</file>
-        <file>imports/QFieldControls/qmldir</file>
-        <file>imports/QFieldControls/CodeReader.qml</file>
-        <file>imports/QFieldControls/CalendarPanel.qml</file>
-        <file>imports/QFieldControls/QFieldAudioRecorder.qml</file>
-        <file>imports/QFieldControls/QFieldCamera.qml</file>
         <file>PageHeader.qml</file>
         <file>TrackerSettings.qml</file>
         <file>TrackingSession.qml</file>
@@ -101,6 +101,5 @@
         <file>QFieldCloudPackageLayersFeedback.qml</file>
         <file>QFieldLocalDataPickerScreen.qml</file>
         <file>QFieldSketcher.qml</file>
-        <file>imports/Theme/QfSlider.qml</file>
     </qresource>
 </RCC>

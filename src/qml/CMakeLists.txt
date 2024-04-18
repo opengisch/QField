@@ -30,14 +30,9 @@ file(GLOB qfield_qmlfiles_editorwidgets
 file(GLOB qfield_qmlfiles_theme
      "${CMAKE_SOURCE_DIR}/src/qml/imports/Theme/*.qml")
 
-list(
-  APPEND
-  qfield_qmlfiles
-  ${qfield_qmlfiles_geometryeditors}
-  ${qfield_qmlfiles_editorwidgets}
-  ${qfield_qmlfiles_theme}
-  ${qfield_qmlfiles_theme_extra}
-  ${qfield_qmlfiles_qfieldcontrols})
+list(APPEND qfield_qmlfiles ${qfield_qmlfiles_geometryeditors}
+     ${qfield_qmlfiles_editorwidgets} ${qfield_qmlfiles_theme}
+     ${qfield_qmlfiles_theme_extra})
 
 set_property(TARGET qfield_qml PROPERTY QML_FILES ${qfield_qmlfiles})
 
