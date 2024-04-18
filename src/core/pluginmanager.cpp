@@ -38,7 +38,9 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
   if ( !skipPermissionCheck )
   {
     QSettings settings;
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginPath ) );
+    QString pluginKey = pluginPath;
+    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
     const QStringList keys = settings.childKeys();
     if ( keys.contains( QStringLiteral( "permissionGranted" ) ) )
     {
@@ -104,7 +106,9 @@ void PluginManager::grantRequestedPluginPermission( bool permanent )
   if ( permanent )
   {
     QSettings settings;
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( mPermissionRequestPluginPath ) );
+    QString pluginKey = mPermissionRequestPluginPath;
+    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
     settings.setValue( QStringLiteral( "permissionGranted" ), true );
     settings.endGroup();
   }
@@ -118,12 +122,26 @@ void PluginManager::denyRequestedPluginPermission( bool permanent )
   if ( permanent )
   {
     QSettings settings;
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( mPermissionRequestPluginPath ) );
+    QString pluginKey = mPermissionRequestPluginPath;
+    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
     settings.setValue( QStringLiteral( "permissionGranted" ), false );
     settings.endGroup();
   }
 
   mPermissionRequestPluginPath.clear();
+}
+
+void PluginManager::clearPluginPermissions()
+{
+  QSettings settings;
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
+  const QStringList pluginKeys = settings.childGroups();
+  for ( const QString &pluginKey : pluginKeys )
+  {
+    settings.remove( QStringLiteral( "%1/permissionGranted" ).arg( pluginKey ) );
+  }
+  settings.endGroup();
 }
 
 void PluginManager::refreshAppPlugins()
