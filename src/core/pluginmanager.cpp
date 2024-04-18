@@ -132,14 +132,17 @@ void PluginManager::denyRequestedPluginPermission( bool permanent )
   mPermissionRequestPluginPath.clear();
 }
 
-void PluginManager::clearPluginPermissions()
+void PluginManager::clearProjectPluginPermissions()
 {
   QSettings settings;
   settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
   const QStringList pluginKeys = settings.childGroups();
   for ( const QString &pluginKey : pluginKeys )
   {
-    settings.remove( QStringLiteral( "%1/permissionGranted" ).arg( pluginKey ) );
+    if ( settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString().isEmpty() )
+    {
+      settings.remove( QStringLiteral( "%1/permissionGranted" ).arg( pluginKey ) );
+    }
   }
   settings.endGroup();
 }
