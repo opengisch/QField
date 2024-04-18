@@ -24,9 +24,16 @@ class PluginInformation
 {
     Q_GADGET
 
+    Q_PROPERTY( QString uuid READ uuid )
+    Q_PROPERTY( QString name READ name )
+    Q_PROPERTY( QString description READ description )
+    Q_PROPERTY( QString author READ author )
+    Q_PROPERTY( QString icon READ icon )
+
   public:
-    PluginInformation( const QString &name, const QString &description, const QString &author, const QString &icon, const QString &path )
-      : mName( name )
+    PluginInformation( const QString uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &icon = QString(), const QString &path = QString() )
+      : mUuid( uuid )
+      , mName( name )
       , mDescription( description )
       , mAuthor( author )
       , mIcon( icon )
@@ -34,6 +41,7 @@ class PluginInformation
     {}
     ~PluginInformation() = default;
 
+    QString uuid() const { return mUuid; }
     QString name() const { return mName; }
     QString description() const { return mDescription; }
     QString author() const { return mAuthor; }
@@ -41,6 +49,7 @@ class PluginInformation
     QString path() const { return mPath; }
 
   private:
+    QString mUuid;
     QString mName;
     QString mDescription;
     QString mAuthor;
@@ -48,9 +57,13 @@ class PluginInformation
     QString mPath;
 };
 
+Q_DECLARE_METATYPE( PluginInformation )
+
 class PluginManager : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY( QList<PluginInformation> availableAppPlugins READ availableAppPlugins NOTIFY availableAppPluginsChanged )
 
   public:
     explicit PluginManager( QQmlEngine *engine );
@@ -62,13 +75,14 @@ class PluginManager : public QObject
     Q_INVOKABLE void grantRequestedPluginPermission( bool permanent = false );
     Q_INVOKABLE void denyRequestedPluginPermission( bool permanent = false );
 
-    void refreshAppPlugins();
-    QList<PluginInformation> availableAppPlugins();
+    Q_INVOKABLE void refreshAppPlugins();
+    QList<PluginInformation> availableAppPlugins() const;
 
     static QString findProjectPlugin( const QString &projectPath );
 
   signals:
     void pluginPermissionRequested( const QString &pluginName );
+    void availableAppPluginsChanged();
 
   private slots:
     void handleWarnings( const QList<QQmlError> &warnings );

@@ -154,10 +154,17 @@ void PluginManager::refreshAppPlugins()
           author = metadata.value( "author" ).toString();
           icon = metadata.value( "icon" ).toString();
         }
-        mAvailableAppPlugins << PluginInformation( name, description, author, icon, path );
+        mAvailableAppPlugins << PluginInformation( candidate.fileName(), name, description, author, icon, path );
       }
     }
   }
+
+  emit availableAppPluginsChanged();
+}
+
+QList<PluginInformation> PluginManager::availableAppPlugins() const
+{
+  return mAvailableAppPlugins;
 }
 
 QString PluginManager::findProjectPlugin( const QString &projectPath )

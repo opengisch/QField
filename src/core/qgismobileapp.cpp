@@ -510,6 +510,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
+  qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );

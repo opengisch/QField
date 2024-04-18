@@ -1255,6 +1255,14 @@ ApplicationWindow {
       parent: Overlay.overlay
   }
 
+  PluginManagerSettings {
+      id: pluginManagerSettings
+
+      modal: true
+      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+      parent: Overlay.overlay
+  }
+
   QfDropShadow {
     anchors.fill: locatorItem
     visible: locatorItem.searchFieldVisible
