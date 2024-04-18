@@ -31,41 +31,18 @@ Popup {
     Page {
         width: parent.width
         padding: 10
-        header: ToolBar {
-            id: toolBar
+        header: PageHeader {
+          id: pageHeader
+          title: qsTr( "Bookmark Properties" )
 
-            background: Rectangle {
-                color: "transparent"
-                height: 48
-            }
+          showBackButton: false
+          showApplyButton: false
+          showCancelButton: true
+          backgroundFill: false
 
-            RowLayout {
-                width: parent.width
-                height: 48
-
-                Label {
-                    Layout.leftMargin: 48
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignVCenter
-                    text: qsTr('Bookmark Properties')
-                    font: Theme.strongFont
-                    color: Theme.mainColor
-                    horizontalAlignment: Text.AlignHCenter
-                    wrapMode: Text.WordWrap
-                }
-
-                QfToolButton {
-                    id: closeButton
-                    Layout.alignment: Qt.AlignVCenter
-                    iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
-                    iconColor: Theme.mainTextColor
-                    bgcolor: "transparent"
-
-                    onClicked: {
-                        bookmarkProperties.close();
-                    }
-                }
-            }
+          onCancel: {
+            bookmarkProperties.close()
+          }
         }
 
         ColumnLayout {

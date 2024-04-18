@@ -8,6 +8,8 @@ import Theme 1.0
 ToolBar {
   property alias title: titleLabel.text
 
+  property bool backgroundFill: true
+
   property alias showBackButton: backButton.visible
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
@@ -32,7 +34,7 @@ ToolBar {
 
   background: Rectangle {
     id: backgroundRect
-    color: Theme.mainColor
+    color: backgroundFill ? Theme.mainColor : "transparent"
 
     ProgressBar {
       id: busyIndicator
@@ -112,7 +114,7 @@ ToolBar {
       leftPadding: !showApplyButton && showCancelButton ? 48: 0
       rightPadding: (showApplyButton || showBackButton) && !showCancelButton ? 48: 0
       font: Theme.strongFont
-      color: Theme.light
+      color: backgroundFill ? Theme.light : Theme.mainColor
       elide: Label.ElideRight
       horizontalAlignment: Qt.AlignHCenter
       verticalAlignment: Qt.AlignVCenter

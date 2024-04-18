@@ -21,15 +21,16 @@ Popup {
     width: parent.width
     height: parent.height
     padding: 10
-    header:PageHeader {
+    header: PageHeader {
       id: pageHeader
       title: qsTr( "Plugins" )
 
-      showBackButton: true
+      showBackButton: false
       showApplyButton: false
-      showCancelButton: false
+      showCancelButton: true
+      backgroundFill: false
 
-      onBack: {
+      onCancel: {
         popup.close()
       }
     }
@@ -65,7 +66,7 @@ Popup {
         delegate: Rectangle {
           id: rectangle
           width: parent.width
-          height: inner.height
+          height: inner.height + 10
           color: "transparent"
 
           GridLayout {
@@ -86,11 +87,12 @@ Popup {
                 Layout.preferredHeight: 24
 
                 source: Icon !== '' ? 'file://' + Icon : ''
+                fillMode: Image.PreserveAspectFit
+                mipmap: true
               }
 
               Label {
                 Layout.fillWidth: true
-                leftPadding: 4
                 text: Name
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
