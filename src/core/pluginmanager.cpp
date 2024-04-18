@@ -188,7 +188,10 @@ void PluginManager::refreshAppPlugins()
           name = metadata.value( "name", candidate.fileName() ).toString();
           description = metadata.value( "description" ).toString();
           author = metadata.value( "author" ).toString();
-          icon = metadata.value( "icon" ).toString();
+          if ( !metadata.value( "icon" ).toString().isEmpty() )
+          {
+            icon = QStringLiteral( "%1/%2" ).arg( candidate.absoluteFilePath(), metadata.value( "icon" ).toString() );
+          }
         }
         mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, icon, path ) );
       }
