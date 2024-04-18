@@ -86,11 +86,17 @@ class PluginManager : public QObject
     void refreshAppPlugins();
     void restoreAppPlugins();
 
+    Q_INVOKABLE void installFromUrl( const QString &url );
+
     static QString findProjectPlugin( const QString &projectPath );
 
   signals:
     void pluginPermissionRequested( const QString &pluginName );
     void availableAppPluginsChanged();
+
+    void installTriggered( const QString &name );
+    void installProgress( double progress );
+    void installEnded( const QString &uuid = QString(), const QString &error = QString() );
 
   private slots:
     void handleWarnings( const QList<QQmlError> &warnings );

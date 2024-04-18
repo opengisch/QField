@@ -21,39 +21,16 @@ Popup {
     width: parent.width
     height: parent.height
     padding: 10
-    header: ToolBar {
-      id: toolBar
-      height: 48
+    header:PageHeader {
+      id: pageHeader
+      title: qsTr( "Plugins" )
 
-      background: Rectangle {
-        color: "transparent"
-      }
+      showBackButton: true
+      showApplyButton: false
+      showCancelButton: false
 
-      Label {
-        anchors.centerIn: parent
-        leftPadding: 48
-        rightPadding: 48
-        width: parent.width - 20
-        text: qsTr( "Plugins" )
-        font: Theme.strongFont
-        color: Theme.mainColor
-        horizontalAlignment: Text.AlignHCenter
-        wrapMode: Text.WordWrap
-      }
-
-      QfToolButton {
-        id: closeButton
-        anchors {
-          top: parent.top
-          right: parent.right
-        }
-        iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
-        iconColor: Theme.mainTextColor
-        bgcolor: "transparent"
-
-        onClicked: {
-          popup.close();
-        }
+      onBack: {
+        popup.close()
       }
     }
 
@@ -173,7 +150,7 @@ Popup {
         text: qsTr("Install plugin from URL")
 
         onClicked: {
-          pluginManager.clearProjectPluginPermissions()
+          installFromUrlDialog.open()
         }
       }
 
@@ -190,11 +167,90 @@ Popup {
     }
   }
 
-  Component.onCompleted: {
+  Dialog {
+    id: installFromUrlDialog
+    title: "Install Plugin from URL"
+    parent: mainWindow.contentItem
+    focus: true
+    font: Theme.defaultFont
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height - 80 ) / 2
+
+    onAboutToShow: {
+      installFromUrlInput.text = ''
+    }
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: installFromUrlLabelMetrics
+        font: installFromUrlLabel.font
+        text: installFromUrlLabel.text
+      }
+
+      Label {
+        id: installFromUrlLabel
+        width: mainWindow.width - 60 < installFromUrlLabelMetrics.width ? mainWindow.width - 60 : installFromUrlLabelMetrics.width
+        text: qsTr("Type a URL below to download and install a plugin:")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      QfTextField {
+        id: installFromUrlInput
+        width: installFromUrlLabel.width
+      }
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      pluginManager.installFromUrl(installFromUrlInput.text)
+    }
+  }
+
+  Connections {
+    target: pluginManager
+
+    function onInstallTriggered(name) {
+      pageHeader.busyIndicatorState = "on"
+      pageHeader.busyIndicatorValue = 0
+
+      displayToast(qsTr("Installing %1").arg(name))
+    }
+
+    function onInstallProgress(progress) {
+      pageHeader.busyIndicatorValue = progress
+    }
+
+    function onInstallEnded(uuid, error) {
+      pageHeader.busyIndicatorState = "off"
+
+      if (uuid !== '') {
+        pluginManager.enableAppPlugin(uuid)
+      } else {
+        displayToast(qsTr('Plugin installation failed: '+error, 'error'))
+      }
+    }
+
+    function onAvailableAppPluginsChanged() {
+      refreshAppPluginsList()
+    }
+  }
+
+  function refreshAppPluginsList() {
     pluginsList.model.clear()
 
     for (const plugin of pluginManager.availableAppPlugins) {
       pluginsList.model.append({"Uuid":plugin.uuid, "Name":plugin.name, "Description":plugin.description, "Author":plugin.author, "Icon": plugin.icon})
     }
+  }
+
+  Component.onCompleted: {
+    refreshAppPluginsList()
   }
 }

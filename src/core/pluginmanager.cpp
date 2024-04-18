@@ -16,14 +16,17 @@
 
 #include "platformutilities.h"
 #include "pluginmanager.h"
+#include "ziputils.h"
 
 #include <QDir>
 #include <QFileInfo>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
 #include <QQmlContext>
+#include <QRegularExpression>
 #include <QSettings>
 #include <qgsmessagelog.h>
+#include <qgsnetworkaccessmanager.h>
 
 PluginManager::PluginManager( QQmlEngine *engine )
   : QObject( engine )
@@ -251,6 +254,111 @@ void PluginManager::disableAppPlugin( const QString &uuid )
 bool PluginManager::isAppPluginEnabled( const QString &uuid ) const
 {
   return mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() );
+}
+
+void PluginManager::installFromUrl( const QString &url )
+{
+  QString sanitizedUrl = url.trimmed();
+  if ( sanitizedUrl.isEmpty() )
+    return;
+
+  if ( !sanitizedUrl.contains( QRegularExpression( "^([a-z][a-z0-9+\\-.]*):" ) ) )
+  {
+    // Prepend HTTPS when the URL scheme is missing instead of assured failure
+    sanitizedUrl = QStringLiteral( "https://%1" ).arg( sanitizedUrl );
+  }
+
+  QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
+  QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
+
+  emit installTriggered( request.url().fileName() );
+
+  QNetworkReply *reply = manager->get( request );
+  connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
+    if ( bytesTotal != 0 )
+    {
+      emit installProgress( static_cast<double>( bytesReceived ) / bytesTotal );
+    }
+  } );
+
+  connect( reply, &QNetworkReply::finished, this, [=]() {
+    const QString dataDir = PlatformUtilities::instance()->appDataDirs().at( 0 );
+    QString error;
+    if ( !dataDir.isEmpty() && reply->error() == QNetworkReply::NoError )
+    {
+      QString fileName = reply->url().fileName();
+      QString contentDisposition = reply->header( QNetworkRequest::ContentDispositionHeader ).toString();
+      if ( !contentDisposition.isEmpty() )
+      {
+        QRegularExpression rx( QStringLiteral( "filename=\"?([^\";]*)\"?" ) );
+        QRegularExpressionMatch match = rx.match( contentDisposition );
+        if ( match.hasMatch() )
+        {
+          fileName = match.captured( 1 );
+        }
+      }
+
+      QFileInfo fileInfo = QFileInfo( fileName );
+      const QString fileSuffix = fileInfo.completeSuffix().toLower();
+      if ( fileSuffix == QLatin1String( "zip" ) )
+      {
+        QString filePath = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, fileName );
+        QDir( QFileInfo( filePath ).absolutePath() ).mkpath( "." );
+        QFile file( filePath );
+        if ( file.open( QIODevice::WriteOnly ) )
+        {
+          const QByteArray data = reply->readAll();
+          file.write( data );
+          file.close();
+
+          QStringList zipFiles = ZipUtils::files( filePath );
+          if ( zipFiles.contains( QStringLiteral( "main.qml" ) ) )
+          {
+            QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, fileInfo.completeBaseName() );
+            if ( pluginDirectory.exists() )
+            {
+              pluginDirectory.removeRecursively();
+            }
+            pluginDirectory.mkpath( "." );
+            if ( ZipUtils::unzip( filePath, pluginDirectory.absolutePath(), zipFiles, false ) )
+            {
+              file.remove();
+
+              refreshAppPlugins();
+              emit installEnded( pluginDirectory.dirName() );
+
+              return;
+            }
+            else
+            {
+              pluginDirectory.removeRecursively();
+              error = tr( "The downloaded zip file could not be decompressed" );
+            }
+          }
+          else
+          {
+            error = tr( "The downloaded zip file does not contain the required main.qml plugin file" );
+          }
+          file.remove();
+        }
+        else
+        {
+          error = tr( "Can't save the downloaded file" );
+        }
+      }
+      else
+      {
+        error = tr( "Download file is not an zipped plugin" );
+      }
+    }
+    else
+    {
+      error = tr( "Network error" );
+    }
+
+    emit installEnded( QString(), error );
+  } );
 }
 
 QString PluginManager::findProjectPlugin( const QString &projectPath )

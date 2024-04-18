@@ -13,6 +13,7 @@ ToolBar {
   property alias showCancelButton: cancelButton.visible
 
   property alias busyIndicatorState: busyIndicator.state
+  property alias busyIndicatorValue: busyIndicator.value
 
   property double topMargin: 0.0
 
@@ -40,7 +41,7 @@ ToolBar {
       width: parent.width
       height: 6
       value: 50
-      indeterminate: true
+      indeterminate: value == 0 ? true : false
 
       state: "off"
 
