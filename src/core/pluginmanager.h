@@ -20,6 +20,34 @@
 #include <QObject>
 #include <QQmlEngine>
 
+class PluginInformation
+{
+    Q_GADGET
+
+  public:
+    PluginInformation( const QString &name, const QString &description, const QString &author, const QString &icon, const QString &path )
+      : mName( name )
+      , mDescription( description )
+      , mAuthor( author )
+      , mIcon( icon )
+      , mPath( path )
+    {}
+    ~PluginInformation() = default;
+
+    QString name() const { return mName; }
+    QString description() const { return mDescription; }
+    QString author() const { return mAuthor; }
+    QString icon() const { return mIcon; }
+    QString path() const { return mPath; }
+
+  private:
+    QString mName;
+    QString mDescription;
+    QString mAuthor;
+    QString mIcon;
+    QString mPath;
+};
+
 class PluginManager : public QObject
 {
     Q_OBJECT
@@ -34,6 +62,9 @@ class PluginManager : public QObject
     Q_INVOKABLE void grantRequestedPluginPermission( bool permanent = false );
     Q_INVOKABLE void denyRequestedPluginPermission( bool permanent = false );
 
+    void refreshAppPlugins();
+    QList<PluginInformation> availableAppPlugins();
+
     static QString findProjectPlugin( const QString &projectPath );
 
   signals:
@@ -47,6 +78,8 @@ class PluginManager : public QObject
     QMap<QString, QPointer<QObject>> mLoadedPlugins;
 
     QString mPermissionRequestPluginPath;
+
+    QList<PluginInformation> mAvailableAppPlugins;
 };
 
 #endif // PLUGINMANAGER_H

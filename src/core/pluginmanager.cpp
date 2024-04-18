@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
 #include "pluginmanager.h"
 
 #include <QDir>
@@ -29,6 +30,7 @@ PluginManager::PluginManager( QQmlEngine *engine )
   , mEngine( engine )
 {
   connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
+  refreshAppPlugins();
 }
 
 void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck )
@@ -122,6 +124,40 @@ void PluginManager::denyRequestedPluginPermission( bool permanent )
   }
 
   mPermissionRequestPluginPath.clear();
+}
+
+void PluginManager::refreshAppPlugins()
+{
+  mAvailableAppPlugins.clear();
+
+  const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+  for ( QString dataDir : dataDirs )
+  {
+    QDir pluginsDir( dataDir += QStringLiteral( "plugins" ) );
+    const QList<QFileInfo> candidates = pluginsDir.entryInfoList( QDir::Dirs | QDir::NoDotAndDotDot );
+    for ( const QFileInfo &candidate : candidates )
+    {
+      const QString path = QStringLiteral( "%1/main.qml" ).arg( candidate.absoluteFilePath() );
+      if ( QFileInfo::exists( path ) )
+      {
+        QString name = candidate.fileName();
+        QString description;
+        QString author;
+        QString icon;
+
+        const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
+        if ( QFileInfo::exists( metadataPath ) )
+        {
+          QSettings metadata( metadataPath, QSettings::IniFormat );
+          name = metadata.value( "name", candidate.fileName() ).toString();
+          description = metadata.value( "description" ).toString();
+          author = metadata.value( "author" ).toString();
+          icon = metadata.value( "icon" ).toString();
+        }
+        mAvailableAppPlugins << PluginInformation( name, description, author, icon, path );
+      }
+    }
+  }
 }
 
 QString PluginManager::findProjectPlugin( const QString &projectPath )
