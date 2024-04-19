@@ -120,7 +120,7 @@ function(create_executable)
   endif()
 
   if(WITH_VCPKG) # this triggers the initialisation of static qca ossl plugin.
-    target_compile_definitions(${exe_TARGET} PUBLIC HAVE_STATIC_QCA_PLUGINS)
+#    target_compile_definitions(${exe_TARGET} PUBLIC HAVE_STATIC_QCA_PLUGINS)
   endif()
 
   set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
