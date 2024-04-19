@@ -65,7 +65,11 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
     unloadPlugin( pluginPath );
   }
 
-  QQmlComponent component( mEngine, pluginPath, this );
+  // Bypass caching to insure updated QML content is loaded
+  QUrl url = QUrl::fromLocalFile( pluginPath );
+  url.setQuery( QStringLiteral( "t=%1" ).arg( QDateTime::currentSecsSinceEpoch() ) );
+
+  QQmlComponent component( mEngine, url, this );
   if ( component.status() == QQmlComponent::Status::Error )
   {
     for ( const QQmlError &error : component.errors() )
