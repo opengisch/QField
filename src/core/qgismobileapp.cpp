@@ -92,6 +92,7 @@
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
 #include "projectsource.h"
+#include "projectutils.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudprojectsmodel.h"
@@ -522,6 +523,7 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
   REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
   REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
+  REGISTER_SINGLETON( "org.qfield", ProjectUtils, "ProjectUtils" );
   REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qfield", 1, 0, "AppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );
