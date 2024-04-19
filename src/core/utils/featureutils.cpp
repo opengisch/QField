@@ -20,18 +20,27 @@
 #include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
-
+#include <qgsvectorlayerutils.h>
 
 FeatureUtils::FeatureUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
+QgsFeature FeatureUtils::createBlankFeature( const QgsFields &fields, const QgsGeometry &geometry )
+{
+  QgsFeature feature( fields );
+  feature.setGeometry( geometry );
+  return feature;
+}
+
 QgsFeature FeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry )
 {
-  QgsFeature f( layer ? layer->fields() : QgsFields() );
-  f.setGeometry( geometry );
-  return f;
+  QgsFeature feature;
+  QgsAttributeMap attributes;
+  QgsExpressionContext context = layer->createExpressionContext();
+  feature = QgsVectorLayerUtils::createFeature( layer, geometry, attributes, &context );
+  return feature;
 }
 
 QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feature )
