@@ -1,9 +1,9 @@
 import QtQuick 2.14
-import Qt.labs.settings 1.0 as LabSettings
+import QtCore
 
 import org.qfield 1.0
 
-LabSettings.Settings {
+Settings {
     property bool positioningActivated: false
     property bool positioningCoordinateLock: false
 

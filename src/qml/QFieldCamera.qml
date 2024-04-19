@@ -4,7 +4,6 @@ import QtQuick.Shapes
 import QtQuick.Window
 import QtMultimedia
 import QtCore
-import Qt.labs.settings
 
 import org.qfield 1.0
 

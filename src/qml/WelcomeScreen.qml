@@ -3,7 +3,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Controls.Material.impl 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Particles 2.14
-import Qt.labs.settings 1.0
+import QtCore
 
 import org.qfield 1.0
 import Theme 1.0

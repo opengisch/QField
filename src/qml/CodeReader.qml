@@ -4,7 +4,6 @@ import QtQuick.Layouts
 import QtQuick.Shapes
 import QtMultimedia
 import QtCore
-import Qt.labs.settings 1.0
 
 import org.qfield 1.0
 
