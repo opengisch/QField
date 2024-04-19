@@ -160,10 +160,10 @@ Popup {
         id: clearPermissionsButton
         Layout.fillWidth: true
 
-        text: qsTr("Clear project permissions")
+        text: qsTr("Clear remembered permissions")
 
         onClicked: {
-          pluginManager.clearProjectPluginPermissions()
+          pluginManager.clearPluginPermissions()
         }
       }
     }

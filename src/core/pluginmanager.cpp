@@ -113,6 +113,10 @@ void PluginManager::grantRequestedPluginPermission( bool permanent )
     pluginKey.replace( QChar( '/' ), QChar( '_' ) );
     settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
     settings.setValue( QStringLiteral( "permissionGranted" ), true );
+    if ( !settings.value( QStringLiteral( "uuid" ) ).toString().isEmpty() )
+    {
+      settings.setValue( QStringLiteral( "userEnabled" ), true );
+    }
     settings.endGroup();
   }
 
@@ -135,14 +139,14 @@ void PluginManager::denyRequestedPluginPermission( bool permanent )
   mPermissionRequestPluginPath.clear();
 }
 
-void PluginManager::clearProjectPluginPermissions()
+void PluginManager::clearPluginPermissions()
 {
   QSettings settings;
   settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
   const QStringList pluginKeys = settings.childGroups();
   for ( const QString &pluginKey : pluginKeys )
   {
-    if ( settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString().isEmpty() )
+    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
     {
       settings.remove( QStringLiteral( "%1/permissionGranted" ).arg( pluginKey ) );
     }
@@ -222,9 +226,11 @@ void PluginManager::enableAppPlugin( const QString &uuid )
       QString pluginKey = mAvailableAppPlugins[uuid].path();
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
-      settings.setValue( QStringLiteral( "permissionGranted" ), true );
-      settings.setValue( QStringLiteral( "userEnabled" ), true );
       settings.setValue( QStringLiteral( "uuid" ), uuid );
+      if ( settings.value( QStringLiteral( "permissionGranted" ), false ).toBool() )
+      {
+        settings.setValue( QStringLiteral( "userEnabled" ), true );
+      }
       settings.endGroup();
 
       loadPlugin( mAvailableAppPlugins[uuid].path(), mAvailableAppPlugins[uuid].name() );
@@ -242,7 +248,6 @@ void PluginManager::disableAppPlugin( const QString &uuid )
       QString pluginKey = mAvailableAppPlugins[uuid].path();
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
-      settings.setValue( QStringLiteral( "permissionGranted" ), false );
       settings.setValue( QStringLiteral( "userEnabled" ), false );
       settings.endGroup();
 

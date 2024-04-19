@@ -75,7 +75,7 @@ class PluginManager : public QObject
     Q_INVOKABLE void grantRequestedPluginPermission( bool permanent = false );
     Q_INVOKABLE void denyRequestedPluginPermission( bool permanent = false );
 
-    Q_INVOKABLE void clearProjectPluginPermissions();
+    Q_INVOKABLE void clearPluginPermissions();
 
     QList<PluginInformation> availableAppPlugins() const;
 
