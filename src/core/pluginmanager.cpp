@@ -94,6 +94,15 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
   }
 }
 
+void PluginManager::unloadPlugins()
+{
+  const QStringList loadedPluginPaths = mLoadedPlugins.keys();
+  for ( const QString &loadedPluginPath : loadedPluginPaths )
+  {
+    unloadPlugin( loadedPluginPath );
+  }
+}
+
 void PluginManager::handleWarnings( const QList<QQmlError> &warnings )
 {
   for ( const QQmlError &warning : warnings )
@@ -324,6 +333,9 @@ void PluginManager::installFromUrl( const QString &url )
           QStringList zipFiles = ZipUtils::files( filePath );
           if ( zipFiles.contains( QStringLiteral( "main.qml" ) ) )
           {
+            // Insure no previous version is running
+            disableAppPlugin( fileInfo.completeBaseName() );
+
             QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, fileInfo.completeBaseName() );
             if ( pluginDirectory.exists() )
             {

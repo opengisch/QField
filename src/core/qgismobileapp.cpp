@@ -1429,6 +1429,8 @@ QgisMobileapp::~QgisMobileapp()
 {
   saveProjectPreviewImage();
 
+  mPluginManager->unloadPlugins();
+
   delete mOfflineEditing;
   mProject->clear();
   delete mProject;

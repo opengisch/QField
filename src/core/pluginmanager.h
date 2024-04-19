@@ -72,6 +72,8 @@ class PluginManager : public QObject
     void loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck = false );
     void unloadPlugin( const QString &pluginPath );
 
+    void unloadPlugins();
+
     Q_INVOKABLE void grantRequestedPluginPermission( bool permanent = false );
     Q_INVOKABLE void denyRequestedPluginPermission( bool permanent = false );
 
