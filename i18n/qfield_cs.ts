@@ -375,19 +375,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Hodin</translation>
+        <translation type="vanished">Hodin</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minut</translation>
+        <translation type="vanished">Minut</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Vteřin</translation>
+        <translation type="vanished">Vteřin</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -3113,6 +3113,25 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Chyba otevírání archivu zip: &apos;%1&apos; (kód chyby: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>Hodin</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Minut</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Vteřin</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>

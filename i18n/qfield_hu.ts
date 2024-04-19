@@ -375,19 +375,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Óra</translation>
+        <translation type="vanished">Óra</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Perc</translation>
+        <translation type="vanished">Perc</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Másodperc</translation>
+        <translation type="vanished">Másodperc</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -3104,6 +3104,25 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Hiba a zip archive megnyitása során: &apos;%1&apos; (Hibakód: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>Óra</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Perc</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Másodperc</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>

@@ -375,19 +375,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Godzin</translation>
+        <translation type="vanished">Godzin</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minut</translation>
+        <translation type="vanished">Minut</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Sekund</translation>
+        <translation type="vanished">Sekund</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -3114,6 +3114,25 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Błąd otwierania archiwum zip: &quot;%1&quot; (kod błędu: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>Godzin</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Minut</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Sekund</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>

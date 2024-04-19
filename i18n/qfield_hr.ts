@@ -375,19 +375,19 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Sati</translation>
+        <translation type="vanished">Sati</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minute</translation>
+        <translation type="vanished">Minute</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Sekunde</translation>
+        <translation type="vanished">Sekunde</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -3108,6 +3108,25 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Greška - otvaranje zip arhiva: &apos;%1&apos; (Kôd greške: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>Sati</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Minute</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Sekunde</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>

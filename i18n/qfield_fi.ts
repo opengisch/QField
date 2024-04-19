@@ -375,19 +375,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Tunnit</translation>
+        <translation type="vanished">Tunnit</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minuutit</translation>
+        <translation type="vanished">Minuutit</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Sekuntit</translation>
+        <translation type="vanished">Sekuntit</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -3112,6 +3112,25 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Virhe avattaessa ZIP-pakkausta: &apos;%1&apos; (Virhe koodi: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>Tunnit</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Minuutit</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Sekuntit</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>

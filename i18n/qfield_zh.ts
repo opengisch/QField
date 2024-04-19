@@ -375,19 +375,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>时</translation>
+        <translation type="vanished">时</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>分</translation>
+        <translation type="vanished">分</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>秒</translation>
+        <translation type="vanished">秒</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>确定</translation>
+        <translation type="vanished">确定</translation>
     </message>
 </context>
 <context>
@@ -3108,6 +3108,25 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>打开ZIP归档文件时出错: &apos;%1&apos; (错误代码: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>时</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>分</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>秒</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>确定</translation>
     </message>
 </context>
 <context>

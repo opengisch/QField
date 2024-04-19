@@ -375,19 +375,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>hodín</translation>
+        <translation type="vanished">hodín</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>minút</translation>
+        <translation type="vanished">minút</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>sekúnd</translation>
+        <translation type="vanished">sekúnd</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -3113,6 +3113,25 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Chyba pri otváraní zip archívu: &apos;%1&apos; (Chybový kód: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>hodín</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>minút</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>sekúnd</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>

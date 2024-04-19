@@ -376,19 +376,19 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Ore</translation>
+        <translation type="vanished">Ore</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minute</translation>
+        <translation type="vanished">Minute</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Secunde</translation>
+        <translation type="vanished">Secunde</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -3114,6 +3114,25 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>Ore</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Minute</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Secunde</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>

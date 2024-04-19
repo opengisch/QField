@@ -375,19 +375,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>საათი</translation>
+        <translation type="vanished">საათი</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>წუთი</translation>
+        <translation type="vanished">წუთი</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>წამი</translation>
+        <translation type="vanished">წამი</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -3099,6 +3099,25 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation>საათი</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>წუთი</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>წამი</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
