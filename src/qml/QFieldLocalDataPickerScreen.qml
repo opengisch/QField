@@ -14,7 +14,7 @@ Page {
 
   signal finished(var loading)
 
-  header: PageHeader {
+  header: QfPageHeader {
     title: projectFolderView
            ? qsTr("Project Folder")
            : qsTr("Local Projects & Datasets")

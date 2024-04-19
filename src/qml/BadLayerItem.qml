@@ -15,7 +15,7 @@ Page {
   width: mainWindow.width
   height: mainWindow.height
 
-  header: PageHeader {
+  header: QfPageHeader {
     title: qsTr( 'Unable to load some layers' )
 
     showBackButton: false

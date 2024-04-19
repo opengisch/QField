@@ -21,7 +21,7 @@ Popup {
     width: parent.width
     height: parent.height
     padding: 10
-    header: PageHeader {
+    header: QfPageHeader {
       id: pageHeader
       title: qsTr( "Plugins" )
 

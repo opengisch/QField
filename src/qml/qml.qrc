@@ -86,8 +86,8 @@
         <file>imports/Theme/QfCollapsibleMessage.qml</file>
         <file>imports/Theme/QfSlider.qml</file>
         <file>imports/Theme/QfCalendarPanel.qml</file>
+        <file>imports/Theme/QfPageHeader.qml</file>
         <file>imports/Theme/qmldir</file>
-        <file>PageHeader.qml</file>
         <file>TrackerSettings.qml</file>
         <file>TrackingSession.qml</file>
         <file>EmbeddedFeatureForm.qml</file>

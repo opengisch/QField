@@ -29,7 +29,7 @@ Popup {
   Page {
     id: browserContainer
     anchors.fill: parent
-    header: PageHeader {
+    header: QfPageHeader {
       id: pageHeader
       title: browserView && !browserView.loading && browserView.title !== ''
              ? browserView.title

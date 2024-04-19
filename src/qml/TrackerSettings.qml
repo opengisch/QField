@@ -78,7 +78,7 @@ Popup {
     focus: true
     anchors.fill: parent
 
-    header: PageHeader {
+    header: QfPageHeader {
       title: tracker !== undefined && tracker.vectorLayer
              ? qsTr("Tracking: %1").arg(tracker.vectorLayer.name)
              : qsTr("Tracking")

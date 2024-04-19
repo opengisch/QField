@@ -13,7 +13,7 @@ Page {
 
   signal finished
 
-  header: PageHeader {
+  header: QfPageHeader {
       title: qsTr( 'Message Logs' )
 
       showBackButton: true

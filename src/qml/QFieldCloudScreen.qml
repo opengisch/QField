@@ -15,7 +15,7 @@ Page {
 
   property LayerObserver layerObserver
 
-  header: PageHeader {
+  header: QfPageHeader {
       title: qsTr("QFieldCloud Projects")
 
       showBackButton: true

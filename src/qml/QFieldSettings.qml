@@ -1613,7 +1613,7 @@ Page {
     }
   }
 
-  header: PageHeader {
+  header: QfPageHeader {
     title: qsTr("QField Settings")
 
     showBackButton: true
