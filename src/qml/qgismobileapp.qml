@@ -360,7 +360,7 @@ ApplicationWindow {
             if ( hovered ) {
                 hasBeenHovered = true;
             } else {
-                if ( currentRubberband.model.vertexCount > 1 ) {
+                if ( currentRubberband && currentRubberband.model.vertexCount > 1 ) {
                   coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( currentRubberband.model.lastCoordinate )
                 } else {
                   coordinateLocator.sourceLocation = undefined
