@@ -64,4 +64,5 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="operation_unsupported">Toimintoa ei ole tuettu</string>
     <string name="import_operation_unsupported">Laitteesi ei tue tätä tuonti toimintoa</string>
     <string name="export_operation_unsupported">Laitteesi ei tue tätä vienti toimintoa</string>
-    </resources>
+    <string name="processing_message">Prosessoidaan...</string>
+</resources>
