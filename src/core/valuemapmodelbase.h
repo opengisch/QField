@@ -22,37 +22,31 @@
 #include <QAbstractListModel>
 #include <QVariant>
 
-/**
- * A model that manages the key/value pairs for a ValueMap widget.
- */
+//! \copydoc ValueMapModel
 class ValueMapModelBase : public QAbstractListModel
 {
     Q_OBJECT
 
-    /**
-     * A list of QVariantMap, wrapped in a QVariant.
-     *
-     * Like this:
-     *
-     * [{'CH': 'Switzerland'}, {'DE': 'Germany'}, {'FR': 'France'}]
-     */
+    //! \copydoc ValueMapModel::valueMap
     Q_PROPERTY( QVariant valueMap READ map WRITE setMap NOTIFY mapChanged )
 
   public:
     /**
-     * Create a new value map model
+     * Create a new value map model base
      */
     explicit ValueMapModelBase( QObject *parent = nullptr );
 
-    /**
-     * The map, see the property description
-     */
-
+    //! \copydoc ValueMapModel::map
     QVariant map() const;
-    /**
-     * The map, see the property description
-     */
+
+    //! \copydoc ValueMapModel::setMap
     void setMap( const QVariant &map );
+
+    //! \copydoc ValueMapModel::keyToIndex
+    Q_INVOKABLE int keyToIndex( const QVariant &key ) const;
+
+    //! \copydoc ValueMapModel::keyForValue
+    Q_INVOKABLE QVariant keyForValue( const QString &value ) const;
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 
@@ -60,20 +54,8 @@ class ValueMapModelBase : public QAbstractListModel
 
     QHash<int, QByteArray> roleNames() const override;
 
-    /**
-     * Returns the row (index) of a key or -1 if not found.
-     */
-    Q_INVOKABLE int keyToIndex( const QVariant &key ) const;
-
-    /**
-     * Returns the key for a value or an invalid QVariant if not found.
-     */
-    Q_INVOKABLE QVariant keyForValue( const QString &value ) const;
-
   signals:
-    /**
-     * Emitted when the map changes.
-     */
+    //! \copydoc ValueMapModel::mapChanged
     void mapChanged();
 
   private:

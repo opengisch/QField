@@ -20,8 +20,6 @@
 #include "valuemapmodel.h"
 #include "valuemapmodelbase.h"
 
-#include <QDebug>
-
 ValueMapModelBase::ValueMapModelBase( QObject *parent )
   : QAbstractListModel( parent )
 {

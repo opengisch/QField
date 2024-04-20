@@ -24,6 +24,9 @@
 #include <QSortFilterProxyModel>
 
 
+/**
+ * A model that manages the key/value pairs for a ValueMap widget.
+ */
 class ValueMapModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -48,6 +51,9 @@ class ValueMapModel : public QSortFilterProxyModel
 
     Q_ENUM( ValueMapRoles )
 
+    /**
+     * Create a new value map model base
+     */
     explicit ValueMapModel( QObject *parent = nullptr );
 
     /**
