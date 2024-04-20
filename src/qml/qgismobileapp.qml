@@ -3580,21 +3580,7 @@ ApplicationWindow {
 
   BadLayerItem {
     id: badLayersView
-
-    anchors.fill: parent
-    model: BadLayerHandler {
-      project: qgisProject
-
-      onBadLayersFound: {
-        badLayersView.visible = true
-      }
-    }
-
     visible: false
-
-    onFinished: {
-      visible = false
-    }
   }
 
   Item {
