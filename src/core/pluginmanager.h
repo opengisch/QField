@@ -94,7 +94,10 @@ class PluginManager : public QObject
 
   signals:
     void pluginPermissionRequested( const QString &pluginName );
+
     void availableAppPluginsChanged();
+    void appPluginEnabled( const QString &uuid );
+    void appPluginDisabled( const QString &uuid );
 
     void installTriggered( const QString &name );
     void installProgress( double progress );

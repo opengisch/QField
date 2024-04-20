@@ -111,9 +111,10 @@ Popup {
             QfSwitch {
               id: toggleEnabledPlugin
               Layout.preferredWidth: implicitContentWidth
-              checked: pluginManager.isAppPluginEnabled(Uuid)
+              checked: Enabled
 
               onClicked: {
+                Enabled = checked == true
                 if (checked) {
                   pluginManager.enableAppPlugin(Uuid)
                 } else {
@@ -239,6 +240,22 @@ Popup {
       }
     }
 
+    function onAppPluginEnabled(uuid) {
+      for(let i = 0; i < pluginsList.model.count; i++) {
+        if (pluginsList.model.get(i).Uuid === uuid) {
+          pluginsList.model.get(i).Enabled = true
+        }
+      }
+    }
+
+    function onAppPluginDisabled(uuid) {
+      for(let i = 0; i < pluginsList.model.count; i++) {
+        if (pluginsList.model.get(i).Uuid === uuid) {
+          pluginsList.model.get(i).Enabled = false
+        }
+      }
+    }
+
     function onAvailableAppPluginsChanged() {
       refreshAppPluginsList()
     }
@@ -248,7 +265,7 @@ Popup {
     pluginsList.model.clear()
 
     for (const plugin of pluginManager.availableAppPlugins) {
-      pluginsList.model.append({"Uuid":plugin.uuid, "Name":plugin.name, "Description":plugin.description, "Author":plugin.author, "Icon": plugin.icon})
+      pluginsList.model.append({"Uuid":plugin.uuid, "Enabled":pluginManager.isAppPluginEnabled(plugin.uuid), "Name":plugin.name, "Description":plugin.description, "Author":plugin.author, "Icon": plugin.icon})
     }
   }
 

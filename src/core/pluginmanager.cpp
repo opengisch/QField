@@ -38,12 +38,13 @@ PluginManager::PluginManager( QQmlEngine *engine )
 
 void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck )
 {
+  QSettings settings;
+  QString pluginKey = pluginPath;
+  pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+  const QString pluginUuid = settings.value( QStringLiteral( "uuid" ) ).toString();
   if ( !skipPermissionCheck )
   {
-    QSettings settings;
-    QString pluginKey = pluginPath;
-    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
     const QStringList keys = settings.childKeys();
     if ( keys.contains( QStringLiteral( "permissionGranted" ) ) )
     {
@@ -59,6 +60,7 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
       return;
     }
   }
+  settings.endGroup();
 
   if ( mLoadedPlugins.contains( pluginPath ) )
   {
@@ -80,16 +82,33 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
   }
   QObject *object = component.create( mEngine->rootContext() );
   mLoadedPlugins.insert( pluginPath, QPointer<QObject>( object ) );
+
+  if ( !pluginUuid.isEmpty() )
+  {
+    emit appPluginEnabled( pluginUuid );
+  }
 }
 
 void PluginManager::unloadPlugin( const QString &pluginPath )
 {
   if ( mLoadedPlugins.contains( pluginPath ) )
   {
+    QSettings settings;
+    QString pluginKey = pluginPath;
+    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+    const QString pluginUuid = settings.value( QStringLiteral( "uuid" ) ).toString();
+    settings.endGroup();
+
     if ( mLoadedPlugins[pluginPath] )
     {
       mLoadedPlugins[pluginPath]->deleteLater();
-      mLoadedPlugins.remove( pluginPath );
+    }
+    mLoadedPlugins.remove( pluginPath );
+
+    if ( !pluginUuid.isEmpty() )
+    {
+      emit appPluginDisabled( pluginUuid );
     }
   }
 }
@@ -139,14 +158,20 @@ void PluginManager::grantRequestedPluginPermission( bool permanent )
 
 void PluginManager::denyRequestedPluginPermission( bool permanent )
 {
+  QSettings settings;
+  QString pluginKey = mPermissionRequestPluginPath;
+  pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+  const QString pluginUuid = settings.value( QStringLiteral( "uuid" ) ).toString();
   if ( permanent )
   {
-    QSettings settings;
-    QString pluginKey = mPermissionRequestPluginPath;
-    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
     settings.setValue( QStringLiteral( "permissionGranted" ), false );
-    settings.endGroup();
+  }
+  settings.endGroup();
+
+  if ( !pluginUuid.isEmpty() )
+  {
+    emit appPluginDisabled( pluginUuid );
   }
 
   mPermissionRequestPluginPath.clear();
@@ -183,6 +208,7 @@ void PluginManager::restoreAppPlugins()
       }
     }
   }
+  settings.endGroup();
 }
 
 void PluginManager::refreshAppPlugins()
