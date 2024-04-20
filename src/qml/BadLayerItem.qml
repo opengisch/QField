@@ -6,21 +6,26 @@ import org.qfield 1.0
 import Theme 1.0
 
 Page {
+  id: badLayerPage
+
   property alias model: table.model
-  signal finished
+
   padding: 5
 
+  width: mainWindow.width
+  height: mainWindow.height
+
   header: PageHeader {
-      title: qsTr( 'Unable to load some layers' )
+    title: qsTr( 'Unable to load some layers' )
 
-      showBackButton: false
-      showApplyButton: false
-      showCancelButton: true
+    showBackButton: false
+    showApplyButton: false
+    showCancelButton: true
 
-      topMargin: mainWindow.sceneTopMargin
+    topMargin: mainWindow.sceneTopMargin
 
-      onFinished: parent.finished()
-    }
+    onFinished: badLayerPage.visible = false
+  }
 
   ColumnLayout {
     anchors.margins: 8
@@ -30,15 +35,13 @@ Page {
     spacing: 10
 
     Label {
+      Layout.fillWidth: true
+      Layout.fillHeight: false
+
       text: qsTr( "The following layers could not be loaded, please review those and reconfigure the QGIS project." )
       font: Theme.defaultFont
       color: Theme.mainTextColor
-
       wrapMode: Text.WordWrap
-      Layout.fillWidth: true
-      Layout.fillHeight: true
-      Layout.minimumHeight: contentHeight
-      Layout.maximumHeight: contentHeight
     }
 
     Rectangle {
@@ -55,6 +58,14 @@ Page {
             clip: true
             spacing: 2
             anchors.fill: parent
+
+            model: BadLayerHandler {
+              project: qgisProject
+
+              onBadLayersFound: {
+                badLayerPage.visible = true
+              }
+            }
 
             delegate: Rectangle {
                 id: rectangle
@@ -91,20 +102,17 @@ Page {
     }
 
     Label {
+      Layout.fillWidth: true
+      Layout.fillHeight: false
+      Layout.topMargin: 5
+
       text: qsTr( 'You may check the %1Portable Project%2 documentation page for more help.')
         .arg( "<a href=\"https://docs.qfield.org/how-to/movable-project\">" )
         .arg( "</a>" )
-
       textFormat: Text.RichText
       font: Theme.tipFont
       color: Theme.secondaryTextColor
-
       wrapMode: Text.WordWrap
-      Layout.fillWidth: true
-      Layout.fillHeight: true
-      Layout.minimumHeight: contentHeight
-      Layout.maximumHeight: contentHeight
-      Layout.topMargin: 5
 
       onLinkActivated: (link) => { Qt.openUrlExternally(link) }
     }

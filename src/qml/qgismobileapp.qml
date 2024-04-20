@@ -21,7 +21,7 @@ import QtQuick.Controls.Material 2.14
 import QtQuick.Window 2.14
 import QtQml 2.14
 import QtSensors 5.14
-import Qt.labs.settings 1.0 as LabSettings
+import QtCore
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -60,7 +60,7 @@ ApplicationWindow {
     }
   }
 
-  LabSettings.Settings {
+  Settings {
     property alias x: mainWindow.x
     property alias y: mainWindow.y
     property alias width: mainWindow.width
@@ -360,7 +360,7 @@ ApplicationWindow {
             if ( hovered ) {
                 hasBeenHovered = true;
             } else {
-                if ( currentRubberband.model.vertexCount > 1 ) {
+                if ( currentRubberband && currentRubberband.model.vertexCount > 1 ) {
                   coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( currentRubberband.model.lastCoordinate )
                 } else {
                   coordinateLocator.sourceLocation = undefined
@@ -3580,21 +3580,7 @@ ApplicationWindow {
 
   BadLayerItem {
     id: badLayersView
-
-    anchors.fill: parent
-    model: BadLayerHandler {
-      project: qgisProject
-
-      onBadLayersFound: {
-        badLayersView.visible = true
-      }
-    }
-
     visible: false
-
-    onFinished: {
-      visible = false
-    }
   }
 
   Item {

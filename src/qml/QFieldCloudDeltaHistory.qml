@@ -90,7 +90,7 @@ Popup {
                 id: deltaList
                 width: parent.width
                 height: visible ? mainWindow.height - 160 : 0
-                visible: deltaList.model && deltaList.model.rowCount !== 0
+                visible: deltaList && deltaList.model !== undefined && deltaList.model.rowCount !== 0
                 clip: true
 
                 delegate: Rectangle {
