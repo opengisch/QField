@@ -411,10 +411,19 @@ void PluginManager::installFromUrl( const QString &url )
 QString PluginManager::findProjectPlugin( const QString &projectPath )
 {
   const QFileInfo fi( projectPath );
-  const QString pluginPath = QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName() );
-  if ( QFileInfo::exists( pluginPath ) )
+  const QString completeBaseName = fi.completeBaseName();
+  QStringList possiblePluginPaths = QStringList() << QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), completeBaseName );
+  // Cloud-served projects come with a _cloud suffix, take that into account
+  if ( completeBaseName.endsWith( "_cloud" ) )
   {
-    return pluginPath;
+    possiblePluginPaths << QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName().mid( 0, completeBaseName.size() - 6 ) );
+  }
+  for ( QString &possiblePluginPath : possiblePluginPaths )
+  {
+    if ( QFileInfo::exists( possiblePluginPath ) )
+    {
+      return possiblePluginPath;
+    }
   }
   return QString();
 }
