@@ -16,7 +16,7 @@
 
 #include "platformutilities.h"
 #include "pluginmanager.h"
-#include "ziputils.h"
+#include "qgsziputils.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -356,7 +356,7 @@ void PluginManager::installFromUrl( const QString &url )
           file.write( data );
           file.close();
 
-          QStringList zipFiles = ZipUtils::files( filePath );
+          QStringList zipFiles = QgsZipUtils::files( filePath );
           if ( zipFiles.contains( QStringLiteral( "main.qml" ) ) )
           {
             // Insure no previous version is running
@@ -368,7 +368,7 @@ void PluginManager::installFromUrl( const QString &url )
               pluginDirectory.removeRecursively();
             }
             pluginDirectory.mkpath( "." );
-            if ( ZipUtils::unzip( filePath, pluginDirectory.absolutePath(), zipFiles, false ) )
+            if ( QgsZipUtils::unzip( filePath, pluginDirectory.absolutePath(), zipFiles, false ) )
             {
               file.remove();
 
