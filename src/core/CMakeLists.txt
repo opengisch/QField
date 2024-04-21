@@ -78,6 +78,7 @@ set(QFIELD_CORE_SRCS
     networkmanager.cpp
     networkreply.cpp
     orderedrelationmodel.cpp
+    parametizedimage.cpp
     peliasgeocoder.cpp
     pluginmanager.cpp
     resourcesource.cpp
@@ -190,6 +191,7 @@ set(QFIELD_CORE_HDRS
     networkmanager.h
     networkreply.h
     orderedrelationmodel.h
+    parametizedimage.h
     peliasgeocoder.h
     pluginmanager.h
     resourcesource.h
