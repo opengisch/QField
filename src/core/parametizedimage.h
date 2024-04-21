@@ -26,9 +26,27 @@ class ParametizedImage : public QQuickPaintedItem
 {
     Q_OBJECT
 
+    /**
+     * Returns the current source image.
+     */
     Q_PROPERTY( QString source READ source WRITE setSource NOTIFY sourceChanged )
+
+    /**
+     * Returns the current fill color used to paint an image.
+     * \note Compatible with parametized SVG images only.
+     */
     Q_PROPERTY( QColor fillColor READ fillColor WRITE setFillColor NOTIFY fillColorChanged )
+
+    /**
+     * Returns the current stroke color used to paint an image.
+     * \note Compatible with parametized SVG images only.
+     */
     Q_PROPERTY( QColor strokeColor READ strokeColor WRITE setStrokeColor NOTIFY strokeColorChanged )
+
+    /**
+     * Returns the current stroke width used to paint an image.
+     * \note Compatible with parametized SVG images only.
+     */
     Q_PROPERTY( double strokeWidth READ strokeWidth WRITE setStrokeWidth NOTIFY strokeWidthChanged )
 
   public:
@@ -37,16 +55,24 @@ class ParametizedImage : public QQuickPaintedItem
 
     void paint( QPainter *painter ) override;
 
+    //! \copydoc ParametizedImage::source
     QString source() const;
-    void setSource( const QString &string );
+    //! \copydoc ParametizedImage::source
+    void setSource( const QString &source );
 
+    //! \copydoc ParametizedImage::fillColor
     QColor fillColor() const;
+    //! \copydoc ParametizedImage::fillColor
     void setFillColor( const QColor &color );
 
+    //! \copydoc ParametizedImage::strokeColor
     QColor strokeColor() const;
+    //! \copydoc ParametizedImage::strokeColor
     void setStrokeColor( const QColor &color );
 
+    //! \copydoc ParametizedImage::strokeWidth
     double strokeWidth() const;
+    //! \copydoc ParametizedImage::strokeWidth
     void setStrokeWidth( double width );
 
   signals:
