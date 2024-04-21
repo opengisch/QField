@@ -1130,6 +1130,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
     default:
       return false;
   }
+  BUILTIN_UNREACHABLE
 }
 
 void FlatLayerTreeModelBase::featureCountChanged()

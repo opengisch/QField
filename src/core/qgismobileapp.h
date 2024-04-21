@@ -249,6 +249,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     QgsApplication *mApp;
 };
 
+
 Q_DECLARE_METATYPE( QgsFeatureId )
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 Q_DECLARE_METATYPE( QgsFeatureIds )

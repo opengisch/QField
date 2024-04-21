@@ -205,7 +205,7 @@ QVariantMap AppInterface::availableLanguages() const
       }
       else
       {
-        displayName = locale.nativeLanguageName().toLower() + ( hasCoutryCode ? QStringLiteral( " / %1" ).arg( locale.nativeCountryName() ) : QString() );
+        displayName = locale.nativeLanguageName().toLower() + ( hasCoutryCode ? QStringLiteral( " / %1" ).arg( locale.nativeTerritoryName() ) : QString() );
       }
 
       languages.insert( languageCode, displayName );

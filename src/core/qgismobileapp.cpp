@@ -653,7 +653,6 @@ void QgisMobileapp::onAfterFirstRendering()
     mPluginManager->restoreAppPlugins();
     if ( PlatformUtilities::instance()->hasQgsProject() )
     {
-      PlatformUtilities::instance()->checkWriteExternalStoragePermissions();
       PlatformUtilities::instance()->loadQgsProject();
     }
     else
@@ -923,6 +922,7 @@ void QgisMobileapp::readProjectFile()
         case Qgis::LayerType::PointCloud:
         case Qgis::LayerType::Group:
         case Qgis::LayerType::Plugin:
+        case Qgis::LayerType::TiledScene:
           continue;
           break;
       }

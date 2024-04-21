@@ -185,4 +185,5 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     FlatLayerTreeModelBase *mSourceModel = nullptr;
 };
 
+
 #endif // LAYERTREEMODEL_H
