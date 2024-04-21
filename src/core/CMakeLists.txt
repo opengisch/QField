@@ -13,7 +13,6 @@ set(QFIELD_CORE_SRCS
     utils/snappingutils.cpp
     utils/stringutils.cpp
     utils/urlutils.cpp
-    utils/ziputils.cpp
     qgsquick/qgsquickcoordinatetransformer.cpp
     qgsquick/qgsquickmapcanvasmap.cpp
     qgsquick/qgsquickelevationprofilecanvas.cpp
@@ -123,7 +122,6 @@ set(QFIELD_CORE_HDRS
     utils/snappingutils.h
     utils/stringutils.h
     utils/urlutils.h
-    utils/ziputils.h
     qgsquick/qgsquickcoordinatetransformer.h
     qgsquick/qgsquickmapcanvasmap.h
     qgsquick/qgsquickelevationprofilecanvas.h
