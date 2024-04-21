@@ -19,7 +19,6 @@
 #include "platformutilities.h"
 #include "qfield.h"
 #include "qgismobileapp.h"
-#include "ziputils.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif
@@ -327,7 +326,7 @@ void AppInterface::importUrl( const QString &url )
         if ( fileSuffix == QLatin1String( "zip" ) )
         {
           // Check if this is a compressed project and handle accordingly
-          QStringList zipFiles = ZipUtils::files( filePath );
+          QStringList zipFiles = QgsZipUtils::files( filePath );
           const bool isCompressedProject = std::find_if( zipFiles.begin(),
                                                          zipFiles.end(),
                                                          []( const QString &zipFile ) {
@@ -346,7 +345,7 @@ void AppInterface::importUrl( const QString &url )
             }
             QDir( zipDirectory ).mkpath( "." );
 
-            if ( ZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
+            if ( QgsZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
               file.remove();
               emit importEnded( zipDirectory );
