@@ -56,6 +56,7 @@ void ParametizedImage::setSource( const QString &source )
       mSourceSize = QgsApplication::instance()->svgCache()->svgViewboxSize( mSource, size().width(), QColor( 0, 0, 0 ), QColor( 255, 0, 0 ), 10, 1, 0, true );
     }
   }
+
   if ( mIsValid )
     update();
 }
