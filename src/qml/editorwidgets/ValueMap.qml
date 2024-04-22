@@ -159,7 +159,7 @@ EditorWidgetBase {
       Page {
         anchors.fill: parent
 
-        header: PageHeader {
+        header: QfPageHeader {
           title: fieldLabel
           showBackButton: false
           showApplyButton: false
