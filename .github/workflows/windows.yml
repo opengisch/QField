@@ -90,7 +90,7 @@ jobs:
       - name: 📦 Create SDK
 #        if: github.event_name == 'workflow_dispatch' || github.event_name == 'release'
         run: |
-          ${CMAKE_BUILD_DIR}/_deps/vcpkg-src/vcpkg.exe export --zip --output-dir=./sdk --x-install-root=${CMAKE_BUILD_DIR}/vcpkg_installed
+          ${{ env.CMAKE_BUILD_DIR }}/_deps/vcpkg-src/vcpkg.exe export --zip --output-dir=./sdk --x-install-root=${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed
         
       - name: 📤 Upload sdk
 #        if: github.event_name == 'workflow_dispatch' || github.event_name == 'release'
