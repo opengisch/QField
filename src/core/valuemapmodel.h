@@ -52,7 +52,7 @@ class ValueMapModel : public QSortFilterProxyModel
     Q_ENUM( ValueMapRoles )
 
     /**
-     * Create a new value map model base
+     * Create a new value map model
      */
     explicit ValueMapModel( QObject *parent = nullptr );
 

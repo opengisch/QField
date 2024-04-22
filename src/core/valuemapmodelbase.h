@@ -27,9 +27,6 @@ class ValueMapModelBase : public QAbstractListModel
 {
     Q_OBJECT
 
-    //! \copydoc ValueMapModel::valueMap
-    Q_PROPERTY( QVariant valueMap READ map WRITE setMap NOTIFY mapChanged )
-
   public:
     /**
      * Create a new value map model base
