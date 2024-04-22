@@ -1255,6 +1255,14 @@ ApplicationWindow {
       parent: Overlay.overlay
   }
 
+  PluginManagerSettings {
+      id: pluginManagerSettings
+
+      modal: true
+      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+      parent: Overlay.overlay
+  }
+
   QfDropShadow {
     anchors.fill: locatorItem
     visible: locatorItem.searchFieldVisible
@@ -4043,6 +4051,8 @@ ApplicationWindow {
     x: ( mainWindow.width - width ) / 2
     y: ( mainWindow.height - height ) / 2
 
+    property alias permanent: permanentCheckBox.checked
+
     title: ''
 
     Column {
@@ -4060,11 +4070,13 @@ ApplicationWindow {
     }
 
     onAccepted: {
-      pluginManager.grantRequestedPluginPermission(permanentCheckBox.checked)
+      pluginManager.grantRequestedPluginPermission(permanent)
+      permanent = false
     }
 
     onRejected: {
-      pluginManager.denyRequestedPluginPermission(permanentCheckBox.checked)
+      pluginManager.denyRequestedPluginPermission(permanent)
+      permanent = false
     }
 
     standardButtons: Dialog.Yes | Dialog.No

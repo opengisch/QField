@@ -11,3 +11,4 @@ QfCollapsibleMessage 1.0 QfCollapsibleMessage.qml
 QfDropShadow 1.0 QfDropShadow.qml
 QfOpacityMask 1.0 QfOpacityMask.qml
 QfCalendarPanel 1.0 QfCalendarPanel.qml
+QfPageHeader 1.0 QfPageHeader.qml

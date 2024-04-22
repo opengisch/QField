@@ -12,7 +12,7 @@ Page {
   property string realm
   property var inCancelation
 
-    header: PageHeader {
+    header: QfPageHeader {
         title: qsTr("Login information")
 
         showBackButton: false

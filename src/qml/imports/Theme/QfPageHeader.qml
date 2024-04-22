@@ -8,11 +8,14 @@ import Theme 1.0
 ToolBar {
   property alias title: titleLabel.text
 
+  property bool backgroundFill: true
+
   property alias showBackButton: backButton.visible
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
 
   property alias busyIndicatorState: busyIndicator.state
+  property alias busyIndicatorValue: busyIndicator.value
 
   property double topMargin: 0.0
 
@@ -31,7 +34,7 @@ ToolBar {
 
   background: Rectangle {
     id: backgroundRect
-    color: Theme.mainColor
+    color: backgroundFill ? Theme.mainColor : "transparent"
 
     ProgressBar {
       id: busyIndicator
@@ -40,7 +43,7 @@ ToolBar {
       width: parent.width
       height: 6
       value: 50
-      indeterminate: true
+      indeterminate: value == 0 ? true : false
 
       state: "off"
 
@@ -84,6 +87,7 @@ ToolBar {
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
       iconSource: Theme.getThemeVectorIcon( 'ic_arrow_left_white_24dp' )
+      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
 
       onClicked:
       {
@@ -98,6 +102,7 @@ ToolBar {
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
       iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
 
       onClicked:
       {
@@ -111,7 +116,7 @@ ToolBar {
       leftPadding: !showApplyButton && showCancelButton ? 48: 0
       rightPadding: (showApplyButton || showBackButton) && !showCancelButton ? 48: 0
       font: Theme.strongFont
-      color: Theme.light
+      color: backgroundFill ? Theme.light : Theme.mainColor
       elide: Label.ElideRight
       horizontalAlignment: Qt.AlignHCenter
       verticalAlignment: Qt.AlignVCenter
@@ -124,6 +129,7 @@ ToolBar {
       Layout.alignment: Qt.AlignTop | Qt.AlignRight
       clip: true
       iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
+      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
 
       onClicked: {
         cancel()

@@ -22,7 +22,7 @@ Popup {
         focus: true
         anchors.fill: parent
 
-        header: PageHeader {
+        header: QfPageHeader {
             title: qsTr("What's new in QField")
 
             showApplyButton: false

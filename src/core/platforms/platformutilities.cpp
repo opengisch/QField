@@ -102,6 +102,7 @@ void PlatformUtilities::afterUpdate()
     appDir.mkpath( QStringLiteral( "fonts" ) );
     appDir.mkpath( QStringLiteral( "basemaps" ) );
     appDir.mkpath( QStringLiteral( "logs" ) );
+    appDir.mkpath( QStringLiteral( "plugins" ) );
   }
 }
 

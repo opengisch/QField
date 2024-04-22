@@ -12,7 +12,7 @@ Popup {
   Page {
     anchors.fill: parent
 
-    header: PageHeader {
+    header: QfPageHeader {
       title: qsTr('QFieldCloud')
 
       showBackButton: true

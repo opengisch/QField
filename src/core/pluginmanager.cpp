@@ -14,29 +14,37 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
 #include "pluginmanager.h"
+#include "qgsziputils.h"
 
 #include <QDir>
 #include <QFileInfo>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
 #include <QQmlContext>
+#include <QRegularExpression>
 #include <QSettings>
 #include <qgsmessagelog.h>
+#include <qgsnetworkaccessmanager.h>
 
 PluginManager::PluginManager( QQmlEngine *engine )
   : QObject( engine )
   , mEngine( engine )
 {
   connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
+  refreshAppPlugins();
 }
 
 void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck )
 {
+  QSettings settings;
+  QString pluginKey = pluginPath;
+  pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+  const QString pluginUuid = settings.value( QStringLiteral( "uuid" ) ).toString();
   if ( !skipPermissionCheck )
   {
-    QSettings settings;
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginPath ) );
     const QStringList keys = settings.childKeys();
     if ( keys.contains( QStringLiteral( "permissionGranted" ) ) )
     {
@@ -52,13 +60,18 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
       return;
     }
   }
+  settings.endGroup();
 
   if ( mLoadedPlugins.contains( pluginPath ) )
   {
     unloadPlugin( pluginPath );
   }
 
-  QQmlComponent component( mEngine, pluginPath, this );
+  // Bypass caching to insure updated QML content is loaded
+  QUrl url = QUrl::fromLocalFile( pluginPath );
+  url.setQuery( QStringLiteral( "t=%1" ).arg( QDateTime::currentSecsSinceEpoch() ) );
+
+  QQmlComponent component( mEngine, url, this );
   if ( component.status() == QQmlComponent::Status::Error )
   {
     for ( const QQmlError &error : component.errors() )
@@ -69,17 +82,43 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
   }
   QObject *object = component.create( mEngine->rootContext() );
   mLoadedPlugins.insert( pluginPath, QPointer<QObject>( object ) );
+
+  if ( !pluginUuid.isEmpty() )
+  {
+    emit appPluginEnabled( pluginUuid );
+  }
 }
 
 void PluginManager::unloadPlugin( const QString &pluginPath )
 {
   if ( mLoadedPlugins.contains( pluginPath ) )
   {
+    QSettings settings;
+    QString pluginKey = pluginPath;
+    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+    const QString pluginUuid = settings.value( QStringLiteral( "uuid" ) ).toString();
+    settings.endGroup();
+
     if ( mLoadedPlugins[pluginPath] )
     {
       mLoadedPlugins[pluginPath]->deleteLater();
-      mLoadedPlugins.remove( pluginPath );
     }
+    mLoadedPlugins.remove( pluginPath );
+
+    if ( !pluginUuid.isEmpty() )
+    {
+      emit appPluginDisabled( pluginUuid );
+    }
+  }
+}
+
+void PluginManager::unloadPlugins()
+{
+  const QStringList loadedPluginPaths = mLoadedPlugins.keys();
+  for ( const QString &loadedPluginPath : loadedPluginPaths )
+  {
+    unloadPlugin( loadedPluginPath );
   }
 }
 
@@ -102,8 +141,14 @@ void PluginManager::grantRequestedPluginPermission( bool permanent )
   if ( permanent )
   {
     QSettings settings;
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( mPermissionRequestPluginPath ) );
+    QString pluginKey = mPermissionRequestPluginPath;
+    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
     settings.setValue( QStringLiteral( "permissionGranted" ), true );
+    if ( !settings.value( QStringLiteral( "uuid" ) ).toString().isEmpty() )
+    {
+      settings.setValue( QStringLiteral( "userEnabled" ), true );
+    }
     settings.endGroup();
   }
 
@@ -113,24 +158,272 @@ void PluginManager::grantRequestedPluginPermission( bool permanent )
 
 void PluginManager::denyRequestedPluginPermission( bool permanent )
 {
+  QSettings settings;
+  QString pluginKey = mPermissionRequestPluginPath;
+  pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+  const QString pluginUuid = settings.value( QStringLiteral( "uuid" ) ).toString();
   if ( permanent )
   {
-    QSettings settings;
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( mPermissionRequestPluginPath ) );
     settings.setValue( QStringLiteral( "permissionGranted" ), false );
-    settings.endGroup();
+  }
+  settings.endGroup();
+
+  if ( !pluginUuid.isEmpty() )
+  {
+    emit appPluginDisabled( pluginUuid );
   }
 
   mPermissionRequestPluginPath.clear();
 }
 
+void PluginManager::clearPluginPermissions()
+{
+  QSettings settings;
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
+  const QStringList pluginKeys = settings.childGroups();
+  for ( const QString &pluginKey : pluginKeys )
+  {
+    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
+    {
+      settings.remove( QStringLiteral( "%1/permissionGranted" ).arg( pluginKey ) );
+    }
+  }
+  settings.endGroup();
+}
+
+void PluginManager::restoreAppPlugins()
+{
+  QSettings settings;
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
+  const QStringList pluginKeys = settings.childGroups();
+  for ( const QString &pluginKey : pluginKeys )
+  {
+    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
+    {
+      const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
+      if ( mAvailableAppPlugins.contains( uuid ) )
+      {
+        loadPlugin( mAvailableAppPlugins[uuid].path(), mAvailableAppPlugins[uuid].name() );
+      }
+    }
+  }
+  settings.endGroup();
+}
+
+void PluginManager::refreshAppPlugins()
+{
+  mAvailableAppPlugins.clear();
+
+  const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+  for ( QString dataDir : dataDirs )
+  {
+    QDir pluginsDir( dataDir += QStringLiteral( "plugins" ) );
+    const QList<QFileInfo> candidates = pluginsDir.entryInfoList( QDir::Dirs | QDir::NoDotAndDotDot );
+    for ( const QFileInfo &candidate : candidates )
+    {
+      const QString path = QStringLiteral( "%1/main.qml" ).arg( candidate.absoluteFilePath() );
+      if ( QFileInfo::exists( path ) )
+      {
+        QString name = candidate.fileName();
+        QString description;
+        QString author;
+        QString icon;
+
+        const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
+        if ( QFileInfo::exists( metadataPath ) )
+        {
+          QSettings metadata( metadataPath, QSettings::IniFormat );
+          name = metadata.value( "name", candidate.fileName() ).toString();
+          description = metadata.value( "description" ).toString();
+          author = metadata.value( "author" ).toString();
+          if ( !metadata.value( "icon" ).toString().isEmpty() )
+          {
+            icon = QStringLiteral( "%1/%2" ).arg( candidate.absoluteFilePath(), metadata.value( "icon" ).toString() );
+          }
+        }
+        mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, icon, path ) );
+      }
+    }
+  }
+
+  emit availableAppPluginsChanged();
+}
+
+QList<PluginInformation> PluginManager::availableAppPlugins() const
+{
+  return mAvailableAppPlugins.values();
+}
+
+void PluginManager::enableAppPlugin( const QString &uuid )
+{
+  if ( mAvailableAppPlugins.contains( uuid ) )
+  {
+    if ( !mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
+    {
+      QSettings settings;
+      QString pluginKey = mAvailableAppPlugins[uuid].path();
+      pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+      settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+      settings.setValue( QStringLiteral( "uuid" ), uuid );
+      if ( settings.value( QStringLiteral( "permissionGranted" ), false ).toBool() )
+      {
+        settings.setValue( QStringLiteral( "userEnabled" ), true );
+      }
+      settings.endGroup();
+
+      loadPlugin( mAvailableAppPlugins[uuid].path(), mAvailableAppPlugins[uuid].name() );
+    }
+  }
+}
+
+void PluginManager::disableAppPlugin( const QString &uuid )
+{
+  if ( mAvailableAppPlugins.contains( uuid ) )
+  {
+    if ( mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
+    {
+      QSettings settings;
+      QString pluginKey = mAvailableAppPlugins[uuid].path();
+      pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+      settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+      settings.setValue( QStringLiteral( "userEnabled" ), false );
+      settings.endGroup();
+
+      unloadPlugin( mAvailableAppPlugins[uuid].path() );
+    }
+  }
+}
+
+bool PluginManager::isAppPluginEnabled( const QString &uuid ) const
+{
+  return mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() );
+}
+
+void PluginManager::installFromUrl( const QString &url )
+{
+  QString sanitizedUrl = url.trimmed();
+  if ( sanitizedUrl.isEmpty() )
+    return;
+
+  if ( !sanitizedUrl.contains( QRegularExpression( "^([a-z][a-z0-9+\\-.]*):" ) ) )
+  {
+    // Prepend HTTPS when the URL scheme is missing instead of assured failure
+    sanitizedUrl = QStringLiteral( "https://%1" ).arg( sanitizedUrl );
+  }
+
+  QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
+  QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
+
+  emit installTriggered( request.url().fileName() );
+
+  QNetworkReply *reply = manager->get( request );
+  connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
+    if ( bytesTotal != 0 )
+    {
+      emit installProgress( static_cast<double>( bytesReceived ) / bytesTotal );
+    }
+  } );
+
+  connect( reply, &QNetworkReply::finished, this, [=]() {
+    const QString dataDir = PlatformUtilities::instance()->appDataDirs().at( 0 );
+    QString error;
+    if ( !dataDir.isEmpty() && reply->error() == QNetworkReply::NoError )
+    {
+      QString fileName = reply->url().fileName();
+      QString contentDisposition = reply->header( QNetworkRequest::ContentDispositionHeader ).toString();
+      if ( !contentDisposition.isEmpty() )
+      {
+        QRegularExpression rx( QStringLiteral( "filename=\"?([^\";]*)\"?" ) );
+        QRegularExpressionMatch match = rx.match( contentDisposition );
+        if ( match.hasMatch() )
+        {
+          fileName = match.captured( 1 );
+        }
+      }
+
+      QFileInfo fileInfo = QFileInfo( fileName );
+      const QString fileSuffix = fileInfo.completeSuffix().toLower();
+      if ( fileSuffix == QLatin1String( "zip" ) )
+      {
+        QString filePath = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, fileName );
+        QDir( QFileInfo( filePath ).absolutePath() ).mkpath( "." );
+        QFile file( filePath );
+        if ( file.open( QIODevice::WriteOnly ) )
+        {
+          const QByteArray data = reply->readAll();
+          file.write( data );
+          file.close();
+
+          QStringList zipFiles = QgsZipUtils::files( filePath );
+          if ( zipFiles.contains( QStringLiteral( "main.qml" ) ) )
+          {
+            // Insure no previous version is running
+            disableAppPlugin( fileInfo.completeBaseName() );
+
+            QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, fileInfo.completeBaseName() );
+            if ( pluginDirectory.exists() )
+            {
+              pluginDirectory.removeRecursively();
+            }
+            pluginDirectory.mkpath( "." );
+            if ( QgsZipUtils::unzip( filePath, pluginDirectory.absolutePath(), zipFiles, false ) )
+            {
+              file.remove();
+
+              refreshAppPlugins();
+              emit installEnded( pluginDirectory.dirName() );
+
+              return;
+            }
+            else
+            {
+              pluginDirectory.removeRecursively();
+              error = tr( "The downloaded zip file could not be decompressed" );
+            }
+          }
+          else
+          {
+            error = tr( "The downloaded zip file does not contain the required main.qml plugin file" );
+          }
+          file.remove();
+        }
+        else
+        {
+          error = tr( "Can't save the downloaded file" );
+        }
+      }
+      else
+      {
+        error = tr( "Download file is not an zipped plugin" );
+      }
+    }
+    else
+    {
+      error = tr( "Network error" );
+    }
+
+    emit installEnded( QString(), error );
+  } );
+}
+
 QString PluginManager::findProjectPlugin( const QString &projectPath )
 {
   const QFileInfo fi( projectPath );
-  const QString pluginPath = QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName() );
-  if ( QFileInfo::exists( pluginPath ) )
+  const QString completeBaseName = fi.completeBaseName();
+  QStringList possiblePluginPaths = QStringList() << QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), completeBaseName );
+  // Cloud-served projects come with a _cloud suffix, take that into account
+  if ( completeBaseName.endsWith( "_cloud" ) )
   {
-    return pluginPath;
+    possiblePluginPaths << QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName().mid( 0, completeBaseName.size() - 6 ) );
+  }
+  for ( QString &possiblePluginPath : possiblePluginPaths )
+  {
+    if ( QFileInfo::exists( possiblePluginPath ) )
+    {
+      return possiblePluginPath;
+    }
   }
   return QString();
 }

@@ -22,39 +22,17 @@ Popup {
         width: parent.width
         height: locatorfiltersList.height + 60
         padding: 10
-        header: ToolBar {
-          id: toolBar
-          height: 48
+        header: QfPageHeader {
+          id: pageHeader
+          title: qsTr( "Search Bar Settings" )
 
-          background: Rectangle {
-            color: "transparent"
-          }
+          showBackButton: false
+          showApplyButton: false
+          showCancelButton: true
+          backgroundFill: false
 
-          Label {
-            anchors.centerIn: parent
-            leftPadding: 48
-            rightPadding: 48
-            width: parent.width - 20
-            text: qsTr( "Search Bar Settings" )
-            font: Theme.strongFont
-            color: Theme.mainColor
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-          }
-
-          QfToolButton {
-            id: closeButton
-            anchors {
-              top: parent.top
-              right: parent.right
-            }
-            iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
-            iconColor: Theme.mainTextColor
-            bgcolor: "transparent"
-
-            onClicked: {
-              popup.close();
-            }
+          onCancel: {
+            popup.close()
           }
         }
 

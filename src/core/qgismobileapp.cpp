@@ -92,6 +92,7 @@
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
 #include "projectsource.h"
+#include "projectutils.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudprojectsmodel.h"
@@ -510,6 +511,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
+  qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
@@ -521,6 +523,7 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
   REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
   REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
+  REGISTER_SINGLETON( "org.qfield", ProjectUtils, "ProjectUtils" );
   REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qfield", 1, 0, "AppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );
@@ -645,9 +648,9 @@ void QgisMobileapp::onAfterFirstRendering()
 {
   // This should get triggered exactly once, so we disconnect it right away
   // disconnect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering );
-
   if ( mFirstRenderingFlag )
   {
+    mPluginManager->restoreAppPlugins();
     if ( PlatformUtilities::instance()->hasQgsProject() )
     {
       PlatformUtilities::instance()->checkWriteExternalStoragePermissions();
@@ -1425,6 +1428,8 @@ void QgisMobileapp::saveProjectPreviewImage()
 QgisMobileapp::~QgisMobileapp()
 {
   saveProjectPreviewImage();
+
+  mPluginManager->unloadPlugins();
 
   delete mOfflineEditing;
   mProject->clear();

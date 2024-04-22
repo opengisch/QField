@@ -471,6 +471,35 @@ Page {
                               locatorSettings.focus = true;
                           }
                       }
+
+                      Label {
+                          text: qsTr("Manage plugins")
+                          font: Theme.defaultFont
+                          color: Theme.mainTextColor
+                          wrapMode: Text.WordWrap
+                          Layout.fillWidth: true
+
+                          MouseArea {
+                              anchors.fill: parent
+                              onClicked: showPluginManagerSettings.clicked()
+                          }
+                      }
+
+                      QfToolButton {
+                          id: showPluginManagerSettings
+                          Layout.preferredWidth: 48
+                          Layout.preferredHeight: 48
+                          Layout.alignment: Qt.AlignVCenter
+                          clip: true
+
+                          iconSource: Theme.getThemeIcon( "ic_ellipsis_green_24dp" )
+                          bgcolor: "transparent"
+
+                          onClicked: {
+                              pluginManagerSettings.open();
+                              pluginManagerSettings.focus = true;
+                          }
+                      }
                   }
 
 
@@ -1584,7 +1613,7 @@ Page {
     }
   }
 
-  header: PageHeader {
+  header: QfPageHeader {
     title: qsTr("QField Settings")
 
     showBackButton: true
