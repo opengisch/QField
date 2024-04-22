@@ -16,17 +16,18 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #ifndef VALUEMAPMODEL_H
 #define VALUEMAPMODEL_H
 
-#include <QAbstractListModel>
-#include <QVariant>
+#include "valuemapmodelbase.h"
+
+#include <QSortFilterProxyModel>
+
 
 /**
  * A model that manages the key/value pairs for a ValueMap widget.
  */
-class ValueMapModel : public QAbstractListModel
+class ValueMapModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -39,8 +40,6 @@ class ValueMapModel : public QAbstractListModel
      */
     Q_PROPERTY( QVariant valueMap READ map WRITE setMap NOTIFY mapChanged )
 
-    Q_ENUMS( ValueMapRoles )
-
 
   public:
     //! The roles provided by this model
@@ -49,6 +48,8 @@ class ValueMapModel : public QAbstractListModel
       KeyRole = Qt::UserRole + 1, //!< obtain the key
       ValueRole                   //!< obtain the value
     };
+
+    Q_ENUM( ValueMapRoles )
 
     /**
      * Create a new value map model
@@ -59,16 +60,11 @@ class ValueMapModel : public QAbstractListModel
      * The map, see the property description
      */
     QVariant map() const;
+
     /**
      * The map, see the property description
      */
     void setMap( const QVariant &map );
-
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
-
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
-
-    QHash<int, QByteArray> roleNames() const override;
 
     /**
      * Returns the row (index) of a key or -1 if not found.
@@ -80,6 +76,9 @@ class ValueMapModel : public QAbstractListModel
      */
     Q_INVOKABLE QVariant keyForValue( const QString &value ) const;
 
+  protected:
+    bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
+
   signals:
     /**
      * Emitted when the map changes.
@@ -87,8 +86,7 @@ class ValueMapModel : public QAbstractListModel
     void mapChanged();
 
   private:
-    QList<QPair<QVariant, QString>> mMap;
-    QVariant mConfiguredMap;
+    ValueMapModelBase *mSourceModel = nullptr;
 };
 
 #endif // VALUEMAPMODEL_H

@@ -114,7 +114,7 @@ Item {
             featureListModel.searchTerm = searchField.displayText
           }
 
-          Keys.onPressed: {
+          Keys.onPressed: (event)=> {
             if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
               if (featureListModel.rowCount() === 1) {
                 resultsList.itemAtIndex(0).performClick()
@@ -267,7 +267,7 @@ Item {
             anchors.fill: parent
             propagateComposedEvents: true
 
-            onClicked: {
+            onClicked: (mouse)=> {
               var item = resultsList.itemAt(resultsList.contentX + mouse.x, resultsList.contentY + mouse.y)
               if (!item)
                 return;
@@ -524,7 +524,7 @@ Item {
                 }
 
                 property bool isLastKeyPressedReturn: false
-                Keys.onPressed: {
+                Keys.onPressed: (event)=> {
                     if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
                         if (!isLastKeyPressedReturn) {
                           applyAutoCompletion()
