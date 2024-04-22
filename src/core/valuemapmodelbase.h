@@ -40,10 +40,10 @@ class ValueMapModelBase : public QAbstractListModel
     void setMap( const QVariant &map );
 
     //! \copydoc ValueMapModel::keyToIndex
-    Q_INVOKABLE int keyToIndex( const QVariant &key ) const;
+    int keyToIndex( const QVariant &key ) const;
 
     //! \copydoc ValueMapModel::keyForValue
-    Q_INVOKABLE QVariant keyForValue( const QString &value ) const;
+    QVariant keyForValue( const QString &value ) const;
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 

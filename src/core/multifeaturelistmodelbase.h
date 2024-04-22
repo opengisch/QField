@@ -30,25 +30,16 @@ class MultiFeatureListModelBase : public QAbstractItemModel
   public:
     explicit MultiFeatureListModelBase( QObject *parent = nullptr );
 
-    /**
-     * Resets the model to contain features found from a list of \a requests.
-     */
+    //! \copydoc MultiFeatureListModel::setFeatures
     void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests );
 
-    /**
-     * Appends features from a list of \a results.
-     */
+    //! \copydoc MultiFeatureListModel::appendFeatures
     void appendFeatures( const QList<IdentifyTool::IdentifyResult> &results );
 
-    /**
-     * Resets the model to either an empty feature list or one that contains only the selected features.
-     * \param keepSelected if set to TRUE, selected features will be kept when resetting the model.
-     */
+    //! \copydoc MultiFeatureListModel::clear
     void clear( const bool keepSelected = false );
 
-    /**
-     * Empties the list of selected features.
-     */
+    //! \copydoc MultiFeatureListModel::clearSelection
     void clearSelection();
 
     QHash<int, QByteArray> roleNames() const override;
@@ -68,38 +59,28 @@ class MultiFeatureListModelBase : public QAbstractItemModel
      */
     virtual bool removeRows( int row, int count, const QModelIndex &parent ) override;
 
-    /**
-     * Returns the number of features in the model.
-     */
+    //! \copydoc MultiFeatureListModel::count
     int count() const;
 
-    /**
-     * Returns the number of selected features in the model.
-     */
+    //! \copydoc MultiFeatureListModel::selectedCount
     int selectedCount() const;
 
-    //! Returns TRUE if the selected features can have their attributes value changed
+    //! \copydoc MultiFeatureListModel::canEditAttributesSelection
     bool canEditAttributesSelection();
 
-    //! Returns TRUE if the selected features can be merged
+    //! \copydoc MultiFeatureListModel::canMergeSelection
     bool canMergeSelection();
 
-    //! Returns TRUE if the selected features can be deleted
+    //! \copydoc MultiFeatureListModel::canDeleteSelection
     bool canDeleteSelection();
 
-    //! Returns TRUE if the selected features can be duplicated onto their associated layer
+    //! \copydoc MultiFeatureListModel::canDuplicateSelection
     bool canDuplicateSelection();
 
-    //! Returns TRUE if the selected features' geometry can be moved
+    //! \copydoc MultiFeatureListModel::canMoveSelection
     bool canMoveSelection();
 
-    /**
-     * Merges selected features by updating the first seleted feature's geometry
-     * to a combination (i.e. union) of geometries of all selected features.
-     *
-     * All but the first feature will then be removed from the vector layer containing
-     * the selected features.
-     */
+    //! \copydoc MultiFeatureListModel::mergeSelection
     bool mergeSelection();
 
     /**
@@ -107,41 +88,29 @@ class MultiFeatureListModelBase : public QAbstractItemModel
      *
      * \param layer The layer from which a feature will be removed
      * \param fid The id of the feature to remove
+     * \param selectionAction
      */
     bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionAction = false );
 
-    //! Deletes selected features
+    //! \copydoc MultiFeatureListModel::deleteSelection
     bool deleteSelection();
 
-    /**
-     * Duplicates a feature on a given layer
-     *
-     * \param layer The layer within which the feature will be duplicated
-     * \param feature The feature to be duplicated
-     */
+    //! \copydoc MultiFeatureListModel::duplicateFeature
     bool duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
 
-    //! Duplicates selected features onto their associated layer
+    //! \copydoc MultiFeatureListModel::duplicateSelection
     bool duplicateSelection();
 
-    //! Moves selected features along a given \a vector.
+    //! \copydoc MultiFeatureListModel::moveSelection
     bool moveSelection( const double x, const double y );
 
-    /**
-     * Toggles the selection state of a given item.
-     * \param item the item's row number
-     */
+    //! \copydoc MultiFeatureListModel::toggleSelectedItem
     void toggleSelectedItem( int item );
 
-    /**
-     * Returns the list of currently selected features.
-     * \note the current implementation only allow for selected features from a single layer
-     */
+    //! \copydoc MultiFeatureListModel::selectedFeatures
     QList<QgsFeature> selectedFeatures() const;
 
-    /**
-     * Returns the layer containing the list of currently selected features.
-     */
+    //! \copydoc MultiFeatureListModel::selectedLayer
     QgsVectorLayer *selectedLayer() const;
 
   signals:

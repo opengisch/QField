@@ -28,11 +28,6 @@ class AttributeFormModelBase : public QStandardItemModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
-    Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
-    Q_PROPERTY( bool constraintsHardValid READ constraintsHardValid NOTIFY constraintsHardValidChanged )
-    Q_PROPERTY( bool constraintsSoftValid READ constraintsSoftValid NOTIFY constraintsSoftValidChanged )
-
   public:
     explicit AttributeFormModelBase( QObject *parent = nullptr );
 
@@ -46,22 +41,26 @@ class AttributeFormModelBase : public QStandardItemModel
     bool hasTabs() const;
     void setHasTabs( bool hasTabs );
 
+    //! \copydoc AttributeFormModel::save
     bool save();
 
+    //! \copydoc AttributeFormModel::create
     bool create();
 
+    //! \copydoc AttributeFormModel::deleteFeature
     bool deleteFeature();
 
     bool constraintsHardValid() const;
 
     bool constraintsSoftValid() const;
 
+    //! \copydoc AttributeFormModel::attribute
     QVariant attribute( const QString &name );
 
-    //! Applies feature model data such as attribute values, constraints, visibility to the attribute form model
+    //! \copydoc AttributeFormModel::applyFeatureModel
     void applyFeatureModel();
 
-    //! Applies default values linked to a parent feature
+    //! \copydoc AttributeFormModel::applyParentDefaultValues
     void applyParentDefaultValues();
 
   signals:
