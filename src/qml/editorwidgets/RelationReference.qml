@@ -44,8 +44,7 @@ EditorWidgetBase {
     enabled: isEnabled
     useSearch: true
     allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
-
-    property var _relation: _rel
+    relation: _rel
   }
 
   QfToolButton  {

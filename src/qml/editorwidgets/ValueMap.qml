@@ -125,7 +125,7 @@ EditorWidgetBase {
         iconSource: Theme.getThemeIcon("ic_baseline_search_black")
         iconColor: Theme.mainTextColor
 
-        visible: enabled
+        visible: enabled && comboBox.count > 6 // Make value map searchable only if it contains more than 6 items
 
         onClicked: {
             searchFeaturePopup.open()
@@ -272,7 +272,6 @@ EditorWidgetBase {
                 font: parent.font
                 width: parent.width
                 verticalAlignment: Text.AlignVCenter
-                leftPadding: parent.indicator.width + parent.spacing
                 elide: Text.ElideRight
                 color: searchField.displayText !== '' ? Theme.secondaryTextColor : Theme.mainTextColor
                 textFormat: Text.RichText

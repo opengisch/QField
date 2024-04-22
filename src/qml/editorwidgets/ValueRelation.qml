@@ -32,13 +32,13 @@ EditorWidgetBase {
     attributeField: field
     currentLayer: layerResolver.currentLayer
     currentFormFeature: currentFeature
-    keyField: config['Key']
-    displayValueField: config['Value']
-    groupField: config['Group']
-    displayGroupName: config['DisplayGroupName']
-    addNull: config['AllowNull']
-    orderByValue: config['OrderByValue']
-    filterExpression: config['FilterExpression']
+    keyField: config['Key'] ? config['Key'] : ""
+    displayValueField: config['Value'] ? config['Value'] : ""
+    groupField: config['Group'] ? config['Group'] : ""
+    displayGroupName: config['DisplayGroupName'] ? config['DisplayGroupName'] : ""
+    addNull: config['AllowNull'] ? config['AllowNull'] : ""
+    orderByValue: config['OrderByValue'] ? config['OrderByValue'] : ""
+    filterExpression: config['FilterExpression'] ? config['FilterExpression'] : ""
 
     // passing "" instead of undefined, so the model is cleared on adding new features
     // attributeValue has to be the last property set to make sure its given value is handled properly (e.g. allow multiple)
@@ -53,11 +53,10 @@ EditorWidgetBase {
     id: valueRelationCombobox
     featureListModel: listModel
 
-    property var _relation: undefined
-
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
     visible: Number(config['AllowMulti']) !== 1
+    relation: undefined
   }
 
   Rectangle {
