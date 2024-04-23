@@ -131,10 +131,13 @@ Popup {
 
               Label {
                 Layout.fillWidth: true
-                text: qsTr('Authored by %1').arg(Author) + (Version != "" ? ' (' + Version + ')' : '')
+                text: (Homepage != ''
+                       ? qsTr('Authored by %1%2%3').arg('<a href="' + Homepage + '">').arg(Author).arg('</a>')
+                       : qsTr('Authored by %1').arg(Author)) + (Version != "" ? ' (' + Version + ')' : '')
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
+                onLinkActivated: Qt.openUrlExternally(link)
               }
 
               Label {
@@ -319,7 +322,7 @@ Popup {
     pluginsList.model.clear()
 
     for (const plugin of pluginManager.availableAppPlugins) {
-      pluginsList.model.append({"Uuid":plugin.uuid, "Enabled":pluginManager.isAppPluginEnabled(plugin.uuid), "Name":plugin.name, "Description":plugin.description, "Author":plugin.author, "Icon": plugin.icon, "Version": plugin.version})
+      pluginsList.model.append({"Uuid":plugin.uuid, "Enabled":pluginManager.isAppPluginEnabled(plugin.uuid), "Name":plugin.name, "Description":plugin.description, "Author":plugin.author, "Homepage":plugin.homepage, "Icon": plugin.icon, "Version": plugin.version})
     }
   }
 
