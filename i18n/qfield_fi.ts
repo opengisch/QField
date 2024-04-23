@@ -564,7 +564,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjä</translation>
     </message>
 </context>
 <context>
@@ -626,15 +626,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Ota valokuva</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Tee video</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Nauhoita äänileike</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
@@ -1627,6 +1627,60 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Äänitiedostot (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManager</name>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authored by %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2975,6 +3029,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Advanced</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3072,46 +3130,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>centroid</source>
         <translation>keskiö</translation>
-    </message>
-    <message>
-        <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation>Virhe, ZIP-tiedostoa ei ole olemassa: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error zip filename is empty</source>
-        <translation>Virhe, ZIP-tiedoston tiedostonimi on tyhjä.</translation>
-    </message>
-    <message>
-        <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation>Virhe, tulostiedoston dir-kohdehakemistoa ei ole olemassa:  &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation>Virhe, tulostiedoston dir-kohdehakemisto ei ole kohteessa:  &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation>Virhe, tulostiedoston dir-kohdehakemistoon ei voida tallentaa: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to create a subdirectory %1/%2</source>
-        <translation>Alihakemiston luonti epäonnistui %1/%2</translation>
-    </message>
-    <message>
-        <source>Could not write to %1</source>
-        <translation>Ei voitu tallentaa kohteeseen %1</translation>
-    </message>
-    <message>
-        <source>Error reading file: &apos;%1&apos;</source>
-        <translation>Virhe luettaessa tiedostoa: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error getting files: &apos;%1&apos;</source>
-        <translation>Virhe haettaessa tiedostoa: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation>Virhe avattaessa ZIP-pakkausta: &apos;%1&apos; (Virhe koodi: %2)</translation>
     </message>
 </context>
 <context>
@@ -3759,6 +3777,13 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Etäpalvelin kieltäytyi yhteydestä</translation>
+    </message>
+</context>
+<context>
+    <name>ValueMap</name>
+    <message>
+        <source>Search…</source>
+        <translation>Etsi...</translation>
     </message>
 </context>
 <context>

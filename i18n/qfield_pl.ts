@@ -1634,6 +1634,60 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
 </context>
 <context>
+    <name>PluginManager</name>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>Nie można zdekompresować pobranego pliku zip</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>Pobrany plik zip nie zawiera wymaganego pliku wtyczki main.qml</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>Nie można zapisać pobranego pliku</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>Pobrany plik nie jest spakowaną wtyczką</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>Błąd sieci</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>Wtyczki</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
+        <translation>Nie zainstalowano jeszcze żadnych wtyczek. Aby dowiedzieć się więcej o wtyczkach, %1przeczytaj dokumentację%2.</translation>
+    </message>
+    <message>
+        <source>Authored by %1</source>
+        <translation>Autor: %1</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>Zainstaluj wtyczkę z adresu URL</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>Wyczyść zapamiętane uprawnienia</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>Wpisz poniżej adres URL, aby pobrać i zainstalować wtyczkę:</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>Instalowanie %1</translation>
+    </message>
+</context>
+<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -2977,6 +3031,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Advanced</source>
         <translation>Zaawansowane</translation>
     </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Zarządzaj wtyczkami</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3074,46 +3132,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>centroid</source>
         <translation>centroid</translation>
-    </message>
-    <message>
-        <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation>Błąd, plik zip nie istnieje: &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Error zip filename is empty</source>
-        <translation>Błąd, nazwa pliku zip jest pusta</translation>
-    </message>
-    <message>
-        <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation>Błąd, katalog wyjściowy nie istnieje: &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation>Błąd, katalog wyjściowy nie jest katalogiem: &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation>Błąd, nie można zapisać w katalogu wyjściowym: &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Failed to create a subdirectory %1/%2</source>
-        <translation>Nie udało się utworzyć podkatalogu %1/%2</translation>
-    </message>
-    <message>
-        <source>Could not write to %1</source>
-        <translation>Nie można zapisać do %1</translation>
-    </message>
-    <message>
-        <source>Error reading file: &apos;%1&apos;</source>
-        <translation>Błąd odczytu pliku: &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Error getting files: &apos;%1&apos;</source>
-        <translation>Błąd pobierania plików: &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation>Błąd otwierania archiwum zip: &quot;%1&quot; (kod błędu: %2)</translation>
     </message>
 </context>
 <context>
@@ -3761,6 +3779,13 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Połączenie zostało odrzucone przez zdalny serwer</translation>
+    </message>
+</context>
+<context>
+    <name>ValueMap</name>
+    <message>
+        <source>Search…</source>
+        <translation>Szukaj...</translation>
     </message>
 </context>
 <context>

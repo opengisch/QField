@@ -1628,6 +1628,60 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>PluginManager</name>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>无法解压下载的zip文件</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>下载的zip文件不包含必需的 main.qml 插件文件</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>无法保存下载的文件</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>下载文件不是压缩插件</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>网络错误</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>插件</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
+        <translation>尚未安装任何插件。若要了解有关插件的详细信息，请%1阅读文档%2。</translation>
+    </message>
+    <message>
+        <source>Authored by %1</source>
+        <translation>作者: %1</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>从URL安装插件</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>清除已许可的权限</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>在下面键入URL，下载并安装插件:</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>正在安装 %1</translation>
+    </message>
+</context>
+<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -2971,6 +3025,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Advanced</source>
         <translation>高级</translation>
     </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>管理插件</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3068,46 +3126,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>centroid</source>
         <translation>质心</translation>
-    </message>
-    <message>
-        <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation>错误，ZIP文件不存在: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error zip filename is empty</source>
-        <translation>错误，ZIP文件名为空</translation>
-    </message>
-    <message>
-        <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation>错误，输出目录不存在: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation>错误，输出目录不是目录: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation>错误，输出目录不可写: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to create a subdirectory %1/%2</source>
-        <translation>无法创建子目录 %1/%2</translation>
-    </message>
-    <message>
-        <source>Could not write to %1</source>
-        <translation>无法写入 %1</translation>
-    </message>
-    <message>
-        <source>Error reading file: &apos;%1&apos;</source>
-        <translation>读取文件时出错: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error getting files: &apos;%1&apos;</source>
-        <translation>获取文件时出错: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation>打开ZIP归档文件时出错: &apos;%1&apos; (错误代码: %2)</translation>
     </message>
 </context>
 <context>
@@ -3755,6 +3773,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>远程主机拒绝连接</translation>
+    </message>
+</context>
+<context>
+    <name>ValueMap</name>
+    <message>
+        <source>Search…</source>
+        <translation>搜索…</translation>
     </message>
 </context>
 <context>

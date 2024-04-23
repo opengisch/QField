@@ -1631,6 +1631,60 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
 </context>
 <context>
+    <name>PluginManager</name>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authored by %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -2970,6 +3024,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Advanced</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3067,46 +3125,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>centroid</source>
         <translation>centroïde</translation>
-    </message>
-    <message>
-        <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation>Erreur : le fichier zip &apos;%1&apos; n&apos;existe pas.</translation>
-    </message>
-    <message>
-        <source>Error zip filename is empty</source>
-        <translation>Erreur : le nom du fichier zip est vide</translation>
-    </message>
-    <message>
-        <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation>Erreur : le répertoire de destination &apos;%1&apos; n&apos;existe pas</translation>
-    </message>
-    <message>
-        <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation>Erreur : le répertoire de destination &apos;%1&apos; n&apos;en est pas un</translation>
-    </message>
-    <message>
-        <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation>Erreur : le répertoire de destination &apos;%1&apos; n&apos;est pas modifiable</translation>
-    </message>
-    <message>
-        <source>Failed to create a subdirectory %1/%2</source>
-        <translation>Échec à la création du sous-répertoire %1/%2</translation>
-    </message>
-    <message>
-        <source>Could not write to %1</source>
-        <translation>Impossible d&apos;écrire sur %1</translation>
-    </message>
-    <message>
-        <source>Error reading file: &apos;%1&apos;</source>
-        <translation>Erreur de lecture du fichier &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error getting files: &apos;%1&apos;</source>
-        <translation>Erreur à l&apos;obtention des fichiers &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation>Erreur à l&apos;ouverture de l&apos;archive zip &apos;%1&apos; (code d&apos;erreur : %2)</translation>
     </message>
 </context>
 <context>
@@ -3754,6 +3772,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>La connexion a été refusée par l&apos;hôte distant</translation>
+    </message>
+</context>
+<context>
+    <name>ValueMap</name>
+    <message>
+        <source>Search…</source>
+        <translation>Recherche...</translation>
     </message>
 </context>
 <context>

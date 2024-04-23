@@ -1632,6 +1632,60 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
+    <name>PluginManager</name>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authored by %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -2973,6 +3027,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Advanced</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3070,46 +3128,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>centroid</source>
         <translation>centroide</translation>
-    </message>
-    <message>
-        <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation>Error el archivo zip no existe: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error zip filename is empty</source>
-        <translation>Error el nombre del archivo zip está vacío</translation>
-    </message>
-    <message>
-        <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation>Error el directorio de salida no existe: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation>Error el directorio de salida no es un directorio: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation>No se puede escribir en el directorio de salida de error: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to create a subdirectory %1/%2</source>
-        <translation>Error al crear un subdirectorio %1/%2</translation>
-    </message>
-    <message>
-        <source>Could not write to %1</source>
-        <translation>No se pudo escribir en %1</translation>
-    </message>
-    <message>
-        <source>Error reading file: &apos;%1&apos;</source>
-        <translation>Error al leer el archivo: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error getting files: &apos;%1&apos;</source>
-        <translation>Error al obtener archivos: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation>Error al abrir el archivo zip: &apos;%1&apos; (Código de error: %2)</translation>
     </message>
 </context>
 <context>
@@ -3757,6 +3775,13 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>La conexión fue rechazada por el host remoto</translation>
+    </message>
+</context>
+<context>
+    <name>ValueMap</name>
+    <message>
+        <source>Search…</source>
+        <translation>Buscar…</translation>
     </message>
 </context>
 <context>

@@ -1633,6 +1633,60 @@ Dôvod:
     </message>
 </context>
 <context>
+    <name>PluginManager</name>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authored by %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -2976,6 +3030,10 @@ Zrušiť a spraviť minimálny sken.</translation>
         <source>Advanced</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3073,46 +3131,6 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>centroid</source>
         <translation>centroid</translation>
-    </message>
-    <message>
-        <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation>Chyba - súbor ZIP neexistuje: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error zip filename is empty</source>
-        <translation>Chyba - prázdny názov súboru ZIP</translation>
-    </message>
-    <message>
-        <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation>Chyba - výstupná zložka neexistuje: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation>Chyba - výstupný adresár nie je zložka: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation>Chyba - výstupný adresár je iba na čítanie: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to create a subdirectory %1/%2</source>
-        <translation>Vytvorenie subadresára %1/%2 zlyhalo</translation>
-    </message>
-    <message>
-        <source>Could not write to %1</source>
-        <translation>Zápis do %1 zlyhal</translation>
-    </message>
-    <message>
-        <source>Error reading file: &apos;%1&apos;</source>
-        <translation>Chyba pri zapisovaní súboru: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error getting files: &apos;%1&apos;</source>
-        <translation>Chyba pri získavaní súborov: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation>Chyba pri otváraní zip archívu: &apos;%1&apos; (Chybový kód: %2)</translation>
     </message>
 </context>
 <context>
@@ -3760,6 +3778,13 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Pripojenie bolo zamietnuté vzdialeným hostiteľom</translation>
+    </message>
+</context>
+<context>
+    <name>ValueMap</name>
+    <message>
+        <source>Search…</source>
+        <translation>Hľadať...</translation>
     </message>
 </context>
 <context>
