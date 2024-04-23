@@ -56,7 +56,7 @@
       "features": [
         {
           "name": "ffmpeg",
-          "platform": "linux | android | (window & !static)"
+          "platform": "linux | android | (windows & !static)"
         },
         "qml"
       ]
