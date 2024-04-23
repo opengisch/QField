@@ -272,6 +272,7 @@ EditorWidgetBase {
                 font: parent.font
                 width: parent.width
                 verticalAlignment: Text.AlignVCenter
+                leftPadding: parent.indicator.width + parent.spacing
                 elide: Text.ElideRight
                 color: searchField.displayText !== '' ? Theme.secondaryTextColor : Theme.mainTextColor
                 textFormat: Text.RichText
