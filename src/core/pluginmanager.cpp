@@ -408,6 +408,19 @@ void PluginManager::installFromUrl( const QString &url )
   } );
 }
 
+void PluginManager::uninstall( const QString &uuid )
+{
+  if ( mAvailableAppPlugins.contains( uuid ) )
+  {
+    disableAppPlugin( uuid );
+
+    QFileInfo fi( mAvailableAppPlugins[uuid].path() );
+    fi.absoluteDir().removeRecursively();
+
+    refreshAppPlugins();
+  }
+}
+
 QString PluginManager::findProjectPlugin( const QString &projectPath )
 {
   const QFileInfo fi( projectPath );

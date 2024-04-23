@@ -101,8 +101,11 @@ Popup {
                 MouseArea {
                   anchors.fill: parent
                   onClicked: {
-                    toggleEnabledPlugin.checked = !toggleEnabledPlugin.checked
-                    toggleEnabledPlugin.clicked()
+                    if (!Enabled) {
+                      pluginManager.enableAppPlugin(Uuid)
+                    } else {
+                      pluginManager.disableAppPlugin(Uuid)
+                    }
                   }
                 }
               }
@@ -115,7 +118,7 @@ Popup {
 
               onClicked: {
                 Enabled = checked == true
-                if (checked) {
+                if (Enabled) {
                   pluginManager.enableAppPlugin(Uuid)
                 } else {
                   pluginManager.disableAppPlugin(Uuid)
@@ -140,6 +143,20 @@ Popup {
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
+              }
+
+              Label {
+                Layout.fillWidth: true
+                text: "<a href='delete'>" + qsTr("Uninstall") + "</a>"
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+
+                onLinkActivated: (link) => {
+                                   uninstallConfirmation.pluginName = Name
+                                   uninstallConfirmation.pluginUuid = Uuid
+                                   uninstallConfirmation.open()
+                                 }
               }
             }
           }
@@ -213,6 +230,43 @@ Popup {
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       pluginManager.installFromUrl(installFromUrlInput.text)
+    }
+  }
+
+  Dialog {
+    id: uninstallConfirmation
+    title: "Uninstall Plugin"
+    parent: mainWindow.contentItem
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height - 80 ) / 2
+
+    property string pluginName: ""
+    property string pluginUuid: ""
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: uninstallLabelMetrics
+        font: uninstallLabel.font
+        text: uninstallLabel.text
+      }
+
+      Label {
+        id: uninstallLabel
+        width: mainWindow.width - 60 < uninstallLabelMetrics.width ? mainWindow.width - 60 : uninstallLabelMetrics.width
+        text: qsTr("Are you sure you want to uninstall `%1`?").arg(uninstallConfirmation.pluginName)
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      pluginManager.uninstall(pluginUuid)
     }
   }
 

@@ -89,6 +89,7 @@ class PluginManager : public QObject
     void restoreAppPlugins();
 
     Q_INVOKABLE void installFromUrl( const QString &url );
+    Q_INVOKABLE void uninstall( const QString &uuid );
 
     static QString findProjectPlugin( const QString &projectPath );
 
