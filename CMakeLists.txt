@@ -277,8 +277,14 @@ if(WITH_VCPKG)
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "${CMAKE_INSTALL_DATADIR}/gdal")
 
   if(VCPKG_TARGET_TRIPLET STREQUAL "x64-windows")
-    install(DIRECTORY "${VCPKG_BASE_DIR}/bin/" DESTINATION "${CMAKE_INSTALL_DATADIR}/bin" FILES_MATCHING PATTERN "*.dll")
-    install(DIRECTORY "${VCPKG_BASE_DIR}/Qt6/" DESTINATION "${CMAKE_INSTALL_DATADIR}/bin/Qt6")
+    install(DIRECTORY "${VCPKG_BASE_DIR}/bin/" DESTINATION "${CMAKE_INSTALL_BINDIR}" FILES_MATCHING PATTERN "*.dll")
+    install(DIRECTORY "${VCPKG_BASE_DIR}/Qt6/"
+            DESTINATION "${CMAKE_INSTALL_BINDIR}/Qt6"
+            FILES_MATCHING
+              PATTERN "*.dll"
+              PATTERN "qmldir"
+              PATTERN "*.qmltypes"
+    )
   endif()
 
   add_dependencies(qfield deploy)
