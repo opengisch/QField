@@ -228,7 +228,9 @@ void PluginManager::refreshAppPlugins()
         QString name = candidate.fileName();
         QString description;
         QString author;
+        QString homepage;
         QString icon;
+        QString version;
 
         const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
         if ( QFileInfo::exists( metadataPath ) )
@@ -237,12 +239,23 @@ void PluginManager::refreshAppPlugins()
           name = metadata.value( "name", candidate.fileName() ).toString();
           description = metadata.value( "description" ).toString();
           author = metadata.value( "author" ).toString();
+          homepage = metadata.value( "homepage" ).toString();
+          if ( !homepage.isEmpty() )
+          {
+            // Only tolerate http(s) URLs
+            const QUrl url( homepage );
+            if ( !url.scheme().startsWith( QStringLiteral( "http" ) ) )
+            {
+              homepage.clear();
+            }
+          }
           if ( !metadata.value( "icon" ).toString().isEmpty() )
           {
             icon = QStringLiteral( "%1/%2" ).arg( candidate.absoluteFilePath(), metadata.value( "icon" ).toString() );
           }
+          version = metadata.value( "version" ).toString();
         }
-        mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, icon, path ) );
+        mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, homepage, icon, version, path ) );
       }
     }
   }
@@ -406,6 +419,19 @@ void PluginManager::installFromUrl( const QString &url )
 
     emit installEnded( QString(), error );
   } );
+}
+
+void PluginManager::uninstall( const QString &uuid )
+{
+  if ( mAvailableAppPlugins.contains( uuid ) )
+  {
+    disableAppPlugin( uuid );
+
+    QFileInfo fi( mAvailableAppPlugins[uuid].path() );
+    fi.absoluteDir().removeRecursively();
+
+    refreshAppPlugins();
+  }
 }
 
 QString PluginManager::findProjectPlugin( const QString &projectPath )
