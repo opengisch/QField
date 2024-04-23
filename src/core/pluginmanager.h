@@ -29,14 +29,16 @@ class PluginInformation
     Q_PROPERTY( QString description READ description )
     Q_PROPERTY( QString author READ author )
     Q_PROPERTY( QString icon READ icon )
+    Q_PROPERTY( QString version READ version )
 
   public:
-    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &icon = QString(), const QString &path = QString() )
+    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &icon = QString(), const QString &version = QString(), const QString &path = QString() )
       : mUuid( uuid )
       , mName( name )
       , mDescription( description )
       , mAuthor( author )
       , mIcon( icon )
+      , mVersion( version )
       , mPath( path )
     {}
     ~PluginInformation() = default;
@@ -46,6 +48,7 @@ class PluginInformation
     QString description() const { return mDescription; }
     QString author() const { return mAuthor; }
     QString icon() const { return mIcon; }
+    QString version() const { return mVersion; }
     QString path() const { return mPath; }
 
   private:
@@ -54,6 +57,7 @@ class PluginInformation
     QString mDescription;
     QString mAuthor;
     QString mIcon;
+    QString mVersion;
     QString mPath;
 };
 

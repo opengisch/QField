@@ -131,7 +131,7 @@ Popup {
 
               Label {
                 Layout.fillWidth: true
-                text: qsTr('Authored by %1').arg(Author)
+                text: qsTr('Authored by %1').arg(Author) + (Version != "" ? ' (' + Version + ')' : '')
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
@@ -147,7 +147,7 @@ Popup {
 
               Label {
                 Layout.fillWidth: true
-                text: "<a href='delete'>" + qsTr("Uninstall") + "</a>"
+                text: "<a href='delete'>" + qsTr("Uninstall this plugin") + "</a>"
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
@@ -319,7 +319,7 @@ Popup {
     pluginsList.model.clear()
 
     for (const plugin of pluginManager.availableAppPlugins) {
-      pluginsList.model.append({"Uuid":plugin.uuid, "Enabled":pluginManager.isAppPluginEnabled(plugin.uuid), "Name":plugin.name, "Description":plugin.description, "Author":plugin.author, "Icon": plugin.icon})
+      pluginsList.model.append({"Uuid":plugin.uuid, "Enabled":pluginManager.isAppPluginEnabled(plugin.uuid), "Name":plugin.name, "Description":plugin.description, "Author":plugin.author, "Icon": plugin.icon, "Version": plugin.version})
     }
   }
 

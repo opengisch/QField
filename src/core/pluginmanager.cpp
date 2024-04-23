@@ -229,6 +229,7 @@ void PluginManager::refreshAppPlugins()
         QString description;
         QString author;
         QString icon;
+        QString version;
 
         const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
         if ( QFileInfo::exists( metadataPath ) )
@@ -241,8 +242,9 @@ void PluginManager::refreshAppPlugins()
           {
             icon = QStringLiteral( "%1/%2" ).arg( candidate.absoluteFilePath(), metadata.value( "icon" ).toString() );
           }
+          version = metadata.value( "version" ).toString();
         }
-        mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, icon, path ) );
+        mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, icon, version, path ) );
       }
     }
   }
