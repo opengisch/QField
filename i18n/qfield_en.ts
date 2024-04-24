@@ -1705,6 +1705,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Installing %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uninstall this plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
