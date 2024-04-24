@@ -690,7 +690,12 @@ Page {
             iconColor: RememberValue ? Theme.mainColor : Theme.mainTextDisabledColor
             bgcolor: "transparent"
 
-            anchors { right: parent.right; top: constraintDescriptionLabel.bottom; verticalCenter: menuButton.verticalCenter }
+            anchors {
+              right: parent.right
+              top: constraintDescriptionLabel.bottom
+              verticalCenter: menuButton.verticalCenter
+              rightMargin: visible ? 0 : 10
+            }
 
             onClicked: {
               RememberValue = !RememberValue
