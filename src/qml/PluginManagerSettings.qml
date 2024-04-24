@@ -131,7 +131,7 @@ Popup {
 
               Label {
                 Layout.fillWidth: true
-                text: qsTr('Authored by %1%2%3').arg('<a href="details">').arg(Author).arg(' ⚠</a>') + (Version != "" ? ' (' + Version + ')' : '')
+                text: qsTr('Authored by %1%2%3').arg('<a href="details">').arg(Author).arg(' ⚠</a>')
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
@@ -152,7 +152,7 @@ Popup {
 
               Label {
                 Layout.fillWidth: true
-                text: "<a href='delete'>" + qsTr("Uninstall this plugin") + "</a>"
+                text:  "<a href='delete'>" + (Version != "" ? qsTr("Uninstall version %1").arg(Version) : qsTr("Uninstall plugin")) + "</a>"
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
@@ -203,7 +203,7 @@ Popup {
     property string authorHomepage: ""
 
     Column {
-      width: childrenRect.width
+      width: mainWindow.width - 60 < authorWarningLabelMetrics.width ? mainWindow.width - 60 : authorWarningLabelMetrics.width
       height: childrenRect.height
       spacing: 10
 
@@ -214,24 +214,30 @@ Popup {
       }
 
       Label {
+        id: authorHomepageLabel
+        visible: authorDetails.authorHomepage !== ""
+        width: parent.width
+        text: "<a href='" + authorDetails.authorHomepage + "'>" + authorDetails.authorHomepage + "</a>"
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+
+        onLinkActivated: (link) => {
+          Qt.openUrlExternally(link)
+        }
+      }
+
+      Label {
         id: authorWarningLabel
-        width: mainWindow.width - 60 < authorWarningLabelMetrics.width ? mainWindow.width - 60 : authorWarningLabelMetrics.width
-        text: qsTr("⚠ The author(s) name is self-reported by the plugin and is not independently verified. Please make sure you trust the plugin's origin.")
+        width: parent.width
+        text: "⚠ " + qsTr("The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin's origin.")
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
         color: Theme.mainTextColor
       }
     }
 
-    standardButtons: authorHomepage === "" ? Dialog.Close : Dialog.Ok | Dialog.Close
-    onAccepted: {
-      Qt.openUrlExternally(authorHomepage)
-    }
-    onAboutToShow: {
-      if (authorHomepage !== "") {
-        standardButton(Dialog.Ok).text = qsTr("Visit author's homepage")
-      }
-    }
+    standardButtons: Dialog.Close
   }
 
   Dialog {
