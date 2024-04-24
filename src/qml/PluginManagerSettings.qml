@@ -131,13 +131,15 @@ Popup {
 
               Label {
                 Layout.fillWidth: true
-                text: (Homepage != ''
-                       ? qsTr('Authored by %1%2%3').arg('<a href="' + Homepage + '">').arg(Author).arg('</a>')
-                       : qsTr('Authored by %1').arg(Author)) + (Version != "" ? ' (' + Version + ')' : '')
+                text: qsTr('Authored by %1%2%3').arg('<a href="details">').arg(Author).arg(' ⚠</a>') + (Version != "" ? ' (' + Version + ')' : '')
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
-                onLinkActivated: Qt.openUrlExternally(link)
+                onLinkActivated: (link) => {
+                                   authorDetails.authorName = Author
+                                   authorDetails.authorHomepage = Homepage
+                                   authorDetails.open()
+                                 }
               }
 
               Label {
@@ -186,6 +188,48 @@ Popup {
         onClicked: {
           pluginManager.clearPluginPermissions()
         }
+      }
+    }
+  }
+
+  Dialog {
+    id: authorDetails
+    title: authorName
+    parent: mainWindow.contentItem
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height - 80 ) / 2
+
+    property string authorName: ""
+    property string authorHomepage: ""
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: authorWarningLabelMetrics
+        font: authorWarningLabel.font
+        text: authorWarningLabel.text
+      }
+
+      Label {
+        id: authorWarningLabel
+        width: mainWindow.width - 60 < authorWarningLabelMetrics.width ? mainWindow.width - 60 : authorWarningLabelMetrics.width
+        text: qsTr("⚠ The author(s) name is self-reported by the plugin and is not independently verified. Please make sure you trust the plugin's origin.")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+    }
+
+    standardButtons: authorHomepage === "" ? Dialog.Close : Dialog.Ok | Dialog.Close
+    onAccepted: {
+      Qt.openUrlExternally(authorHomepage)
+    }
+    onAboutToShow: {
+      if (authorHomepage !== "") {
+        standardButton(Dialog.Ok).text = qsTr("Visit author's homepage")
       }
     }
   }
