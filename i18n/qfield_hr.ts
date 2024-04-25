@@ -1665,10 +1665,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Authored by %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation type="unfinished"/>
     </message>
@@ -1689,11 +1685,19 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Uninstall this plugin</source>
+        <source>Are you sure you want to uninstall `%1`?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
+        <source>Uninstall version %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
         <translation type="unfinished"/>
     </message>
 </context>

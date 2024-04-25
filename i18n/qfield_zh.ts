@@ -1661,10 +1661,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>尚未安装任何插件。若要了解有关插件的详细信息，请%1阅读文档%2。</translation>
     </message>
     <message>
-        <source>Authored by %1</source>
-        <translation>作者: %1</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>从URL安装插件</translation>
     </message>
@@ -1685,11 +1681,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Uninstall this plugin</source>
+        <source>Are you sure you want to uninstall `%1`?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
+        <source>Uninstall version %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
         <translation type="unfinished"/>
     </message>
 </context>

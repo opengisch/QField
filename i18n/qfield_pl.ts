@@ -1667,10 +1667,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Nie zainstalowano jeszcze żadnych wtyczek. Aby dowiedzieć się więcej o wtyczkach, %1przeczytaj dokumentację%2.</translation>
     </message>
     <message>
-        <source>Authored by %1</source>
-        <translation>Autor: %1</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>Zainstaluj wtyczkę z adresu URL</translation>
     </message>
@@ -1688,15 +1684,23 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uninstall this plugin</source>
-        <translation type="unfinished"/>
+        <translation>Autor: %1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Czy na pewno chcesz odinstalować &quot;%1&quot;?</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Odinstaluj wersję %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Odinstaluj wtyczkę</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>Dane autora pokazane powyżej są zgłaszane samodzielnie przez wtyczkę i nie są niezależnie weryfikowane. Upewnij się, że ufasz pochodzeniu wtyczki.</translation>
     </message>
 </context>
 <context>
