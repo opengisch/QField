@@ -889,15 +889,17 @@ ApplicationWindow {
       anchors.bottomMargin: 56
 
       width: parent.width - anchors.leftMargin * 2
-      height: 48
+      height: visible ? Math.min(copyrightDecoration.height, 48) : 0
       radius: 4
+      clip: true
 
       color:'#55000000'
       Text {
         id: copyrightDecoration
 
+        anchors.bottom: parent.bottom
+
         width: parent.width - 4
-        height: parent.height
         leftPadding: 2
         rightPadding: 2
 
@@ -910,6 +912,22 @@ ApplicationWindow {
 
         text: ''
       }
+    }
+
+    ParametizedImage {
+      id: imageDecoration
+
+      visible: source != ''
+
+      anchors.left: parent.left
+      anchors.leftMargin: 56
+      anchors.bottom: copyrightDecorationBackground.top
+      anchors.bottomMargin: 4
+
+      width: parent.width - anchors.leftMargin * 2
+      height: 48
+
+      source: ""
     }
   }
 
@@ -3450,19 +3468,24 @@ ApplicationWindow {
 
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
 
-      var titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
-      titleDecoration.text = titleDecorationConfiguration["text"];
-      titleDecoration.color = titleDecorationConfiguration["color"];
-      titleDecoration.style = titleDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
-      titleDecoration.styleColor = titleDecorationConfiguration["outlineColor"];
-      titleDecorationBackground.color = titleDecorationConfiguration["backgroundColor"];
+      var titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration()
+      titleDecoration.text = titleDecorationConfiguration["text"]
+      titleDecoration.color = titleDecorationConfiguration["color"]
+      titleDecoration.style = titleDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal
+      titleDecoration.styleColor = titleDecorationConfiguration["outlineColor"]
+      titleDecorationBackground.color = titleDecorationConfiguration["backgroundColor"]
 
-      var copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration();
-      copyrightDecoration.text = copyrightDecorationConfiguration["text"];
-      copyrightDecoration.color = copyrightDecorationConfiguration["color"];
-      copyrightDecoration.style = copyrightDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
-      copyrightDecoration.styleColor = copyrightDecorationConfiguration["outlineColor"];
-      copyrightDecorationBackground.color = copyrightDecorationConfiguration["backgroundColor"];
+      var copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration()
+      copyrightDecoration.text = copyrightDecorationConfiguration["text"]
+      copyrightDecoration.color = copyrightDecorationConfiguration["color"]
+      copyrightDecoration.style = copyrightDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal
+      copyrightDecoration.styleColor = copyrightDecorationConfiguration["outlineColor"]
+      copyrightDecorationBackground.color = copyrightDecorationConfiguration["backgroundColor"]
+
+      var imageDecorationConfiguration = projectInfo.getImageDecorationConfiguration()
+      imageDecoration.source = imageDecorationConfiguration["source"]
+      imageDecoration.fillColor = imageDecorationConfiguration["fillColor"]
+      imageDecoration.strokeColor = imageDecorationConfiguration["strokeColor"]
 
       recentProjectListModel.reloadModel()
 

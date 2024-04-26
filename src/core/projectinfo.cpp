@@ -25,6 +25,7 @@
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
 #include <qgsmaplayerstyle.h>
+#include <qgssymbollayerutils.h>
 
 ProjectInfo::ProjectInfo( QObject *parent )
   : QObject( parent )
@@ -739,6 +740,42 @@ QVariantMap ProjectInfo::getCopyrightDecorationConfiguration()
     configuration["color"] = QColor( Qt::black );
     configuration["hasOutline"] = false;
     configuration["outlineColor"] = QColor( Qt::white );
+  }
+
+  return configuration;
+}
+
+QVariantMap ProjectInfo::getImageDecorationConfiguration()
+{
+  QVariantMap configuration;
+  const QString configurationName = QStringLiteral( "Image" );
+
+  if ( QgsProject::instance()->readBoolEntry( configurationName, QStringLiteral( "/Enabled" ), false ) )
+  {
+    QString imagePath = QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/ImagePath" ), QString() );
+    const QString resolvedPath = QgsSymbolLayerUtils::svgSymbolNameToPath( imagePath, QgsProject::instance()->pathResolver() );
+    const QFileInfo fileInfo( resolvedPath );
+    if ( fileInfo.exists() )
+    {
+      imagePath = resolvedPath;
+    }
+    else
+    {
+      imagePath = QStringLiteral( ":/images/qfield_logo.svg" );
+    }
+
+    QColor fillColor = QgsColorUtils::colorFromString( QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/Color" ), QStringLiteral( "#000000" ) ) );
+    QColor strokeColor = QgsColorUtils::colorFromString( QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/OutlineColor" ), QStringLiteral( "#FFFFFF" ) ) );
+
+    configuration["source"] = imagePath;
+    configuration["fillColor"] = fillColor;
+    configuration["strokeColor"] = strokeColor;
+  }
+  else
+  {
+    configuration["source"] = QString();
+    configuration["fillColor"] = QColor( Qt::black );
+    configuration["strokeColor"] = QColor( Qt::white );
   }
 
   return configuration;
