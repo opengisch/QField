@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_36_0)
-set(QGIS_SHA512 9617d049bd41a58d179fdccff0576727e03dba84bfe23c233f98ffa621575d80c772200f82aa0d75c6ad9e7d7f7d4d4ef4182a03cd6f58a6970307bd2aeb1d93)
+set(QGIS_REF 7203b71bfa16a6b7aa84623115fac0cee0859e1b)
+set(QGIS_SHA512 ed2968f1b1271a2359af9d0db0060547c48b65c3481ac80ec7b7da074e58cdd121cc75f14f30bb732913cb4269132a35a340b80b0d21309222dd08edfa7a6148)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -14,7 +14,6 @@ vcpkg_from_github(
         bigobj.patch
         mesh.patch
         wrongattributeerrormessage.patch
-        sts.patch # Obsolete in QGIS >= 3.36.1
         crssync-no-install.patch
         include-qthread.patch
         invoke.patch
