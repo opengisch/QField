@@ -1,13 +1,30 @@
 diff --git a/src/core/providers/ogr/qgsogrprovider.cpp b/src/core/providers/ogr/qgsogrprovider.cpp
-index 8b0ac5a4cc9..c8890ebd36d 100644
+index 059c5422bc5..11e61f94849 100644
 --- a/src/core/providers/ogr/qgsogrprovider.cpp
 +++ b/src/core/providers/ogr/qgsogrprovider.cpp
-@@ -1738,7 +1738,7 @@ bool QgsOgrProvider::addFeaturePrivate( QgsFeature &f, Flags flags, QgsFeatureId
- 
-       if ( !ok )
+@@ -1718,6 +1718,7 @@ bool QgsOgrProvider::addFeaturePrivate( QgsFeature &f, Flags flags, QgsFeatureId
+             if ( !ok )
+             {
+               pushError( tr( "wrong value for attribute %1 of feature %2: %3" ).arg( qgisAttributeId ) .arg( f.id() ).arg( strVal ) );
++	      pushError( tr( "Could not convert value for attribute \"%1\" to boolean" ).arg( mAttributeFields.at( qgisAttributeId ).name() ) );
+               errorEmitted = true;
+             }
+           }
+@@ -1930,7 +1931,7 @@ bool QgsOgrProvider::addFeaturePrivate( QgsFeature &f, Flags flags, QgsFeatureId
        {
--        pushError( tr( "wrong data type for attribute %1 of feature %2: %3" ).arg( qgisAttributeId ) .arg( f.id() ).arg( qType ) );
-+        pushError( tr( "Could not convert value for attribute \"%1\" to type %2" ).arg( mAttributeFields.at( qgisAttributeId ).name(), OGR_GetFieldTypeName( type ) ) );
+         if ( !errorEmitted )
+         {
+-          pushError( tr( "wrong data type for attribute %1 of feature %2: %3" ).arg( qgisAttributeId ) .arg( f.id() ).arg( attrVal.typeName() ) );
++	  pushError( tr( "Could not convert value for attribute \"%1\" to type %2" ).arg( mAttributeFields.at( qgisAttributeId ).name(), OGR_GetFieldTypeName( type ) ) );
+         }
          returnValue = false;
        }
-     }
+@@ -2892,7 +2893,7 @@ bool QgsOgrProvider::changeAttributeValues( const QgsChangedAttributesMap &attr_
+         {
+           if ( !errorEmitted )
+           {
+-            pushError( tr( "wrong data type for attribute %1 of feature %2: %3" ).arg( it2.key() ) . arg( fid ) .arg( it2->typeName() ) );
++	  pushError( tr( "Could not convert value for attribute \"%1\" to type %2" ).arg( mAttributeFields.at( fid ).name(), it2->typeName() ) );
+           }
+           returnValue = false;
+         }
