@@ -512,6 +512,7 @@ public class QFieldActivity extends QtActivity {
             new File(dataDir + "proj/").mkdir();
             new File(dataDir + "auth/").mkdir();
             new File(dataDir + "logs/").mkdirs();
+            new File(dataDir + "plugins/").mkdirs();
 
             dataDirs.add(dataDir);
         }
