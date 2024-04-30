@@ -14,10 +14,11 @@ Item {
     property bool useCompleter: false
     property bool useSearch: false
     property bool allowAddFeature: false
+    property var relation: undefined
 
     Component.onCompleted: {
         comboBox.currentIndex = featureListModel.findKey(value)
-        invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
+        invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false
     }
 
     anchors {
@@ -42,7 +43,7 @@ Item {
         codeReader: form.codeReader
 
         onFeatureSaved: {
-            var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
+            var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name))
             var index = featureListModel.findKey(referencedValue)
             if ( index < 0 ) {
                 // model not yet reloaded - keep the value and set it onModelReset
@@ -98,7 +99,7 @@ Item {
           anchors.left: parent.left
           anchors.right: parent.right
 
-          placeholderText: !focus && displayText == '' ? qsTr("Search…") : ''
+          placeholderText: !focus && displayText === '' ? qsTr("Search…") : ''
           placeholderTextColor: Theme.mainColor
 
           height: fontMetrics.height * 2.5
@@ -293,7 +294,7 @@ Item {
 
         ComboBox {
             id: comboBox
-            visible: !enabled || (!useSearch && !useCompleter && (_relation !== undefined ? _relation.isValid : true))
+            visible: !enabled || (!useSearch && !useCompleter && (relation !== undefined ? relation.isValid : true))
             Layout.fillWidth: true
 
             property var _cachedCurrentValue
@@ -631,11 +632,11 @@ Item {
             iconSource: Theme.getThemeIcon("ic_add_black_48dp")
             iconColor: Theme.mainTextColor
 
-            visible: enabled && allowAddFeature && _relation !== undefined && _relation.isValid
+            visible: enabled && allowAddFeature && relation !== undefined && relation.isValid
 
             onClicked: {
                 embeddedPopup.state = 'Add'
-                embeddedPopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
+                embeddedPopup.currentLayer = relationCombobox.relation ? relationCombobox.relation.referencedLayer : null
                 embeddedPopup.open()
             }
         }
@@ -656,7 +657,7 @@ Item {
         codeReader: form.codeReader
 
         onFeatureSaved: {
-            var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
+            var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name))
             var index = featureListModel.findKey(referencedValue)
             if ( ( featureListModel.addNull == true && index < 1 ) || index < 0 ) {
                 // model not yet reloaded - keep the value and set it onModelReset

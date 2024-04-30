@@ -121,11 +121,15 @@ EditorWidgetBase {
         Layout.preferredWidth: enabled ? 48 : 0
         Layout.preferredHeight: 48
 
+        // Using the search when there are less than X items in the dropdown proves to be poor UI on normally
+        // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
+        readonly property int minimumItemCount: 6
+
         bgcolor: "transparent"
         iconSource: Theme.getThemeIcon("ic_baseline_search_black")
         iconColor: Theme.mainTextColor
 
-        visible: enabled
+        visible: enabled && comboBox.count >= minimumItemCount
 
         onClicked: {
             searchFeaturePopup.open()
