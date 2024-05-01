@@ -13,7 +13,6 @@ set(${PORT}_PATCHES
         allow_outside_prefix.patch
         config_install.patch
         fix_cmake_build.patch
-        fix_cmake_build_type.patch
         harfbuzz.patch
         fix_egl.patch
         fix_egl_2.patch
