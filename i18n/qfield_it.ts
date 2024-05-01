@@ -564,7 +564,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Vuoto</translation>
     </message>
 </context>
 <context>
@@ -626,27 +626,27 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Fai una foto</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Fai un video</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Registra una clip audio</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Allega un elemento della galleria</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Allega un file</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Disegna uno schizzo</translation>
     </message>
 </context>
 <context>
@@ -701,11 +701,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ultimo valore inserito per questo campo sarà ricordato e riutilizzato quando si creano nuovi elementi</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ultimo valore inserito per questo campo non sarà riutilizzato quando si creano nuovi elementi</translation>
     </message>
 </context>
 <context>
@@ -728,7 +728,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile annullare il rollback delle modifiche degli elementi nel layer &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1339,7 +1339,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Log runtime profiler</translation>
     </message>
     <message>
         <source>Type optional details</source>
@@ -1351,11 +1351,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Questo invierà un log della sessione corrente al team di sviluppo. Devi farlo solo quando ti viene chiesto di farlo.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Il log dell&apos;applicazione sta per essere inviato...</translation>
     </message>
 </context>
 <context>
@@ -1519,7 +1519,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile analizzare la posizione IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -1596,7 +1596,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile salvare la risorsa file</translation>
     </message>
     <message>
         <source>Select Image File</source>
@@ -1608,7 +1608,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona File Video</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
@@ -1616,7 +1616,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">File audio (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1628,77 +1628,77 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>File audio (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>Il file zip scaricato non può essere decompresso</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>Il file zip scaricato non contiene il file del plugin main.qml richiesto</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile salvare il file scaricato</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>Il file di download non è un plugin zippato</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Errore di rete.</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plugin</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Nessun plugin è stato ancora installato. Per saperne di più sui plugin, %1leggi la documentazione%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>Installa plugin da URL</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Cancella i permessi memorizzati</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Digita un URL qui sotto per scaricare ed installare un plugin:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>Installazione di %1 in corso</translation>
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>Scritto da %1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro di voler disinstallare `%1`?</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Disinstalla versione %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Disinstalla plugin</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>I dettagli dell&apos;autore mostrati sopra sono auto-segnalati dal plugin e non verificati in modo indipendente. Assicurati di fidarti dell&apos;origine del plugin.</translation>
     </message>
 </context>
 <context>
@@ -1783,7 +1783,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni del Dispositivo di Posizionamento</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -1791,7 +1791,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Lascia vuoto per il riempimento automatico</translation>
     </message>
     <message>
         <source>Connection type:</source>
@@ -1903,18 +1903,18 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Registratore Audio</translation>
     </message>
 </context>
 <context>
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging abilitato</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging disabilitato</translation>
     </message>
     <message>
         <source>Grid enabled</source>
@@ -1971,7 +1971,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Errore di accesso dovuto a redirect inatteso, riprova più tardi</translation>
     </message>
 </context>
 <context>
@@ -1986,7 +1986,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Nessuna modifica è stata ancora inviata!</translation>
     </message>
 </context>
 <context>
@@ -2253,27 +2253,27 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Questo progetto ha un file di progetto aggiornato sul cloud, si consiglia di sincronizzare.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Questo progetto ha aggiornato i dati sul cloud, si dovrebbe sincronizzare.</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud sta confezionando i dati più recenti solo per te; potrebbe volerci del tempo, tieni saldo</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Scaricamento, recuperato %1% di %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Scaricamento, %1% recuperato</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Raggiungi QFieldCloud per scaricare il progetto</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
@@ -2281,7 +2281,7 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Il progetto corrente non consente la disattivazione dell&apos;invio automatico</translation>
     </message>
 </context>
 <context>
@@ -2526,23 +2526,23 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, dati aggiornati disponibili sul cloud</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud sta confezionando i dati più recenti solo per te; potrebbe volerci del tempo, tieni saldo</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Scaricamento, recuperato %1% di %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Scaricamento, %1% recuperato</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Raggiungi QFieldCloud per scaricare il progetto</translation>
     </message>
 </context>
 <context>
@@ -2621,11 +2621,11 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Importa URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Digita un URL qui sotto per scaricare e importare il progetto o il dataset:</translation>
     </message>
     <message>
         <source>Item Actions</source>
@@ -2886,11 +2886,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valore di Misura (M) fissato ai vertici:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Timestamp (millisecondi dall&apos;epoca)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -2922,7 +2922,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Durante la digitalizzazione degli elementi con il cursore di coordinate bloccato nella posizione corrente, il tipo di misura selezionato sopra verrà aggiunto alla geometria purché abbia una dimensione M.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -2942,7 +2942,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Segui l&apos;aspetto del sistema</translation>
     </message>
     <message>
         <source>Light theme</source>
@@ -2970,11 +2970,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Registra il Log NMEA da dispositivo a file</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Qualità del rendering delle mappe:</translation>
     </message>
     <message>
         <source>Best quality</source>
@@ -2990,11 +2990,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Una bassa qualità tratta la precisione del rendering a favore di un minor uso della memoria e del tempo di visualizzazione.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Questo valore correggerà i valori Z registrati dal dispositivo di posizionamento. Se viene immesso un valore di 1.6 QField sottrae automaticamente 1.6 da ciascun valore registrato. Assicurati di inserire l&apos;altezza effettiva dell&apos;antenna, cioè lunghezza del polo + spostamento del centro di fase dell&apos;antenna.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -3006,58 +3006,58 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Se abilitato, premere il tasto volume Su del dispositivo aggiungerà un vertice mentre premere il tasto volume Giù rimuoverà l&apos;ultimo vertice inserito durante le sessioni di digitalizzazione.</translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Permetti di toccare con il dito la mappa per aggiungere vertici</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Quando abilitato, toccando con un dito la mappa aggiungerà un vertice al punto selezionato.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Quando abilitato, il mouse si comporterà come se fosse un dito. Quando disabilitato, il mouse corrisponderà al comportamento dello stilo.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Mappa</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizzazione &amp; Modifica</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Interfaccia Utente</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Apparenza:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Dimensione Font</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Lingua:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Avanzate</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Gestisci plugin</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona modello di disegno</translation>
     </message>
 </context>
 <context>
@@ -3197,7 +3197,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin Progetto</translation>
     </message>
 </context>
 <context>
@@ -3244,7 +3244,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3320,11 +3320,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona la porta seriale dalla lista qui sotto:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Nessuna porta seriale rilevata, aggiorna l&apos;elenco una volta collegato un dispositivo.</translation>
     </message>
     <message>
         <source>Refresh list</source>
@@ -3332,7 +3332,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome visualizzato della porta seriale:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
@@ -3343,19 +3343,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile trovare la porta seriale del dispositivo</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Il tentativo di leggere dalla porta seriale ha restituito un errore</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>La connessione è stata rifiutata per mancanza di permessi sufficienti</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Errore del ricevitore della porta seriale (%1)</translation>
     </message>
 </context>
 <context>
@@ -3418,15 +3418,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">La connessione è stata rifiutata dal cavo flessibile</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Errore del ricevitore UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>La connessione è stata rifiutata dall&apos;host remoto</translation>
     </message>
 </context>
 <context>
@@ -3459,19 +3459,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tracciamento: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Tracciamento</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni dei Requisiti</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito Tempo</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3479,11 +3479,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quando abilitato, le addizioni di vertice avranno luogo quando il tempo tra l&apos;ultimo e il nuovo vertice raggiunge un valore minimo configurato.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito Distanza</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3491,19 +3491,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quando abilitato, le addizioni di vertice avranno luogo quando la distanza tra l&apos;ultimo e il nuovo vertice raggiunge un valore minimo configurato.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito dei dati del sensore</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Quando abilitato, le aggiunte di vertice si verificano quando i sensori hanno acquisito nuovi dati.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Attendi per tutti i requisiti attivi</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
@@ -3523,19 +3523,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Se abilitata, l&apos;aggiunta del vertice non avverrà quando la distanza tra l&apos;ultimo e il nuovo vertice è maggiore di un valore massimo configurato.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valore di Misura (M) fissato ai vertici:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Tempo trascorso (secondi dall&apos;inizio del tracciamento)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Timestamp (millisecondi dall&apos;epoca)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3567,7 +3567,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Per attivare la funzionalità di misurazione, assicurarsi che il tipo di geometria del vettore utilizzato per la sessione di tracciamento abbia una dimensione M.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3579,7 +3579,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Riprendi il tracciamento</translation>
     </message>
 </context>
 <context>
@@ -3630,15 +3630,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valore di Misura (M) fissato ai vertici:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tempo trascorso (secondi dall&apos;inizio del tracciamento)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Timestamp (millisecondi dall&apos;epoca)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3670,7 +3670,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Per attivare la funzionalità di misurazione, assicurarsi che il tipo di geometria del vettore utilizzato per la sessione di tracciamento abbia una dimensione M.</translation>
     </message>
 </context>
 <context>
@@ -3787,15 +3787,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">La connessione è stata rifiutata dal cavo flessibile</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Errore del ricevitore UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>La connessione è stata rifiutata dall&apos;host remoto</translation>
     </message>
 </context>
 <context>
@@ -3910,35 +3910,35 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Progetto predefinito</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Mappa di base</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Progetto Predefinito</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Mappa di Base dei singoli Dataset</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Carica il progetto predefinito al lancio</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Carica l&apos;ultimo progetto aperto al lancio</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Azioni di Progetto Recenti</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Benvenuti in QField! È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
     </message>
 </context>
 <context>
@@ -3977,7 +3977,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile aggiungere l&apos;elemento figlio: il valore dell&apos;attributo che collega genitore e figli non è impostato</translation>
     </message>
 </context>
 <context>
@@ -4376,7 +4376,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Errore di posizionamento del dispositivo: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -4388,47 +4388,47 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Snapping acceso</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Snapping spento</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Snap a %1° di angolo attivato</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Snap ad angolo comune disattivato</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Angolo relativo</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Snap ogni %1°</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>La mappa segue la posizione e l&apos;orientamento della bussola</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Nessun layout di stampa disponibile</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Per saperne di più</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Sensori</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Nessun sensore disponibile</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -4436,23 +4436,23 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona il sensore qui sotto</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Errore del sensore: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Disconnessione del sensore &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Connessione del sensore &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona il layout qui sotto</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -4464,31 +4464,31 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Apri Modulo Elemento</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Duplicazione elemento non disponibile</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Importazione %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Importazione URL non riuscita</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Sblocca lo schermo per chiudere progetto e app</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Concedi il permesso di attivare `%1`?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Ricorda la mia scelta</translation>
     </message>
 </context>
 <context>
@@ -4527,7 +4527,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile aggiungere l&apos;elemento figlio: il valore dell&apos;attributo che collega genitore e figli non è impostato</translation>
     </message>
 </context>
 </TS>
