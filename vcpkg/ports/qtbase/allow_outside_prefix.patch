@@ -1,3 +1,5 @@
+diff --git a/cmake/QtBuildPathsHelpers.cmake b/cmake/QtBuildPathsHelpers.cmake
+index bd186c28b..2c1994d2e 100644
 --- a/cmake/QtBuildPathsHelpers.cmake
 +++ b/cmake/QtBuildPathsHelpers.cmake
 @@ -135,11 +135,13 @@ function(qt_configure_process_path name default docstring)
