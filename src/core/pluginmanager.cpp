@@ -440,9 +440,9 @@ QString PluginManager::findProjectPlugin( const QString &projectPath )
   const QString completeBaseName = fi.completeBaseName();
   QStringList possiblePluginPaths = QStringList() << QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), completeBaseName );
   // Cloud-served projects come with a _cloud suffix, take that into account
-  if ( completeBaseName.endsWith( "_cloud" ) )
+  if ( completeBaseName.endsWith( "_qfield" ) )
   {
-    possiblePluginPaths << QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName().mid( 0, completeBaseName.size() - 6 ) );
+    possiblePluginPaths << QStringLiteral( "%1/%2.qml" ).arg( fi.absolutePath(), fi.completeBaseName().mid( 0, completeBaseName.size() - 7 ) );
   }
   for ( QString &possiblePluginPath : possiblePluginPaths )
   {
