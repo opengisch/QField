@@ -28,21 +28,31 @@ GeometryUtils::GeometryUtils( QObject *parent )
 {
 }
 
-QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
+QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType )
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( crs, Qgis::WkbType::Point, true );
   QgsLineString ext( ring );
   std::unique_ptr<QgsPolygon> polygon = std::make_unique<QgsPolygon>();
   polygon->setExteriorRing( ext.clone() );
+
   QgsGeometry g( std::move( polygon ) );
+  if ( QgsWkbTypes::isMultiType( wkbType ) )
+  {
+    g.convertToMultiType();
+  }
   return g;
 }
 
-QgsGeometry GeometryUtils::lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
+QgsGeometry GeometryUtils::lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType )
 {
   QgsPointSequence points = rubberBandModel->pointSequence( crs, Qgis::WkbType::Point, false );
   std::unique_ptr<QgsLineString> line = std::make_unique<QgsLineString>( points );
+
   QgsGeometry g( std::move( line ) );
+  if ( QgsWkbTypes::isMultiType( wkbType ) )
+  {
+    g.convertToMultiType();
+  }
   return g;
 }
 
