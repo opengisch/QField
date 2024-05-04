@@ -469,7 +469,14 @@ QgsGeometry VertexModel::geometry() const
   }
 
   if ( mTransform.isValid() )
+  {
     geometry.transform( mTransform, Qgis::TransformDirection::Reverse );
+  }
+
+  if ( QgsWkbTypes::isMultiType( mGeometryWkbType ) )
+  {
+    geometry.convertToMultiType();
+  }
 
   return geometry;
 }

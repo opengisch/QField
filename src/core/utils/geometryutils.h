@@ -59,10 +59,10 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     explicit GeometryUtils( QObject *parent = nullptr );
 
     //! Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model.
-    static Q_INVOKABLE QgsGeometry polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
+    static Q_INVOKABLE QgsGeometry polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType = Qgis::WkbType::Unknown );
 
     //! Returns a QgsGeometry with a line by using the point sequence in the rubberband model.
-    static Q_INVOKABLE QgsGeometry lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
+    static Q_INVOKABLE QgsGeometry lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType = Qgis::WkbType::Unknown );
 
     //! Creates a variable width buffer polygon using M values from a rubberband model
     static Q_INVOKABLE QgsGeometry variableWidthBufferByMFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
