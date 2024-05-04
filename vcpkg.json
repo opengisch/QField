@@ -15,6 +15,22 @@
   "dependencies": [
     "catch2",
     {
+      "name": "ffmpeg",
+      "default-features": false,
+      "features": [
+        "avcodec",
+        "avdevice",
+        "avformat",
+        {
+          "name": "openh264",
+          "platform": "linux | windows"
+        },
+        "swresample",
+        "swscale"
+      ],
+      "platform": "linux | android | windows"
+    },
+    {
       "name": "gdal",
       "default-features": false
     },
