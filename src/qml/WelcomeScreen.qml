@@ -441,7 +441,7 @@ Page {
             ListView {
               id: table
               ScrollBar.vertical: ScrollBar {}
-              flickableDirection: Flickable.VerticalFlick
+              flickableDirection: Flickable.AutoFlickIfNeeded
               boundsBehavior: Flickable.StopAtBounds
               clip: true
               width: parent.width
