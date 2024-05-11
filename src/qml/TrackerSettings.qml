@@ -33,6 +33,7 @@ Popup {
         trackerSettings.focus = true
       } else {
         featureModel.resetAttributes()
+        featureModel.applyGeometry()
         tracker.feature = featureModel.feature
 
         if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
@@ -45,6 +46,7 @@ Popup {
             projectInfo.saveTracker(featureModel.currentLayer)
           }
         }
+        tracker = undefined
       }
     }
   }
@@ -485,6 +487,7 @@ Popup {
         onClicked: {
           applySettings()
           featureModel.resetAttributes()
+          featureModel.applyGeometry()
           tracker.feature = featureModel.feature
           if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
             embeddedFeatureForm.active = true
@@ -494,6 +497,7 @@ Popup {
             if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
               projectInfo.saveTracker(featureModel.currentLayer)
             }
+            tracker = undefined
             trackerSettings.close()
           }
         }
@@ -526,11 +530,7 @@ Popup {
     id: featureModel
     project: qgisProject
 
-    geometry: Geometry {
-      id: featureModelGeometry
-      rubberbandModel: rubberbandModel
-      vectorLayer: featureModel.currentLayer
-    }
+    geometry: Geometry {}
 
     positionInformation: coordinateLocator.positionInformation
     positionLocked: true
@@ -590,6 +590,7 @@ Popup {
           if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
             projectInfo.saveTracker(featureModel.currentLayer)
           }
+          tracker = undefined
           trackerSettings.close()
         }
 
@@ -598,6 +599,7 @@ Popup {
           embeddedFeatureForm.active = false
           embeddedFeatureForm.focus = false
           trackingModel.stopTracker(tracker.vectorLayer)
+          tracker = undefined
           trackerSettings.close()
         }
       }
