@@ -344,15 +344,15 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
     {
       break;
     }
-
-    // skip last vertex on polygon, as it's duplicate of the last one
-    if ( geometry.type() == Qgis::GeometryType::Polygon && vertexId.vertex == abstractGeom->vertexCount() )
-    {
-      continue;
-    }
-
     mPointList << pt;
   }
+
+  // for polygons, remove the last vertex which is a duplicate of the first vertex
+  if ( geometry.type() == Qgis::GeometryType::Polygon )
+  {
+    mPointList.removeLast();
+  }
+
   // insert the last point twice so the resutling rubberband's current coordinate property being modified (by e.g.
   // the GNSS position) will not replace the last vertex from the passed geometry
   mPointList << mPointList.last();
