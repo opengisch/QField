@@ -711,9 +711,9 @@ ApplicationWindow {
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
       proximityAlarm: positioningSettings.preciseViewProximityAlarm
-                      && positioningPreciseView.visible
-                      && positioningPreciseView.hasAcceptableAccuracy
-                      && !positioningPreciseView.hasAlarmSnoozed
+                      && navigatingDrawer.positioningPreciseView.visible
+                      && navigatingDrawer.positioningPreciseView.hasAcceptableAccuracy
+                      && !navigatingDrawer.positioningPreciseView.hasAlarmSnoozed
       proximityAlarmThreshold: positioningSettings.preciseViewPrecision
     }
 
@@ -931,6 +931,18 @@ ApplicationWindow {
     }
   }
 
+  NavigatingDrawer{
+    id: navigatingDrawer
+    navigation: navigation
+    positioningSettings: positioningSettings
+    positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
+    shouldBeOpen: navigation.isActive && !elevationProfile.visible && mapCanvasMap.isEnabled
+    positioningPreciseEnabled: !isNaN(navigation.distance)
+                               && (positioningSettings.alwaysShowPreciseView
+                                   || (hasAcceptableAccuracy && projectDistance < precision))
+                               && !elevationProfile.visible
+  }
+
   Column {
     id: informationView
     anchors.bottom: parent.bottom
@@ -939,7 +951,7 @@ ApplicationWindow {
     anchors.bottomMargin: mainWindow.sceneBottomMargin
     visible: navigation.isActive ||
              positioningSettings.showPositionInformation ||
-             positioningPreciseView.visible ||
+             navigatingDrawer.positioningPreciseView.visible ||
              sensorInformationView.activeSensors > 0 ||
              (stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive)
 
@@ -957,52 +969,11 @@ ApplicationWindow {
         crs: mapCanvas.mapSettings.destinationCrs
     }
 
-    NavigationInformationView {
-      id: navigationInformationView
-      visible: navigation.isActive && !elevationProfile.visible
-      navigation: navigation
-    }
-
-    Rectangle {
-      visible: navigationInformationView.visible && positioningPreciseView.visible
-      width: parent.width
-      height: 1
-      color: Theme.navigationBackgroundColor
-    }
-
-    PositioningPreciseView {
-      id: positioningPreciseView
-
-      precision: positioningSettings.preciseViewPrecision
-
-      visible: !isNaN(navigation.distance)
-               && (positioningSettings.alwaysShowPreciseView
-                   || (hasAcceptableAccuracy && projectDistance < precision))
-               && !elevationProfile.visible
-      width: parent.width
-      height: Math.min(mainWindow.height / 2.5, 400)
-    }
-
-    Rectangle {
-      visible: positioningInformationView.visible
-               && (positioningPreciseView.visible || navigationInformationView.visible)
-      width: parent.width
-      height: 1
-      color: Theme.navigationBackgroundColor
-    }
-
     PositioningInformationView {
       id: positioningInformationView
       visible: positioningSettings.showPositionInformation && !elevationProfile.visible
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
-    }
-
-    Rectangle {
-      visible: positioningInformationView.visible && sensorInformationView.visible
-      width: parent.width
-      height: 1
-      color: Theme.sensorBackgroundColor
     }
 
     SensorInformationView {

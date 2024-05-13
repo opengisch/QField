@@ -21,11 +21,8 @@ Rectangle {
   property color alternateBackgroundColor: Theme.navigationBackgroundColor
   property color textColor: Theme.mainTextColor
 
-  height: childrenRect.height
-  width: parent.width
-  anchors.margins: 20
-
   color: Theme.mainBackgroundColor
+  height: content.height
 
   Timer {
     id: featureVertexTimer
@@ -46,6 +43,7 @@ Rectangle {
   }
 
   ColumnLayout {
+    id: content
     width: parent.width
     spacing: 0
 
@@ -132,6 +130,7 @@ Rectangle {
       Rectangle {
         height: rowHeight
         width: grid.cellWidth
+        radius: 4
         color: alternateBackgroundColor
 
         Text {
@@ -151,6 +150,7 @@ Rectangle {
       Rectangle {
         height: rowHeight
         width: grid.cellWidth
+        radius: 4
         color: backgroundColor
 
         Text {
@@ -170,6 +170,7 @@ Rectangle {
       Rectangle {
         height: rowHeight
         width: grid.cellWidth
+        radius: 4
         color: grid.rows == 2 ? backgroundColor : alternateBackgroundColor
 
         Text {
@@ -188,6 +189,7 @@ Rectangle {
       Rectangle {
         height: rowHeight
         width: grid.cellWidth
+        radius: 4
         color: grid.rows == 2 ? alternateBackgroundColor : backgroundColor
 
         Text {
