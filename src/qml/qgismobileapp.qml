@@ -936,7 +936,7 @@ ApplicationWindow {
     navigation: navigation
     positioningSettings: positioningSettings
     positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
-    shouldBeOpen: navigation.isActive && !elevationProfile.visible && mapCanvasMap.isEnabled
+    shouldOpen: navigation.isActive && !elevationProfile.visible && mapCanvasMap.isEnabled
     positioningPreciseEnabled: !isNaN(navigation.distance)
                                && (positioningSettings.alwaysShowPreciseView
                                    || (hasAcceptableAccuracy && projectDistance < precision))
@@ -1095,7 +1095,7 @@ ApplicationWindow {
 
   QfToolButton {
     id: compassArrow
-    y: navigatingDrawer.shouldBeOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - 44 :
+    y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - 44 :
         digitizingToolbarContainerAnchor.y - height - 4
     rotation: mapCanvas.mapSettings.rotation
     visible: rotation != 0
@@ -1108,8 +1108,8 @@ ApplicationWindow {
   }
 
   ScaleBar {
-    y: navigatingDrawer.shouldBeOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) :
-        digitizingToolbarContainerAnchor.y - height - 4
+    y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) :
+        digitizingToolbarContainerAnchor.y
 
     visible: qfieldSettings.showScaleBar
     mapSettings: mapCanvas.mapSettings
@@ -1155,8 +1155,8 @@ ApplicationWindow {
     id: zoomToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 10
-    anchors.bottom: locationToolbar.top
-    anchors.bottomMargin: 8
+    anchors.verticalCenter: mapCanvas.verticalCenter
+    anchors.verticalCenterOffset: navigatingDrawer.isMinimal? 0: (digitizingToolbar.stateVisible? -270: -200) * navigatingDrawer.position
     spacing: 8
     visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / mapCanvas.height < 0.41
 
@@ -1699,7 +1699,7 @@ ApplicationWindow {
     id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
-    y: navigatingDrawer.shouldBeOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - (digitizingToolbar.stateVisible? 50: 0) :
+    y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - (digitizingToolbar.stateVisible? 50: 0) :
         digitizingToolbarContainerAnchor.y - height - 4
 
     spacing: 4

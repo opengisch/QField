@@ -20,12 +20,33 @@ Drawer {
   property real positioningPreciseViewHeight
   property alias positioningPreciseView: positioningPv
   property bool closeRequested: false
-  property bool shouldBeOpen: false
+  property bool shouldOpen: false
   property bool positioningPreciseEnabled: false
   property real realtimeHeight: controller.height * controller.position
 
-  onShouldBeOpenChanged: {
-    if(shouldBeOpen){
+  property bool isMinimal: controller.height < 2 * details.height
+  property bool isExpanded: positioningPreciseEnabled && !isMinimal
+
+  function showExpanded(){
+    controller.height = positioningPreciseViewHeight + details.height + 32
+     controller.open()
+  }
+
+  function showMinimized(){
+    controller.height = details.height + 24
+    controller.open()
+  }
+
+  onPositioningPreciseEnabledChanged: {
+    if(positioningPreciseEnabled){
+      showExpanded()
+    }else{
+      showMinimized()
+    }
+  }
+
+  onShouldOpenChanged: {
+    if(shouldOpen){
       closeRequested = false;
       open()
     }else{
@@ -37,8 +58,7 @@ Drawer {
   onClosed: {
     if (!closeRequested) {
       // view dragged down but we should bring it back
-      controller.height = details.height + 24
-      controller.open()
+    showMinimized()
     }
   }
 
@@ -88,8 +108,8 @@ Drawer {
         }
         onPositionChanged: mouse => {
          var deltaY = mouse.y - dragStartY
-         if (deltaY < -details.height / 4){ // && positioningPv.canShow) {
-            controller.height = controller.defaultHeight
+         if (deltaY < -details.height / 6 && positioningPreciseEnabled) {
+            showExpanded()
           }
         }
       }
@@ -101,24 +121,13 @@ Drawer {
       height: positioningPv.height
       radius: 8
       color: "black"
+      clip: true
 
       PositioningPreciseView {
         id: positioningPv
         precision: positioningSettings.preciseViewPrecision
         width: parent.width
-        height: positioningPreciseViewHeight
-      }
-
-      Rectangle{
-        visible: !positioningPreciseEnabled
-        anchors.fill: positioningPv
-        color: "#cc2e2e2e"
-
-        Text{
-          anchors.centerIn: parent
-          text: "Enable Gps to show!"
-          color: "white"
-        }
+        height: positioningPreciseEnabled? positioningPreciseViewHeight: 0
       }
     }
   }
