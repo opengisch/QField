@@ -22,6 +22,7 @@ Drawer {
   property bool closeRequested: false
   property bool shouldBeOpen: false
   property bool positioningPreciseEnabled: false
+  property real realtimeHeight: controller.height * controller.position
 
   onShouldBeOpenChanged: {
     if(shouldBeOpen){
@@ -53,7 +54,7 @@ Drawer {
     Rectangle {
       id: details
       anchors.horizontalCenter: parent.horizontalCenter
-      width: parent.width - 16
+      width: parent.width - 8
       height: navigationInformationView.height
       radius: 8
       color: Theme.mainBackgroundColor
@@ -96,7 +97,7 @@ Drawer {
 
     Rectangle {
       anchors.horizontalCenter: parent.horizontalCenter
-      width: parent.width - 16
+      width: parent.width - 8
       height: positioningPv.height
       radius: 8
       color: "black"

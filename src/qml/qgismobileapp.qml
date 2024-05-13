@@ -1095,33 +1095,26 @@ ApplicationWindow {
 
   QfToolButton {
     id: compassArrow
+    y: navigatingDrawer.shouldBeOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - 44 :
+        digitizingToolbarContainerAnchor.y - height - 4
     rotation: mapCanvas.mapSettings.rotation
     visible: rotation != 0
-
     anchors.left: mapCanvas.left
-    anchors.bottom: mapCanvas.bottom
     anchors.leftMargin: 4
-    anchors.bottomMargin: informationView.visible
-                          ? 54
-                          : mainWindow.sceneBottomMargin + 54
-
     round: true
     bgcolor: Theme.darkGraySemiOpaque
     iconSource: Theme.getThemeVectorIcon('ic_compass_arrow_24dp')
-
     onClicked: mapCanvas.mapSettings.rotation = 0
   }
 
   ScaleBar {
+    y: navigatingDrawer.shouldBeOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) :
+        digitizingToolbarContainerAnchor.y - height - 4
+
     visible: qfieldSettings.showScaleBar
     mapSettings: mapCanvas.mapSettings
-
     anchors.left: mapCanvas.left
-    anchors.bottom: mapCanvas.bottom
     anchors.leftMargin: 4
-    anchors.bottomMargin: informationView.visible
-                          ? 10
-                          : mainWindow.sceneBottomMargin + 10
   }
 
   QfDropShadow {
@@ -1162,10 +1155,9 @@ ApplicationWindow {
     id: zoomToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 10
-    anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
+    anchors.bottom: locationToolbar.top
+    anchors.bottomMargin: 8
     spacing: 8
-
     visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / mapCanvas.height < 0.41
 
     QfToolButton {
@@ -1707,7 +1699,7 @@ ApplicationWindow {
     id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
-    y: navigatingDrawer.shouldBeOpen ? ( parent.height - height ) - (navigatingDrawer.height * navigatingDrawer.position) - (digitizingToolbar.stateVisible? 50: 0) :
+    y: navigatingDrawer.shouldBeOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - (digitizingToolbar.stateVisible? 50: 0) :
         digitizingToolbarContainerAnchor.y - height - 4
 
     spacing: 4
@@ -2009,8 +2001,8 @@ ApplicationWindow {
     }
   }
 
-  // this is a dummy item to get digitizingToolbarContainer y and bind to
   Item{
+    // this is a dummy item to get digitizingToolbarContainer y and bind to
     id: digitizingToolbarContainerAnchor
     width: parent.width
     height: 1
@@ -2023,7 +2015,7 @@ ApplicationWindow {
     anchors.rightMargin: 4
     anchors.bottom: mapCanvas.bottom
     anchors.bottomMargin: informationView.visible
-                          ? navigatingDrawer.height * navigatingDrawer.position
+                          ? navigatingDrawer.realtimeHeight
                           : mainWindow.sceneBottomMargin + 4
     spacing: 4
 
