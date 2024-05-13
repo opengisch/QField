@@ -56,7 +56,7 @@ Drawer {
       width: parent.width - 16
       height: navigationInformationView.height
       radius: 8
-      color: "black"
+      color: Theme.mainBackgroundColor
 
       NavigationInformationView {
         id: navigationInformationView
@@ -74,6 +74,7 @@ Drawer {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 2
+        color: Theme.mainTextColor
       }
 
       MouseArea {

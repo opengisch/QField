@@ -1707,8 +1707,9 @@ ApplicationWindow {
     id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
-    anchors.bottom: digitizingToolbarContainer.top
-    anchors.bottomMargin: 4
+    y: navigatingDrawer.shouldBeOpen ? ( parent.height - height ) - (navigatingDrawer.height * navigatingDrawer.position) - (digitizingToolbar.stateVisible? 50: 0) :
+        digitizingToolbarContainerAnchor.y - height - 4
+
     spacing: 4
 
     QfToolButton {
@@ -2006,7 +2007,14 @@ ApplicationWindow {
             }
         }
     }
+  }
 
+  // this is a dummy item to get digitizingToolbarContainer y and bind to
+  Item{
+    id: digitizingToolbarContainerAnchor
+    width: parent.width
+    height: 1
+    anchors.bottom: digitizingToolbarContainer.top
   }
 
   Column {
@@ -2015,7 +2023,7 @@ ApplicationWindow {
     anchors.rightMargin: 4
     anchors.bottom: mapCanvas.bottom
     anchors.bottomMargin: informationView.visible
-                          ? 4
+                          ? navigatingDrawer.height * navigatingDrawer.position
                           : mainWindow.sceneBottomMargin + 4
     spacing: 4
 
