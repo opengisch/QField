@@ -24,8 +24,8 @@ Drawer {
   property bool positioningPreciseEnabled: false
   property real realtimeHeight: controller.height * controller.position
 
-  property bool isMinimal: controller.height < 2 * details.height
-  property bool isExpanded: positioningPreciseEnabled && !isMinimal
+  property bool isMinimal: shouldOpen && controller.height < 2 * details.height
+  property bool isExpanded: shouldOpen && positioningPreciseEnabled && !isMinimal
 
   function showExpanded(){
     controller.height = positioningPreciseViewHeight + details.height + 32
@@ -40,8 +40,10 @@ Drawer {
   onPositioningPreciseEnabledChanged: {
     if(positioningPreciseEnabled){
       showExpanded()
-    }else{
+    }else if(shouldOpen){
       showMinimized()
+    }else{
+
     }
   }
 
@@ -58,7 +60,7 @@ Drawer {
   onClosed: {
     if (!closeRequested) {
       // view dragged down but we should bring it back
-    showMinimized()
+      showMinimized()
     }
   }
 
@@ -96,6 +98,7 @@ Drawer {
         anchors.top: parent.top
         anchors.topMargin: 2
         color: Theme.mainTextColor
+        visible: positioningPreciseEnabled
       }
 
       MouseArea {

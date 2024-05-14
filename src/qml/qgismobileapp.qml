@@ -1138,15 +1138,18 @@ ApplicationWindow {
 
   QfToolButton {
     id: alertIcon
+    y: navigatingDrawer.isExpanded && digitizingToolbar.stateVisible ? 34: locatorItem.height + 4
     iconSource: Theme.getThemeVectorIcon( "ic_alert_black_24dp" )
     round: true
     bgcolor: "transparent"
-
     visible: !screenLocker.enabled && messageLog.unreadMessages
-
     anchors.right: pluginsToolbar.right
-    anchors.top: pluginsToolbar.bottom
-    anchors.topMargin: 4
+
+    Behavior on y{
+      NumberAnimation{
+        duration: 100
+      }
+    }
 
     onClicked: messageLog.visible = true
   }
