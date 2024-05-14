@@ -933,14 +933,21 @@ ApplicationWindow {
 
   NavigatingDrawer{
     id: navigatingDrawer
+    shouldOpen: navigation.isActive &&
+                !elevationProfile.visible &&
+                mapCanvasMap.isEnabled &&
+                !messageLog.visible
+
     navigation: navigation
     positioningSettings: positioningSettings
     positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
-    shouldOpen: navigation.isActive && !elevationProfile.visible && mapCanvasMap.isEnabled
     positioningPreciseEnabled: !isNaN(navigation.distance)
                                && (positioningSettings.alwaysShowPreciseView
                                    || (hasAcceptableAccuracy && projectDistance < precision))
                                && !elevationProfile.visible
+    positioningInformationViewEnabled: positioningSettings.showPositionInformation && !elevationProfile.visible
+    positionSource: positionSource
+    antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
   }
 
   Column {
@@ -967,13 +974,6 @@ ApplicationWindow {
 
         project: qgisProject
         crs: mapCanvas.mapSettings.destinationCrs
-    }
-
-    PositioningInformationView {
-      id: positioningInformationView
-      visible: positioningSettings.showPositionInformation && !elevationProfile.visible
-      positionSource: positionSource
-      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
 
     SensorInformationView {
@@ -1138,18 +1138,12 @@ ApplicationWindow {
 
   QfToolButton {
     id: alertIcon
-    y: navigatingDrawer.isExpanded && digitizingToolbar.stateVisible ? 34: locatorItem.height + 4
     iconSource: Theme.getThemeVectorIcon( "ic_alert_black_24dp" )
     round: true
     bgcolor: "transparent"
-    visible: !screenLocker.enabled && messageLog.unreadMessages
+    visible:  !screenLocker.enabled && messageLog.unreadMessages
     anchors.right: pluginsToolbar.right
-
-    Behavior on y{
-      NumberAnimation{
-        duration: 100
-      }
-    }
+    y: parent.height / 4 - (navigatingDrawer.position * navigatingDrawer.height / 3.7 + (digitizingToolbar.stateVisible ? 70: 0))
 
     onClicked: messageLog.visible = true
   }
@@ -1158,8 +1152,7 @@ ApplicationWindow {
     id: zoomToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 10
-    anchors.verticalCenter: mapCanvas.verticalCenter
-    anchors.verticalCenterOffset: navigatingDrawer.isMinimal? 0: (digitizingToolbar.stateVisible? -270: -200) * navigatingDrawer.position
+    y: parent.height / 2 - (navigatingDrawer.position * navigatingDrawer.height / 1.75 + (digitizingToolbar.stateVisible ? 70: 0))
     spacing: 8
     visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / mapCanvas.height < 0.41
 

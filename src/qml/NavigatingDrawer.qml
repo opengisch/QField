@@ -6,50 +6,61 @@ import Theme 1.0
 
 Drawer {
   id: controller
+  width: parent.width
   height: defaultHeight
   Overlay.modal: null
   modal: false
-  width: parent.width
   edge: Qt.BottomEdge
   dragMargin: 0
   closePolicy: Popup.NoAutoClose
 
   property Navigation navigation
   property PositioningSettings positioningSettings
-  property real defaultHeight: positioningPreciseView.height + details.height + 32
+  property Positioning positionSource
+  property double antennaHeight
   property real positioningPreciseViewHeight
   property alias positioningPreciseView: positioningPv
-  property bool closeRequested: false
+  property bool closeRequested: true
+  property bool positioningInformationViewEnabled: false
   property bool shouldOpen: false
   property bool positioningPreciseEnabled: false
   property real realtimeHeight: controller.height * controller.position
-
   property bool isMinimal: shouldOpen && controller.height < 2 * details.height
-  property bool isExpanded: shouldOpen && positioningPreciseEnabled && !isMinimal
+  property real defaultHeight: details.height + positioningIfo.height + positioningPreciseViewRect.height + 24
 
-  function showExpanded(){
-    controller.height = positioningPreciseViewHeight + details.height + 32
-     controller.open()
-  }
-
-  function showMinimized(){
-    controller.height = details.height + 24
-    controller.open()
+  function resetHeight(){
+    let newHeight = 0
+    newHeight += (details.height + 8)
+    newHeight += (positioningIfo.height + 8)
+    newHeight += (positioningPreciseViewRect.height + 8)
+    newHeight += 16
+    controller.height = newHeight
   }
 
   onPositioningPreciseEnabledChanged: {
-    if(positioningPreciseEnabled){
-      showExpanded()
+    if(!positioningPreciseEnabled ){
+      controller.height -= positioningPreciseViewHeight
+      controller.open()
     }else if(shouldOpen){
-      showMinimized()
-    }else{
+      controller.height += positioningPreciseViewHeight
+      controller.open()
+    }
+  }
 
+  onPositioningInformationViewEnabledChanged: {
+    if(!positioningInformationViewEnabled ){
+      controller.height -= positioningInformationView.height
+      controller.open()
+    }else if(shouldOpen){
+      controller.height += positioningInformationView.height
+      controller.open()
     }
   }
 
   onShouldOpenChanged: {
     if(shouldOpen){
       closeRequested = false;
+      resetHeight()
       open()
     }else{
       closeRequested = true;
@@ -57,10 +68,17 @@ Drawer {
     }
   }
 
+  onOpened: {
+    if(closeRequested){
+      controller.close()
+    }
+  }
+
   onClosed: {
     if (!closeRequested) {
       // view dragged down but we should bring it back
-      showMinimized()
+      resetHeight()
+      controller.open()
     }
   }
 
@@ -70,6 +88,7 @@ Drawer {
   }
 
   Column {
+    id: mainContent
     spacing: 8
     width: parent.width
 
@@ -89,36 +108,28 @@ Drawer {
         radius: parent.radius
         clip: true
       }
+    }
 
-      Rectangle {
-        width: 50
-        height: 2
-        radius: 4
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
-        anchors.topMargin: 2
-        color: Theme.mainTextColor
-        visible: positioningPreciseEnabled
-      }
+    Rectangle {
+      id: positioningIfo
+      anchors.horizontalCenter: parent.horizontalCenter
+      width: parent.width - 8
+      height: positioningInformationViewEnabled? positioningInformationView.height: 0
+      radius: 8
+      color: Theme.mainBackgroundColor
+      clip: true
 
-      MouseArea {
-        anchors.fill: details
-
-        property int dragStartY: 0
-
-        onPressed: mouse => {
-          dragStartY = mouse.y
-        }
-        onPositionChanged: mouse => {
-         var deltaY = mouse.y - dragStartY
-         if (deltaY < -details.height / 6 && positioningPreciseEnabled) {
-            showExpanded()
-          }
-        }
+      PositioningInformationView {
+        id: positioningInformationView
+        visible: positioningInformationViewEnabled
+        positionSource: controller.positionSource
+        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+        radius: parent.radius
       }
     }
 
     Rectangle {
+      id: positioningPreciseViewRect
       anchors.horizontalCenter: parent.horizontalCenter
       width: parent.width - 8
       height: positioningPv.height
@@ -131,6 +142,23 @@ Drawer {
         precision: positioningSettings.preciseViewPrecision
         width: parent.width
         height: positioningPreciseEnabled? positioningPreciseViewHeight: 0
+      }
+    }
+  }
+
+  MouseArea {
+    anchors.fill: parent
+    property int dragStartY: 0
+
+    onPressed: mouse => {
+      dragStartY = mouse.y
+    }
+
+    onPositionChanged: mouse => {
+     var deltaY = mouse.y - dragStartY
+     if (deltaY < -details.height / 6 && positioningPreciseEnabled) {
+        resetHeight()
+        controller.open()
       }
     }
   }
