@@ -945,7 +945,8 @@ ApplicationWindow {
                                && !isNaN(navigation.distance)
                                && navigation.isActive
                                && (positioningSettings.alwaysShowPreciseView
-                                   || (hasAcceptableAccuracy && projectDistance < precision))
+                                  || ( positioningPreciseView.hasAcceptableAccuracy
+                                  &&  positioningPreciseView.projectDistance < positioningPreciseView.precision ))
 
     positioningInformationViewEnabled: positioningSettings.showPositionInformation && !elevationProfile.visible
     positionSource: positionSource
@@ -1095,7 +1096,7 @@ ApplicationWindow {
   QfToolButton {
     id: compassArrow
     y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - 44 :
-        digitizingToolbarContainerAnchor.y - height - 4
+        digitizingToolbarContainer.y - height - 4
     rotation: mapCanvas.mapSettings.rotation
     visible: rotation != 0
     anchors.left: mapCanvas.left
@@ -1108,7 +1109,7 @@ ApplicationWindow {
 
   ScaleBar {
     y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) :
-        digitizingToolbarContainerAnchor.y
+        digitizingToolbarContainer.y
 
     visible: qfieldSettings.showScaleBar
     mapSettings: mapCanvas.mapSettings
@@ -1153,7 +1154,7 @@ ApplicationWindow {
     anchors.rightMargin: 10
     y: parent.height / 2 - (navigatingDrawer.realtimeHeight / 1.75 + (digitizingToolbar.stateVisible ? 70: 0) + (elevationProfile.visible ? 70: 0))
     spacing: 8
-    visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainerAnchor.y) < 0.41
+    visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainer.y) < 0.41
 
     QfToolButton {
       id: zoomInButton
@@ -1695,7 +1696,7 @@ ApplicationWindow {
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
     y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - (digitizingToolbar.stateVisible? 50: 0) :
-        digitizingToolbarContainerAnchor.y - height - 4
+        digitizingToolbarContainer.y - height - 4
 
     spacing: 4
 
@@ -1996,20 +1997,12 @@ ApplicationWindow {
     }
   }
 
-  Item{
-    // this is a dummy item to get digitizingToolbarContainer y and bind to
-    id: digitizingToolbarContainerAnchor
-    width: parent.width
-    height: 1
-    anchors.bottom: digitizingToolbarContainer.top
-  }
-
   Column {
     id: digitizingToolbarContainer
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
     anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: informationView.visible
+    anchors.bottomMargin: navigatingDrawer.shouldOpen
                           ? navigatingDrawer.realtimeHeight
                           : mainWindow.sceneBottomMargin + 4
     spacing: 4

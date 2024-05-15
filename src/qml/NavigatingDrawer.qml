@@ -14,22 +14,21 @@ Drawer {
   dragMargin: 0
   closePolicy: Popup.NoAutoClose
 
+  property alias positioningPreciseView: positioningPv
   property Navigation navigation
   property PositioningSettings positioningSettings
   property Positioning positionSource
   property double antennaHeight
+  property real realtimeHeight: controller.height * controller.position
   property real positioningPreciseViewHeight
-  property alias positioningPreciseView: positioningPv
+  property real defaultHeight: details.height + positioningIfo.height + positioningPreciseViewRect.height + 24
   property bool closeRequested: true
   property bool navigationInformationViewEnabled: navigation.isActive
   property bool positioningInformationViewEnabled: false
   property bool shouldOpen: false
   property bool positioningPreciseEnabled: false
-  property real realtimeHeight: controller.height * controller.position
-  property bool isMinimal: shouldOpen && controller.height < 2 * details.height
-  property real defaultHeight: details.height + positioningIfo.height + positioningPreciseViewRect.height + 24
 
-  function resetHeight(){
+  function resetHeight() {
     let newHeight = 0
     newHeight += (details.height + 8)
     newHeight += (positioningIfo.height + 8)
@@ -39,56 +38,55 @@ Drawer {
   }
 
   onNavigationInformationViewEnabledChanged: {
-    if(!navigationInformationViewEnabled ){
+    if (!navigationInformationViewEnabled) {
       controller.height -= navigationInformationView.height
       controller.open()
-    }else if(shouldOpen){
+    } else if (shouldOpen) {
       controller.height += navigationInformationView.height
       controller.open()
     }
   }
 
-
   onPositioningInformationViewEnabledChanged: {
-    if(!positioningInformationViewEnabled ){
+    if (!positioningInformationViewEnabled) {
       controller.height -= positioningInformationView.height
       controller.open()
-    }else if(shouldOpen){
+    } else if (shouldOpen) {
       controller.height += positioningInformationView.height
       controller.open()
     }
   }
 
   onPositioningPreciseEnabledChanged: {
-    if(!positioningPreciseEnabled ){
+    if (!positioningPreciseEnabled) {
       controller.height -= positioningPreciseViewHeight
       controller.open()
-    }else if(shouldOpen){
+    } else if (shouldOpen) {
       controller.height += positioningPreciseViewHeight
       controller.open()
     }
   }
 
   onShouldOpenChanged: {
-    if(shouldOpen){
-      closeRequested = false;
+    if (shouldOpen) {
+      closeRequested = false
       resetHeight()
       open()
-    }else{
-      closeRequested = true;
+    } else {
+      closeRequested = true
       close()
     }
   }
 
   onOpened: {
-    if(closeRequested){
+    if (closeRequested) {
       controller.close()
     }
   }
 
   onClosed: {
     if (!closeRequested) {
-      // view dragged down but we should bring it back
+      // view is dragged down but we must bring it back
       resetHeight()
       controller.open()
     }
@@ -108,7 +106,7 @@ Drawer {
       id: details
       anchors.horizontalCenter: parent.horizontalCenter
       width: parent.width - 8
-      height: navigationInformationViewEnabled? navigationInformationView.height: 0
+      height: navigationInformationViewEnabled ? navigationInformationView.height : 0
       radius: 8
       color: Theme.mainBackgroundColor
       clip: true
@@ -127,7 +125,7 @@ Drawer {
       id: positioningIfo
       anchors.horizontalCenter: parent.horizontalCenter
       width: parent.width - 8
-      height: positioningInformationViewEnabled? positioningInformationView.height: 0
+      height: positioningInformationViewEnabled ? positioningInformationView.height : 0
       radius: 8
       color: Theme.mainBackgroundColor
       clip: true
@@ -154,7 +152,7 @@ Drawer {
         id: positioningPv
         precision: positioningSettings.preciseViewPrecision
         width: parent.width
-        height: positioningPreciseEnabled? positioningPreciseViewHeight: 0
+        height: positioningPreciseEnabled ? positioningPreciseViewHeight : 0
       }
     }
   }
@@ -168,8 +166,8 @@ Drawer {
     }
 
     onPositionChanged: mouse => {
-     var deltaY = mouse.y - dragStartY
-     if (deltaY < -details.height / 6 && positioningPreciseEnabled) {
+      var deltaY = mouse.y - dragStartY
+      if (deltaY < -details.height / 6 && positioningPreciseEnabled) {
         resetHeight()
         controller.open()
       }
