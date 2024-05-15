@@ -21,6 +21,7 @@ Drawer {
   property real positioningPreciseViewHeight
   property alias positioningPreciseView: positioningPv
   property bool closeRequested: true
+  property bool navigationInformationViewEnabled: navigation.isActive
   property bool positioningInformationViewEnabled: false
   property bool shouldOpen: false
   property bool positioningPreciseEnabled: false
@@ -37,15 +38,16 @@ Drawer {
     controller.height = newHeight
   }
 
-  onPositioningPreciseEnabledChanged: {
-    if(!positioningPreciseEnabled ){
-      controller.height -= positioningPreciseViewHeight
+  onNavigationInformationViewEnabledChanged: {
+    if(!navigationInformationViewEnabled ){
+      controller.height -= navigationInformationView.height
       controller.open()
     }else if(shouldOpen){
-      controller.height += positioningPreciseViewHeight
+      controller.height += navigationInformationView.height
       controller.open()
     }
   }
+
 
   onPositioningInformationViewEnabledChanged: {
     if(!positioningInformationViewEnabled ){
@@ -53,6 +55,16 @@ Drawer {
       controller.open()
     }else if(shouldOpen){
       controller.height += positioningInformationView.height
+      controller.open()
+    }
+  }
+
+  onPositioningPreciseEnabledChanged: {
+    if(!positioningPreciseEnabled ){
+      controller.height -= positioningPreciseViewHeight
+      controller.open()
+    }else if(shouldOpen){
+      controller.height += positioningPreciseViewHeight
       controller.open()
     }
   }
@@ -96,9 +108,10 @@ Drawer {
       id: details
       anchors.horizontalCenter: parent.horizontalCenter
       width: parent.width - 8
-      height: navigationInformationView.height
+      height: navigationInformationViewEnabled? navigationInformationView.height: 0
       radius: 8
       color: Theme.mainBackgroundColor
+      clip: true
 
       NavigationInformationView {
         id: navigationInformationView

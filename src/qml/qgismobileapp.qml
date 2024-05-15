@@ -933,7 +933,7 @@ ApplicationWindow {
 
   NavigatingDrawer{
     id: navigatingDrawer
-    shouldOpen: navigation.isActive &&
+    shouldOpen: (navigation.isActive || positioningSettings.showPositionInformation ) &&
                 !elevationProfile.visible &&
                 mapCanvasMap.isEnabled &&
                 !messageLog.visible
@@ -941,10 +941,12 @@ ApplicationWindow {
     navigation: navigation
     positioningSettings: positioningSettings
     positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
-    positioningPreciseEnabled: !isNaN(navigation.distance)
+    positioningPreciseEnabled: !elevationProfile.visible
+                               && !isNaN(navigation.distance)
+                               && navigation.isActive
                                && (positioningSettings.alwaysShowPreciseView
                                    || (hasAcceptableAccuracy && projectDistance < precision))
-                               && !elevationProfile.visible
+
     positioningInformationViewEnabled: positioningSettings.showPositionInformation && !elevationProfile.visible
     positionSource: positionSource
     antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
@@ -956,10 +958,7 @@ ApplicationWindow {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottomMargin: mainWindow.sceneBottomMargin
-    visible: navigation.isActive ||
-             positioningSettings.showPositionInformation ||
-             navigatingDrawer.positioningPreciseView.visible ||
-             sensorInformationView.activeSensors > 0 ||
+    visible: sensorInformationView.activeSensors > 0 ||
              (stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive)
 
     width: parent.width
