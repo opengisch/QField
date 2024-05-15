@@ -2866,7 +2866,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Spostamento griglia verticale in uso:</translation>
+        <translation>Traslazione verticale della griglia in uso:</translation>
     </message>
     <message>
         <source>None</source>
@@ -2874,7 +2874,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Lo spostamento della griglia verticale è usato per aumentare la precisione dell&apos;altitudine.</translation>
+        <translation>La traslazione verticale della griglia è usata per aumentare la precisione dell&apos;altitudine.</translation>
     </message>
     <message>
         <source>QField Settings</source>
