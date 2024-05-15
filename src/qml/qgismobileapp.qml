@@ -1143,7 +1143,7 @@ ApplicationWindow {
     bgcolor: "transparent"
     visible:  !screenLocker.enabled && messageLog.unreadMessages
     anchors.right: pluginsToolbar.right
-    y: parent.height / 4 - (navigatingDrawer.position * navigatingDrawer.height / 3.7 + (digitizingToolbar.stateVisible ? 70: 0))
+    y: Math.max(16, parent.height / 4 - (navigatingDrawer.realtimeHeight / 3.7 + (digitizingToolbar.stateVisible ? 70: 0)))
 
     onClicked: messageLog.visible = true
   }
@@ -1152,9 +1152,9 @@ ApplicationWindow {
     id: zoomToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 10
-    y: parent.height / 2 - (navigatingDrawer.position * navigatingDrawer.height / 1.75 + (digitizingToolbar.stateVisible ? 70: 0))
+    y: parent.height / 2 - (navigatingDrawer.realtimeHeight / 1.75 + (digitizingToolbar.stateVisible ? 70: 0) + (elevationProfile.visible ? 70: 0))
     spacing: 8
-    visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / mapCanvas.height < 0.41
+    visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainerAnchor.y) < 0.41
 
     QfToolButton {
       id: zoomInButton
