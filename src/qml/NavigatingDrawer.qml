@@ -39,30 +39,30 @@ Drawer {
 
   onNavigationInformationViewEnabledChanged: {
     if (!navigationInformationViewEnabled) {
-      controller.height -= navigationInformationView.height
+      controller.height -= (navigationInformationView.height + 8)
       controller.open()
     } else if (shouldOpen) {
-      controller.height += navigationInformationView.height
+      controller.height += (navigationInformationView.height + 8)
       controller.open()
     }
   }
 
   onPositioningInformationViewEnabledChanged: {
     if (!positioningInformationViewEnabled) {
-      controller.height -= positioningInformationView.height
+      controller.height -= (positioningInformationView.height + 8)
       controller.open()
     } else if (shouldOpen) {
-      controller.height += positioningInformationView.height
+      controller.height += (positioningInformationView.height + 8)
       controller.open()
     }
   }
 
   onPositioningPreciseEnabledChanged: {
     if (!positioningPreciseEnabled) {
-      controller.height -= positioningPreciseViewHeight
+      controller.height -= (positioningPreciseViewHeight + 8)
       controller.open()
     } else if (shouldOpen) {
-      controller.height += positioningPreciseViewHeight
+      controller.height += (positioningPreciseViewHeight + 8)
       controller.open()
     }
   }
