@@ -17,12 +17,14 @@ Rectangle {
 
   property int ceilsCount: 4
   property double rowHeight: 30
-  property color backgroundColor: Theme.mainBackgroundColor
+  property color backgroundColor: "transparent" 
   property color alternateBackgroundColor: Theme.navigationBackgroundColor
   property color textColor: Theme.mainTextColor
+  property real contentHeight: content.height
 
-  color: Theme.mainBackgroundColor
-  height: content.height
+  color: "#dd" + Theme.mainBackgroundColor.toString().slice(1)
+  border.color: alternateBackgroundColor
+  border.width: 2
 
   Timer {
     id: featureVertexTimer
@@ -47,10 +49,9 @@ Rectangle {
     width: parent.width
     spacing: 0
 
-    Rectangle {
+    Item {
       Layout.fillWidth: true
       Layout.preferredHeight: childrenRect.height
-      color: Theme.navigationColor
 
       RowLayout {
         width: parent.width
@@ -130,7 +131,6 @@ Rectangle {
       Rectangle {
         height: rowHeight
         width: grid.cellWidth
-        radius: 4
         color: alternateBackgroundColor
 
         Text {
@@ -150,7 +150,6 @@ Rectangle {
       Rectangle {
         height: rowHeight
         width: grid.cellWidth
-        radius: 4
         color: backgroundColor
 
         Text {
@@ -170,7 +169,6 @@ Rectangle {
       Rectangle {
         height: rowHeight
         width: grid.cellWidth
-        radius: 4
         color: grid.rows == 2 ? backgroundColor : alternateBackgroundColor
 
         Text {
@@ -189,7 +187,6 @@ Rectangle {
       Rectangle {
         height: rowHeight
         width: grid.cellWidth
-        radius: 4
         color: grid.rows == 2 ? alternateBackgroundColor : backgroundColor
 
         Text {

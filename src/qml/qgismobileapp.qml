@@ -933,7 +933,7 @@ ApplicationWindow {
 
   NavigatingDrawer{
     id: navigatingDrawer
-    shouldOpen: (navigation.isActive || positioningSettings.showPositionInformation ) &&
+    openRequested: (navigation.isActive || positioningSettings.showPositionInformation ) &&
                 !elevationProfile.visible &&
                 mapCanvasMap.isEnabled &&
                 !messageLog.visible
@@ -1095,7 +1095,7 @@ ApplicationWindow {
 
   QfToolButton {
     id: compassArrow
-    y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - 44 :
+    y: navigatingDrawer.openRequested ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - 44 :
         digitizingToolbarContainer.y - height - 4
     rotation: mapCanvas.mapSettings.rotation
     visible: rotation != 0
@@ -1108,7 +1108,7 @@ ApplicationWindow {
   }
 
   ScaleBar {
-    y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) :
+    y: navigatingDrawer.openRequested ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) :
         digitizingToolbarContainer.y
 
     visible: qfieldSettings.showScaleBar
@@ -1695,7 +1695,7 @@ ApplicationWindow {
     id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
-    y: navigatingDrawer.shouldOpen ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - (digitizingToolbar.stateVisible? 50: 0) :
+    y: navigatingDrawer.openRequested ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - (digitizingToolbar.stateVisible? 50: 0) :
         digitizingToolbarContainer.y - height - 4
 
     spacing: 4
@@ -2002,7 +2002,7 @@ ApplicationWindow {
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
     anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: navigatingDrawer.shouldOpen
+    anchors.bottomMargin: navigatingDrawer.openRequested
                           ? navigatingDrawer.realtimeHeight
                           : mainWindow.sceneBottomMargin + 4
     spacing: 4

@@ -7,68 +7,59 @@ import Theme 1.0
 Drawer {
   id: controller
   width: parent.width
-  height: defaultHeight
+  height: mainContent.height
   Overlay.modal: null
   modal: false
   edge: Qt.BottomEdge
   dragMargin: 0
   closePolicy: Popup.NoAutoClose
 
-  property alias positioningPreciseView: positioningPv
+  property real realtimeHeight: controller.height * controller.position
+  property bool closeRequested: true
+  property bool openRequested: false
+
+  // NavigationInformationView
+  property bool navigationInformationViewEnabled: navigation.isActive
+
+  // PositioningInformationView
   property Navigation navigation
+  property double antennaHeight
+  property bool positioningInformationViewEnabled: false
+
+  // PositioningPreciseView
+  property alias positioningPreciseView: positioningPv
   property PositioningSettings positioningSettings
   property Positioning positionSource
-  property double antennaHeight
-  property real realtimeHeight: controller.height * controller.position
-  property real positioningPreciseViewHeight
-  property real defaultHeight: details.height + positioningIfo.height + positioningPreciseViewRect.height + 24
-  property bool closeRequested: true
-  property bool navigationInformationViewEnabled: navigation.isActive
-  property bool positioningInformationViewEnabled: false
-  property bool shouldOpen: false
   property bool positioningPreciseEnabled: false
+  property real positioningPreciseViewHeight
 
   function resetHeight() {
     let newHeight = 0
-    newHeight += (details.height + 8)
-    newHeight += (positioningIfo.height + 8)
-    newHeight += (positioningPreciseViewRect.height + 8)
+    newHeight += (navigationInformationView.height + 8)
+    newHeight += (positioningInformationView.height + 8)
+    newHeight += (positioningPv.height + 8)
     newHeight += 16
     controller.height = newHeight
   }
 
-  onNavigationInformationViewEnabledChanged: {
-    if (!navigationInformationViewEnabled) {
-      controller.height -= (navigationInformationView.height + 8)
+  function updateDrawerHeight(visibleView, viewHeight){
+    if (!visibleView) {
+      controller.height -= (viewHeight + 8)
       controller.open()
-    } else if (shouldOpen) {
-      controller.height += (navigationInformationView.height + 8)
-      controller.open()
-    }
-  }
-
-  onPositioningInformationViewEnabledChanged: {
-    if (!positioningInformationViewEnabled) {
-      controller.height -= (positioningInformationView.height + 8)
-      controller.open()
-    } else if (shouldOpen) {
-      controller.height += (positioningInformationView.height + 8)
+    } else if (openRequested) {
+      controller.height += (viewHeight + 8)
       controller.open()
     }
   }
 
-  onPositioningPreciseEnabledChanged: {
-    if (!positioningPreciseEnabled) {
-      controller.height -= (positioningPreciseViewHeight + 8)
-      controller.open()
-    } else if (shouldOpen) {
-      controller.height += (positioningPreciseViewHeight + 8)
-      controller.open()
-    }
-  }
+  onNavigationInformationViewEnabledChanged: updateDrawerHeight (navigationInformationViewEnabled, navigationInformationView.contentHeight)
 
-  onShouldOpenChanged: {
-    if (shouldOpen) {
+  onPositioningInformationViewEnabledChanged: updateDrawerHeight (positioningInformationViewEnabled, positioningInformationView.contentHeight)
+
+  onPositioningPreciseEnabledChanged: updateDrawerHeight (positioningPreciseEnabled, positioningPreciseViewHeight)
+
+  onOpenRequestedChanged: {
+    if (openRequested) {
       closeRequested = false
       resetHeight()
       open()
@@ -87,14 +78,12 @@ Drawer {
   onClosed: {
     if (!closeRequested) {
       // view is dragged down but we must bring it back
-      resetHeight()
       controller.open()
     }
   }
 
-  background: Rectangle {
+  background: Item {
     anchors.fill: parent
-    color: "transparent"
   }
 
   Column {
@@ -102,75 +91,35 @@ Drawer {
     spacing: 8
     width: parent.width
 
-    Rectangle {
-      id: details
-      anchors.horizontalCenter: parent.horizontalCenter
+    NavigationInformationView {
+      id: navigationInformationView
       width: parent.width - 8
-      height: navigationInformationViewEnabled ? navigationInformationView.height : 0
-      radius: 8
-      color: Theme.mainBackgroundColor
-      clip: true
-
-      NavigationInformationView {
-        id: navigationInformationView
-        navigation: controller.navigation
-        width: parent.width
-        anchors.centerIn: parent
-        radius: parent.radius
-        clip: true
-      }
-    }
-
-    Rectangle {
-      id: positioningIfo
+      height: navigationInformationViewEnabled ? contentHeight : 0
       anchors.horizontalCenter: parent.horizontalCenter
-      width: parent.width - 8
-      height: positioningInformationViewEnabled ? positioningInformationView.height : 0
-      radius: 8
-      color: Theme.mainBackgroundColor
       clip: true
-
-      PositioningInformationView {
-        id: positioningInformationView
-        visible: positioningInformationViewEnabled
-        positionSource: controller.positionSource
-        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
-        radius: parent.radius
-      }
+      navigation: controller.navigation
+      radius: 8
     }
 
-    Rectangle {
-      id: positioningPreciseViewRect
+    PositioningInformationView {
+      id: positioningInformationView
+      width: parent.width - 8
+      height: positioningInformationViewEnabled ? contentHeight : 0
       anchors.horizontalCenter: parent.horizontalCenter
-      width: parent.width - 8
-      height: positioningPv.height
-      radius: 8
-      color: "black"
       clip: true
-
-      PositioningPreciseView {
-        id: positioningPv
-        precision: positioningSettings.preciseViewPrecision
-        width: parent.width
-        height: positioningPreciseEnabled ? positioningPreciseViewHeight : 0
-      }
-    }
-  }
-
-  MouseArea {
-    anchors.fill: parent
-    property int dragStartY: 0
-
-    onPressed: mouse => {
-      dragStartY = mouse.y
+      visible: positioningInformationViewEnabled
+      positionSource: controller.positionSource
+      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+      radius: 8
     }
 
-    onPositionChanged: mouse => {
-      var deltaY = mouse.y - dragStartY
-      if (deltaY < -details.height / 6 && positioningPreciseEnabled) {
-        resetHeight()
-        controller.open()
-      }
+    PositioningPreciseView {
+      id: positioningPv
+      width: parent.width - 8
+      height: positioningPreciseEnabled ? positioningPreciseViewHeight : 0
+      anchors.horizontalCenter: parent.horizontalCenter
+      clip: true
+      precision: positioningSettings.preciseViewPrecision
     }
   }
 }
