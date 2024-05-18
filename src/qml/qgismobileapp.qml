@@ -933,15 +933,17 @@ ApplicationWindow {
 
   InformationDrawer {
     id: informationDrawer
-    openRequested: (navigation.isActive || positioningSettings.showPositionInformation ) &&
-                !elevationProfile.visible &&
-                mapCanvasMap.isEnabled &&
-                !messageLog.visible
+    openRequested: (navigation.isActive ||
+                    positioningSettings.showPositionInformation ||
+                    sensorInformationViewEnabled) &&
+                    uiConflictFree &&
+                    mapCanvasMap.isEnabled
+
     navigation: navigation
     positionSource: positionSource
     positioningSettings: positioningSettings
     positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
-    uiConflictFree: !elevationProfile.visible
+    uiConflictFree: !elevationProfile.visible && !messageLog.visible
   }
 
   Column {
@@ -950,8 +952,7 @@ ApplicationWindow {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottomMargin: mainWindow.sceneBottomMargin
-    visible: sensorInformationView.activeSensors > 0 ||
-             (stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive)
+    visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
 
     width: parent.width
 
@@ -965,10 +966,6 @@ ApplicationWindow {
 
         project: qgisProject
         crs: mapCanvas.mapSettings.destinationCrs
-    }
-
-    SensorInformationView {
-      id: sensorInformationView
     }
   }
 

@@ -20,6 +20,9 @@ Drawer {
   property real itemRadius: 8
   property bool uiConflictFree: false
 
+  // SensorInformationView
+  property bool sensorInformationViewEnabled: sensorInformationView.activeSensors > 0
+
   // NavigationInformationView
   property bool navigationInformationViewEnabled: navigation.isActive
 
@@ -45,6 +48,7 @@ Drawer {
     newHeight += (navigationInformationView.height + 8)
     newHeight += (positioningInformationView.height + 8)
     newHeight += (positioningPreciseView.height + 8)
+    newHeight += (sensorInformationView.height + 8)
     newHeight += 16
     controller.height = newHeight
   }
@@ -64,6 +68,8 @@ Drawer {
   onPositioningInformationViewEnabledChanged: updateDrawerHeight(positioningInformationViewEnabled, positioningInformationView.contentHeight)
 
   onPositioningPreciseEnabledChanged: updateDrawerHeight(positioningPreciseEnabled, positioningPreciseViewHeight)
+
+  onSensorInformationViewEnabledChanged: updateDrawerHeight(sensorInformationViewEnabled, sensorInformationView.contentHeight)
 
   onOpenRequestedChanged: {
     if (openRequested) {
@@ -95,14 +101,14 @@ Drawer {
 
   Column {
     id: mainContent
+    width: parent.width - 8
+    anchors.horizontalCenter: parent.horizontalCenter
     spacing: 8
-    width: parent.width
 
     NavigationInformationView {
       id: navigationInformationView
-      width: parent.width - 8
+      width: parent.width
       height: navigationInformationViewEnabled ? contentHeight : 0
-      anchors.horizontalCenter: parent.horizontalCenter
       clip: true
       navigation: controller.navigation
       radius: itemRadius
@@ -110,9 +116,8 @@ Drawer {
 
     PositioningInformationView {
       id: positioningInformationView
-      width: parent.width - 8
+      width: parent.width
       height: positioningInformationViewEnabled ? contentHeight : 0
-      anchors.horizontalCenter: parent.horizontalCenter
       clip: true
       visible: positioningInformationViewEnabled
       positionSource: controller.positionSource
@@ -122,11 +127,15 @@ Drawer {
 
     PositioningPreciseView {
       id: positioningPreciseView
-      width: parent.width - 8
+      width: parent.width
       height: positioningPreciseEnabled ? positioningPreciseViewHeight : 0
-      anchors.horizontalCenter: parent.horizontalCenter
       clip: true
       precision: positioningSettings.preciseViewPrecision
+    }
+
+    SensorInformationView {
+      id: sensorInformationView
+      height: sensorInformationViewEnabled ? contentHeight : 0
     }
   }
 }

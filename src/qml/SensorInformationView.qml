@@ -16,11 +16,11 @@ Rectangle {
   property color backgroundColor: Theme.mainBackgroundColor
   property color alternateBackgroundColor: Theme.sensorBackgroundColor
   property color textColor: Theme.mainTextColor
-
-  width: parent.width
-  height: parent.width > 620
+  property real contentHeight: parent.width > 620
           ? rowHeight * Math.ceil(grid.count / 3)
           : rowHeight * Math.ceil(grid.count / 2)
+
+  width: parent.width
   anchors.margins: 20
 
   color: Theme.mainBackgroundColor
