@@ -17,27 +17,34 @@ Drawer {
   property real realtimeHeight: controller.height * controller.position
   property bool closeRequested: true
   property bool openRequested: false
+  property real itemRadius: 8
+  property bool uiConflictFree: false
 
   // NavigationInformationView
   property bool navigationInformationViewEnabled: navigation.isActive
 
   // PositioningInformationView
   property Navigation navigation
-  property double antennaHeight
-  property bool positioningInformationViewEnabled: false
+  property bool positioningInformationViewEnabled: positioningSettings.showPositionInformation && uiConflictFree
 
   // PositioningPreciseView
-  property alias positioningPreciseView: positioningPv
+  property alias positioningPreciseView: positioningPreciseView
   property PositioningSettings positioningSettings
   property Positioning positionSource
-  property bool positioningPreciseEnabled: false
   property real positioningPreciseViewHeight
+  property bool positioningPreciseEnabled: uiConflictFree
+                                           && !isNaN(navigation.distance)
+                                           && navigation.isActive
+                                           && (positioningSettings.alwaysShowPreciseView
+                                              || ( positioningPreciseView.hasAcceptableAccuracy
+                                              &&  positioningPreciseView.projectDistance < positioningPreciseView.precision ))
+
 
   function resetHeight() {
     let newHeight = 0
     newHeight += (navigationInformationView.height + 8)
     newHeight += (positioningInformationView.height + 8)
-    newHeight += (positioningPv.height + 8)
+    newHeight += (positioningPreciseView.height + 8)
     newHeight += 16
     controller.height = newHeight
   }
@@ -52,11 +59,11 @@ Drawer {
     }
   }
 
-  onNavigationInformationViewEnabledChanged: updateDrawerHeight (navigationInformationViewEnabled, navigationInformationView.contentHeight)
+  onNavigationInformationViewEnabledChanged: updateDrawerHeight(navigationInformationViewEnabled, navigationInformationView.contentHeight)
 
-  onPositioningInformationViewEnabledChanged: updateDrawerHeight (positioningInformationViewEnabled, positioningInformationView.contentHeight)
+  onPositioningInformationViewEnabledChanged: updateDrawerHeight(positioningInformationViewEnabled, positioningInformationView.contentHeight)
 
-  onPositioningPreciseEnabledChanged: updateDrawerHeight (positioningPreciseEnabled, positioningPreciseViewHeight)
+  onPositioningPreciseEnabledChanged: updateDrawerHeight(positioningPreciseEnabled, positioningPreciseViewHeight)
 
   onOpenRequestedChanged: {
     if (openRequested) {
@@ -98,7 +105,7 @@ Drawer {
       anchors.horizontalCenter: parent.horizontalCenter
       clip: true
       navigation: controller.navigation
-      radius: 8
+      radius: itemRadius
     }
 
     PositioningInformationView {
@@ -110,11 +117,11 @@ Drawer {
       visible: positioningInformationViewEnabled
       positionSource: controller.positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
-      radius: 8
+      radius: itemRadius
     }
 
     PositioningPreciseView {
-      id: positioningPv
+      id: positioningPreciseView
       width: parent.width - 8
       height: positioningPreciseEnabled ? positioningPreciseViewHeight : 0
       anchors.horizontalCenter: parent.horizontalCenter

@@ -711,9 +711,9 @@ ApplicationWindow {
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
       proximityAlarm: positioningSettings.preciseViewProximityAlarm
-                      && navigatingDrawer.positioningPreciseView.visible
-                      && navigatingDrawer.positioningPreciseView.hasAcceptableAccuracy
-                      && !navigatingDrawer.positioningPreciseView.hasAlarmSnoozed
+                      && informationDrawer.positioningPreciseView.visible
+                      && informationDrawer.positioningPreciseView.hasAcceptableAccuracy
+                      && !informationDrawer.positioningPreciseView.hasAlarmSnoozed
       proximityAlarmThreshold: positioningSettings.preciseViewPrecision
     }
 
@@ -931,26 +931,17 @@ ApplicationWindow {
     }
   }
 
-  NavigatingDrawer{
-    id: navigatingDrawer
+  InformationDrawer {
+    id: informationDrawer
     openRequested: (navigation.isActive || positioningSettings.showPositionInformation ) &&
                 !elevationProfile.visible &&
                 mapCanvasMap.isEnabled &&
                 !messageLog.visible
-
     navigation: navigation
+    positionSource: positionSource
     positioningSettings: positioningSettings
     positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
-    positioningPreciseEnabled: !elevationProfile.visible
-                               && !isNaN(navigation.distance)
-                               && navigation.isActive
-                               && (positioningSettings.alwaysShowPreciseView
-                                  || ( positioningPreciseView.hasAcceptableAccuracy
-                                  &&  positioningPreciseView.projectDistance < positioningPreciseView.precision ))
-
-    positioningInformationViewEnabled: positioningSettings.showPositionInformation && !elevationProfile.visible
-    positionSource: positionSource
-    antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+    uiConflictFree: !elevationProfile.visible
   }
 
   Column {
@@ -1095,7 +1086,7 @@ ApplicationWindow {
 
   QfToolButton {
     id: compassArrow
-    y: navigatingDrawer.openRequested ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - 44 :
+    y: informationDrawer.openRequested ? ( parent.height - height ) - (informationDrawer.realtimeHeight) - 44 :
         digitizingToolbarContainer.y - height - 4
     rotation: mapCanvas.mapSettings.rotation
     visible: rotation != 0
@@ -1108,7 +1099,7 @@ ApplicationWindow {
   }
 
   ScaleBar {
-    y: navigatingDrawer.openRequested ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) :
+    y: informationDrawer.openRequested ? ( parent.height - height ) - (informationDrawer.realtimeHeight) :
         digitizingToolbarContainer.y
 
     visible: qfieldSettings.showScaleBar
@@ -1143,7 +1134,7 @@ ApplicationWindow {
     bgcolor: "transparent"
     visible:  !screenLocker.enabled && messageLog.unreadMessages
     anchors.right: pluginsToolbar.right
-    y: Math.max(16, parent.height / 4 - (navigatingDrawer.realtimeHeight / 3.7 + (digitizingToolbar.stateVisible ? 70: 0)))
+    y: Math.max(16, parent.height / 4 - (informationDrawer.realtimeHeight / 3.7 + (digitizingToolbar.stateVisible ? 70: 0)))
 
     onClicked: messageLog.visible = true
   }
@@ -1152,7 +1143,7 @@ ApplicationWindow {
     id: zoomToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 10
-    y: parent.height / 2 - (navigatingDrawer.realtimeHeight / 1.75 + (digitizingToolbar.stateVisible ? 70: 0) + (elevationProfile.visible ? 70: 0))
+    y: parent.height / 2 - (informationDrawer.realtimeHeight / 1.75 + (digitizingToolbar.stateVisible ? 70: 0) + (elevationProfile.visible ? 70: 0))
     spacing: 8
     visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainer.y) < 0.41
 
@@ -1695,7 +1686,7 @@ ApplicationWindow {
     id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
-    y: navigatingDrawer.openRequested ? ( parent.height - height ) - (navigatingDrawer.realtimeHeight) - (digitizingToolbar.stateVisible? 50: 0) :
+    y: informationDrawer.openRequested ? ( parent.height - height ) - (informationDrawer.realtimeHeight) - (digitizingToolbar.stateVisible? 50: 0) :
         digitizingToolbarContainer.y - height - 4
 
     spacing: 4
@@ -2002,8 +1993,8 @@ ApplicationWindow {
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
     anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: navigatingDrawer.openRequested
-                          ? navigatingDrawer.realtimeHeight
+    anchors.bottomMargin: informationDrawer.openRequested
+                          ? informationDrawer.realtimeHeight
                           : mainWindow.sceneBottomMargin + 4
     spacing: 4
 

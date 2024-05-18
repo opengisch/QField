@@ -7,6 +7,8 @@ QtObject {
     property bool darkTheme: false
 
     property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
+    property color mainBackgroundColorSemiOpaque: darkTheme ? "#dd303030" : "#ddfafafa"
+
     property color mainTextColor: darkTheme ? "#EEEEEE" : "#000000"
     readonly property color mainTextDisabledColor: darkTheme ? "#73EEEEEE" : "#73000000"
     readonly property color mainColor: "#80cc28"

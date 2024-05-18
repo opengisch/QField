@@ -27,7 +27,7 @@ Rectangle {
   width: parent.width
   anchors.margins: 20
 
-  color: "#dd" + Theme.mainBackgroundColor.toString().slice(1)
+  color: Theme.mainBackgroundColorSemiOpaque
 
   Grid {
     id: grid

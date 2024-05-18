@@ -22,7 +22,7 @@ Rectangle {
   property color textColor: Theme.mainTextColor
   property real contentHeight: content.height
 
-  color: "#dd" + Theme.mainBackgroundColor.toString().slice(1)
+  color: Theme.mainBackgroundColorSemiOpaque
   border.color: alternateBackgroundColor
   border.width: 2
 
