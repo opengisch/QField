@@ -77,7 +77,7 @@ VisibilityFadingRow {
     bgcolor: Theme.darkGray
     onClicked: {
       featureModel.vertexModel.undoHistory()
-      mapSettings.setCenter(featureModel.vertexModel.currentPoint)
+      mapSettings.setCenter(featureModel.vertexModel.currentPoint, true)
     }
   }
 
@@ -215,7 +215,7 @@ VisibilityFadingRow {
            && !screenHovering
            && featureModel.vertexModel.editingMode !== VertexModel.NoEditing )
       {
-        mapSettings.setCenter(featureModel.vertexModel.currentPoint)
+        mapSettings.setCenter(featureModel.vertexModel.currentPoint, true)
         vertexEditorToolbar.currentVertexId = featureModel.vertexModel.currentVertexIndex
         vertexEditorToolbar.currentVertexModified = false
       }

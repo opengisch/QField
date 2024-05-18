@@ -81,12 +81,50 @@ QgsRectangle QgsQuickMapSettings::extent() const
   return mMapSettings.extent();
 }
 
-void QgsQuickMapSettings::setExtent( const QgsRectangle &extent )
+void QgsQuickMapSettings::setExtent( const QgsRectangle &extent, bool handleMargins )
 {
-  if ( mMapSettings.extent() == extent || extent.isNull() )
-    return;
+  if ( handleMargins )
+  {
+    const double rightMargin = mRightMargin * devicePixelRatio();
+    const double bottomMargin = mBottomMargin * devicePixelRatio();
+    const double outputSizeRatio = ( outputSize().width() - rightMargin ) / ( outputSize().height() - bottomMargin );
+    const double extentRatio = extent.width() / extent.height();
 
-  mMapSettings.setExtent( extent );
+    QgsRectangle modifiedExtent = extent;
+    if ( extentRatio > outputSizeRatio )
+    {
+      const double heightAdjustment = ( extent.width() / outputSizeRatio - extent.height() ) / 2;
+      modifiedExtent.setYMinimum( extent.yMinimum() - heightAdjustment );
+      modifiedExtent.setYMaximum( extent.yMaximum() + heightAdjustment );
+    }
+    else
+    {
+      const double widthAdjustment = ( extent.height() * outputSizeRatio - extent.width() ) / 2;
+      modifiedExtent.setXMinimum( extent.xMinimum() - widthAdjustment );
+      modifiedExtent.setXMaximum( extent.xMaximum() + widthAdjustment );
+    }
+
+    if ( rightMargin > 0 )
+    {
+      modifiedExtent.setXMaximum( modifiedExtent.xMaximum() + ( modifiedExtent.width() / ( outputSize().width() - rightMargin ) ) * rightMargin );
+    }
+    if ( bottomMargin > 0 )
+    {
+      modifiedExtent.setYMinimum( modifiedExtent.yMinimum() - ( modifiedExtent.height() / ( outputSize().height() - bottomMargin ) ) * bottomMargin );
+    }
+
+    if ( mMapSettings.extent() == modifiedExtent || modifiedExtent.isNull() )
+      return;
+
+    mMapSettings.setExtent( modifiedExtent );
+  }
+  else
+  {
+    if ( mMapSettings.extent() == extent || extent.isNull() )
+      return;
+
+    mMapSettings.setExtent( extent );
+  }
   emit extentChanged();
 }
 
@@ -95,18 +133,30 @@ QgsPoint QgsQuickMapSettings::center() const
   return QgsPoint( extent().center() );
 }
 
-void QgsQuickMapSettings::setCenter( const QgsPoint &center )
+void QgsQuickMapSettings::setCenter( const QgsPoint &center, bool handleMargins )
 {
   if ( center.isEmpty() )
     return;
 
-  QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
-
+  const QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
   QgsRectangle e = mMapSettings.extent();
-  e.setXMinimum( e.xMinimum() + delta.x() );
-  e.setXMaximum( e.xMaximum() + delta.x() );
-  e.setYMinimum( e.yMinimum() + delta.y() );
-  e.setYMaximum( e.yMaximum() + delta.y() );
+  if ( handleMargins )
+  {
+    const double xAdjustment = mRightMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+    const double yAdjustment = mBottomMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+
+    e.setXMinimum( e.xMinimum() + delta.x() - xAdjustment );
+    e.setXMaximum( e.xMaximum() + delta.x() - xAdjustment );
+    e.setYMinimum( e.yMinimum() + delta.y() - yAdjustment );
+    e.setYMaximum( e.yMaximum() + delta.y() - yAdjustment );
+  }
+  else
+  {
+    e.setXMinimum( e.xMinimum() + delta.x() );
+    e.setXMaximum( e.xMaximum() + delta.x() );
+    e.setYMinimum( e.yMinimum() + delta.y() );
+    e.setYMaximum( e.yMaximum() + delta.y() );
+  }
 
   setExtent( e );
 }
@@ -126,7 +176,7 @@ void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom 
   }
 }
 
-void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points, const double &minimumScale )
+void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points, const double &minimumScale, bool handleMargins )
 {
   if ( points.isEmpty() )
     return;
@@ -135,7 +185,7 @@ void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points, const
   {
     QgsPoint p = points.at( 0 ).value<QgsPoint>();
     if ( !p.isEmpty() )
-      setCenter( p );
+      setCenter( p, handleMargins );
     return;
   }
 
@@ -174,7 +224,7 @@ void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points, const
     }
   }
 
-  setExtent( extent.buffered( buffer ) );
+  setExtent( extent.buffered( buffer ), handleMargins );
 }
 
 double QgsQuickMapSettings::mapUnitsPerPoint() const
@@ -414,4 +464,32 @@ void QgsQuickMapSettings::setTemporalEnd( const QDateTime &end )
   const QgsDateTimeRange range = mMapSettings.temporalRange();
   mMapSettings.setTemporalRange( QgsDateTimeRange( range.begin(), end ) );
   emit temporalStateChanged();
+}
+
+double QgsQuickMapSettings::bottomMargin() const
+{
+  return mBottomMargin;
+}
+
+void QgsQuickMapSettings::setBottomMargin( double bottomMargin )
+{
+  if ( mBottomMargin == bottomMargin )
+    return;
+
+  mBottomMargin = bottomMargin;
+  emit bottomMarginChanged();
+}
+
+double QgsQuickMapSettings::rightMargin() const
+{
+  return mRightMargin;
+}
+
+void QgsQuickMapSettings::setRightMargin( double rightMargin )
+{
+  if ( mRightMargin == rightMargin )
+    return;
+
+  mRightMargin = rightMargin;
+  emit rightMarginChanged();
 }

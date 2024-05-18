@@ -60,6 +60,16 @@ class QgsQuickMapCanvasMap : public QQuickItem
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings )
 
     /**
+     * The bottom margin used by the map settings when calculating map extent or center.
+     */
+    Q_PROPERTY( double bottomMargin READ bottomMargin WRITE setBottomMargin NOTIFY bottomMarginChanged )
+
+    /**
+     * The right margin used by the map settings when calculating map extent or center.
+     */
+    Q_PROPERTY( double rightMargin READ rightMargin WRITE setRightMargin NOTIFY rightMarginChanged )
+
+    /**
      * When freeze property is set to true, the map canvas does not refresh.
      * The value temporary changes during the rendering process.
      */
@@ -141,6 +151,18 @@ class QgsQuickMapCanvasMap : public QQuickItem
     //!\copydoc QgsQuickMapCanvasMap::forceDeferredLayersRepaint
     void setForceDeferredLayersRepaint( bool deferred );
 
+    //!\copydoc QgsQuickMapCanvasMap::bottomMargin
+    double bottomMargin() const;
+
+    //!\copydoc QgsQuickMapCanvasMap::bottomMargin
+    void setBottomMargin( double bottomMargin );
+
+    //!\copydoc QgsQuickMapCanvasMap::rightMargin
+    double rightMargin() const;
+
+    //!\copydoc QgsQuickMapCanvasMap::rightMargin
+    void setRightMargin( double rightMargin );
+
     /**
      * Returns an image of the last successful map canvas rendering
      */
@@ -175,6 +197,12 @@ class QgsQuickMapCanvasMap : public QQuickItem
 
     //!\copydoc QgsQuickMapCanvasMap::forceDeferredLayersRepaint
     void forceDeferredLayersRepaintChanged();
+
+    //!\copydoc QgsQuickMapCanvasMap::bottomMargin
+    void bottomMarginChanged();
+
+    //!\copydoc QgsQuickMapCanvasMap::rightMargin
+    void rightMarginChanged();
 
   protected:
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )

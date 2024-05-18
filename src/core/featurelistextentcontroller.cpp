@@ -55,9 +55,9 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 
     if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
     {
-      QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feat, mFeatureForm ? mFeatureForm->x() : 0.0, mFeatureForm ? mFeatureForm->y() : 0.0 );
+      QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feat );
       if ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) )
-        mMapSettings->setExtent( extent );
+        mMapSettings->setExtent( extent, true );
     }
   }
 }

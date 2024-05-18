@@ -236,9 +236,9 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     }
 
     if ( r.isEmpty() || mLocatorBridge->keepScale() )
-      mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) );
+      mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ), true );
     else
-      mLocatorBridge->mapSettings()->setExtent( r );
+      mLocatorBridge->mapSettings()->setExtent( r, true );
 
 
     mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );

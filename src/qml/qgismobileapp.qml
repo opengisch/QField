@@ -444,6 +444,7 @@ ApplicationWindow {
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
+
       property bool isEnabled: !dashBoard.opened &&
                                !welcomeScreen.visible &&
                                !qfieldSettings.visible &&
@@ -458,6 +459,9 @@ ApplicationWindow {
       quality: qfieldSettings.quality
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
+
+      rightMargin: featureForm.x > 0 ? featureForm.width : 0
+      bottomMargin: informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0
 
       anchors.fill: parent
 
@@ -1814,7 +1818,7 @@ ApplicationWindow {
                       && Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 3)) {
                 gnssButton.followActiveSkipExtentChanged = true;
                 var points = [positionSource.projectedPosition, navigation.destination];
-                mapCanvas.mapSettings.setExtentFromPoints(points, followLocationMinScale)
+                mapCanvas.mapSettings.setExtentFromPoints(points, followLocationMinScale, true)
               }
             }
           } else {
@@ -1826,7 +1830,7 @@ ApplicationWindow {
                 || screenLocation.y > mapCanvas.height - threshold )
             {
               gnssButton.followActiveSkipExtentChanged = true;
-              mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+              mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
             }
           }
         }
@@ -3162,7 +3166,7 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       onTriggered: {
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true)
       }
     }
 
