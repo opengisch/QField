@@ -45,8 +45,8 @@ Popup {
           if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
             projectInfo.saveTracker(featureModel.currentLayer)
           }
+          tracker = undefined
         }
-        tracker = undefined
       }
     }
   }
