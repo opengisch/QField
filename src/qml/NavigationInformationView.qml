@@ -17,7 +17,7 @@ Rectangle {
 
   property int ceilsCount: 4
   property double rowHeight: 30
-  property color backgroundColor: "transparent" 
+  property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.navigationBackgroundColor
   property color textColor: Theme.mainTextColor
   property real contentHeight: content.height

@@ -19,7 +19,7 @@ Rectangle {
 
   property double antennaHeight: NaN
   property double rowHeight: 30
-  property color backgroundColor: "transparent" 
+  property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.positionBackgroundColor
   property color textColor: positionSource.currentness ? Theme.mainTextColor : Theme.secondaryTextColor
 
