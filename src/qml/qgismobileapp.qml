@@ -951,7 +951,6 @@ ApplicationWindow {
     positionSource: positionSource
     positioningSettings: positioningSettings
     positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
-    uiConflictFree: !elevationProfile.visible && !messageLog.visible
   }
 
   Column {

@@ -20,24 +20,23 @@ Item {
   }
 
   property real itemRadius: 8
-  property bool uiConflictFree: false
 
   // SensorInformationView
   property bool sensorInformationViewEnabled: sensorInformationView.activeSensors > 0
 
   // NavigationInformationView
-  property bool navigationInformationViewEnabled: navigation.isActive
+  property bool navigationInformationViewEnabled: navigation.isActive && !elevationProfile.visible
 
   // PositioningInformationView
   property Navigation navigation
-  property bool positioningInformationViewEnabled: positioningSettings.showPositionInformation && uiConflictFree
+  property bool positioningInformationViewEnabled: positioningSettings.showPositionInformation && !elevationProfile.visible
 
   // PositioningPreciseView
   property alias positioningPreciseView: positioningPreciseView
   property PositioningSettings positioningSettings
   property Positioning positionSource
   property real positioningPreciseViewHeight
-  property bool positioningPreciseEnabled: uiConflictFree
+  property bool positioningPreciseEnabled: !elevationProfile.visible
                                            && !isNaN(navigation.distance)
                                            && navigation.isActive
                                            && (positioningSettings.alwaysShowPreciseView
