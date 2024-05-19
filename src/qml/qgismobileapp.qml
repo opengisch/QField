@@ -946,11 +946,6 @@ ApplicationWindow {
 
   InformationDrawer {
     id: informationDrawer
-    openRequested: (navigation.isActive ||
-                    positioningSettings.showPositionInformation ||
-                    sensorInformationViewEnabled) &&
-                    uiConflictFree &&
-                    mapCanvasMap.isEnabled
 
     navigation: navigation
     positionSource: positionSource
@@ -991,7 +986,7 @@ ApplicationWindow {
   Item {
     id: mapCanvasOverlays
     anchors.fill: mapCanvas
-    anchors.bottomMargin: informationDrawer.openRequested ? informationDrawer.realtimeHeight : 0
+    anchors.bottomMargin: informationDrawer.height
 
     Text {
       id: coordinateLocatorInformationOverlay
