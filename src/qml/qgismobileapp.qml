@@ -40,7 +40,7 @@ ApplicationWindow {
   Material.accent: Theme.mainColor
 
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
-  property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
+  property double sceneBottomMargin: 100// platformUtilities.sceneMargins(mainWindow)["bottom"]
 
   Timer {
     id: refreshSceneMargins

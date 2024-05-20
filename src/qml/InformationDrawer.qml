@@ -12,7 +12,7 @@ Item {
   anchors.rightMargin: 10
 
   width: parent.width
-  height: mainContent.height + (mainContent.height > 0 ? 10 : 0)
+  height: mainContent.height + (mainContent.height > 0 ? 10 : 0) + mainWindow.sceneBottomMargin
   Behavior on height {
     PropertyAnimation {
       easing.type: Easing.OutQuart
