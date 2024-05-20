@@ -854,6 +854,28 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
     }
+  }
+
+  InformationDrawer {
+    id: informationDrawer
+
+    navigation: navigation
+    positionSource: positionSource
+    positioningSettings: positioningSettings
+    positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
+  }
+
+  /**************************************************
+   * Map Canvas Overlays
+   * - Decorations
+   * - Scale Bar
+   * - UI elements such as QfToolButtons
+   **************************************************/
+
+  Item {
+    id: mapCanvasOverlays
+    anchors.fill: mapCanvas
+    anchors.bottomMargin: informationDrawer.height
 
     Rectangle {
       id: titleDecorationBackground
@@ -907,6 +929,7 @@ ApplicationWindow {
       clip: true
 
       color:'#55000000'
+
       Text {
         id: copyrightDecoration
 
@@ -942,28 +965,6 @@ ApplicationWindow {
 
       source: ""
     }
-  }
-
-  InformationDrawer {
-    id: informationDrawer
-
-    navigation: navigation
-    positionSource: positionSource
-    positioningSettings: positioningSettings
-    positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
-  }
-
-  /**************************************************
-   * Map Canvas Overlays
-   * - Decorations
-   * - Scale Bar
-   * - UI elements such as QfToolButtons
-   **************************************************/
-
-  Item {
-    id: mapCanvasOverlays
-    anchors.fill: mapCanvas
-    anchors.bottomMargin: informationDrawer.height
 
     Text {
       id: coordinateLocatorInformationOverlay
