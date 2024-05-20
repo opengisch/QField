@@ -15,6 +15,8 @@ Item {
   property alias profileCurve: elevationProfileCanvas.profileCurve
   property alias tolerance: elevationProfileCanvas.tolerance
 
+  property alias radius: backgroundRect.radius
+
   function populateLayersFromProject() {
     elevationProfileCanvas.populateLayersFromProject();
   }
@@ -28,10 +30,12 @@ Item {
   }
 
   Rectangle {
+      id: backgroundRect
+
       width: elevationProfile.width
       height: elevationProfile.height
       color: "#ffffff"
-      radius: 6
+      radius: 8
   }
 
   ElevationProfileCanvas {
