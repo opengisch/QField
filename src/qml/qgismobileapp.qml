@@ -1085,7 +1085,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
       anchors.bottom: parent.bottom
-      anchors.leftMargin: 4
+      anchors.leftMargin: 8
       anchors.bottomMargin: 10
     }
 
