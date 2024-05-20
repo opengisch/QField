@@ -102,5 +102,6 @@
         <file>QFieldLocalDataPickerScreen.qml</file>
         <file>QFieldSketcher.qml</file>
         <file>PluginManagerSettings.qml</file>
+        <file>InformationDrawer.qml</file>
     </qresource>
 </RCC>

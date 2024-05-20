@@ -17,15 +17,14 @@ Rectangle {
 
   property int ceilsCount: 4
   property double rowHeight: 30
-  property color backgroundColor: Theme.mainBackgroundColor
+  property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.navigationBackgroundColor
   property color textColor: Theme.mainTextColor
+  property real contentHeight: content.height
 
-  height: childrenRect.height
-  width: parent.width
-  anchors.margins: 20
-
-  color: Theme.mainBackgroundColor
+  color: Theme.mainBackgroundColorSemiOpaque
+  border.color: alternateBackgroundColor
+  border.width: 2
 
   Timer {
     id: featureVertexTimer
@@ -46,13 +45,13 @@ Rectangle {
   }
 
   ColumnLayout {
+    id: content
     width: parent.width
     spacing: 0
 
-    Rectangle {
+    Item {
       Layout.fillWidth: true
       Layout.preferredHeight: childrenRect.height
-      color: Theme.navigationColor
 
       RowLayout {
         width: parent.width
