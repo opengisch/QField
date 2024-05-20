@@ -40,7 +40,7 @@ ApplicationWindow {
   Material.accent: Theme.mainColor
 
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
-  property double sceneBottomMargin: 100// platformUtilities.sceneMargins(mainWindow)["bottom"]
+  property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
 
   Timer {
     id: refreshSceneMargins
@@ -183,7 +183,7 @@ ApplicationWindow {
         break;
       case 'measure':
         platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys)
-        elevationProfile.populateLayersFromProject();
+        informationDrawer.elevationProfile.populateLayersFromProject();
         displayToast( qsTr( 'You are now in measure mode' ) );
         break;
     }
@@ -433,7 +433,7 @@ ApplicationWindow {
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.bottom: informationView.visible ? informationView.top : parent.bottom
+    anchors.bottom: parent.bottom
 
     Rectangle {
       id: mapCanvasBackground
@@ -738,11 +738,11 @@ ApplicationWindow {
     LinePolygon {
       id: elevationProfileHighlight
 
-      visible: elevationProfile.visible
+      visible: informationDrawer.elevationProfile.visible
       mapSettings: mapCanvas.mapSettings
       geometry:   QgsGeometryWrapper {
-        qgsGeometry: elevationProfile.profileCurve
-        crs: elevationProfile.crs
+        qgsGeometry: informationDrawer.elevationProfile.profileCurve
+        crs: informationDrawer.elevationProfile.crs
       }
       color: "#FFFFFF"
       lineWidth: 4
@@ -953,33 +953,11 @@ ApplicationWindow {
     positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
   }
 
-  Column {
-    id: informationView
-    anchors.bottom: parent.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottomMargin: mainWindow.sceneBottomMargin
-    visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
-
-    width: parent.width
-
-    ElevationProfile {
-        id: elevationProfile
-
-        visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
-
-        width: parent.width
-        height: Math.max(220, mainWindow.height / 4)
-
-        project: qgisProject
-        crs: mapCanvas.mapSettings.destinationCrs
-    }
-  }
-
   /**************************************************
    * Map Canvas Overlays
-   * - Position Information View
+   * - Decorations
    * - Scale Bar
+   * - UI elements such as QfToolButtons
    **************************************************/
 
   Item {
@@ -1582,9 +1560,9 @@ ApplicationWindow {
           // Draw an elevation profile if we have enough points to do so
           if ( digitizingToolbar.rubberbandModel.vertexCount > 2 ) {
             // Clear the pre-existing profile to trigger a zoom to full updated profile curve
-            elevationProfile.clear();
-            elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(digitizingToolbar.rubberbandModel, elevationProfile.crs)
-            elevationProfile.refresh();
+            informationDrawer.elevationProfile.clear();
+            informationDrawer.elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(digitizingToolbar.rubberbandModel, informationDrawer.elevationProfile.crs)
+            informationDrawer.elevationProfile.refresh();
           }
 
           settings.setValue( "/QField/Measuring/ElevationProfile", elevationProfileActive );
@@ -1973,9 +1951,9 @@ ApplicationWindow {
           if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
             if ( rubberbandModel.vertexCount > 2 ) {
               // Clear the pre-existing profile to trigger a zoom to full updated profile curve
-              elevationProfile.clear();
-              elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(rubberbandModel, elevationProfile.crs)
-              elevationProfile.refresh();
+              informationDrawer.elevationProfile.clear();
+              informationDrawer.elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(rubberbandModel, informationDrawer.elevationProfile.crs)
+              informationDrawer.elevationProfile.refresh();
             }
           } else if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
             if ( digitizingToolbar.geometryValid ) {
@@ -2018,8 +1996,8 @@ ApplicationWindow {
         onCancel: {
           coordinateLocator.sourceLocation = undefined
           if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
-            elevationProfile.clear()
-            elevationProfile.refresh()
+            informationDrawer.elevationProfile.clear()
+            informationDrawer.elevationProfile.refresh()
           } else {
             if ( geometryRequested ) {
               if ( overlayFeatureFormDrawer.isAdding ) {

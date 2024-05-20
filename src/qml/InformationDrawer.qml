@@ -12,7 +12,7 @@ Item {
   anchors.rightMargin: 10
 
   width: parent.width
-  height: mainContent.height + (mainContent.height > 0 ? 10 : 0) + mainWindow.sceneBottomMargin
+  height: mainContent.height + (mainContent.height > 0 ? 5 : 0) + mainWindow.sceneBottomMargin
   Behavior on height {
     PropertyAnimation {
       easing.type: Easing.OutQuart
@@ -43,9 +43,12 @@ Item {
                                               || ( positioningPreciseView.hasAcceptableAccuracy
                                               &&  positioningPreciseView.projectDistance < positioningPreciseView.precision ))
 
+  // ElevationProfile
+  property alias elevationProfile: elevationProfile
+
   Column {
     id: mainContent
-    width: parent.width - 8
+    width: parent.width - 10
     anchors.horizontalCenter: parent.horizontalCenter
     spacing: 8
 
@@ -53,20 +56,20 @@ Item {
       id: navigationInformationView
       width: parent.width
       height: navigationInformationViewEnabled ? contentHeight : 0
+      radius: itemRadius
       clip: true
       navigation: controller.navigation
-      radius: itemRadius
     }
 
     PositioningInformationView {
       id: positioningInformationView
       width: parent.width
       height: positioningInformationViewEnabled ? contentHeight : 0
+      radius: itemRadius
       clip: true
       visible: positioningInformationViewEnabled
       positionSource: controller.positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
-      radius: itemRadius
     }
 
     PositioningPreciseView {
@@ -80,6 +83,22 @@ Item {
     SensorInformationView {
       id: sensorInformationView
       height: sensorInformationViewEnabled ? contentHeight : 0
+      radius: itemRadius
+      clip: true
+    }
+
+    ElevationProfile {
+        id: elevationProfile
+
+        visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
+
+        width: parent.width
+        height: Math.max(220, mainWindow.height / 4)
+        radius: itemRadius
+        clip: true
+
+        project: qgisProject
+        crs: mapCanvas.mapSettings.destinationCrs
     }
   }
 }
