@@ -866,7 +866,6 @@ ApplicationWindow {
     navigation: navigation
     positionSource: positionSource
     positioningSettings: positioningSettings
-    positioningPreciseViewHeight: Math.min(mainWindow.height / 2.5, 400)
   }
 
   /**************************************************

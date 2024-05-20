@@ -35,7 +35,6 @@ Item {
   property alias positioningPreciseView: positioningPreciseView
   property PositioningSettings positioningSettings
   property Positioning positionSource
-  property real positioningPreciseViewHeight
   property bool positioningPreciseEnabled: !elevationProfile.visible
                                            && !isNaN(navigation.distance)
                                            && navigation.isActive
@@ -49,56 +48,160 @@ Item {
   Column {
     id: mainContent
     width: parent.width - 10
-    anchors.horizontalCenter: parent.horizontalCenter
+    leftPadding: 5
+    rightPadding: 5
     spacing: 8
 
-    NavigationInformationView {
-      id: navigationInformationView
+    Rectangle {
+      visible: navigationInformationViewEnabled
       width: parent.width
-      height: navigationInformationViewEnabled ? contentHeight : 0
+      height: childrenRect.height
+      color: Theme.mainBackgroundColorSemiOpaque
       radius: itemRadius
       clip: true
-      navigation: controller.navigation
+
+      Column {
+        width: parent.width - 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        topPadding: 5
+        bottomPadding: 5
+        spacing: 4
+
+        Text {
+          text: "Navigation"
+          font: Theme.strongTipFont
+          color: Theme.mainTextColor
+        }
+
+        NavigationInformationView {
+          id: navigationInformationView
+          width: parent.width
+          height: contentHeight
+          navigation: controller.navigation
+        }
+      }
     }
 
-    PositioningInformationView {
-      id: positioningInformationView
-      width: parent.width
-      height: positioningInformationViewEnabled ? contentHeight : 0
-      radius: itemRadius
-      clip: true
+    Rectangle {
       visible: positioningInformationViewEnabled
-      positionSource: controller.positionSource
-      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
-    }
-
-    PositioningPreciseView {
-      id: positioningPreciseView
       width: parent.width
-      height: positioningPreciseEnabled ? positioningPreciseViewHeight : 0
-      clip: true
-      precision: positioningSettings.preciseViewPrecision
-    }
-
-    SensorInformationView {
-      id: sensorInformationView
-      height: sensorInformationViewEnabled ? contentHeight : 0
+      height: childrenRect.height
+      color: Theme.mainBackgroundColorSemiOpaque
       radius: itemRadius
       clip: true
+
+      Column {
+        width: parent.width - 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        topPadding: 5
+        bottomPadding: 5
+        spacing: 4
+
+        Text {
+          text: "Positioning"
+          font: Theme.strongTipFont
+          color: Theme.mainTextColor
+        }
+
+        PositioningInformationView {
+          id: positioningInformationView
+          width: parent.width
+          height: contentHeight
+          visible: positioningInformationViewEnabled
+          positionSource: controller.positionSource
+          antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+        }
+      }
     }
 
-    ElevationProfile {
-        id: elevationProfile
+    Rectangle {
+      visible: positioningPreciseEnabled
+      width: parent.width
+      height: childrenRect.height
+      color: Theme.mainBackgroundColorSemiOpaque
 
-        visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
+      Column {
+        width: parent.width - 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        topPadding: 5
+        bottomPadding: 5
+        spacing: 4
 
-        width: parent.width
-        height: Math.max(220, mainWindow.height / 4)
-        radius: itemRadius
-        clip: true
+        Text {
+          text: "Precise view"
+          font: Theme.strongTipFont
+          color: Theme.mainTextColor
+        }
 
-        project: qgisProject
-        crs: mapCanvas.mapSettings.destinationCrs
+        PositioningPreciseView {
+          id: positioningPreciseView
+          width: parent.width
+          height: Math.min(mainWindow.height / 2.5, 400)
+          clip: true
+          precision: positioningSettings.preciseViewPrecision
+        }
+      }
+    }
+
+    Rectangle {
+      visible: sensorInformationViewEnabled
+      width: parent.width
+      height: childrenRect.height
+      color: Theme.mainBackgroundColorSemiOpaque
+      radius: itemRadius
+      clip: true
+
+      Column {
+        width: parent.width - 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        topPadding: 5
+        bottomPadding: 5
+        spacing: 4
+
+        Text {
+          text: "Sensors"
+          font: Theme.strongTipFont
+          color: Theme.mainTextColor
+        }
+
+        SensorInformationView {
+          id: sensorInformationView
+          height: contentHeight
+        }
+      }
+    }
+
+    Rectangle {
+      visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
+      width: parent.width
+      height: childrenRect.height
+      color: Theme.mainBackgroundColorSemiOpaque
+      radius: itemRadius
+      clip: true
+
+      Column {
+        width: parent.width - 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        topPadding: 5
+        bottomPadding: 5
+        spacing: 4
+
+        Text {
+          text: "Elevation profile"
+          font: Theme.strongTipFont
+          color: Theme.mainTextColor
+        }
+
+        ElevationProfile {
+          id: elevationProfile
+
+          width: parent.width
+          height: Math.max(220, mainWindow.height / 4)
+
+          project: qgisProject
+          crs: mapCanvas.mapSettings.destinationCrs
+        }
+      }
     }
   }
 }

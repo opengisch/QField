@@ -31,7 +31,7 @@ Item {
 
   Rectangle {
     anchors.fill: parent
-    color: "#ee" + Theme.mainBackgroundColor.toString().slice(1)
+    color: Theme.mainBackgroundColorSemiOpaque
     radius: 8
   }
 

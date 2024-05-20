@@ -23,8 +23,6 @@ Rectangle {
   property real contentHeight: content.height
 
   color: Theme.mainBackgroundColorSemiOpaque
-  border.color: alternateBackgroundColor
-  border.width: 2
 
   Timer {
     id: featureVertexTimer
