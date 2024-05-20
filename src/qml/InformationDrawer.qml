@@ -71,6 +71,7 @@ Item {
           text: "Navigation"
           font: Theme.strongTipFont
           color: Theme.mainTextColor
+          leftPadding: 6
         }
 
         NavigationInformationView {
@@ -101,6 +102,7 @@ Item {
           text: "Positioning"
           font: Theme.strongTipFont
           color: Theme.mainTextColor
+          leftPadding: 6
         }
 
         PositioningInformationView {
@@ -131,6 +133,7 @@ Item {
           text: "Precise view"
           font: Theme.strongTipFont
           color: Theme.mainTextColor
+          leftPadding: 6
         }
 
         PositioningPreciseView {
@@ -162,6 +165,7 @@ Item {
           text: "Sensors"
           font: Theme.strongTipFont
           color: Theme.mainTextColor
+          leftPadding: 6
         }
 
         SensorInformationView {
@@ -190,6 +194,7 @@ Item {
           text: "Elevation profile"
           font: Theme.strongTipFont
           color: Theme.mainTextColor
+          leftPadding: 6
         }
 
         ElevationProfile {

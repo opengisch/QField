@@ -18,12 +18,13 @@ Rectangle {
   property string distanceUnitAbbreviation: UnitTypes.toAbbreviatedString(projectInfo.distanceUnits)
 
   property double antennaHeight: NaN
-  property double rowHeight: 30
+  property double cellHeight: 26
+  property double cellPadding: 6
   property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.positionBackgroundColor
   property color textColor: positionSource.currentness ? Theme.mainTextColor : Theme.secondaryTextColor
 
-  property real contentHeight: grid.rows * positioningInformationView.rowHeight
+  property real contentHeight: grid.rows * positioningInformationView.cellHeight
   width: parent.width
   anchors.margins: 20
 
@@ -38,12 +39,12 @@ Rectangle {
 
     Rectangle {
       id: x
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: alternateBackgroundColor
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -61,12 +62,12 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: backgroundColor
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -85,11 +86,11 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 2 ? backgroundColor : alternateBackgroundColor
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -121,12 +122,12 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 2 ? alternateBackgroundColor : backgroundColor
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -136,12 +137,12 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 4 ? backgroundColor : alternateBackgroundColor
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -153,12 +154,12 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 4 ? alternateBackgroundColor : backgroundColor
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -170,13 +171,13 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows % 2 === 0 ? backgroundColor : alternateBackgroundColor
       visible: positionSource.deviceId !== ''
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -189,13 +190,13 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows % 2 === 0 ? alternateBackgroundColor : backgroundColor
       visible: positionSource.deviceId !== ''
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -208,13 +209,13 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 6 ? backgroundColor : alternateBackgroundColor
       visible: positionSource.deviceId !== ''
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -227,13 +228,13 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 6 ? alternateBackgroundColor : backgroundColor
       visible: positionSource.deviceId !== ''
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -243,13 +244,13 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 2 || grid.rows === 6 ? backgroundColor : alternateBackgroundColor
       visible: positionSource.deviceId !== ''
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -259,13 +260,13 @@ Rectangle {
     }
 
     Rectangle {
-      height: rowHeight
+      height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 2 || grid.rows === 6 ? alternateBackgroundColor : backgroundColor
       visible: positionSource.deviceId !== ''
 
       Text {
-        anchors.margins:  10
+        anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
