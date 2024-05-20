@@ -1090,8 +1090,8 @@ ApplicationWindow {
       objectName: "pluginsToolbar"
 
       anchors.right: locatorItem.right
-      anchors.top: locatorItem.bottom
-      anchors.topMargin: 4
+      anchors.top: locatorItem.top
+      anchors.topMargin: 48 + 4
       spacing: 4
     }
 
