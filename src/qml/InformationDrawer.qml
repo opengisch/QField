@@ -19,8 +19,6 @@ Item {
     }
   }
 
-  property real itemRadius: 8
-
   // SensorInformationView
   property bool sensorInformationViewEnabled: sensorInformationView.activeSensors > 0
 
@@ -35,7 +33,6 @@ Item {
   property alias positioningPreciseView: positioningPreciseView
   property PositioningSettings positioningSettings
   property Positioning positionSource
-  property real positioningPreciseViewHeight
   property bool positioningPreciseEnabled: !elevationProfile.visible
                                            && !isNaN(navigation.distance)
                                            && navigation.isActive
@@ -49,56 +46,76 @@ Item {
   Column {
     id: mainContent
     width: parent.width - 10
-    anchors.horizontalCenter: parent.horizontalCenter
+    leftPadding: 5
+    rightPadding: 5
     spacing: 8
 
-    NavigationInformationView {
-      id: navigationInformationView
-      width: parent.width
-      height: navigationInformationViewEnabled ? contentHeight : 0
-      radius: itemRadius
-      clip: true
-      navigation: controller.navigation
+    QfOverlayContainer {
+      visible: navigationInformationViewEnabled
+
+      title: qsTr("Navigation")
+
+      NavigationInformationView {
+        id: navigationInformationView
+        width: parent.width
+        height: contentHeight
+        navigation: controller.navigation
+      }
     }
 
-    PositioningInformationView {
-      id: positioningInformationView
-      width: parent.width
-      height: positioningInformationViewEnabled ? contentHeight : 0
-      radius: itemRadius
-      clip: true
+    QfOverlayContainer {
       visible: positioningInformationViewEnabled
-      positionSource: controller.positionSource
-      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+
+      title: qsTr("Positioning")
+
+      PositioningInformationView {
+        id: positioningInformationView
+        width: parent.width
+        height: contentHeight
+        visible: positioningInformationViewEnabled
+        positionSource: controller.positionSource
+        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+      }
     }
 
-    PositioningPreciseView {
-      id: positioningPreciseView
-      width: parent.width
-      height: positioningPreciseEnabled ? positioningPreciseViewHeight : 0
-      clip: true
-      precision: positioningSettings.preciseViewPrecision
+    QfOverlayContainer {
+      visible: positioningPreciseEnabled
+
+      title: qsTr("Precise view")
+
+      PositioningPreciseView {
+        id: positioningPreciseView
+        width: parent.width
+        height: Math.min(mainWindow.height / 2.5, 400)
+        precision: positioningSettings.preciseViewPrecision
+      }
     }
 
-    SensorInformationView {
-      id: sensorInformationView
-      height: sensorInformationViewEnabled ? contentHeight : 0
-      radius: itemRadius
-      clip: true
+    QfOverlayContainer {
+      visible: sensorInformationViewEnabled
+
+      title: qsTr("Sensors")
+
+      SensorInformationView {
+        id: sensorInformationView
+        height: contentHeight
+      }
     }
 
-    ElevationProfile {
+    QfOverlayContainer {
+      visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
+
+      title: qsTr("Elevation profile")
+
+      ElevationProfile {
         id: elevationProfile
-
-        visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
 
         width: parent.width
         height: Math.max(220, mainWindow.height / 4)
-        radius: itemRadius
-        clip: true
 
         project: qgisProject
         crs: mapCanvas.mapSettings.destinationCrs
+      }
     }
   }
 }

@@ -59,7 +59,7 @@ void FinlandLocatorFilter::handleGeocodeResult( const QgsGeocoderResult &result 
     return;
   }
 
-  mLocatorBridge->mapSettings()->setCenter( transformedGeometry.centroid().vertexAt( 0 ) );
+  mLocatorBridge->mapSettings()->setCenter( transformedGeometry.centroid().vertexAt( 0 ), true );
 
   mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", result.geometry() );
   mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", result.crs() );

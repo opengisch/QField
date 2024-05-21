@@ -184,7 +184,7 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
-    bottomMargin: mainWindow.sceneBottomMargin
+    anchors.bottomMargin: mainWindow.sceneBottomMargin
 
     property bool shown: false
 
@@ -389,7 +389,6 @@ Rectangle {
       model: globalFeaturesList.model
       selection: featureForm.selection
       mapSettings: featureForm.mapSettings
-      featureForm: featureForm
 
       onFeatureFormStateRequested: {
         featureForm.state = "FeatureForm"

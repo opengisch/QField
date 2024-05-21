@@ -7,15 +7,13 @@ import org.qfield 1.0
 
 import Theme 1.0
 
-Item {
+Rectangle {
   id: elevationProfile
 
   property alias project: elevationProfileCanvas.project
   property alias crs: elevationProfileCanvas.crs
   property alias profileCurve: elevationProfileCanvas.profileCurve
   property alias tolerance: elevationProfileCanvas.tolerance
-
-  property alias radius: backgroundRect.radius
 
   function populateLayersFromProject() {
     elevationProfileCanvas.populateLayersFromProject();
@@ -29,14 +27,8 @@ Item {
     elevationProfileCanvas.clear();
   }
 
-  Rectangle {
-      id: backgroundRect
-
-      width: elevationProfile.width
-      height: elevationProfile.height
-      color: "#ffffff"
-      radius: 8
-  }
+  color: "#bbfafafa"
+  radius: 0
 
   ElevationProfileCanvas {
     id: elevationProfileCanvas

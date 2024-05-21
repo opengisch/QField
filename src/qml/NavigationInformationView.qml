@@ -16,15 +16,14 @@ Rectangle {
   property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
 
   property int ceilsCount: 4
-  property double rowHeight: 30
+  property double cellHeight: 26
+  property double cellPadding: 6
   property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.navigationBackgroundColor
   property color textColor: Theme.mainTextColor
   property real contentHeight: content.height
 
   color: Theme.mainBackgroundColorSemiOpaque
-  border.color: alternateBackgroundColor
-  border.width: 2
 
   Timer {
     id: featureVertexTimer
@@ -123,18 +122,18 @@ Rectangle {
       Layout.fillWidth: true
       Layout.preferredHeight: childrenRect.height
       width: parent.width
-      height: grid.rows * navigationInformationView.rowHeight
+      height: grid.rows * navigationInformationView.cellHeight
       flow: GridLayout.TopToBottom
       rows: parent.width > 620? 1 : 2
       property double cellWidth: grid.width / ( ceilsCount / grid.rows )
 
       Rectangle {
-        height: rowHeight
+        height: cellHeight
         width: grid.cellWidth
         color: alternateBackgroundColor
 
         Text {
-          anchors.margins:  10
+          anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
           font: Theme.tipFont
@@ -148,12 +147,12 @@ Rectangle {
       }
 
       Rectangle {
-        height: rowHeight
+        height: cellHeight
         width: grid.cellWidth
         color: backgroundColor
 
         Text {
-          anchors.margins:  10
+          anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
           font: Theme.tipFont
@@ -167,12 +166,12 @@ Rectangle {
       }
 
       Rectangle {
-        height: rowHeight
+        height: cellHeight
         width: grid.cellWidth
         color: grid.rows == 2 ? backgroundColor : alternateBackgroundColor
 
         Text {
-          anchors.margins:  10
+          anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
           font: Theme.tipFont
@@ -185,12 +184,12 @@ Rectangle {
       }
 
       Rectangle {
-        height: rowHeight
+        height: cellHeight
         width: grid.cellWidth
         color: grid.rows == 2 ? alternateBackgroundColor : backgroundColor
 
         Text {
-          anchors.margins:  10
+          anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
           font: Theme.tipFont

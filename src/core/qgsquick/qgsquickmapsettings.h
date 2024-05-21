@@ -132,6 +132,16 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
      */
     Q_PROPERTY( QDateTime temporalEnd READ temporalEnd WRITE setTemporalEnd NOTIFY temporalStateChanged )
 
+    /**
+     * The bottom margin used by the map settings when calculating map extent or center.
+     */
+    Q_PROPERTY( double bottomMargin READ bottomMargin WRITE setBottomMargin NOTIFY bottomMarginChanged )
+
+    /**
+     * The right margin used by the map settings when calculating map extent or center.
+     */
+    Q_PROPERTY( double rightMargin READ rightMargin WRITE setRightMargin NOTIFY rightMarginChanged )
+
   public:
     //! Create new map settings
     explicit QgsQuickMapSettings( QObject *parent = nullptr );
@@ -144,7 +154,7 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     QgsRectangle extent() const;
 
     //! \copydoc QgsMapSettings::setExtent()
-    void setExtent( const QgsRectangle &extent );
+    void setExtent( const QgsRectangle &extent, bool handleMargins = false );
 
     //! \copydoc QgsQuickMapSettings::project
     void setProject( QgsProject *project );
@@ -156,13 +166,13 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     QgsPoint center() const;
 
     //! Move current map extent to have center point defined by \a center
-    Q_INVOKABLE void setCenter( const QgsPoint &center );
+    Q_INVOKABLE void setCenter( const QgsPoint &center, bool handleMargins = false );
 
     //! Move current map extent to have center point defined by \a layer. Optionally only pan to the layer if \a shouldZoom is false.
     Q_INVOKABLE void setCenterToLayer( QgsMapLayer *layer, bool shouldZoom = true );
 
     //! Move current map extent to center around the list of \a points provided
-    Q_INVOKABLE void setExtentFromPoints( const QVariantList &points, const double &minimumScale = 0 );
+    Q_INVOKABLE void setExtentFromPoints( const QVariantList &points, const double &minimumScale = 0, bool handleMargins = false );
 
     //! \copydoc QgsQuickMapSettings::mapUnitsPerPoint
     double mapUnitsPerPoint() const;
@@ -280,6 +290,18 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     //! \copydoc QgsQuickMapSettings::temporalEnd
     void setTemporalEnd( const QDateTime &end );
 
+    //!\copydoc QgsQuickMapSettings::bottomMargin
+    double bottomMargin() const;
+
+    //!\copydoc QgsQuickMapSettings::bottomMargin
+    void setBottomMargin( double bottomMargin );
+
+    //!\copydoc QgsQuickMapSettings::rightMargin
+    double rightMargin() const;
+
+    //!\copydoc QgsQuickMapSettings::rightMargin
+    void setRightMargin( double rightMargin );
+
   signals:
     //! \copydoc QgsQuickMapSettings::project
     void projectChanged();
@@ -313,6 +335,12 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
 
     void temporalStateChanged();
 
+    //!\copydoc QgsQuickMapSettings::bottomMargin
+    void bottomMarginChanged();
+
+    //!\copydoc QgsQuickMapSettings::rightMargin
+    void rightMarginChanged();
+
   private slots:
 
     /**
@@ -331,6 +359,8 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     QgsProject *mProject = nullptr;
     QgsMapSettings mMapSettings;
     qreal mDevicePixelRatio = 1.0;
+    double mBottomMargin = 0;
+    double mRightMargin = 0;
 };
 
 #endif // QGSQUICKMAPSETTINGS_H

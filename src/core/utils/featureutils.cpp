@@ -61,7 +61,7 @@ QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feat
   return name;
 }
 
-QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature, const double &rightEdge, const double &bottomEdge )
+QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature )
 {
   if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
   {
@@ -72,15 +72,12 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
       geom.transform( transf );
 
       QgsRectangle extent;
-      QSizeF outputSize = mapSettings->outputSize() / mapSettings->devicePixelRatio();
-      const double rightPercentage = rightEdge / outputSize.width();
-      const double bottomPercentage = bottomEdge / outputSize.height();
       if ( geom.type() == Qgis::GeometryType::Point )
       {
         extent = mapSettings->extent();
         QgsVector delta = QgsPointXY( geom.asPoint() ) - extent.center();
-        const double deltaX = delta.x() + ( rightEdge > 0.0 ? mapSettings->mapUnitsPerPoint() * outputSize.width() * ( 0.5 - rightPercentage / 2.0 ) : 0.0 );
-        const double deltaY = delta.y() - ( bottomEdge > 0.0 ? mapSettings->mapUnitsPerPoint() * outputSize.height() * ( 0.5 - ( 1.0 - bottomPercentage ) / 2.0 ) : 0.0 );
+        const double deltaX = delta.x();
+        const double deltaY = delta.y();
         extent.setXMinimum( extent.xMinimum() + deltaX );
         extent.setXMaximum( extent.xMaximum() + deltaX );
         extent.setYMinimum( extent.yMinimum() + deltaY );
@@ -90,15 +87,6 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
       {
         extent = geom.boundingBox();
         extent = extent.buffered( std::max( extent.width(), extent.height() ) / 6.0 );
-
-        if ( rightEdge > 0.0 )
-        {
-          extent.setXMaximum( extent.xMaximum() + ( extent.xMaximum() - extent.xMinimum() ) * rightPercentage );
-        }
-        if ( bottomEdge > 0.0 )
-        {
-          extent.setYMinimum( extent.yMinimum() - ( extent.yMaximum() - extent.yMinimum() ) * bottomPercentage * 2 );
-        }
       }
 
       return extent;

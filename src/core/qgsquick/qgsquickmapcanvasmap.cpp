@@ -370,6 +370,34 @@ void QgsQuickMapCanvasMap::setQuality( double quality )
   refresh();
 }
 
+double QgsQuickMapCanvasMap::bottomMargin() const
+{
+  return mMapSettings->bottomMargin();
+}
+
+void QgsQuickMapCanvasMap::setBottomMargin( double bottomMargin )
+{
+  if ( mMapSettings->bottomMargin() == bottomMargin )
+    return;
+
+  mMapSettings->setBottomMargin( bottomMargin );
+  emit bottomMarginChanged();
+}
+
+double QgsQuickMapCanvasMap::rightMargin() const
+{
+  return mMapSettings->rightMargin();
+}
+
+void QgsQuickMapCanvasMap::setRightMargin( double rightMargin )
+{
+  if ( mMapSettings->rightMargin() == rightMargin )
+    return;
+
+  mMapSettings->setRightMargin( rightMargin );
+  emit rightMarginChanged();
+}
+
 bool QgsQuickMapCanvasMap::forceDeferredLayersRepaint() const
 {
   return mForceDeferredLayersRepaint;

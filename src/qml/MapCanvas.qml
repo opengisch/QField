@@ -24,6 +24,8 @@ import org.qgis 1.0
 Item {
   id: mapArea
   property alias mapSettings: mapCanvasWrapper.mapSettings
+  property alias bottomMargin: mapCanvasWrapper.bottomMargin
+  property alias rightMargin: mapCanvasWrapper.rightMargin
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
   property alias quality: mapCanvasWrapper.quality
