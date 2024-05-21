@@ -19,8 +19,6 @@ Item {
     }
   }
 
-  property real itemRadius: 8
-
   // SensorInformationView
   property bool sensorInformationViewEnabled: sensorInformationView.activeSensors > 0
 
@@ -52,160 +50,71 @@ Item {
     rightPadding: 5
     spacing: 8
 
-    Rectangle {
+    QfOverlayContainer {
       visible: navigationInformationViewEnabled
-      width: parent.width
-      height: childrenRect.height
-      color: Theme.mainBackgroundColorSemiOpaque
-      radius: itemRadius
-      clip: true
 
-      Column {
-        width: parent.width - 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        topPadding: 5
-        bottomPadding: 5
-        spacing: 4
+      title: qsTr("Navigation")
 
-        Text {
-          text: "Navigation"
-          font: Theme.strongTipFont
-          color: Theme.mainTextColor
-          leftPadding: 6
-        }
-
-        NavigationInformationView {
-          id: navigationInformationView
-          width: parent.width
-          height: contentHeight
-          navigation: controller.navigation
-        }
+      NavigationInformationView {
+        id: navigationInformationView
+        width: parent.width
+        height: contentHeight
+        navigation: controller.navigation
       }
     }
 
-    Rectangle {
+    QfOverlayContainer {
       visible: positioningInformationViewEnabled
-      width: parent.width
-      height: childrenRect.height
-      color: Theme.mainBackgroundColorSemiOpaque
-      radius: itemRadius
-      clip: true
 
-      Column {
-        width: parent.width - 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        topPadding: 5
-        bottomPadding: 5
-        spacing: 4
+      title: qsTr("Positioning")
 
-        Text {
-          text: "Positioning"
-          font: Theme.strongTipFont
-          color: Theme.mainTextColor
-          leftPadding: 6
-        }
-
-        PositioningInformationView {
-          id: positioningInformationView
-          width: parent.width
-          height: contentHeight
-          visible: positioningInformationViewEnabled
-          positionSource: controller.positionSource
-          antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
-        }
+      PositioningInformationView {
+        id: positioningInformationView
+        width: parent.width
+        height: contentHeight
+        visible: positioningInformationViewEnabled
+        positionSource: controller.positionSource
+        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
       }
     }
 
-    Rectangle {
+    QfOverlayContainer {
       visible: positioningPreciseEnabled
-      width: parent.width
-      height: childrenRect.height
-      color: Theme.mainBackgroundColorSemiOpaque
 
-      Column {
-        width: parent.width - 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        topPadding: 5
-        bottomPadding: 5
-        spacing: 4
+      title: qsTr("Precise view")
 
-        Text {
-          text: "Precise view"
-          font: Theme.strongTipFont
-          color: Theme.mainTextColor
-          leftPadding: 6
-        }
-
-        PositioningPreciseView {
-          id: positioningPreciseView
-          width: parent.width
-          height: Math.min(mainWindow.height / 2.5, 400)
-          clip: true
-          precision: positioningSettings.preciseViewPrecision
-        }
+      PositioningPreciseView {
+        id: positioningPreciseView
+        width: parent.width
+        height: Math.min(mainWindow.height / 2.5, 400)
+        precision: positioningSettings.preciseViewPrecision
       }
     }
 
-    Rectangle {
+    QfOverlayContainer {
       visible: sensorInformationViewEnabled
-      width: parent.width
-      height: childrenRect.height
-      color: Theme.mainBackgroundColorSemiOpaque
-      radius: itemRadius
-      clip: true
 
-      Column {
-        width: parent.width - 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        topPadding: 5
-        bottomPadding: 5
-        spacing: 4
+      title: qsTr("Sensors")
 
-        Text {
-          text: "Sensors"
-          font: Theme.strongTipFont
-          color: Theme.mainTextColor
-          leftPadding: 6
-        }
-
-        SensorInformationView {
-          id: sensorInformationView
-          height: contentHeight
-        }
+      SensorInformationView {
+        id: sensorInformationView
+        height: contentHeight
       }
     }
 
-    Rectangle {
+    QfOverlayContainer {
       visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
-      width: parent.width
-      height: childrenRect.height
-      color: Theme.mainBackgroundColorSemiOpaque
-      radius: itemRadius
-      clip: true
 
-      Column {
-        width: parent.width - 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        topPadding: 5
-        bottomPadding: 5
-        spacing: 4
+      title: qsTr("Elevation profile")
 
-        Text {
-          text: "Elevation profile"
-          font: Theme.strongTipFont
-          color: Theme.mainTextColor
-          leftPadding: 6
-        }
+      ElevationProfile {
+        id: elevationProfile
 
-        ElevationProfile {
-          id: elevationProfile
+        width: parent.width
+        height: Math.max(220, mainWindow.height / 4)
 
-          width: parent.width
-          height: Math.max(220, mainWindow.height / 4)
-
-          project: qgisProject
-          crs: mapCanvas.mapSettings.destinationCrs
-        }
+        project: qgisProject
+        crs: mapCanvas.mapSettings.destinationCrs
       }
     }
   }

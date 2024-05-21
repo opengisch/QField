@@ -87,6 +87,7 @@
         <file>imports/Theme/QfSlider.qml</file>
         <file>imports/Theme/QfCalendarPanel.qml</file>
         <file>imports/Theme/QfPageHeader.qml</file>
+        <file>imports/Theme/QfOverlayContainer.qml</file>
         <file>imports/Theme/qmldir</file>
         <file>TrackerSettings.qml</file>
         <file>TrackingSession.qml</file>

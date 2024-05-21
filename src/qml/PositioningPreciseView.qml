@@ -32,7 +32,6 @@ Item {
   Rectangle {
     anchors.fill: parent
     color: Theme.mainBackgroundColorSemiOpaque
-    radius: 8
   }
 
   Row {
