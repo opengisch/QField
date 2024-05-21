@@ -37,6 +37,8 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
     Q_PROPERTY( QgsGeometry profileCurve READ profileCurve WRITE setProfileCurve NOTIFY profileCurveChanged )
     Q_PROPERTY( double tolerance READ tolerance WRITE setTolerance NOTIFY toleranceChanged )
 
+    Q_PROPERTY( QColor backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged )
+    Q_PROPERTY( QColor borderColor READ borderColor WRITE setBorderColor NOTIFY borderColorChanged )
     Q_PROPERTY( QColor axisLabelColor READ axisLabelColor WRITE setAxisLabelColor NOTIFY axisLabelColorChanged )
     Q_PROPERTY( double axisLabelSize READ axisLabelSize WRITE setAxisLabelSize NOTIFY axisLabelSizeChanged )
 
@@ -170,6 +172,34 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
     QgsDoubleRange visibleElevationRange() const;
 
     /**
+     * Returns the background color used when rendering the elevation profile.
+     *
+     * \see setBackgroundColor
+     */
+    QColor backgroundColor() const;
+
+    /**
+     * Sets the background color used when rendering the elevation profile.
+     *
+     * \see backgroundColor
+     */
+    void setBackgroundColor( const QColor &color );
+
+    /**
+     * Returns the border color used when rendering the elevation profile.
+     *
+     * \see setBorderColor
+     */
+    QColor borderColor() const;
+
+    /**
+     * Sets the border color used when rendering the elevation profile.
+     *
+     * \see borderColor
+     */
+    void setBorderColor( const QColor &color );
+
+    /**
      * Returns the axis label color used when rendering the elevation profile.
      *
      * \see setAxisLabelColor
@@ -217,6 +247,12 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
     //! \copydoc QgsQuickMapCanvasMap::isRendering
     void isRenderingChanged();
 
+    //! Emitted when the background color changes.
+    void backgroundColorChanged();
+
+    //! Emitted when the border color changes.
+    void borderColorChanged();
+
     //! Emitted when the axis label color changes.
     void axisLabelColorChanged();
 
@@ -262,7 +298,7 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
 
   private:
     void setupLayerConnections( QgsMapLayer *layer, bool isDisconnect );
-    void updateAxisLabelStyle();
+    void updateStyle();
 
     QgsCoordinateReferenceSystem mCrs;
     QgsProject *mProject = nullptr;
@@ -292,6 +328,8 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
 
     bool mDirty = false;
 
+    QColor mBackgroundColor = QColor( 255, 255, 255 );
+    QColor mBorderColor = QColor( 0, 0, 0 );
     QColor mAxisLabelColor = QColor( 0, 0, 0 );
     double mAxisLabelSize = 16;
 };
