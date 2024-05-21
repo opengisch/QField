@@ -18,7 +18,12 @@
 
 #include "qgsabstractprofilegenerator.h"
 #include "qgsabstractprofilesource.h"
+#include "qgscolorutils.h"
 #include "qgsexpressioncontextutils.h"
+#include "qgsfillsymbol.h"
+#include "qgsfillsymbollayer.h"
+#include "qgslinesymbol.h"
+#include "qgslinesymbollayer.h"
 #include "qgsmaplayerelevationproperties.h"
 #include "qgsmaplayerutils.h"
 #include "qgsplot.h"
@@ -171,7 +176,7 @@ QgsQuickElevationProfileCanvas::QgsQuickElevationProfileCanvas( QQuickItem *pare
   connect( mDeferredRedrawTimer, &QTimer::timeout, this, &QgsQuickElevationProfileCanvas::startDeferredRedraw );
 
   mPlotItem = new QgsElevationProfilePlotItem( this );
-  updateAxisLabelStyle();
+  updateStyle();
 
   setTransformOrigin( QQuickItem::TopLeft );
   setFlags( QQuickItem::ItemHasContents );
@@ -727,6 +732,38 @@ void QgsQuickElevationProfileCanvas::setVisiblePlotRange( double minimumDistance
   refineResults();
 }
 
+QColor QgsQuickElevationProfileCanvas::backgroundColor() const
+{
+  return mBackgroundColor;
+}
+
+void QgsQuickElevationProfileCanvas::setBackgroundColor( const QColor &color )
+{
+  if ( mBackgroundColor == color )
+    return;
+
+  mBackgroundColor = color;
+  emit backgroundColorChanged();
+
+  updateStyle();
+}
+
+QColor QgsQuickElevationProfileCanvas::borderColor() const
+{
+  return mBorderColor;
+}
+
+void QgsQuickElevationProfileCanvas::setBorderColor( const QColor &color )
+{
+  if ( mBorderColor == color )
+    return;
+
+  mBorderColor = color;
+  emit borderColorChanged();
+
+  updateStyle();
+}
+
 QColor QgsQuickElevationProfileCanvas::axisLabelColor() const
 {
   return mAxisLabelColor;
@@ -740,7 +777,7 @@ void QgsQuickElevationProfileCanvas::setAxisLabelColor( const QColor &color )
   mAxisLabelColor = color;
   emit axisLabelColorChanged();
 
-  updateAxisLabelStyle();
+  updateStyle();
 }
 
 double QgsQuickElevationProfileCanvas::axisLabelSize() const
@@ -756,10 +793,10 @@ void QgsQuickElevationProfileCanvas::setAxisLabelSize( double size )
   mAxisLabelSize = size;
   emit axisLabelSizeChanged();
 
-  updateAxisLabelStyle();
+  updateStyle();
 }
 
-void QgsQuickElevationProfileCanvas::updateAxisLabelStyle()
+void QgsQuickElevationProfileCanvas::updateStyle()
 {
   if ( mPlotItem )
   {
@@ -774,6 +811,16 @@ void QgsQuickElevationProfileCanvas::updateAxisLabelStyle()
     textFormat.setSize( mAxisLabelSize );
     textFormat.setSizeUnit( Qgis::RenderUnit::Points );
     mPlotItem->yAxis().setTextFormat( textFormat );
+
+    std::unique_ptr<QgsSimpleLineSymbolLayer> lineSymbolLayer = std::make_unique<QgsSimpleLineSymbolLayer>( mBorderColor, 0.1 );
+    lineSymbolLayer->setPenCapStyle( Qt::FlatCap );
+    mPlotItem->xAxis().setGridMinorSymbol( new QgsLineSymbol( QgsSymbolLayerList( { lineSymbolLayer->clone() } ) ) );
+    mPlotItem->yAxis().setGridMinorSymbol( new QgsLineSymbol( QgsSymbolLayerList( { lineSymbolLayer->clone() } ) ) );
+    mPlotItem->xAxis().setGridMajorSymbol( new QgsLineSymbol( QgsSymbolLayerList( { lineSymbolLayer->clone() } ) ) );
+    mPlotItem->yAxis().setGridMajorSymbol( new QgsLineSymbol( QgsSymbolLayerList( { lineSymbolLayer->clone() } ) ) );
+    mPlotItem->setChartBorderSymbol( new QgsFillSymbol( QgsSymbolLayerList( { lineSymbolLayer.release() } ) ) );
+    std::unique_ptr<QgsSimpleFillSymbolLayer> fillSymbolLayer = std::make_unique<QgsSimpleFillSymbolLayer>( mBackgroundColor, Qt::SolidPattern, mBackgroundColor );
+    mPlotItem->setChartBackgroundSymbol( new QgsFillSymbol( QgsSymbolLayerList( { fillSymbolLayer.release() } ) ) );
 
     mDirty = true;
     refresh();

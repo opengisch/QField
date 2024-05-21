@@ -38,7 +38,9 @@ Rectangle {
 
     tolerance: crs.isGeographic ? 0.00005 : 5
 
-    axisLabelColor: Theme.mainTextColor
+    backgroundColor: Theme.mainBackgroundColorSemiOpaque
+    borderColor: Theme.controlBackgroundAlternateColor
+    axisLabelColor: Theme.secondaryTextColor
     axisLabelSize: Theme.tipFont
   }
 
