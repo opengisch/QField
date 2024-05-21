@@ -34,10 +34,11 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
-
     Q_PROPERTY( QgsGeometry profileCurve READ profileCurve WRITE setProfileCurve NOTIFY profileCurveChanged )
-
     Q_PROPERTY( double tolerance READ tolerance WRITE setTolerance NOTIFY toleranceChanged )
+
+    Q_PROPERTY( QColor axisLabelColor READ axisLabelColor WRITE setAxisLabelColor NOTIFY axisLabelColorChanged )
+    Q_PROPERTY( double axisLabelSize READ axisLabelSize WRITE setAxisLabelSize NOTIFY axisLabelSizeChanged )
 
     /**
      * The isRendering property is set to true while a rendering job is pending for this
@@ -168,6 +169,34 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
      */
     QgsDoubleRange visibleElevationRange() const;
 
+    /**
+     * Returns the axis label color used when rendering the elevation profile.
+     *
+     * \see setAxisLabelColor
+     */
+    QColor axisLabelColor() const;
+
+    /**
+     * Sets the axis label color used when rendering the elevation profile.
+     *
+     * \see axisLabelColor
+     */
+    void setAxisLabelColor( const QColor &color );
+
+    /**
+     * Returns the axis label size (in point) used when rendering the elevation profile.
+     *
+     * \see setAxisLabelSize
+     */
+    double axisLabelSize() const;
+
+    /**
+     * Sets the axis label size (in point) used when rendering the elevation profile.
+     *
+     * \see axisLabelSize
+     */
+    void setAxisLabelSize( double size );
+
   signals:
 
     //! Emitted when the number of active background jobs changes.
@@ -187,6 +216,12 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
 
     //! \copydoc QgsQuickMapCanvasMap::isRendering
     void isRenderingChanged();
+
+    //! Emitted when the axis label color changes.
+    void axisLabelColorChanged();
+
+    //! Emitted when the axis label size (in point) changes.
+    void axisLabelSizeChanged();
 
   protected:
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
@@ -227,6 +262,7 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
 
   private:
     void setupLayerConnections( QgsMapLayer *layer, bool isDisconnect );
+    void updateAxisLabelStyle();
 
     QgsCoordinateReferenceSystem mCrs;
     QgsProject *mProject = nullptr;
@@ -255,6 +291,9 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
     static constexpr double MAX_ERROR_PIXELS = 2;
 
     bool mDirty = false;
+
+    QColor mAxisLabelColor = QColor( 0, 0, 0 );
+    double mAxisLabelSize = 16;
 };
 
 #endif // QGSELEVATIONPROFILECANVAS_H

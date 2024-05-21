@@ -27,7 +27,7 @@ Rectangle {
     elevationProfileCanvas.clear();
   }
 
-  color: "#bbfafafa"
+  color: Theme.mainBackgroundColorSemiOpaque
   radius: 0
 
   ElevationProfileCanvas {
@@ -37,6 +37,9 @@ Rectangle {
     height: elevationProfile.height
 
     tolerance: crs.isGeographic ? 0.00005 : 5
+
+    axisLabelColor: Theme.mainTextColor
+    axisLabelSize: Theme.tipFont
   }
 
   ProgressBar {
@@ -82,7 +85,7 @@ Rectangle {
     visible: elevationProfileCanvas.isRendering || elevationProfileCanvas.profileCurve.isNull
     anchors.centerIn: parent
     width: parent.width
-    color: Theme.gray
+    color: Theme.mainTextColor
     font: Theme.tinyFont
     horizontalAlignment: Text.AlignHCenter
     wrapMode: Text.WordWrap
@@ -90,6 +93,6 @@ Rectangle {
           ? qsTr('Rendering elevation profile…')
           : qsTr('Digitize a path to render the elevation profile')
     style: Text.Outline
-    styleColor: "white"
+    styleColor: Theme.mainBackgroundColorSemiOpaque
   }
 }
