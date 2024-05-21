@@ -171,6 +171,7 @@ QgsQuickElevationProfileCanvas::QgsQuickElevationProfileCanvas( QQuickItem *pare
   connect( mDeferredRedrawTimer, &QTimer::timeout, this, &QgsQuickElevationProfileCanvas::startDeferredRedraw );
 
   mPlotItem = new QgsElevationProfilePlotItem( this );
+  updateAxisLabelStyle();
 
   setTransformOrigin( QQuickItem::TopLeft );
   setFlags( QQuickItem::ItemHasContents );
@@ -724,6 +725,59 @@ void QgsQuickElevationProfileCanvas::setVisiblePlotRange( double minimumDistance
   mPlotItem->setXMinimum( minimumDistance );
   mPlotItem->setXMaximum( maximumDistance );
   refineResults();
+}
+
+QColor QgsQuickElevationProfileCanvas::axisLabelColor() const
+{
+  return mAxisLabelColor;
+}
+
+void QgsQuickElevationProfileCanvas::setAxisLabelColor( const QColor &color )
+{
+  if ( mAxisLabelColor == color )
+    return;
+
+  mAxisLabelColor = color;
+  emit axisLabelColorChanged();
+
+  updateAxisLabelStyle();
+}
+
+double QgsQuickElevationProfileCanvas::axisLabelSize() const
+{
+  return mAxisLabelSize;
+}
+
+void QgsQuickElevationProfileCanvas::setAxisLabelSize( double size )
+{
+  if ( mAxisLabelSize == size )
+    return;
+
+  mAxisLabelSize = size;
+  emit axisLabelSizeChanged();
+
+  updateAxisLabelStyle();
+}
+
+void QgsQuickElevationProfileCanvas::updateAxisLabelStyle()
+{
+  if ( mPlotItem )
+  {
+    QgsTextFormat textFormat = mPlotItem->xAxis().textFormat();
+    textFormat.setColor( mAxisLabelColor );
+    textFormat.setSize( mAxisLabelSize );
+    textFormat.setSizeUnit( Qgis::RenderUnit::Points );
+    mPlotItem->xAxis().setTextFormat( textFormat );
+
+    textFormat = mPlotItem->yAxis().textFormat();
+    textFormat.setColor( mAxisLabelColor );
+    textFormat.setSize( mAxisLabelSize );
+    textFormat.setSizeUnit( Qgis::RenderUnit::Points );
+    mPlotItem->yAxis().setTextFormat( textFormat );
+
+    mDirty = true;
+    refresh();
+  }
 }
 
 QgsDoubleRange QgsQuickElevationProfileCanvas::visibleDistanceRange() const

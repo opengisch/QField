@@ -43,21 +43,32 @@ Rectangle {
       width: grid.cellWidth
       color: alternateBackgroundColor
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: coordinatesIsXY
-              ? (coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
-                + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid
-                   ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                   : qsTr( "N/A" ) )
-              : (coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
-                + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                   ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                   : qsTr( "N/A" ) )
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: coordinatesIsXY
+                ? coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )
+                : coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: coordinatesIsXY
+                ? positionSource.positionInformation && positionSource.positionInformation.longitudeValid
+                  ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                  : qsTr( "N/A" )
+                : positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                  ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                  : qsTr( "N/A" )
+        }
       }
     }
 
@@ -66,22 +77,34 @@ Rectangle {
       width: grid.cellWidth
       color: backgroundColor
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: coordinatesIsXY
-              ? (coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
-                + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid
-                   ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                   : qsTr( "N/A" ) )
-              : (coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
-                + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                   ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                   : qsTr( "N/A" ) )
 
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: coordinatesIsXY
+                ? coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )
+                : coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )
+
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: coordinatesIsXY
+                ? positionSource.positionInformation && positionSource.positionInformation.longitudeValid
+                  ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                  : qsTr( "N/A" )
+                : positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                  ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                  : qsTr( "N/A" )
+
+        }
       }
     }
 
@@ -89,34 +112,46 @@ Rectangle {
       height: cellHeight
       width: grid.cellWidth
       color: grid.rows === 2 ? backgroundColor : alternateBackgroundColor
-      Text {
+
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: {
-          var altitude = qsTr( "Altitude" ) + ': '
-          if (positionSource.positionInformation && positionSource.positionInformation.elevationValid) {
-            altitude += Number(positionSource.projectedPosition.z * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation + ' '
-            var details = []
-            if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile) {
-              details.push('grid')
-            } else if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
-              details.push('ortho.')
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("Altitude")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: {
+            var altitude = ''
+            if (positionSource.positionInformation && positionSource.positionInformation.elevationValid) {
+              altitude += Number(positionSource.projectedPosition.z * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation + ' '
+              var details = []
+              if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile) {
+                details.push('grid')
+              } else if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
+                details.push('ortho.')
+              }
+              if (!isNaN(parseFloat(antennaHeight))) {
+                details.push('ant.')
+              }
+              if (details.length > 0) {
+                altitude += ' (%1)'.arg( details.join(', '))
+              }
             }
-            if (!isNaN(parseFloat(antennaHeight))) {
-              details.push('ant.')
+            else
+            {
+              altitude += qsTr('N/A');
             }
-            if (details.length > 0) {
-              altitude += ' (%1)'.arg( details.join(', '))
-            }
+            return altitude
           }
-          else
-          {
-            altitude += qsTr('N/A');
-          }
-          return altitude
         }
       }
     }
@@ -126,13 +161,26 @@ Rectangle {
       width: grid.cellWidth
       color: grid.rows === 2 ? alternateBackgroundColor : backgroundColor
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr( "Speed" ) + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed.toLocaleString(Qt.locale(), 'f', 3) + " m/s" : qsTr( "N/A" ) )
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("Speed")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation && positionSource.positionInformation.speedValid
+                ? positionSource.positionInformation.speed.toLocaleString(Qt.locale(), 'f', 3) + " m/s"
+                : qsTr( "N/A" )
+        }
       }
     }
 
@@ -141,15 +189,26 @@ Rectangle {
       width: grid.cellWidth
       color: grid.rows === 4 ? backgroundColor : alternateBackgroundColor
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr("H. Accuracy") + ': ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid
-                                            ? Number(positionSource.positionInformation.hacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
-                                            : qsTr("N/A"))
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("H. Accuracy")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation && positionSource.positionInformation.haccValid
+                ? Number(positionSource.positionInformation.hacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
+                : qsTr("N/A")
+        }
       }
     }
 
@@ -158,15 +217,26 @@ Rectangle {
       width: grid.cellWidth
       color: grid.rows === 4 ? alternateBackgroundColor : backgroundColor
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr( "V. Accuracy" ) + ': ' + (positionSource.positionInformation && positionSource.positionInformation.vaccValid
-                                              ? Number(positionSource.positionInformation.vacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
-                                              : qsTr("N/A"))
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("V. Accuracy")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation && positionSource.positionInformation.vaccValid
+                ? Number(positionSource.positionInformation.vacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
+                : qsTr("N/A")
+        }
       }
     }
 
@@ -176,16 +246,26 @@ Rectangle {
       color: grid.rows % 2 === 0 ? backgroundColor : alternateBackgroundColor
       visible: positionSource.deviceId !== ''
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr( "PDOP" ) + ': ' +
-              (positionSource.positionInformation && !isNaN(positionSource.positionInformation.pdop)
-               ? positionSource.positionInformation.pdop.toLocaleString(Qt.locale(), 'f', 1)
-               : qsTr('N/A'))
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("PDOP")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.pdop)
+                ? positionSource.positionInformation.pdop.toLocaleString(Qt.locale(), 'f', 1)
+                : qsTr('N/A')
+        }
       }
     }
 
@@ -195,16 +275,26 @@ Rectangle {
       color: grid.rows % 2 === 0 ? alternateBackgroundColor : backgroundColor
       visible: positionSource.deviceId !== ''
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr( "HDOP" ) + ': ' +
-              (positionSource.positionInformation && !isNaN(positionSource.positionInformation.hdop)
-               ? positionSource.positionInformation.hdop.toLocaleString(Qt.locale(), 'f', 1)
-               : qsTr('N/A'))
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("HDOP")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.hdop)
+                ? positionSource.positionInformation.hdop.toLocaleString(Qt.locale(), 'f', 1)
+                : qsTr('N/A')
+        }
       }
     }
 
@@ -214,16 +304,26 @@ Rectangle {
       color: grid.rows === 6 ? backgroundColor : alternateBackgroundColor
       visible: positionSource.deviceId !== ''
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr( "VDOP" ) + ': ' +
-              (positionSource.positionInformation && !isNaN(positionSource.positionInformation.vdop)
-               ? positionSource.positionInformation.vdop.toLocaleString(Qt.locale(), 'f', 1)
-               : qsTr('N/A'))
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("VDOP")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.vdop)
+                ? positionSource.positionInformation.vdop.toLocaleString(Qt.locale(), 'f', 1)
+                : qsTr('N/A')
+        }
       }
     }
 
@@ -233,13 +333,24 @@ Rectangle {
       color: grid.rows === 6 ? alternateBackgroundColor : backgroundColor
       visible: positionSource.deviceId !== ''
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr( "Valid" ) + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.isValid ? 'True' : 'False' )
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("Valid")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation && positionSource.positionInformation.isValid ? 'True' : 'False'
+        }
       }
     }
 
@@ -249,13 +360,24 @@ Rectangle {
       color: grid.rows === 2 || grid.rows === 6 ? backgroundColor : alternateBackgroundColor
       visible: positionSource.deviceId !== ''
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr( "Fix" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.fixStatusDescription : qsTr('N/A') )
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("Fix")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation ? positionSource.positionInformation.fixStatusDescription : qsTr('N/A')
+        }
       }
     }
 
@@ -265,13 +387,24 @@ Rectangle {
       color: grid.rows === 2 || grid.rows === 6 ? alternateBackgroundColor : backgroundColor
       visible: positionSource.deviceId !== ''
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.tipFont
-        color: textColor
-        text: qsTr( "Quality" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.qualityDescription : qsTr('N/A') )
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: qsTr("Quality")
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: Theme.tipFont
+          color: textColor
+          text: positionSource.positionInformation ? positionSource.positionInformation.qualityDescription : qsTr('N/A')
+        }
       }
     }
   }
