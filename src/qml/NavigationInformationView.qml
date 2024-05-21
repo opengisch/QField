@@ -132,17 +132,28 @@ Rectangle {
         width: grid.cellWidth
         color: alternateBackgroundColor
 
-        Text {
+        RowLayout {
           anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
-          font: Theme.tipFont
-          color: textColor
-          text: coordinatesIsXY
-                ? (coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
-                  + Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                : (coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
-                  + Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+
+          Text {
+            Layout.fillWidth: false
+            font: Theme.tipFont
+            color: Theme.secondaryTextColor
+            text: coordinatesIsXY
+                  ? coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )
+                  : coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )
+          }
+
+          Text {
+            Layout.fillWidth: true
+            font: Theme.tipFont
+            color: textColor
+            text: coordinatesIsXY
+                  ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                  : Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+          }
         }
       }
 
@@ -151,17 +162,28 @@ Rectangle {
         width: grid.cellWidth
         color: backgroundColor
 
-        Text {
+        RowLayout {
           anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
-          font: Theme.tipFont
-          color: textColor
-          text: coordinatesIsXY
-                ? (coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
-                  + Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                : (coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
-                  + Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+
+          Text {
+            Layout.fillWidth: false
+            font: Theme.tipFont
+            color: Theme.secondaryTextColor
+            text: coordinatesIsXY
+                  ? coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )
+                  : coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )
+          }
+
+          Text {
+            Layout.fillWidth: true
+            font: Theme.tipFont
+            color: textColor
+            text: coordinatesIsXY
+                  ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                  : Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+          }
         }
       }
 
@@ -170,16 +192,26 @@ Rectangle {
         width: grid.cellWidth
         color: grid.rows == 2 ? backgroundColor : alternateBackgroundColor
 
-        Text {
+        RowLayout {
           anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
-          font: Theme.tipFont
-          color: textColor
-          text: qsTr( "Dist." ) + ': ' +
-                ( positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                 ? ( UnitTypes.formatDistance( navigation.distance * UnitTypes.fromUnitToUnitFactor( navigation.distanceUnits, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits ) )
-                 : qsTr( "N/A" ) )
+
+          Text {
+            Layout.fillWidth: false
+            font: Theme.tipFont
+            color: Theme.secondaryTextColor
+            text: qsTr("Dist.")
+          }
+
+          Text {
+            Layout.fillWidth: true
+            font: Theme.tipFont
+            color: textColor
+            text:  positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                   ? UnitTypes.formatDistance( navigation.distance * UnitTypes.fromUnitToUnitFactor( navigation.distanceUnits, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits )
+                   : qsTr( "N/A" )
+          }
         }
       }
 
@@ -188,16 +220,26 @@ Rectangle {
         width: grid.cellWidth
         color: grid.rows == 2 ? alternateBackgroundColor : backgroundColor
 
-        Text {
+        RowLayout {
           anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
-          font: Theme.tipFont
-          color: textColor
-          text: qsTr( "Bearing" ) + ': ' +
-                ( positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                 ? ( Number( navigation.bearing ).toLocaleString( Qt.locale(), 'f', 1 ) ) + '°'
-                 : qsTr( "N/A" ) )
+
+          Text {
+            Layout.fillWidth: false
+            font: Theme.tipFont
+            color: Theme.secondaryTextColor
+            text: qsTr("Bearing")
+          }
+
+          Text {
+            Layout.fillWidth: true
+            font: Theme.tipFont
+            color: textColor
+            text: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                  ? Number( navigation.bearing ).toLocaleString( Qt.locale(), 'f', 1 ) + '°'
+                  : qsTr( "N/A" )
+          }
         }
       }
     }

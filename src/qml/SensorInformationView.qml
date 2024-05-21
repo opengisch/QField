@@ -48,17 +48,28 @@ Rectangle {
       height: grid.cellHeight
       color: index % 2 == 0 ? sensorInformationView.alternateBackgroundColor : sensorInformationView.backgroundColor
 
-      Text {
+      RowLayout {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        width: grid.cellWidth - 20
-        height: grid.cellHeight - 20
-        font: Theme.tipFont
-        color: sensorInformationView.textColor
-        text: SensorName + ': ' + (SensorLastValue ? (SensorLastValue + '').trim() : 'N/A')
-        verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
+
+        Text {
+          Layout.fillWidth: false
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          text: SensorName
+        }
+
+        Text {
+          Layout.fillWidth: true
+          width: grid.cellWidth - 20
+          height: grid.cellHeight - 20
+          font: Theme.tipFont
+          color: sensorInformationView.textColor
+          text: SensorLastValue ? (SensorLastValue + '').trim() : qsTr( "N/A" )
+          verticalAlignment: Text.AlignVCenter
+          elide: Text.ElideRight
+        }
       }
     }
   }
