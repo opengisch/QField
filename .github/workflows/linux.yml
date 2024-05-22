@@ -98,7 +98,7 @@ jobs:
         with:
           build_dir: "build"
           lgtm_comment_body: ''
-          exclude: 'cppcoreguidelines-avoid-magic-numbers,bugprone-easily-swappable-parameters,misc-non-private-member-variables-in-classes,cppcoreguidelines-macro-usage,readability-braces-around-statements,readability-implicit-bool-conversion,cppcoreguidelines-avoid-magic-numbers'
+          clang_tidy_checks: '-*,performance-*,bugprone-*,clang-analyzer-*,mpi-*,misc-*'
 
       - name: Package
         run: |
