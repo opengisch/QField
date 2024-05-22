@@ -1007,6 +1007,29 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
 </context>
 <context>
+    <name>InformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Positionnement</translation>
+    </message>
+    <message>
+        <source>Precise view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Capteurs</translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
@@ -3306,6 +3329,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Unknown</source>
         <translation>Inconnu</translation>
+    </message>
+</context>
+<context>
+    <name>SensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>ND</translation>
     </message>
 </context>
 <context>

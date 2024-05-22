@@ -534,7 +534,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation type="unfinished"/>
+        <translation>Zapisanie zmian w dzienniku digitalizacji nie powiodło się</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
@@ -1010,6 +1010,29 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
 </context>
 <context>
+    <name>InformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation>Nawigacja</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Lokalizacja</translation>
+    </message>
+    <message>
+        <source>Precise view</source>
+        <translation>Widok dokładny</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Czujniki</translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation>Profil wysokościowy</translation>
+    </message>
+</context>
+<context>
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
@@ -1471,7 +1494,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
     </message>
 </context>
 <context>
@@ -3313,6 +3336,13 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Unknown</source>
         <translation>Nieznany</translation>
+    </message>
+</context>
+<context>
+    <name>SensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>Niedostępne</translation>
     </message>
 </context>
 <context>

@@ -1006,6 +1006,29 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
 </context>
 <context>
+    <name>InformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Paikannus</translation>
+    </message>
+    <message>
+        <source>Precise view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Sensorit</translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
@@ -3311,6 +3334,13 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Unknown</source>
         <translation>Tuntematon</translation>
+    </message>
+</context>
+<context>
+    <name>SensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
 </context>
 <context>

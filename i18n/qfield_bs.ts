@@ -1007,6 +1007,29 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
 </context>
 <context>
+    <name>InformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Lociranje</translation>
+    </message>
+    <message>
+        <source>Precise view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
@@ -3309,6 +3332,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Unknown</source>
         <translation>Nepoznato</translation>
+    </message>
+</context>
+<context>
+    <name>SensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>Nije dostupno</translation>
     </message>
 </context>
 <context>

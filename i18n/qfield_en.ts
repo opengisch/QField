@@ -1029,6 +1029,29 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>InformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation type="unfinished">Positioning</translation>
+    </message>
+    <message>
+        <source>Precise view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
@@ -3344,6 +3367,13 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Unknown</source>
         <translation>Unknown</translation>
+    </message>
+</context>
+<context>
+    <name>SensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation type="unfinished">N/A</translation>
     </message>
 </context>
 <context>
