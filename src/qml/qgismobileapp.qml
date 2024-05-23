@@ -2636,12 +2636,14 @@ ApplicationWindow {
       var xValue = Number( displayPoint.x ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
       var yLabel = isGeographic ? qsTr( 'Lat' ) : 'Y'
       var yValue = Number( displayPoint.y ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
-      xItem.text = isXY
+      let xItemText = isXY
                    ? xLabel + ': ' + xValue
                    : yLabel + ': ' + yValue
-      yItem.text = isXY
+      let yItemText = isXY
                    ? yLabel + ': ' + yValue
                    : xLabel + ': ' + xValue
+
+      cordinateItem.text = xItemText + "   " + yItemText
     }
 
     topMargin: sceneTopMargin
@@ -2675,19 +2677,18 @@ ApplicationWindow {
     MenuSeparator { width: parent.width; height: canvasMenuActionsToolbar.children.length > 0 ? undefined : 0 }
 
     MenuItem {
-        id: xItem
-        text: ""
-        height: 48
-        font: Theme.defaultFont
-        enabled:false
-    }
+      id: cordinateItem
+      text: ""
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
 
-    MenuItem {
-        id: yItem
-        text: ""
-        height: 48
-        font: Theme.defaultFont
-        enabled:false
+      onTriggered: {
+        var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs))
+        displayToast(qsTr('Coordinates copied to clipboard'));
+      }
     }
 
     MenuSeparator { width: parent.width }
@@ -2723,21 +2724,6 @@ ApplicationWindow {
 
       onTriggered: {
         navigation.destination = canvasMenu.point
-      }
-    }
-
-    MenuItem {
-      id: copyCoordinatesItem
-      text: qsTr( "Copy Coordinates" )
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
-
-      onTriggered: {
-        var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
-        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs))
-        displayToast(qsTr('Coordinates copied to clipboard'));
       }
     }
 
