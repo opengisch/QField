@@ -2730,15 +2730,13 @@ ApplicationWindow {
 
     MenuItem {
       id: lockMapRotation
-      text: mapCanvasMap.isMapRotationEnabled? "Lock map rotation": "Unlock map rotation"
+      text: "Enable Map Rotation"
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
-      icon.source: mapCanvasMap.isMapRotationEnabled? Theme.getThemeVectorIcon( "ic_dissatisfied_white_24dp" ): Theme.getThemeIcon( "ic_copy_black_24dp" )
-
-      onTriggered: {
-        qfieldSettings.enableMapRotation = !qfieldSettings.enableMapRotation
-      }
+      checkable: true
+      checked: qfieldSettings.enableMapRotation
+      onTriggered: qfieldSettings.enableMapRotation = checked
     }
 
     MenuSeparator { width: parent.width }

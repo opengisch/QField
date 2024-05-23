@@ -82,7 +82,7 @@ Page {
       }
       ListElement {
         title: qsTr( "Enable map rotation" )
-        description: qsTr( "When switched on, user allow's to rotate map." )
+        description: qsTr( "When switched on, the map can be rotated by the user." )
         settingAlias: "enableMapRotation"
         isVisible: true
       }
