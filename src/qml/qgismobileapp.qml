@@ -2637,10 +2637,10 @@ ApplicationWindow {
       var xValue = Number( displayPoint.x ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
       var yLabel = isGeographic ? qsTr( 'Lat' ) : 'Y'
       var yValue = Number( displayPoint.y ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
-      let xItemText = isXY
+      const xItemText = isXY
                    ? xLabel + ': ' + xValue
                    : yLabel + ': ' + yValue
-      let yItemText = isXY
+      const yItemText = isXY
                    ? yLabel + ': ' + yValue
                    : xLabel + ': ' + xValue
 
@@ -2686,7 +2686,7 @@ ApplicationWindow {
       icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
 
       onTriggered: {
-        var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+        const displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
         platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs))
         displayToast(qsTr('Coordinates copied to clipboard'));
       }
