@@ -2727,6 +2727,19 @@ ApplicationWindow {
       }
     }
 
+    MenuItem {
+      id: lockMapRotation
+      text: mapCanvasMap.isMapRotationEnabled? "Lock map rotation": "Unlock map rotation"
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      icon.source: mapCanvasMap.isMapRotationEnabled? Theme.getThemeVectorIcon( "ic_dissatisfied_white_24dp" ): Theme.getThemeIcon( "ic_copy_black_24dp" )
+
+      onTriggered: {
+        mapCanvasMap.isMapRotationEnabled = !mapCanvasMap.isMapRotationEnabled
+      }
+    }
+
     MenuSeparator { width: parent.width }
 
     MenuItem {
