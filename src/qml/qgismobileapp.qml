@@ -455,6 +455,7 @@ ApplicationWindow {
                                !sketcher.visible &&
                                !overlayFeatureFormDrawer.visible
       interactive: isEnabled && !screenLocker.enabled
+      isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
       forceDeferredLayersRepaint: trackings.count > 0
@@ -2736,7 +2737,7 @@ ApplicationWindow {
       icon.source: mapCanvasMap.isMapRotationEnabled? Theme.getThemeVectorIcon( "ic_dissatisfied_white_24dp" ): Theme.getThemeIcon( "ic_copy_black_24dp" )
 
       onTriggered: {
-        mapCanvasMap.isMapRotationEnabled = !mapCanvasMap.isMapRotationEnabled
+        qfieldSettings.enableMapRotation = !qfieldSettings.enableMapRotation
       }
     }
 
