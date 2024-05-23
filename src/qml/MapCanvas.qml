@@ -422,7 +422,7 @@ Item {
       }
 
       onRotationChanged: {
-          if ( active )
+          if ( active && isMapRotationEnabled )
           {
               if (rotationTresholdReached)
               {
