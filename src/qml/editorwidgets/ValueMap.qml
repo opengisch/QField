@@ -21,13 +21,65 @@ EditorWidgetBase {
   // Workaround to get a signal when the value has changed
   onCurrentKeyValueChanged: {
     comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue)
+
+    console.log("->", currentKeyValue)
   }
 
   height: childrenRect.height
   enabled: isEnabled
 
+  states: [
+    // showing QfToggleButton without search
+    State {
+      name: "individualItemView"
+      PropertyChanges {
+        target: toggleButtons
+        visible: true
+      }
+      PropertyChanges {
+        target: comboBox
+        visible: false
+      }
+    },
+    // showing ComboBox with search option
+    State {
+      name: "comboBoxItemView"
+      PropertyChanges {
+        target: toggleButtons
+        visible: false
+      }
+      PropertyChanges {
+        target: comboBox
+        visible: true
+      }
+    }
+  ]
+
+  // TODO: after testing use this condition: [currentItemCount >= minimumItemCount] and remove testSwitch
+  state: testSwitch ? "comboBoxItemView": "individualItemView"
+
+  // Using the search and comboBox when there are less than X items in the dropdown proves to be poor UI on normally
+  // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
+  readonly property int minimumItemCount: 6
+  property real currentItemCount: comboBox.count
+  property bool testSwitch: true
+
+
   RowLayout {
     anchors { left: parent.left; right: parent.right }
+
+    Button{
+      text: "tst"
+      onClicked:{
+        testSwitch = !testSwitch
+      }
+    }
+
+    QfToggleButtons{
+      id: toggleButtons
+      Layout.fillWidth: true
+      Layout.minimumHeight: visible? 200: 0
+    }
 
     ComboBox {
       id: comboBox
@@ -120,10 +172,6 @@ EditorWidgetBase {
 
         Layout.preferredWidth: enabled ? 48 : 0
         Layout.preferredHeight: 48
-
-        // Using the search when there are less than X items in the dropdown proves to be poor UI on normally
-        // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
-        readonly property int minimumItemCount: 6
 
         bgcolor: "transparent"
         iconSource: Theme.getThemeIcon("ic_baseline_search_black")
