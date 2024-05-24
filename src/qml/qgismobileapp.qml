@@ -2736,6 +2736,11 @@ ApplicationWindow {
       font: Theme.defaultFont
       checkable: true
       checked: qfieldSettings.enableMapRotation
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+
       onTriggered: qfieldSettings.enableMapRotation = checked
     }
 
