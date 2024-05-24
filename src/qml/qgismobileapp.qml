@@ -455,6 +455,7 @@ ApplicationWindow {
                                !sketcher.visible &&
                                !overlayFeatureFormDrawer.visible
       interactive: isEnabled && !screenLocker.enabled
+      isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
       forceDeferredLayersRepaint: trackings.count > 0
@@ -2636,12 +2637,14 @@ ApplicationWindow {
       var xValue = Number( displayPoint.x ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
       var yLabel = isGeographic ? qsTr( 'Lat' ) : 'Y'
       var yValue = Number( displayPoint.y ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
-      xItem.text = isXY
+      const xItemText = isXY
                    ? xLabel + ': ' + xValue
                    : yLabel + ': ' + yValue
-      yItem.text = isXY
+      const yItemText = isXY
                    ? yLabel + ': ' + yValue
                    : xLabel + ': ' + xValue
+
+      cordinateItem.text = xItemText + "   " + yItemText
     }
 
     topMargin: sceneTopMargin
@@ -2675,19 +2678,18 @@ ApplicationWindow {
     MenuSeparator { width: parent.width; height: canvasMenuActionsToolbar.children.length > 0 ? undefined : 0 }
 
     MenuItem {
-        id: xItem
-        text: ""
-        height: 48
-        font: Theme.defaultFont
-        enabled:false
-    }
+      id: cordinateItem
+      text: ""
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
 
-    MenuItem {
-        id: yItem
-        text: ""
-        height: 48
-        font: Theme.defaultFont
-        enabled:false
+      onTriggered: {
+        const displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs))
+        displayToast(qsTr('Coordinates copied to clipboard'));
+      }
     }
 
     MenuSeparator { width: parent.width }
@@ -2727,18 +2729,19 @@ ApplicationWindow {
     }
 
     MenuItem {
-      id: copyCoordinatesItem
-      text: qsTr( "Copy Coordinates" )
+      id: lockMapRotation
+      text: "Enable Map Rotation"
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+      checkable: true
+      checked: qfieldSettings.enableMapRotation
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
 
-      onTriggered: {
-        var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
-        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs))
-        displayToast(qsTr('Coordinates copied to clipboard'));
-      }
+      onTriggered: qfieldSettings.enableMapRotation = checked
     }
 
     MenuSeparator { width: parent.width }

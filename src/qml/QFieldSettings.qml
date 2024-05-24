@@ -23,6 +23,7 @@ Page {
   property alias fingerTapDigitizing: registry.fingerTapDigitizing
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
+  property alias enableMapRotation: registry.enableMapRotation
   property alias quality: registry.quality
 
   Component.onCompleted: {
@@ -45,6 +46,7 @@ Page {
     property bool fingerTapDigitizing: false
     property bool mouseAsTouchScreen: false
     property bool enableInfoCollection: true
+    property bool enableMapRotation: true
     property double quality: 1.0
 
     onEnableInfoCollectionChanged: {
@@ -77,6 +79,12 @@ Page {
           description: qsTr( "When switched on, user's saved and currently opened project bookmarks will be displayed on the map." )
           settingAlias: "showBookmarks"
           isVisible: true
+      }
+      ListElement {
+        title: qsTr( "Enable map rotation" )
+        description: qsTr( "When switched on, the map can be rotated by the user." )
+        settingAlias: "enableMapRotation"
+        isVisible: true
       }
   }
 

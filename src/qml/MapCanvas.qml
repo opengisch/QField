@@ -35,6 +35,7 @@ Item {
   property bool hovered: false
   property bool pinched: pinchHandler.active
   property bool freehandDigitizing: false
+  property bool isMapRotationEnabled: false
 
   // for signals, type can be "stylus" for any device click or "touch"
 
@@ -346,7 +347,7 @@ Item {
 
   DragHandler {
     target: null
-    enabled: interactive
+    enabled: interactive && isMapRotationEnabled
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedModifiers: Qt.ShiftModifier
     grabPermissions: PointerHandler.TakeOverForbidden
@@ -421,7 +422,7 @@ Item {
       }
 
       onRotationChanged: {
-          if ( active )
+          if ( active && isMapRotationEnabled )
           {
               if (rotationTresholdReached)
               {
