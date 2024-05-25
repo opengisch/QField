@@ -1,4 +1,5 @@
-// used: https://github.com/rschiang/material/blob/master/qml/material/PaperRipple.qml
+// Source is: https://github.com/rschiang/material/blob/master/qml/material/PaperRipple.qml
+// Ripple Effect from clicked position
 
 import QtQuick 2.14
 import Qt5Compat.GraphicalEffects

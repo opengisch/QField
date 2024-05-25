@@ -82,41 +82,95 @@ EditorWidgetBase {
       right: parent.right
     }
 
-    QfToggleButtons {
+    Item {
       id: toggleButtons
       Layout.fillWidth: true
-      Layout.minimumHeight: contentHeight
-      model: config['map']
-      opacity: enabled? 1: .4
+      Layout.minimumHeight: flow.height
+      opacity: enabled ? 1 : .4
 
-      onCurrentValueChanged: {
-        valueChangeRequested(currentSelectedValue, false)
+      property real selectedIndex: comboBox.currentIndex
+      property string currentSelectedKey: ""
+      property string currentSelectedValue: ""
+
+      Flow {
+        id: flow
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        spacing: 8
+
+        Repeater {
+          id: repeater
+          model: config['map']
+
+          delegate: Rectangle {
+            id: item
+            width: innerText.width + 16
+            height: 35
+            radius: 4
+            color: selected ? Theme.mainColor : "transparent"
+            border.color: selected ? Theme.mainColor : Theme.accentColor
+            border.width: 1
+
+            property bool selected: toggleButtons.selectedIndex == index
+            property string key: Object.keys(modelData)[0]
+            property string value: modelData[key]
+
+            Component.onCompleted: {
+              if (selected) {
+                toggleButtons.currentSelectedKey = key
+                toggleButtons.currentSelectedValue = value
+              }
+            }
+
+            Behavior on color {
+              ColorAnimation {
+                duration: 200
+              }
+            }
+
+            Text {
+              id: innerText
+              text: key
+              anchors.centerIn: parent
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+            }
+
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                toggleButtons.selectedIndex = index
+                toggleButtons.currentSelectedKey = key
+                toggleButtons.currentSelectedValue = value
+                valueChangeRequested(toggleButtons.currentSelectedValue, false)
+              }
+
+              QfRipple {
+                mouseArea: parent
+                anchors.fill: parent
+              }
+            }
+          }
+        }
       }
-
-      selectedIndex: comboBox.currentIndex
     }
 
     ComboBox {
       id: comboBox
-
       Layout.fillWidth: true
-
       font: Theme.defaultFont
-
       popup.font: Theme.defaultFont
       popup.topMargin: mainWindow.sceneTopMargin
       popup.bottomMargin: mainWindow.sceneTopMargin
-
       currentIndex: model.keyToIndex(value)
-
       model: listModel
+      textRole: 'value'
 
       Component.onCompleted: {
         comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
         model.valueMap = config['map']
       }
-
-      textRole: 'value'
 
       onCurrentTextChanged: {
         var key = model.keyForValue(currentText)
