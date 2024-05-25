@@ -36,6 +36,18 @@ Check the [documentation](https://docs.qfield.org/)
 
 <a href="https://qfield.org/get_latest?platform=macos" target="_blank">Download the latest MacOS beta version</a>.
 
+
+## Verify Authenticity of the App (Android only)
+
+SHA-256 hash of signing certificate:
+
+```5a7dd946a4b700c081a5bd375dbc8f0d11aa89d53832567ce5b8a92088e0e898```
+
+Use the following command to verify the hash of the signing certificate:
+
+```apksigner verify --print-certs [filename.apk] | grep "5a7dd946a4b700c081a5bd375dbc8f0d11aa89d53832567ce5b8a92088e0e898"```
+
+
 ## Contribute
 
 QField is an open source project, licensed under the terms of the GPLv2 or later. This means that it is free to use and modify and will stay like that.
@@ -56,7 +68,6 @@ If you found it useful, we will be even happier if you could give something back
 We automatically publish the latest master build to a [dedicated channel on the playstore](https://play.google.com/store/apps/details?id=ch.opengis.qfield_dev). You'll need to [join the beta program](https://play.google.com/apps/testing/ch.opengis.qfield_dev) to start getting the latest version.
 
 Please remember that this is the latest development build and is not meant for production.
-
 
 ## Development
 
