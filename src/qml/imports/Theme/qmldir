@@ -14,3 +14,5 @@ QfOpacityMask 1.0 QfOpacityMask.qml
 QfCalendarPanel 1.0 QfCalendarPanel.qml
 QfPageHeader 1.0 QfPageHeader.qml
 QfOverlayContainer 1.0 QfOverlayContainer.qml
+QfRipple 1.0 QfRipple.qml
+

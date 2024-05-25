@@ -21,8 +21,6 @@ EditorWidgetBase {
   // Workaround to get a signal when the value has changed
   onCurrentKeyValueChanged: {
     comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue)
-
-    console.log("->", currentKeyValue)
   }
 
   height: childrenRect.height
@@ -31,13 +29,17 @@ EditorWidgetBase {
   states: [
     // showing QfToggleButton without search
     State {
-      name: "individualItemView"
+      name: "toggleButtonsView"
       PropertyChanges {
         target: toggleButtons
         visible: true
       }
       PropertyChanges {
         target: comboBox
+        visible: false
+      }
+      PropertyChanges {
+        target: searchButton
         visible: false
       }
     },
@@ -52,11 +54,14 @@ EditorWidgetBase {
         target: comboBox
         visible: true
       }
+      PropertyChanges {
+        target: searchButton
+        visible: searchButton.enabled
+      }
     }
   ]
 
-  // TODO: after testing use this condition: [currentItemCount >= minimumItemCount] and remove testSwitch
-  state: testSwitch ? "comboBoxItemView": "individualItemView"
+  state: currentItemCount >= minimumItemCount ? "comboBoxItemView" : "toggleButtonsView"
 
   // Using the search and comboBox when there are less than X items in the dropdown proves to be poor UI on normally
   // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
@@ -64,21 +69,31 @@ EditorWidgetBase {
   property real currentItemCount: comboBox.count
   property bool testSwitch: true
 
+  ValueMapModel {
+    id: listModel
+    onMapChanged: {
+      comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue)
+    }
+  }
 
   RowLayout {
-    anchors { left: parent.left; right: parent.right }
-
-    Button{
-      text: "tst"
-      onClicked:{
-        testSwitch = !testSwitch
-      }
+    anchors {
+      left: parent.left
+      right: parent.right
     }
 
-    QfToggleButtons{
+    QfToggleButtons {
       id: toggleButtons
       Layout.fillWidth: true
-      Layout.minimumHeight: visible? 200: 0
+      Layout.minimumHeight: contentHeight
+      model: config['map']
+      opacity: enabled? 1: .4
+
+      onCurrentValueChanged: {
+        valueChangeRequested(currentSelectedValue, false)
+      }
+
+      selectedIndex: comboBox.currentIndex
     }
 
     ComboBox {
@@ -94,16 +109,9 @@ EditorWidgetBase {
 
       currentIndex: model.keyToIndex(value)
 
-      model: ValueMapModel {
-        id: listModel
+      model: listModel
 
-        onMapChanged: {
-          comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue)
-        }
-      }
-
-      Component.onCompleted:
-      {
+      Component.onCompleted: {
         comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
         model.valueMap = config['map']
       }
@@ -163,25 +171,23 @@ EditorWidgetBase {
     }
 
     FontMetrics {
-        id: fontMetrics
-        font: comboBox.font
+      id: fontMetrics
+      font: comboBox.font
     }
 
     QfToolButton {
-        id: searchButton
+      id: searchButton
 
-        Layout.preferredWidth: enabled ? 48 : 0
-        Layout.preferredHeight: 48
+      Layout.preferredWidth: enabled ? 48 : 0
+      Layout.preferredHeight: 48
 
-        bgcolor: "transparent"
-        iconSource: Theme.getThemeIcon("ic_baseline_search_black")
-        iconColor: Theme.mainTextColor
+      bgcolor: "transparent"
+      iconSource: Theme.getThemeIcon("ic_baseline_search_black")
+      iconColor: Theme.mainTextColor
 
-        visible: enabled && comboBox.count >= minimumItemCount
-
-        onClicked: {
-            searchFeaturePopup.open()
-        }
+      onClicked: {
+        searchFeaturePopup.open()
+      }
     }
 
     Popup {
@@ -246,7 +252,7 @@ EditorWidgetBase {
                 searchFeaturePopup.close()
               }
             }
-          }
+                          }
         }
 
         QfToolButton {
@@ -358,7 +364,7 @@ EditorWidgetBase {
                 return;
 
               item.performClick()
-            }
+                       }
           }
 
           onMovementStarted: {
