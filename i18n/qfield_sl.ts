@@ -3054,6 +3054,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Manage plugins</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4181,7 +4189,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopiraj koordinate</translation>
+        <translation type="vanished">Kopiraj koordinate</translation>
     </message>
     <message>
         <source>X</source>

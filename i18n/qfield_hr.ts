@@ -3068,6 +3068,14 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Manage plugins</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4195,7 +4203,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopiraj Koordinate</translation>
+        <translation type="vanished">Kopiraj Koordinate</translation>
     </message>
     <message>
         <source>X</source>

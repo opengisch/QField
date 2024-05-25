@@ -3074,6 +3074,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Manage plugins</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4201,7 +4209,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Copiați Coordonate</translation>
+        <translation type="vanished">Copiați Coordonate</translation>
     </message>
     <message>
         <source>X</source>

@@ -3072,6 +3072,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Manage plugins</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4199,7 +4207,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopioi koordinaatit</translation>
+        <translation type="vanished">Kopioi koordinaatit</translation>
     </message>
     <message>
         <source>X</source>

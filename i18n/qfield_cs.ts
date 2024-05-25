@@ -3073,6 +3073,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Manage plugins</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4200,7 +4208,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopírovat souřadnice</translation>
+        <translation type="vanished">Kopírovat souřadnice</translation>
     </message>
     <message>
         <source>X</source>

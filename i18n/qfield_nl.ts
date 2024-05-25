@@ -3070,6 +3070,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Manage plugins</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4197,7 +4205,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopieer Coördinaten</translation>
+        <translation type="vanished">Kopieer Coördinaten</translation>
     </message>
     <message>
         <source>X</source>

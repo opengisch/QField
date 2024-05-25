@@ -3075,6 +3075,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Manage plugins</source>
         <translation>Gestisci plugin</translation>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4202,7 +4210,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Copia Coordinate</translation>
+        <translation type="vanished">Copia Coordinate</translation>
     </message>
     <message>
         <source>X</source>

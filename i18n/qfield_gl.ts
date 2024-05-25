@@ -3070,6 +3070,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Manage plugins</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4197,7 +4205,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Copiar Coordenadas</translation>
+        <translation type="vanished">Copiar Coordenadas</translation>
     </message>
     <message>
         <source>X</source>

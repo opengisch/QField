@@ -3065,6 +3065,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>Manage plugins</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4192,7 +4200,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Kopiere Koordinaten</translation>
+        <translation type="vanished">Kopiere Koordinaten</translation>
     </message>
     <message>
         <source>X</source>

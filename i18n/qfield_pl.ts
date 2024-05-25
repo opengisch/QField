@@ -3074,6 +3074,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Manage plugins</source>
         <translation>Zarządzaj wtyczkami</translation>
     </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4201,7 +4209,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation>Skopiuj współrzędne</translation>
+        <translation type="vanished">Skopiuj współrzędne</translation>
     </message>
     <message>
         <source>X</source>
