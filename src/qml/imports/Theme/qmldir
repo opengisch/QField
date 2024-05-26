@@ -1,7 +1,6 @@
 module Theme
 singleton Theme 1.0 Theme.qml
 QfCloseButton 1.0 QfCloseButton.qml
-QfToggleButtons 1.0 QfToggleButtons.qml
 QfSlider 1.0 QfSlider.qml
 QfSwitch 1.0 QfSwitch.qml
 QfButton 1.0 QfButton.qml
