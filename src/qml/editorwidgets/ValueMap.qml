@@ -321,7 +321,7 @@ EditorWidgetBase {
                 searchFeaturePopup.close()
               }
             }
-                          }
+          }
         }
 
         QfToolButton {
@@ -433,7 +433,7 @@ EditorWidgetBase {
                 return;
 
               item.performClick()
-                       }
+            }
           }
 
           onMovementStarted: {
