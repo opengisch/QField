@@ -3070,11 +3070,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>启用地图旋转</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>打开后，用户可以旋转地图。</translation>
     </message>
 </context>
 <context>
