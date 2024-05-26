@@ -1,6 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts
+import QtQuick.Controls.Material 2.14
+import QtQuick.Controls.Material.impl 2.14
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -26,41 +28,168 @@ EditorWidgetBase {
   height: childrenRect.height
   enabled: isEnabled
 
+  states: [
+    // showing QfToggleButton without search
+    State {
+      name: "toggleButtonsView"
+      PropertyChanges {
+        target: toggleButtons
+        visible: true
+      }
+      PropertyChanges {
+        target: comboBox
+        visible: false
+      }
+      PropertyChanges {
+        target: searchButton
+        visible: false
+      }
+    },
+    // showing ComboBox with search option
+    State {
+      name: "comboBoxItemView"
+      PropertyChanges {
+        target: toggleButtons
+        visible: false
+      }
+      PropertyChanges {
+        target: comboBox
+        visible: true
+      }
+      PropertyChanges {
+        target: searchButton
+        visible: searchButton.enabled
+      }
+    }
+  ]
+
+  state: currentItemCount >= minimumItemCount ? "comboBoxItemView" : "toggleButtonsView"
+
+  // Using the search and comboBox when there are less than X items in the dropdown proves to be poor UI on normally
+  // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
+  readonly property int minimumItemCount: 6
+  property real currentItemCount: comboBox.count
+
+  ValueMapModel {
+    id: listModel
+    onMapChanged: {
+      comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue)
+    }
+  }
+
   RowLayout {
-    anchors { left: parent.left; right: parent.right }
+    anchors {
+      left: parent.left
+      right: parent.right
+    }
+
+    Item {
+      id: toggleButtons
+      Layout.fillWidth: true
+      Layout.minimumHeight: flow.height
+      opacity: enabled ? 1 : .4
+
+      property real selectedIndex: comboBox.currentIndex
+      property string currentSelectedKey: ""
+      property string currentSelectedValue: ""
+
+      Flow {
+        id: flow
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        spacing: 8
+
+        Repeater {
+          id: repeater
+          model: config['map']
+
+          delegate: Rectangle {
+            id: item
+            width: Math.min(flow.width - 16, innerText.width + 16)
+            height: 35
+            radius: 4
+            color: selected ? Theme.mainColor : "transparent"
+            border.color: selected ? Theme.mainColor : Theme.accentColor
+            border.width: 1
+
+            property bool selected: toggleButtons.selectedIndex == index
+            property string key: Object.keys(modelData)[0]
+            property string value: modelData[key]
+
+            Component.onCompleted: {
+              if (selected) {
+                toggleButtons.currentSelectedKey = key
+                toggleButtons.currentSelectedValue = value
+              }
+            }
+
+            Behavior on color {
+              ColorAnimation {
+                duration: 200
+              }
+            }
+
+            Text {
+              id: innerText
+              text: key
+              elide: Text.ElideRight
+              anchors.centerIn: parent
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+            }
+
+            MouseArea {
+              id: mouseArea
+              anchors.fill: parent
+              onClicked: {
+                if (toggleButtons.selectedIndex != index) {
+                  toggleButtons.selectedIndex = index
+                  toggleButtons.currentSelectedKey = key
+                  toggleButtons.currentSelectedValue = value
+                } else {
+                  toggleButtons.selectedIndex = -1
+                  toggleButtons.currentSelectedKey = ""
+                  toggleButtons.currentSelectedValue = ""
+                }
+                valueChangeRequested(toggleButtons.currentSelectedValue, false)
+              }
+
+              Ripple {
+                clip: true
+                width: parent.width
+                height: parent.height
+                pressed: mouseArea.pressed
+                anchor: parent
+                color: Theme.darkTheme ? "#22ffffff" : "#22000000"
+              }
+            }
+          }
+        }
+      }
+    }
 
     ComboBox {
       id: comboBox
-
       Layout.fillWidth: true
-
       font: Theme.defaultFont
-
       popup.font: Theme.defaultFont
       popup.topMargin: mainWindow.sceneTopMargin
       popup.bottomMargin: mainWindow.sceneTopMargin
-
       currentIndex: model.keyToIndex(value)
+      model: listModel
+      textRole: 'value'
 
-      model: ValueMapModel {
-        id: listModel
-
-        onMapChanged: {
-          comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue)
-        }
-      }
-
-      Component.onCompleted:
-      {
+      Component.onCompleted: {
         comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
         model.valueMap = config['map']
       }
 
-      textRole: 'value'
-
       onCurrentTextChanged: {
-        var key = model.keyForValue(currentText)
-        valueChangeRequested(key, false)
+        if (valueMap.state === "comboBoxItemView") {
+          var key = model.keyForValue(currentText)
+          valueChangeRequested(key, false)
+        }
       }
 
       MouseArea {
@@ -111,29 +240,23 @@ EditorWidgetBase {
     }
 
     FontMetrics {
-        id: fontMetrics
-        font: comboBox.font
+      id: fontMetrics
+      font: comboBox.font
     }
 
     QfToolButton {
-        id: searchButton
+      id: searchButton
 
-        Layout.preferredWidth: enabled ? 48 : 0
-        Layout.preferredHeight: 48
+      Layout.preferredWidth: enabled ? 48 : 0
+      Layout.preferredHeight: 48
 
-        // Using the search when there are less than X items in the dropdown proves to be poor UI on normally
-        // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
-        readonly property int minimumItemCount: 6
+      bgcolor: "transparent"
+      iconSource: Theme.getThemeIcon("ic_baseline_search_black")
+      iconColor: Theme.mainTextColor
 
-        bgcolor: "transparent"
-        iconSource: Theme.getThemeIcon("ic_baseline_search_black")
-        iconColor: Theme.mainTextColor
-
-        visible: enabled && comboBox.count >= minimumItemCount
-
-        onClicked: {
-            searchFeaturePopup.open()
-        }
+      onClicked: {
+        searchFeaturePopup.open()
+      }
     }
 
     Popup {
