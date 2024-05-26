@@ -69,7 +69,6 @@ EditorWidgetBase {
   // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
   readonly property int minimumItemCount: 6
   property real currentItemCount: comboBox.count
-  property bool testSwitch: true
 
   ValueMapModel {
     id: listModel
@@ -107,7 +106,7 @@ EditorWidgetBase {
 
           delegate: Rectangle {
             id: item
-            width: innerText.width + 16
+            width: Math.min(flow.width - 16, innerText.width + 16)
             height: 35
             radius: 4
             color: selected ? Theme.mainColor : "transparent"
@@ -134,6 +133,7 @@ EditorWidgetBase {
             Text {
               id: innerText
               text: key
+              elide: Text.ElideRight
               anchors.centerIn: parent
               font: Theme.defaultFont
               color: Theme.mainTextColor
@@ -143,19 +143,25 @@ EditorWidgetBase {
               id: mouseArea
               anchors.fill: parent
               onClicked: {
-                toggleButtons.selectedIndex = index
-                toggleButtons.currentSelectedKey = key
-                toggleButtons.currentSelectedValue = value
+                if (toggleButtons.selectedIndex != index) {
+                  toggleButtons.selectedIndex = index
+                  toggleButtons.currentSelectedKey = key
+                  toggleButtons.currentSelectedValue = value
+                } else {
+                  toggleButtons.selectedIndex = -1
+                  toggleButtons.currentSelectedKey = ""
+                  toggleButtons.currentSelectedValue = ""
+                }
                 valueChangeRequested(toggleButtons.currentSelectedValue, false)
               }
 
               Ripple {
-                  clip: true
-                  width: parent.width
-                  height: parent.height
-                  pressed: mouseArea.pressed
-                  anchor: parent
-                  color: Theme.darkTheme? "#22ffffff": "#22000000"
+                clip: true
+                width: parent.width
+                height: parent.height
+                pressed: mouseArea.pressed
+                anchor: parent
+                color: Theme.darkTheme ? "#22ffffff" : "#22000000"
               }
             }
           }
@@ -180,8 +186,10 @@ EditorWidgetBase {
       }
 
       onCurrentTextChanged: {
-        var key = model.keyForValue(currentText)
-        valueChangeRequested(key, false)
+        if (valueMap.state === "comboBoxItemView") {
+          var key = model.keyForValue(currentText)
+          valueChangeRequested(key, false)
+        }
       }
 
       MouseArea {
