@@ -625,27 +625,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Prendre une photo</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Prendre une vidéo</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Enregistrer un extrait sonore</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Joindre un élément de la galerie</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Joindre un fichier</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Dessiner un croquis</translation>
     </message>
 </context>
 <context>
@@ -700,11 +700,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>La dernière valeur saisie pour ce champ sera mémorisée et réutilisée lors de la création de nouvelles entités</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>La dernière valeur saisie pour ce champ ne sera pas réutilisée lors de la création de nouvelles entités</translation>
     </message>
 </context>
 <context>
@@ -1010,7 +1010,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigation</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1018,7 +1018,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Vue précise</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -1657,50 +1657,50 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;archive téléchargée ne peut pas être décompressée</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;archive téléchargée ne contient pas le fichier d&apos;extension requis main.qml</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;enregistrer le fichier téléchargé</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>Le fichier téléchargé n&apos;est pas une archive compressée d&apos;extension</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de réseau</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Extensions</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Aucune extension n&apos;a encore été installée. Pour en apprendre davantage sur les extensions, %1consulter la documentation%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>Installer l&apos;extension à partir de l&apos;URL</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Effacer les permissions mémorisées</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Saisir une URL ci-dessous pour télécharger et installer une extension :</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>Installation de %1</translation>
     </message>
     <message>
         <source>Authored by %1%2%3</source>
@@ -1708,19 +1708,19 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Êtes-vous sûr de vouloir désinstaller `%1` ?</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Dösinstaller la version %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Désinstaller l&apos;extension</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>Les informations sur l&apos;auteur affichées ci-dessus sont rapportées par l&apos;extension elle-même et ne sont pas vérifiées par une source indépendante. Assurez-vous d&apos;avoir confiance en l&apos;origine de cette extension.</translation>
     </message>
 </context>
 <context>
@@ -3041,19 +3041,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Numérisation et modification</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Interface utilisateur</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Apparence :</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Taille de police :</translation>
     </message>
     <message>
         <source>Language:</source>
@@ -3061,19 +3061,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Avancé</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Gérer les extensions</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Permettre la rotation de la carte</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Une fois activé, la carte peut être pivotée par l&apos;utilisateur</translation>
     </message>
 </context>
 <context>
@@ -4522,7 +4522,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Se rappeler de mon choix</translation>
     </message>
 </context>
 <context>
