@@ -21,7 +21,7 @@ ListView {
   flickableDirection: Flickable.VerticalFlick
   boundsBehavior: Flickable.StopAtBounds
   clip: true
-  spacing: 0
+  spacing: 4
 
   delegate: Rectangle {
     property int itemPadding: 5 + ( 5 + 24 ) * TreeLevel
@@ -30,7 +30,9 @@ ListView {
     id: rectangle
     width: parent ? parent.width : undefined
     height: line.height + 7
-    color: isSelectedLayer ? Theme.mainColor : "transparent"
+    color: isSelectedLayer ? Theme.mainColor :
+          (Type === "group") ? Theme.mainBackgroundColorSemiOpaque :
+          (Type === "legend" || VectorLayerPointer == null) ? Theme.mainBackgroundColor: Theme.mainBackgroundColorSemiOpaque
 
     MouseArea {
       id: mouseArea
@@ -49,17 +51,13 @@ ListView {
           projectInfo.activeLayer = VectorLayerPointer
         }
       }
-      onDoubleClicked: (mouse) => {
-        if (HasChildren) {
-          IsCollapsed = !IsCollapsed
-          projectInfo.saveLayerTreeState();
-        }
-      }
+
       onPressAndHold: {
         itemProperties.index = legend.model.index(index, 0)
         itemProperties.open()
         itemProperties.forceActiveFocus()
       }
+
       onReleased: (mouse) => {
         if (mouse.button === Qt.RightButton) {
           pressAndHold(mouse)
@@ -85,24 +83,41 @@ ListView {
 
       // Collapsed state visual feedback
       Rectangle {
-          height: 24
-          width: 10
-          color: "transparent"
-          anchors.verticalCenter: parent.verticalCenter
+        height: 24
+        width: 30
+        color: "transparent"
+        anchors.verticalCenter: parent.verticalCenter
 
-          Image {
-              anchors.fill: parent
-              source: isSelectedLayer
-                  ? Theme.getThemeVectorIcon('ic_legend_collapsed_state_white_14dp')
-                  : Theme.getThemeVectorIcon('ic_legend_collapsed_state_14dp')
-              width: 10
-              height: 10
-              rotation: !IsCollapsed ? 90 : 0
-              sourceSize.width: 12 * screen.devicePixelRatio
-              sourceSize.height: 12 * screen.devicePixelRatio
-              fillMode: Image.PreserveAspectFit
-              visible: HasChildren
+        Image {
+          height: parent.height * .75
+          width: height
+          anchors.centerIn: parent
+          source: isSelectedLayer ? whiteIcon : Theme.darkTheme ? whiteIcon : blackIcon
+          rotation: !IsCollapsed ? 90 : 0
+          sourceSize.height: 12 * screen.devicePixelRatio
+          fillMode: Image.PreserveAspectFit
+          visible: HasChildren
+
+          property var whiteIcon: Theme.getThemeVectorIcon('ic_legend_collapsed_state_white_24dp')
+          property var blackIcon: Theme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
+
+          Behavior on rotation {
+            NumberAnimation {
+              duration: 100
+            }
           }
+        }
+
+        MouseArea {
+          anchors.fill: parent
+          cursorShape: Qt.PointingHandCursor
+          onClicked: {
+            if (HasChildren) {
+              IsCollapsed = !IsCollapsed
+              projectInfo.saveLayerTreeState()
+            }
+          }
+        }
       }
 
       // Legend image / layer icon
