@@ -15,6 +15,7 @@ ListView {
 
   property bool isVisible: false
   property VectorLayer activeLayer
+  property bool allowLayerChange
 
   model: flatLayerTree
   flickableDirection: Flickable.VerticalFlick
@@ -34,11 +35,14 @@ ListView {
     MouseArea {
       id: mouseArea
       anchors.fill: parent
+      enabled: (allowLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
       acceptedButtons: Qt.LeftButton | Qt.RightButton
       onClicked: (mouse) => {
-        if (ReadOnly || GeometryLocked) {
+        if (!allowLayerChange)
           return
-        }
+
+        if (ReadOnly || GeometryLocked)
+          return
 
         if (VectorLayerPointer && VectorLayerPointer.isValid) {
           activeLayer = VectorLayerPointer
