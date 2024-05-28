@@ -21,7 +21,7 @@ ListView {
   flickableDirection: Flickable.VerticalFlick
   boundsBehavior: Flickable.StopAtBounds
   clip: true
-  spacing: 4
+  spacing: 2
 
   delegate: Rectangle {
     property int itemPadding: 5 + ( 5 + 24 ) * TreeLevel
@@ -31,8 +31,11 @@ ListView {
     width: parent ? parent.width : undefined
     height: line.height + 7
     color: isSelectedLayer ? Theme.mainColor :
-          (Type === "group") ? Theme.mainBackgroundColorSemiOpaque :
-          (Type === "legend" || VectorLayerPointer == null) ? Theme.mainBackgroundColor: Theme.mainBackgroundColorSemiOpaque
+          (Type === "group") ? groupColor :
+          (Type === "legend" || VectorLayerPointer == null) ? childColor : groupColor
+
+    property color groupColor: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
+    property color childColor: Theme.darkTheme ? Theme.mainBackgroundColor : "#55eeeeee"
 
     MouseArea {
       id: mouseArea
