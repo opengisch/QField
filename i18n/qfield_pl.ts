@@ -3076,11 +3076,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Włącz obracanie mapy</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Po włączeniu mapa może być obracana przez użytkownika.</translation>
     </message>
 </context>
 <context>
@@ -3162,7 +3162,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Map Tool Capture</source>
-        <translation type="unfinished"/>
+        <translation>Przechwytywanie narzędzia mapy</translation>
     </message>
     <message>
         <source>Cloud User Info</source>
