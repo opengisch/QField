@@ -21,7 +21,7 @@ ListView {
   flickableDirection: Flickable.VerticalFlick
   boundsBehavior: Flickable.StopAtBounds
   clip: true
-  spacing: 2
+  spacing: 0
 
   function openProperties(index) {
     itemProperties.index = legend.model.index(index, 0)
@@ -36,12 +36,7 @@ ListView {
     id: rectangle
     width: parent ? parent.width : undefined
     height: line.height + 7
-    color: isSelectedLayer ? Theme.mainColor :
-          (Type === "group") ? groupColor :
-          (Type === "legend" || VectorLayerPointer == null) ? childColor : groupColor
-
-    property color groupColor: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
-    property color childColor: Theme.darkTheme ? Theme.mainBackgroundColor : "#55eeeeee"
+    color: isSelectedLayer ? Theme.mainColor : "transparent"
 
     MouseArea {
       id: mouseArea
@@ -97,7 +92,6 @@ ListView {
         anchors.verticalCenter: parent.verticalCenter
         height: 24
         visible: HasChildren
-
 
         Item {
           height: 24
@@ -167,6 +161,7 @@ ListView {
             icon.height: 45
             flat: true
             visible: layerTree.data(legend.model.index(index, 0), FlatLayerTreeModel.HasSpatialExtent) === true
+            enabled: (allowLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             anchors.centerIn: parent
             onClicked:{
               layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible);
@@ -244,6 +239,8 @@ ListView {
           horizontalAlignment: Text.AlignLeft
           font.pointSize: Theme.tipFont.pointSize
           font.bold: Type === "group" || (Type === "layer" && VectorLayerPointer && VectorLayerPointer == activeLayer) ? true : false
+          elide: Text.ElideRight
+          opacity: Visible ? 1 : 0.25
           color: {
               if ( isSelectedLayer )
                   return Theme.light;
@@ -252,8 +249,6 @@ ListView {
               else
                   return Theme.secondaryTextColor
           }
-          elide: Text.ElideRight
-          opacity: Visible ? 1 : 0.25
         }
 
         QfToolButton {
@@ -265,21 +260,20 @@ ListView {
           padding: 4
           anchors.verticalCenter: parent.verticalCenter
           enabled: isVisible
-
           round: true
           bgcolor: Theme.mainColor
-          SequentialAnimation on bgcolor  {
-              running: isVisible && legend.isVisible
-              loops: Animation.Infinite
-              ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
-              ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
-          }
-
           icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
           icon.color: Theme.mainTextColor
 
           onClicked: {
             displayToast(qsTr('This layer is is currently tracking the device position.'))
+          }
+
+          SequentialAnimation on bgcolor  {
+              running: isVisible && legend.isVisible
+              loops: Animation.Infinite
+              ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
+              ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
           }
         }
 
@@ -292,10 +286,8 @@ ListView {
           padding: 4
           anchors.verticalCenter: parent.verticalCenter
           enabled: isVisible
-
           bgcolor: 'transparent'
           opacity: 0.5
-
           icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp' )
           icon.color: Theme.errorColor
 
@@ -313,7 +305,6 @@ ListView {
           padding: 4
           anchors.verticalCenter: parent.verticalCenter
           enabled: isVisible
-
           bgcolor: 'transparent'
           opacity: 0.5
 
@@ -338,11 +329,9 @@ ListView {
           padding: 4
           anchors.verticalCenter: parent.verticalCenter
           enabled: isVisible
-
           round: true
           bgcolor: SnappingEnabled ? Theme.mainColor : Theme.controlBackgroundColor
           opacity: SnappingEnabled ? 1.0 : 0.5
-
           icon.source: Theme.getThemeVectorIcon( 'ic_snapping_white_24dp' )
           icon.color: SnappingEnabled ? 'white' : Theme.mainTextColor
 
@@ -358,7 +347,6 @@ ListView {
   LayerTreeItemProperties {
       id: itemProperties
       layerTree: legend.model
-
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   }
