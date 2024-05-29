@@ -9,7 +9,6 @@ import org.qfield 1.0
 import Theme 1.0
 import "."
 
-
 ListView {
   id: legend
 
@@ -155,7 +154,7 @@ ListView {
             height: 40
             smooth: true
             icon.source: !Visible ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-            opacity: Visible ? 1 :  0.25
+            opacity: Visible ? 1 : 0.25
             icon.color: isSelectedLayer ? "white" : Theme.mainTextColor
             icon.width: 45
             icon.height: 45
@@ -163,65 +162,65 @@ ListView {
             visible: layerTree.data(legend.model.index(index, 0), FlatLayerTreeModel.HasSpatialExtent) === true
             enabled: (allowLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             anchors.centerIn: parent
-            onClicked:{
-              layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible);
-              flatLayerTree.mapTheme = '';
-              projectInfo.saveLayerTreeState();
+            onClicked: {
+              layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible)
+              flatLayerTree.mapTheme = ''
+              projectInfo.saveLayerTreeState()
             }
           }
         }
 
         // Legend image / layer icon
         Item {
-            height: 24
-            width: 24
-            anchors.verticalCenter: parent.verticalCenter
+          height: 24
+          width: 24
+          anchors.verticalCenter: parent.verticalCenter
 
-            Image {
-                anchors.fill: parent
-                anchors.margins: 4
-                cache: false
-                smooth: true
-                mipmap: true
-                source: {
-                  if ( !legend.isVisible )
-                    return '';
+          Image {
+            anchors.fill: parent
+            anchors.margins: 4
+            cache: false
+            smooth: true
+            mipmap: true
+            source: {
+              if (!legend.isVisible)
+                return ''
 
-                  if ( LegendImage != '' ) {
-                    return "image://legend/" + LegendImage
-                  } else if ( LayerType == "vectorlayer" ) {
-                    switch( VectorLayerPointer.geometryType() ) {
-                    case Qgis.GeometryType.Point:
-                      return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
-                    case Qgis.GeometryType.Line:
-                      return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
-                    case Qgis.GeometryType.Polygon:
-                      return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
-                    case Qgis.GeometryType.Null:
-                    case Qgis.GeometryType.Unknown:
-                      return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
-                    }
-                  } else if ( LayerType == "rasterlayer" ) {
-                    return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
-                  } else if ( LayerType == "meshlayer" ) {
-                    return Theme.getThemeVectorIcon('ic_meshlayer_18dp');
-                  } else if ( LayerType == "vectortilelayer" ) {
-                    return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp');
-                  } else if ( LayerType == "annotationlayer" ) {
-                    return Theme.getThemeVectorIcon('ic_annotationlayer_18dp');
-                  } else if ( Type == "group" ) {
-                    return Theme.getThemeVectorIcon('ic_group_18dp');
-                  } else {
-                    return '';
-                  }
+              if (LegendImage != '') {
+                return "image://legend/" + LegendImage
+              } else if (LayerType == "vectorlayer") {
+                switch (VectorLayerPointer.geometryType()) {
+                case Qgis.GeometryType.Point:
+                  return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp')
+                case Qgis.GeometryType.Line:
+                  return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp')
+                case Qgis.GeometryType.Polygon:
+                  return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp')
+                case Qgis.GeometryType.Null:
+                case Qgis.GeometryType.Unknown:
+                  return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp')
                 }
-                width: 16
-                height: 16
-                sourceSize.width: 16 * screen.devicePixelRatio
-                sourceSize.height: 16 * screen.devicePixelRatio
-                fillMode: Image.PreserveAspectFit
-                opacity: Visible ? 1 : 0.25
+              } else if (LayerType == "rasterlayer") {
+                return Theme.getThemeVectorIcon('ic_rasterlayer_18dp')
+              } else if (LayerType == "meshlayer") {
+                return Theme.getThemeVectorIcon('ic_meshlayer_18dp')
+              } else if (LayerType == "vectortilelayer") {
+                return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp')
+              } else if (LayerType == "annotationlayer") {
+                return Theme.getThemeVectorIcon('ic_annotationlayer_18dp')
+              } else if (Type == "group") {
+                return Theme.getThemeVectorIcon('ic_group_18dp')
+              } else {
+                return ''
+              }
             }
+            width: 16
+            height: 16
+            sourceSize.width: 16 * screen.devicePixelRatio
+            sourceSize.height: 16 * screen.devicePixelRatio
+            fillMode: Image.PreserveAspectFit
+            opacity: Visible ? 1 : 0.25
+          }
         }
 
         Text {
@@ -242,12 +241,12 @@ ListView {
           elide: Text.ElideRight
           opacity: Visible ? 1 : 0.25
           color: {
-              if ( isSelectedLayer )
-                  return Theme.light;
-              else if ( IsValid )
-                  return Theme.mainTextColor
-              else
-                  return Theme.secondaryTextColor
+            if (isSelectedLayer)
+              return Theme.light
+            else if (IsValid)
+              return Theme.mainTextColor
+            else
+              return Theme.secondaryTextColor
           }
         }
 
@@ -262,18 +261,28 @@ ListView {
           enabled: isVisible
           round: true
           bgcolor: Theme.mainColor
-          icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+          icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
           icon.color: Theme.mainTextColor
 
           onClicked: {
             displayToast(qsTr('This layer is is currently tracking the device position.'))
           }
 
-          SequentialAnimation on bgcolor  {
-              running: isVisible && legend.isVisible
-              loops: Animation.Infinite
-              ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
-              ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
+          SequentialAnimation on bgcolor {
+            running: isVisible && legend.isVisible
+            loops: Animation.Infinite
+            ColorAnimation {
+              from: Theme.mainColor
+              to: "#5a8725"
+              duration: 2000
+              easing.type: Easing.InOutQuad
+            }
+            ColorAnimation {
+              from: "#5a8725"
+              to: Theme.mainColor
+              duration: 1000
+              easing.type: Easing.InOutQuad
+            }
           }
         }
 
@@ -288,7 +297,7 @@ ListView {
           enabled: isVisible
           bgcolor: 'transparent'
           opacity: 0.5
-          icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp' )
+          icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
           icon.color: Theme.errorColor
 
           onClicked: {
@@ -308,11 +317,11 @@ ListView {
           bgcolor: 'transparent'
           opacity: 0.5
 
-          icon.source: Theme.getThemeVectorIcon( 'ic_lock_black_24dp' )
+          icon.source: Theme.getThemeVectorIcon('ic_lock_black_24dp')
           icon.color: Theme.mainTextColor
 
           onClicked: {
-            if ( ReadOnly ) {
+            if (ReadOnly) {
               displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'))
             } else {
               displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'))
@@ -332,7 +341,7 @@ ListView {
           round: true
           bgcolor: SnappingEnabled ? Theme.mainColor : Theme.controlBackgroundColor
           opacity: SnappingEnabled ? 1.0 : 0.5
-          icon.source: Theme.getThemeVectorIcon( 'ic_snapping_white_24dp' )
+          icon.source: Theme.getThemeVectorIcon('ic_snapping_white_24dp')
           icon.color: SnappingEnabled ? 'white' : Theme.mainTextColor
 
           onClicked: {
@@ -345,9 +354,9 @@ ListView {
   }
 
   LayerTreeItemProperties {
-      id: itemProperties
-      layerTree: legend.model
-      modal: true
-      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    id: itemProperties
+    layerTree: legend.model
+    modal: true
+    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   }
 }
