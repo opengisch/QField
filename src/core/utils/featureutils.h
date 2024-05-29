@@ -31,7 +31,14 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
   public:
     explicit FeatureUtils( QObject *parent = nullptr );
 
+    /**
+     * Returns a new feature with its \a fields completely blank.
+     */
     static Q_INVOKABLE QgsFeature createBlankFeature( const QgsFields &fields = QgsFields(), const QgsGeometry &geometry = QgsGeometry() );
+
+    /**
+     * Returns a new feature with its fields set to default values.
+     */
     static Q_INVOKABLE QgsFeature createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry = QgsGeometry() );
 
     /**
@@ -42,13 +49,27 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
     static Q_INVOKABLE QString displayName( QgsVectorLayer *layer, const QgsFeature &feature );
 
     /**
-     * Returns the map extent encompassig a given feature
+     * Returns the map extent encompassig a given feature.
      * \param mapSettings the map settings used to determine the CRS
      * \param layer the vector layer containing the feature
      * \param feature the feature from which the geometry will be used
      * \returns a QgsRectangle extent
      */
     static Q_INVOKABLE QgsRectangle extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature );
+
+    /**
+     * Copies a feature into the system's clipboard in both plain text as well as HTML.
+     * \param feature the feature from which the attributes will be copied into memory
+     * \param includeGeometry set to TRUE when a WKT string representation of the geometry
+     * should be included
+     */
+    static Q_INVOKABLE void copyFeatureToClipboard( const QgsFeature &feature, bool includeGeometry = false );
+
+    /**
+     * Returns a feature with attributes and geometry matching clipboard values when
+     * a feature has been copied into the clipboard.
+     */
+    static Q_INVOKABLE QgsFeature pasteFeatureFromClipboard( QgsVectorLayer *layer );
 };
 
 #endif // FEATUREUTILS_H
