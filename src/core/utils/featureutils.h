@@ -56,20 +56,6 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
      * \returns a QgsRectangle extent
      */
     static Q_INVOKABLE QgsRectangle extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature );
-
-    /**
-     * Copies a feature into the system's clipboard in both plain text as well as HTML.
-     * \param feature the feature from which the attributes will be copied into memory
-     * \param includeGeometry set to TRUE when a WKT string representation of the geometry
-     * should be included
-     */
-    static Q_INVOKABLE void copyFeatureToClipboard( const QgsFeature &feature, bool includeGeometry = false );
-
-    /**
-     * Returns a feature with attributes and geometry matching clipboard values when
-     * a feature has been copied into the clipboard.
-     */
-    static Q_INVOKABLE QgsFeature pasteFeatureFromClipboard( QgsVectorLayer *layer );
 };
 
 #endif // FEATUREUTILS_H

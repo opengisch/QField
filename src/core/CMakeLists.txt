@@ -40,6 +40,7 @@ set(QFIELD_CORE_SRCS
     barcodedecoder.cpp
     badlayerhandler.cpp
     bookmarkmodel.cpp
+    clipboardmanager.cpp
     changelogcontents.cpp
     deltafilewrapper.cpp
     deltalistmodel.cpp
@@ -152,6 +153,7 @@ set(QFIELD_CORE_HDRS
     barcodedecoder.h
     badlayerhandler.h
     bookmarkmodel.h
+    clipboardmanager.h
     changelogcontents.h
     deltafilewrapper.h
     deltalistmodel.h

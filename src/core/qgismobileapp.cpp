@@ -266,6 +266,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
   mLayerObserver = std::make_unique<LayerObserver>( mProject );
   mFeatureHistory = std::make_unique<FeatureHistory>( mProject, mTrackingModel );
+  mClipboardManager = std::make_unique<ClipboardManager>( this );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mLocalFilesImageProvider = new LocalFilesImageProvider();
@@ -569,6 +570,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "gpkgFlusher", mGpkgFlusher.get() );
   rootContext()->setContextProperty( "layerObserver", mLayerObserver.get() );
   rootContext()->setContextProperty( "featureHistory", mFeatureHistory.get() );
+  rootContext()->setContextProperty( "clipboardManager", mClipboardManager.get() );
   rootContext()->setContextProperty( "messageLogModel", mMessageLogModel );
   rootContext()->setContextProperty( "drawingTemplateModel", mDrawingTemplateModel );
 

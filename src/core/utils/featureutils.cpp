@@ -17,9 +17,6 @@
 #include "featureutils.h"
 #include "qgsquickmapsettings.h"
 
-#include <QClipboard>
-#include <QGuiApplication>
-#include <QMimeData>
 #include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
@@ -97,71 +94,4 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
   }
 
   return QgsRectangle();
-}
-
-void FeatureUtils::copyFeatureToClipboard( const QgsFeature &feature, bool includeGeometry )
-{
-  QStringList textLines;
-  QStringList htmlLines;
-
-  const QgsFields fields = feature.fields();
-  const QgsAttributes attributes = feature.attributes();
-  for ( int i = 0; i < fields.count(); i++ )
-  {
-    textLines << QStringLiteral( "%1: %2" ).arg( fields[i].displayName(), attributes[i].toString() );
-    htmlLines << QStringLiteral( "<td>%1</td><td>%2</td>" ).arg( fields[i].displayName(), attributes[i].toString().toHtmlEscaped() );
-  }
-
-  QMimeData *mimeData = new QMimeData();
-  mimeData->setText( textLines.join( '\n' ) );
-  mimeData->setHtml( QStringLiteral( "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\"><html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"/></head><body><table border=\"1\"><tr>" ) + htmlLines.join( QStringLiteral( "</tr><tr>" ) ) + QStringLiteral( "</tr></table></body></html>" ) );
-
-  QClipboard *clipboard = QGuiApplication::clipboard();
-  clipboard->setMimeData( mimeData );
-}
-
-QgsFeature FeatureUtils::pasteFeatureFromClipboard( QgsVectorLayer *layer )
-{
-  if ( !layer )
-    return QgsFeature();
-
-  const QgsFields fields = layer->fields();
-  QgsFeature feature = FeatureUtils::createBlankFeature( fields );
-
-  QClipboard *clipboard = QGuiApplication::clipboard();
-  const QMimeData *mimeData = clipboard->mimeData();
-  if ( mimeData->hasHtml() )
-  {
-    QDomDocument doc;
-    doc.setContent( mimeData->html() );
-    const QDomNodeList nodes = doc.elementsByTagName( QStringLiteral( "table" ) );
-    if ( !nodes.isEmpty() )
-    {
-      const QDomElement table = nodes.at( 0 ).toElement();
-      if ( table.hasAttribute( QStringLiteral( "qfield" ) ) )
-      {
-        const QDomNodeList trs = table.elementsByTagName( QStringLiteral( "tr" ) );
-        for ( int i = 0; trs.size(); i++ )
-        {
-          QDomElement tr = trs.at( i ).toElement();
-          const QDomNodeList tds = tr.elementsByTagName( QStringLiteral( "td" ) );
-          if ( tds.size() == 2 )
-          {
-            const QString fieldName = tds.at( 0 ).toElement().text();
-            const int idx = fields.lookupField( fieldName );
-            if ( idx >= 0 )
-            {
-              QVariant attributeValue = tds.at( 1 ).toElement().text();
-              if ( fields.at( idx ).convertCompatible( attributeValue ) )
-              {
-                feature.setAttribute( idx, attributeValue );
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  return feature;
 }
