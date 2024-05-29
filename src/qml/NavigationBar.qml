@@ -613,7 +613,22 @@ Rectangle {
     bottomMargin: mainWindow.sceneBottomMargin
 
     MenuItem {
-      text: Qt.platform.os === "ios" ? qsTr( "Print Atlas Feature to Image" ) : qsTr( 'Print Atlas Feature to PDF' )
+      text: qsTr( "Copy Feature Attributes" )
+      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        clipboardManager.copyFeatureToClipboard(featureFormList.model.featureModel.feature)
+      }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( 'Print Atlas Feature to PDF' )
       icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
       enabled: LayerUtils.isAtlasCoverageLayer( selection.focusedLayer )
 
@@ -626,8 +641,6 @@ Rectangle {
           showAtlasMenu();
       }
     }
-
-    MenuSeparator { width: parent.width }
 
     MenuItem {
       text: qsTr( 'Zoom to Feature' )
