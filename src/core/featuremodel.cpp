@@ -676,7 +676,11 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
         continue;
       }
 
-      qDebug() << fields[i].name() << feature.attributes()[i];
+      if ( !mFeature.fields()[idx].defaultValueDefinition().expression().isEmpty() )
+      {
+        continue;
+      }
+
       if ( setData( index( idx ), feature.attributes()[i], AttributeValue ) )
       {
         updated = true;
