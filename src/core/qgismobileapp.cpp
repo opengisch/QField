@@ -162,6 +162,7 @@
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstyle.h>
 #include <qgsmapthemecollection.h>
+#include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
 #include <qgsofflineediting.h>
 #include <qgsprintlayout.h>
@@ -229,19 +230,20 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     {
       localizedDataPaths << dataDir + QStringLiteral( "basemaps/" );
 
-      // set fonts)
-      const QString fontsPath = dataDir + QStringLiteral( "fonts/" );
-      QDir fontsDir( fontsPath );
-      if ( fontsDir.exists() )
+      // Add app-wide font(s)
+      const QDir fontDir = QDir::cleanPath( QFileInfo( dataDir ).absoluteDir().path() + QDir::separator() + QStringLiteral( "fonts" ) );
+      const QStringList fontExts = QStringList() << "*.ttf"
+                                                 << "*.TTF"
+                                                 << "*.otf"
+                                                 << "*.OTF";
+      const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
+      for ( const QString &fontFile : fontFiles )
       {
-        const QStringList fonts = fontsDir.entryList( QStringList() << "*.ttf"
-                                                                    << "*.TTF"
-                                                                    << "*.otf"
-                                                                    << "*.OTF",
-                                                      QDir::Files );
-        for ( auto font : fonts )
+        const int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+        qInfo() << QStringLiteral( "App-wide font registered: %1" ).arg( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+        if ( id == -1 )
         {
-          QFontDatabase::addApplicationFont( fontsPath + font );
+          QgsMessageLog::logMessage( tr( "Could not load font: %1" ).arg( fontFile ) );
         }
       }
     }
@@ -749,19 +751,23 @@ void QgisMobileapp::readProjectFile()
   mTrackingModel->reset();
 
   // load project file fonts if present
-  QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + ".fonts" );
-  QStringList fontExts = QStringList() << "*.ttf"
-                                       << "*.TTF"
-                                       << "*.otf"
-                                       << "*.OTF";
-  const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
-  for ( const QString &fontFile : fontFiles )
+  const QStringList fontDirNames = QStringList() << QStringLiteral( ".fonts" ) << QStringLiteral( "fonts" );
+  for ( const QString &fontDirName : fontDirNames )
   {
-    int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
-    qDebug() << QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile );
-    if ( id == -1 )
+    const QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + fontDirName );
+    const QStringList fontExts = QStringList() << "*.ttf"
+                                               << "*.TTF"
+                                               << "*.otf"
+                                               << "*.OTF";
+    const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
+    for ( const QString &fontFile : fontFiles )
     {
-      QgsMessageLog::logMessage( tr( "Could not load font %1" ).arg( fontFile ) );
+      const int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+      qInfo() << QStringLiteral( "Project font registered: %1" ).arg( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+      if ( id == -1 )
+      {
+        QgsMessageLog::logMessage( tr( "Could not load font: %1" ).arg( fontFile ) );
+      }
     }
   }
 
