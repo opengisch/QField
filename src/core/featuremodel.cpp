@@ -668,7 +668,7 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
   const QgsFields fields = feature.fields();
   for ( int i = 0; i < fields.size(); i++ )
   {
-    int idx = mFeature.fields().lookupField( fields[i].name() );
+    const int idx = mFeature.fields().lookupField( fields[i].name() );
     if ( idx >= 0 )
     {
       if ( mLayer && mLayer->primaryKeyAttributes().contains( idx ) )

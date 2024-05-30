@@ -19,6 +19,7 @@
 #include "featureutils.h"
 
 #include <QApplication>
+#include <QDomDocument>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
 
@@ -69,7 +70,7 @@ void ClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeature
 {
   if ( layer )
   {
-    QgsFeature feature = layer->getFeature( fid );
+    const QgsFeature feature = layer->getFeature( fid );
     copyFeatureToClipboard( feature, includeGeometry );
   }
 }
@@ -135,13 +136,13 @@ QgsFeature ClipboardManager::pasteFeatureFromClipboard()
         const QDomNodeList trs = table.elementsByTagName( QStringLiteral( "tr" ) );
         for ( int i = 0; trs.size(); i++ )
         {
-          QDomElement tr = trs.at( i ).toElement();
+          const QDomElement tr = trs.at( i ).toElement();
           const QDomNodeList tds = tr.elementsByTagName( QStringLiteral( "td" ) );
           if ( tds.size() >= 2 )
           {
             if ( tds.at( 0 ).toElement().hasAttribute( QStringLiteral( "geometry" ) ) )
             {
-              QgsGeometry geometry = QgsGeometry::fromWkt( tds.at( 1 ).toElement().text() );
+              const QgsGeometry geometry = QgsGeometry::fromWkt( tds.at( 1 ).toElement().text() );
               feature.setGeometry( geometry );
             }
             else
