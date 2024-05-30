@@ -2137,7 +2137,7 @@ ApplicationWindow {
 
   DashBoard {
     id: dashBoard
-    allowLayerChange: !digitizingToolbar.isDigitizing
+    allowActiveLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible
                  && !qfieldSettings.visible
