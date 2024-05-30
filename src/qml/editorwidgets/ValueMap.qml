@@ -20,9 +20,11 @@ EditorWidgetBase {
   }
 
   property var currentKeyValue: value
+
   // Workaround to get a signal when the value has changed
   onCurrentKeyValueChanged: {
     comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue)
+    toggleButtons.selectedIndex = comboBox.currentIndex
   }
 
   height: childrenRect.height
