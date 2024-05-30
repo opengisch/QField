@@ -2833,7 +2833,7 @@ ApplicationWindow {
           leftPadding: Theme.menuItemLeftPadding
 
           onTriggered: {
-            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid)
+            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true)
           }
         }
 

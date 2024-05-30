@@ -621,7 +621,7 @@ Rectangle {
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
-        clipboardManager.copyFeatureToClipboard(featureFormList.model.featureModel.feature)
+        clipboardManager.copyFeatureToClipboard(featureFormList.model.featureModel.feature, true)
       }
     }
 

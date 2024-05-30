@@ -79,6 +79,12 @@ void ClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool i
   QStringList textLines;
   QStringList htmlLines;
 
+  if ( includeGeometry )
+  {
+    textLines << QStringLiteral( "%1: %2" ).arg( QStringLiteral( "%1:" ).arg( tr( "Geometry" ) ), feature.geometry().asWkt() );
+    htmlLines << QStringLiteral( "<td geometry=\"1\">%1</td><td>%2</td>" ).arg( QStringLiteral( "%1:" ).arg( tr( "Geometry" ) ), feature.geometry().asWkt().toHtmlEscaped() );
+  }
+
   const QgsFields fields = feature.fields();
   const QgsAttributes attributes = feature.attributes();
   for ( int i = 0; i < fields.count(); i++ )
@@ -131,11 +137,19 @@ QgsFeature ClipboardManager::pasteFeatureFromClipboard()
         {
           QDomElement tr = trs.at( i ).toElement();
           const QDomNodeList tds = tr.elementsByTagName( QStringLiteral( "td" ) );
-          if ( tds.size() == 2 )
+          if ( tds.size() >= 2 )
           {
-            const QString fieldName = tds.at( 0 ).toElement().text();
-            fields.append( QgsField( fieldName, QVariant::String ) );
-            attributes << tds.at( 1 ).toElement().text();
+            if ( tds.at( 0 ).toElement().hasAttribute( QStringLiteral( "geometry" ) ) )
+            {
+              QgsGeometry geometry = QgsGeometry::fromWkt( tds.at( 1 ).toElement().text() );
+              feature.setGeometry( geometry );
+            }
+            else
+            {
+              const QString fieldName = tds.at( 0 ).toElement().text();
+              fields.append( QgsField( fieldName, QVariant::String ) );
+              attributes << tds.at( 1 ).toElement().text();
+            }
           }
         }
         feature.setFields( fields );
