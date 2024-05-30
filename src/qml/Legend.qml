@@ -99,28 +99,22 @@ ListView {
           anchors.verticalCenter: parent.verticalCenter
           visible: HasChildren
 
-          Image {
-            height: parent.height * .75
+          QfToolButton {
+            height: 35
             width: height
             anchors.centerIn: parent
-            source: isSelectedLayer ? whiteIcon : Theme.darkTheme ? whiteIcon : blackIcon
-            rotation: !IsCollapsed ? 90 : 0
-            fillMode: Image.PreserveAspectFit
+            iconSource: Theme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
+            iconColor: isSelectedLayer ? "white" : Theme.mainTextColor
+            bgcolor: "transparent"
             visible: HasChildren
-
-            property var whiteIcon: Theme.getThemeVectorIcon('ic_legend_collapsed_state_white_24dp')
-            property var blackIcon: Theme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
+            rotation: !IsCollapsed ? 90 : 0
 
             Behavior on rotation {
               NumberAnimation {
                 duration: 100
               }
             }
-          }
 
-          MouseArea {
-            anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
             onClicked: {
               if (HasChildren) {
                 IsCollapsed = !IsCollapsed
@@ -148,20 +142,16 @@ ListView {
           anchors.verticalCenter: parent.verticalCenter
           visible: HasSpatialExtent
 
-          RoundButton {
-            id: visibleIcon
-            width: 40
-            height: 40
-            smooth: true
-            icon.source: !Visible ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+          QfToolButton {
+            height: 35
+            width: height
             opacity: Visible ? 1 : 0.25
-            icon.color: isSelectedLayer ? "white" : Theme.mainTextColor
-            icon.width: 45
-            icon.height: 45
-            flat: true
-            visible: layerTree.data(legend.model.index(index, 0), FlatLayerTreeModel.HasSpatialExtent) === true
-            enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             anchors.centerIn: parent
+            iconSource: !Visible ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+            iconColor: isSelectedLayer ? "white" : Theme.mainTextColor
+            bgcolor: "transparent"
+            visible: HasSpatialExtent
+            enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             onClicked: {
               layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible)
               flatLayerTree.mapTheme = ''
