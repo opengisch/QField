@@ -259,9 +259,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Mask.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Regular.ttf" );
 
-  // TODO: Enable when updating to QGIS 3.38 (font download in QGIS 3.36 broken due to change
-  // in Google's fonts service
-  //QgsApplication::fontManager()->enableFontDownloadsForSession();
+  QgsApplication::fontManager()->enableFontDownloadsForSession();
 
   mProject = QgsProject::instance();
   mTrackingModel = new TrackingModel();
