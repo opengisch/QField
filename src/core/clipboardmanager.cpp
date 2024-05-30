@@ -65,6 +65,15 @@ void ClipboardManager::dataChanged()
   }
 }
 
+void ClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry )
+{
+  if ( layer )
+  {
+    QgsFeature feature = layer->getFeature( fid );
+    copyFeatureToClipboard( feature, includeGeometry );
+  }
+}
+
 void ClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool includeGeometry )
 {
   QStringList textLines;

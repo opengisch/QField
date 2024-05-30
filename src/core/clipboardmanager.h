@@ -49,6 +49,15 @@ class ClipboardManager : public QObject
     Q_INVOKABLE void copyFeatureToClipboard( const QgsFeature &feature, bool includeGeometry = false );
 
     /**
+     * Copies a feature into the system's clipboard in both plain text as well as HTML.
+     * \param layer the vector layer associated to the feature
+     * \param fid the id of the feature
+     * \param includeGeometry set to TRUE when a WKT string representation of the geometry
+     * should be included
+     */
+    Q_INVOKABLE void copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry = false );
+
+    /**
      * Returns a feature with attributes and geometry matching clipboard values when
      * a feature has been copied into the clipboard.
      */

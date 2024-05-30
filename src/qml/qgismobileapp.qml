@@ -2827,6 +2827,17 @@ ApplicationWindow {
         }
 
         MenuItem {
+          text: qsTr('Copy Feature Attributes')
+          font: Theme.defaultFont
+          icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+          leftPadding: Theme.menuItemLeftPadding
+
+          onTriggered: {
+            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid)
+          }
+        }
+
+        MenuItem {
           text: qsTr('Duplicate Feature')
           font: Theme.defaultFont
           enabled: projectInfo.insertRights
