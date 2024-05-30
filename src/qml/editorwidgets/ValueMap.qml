@@ -65,11 +65,11 @@ EditorWidgetBase {
     }
   ]
 
-  state: currentItemCount >= minimumItemCount ? "comboBoxItemView" : "toggleButtonsView"
-
   // Using the search and comboBox when there are less than X items in the dropdown proves to be poor UI on normally
   // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
   readonly property int minimumItemCount: 6
+  state: currentItemCount >= minimumItemCount ? "comboBoxItemView" : "toggleButtonsView"
+
   property real currentItemCount: comboBox.count
 
   ValueMapModel {
@@ -88,8 +88,7 @@ EditorWidgetBase {
     Item {
       id: toggleButtons
       Layout.fillWidth: true
-      Layout.minimumHeight: flow.height
-      opacity: enabled ? 1 : .4
+      Layout.minimumHeight: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin
 
       property real selectedIndex: comboBox.currentIndex
       property string currentSelectedKey: ""
@@ -100,6 +99,8 @@ EditorWidgetBase {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
+        anchors.topMargin: 6
+        anchors.bottomMargin: 6
         spacing: 8
 
         Repeater {
@@ -109,10 +110,10 @@ EditorWidgetBase {
           delegate: Rectangle {
             id: item
             width: Math.min(flow.width - 16, innerText.width + 16)
-            height: 35
+            height: 34
             radius: 4
-            color: selected ? Theme.mainColor : "transparent"
-            border.color: selected ? Theme.mainColor : Theme.accentColor
+            color: selected ? isEnabled ? Theme.mainColor : Theme.accentLightColor : "transparent"
+            border.color: isEnabled ? selected ? Theme.mainColor : Theme.accentLightColor : "transparent"
             border.width: 1
 
             property bool selected: toggleButtons.selectedIndex == index
@@ -138,7 +139,7 @@ EditorWidgetBase {
               elide: Text.ElideRight
               anchors.centerIn: parent
               font: Theme.defaultFont
-              color: Theme.mainTextColor
+              color: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
             }
 
             MouseArea {
@@ -168,6 +169,15 @@ EditorWidgetBase {
             }
           }
         }
+      }
+
+
+      Rectangle {
+        y: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin - 1
+        visible: !isEnabled
+        width: flow.width
+        height: flow.activeFocus ? 2 : 1
+        color: flow.activeFocus ? Theme.accentColor : Theme.accentLightColor
       }
     }
 
