@@ -628,7 +628,7 @@ Rectangle {
     MenuItem {
       text: qsTr( "Paste Feature Attributes" )
       icon.source: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
-      enabled: clipboardManager.holdsFeature
+      enabled: clipboardManager && clipboardManager.holdsFeature
 
       font: Theme.defaultFont
       height: 48
