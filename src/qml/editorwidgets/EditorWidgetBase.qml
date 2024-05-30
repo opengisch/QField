@@ -14,14 +14,14 @@ Item {
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
       width: {
-          var result = 0;
+          var result = 50;
           var padding = 0;
           for (var i = 0; i < count; ++i) {
               var item = itemAt(i);
               result = Math.max(item.contentItem.implicitWidth, result);
-              padding = Math.max(item.padding, padding);
+              padding = Math.max(item.leftPadding + item.rightPadding, padding);
           }
-          return result + padding * 2;
+          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
       }
 
       topMargin: mainWindow.sceneTopMargin

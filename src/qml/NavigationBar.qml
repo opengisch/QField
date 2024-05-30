@@ -491,14 +491,14 @@ Rectangle {
     title: qsTr( "Feature List Menu" )
 
     width: {
-        var result = 0;
+        var result = 50;
         var padding = 0;
         for (var i = 0; i < count; ++i) {
             var item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return result + padding * 2 + 10;
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     topMargin: mainWindow.sceneTopMargin
@@ -603,15 +603,14 @@ Rectangle {
 
     width: {
         const toolbarWidth = featureMenuActionsToolbar.childrenRect.width + 4
-        let result = 0;
-        let padding = 0;
-        // Skip first Row item
-        for (let i = 1; i < count; ++i) {
-            const item = itemAt(i);
+        var result = 50;
+        var padding = 0;
+        for (var i = 1; i < count; ++i) {
+            var item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.max(toolbarWidth, result + padding * 2);
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     Row {
@@ -787,14 +786,14 @@ Rectangle {
     signal enablePrintItem( int rows )
 
     width: {
-        var result = 0;
+        var result = 50;
         var padding = 0;
         for (var i = 0; i < count; ++i) {
             var item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     topMargin: mainWindow.sceneTopMargin
