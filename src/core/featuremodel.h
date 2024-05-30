@@ -196,7 +196,12 @@ class FeatureModel : public QAbstractListModel
 
     Q_INVOKABLE void resetFeatureId();
 
-    Q_INVOKABLE void updateAttributesFromFeature( const QgsFeature &feature );
+    /**
+     * Update attributes to match that of a given feature
+     * \param feature feature from which attributes will be taken
+     * \return TRUE if one or more attribute was updated
+     */
+    Q_INVOKABLE bool updateAttributesFromFeature( const QgsFeature &feature );
 
     QVector<bool> rememberedAttributes() const;
 

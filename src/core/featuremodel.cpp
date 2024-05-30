@@ -662,9 +662,9 @@ void FeatureModel::resetAttributes( bool partialReset )
   endResetModel();
 }
 
-void FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
+bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
 {
-  qDebug() << "in!";
+  bool updated = false;
   const QgsFields fields = feature.fields();
   for ( int i = 0; i < fields.size(); i++ )
   {
@@ -677,9 +677,13 @@ void FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
       }
 
       qDebug() << fields[i].name() << feature.attributes()[i];
-      setData( index( idx ), feature.attributes()[i], AttributeValue );
+      if ( setData( index( idx ), feature.attributes()[i], AttributeValue ) )
+      {
+        updated = true;
+      }
     }
   }
+  return updated;
 }
 
 void FeatureModel::applyGeometry()

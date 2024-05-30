@@ -651,9 +651,12 @@ Rectangle {
 
         onClicked: {
           var feature = clipboardManager.pasteFeatureFromClipboard()
-          featureFormList.model.featureModel.updateAttributesFromFeature(feature)
-          featureFormList.model.featureModel.save()
-          mainWindow.displayToast(qsTr('Feature attributes pasted from clipboard'))
+          if (featureFormList.model.featureModel.updateAttributesFromFeature(feature)) {
+            featureFormList.model.featureModel.save()
+            mainWindow.displayToast(qsTr('Feature attributes updated from clipboard'))
+          } else {
+            mainWindow.displayToast(qsTr('No feature attributes were updated from clipboard'))
+          }
         }
       }
 
