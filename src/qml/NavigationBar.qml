@@ -598,61 +598,95 @@ Rectangle {
     id: featureMenu
     title: qsTr( "Feature Menu" )
 
-    width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
-        }
-        return result + padding * 2;
-    }
-
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin
 
-    MenuItem {
-      text: qsTr( "Copy Feature Attributes" )
-      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
-
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-
-      onTriggered: {
-        clipboardManager.copyFeatureToClipboard(featureFormList.model.featureModel.feature, true)
-      }
+    width: {
+        const toolbarWidth = featureMenuActionsToolbar.childrenRect.width + 4
+        let result = 0;
+        let padding = 0;
+        // Skip first Row item
+        for (let i = 1; i < count; ++i) {
+            const item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return Math.max(toolbarWidth, result + padding * 2);
     }
 
-    MenuItem {
-      text: qsTr( "Paste Feature Attributes" )
-      icon.source: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
-      enabled: clipboardManager && clipboardManager.holdsFeature
+    Row {
+      id: featureMenuActionsToolbar
+      leftPadding: 2
+      rightPadding: 2
+      spacing: 2
+      height: printItem.height
+      clip: true
 
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
 
-      onTriggered: {
-        var feature = clipboardManager.pasteFeatureFromClipboard()
-        featureFormList.model.featureModel.updateAttributesFromFeature(feature)
-        featureFormList.model.featureModel.save()
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          clipboardManager.copyFeatureToClipboard(featureFormList.model.featureModel.feature, true)
+          mainWindow.displayToast(qsTr('Feature attributes copied to clipboard'))
+        }
       }
-    }
 
-    MenuItem {
-      text: qsTr( 'Print Atlas Feature to PDF' )
-      icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
-      enabled: LayerUtils.isAtlasCoverageLayer( selection.focusedLayer )
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+        enabled: clipboardManager && clipboardManager.holdsFeature
 
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
+        onClicked: {
+          var feature = clipboardManager.pasteFeatureFromClipboard()
+          featureFormList.model.featureModel.updateAttributesFromFeature(feature)
+          featureFormList.model.featureModel.save()
+          mainWindow.displayToast(qsTr('Feature attributes pasted from clipboard'))
+        }
+      }
 
-      onTriggered: {
-          featureListMenu.close();
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeIcon( "ic_print_white_24dp" )
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+        enabled: LayerUtils.isAtlasCoverageLayer( selection.focusedLayer )
+
+        onClicked: {
+          featureMenu.close();
           showAtlasMenu();
+        }
+      }
+
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          featureMenu.close();
+          destinationClicked();
+          mainWindow.displayToast(qsTr('Feature set as navigation destination'))
+        }
       }
     }
 
@@ -680,17 +714,6 @@ Rectangle {
       checked: extentController.autoZoom
 
       onTriggered: extentController.autoZoom = !extentController.autoZoom
-    }
-
-    MenuItem {
-      text: qsTr( 'Set Feature as Destination' )
-      icon.source: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
-
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-
-      onTriggered: destinationClicked();
     }
 
     MenuSeparator {
