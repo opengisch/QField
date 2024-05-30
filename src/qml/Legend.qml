@@ -14,7 +14,7 @@ ListView {
 
   property bool isVisible: false
   property VectorLayer activeLayer
-  property bool allowLayerChange
+  property bool allowActiveLayerChange
 
   model: flatLayerTree
   flickableDirection: Flickable.VerticalFlick
@@ -40,10 +40,10 @@ ListView {
     MouseArea {
       id: mouseArea
       anchors.fill: parent
-      enabled: (allowLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
+      enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
       acceptedButtons: Qt.LeftButton | Qt.RightButton
       onClicked: (mouse) => {
-        if (!allowLayerChange)
+        if (!allowActiveLayerChange)
           return
 
         if (ReadOnly || GeometryLocked)
@@ -146,7 +146,7 @@ ListView {
           height: 24
           width: visible ? parent.height : 0
           anchors.verticalCenter: parent.verticalCenter
-          visible: layerTree.data(legend.model.index(index, 0), FlatLayerTreeModel.HasSpatialExtent) === true
+          visible: HasSpatialExtent
 
           RoundButton {
             id: visibleIcon
@@ -160,7 +160,7 @@ ListView {
             icon.height: 45
             flat: true
             visible: layerTree.data(legend.model.index(index, 0), FlatLayerTreeModel.HasSpatialExtent) === true
-            enabled: (allowLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
+            enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             anchors.centerIn: parent
             onClicked: {
               layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible)

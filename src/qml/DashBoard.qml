@@ -14,7 +14,7 @@ Drawer {
   signal showMenu
   signal showCloudMenu
 
-  property alias allowLayerChange: legend.allowLayerChange
+  property alias allowActiveLayerChange: legend.allowActiveLayerChange
   property alias activeLayer: legend.activeLayer
   property alias layerTree: legend.model
   property MapSettings mapSettings
