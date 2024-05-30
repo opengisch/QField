@@ -21,8 +21,8 @@
 #include <QClipboard>
 #include <QMimeData>
 #include <QObject>
+#include <qgsfeature.h>
 
-class QgsFeature;
 class QgsVectorLayer;
 
 /**
@@ -32,13 +32,13 @@ class ClipboardManager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( bool hasFeature READ hasFeature NOTIFY hasFeatureChanged )
+    Q_PROPERTY( bool holdsFeature READ holdsFeature NOTIFY holdsFeatureChanged )
 
   public:
     explicit ClipboardManager( QObject *parent = nullptr );
     ~ClipboardManager() {}
 
-    bool hasFeature() const { return mHasFeature; }
+    bool holdsFeature() const { return mHoldsFeature; }
 
     /**
      * Copies a feature into the system's clipboard in both plain text as well as HTML.
@@ -52,19 +52,22 @@ class ClipboardManager : public QObject
      * Returns a feature with attributes and geometry matching clipboard values when
      * a feature has been copied into the clipboard.
      */
-    Q_INVOKABLE QgsFeature pasteFeatureFromClipboard( QgsVectorLayer *layer );
+    Q_INVOKABLE QgsFeature pasteFeatureFromClipboard();
 
   signals:
 
-    void hasFeatureChanged();
+    void holdsFeatureChanged();
 
   private slots:
 
-    void systemClipboardChanged();
+    void dataChanged();
 
   private:
-    QClipboard *mClipboard;
-    bool mHasFeature;
+    QClipboard *mClipboard = nullptr;
+    bool mSkipDataChanged = false;
+    bool mHoldsFeature = false;
+    bool mHasNativeFeature = false;
+    QgsFeature mNativeFeature;
 };
 
 #endif // PROJECTINFO_H

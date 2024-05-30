@@ -26,36 +26,42 @@ ClipboardManager::ClipboardManager( QObject *parent )
   : QObject( parent )
   , mClipboard( QApplication::clipboard() )
 {
-  connect( QApplication::clipboard(), &QClipboard::dataChanged, this, &ClipboardManager::systemClipboardChanged );
-  systemClipboardChanged();
+  connect( QApplication::clipboard(), &QClipboard::dataChanged, this, &ClipboardManager::dataChanged );
+  dataChanged();
 }
 
-void ClipboardManager::systemClipboardChanged()
+void ClipboardManager::dataChanged()
 {
-  bool hasFeature = false;
+  if ( mSkipDataChanged )
+  {
+    mSkipDataChanged = false;
+    return;
+  }
+
+  mHasNativeFeature = false;
+  mNativeFeature = QgsFeature();
+
+  bool holdsFeature = false;
   const QMimeData *mimeData = mClipboard->mimeData();
   if ( mimeData->hasHtml() )
   {
     QDomDocument doc;
-    QString error;
-    int errorLine = 0;
-    int errorColumn = 0;
-    doc.setContent( mimeData->html(), &error, &errorLine, &errorColumn );
+    doc.setContent( mimeData->html() );
     const QDomNodeList nodes = doc.elementsByTagName( QStringLiteral( "table" ) );
     if ( !nodes.isEmpty() )
     {
       const QDomElement table = nodes.at( 0 ).toElement();
       if ( table.hasAttribute( QStringLiteral( "qfield" ) ) )
       {
-        hasFeature = true;
+        holdsFeature = true;
       }
     }
   }
 
-  if ( mHasFeature != hasFeature )
+  if ( mHoldsFeature != holdsFeature )
   {
-    mHasFeature = hasFeature;
-    emit hasFeatureChanged();
+    mHoldsFeature = holdsFeature;
+    emit holdsFeatureChanged();
   }
 }
 
@@ -74,19 +80,31 @@ void ClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool i
 
   QMimeData *mimeData = new QMimeData();
   mimeData->setText( textLines.join( '\n' ) );
-  mimeData->setHtml( QStringLiteral( "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\"><html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"/></head><body><table border=\"1\" qfield=\"1\"><tr>" ) + htmlLines.join( QStringLiteral( "</tr><tr>" ) ) + QStringLiteral( "</tr></table></body></html>" ) );
+  mimeData->setHtml( QStringLiteral( "<!DOCTYPE html><html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"/></head><body><table border=\"1\" qfield=\"1\"><tr>" ) + htmlLines.join( QStringLiteral( "</tr><tr>" ) ) + QStringLiteral( "</tr></table></body></html>" ) );
 
-  QClipboard *clipboard = QGuiApplication::clipboard();
-  clipboard->setMimeData( mimeData );
+  mSkipDataChanged = true;
+  mClipboard->setMimeData( mimeData );
+
+  mNativeFeature = feature;
+  mHasNativeFeature = true;
+
+  if ( mHoldsFeature != true )
+  {
+    mHoldsFeature = true;
+    emit holdsFeatureChanged();
+  }
 }
 
-QgsFeature ClipboardManager::pasteFeatureFromClipboard( QgsVectorLayer *layer )
+QgsFeature ClipboardManager::pasteFeatureFromClipboard()
 {
-  if ( !layer )
-    return QgsFeature();
+  if ( mHasNativeFeature )
+  {
+    return mNativeFeature;
+  }
 
-  const QgsFields fields = layer->fields();
-  QgsFeature feature = FeatureUtils::createBlankFeature( fields );
+  QgsFeature feature;
+  QgsFields fields;
+  QgsAttributes attributes;
 
   const QMimeData *mimeData = mClipboard->mimeData();
   if ( mimeData->hasHtml() )
@@ -107,17 +125,12 @@ QgsFeature ClipboardManager::pasteFeatureFromClipboard( QgsVectorLayer *layer )
           if ( tds.size() == 2 )
           {
             const QString fieldName = tds.at( 0 ).toElement().text();
-            const int idx = fields.lookupField( fieldName );
-            if ( idx >= 0 )
-            {
-              QVariant attributeValue = tds.at( 1 ).toElement().text();
-              if ( fields.at( idx ).convertCompatible( attributeValue ) )
-              {
-                feature.setAttribute( idx, attributeValue );
-              }
-            }
+            fields.append( QgsField( fieldName, QVariant::String ) );
+            attributes << tds.at( 1 ).toElement().text();
           }
         }
+        feature.setFields( fields );
+        feature.setAttributes( attributes );
       }
     }
   }
