@@ -1,5 +1,5 @@
-set(QGIS_REF 7203b71bfa16a6b7aa84623115fac0cee0859e1b)
-set(QGIS_SHA512 ed2968f1b1271a2359af9d0db0060547c48b65c3481ac80ec7b7da074e58cdd121cc75f14f30bb732913cb4269132a35a340b80b0d21309222dd08edfa7a6148)
+set(QGIS_REF final-3_36_3)
+set(QGIS_SHA512 8b456bc07088b4f9ca55b3cca803c02db475c6e23a4e866039f25912b687be244fc181dee29af96024cd93ea60765d656f76d6b3e73839bbe67b5146cca2481d)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -17,6 +17,7 @@ vcpkg_from_github(
         crssync-no-install.patch
         include-qthread.patch
         invoke.patch
+        fontsdownload.patch # Remove when upgrading to 3.38
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
