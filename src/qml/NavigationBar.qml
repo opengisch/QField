@@ -625,7 +625,21 @@ Rectangle {
       }
     }
 
-    MenuSeparator { width: parent.width }
+    MenuItem {
+      text: qsTr( "Paste Feature Attributes" )
+      icon.source: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
+      enabled: clipboardManager.holdsFeature
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        var feature = clipboardManager.pasteFeatureFromClipboard()
+        featureFormList.model.featureModel.updateAttributesFromFeature(feature)
+        featureFormList.model.featureModel.save()
+      }
+    }
 
     MenuItem {
       text: qsTr( 'Print Atlas Feature to PDF' )
@@ -641,6 +655,8 @@ Rectangle {
           showAtlasMenu();
       }
     }
+
+    MenuSeparator { width: parent.width }
 
     MenuItem {
       text: qsTr( 'Zoom to Feature' )
