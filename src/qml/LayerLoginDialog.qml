@@ -45,6 +45,12 @@ Page {
       Layout.preferredHeight: font.height + 20
       text: realm
       font: Theme.strongFont
+      color: Theme.mainTextColor
+    }
+
+    Item {
+        // spacer item
+        height: 35
     }
 
     Text {
@@ -52,6 +58,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       text: qsTr( "Username" )
       font: Theme.defaultFont
+      color: Theme.mainTextColor
     }
 
     QfTextField {
@@ -59,6 +66,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+      horizontalAlignment: Text.AlignHCenter
     }
 
     Item {
@@ -71,6 +79,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       text: qsTr( "Password" )
       font: Theme.defaultFont
+      color: Theme.mainTextColor
     }
 
     QfTextField {
@@ -79,6 +88,7 @@ Page {
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
       echoMode: TextInput.Password
       inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+      horizontalAlignment: Text.AlignHCenter
     }
 
     Item {
