@@ -490,6 +490,10 @@ Rectangle {
         }
     }
 
+    onTransferClicked: {
+        transferDialog.show()
+    }
+
     onDeleteClicked: {
         var selectedFeatures = featureForm.selection.model.selectedFeatures
         var selectedFeature = selectedFeatures && selectedFeatures.length > 0 ? selectedFeatures[0] : null
@@ -767,6 +771,75 @@ Rectangle {
         this.selectedCount = featureForm.model.selectedCount;
         this.featureDisplayName = FeatureUtils.displayName(featureForm.selection.focusedLayer,featureForm.model.selectedFeatures[0])
         this.open();
+    }
+  }
+
+  Dialog {
+    id: transferDialog
+    parent: mainWindow.contentItem
+
+    visible: false
+    modal: true
+    font: Theme.defaultFont
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
+    title: qsTr( "Transfer Feature Attributes" )
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: transferLabelMetrics
+        font: transferLabel.font
+        text: transferLabel.text
+      }
+
+      Label {
+        id: transferLabel
+        width: mainWindow.width - 60 < transferLabelMetrics.width ? mainWindow.width - 60 : transferLabelMetrics.width
+        text: qsTr("Select a vector layer feature from which attributes will be transfered onto the currently opened feature.")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      ComboBox {
+        id: transferComboBox
+        width: transferLabel.width
+
+        model: FeatureListModel {
+          id: transferFeatureListModel
+        }
+
+        textRole: "displayString"
+        valueRole: "featureId"
+      }
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      let feature = transferFeatureListModel.getFeatureFromId(transferComboBox.currentValue)
+      if (featureFormList.model.featureModel.updateAttributesFromFeature(feature)) {
+        featureFormList.model.featureModel.save()
+        mainWindow.displayToast(qsTr('Feature attributes transferred'))
+      } else {
+        mainWindow.displayToast(qsTr('No feature attributes were transferred'))
+      }
+      transferFeatureListModel.currentLayer = null
+    }
+
+    onRejected: {
+      transferFeatureListModel.currentLayer = null
+    }
+
+    function show() {
+      transferFeatureListModel.displayValueField = featureFormList.model.featureModel.currentLayer.displayExpression
+      transferFeatureListModel.currentLayer = featureFormList.model.featureModel.currentLayer
+      this.open();
     }
   }
 

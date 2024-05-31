@@ -45,6 +45,7 @@ Rectangle {
   signal destinationClicked
   signal moveClicked
   signal duplicateClicked
+  signal transferClicked
   signal deleteClicked
 
   signal toggleMultiSelection
@@ -755,6 +756,23 @@ Rectangle {
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: duplicateClicked();
+    }
+
+    MenuItem {
+      id: transferFeatureAttributesBtn
+      text: qsTr( 'Transfer Feature Attributes' )
+      icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
+      enabled: (
+                 projectInfo.insertRights
+                 && (!selection.focusedLayer || !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false ))
+      )
+      visible: enabled
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: transferClicked();
     }
 
     MenuItem {
