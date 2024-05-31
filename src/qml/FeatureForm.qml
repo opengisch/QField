@@ -76,77 +76,83 @@ Page {
     id: container
     anchors.fill: parent
 
-    Flickable {
-      id: flickable
+    ListView {
+      id: tabBarListView
       Layout.fillWidth: true
-      Layout.preferredHeight: tabRow.height
+      Layout.preferredHeight: 48
+      orientation: Qt.Horizontal
+      visible: form.model.hasTabs
+      model: form.model.hasTabs ? form.model : 0
+      highlightFollowsCurrentItem: true
+      highlight: Item {
+        Rectangle {
+          height: 2
+          color: Theme.mainColor
+          radius: 4
+          width: parent.width
+          anchors.bottom: parent.bottom
+        }
+      }
 
-      flickableDirection: Flickable.HorizontalFlick
-      contentWidth: tabRow.width
+      onCurrentIndexChanged: {
+        tabBarListView.positionViewAtIndex(currentIndex, ListView.Contain)
+      }
 
-      // Tabs
-      TabBar {
-        id: tabRow
-        visible: model.hasTabs
-        height: form.model.hasTabs ? 48 : 0
+      Connections {
+        target: swipeView
+        function onCurrentIndexChanged(currentIndex) {
+          tabBarListView.currentIndex = swipeView.currentIndex
+        }
+      }
 
-        Connections {
-          target: swipeView
+      delegate: TabButton {
+        id: tabButton
+        property bool isCurrentIndex: index == tabBarListView.currentIndex
+        text: Name
+        topPadding: 0
+        bottomPadding: 0
+        leftPadding: !ConstraintHardValid || !ConstraintSoftValid ? 22 : 8
+        rightPadding: 8
+        width: contentItem.width + leftPadding + rightPadding
+        height: 48
 
-          function onCurrentIndexChanged(currentIndex) {
-            tabRow.currentIndex = swipeView.currentIndex
+        onClicked: {
+          tabBarListView.currentIndex = index
+        }
+
+        background: Rectangle {
+          implicitWidth: parent.width
+          implicitHeight: parent.height
+          color: "transparent"
+
+          Rectangle {
+            anchors.left: parent.left
+            anchors.leftMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+            width: 10
+            height: 10
+            radius: 5
+            color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+            visible: !ConstraintHardValid || !ConstraintSoftValid
           }
         }
 
-        Repeater {
-          model: form.model.hasTabs ? form.model : 0
+        contentItem: Text {
+          // Make sure the width is derived from the text so we can get wider
+          // than the parent item and the Flickable is useful
+          width: paintedWidth
+          height: parent.height
+          text: tabButton.text
+          color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : Theme.mainColor
+          font.pointSize: Theme.tipFont.pointSize
+          font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
-          TabButton {
-            id: tabButton
-            property bool isCurrentIndex: index == tabRow.currentIndex
-            text: Name
-            topPadding: 0
-            bottomPadding: 0
-            leftPadding: !ConstraintHardValid || !ConstraintSoftValid ? 22 : 8
-            rightPadding: 8
-
-            width: contentItem.width + leftPadding + rightPadding
-            height: 48
-
-            background: Rectangle {
-              implicitWidth: parent.width
-              implicitHeight: parent.height
-              color: "transparent"
-
-              Rectangle {
-                anchors.left: parent.left
-                anchors.leftMargin: 8
-                anchors.verticalCenter: parent.verticalCenter
-                width: 10
-                height: 10
-                radius: 5
-                color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
-                visible: !ConstraintHardValid || !ConstraintSoftValid
-              }
-            }
-
-            contentItem: Text {
-              // Make sure the width is derived from the text so we can get wider
-              // than the parent item and the Flickable is useful
-              width: paintedWidth
-              height: parent.height
-              text: tabButton.text
-              color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
-              font.pointSize: Theme.tipFont.pointSize
-              font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
-
-              horizontalAlignment: Text.AlignHCenter
-              verticalAlignment: Text.AlignVCenter
-            }
-          }
+          horizontalAlignment: Text.AlignHCenter
+          verticalAlignment: Text.AlignVCenter
         }
       }
     }
+
 
     /**
      * The main form content area
@@ -155,7 +161,7 @@ Page {
       id: swipeView
       Layout.fillWidth: true
       Layout.fillHeight: true
-      currentIndex: tabRow.currentIndex
+      currentIndex: tabBarListView.currentIndex
 
       Repeater {
         // One page per tab in tabbed forms, 1 page in auto forms
