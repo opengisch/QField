@@ -801,7 +801,7 @@ Rectangle {
       Label {
         id: transferLabel
         width: mainWindow.width - 60 < transferLabelMetrics.width ? mainWindow.width - 60 : transferLabelMetrics.width
-        text: qsTr("Select a vector layer feature from which attributes will be transfered onto the currently opened feature.")
+        text: qsTr("Select a feature below from which attributes will be transfered onto the currently opened feature.")
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
         color: Theme.mainTextColor
