@@ -492,10 +492,10 @@ Rectangle {
     title: qsTr( "Feature List Menu" )
 
     width: {
-        var result = 50;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
@@ -604,10 +604,10 @@ Rectangle {
 
     width: {
         const toolbarWidth = featureMenuActionsToolbar.childrenRect.width + 4
-        var result = 50;
-        var padding = 0;
-        for (var i = 1; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 1; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
@@ -760,7 +760,7 @@ Rectangle {
 
     MenuItem {
       id: transferFeatureAttributesBtn
-      text: qsTr( 'Transfer Feature Attributes' )
+      text: qsTr( 'Update Attributes From Feature' )
       icon.source: Theme.getThemeVectorIcon( "ic_transfer_into_black_24dp" )
       enabled: (
                  projectInfo.insertRights
@@ -804,10 +804,10 @@ Rectangle {
     signal enablePrintItem( int rows )
 
     width: {
-        var result = 50;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }

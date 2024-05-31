@@ -284,7 +284,7 @@ QgsFeature FeatureListModel::getFeatureFromKeyValue( const QVariant &value ) con
   return feature;
 }
 
-QgsFeature FeatureListModel::getFeatureFromId( QgsFeatureId id ) const
+QgsFeature FeatureListModel::getFeatureById( QgsFeatureId id ) const
 {
   if ( !mCurrentLayer )
     return QgsFeature();

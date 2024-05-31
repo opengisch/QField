@@ -637,10 +637,10 @@ Page {
                 title: qsTr('Recent Project Actions')
 
                 width: {
-                  var result = 50;
-                  var padding = 0;
-                  for (var i = 0; i < count; ++i) {
-                    var item = itemAt(i);
+                  let result = 50;
+                  let padding = 0;
+                  for (let i = 0; i < count; ++i) {
+                    let item = itemAt(i);
                     result = Math.max(item.contentItem.implicitWidth, result);
                     padding = Math.max(item.leftPadding + item.rightPadding, padding);
                   }

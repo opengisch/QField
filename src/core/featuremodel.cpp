@@ -676,6 +676,7 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
         continue;
       }
 
+      // Do not paste values for attributes that have default values
       if ( !mFeature.fields()[idx].defaultValueDefinition().expression().isEmpty() )
       {
         continue;

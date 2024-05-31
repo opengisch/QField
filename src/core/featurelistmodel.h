@@ -118,7 +118,7 @@ class FeatureListModel : public QAbstractItemModel
     /**
      * Returns the first feature matching the key  \a id.
      */
-    Q_INVOKABLE QgsFeature getFeatureFromId( QgsFeatureId id ) const;
+    Q_INVOKABLE QgsFeature getFeatureById( QgsFeatureId id ) const;
 
     virtual QHash<int, QByteArray> roleNames() const override;
 

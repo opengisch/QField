@@ -96,7 +96,17 @@ void ClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool i
 
   QMimeData *mimeData = new QMimeData();
   mimeData->setText( textLines.join( '\n' ) );
-  mimeData->setHtml( QStringLiteral( "<!DOCTYPE html><html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"/></head><body><table border=\"1\" qfield=\"1\"><tr>" ) + htmlLines.join( QStringLiteral( "</tr><tr>" ) ) + QStringLiteral( "</tr></table></body></html>" ) );
+  mimeData->setHtml( QStringLiteral( R"""(
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"/>
+ </head>
+ <body>
+  <table border=\"1\" qfield=\"1\"><tr>%1</tr></table>
+ </body>
+</html>)""" )
+                       .arg( htmlLines.join( QStringLiteral( "</tr><tr>" ) ) ) );
 
   mSkipDataChanged = true;
   mClipboard->setMimeData( mimeData );

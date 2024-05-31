@@ -822,7 +822,7 @@ Rectangle {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      let feature = transferFeatureListModel.getFeatureFromId(transferComboBox.currentValue)
+      let feature = transferFeatureListModel.getFeatureById(transferComboBox.currentValue)
       if (featureFormList.model.featureModel.updateAttributesFromFeature(feature)) {
         featureFormList.model.featureModel.save()
         mainWindow.displayToast(qsTr('Feature attributes transferred'))

@@ -2496,10 +2496,10 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 50;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
@@ -2566,10 +2566,10 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 50;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
@@ -2787,10 +2787,10 @@ ApplicationWindow {
         font: Theme.defaultFont
 
         width: {
-            var result = 50;
-            var padding = 0;
-            for (var i = 0; i < count; ++i) {
-                var item = itemAt(i);
+            let result = 50;
+            let padding = 0;
+            for (let i = 0; i < count; ++i) {
+                let item = itemAt(i);
                 result = Math.max(item.contentItem.implicitWidth, result);
                 padding = Math.max(item.leftPadding + item.rightPadding, padding);
             }
@@ -2878,10 +2878,10 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 50;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
@@ -2944,10 +2944,10 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 50;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
@@ -3108,12 +3108,12 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 50;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.leftPadding + item.rightPadding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
         return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
