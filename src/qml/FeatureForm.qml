@@ -77,7 +77,7 @@ Page {
     anchors.fill: parent
 
     ListView {
-      id: tabBarListView
+      id: tabRow
       Layout.fillWidth: true
       Layout.preferredHeight: 48
       orientation: Qt.Horizontal
@@ -95,19 +95,19 @@ Page {
       }
 
       onCurrentIndexChanged: {
-        tabBarListView.positionViewAtIndex(currentIndex, ListView.Contain)
+        tabRow.positionViewAtIndex(currentIndex, ListView.Contain)
       }
 
       Connections {
         target: swipeView
         function onCurrentIndexChanged(currentIndex) {
-          tabBarListView.currentIndex = swipeView.currentIndex
+          tabRow.currentIndex = swipeView.currentIndex
         }
       }
 
       delegate: TabButton {
         id: tabButton
-        property bool isCurrentIndex: index == tabBarListView.currentIndex
+        property bool isCurrentIndex: index == tabRow.currentIndex
         text: Name
         topPadding: 0
         bottomPadding: 0
@@ -117,7 +117,7 @@ Page {
         height: 48
 
         onClicked: {
-          tabBarListView.currentIndex = index
+          tabRow.currentIndex = index
         }
 
         background: Rectangle {
@@ -161,7 +161,7 @@ Page {
       id: swipeView
       Layout.fillWidth: true
       Layout.fillHeight: true
-      currentIndex: tabBarListView.currentIndex
+      currentIndex: tabRow.currentIndex
 
       Repeater {
         // One page per tab in tabbed forms, 1 page in auto forms
