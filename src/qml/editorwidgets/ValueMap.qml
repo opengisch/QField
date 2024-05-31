@@ -67,8 +67,10 @@ EditorWidgetBase {
 
   // Using the search and comboBox when there are less than X items in the dropdown proves to be poor UI on normally
   // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
-  readonly property int minimumItemCount: 6
-  state: currentItemCount >= minimumItemCount ? "comboBoxItemView" : "toggleButtonsView"
+  readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined
+                                                ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold')
+                                                : 0
+  state: currentItemCount < toggleButtonsThreshold ? "toggleButtonsView" : "comboBoxItemView"
 
   property real currentItemCount: comboBox.count
 
