@@ -539,15 +539,7 @@ ApplicationWindow {
 
           if ( qfieldSettings.fingerTapDigitizing && ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === "measure" ) ) {
               if ( !positionLocked && ( !featureForm.visible || digitizingToolbar.geometryRequested ) ) {
-                  console.log(point.position)
-                  coordinateLocator.sourceLocation = point.position
                   coordinateLocator.sourceLocation = point
-                  if ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Point ||
-                          Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Null ) {
-                      digitizingToolbar.confirm()
-                  } else {
-                      digitizingToolbar.addVertex()
-                  }
               }
           } else if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
               identifyTool.isMenuRequest = false
