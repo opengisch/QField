@@ -161,25 +161,20 @@ Page {
       Layout.topMargin: 0
       spacing: 2
 
-      TabBar {
+      QfTabBar {
         id: filterBar
-        currentIndex: 0
+        model: ["My Projects", "Community"]
         Layout.fillWidth: true
-        Layout.preferredHeight: 48
-
-        TabButton {
-          text: qsTr("My Projects")
-          height: 48
+        Layout.preferredHeight: defaultHeight
+        delegate: TabButton {
+          text: modelData
+          height: filterBar.defaultHeight
+          width: projects.width / filterBar.count
           font: Theme.defaultFont
           enabled: (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0)
-          anchors.verticalCenter : parent.verticalCenter
-        }
-        TabButton {
-          text: qsTr("Community")
-          height: 48
-          font: Theme.defaultFont
-          enabled: (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0)
-          anchors.verticalCenter : parent.verticalCenter
+          onClicked: {
+            filterBar.currentIndex = index
+          }
         }
       }
 

@@ -180,6 +180,7 @@ Page {
   }
 
   ColumnLayout {
+    id: barColumn
     anchors {
       top: parent.top
       left: parent.left
@@ -187,32 +188,11 @@ Page {
       bottom: parent.bottom
     }
 
-    TabBar {
+    QfTabBar {
       id: bar
-      currentIndex: 0
+      model: ["General", "Positioning", "Variables"]
       Layout.fillWidth: true
-      Layout.preferredHeight: 48
-
-      onCurrentIndexChanged: swipeView.currentIndex = bar.currentIndex
-
-      TabButton {
-        text: qsTr("General")
-        height: 48
-        font: Theme.defaultFont
-        anchors.verticalCenter : parent.verticalCenter
-      }
-      TabButton {
-        text: qsTr("Positioning")
-        height: 48
-        font: Theme.defaultFont
-        anchors.verticalCenter : parent.verticalCenter
-      }
-      TabButton {
-        text: qsTr("Variables")
-        height: 48
-        font: Theme.defaultFont
-        anchors.verticalCenter : parent.verticalCenter
-      }
+      Layout.preferredHeight: defaultHeight
     }
 
     Component {
@@ -272,10 +252,9 @@ Page {
     SwipeView {
       id: swipeView
       width: mainWindow.width
-      currentIndex: 0
+      currentIndex: bar.currentIndex
       Layout.fillHeight: true
       Layout.fillWidth: true
-
       onCurrentIndexChanged: bar.currentIndex = swipeView.currentIndex
 
       Item {

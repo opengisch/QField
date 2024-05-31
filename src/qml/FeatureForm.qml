@@ -76,34 +76,12 @@ Page {
     id: container
     anchors.fill: parent
 
-    ListView {
+    QfTabBar {
       id: tabRow
-      Layout.fillWidth: true
-      Layout.preferredHeight: 48
-      orientation: Qt.Horizontal
       visible: form.model.hasTabs
       model: form.model.hasTabs ? form.model : 0
-      highlightFollowsCurrentItem: true
-      highlight: Item {
-        Rectangle {
-          height: 2
-          color: Theme.mainColor
-          radius: 4
-          width: parent.width
-          anchors.bottom: parent.bottom
-        }
-      }
-
-      onCurrentIndexChanged: {
-        tabRow.positionViewAtIndex(currentIndex, ListView.Contain)
-      }
-
-      Connections {
-        target: swipeView
-        function onCurrentIndexChanged(currentIndex) {
-          tabRow.currentIndex = swipeView.currentIndex
-        }
-      }
+      Layout.fillWidth: true
+      Layout.preferredHeight: defaultHeight
 
       delegate: TabButton {
         id: tabButton
@@ -153,7 +131,6 @@ Page {
       }
     }
 
-
     /**
      * The main form content area
      */
@@ -162,6 +139,7 @@ Page {
       Layout.fillWidth: true
       Layout.fillHeight: true
       currentIndex: tabRow.currentIndex
+      onCurrentIndexChanged: tabRow.currentIndex = swipeView.currentIndex
 
       Repeater {
         // One page per tab in tabbed forms, 1 page in auto forms
