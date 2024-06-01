@@ -46,7 +46,7 @@ Popup {
         Layout.margins: 20
         visible: pluginsList.model.count === 0
 
-        text: qsTr('No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.').arg('<a href="https://docs.qfield.org/">').arg('</a>')
+        text: qsTr('No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
         font: Theme.defaultFont
         wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignHCenter
