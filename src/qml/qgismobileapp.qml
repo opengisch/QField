@@ -757,6 +757,7 @@ ApplicationWindow {
     CoordinateLocator {
       id: coordinateLocator
       anchors.fill: parent
+      anchors.bottomMargin: informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0
       visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
