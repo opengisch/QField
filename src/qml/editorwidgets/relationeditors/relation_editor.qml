@@ -131,19 +131,27 @@ EditorWidgetBase {
             MouseArea {
               anchors.fill: parent
               onClicked: {
+                if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
+                  // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
+                  if (!save()) {
+                    displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning')
+                    return
+                  }
+                }
+
                 //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
-                if( relationEditorModel.parentPrimariesAvailable ) {
-                  displayToast( qsTr( 'Adding child feature in layer %1' ).arg( relationEditorModel.relation.referencingLayer.name ) )
-                  if ( relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null )
+                if(relationEditorModel.parentPrimariesAvailable ) {
+                  displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name))
+                  if (relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null)
                   {
-                    requestGeometry( relationEditor, relationEditorModel.relation.referencingLayer );
+                    requestGeometry(relationEditor, relationEditorModel.relation.referencingLayer);
                     return;
                   }
                   showAddFeaturePopup()
                 }
                 else
                 {
-                  displayToast (qsTr( 'Cannot add child feature: attribute value linking parent and children is not set' ), 'warning' )
+                  displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning')
                 }
               }
             }

@@ -93,39 +93,47 @@ EditorWidgetBase {
         height: parent.height
 
         ToolButton {
-            id: addButton
-            width: parent.height
-            height: parent.height
-            enabled: constraintsHardValid
+          id: addButton
+          width: parent.height
+          height: parent.height
+          enabled: constraintsHardValid
 
-            contentItem: Rectangle {
-                anchors.fill: parent
-                color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
-                Image {
-                  anchors.fill: parent
-                  anchors.margins: 8
-                  fillMode: Image.PreserveAspectFit
-                  horizontalAlignment: Image.AlignHCenter
-                  verticalAlignment: Image.AlignVCenter
-                  source: Theme.getThemeIcon( 'ic_add_white_24dp' )
-                }
+          contentItem: Rectangle {
+            anchors.fill: parent
+            color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
+            Image {
+              anchors.fill: parent
+              anchors.margins: 8
+              fillMode: Image.PreserveAspectFit
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Theme.getThemeIcon( 'ic_add_white_24dp' )
             }
+          }
         }
       }
 
       MouseArea {
         anchors.fill: parent
         onClicked: {
+          if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
+            // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
+            if (!save()) {
+              displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning')
+              return
+            }
+          }
+
           //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
-          if( orderedRelationModel.parentPrimariesAvailable ) {
-            displayToast( qsTr( 'Adding child feature in layer %1' ).arg( orderedRelationModel.relation.referencingLayer.name ) )
-            if ( orderedRelationModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null ) {
-              requestGeometry( relationEditor, orderedRelationModel.relation.referencingLayer );
+          if(orderedRelationModel.parentPrimariesAvailable) {
+            displayToast(qsTr('Adding child feature in layer %1').arg(orderedRelationModel.relation.referencingLayer.name))
+            if (orderedRelationModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null) {
+              requestGeometry(relationEditor, orderedRelationModel.relation.referencingLayer);
               return;
             }
             showAddFeaturePopup()
           } else {
-            displayToast (qsTr( 'Cannot add child feature: attribute value linking parent and children is not set' ), 'warning' )
+            displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning')
           }
         }
       }
