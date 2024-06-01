@@ -489,10 +489,11 @@ Popup {
           property string deviceId: modelData.id
           property bool isDefault: modelData.isDefault
 
-          text: (modelData.position !== CameraDevice.UnspecifiedPosition
-                 ? '(' + (modelData.position === CameraDevice.FrontFace
-                          ? qsTr('Font') : qsTr('Back')) + ') '
-                 : '') + modelData.description
+          text: modelData.description +
+                (modelData.position !== CameraDevice.UnspecifiedPosition
+                 ? ' (' + (modelData.position === CameraDevice.FrontFace
+                          ? qsTr('front') : qsTr('back')) + ')'
+                 : '')
           height: 48
           leftPadding: Theme.menuItemCheckLeftPadding
           font: Theme.defaultFont
