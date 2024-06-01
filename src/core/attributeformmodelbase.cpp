@@ -513,7 +513,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 #endif
       {
         QgsAttributeEditorRelation *editorRelation = static_cast<QgsAttributeEditorRelation *>( element );
-        QgsRelation relation = editorRelation->relation();
+        const QgsRelation relation = editorRelation->relation();
 
         item->setData( !editorRelation->label().isEmpty() ? editorRelation->label() : relation.name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::AttributeEditable );
@@ -523,7 +523,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( editorRelation->relationWidgetTypeId(), AttributeFormModel::RelationEditorWidget );
         item->setData( editorRelation->relationEditorConfiguration(), AttributeFormModel::RelationEditorWidgetConfig );
         item->setData( relation.id(), AttributeFormModel::RelationId );
-        item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[QStringLiteral( "nm-rel" )].toString(), AttributeFormModel::NmRelationId );
+        item->setData( editorRelation->nmRelationId(), AttributeFormModel::NmRelationId );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintHardValid );
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
