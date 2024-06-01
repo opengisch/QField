@@ -453,7 +453,10 @@ Popup {
       anchors.left: parent.left
       anchors.leftMargin: 4
       anchors.top: backButton.bottom
-      anchors.topMargin: 4
+      anchors.topMargin: cameraSelectionMenu.count > 1 ? 4 : 0
+
+      width: 48
+      height: cameraSelectionMenu.count > 1 ? 48 : 0
 
       iconSource: Theme.getThemeVectorIcon("ic_camera_switch_black_24dp")
       iconColor: "white"
