@@ -52,6 +52,21 @@ Popup {
     }
   }
 
+  Component.onCompleted: {
+    let cameraPicked = false
+    if (settings.deviceId != '') {
+      for(const device of mediaDevices.videoInputs) {
+        if (device.id == settings.deviceId) {
+          camera.cameraDevice = device
+          cameraPicked = true
+        }
+      }
+    }
+    if (!cameraPicked) {
+      camera.cameraDevice = mediaDevices.defaultVideoInput
+    }
+  }
+
   QfCameraPermission {
     id: cameraPermission
   }
@@ -63,6 +78,7 @@ Popup {
     id: settings
     property bool geoTagging: true
     property bool showGrid: false
+    property string deviceId: ''
   }
 
   Page {
@@ -86,7 +102,6 @@ Popup {
         id: camera
 
         active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted
-        cameraDevice: mediaDevices.defaultVideoInput
 
         function zoomIn(increase) {
           var zoom = camera.zoomFactor + increase
@@ -433,11 +448,79 @@ Popup {
     }
 
     QfToolButton {
-      id: geotagButton
+      id: cameraSelectionButton
 
       anchors.left: parent.left
       anchors.leftMargin: 4
       anchors.top: backButton.bottom
+      anchors.topMargin: cameraSelectionMenu.count > 1 ? 4 : 0
+
+      width: 48
+      height: cameraSelectionMenu.count > 1 ? 48 : 0
+
+      iconSource: Theme.getThemeVectorIcon("ic_camera_switch_black_24dp")
+      iconColor: "white"
+      bgcolor: Theme.darkGraySemiOpaque
+      round: true
+
+      onClicked: {
+        cameraSelectionMenu.popup(cameraSelectionButton.x, cameraSelectionButton.y)
+      }
+    }
+
+    Menu {
+      id: cameraSelectionMenu
+
+      width: {
+          let result = 50;
+          let padding = 0;
+          for (let i = 0; i < count; ++i) {
+              let item = itemAt(i);
+              result = Math.max(item.contentItem.implicitWidth, result);
+              padding = Math.max(item.leftPadding + item.rightPadding, padding);
+          }
+          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : 0;
+      }
+
+      Repeater {
+        model: mediaDevices.videoInputs
+
+        delegate: MenuItem {
+          property string deviceId: modelData.id
+          property bool isDefault: modelData.isDefault
+
+          text: modelData.description +
+                (modelData.position !== CameraDevice.UnspecifiedPosition
+                 ? ' (' + (modelData.position === CameraDevice.FrontFace
+                          ? qsTr('front') : qsTr('back')) + ')'
+                 : '')
+          height: 48
+          leftPadding: Theme.menuItemCheckLeftPadding
+          font: Theme.defaultFont
+          enabled: !checked
+          checkable: true
+          checked: deviceId == settings.deviceId || (isDefault && settings.deviceId == '')
+          indicator.height: 20
+          indicator.width: 20
+          indicator.implicitHeight: 24
+          indicator.implicitWidth: 24
+
+          onCheckedChanged: {
+            if (checked && settings.deviceId !== modelData.id) {
+              settings.deviceId = modelData.id
+              camera.cameraDevice = modelData
+            }
+          }
+        }
+      }
+    }
+
+    QfToolButton {
+      id: geotagButton
+
+      anchors.left: parent.left
+      anchors.leftMargin: 4
+      anchors.top: cameraSelectionButton.bottom
       anchors.topMargin: 4
 
       iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
