@@ -281,7 +281,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !dataDirs.isEmpty() )
   {
-#ifdef Q_OS_ANDROID
+#if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
     for ( const QString &dataDir : dataDirs )
     {
       QFileInfo pgServiceFile( QStringLiteral( "%1/pg_service.conf" ).arg( dataDir ) );
