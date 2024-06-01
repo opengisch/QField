@@ -33,6 +33,12 @@ class ProjectUtils : public QObject
      * that is QML compatible.
      */
     Q_INVOKABLE static QVariantMap mapLayers( QgsProject *project = nullptr );
+
+    /**
+     * Returns the transaction mode for a given \a project.
+     * \note To be removed when QField updates to QGIS 3.38.
+     */
+    Q_INVOKABLE Qgis::TransactionMode transactionMode( QgsProject *project = nullptr );
 };
 
 #endif // PROJECTUTILS_H

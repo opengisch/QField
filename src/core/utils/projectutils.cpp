@@ -37,3 +37,11 @@ QVariantMap ProjectUtils::mapLayers( QgsProject *project )
 
   return mapLayers;
 }
+
+Qgis::TransactionMode ProjectUtils::transactionMode( QgsProject *project )
+{
+  if ( !project )
+    return Qgis::TransactionMode::Disabled;
+
+  return project->transactionMode();
+}
