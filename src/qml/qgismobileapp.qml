@@ -911,8 +911,8 @@ ApplicationWindow {
         wrapMode: Text.WordWrap
         elide: Text.ElideRight
 
-        font.pointSize: Theme.tipFont.pointSize
-        font.bold: true
+        font: Theme.strongFont
+        fontSizeMode: Text.Fit
 
         text: ''
       }
