@@ -911,8 +911,8 @@ ApplicationWindow {
         wrapMode: Text.WordWrap
         elide: Text.ElideRight
 
-        font.pointSize: Theme.tipFont.pointSize
-        font.bold: true
+        font: Theme.strongFont
+        fontSizeMode: Text.Fit
 
         text: ''
       }
@@ -1632,7 +1632,7 @@ ApplicationWindow {
         onPressAndHold: {
           navigationMenu.popup(
                 locationToolbar.x + locationToolbar.width - navigationMenu.width,
-                locationToolbar.y + locationToolbar.height - navigationMenu.height
+                locationToolbar.y + navigationButton.height - navigationMenu.height
                 )
         }
 
@@ -2210,15 +2210,15 @@ ApplicationWindow {
 
     width: {
         const toolbarWidth = mainMenuActionsToolbar.childrenRect.width + 4
-        let result = 0;
+        let result = 50;
         let padding = 0;
         // Skip first Row item
         for (let i = 1; i < count; ++i) {
             const item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.max(toolbarWidth, result + padding * 2);
+        return Math.max(toolbarWidth, result + padding);
     }
 
     Row {
@@ -2496,14 +2496,14 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
@@ -2566,14 +2566,14 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
@@ -2787,14 +2787,14 @@ ApplicationWindow {
         font: Theme.defaultFont
 
         width: {
-            var result = 0;
-            var padding = 0;
-            for (var i = 0; i < count; ++i) {
-                var item = itemAt(i);
+            let result = 50;
+            let padding = 0;
+            for (let i = 0; i < count; ++i) {
+                let item = itemAt(i);
                 result = Math.max(item.contentItem.implicitWidth, result);
-                padding = Math.max(item.leftPadding, padding);
+                padding = Math.max(item.leftPadding + item.rightPadding, padding);
             }
-            return Math.min(result + padding * 2,mainWindow.width - 20);
+            return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
         }
 
         Component.onCompleted: {
@@ -2823,6 +2823,17 @@ ApplicationWindow {
             featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
             featureForm.selection.focusedItem = 0
             featureForm.state = "FeatureForm"
+          }
+        }
+
+        MenuItem {
+          text: qsTr('Copy Feature Attributes')
+          font: Theme.defaultFont
+          icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+          leftPadding: Theme.menuItemLeftPadding
+
+          onTriggered: {
+            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true)
           }
         }
 
@@ -2867,14 +2878,14 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.min(result + padding, mainWindow.width - 20);
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
@@ -2933,14 +2944,14 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+        return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
@@ -3097,14 +3108,14 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.max(10, Math.min(result + padding * 2,mainWindow.width - 20));
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {

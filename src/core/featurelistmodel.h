@@ -94,6 +94,7 @@ class FeatureListModel : public QAbstractItemModel
       KeyFieldRole = Qt::UserRole + 1,
       DisplayStringRole,
       GroupFieldRole,
+      FeatureIdRole,
     };
 
     Q_ENUM( FeatureListRoles )
@@ -113,6 +114,11 @@ class FeatureListModel : public QAbstractItemModel
      * Returns the first feature matching the key  \a value.
      */
     Q_INVOKABLE QgsFeature getFeatureFromKeyValue( const QVariant &value ) const;
+
+    /**
+     * Returns the first feature matching the key  \a id.
+     */
+    Q_INVOKABLE QgsFeature getFeatureById( QgsFeatureId id ) const;
 
     virtual QHash<int, QByteArray> roleNames() const override;
 

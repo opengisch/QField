@@ -94,6 +94,9 @@ QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
 
     case GroupFieldRole:
       return mEntries.value( index.row() ).group;
+
+    case FeatureIdRole:
+      return mEntries.value( index.row() ).fid;
   }
 
   return QVariant();
@@ -106,6 +109,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   roles[KeyFieldRole] = "keyFieldValue";
   roles[DisplayStringRole] = "displayString";
   roles[GroupFieldRole] = "groupFieldValue";
+  roles[FeatureIdRole] = "featureId";
 
   return roles;
 }
@@ -278,6 +282,14 @@ QgsFeature FeatureListModel::getFeatureFromKeyValue( const QVariant &value ) con
   }
 
   return feature;
+}
+
+QgsFeature FeatureListModel::getFeatureById( QgsFeatureId id ) const
+{
+  if ( !mCurrentLayer )
+    return QgsFeature();
+
+  return mCurrentLayer->getFeature( id );
 }
 
 void FeatureListModel::gatherFeatureList()

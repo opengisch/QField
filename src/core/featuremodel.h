@@ -172,15 +172,18 @@ class FeatureModel : public QAbstractListModel
     Q_INVOKABLE void refresh();
 
     /**
-     * Will create this feature as a new feature on the data source
+     * Will create this feature as a new feature on the data source.
      */
     Q_INVOKABLE bool create();
 
     /**
-     * Deletes the current feature from the data source
+     * Deletes the current feature from the data source.
      */
     Q_INVOKABLE bool deleteFeature();
 
+    /**
+     * Returns whether the feature form should be suppressed when adding new features.
+     */
     Q_INVOKABLE bool suppressFeatureForm() const;
 
     /**
@@ -192,6 +195,13 @@ class FeatureModel : public QAbstractListModel
     Q_INVOKABLE void resetFeature();
 
     Q_INVOKABLE void resetFeatureId();
+
+    /**
+     * Update attributes to match that of a given feature
+     * \param feature feature from which attributes will be taken
+     * \return TRUE if one or more attribute was updated
+     */
+    Q_INVOKABLE bool updateAttributesFromFeature( const QgsFeature &feature );
 
     QVector<bool> rememberedAttributes() const;
 

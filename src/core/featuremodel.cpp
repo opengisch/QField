@@ -662,6 +662,35 @@ void FeatureModel::resetAttributes( bool partialReset )
   endResetModel();
 }
 
+bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
+{
+  bool updated = false;
+  const QgsFields fields = feature.fields();
+  for ( int i = 0; i < fields.size(); i++ )
+  {
+    const int idx = mFeature.fields().lookupField( fields[i].name() );
+    if ( idx >= 0 )
+    {
+      if ( mLayer && mLayer->primaryKeyAttributes().contains( idx ) )
+      {
+        continue;
+      }
+
+      // Do not paste values for attributes that have default values
+      if ( !mFeature.fields()[idx].defaultValueDefinition().expression().isEmpty() )
+      {
+        continue;
+      }
+
+      if ( setData( index( idx ), feature.attributes()[i], AttributeValue ) )
+      {
+        updated = true;
+      }
+    }
+  }
+  return updated;
+}
+
 void FeatureModel::applyGeometry()
 {
   QString error;

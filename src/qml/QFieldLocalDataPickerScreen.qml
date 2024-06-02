@@ -364,14 +364,14 @@ Page {
       title: qsTr('Item Actions')
 
       width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-          var item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.padding, padding);
-        }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+          let result = 50;
+          let padding = 0;
+          for (let i = 0; i < count; ++i) {
+              let item = itemAt(i);
+              result = Math.max(item.contentItem.implicitWidth, result);
+              padding = Math.max(item.leftPadding + item.rightPadding, padding);
+          }
+          return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
       }
 
       topMargin: sceneTopMargin
@@ -476,14 +476,14 @@ Page {
       title: qsTr('Import Actions')
 
       width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-          var item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.padding, padding);
-        }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+          let result = 50;
+          let padding = 0;
+          for (let i = 0; i < count; ++i) {
+              let item = itemAt(i);
+              result = Math.max(item.contentItem.implicitWidth, result);
+              padding = Math.max(item.leftPadding + item.rightPadding, padding);
+          }
+          return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
       }
 
       topMargin: sceneTopMargin
@@ -574,14 +574,14 @@ Page {
       title: qsTr('Project Actions')
 
       width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-          var item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.padding, padding);
-        }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+          let result = 50;
+          let padding = 0;
+          for (let i = 0; i < count; ++i) {
+              let item = itemAt(i);
+              result = Math.max(item.contentItem.implicitWidth, result);
+              padding = Math.max(item.leftPadding + item.rightPadding, padding);
+          }
+          return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
       }
 
       topMargin: sceneTopMargin

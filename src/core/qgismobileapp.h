@@ -31,6 +31,7 @@
 // QField includes
 #include "appcoordinateoperationhandlers.h"
 #include "bookmarkmodel.h"
+#include "clipboardmanager.h"
 #include "drawingtemplatemodel.h"
 #include "pluginmanager.h"
 #include "qfield_core_export.h"
@@ -228,6 +229,8 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
     std::unique_ptr<LayerObserver> mLayerObserver;
     std::unique_ptr<FeatureHistory> mFeatureHistory;
+    std::unique_ptr<ClipboardManager> mClipboardManager;
+
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 
     BookmarkModel *mBookmarkModel = nullptr;

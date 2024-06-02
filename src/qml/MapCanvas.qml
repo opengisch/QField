@@ -219,7 +219,7 @@ Item {
 
     onTapped: (eventPoint, button) => {
                 if (button === Qt.RightButton) {
-                  mapArea.rightClicked(Qt.point(mouse.x, mouse.y), "touch")
+                  mapArea.rightClicked(Qt.point(eventPoint.position.x, eventPoint.position.y), "touch")
                 } else {
                   if (!doublePressed) {
                     timer.tapPoint = Qt.point(eventPoint.position.x, eventPoint.position.y)

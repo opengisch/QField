@@ -45,6 +45,7 @@ Rectangle {
   signal destinationClicked
   signal moveClicked
   signal duplicateClicked
+  signal transferClicked
   signal deleteClicked
 
   signal toggleMultiSelection
@@ -491,14 +492,14 @@ Rectangle {
     title: qsTr( "Feature List Menu" )
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return result + padding * 2 + 10;
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     topMargin: mainWindow.sceneTopMargin
@@ -598,32 +599,97 @@ Rectangle {
     id: featureMenu
     title: qsTr( "Feature Menu" )
 
-    width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
-        }
-        return result + padding * 2;
-    }
-
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin
 
-    MenuItem {
-      text: Qt.platform.os === "ios" ? qsTr( "Print Atlas Feature to Image" ) : qsTr( 'Print Atlas Feature to PDF' )
-      icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
-      enabled: LayerUtils.isAtlasCoverageLayer( selection.focusedLayer )
+    width: {
+        const toolbarWidth = featureMenuActionsToolbar.childrenRect.width + 4
+        let result = 50;
+        let padding = 0;
+        for (let i = 1; i < count; ++i) {
+            let item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
+        }
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+    }
 
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
+    Row {
+      id: featureMenuActionsToolbar
+      leftPadding: 2
+      rightPadding: 2
+      spacing: 2
+      height: printItem.height
+      clip: true
 
-      onTriggered: {
-          featureListMenu.close();
+      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
+
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          clipboardManager.copyFeatureToClipboard(featureFormList.model.featureModel.feature, true)
+          mainWindow.displayToast(qsTr('Feature attributes copied to clipboard'))
+        }
+      }
+
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+        enabled: clipboardManager && clipboardManager.holdsFeature
+
+        onClicked: {
+          var feature = clipboardManager.pasteFeatureFromClipboard()
+          if (featureFormList.model.featureModel.updateAttributesFromFeature(feature)) {
+            featureFormList.model.featureModel.save()
+            mainWindow.displayToast(qsTr('Feature attributes updated from clipboard'))
+          } else {
+            mainWindow.displayToast(qsTr('No feature attributes were updated from clipboard'))
+          }
+        }
+      }
+
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeIcon( "ic_print_white_24dp" )
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+        enabled: LayerUtils.isAtlasCoverageLayer( selection.focusedLayer )
+
+        onClicked: {
+          featureMenu.close();
           showAtlasMenu();
+        }
+      }
+
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          featureMenu.close();
+          destinationClicked();
+          mainWindow.displayToast(qsTr('Feature set as navigation destination'))
+        }
       }
     }
 
@@ -651,17 +717,6 @@ Rectangle {
       checked: extentController.autoZoom
 
       onTriggered: extentController.autoZoom = !extentController.autoZoom
-    }
-
-    MenuItem {
-      text: qsTr( 'Set Feature as Destination' )
-      icon.source: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
-
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-
-      onTriggered: destinationClicked();
     }
 
     MenuSeparator {
@@ -704,6 +759,23 @@ Rectangle {
     }
 
     MenuItem {
+      id: transferFeatureAttributesBtn
+      text: qsTr( 'Update Attributes From Feature' )
+      icon.source: Theme.getThemeVectorIcon( "ic_transfer_into_black_24dp" )
+      enabled: (
+                 projectInfo.insertRights
+                 && (!selection.focusedLayer || !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false ))
+      )
+      visible: enabled
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: transferClicked();
+    }
+
+    MenuItem {
       id: deleteFeatureBtn
       text: qsTr( 'Delete Feature' )
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
@@ -732,14 +804,14 @@ Rectangle {
     signal enablePrintItem( int rows )
 
     width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     topMargin: mainWindow.sceneTopMargin
