@@ -375,7 +375,11 @@ ApplicationWindow {
             } else {
                 if ( currentRubberband && currentRubberband.model.vertexCount > 1 ) {
                   coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( currentRubberband.model.lastCoordinate )
-                } else {
+                }
+                else if ( geometryEditorsToolbar.editorRubberbandModel && geometryEditorsToolbar.editorRubberbandModel.vertexCount > 1 ) {
+                  coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate )
+                }
+                else {
                   coordinateLocator.sourceLocation = undefined
                 }
             }
@@ -764,7 +768,7 @@ ApplicationWindow {
       currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
       positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
-      rubberbandModel: digitizingToolbar.rubberbandModel
+      rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
