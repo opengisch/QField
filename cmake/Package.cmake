@@ -114,11 +114,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
     set(CPACK_GENERATOR "External;${CPACK_GENERATOR}")
     set(QT_IOS_EXPORT_OPTIONS_FILE "${CMAKE_CURRENT_BINARY_DIR}/QFieldExportOptions.plist")
     # Generate IPA
-    if(${QT_IOS_PROVISIONING_PROFILE_SPECIFIER})
-        set(QT_IOS_EXPORT_SIGNING_TYPE "manual")
-    else()
-        set(QT_IOS_EXPORT_SIGNING_TYPE "automatic")
-    endif()
+    set(QT_IOS_EXPORT_SIGNING_TYPE "manual")
 
     set(QT_IOS_PROVISIONING_PROFILES_KEY
         "<key>provisioningProfiles</key>\n    <dict>\n        <key>${IOS_APP_IDENTIFIER}</key>\n        <string>${QT_IOS_PROVISIONING_PROFILE_SPECIFIER}</string>\n     </dict>\n"
