@@ -375,11 +375,9 @@ ApplicationWindow {
             } else {
                 if ( currentRubberband && currentRubberband.model.vertexCount > 1 ) {
                   coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( currentRubberband.model.lastCoordinate )
-                }
-                else if ( geometryEditorsToolbar.editorRubberbandModel && geometryEditorsToolbar.editorRubberbandModel.vertexCount > 1 ) {
+                } else if ( geometryEditorsToolbar.editorRubberbandModel && geometryEditorsToolbar.editorRubberbandModel.vertexCount > 1 ) {
                   coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate )
-                }
-                else {
+                } else {
                   coordinateLocator.sourceLocation = undefined
                 }
             }
