@@ -19,6 +19,7 @@ VisibilityFadingRow {
   property VectorLayer geometryRequestedLayer
 
   property alias digitizingLogger: digitizingLogger
+  property alias cancelDialog: cancelDialog
 
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 

@@ -2006,6 +2006,11 @@ ApplicationWindow {
               geometryRequested = false
             }
           }
+
+          if(homeButton.waitingForDigitizingFinish){
+            openWelcomeScreen()
+            homeButton.waitingForDigitizingFinish = false
+          }
         }
 
         onConfirmed: {
@@ -2195,6 +2200,13 @@ ApplicationWindow {
     id: bookmarkProperties
   }
 
+  function openWelcomeScreen(){
+    mainMenu.close()
+    dashBoard.close()
+    welcomeScreen.visible = true
+    welcomeScreen.focus = true
+  }
+
   Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
@@ -2227,6 +2239,7 @@ ApplicationWindow {
       property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
 
       QfToolButton {
+        id: homeButton
         anchors.verticalCenter: parent.verticalCenter
         height: 48
         width: 48
@@ -2235,12 +2248,16 @@ ApplicationWindow {
         iconColor: Theme.mainTextColor
         bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
+        property bool waitingForDigitizingFinish: false
+
         onClicked: {
-          mainMenu.close()
-          dashBoard.close()
-          welcomeScreen.visible = true
-          welcomeScreen.focus = true
-          highlighted = false
+          if (digitizingToolbar.rubberbandModel.vertexCount > 1) {
+            digitizingToolbar.cancelDialog.open();
+            waitingForDigitizingFinish = true
+          } else if (!waitingForDigitizingFinish) {
+            openWelcomeScreen()
+            highlighted = false
+          }
         }
       }
 
