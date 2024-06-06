@@ -153,7 +153,7 @@ jobs:
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
         run: |
-          bundle exec fastlane run sentry_upload_dif path:build
+          bundle exec fastlane run sentry_debug_files_upload path:build
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
