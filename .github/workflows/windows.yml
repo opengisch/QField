@@ -77,7 +77,7 @@ jobs:
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
-                -D ENABLE_TESTS=OFF \
+                -D ENABLE_TESTS=ON \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
@@ -108,7 +108,7 @@ jobs:
           SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
+          ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
       - name: Package
         shell: bash
@@ -150,6 +150,7 @@ jobs:
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: "test-report-x64-windows-static-${{ env.BUILD_TYPE }}"
