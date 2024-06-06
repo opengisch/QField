@@ -702,7 +702,7 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   QFileInfo fi( path );
   if ( !fi.exists() )
   {
-    QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
+    QgsMessageLog::logMessage( tr( "Can't load project, file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
     return false;
   }
 
@@ -739,7 +739,7 @@ void QgisMobileapp::readProjectFile()
 {
   QFileInfo fi( mProjectFilePath );
   if ( !fi.exists() )
-    QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( mProjectFilePath ), QStringLiteral( "QField" ), Qgis::Warning );
+    QgsMessageLog::logMessage( tr( "Can't read project, file \"%1\" does not exist" ).arg( mProjectFilePath ), QStringLiteral( "QField" ), Qgis::Warning );
 
   QSettings().setValue( QStringLiteral( "QField/lastProjectFilePath" ), mProjectFilePath );
 
