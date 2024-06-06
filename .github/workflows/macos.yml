@@ -175,4 +175,4 @@ jobs:
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
         run: |
-          bundle exec fastlane run sentry_upload_dif path:${{ env.CMAKE_BUILD_DIR }}
+          bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
