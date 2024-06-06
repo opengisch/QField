@@ -7,9 +7,10 @@ echo "CURRENT_COMMIT: ${CURRENT_COMMIT}"
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
+APP_VERSION_NAME=$(cat ${DIR}/../../RELEASE_NAME)
+
 if [[ -n ${CI_TAG} ]]; then
 	echo "Building release from tag"
-	APP_VERSION_NAME=$(cat ${DIR}/../../RELEASE_NAME)
 	# v1.2.3 Release Name -> 1.2.3 Release Name
 	# v1.2.3-rc4 Release Name -> 1.2.3 RC4 Release Name
 	APP_VERSION_STR="$(app_version_str ${CI_TAG}) - ${APP_VERSION_NAME}"
@@ -47,14 +48,13 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
 	# take 0 + (2020400 + number of CI runs) + arch(triplet) number
 	# 020204000 has no meaning - it's just where we had to start
 	# max = 2100000000
-	export APP_VERSION_STR="${CI_BRANCH}-dev"
+	export APP_VERSION_STR="${CI_BRANCH}-dev  - ${APP_VERSION_NAME}"
 	if [[ -n ${CUSTOM_APP_PACKAGE_NAME} ]]; then
 		export APK_VERSION_CODE="${CI_RUN_NUMBER}${TRIPLET_NUMBER}"
 	else
 		export APK_VERSION_CODE=0$((2020400 + CI_RUN_NUMBER))${TRIPLET_NUMBER}
 	fi
 	export APP_ENV="dev"
-
 else
 	echo "Building pull request beta"
 	if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
@@ -64,8 +64,6 @@ else
 		export APP_NAME="QField Beta ${CI_PULL_REQUEST_NUMBER}"
 		export APP_PACKAGE_NAME="qfield_beta"
 	fi
-
-	APP_VERSION_NAME=$(cat ${DIR}/../../RELEASE_NAME)
 
 	export APP_ICON="qfield_logo_pr"
 	export APP_VERSION=""
