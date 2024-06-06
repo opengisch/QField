@@ -2251,7 +2251,7 @@ ApplicationWindow {
         property bool waitingForDigitizingFinish: false
 
         onClicked: {
-          if (digitizingToolbar.rubberbandModel.vertexCount > 1) {
+          if (currentRubberband && currentRubberband.model.vertexCount > 1) {
             digitizingToolbar.cancelDialog.open();
             waitingForDigitizingFinish = true
           } else if (!waitingForDigitizingFinish) {
