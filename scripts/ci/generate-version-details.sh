@@ -64,9 +64,12 @@ else
 		export APP_NAME="QField Beta ${CI_PULL_REQUEST_NUMBER}"
 		export APP_PACKAGE_NAME="qfield_beta"
 	fi
+
+	APP_VERSION_NAME=$(cat ${DIR}/../../RELEASE_NAME)
+
 	export APP_ICON="qfield_logo_pr"
 	export APP_VERSION=""
-	export APP_VERSION_STR="PR${CI_PULL_REQUEST_NUMBER}"
+	export APP_VERSION_STR="PR${CI_PULL_REQUEST_NUMBER} - ${APP_VERSION_NAME}"
 	export APK_VERSION_CODE="1"
 	export APP_ENV="pr"
 fi
