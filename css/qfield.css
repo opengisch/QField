@@ -3,12 +3,16 @@ body {
   /* background-color: #f4f4f4; */
 }
 
-div.navbar {
+#navbar {
   margin-bottom:0px !important;
   height: 100px;
   background-color:#80CC28;
   border:0;
   font-family:TruenoLight;
+}
+
+#navbar .open>a, #navbar .open>a:hover, #navbar .open>a:focus {
+  background-color:rgba(0, 0, 0, 0.2);
 }
 
 div.navbar li a {
