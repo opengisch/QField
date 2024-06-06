@@ -1,5 +1,6 @@
 body {
   padding-top: 120px;
+  /* background-color: #f4f4f4; */
 }
 
 div.navbar {
@@ -193,4 +194,28 @@ div.feature img {
       src: url('../fonts/TruenoLight.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+}
+
+/* sdgs page */
+.sdg {
+  background-color: white;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  clear: both;
+}
+
+.sdg img {
+  float: left;
+  margin-right: 20px;
+}
+
+.sdg h3 {
+  margin-top: 0;
+}
+
+.sdg p.learn-more{
+  text-align: right;
+  font-weight: bolder;
 }
