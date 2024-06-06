@@ -212,10 +212,15 @@ div.feature img {
 }
 
 .sdg h3 {
+  text-align: left;
   margin-top: 0;
 }
 
 .sdg p.learn-more{
   text-align: right;
   font-weight: bolder;
+}
+
+#sdgs h2 {
+  text-align: left;
 }
