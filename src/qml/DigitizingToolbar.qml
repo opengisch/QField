@@ -93,6 +93,7 @@ VisibilityFadingRow {
     bgcolor: Theme.darkRed
 
     onClicked: {
+      homeButton.waitingForDigitizingFinish = false
       if (stateMachine.state !== "measure") {
         cancelDialog.open();
       } else {
