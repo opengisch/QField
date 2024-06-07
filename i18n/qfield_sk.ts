@@ -436,6 +436,13 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -814,6 +821,22 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     <message>
         <source>Changes discarded</source>
         <translation>Zmeny zrušené</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1437,7 +1460,7 @@ Dôvod:
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Tlačiť prvok Atlasu do PDF</translation>
+        <translation type="vanished">Tlačiť prvok Atlasu do PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1449,7 +1472,7 @@ Dôvod:
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Nastaviť prvok ako cieľ</translation>
+        <translation type="vanished">Nastaviť prvok ako cieľ</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1481,7 +1504,7 @@ Dôvod:
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Vytlačiť prvok Atlasu do obrázku</translation>
+        <translation type="vanished">Vytlačiť prvok Atlasu do obrázku</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1494,6 +1517,26 @@ Dôvod:
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Prvky Atlasu úspešne vytlačené a umiestnené do projektového priečinka</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1947,6 +1990,14 @@ Dôvod:
     <message>
         <source>Grid disabled</source>
         <translation>Mriežka vypnutá</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2459,11 +2510,11 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Moje projekty</translation>
+        <translation type="vanished">Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Komunita</translation>
+        <translation type="vanished">Komunita</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2741,15 +2792,15 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>General</source>
-        <translation>Všeobecné</translation>
+        <translation type="vanished">Všeobecné</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Určenie polohy</translation>
+        <translation type="vanished">Určenie polohy</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Premenné</translation>
+        <translation type="vanished">Premenné</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3218,7 +3269,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Font %1 sa nepodarilo nahrať</translation>
+        <translation type="vanished">Font %1 sa nepodarilo nahrať</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3226,6 +3277,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4015,6 +4070,10 @@ Zrušiť a spraviť minimálny sken.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Nie je možné pridať podradený prvok: hodnota atribútu spájajúca nadradený a podradený prvok nie je nastavená</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4526,6 +4585,10 @@ Zrušiť a spraviť minimálny sken.</translation>
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4564,6 +4627,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Nie je možné pridať podradený prvok: hodnota atribútu spájajúca nadradený a podradený prvok nie je nastavená</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -26,7 +26,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Limitar a pesquisa ao campo &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -34,7 +34,7 @@
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Definir recurso como destino</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Recursos da camada ativa</translation>
     </message>
 </context>
 <context>
@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Você pode consultar a página de documentação do %1Projeto Portátil%2 para obter mais ajuda.</translation>
     </message>
 </context>
 <context>
@@ -234,7 +234,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro de digitalização: %1</translation>
     </message>
 </context>
 <context>
@@ -245,7 +245,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permissão de Bluetooth negada</translation>
     </message>
 </context>
 <context>
@@ -296,7 +296,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permissão de Bluetooth negada</translation>
     </message>
 </context>
 <context>
@@ -436,6 +436,13 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -446,7 +453,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Etiqueta de texto NFC detectada</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -454,7 +461,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centralize seu dispositivo em um código</translation>
     </message>
 </context>
 <context>
@@ -469,7 +476,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Conclua ou diminua o recurso de digitalização antes de alternar para o modo de navegação</translation>
     </message>
 </context>
 <context>
@@ -564,7 +571,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Em branco</translation>
     </message>
 </context>
 <context>
@@ -589,11 +596,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>A geometria não pôde ser modificada em várias partes</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>A geometria não pôde ser modificada</translation>
     </message>
 </context>
 <context>
@@ -626,27 +633,27 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Tire uma foto</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Faça um vídeo</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Gravar um clipe de áudio</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Anexar um item da galeria</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Anexar um arquivo</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Desenhe um esboço</translation>
     </message>
 </context>
 <context>
@@ -701,7 +708,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>O último valor inserido para esse campo será lembrado e reutilizado ao criar novos recursos</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
@@ -809,6 +816,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Changes discarded</source>
         <translation>Alterações descartadas</translation>
     </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -867,7 +890,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Definir recurso como destino</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -1430,7 +1453,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Exportar Elemento do Atlas para PDF</translation>
+        <translation type="vanished">Exportar Elemento do Atlas para PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1442,7 +1465,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Definir elemento como destino</translation>
+        <translation type="vanished">Definir elemento como destino</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1486,6 +1509,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1939,6 +1982,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Grid disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2447,11 +2498,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Meus Projetos</translation>
+        <translation type="vanished">Meus Projetos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunidade</translation>
+        <translation type="vanished">Comunidade</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2729,15 +2780,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>Geral</translation>
+        <translation type="vanished">Geral</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posicionamento</translation>
+        <translation type="vanished">Posicionamento</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variáveis</translation>
+        <translation type="vanished">Variáveis</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3206,7 +3257,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Não foi possível carregar a fonte %1</translation>
+        <translation type="vanished">Não foi possível carregar a fonte %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3214,6 +3265,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4003,6 +4058,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4514,6 +4573,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4551,6 +4614,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
 </context>

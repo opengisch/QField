@@ -436,6 +436,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -812,6 +819,22 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Changes discarded</source>
         <translation>Módosításokat eldobtam</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1433,7 +1456,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Atlasz elem nyomtatása PDF fájlba</translation>
+        <translation type="vanished">Atlasz elem nyomtatása PDF fájlba</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1445,7 +1468,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Állítsa be az elemet célként.</translation>
+        <translation type="vanished">Állítsa be az elemet célként.</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1477,7 +1500,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Atlasz elem nyomtatása képfájlba</translation>
+        <translation type="vanished">Atlasz elem nyomtatása képfájlba</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1490,6 +1513,26 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Az atlasz elem(ek) nyomtatása és a projekt könyvtáradba helyezése sikeres volt</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1943,6 +1986,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Grid disabled</source>
         <translation>Rács kikapcsolva</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2450,11 +2501,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Projektjeim</translation>
+        <translation type="vanished">Projektjeim</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Közösség</translation>
+        <translation type="vanished">Közösség</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2732,15 +2783,15 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>General</source>
-        <translation>Általános</translation>
+        <translation type="vanished">Általános</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Pozícionálás</translation>
+        <translation type="vanished">Pozícionálás</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Változók</translation>
+        <translation type="vanished">Változók</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3002,11 +3053,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Az alacsonyabb minőségű megjelenítés a kisebb memóriahasználatot és a gyorsabb frissítést részesíti előnyban a pontosság hátrányára,</translation>
+        <translation>Az alacsonyabb minőségű megjelenítés a kisebb memóriahasználatot és a gyorsabb frissítést részesíti előnyban a pontosság hátrányára.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>Ez az érték javítja a helymeghatározó eszközről rögzített Z értékeket. Ha 1.6 értéket ad meg , QField automatikusan levon 1.6-et minden rögzített értékből. Győződjön meg róla, hogy a tényleges antenna magasságot viszi be, pl. az árbóc magassága + antenna fázis centrum külpontossága.</translation>
+        <translation>Ez az érték pontosítja a helymeghatározó eszközzel rögzített Z értéket. Ha 1.6 értéket ad meg, a QField automatikusan levon 1.6-et minden rögzített értékből. Győződjön meg róla, hogy a tényleges antenna magasságot adja meg, pl. az árbóc magassága + antenna fázis centrum külpontossága.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -3022,62 +3073,62 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Lehetséges töréspont hozzáadása a térkép újjal érintésével</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Ha lehetséges, akkor a térkép újjal érintése egy töréspont hozzáadását eredményezi az adott helyen.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Ha engedélyezett, az egér úgy működik, mintha egy újj lett volna. Ha tiltott, az egér egy toll viselkedését követi.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Térképvászon</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizálás és szerkesztés</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Felhasználói felület</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Megjelenítés:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Betű méret:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Nyelv:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Haladó</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Bővítmény kezelés</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Lehetséges a térkép forgatása</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Bekapcsolásakor, a térkép forgatható a felhasználó által.</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Válassz rajzolási sablont</translation>
     </message>
 </context>
 <context>
@@ -3209,7 +3260,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Em tudom a %1 betűkészletet betölteni</translation>
+        <translation type="vanished">Em tudom a %1 betűkészletet betölteni</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3217,7 +3268,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Projekt bővítmény</translation>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
+        <translation>Nem betölthető betű: %1</translation>
     </message>
 </context>
 <context>
@@ -4006,6 +4061,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4517,6 +4576,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4554,6 +4617,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
 </context>

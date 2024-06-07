@@ -436,6 +436,13 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -816,6 +823,22 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Changes discarded</source>
         <translation>Změny zrušeny</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1438,7 +1461,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Tisk prvku atlasu do PDF</translation>
+        <translation type="vanished">Tisk prvku atlasu do PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1450,7 +1473,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Nastavit prvek jako cíl</translation>
+        <translation type="vanished">Nastavit prvek jako cíl</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1482,7 +1505,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Tisk prvku atlasu do obrázku</translation>
+        <translation type="vanished">Tisk prvku atlasu do obrázku</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1495,6 +1518,26 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Prvek(prvky) atlasu úspěšně vytištěný/é do PDF a umístěné ve složce Vašeho projektu</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1947,6 +1990,14 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Grid disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2459,11 +2510,11 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Moje projekty</translation>
+        <translation type="vanished">Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Komunita</translation>
+        <translation type="vanished">Komunita</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2741,15 +2792,15 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>General</source>
-        <translation>Obecné</translation>
+        <translation type="vanished">Obecné</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Určení polohy</translation>
+        <translation type="vanished">Určení polohy</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Proměnné</translation>
+        <translation type="vanished">Proměnné</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3218,7 +3269,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Nelze načíst písmo %1</translation>
+        <translation type="vanished">Nelze načíst písmo %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3226,6 +3277,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4015,6 +4070,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4526,6 +4585,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4563,6 +4626,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
 </context>

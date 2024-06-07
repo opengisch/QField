@@ -436,6 +436,13 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>Xeometría</translation>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -626,11 +633,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Tomar unha foto</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Tomar un vídeo</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
@@ -812,6 +819,22 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Changes discarded</source>
         <translation>Cambios descartados</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1025,7 +1048,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Perfil de elevacións</translation>
     </message>
 </context>
 <context>
@@ -1434,7 +1457,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Imprimir Entidade do Atlas a PDF</translation>
+        <translation type="vanished">Imprimir Entidade do Atlas a PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1446,7 +1469,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Establecer a Entidade como Destino</translation>
+        <translation type="vanished">Establecer a Entidade como Destino</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1478,7 +1501,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Imprimir Entidade do Atlas a Imaxe</translation>
+        <translation type="vanished">Imprimir Entidade do Atlas a Imaxe</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1491,6 +1514,26 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Imprimíronse con éxito as entidade(s) do Atlas e situáronse no directorio do proxecto</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1944,6 +1987,14 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Grid disabled</source>
         <translation>Grade desactivada</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2456,11 +2507,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Os Meus Proxectos</translation>
+        <translation type="vanished">Os Meus Proxectos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunidade</translation>
+        <translation type="vanished">Comunidade</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2738,15 +2789,15 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>General</source>
-        <translation>Xeral</translation>
+        <translation type="vanished">Xeral</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posicionamento</translation>
+        <translation type="vanished">Posicionamento</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation type="vanished">Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3048,31 +3099,31 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Interface de Usuario</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Aparencia:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Tamaño da Fonte:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Idioma:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Avanzado</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Xestionar plugins</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Activar a rotación do mapa</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
@@ -3215,7 +3266,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Non se puido cargar a fonte %1</translation>
+        <translation type="vanished">Non se puido cargar a fonte %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3223,6 +3274,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4012,6 +4067,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Non se pode engadir a entidade filla: non se estableceu o valor de atributo que enlaza pais con fillas</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4523,6 +4582,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4561,6 +4624,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Non se pode engadir a entidade filla: non se estableceu o valor de atributo que enlaza pais con fillas</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

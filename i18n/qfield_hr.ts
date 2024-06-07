@@ -436,6 +436,13 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -814,6 +821,22 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Changes discarded</source>
         <translation>Promjene zanemarene</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1436,7 +1459,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Ispiši element atlasa u PDF</translation>
+        <translation type="vanished">Ispiši element atlasa u PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1448,7 +1471,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Postavi element kao odredište</translation>
+        <translation type="vanished">Postavi element kao odredište</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1480,7 +1503,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Ispiši stavku Atlasa u sliku</translation>
+        <translation type="vanished">Ispiši stavku Atlasa u sliku</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1493,6 +1516,26 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Stavka(e) Atlasa su uspješno ispisane i spremljene u direktorij projekta</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1945,6 +1988,14 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Grid disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2454,11 +2505,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Moji projekti</translation>
+        <translation type="vanished">Moji projekti</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Zajednica</translation>
+        <translation type="vanished">Zajednica</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2736,15 +2787,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>Općenito</translation>
+        <translation type="vanished">Općenito</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Pozicioniranje</translation>
+        <translation type="vanished">Pozicioniranje</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Varijable</translation>
+        <translation type="vanished">Varijable</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3213,7 +3264,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Ne mogu učitati font %1</translation>
+        <translation type="vanished">Ne mogu učitati font %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3221,6 +3272,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4010,6 +4065,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4521,6 +4580,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4558,6 +4621,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
 </context>

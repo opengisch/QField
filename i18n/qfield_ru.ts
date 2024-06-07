@@ -436,6 +436,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -816,6 +823,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Changes discarded</source>
         <translation>Изменения отменены</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1438,7 +1461,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Печать объекта Атласа в PDF</translation>
+        <translation type="vanished">Печать объекта Атласа в PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1450,7 +1473,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Установить объект в качестве пункта назначения</translation>
+        <translation type="vanished">Установить объект в качестве пункта назначения</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1482,7 +1505,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Печать объекта атласа в изображение</translation>
+        <translation type="vanished">Печать объекта атласа в изображение</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1495,6 +1518,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Объект(ы) атласа успешно напечатан(ы) в PDF и сохранен(ы) в папке вашего проекта</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1948,6 +1991,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Grid disabled</source>
         <translation>Сетка выключена</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2457,11 +2508,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Мои проекты</translation>
+        <translation type="vanished">Мои проекты</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Сообщество</translation>
+        <translation type="vanished">Сообщество</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2739,15 +2790,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>Основные</translation>
+        <translation type="vanished">Основные</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Местоположение</translation>
+        <translation type="vanished">Местоположение</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Переменные</translation>
+        <translation type="vanished">Переменные</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3216,7 +3267,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Невозможно загрузить шрифт %1</translation>
+        <translation type="vanished">Невозможно загрузить шрифт %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3224,6 +3275,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4013,6 +4068,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4524,6 +4583,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4561,6 +4624,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
 </context>

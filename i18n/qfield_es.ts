@@ -436,6 +436,13 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -814,6 +821,22 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Changes discarded</source>
         <translation>Cambios descartados</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1436,7 +1459,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Imprimir objeto de atlas a PDF</translation>
+        <translation type="vanished">Imprimir objeto de atlas a PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1448,7 +1471,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Establecer entidad como destino</translation>
+        <translation type="vanished">Establecer entidad como destino</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1480,7 +1503,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Imprimir entidad del atlas a imagen</translation>
+        <translation type="vanished">Imprimir entidad del atlas a imagen</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1493,6 +1516,26 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>La entidad(es) del Atlas se imprimieron correctamente y se colocaron en la carpeta de su proyecto</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1946,6 +1989,14 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Grid disabled</source>
         <translation>Grid deshabilitado</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2456,11 +2507,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Mis proyectos</translation>
+        <translation type="vanished">Mis proyectos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunidad</translation>
+        <translation type="vanished">Comunidad</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2738,15 +2789,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="vanished">General</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posicionamiento</translation>
+        <translation type="vanished">Posicionamiento</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation type="vanished">Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3215,7 +3266,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>No se pudo cargar el tipo de letra %1</translation>
+        <translation type="vanished">No se pudo cargar el tipo de letra %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3224,6 +3275,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Project Plugin</source>
         <translation>Complemento de proyecto</translation>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4012,6 +4067,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4523,6 +4582,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Remember my choice</source>
         <translation>Recordar mi elección</translation>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4561,6 +4624,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

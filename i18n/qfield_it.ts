@@ -436,6 +436,13 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -814,6 +821,22 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Changes discarded</source>
         <translation>Modifiche rimosse</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1436,7 +1459,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Stampa Elemento Atlante in PDF</translation>
+        <translation type="vanished">Stampa Elemento Atlante in PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1448,7 +1471,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Imposta Elemento come Destinazione</translation>
+        <translation type="vanished">Imposta Elemento come Destinazione</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1480,7 +1503,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Stampa Elemento Atlante come Immagine</translation>
+        <translation type="vanished">Stampa Elemento Atlante come Immagine</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1493,6 +1516,26 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Elementi Atlante stampati correttamente e inseriti nella tua cartella di progetto</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1946,6 +1989,14 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Grid disabled</source>
         <translation>Griglia disattivata</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2461,11 +2512,11 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation>I miei Progetti</translation>
+        <translation type="vanished">I miei Progetti</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunità</translation>
+        <translation type="vanished">Comunità</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2743,15 +2794,15 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Generale</translation>
+        <translation type="vanished">Generale</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posizione</translation>
+        <translation type="vanished">Posizione</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variabili</translation>
+        <translation type="vanished">Variabili</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3220,7 +3271,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Impossibile caricare il font %1</translation>
+        <translation type="vanished">Impossibile caricare il font %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3229,6 +3280,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Project Plugin</source>
         <translation>Plugin Progetto</translation>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4017,6 +4072,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Impossibile aggiungere l&apos;elemento figlio: il valore dell&apos;attributo che collega genitore e figli non è impostato</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4528,6 +4587,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Remember my choice</source>
         <translation>Ricorda la mia scelta</translation>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4566,6 +4629,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Impossibile aggiungere l&apos;elemento figlio: il valore dell&apos;attributo che collega genitore e figli non è impostato</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

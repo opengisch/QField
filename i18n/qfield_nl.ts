@@ -436,6 +436,13 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -812,6 +819,22 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Changes discarded</source>
         <translation>Wijzigingen genegeerd</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1434,7 +1457,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Atlas object naar PDF printen</translation>
+        <translation type="vanished">Atlas object naar PDF printen</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1446,7 +1469,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Object instellen als bestemming</translation>
+        <translation type="vanished">Object instellen als bestemming</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1490,6 +1513,26 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1944,6 +1987,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Grid disabled</source>
         <translation>Raster uit</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2456,11 +2507,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Mijn Projecten</translation>
+        <translation type="vanished">Mijn Projecten</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Gemeenschap</translation>
+        <translation type="vanished">Gemeenschap</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2738,15 +2789,15 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>General</source>
-        <translation>Algemeen</translation>
+        <translation type="vanished">Algemeen</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Positie</translation>
+        <translation type="vanished">Positie</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variabelen</translation>
+        <translation type="vanished">Variabelen</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3215,7 +3266,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Kon lettertype %1 niet laden</translation>
+        <translation type="vanished">Kon lettertype %1 niet laden</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3223,6 +3274,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4012,6 +4067,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4523,6 +4582,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4561,6 +4624,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

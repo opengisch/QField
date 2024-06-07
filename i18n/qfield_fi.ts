@@ -436,6 +436,13 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -812,6 +819,22 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Changes discarded</source>
         <translation>Muutokset hylätty</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1434,7 +1457,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Tulosta Atlaksen kohde/kohteet PDF:ksi</translation>
+        <translation type="vanished">Tulosta Atlaksen kohde/kohteet PDF:ksi</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1446,7 +1469,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Aseta ominaisuus kohteeksi</translation>
+        <translation type="vanished">Aseta ominaisuus kohteeksi</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1478,7 +1501,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Tulosta Atlas kohde kuvaksi</translation>
+        <translation type="vanished">Tulosta Atlas kohde kuvaksi</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1491,6 +1514,26 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Atlas kohde(kohteet) tulostettu onnistuneesti ja sijoitettu projektihakemistoon</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1944,6 +1987,14 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Grid disabled</source>
         <translation>Ruudukko pois käytöstä</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2457,11 +2508,11 @@ syy: %2</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Omat projektini</translation>
+        <translation type="vanished">Omat projektini</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Yhteisö</translation>
+        <translation type="vanished">Yhteisö</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2740,15 +2791,15 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Yleistä</translation>
+        <translation type="vanished">Yleistä</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Paikannus</translation>
+        <translation type="vanished">Paikannus</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Muuttujat</translation>
+        <translation type="vanished">Muuttujat</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3217,7 +3268,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Ei voitu ladata kirjasinta %1</translation>
+        <translation type="vanished">Ei voitu ladata kirjasinta %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3225,6 +3276,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4014,6 +4069,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4525,6 +4584,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Remember my choice</source>
         <translation>Muista valintani</translation>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4562,6 +4625,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
 </context>

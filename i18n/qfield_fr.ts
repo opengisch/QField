@@ -435,6 +435,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -813,6 +820,22 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Changes discarded</source>
         <translation>Modifications annulées</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1435,7 +1458,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Imprimer avec la fonction Atlas au format PDF</translation>
+        <translation type="vanished">Imprimer avec la fonction Atlas au format PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1447,7 +1470,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Enregistrer l&apos;Entité comme Destination</translation>
+        <translation type="vanished">Enregistrer l&apos;Entité comme Destination</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1479,7 +1502,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Imprimer l&apos;élément Atlas sur l&apos;image</translation>
+        <translation type="vanished">Imprimer l&apos;élément Atlas sur l&apos;image</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1492,6 +1515,26 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Élément(s) Atlas imprimé(s) avec succès et placé(s) dans votre dossier de projet</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1945,6 +1988,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Grid disabled</source>
         <translation>Grille désactivée</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2454,11 +2505,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Mes projets</translation>
+        <translation type="vanished">Mes projets</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Communauté</translation>
+        <translation type="vanished">Communauté</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2736,15 +2787,15 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>General</source>
-        <translation>Général</translation>
+        <translation type="vanished">Général</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Positionnement</translation>
+        <translation type="vanished">Positionnement</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation type="vanished">Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3025,19 +3076,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Autoriser une pression du doigt sur le canevas pour ajouter un sommet</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, la pression d&apos;un doigt sur le canevas de la carte ajoutera un sommet à l&apos;endroit touché.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, la souris agira comme si c&apos;était un doigt. Si désactivé, la souris aura le comportement d&apos;un stylet.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Canevas de la carte</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
@@ -3212,7 +3263,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Impossible de charger la police %1</translation>
+        <translation type="vanished">Impossible de charger la police %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3221,6 +3272,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Project Plugin</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
+        <translation>Impossible de charger la police : %1</translation>
     </message>
 </context>
 <context>
@@ -3956,11 +4011,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation>Charger le projet par défaut au démarrage</translation>
+        <translation>Charger au démarrage le projet par défaut</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation>Charger le dernier projet ouvert au démarrage</translation>
+        <translation>Charger au démarrage le dernier projet ouvert</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
@@ -4010,6 +4065,10 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Impossible d&apos;ajouter une entité enfant : la valeur de l&apos;attribut dans la relation liant le parent et les enfants n&apos;est pas définie</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4349,7 +4408,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Chargement %1</translation>
+        <translation>Chargement de %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -4524,6 +4583,10 @@ fermer le projet et quitter l&apos;application</translation>
         <source>Remember my choice</source>
         <translation>Se rappeler de mon choix</translation>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4562,6 +4625,10 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Impossible d&apos;ajouter une entité enfant : la valeur de l&apos;attribut dans la relation liant le parent et les enfants n&apos;est pas définie</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

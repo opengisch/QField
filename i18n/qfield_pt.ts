@@ -436,6 +436,13 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -564,7 +571,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Em branco</translation>
     </message>
 </context>
 <context>
@@ -626,27 +633,27 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Tire uma foto</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Grave um vídeo</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Grave um clip áudio</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Anexar um item da galeria</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Anexar um ficheiro</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Desenhe um esboço</translation>
     </message>
 </context>
 <context>
@@ -814,6 +821,22 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Changes discarded</source>
         <translation>Alterações removidas</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1436,7 +1459,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Imprimir Elemento do Atlas para PDF</translation>
+        <translation type="vanished">Imprimir Elemento do Atlas para PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1448,7 +1471,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Definir elemento como destino</translation>
+        <translation type="vanished">Definir elemento como destino</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1480,7 +1503,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Imprimir Elemento do Atlas para Imagem</translation>
+        <translation type="vanished">Imprimir Elemento do Atlas para Imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1493,6 +1516,26 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Elemento(s) do Atlas foram imprimidos com sucesso e guardados na sua pasta do projeto</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1681,7 +1724,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
@@ -1946,6 +1989,14 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Grid disabled</source>
         <translation>Grelha desativada</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2458,11 +2509,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Meus Projetos</translation>
+        <translation type="vanished">Meus Projetos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunidade</translation>
+        <translation type="vanished">Comunidade</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2740,15 +2791,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>General</source>
-        <translation>Geral</translation>
+        <translation type="vanished">Geral</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posicionamento</translation>
+        <translation type="vanished">Posicionamento</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variáveis</translation>
+        <translation type="vanished">Variáveis</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3046,46 +3097,46 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Digitalização e Edição</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Interface do utilizador</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Aparência:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho das letras:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Idioma:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Avançado</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Gerir plugins</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Ativar rotação do mapa</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Quando selecionado, o mapa pode ser rodado pelo utilizador</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Selecione um template de desenho</translation>
     </message>
 </context>
 <context>
@@ -3217,7 +3268,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Não foi possível carregar a fonte % 1</translation>
+        <translation type="vanished">Não foi possível carregar a fonte % 1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3225,7 +3276,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin do Projeto</translation>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
+        <translation>Não foi possível carregar a fonte: % 1</translation>
     </message>
 </context>
 <context>
@@ -4014,6 +4069,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Não é possível adicionar elemento filho: o valor do atributo que liga pai e filho não está definido</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4519,10 +4578,14 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Dá permissões para ativar `%1`?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
+        <translation>Relembrar a minha escolha</translation>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4563,6 +4626,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Não é possível adicionar elemento filho: o valor do atributo que liga pai e filho não está definido</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

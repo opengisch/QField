@@ -436,6 +436,13 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometria</translation>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -816,6 +823,22 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Changes discarded</source>
         <translation>Odrzucono zmiany</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation>Prześlij atrybuty elementu</translation>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation>Wybierz poniżej element, z którego atrybuty zostaną przeniesione do aktualnie otwartego atrybutu.</translation>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation>Atrybuty elementu zostały przesłane</translation>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation>Nie przesłano żadnych atrybutów elementów</translation>
     </message>
 </context>
 <context>
@@ -1450,7 +1473,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Ustaw obiekt jako cel</translation>
+        <translation type="vanished">Ustaw obiekt jako cel</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1495,6 +1518,26 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation>Atrybuty elementu skopiowano do schowka</translation>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation>Atrybuty elementu zaktualizowano ze schowka</translation>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation>Żadne atrybuty elementu nie zostały zaktualizowane ze schowka</translation>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation>Element ustawiono jako miejsce docelowe nawigacji</translation>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation>Zaktualizuj atrybuty z elementu</translation>
     </message>
 </context>
 <context>
@@ -1948,6 +1991,14 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Grid disabled</source>
         <translation>Siatka wyłączona</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation>przód</translation>
+    </message>
+    <message>
+        <source>back</source>
+        <translation>tył</translation>
     </message>
 </context>
 <context>
@@ -2460,11 +2511,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Moje projekty</translation>
+        <translation type="vanished">Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Społeczność</translation>
+        <translation type="vanished">Społeczność</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2742,15 +2793,15 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>General</source>
-        <translation>Główne</translation>
+        <translation type="vanished">Główne</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Lokalizacja</translation>
+        <translation type="vanished">Lokalizacja</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Zmienne</translation>
+        <translation type="vanished">Zmienne</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3219,7 +3270,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Nie można pobrać czcionki %1</translation>
+        <translation type="vanished">Nie można pobrać czcionki %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3228,6 +3279,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Project Plugin</source>
         <translation>Wtyczka projektu</translation>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
+        <translation>Nie można załadować czcionki: %1</translation>
     </message>
 </context>
 <context>
@@ -4016,6 +4071,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Nie można dodać elementu potomnego: wartość atrybutu łączącego element nadrzędny i potomny nie jest ustawiona</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4527,6 +4586,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Remember my choice</source>
         <translation>Zapamiętaj mój wybór</translation>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Kopiuj atrybuty elementu</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4565,6 +4628,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Nie można dodać elementu potomnego: wartość atrybutu łączącego element nadrzędny i potomny nie jest ustawiona</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -436,6 +436,13 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -810,6 +817,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Changes discarded</source>
         <translation>Changes discarded</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1432,7 +1455,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Print Atlas Feature to PDF</translation>
+        <translation type="vanished">Print Atlas Feature to PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1444,7 +1467,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Set Feature as Destination</translation>
+        <translation type="vanished">Set Feature as Destination</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1476,7 +1499,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>Cetak Feature Atlas menjadi gambar</translation>
+        <translation type="vanished">Cetak Feature Atlas menjadi gambar</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1488,6 +1511,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1942,6 +1985,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Grid disabled</source>
         <translation>Grid nonaktif</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2454,11 +2505,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>My Projects</translation>
+        <translation type="vanished">My Projects</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Community</translation>
+        <translation type="vanished">Community</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2736,15 +2787,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="vanished">General</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Positioning</translation>
+        <translation type="vanished">Positioning</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation type="vanished">Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3213,7 +3264,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Could not load font %1</translation>
+        <translation type="vanished">Could not load font %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3221,6 +3272,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4010,6 +4065,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4521,6 +4580,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4558,6 +4621,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
 </context>

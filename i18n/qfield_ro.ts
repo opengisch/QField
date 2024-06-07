@@ -437,6 +437,13 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -815,6 +822,22 @@ Caracteristicile geometriilor vor fi combinate în elementul &apos;%1&apos;, car
     <message>
         <source>Changes discarded</source>
         <translation>Modificări nesalvate</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1438,7 +1461,7 @@ Motiv:
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Printează Elementul Atlas ca PDF</translation>
+        <translation type="vanished">Printează Elementul Atlas ca PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1450,7 +1473,7 @@ Motiv:
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Setează Elementul ca Destinație</translation>
+        <translation type="vanished">Setează Elementul ca Destinație</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1494,6 +1517,26 @@ Motiv:
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1947,6 +1990,14 @@ Motiv:
     </message>
     <message>
         <source>Grid disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2460,11 +2511,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Proiectele Mele</translation>
+        <translation type="vanished">Proiectele Mele</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunitate</translation>
+        <translation type="vanished">Comunitate</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2742,15 +2793,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>Generalități</translation>
+        <translation type="vanished">Generalități</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Poziționare</translation>
+        <translation type="vanished">Poziționare</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variabile</translation>
+        <translation type="vanished">Variabile</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3219,7 +3270,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>Nu s-a putut încărca fontul %1</translation>
+        <translation type="vanished">Nu s-a putut încărca fontul %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3227,6 +3278,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4016,6 +4071,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4527,6 +4586,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Remember my choice</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4564,6 +4627,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
 </context>

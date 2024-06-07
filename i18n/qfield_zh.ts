@@ -436,6 +436,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>ClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>几何图形</translation>
+    </message>
+</context>
+<context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
@@ -810,6 +817,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Changes discarded</source>
         <translation>放弃更改</translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation>传输要素属性</translation>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation>在下面选择一个要素，属性将从该要素传传输当前打开的要素中。</translation>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation>要素属性传输完毕</translation>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation>未传输任何要素属性</translation>
     </message>
 </context>
 <context>
@@ -1432,7 +1455,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>地图集要素输出为PDF文件</translation>
+        <translation type="vanished">地图集要素输出为PDF文件</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1444,7 +1467,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>将要素设为目标</translation>
+        <translation type="vanished">将要素设为目标</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1476,7 +1499,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation>地图集要素输出为图像文件</translation>
+        <translation type="vanished">地图集要素输出为图像文件</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1489,6 +1512,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>地图集要素已成功输出并保存在您的工程文件夹中</translation>
+    </message>
+    <message>
+        <source>Feature attributes copied to clipboard</source>
+        <translation>已将要素属性复制到剪贴板</translation>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation>从剪贴板已更新要素属性</translation>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation>未从剪贴板更新任何要素属性</translation>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation>要素集为导航目的地</translation>
+    </message>
+    <message>
+        <source>Update Attributes From Feature</source>
+        <translation>从要素更新属性</translation>
     </message>
 </context>
 <context>
@@ -1942,6 +1985,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Grid disabled</source>
         <translation>网格已禁用</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation>向前</translation>
+    </message>
+    <message>
+        <source>back</source>
+        <translation>后退</translation>
     </message>
 </context>
 <context>
@@ -2454,11 +2505,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>我的工程</translation>
+        <translation type="vanished">我的工程</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>社区</translation>
+        <translation type="vanished">社区</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2736,15 +2787,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>常规</translation>
+        <translation type="vanished">常规</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>定位</translation>
+        <translation type="vanished">定位</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>变量</translation>
+        <translation type="vanished">变量</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3213,7 +3264,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation>无法加载字体 %1</translation>
+        <translation type="vanished">无法加载字体 %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3222,6 +3273,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Project Plugin</source>
         <translation>工程插件</translation>
+    </message>
+    <message>
+        <source>Could not load font: %1</source>
+        <translation>无法加载字体: %1</translation>
     </message>
 </context>
 <context>
@@ -4010,6 +4065,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>无法添加子要素：未设置链接父与子的属性值</translation>
     </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>无法添加子要素：确保父要素满足所有约束并且可以保存</translation>
+    </message>
 </context>
 <context>
     <name>qgismobileapp</name>
@@ -4521,6 +4580,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Remember my choice</source>
         <translation>记住我的选择</translation>
     </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>复制要素属性</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -4559,6 +4622,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>无法添加子要素：未设置链接父与子的属性值</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>无法添加子要素：确保父要素满足所有约束并且可以保存</translation>
     </message>
 </context>
 </TS>
