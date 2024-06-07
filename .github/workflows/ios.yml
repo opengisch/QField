@@ -94,7 +94,6 @@ jobs:
                 -G "Xcode" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET="${{ env.TRIPLET }}" \
-                -D VCPKG_HOST_TRIPLET="arm64-osx" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=OFF \
                 -D WITH_BLUETOOTH=OFF \
