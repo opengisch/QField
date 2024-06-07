@@ -123,6 +123,7 @@ VisibilityFadingRow {
     bgcolor: Theme.mainColor
 
     onClicked: {
+      homeButton.waitingForDigitizingFinish = false
       confirm()
     }
   }

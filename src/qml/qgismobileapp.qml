@@ -2007,9 +2007,8 @@ ApplicationWindow {
             }
           }
 
-          if(homeButton.waitingForDigitizingFinish){
+          if (homeButton.waitingForDigitizingFinish) {
             openWelcomeScreen()
-            homeButton.waitingForDigitizingFinish = false
           }
         }
 
@@ -2205,6 +2204,7 @@ ApplicationWindow {
     dashBoard.close()
     welcomeScreen.visible = true
     welcomeScreen.focus = true
+    homeButton.waitingForDigitizingFinish = false
   }
 
   Menu {
