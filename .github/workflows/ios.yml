@@ -6,6 +6,7 @@ on:
     branches:
       - master
       - release-**
+      - create-ios-sdk
   pull_request:
   release:
     types: ['published']
@@ -158,6 +159,17 @@ jobs:
         run: |
           bundle exec fastlane ios upload_testflight ipa:/Users/runner/builddir/qfieldIpa/QField.ipa
 
+      - name: Create SDK
+        run: |
+          /Users/runner/builddir/_deps/vcpkg-src/vcpkg export --zip --output-dir=./sdk --x-install-root=/Users/runner/builddir/vcpkg_installed
+
+      - name: 📤 Upload sdk
+        uses: actions/upload-artifact@v4
+        with:
+          name: qfield-sdk-${{ env.TRIPLET }}
+          path: |
+            sdk/vcpkg-export-*.zip
+            
       - name: 📮 Upload debug symbols
         # if: release or labeled PR
         env:
