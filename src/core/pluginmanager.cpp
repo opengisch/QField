@@ -375,7 +375,9 @@ void PluginManager::installFromUrl( const QString &url )
             // Insure no previous version is running
             disableAppPlugin( fileInfo.completeBaseName() );
 
-            QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, fileInfo.completeBaseName() );
+            // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
+            const QString pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zIP$", QRegularExpression::CaseInsensitiveOption ), QString() );
+            QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, pluginDirectoryName );
             if ( pluginDirectory.exists() )
             {
               pluginDirectory.removeRecursively();
