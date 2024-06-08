@@ -357,7 +357,7 @@ void PluginManager::installFromUrl( const QString &url )
       }
 
       QFileInfo fileInfo = QFileInfo( fileName );
-      const QString fileSuffix = fileInfo.completeSuffix().toLower();
+      const QString fileSuffix = fileInfo.suffix().toLower();
       if ( fileSuffix == QLatin1String( "zip" ) )
       {
         QString filePath = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, fileName );
