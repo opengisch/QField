@@ -25,7 +25,6 @@
 #include "vertexmodel.h"
 
 #include <QAbstractListModel>
-#include <QtPositioning/QGeoPositionInfoSource>
 #include <qgsfeature.h>
 #include <qgsrelationmanager.h>
 
