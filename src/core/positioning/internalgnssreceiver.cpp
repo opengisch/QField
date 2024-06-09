@@ -27,8 +27,9 @@
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
   , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
+  , mGeoSatelliteSource( std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) ) )
 {
-  if ( mGeoPositionSource && mGeoPositionSource->error() == QGeoPositionInfoSource::NoError )
+  if ( mGeoPositionSource )
   {
     mGeoPositionSource->setPreferredPositioningMethods( QGeoPositionInfoSource::AllPositioningMethods );
     mGeoPositionSource->setUpdateInterval( 1000 );
@@ -45,8 +46,7 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     setValid( true );
   }
 
-  mGeoSatelliteSource = std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) );
-  if ( mGeoSatelliteSource && mGeoSatelliteSource->error() == QGeoSatelliteInfoSource::NoError )
+  if ( mGeoSatelliteSource )
   {
     mGeoSatelliteSource->setUpdateInterval( 1000 );
 

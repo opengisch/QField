@@ -16,13 +16,11 @@
 #ifndef GNSSPOSITIONINFORMATION_H
 #define GNSSPOSITIONINFORMATION_H
 
-#include "qgis.h"
-#include "qgsgpsconnection.h"
-
 #include <QDateTime>
 #include <QObject>
 #include <QString>
-#include <QtPositioning/QGeoPositionInfoSource>
+#include <qgis.h>
+#include <qgssatelliteinformation.h>
 
 /* Statics from external/nmea/info.h:*/
 #define NMEA_SIG_BAD ( 0 )
