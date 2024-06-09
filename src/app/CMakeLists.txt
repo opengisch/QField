@@ -16,24 +16,8 @@ endif()
 # lrelease .ts files
 find_package(Qt6 COMPONENTS LinguistTools)
 
-file(GLOB TS_FILES ${CMAKE_SOURCE_DIR}/i18n/*.ts)
-set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION
-                                                   "${CMAKE_BINARY_DIR}")
-qt_add_translation(QM_FILES ${TS_FILES})
-
 # include manually copied .qm files
 file(GLOB QM_FILES_MANUAL ${CMAKE_SOURCE_DIR}/i18n/*.qm)
-list(APPEND QM_FILES ${QM_FILES_MANUAL})
-
-# create translations QRC file
-set(TRANSLATIONS_QRC "${CMAKE_BINARY_DIR}/translations.qrc")
-file(WRITE ${TRANSLATIONS_QRC} "<RCC>\n    <qresource prefix=\"/\">")
-foreach(QM_FILE ${QM_FILES})
-  get_filename_component(QM_FILE_NAME ${QM_FILE} NAME)
-  file(APPEND ${TRANSLATIONS_QRC}
-       "\n        <file alias=\"i18n/${QM_FILE_NAME}\">${QM_FILE}</file>")
-endforeach()
-file(APPEND ${TRANSLATIONS_QRC} "\n    </qresource>\n</RCC>")
 
 configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
@@ -68,6 +52,22 @@ function(create_executable)
   else()
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
+
+  file(GLOB TS_FILES ${CMAKE_SOURCE_DIR}/i18n/*.ts)
+  set_source_files_properties(
+    ${TS_FILES} PROPERTIES OUTPUT_LOCATION
+                           "${CMAKE_BINARY_DIR}/i18n${exe_TARGET}")
+  qt_add_translation(QM_FILES ${TS_FILES})
+
+  qt_add_resources(
+    ${exe_TARGET}
+    "translations${exe_TARGET}"
+    PREFIX
+    "/i18n"
+    BASE
+    "${CMAKE_BINARY_DIR}/i18n${exe_TARGET}"
+    FILES
+    ${QM_FILES})
 
   target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml)
 
