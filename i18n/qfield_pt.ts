@@ -3260,7 +3260,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>Ficheiro de projeto &quot;%1&quot; não existe</translation>
+        <translation type="vanished">Ficheiro de projeto &quot;%1&quot; não existe</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3281,6 +3281,14 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Could not load font: %1</source>
         <translation>Não foi possível carregar a fonte: % 1</translation>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

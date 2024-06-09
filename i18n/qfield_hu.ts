@@ -3252,7 +3252,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>&quot;%1&quot; projekt fájl nem létezik</translation>
+        <translation type="vanished">&quot;%1&quot; projekt fájl nem létezik</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3273,6 +3273,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Could not load font: %1</source>
         <translation>Nem betölthető betű: %1</translation>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

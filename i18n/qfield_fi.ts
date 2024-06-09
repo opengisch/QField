@@ -3260,7 +3260,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>Projektitiedostoa &quot;%1&quot; ei ole olemassa</translation>
+        <translation type="vanished">Projektitiedostoa &quot;%1&quot; ei ole olemassa</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3280,6 +3280,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
 </context>

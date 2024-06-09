@@ -3254,7 +3254,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>لم يتم العثور على ملف المشورع &quot;%1&quot;</translation>
+        <translation type="vanished">لم يتم العثور على ملف المشورع &quot;%1&quot;</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3274,6 +3274,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
 </context>

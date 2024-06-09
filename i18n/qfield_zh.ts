@@ -3256,7 +3256,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>工程文件 &quot;%1&quot; 不存在</translation>
+        <translation type="vanished">工程文件 &quot;%1&quot; 不存在</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3277,6 +3277,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Could not load font: %1</source>
         <translation>无法加载字体: %1</translation>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3262,7 +3262,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>Fișierul proiectului &quot;%1&quot; nu există</translation>
+        <translation type="vanished">Fișierul proiectului &quot;%1&quot; nu există</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3282,6 +3282,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
 </context>

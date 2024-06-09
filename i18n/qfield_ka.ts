@@ -3269,6 +3269,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Could not load font: %1</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

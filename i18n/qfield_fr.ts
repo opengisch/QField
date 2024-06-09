@@ -3255,7 +3255,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>Le fichier de projet &quot;%1&quot; n&apos;existe pas</translation>
+        <translation type="vanished">Le fichier de projet &quot;%1&quot; n&apos;existe pas</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3276,6 +3276,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Could not load font: %1</source>
         <translation>Impossible de charger la police : %1</translation>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation>Impossible de charger le projet, le fichier &quot;%1&quot; n&apos;existe pas</translation>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation>Impossible de lire le projet, le fichier &quot;%1&quot; n&apos;existe pas</translation>
     </message>
 </context>
 <context>
@@ -4545,7 +4553,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation>Sélectionner un modèle ci dessous</translation>
+        <translation>Sélectionner un modèle ci-dessous</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -4585,7 +4593,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Copier les attributs de l&apos;entité</translation>
     </message>
 </context>
 <context>

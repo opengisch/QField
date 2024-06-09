@@ -3256,7 +3256,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>Datoteka projekta &quot;%1&quot; ne postoji</translation>
+        <translation type="vanished">Datoteka projekta &quot;%1&quot; ne postoji</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3276,6 +3276,14 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
 </context>

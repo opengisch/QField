@@ -3263,7 +3263,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>Il file di progetto &quot;%1&quot; non esiste</translation>
+        <translation type="vanished">Il file di progetto &quot;%1&quot; non esiste</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3283,6 +3283,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
 </context>

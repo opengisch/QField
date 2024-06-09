@@ -3261,7 +3261,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>Soubor projektu &quot;%1&quot; neexistuje</translation>
+        <translation type="vanished">Soubor projektu &quot;%1&quot; neexistuje</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3281,6 +3281,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
 </context>

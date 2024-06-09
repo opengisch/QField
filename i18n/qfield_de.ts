@@ -3253,7 +3253,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation>Projekt-Datei &quot;%1&quot; existiert nicht</translation>
+        <translation type="vanished">Projekt-Datei &quot;%1&quot; existiert nicht</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -3273,6 +3273,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
 </context>
