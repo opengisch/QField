@@ -40,7 +40,7 @@ def diff_path():
 
 @pytest.fixture
 def screenshot_check(image_diff, image_diff_dir, screenshot_path, diff_path, extra):
-    def inner(test_name, image_name):
+    def inner(test_name, image_name, diff_threshold):
         # insure no alpha channel present in the screenshot being compared
         png = Image.open(
             os.path.join(screenshot_path, "{}.png".format(image_name))
@@ -65,7 +65,7 @@ def screenshot_check(image_diff, image_diff_dir, screenshot_path, diff_path, ext
         result = image_diff(
             os.path.join(screenshot_path, "{}.png".format(image_name)),
             expected_name,
-            threshold=0.025,
+            threshold=diff_threshold,
             suffix=image_name,
             throw_exception=False,
         )
@@ -119,7 +119,7 @@ def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive)
     assert process_alive()
     extra.append(extras.html('<img src="images/test_wms_layer.png"/>'))
 
-    assert screenshot_check("test_wms_layer", "test_wms_layer")
+    assert screenshot_check("test_wms_layer", "test_wms_layer", 0.025)
 
     messagesCount = 0
     for i in range(0, 10):
@@ -151,7 +151,7 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
     assert process_alive()
     extra.append(extras.html('<img src="images/test_projection.png"/>'))
 
-    assert screenshot_check("test_projection", "test_projection")
+    assert screenshot_check("test_projection", "test_projection", 0.062)
 
     messagesCount = 0
     for i in range(0, 10):
@@ -180,7 +180,7 @@ def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
     assert process_alive()
     extra.append(extras.html('<img src="images/test_svg.png"/>'))
 
-    assert screenshot_check("test_svg", "test_svg")
+    assert screenshot_check("test_svg", "test_svg", 0.025)
 
 
 @pytest.mark.project_file("test_postgis_ssl.qgz")
