@@ -20,7 +20,6 @@
 #include "layerutils.h"
 #include "vertexmodel.h"
 
-#include <QGeoPositionInfoSource>
 #include <QJSValue>
 #include <QMutex>
 #include <qgscurvepolygon.h>

@@ -19,8 +19,6 @@
 #include "expressioncontextutils.h"
 #include "qgsgeometry.h"
 
-#include <QtPositioning/QGeoPositionInfoSource>
-
 
 void addPositionVariable( QgsExpressionContextScope *scope, const QString &name, const QVariant &value, bool positionLocked, const QVariant &defaultValue = QVariant() )
 {
