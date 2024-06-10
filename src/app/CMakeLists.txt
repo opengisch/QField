@@ -37,7 +37,7 @@ function(create_executable)
       ${CMAKE_BINARY_DIR}/images/logo.qrc
       ${CMAKE_SOURCE_DIR}/resources/resources.qrc
       ${ICON_SRC}
-      ${TRANSLATIONS_QRC})
+  )
 
   if(ANDROID)
     qt_add_executable(${exe_TARGET} ${QFIELD_SOURCES})
