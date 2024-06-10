@@ -2396,7 +2396,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>Odpowiedź wyzwalacza project(%1) nie zawiera wszystkich oczekiwanych kluczy: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
@@ -3286,11 +3286,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Nie można wczytać projektu, plik &quot;%1&quot; nie istnieje</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Nie można odczytać projektu, plik &quot;%1&quot; nie istnieje</translation>
     </message>
 </context>
 <context>
@@ -3942,7 +3942,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation type="unfinished"/>
+        <translation>Sięgnij</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -4081,7 +4081,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Nie można dodać elementu potomnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
     </message>
 </context>
 <context>
@@ -4639,7 +4639,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Nie można dodać elementu podrzędnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
     </message>
 </context>
 </TS>

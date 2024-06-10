@@ -3280,11 +3280,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>无法加载工程，文件 &quot;%1&quot; 不存在</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>无法读取工程，文件 &quot;%1&quot; 不存在</translation>
     </message>
 </context>
 <context>
