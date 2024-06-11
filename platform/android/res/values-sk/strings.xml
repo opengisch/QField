@@ -63,4 +63,5 @@
     <string name="operation_unsupported">Nepodporovaná operácia</string>
     <string name="import_operation_unsupported">Vaše zariadenie nepodporuje túto možnosť importu.</string>
     <string name="export_operation_unsupported">Vaše zariadenie nepodporuje túto možnosť exportu.</string>
-    </resources>
+    <string name="processing_message">Spracováva sa…</string>
+</resources>

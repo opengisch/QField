@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Pre viac informácií si prosím pozrite %1Portable Project%2.</translation>
     </message>
 </context>
 <context>
@@ -439,7 +439,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometria</translation>
     </message>
 </context>
 <context>
@@ -571,7 +571,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Prázdne</translation>
     </message>
 </context>
 <context>
@@ -633,27 +633,27 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Odfotiť</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Natočiť</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Nahrať audio</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Priložiť z galérie</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Priložiť súbor</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Náčrt</translation>
     </message>
 </context>
 <context>
@@ -708,11 +708,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Posledná hodnota pre toto pole bude zaznamenaná a použitá pri tvorbe nových prvkov.</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Posledná hodnota pre toto pole nebude použitá pri tvorbe nových prvkov</translation>
     </message>
 </context>
 <context>
@@ -731,11 +731,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation>Späťvzatie modifikácie prvku v hladine &quot;%1&quot; sa nepodarilo</translation>
+        <translation>Vrátenie zmien prvku v hladine &quot;%1&quot; sa nepodarilo</translation>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Vrátenie zmien prvku v hladine &quot;%1&quot; sa nepodarilo</translation>
     </message>
 </context>
 <context>
@@ -824,19 +824,19 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Preniesť atribúty prvku</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte prvok nižšie, z ktorého budú prenesené atribúty do aktuálneho prvku.</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>Atribúty prvku prenesené.</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation> Atribúty prvku neboli prenesené.</translation>
     </message>
 </context>
 <context>
@@ -1034,7 +1034,7 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigácia</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1042,7 +1042,7 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Presný pohľad</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -1050,7 +1050,7 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Výškový profil</translation>
     </message>
 </context>
 <context>
@@ -1520,23 +1520,23 @@ Dôvod:
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Atribúty prvku skopírované do schránky</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Atribúty prvku sa aktualizovali zo schránky</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Atribúty prvku neboli aktualizované</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Prvok nastavený ako cieľ navigácie</translation>
     </message>
     <message>
         <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizovať atribúty z prvku</translation>
     </message>
 </context>
 <context>
@@ -1702,70 +1702,70 @@ Dôvod:
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>Stiahnutý súbor zip sa nepodarilo dekomprimovať</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>Stiahnutý súbor zip neobsahuje požadovaný súbor pluginu main.qml</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Stiahnutý súbor nie je možné uložiť</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>Súbor na stiahnutie nie je zipovaný plugin</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Chyba siete</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Pluginy</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Zatiaľ Ste nenainštalovali žiadne pluginy. Ak sa chcete o pluginoch dozvedieť viac, %1prečítajte si dokumentáciu%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>Nainštalovať plugin z URL adresy</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Vymazať zapamätané povolenia</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Zadajte adresu URL na stiahnutie a inštaláciu pluginu:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>Inštaluje sa %1</translation>
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>Autor: %1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Naozaj chcete odinštalovať `%1`?</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Odinštalovať verziu %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Odinštalovať plugin</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>Vyššie uvedené podrobnosti o autorovi nie sú nezávisle overené. Uistite sa, že dôverujete pôvodu pluginu.</translation>
     </message>
 </context>
 <context>
@@ -1993,11 +1993,11 @@ Dôvod:
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>vpredu</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>vzadu</translation>
     </message>
 </context>
 <context>
@@ -2061,7 +2061,7 @@ Dôvod:
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Zatiaľ neboli vykonané žiadne zmeny!</translation>
     </message>
 </context>
 <context>
@@ -2328,35 +2328,35 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Pre tento projekt je na cloude dostupná aktualizácia, odporúčame ho aktualizovať.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Pre tento projekt je na cloude dostupná aktualizácia, odporúčame ho synchronizovať.</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud pripravuje aktuálne dáta, čo môže chvíľu trvať, zatiaľ si spravte kávu.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Sťahuje sa, %1 % z %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Sťahuje sa, %1 %</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Kontaktuje sa QFieldCloud pre stiahnutie projektu</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Automatické nahranie zmien každých %n min.</numerusform><numerusform>Automatické nahranie zmien každých %n min.</numerusform><numerusform>Automatické nahranie zmien každých %n min.</numerusform><numerusform>Automatické nahranie zmien každých %n min.</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>V tomto projekte nie je možné vypnúť automatické zmeny</translation>
     </message>
 </context>
 <context>
@@ -2598,23 +2598,23 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, aktualizované údaje dostupné v cloude</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud pripravuje aktuálne dáta, čo môže chvíľu trvať, zatiaľ si spravte kávu.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Sťahuje sa, načítané %1 % z %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Sťahuje sa, načítané %1 %</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Kontaktuje sa QFieldCloud pre stiahnutie projektu</translation>
     </message>
 </context>
 <context>
@@ -3082,62 +3082,62 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Povoliť pridanie vrcholov klepnutím na obrazovku</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí možno pridávať vrcholové body klepnutím na obrazovku.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí sa bude myška správať ako prst, po vypnutí sa bude myška správať ako stylus pero.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Mapa</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizácia a úprava</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Používateľské rozhranie</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Vzhľad:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Výška fontu:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Jazyk:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Rozšírené</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Spravovať pluginy</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Povoliť rotáciu mapy</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Po zapnutí môže používateľ otáčať mapu</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte šablónu výkresu</translation>
     </message>
 </context>
 <context>
@@ -3277,19 +3277,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin projektu</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nepodarilo sa načítať font: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Projekt sa nedá načítať, súbor &quot;%1&quot; neexistuje</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Projekt sa nedá prečítať, súbor &quot;%1&quot; neexistuje</translation>
     </message>
 </context>
 <context>
@@ -4080,7 +4080,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Nie je možné pridať podradenú funkciu: uistite sa, že nadradená funkcia spĺňa všetky obmedzenia a je možné ju uložiť</translation>
     </message>
 </context>
 <context>
@@ -4499,19 +4499,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Prichytenie na uhol %1° zapnuté</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Prichytenie do vrcholového uhla je vypnuté</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Susedný uhol</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Prichytiť každých %1°</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4583,19 +4583,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Odomknutím obrazovky zatvoríte projekt a aplikáciu</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Udeľujete povolenie na aktiváciu `%1`?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Zapamätť moju voľbu</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Kopírovať atribúty prvkov</translation>
     </message>
 </context>
 <context>
@@ -4638,7 +4638,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Nie je možné pridať podradenú funkciu: uistite sa, že nadradená funkcia spĺňa všetky obmedzenia a je možné ju uložiť</translation>
     </message>
 </context>
 </TS>
