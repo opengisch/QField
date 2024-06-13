@@ -31,13 +31,9 @@ function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
 
   set(QFIELD_SOURCES
-      main.cpp
-      ${RESOURCES}
-      ${CMAKE_SOURCE_DIR}/images/images.qrc
+      main.cpp ${RESOURCES} ${CMAKE_SOURCE_DIR}/images/images.qrc
       ${CMAKE_BINARY_DIR}/images/logo.qrc
-      ${CMAKE_SOURCE_DIR}/resources/resources.qrc
-      ${ICON_SRC}
-  )
+      ${CMAKE_SOURCE_DIR}/resources/resources.qrc ${ICON_SRC})
 
   if(ANDROID)
     qt_add_executable(${exe_TARGET} ${QFIELD_SOURCES})
