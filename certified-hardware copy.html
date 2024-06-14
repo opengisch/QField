@@ -1,0 +1,350 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24350287-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-24350287-3');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
+  <title>QField - Efficient field work built for QGIS</title>
+  <meta name="description" content="QField - Efficient field work built for QGIS">
+  <meta name="author" content="OPENGIS.ch">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/qfield.css?ver=3" rel="stylesheet" media="screen">
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+
+
+  <style>
+    .device-item {
+        background: #f9f9f9;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+    }
+    .device-item img {
+        max-width: 50px;
+        margin-right: 20px;
+        border-radius: 5px;
+    }
+    .device-name {
+        font-size: 1.2em;
+        color: #333;
+    }
+    .device-desc {
+        color: #666;
+    }
+</style>
+</head>
+
+<body>
+
+
+<!-- Section #0: navigation -->
+<nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNav"
+        aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="./"><img src="images/qfield-logo.svg"> QFIELD </a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav navbar-nav">
+
+        <li><a href="https://www.opengis.ch/category/qfield/highlights/" target="_blank"
+            title="Highlights">Highlights</a></li>
+        <li><a href="https://docs.qfield.org/get-started/support/" title="Get support">Get support</a></li>
+        <li><a href="https://docs.qfield.org/get-started/sponsor/" title="Donate to QField">Donate</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">Resources<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://docs.qfield.org/success-stories/" title="Succes stories">Succes stories</a></li>
+            <li><a href="https://docs.qfield.org" title="Documentation">Documentation</a></li>
+            <li><a href="https://www.opengis.ch/category/qfield/" title="Blog">Blog</a></li>
+            <li><a href="/partner.html" title="Partner programs">Partner programs</a></li>
+            <li><a href="/sdgs.html" title="Sustainable development goals">Sustainable development goals</a></li>
+            <li><a href="https://docs.qfield.org/get-started/contribute/" title="Contribute to QField">Contribute</a>
+            </li>
+            <li><a href="https://github.com/opengisch/qfield" title="Source code">Source code</a></li>
+          </ul>
+        </li>
+        <li><a href="https://opengis.ch/#contact" title="Contact Us">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Section #1: carousel -->
+
+  <div id="maincarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#maincarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#maincarousel" data-slide-to="1"></li>
+      <li data-target="#maincarousel" data-slide-to="2"></li>
+      <li data-target="#maincarousel" data-slide-to="3"></li>
+      <li data-target="#maincarousel" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active" style="background-image:url('images/bg/forest.jpg');">
+        <div class="carousel-caption">
+          <div>
+            <h3>Hold the power of QGIS in your hand, for free</h3>
+            <p style="text-align:right;">
+              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
+                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
+                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
+                  src="images/download_windows.png" style="padding-top:10px"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" style="background-image:url('images/bg/team.jpg');background-position:left center;">
+        <div class="carousel-caption">
+          <div>
+            <h3>Allow efficient decision making where it matters most</h3>
+            <p style="text-align:right;">
+              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
+                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
+                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
+                  src="images/download_windows.png" style="padding-top:10px"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" style="background-image:url('images/bg/elec.jpg');">
+        <div class="carousel-caption">
+          <div>
+            <h3>Live update your assets data directly on-site</h3>
+            <p style="text-align:right;">
+              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
+                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
+                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
+                  src="images/download_windows.png" style="padding-top:10px"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" style="background-image:url('images/bg/waste.jpg');">
+        <div class="carousel-caption">
+          <div>
+            <h3>Extend your geo-data infrastructure seamlessly</h3>
+            <p style="text-align:right;">
+              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
+                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
+                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
+                  src="images/download_windows.png" style="padding-top:10px"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" style="background-image:url('images/bg/wine.jpg');">
+        <div class="carousel-caption">
+          <div>
+            <h3>Leverage the power of open source in the field</h3>
+            <p style="text-align:right;">
+              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
+                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
+                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
+                  src="images/download_windows.png" style="padding-top:10px"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#maincarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#maincarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+    <a href="https://www.opengis.ch/2022/11/03/best-of-swiss-enterprise-app-award-for-qfield/" target="_blank"
+      style="display:block; position:absolute; top: 20px; right: 25px; width:140px;"><img src="images/bosa2022gold.png"
+        alt="Best of Swiss Enterprise App-Award 2022" style="filter: drop-shadow(4px 4px 8px #000000)"
+        width="140px"></a>
+  </div>
+
+  <!-- Section #1: claim -->
+  <section class="section-spacing text-center">
+    <h1>QField Certified hardware program</h1>
+
+  </section>
+
+  <!-- Section #2: main points -->
+
+  <section class="section-spacing text-justify">
+    <div class="container" style="max-width:1140px;">
+      <div class="row">
+        <div class="col-lg-9">
+          <p>The QField certifies hardware program is designed to provide you with hardware that has been thoroughly
+            tested and certified by our team to work seamlessly with the latest QField version across various
+            platforms.
+          </p>
+          <p>By choosing a QField Certified device, you can rest assured knowing that your hardware has been tested
+            and
+            validated by our team of experts on the following criteria </p>
+        </div>
+        <div class="col-lg-3">
+          <img src="images/logo_certified.png">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="feature">
+            <h2>Functionality</h2>
+            <img src="images/point_deploy.svg">
+            <p>The device has been checked and confirmed by the QField team to work flawlessly with QField.</p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="feature">
+            <h2>Compatibility</h2>
+            <img src="images/point_formats.svg">
+            <p>The device is compatible with the latest version of QField.</p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="feature">
+            <h2>Platform&nbsp;versions</h2>
+            <img src="images/point_sync.svg">
+            <p>The device supports one or more platform versions including Android, iOS, Windows, macOS, and Linux.</p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="feature">
+            <h2>Ongoing&nbsp;validation</h2>
+            <img src="images/point_formats.svg">
+            <p>The device will continue to be tested and validated with newer versions of QField.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <a href="#join" class="btn btn-primary btn-lg">Join the program</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Certified devices</h2>
+          <p>
+            By using the <em>Buy now</em> referral links provided below, you are directly supporting the development of
+            QField.
+            Your contribution helps us to continue improving and expanding this project.</p>
+        </div>
+      </div>
+      <!-- Section #2: partners -->
+
+        <h1 class="text-center">Certified Devices</h1>
+        <div class="list-group">
+            <div class="device-item list-group-item">
+                <img src="device1.jpg" alt="Device 1">
+                <div>
+                    <div class="device-name">Device 1</div>
+                    <div class="device-desc">Description of device 1. Compatible with the latest QField versions.</div>
+                </div>
+            </div>
+            <div class="device-item list-group-item">
+                <img src="device2.jpg" alt="Device 2">
+                <div>
+                    <div class="device-name">Device 2</div>
+                    <div class="device-desc">Description of device 2. Compatible with multiple platforms.</div>
+                </div>
+            </div>
+            <div class="device-item list-group-item">
+                <img src="device3.jpg" alt="Device 3">
+                <div>
+                    <div class="device-name">Device 3</div>
+                    <div class="device-desc">Description of device 3. Seamless operation with QField.</div>
+                </div>
+            </div>
+    </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="feature">
+            <h2>Happy Mini Q</h2>
+            <img src="images/partners/happy-mini-q.jpg">
+            <p>The happy mini Q is a 170 gramms sub-centimetre GNSS with IMU build explicitly for QField</p>
+            <p><a href="https://happy-q.com" target="_blank">Buy now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 id="join">Interested?</h2>
+          <iframe class="clickup-embed clickup-dynamic-height"
+            src="https://forms.clickup.com/2192114/f/22wqj-30275/PL7WYHF6T67DE484DE" onwheel="" width="100%"
+            height="100%" style="background: transparent; border: 1px solid #ccc;"></iframe>
+          <script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section #3: fine lines -->
+
+  <section id="about" data-speed="2" data-type="background">
+    <div class="container">
+      <div class="page-header">
+        <h1>About QField</small></h1>
+      </div>
+      <div class="row-fluid">
+        <div class="span4">
+          <p>QField is the leading professional fieldwork app used in enterprise settings for efficient geospatial data collection and management. As a Digital Public Good, QField not only excels in enterprise and professional applications but also contributes significantly to advancing at least six of the <a href="/sdgs.html">United Nations Sustainable Development Goals (SDGs)</a>, promoting a more sustainable and equitable future.</p>
+          <h2>Opensource</h2>
+          <p>QField is <a class="reference external" href="https://github.com/opengisch/QField">released</a> under the
+            GNU Public License (GPL) Version 2 or above.
+            Developing QField under this license means that you can inspect and modify
+            the source code and guarantees that you will always have access to a QGIS
+            based field data collection app that is free of cost and can be freely
+            modified.</p>
+
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <h2>Credits</h2>
+          <p>QField, QFieldCloud and QFieldSync are developped by <a href="https://www.opengis.ch/">OPENGIS.ch</a>.
+            OPENGIS.ch offers <a href="https://www.opengis.ch/training-consulting/">consulting</a>,
+            <a href="https://www.opengis.ch/custom-development/">development</a>, <a
+              href="https://www.opengis.ch/qfield-training/">training</a> and <a
+              href="https://www.opengis.ch/qgis-support/">support</a> for open source software including QField,
+            QGIS and PostGIS.
+          </p>
+        </div><!-- /.span4 -->
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
