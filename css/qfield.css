@@ -126,7 +126,7 @@ footer.footer {
   margin-top:4px;
 }
 
-#main-points p{
+#main-points p, #customers p, #testimonials p{
 text-align: justify;
 }
 
