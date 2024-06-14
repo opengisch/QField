@@ -274,6 +274,10 @@ text-align: justify;
 #testimonials .stars {
   color: #212121;
 }
+#testimonials cite, #customers cite {
+  font-size: 0.8em;
+  float: right;
+}
 
 #about { 
   background-color: #212121;
