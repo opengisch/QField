@@ -24,7 +24,6 @@ EditorWidgetBase {
   // Workaround to get a signal when the value has changed
   onCurrentKeyValueChanged: {
     comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue)
-    toggleButtons.selectedIndex = comboBox.currentIndex
   }
 
   height: childrenRect.height
@@ -131,7 +130,7 @@ EditorWidgetBase {
 
             Behavior on color {
               ColorAnimation {
-                duration: 200
+                duration: 150
               }
             }
 
@@ -150,11 +149,11 @@ EditorWidgetBase {
               anchors.fill: parent
               onClicked: {
                 if (toggleButtons.selectedIndex != index) {
-                  toggleButtons.selectedIndex = index
+                  comboBox.currentIndex = index
                   toggleButtons.currentSelectedKey = key
                   toggleButtons.currentSelectedValue = value
                 } else {
-                  toggleButtons.selectedIndex = -1
+                  comboBox.currentIndex = -1
                   toggleButtons.currentSelectedKey = ""
                   toggleButtons.currentSelectedValue = ""
                 }
