@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation>Objekt vom aktiven Layer</translation>
+        <translation>Objekte vom aktiven Layer</translation>
     </message>
 </context>
 <context>
@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>Ballpark-Projektion verwenden für das pojizieren von Projekt %1 und Projekt %2</translation>
     </message>
 </context>
 <context>
@@ -245,7 +245,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth Berechtigung verweigert</translation>
     </message>
 </context>
 <context>
@@ -296,7 +296,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth Berechtigung verweigert</translation>
     </message>
 </context>
 <context>
@@ -439,7 +439,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometrie</translation>
     </message>
 </context>
 <context>
@@ -476,7 +476,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Bevor in den Navigationsmodus gewechselt werden kann muss das digitalisierte Feature gespeichern oder verworfen werden</translation>
     </message>
 </context>
 <context>
@@ -571,7 +571,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Leer</translation>
     </message>
 </context>
 <context>
@@ -719,7 +719,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Das erstellte Feature in Layer &quot;%1&quot; konnte nicht rückgängig gemacht werden</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
@@ -998,7 +998,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Radieren (erase) Werkzeug</translation>
     </message>
 </context>
 <context>
@@ -1032,7 +1032,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigation</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1040,22 +1040,22 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Detailansicht</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Sensoren</translation>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Höhenprofil</translation>
     </message>
 </context>
 <context>
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Standortberechtigung verweigert</translation>
     </message>
 </context>
 <context>
@@ -3038,19 +3038,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Qualität der Kartendarstellung</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Beste Auflösung</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Niedrige Auflösung</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Niedrigste Auflösung</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
@@ -3066,7 +3066,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Verwende die Lautstärkentasten zum digitalisieren</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
@@ -3074,62 +3074,62 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Erfasse Features und Knotenpunkte durch tippen auf die Karten</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert kann ein Feature oder Knotenpunkt durch tippen auf die Karten am ausgewählten Ort erfasst werden</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert wird die Mausaktion als Fingereingabe interpretiert, wenn deaktiviert, dann als Stifteingabe</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Kartenausschnitt</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Erfassen und Editieren</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Benutzeroberfläche</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Design</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Schriftgröße</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Sprache</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Erweiterte Einstellungen</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plugins Verwalten</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Kartendrehung erlauben</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert die Kartenansicht gedreht werden</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Zeichnungsvorlage auswählen</translation>
     </message>
 </context>
 <context>
@@ -3269,7 +3269,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>projektbezogenes Plugin</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
@@ -3453,14 +3453,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation type="unfinished"/>
+        <translation>Objekt konnte nicht zerrschnitten werden </translation>
     </message>
 </context>
 <context>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Objekt konnte nicht zerrschnitten werden </translation>
     </message>
 </context>
 <context>
@@ -3602,7 +3602,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Allgemeine Einstellungen</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -4001,15 +4001,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Standardprojekt</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Hintergrundkarte</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Standardprojekt</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -4021,7 +4021,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Zuletzt geöffnetes Projekt beim Start laden</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
@@ -4029,7 +4029,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Willkommen bei QField. Sind sie zum erstene mal hier? Schauen sie sich doch mal die Beispielprojekte an.</translation>
     </message>
 </context>
 <context>
@@ -4283,7 +4283,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen Detailansicht</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -4311,7 +4311,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>Immer präzise Ansicht anzeigen</translation>
+        <translation>Immer Detailansicht anzeigen</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -4351,7 +4351,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Akustische Näherungswarnton aktivieren</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -4439,7 +4439,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Änderungen erfolgreich in die QFieldCloud hochgeladen</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
@@ -4483,47 +4483,47 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Fangen aktiviert</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Fangen deaktiviert</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Fangen an %1° -Hilfslinie aktiviert</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Hilfslinie für Standardwinkel aktiviert</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>relativer Winkel</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Fangen an jeder %1° -Hilfslinie </translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Kartenausschnitt folgt Standort und Kompassausrichtung</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Drucklayout nicht verfügbar</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>mehr Erfahren</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Sensoren</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Keine Sensoren verfügbar</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -4551,19 +4551,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Layer</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Objekt</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Attributformular öffnen</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Objekte duplizieren nicht verfügbar</translation>
     </message>
     <message>
         <source>Importing %1</source>
@@ -4571,11 +4571,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Importieren der URL gescheitert</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm entsperren um Projekt und App zu beenden</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
@@ -4583,11 +4583,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Auswahl merken</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Objektattribute kopieren</translation>
     </message>
 </context>
 <context>
