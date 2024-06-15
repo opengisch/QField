@@ -59,21 +59,43 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::suppressTags( const QList<QString> &tags )
+void MessageLogModel::suppress( const QVariantMap &model )
 {
-  for ( const QString &tag : tags )
+  for ( const QString &tags : model.keys() )
   {
-    if ( !mSuppressedTags.contains( tag ) )
-      mSuppressedTags.append( tag );
+    if ( mSuppressedModel.contains( tags ) )
+    {
+      for ( const QVariant &filter : model[tags].toList() )
+      {
+        if ( !mSuppressedModel[tags].contains( filter.toString() ) )
+        {
+          mSuppressedModel[tags].push_back( filter.toString() );
+        }
+      }
+    }
+    else
+    {
+      mSuppressedModel[tags] = model[tags].toStringList();
+    }
   }
 }
 
-void MessageLogModel::unsuppressTags( const QList<QString> &tags )
+void MessageLogModel::unsuppress( const QVariantMap &model )
 {
-  for ( const QString &tag : tags )
+  for ( const QString &tags : model.keys() )
   {
-    if ( mSuppressedTags.contains( tag ) )
-      mSuppressedTags.removeAll( tag );
+    if ( mSuppressedModel.contains( tags ) )
+    {
+      if ( model[tags].toList().isEmpty() )
+      {
+        mSuppressedModel.remove( tags );
+        continue;
+      }
+      for ( const QVariant &filter : model[tags].toList() )
+      {
+        mSuppressedModel[tags].removeAll( filter.toString() );
+      }
+    }
   }
 }
 
@@ -86,8 +108,16 @@ void MessageLogModel::clear()
 
 void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level )
 {
-  if ( mSuppressedTags.contains( tag ) || tag == QLatin1String( "3D" ) )
-    return;
+  if ( mSuppressedModel.contains( tag ) || tag == QLatin1String( "3D" ) )
+  {
+    for ( QString filter : mSuppressedModel[tag] )
+    {
+      if ( message.contains( filter ) )
+      {
+        return;
+      }
+    }
+  }
 
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );

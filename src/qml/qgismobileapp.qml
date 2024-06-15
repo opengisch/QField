@@ -3550,9 +3550,8 @@ ApplicationWindow {
 
     Connections {
       target: iface
-
       function onLoadProjectTriggered(path) {
-        messageLogModel.suppressTags(["WFS","WMS"])
+        messageLogModel.suppress({"WFS": [""], "WMS": [""], "PostGIS": ["fe_sendauth: no password supplied"]})
       }
 
       function onLoadProjectEnded() {
@@ -3560,7 +3559,7 @@ ApplicationWindow {
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
         {
           //project loaded without more layer handling needed
-          messageLogModel.unsuppressTags(["WFS","WMS"])
+          messageLogModel.unsuppress({"WFS": [], "WMS": [], "PostGIS": []})
         }
       }
     }
