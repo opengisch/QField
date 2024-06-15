@@ -186,7 +186,7 @@ Item {
       Text {
         id: cloudRegisterLabel
         Layout.fillWidth: true
-        Layout.topMargin:6
+        Layout.topMargin: 6
         text: qsTr( 'New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr( 'Register an account' ) + '</a>.'
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
@@ -196,9 +196,13 @@ Item {
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
 
         onLinkActivated: (link) => {
-          browserPopup.url = link
-          browserPopup.fullscreen = true
-          browserPopup.open()
+          if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
+            browserPopup.url = link
+            browserPopup.fullscreen = true
+            browserPopup.open()
+          } else {
+            Qt.openUrlExternally(link)
+          }
         }
       }
 
