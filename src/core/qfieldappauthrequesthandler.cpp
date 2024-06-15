@@ -24,6 +24,16 @@
 
 QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
+  QgsCredentials::setInstance( this );
+}
+
+bool QFieldAppAuthRequestHandler::request( const QString &realm, QString &username, QString &password, const QString &message )
+{
+  qDebug() << "WE'RE IN!!!";
+  qDebug() << "WE'RE IN!!!";
+  qDebug() << "WE'RE IN!!!";
+  qDebug() << "WE'RE IN!!!";
+  return false;
 }
 
 void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const QString &username, const QString &password )
