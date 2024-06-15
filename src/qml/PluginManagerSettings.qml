@@ -171,22 +171,44 @@ Popup {
       QfButton {
         id: installFromUrlButton
         Layout.fillWidth: true
+        dropdown: true
 
         text: qsTr("Install plugin from URL")
 
         onClicked: {
           installFromUrlDialog.open()
         }
+
+        onDropdownClicked: {
+          pluginsManagementMenu.popup(installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10)
+        }
       }
 
-      QfButton {
-        id: clearPermissionsButton
-        Layout.fillWidth: true
+      Menu {
+        id: pluginsManagementMenu
+        title: qsTr('Plugins management menu')
 
-        text: qsTr("Clear remembered permissions")
+        width: {
+          let result = 50;
+          let padding = 0;
+          for (let i = 0; i < count; ++i) {
+              let item = itemAt(i);
+              result = Math.max(item.contentItem.implicitWidth, result);
+              padding = Math.max(item.leftPadding + item.rightPadding, padding);
+          }
+          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+        }
 
-        onClicked: {
-          pluginManager.clearPluginPermissions()
+        MenuItem {
+          text: qsTr('Clear remembered permissions')
+
+          font: Theme.defaultFont
+          height: 48
+          leftPadding: Theme.menuItemLeftPadding
+
+          onTriggered: {
+            pluginManager.clearPluginPermissions()
+          }
         }
       }
     }
