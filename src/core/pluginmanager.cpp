@@ -184,7 +184,7 @@ void PluginManager::clearPluginPermissions()
   const QStringList pluginKeys = settings.childGroups();
   for ( const QString &pluginKey : pluginKeys )
   {
-    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
+    if ( !settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
     {
       settings.remove( QStringLiteral( "%1/permissionGranted" ).arg( pluginKey ) );
     }
