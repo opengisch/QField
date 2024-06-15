@@ -3549,6 +3549,10 @@ ApplicationWindow {
     Connections {
       target: iface
 
+      function onLoadProjectTriggered(path) {
+        messageLogModel.suppressTags(["WFS","WMS"])
+      }
+
       function onLoadProjectEnded() {
         dashBoard.layerTree.unfreeze( true );
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
@@ -3557,13 +3561,6 @@ ApplicationWindow {
           messageLogModel.unsuppressTags(["WFS","WMS"])
         }
       }
-    }
-    Connections {
-        target: iface
-
-        function onLoadProjectTriggered(path) {
-          messageLogModel.suppressTags(["WFS","WMS"])
-        }
     }
 
     Connections {
@@ -3591,14 +3588,19 @@ ApplicationWindow {
       }
     }
 
-    BrowserPanel {
-      id: browserPopup
-      parent: Overlay.overlay
+    Connections {
+      target: browserPopup
 
-      onCancel: {
+      function onCancel() {
         qfieldAuthRequestHandler.abortAuthBrowser();
         browserPopup.close();
       }
+    }
+
+    BrowserPanel {
+      id: browserPopup
+      objectName: "browserPopup"
+      parent: Overlay.overlay
     }
 
     Popup {
