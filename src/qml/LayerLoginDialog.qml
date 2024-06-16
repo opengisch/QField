@@ -9,11 +9,11 @@ Page {
   signal enter( string usr, string pw )
   signal cancel()
 
-  property string realm
+  property string credentialTitle
   property var inCancelation
 
     header: QfPageHeader {
-        title: qsTr("Login information")
+        title: qsTr("Credentials Details")
 
         showBackButton: false
         showApplyButton: true
@@ -42,8 +42,11 @@ Page {
 
     Text {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      Layout.preferredHeight: font.height + 20
-      text: realm
+      Layout.preferredHeight: font.height + 50
+      horizontalAlignment: Text.AlignHCenter
+      Layout.fillWidth: true
+      wrapMode: Text.WordWrap
+      text: credentialTitle
       font: Theme.strongFont
       color: Theme.mainTextColor
     }

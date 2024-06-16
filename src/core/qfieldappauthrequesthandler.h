@@ -59,7 +59,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
     Q_INVOKABLE void abortAuthBrowser();
 
   signals:
-    void showLoginDialog( const QString &realm );
+    void showLoginDialog( const QString &realm, const QString &title );
     void loginDialogClosed( const QString &realm, const bool canceled );
     void reloadEverything();
     void showLoginBrowser( const QString &url );
@@ -70,11 +70,17 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
     bool requestMasterPassword( QString &password, bool stored = false ) override { return false; }
 
   private:
+    //! get realm and title then show login dialog
+    void showLogin();
+
     //! adds the realm to the list on loading the project
     void authNeeded( const QString &realm );
 
     //! returns an unhandled realm
     QString getFirstUnhandledRealm() const;
+
+    //! takes realm as parameter and outputs a user-friendly title string
+    QString getCredentialTitle( const QString &realm );
 
     //! the realms that are not (yet) successfully logged in into
     struct RealmEntry

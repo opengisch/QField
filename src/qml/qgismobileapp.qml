@@ -3567,8 +3567,9 @@ ApplicationWindow {
     Connections {
       target: qfieldAuthRequestHandler
 
-      function onShowLoginDialog(realm) {
-          loginDialogPopup.realm = realm || ""
+      function onShowLoginDialog(realm, title) {
+          loginDialog.realm = realm || ""
+          loginDialog.credentialTitle = title
           badLayersView.visible = false
           loginDialogPopup.open()
       }
@@ -3607,9 +3608,6 @@ ApplicationWindow {
     Popup {
       id: loginDialogPopup
       parent: Overlay.overlay
-
-      property var realm: ""
-
       x: 24
       y: 24
       width: parent.width - 48
@@ -3620,16 +3618,15 @@ ApplicationWindow {
 
       LayerLoginDialog {
         id: loginDialog
-
         anchors.fill: parent
-
         visible: true
-
-        realm: loginDialogPopup.realm
+        credentialTitle: loginDialogPopup.title
         inCancelation: false
 
+        property string realm: ""
+
         onEnter: {
-          qfieldAuthRequestHandler.enterCredentials( realm, usr, pw)
+          qfieldAuthRequestHandler.enterCredentials( loginDialog.realm, usr, pw)
           inCancelation = false;
           loginDialogPopup.close()
         }
