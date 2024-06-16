@@ -225,7 +225,7 @@ div.feature img {
 }
 
 .sdg p.learn-more{
-  text-align: right;
+  text-align: right !important;
   font-weight: bolder;
 }
 
