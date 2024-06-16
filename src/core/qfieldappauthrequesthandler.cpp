@@ -196,5 +196,5 @@ QString QFieldAppAuthRequestHandler::getCredentialTitle( const QString &realm )
   if ( uri.database().isEmpty() )
     return realm;
 
-  return "Please enter credentials for database " + uri.database() + " at host " + uri.host();
+  return "Please enter credentials for database <b>" + uri.database() + "</b> at host <b>" + uri.host() + ".</b>";
 }

@@ -3620,16 +3620,16 @@ ApplicationWindow {
         id: loginDialog
         anchors.fill: parent
         visible: true
-        credentialTitle: loginDialogPopup.title
         inCancelation: false
 
         property string realm: ""
 
-        onEnter: {
+        onEnter: ( usr, pw ) => {
           qfieldAuthRequestHandler.enterCredentials( loginDialog.realm, usr, pw)
           inCancelation = false;
           loginDialogPopup.close()
         }
+
         onCancel: {
           inCancelation = true;
           loginDialogPopup.close(true)
