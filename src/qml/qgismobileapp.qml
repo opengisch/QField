@@ -3632,7 +3632,7 @@ ApplicationWindow {
 
         onCancel: {
           inCancelation = true;
-          loginDialogPopup.close(true)
+          loginDialogPopup.close()
         }
       }
 
