@@ -79,7 +79,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
       if ( !getFirstUnhandledRealm().isEmpty() )
       {
         //show dialog as long as there are unhandled realms
-        emit showLogin();
+        showLogin();
       }
       else
       {
