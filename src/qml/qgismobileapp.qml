@@ -2132,6 +2132,7 @@ ApplicationWindow {
 
   DashBoard {
     id: dashBoard
+    objectName: "dashBoard"
     allowActiveLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible
@@ -3309,6 +3310,7 @@ ApplicationWindow {
 
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
+    objectName: "overlayFeatureFormDrawer"
     digitizingToolbar: digitizingToolbar
     codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer

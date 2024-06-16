@@ -80,9 +80,6 @@ Drawer {
 
     property bool isSaved: false
 
-    digitizingToolbar: overlayFeatureFormDrawer.digitizingToolbar
-    codeReader: overlayFeatureFormDrawer.codeReader
-
     model: AttributeFormModel {
         id: attributeFormModel
         featureModel: FeatureModel {
