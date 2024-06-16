@@ -228,3 +228,7 @@ QgsPoint GeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordina
                    point.is3D() ? point.z() : std::numeric_limits<double>::quiet_NaN(),
                    point.isMeasure() ? point.m() : std::numeric_limits<double>::quiet_NaN() );
 }
+QgsGeometry GeometryUtils::createGeometryFromWkt( const QString &wkt )
+{
+  return QgsGeometry::fromWkt( wkt );
+}
