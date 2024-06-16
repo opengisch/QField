@@ -1765,6 +1765,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
         <translation>Les informations sur l&apos;auteur affichées ci-dessus sont rapportées par l&apos;extension elle-même et ne sont pas vérifiées par une source indépendante. Assurez-vous d&apos;avoir confiance en l&apos;origine de cette extension.</translation>
     </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>

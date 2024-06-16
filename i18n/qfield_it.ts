@@ -1766,6 +1766,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
         <translation>I dettagli dell&apos;autore mostrati sopra sono auto-segnalati dal plugin e non verificati in modo indipendente. Assicurati di fidarti dell&apos;origine del plugin.</translation>
     </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>

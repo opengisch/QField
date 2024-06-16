@@ -1768,6 +1768,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
         <translation>Dane autora pokazane powyżej są zgłaszane samodzielnie przez wtyczkę i nie są niezależnie weryfikowane. Upewnij się, że ufasz pochodzeniu wtyczki.</translation>
     </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>

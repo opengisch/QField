@@ -1766,6 +1766,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
         <translation>Los detalles de autoría mostrados arriba son aportados por el propio complemento y no están verificados de forma independiente. Por favor, asegúrese de que confía en el origen del complemento.</translation>
     </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>

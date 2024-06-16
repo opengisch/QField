@@ -1767,6 +1767,10 @@ Dôvod:
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
         <translation>Vyššie uvedené podrobnosti o autorovi nie sú nezávisle overené. Uistite sa, že dôverujete pôvodu pluginu.</translation>
     </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>Správca pluginov</translation>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -4503,7 +4507,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation>Prichytenie do vrcholového uhla je vypnuté</translation>
+        <translation>Prichytenie uhla je vypnuté</translation>
     </message>
     <message>
         <source>Relative angle</source>
