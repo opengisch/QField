@@ -99,6 +99,9 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 
     //! Creates a point from \a x and \a y.
     static Q_INVOKABLE QgsPoint point( double x, double y ) { return QgsPoint( x, y ); }
+
+    //! Creates a geometry from a WKT string.
+    static Q_INVOKABLE QgsGeometry createGeometryFromWkt( const QString &wkt );
 };
 
 #endif // GEOMETRYUTILS_H
