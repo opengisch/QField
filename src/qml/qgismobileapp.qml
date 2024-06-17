@@ -3624,8 +3624,8 @@ ApplicationWindow {
 
         property string realm: ""
 
-        onEnter: ( usr, pw ) => {
-          qfieldAuthRequestHandler.enterCredentials( loginDialog.realm, usr, pw)
+        onEnter: ( username, password ) => {
+          qfieldAuthRequestHandler.enterCredentials( loginDialog.realm, username, password)
           inCancelation = false;
           loginDialogPopup.close()
         }

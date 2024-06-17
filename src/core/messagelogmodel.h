@@ -77,7 +77,7 @@ class MessageLogModel : public QAbstractListModel
   private:
     QgsMessageLog *mMessageLog = nullptr;
     QVector<LogMessage> mMessages;
-    QMap<QString, QList<QString>> mSuppressedModel;
+    QMap<QString, QStringList> mSuppressedModel;
 };
 
 #endif // MESSAGELOGMODEL_H

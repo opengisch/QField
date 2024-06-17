@@ -110,7 +110,7 @@ void MessageLogModel::onMessageReceived( const QString &message, const QString &
 {
   if ( mSuppressedModel.contains( tag ) || tag == QLatin1String( "3D" ) )
   {
-    for ( QString filter : mSuppressedModel[tag] )
+    for ( const QString &filter : mSuppressedModel[tag] )
     {
       if ( message.contains( filter ) )
       {
