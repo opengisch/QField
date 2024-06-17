@@ -59,41 +59,41 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::suppress( const QVariantMap &model )
+void MessageLogModel::suppress( const QVariantMap &filter )
 {
-  for ( const QString &tags : model.keys() )
+  for ( const QString &tags : filter.keys() )
   {
-    if ( mSuppressedModel.contains( tags ) )
+    if ( mSuppressedFilters.contains( tags ) )
     {
-      for ( const QVariant &filter : model[tags].toList() )
+      for ( const QVariant &filter : filter[tags].toList() )
       {
-        if ( !mSuppressedModel[tags].contains( filter.toString() ) )
+        if ( !mSuppressedFilters[tags].contains( filter.toString() ) )
         {
-          mSuppressedModel[tags].push_back( filter.toString() );
+          mSuppressedFilters[tags].push_back( filter.toString() );
         }
       }
     }
     else
     {
-      mSuppressedModel[tags] = model[tags].toStringList();
+      mSuppressedFilters[tags] = filter[tags].toStringList();
     }
   }
 }
 
-void MessageLogModel::unsuppress( const QVariantMap &model )
+void MessageLogModel::unsuppress( const QVariantMap &filter )
 {
-  for ( const QString &tags : model.keys() )
+  for ( const QString &tags : filter.keys() )
   {
-    if ( mSuppressedModel.contains( tags ) )
+    if ( mSuppressedFilters.contains( tags ) )
     {
-      if ( model[tags].toList().isEmpty() )
+      if ( filter[tags].toList().isEmpty() )
       {
-        mSuppressedModel.remove( tags );
+        mSuppressedFilters.remove( tags );
         continue;
       }
-      for ( const QVariant &filter : model[tags].toList() )
+      for ( const QVariant &filter : filter[tags].toList() )
       {
-        mSuppressedModel[tags].removeAll( filter.toString() );
+        mSuppressedFilters[tags].removeAll( filter.toString() );
       }
     }
   }
@@ -108,11 +108,15 @@ void MessageLogModel::clear()
 
 void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level )
 {
-  if ( mSuppressedModel.contains( tag ) || tag == QLatin1String( "3D" ) )
+  if ( tag == QLatin1String( "3D" ) )
   {
-    for ( const QString &filter : mSuppressedModel[tag] )
+    return;
+  }
+  else if ( mSuppressedFilters.contains( tag ) )
+  {
+    for ( const QString &filter : mSuppressedFilters[tag] )
     {
-      if ( message.contains( filter ) )
+      if ( message.contains( filter, Qt::CaseInsensitive ) )
       {
         return;
       }
