@@ -88,9 +88,8 @@ The following line will configure the build.
 cmake -S QField -B build -GXcode -Tbuildsystem=1 -DWITH_VCPKG=ON
 ```
 
-Please note that this will download and build the complete dependency
-chain of QField. If you ever wanted to read a good book, you will have
-a couple of hours to get started.
+Please note that this will download and build the complete dependency chain of QField.
+If you ever wanted to read a good book, you will have a couple of hours to get started.
 
 ```sh
 cmake --build build
