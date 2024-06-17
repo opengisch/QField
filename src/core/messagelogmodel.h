@@ -63,10 +63,10 @@ class MessageLogModel : public QAbstractListModel
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
 
-    //! activates suppression of messages wit specific tags
-    Q_INVOKABLE void suppressTags( const QList<QString> &tags );
-    //! deactivates suppression of messages wit specific tags
-    Q_INVOKABLE void unsuppressTags( const QList<QString> &tags );
+    //! activates suppression of messages with specific tag and an expression
+    Q_INVOKABLE void suppress( const QVariantMap &filters );
+    //! deactivates suppression of messages with specific tag and an expression
+    Q_INVOKABLE void unsuppress( const QVariantMap &filters );
 
     //! Clears any messages from the log
     Q_INVOKABLE void clear();
@@ -77,7 +77,7 @@ class MessageLogModel : public QAbstractListModel
   private:
     QgsMessageLog *mMessageLog = nullptr;
     QVector<LogMessage> mMessages;
-    QList<QString> mSuppressedTags;
+    QMap<QString, QStringList> mSuppressedFilters;
 };
 
 #endif // MESSAGELOGMODEL_H

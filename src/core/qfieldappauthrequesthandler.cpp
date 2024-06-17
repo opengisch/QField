@@ -20,10 +20,18 @@
 #include <QAuthenticator>
 #include <QThread>
 #include <qgscredentials.h>
+#include <qgsdatasourceuri.h>
 #include <qgsmessagelog.h>
 
 QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
+  QgsCredentials::setInstance( this );
+}
+
+bool QFieldAppAuthRequestHandler::request( const QString &realm, QString &username, QString &password, const QString &message )
+{
+  authNeeded( realm );
+  return false;
 }
 
 void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const QString &username, const QString &password )
@@ -41,8 +49,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
 {
   if ( !getFirstUnhandledRealm().isEmpty() )
   {
-    emit showLoginDialog( getFirstUnhandledRealm() );
-
+    showLogin();
     connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [=]( const QString &realm, bool canceled ) {
       if ( canceled )
       {
@@ -72,7 +79,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
       if ( !getFirstUnhandledRealm().isEmpty() )
       {
         //show dialog as long as there are unhandled realms
-        emit showLoginDialog( getFirstUnhandledRealm() );
+        showLogin();
       }
       else
       {
@@ -90,6 +97,13 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
 void QFieldAppAuthRequestHandler::clearStoredRealms()
 {
   mRealms.clear();
+}
+
+void QFieldAppAuthRequestHandler::showLogin()
+{
+  QString realm = getFirstUnhandledRealm();
+  QString title = getCredentialTitle( realm );
+  emit showLoginDialog( realm, title );
 }
 
 void QFieldAppAuthRequestHandler::authNeeded( const QString &realm )
@@ -173,4 +187,14 @@ void QFieldAppAuthRequestHandler::handleAuthRequestCloseBrowser()
 void QFieldAppAuthRequestHandler::abortAuthBrowser()
 {
   QgsNetworkAccessManager::instance()->abortAuthBrowser();
+}
+
+QString QFieldAppAuthRequestHandler::getCredentialTitle( const QString &realm )
+{
+  QgsDataSourceUri uri = QgsDataSourceUri( realm );
+
+  if ( uri.database().isEmpty() )
+    return realm;
+
+  return "Please enter credentials for database <b>" + uri.database() + "</b> at host <b>" + uri.host() + ".</b>";
 }

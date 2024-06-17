@@ -20,6 +20,7 @@
 
 #include <qgsapplication.h>
 #include <qgsconfig.h>
+#include <qgscredentials.h>
 #include <qgsnetworkaccessmanager.h>
 
 /**
@@ -33,7 +34,7 @@
  * in QgsCredentials and no dialog needs to pop up.
  *
  */
-class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticationHandler
+class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, public QgsNetworkAuthenticationHandler
 {
     Q_OBJECT
 
@@ -57,20 +58,29 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     //! abort an ongoing external browser authentication request
     Q_INVOKABLE void abortAuthBrowser();
 
-
   signals:
-    void showLoginDialog( const QString &realm );
+    void showLoginDialog( const QString &realm, const QString &title );
     void loginDialogClosed( const QString &realm, const bool canceled );
     void reloadEverything();
     void showLoginBrowser( const QString &url );
     void hideLoginBrowser();
 
+  protected:
+    bool request( const QString &realm, QString &username, QString &password, const QString &message = QString() ) override;
+    bool requestMasterPassword( QString &password, bool stored = false ) override { return false; }
+
   private:
+    //! get realm and title then show login dialog
+    void showLogin();
+
     //! adds the realm to the list on loading the project
     void authNeeded( const QString &realm );
 
     //! returns an unhandled realm
     QString getFirstUnhandledRealm() const;
+
+    //! takes realm as parameter and outputs a user-friendly title string
+    QString getCredentialTitle( const QString &realm );
 
     //! the realms that are not (yet) successfully logged in into
     struct RealmEntry

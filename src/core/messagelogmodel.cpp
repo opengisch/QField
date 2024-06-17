@@ -59,21 +59,43 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::suppressTags( const QList<QString> &tags )
+void MessageLogModel::suppress( const QVariantMap &filters )
 {
-  for ( const QString &tag : tags )
+  for ( const QString &tags : filters.keys() )
   {
-    if ( !mSuppressedTags.contains( tag ) )
-      mSuppressedTags.append( tag );
+    if ( mSuppressedFilters.contains( tags ) )
+    {
+      for ( const QVariant &filter : filters[tags].toList() )
+      {
+        if ( !mSuppressedFilters[tags].contains( filter.toString() ) )
+        {
+          mSuppressedFilters[tags].push_back( filter.toString() );
+        }
+      }
+    }
+    else
+    {
+      mSuppressedFilters[tags] = filters[tags].toStringList();
+    }
   }
 }
 
-void MessageLogModel::unsuppressTags( const QList<QString> &tags )
+void MessageLogModel::unsuppress( const QVariantMap &filters )
 {
-  for ( const QString &tag : tags )
+  for ( const QString &tags : filters.keys() )
   {
-    if ( mSuppressedTags.contains( tag ) )
-      mSuppressedTags.removeAll( tag );
+    if ( mSuppressedFilters.contains( tags ) )
+    {
+      if ( filters[tags].toList().isEmpty() )
+      {
+        mSuppressedFilters.remove( tags );
+        continue;
+      }
+      for ( const QVariant &filter : filters[tags].toList() )
+      {
+        mSuppressedFilters[tags].removeAll( filter.toString() );
+      }
+    }
   }
 }
 
@@ -86,8 +108,20 @@ void MessageLogModel::clear()
 
 void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level )
 {
-  if ( mSuppressedTags.contains( tag ) || tag == QLatin1String( "3D" ) )
+  if ( tag == QLatin1String( "3D" ) )
+  {
     return;
+  }
+  else if ( mSuppressedFilters.contains( tag ) )
+  {
+    for ( const QString &filter : mSuppressedFilters[tag] )
+    {
+      if ( message.contains( filter, Qt::CaseInsensitive ) )
+      {
+        return;
+      }
+    }
+  }
 
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );

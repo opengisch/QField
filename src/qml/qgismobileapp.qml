@@ -3550,9 +3550,8 @@ ApplicationWindow {
 
     Connections {
       target: iface
-
       function onLoadProjectTriggered(path) {
-        messageLogModel.suppressTags(["WFS","WMS"])
+        messageLogModel.suppress({"WFS": [""], "WMS": [""], "PostGIS": ["fe_sendauth: no password supplied"]})
       }
 
       function onLoadProjectEnded() {
@@ -3560,7 +3559,7 @@ ApplicationWindow {
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
         {
           //project loaded without more layer handling needed
-          messageLogModel.unsuppressTags(["WFS","WMS"])
+          messageLogModel.unsuppress({"WFS": [], "WMS": [], "PostGIS": []})
         }
       }
     }
@@ -3568,8 +3567,9 @@ ApplicationWindow {
     Connections {
       target: qfieldAuthRequestHandler
 
-      function onShowLoginDialog(realm) {
-          loginDialogPopup.realm = realm || ""
+      function onShowLoginDialog(realm, title) {
+          loginDialog.realm = realm || ""
+          loginDialog.credentialTitle = title
           badLayersView.visible = false
           loginDialogPopup.open()
       }
@@ -3608,9 +3608,6 @@ ApplicationWindow {
     Popup {
       id: loginDialogPopup
       parent: Overlay.overlay
-
-      property var realm: ""
-
       x: 24
       y: 24
       width: parent.width - 48
@@ -3621,22 +3618,21 @@ ApplicationWindow {
 
       LayerLoginDialog {
         id: loginDialog
-
         anchors.fill: parent
-
         visible: true
-
-        realm: loginDialogPopup.realm
         inCancelation: false
 
-        onEnter: {
-          qfieldAuthRequestHandler.enterCredentials( realm, usr, pw)
+        property string realm: ""
+
+        onEnter: ( username, password ) => {
+          qfieldAuthRequestHandler.enterCredentials( loginDialog.realm, username, password)
           inCancelation = false;
           loginDialogPopup.close()
         }
+
         onCancel: {
           inCancelation = true;
-          loginDialogPopup.close(true)
+          loginDialogPopup.close()
         }
       }
 

@@ -6,101 +6,150 @@ import org.qfield 1.0
 import Theme 1.0
 
 Page {
-  signal enter( string usr, string pw )
+  signal enter(string usr, string pw)
   signal cancel()
 
-  property string realm
+  property string credentialTitle
   property var inCancelation
 
-    header: QfPageHeader {
-        title: qsTr("Login information")
+  header: QfPageHeader {
+    title: qsTr("Credentials Details")
+    showBackButton: false
+    showApplyButton: false
+    showCancelButton: true
+    onCancel: {
+      parent.cancel()
+    }
+  }
 
-        showBackButton: false
-        showApplyButton: true
-        showCancelButton: true
-
-        onApply: {
-          parent.enter(username.text, password.text)
-          username.text=''
-          password.text=''
-        }
-        onCancel: {
-          parent.cancel()
-        }
-      }
-
-  ColumnLayout{
+  Flickable {
+    id: flickable
     anchors.fill: parent
     Layout.fillWidth: true
     Layout.fillHeight: true
+    contentHeight: content.height
+    clip: true
 
-    spacing: 2
-    anchors {
+    ScrollBar.vertical: ScrollBar {
+      width: 8
+      policy: height < flickable.contentHeight ? ScrollBar.AlwaysOn : ScrollBar.AsNeeded
+    }
+
+    ColumnLayout {
+      id: content
+      width: parent.width
+      spacing: 2
+      anchors {
         margins: 4
-        topMargin: 52// Leave space for the toolbar
-    }
+        topMargin: 52 // Leave space for the toolbar
+      }
 
-    Text {
-      Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      Layout.preferredHeight: font.height + 20
-      text: realm
-      font: Theme.strongFont
-      color: Theme.mainTextColor
-    }
+      Item {
+        // spacer item
+        height: 24
+      }
 
-    Item {
+      Image {
+        Layout.alignment: Qt.AlignHCenter
+        source: Theme.getThemeVectorIcon('ic_password_48dp')
+        sourceSize.width: Math.min(64, parent.width / 5)
+        sourceSize.height: Math.min(64, parent.width / 5)
+      }
+
+      Item {
+        // spacer item
+        height: 8
+      }
+
+      Text {
+        text: credentialTitle
+        horizontalAlignment: Text.AlignHCenter
+        Layout.fillWidth: true
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+        padding: 16
+      }
+
+      Item {
         // spacer item
         height: 35
-    }
+      }
 
-    Text {
-      id: usernamelabel
-      Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      text: qsTr( "Username" )
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
-    }
+      Text {
+        id: usernamelabel
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        text: qsTr("Username")
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
 
-    QfTextField {
-      id: username
-      Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
-      inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-      horizontalAlignment: Text.AlignHCenter
-    }
+      QfTextField {
+        id: username
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+        horizontalAlignment: Text.AlignHCenter
+      }
 
-    Item {
+      Item {
         // spacer item
         height: 35
-    }
+      }
 
-    Text {
-      id: passwordlabel
-      Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      text: qsTr( "Password" )
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
-    }
+      Text {
+        id: passwordlabel
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        text: qsTr("Password")
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
 
-    QfTextField {
-      id: password
-      Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
-      echoMode: TextInput.Password
-      inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-      horizontalAlignment: Text.AlignHCenter
-    }
+      QfTextField {
+        id: password
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        echoMode: TextInput.Password
+        inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+        horizontalAlignment: Text.AlignHCenter
+        onReturnPressed: {
+          _processAuth()
+        }
+        Keys.onEnterPressed: {
+          _processAuth()
+        }
+      }
 
-    Item {
+      Item {
+        // spacer item
+        height: 35
+      }
+
+      QfButton {
+        id: submit
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        text: "Submit"
+        onClicked: _processAuth()
+      }
+
+      Item {
         // spacer item
         Layout.fillWidth: true
         Layout.fillHeight: true
+      }
     }
   }
 
   onVisibleChanged: {
-      if (visible) {
-          username.forceActiveFocus();
-      }
+    if (visible) {
+      username.forceActiveFocus()
+    }
+  }
+
+  function _processAuth() {
+    enter(username.text, password.text)
+    username.text = ''
+    password.text = ''
   }
 }
