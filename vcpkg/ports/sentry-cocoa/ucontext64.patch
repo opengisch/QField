@@ -1,7 +1,8 @@
-diff -ur a/Sources/SentryCrash/Recording/Tools/SentryCrashMachineContext.c b/Sources/SentryCrash/Recording/Tools/SentryCrashMachineContext.c
---- a/Sources/SentryCrash/Recording/Tools/SentryCrashMachineContext.c   2022-08-07 06:08:36.000000000 +0000
-+++ b/Sources/SentryCrash/Recording/Tools/SentryCrashMachineContext.c   2022-08-07 06:08:00.000000000 +0000
-@@ -37,6 +37,7 @@
+diff --git a/Sources/SentryCrash/Recording/Tools/SentryCrashMachineContext.c b/Sources/SentryCrash/Recording/Tools/SentryCrashMachineContext.c
+index b54091fa..00e09fcc 100644
+--- a/Sources/SentryCrash/Recording/Tools/SentryCrashMachineContext.c
++++ b/Sources/SentryCrash/Recording/Tools/SentryCrashMachineContext.c
+@@ -39,6 +39,7 @@
  #include "SentryCrashLogger.h"
  
  #ifdef __arm64__

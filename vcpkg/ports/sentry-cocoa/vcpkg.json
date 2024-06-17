@@ -1,6 +1,6 @@
 {
   "name": "sentry-cocoa",
-  "version-string": "current",
+  "version": "8.23.0",
   "description": "Sentry SDK for ios",
   "homepage": "https://sentry.io/for/cocoa",
   "dependencies": [
