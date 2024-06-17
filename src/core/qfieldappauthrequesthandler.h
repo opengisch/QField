@@ -61,9 +61,9 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
   signals:
     void showLoginDialog( const QString &realm, const QString &title );
     void loginDialogClosed( const QString &realm, const bool canceled );
-    void reloadEverything();
     void showLoginBrowser( const QString &url );
     void hideLoginBrowser();
+    void flushIsValid();
 
   protected:
     bool request( const QString &realm, QString &username, QString &password, const QString &message = QString() ) override;
