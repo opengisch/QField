@@ -1764,7 +1764,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>插件管理菜单</translation>
     </message>
 </context>
 <context>
