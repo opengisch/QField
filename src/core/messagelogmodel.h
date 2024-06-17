@@ -64,9 +64,9 @@ class MessageLogModel : public QAbstractListModel
     QVariant data( const QModelIndex &index, int role ) const override;
 
     //! activates suppression of messages with specific tag and an expression
-    Q_INVOKABLE void suppress( const QVariantMap &filter );
+    Q_INVOKABLE void suppress( const QVariantMap &filters );
     //! deactivates suppression of messages with specific tag and an expression
-    Q_INVOKABLE void unsuppress( const QVariantMap &filter );
+    Q_INVOKABLE void unsuppress( const QVariantMap &filters );
 
     //! Clears any messages from the log
     Q_INVOKABLE void clear();

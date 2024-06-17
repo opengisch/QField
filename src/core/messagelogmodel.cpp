@@ -59,13 +59,13 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::suppress( const QVariantMap &filter )
+void MessageLogModel::suppress( const QVariantMap &filters )
 {
-  for ( const QString &tags : filter.keys() )
+  for ( const QString &tags : filters.keys() )
   {
     if ( mSuppressedFilters.contains( tags ) )
     {
-      for ( const QVariant &filter : filter[tags].toList() )
+      for ( const QVariant &filter : filters[tags].toList() )
       {
         if ( !mSuppressedFilters[tags].contains( filter.toString() ) )
         {
@@ -75,23 +75,23 @@ void MessageLogModel::suppress( const QVariantMap &filter )
     }
     else
     {
-      mSuppressedFilters[tags] = filter[tags].toStringList();
+      mSuppressedFilters[tags] = filters[tags].toStringList();
     }
   }
 }
 
-void MessageLogModel::unsuppress( const QVariantMap &filter )
+void MessageLogModel::unsuppress( const QVariantMap &filters )
 {
-  for ( const QString &tags : filter.keys() )
+  for ( const QString &tags : filters.keys() )
   {
     if ( mSuppressedFilters.contains( tags ) )
     {
-      if ( filter[tags].toList().isEmpty() )
+      if ( filters[tags].toList().isEmpty() )
       {
         mSuppressedFilters.remove( tags );
         continue;
       }
-      for ( const QVariant &filter : filter[tags].toList() )
+      for ( const QVariant &filter : filters[tags].toList() )
       {
         mSuppressedFilters[tags].removeAll( filter.toString() );
       }
