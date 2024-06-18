@@ -704,14 +704,14 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
 
   addToHistory( mMode == AddVertex ? VertexAddition : VertexMove );
 
-  vertex.point = point;
+  vertex.point = QgsPoint( point.x(), point.y() );
   if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
   {
-    vertex.point.addZValue();
+    vertex.point.addZValue( QgsWkbTypes::hasZ( point.wkbType() ) ? point.z() : 0 );
   }
   if ( QgsWkbTypes::hasM( mGeometryWkbType ) )
   {
-    vertex.point.addMValue();
+    vertex.point.addMValue( QgsWkbTypes::hasM( point.wkbType() ) ? point.m() : 0 );
   }
 
   if ( mMode == AddVertex )
