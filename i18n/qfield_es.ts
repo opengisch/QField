@@ -1064,7 +1064,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Información de conexión</translation>
+        <translation type="vanished">Información de conexión</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1073,6 +1073,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Password</source>
         <translation>Contraseña</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

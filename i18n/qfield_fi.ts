@@ -1062,7 +1062,7 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Sis채채nkirjautumisen tiedot</translation>
+        <translation type="vanished">Sis채채nkirjautumisen tiedot</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1071,6 +1071,10 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <message>
         <source>Password</source>
         <translation>Salasana</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

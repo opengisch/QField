@@ -1063,7 +1063,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Informacije o logovanju</translation>
+        <translation type="vanished">Informacije o logovanju</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1072,6 +1072,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <message>
         <source>Password</source>
         <translation>Lozinka</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

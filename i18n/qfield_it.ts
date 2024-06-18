@@ -1064,7 +1064,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Informazioni di login</translation>
+        <translation type="vanished">Informazioni di login</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1073,6 +1073,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Password</source>
         <translation>Password</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

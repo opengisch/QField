@@ -1064,7 +1064,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Informacije o prijavi</translation>
+        <translation type="vanished">Informacije o prijavi</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1073,6 +1073,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Password</source>
         <translation>Lozinka</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

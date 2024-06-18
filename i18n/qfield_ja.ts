@@ -1060,7 +1060,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>ログイン情報</translation>
+        <translation type="vanished">ログイン情報</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1069,6 +1069,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Password</source>
         <translation>パスワード</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

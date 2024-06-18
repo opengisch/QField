@@ -1056,7 +1056,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Podatki za prijavo</translation>
+        <translation type="vanished">Podatki za prijavo</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1065,6 +1065,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Password</source>
         <translation>Geslo</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -1066,7 +1066,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Přihlašovací informace</translation>
+        <translation type="vanished">Přihlašovací informace</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1075,6 +1075,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Password</source>
         <translation>Heslo</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

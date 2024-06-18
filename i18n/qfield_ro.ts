@@ -1066,7 +1066,7 @@ Motiv:
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Informații de logare</translation>
+        <translation type="vanished">Informații de logare</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1075,6 +1075,10 @@ Motiv:
     <message>
         <source>Password</source>
         <translation>Parola</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

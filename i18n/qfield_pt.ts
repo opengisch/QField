@@ -1064,7 +1064,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Informação de login</translation>
+        <translation type="vanished">Informação de login</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1073,6 +1073,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Password</source>
         <translation>Senha</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -1062,7 +1062,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Información de acceso</translation>
+        <translation type="vanished">Información de acceso</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1071,6 +1071,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Password</source>
         <translation>Contrasinal</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

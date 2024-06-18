@@ -1064,7 +1064,7 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Prihlasovacie údaje</translation>
+        <translation type="vanished">Prihlasovacie údaje</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1073,6 +1073,10 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     <message>
         <source>Password</source>
         <translation>Heslo</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

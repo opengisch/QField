@@ -1063,7 +1063,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Information de connexion</translation>
+        <translation type="vanished">Information de connexion</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1072,6 +1072,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Password</source>
         <translation>Mot de passe</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

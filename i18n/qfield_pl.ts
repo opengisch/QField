@@ -1066,7 +1066,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Informacja logowania</translation>
+        <translation type="vanished">Informacja logowania</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1075,6 +1075,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Password</source>
         <translation>Hasło</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1770,7 +1774,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu zarządzania wtyczkami</translation>
     </message>
 </context>
 <context>

@@ -1062,7 +1062,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Login informatie</translation>
+        <translation type="vanished">Login informatie</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1071,6 +1071,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Password</source>
         <translation>Wachtwoord</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -1062,7 +1062,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Anmeldeinformation</translation>
+        <translation type="vanished">Anmeldeinformation</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1071,6 +1071,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Password</source>
         <translation>Passwort</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

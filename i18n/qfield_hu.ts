@@ -1061,7 +1061,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation>Bejelentkezési információk</translation>
+        <translation type="vanished">Bejelentkezési információk</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1070,6 +1070,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Password</source>
         <translation>Jelszó</translation>
+    </message>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
