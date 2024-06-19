@@ -106,7 +106,7 @@ EditorWidgetBase {
 
         Repeater {
           id: repeater
-          model: config['map']
+          model: comboBox.model
 
           delegate: Rectangle {
             id: item
@@ -118,8 +118,6 @@ EditorWidgetBase {
             border.width: 1
 
             property bool selected: toggleButtons.selectedIndex == index
-            property string key: Object.keys(modelData)[0]
-            property string value: modelData[key]
 
             Component.onCompleted: {
               if (selected) {
@@ -157,7 +155,7 @@ EditorWidgetBase {
                   toggleButtons.currentSelectedKey = ""
                   toggleButtons.currentSelectedValue = ""
                 }
-                valueChangeRequested(toggleButtons.currentSelectedValue, false)
+                valueChangeRequested(toggleButtons.currentSelectedKey, false)
               }
 
               Ripple {
