@@ -29,10 +29,15 @@ struct CloudUserInformation
 {
     Q_GADGET
 
+    Q_PROPERTY( QString username MEMBER username )
+    Q_PROPERTY( QString email MEMBER email )
+
   public:
     CloudUserInformation() = default;
 
     CloudUserInformation( const QString &username, const QString &email )
+      : username( username )
+      , email( email )
     {}
 
     explicit CloudUserInformation( const QJsonObject cloudUserInformation )
