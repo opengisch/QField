@@ -88,9 +88,11 @@ ListView {
 
       // Collapsed state visual feedback
       Row {
+        id: collapsedState
+        property bool isVisible: HasChildren
         anchors.verticalCenter: parent.verticalCenter
         height: 24
-        visible: HasChildren
+        visible: isVisible
 
         Item {
           height: 24
@@ -137,10 +139,11 @@ ListView {
 
         Item {
           id: layerVisibility
+          property bool isVisible: HasSpatialExtent
           height: 24
           width: visible ? parent.height : 0
           anchors.verticalCenter: parent.verticalCenter
-          visible: HasSpatialExtent
+          visible: isVisible
 
           QfToolButton {
             height: 35
@@ -160,7 +163,7 @@ ListView {
           }
         }
 
-        // Legend image / layer icon
+        // Legend icon
         Item {
           height: 24
           width: 24
@@ -217,7 +220,9 @@ ListView {
           id: layerName
           width: rectangle.width
                  - itemPadding
-                 - 46
+                 - 46 // legend icon + right padding
+                 - (collapsedState.isVisible ? collapsedState.width : 0)
+                 - (layerVisibility.isVisible ? layerVisibility.width : 0)
                  - (trackingBadge.isVisible ? trackingBadge.width + 5 : 0)
                  - (lockedBadge.isVisible ? lockedBadge.width + 5 : 0)
                  - (invalidBadge.isVisible ? invalidBadge.width + 5 : 0)
