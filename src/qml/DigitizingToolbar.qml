@@ -19,6 +19,7 @@ VisibilityFadingRow {
   property VectorLayer geometryRequestedLayer
 
   property alias digitizingLogger: digitizingLogger
+  property alias cancelDialog: cancelDialog
 
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
@@ -92,6 +93,7 @@ VisibilityFadingRow {
     bgcolor: Theme.darkRed
 
     onClicked: {
+      homeButton.waitingForDigitizingFinish = false
       if (stateMachine.state !== "measure") {
         cancelDialog.open();
       } else {
@@ -121,6 +123,7 @@ VisibilityFadingRow {
     bgcolor: Theme.mainColor
 
     onClicked: {
+      homeButton.waitingForDigitizingFinish = false
       confirm()
     }
   }
