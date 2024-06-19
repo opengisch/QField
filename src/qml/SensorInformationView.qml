@@ -35,7 +35,7 @@ Rectangle {
     cellWidth: parent.width > 620
                ? parent.width / 3
                : parent.width / 2
-    cellHeight: cellHeight
+    cellHeight: sensorInformationView.cellHeight
     flow: GridLayout.TopToBottom
 
     model: SensorListModel {
@@ -62,8 +62,6 @@ Rectangle {
 
         Text {
           Layout.fillWidth: true
-          width: grid.cellWidth - 20
-          height: grid.cellHeight - 20
           font: Theme.tipFont
           color: sensorInformationView.textColor
           text: SensorLastValue ? (SensorLastValue + '').trim() : qsTr( "N/A" )
