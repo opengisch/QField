@@ -481,7 +481,6 @@ ApplicationWindow {
           }
 
           if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
-              featureForm.requestCancel();
               return;
           }
 
