@@ -289,8 +289,11 @@ void AttributeFormModelBase::applyParentDefaultValues()
         QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
         exp.prepare( &mExpressionContext );
         const QVariant defaultValue = exp.evaluate( &mExpressionContext );
-        item->setData( defaultValue, AttributeFormModel::AttributeValue );
-        synchronizeFieldValue( fidx, defaultValue );
+        const bool success = mFeatureModel->setData( mFeatureModel->index( fidx ), defaultValue, FeatureModel::AttributeValue );
+        if ( success )
+        {
+          synchronizeFieldValue( fidx, defaultValue );
+        }
       }
     }
   }
