@@ -708,11 +708,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Der letzte von dir eingegebene Wert wird beim Erzeugen eines neuen Objekts wiederverwendet werden.</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Der letzte von dir eingegebene Wert wird beim Erzeugen eines neuen Objekts nichtmehr wiederverwendet werden.</translation>
     </message>
 </context>
 <context>

@@ -1078,7 +1078,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>Szczegóły poświadczeń</translation>
     </message>
 </context>
 <context>
