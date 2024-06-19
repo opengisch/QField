@@ -54,7 +54,7 @@ ColumnLayout {
           QfSwipeAnimator {
             id: variableNameTextAnimator
             width: 0.35 * table.width - 10
-            height: line.height
+            height: 40
             shouldAutoFlick: (width < variableNameText.implicitWidth) && !dragging && !variableNameText.activeFocus
             contentImplicitWidth: variableNameText.implicitWidth
             contentWidth: variableNameText.implicitWidth
@@ -86,37 +86,42 @@ ColumnLayout {
                 variableNameTextAnimator.ensureCursorVisible(cursorRectangle)
               }
             }
-
-            function ensureCursorVisible(cursorRectangle) {
-              if (contentX >= cursorRectangle.x) {
-                contentX = cursorRectangle.x
-              } else if (contentX + width <= cursorRectangle.x + cursorRectangle.width) {
-                contentX = cursorRectangle.x + cursorRectangle.width - width
-              }
-            }
           }
 
-          TextField {
-            id: variableValueText
+          QfSwipeAnimator {
+            id: variableValueTextAnimator
             width: 0.65 * table.width - 10 - (canDelete ? deleteVariableButton.width : 0)
-            topPadding: 10
-            bottomPadding: 10
-            leftPadding: 5
-            rightPadding: 5
-            text: VariableValue
-            enabled: table.model.isEditable(index)
-            font: Theme.tipFont
-            horizontalAlignment: TextInput.AlignLeft
-            placeholderText: displayText == '' ? qsTr("Enter value") : ''
-            background: Rectangle {
-              y: variableValueText.height - height - variableValueText.bottomPadding / 2
-              implicitWidth: 120
-              height: variableValueText.activeFocus ? 2 : variableNameText.enabled ? 1 : 0
-              color: variableValueText.activeFocus ? Theme.accentColor : "transparent"
-            }
+            height: 40
+            shouldAutoFlick: (width < variableValueText.implicitWidth) && !dragging && !variableValueText.activeFocus
+            contentImplicitWidth: variableValueText.implicitWidth
+            contentWidth: variableValueText.implicitWidth
+            duration: shouldAutoFlick ? Math.abs(variableValueText.width - width) * 100 + 10 : 10000
 
-            onTextChanged: {
-              table.model.setValue(index, text)
+            contents: TextField {
+              id: variableValueText
+              topPadding: 10
+              bottomPadding: 10
+              leftPadding: 1
+              rightPadding: 1
+              text: VariableValue
+              enabled: table.model.isEditable(index)
+              font: Theme.tipFont
+              horizontalAlignment: TextInput.AlignLeft
+              placeholderText: displayText === '' ? qsTr("Enter value") : ''
+              background: Rectangle {
+                y: variableValueText.height - height - variableValueText.bottomPadding / 2
+                height: variableValueText.activeFocus ? 2 : variableNameText.enabled ? 1 : 0
+                width: Math.max(variableValueTextAnimator.width, variableValueText.implicitWidth)
+                color: variableValueText.activeFocus ? Theme.accentColor : "transparent"
+              }
+
+              onTextChanged: {
+                table.model.setValue(index, text)
+              }
+
+              onCursorRectangleChanged: {
+                variableValueTextAnimator.ensureCursorVisible(cursorRectangle)
+              }
             }
           }
 

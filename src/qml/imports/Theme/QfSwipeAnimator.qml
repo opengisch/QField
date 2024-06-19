@@ -43,4 +43,14 @@ Flickable {
   Item {
     id: containerLayout
   }
+
+  // if containerLayout is TextArea or TextField this function could be used to
+  // handle text selection and showing cursor rectangle
+  function ensureCursorVisible(cursorRectangle) {
+    if (contentX >= cursorRectangle.x) {
+      contentX = cursorRectangle.x
+    } else if (contentX + width <= cursorRectangle.x + cursorRectangle.width) {
+      contentX = cursorRectangle.x + cursorRectangle.width - width
+    }
+  }
 }
