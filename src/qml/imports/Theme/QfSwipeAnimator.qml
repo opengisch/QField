@@ -1,0 +1,46 @@
+import QtQuick 2.14
+import Theme 1.0
+
+Flickable {
+  id: flick
+  boundsBehavior: Flickable.StopAtBounds
+  flickableDirection: Flickable.HorizontalFlick
+  clip: true
+
+  required property real contentImplicitWidth
+  default property alias contents: containerLayout.children
+  property bool shouldAutoFlick: false
+  property real duration: 3000
+
+  SequentialAnimation {
+    id: mainAnim
+    loops: 10
+    running: flick.shouldAutoFlick
+
+    NumberAnimation {
+      target: flick
+      property: "contentX"
+      to: -(flick.width - contentImplicitWidth)
+      duration: flick.duration
+    }
+
+    PauseAnimation {
+      duration: 1000
+    }
+
+    NumberAnimation {
+      target: flick
+      property: "contentX"
+      to: 0
+      duration: flick.duration
+    }
+
+    PauseAnimation {
+      duration: 1000
+    }
+  }
+
+  Item {
+    id: containerLayout
+  }
+}

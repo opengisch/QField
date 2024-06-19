@@ -36,40 +36,63 @@ ColumnLayout {
       spacing: 1
       anchors.fill: parent
       anchors.margins: 3
+      anchors.leftMargin: 9
+      anchors.rightMargin: 5
       delegate: Rectangle {
-        property var itemRow: index
-        property bool canDelete: table.model.isEditable(index)
-
         id: rectangle
         width: parent ? parent.width : 0
         height: line.height
         color: "transparent"
 
+        property var itemRow: index
+        property bool canDelete: table.model.isEditable(index)
+
         Row {
           id: line
           spacing: 5
 
-          TextField {
-            id: variableNameText
+          QfSwipeAnimator {
+            id: variableNameTextAnimator
             width: 0.35 * table.width - 10
-            topPadding: 10
-            bottomPadding: 10
-            leftPadding: 9
-            rightPadding: 5
-            text: VariableName
-            enabled: table.model.isEditable(index)
-            font: Theme.tipFont
-            horizontalAlignment: TextInput.AlignLeft
-            placeholderText: displayText == '' ? qsTr("Enter name") : ''
-            background: Rectangle {
-              y: variableNameText.height - height - variableNameText.bottomPadding / 2
-              implicitWidth: 120
-              height: variableNameText.activeFocus ? 2 : variableNameText.enabled ? 1 : 0
-              color: variableNameText.activeFocus ? Theme.accentColor : "transparent"
+            height: line.height
+            shouldAutoFlick: (width < variableNameText.implicitWidth) && !dragging && !variableNameText.activeFocus
+            contentImplicitWidth: variableNameText.implicitWidth
+            contentWidth: variableNameText.implicitWidth
+            duration: shouldAutoFlick ? Math.abs(variableNameText.width - width) * 100 + 10 : 10000
+
+            contents: TextField {
+              id: variableNameText
+              topPadding: 10
+              bottomPadding: 10
+              leftPadding: 1
+              rightPadding: 1
+              text: VariableName
+              enabled: table.model.isEditable(index)
+              font: Theme.tipFont
+              horizontalAlignment: TextInput.AlignLeft
+              placeholderText: displayText === '' ? qsTr("Enter name") : ''
+              background: Rectangle {
+                y: variableNameText.height - height - variableNameText.bottomPadding / 2
+                height: variableNameText.activeFocus ? 2 : variableNameText.enabled ? 1 : 0
+                width: Math.max(variableNameTextAnimator.width, variableNameText.implicitWidth)
+                color: variableNameText.activeFocus ? Theme.accentColor : "transparent"
+              }
+
+              onTextChanged: {
+                table.model.setName(index, text)
+              }
+
+              onCursorRectangleChanged: {
+                variableNameTextAnimator.ensureCursorVisible(cursorRectangle)
+              }
             }
 
-            onTextChanged: {
-              table.model.setName(index, text)
+            function ensureCursorVisible(cursorRectangle) {
+              if (contentX >= cursorRectangle.x) {
+                contentX = cursorRectangle.x
+              } else if (contentX + width <= cursorRectangle.x + cursorRectangle.width) {
+                contentX = cursorRectangle.x + cursorRectangle.width - width
+              }
             }
           }
 
