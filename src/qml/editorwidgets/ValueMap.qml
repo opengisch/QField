@@ -75,6 +75,7 @@ EditorWidgetBase {
 
   ValueMapModel {
     id: listModel
+    filterCaseSensitivity: Qt.CaseInsensitive
     onMapChanged: {
       comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue)
     }
