@@ -33,11 +33,11 @@ QVariant ValueMapModelBase::map() const
 void ValueMapModelBase::setMap( const QVariant &map )
 {
   mMap.clear();
-  // QGIS 3
+
   const QVariantList list = map.toList();
-  if ( !list.empty() )
+  if ( !list.empty() ) // QGIS 3
   {
-    beginInsertRows( QModelIndex(), 0, list.size() );
+    beginInsertRows( QModelIndex(), 0, list.size() - 1 );
 
     for ( const QVariant &item : list )
     {
@@ -55,7 +55,7 @@ void ValueMapModelBase::setMap( const QVariant &map )
     const QVariantMap valueMap = map.toMap();
     if ( !valueMap.empty() )
     {
-      beginInsertRows( QModelIndex(), 0, valueMap.size() );
+      beginInsertRows( QModelIndex(), 0, valueMap.size() - 1 );
 
       QMapIterator<QString, QVariant> i( valueMap );
       while ( i.hasNext() )
