@@ -114,8 +114,8 @@ in order to avoid running into [issues with long paths](https://docs.microsoft.c
 ```sh
 cmake -S QField -B build \
   -D VCPKG_TARGET_TRIPLET=x64-windows-static \
-  -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded\$<\$<CONFIG:Debug>:Debug> \
-  -D PKG_CONFIG_EXECUTABLE=build/vcpkg_installed/x64-windows/tools/pkgconf/pkgconf.exe \
+  -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Debug>:Debug>" \
+  -D PKG_CONFIG_EXECUTABLE=build/vcpkg_installed/x64-windows-static/tools/pkgconf/pkgconf.exe \
   -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/build"
 ```
 
