@@ -52,6 +52,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
