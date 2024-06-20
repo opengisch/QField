@@ -136,6 +136,7 @@ Rectangle {
           anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
+          anchors.right: parent.right
 
           Text {
             Layout.fillWidth: false
@@ -153,6 +154,7 @@ Rectangle {
             text: coordinatesIsXY
                   ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
                   : Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+            elide: Text.ElideRight
           }
         }
       }
@@ -166,6 +168,7 @@ Rectangle {
           anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
+          anchors.right: parent.right
 
           Text {
             Layout.fillWidth: false
@@ -183,6 +186,7 @@ Rectangle {
             text: coordinatesIsXY
                   ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
                   : Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+            elide: Text.ElideRight
           }
         }
       }
@@ -196,6 +200,7 @@ Rectangle {
           anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
+          anchors.right: parent.right
 
           Text {
             Layout.fillWidth: false
@@ -211,6 +216,7 @@ Rectangle {
             text:  positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
                    ? UnitTypes.formatDistance( navigation.distance * UnitTypes.fromUnitToUnitFactor( navigation.distanceUnits, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits )
                    : qsTr( "N/A" )
+            elide: Text.ElideRight
           }
         }
       }
@@ -224,6 +230,7 @@ Rectangle {
           anchors.margins: cellPadding
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
+          anchors.right: parent.right
 
           Text {
             Layout.fillWidth: false
@@ -239,6 +246,7 @@ Rectangle {
             text: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
                   ? Number( navigation.bearing ).toLocaleString( Qt.locale(), 'f', 1 ) + '°'
                   : qsTr( "N/A" )
+            elide: Text.ElideRight
           }
         }
       }
