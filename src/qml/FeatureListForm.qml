@@ -416,7 +416,9 @@ Rectangle {
           if ( fullScreenView ) {
             fullScreenView = false
           } else {
-            featureForm.state = 'Hidden'
+            if (featureForm.state != 'FeatureFormEdit') {
+              featureForm.state = 'Hidden'
+            }
           }
         }
       } else {
@@ -426,7 +428,9 @@ Rectangle {
           if ( fullScreenView ) {
             fullScreenView = false
           } else {
-            featureForm.state = 'Hidden'
+            if (featureForm.state != 'FeatureFormEdit') {
+              featureForm.state = 'Hidden'
+            }
           }
         }
       }
