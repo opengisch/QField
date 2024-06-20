@@ -38,7 +38,6 @@ Rectangle {
     property double cellWidth: grid.width / ( ( positionSource.deviceId === '' ? 1 : 2 ) * 6 / grid.rows )
 
     Rectangle {
-      id: x
       height: cellHeight
       width: grid.cellWidth
       color: alternateBackgroundColor
@@ -47,6 +46,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -68,6 +68,7 @@ Rectangle {
                 : positionSource.positionInformation && positionSource.positionInformation.latitudeValid
                   ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
                   : qsTr( "N/A" )
+          elide: Text.ElideRight
         }
       }
     }
@@ -81,6 +82,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -103,6 +105,7 @@ Rectangle {
                 : positionSource.positionInformation && positionSource.positionInformation.latitudeValid
                   ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
                   : qsTr( "N/A" )
+          elide: Text.ElideRight
 
         }
       }
@@ -117,6 +120,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -152,6 +156,7 @@ Rectangle {
             }
             return altitude
           }
+          elide: Text.ElideRight
         }
       }
     }
@@ -165,6 +170,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -180,6 +186,7 @@ Rectangle {
           text: positionSource.positionInformation && positionSource.positionInformation.speedValid
                 ? positionSource.positionInformation.speed.toLocaleString(Qt.locale(), 'f', 3) + " m/s"
                 : qsTr( "N/A" )
+          elide: Text.ElideRight
         }
       }
     }
@@ -193,6 +200,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -208,6 +216,7 @@ Rectangle {
           text: positionSource.positionInformation && positionSource.positionInformation.haccValid
                 ? Number(positionSource.positionInformation.hacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
                 : qsTr("N/A")
+          elide: Text.ElideRight
         }
       }
     }
@@ -221,6 +230,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -236,6 +246,7 @@ Rectangle {
           text: positionSource.positionInformation && positionSource.positionInformation.vaccValid
                 ? Number(positionSource.positionInformation.vacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
                 : qsTr("N/A")
+          elide: Text.ElideRight
         }
       }
     }
@@ -250,6 +261,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -265,6 +277,7 @@ Rectangle {
           text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.pdop)
                 ? positionSource.positionInformation.pdop.toLocaleString(Qt.locale(), 'f', 1)
                 : qsTr('N/A')
+          elide: Text.ElideRight
         }
       }
     }
@@ -279,6 +292,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -294,6 +308,7 @@ Rectangle {
           text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.hdop)
                 ? positionSource.positionInformation.hdop.toLocaleString(Qt.locale(), 'f', 1)
                 : qsTr('N/A')
+          elide: Text.ElideRight
         }
       }
     }
@@ -308,6 +323,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -323,6 +339,7 @@ Rectangle {
           text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.vdop)
                 ? positionSource.positionInformation.vdop.toLocaleString(Qt.locale(), 'f', 1)
                 : qsTr('N/A')
+          elide: Text.ElideRight
         }
       }
     }
@@ -337,6 +354,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -350,6 +368,7 @@ Rectangle {
           font: Theme.tipFont
           color: textColor
           text: positionSource.positionInformation && positionSource.positionInformation.isValid ? 'True' : 'False'
+          elide: Text.ElideRight
         }
       }
     }
@@ -364,6 +383,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -377,6 +397,7 @@ Rectangle {
           font: Theme.tipFont
           color: textColor
           text: positionSource.positionInformation ? positionSource.positionInformation.fixStatusDescription : qsTr('N/A')
+          elide: Text.ElideRight
         }
       }
     }
@@ -391,6 +412,7 @@ Rectangle {
         anchors.margins: cellPadding
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.right: parent.right
 
         Text {
           Layout.fillWidth: false
@@ -404,6 +426,7 @@ Rectangle {
           font: Theme.tipFont
           color: textColor
           text: positionSource.positionInformation ? positionSource.positionInformation.qualityDescription : qsTr('N/A')
+          elide: Text.ElideRight
         }
       }
     }
