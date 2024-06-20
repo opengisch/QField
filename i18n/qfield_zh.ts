@@ -1072,7 +1072,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>凭据详细信息</translation>
     </message>
 </context>
 <context>
