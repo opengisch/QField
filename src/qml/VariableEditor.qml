@@ -60,7 +60,7 @@ ColumnLayout {
             contentWidth: variableNameText.implicitWidth
             duration: shouldAutoFlick ? Math.abs(variableNameText.width - width) * 100 + 10 : 10000
 
-            contents: TextField {
+            TextField {
               id: variableNameText
               topPadding: 10
               bottomPadding: 10
@@ -97,7 +97,7 @@ ColumnLayout {
             contentWidth: variableValueText.implicitWidth
             duration: shouldAutoFlick ? Math.abs(variableValueText.width - width) * 100 + 10 : 10000
 
-            contents: TextField {
+            TextField {
               id: variableValueText
               topPadding: 10
               bottomPadding: 10
