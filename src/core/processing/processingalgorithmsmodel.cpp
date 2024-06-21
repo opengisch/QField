@@ -41,6 +41,12 @@ void ProcessingAlgorithmsProxyModel::rebuild()
   mModel->rebuild();
 }
 
+void ProcessingAlgorithmsProxyModel::setFilters( ProcessingAlgorithmsProxyModel::Filters filters )
+{
+  mFilters = filters;
+  invalidateFilter();
+}
+
 bool ProcessingAlgorithmsProxyModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
 {
   QString left = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmGroupRole ).toString();
@@ -55,6 +61,18 @@ bool ProcessingAlgorithmsProxyModel::lessThan( const QModelIndex &sourceLeft, co
   right = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmNameRole ).toString();
   compare = QString::localeAwareCompare( left, right );
   return compare < 0;
+}
+
+bool ProcessingAlgorithmsProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+{
+  QModelIndex sourceIndex = mModel->index( sourceRow, 0, sourceParent );
+  if ( mFilters & Filter::InPlaceFilter )
+  {
+    const bool supportsInPlace = mModel->data( sourceIndex, ProcessingAlgorithmsModel::AlgorithmFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingAlgorithmFlag::SupportsInPlaceEdits );
+    if ( !supportsInPlace )
+      return false;
+  }
+  return true;
 }
 
 ProcessingAlgorithmsModel::ProcessingAlgorithmsModel( QObject *parent )

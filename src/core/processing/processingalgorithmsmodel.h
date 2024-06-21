@@ -49,15 +49,37 @@ class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 
   public:
+    //! Available filter flags for filtering the model
+    enum Filter
+    {
+      InPlaceFilter = 1 << 1, //!< Only show algorithms which support in-place edits
+    };
+    Q_DECLARE_FLAGS( Filters, Filter )
+    Q_FLAGS( Filters )
+
     explicit ProcessingAlgorithmsProxyModel( QObject *parent = nullptr );
 
     //! Rebuilds the algorithms model.
     Q_INVOKABLE void rebuild();
 
+    /**
+     * Set \a filters that affect how toolbox content is filtered.
+     * \see filters()
+     */
+    void setFilters( ProcessingAlgorithmsProxyModel::Filters filters );
+
+    /**
+     * Returns any filters that affect how toolbox content is filtered.
+     * \see setFilters()
+     */
+    ProcessingAlgorithmsProxyModel::Filters filters() const { return mFilters; }
+
     bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
+    bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
 
   private:
     ProcessingAlgorithmsModel *mModel = nullptr;
+    ProcessingAlgorithmsProxyModel::Filters mFilters;
 };
 
 /**
