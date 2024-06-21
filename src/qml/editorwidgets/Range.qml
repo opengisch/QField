@@ -214,6 +214,7 @@ EditorWidgetBase {
       from: !Number.isFinite(rangeItem.min) ? Number.MIN_VALUE : rangeItem.min
       to: !Number.isFinite(rangeItem.max) ? Number.MAX_VALUE : rangeItem.max
       stepSize: !Number.isFinite(rangeItem.step) ? 1 : rangeItem.step
+      // TODO: using `rangeItem.parent.value` makes item reuseability harder.
       value: rangeItem.parent.value !== undefined && rangeItem.parent.value !== ''
              ? Number(rangeItem.parent.value)
              : from
