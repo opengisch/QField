@@ -33,6 +33,13 @@ TestCase {
     property bool isEnabled: true
   }
 
+  EditorWidgets.CheckBox {
+    id: checkBox
+    property bool value: true
+    property var config: undefined
+    property var field: undefined
+  }
+
 
   /**
    * Test case for textEdit widget
@@ -192,5 +199,105 @@ TestCase {
         compare(dateTime.children[1].children[0].text, results[resultIdx++])
       }
     }
+  }
+
+
+  /**
+   * Test case for checkBox widget
+   *
+   * This function tests the checkBox widget's functionality by:
+   *
+   * - Verifying the initial state of the widget (value, isBool, and null) and its labels
+   *
+   * Then, it sets a configuration with a custom checked and unchecked state and verifies that the widget reflects these states correctly:
+   *
+   * - Verifies the value, isBool, and null properties of the widget
+   * - Verifies the text displayed in the label
+   * - Verifies the checked state of the QfSwitch widget
+   *
+   * It also tests two additional scenarios:
+   *
+   * - Sets `TextDisplayMethod` to 0 and verifies that the display is different
+   * - Sets `type` of the field to 0 and verifies that the display is different
+   */
+  function test_01_checkBox() {
+    compare(checkBox.value, true)
+    compare(checkBox.isBool, false)
+    compare(checkBox.isNull, false)
+    compare(checkBox.checkedLabel, "") // NOTE: `checkedLabel` initialized with "" when config is undefined
+    compare(checkBox.uncheckedLabel, "") // NOTE: `uncheckedLabel` initialized with "" when config is undefined
+
+    // Label -> checkValue
+    compare(checkBox.children[0].text, "")
+
+    // QfSwitch -> checkBox
+    compare(checkBox.children[1].checked, false) // NOTE: even if `value` be true, without config `checked` will be false
+
+    checkBox.config = {
+      "TextDisplayMethod": 1,
+      "CheckedState": "DEFAULT_CHECKED_STATE",
+      "UncheckedState": "DEFAULT_UNCHECKED_STATE"
+    }
+    checkBox.field = {
+      "type": 1
+    }
+    checkBox.value = true
+    compare(checkBox.value, true)
+    compare(checkBox.isBool, true)
+    compare(checkBox.isNull, false)
+    compare(checkBox.checkedLabel, "DEFAULT_CHECKED_STATE")
+    compare(checkBox.uncheckedLabel, "DEFAULT_UNCHECKED_STATE")
+
+    // Label -> checkValue
+    compare(checkBox.children[0].text, "DEFAULT_CHECKED_STATE")
+
+    // QfSwitch -> checkBox
+    compare(checkBox.children[1].checked, true)
+
+    checkBox.value = false
+
+    // Label -> checkValue
+    compare(checkBox.children[0].text, "DEFAULT_UNCHECKED_STATE")
+
+    // QfSwitch -> checkBox
+    compare(checkBox.children[1].checked, false)
+
+    // test TextDisplayMethod = 0
+    checkBox.config = {
+      "TextDisplayMethod": 0,
+      "CheckedState": "DEFAULT_CHECKED_STATE",
+      "UncheckedState": "DEFAULT_UNCHECKED_STATE"
+    }
+    checkBox.field = {
+      "type": 1
+    }
+    checkBox.value = true
+    compare(checkBox.checkedLabel, "True")
+    compare(checkBox.uncheckedLabel, "False")
+
+    // test field type = 0
+    checkBox.config = {
+      "TextDisplayMethod": 1,
+      "CheckedState": "DEFAULT_CHECKED_STATE",
+      "UncheckedState": "DEFAULT_UNCHECKED_STATE"
+    }
+    checkBox.field = {
+      "type": 0
+    }
+    checkBox.value = true
+
+    // Label -> checkValue
+    compare(checkBox.children[0].text, "DEFAULT_UNCHECKED_STATE") // NOTE: value is true but it in unchecked state
+
+    // QfSwitch -> checkBox
+    compare(checkBox.children[1].checked, false) // NOTE: value is true but its not checked
+
+    checkBox.value = false
+
+    // Label -> checkValue
+    compare(checkBox.children[0].text, "DEFAULT_UNCHECKED_STATE")
+
+    // QfSwitch -> checkBox
+    compare(checkBox.children[1].checked, false)
   }
 }
