@@ -90,6 +90,7 @@
 #include "positioningdevicemodel.h"
 #include "positioningutils.h"
 #include "printlayoutlistmodel.h"
+#include "processingalgorithmsmodel.h"
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
 #include "projectsource.h"
@@ -517,6 +518,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
+
+  qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );

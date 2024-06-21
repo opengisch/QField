@@ -32,6 +32,7 @@ set(QFIELD_CORE_SRCS
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
     positioning/positioningdevicemodel.cpp
+    processing/processingalgorithmsmodel.cpp
     appcoordinateoperationhandlers.cpp
     appinterface.cpp
     attributeformmodel.cpp
@@ -145,6 +146,7 @@ set(QFIELD_CORE_HDRS
     positioning/nmeagnssreceiver.h
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
+    processing/processingalgorithmsmodel.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h
@@ -267,6 +269,7 @@ endif()
 
 find_package(SQLite3 REQUIRED)
 find_package(ZXing REQUIRED)
+find_package(GSL REQUIRED)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
@@ -303,7 +306,8 @@ target_include_directories(
          ${CMAKE_SOURCE_DIR}/src/core/platforms
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick
          ${CMAKE_SOURCE_DIR}/src/core/utils
-         ${CMAKE_SOURCE_DIR}/src/core/positioning)
+         ${CMAKE_SOURCE_DIR}/src/core/positioning
+         ${CMAKE_SOURCE_DIR}/src/core/processing)
 if(ANDROID)
   string(REPLACE "_" "_1" APP_PACKAGE_JNI_NAME "${APP_PACKAGE_NAME}")
   configure_file(platforms/android/qfield_android.h.in
@@ -342,7 +346,8 @@ target_link_libraries(
          GDAL::GDAL
          SQLite::SQLite3
          Qca::qca
-         libzip::zip)
+         libzip::zip
+         GSL::gsl)
 
 if(WITH_BLUETOOTH)
   find_package(

@@ -18,6 +18,7 @@ vcpkg_from_github(
         include-qthread.patch
         invoke.patch
         fontsdownload.patch # Remove when upgrading to 3.38
+        processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
