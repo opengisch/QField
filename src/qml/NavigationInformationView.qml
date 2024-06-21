@@ -64,6 +64,7 @@ Rectangle {
           round: true
           bgcolor: "transparent"
           iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+          iconColor: Theme.mainTextColor
 
           onPressed: {
             navigation.previousDestinationVertex()
@@ -87,7 +88,7 @@ Rectangle {
           font: Theme.strongTipFont
           elide: Text.ElideMiddle
           wrapMode: Text.NoWrap
-          color: "#FFFFFF"
+          color: Theme.mainTextColor
           text: navigation.destinationName
         }
 
@@ -100,6 +101,7 @@ Rectangle {
           round: true
           bgcolor: "transparent"
           iconSource: Theme.getThemeIcon("ic_chevron_right_white_24dp")
+          iconColor: Theme.mainTextColor
 
           onPressed: {
             navigation.nextDestinationVertex()
