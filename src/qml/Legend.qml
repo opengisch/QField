@@ -326,7 +326,12 @@ ListView {
 
         QfToolButton {
           id: snappingBadge
-          property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === 'layer' && LayerType === "vectorlayer"
+          property bool isVisible: stateMachine.state === "digitize" &&
+                                   qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration &&
+                                   Type === "layer" &&
+                                   LayerType === "vectorlayer" &&
+                                   VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null &&
+                                   VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
           visible: isVisible
           height: 24
           width: 24
