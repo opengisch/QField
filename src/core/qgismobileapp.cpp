@@ -519,7 +519,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
-  qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
+  qmlRegisterType<ProcessingAlgorithmsProxyModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsProxyModel" );
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );

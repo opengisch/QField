@@ -25,6 +25,38 @@
 
 #include <mutex>
 
+ProcessingAlgorithmsProxyModel::ProcessingAlgorithmsProxyModel( QObject *parent )
+  : QSortFilterProxyModel( parent )
+  , mModel( new ProcessingAlgorithmsModel( parent ) )
+{
+  setSourceModel( mModel );
+  setDynamicSortFilter( true );
+  setSortLocaleAware( true );
+  setFilterCaseSensitivity( Qt::CaseInsensitive );
+  sort( 0 );
+}
+
+void ProcessingAlgorithmsProxyModel::rebuild()
+{
+  mModel->rebuild();
+}
+
+bool ProcessingAlgorithmsProxyModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+{
+  QString left = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmGroupRole ).toString();
+  QString right = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmGroupRole ).toString();
+  int compare = QString::localeAwareCompare( left, right );
+  if ( compare != 0 )
+  {
+    return compare < 0;
+  }
+
+  left = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmNameRole ).toString();
+  right = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmNameRole ).toString();
+  compare = QString::localeAwareCompare( left, right );
+  return compare < 0;
+}
+
 ProcessingAlgorithmsModel::ProcessingAlgorithmsModel( QObject *parent )
   : QAbstractListModel( parent )
 {
@@ -75,7 +107,8 @@ QHash<int, QByteArray> ProcessingAlgorithmsModel::roleNames() const
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[AlgorithmGroupRole] = "AlgorithmGroup";
   roles[AlgorithmNameRole] = "AlgorithmName";
-  roles[AlgorithmIconRole] = "AlgorithmIcon";
+  roles[AlgorithmSvgIconRole] = "AlgorithmSvgIcon";
+  roles[AlgorithmFlagsRole] = "AlgorithmFlags";
 
   return roles;
 }
@@ -99,8 +132,10 @@ QVariant ProcessingAlgorithmsModel::data( const QModelIndex &index, int role ) c
       return mAlgorithms.at( index.row() ).algorithm()->group();
     case AlgorithmNameRole:
       return mAlgorithms.at( index.row() ).algorithm()->displayName();
-    case AlgorithmIconRole:
-      return mAlgorithms.at( index.row() ).algorithm()->icon();
+    case AlgorithmSvgIconRole:
+      return mAlgorithms.at( index.row() ).algorithm()->svgIconPath();
+    case AlgorithmFlagsRole:
+      return static_cast<int>( mAlgorithms.at( index.row() ).algorithm()->flags() );
   }
 
   return QVariant();

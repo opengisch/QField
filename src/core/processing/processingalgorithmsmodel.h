@@ -24,6 +24,8 @@
 class QgsProcessingProvider;
 class QgsProcessingAlgorithm;
 
+class ProcessingAlgorithmsModel;
+
 class AlgorithmItem
 {
   public:
@@ -34,6 +36,28 @@ class AlgorithmItem
 
   private:
     const QgsProcessingAlgorithm *mAlgorithm = nullptr;
+};
+
+
+/**
+ * \brief A sort/filter proxy model for providers and algorithms available within QField
+ * which automatically sorts the toolbox in a logical fashion and supports filtering
+ * the results.
+ */
+class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+
+  public:
+    explicit ProcessingAlgorithmsProxyModel( QObject *parent = nullptr );
+
+    //! Rebuilds the algorithms model.
+    Q_INVOKABLE void rebuild();
+
+    bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
+
+  private:
+    ProcessingAlgorithmsModel *mModel = nullptr;
 };
 
 /**
@@ -52,7 +76,8 @@ class ProcessingAlgorithmsModel : public QAbstractListModel
     {
       AlgorithmGroupRole = Qt::UserRole, //! the algorithm's group
       AlgorithmNameRole,                 //! the algorithm's name
-      AlgorithmIconRole,                 //! the algorithm's icon
+      AlgorithmSvgIconRole,              //! the algorithm's SVG icon path
+      AlgorithmFlagsRole,                //! the algorithm's flags
     };
     Q_ENUM( Role )
 
