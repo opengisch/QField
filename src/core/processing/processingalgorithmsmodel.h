@@ -47,6 +47,15 @@ class ProcessingAlgorithmsModel : public QAbstractListModel
     Q_OBJECT
 
   public:
+    //!Roles to get the data of the model.
+    enum Role
+    {
+      AlgorithmGroupRole = Qt::UserRole, //! the algorithm's group
+      AlgorithmNameRole,                 //! the algorithm's name
+      AlgorithmIconRole,                 //! the algorithm's icon
+    };
+    Q_ENUM( Role )
+
     explicit ProcessingAlgorithmsModel( QObject *parent = nullptr );
 
     //! Rebuilds the algorithms model.

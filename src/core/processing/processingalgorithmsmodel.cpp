@@ -73,7 +73,9 @@ void ProcessingAlgorithmsModel::addProvider( QgsProcessingProvider *provider )
 QHash<int, QByteArray> ProcessingAlgorithmsModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-  //roles[ProjectTypeRole] = "ProjectType";
+  roles[AlgorithmGroupRole] = "AlgorithmGroup";
+  roles[AlgorithmNameRole] = "AlgorithmName";
+  roles[AlgorithmIconRole] = "AlgorithmIcon";
 
   return roles;
 }
@@ -88,8 +90,18 @@ int ProcessingAlgorithmsModel::rowCount( const QModelIndex &parent ) const
 
 QVariant ProcessingAlgorithmsModel::data( const QModelIndex &index, int role ) const
 {
-  if ( index.row() >= mAlgorithms.size() || index.row() < 0 )
+  if ( index.row() >= mAlgorithms.size() || index.row() < 0 || !mAlgorithms.at( index.row() ).algorithm() )
     return QVariant();
+
+  switch ( role )
+  {
+    case AlgorithmGroupRole:
+      return mAlgorithms.at( index.row() ).algorithm()->group();
+    case AlgorithmNameRole:
+      return mAlgorithms.at( index.row() ).algorithm()->displayName();
+    case AlgorithmIconRole:
+      return mAlgorithms.at( index.row() ).algorithm()->icon();
+  }
 
   return QVariant();
 }
