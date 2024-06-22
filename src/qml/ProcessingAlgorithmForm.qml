@@ -18,7 +18,10 @@ Item {
   ProcessingAlgorithmParametersModel {
     id: processingAlgorithmParametersModel
     filters: ProcessingAlgorithmParametersModel.GeneralParameterFilter
-    algorithmId: "native:orthogonalize"
+
+    onAlgorithmIdChanged: {
+      filters = ProcessingAlgorithmParametersModel.GeneralParameterFilter
+    }
   }
 
   ColumnLayout {
@@ -30,6 +33,7 @@ Item {
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
 
+      visible: processingAlgorithmParametersModel.hasAdvancedParameters
       model: [qsTr("General Parameters"), qsTr("Advanced Parameters")]
 
       delegate: TabButton {
@@ -75,6 +79,7 @@ Item {
 
     Flickable {
       id: contentView
+      Layout.topMargin: 5
       Layout.fillWidth: true
       Layout.fillHeight: true
 

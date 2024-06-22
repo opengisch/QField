@@ -59,6 +59,11 @@ bool ProcessingAlgorithmParametersModel::isValid() const
   return mModel->isValid();
 }
 
+bool ProcessingAlgorithmParametersModel::hasAdvancedParameters() const
+{
+  return mModel->hasAdvancedParameters();
+}
+
 QString ProcessingAlgorithmParametersModel::algorithmDisplayName() const
 {
   return mModel->algorithmDisplayName();
@@ -101,6 +106,7 @@ ProcessingAlgorithmParametersModelBase::ProcessingAlgorithmParametersModelBase( 
 void ProcessingAlgorithmParametersModelBase::rebuild()
 {
   beginResetModel();
+  mHasAdvancedParameters = false;
   mParameters.clear();
   mValues.clear();
 
@@ -112,6 +118,11 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
     {
       if ( sSupportedParameters.contains( definition->type() ) )
       {
+        if ( definition->flags() & Qgis::ProcessingParameterFlag::Advanced )
+        {
+          mHasAdvancedParameters = true;
+        }
+
         mParameters << definition;
         mValues << definition->defaultValue();
       }
@@ -130,9 +141,10 @@ void ProcessingAlgorithmParametersModelBase::setAlgorithmId( const QString &id )
 
   mAlgorithmId = id;
   mAlgorithm = !mAlgorithmId.isEmpty() ? QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId ) : nullptr;
-  emit algorithmIdChanged();
 
   rebuild();
+
+  emit algorithmIdChanged();
 }
 
 QString ProcessingAlgorithmParametersModelBase::algorithmDisplayName() const

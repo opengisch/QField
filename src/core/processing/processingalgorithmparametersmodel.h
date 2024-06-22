@@ -40,6 +40,7 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
 
     Q_PROPERTY( QString algorithmId READ algorithmId WRITE setAlgorithmId NOTIFY algorithmIdChanged )
     Q_PROPERTY( bool isValid READ isValid NOTIFY algorithmIdChanged )
+    Q_PROPERTY( bool hasAdvancedParameters READ hasAdvancedParameters NOTIFY algorithmIdChanged )
 
     Q_PROPERTY( QString algorithmDisplayName READ algorithmDisplayName NOTIFY algorithmIdChanged )
     Q_PROPERTY( QString algorithmShortHelp READ algorithmShortHelp NOTIFY algorithmIdChanged )
@@ -82,6 +83,11 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
      * Returns whether the current model refers to a valid algorithm.
      */
     bool isValid() const;
+
+    /**
+     * Returns whether the current model has advanced parameters.
+     */
+    bool hasAdvancedParameters() const;
 
     /**
      * Returns the display name of the algorithm.
@@ -148,6 +154,11 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
     bool isValid() const { return mAlgorithm; }
 
     /**
+     * Returns whether the current model has advanced parameters.
+     */
+    bool hasAdvancedParameters() const { return mHasAdvancedParameters; }
+
+    /**
      * Returns the display name of the algorithm.
      */
     QString algorithmDisplayName() const;
@@ -176,6 +187,9 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
 
     QString mAlgorithmId;
     const QgsProcessingAlgorithm *mAlgorithm = nullptr;
+
+    bool mHasAdvancedParameters = false;
+
     QList<const QgsProcessingParameterDefinition *> mParameters;
     QList<QVariant> mValues;
 };
