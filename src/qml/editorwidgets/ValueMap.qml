@@ -136,7 +136,7 @@ EditorWidgetBase {
             Text {
               id: innerText
               width: Math.min(flow.width - 32 , implicitWidth)
-              text: key
+              text: value
               elide: Text.ElideRight
               anchors.centerIn: parent
               font: Theme.defaultFont
