@@ -26,9 +26,10 @@
 
 #include <mutex>
 
-ProcessingAlgorithmsProxyModel::ProcessingAlgorithmsProxyModel( QObject *parent )
+
+ProcessingAlgorithmsModel::ProcessingAlgorithmsModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mModel( new ProcessingAlgorithmsModel( parent ) )
+  , mModel( new ProcessingAlgorithmsModelBase( parent ) )
 {
   setSourceModel( mModel );
   setDynamicSortFilter( true );
@@ -37,12 +38,12 @@ ProcessingAlgorithmsProxyModel::ProcessingAlgorithmsProxyModel( QObject *parent 
   sort( 0 );
 }
 
-void ProcessingAlgorithmsProxyModel::rebuild()
+void ProcessingAlgorithmsModel::rebuild()
 {
   mModel->rebuild();
 }
 
-void ProcessingAlgorithmsProxyModel::setFilters( ProcessingAlgorithmsProxyModel::Filters filters )
+void ProcessingAlgorithmsModel::setFilters( ProcessingAlgorithmsModel::Filters filters )
 {
   if ( mFilters == filters )
   {
@@ -55,7 +56,7 @@ void ProcessingAlgorithmsProxyModel::setFilters( ProcessingAlgorithmsProxyModel:
   invalidateFilter();
 }
 
-void ProcessingAlgorithmsProxyModel::setInPlaceLayer( QgsVectorLayer *layer )
+void ProcessingAlgorithmsModel::setInPlaceLayer( QgsVectorLayer *layer )
 {
   if ( mInPlaceLayer.data() == layer )
   {
@@ -68,28 +69,28 @@ void ProcessingAlgorithmsProxyModel::setInPlaceLayer( QgsVectorLayer *layer )
   invalidateFilter();
 }
 
-bool ProcessingAlgorithmsProxyModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+bool ProcessingAlgorithmsModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
 {
-  QString left = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmGroupRole ).toString();
-  QString right = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmGroupRole ).toString();
+  QString left = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
+  QString right = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
   int compare = QString::localeAwareCompare( left, right );
   if ( compare != 0 )
   {
     return compare < 0;
   }
 
-  left = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmNameRole ).toString();
-  right = mModel->data( sourceLeft, ProcessingAlgorithmsModel::AlgorithmNameRole ).toString();
+  left = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
+  right = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
   compare = QString::localeAwareCompare( left, right );
   return compare < 0;
 }
 
-bool ProcessingAlgorithmsProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+bool ProcessingAlgorithmsModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   QModelIndex sourceIndex = mModel->index( sourceRow, 0, sourceParent );
   if ( mFilters & Filter::InPlaceFilter )
   {
-    const bool supportsInPlace = mModel->data( sourceIndex, ProcessingAlgorithmsModel::AlgorithmFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingAlgorithmFlag::SupportsInPlaceEdits );
+    const bool supportsInPlace = mModel->data( sourceIndex, ProcessingAlgorithmsModelBase::AlgorithmFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingAlgorithmFlag::SupportsInPlaceEdits );
     if ( !supportsInPlace )
       return false;
   }
@@ -105,7 +106,8 @@ bool ProcessingAlgorithmsProxyModel::filterAcceptsRow( int sourceRow, const QMod
   return true;
 }
 
-ProcessingAlgorithmsModel::ProcessingAlgorithmsModel( QObject *parent )
+
+ProcessingAlgorithmsModelBase::ProcessingAlgorithmsModelBase( QObject *parent )
   : QAbstractListModel( parent )
 {
   static std::once_flag initialized;
@@ -113,7 +115,7 @@ ProcessingAlgorithmsModel::ProcessingAlgorithmsModel( QObject *parent )
   rebuild();
 }
 
-void ProcessingAlgorithmsModel::rebuild()
+void ProcessingAlgorithmsModelBase::rebuild()
 {
   beginResetModel();
   mAlgorithms.clear();
@@ -128,14 +130,14 @@ void ProcessingAlgorithmsModel::rebuild()
   endResetModel();
 }
 
-void ProcessingAlgorithmsModel::addProvider( QgsProcessingProvider *provider )
+void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider )
 {
   if ( !provider )
   {
     return;
   }
 
-  connect( provider, &QgsProcessingProvider::algorithmsLoaded, this, &ProcessingAlgorithmsModel::rebuild, Qt::UniqueConnection );
+  connect( provider, &QgsProcessingProvider::algorithmsLoaded, this, &ProcessingAlgorithmsModelBase::rebuild, Qt::UniqueConnection );
 
   const QList<const QgsProcessingAlgorithm *> algorithms = provider->algorithms();
   for ( const QgsProcessingAlgorithm *algorithm : algorithms )
@@ -150,7 +152,7 @@ void ProcessingAlgorithmsModel::addProvider( QgsProcessingProvider *provider )
   }
 }
 
-const QgsProcessingAlgorithm *ProcessingAlgorithmsModel::algorithmForIndex( const QModelIndex &index ) const
+const QgsProcessingAlgorithm *ProcessingAlgorithmsModelBase::algorithmForIndex( const QModelIndex &index ) const
 {
   if ( index.row() >= mAlgorithms.size() || index.row() < 0 )
   {
@@ -160,7 +162,7 @@ const QgsProcessingAlgorithm *ProcessingAlgorithmsModel::algorithmForIndex( cons
   return mAlgorithms.value( index.row() ).algorithm();
 }
 
-QHash<int, QByteArray> ProcessingAlgorithmsModel::roleNames() const
+QHash<int, QByteArray> ProcessingAlgorithmsModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[AlgorithmIdRole] = "AlgorithmId";
@@ -172,7 +174,7 @@ QHash<int, QByteArray> ProcessingAlgorithmsModel::roleNames() const
   return roles;
 }
 
-int ProcessingAlgorithmsModel::rowCount( const QModelIndex &parent ) const
+int ProcessingAlgorithmsModelBase::rowCount( const QModelIndex &parent ) const
 {
   if ( !parent.isValid() )
     return mAlgorithms.size();
@@ -180,7 +182,7 @@ int ProcessingAlgorithmsModel::rowCount( const QModelIndex &parent ) const
     return 0;
 }
 
-QVariant ProcessingAlgorithmsModel::data( const QModelIndex &index, int role ) const
+QVariant ProcessingAlgorithmsModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mAlgorithms.size() || index.row() < 0 || !mAlgorithms.at( index.row() ).algorithm() )
     return QVariant();

@@ -10,8 +10,8 @@ import org.qfield 1.0
 Item {
   id: processingAlgorithmsList
 
-  property alias filters: processingAlgorithmsProxyModel.filters
-  property alias inPlaceLayer: processingAlgorithmsProxyModel.inPlaceLayer
+  property alias filters: processingAlgorithmsModel.filters
+  property alias inPlaceLayer: processingAlgorithmsModel.inPlaceLayer
 
   Rectangle {
     anchors.fill: parent
@@ -23,9 +23,9 @@ Item {
     anchors.fill: parent
     clip: true
 
-    model: ProcessingAlgorithmsProxyModel {
-      id: processingAlgorithmsProxyModel
-      filters: ProcessingAlgorithmsProxyModel.InPlaceFilter
+    model: ProcessingAlgorithmsModel {
+      id: processingAlgorithmsModel
+      filters: ProcessingAlgorithmsModel.InPlaceFilter
     }
 
     section.property: "AlgorithmGroup"

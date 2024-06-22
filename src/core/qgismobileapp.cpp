@@ -521,7 +521,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
   qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );
-  qmlRegisterType<ProcessingAlgorithmsProxyModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsProxyModel" );
+  qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );

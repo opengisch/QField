@@ -26,7 +26,7 @@ class QgsProcessingProvider;
 class QgsProcessingAlgorithm;
 class QgsVectorLayer;
 
-class ProcessingAlgorithmsModel;
+class ProcessingAlgorithmsModelBase;
 
 class AlgorithmItem
 {
@@ -46,11 +46,11 @@ class AlgorithmItem
  * which automatically sorts the toolbox in a logical fashion and supports filtering
  * the results.
  */
-class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
+class ProcessingAlgorithmsModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( ProcessingAlgorithmsProxyModel::Filters filters READ filters WRITE setFilters NOTIFY filtersChanged )
+    Q_PROPERTY( ProcessingAlgorithmsModel::Filters filters READ filters WRITE setFilters NOTIFY filtersChanged )
     Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
 
   public:
@@ -62,7 +62,7 @@ class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
     Q_DECLARE_FLAGS( Filters, Filter )
     Q_FLAGS( Filters )
 
-    explicit ProcessingAlgorithmsProxyModel( QObject *parent = nullptr );
+    explicit ProcessingAlgorithmsModel( QObject *parent = nullptr );
 
     //! Rebuilds the algorithms model.
     Q_INVOKABLE void rebuild();
@@ -71,13 +71,13 @@ class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
      * Returns any filters that affect how toolbox content is filtered.
      * \see setFilters()
      */
-    ProcessingAlgorithmsProxyModel::Filters filters() const { return mFilters; }
+    ProcessingAlgorithmsModel::Filters filters() const { return mFilters; }
 
     /**
      * Set \a filters that affect how toolbox content is filtered.
      * \see filters()
      */
-    void setFilters( ProcessingAlgorithmsProxyModel::Filters filters );
+    void setFilters( ProcessingAlgorithmsModel::Filters filters );
 
     /**
      * Returns the vector \a layer for in-place algorithm filter
@@ -104,8 +104,8 @@ class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
     void inPlaceLayerChanged();
 
   private:
-    ProcessingAlgorithmsModel *mModel = nullptr;
-    ProcessingAlgorithmsProxyModel::Filters mFilters;
+    ProcessingAlgorithmsModelBase *mModel = nullptr;
+    ProcessingAlgorithmsModel::Filters mFilters;
     QPointer<QgsVectorLayer> mInPlaceLayer;
 };
 
@@ -115,7 +115,7 @@ class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
  * See ProcessingAlgorithmsProxyModel for a sorted, filterable version
  * of this model.
  */
-class ProcessingAlgorithmsModel : public QAbstractListModel
+class ProcessingAlgorithmsModelBase : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -131,7 +131,7 @@ class ProcessingAlgorithmsModel : public QAbstractListModel
     };
     Q_ENUM( Role )
 
-    explicit ProcessingAlgorithmsModel( QObject *parent = nullptr );
+    explicit ProcessingAlgorithmsModelBase( QObject *parent = nullptr );
 
     //! Rebuilds the algorithms model.
     Q_INVOKABLE void rebuild();
