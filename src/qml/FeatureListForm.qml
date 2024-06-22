@@ -170,11 +170,6 @@ Rectangle {
     /* Show a list of processing algorithms compatible with the selected feature(s) */
     State {
       name: "ProcessingAlgorithmsList"
-      StateChangeScript {
-        script: {
-          console.log('JEZAS!')
-        }
-      }
       PropertyChanges {
         target: processingAlgorithmsList
         shown: true
@@ -547,6 +542,10 @@ Rectangle {
     onToggleMultiSelection: {
         featureForm.selection.focusedItem = -1;
         if ( featureForm.multiSelection ) {
+            if (featureForm.state == "ProcessingAlgorithmsList") {
+              featureForm.state = "FeatureList"
+            }
+
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureFormList.model.applyFeatureModel()
             featureForm.selection.model.clearSelection();

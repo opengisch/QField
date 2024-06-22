@@ -601,7 +601,8 @@ Rectangle {
 
     MenuItem {
       id: processingSelectedFeaturesBtn
-      text: qsTr( 'Run Processing Algorithm on Selected Feature(s)' )
+      text: qsTr( 'Process Selected Feature(s)' )
+      icon.source: Theme.getThemeVectorIcon( "ic_processing_black_24dp" )
       enabled: toolBar.model && toolBar.model.canProcessSelection && projectInfo.editRights
 
       font: Theme.defaultFont
