@@ -123,7 +123,6 @@ void ProcessingAlgorithmsModelBase::rebuild()
   const QList<QgsProcessingProvider *> providers = QgsApplication::processingRegistry()->providers();
   for ( QgsProcessingProvider *provider : providers )
   {
-    qDebug() << provider->id();
     addProvider( provider );
   }
 

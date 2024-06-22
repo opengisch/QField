@@ -13,6 +13,8 @@ Item {
   property alias filters: processingAlgorithmsModel.filters
   property alias inPlaceLayer: processingAlgorithmsModel.inPlaceLayer
 
+  signal algorithmSelected(var id)
+
   Rectangle {
     anchors.fill: parent
     color: Theme.controlBackgroundColor
@@ -31,7 +33,6 @@ Item {
     section.property: "AlgorithmGroup"
     section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
     section.delegate: Component {
-      /* section header: layer name */
       Rectangle {
         width: parent.width
         height: 30
@@ -85,7 +86,7 @@ Item {
         anchors.fill: parent
 
         onClicked: {
-          // ...
+          processingAlgorithmsList.algorithmSelected(AlgorithmId)
         }
       }
 

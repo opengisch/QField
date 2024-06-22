@@ -120,7 +120,15 @@ Rectangle {
         shown: true
       }
       PropertyChanges {
+        target: featureFormList
+        shown: false
+      }
+      PropertyChanges {
         target: processingAlgorithmsList
+        shown: false
+      }
+      PropertyChanges {
+        target: processingAlgorithmForm
         shown: false
       }
       PropertyChanges {
@@ -144,6 +152,10 @@ Rectangle {
       PropertyChanges {
         target: globalFeaturesList
         shown: false
+      }
+      PropertyChanges {
+        target: featureFormList
+        shown: true
       }
       PropertyChanges {
         target: featureListToolBar
@@ -175,8 +187,27 @@ Rectangle {
         shown: true
       }
       PropertyChanges {
+        target: processingAlgorithmForm
+        shown: false
+      }
+      PropertyChanges {
         target: globalFeaturesList
         shown: false
+      }
+      PropertyChanges {
+        target: featureListToolBar
+        state: "Indication"
+      }
+    },
+    State {
+      name: "ProcessingAlgorithmForm"
+      PropertyChanges {
+        target: processingAlgorithmsList
+        shown: false
+      }
+      PropertyChanges {
+        target: processingAlgorithmForm
+        shown: true
       }
       PropertyChanges {
         target: featureListToolBar
@@ -203,9 +234,10 @@ Rectangle {
     anchors.right: parent.right
     anchors.bottom: parent.bottom
     anchors.bottomMargin: mainWindow.sceneBottomMargin
+    height: parent.height - featureListToolBar.height
 
     property bool shown: false
-    onShownChanged: height =shown ? parent.height - featureListToolBar.height : 0
+    visible: shown
 
     clip: true
 
@@ -357,6 +389,9 @@ Rectangle {
     bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
 
+    property bool shown: false
+    visible: shown
+
     digitizingToolbar: featureForm.digitizingToolbar
     codeReader: featureForm.codeReader
 
@@ -372,8 +407,6 @@ Rectangle {
 
     focus: true
 
-    visible: !globalFeaturesList.shown
-
     onCancelled: {
       featureForm.selection.focusedItemChanged()
       featureFormList.model.featureModel.reset()
@@ -388,6 +421,24 @@ Rectangle {
     id: processingAlgorithmsList
 
     inPlaceLayer: featureForm.selection.focusedLayer
+
+    anchors.top: featureListToolBar.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: mainWindow.sceneBottomMargin
+
+    property bool shown: false
+    visible: shown
+
+    onAlgorithmSelected: (id) => {
+      processingAlgorithmForm.algorithmId = id
+      featureForm.state = "ProcessingAlgorithmForm"
+    }
+  }
+
+  ProcessingAlgorithmForm {
+    id: processingAlgorithmForm
 
     anchors.top: featureListToolBar.bottom
     anchors.left: parent.left
@@ -542,7 +593,7 @@ Rectangle {
     onToggleMultiSelection: {
         featureForm.selection.focusedItem = -1;
         if ( featureForm.multiSelection ) {
-            if (featureForm.state == "ProcessingAlgorithmsList") {
+            if (featureForm.state == "ProcessingAlgorithmsList" || featureForm.state == "ProcessingAlgorithmForm") {
               featureForm.state = "FeatureList"
             }
 

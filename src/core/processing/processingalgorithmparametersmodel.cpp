@@ -24,11 +24,81 @@
 
 
 ProcessingAlgorithmParametersModel::ProcessingAlgorithmParametersModel( QObject *parent )
+  : QSortFilterProxyModel( parent )
+  , mModel( new ProcessingAlgorithmParametersModelBase( parent ) )
+{
+  setSourceModel( mModel );
+  connect( mModel, &ProcessingAlgorithmParametersModelBase::algorithmIdChanged, this, &ProcessingAlgorithmParametersModel::algorithmIdChanged );
+}
+
+void ProcessingAlgorithmParametersModel::setFilters( ProcessingAlgorithmParametersModel::Filters filters )
+{
+  if ( mFilters == filters )
+  {
+    return;
+  }
+
+  mFilters = filters;
+  emit filtersChanged();
+
+  invalidateFilter();
+}
+
+QString ProcessingAlgorithmParametersModel::algorithmId() const
+{
+  return mModel->algorithmId();
+}
+
+void ProcessingAlgorithmParametersModel::setAlgorithmId( const QString &id )
+{
+  mModel->setAlgorithmId( id );
+}
+
+bool ProcessingAlgorithmParametersModel::isValid() const
+{
+  return mModel->isValid();
+}
+
+QString ProcessingAlgorithmParametersModel::algorithmDisplayName() const
+{
+  return mModel->algorithmDisplayName();
+}
+
+QString ProcessingAlgorithmParametersModel::algorithmShortHelp() const
+{
+  return mModel->algorithmShortHelp();
+}
+
+bool ProcessingAlgorithmParametersModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+{
+  QModelIndex sourceIndex = mModel->index( sourceRow, 0, sourceParent );
+  if ( ( mFilters & Filter::GeneralParameterFilter ) && ( mFilters & Filter::AdvancedParameterFilter ) )
+  {
+    return true;
+  }
+  else if ( mFilters & Filter::GeneralParameterFilter )
+  {
+    const bool advancedParameter = mModel->data( sourceIndex, ProcessingAlgorithmParametersModelBase::ParameterFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingParameterFlag::Advanced );
+    if ( advancedParameter )
+      return false;
+  }
+  else if ( mFilters & Filter::AdvancedParameterFilter )
+  {
+    const bool advancedParameter = mModel->data( sourceIndex, ProcessingAlgorithmParametersModelBase::ParameterFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingParameterFlag::Advanced );
+    if ( !advancedParameter )
+      return false;
+  }
+
+  return true;
+}
+
+
+ProcessingAlgorithmParametersModelBase::ProcessingAlgorithmParametersModelBase( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-void ProcessingAlgorithmParametersModel::rebuild()
+void ProcessingAlgorithmParametersModelBase::rebuild()
 {
   beginResetModel();
   mParameters.clear();
@@ -36,18 +106,22 @@ void ProcessingAlgorithmParametersModel::rebuild()
 
   if ( mAlgorithm )
   {
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ) };
     const QgsProcessingAlgorithm *algorithm = QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId );
     for ( const QgsProcessingParameterDefinition *definition : algorithm->parameterDefinitions() )
     {
-      mParameters << definition;
-      mValues << definition->defaultValue();
+      if ( sSupportedParameters.contains( definition->type() ) )
+      {
+        mParameters << definition;
+        mValues << definition->defaultValue();
+      }
     }
   }
 
   endResetModel();
 }
 
-void ProcessingAlgorithmParametersModel::setAlgorithmId( const QString &id )
+void ProcessingAlgorithmParametersModelBase::setAlgorithmId( const QString &id )
 {
   if ( mAlgorithmId == id )
   {
@@ -55,34 +129,35 @@ void ProcessingAlgorithmParametersModel::setAlgorithmId( const QString &id )
   }
 
   mAlgorithmId = id;
-  mAlgorithm = mAlgorithmId.isEmpty() ? QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId ) : nullptr;
+  mAlgorithm = !mAlgorithmId.isEmpty() ? QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId ) : nullptr;
   emit algorithmIdChanged();
 
   rebuild();
 }
 
-QString ProcessingAlgorithmParametersModel::algorithmDisplayName() const
+QString ProcessingAlgorithmParametersModelBase::algorithmDisplayName() const
 {
   return mAlgorithm ? mAlgorithm->displayName() : QString();
 }
 
-QString ProcessingAlgorithmParametersModel::algorithmShortDescription() const
+QString ProcessingAlgorithmParametersModelBase::algorithmShortHelp() const
 {
-  return mAlgorithm ? mAlgorithm->shortDescription() : QString();
+  return mAlgorithm ? mAlgorithm->shortHelpString() : QString();
 }
 
-QHash<int, QByteArray> ProcessingAlgorithmParametersModel::roleNames() const
+QHash<int, QByteArray> ProcessingAlgorithmParametersModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[ParameterTypeRole] = "ParameterType";
   roles[ParameterDescriptionRole] = "ParameterDescription";
+  roles[ParameterFlagsRole] = "ParameterFlags";
   roles[ParameterDefaultValueRole] = "ParameterDefaultValue";
   roles[ParameterValueRole] = "ParameterValue";
 
   return roles;
 }
 
-int ProcessingAlgorithmParametersModel::rowCount( const QModelIndex &parent ) const
+int ProcessingAlgorithmParametersModelBase::rowCount( const QModelIndex &parent ) const
 {
   if ( !parent.isValid() )
     return mParameters.size();
@@ -90,7 +165,7 @@ int ProcessingAlgorithmParametersModel::rowCount( const QModelIndex &parent ) co
     return 0;
 }
 
-QVariant ProcessingAlgorithmParametersModel::data( const QModelIndex &index, int role ) const
+QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mParameters.size() || index.row() < 0 || !mParameters.at( index.row() ) )
     return QVariant();
@@ -101,6 +176,8 @@ QVariant ProcessingAlgorithmParametersModel::data( const QModelIndex &index, int
       return mParameters.at( index.row() )->type();
     case ParameterDescriptionRole:
       return mParameters.at( index.row() )->description();
+    case ParameterFlagsRole:
+      return static_cast<int>( mParameters.at( index.row() )->flags() );
     case ParameterDefaultValueRole:
       return mParameters.at( index.row() )->defaultValue();
     case ParameterValueRole:
@@ -110,7 +187,7 @@ QVariant ProcessingAlgorithmParametersModel::data( const QModelIndex &index, int
   return QVariant();
 }
 
-bool ProcessingAlgorithmParametersModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool ProcessingAlgorithmParametersModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( index.row() >= mParameters.size() || index.row() < 0 || !mParameters.at( index.row() ) )
     return false;
