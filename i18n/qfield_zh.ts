@@ -2163,7 +2163,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>将工程存储在QFieldCloud可提供无缝同步、离线编辑和团队管理。&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">将工程存储在QFieldCloud可提供无缝同步、离线编辑和团队管理。&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2360,6 +2360,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
         <translation>当前工程不允许关闭自动推送</translation>
+    </message>
+    <message>
+        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
+        <translation>将工程文件存储在QFieldCloud中，可提供无缝同步、离线编辑和团队管理等功能。&lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>

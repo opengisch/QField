@@ -2167,7 +2167,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Armazenar projetos no QFieldCloud oferece uma sincronização segura, com edição offline e gestão de equipas.&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">Armazenar projetos no QFieldCloud oferece uma sincronização segura, com edição offline e gestão de equipas.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2364,6 +2364,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
         <translation>O projeto atual não permite que o envio automático seja desativado</translation>
+    </message>
+    <message>
+        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -2165,7 +2165,7 @@ syy: %2</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Projektien tallentaminen QFieldCloudiin tarjoaa saumatonta synkronointia, offline-muokkausta ja tiimin hallintaa.&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">Projektien tallentaminen QFieldCloudiin tarjoaa saumatonta synkronointia, offline-muokkausta ja tiimin hallintaa.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2362,6 +2362,10 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation type="unfinished"/>
     </message>
 </context>
