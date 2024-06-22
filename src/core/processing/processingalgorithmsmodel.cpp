@@ -163,6 +163,7 @@ const QgsProcessingAlgorithm *ProcessingAlgorithmsModel::algorithmForIndex( cons
 QHash<int, QByteArray> ProcessingAlgorithmsModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
+  roles[AlgorithmIdRole] = "AlgorithmId";
   roles[AlgorithmGroupRole] = "AlgorithmGroup";
   roles[AlgorithmNameRole] = "AlgorithmName";
   roles[AlgorithmSvgIconRole] = "AlgorithmSvgIcon";
@@ -186,6 +187,8 @@ QVariant ProcessingAlgorithmsModel::data( const QModelIndex &index, int role ) c
 
   switch ( role )
   {
+    case AlgorithmIdRole:
+      return mAlgorithms.at( index.row() ).algorithm()->id();
     case AlgorithmGroupRole:
       return mAlgorithms.at( index.row() ).algorithm()->group();
     case AlgorithmNameRole:

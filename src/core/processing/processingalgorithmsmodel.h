@@ -123,10 +123,11 @@ class ProcessingAlgorithmsModel : public QAbstractListModel
     //!Roles to get the data of the model.
     enum Role
     {
-      AlgorithmGroupRole = Qt::UserRole, //! the algorithm's group
-      AlgorithmNameRole,                 //! the algorithm's name
-      AlgorithmSvgIconRole,              //! the algorithm's SVG icon path
-      AlgorithmFlagsRole,                //! the algorithm's flags
+      AlgorithmIdRole = Qt::UserRole, //! the algorithm unique ID
+      AlgorithmGroupRole,             //! the algorithm group
+      AlgorithmNameRole,              //! the algorithm name
+      AlgorithmSvgIconRole,           //! the algorithm SVG icon path
+      AlgorithmFlagsRole,             //! the algorithm flags
     };
     Q_ENUM( Role )
 

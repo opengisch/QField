@@ -32,6 +32,7 @@ set(QFIELD_CORE_SRCS
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
     positioning/positioningdevicemodel.cpp
+    processing/processingalgorithmparametersmodel.cpp
     processing/processingalgorithmsmodel.cpp
     appcoordinateoperationhandlers.cpp
     appinterface.cpp
@@ -146,6 +147,7 @@ set(QFIELD_CORE_HDRS
     positioning/nmeagnssreceiver.h
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
+    processing/processingalgorithmparametersmodel.h
     processing/processingalgorithmsmodel.h
     appcoordinateoperationhandlers.h
     appinterface.h
