@@ -22,6 +22,7 @@
 #include <qgsprocessingalgorithm.h>
 #include <qgsprocessingprovider.h>
 #include <qgsprocessingregistry.h>
+#include <qgsvectorlayer.h>
 
 #include <mutex>
 
@@ -43,7 +44,27 @@ void ProcessingAlgorithmsProxyModel::rebuild()
 
 void ProcessingAlgorithmsProxyModel::setFilters( ProcessingAlgorithmsProxyModel::Filters filters )
 {
+  if ( mFilters == filters )
+  {
+    return;
+  }
+
   mFilters = filters;
+  emit filtersChanged();
+
+  invalidateFilter();
+}
+
+void ProcessingAlgorithmsProxyModel::setInPlaceLayer( QgsVectorLayer *layer )
+{
+  if ( mInPlaceLayer.data() == layer )
+  {
+    return;
+  }
+
+  mInPlaceLayer = layer;
+  emit inPlaceLayerChanged();
+
   invalidateFilter();
 }
 
@@ -72,6 +93,15 @@ bool ProcessingAlgorithmsProxyModel::filterAcceptsRow( int sourceRow, const QMod
     if ( !supportsInPlace )
       return false;
   }
+  if ( mInPlaceLayer )
+  {
+    const QgsProcessingAlgorithm *algorithm = mModel->algorithmForIndex( sourceIndex );
+    if ( algorithm && !algorithm->supportInPlaceEdit( mInPlaceLayer.data() ) )
+    {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -118,6 +148,16 @@ void ProcessingAlgorithmsModel::addProvider( QgsProcessingProvider *provider )
 
     mAlgorithms << AlgorithmItem( algorithm );
   }
+}
+
+const QgsProcessingAlgorithm *ProcessingAlgorithmsModel::algorithmForIndex( const QModelIndex &index ) const
+{
+  if ( index.row() >= mAlgorithms.size() || index.row() < 0 )
+  {
+    return nullptr;
+  }
+
+  return mAlgorithms.value( index.row() ).algorithm();
 }
 
 QHash<int, QByteArray> ProcessingAlgorithmsModel::roleNames() const

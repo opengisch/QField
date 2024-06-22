@@ -19,10 +19,12 @@
 #define PROCESSINGALGORITHMSMODEL
 
 #include <QAbstractListModel>
+#include <QPointer>
 #include <QSortFilterProxyModel>
 
 class QgsProcessingProvider;
 class QgsProcessingAlgorithm;
+class QgsVectorLayer;
 
 class ProcessingAlgorithmsModel;
 
@@ -48,6 +50,9 @@ class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
+    Q_PROPERTY( ProcessingAlgorithmsProxyModel::Filters filters READ filters WRITE setFilters NOTIFY filtersChanged )
+    Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
+
   public:
     //! Available filter flags for filtering the model
     enum Filter
@@ -63,23 +68,45 @@ class ProcessingAlgorithmsProxyModel : public QSortFilterProxyModel
     Q_INVOKABLE void rebuild();
 
     /**
+     * Returns any filters that affect how toolbox content is filtered.
+     * \see setFilters()
+     */
+    ProcessingAlgorithmsProxyModel::Filters filters() const { return mFilters; }
+
+    /**
      * Set \a filters that affect how toolbox content is filtered.
      * \see filters()
      */
     void setFilters( ProcessingAlgorithmsProxyModel::Filters filters );
 
     /**
-     * Returns any filters that affect how toolbox content is filtered.
-     * \see setFilters()
+     * Returns the vector \a layer for in-place algorithm filter
      */
-    ProcessingAlgorithmsProxyModel::Filters filters() const { return mFilters; }
+    QgsVectorLayer *inPlaceLayer() const { return mInPlaceLayer.data(); }
+
+    /**
+     * Sets the vector \a layer for in-place algorithm filter
+     */
+    void setInPlaceLayer( QgsVectorLayer *layer );
 
     bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
     bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
 
+  signals:
+    /**
+     * Emitted when the active filters have changed
+     */
+    void filtersChanged();
+
+    /**
+     * Emitted when the in place vector layer has changed
+     */
+    void inPlaceLayerChanged();
+
   private:
     ProcessingAlgorithmsModel *mModel = nullptr;
     ProcessingAlgorithmsProxyModel::Filters mFilters;
+    QPointer<QgsVectorLayer> mInPlaceLayer;
 };
 
 /**
@@ -107,6 +134,9 @@ class ProcessingAlgorithmsModel : public QAbstractListModel
 
     //! Rebuilds the algorithms model.
     Q_INVOKABLE void rebuild();
+
+    //! Returns the processing algorithm for the given index.
+    const QgsProcessingAlgorithm *algorithmForIndex( const QModelIndex &index ) const;
 
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex &parent ) const override;

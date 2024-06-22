@@ -956,7 +956,7 @@ Page {
 
       RowLayout {
         Text {
-          text: AlgorithmIcon + ': ' + AlgorithmName
+          text: AlgorithmName
         }
       }
     }
