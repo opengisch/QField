@@ -26,8 +26,11 @@ import Theme 1.0
 Rectangle {
   id: toolBar
 
+  property string title: qsTr('Features')
+
   property bool multiSelection
   property bool allowDelete
+
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
   property FeaturelistExtentController extentController
@@ -118,7 +121,7 @@ Rectangle {
           return featurePosition + FeatureUtils.displayName(selection.focusedLayer, selection.focusedFeature)
         }
         else {
-          return qsTr('Features')
+          return toolBar.title
         }
       }
 
@@ -392,7 +395,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state != "Edit"
+    visible: parent.state != "Edit" && parent.state != "Processing" && parent.state != "ProcessingLaunch"
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -421,7 +424,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state == "Indication" && toolBar.multiSelection && toolBar.model
+    visible: (parent.state == "Processing" || parent.state == "ProcessingLaunch" || parent.state == "Indication") && toolBar.multiSelection && toolBar.model
     width: visible ? 48 : 0
     height: 48
     clip: true

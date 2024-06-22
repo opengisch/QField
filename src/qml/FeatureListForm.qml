@@ -143,6 +143,7 @@ Rectangle {
             ///e.g. tip on the canvas during an edit
             featureFormList.confirm()
           }
+          featureListToolBar.title = qsTr('Features')
         }
       }
     },
@@ -196,7 +197,12 @@ Rectangle {
       }
       PropertyChanges {
         target: featureListToolBar
-        state: "Indication"
+        state: "Processing"
+      }
+      StateChangeScript {
+        script: {
+          featureListToolBar.title = qsTr('Processing Algorithms')
+        }
       }
     },
     State {
@@ -211,7 +217,13 @@ Rectangle {
       }
       PropertyChanges {
         target: featureListToolBar
-        state: "Indication"
+        state: "ProcessingLaunch"
+      }
+      StateChangeScript {
+        script: {
+          featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName
+          featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName
+        }
       }
     }
   ]
