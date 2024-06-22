@@ -80,6 +80,9 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     //! \copydoc MultiFeatureListModel::canMoveSelection
     bool canMoveSelection();
 
+    //! \copydoc MultiFeatureListModel::canProcessSelection
+    bool canProcessSelection();
+
     //! \copydoc MultiFeatureListModel::mergeSelection
     bool mergeSelection();
 

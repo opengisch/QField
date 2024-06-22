@@ -130,6 +130,11 @@ bool MultiFeatureListModel::canMoveSelection()
   return mSourceModel->canMoveSelection();
 }
 
+bool MultiFeatureListModel::canProcessSelection()
+{
+  return mSourceModel->canProcessSelection();
+}
+
 bool MultiFeatureListModel::mergeSelection()
 {
   return mSourceModel->mergeSelection();

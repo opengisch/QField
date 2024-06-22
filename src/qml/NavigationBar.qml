@@ -54,6 +54,7 @@ Rectangle {
   signal multiMoveClicked
   signal multiDuplicateClicked
   signal multiDeleteClicked
+  signal multiProcessingClicked
 
   anchors.top:parent.top
   anchors.left: parent.left
@@ -592,6 +593,21 @@ Rectangle {
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: multiDeleteClicked();
+    }
+
+    MenuSeparator {
+      width: parent.width
+    }
+
+    MenuItem {
+      id: processingSelectedFeaturesBtn
+      text: qsTr( 'Run Processing Algorithm on Selected Feature(s)' )
+      enabled: toolBar.model && toolBar.model.canProcessSelection && projectInfo.editRights
+
+      font: Theme.defaultFont
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: multiProcessingClicked();
     }
   }
 

@@ -926,42 +926,6 @@ Page {
     }
   }
 
-  ListView {
-    anchors.fill: parent
-    model: ProcessingAlgorithmsProxyModel {}
-
-    section.property: "AlgorithmGroup"
-    section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
-    section.delegate: Component {
-      /* section header: layer name */
-      Rectangle {
-        width: parent.width
-        height: 30
-        color: Theme.controlBorderColor
-
-        Text {
-          anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
-          font.bold: true
-          font.pointSize: Theme.resultFont.pointSize
-          color: Theme.mainTextColor
-          text: section
-        }
-      }
-    }
-
-    delegate: Rectangle {
-      width: parent.width
-      height: 30
-      color: Theme.controlBackgroundColor
-
-      RowLayout {
-        Text {
-          text: AlgorithmName
-        }
-      }
-    }
-  }
-
   onVisibleChanged: {
     adjustWelcomeScreen()
     focus = visible

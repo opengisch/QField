@@ -38,6 +38,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( bool canDeleteSelection READ canDeleteSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canDuplicateSelection READ canDuplicateSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canMoveSelection READ canMoveSelection NOTIFY selectedCountChanged )
+    Q_PROPERTY( bool canProcessSelection READ canProcessSelection NOTIFY selectedCountChanged )
 
   public:
     enum FeatureListRoles
@@ -107,6 +108,9 @@ class MultiFeatureListModel : public QSortFilterProxyModel
 
     //! Returns TRUE if the selected features' geometry can be moved
     bool canMoveSelection();
+
+    //! Returns TRUE if the selected features' can run processing algorithms
+    bool canProcessSelection();
 
     /**
      * Merges selected features by updating the first seleted feature's geometry

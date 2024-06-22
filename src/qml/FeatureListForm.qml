@@ -118,7 +118,10 @@ Rectangle {
       PropertyChanges {
         target: globalFeaturesList
         shown: true
-
+      }
+      PropertyChanges {
+        target: processingAlgorithmsList
+        shown: false
       }
       PropertyChanges {
         target: featureListToolBar
@@ -163,8 +166,28 @@ Rectangle {
         target: featureFormList
         state: "Edit"
       }
+    },
+    /* Show a list of processing algorithms compatible with the selected feature(s) */
+    State {
+      name: "ProcessingAlgorithmsList"
+      StateChangeScript {
+        script: {
+          console.log('JEZAS!')
+        }
+      }
+      PropertyChanges {
+        target: processingAlgorithmsList
+        shown: true
+      }
+      PropertyChanges {
+        target: globalFeaturesList
+        shown: false
+      }
+      PropertyChanges {
+        target: featureListToolBar
+        state: "Indication"
+      }
     }
-
   ]
   state: "Hidden"
 
@@ -187,6 +210,7 @@ Rectangle {
     anchors.bottomMargin: mainWindow.sceneBottomMargin
 
     property bool shown: false
+    onShownChanged: height =shown ? parent.height - featureListToolBar.height : 0
 
     clip: true
 
@@ -321,17 +345,6 @@ Rectangle {
       width: parent.width
     }
 
-    onShownChanged: {
-      if ( shown )
-      {
-        height = parent.height - featureListToolBar.height
-      }
-      else
-      {
-        height = 0
-      }
-    }
-
     Behavior on height {
       PropertyAnimation {
         easing.type: Easing.OutQuart
@@ -374,6 +387,21 @@ Rectangle {
           displayToast( qsTr( "Changes discarded" ), 'warning' )
       }
     }
+  }
+
+  ProcessingAlgorithmsList {
+    id: processingAlgorithmsList
+
+    inPlaceLayer: featureForm.selection.focusedLayer
+
+    anchors.top: featureListToolBar.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: mainWindow.sceneBottomMargin
+
+    property bool shown: false
+    visible: shown
   }
 
   NavigationBar {
@@ -550,6 +578,10 @@ Rectangle {
 
     onMultiMoveClicked: {
         moveFeaturesToolbar.initializeMoveFeatures()
+    }
+
+    onMultiProcessingClicked: {
+      featureForm.state = "ProcessingAlgorithmsList"
     }
 
     CoordinateTransformer {

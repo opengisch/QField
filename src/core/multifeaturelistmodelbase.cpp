@@ -386,6 +386,38 @@ bool MultiFeatureListModelBase::canMoveSelection()
   return true;
 }
 
+bool MultiFeatureListModelBase::canProcessSelection()
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
+    return false;
+
+  const bool geometryLockedExpressionActive = vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
+  if ( geometryLockedExpressionActive )
+  {
+    const QString geometryLockedExpression = vlayer->customProperty( QStringLiteral( "QFieldSync/geometry_locked_expression" ), QString() ).toString().trimmed();
+    if ( !geometryLockedExpression.isEmpty() )
+    {
+      QgsExpressionContext expressionContext = vlayer->createExpressionContext();
+      for ( const QPair<QgsVectorLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
+      {
+        expressionContext.setFeature( selectedFeature.second );
+        QgsExpression expression( geometryLockedExpression );
+        expression.prepare( &expressionContext );
+        if ( !expression.evaluate( &expressionContext ).toBool() )
+        {
+          return false;
+        }
+      }
+    }
+  }
+
+  return true;
+}
+
 bool MultiFeatureListModelBase::mergeSelection()
 {
   if ( !canMergeSelection() )

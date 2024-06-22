@@ -29,6 +29,7 @@
         <file>PositioningSettings.qml</file>
         <file>PositioningInformationView.qml</file>
         <file>PositioningPreciseView.qml</file>
+        <file>ProcessingAlgorithmsList.qml</file>
         <file>QFieldAudioRecorder.qml</file>
         <file>QFieldCamera.qml</file>
         <file>QFieldSettings.qml</file>
