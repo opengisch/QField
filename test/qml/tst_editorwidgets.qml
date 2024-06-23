@@ -40,6 +40,29 @@ TestCase {
     property var field: undefined
   }
 
+  EditorWidgets.ValueMap {
+    id: valueMap
+    property var value: undefined
+    property var config: undefined
+    property var field: undefined
+
+    property var currentLayer: undefined
+
+    Item {
+      id: currentLayerTrue
+      function customProperty(value) {
+        return true
+      }
+    }
+
+    Item {
+      id: currentLayerFalse
+      function customProperty(value) {
+        return false
+      }
+    }
+  }
+
 
   /**
    * Test case for textEdit widget
@@ -299,5 +322,47 @@ TestCase {
 
     // QfSwitch -> checkBox
     compare(checkBox.children[1].checked, false)
+  }
+
+  function test_01_valueMap() {
+    let toggleButtons = valueMap.children[0].children[0]
+    let comboBox = valueMap.children[0].children[1]
+
+    compare(valueMap.toggleButtonsThreshold, 0)
+    compare(valueMap.state, "comboBoxItemView")
+    compare(valueMap.currentItemCount, 0)
+    compare(comboBox.model.length, undefined)
+    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
+
+    valueMap.currentLayer = currentLayerTrue
+    valueMap.config = {
+      "map": [{
+          "Buckfast bee": "Apis Mellifera"
+        }, {
+          "Carniolan honey bee": "Apis Mellifera Carnica"
+        }, {
+          "European honey bee": "Apis Mellifera Mellifera"
+        }]
+    }
+    valueMap.value = "Apis Mellifera"
+
+    compare(valueMap.state, "toggleButtonsView")
+    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
+    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
+    compare(valueMap.currentKeyValue, valueMap.value)
+
+    valueMap.currentLayer = currentLayerFalse
+    valueMap.value = "Apis Mellifera Carnica"
+    compare(valueMap.state, "comboBoxItemView")
+    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
+    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
+    compare(valueMap.currentKeyValue, valueMap.value)
+
+    console.log("->", valueMap.currentKeyValue)
+    console.log(comboBox.currentIndex, toggleButtons.selectedIndex)
+    console.log(comboBox.model)
+    console.log(toggleButtons.currentSelectedKey)
+    console.log(toggleButtons.currentSelectedValue)
+    console.log(comboBox)
   }
 }
