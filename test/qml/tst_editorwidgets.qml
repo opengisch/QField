@@ -72,9 +72,9 @@ TestCase {
    * setting its value to "seven", and comparing its children's texts with "six" and "seven".
    */
   function test_01_textEdit() {
-    let textReadonlyValue = textEdit.children[0]
-    let textField = textEdit.children[1]
-    let textArea = textEdit.children[2]
+    const textReadonlyValue = textEdit.children[0]
+    const textField = textEdit.children[1]
+    const textArea = textEdit.children[2]
 
     compare(textReadonlyValue.text, "") // NOTE: If the config is undefined, the label will be an empty string.
     compare(textField.text, "DEFAULT_VALUE")
@@ -120,10 +120,10 @@ TestCase {
    * Finally, setting the value of the range and verifying that it is displayed correctly in both text and slider formats.
    */
   function test_01_range() {
-    let sliderRow = range.children[0]
-    let textField = sliderRow.children[0]
-    let valueLabel = range.children[1].children[0]
-    let slider = range.children[1].children[1]
+    const sliderRow = range.children[0]
+    const textField = sliderRow.children[0]
+    const valueLabel = range.children[1].children[0]
+    const slider = range.children[1].children[1]
 
     compare(textField.text, range.default_value + "")
 
@@ -185,7 +185,7 @@ TestCase {
    * - It sets the value of the datetime widget to the test time and verifies that the text label is displayed correctly according to the format
    */
   function test_01_dateTime() {
-    let label = dateTime.children[1].children[0]
+    const label = dateTime.children[1].children[0]
 
     compare(label.text, "") // NOTE: setting value without setting `config` and `field` objects won't work
 
@@ -234,8 +234,8 @@ TestCase {
    * - Sets `type` of the field to 0 and verifies that the display is different
    */
   function test_01_checkBox() {
-    let labelItem = checkBox.children[0]
-    let checkBoxItem = checkBox.children[1]
+    const labelItem = checkBox.children[0]
+    const checkBoxItem = checkBox.children[1]
 
     compare(checkBox.value, true)
     compare(checkBox.isBool, false)
@@ -303,8 +303,8 @@ TestCase {
   }
 
   function test_01_valueMap() {
-    let toggleButtonsItem = valueMap.children[0].children[0]
-    let comboBoxItem = valueMap.children[0].children[1]
+    const toggleButtonsItem = valueMap.children[0].children[0]
+    const comboBoxItem = valueMap.children[0].children[1]
 
     compare(valueMap.toggleButtonsThreshold, 0)
     compare(valueMap.state, "comboBoxItemView")
