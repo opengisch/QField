@@ -706,6 +706,8 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
       break;
     }
   }
+
+  emit selectedCountChanged();
 }
 
 void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
@@ -735,4 +737,6 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
       break;
     }
   }
+
+  emit selectedCountChanged();
 }
