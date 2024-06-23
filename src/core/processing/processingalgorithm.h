@@ -41,7 +41,8 @@ class ProcessingAlgorithm : public QObject
 
     Q_PROPERTY( QString displayName READ displayName NOTIFY idChanged )
     Q_PROPERTY( QString shortHelp READ shortHelp NOTIFY idChanged )
-    Q_PROPERTY( ProcessingAlgorithmParametersModel *parametersModel READ parametersModel WRITE setParametersModel NOTIFY parametersModelChanged )
+
+    Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
 
     Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
     Q_PROPERTY( QList<QgsFeature> inPlaceFeatures READ inPlaceFeatures WRITE setInPlaceFeatures NOTIFY inPlaceFeaturesChanged )
@@ -95,14 +96,14 @@ class ProcessingAlgorithm : public QObject
     void setInPlaceFeatures( const QList<QgsFeature> &features );
 
     /**
-     * Returns the algorithm parameters model.
+     * Returns the algorithm parameters as a map of parameter names as keys and values.
      */
-    ProcessingAlgorithmParametersModel *parametersModel() const { return mAlgorithmParametersModel; }
+    QVariantMap parameters() const { return mAlgorithmParameters; }
 
     /**
-     * Sets the algorithm parameters model.
+     * Sets the algorithm parameters using a map with parameter names as keys and values.
      */
-    void setParametersModel( ProcessingAlgorithmParametersModel *parametersModel );
+    void setParameters( const QVariantMap &parameters );
 
     /**
      * Executes the algorithm.
@@ -118,7 +119,7 @@ class ProcessingAlgorithm : public QObject
     /**
     * Emitted when the parameter model has changed
     */
-    void parametersModelChanged();
+    void parametersChanged();
 
     /**
      * Emitted when the in place vector layer has changed
@@ -133,7 +134,7 @@ class ProcessingAlgorithm : public QObject
   private:
     QString mAlgorithmId;
     const QgsProcessingAlgorithm *mAlgorithm = nullptr;
-    ProcessingAlgorithmParametersModel *mAlgorithmParametersModel = nullptr;
+    QVariantMap mAlgorithmParameters;
 
     QPointer<QgsVectorLayer> mInPlaceLayer;
     QList<QgsFeature> mInPlaceFeatures;

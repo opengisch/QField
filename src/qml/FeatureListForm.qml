@@ -444,13 +444,15 @@ Rectangle {
     visible: shown
 
     onAlgorithmSelected: (id) => {
-      processingAlgorithmForm.algorithmId = id
+      processingAlgorithm.id = id
       featureForm.state = "ProcessingAlgorithmForm"
     }
   }
 
   ProcessingAlgorithmForm {
     id: processingAlgorithmForm
+
+    algorithmId: processingAlgorithm.id
 
     anchors.top: featureListToolBar.bottom
     anchors.left: parent.left
@@ -465,7 +467,8 @@ Rectangle {
   ProcessingAlgorithm {
     id: processingAlgorithm
 
-    parametersModel: processingAlgorithmForm.algorithmParametersModel
+    parameters: processingAlgorithmForm.algorithmParametersModel.parameters
+
     inPlaceLayer: featureForm.selection.model.selectedLayer
     inPlaceFeatures: featureForm.selection.model.selectedFeatures
   }

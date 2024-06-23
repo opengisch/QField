@@ -40,11 +40,6 @@ void ProcessingAlgorithm::setId( const QString &id )
   mAlgorithmId = id;
   mAlgorithm = !mAlgorithmId.isEmpty() ? QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId ) : nullptr;
 
-  if ( mAlgorithmParametersModel )
-  {
-    mAlgorithmParametersModel->setAlgorithmId( id );
-  }
-
   emit idChanged( mAlgorithmId );
 }
 
@@ -81,32 +76,21 @@ void ProcessingAlgorithm::setInPlaceFeatures( const QList<QgsFeature> &features 
   emit inPlaceFeaturesChanged();
 }
 
-void ProcessingAlgorithm::setParametersModel( ProcessingAlgorithmParametersModel *parametersModel )
+void ProcessingAlgorithm::setParameters( const QVariantMap &parameters )
 {
-  if ( mAlgorithmParametersModel == parametersModel )
+  if ( mAlgorithmParameters == parameters )
   {
     return;
   }
 
-  if ( mAlgorithmParametersModel )
-  {
-    disconnect( mAlgorithmParametersModel, &ProcessingAlgorithmParametersModel::algorithmIdChanged, this, &ProcessingAlgorithm::setId );
-  }
+  mAlgorithmParameters = parameters;
 
-  mAlgorithmParametersModel = parametersModel;
-
-  if ( mAlgorithmParametersModel )
-  {
-    mAlgorithmParametersModel->setAlgorithmId( mAlgorithmId );
-    connect( mAlgorithmParametersModel, &ProcessingAlgorithmParametersModel::algorithmIdChanged, this, &ProcessingAlgorithm::setId );
-  }
-
-  emit parametersModelChanged();
+  emit parametersChanged();
 }
 
 bool ProcessingAlgorithm::run()
 {
-  if ( !mAlgorithm || !mAlgorithmParametersModel )
+  if ( !mAlgorithm )
   {
     return false;
   }
@@ -118,7 +102,7 @@ bool ProcessingAlgorithm::run()
   QgsProcessingFeedback feedback;
   context.setFeedback( &feedback );
 
-  QVariantMap parameters = mAlgorithmParametersModel->toVariantMap();
+  QVariantMap parameters = mAlgorithmParameters;
 
   if ( mInPlaceLayer )
   {
@@ -184,7 +168,6 @@ bool ProcessingAlgorithm::run()
           }
           if ( outputFeatures[0].attributes() != feature.attributes() )
           {
-            qDebug() << "attribute(s) changed!";
             QgsAttributeMap newAttributes;
             QgsAttributeMap oldAttributes;
             const QgsFields fields = mInPlaceLayer->fields();

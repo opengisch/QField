@@ -29,6 +29,7 @@ ProcessingAlgorithmParametersModel::ProcessingAlgorithmParametersModel( QObject 
 {
   setSourceModel( mModel );
   connect( mModel, &ProcessingAlgorithmParametersModelBase::algorithmIdChanged, this, &ProcessingAlgorithmParametersModel::algorithmIdChanged );
+  connect( mModel, &ProcessingAlgorithmParametersModelBase::parametersChanged, this, &ProcessingAlgorithmParametersModel::parametersChanged );
 }
 
 void ProcessingAlgorithmParametersModel::setFilters( ProcessingAlgorithmParametersModel::Filters filters )
@@ -74,9 +75,14 @@ QString ProcessingAlgorithmParametersModel::algorithmShortHelp() const
   return mModel->algorithmShortHelp();
 }
 
-QVariantMap ProcessingAlgorithmParametersModel::toVariantMap()
+QVariantMap ProcessingAlgorithmParametersModel::parameters()
 {
-  return mModel->toVariantMap();
+  return mModel->parameters();
+}
+
+void ProcessingAlgorithmParametersModel::setParameters( const QVariantMap &parameters )
+{
+  mModel->setParameters( parameters );
 }
 
 bool ProcessingAlgorithmParametersModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
@@ -150,6 +156,7 @@ void ProcessingAlgorithmParametersModelBase::setAlgorithmId( const QString &id )
   rebuild();
 
   emit algorithmIdChanged( mAlgorithmId );
+  emit parametersChanged();
 }
 
 QString ProcessingAlgorithmParametersModelBase::algorithmDisplayName() const
@@ -162,7 +169,7 @@ QString ProcessingAlgorithmParametersModelBase::algorithmShortHelp() const
   return mAlgorithm ? mAlgorithm->shortHelpString() : QString();
 }
 
-QVariantMap ProcessingAlgorithmParametersModelBase::toVariantMap()
+QVariantMap ProcessingAlgorithmParametersModelBase::parameters()
 {
   QVariantMap parameters;
   for ( int i = 0; i < mParameters.size(); i++ )
@@ -170,6 +177,20 @@ QVariantMap ProcessingAlgorithmParametersModelBase::toVariantMap()
     parameters[mParameters.at( i )->name()] = mValues.at( i );
   }
   return parameters;
+}
+
+void ProcessingAlgorithmParametersModelBase::setParameters( const QVariantMap &parameters )
+{
+  const QStringList parameterNames = parameters.keys();
+  for ( int i = 0; i < mParameters.size(); i++ )
+  {
+    if ( parameters.contains( mParameters.at( i )->name() ) )
+    {
+      mValues[i] = parameters.value( mParameters.at( i )->name() );
+    }
+  }
+
+  emit parametersChanged();
 }
 
 QHash<int, QByteArray> ProcessingAlgorithmParametersModelBase::roleNames() const
@@ -222,7 +243,11 @@ bool ProcessingAlgorithmParametersModelBase::setData( const QModelIndex &index, 
   switch ( role )
   {
     case ParameterValueRole:
-      mValues[index.row()] = value;
+      if ( mValues[index.row()] != value )
+      {
+        mValues[index.row()] = value;
+        emit parametersChanged();
+      }
       return true;
   }
 

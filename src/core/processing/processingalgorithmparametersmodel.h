@@ -41,6 +41,7 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
     Q_PROPERTY( QString algorithmId READ algorithmId WRITE setAlgorithmId NOTIFY algorithmIdChanged )
     Q_PROPERTY( bool isValid READ isValid NOTIFY algorithmIdChanged )
     Q_PROPERTY( bool hasAdvancedParameters READ hasAdvancedParameters NOTIFY algorithmIdChanged )
+    Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
 
     Q_PROPERTY( QString algorithmDisplayName READ algorithmDisplayName NOTIFY algorithmIdChanged )
     Q_PROPERTY( QString algorithmShortHelp READ algorithmDisplayName NOTIFY algorithmIdChanged )
@@ -102,20 +103,30 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
     /**
      * Returns a variant map of parameter names and values.
      */
-    Q_INVOKABLE QVariantMap toVariantMap();
+    QVariantMap parameters();
+
+    /**
+     * Sets the values of the parameters model from variant map of parameter names and values.
+     */
+    void setParameters( const QVariantMap &parameters );
 
     bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
 
   signals:
     /**
-     * Emitted when the active filters have changed
+     * Emitted when the active filters have changed.
      */
     void filtersChanged();
 
     /**
-     * Emitted when the algorithm ID has changed
+     * Emitted when the algorithm ID has changed.
      */
     void algorithmIdChanged( const QString &id );
+
+    /**
+     * Emitted when the parameters have changed.
+     */
+    void parametersChanged();
 
   private:
     ProcessingAlgorithmParametersModel::Filters mFilters;
@@ -176,7 +187,12 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
     /**
      * Returns a variant map of parameter names and values.
      */
-    QVariantMap toVariantMap();
+    QVariantMap parameters();
+
+    /**
+     * Sets the values of the parameters model from variant map of parameter names and values.
+     */
+    void setParameters( const QVariantMap &parameters );
 
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex &parent ) const override;
@@ -185,13 +201,18 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
 
   signals:
     /**
-     * Emitted when the algorithm ID has changed
+     * Emitted when the algorithm ID has changed.
      */
     void algorithmIdChanged( const QString &id );
 
+    /**
+     * Emitted when the parameters have changed.
+     */
+    void parametersChanged();
+
   private:
     /**
-     * Rebuilds the processing algorithm parameters model
+     * Rebuilds the processing algorithm parameters model.
      */
     void rebuild();
 
