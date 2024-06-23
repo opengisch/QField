@@ -43,9 +43,11 @@ class ProcessingAlgorithm : public QObject
     Q_PROPERTY( QString shortHelp READ shortHelp NOTIFY idChanged )
 
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
-
     Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
     Q_PROPERTY( QList<QgsFeature> inPlaceFeatures READ inPlaceFeatures WRITE setInPlaceFeatures NOTIFY inPlaceFeaturesChanged )
+
+    Q_PROPERTY( bool preview READ preview WRITE setPreview NOTIFY previewChanged )
+    Q_PROPERTY( QList<QgsGeometry> previewGeometries READ previewGeometries NOTIFY previewGeometriesChanged )
 
   public:
     explicit ProcessingAlgorithm( QObject *parent = nullptr );
@@ -106,9 +108,26 @@ class ProcessingAlgorithm : public QObject
     void setParameters( const QVariantMap &parameters );
 
     /**
+     * Returns whether the algorithm will provide preview outputs such as modified geometries.
+     * from provided parameters.
+     */
+    bool preview() const { return mPreview; }
+
+    /**
+     * Sets whether the algorithm will provide preview outputs such as modified geometries.
+     * from provided parameters.
+     */
+    void setPreview( bool preview );
+
+    /**
+     * Returns a list of geometries previewing the algorithm result using current parameters.
+     */
+    QList<QgsGeometry> previewGeometries() const { return mPreviewGeometries; }
+
+    /**
      * Executes the algorithm.
      */
-    Q_INVOKABLE bool run();
+    Q_INVOKABLE bool run( bool previewMode = false );
 
   signals:
     /**
@@ -131,6 +150,16 @@ class ProcessingAlgorithm : public QObject
      */
     void inPlaceFeaturesChanged();
 
+    /**
+     * Emitted when the preview setting has changed
+     */
+    void previewChanged();
+
+    /**
+     * Emitted when the list of preview geometries has changed
+     */
+    void previewGeometriesChanged();
+
   private:
     QString mAlgorithmId;
     const QgsProcessingAlgorithm *mAlgorithm = nullptr;
@@ -138,6 +167,9 @@ class ProcessingAlgorithm : public QObject
 
     QPointer<QgsVectorLayer> mInPlaceLayer;
     QList<QgsFeature> mInPlaceFeatures;
+
+    bool mPreview = false;
+    QList<QgsGeometry> mPreviewGeometries;
 };
 
 #endif // PROCESSINGALGORITHM

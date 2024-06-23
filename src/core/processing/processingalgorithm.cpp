@@ -41,6 +41,11 @@ void ProcessingAlgorithm::setId( const QString &id )
   mAlgorithm = !mAlgorithmId.isEmpty() ? QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId ) : nullptr;
 
   emit idChanged( mAlgorithmId );
+
+  if ( mPreview && mAlgorithm )
+  {
+    run( true );
+  }
 }
 
 QString ProcessingAlgorithm::displayName() const
@@ -62,6 +67,11 @@ void ProcessingAlgorithm::setInPlaceLayer( QgsVectorLayer *layer )
 
   mInPlaceLayer = layer;
   emit inPlaceLayerChanged();
+
+  if ( mPreview && mAlgorithm )
+  {
+    run( true );
+  }
 }
 
 void ProcessingAlgorithm::setInPlaceFeatures( const QList<QgsFeature> &features )
@@ -74,6 +84,11 @@ void ProcessingAlgorithm::setInPlaceFeatures( const QList<QgsFeature> &features 
   mInPlaceFeatures = features;
 
   emit inPlaceFeaturesChanged();
+
+  if ( mPreview && mAlgorithm )
+  {
+    run( true );
+  }
 }
 
 void ProcessingAlgorithm::setParameters( const QVariantMap &parameters )
@@ -86,13 +101,49 @@ void ProcessingAlgorithm::setParameters( const QVariantMap &parameters )
   mAlgorithmParameters = parameters;
 
   emit parametersChanged();
+
+  if ( mPreview && mAlgorithm )
+  {
+    run( true );
+  }
 }
 
-bool ProcessingAlgorithm::run()
+void ProcessingAlgorithm::setPreview( bool preview )
+{
+  if ( mPreview == preview )
+  {
+    return;
+  }
+
+  mPreview = preview;
+
+  emit previewChanged();
+
+  if ( mPreview && mAlgorithm )
+  {
+    run( true );
+  }
+  else
+  {
+    if ( !mPreviewGeometries.isEmpty() )
+    {
+      mPreviewGeometries.clear();
+      emit previewGeometriesChanged();
+    }
+  }
+}
+
+bool ProcessingAlgorithm::run( bool previewMode )
 {
   if ( !mAlgorithm )
   {
     return false;
+  }
+
+  if ( previewMode )
+  {
+    mPreviewGeometries.clear();
+    emit previewGeometriesChanged();
   }
 
   QgsProcessingContext context;
@@ -137,7 +188,10 @@ bool ProcessingAlgorithm::run()
     const QgsProcessingFeatureBasedAlgorithm *featureBasedAlgorithm = dynamic_cast<const QgsProcessingFeatureBasedAlgorithm *>( mAlgorithm );
     if ( featureBasedAlgorithm )
     {
-      mInPlaceLayer->startEditing();
+      if ( !previewMode )
+      {
+        mInPlaceLayer->startEditing();
+      }
 
       QgsProcessingFeatureBasedAlgorithm *alg = static_cast<QgsProcessingFeatureBasedAlgorithm *>( featureBasedAlgorithm->create( { { QStringLiteral( "IN_PLACE" ), true } } ) );
       if ( !alg->prepare( parameters, context, &feedback ) )
@@ -153,50 +207,62 @@ bool ProcessingAlgorithm::run()
         QgsFeatureList outputFeatures = alg->processFeature( inputFeature, context, &feedback );
         outputFeatures = QgsVectorLayerUtils::makeFeaturesCompatible( outputFeatures, mInPlaceLayer.data() );
 
-        if ( outputFeatures.isEmpty() )
+        if ( previewMode )
         {
-          // Algorithm deleted the feature, remove from the layer
-          mInPlaceLayer->deleteFeature( feature.id() );
-        }
-        else if ( outputFeatures.size() == 1 )
-        {
-          // Algorithm modified the feature, adjust accordingly
-          QgsGeometry outputGeometry = outputFeatures[0].geometry();
-          if ( !outputGeometry.equals( feature.geometry() ) )
+          for ( const QgsFeature &outputFeature : outputFeatures )
           {
-            mInPlaceLayer->changeGeometry( feature.id(), outputGeometry );
+            mPreviewGeometries << outputFeature.geometry();
           }
-          if ( outputFeatures[0].attributes() != feature.attributes() )
+
+          emit previewGeometriesChanged();
+        }
+        else
+        {
+          if ( outputFeatures.isEmpty() )
           {
-            QgsAttributeMap newAttributes;
-            QgsAttributeMap oldAttributes;
-            const QgsFields fields = mInPlaceLayer->fields();
-            for ( const QgsField &field : fields )
+            // Algorithm deleted the feature, remove from the layer
+            mInPlaceLayer->deleteFeature( feature.id() );
+          }
+          else if ( outputFeatures.size() == 1 )
+          {
+            // Algorithm modified the feature, adjust accordingly
+            QgsGeometry outputGeometry = outputFeatures[0].geometry();
+            if ( !outputGeometry.equals( feature.geometry() ) )
             {
-              const int index = fields.indexOf( field.name() );
-              if ( outputFeatures[0].attribute( index ) != feature.attribute( index ) )
-              {
-                newAttributes[index] = outputFeatures[0].attribute( index );
-                oldAttributes[index] = feature.attribute( index );
-              }
+              mInPlaceLayer->changeGeometry( feature.id(), outputGeometry );
             }
-            mInPlaceLayer->changeAttributeValues( feature.id(), newAttributes, oldAttributes );
+            if ( outputFeatures[0].attributes() != feature.attributes() )
+            {
+              QgsAttributeMap newAttributes;
+              QgsAttributeMap oldAttributes;
+              const QgsFields fields = mInPlaceLayer->fields();
+              for ( const QgsField &field : fields )
+              {
+                const int index = fields.indexOf( field.name() );
+                if ( outputFeatures[0].attribute( index ) != feature.attribute( index ) )
+                {
+                  newAttributes[index] = outputFeatures[0].attribute( index );
+                  oldAttributes[index] = feature.attribute( index );
+                }
+              }
+              mInPlaceLayer->changeAttributeValues( feature.id(), newAttributes, oldAttributes );
+            }
           }
-        }
-        else if ( outputFeatures.size() > 1 )
-        {
-          qDebug() << "got more than 1!";
-          QgsFeatureList newFeatures;
-          for ( QgsFeature &outputFeature : outputFeatures )
+          else if ( outputFeatures.size() > 1 )
           {
-            newFeatures << QgsVectorLayerUtils::createFeature( mInPlaceLayer.data(), outputFeature.geometry(), outputFeature.attributes().toMap(), &context.expressionContext() );
+            QgsFeatureList newFeatures;
+            for ( QgsFeature &outputFeature : outputFeatures )
+            {
+              newFeatures << QgsVectorLayerUtils::createFeature( mInPlaceLayer.data(), outputFeature.geometry(), outputFeature.attributes().toMap(), &context.expressionContext() );
+            }
+            mInPlaceLayer->addFeatures( newFeatures );
           }
-          mInPlaceLayer->addFeatures( newFeatures );
+
+          mInPlaceLayer->commitChanges();
         }
       }
-
-      mInPlaceLayer->commitChanges();
     }
+    else
     {
       // Currently, only feature-based algorithms are supported
       return false;
@@ -207,4 +273,6 @@ bool ProcessingAlgorithm::run()
     // Currently, only in-place algorithms are supported
     return false;
   }
+
+  return false;
 }

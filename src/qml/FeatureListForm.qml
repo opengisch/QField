@@ -28,6 +28,8 @@ import Theme 1.0
 Rectangle {
   id: featureForm
 
+  property ProcessingAlgorithm algorithm: processingAlgorithm
+
   property FeatureListModelSelection selection
   property MapSettings mapSettings
   property DigitizingToolbar digitizingToolbar
@@ -471,6 +473,8 @@ Rectangle {
 
     inPlaceLayer: featureForm.selection.model.selectedLayer
     inPlaceFeatures: featureForm.selection.model.selectedFeatures
+
+    preview: featureForm.state == "ProcessingAlgorithmForm"
   }
 
   NavigationBar {
