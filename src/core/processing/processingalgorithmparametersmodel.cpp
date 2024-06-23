@@ -181,7 +181,6 @@ QVariantMap ProcessingAlgorithmParametersModelBase::parameters()
 
 void ProcessingAlgorithmParametersModelBase::setParameters( const QVariantMap &parameters )
 {
-  const QStringList parameterNames = parameters.keys();
   for ( int i = 0; i < mParameters.size(); i++ )
   {
     if ( parameters.contains( mParameters.at( i )->name() ) )
