@@ -153,7 +153,6 @@ bool ProcessingAlgorithm::run()
     const QgsProcessingFeatureBasedAlgorithm *featureBasedAlgorithm = dynamic_cast<const QgsProcessingFeatureBasedAlgorithm *>( mAlgorithm );
     if ( featureBasedAlgorithm )
     {
-      qDebug() << "featureBasedAlgorithm";
       mInPlaceLayer->startEditing();
 
       QgsProcessingFeatureBasedAlgorithm *alg = static_cast<QgsProcessingFeatureBasedAlgorithm *>( featureBasedAlgorithm->create( { { QStringLiteral( "IN_PLACE" ), true } } ) );
