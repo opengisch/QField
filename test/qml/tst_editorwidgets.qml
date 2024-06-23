@@ -72,14 +72,13 @@ TestCase {
    * setting its value to "seven", and comparing its children's texts with "six" and "seven".
    */
   function test_01_textEdit() {
-    // Label -> textReadonlyValue
-    compare(textEdit.children[0].text, "") // NOTE: If the config is undefined, the label will be an empty string.
+    let textReadonlyValue = textEdit.children[0]
+    let textField = textEdit.children[1]
+    let textArea = textEdit.children[2]
 
-    // TextField -> textField
-    compare(textEdit.children[1].text, "DEFAULT_VALUE")
-
-    // TextArea -> textArea
-    compare(textEdit.children[2].text, "DEFAULT_VALUE")
+    compare(textReadonlyValue.text, "") // NOTE: If the config is undefined, the label will be an empty string.
+    compare(textField.text, "DEFAULT_VALUE")
+    compare(textArea.text, "DEFAULT_VALUE")
 
     textEdit.config = {
       "IsMultiline": true,
@@ -87,14 +86,9 @@ TestCase {
     }
     textEdit.value = "SECOND_VALUE"
 
-    // Label -> textReadonlyValue
-    verify(textEdit.children[0].text.search("SECOND_VALUE") !== -1)
-
-    // TextField -> textField
-    compare(textEdit.children[1].text, "SECOND_VALUE")
-
-    // TextArea -> textArea
-    verify(textEdit.children[2].text.search("SECOND_VALUE") !== -1)
+    verify(textReadonlyValue.text.search("SECOND_VALUE") !== -1)
+    compare(textField.text, "SECOND_VALUE")
+    verify(textArea.text.search("SECOND_VALUE") !== -1)
 
     textEdit.config = {
       "IsMultiline": false,
@@ -102,14 +96,9 @@ TestCase {
     }
     textEdit.value = "THIRD_VALUE"
 
-    // Label -> textReadonlyValue
-    compare(textEdit.children[0].text, "SECOND_VALUE") // NOTE: If the values in the config are set to `false`, the label text will not change.
-
-    // TextField -> textField
-    compare(textEdit.children[1].text, "THIRD_VALUE")
-
-    // TextArea -> textArea
-    compare(textEdit.children[2].text, "THIRD_VALUE")
+    compare(textReadonlyValue.text, "SECOND_VALUE") // NOTE: If the values in the config are set to `false`, the label text will not change.
+    compare(textField.text, "THIRD_VALUE")
+    compare(textArea.text, "THIRD_VALUE")
   }
 
 
@@ -131,7 +120,12 @@ TestCase {
    * Finally, setting the value of the range and verifying that it is displayed correctly in both text and slider formats.
    */
   function test_01_range() {
-    compare(range.children[0].children[0].text, range.default_value + "")
+    let sliderRow = range.children[0]
+    let textField = sliderRow.children[0]
+    let valueLabel = range.children[1].children[0]
+    let slider = range.children[1].children[1]
+
+    compare(textField.text, range.default_value + "")
 
     range.config = {
       "Style": undefined,
@@ -150,10 +144,10 @@ TestCase {
     compare(range.suffix, "")
 
     // Row
-    // compare(range.children[0].visible, true) // ERROR ? should work but not working!
+    // compare(sliderRow.visible, true) // ERROR ? should work but not working!
 
     // TextField -> textField
-    compare(range.children[0].children[0].text, "3")
+    compare(textField.text, "3")
 
     range.config = {
       "Style": "Slider",
@@ -171,14 +165,9 @@ TestCase {
     compare(range.step, 10)
     compare(range.suffix, "DEFAULT_SUFFIX")
 
-    // Row -> sliderRow
-    compare(range.children[0].visible, false)
-
-    // Text -> valueLabel
-    compare(range.children[1].children[0].text, range.min + ".00DEFAULT_SUFFIX") // NOTE: using `range.min` because of `rangeItem.parent.value`
-
-    // QfSlider -> slider
-    compare(range.children[1].children[1].value, range.min) // NOTE: using `range.min` because of `rangeItem.parent.value`
+    compare(sliderRow.visible, false)
+    compare(valueLabel.text, range.min + ".00DEFAULT_SUFFIX") // NOTE: using `range.min` because of `rangeItem.parent.value`
+    compare(slider.value, range.min) // NOTE: using `range.min` because of `rangeItem.parent.value`
   }
 
 
@@ -196,7 +185,9 @@ TestCase {
    * - It sets the value of the datetime widget to the test time and verifies that the text label is displayed correctly according to the format
    */
   function test_01_dateTime() {
-    compare(dateTime.children[1].children[0].text, "") // NOTE: setting value without setting `config` and `field` objects won't work
+    let label = dateTime.children[1].children[0]
+
+    compare(label.text, "") // NOTE: setting value without setting `config` and `field` objects won't work
 
     const testTimes = ["2023-01-01", "2023-01-01 23:33:56"]
     const displayFormats = ["yyyy-MM-dd", "yyyy-MM.dd", "yyyy-MM-dd HH:mm:ss", "HH:mm:ss", "HH:mm"]
@@ -218,8 +209,7 @@ TestCase {
 
         dateTime.value = time
 
-        // TextField -> lable
-        compare(dateTime.children[1].children[0].text, results[resultIdx++])
+        compare(label.text, results[resultIdx++])
       }
     }
   }
@@ -244,17 +234,17 @@ TestCase {
    * - Sets `type` of the field to 0 and verifies that the display is different
    */
   function test_01_checkBox() {
+    let labelItem = checkBox.children[0]
+    let checkBoxItem = checkBox.children[1]
+
     compare(checkBox.value, true)
     compare(checkBox.isBool, false)
     compare(checkBox.isNull, false)
     compare(checkBox.checkedLabel, "") // NOTE: `checkedLabel` initialized with "" when config is undefined
     compare(checkBox.uncheckedLabel, "") // NOTE: `uncheckedLabel` initialized with "" when config is undefined
 
-    // Label -> checkValue
-    compare(checkBox.children[0].text, "")
-
-    // QfSwitch -> checkBox
-    compare(checkBox.children[1].checked, false) // NOTE: even if `value` be true, without config `checked` will be false
+    compare(labelItem.text, "")
+    compare(checkBoxItem.checked, false) // NOTE: even if `value` be true, without config `checked` will be false
 
     checkBox.config = {
       "TextDisplayMethod": 1,
@@ -271,19 +261,13 @@ TestCase {
     compare(checkBox.checkedLabel, "DEFAULT_CHECKED_STATE")
     compare(checkBox.uncheckedLabel, "DEFAULT_UNCHECKED_STATE")
 
-    // Label -> checkValue
-    compare(checkBox.children[0].text, "DEFAULT_CHECKED_STATE")
-
-    // QfSwitch -> checkBox
-    compare(checkBox.children[1].checked, true)
+    compare(labelItem.text, "DEFAULT_CHECKED_STATE")
+    compare(checkBoxItem.checked, true)
 
     checkBox.value = false
 
-    // Label -> checkValue
-    compare(checkBox.children[0].text, "DEFAULT_UNCHECKED_STATE")
-
-    // QfSwitch -> checkBox
-    compare(checkBox.children[1].checked, false)
+    compare(labelItem.text, "DEFAULT_UNCHECKED_STATE")
+    compare(checkBoxItem.checked, false)
 
     // test TextDisplayMethod = 0
     checkBox.config = {
@@ -309,30 +293,24 @@ TestCase {
     }
     checkBox.value = true
 
-    // Label -> checkValue
-    compare(checkBox.children[0].text, "DEFAULT_UNCHECKED_STATE") // NOTE: value is true but it in unchecked state
-
-    // QfSwitch -> checkBox
-    compare(checkBox.children[1].checked, false) // NOTE: value is true but its not checked
+    compare(labelItem.text, "DEFAULT_UNCHECKED_STATE") // NOTE: value is true but it in unchecked state
+    compare(checkBoxItem.checked, false) // NOTE: value is true but its not checked
 
     checkBox.value = false
 
-    // Label -> checkValue
-    compare(checkBox.children[0].text, "DEFAULT_UNCHECKED_STATE")
-
-    // QfSwitch -> checkBox
-    compare(checkBox.children[1].checked, false)
+    compare(labelItem.text, "DEFAULT_UNCHECKED_STATE")
+    compare(checkBoxItem.checked, false)
   }
 
   function test_01_valueMap() {
-    let toggleButtons = valueMap.children[0].children[0]
-    let comboBox = valueMap.children[0].children[1]
+    let toggleButtonsItem = valueMap.children[0].children[0]
+    let comboBoxItem = valueMap.children[0].children[1]
 
     compare(valueMap.toggleButtonsThreshold, 0)
     compare(valueMap.state, "comboBoxItemView")
     compare(valueMap.currentItemCount, 0)
-    compare(comboBox.model.length, undefined)
-    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
+    compare(comboBoxItem.model.length, undefined)
+    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
 
     valueMap.currentLayer = currentLayerTrue
     valueMap.config = {
@@ -347,22 +325,22 @@ TestCase {
     valueMap.value = "Apis Mellifera"
 
     compare(valueMap.state, "toggleButtonsView")
-    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
-    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
+    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
+    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
     compare(valueMap.currentKeyValue, valueMap.value)
 
     valueMap.currentLayer = currentLayerFalse
     valueMap.value = "Apis Mellifera Carnica"
     compare(valueMap.state, "comboBoxItemView")
-    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
-    compare(comboBox.currentIndex, toggleButtons.selectedIndex)
+    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
+    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
     compare(valueMap.currentKeyValue, valueMap.value)
 
     console.log("->", valueMap.currentKeyValue)
-    console.log(comboBox.currentIndex, toggleButtons.selectedIndex)
-    console.log(comboBox.model)
-    console.log(toggleButtons.currentSelectedKey)
-    console.log(toggleButtons.currentSelectedValue)
-    console.log(comboBox)
+    console.log(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
+    console.log(comboBoxItem.model)
+    console.log(toggleButtonsItem.currentSelectedKey)
+    console.log(toggleButtonsItem.currentSelectedValue)
+    console.log(comboBoxItem)
   }
 }
