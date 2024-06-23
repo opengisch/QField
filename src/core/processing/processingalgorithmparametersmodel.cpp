@@ -144,7 +144,7 @@ void ProcessingAlgorithmParametersModelBase::setAlgorithmId( const QString &id )
 
   rebuild();
 
-  emit algorithmIdChanged();
+  emit algorithmIdChanged( mAlgorithmId );
 }
 
 QString ProcessingAlgorithmParametersModelBase::algorithmDisplayName() const

@@ -462,6 +462,11 @@ Rectangle {
     visible: shown
   }
 
+  ProcessingAlgorithm {
+    id: processingAlgorithm
+    parametersModel: processingAlgorithmForm.algorithmParametersModel
+  }
+
   NavigationBar {
     id: featureListToolBar
 

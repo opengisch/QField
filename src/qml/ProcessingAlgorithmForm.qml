@@ -10,6 +10,7 @@ import org.qfield 1.0
 Item {
   id: processingAlgorithmForm
 
+  property ProcessingAlgorithmParametersModel algorithmParametersModel: processingAlgorithmParametersModel
   property alias algorithmId: processingAlgorithmParametersModel.algorithmId
   property alias algorithmDisplayName: processingAlgorithmParametersModel.algorithmDisplayName
   property alias algorithmShortHelp: processingAlgorithmParametersModel.algorithmShortHelp

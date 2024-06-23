@@ -43,7 +43,7 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
     Q_PROPERTY( bool hasAdvancedParameters READ hasAdvancedParameters NOTIFY algorithmIdChanged )
 
     Q_PROPERTY( QString algorithmDisplayName READ algorithmDisplayName NOTIFY algorithmIdChanged )
-    Q_PROPERTY( QString algorithmShortHelp READ algorithmShortHelp NOTIFY algorithmIdChanged )
+    Q_PROPERTY( QString algorithmShortHelp READ algorithmDisplayName NOTIFY algorithmIdChanged )
 
   public:
     //! Available filter flags for filtering the model
@@ -110,7 +110,7 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
     /**
      * Emitted when the algorithm ID has changed
      */
-    void algorithmIdChanged();
+    void algorithmIdChanged( const QString &id );
 
   private:
     ProcessingAlgorithmParametersModel::Filters mFilters;
@@ -177,7 +177,7 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
     /**
      * Emitted when the algorithm ID has changed
      */
-    void algorithmIdChanged();
+    void algorithmIdChanged( const QString &id );
 
   private:
     /**

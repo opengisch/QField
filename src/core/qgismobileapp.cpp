@@ -90,6 +90,7 @@
 #include "positioningdevicemodel.h"
 #include "positioningutils.h"
 #include "printlayoutlistmodel.h"
+#include "processingalgorithm.h"
 #include "processingalgorithmparametersmodel.h"
 #include "processingalgorithmsmodel.h"
 #include "projectinfo.h"
@@ -520,6 +521,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
+  qmlRegisterType<ProcessingAlgorithm>( "org.qfield", 1, 0, "ProcessingAlgorithm" );
   qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );
   qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
 
