@@ -59,6 +59,8 @@ Rectangle {
   signal multiDeleteClicked
   signal multiProcessingClicked
 
+  signal processingRunClicked
+
   anchors.top:parent.top
   anchors.left: parent.left
   anchors.right: parent.right
@@ -255,7 +257,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state == "Edit"
+    visible: parent.state == "Edit" || parent.state == "ProcessingLaunch"
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -263,10 +265,14 @@ Rectangle {
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     opacity: featureFormList.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
-     if( featureFormList.model.constraintsHardValid ) {
-       toolBar.save()
+     if (parent.state == "ProcessingLaunch") {
+       processingRunClicked()
      } else {
-       displayToast( "Constraints not valid", 'warning' )
+       if( featureFormList.model.constraintsHardValid ) {
+         toolBar.save()
+       } else {
+         displayToast( "Constraints not valid", 'warning' )
+       }
      }
     }
     Behavior on width {
@@ -420,7 +426,7 @@ Rectangle {
   QfToolButton {
     id: multiClearButton
 
-    anchors.left: parent.left
+    anchors.left: saveButton.right
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 

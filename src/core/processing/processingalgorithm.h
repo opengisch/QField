@@ -23,6 +23,7 @@
 #include <QAbstractListModel>
 #include <QPointer>
 #include <QSortFilterProxyModel>
+#include <qgsfeature.h>
 
 class QgsProcessingProvider;
 class QgsProcessingAlgorithm;
@@ -41,6 +42,9 @@ class ProcessingAlgorithm : public QObject
     Q_PROPERTY( QString displayName READ displayName NOTIFY idChanged )
     Q_PROPERTY( QString shortHelp READ shortHelp NOTIFY idChanged )
     Q_PROPERTY( ProcessingAlgorithmParametersModel *parametersModel READ parametersModel WRITE setParametersModel NOTIFY parametersModelChanged )
+
+    Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
+    Q_PROPERTY( QList<QgsFeature> inPlaceFeatures READ inPlaceFeatures WRITE setInPlaceFeatures NOTIFY inPlaceFeaturesChanged )
 
   public:
     explicit ProcessingAlgorithm( QObject *parent = nullptr );
@@ -81,6 +85,16 @@ class ProcessingAlgorithm : public QObject
     void setInPlaceLayer( QgsVectorLayer *layer );
 
     /**
+     * Returns the vector \a layer for in-place algorithm filter.
+     */
+    QList<QgsFeature> inPlaceFeatures() const { return mInPlaceFeatures; }
+
+    /**
+     * Sets the vector \a layer for in-place algorithm filter.
+     */
+    void setInPlaceFeatures( const QList<QgsFeature> &features );
+
+    /**
      * Returns the algorithm parameters model.
      */
     ProcessingAlgorithmParametersModel *parametersModel() const { return mAlgorithmParametersModel; }
@@ -90,6 +104,11 @@ class ProcessingAlgorithm : public QObject
      */
     void setParametersModel( ProcessingAlgorithmParametersModel *parametersModel );
 
+    /**
+     * Executes the algorithm.
+     */
+    Q_INVOKABLE bool run();
+
   signals:
     /**
      * Emitted when the algorithm ID has changed
@@ -97,14 +116,19 @@ class ProcessingAlgorithm : public QObject
     void idChanged( const QString &id );
 
     /**
+    * Emitted when the parameter model has changed
+    */
+    void parametersModelChanged();
+
+    /**
      * Emitted when the in place vector layer has changed
      */
     void inPlaceLayerChanged();
 
     /**
-    * Emitted when the parameter model has changed
-    */
-    void parametersModelChanged();
+     * Emitted when the in place feature IDs list has changed
+     */
+    void inPlaceFeaturesChanged();
 
   private:
     QString mAlgorithmId;
@@ -112,6 +136,7 @@ class ProcessingAlgorithm : public QObject
     ProcessingAlgorithmParametersModel *mAlgorithmParametersModel = nullptr;
 
     QPointer<QgsVectorLayer> mInPlaceLayer;
+    QList<QgsFeature> mInPlaceFeatures;
 };
 
 #endif // PROCESSINGALGORITHM

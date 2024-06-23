@@ -432,7 +432,7 @@ Rectangle {
   ProcessingAlgorithmsList {
     id: processingAlgorithmsList
 
-    inPlaceLayer: featureForm.selection.focusedLayer
+    inPlaceLayer: featureForm.selection.model.selectedLayer
 
     anchors.top: featureListToolBar.bottom
     anchors.left: parent.left
@@ -464,7 +464,10 @@ Rectangle {
 
   ProcessingAlgorithm {
     id: processingAlgorithm
+
     parametersModel: processingAlgorithmForm.algorithmParametersModel
+    inPlaceLayer: featureForm.selection.model.selectedLayer
+    inPlaceFeatures: featureForm.selection.model.selectedFeatures
   }
 
   NavigationBar {
@@ -649,6 +652,11 @@ Rectangle {
 
     onMultiProcessingClicked: {
       featureForm.state = "ProcessingAlgorithmsList"
+    }
+
+    onProcessingRunClicked: {
+      processingAlgorithm.run()
+      featureForm.state = "FeatureList"
     }
 
     CoordinateTransformer {

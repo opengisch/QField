@@ -74,6 +74,11 @@ QString ProcessingAlgorithmParametersModel::algorithmShortHelp() const
   return mModel->algorithmShortHelp();
 }
 
+QVariantMap ProcessingAlgorithmParametersModel::toVariantMap()
+{
+  return mModel->toVariantMap();
+}
+
 bool ProcessingAlgorithmParametersModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   QModelIndex sourceIndex = mModel->index( sourceRow, 0, sourceParent );
@@ -155,6 +160,16 @@ QString ProcessingAlgorithmParametersModelBase::algorithmDisplayName() const
 QString ProcessingAlgorithmParametersModelBase::algorithmShortHelp() const
 {
   return mAlgorithm ? mAlgorithm->shortHelpString() : QString();
+}
+
+QVariantMap ProcessingAlgorithmParametersModelBase::toVariantMap()
+{
+  QVariantMap parameters;
+  for ( int i = 0; i < mParameters.size(); i++ )
+  {
+    parameters[mParameters.at( i )->name()] = mValues.at( i );
+  }
+  return parameters;
 }
 
 QHash<int, QByteArray> ProcessingAlgorithmParametersModelBase::roleNames() const

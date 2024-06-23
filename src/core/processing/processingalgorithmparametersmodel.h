@@ -99,6 +99,11 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
      */
     QString algorithmShortHelp() const;
 
+    /**
+     * Returns a variant map of parameter names and values.
+     */
+    Q_INVOKABLE QVariantMap toVariantMap();
+
     bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
 
   signals:
@@ -167,6 +172,11 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
      * Returns a short description of the algorithm.
      */
     QString algorithmShortHelp() const;
+
+    /**
+     * Returns a variant map of parameter names and values.
+     */
+    QVariantMap toVariantMap();
 
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex &parent ) const override;
