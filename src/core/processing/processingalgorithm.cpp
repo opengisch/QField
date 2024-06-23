@@ -170,24 +170,17 @@ bool ProcessingAlgorithm::run( bool previewMode )
       featureIds << QString::number( feature.id() );
     }
 
-    QString inputParameterName = QStringLiteral( "INPUT" );
-    //TODO: Fix QGIS overprotective API
-    //const QgsProcessingFeatureBasedAlgorithm *featureBasedAlgorithm = dynamic_cast<const QgsProcessingFeatureBasedAlgorithm *>( mAlgorithm );
-    //if ( featureBasedAlgorithm )
-    //{
-    //  parameters[featureBasedAlgorithm->inputParameterName()]
-    //}
-    parameters[inputParameterName] = QgsProcessingFeatureSourceDefinition( mInPlaceLayer->id(),
-                                                                           false,
-                                                                           -1,
-                                                                           Qgis::ProcessingFeatureSourceDefinitionFlags(),
-                                                                           Qgis::InvalidGeometryCheck(),
-                                                                           QStringLiteral( "$id IN (%1)" ).arg( featureIds.join( ',' ) ) );
-    parameters[QStringLiteral( "OUTPUT" )] = QStringLiteral( "memory:" );
-
     const QgsProcessingFeatureBasedAlgorithm *featureBasedAlgorithm = dynamic_cast<const QgsProcessingFeatureBasedAlgorithm *>( mAlgorithm );
     if ( featureBasedAlgorithm )
     {
+      parameters[featureBasedAlgorithm->inputParameterName()] = QgsProcessingFeatureSourceDefinition( mInPlaceLayer->id(),
+                                                                                                      false,
+                                                                                                      -1,
+                                                                                                      Qgis::ProcessingFeatureSourceDefinitionFlags(),
+                                                                                                      Qgis::InvalidGeometryCheck(),
+                                                                                                      QStringLiteral( "$id IN (%1)" ).arg( featureIds.join( ',' ) ) );
+      parameters[QStringLiteral( "OUTPUT" )] = QStringLiteral( "memory:" );
+
       if ( !previewMode )
       {
         mInPlaceLayer->startEditing();
