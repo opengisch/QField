@@ -94,6 +94,13 @@ bool ProcessingAlgorithmsModel::filterAcceptsRow( int sourceRow, const QModelInd
     if ( !supportsInPlace )
       return false;
   }
+  if ( mFilters & Filter::FavoriteFilter )
+  {
+    if ( !mModel->data( sourceIndex, ProcessingAlgorithmsModelBase::AlgorithmFavoriteRole ).toBool() )
+    {
+      return false;
+    }
+  }
   if ( mInPlaceLayer )
   {
     const QgsProcessingAlgorithm *algorithm = mModel->algorithmForIndex( sourceIndex );
@@ -112,6 +119,16 @@ ProcessingAlgorithmsModelBase::ProcessingAlgorithmsModelBase( QObject *parent )
 {
   static std::once_flag initialized;
   std::call_once( initialized, [] { QgsApplication::processingRegistry()->addProvider( new QgsNativeAlgorithms( QgsApplication::processingRegistry() ) ); } );
+
+  QSettings settings;
+  if ( !settings.value( QStringLiteral( "processing/favoritesInitialized" ), false ).toBool() )
+  {
+    settings.setValue( QStringLiteral( "processing/favorites/%1" ).arg( QStringLiteral( "native:orthogonalize" ) ), true );
+    settings.setValue( QStringLiteral( "processing/favorites/%1" ).arg( QStringLiteral( "native:rotatefeatures" ) ), true );
+    settings.setValue( QStringLiteral( "processing/favorites/%1" ).arg( QStringLiteral( "native:smoothgeometry" ) ), true );
+    settings.setValue( QStringLiteral( "processing/favoritesInitialized" ), true );
+  }
+
   rebuild();
 }
 
@@ -188,6 +205,7 @@ QHash<int, QByteArray> ProcessingAlgorithmsModelBase::roleNames() const
   roles[AlgorithmNameRole] = "AlgorithmName";
   roles[AlgorithmSvgIconRole] = "AlgorithmSvgIcon";
   roles[AlgorithmFlagsRole] = "AlgorithmFlags";
+  roles[AlgorithmFavoriteRole] = "AlgorithmFavorite";
 
   return roles;
 }
@@ -217,7 +235,27 @@ QVariant ProcessingAlgorithmsModelBase::data( const QModelIndex &index, int role
       return mAlgorithms.at( index.row() ).algorithm()->svgIconPath();
     case AlgorithmFlagsRole:
       return static_cast<int>( mAlgorithms.at( index.row() ).algorithm()->flags() );
+    case AlgorithmFavoriteRole:
+      QSettings settings;
+      return settings.value( QStringLiteral( "processing/favorites/%1" ).arg( mAlgorithms.at( index.row() ).algorithm()->id() ), false ).toBool();
   }
 
   return QVariant();
+}
+
+bool ProcessingAlgorithmsModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
+{
+  if ( index.row() >= mAlgorithms.size() || index.row() < 0 || !mAlgorithms.at( index.row() ).algorithm() )
+    return false;
+
+  switch ( role )
+  {
+    case AlgorithmFavoriteRole:
+      QSettings settings;
+      settings.setValue( QStringLiteral( "processing/favorites/%1" ).arg( mAlgorithms.at( index.row() ).algorithm()->id() ), value.toBool() );
+      emit dataChanged( index, index, QList<int>() << role );
+      return true;
+  }
+
+  return false;
 }

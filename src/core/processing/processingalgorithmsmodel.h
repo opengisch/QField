@@ -57,7 +57,8 @@ class ProcessingAlgorithmsModel : public QSortFilterProxyModel
     //! Available filter flags for filtering the model
     enum Filter
     {
-      InPlaceFilter = 1 << 1, //!< Only show algorithms which support in-place edits
+      InPlaceFilter = 1 << 1,  //!< Only show algorithms which support in-place edits
+      FavoriteFilter = 1 << 2, //!< Only show algorithms that been added to favorites
     };
     Q_DECLARE_FLAGS( Filters, Filter )
     Q_FLAGS( Filters )
@@ -128,6 +129,7 @@ class ProcessingAlgorithmsModelBase : public QAbstractListModel
       AlgorithmNameRole,              //! the algorithm name
       AlgorithmSvgIconRole,           //! the algorithm SVG icon path
       AlgorithmFlagsRole,             //! the algorithm flags
+      AlgorithmFavoriteRole,          //! the algorithm favorite status
     };
     Q_ENUM( Role )
 
@@ -142,6 +144,8 @@ class ProcessingAlgorithmsModelBase : public QAbstractListModel
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
+    bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
+
 
   private:
     void addProvider( QgsProcessingProvider *provider );
