@@ -72,7 +72,7 @@ void ProcessingAlgorithmsModel::setInPlaceLayer( QgsVectorLayer *layer )
 bool ProcessingAlgorithmsModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
 {
   QString left = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
-  QString right = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
+  QString right = mModel->data( sourceRight, ProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
   int compare = QString::localeAwareCompare( left, right );
   if ( compare != 0 )
   {
@@ -80,7 +80,7 @@ bool ProcessingAlgorithmsModel::lessThan( const QModelIndex &sourceLeft, const Q
   }
 
   left = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
-  right = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
+  right = mModel->data( sourceRight, ProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
   compare = QString::localeAwareCompare( left, right );
   return compare < 0;
 }
@@ -165,7 +165,7 @@ void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider
       bool isSupported = true;
       for ( const QgsProcessingParameterDefinition *parameter : algorithm->parameterDefinitions() )
       {
-        if ( !sSupportedParameters.contains( parameter->type() ) )
+        if ( !( parameter->flags() & Qgis::ProcessingParameterFlag::Optional ) && !sSupportedParameters.contains( parameter->type() ) )
         {
           isSupported = false;
           break;

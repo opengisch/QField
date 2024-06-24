@@ -151,7 +151,7 @@ Item {
           anchors {
             rightMargin: 5
             right: parent.right
-            verticalCenter: parent
+            verticalCenter: parent.verticalCenter
           }
           width: 48
 
