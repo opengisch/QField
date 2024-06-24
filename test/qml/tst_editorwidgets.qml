@@ -302,6 +302,16 @@ TestCase {
     compare(checkBoxItem.checked, false)
   }
 
+  /**
+   * Tests the valueMap object and its properties
+   *
+   * This function tests the valueMap object and its properties, including:
+   * - The initial state and current item count
+   * - The comboBoxItem model and current index
+   * - The toggleButtonsItem selected index
+   * - The current layer and config
+   * - The value and current key value
+   */
   function test_01_valueMap() {
     const toggleButtonsItem = valueMap.children[0].children[0]
     const comboBoxItem = valueMap.children[0].children[1]
@@ -336,11 +346,12 @@ TestCase {
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
     compare(valueMap.currentKeyValue, valueMap.value)
 
-    console.log("->", valueMap.currentKeyValue)
-    console.log(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-    console.log(comboBoxItem.model)
-    console.log(toggleButtonsItem.currentSelectedKey)
-    console.log(toggleButtonsItem.currentSelectedValue)
-    console.log(comboBoxItem)
+    console.log("Check ->", valueMap.currentKeyValue)
+    console.log("Check ->", comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
+    console.log("Check ->", comboBoxItem.model)
+    console.log("Check ->", comboBoxItem.model.rowCount())
+    console.log("Check ->", toggleButtonsItem.currentSelectedKey)
+    console.log("Check ->", toggleButtonsItem.currentSelectedValue)
+    console.log("Check ->", comboBoxItem)
   }
 }
