@@ -141,13 +141,32 @@ void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider
   const QList<const QgsProcessingAlgorithm *> algorithms = provider->algorithms();
   for ( const QgsProcessingAlgorithm *algorithm : algorithms )
   {
-    const static QStringList sSupportedAlgorithms = { QStringLiteral( "native:orthogonalize" ), QStringLiteral( "native:rotatefeatures" ) };
-    if ( !sSupportedAlgorithms.contains( algorithm->id() ) )
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "sink" ), QStringLiteral( "source" ) };
+    const QgsProcessingFeatureBasedAlgorithm *featureBasedAlgorithm = dynamic_cast<const QgsProcessingFeatureBasedAlgorithm *>( algorithm );
+    if ( featureBasedAlgorithm )
     {
-      continue;
-    }
+      bool isSupported = true;
+      for ( const QgsProcessingParameterDefinition *parameter : algorithm->parameterDefinitions() )
+      {
+        if ( !sSupportedParameters.contains( parameter->type() ) )
+        {
+          isSupported = false;
+          break;
+        }
 
-    mAlgorithms << AlgorithmItem( algorithm );
+        if ( parameter->type() == QStringLiteral( "source" ) && parameter->name() != featureBasedAlgorithm->inputParameterName() )
+        {
+          isSupported = false;
+          break;
+        }
+      }
+      if ( !isSupported )
+      {
+        continue;
+      }
+
+      mAlgorithms << AlgorithmItem( algorithm );
+    }
   }
 }
 
