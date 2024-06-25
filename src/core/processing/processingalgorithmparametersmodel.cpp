@@ -60,6 +60,11 @@ bool ProcessingAlgorithmParametersModel::isValid() const
   return mModel->isValid();
 }
 
+bool ProcessingAlgorithmParametersModel::hasParameters() const
+{
+  return mModel->hasParameters();
+}
+
 bool ProcessingAlgorithmParametersModel::hasAdvancedParameters() const
 {
   return mModel->hasAdvancedParameters();

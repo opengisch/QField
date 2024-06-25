@@ -34,8 +34,9 @@ Item {
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
 
-      visible: processingAlgorithmParametersModel.hasAdvancedParameters
-      model: [qsTr("General Parameters"), qsTr("Advanced Parameters")]
+      model: processingAlgorithmParametersModel.hasAdvancedParameters
+             ? [qsTr("General Parameters"), qsTr("Advanced Parameters"), qsTr("Help")]
+             : [qsTr("General Parameters"), qsTr("Help")]
 
       delegate: TabButton {
         id: tabButton
@@ -83,6 +84,7 @@ Item {
       Layout.topMargin: 5
       Layout.fillWidth: true
       Layout.fillHeight: true
+      visible: tabRow.currentIndex !== tabRow.model.length - 1
 
       contentWidth: content.width
       contentHeight: content.height
@@ -109,10 +111,80 @@ Item {
         width: processingAlgorithmForm.width
 
         Repeater {
+          id: contentRepeater
+
           // Note: digitizing a child geometry will temporarily hide the feature form,
           // we need to preserve items so signal connections are kept alive
           model: processingAlgorithmParametersModel
           delegate: parameterItem
+        }
+      }
+
+      Text {
+        width: processingAlgorithmForm.width
+        height: processingAlgorithmForm.height - tabRow.height - 100
+        visible: contentRepeater.count == 0
+        padding: 10
+
+        font: Theme.tipFont
+        color: Theme.secondaryTextColor
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        wrapMode: Text.WordWrap
+
+        text: qsTr("There are no general parameters attached to this algorithm.")
+      }
+    }
+
+    Flickable {
+      id: descriptionView
+      Layout.topMargin: 5
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      visible: tabRow.currentIndex === tabRow.model.length - 1
+
+      contentWidth: descriptionContent.width
+      contentHeight: descriptionContent.height
+      bottomMargin: processingAlgorithmForm.bottomMargin
+      clip: true
+
+      ScrollBar.vertical: ScrollBar {
+        policy: descriptionContent.height > descriptionView.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+        width: 6
+        contentItem: Rectangle {
+          implicitWidth: 6
+          implicitHeight: 25
+          color: Theme.mainColor
+        }
+      }
+
+      Column {
+        id: descriptionContent
+        width: processingAlgorithmForm.width
+        leftPadding: 10
+        rightPadding: 10
+        spacing: 10
+
+        Text {
+          width: parent.width - parent.leftPadding - parent.rightPadding
+          visible: tabRow.currentIndex === tabRow.model.length - 1
+
+          font: Theme.strongFont
+          color: Theme.mainTextColor
+          wrapMode: Text.WordWrap
+
+          text: qsTr('Algorithm description')
+        }
+
+        Text {
+          width: parent.width - parent.leftPadding - parent.rightPadding
+          visible: tabRow.currentIndex === tabRow.model.length - 1
+
+          font: Theme.tipFont
+          color: Theme.mainTextColor
+          wrapMode: Text.WordWrap
+
+          text: processingAlgorithmParametersModel.algorithmShortHelp
         }
       }
     }
