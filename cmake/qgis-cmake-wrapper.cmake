@@ -173,5 +173,9 @@ if(TRUE) # Should possibly have a "static only" check
       Qt::DBus
     )
   endif()
+
+  find_package(GSL REQUIRED)
+
   target_link_libraries(QGIS::Analysis INTERFACE QGIS::Core)
+  target_link_libraries(QGIS::Analysis INTERFACE GSL::gsl)
 endif()

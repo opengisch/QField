@@ -28,6 +28,8 @@ import Theme 1.0
 Rectangle {
   id: featureForm
 
+  property ProcessingAlgorithm algorithm: processingAlgorithm
+
   property FeatureListModelSelection selection
   property MapSettings mapSettings
   property DigitizingToolbar digitizingToolbar
@@ -118,7 +120,18 @@ Rectangle {
       PropertyChanges {
         target: globalFeaturesList
         shown: true
-
+      }
+      PropertyChanges {
+        target: featureFormList
+        shown: false
+      }
+      PropertyChanges {
+        target: processingAlgorithmsList
+        shown: false
+      }
+      PropertyChanges {
+        target: processingAlgorithmForm
+        shown: false
       }
       PropertyChanges {
         target: featureListToolBar
@@ -132,6 +145,7 @@ Rectangle {
             ///e.g. tip on the canvas during an edit
             featureFormList.confirm()
           }
+          featureListToolBar.title = qsTr('Features')
         }
       }
     },
@@ -141,6 +155,10 @@ Rectangle {
       PropertyChanges {
         target: globalFeaturesList
         shown: false
+      }
+      PropertyChanges {
+        target: featureFormList
+        shown: true
       }
       PropertyChanges {
         target: featureListToolBar
@@ -163,8 +181,53 @@ Rectangle {
         target: featureFormList
         state: "Edit"
       }
+    },
+    /* Show a list of processing algorithms compatible with the selected feature(s) */
+    State {
+      name: "ProcessingAlgorithmsList"
+      PropertyChanges {
+        target: processingAlgorithmsList
+        shown: true
+      }
+      PropertyChanges {
+        target: processingAlgorithmForm
+        shown: false
+      }
+      PropertyChanges {
+        target: globalFeaturesList
+        shown: false
+      }
+      PropertyChanges {
+        target: featureListToolBar
+        state: "Processing"
+      }
+      StateChangeScript {
+        script: {
+          featureListToolBar.title = qsTr('Processing Algorithms')
+        }
+      }
+    },
+    State {
+      name: "ProcessingAlgorithmForm"
+      PropertyChanges {
+        target: processingAlgorithmsList
+        shown: false
+      }
+      PropertyChanges {
+        target: processingAlgorithmForm
+        shown: true
+      }
+      PropertyChanges {
+        target: featureListToolBar
+        state: "ProcessingLaunch"
+      }
+      StateChangeScript {
+        script: {
+          featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName
+          featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName
+        }
+      }
     }
-
   ]
   state: "Hidden"
 
@@ -185,8 +248,10 @@ Rectangle {
     anchors.right: parent.right
     anchors.bottom: parent.bottom
     anchors.bottomMargin: mainWindow.sceneBottomMargin
+    height: parent.height - featureListToolBar.height
 
     property bool shown: false
+    visible: shown
 
     clip: true
 
@@ -321,17 +386,6 @@ Rectangle {
       width: parent.width
     }
 
-    onShownChanged: {
-      if ( shown )
-      {
-        height = parent.height - featureListToolBar.height
-      }
-      else
-      {
-        height = 0
-      }
-    }
-
     Behavior on height {
       PropertyAnimation {
         easing.type: Easing.OutQuart
@@ -349,6 +403,9 @@ Rectangle {
     bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
 
+    property bool shown: false
+    visible: shown
+
     digitizingToolbar: featureForm.digitizingToolbar
     codeReader: featureForm.codeReader
 
@@ -364,8 +421,6 @@ Rectangle {
 
     focus: true
 
-    visible: !globalFeaturesList.shown
-
     onCancelled: {
       featureForm.selection.focusedItemChanged()
       featureFormList.model.featureModel.reset()
@@ -374,6 +429,52 @@ Rectangle {
           displayToast( qsTr( "Changes discarded" ), 'warning' )
       }
     }
+  }
+
+  ProcessingAlgorithmsList {
+    id: processingAlgorithmsList
+
+    inPlaceLayer: featureForm.selection.model.selectedLayer
+
+    anchors.top: featureListToolBar.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: mainWindow.sceneBottomMargin
+
+    property bool shown: false
+    visible: shown
+
+    onAlgorithmSelected: (id) => {
+      processingAlgorithm.id = id
+      featureForm.state = "ProcessingAlgorithmForm"
+    }
+  }
+
+  ProcessingAlgorithmForm {
+    id: processingAlgorithmForm
+
+    algorithmId: processingAlgorithm.id
+
+    anchors.top: featureListToolBar.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: mainWindow.sceneBottomMargin
+
+    property bool shown: false
+    visible: shown
+  }
+
+  ProcessingAlgorithm {
+    id: processingAlgorithm
+
+    parameters: processingAlgorithmForm.algorithmParametersModel.parameters
+
+    inPlaceLayer: featureForm.selection.model.selectedLayer
+    inPlaceFeatures: featureForm.selection.model.selectedFeatures
+
+    preview: featureForm.state == "ProcessingAlgorithmForm"
   }
 
   NavigationBar {
@@ -519,6 +620,10 @@ Rectangle {
     onToggleMultiSelection: {
         featureForm.selection.focusedItem = -1;
         if ( featureForm.multiSelection ) {
+            if (featureForm.state == "ProcessingAlgorithmsList" || featureForm.state == "ProcessingAlgorithmForm") {
+              featureForm.state = "FeatureList"
+            }
+
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureFormList.model.applyFeatureModel()
             featureForm.selection.model.clearSelection();
@@ -550,6 +655,15 @@ Rectangle {
 
     onMultiMoveClicked: {
         moveFeaturesToolbar.initializeMoveFeatures()
+    }
+
+    onMultiProcessingClicked: {
+      featureForm.state = "ProcessingAlgorithmsList"
+    }
+
+    onProcessingRunClicked: {
+      processingAlgorithm.run()
+      featureForm.state = "FeatureList"
     }
 
     CoordinateTransformer {

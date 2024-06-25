@@ -8,6 +8,7 @@ ListView {
   orientation: Qt.Horizontal
   highlightFollowsCurrentItem: true
   currentIndex: 0
+
   highlight: Item {
     Rectangle {
       height: 2
@@ -17,6 +18,7 @@ ListView {
       anchors.bottom: parent.bottom
     }
   }
+
   delegate: TabButton {
     text: modelData
     height: tabRow.defaultHeight

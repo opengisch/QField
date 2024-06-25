@@ -1,0 +1,52 @@
+diff --git a/src/analysis/processing/qgsnativealgorithms.cpp b/src/analysis/processing/qgsnativealgorithms.cpp
+index 06a26910024..5a32a96cb86 100644
+--- a/src/analysis/processing/qgsnativealgorithms.cpp
++++ b/src/analysis/processing/qgsnativealgorithms.cpp
+@@ -31,7 +31,6 @@
+ #include "qgsalgorithmaspect.h"
+ #include "qgsalgorithmassignprojection.h"
+ #include "qgsalgorithmattributeindex.h"
+-#include "qgsalgorithmb3dmtogltf.h"
+ #include "qgsalgorithmbatchnominatimgeocode.h"
+ #include "qgsalgorithmboundary.h"
+ #include "qgsalgorithmboundingbox.h"
+@@ -99,7 +98,6 @@
+ #include "qgsalgorithmforcerhr.h"
+ #include "qgsalgorithmfuzzifyraster.h"
+ #include "qgsalgorithmgeometrybyexpression.h"
+-#include "qgsalgorithmgltftovector.h"
+ #if QT_CONFIG(process)
+ #include "qgsalgorithmgpsbabeltools.h"
+ #endif
+@@ -203,7 +201,6 @@
+ #include "qgsalgorithmsinglesidedbuffer.h"
+ #include "qgsalgorithmslope.h"
+ #include "qgsalgorithmsmooth.h"
+-#include "qgsalgorithmsnapgeometries.h"
+ #include "qgsalgorithmsnaptogrid.h"
+ #include "qgsalgorithmspatialindex.h"
+ #include "qgsalgorithmsplitfeaturesbyattributecharacter.h"
+@@ -297,7 +294,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+   addAlgorithm( new QgsAspectAlgorithm() );
+   addAlgorithm( new QgsAssignProjectionAlgorithm() );
+   addAlgorithm( new QgsAttributeIndexAlgorithm() );
+-  addAlgorithm( new QgsB3DMToGltfAlgorithm() );
+   addAlgorithm( new QgsBatchNominatimGeocodeAlgorithm() );
+   addAlgorithm( new QgsBookmarksToLayerAlgorithm() );
+   addAlgorithm( new QgsBoundaryAlgorithm() );
+@@ -380,7 +376,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+   addAlgorithm( new QgsFuzzifyRasterGaussianMembershipAlgorithm() );
+   addAlgorithm( new QgsFuzzifyRasterNearMembershipAlgorithm() );
+   addAlgorithm( new QgsGeometryByExpressionAlgorithm() );
+-  addAlgorithm( new QgsGltfToVectorFeaturesAlgorithm() );
+ #if QT_CONFIG(process)
+   addAlgorithm( new QgsConvertGpxFeatureTypeAlgorithm() );
+   addAlgorithm( new QgsConvertGpsDataAlgorithm() );
+@@ -515,7 +510,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+   addAlgorithm( new QgsSingleSidedBufferAlgorithm() );
+   addAlgorithm( new QgsSlopeAlgorithm() );
+   addAlgorithm( new QgsSmoothAlgorithm() );
+-  addAlgorithm( new QgsSnapGeometriesAlgorithm() );
+   addAlgorithm( new QgsSnapToGridAlgorithm() );
+   addAlgorithm( new QgsSpatialIndexAlgorithm() );
+   addAlgorithm( new QgsSplitFeaturesByAttributeCharacterAlgorithm() );
