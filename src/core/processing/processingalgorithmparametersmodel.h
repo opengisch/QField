@@ -40,11 +40,12 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
 
     Q_PROPERTY( QString algorithmId READ algorithmId WRITE setAlgorithmId NOTIFY algorithmIdChanged )
     Q_PROPERTY( bool isValid READ isValid NOTIFY algorithmIdChanged )
+    Q_PROPERTY( bool hasParameters READ hasParameters NOTIFY algorithmIdChanged )
     Q_PROPERTY( bool hasAdvancedParameters READ hasAdvancedParameters NOTIFY algorithmIdChanged )
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
 
     Q_PROPERTY( QString algorithmDisplayName READ algorithmDisplayName NOTIFY algorithmIdChanged )
-    Q_PROPERTY( QString algorithmShortHelp READ algorithmDisplayName NOTIFY algorithmIdChanged )
+    Q_PROPERTY( QString algorithmShortHelp READ algorithmShortHelp NOTIFY algorithmIdChanged )
 
   public:
     //! Available filter flags for filtering the model
@@ -84,6 +85,11 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
      * Returns whether the current model refers to a valid algorithm.
      */
     bool isValid() const;
+
+    /**
+     * Returns whether the current model has parameters.
+     */
+    bool hasParameters() const;
 
     /**
      * Returns whether the current model has advanced parameters.
@@ -169,6 +175,11 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
      * Returns whether the current model refers to a valid algorithm.
      */
     bool isValid() const { return mAlgorithm; }
+
+    /**
+     * Returns whether the current model has parameters.
+     */
+    bool hasParameters() const { return !mParameters.isEmpty(); };
 
     /**
      * Returns whether the current model has advanced parameters.
