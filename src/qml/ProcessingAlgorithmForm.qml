@@ -159,11 +159,12 @@ Item {
 
           Loader {
             id: parameterWidgetLoader
-            anchors { left: parent.left; right: parent.right }
 
             property var value: ParameterValue
             property string widget: ParameterType
             property var configuration: ParameterConfiguration
+
+            anchors { left: parent.left; right: parent.right }
 
             active: true
             source: {

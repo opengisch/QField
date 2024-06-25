@@ -88,7 +88,7 @@ Rectangle {
 
     height: toolBar.topMargin + 48
 
-    color: ( featureFormList.model.constraintsHardValid && featureFormList.model.constraintsSoftValid ) || parent.state !== "Edit" ? Theme.mainColor : !featureFormList.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
+    color: ( featureFormList.model.constraintsHardValid && featureFormList.model.constraintsSoftValid ) || toolBar.state !== "Edit" ? Theme.mainColor : !featureFormList.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
 
     clip: true
     focus: true
@@ -191,14 +191,14 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state == "Navigation"
+    visible: toolBar.state == "Navigation"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
 
-    enabled: ( parent.state == "Navigation" )
+    enabled: ( toolBar.state == "Navigation" )
 
     onClicked: {
       if ( toolBar.model && ( selection.focusedItem + 1 ) < toolBar.model.count ) {
@@ -223,16 +223,16 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state != "Edit" && !toolBar.multiSelection
+    visible: toolBar.state != "Edit" && !toolBar.multiSelection
     width: visible ? 48 : 0
     height: 48
     clip: true
 
-    iconSource: parent.state == "Navigation"
+    iconSource: toolBar.state == "Navigation"
                 ? Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
                 : Theme.getThemeVectorIcon( "ic_arrow_left_white_24dp" )
 
-    enabled: parent.state != "Edit" && !toolBar.multiSelection
+    enabled: toolBar.state != "Edit" && !toolBar.multiSelection
 
     onClicked: {
         if ( toolBar.model && ( selection.focusedItem > 0 ) ) {
@@ -257,7 +257,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state == "Edit" || parent.state == "ProcessingLaunch"
+    visible: toolBar.state == "Edit" || toolBar.state == "ProcessingLaunch"
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -265,7 +265,7 @@ Rectangle {
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     opacity: featureFormList.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
-     if (parent.state == "ProcessingLaunch") {
+     if (toolBar.state == "ProcessingLaunch") {
        processingRunClicked()
      } else {
        if( featureFormList.model.constraintsHardValid ) {
@@ -289,7 +289,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: !qfieldSettings.autoSave && parent.state == "Edit"
+    visible: !qfieldSettings.autoSave && toolBar.state == "Edit"
     width: visible ? 48: 0
     height: 48
     clip: true
@@ -316,7 +316,7 @@ Rectangle {
              && ! selection.focusedGeometry.isNull
              && ! featureFormList.model.featureModel.geometryLocked
              && ( projectInfo.editRights || editButton.isCreatedCloudFeature )
-             && parent.state == "Navigation" && !readOnly && projectInfo.editRights
+             && toolBar.state == "Navigation" && !readOnly && projectInfo.editRights
 
     anchors.right: editButton.left
     anchors.top: parent.top
@@ -358,7 +358,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state == "Navigation" && supportsEditing && ( projectInfo.editRights || isCreatedCloudFeature )
+    visible: toolBar.state == "Navigation" && supportsEditing && ( projectInfo.editRights || isCreatedCloudFeature )
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -401,7 +401,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state != "Edit" && parent.state != "Processing" && parent.state != "ProcessingLaunch"
+    visible: toolBar.state != "Edit" && toolBar.state != "Processing" && toolBar.state != "ProcessingLaunch"
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -409,9 +409,9 @@ Rectangle {
     iconSource: Theme.getThemeIcon( "ic_dot_menu_white_24dp" )
 
     onClicked: {
-        if ( parent.state == "Indication" ) {
+        if ( toolBar.state == "Indication" ) {
             featureListMenu.popup(menuButton.x + menuButton.width - featureListMenu.width, menuButton.y);
-        } else if ( parent.state == "Navigation" ) {
+        } else if ( toolBar.state == "Navigation" ) {
             featureMenu.popup(menuButton.x + menuButton.width - featureMenu.width, menuButton.y);
         }
     }
@@ -430,7 +430,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: (parent.state == "Processing" || parent.state == "ProcessingLaunch" || parent.state == "Indication") && toolBar.multiSelection && toolBar.model
+    visible: (toolBar.state == "Processing" || toolBar.state == "ProcessingLaunch" || toolBar.state == "Indication") && toolBar.multiSelection && toolBar.model
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -455,7 +455,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: ( parent.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
+    width: ( toolBar.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
     visible: width > 0
     height: 48
     verticalAlignment: Text.AlignVCenter
@@ -474,7 +474,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: parent.state == "Indication"
+    visible: toolBar.state == "Indication"
              && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1
              && projectInfo.editRights
     width: visible ? 48 : 0

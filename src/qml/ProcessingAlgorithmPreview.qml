@@ -1,5 +1,6 @@
 import QtQuick 2.14
 
+import Theme 1.0
 import org.qgis 1.0
 import org.qfield 1.0
 
@@ -8,7 +9,7 @@ Repeater {
 
   property ProcessingAlgorithm algorithm
   property MapSettings mapSettings
-  property color color: "#99000000"
+  property color color: Theme.processingPreview
 
   model: algorithm.previewGeometries
 
