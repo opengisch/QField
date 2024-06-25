@@ -318,7 +318,7 @@ int MultiFeatureListModelBase::selectedCount() const
   return static_cast<int>( mSelectedFeatures.size() );
 }
 
-bool MultiFeatureListModelBase::canEditAttributesSelection()
+bool MultiFeatureListModelBase::canEditAttributesSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -327,7 +327,7 @@ bool MultiFeatureListModelBase::canEditAttributesSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeAttributeValues );
 }
 
-bool MultiFeatureListModelBase::canMergeSelection()
+bool MultiFeatureListModelBase::canMergeSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -336,7 +336,7 @@ bool MultiFeatureListModelBase::canMergeSelection()
   return !vlayer->readOnly() && QgsWkbTypes::isMultiType( vlayer->wkbType() ) && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
-bool MultiFeatureListModelBase::canDeleteSelection()
+bool MultiFeatureListModelBase::canDeleteSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -345,7 +345,7 @@ bool MultiFeatureListModelBase::canDeleteSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
-bool MultiFeatureListModelBase::canDuplicateSelection()
+bool MultiFeatureListModelBase::canDuplicateSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -354,7 +354,7 @@ bool MultiFeatureListModelBase::canDuplicateSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
-bool MultiFeatureListModelBase::canMoveSelection()
+bool MultiFeatureListModelBase::canMoveSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -386,7 +386,7 @@ bool MultiFeatureListModelBase::canMoveSelection()
   return true;
 }
 
-bool MultiFeatureListModelBase::canProcessSelection()
+bool MultiFeatureListModelBase::canProcessSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;

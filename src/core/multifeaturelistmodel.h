@@ -95,22 +95,22 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     int selectedCount() const;
 
     //! Returns TRUE if the selected features can have their attributes value changed
-    bool canEditAttributesSelection();
+    bool canEditAttributesSelection() const;
 
     //! Returns TRUE if the selected features can be merged
-    bool canMergeSelection();
+    bool canMergeSelection() const;
 
     //! Returns TRUE if the selected features can be deleted
-    bool canDeleteSelection();
+    bool canDeleteSelection() const;
 
     //! Returns TRUE if the selected features can be duplicated onto their associated layer
-    bool canDuplicateSelection();
+    bool canDuplicateSelection() const;
 
     //! Returns TRUE if the selected features' geometry can be moved
-    bool canMoveSelection();
+    bool canMoveSelection() const;
 
-    //! Returns TRUE if the selected features' can run processing algorithms
-    bool canProcessSelection();
+    //! Returns TRUE if the selected features can run processing algorithms
+    bool canProcessSelection() const;
 
     /**
      * Merges selected features by updating the first seleted feature's geometry

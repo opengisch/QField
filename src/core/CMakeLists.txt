@@ -273,7 +273,6 @@ endif()
 
 find_package(SQLite3 REQUIRED)
 find_package(ZXing REQUIRED)
-find_package(GSL REQUIRED)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
@@ -350,8 +349,7 @@ target_link_libraries(
          GDAL::GDAL
          SQLite::SQLite3
          Qca::qca
-         libzip::zip
-         GSL::gsl)
+         libzip::zip)
 
 if(WITH_BLUETOOTH)
   find_package(

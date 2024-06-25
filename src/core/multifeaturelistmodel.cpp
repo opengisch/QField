@@ -105,32 +105,32 @@ int MultiFeatureListModel::selectedCount() const
   return mSourceModel->selectedCount();
 }
 
-bool MultiFeatureListModel::canEditAttributesSelection()
+bool MultiFeatureListModel::canEditAttributesSelection() const
 {
   return mSourceModel->canEditAttributesSelection();
 }
 
-bool MultiFeatureListModel::canMergeSelection()
+bool MultiFeatureListModel::canMergeSelection() const
 {
   return mSourceModel->canMergeSelection();
 }
 
-bool MultiFeatureListModel::canDeleteSelection()
+bool MultiFeatureListModel::canDeleteSelection() const
 {
   return mSourceModel->canDeleteSelection();
 }
 
-bool MultiFeatureListModel::canDuplicateSelection()
+bool MultiFeatureListModel::canDuplicateSelection() const
 {
   return mSourceModel->canDuplicateSelection();
 }
 
-bool MultiFeatureListModel::canMoveSelection()
+bool MultiFeatureListModel::canMoveSelection() const
 {
   return mSourceModel->canMoveSelection();
 }
 
-bool MultiFeatureListModel::canProcessSelection()
+bool MultiFeatureListModel::canProcessSelection() const
 {
   return mSourceModel->canProcessSelection();
 }
