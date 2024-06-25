@@ -961,7 +961,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
       if ( layer )
       {
-        QStringList credits = !layer->metadata().rights().isEmpty() ? layer->metadata().rights() : QStringList() << layer->attribution();
+        QStringList credits = layer->metadata().rights();
         std::for_each( credits.begin(), credits.end(), []( QString &credit ) { credit = credit.trimmed(); } );
         credits.removeAll( QStringLiteral( "" ) ); // skip-keyword-check
         return credits.join( QStringLiteral( "; " ) );

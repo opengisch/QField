@@ -31,5 +31,5 @@ void qmlInit( QQmlEngine *engine )
   REGISTER_SINGLETON( "org.qfield", LayerUtils, "LayerUtils" );
 
   qRegisterMetaType<QgsField>( "QgsField" );
-  qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
+  qRegisterMetaType<QMetaType::Type>( "QMetaType::Type" );
 }
