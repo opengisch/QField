@@ -27,6 +27,7 @@ TestCase {
 
   EditorWidgets.DateTime {
     id: dateTime
+    fieldIsDate: false // to simulate LayerUtils.fieldType( field ) != 'QDate'
     property string value: "2022-01-01"
     property var config: undefined
     property var field: undefined
@@ -45,22 +46,30 @@ TestCase {
     property var value: undefined
     property var config: undefined
     property var field: undefined
-
     property var currentLayer: undefined
 
+    // to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> toggleButtons view
     Item {
       id: currentLayerTrue
       function customProperty(value) {
-        return true
+        return 100
       }
     }
 
+    // to to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> comboBox veiw
     Item {
       id: currentLayerFalse
       function customProperty(value) {
-        return false
+        return 0
       }
     }
+  }
+
+  EditorWidgets.UuidGenerator{
+    id: uuidGenerator
+    property var value: undefined
+    property var config: undefined
+    property bool isAdding: false
   }
 
 
@@ -100,7 +109,6 @@ TestCase {
     compare(textField.text, "THIRD_VALUE")
     compare(textArea.text, "THIRD_VALUE")
   }
-
 
   /**
    * Test case for range widget
@@ -146,7 +154,6 @@ TestCase {
     // Row
     // compare(sliderRow.visible, true) // ERROR ? should work but not working!
 
-    // TextField -> textField
     compare(textField.text, "3")
 
     range.config = {
@@ -170,7 +177,6 @@ TestCase {
     compare(slider.value, range.min) // NOTE: using `range.min` because of `rangeItem.parent.value`
   }
 
-
   /**
    * Test case for datetime widget
    *
@@ -183,6 +189,8 @@ TestCase {
    * - For each of the test times, it iterates over the display formats and sets the config with the format, calendar popup enabled, unknown field format, and disallows null values
    * - It sets the field to a date or time type
    * - It sets the value of the datetime widget to the test time and verifies that the text label is displayed correctly according to the format
+   *
+   * TODO: Test `fieldIsDate = true` too, if the field is a date only -> revert the time zone offset.
    */
   function test_01_dateTime() {
     const label = dateTime.children[1].children[0]
@@ -197,6 +205,7 @@ TestCase {
 
     for (let time of testTimes) {
       for (let format of displayFormats) {
+        dateTime.fieldIsDate = false;
         dateTime.config = {
           "display_format": format,
           "calendar_popup": true,
@@ -208,12 +217,10 @@ TestCase {
         }
 
         dateTime.value = time
-
         compare(label.text, results[resultIdx++])
       }
     }
   }
-
 
   /**
    * Test case for checkBox widget
@@ -311,6 +318,8 @@ TestCase {
    * - The toggleButtonsItem selected index
    * - The current layer and config
    * - The value and current key value
+   *
+   * TODO: needs more checks on search and changing selected item in combobox or toggleButtons
    */
   function test_01_valueMap() {
     const toggleButtonsItem = valueMap.children[0].children[0]
@@ -322,7 +331,6 @@ TestCase {
     compare(comboBoxItem.model.length, undefined)
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
 
-    valueMap.currentLayer = currentLayerTrue
     valueMap.config = {
       "map": [{
           "Buckfast bee": "Apis Mellifera"
@@ -332,26 +340,47 @@ TestCase {
           "European honey bee": "Apis Mellifera Mellifera"
         }]
     }
-    valueMap.value = "Apis Mellifera"
 
+    valueMap.currentLayer = currentLayerTrue
+    valueMap.value = "Apis Mellifera"
     compare(valueMap.state, "toggleButtonsView")
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-    compare(valueMap.currentKeyValue, valueMap.value)
+    compare(valueMap.currentKeyValue, "Apis Mellifera")
 
     valueMap.currentLayer = currentLayerFalse
     valueMap.value = "Apis Mellifera Carnica"
     compare(valueMap.state, "comboBoxItemView")
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-    compare(valueMap.currentKeyValue, valueMap.value)
+    compare(valueMap.currentKeyValue, "Apis Mellifera Carnica")
+  }
 
-    console.log("Check ->", valueMap.currentKeyValue)
-    console.log("Check ->", comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-    console.log("Check ->", comboBoxItem.model)
-    console.log("Check ->", comboBoxItem.model.rowCount())
-    console.log("Check ->", toggleButtonsItem.currentSelectedKey)
-    console.log("Check ->", toggleButtonsItem.currentSelectedValue)
-    console.log("Check ->", comboBoxItem)
+  /**
+   * Tests the UUIDGenerator object and its properties
+   *
+   * This function tests the UUIDGenerator object and its properties, including:
+   * - The initial state and value
+   * - The isLoaded and isAdding properties
+   * - The label text
+   * - The reset function
+   *
+   * TODO:
+   * - The generateUUID function
+   */
+  function test_01_UuidGenerator() {
+    const label = uuidGenerator.children[0]
+    compare(label.text, "");
+    compare(uuidGenerator.isLoaded, false);
+
+    uuidGenerator.value = "ANY_VALUE"
+    compare(label.text, "ANY_VALUE");
+
+    uuidGenerator.isAdding = true
+    uuidGenerator.isLoaded = true
+    uuidGenerator.value = ""
+    // NOTE: with isAdding && isLoaded && empty value, label should be StringUtils.createUuid()
+    // but because `StringUtils` is not defined it should remain as its previous value
+    compare(label.text, "ANY_VALUE");
   }
 }
