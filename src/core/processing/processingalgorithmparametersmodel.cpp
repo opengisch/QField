@@ -200,6 +200,7 @@ QHash<int, QByteArray> ProcessingAlgorithmParametersModelBase::roleNames() const
   roles[ParameterFlagsRole] = "ParameterFlags";
   roles[ParameterDefaultValueRole] = "ParameterDefaultValue";
   roles[ParameterValueRole] = "ParameterValue";
+  roles[ParameterConfigurationRole] = "ParameterConfiguration";
 
   return roles;
 }
@@ -229,6 +230,15 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
       return mParameters.at( index.row() )->defaultValue();
     case ParameterValueRole:
       return mValues.at( index.row() );
+    case ParameterConfigurationRole:
+      QVariantMap configuration;
+      if ( const QgsProcessingParameterNumber *parameterNumber = dynamic_cast<const QgsProcessingParameterNumber *>( mParameters.at( index.row() ) ) )
+      {
+        configuration["minimum"] = parameterNumber->minimum();
+        configuration["maximum"] = parameterNumber->maximum();
+        configuration["dataType"] = static_cast<int>( parameterNumber->dataType() );
+      }
+      return configuration;
   }
 
   return QVariant();

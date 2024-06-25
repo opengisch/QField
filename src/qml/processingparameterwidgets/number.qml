@@ -3,6 +3,7 @@ import QtQuick.Controls 2.14
 
 import Theme 1.0
 import org.qfield 1.0
+import org.qgis 1.0
 
 import "."
 
@@ -10,8 +11,9 @@ ProcessingParameterWidgetBase {
   id: numberItem
 
   property real step: 1
-  property real min: -99999999999999999999
-  property real max: 99999999999999999999
+  property real min: configuration['minimum']
+  property real max: configuration['maximum']
+  property bool isDouble: configuration['dataType'] === Qgis.ProcessingNumberParameterType.Double
 
   height: childrenRect.height
 
@@ -35,7 +37,7 @@ ProcessingParameterWidgetBase {
       text: value !== undefined ? value : ''
 
       validator: {
-        if (true)
+        if (isDouble)
         {
           doubleValidator;
         }
@@ -62,7 +64,8 @@ ProcessingParameterWidgetBase {
       onTextChanged: {
         if (text != value) {
           if (!isNaN(parseFloat(text))) {
-            valueChangeRequested( text )
+            let numberValue = Math.max(numberItem.min, Math.min(numberItem.max, text))
+            valueChangeRequested(numberValue)
           }
         }
       }
@@ -187,11 +190,14 @@ ProcessingParameterWidgetBase {
 
   IntValidator {
     id: intValidator
+    bottom: numberItem.min
+    top: numberItem.max
   }
 
   DoubleValidator {
     id: doubleValidator
-
     locale: 'C'
+    bottom: numberItem.min
+    top: numberItem.max
   }
 }

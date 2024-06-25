@@ -163,6 +163,7 @@ Item {
 
             property var value: ParameterValue
             property string widget: ParameterType
+            property var configuration: ParameterConfiguration
 
             active: true
             source: {

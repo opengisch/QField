@@ -149,6 +149,7 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
       ParameterFlagsRole,               //! the parameter description
       ParameterDefaultValueRole,        //! the parameter default value
       ParameterValueRole,               //! the parameter value
+      ParameterConfigurationRole,       //! the parameter configuration
     };
     Q_ENUM( Role )
 
