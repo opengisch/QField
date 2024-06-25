@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_36_3)
-set(QGIS_SHA512 8b456bc07088b4f9ca55b3cca803c02db475c6e23a4e866039f25912b687be244fc181dee29af96024cd93ea60765d656f76d6b3e73839bbe67b5146cca2481d)
+set(QGIS_REF c12f44e6235e7253963ceb65e36a338e927ae499)
+set(QGIS_SHA512 1fb39ff4f40de9a08e79ae73593afa324c7bfa07be34c255599cc17fe7206c24a42573aa21bfb8ec9d422bbe645b5e62938d4549f940c57275ba98be1e5888aa)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -16,10 +16,7 @@ vcpkg_from_github(
         wrongattributeerrormessage.patch
         crssync-no-install.patch
         include-qthread.patch
-        invoke.patch
-        fontsdownload.patch # Remove when upgrading to 3.38
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
-        processing_supportsinplace.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)

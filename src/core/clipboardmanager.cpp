@@ -158,7 +158,7 @@ QgsFeature ClipboardManager::pasteFeatureFromClipboard()
             else
             {
               const QString fieldName = tds.at( 0 ).toElement().text();
-              fields.append( QgsField( fieldName, QVariant::String ) );
+              fields.append( QgsField( fieldName, QMetaType::QString ) );
               attributes << tds.at( 1 ).toElement().text();
             }
           }

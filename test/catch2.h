@@ -19,6 +19,8 @@
 #define CATCH_CONFIG_RUNNER
 #endif
 
+#include "qfield.h"
+
 #include <QString>
 #include <QtGlobal>
 
@@ -32,7 +34,7 @@ int main( int argc, char *argv[] )
   char **av;
   QgsApplication app( ac, av, false );
   app.init();
-  app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
+  app.setPrefixPath( QGIS_PREFIX_PATH, true );
   app.initQgis();
   app.setAttribute( Qt::AA_Use96Dpi, true );
   int result = Catch::Session().run( argc, argv );

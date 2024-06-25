@@ -196,7 +196,7 @@ void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> 
 
 QString LayerUtils::fieldType( const QgsField &field )
 {
-  return QVariant( field.type() ).typeName();
+  return QVariant( QMetaType( field.type() ) ).typeName();
 }
 
 bool LayerUtils::addFeature( QgsVectorLayer *layer, QgsFeature feature )

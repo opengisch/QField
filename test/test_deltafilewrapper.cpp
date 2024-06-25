@@ -20,8 +20,6 @@
 #include "catch2.h"
 #include "deltafilewrapper.h"
 #include "qfield.h"
-#include "qgsapplication.h"
-#include "qgssettings.h"
 #include "qgsvectorlayerjoininfo.h"
 #include "utils/fileutils.h"
 #include "utils/qfieldcloudutils.h"
@@ -393,7 +391,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields;
-    fields.append( QgsField( "fid", QVariant::Int, "integer" ) );
+    fields.append( QgsField( "fid", QMetaType::Int, "integer" ) );
 
     QgsFeature f1( fields, 100 );
     f1.setAttribute( "fid", 100 );
@@ -460,7 +458,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields;
-    fields.append( QgsField( "fid", QVariant::Int, "integer" ) );
+    fields.append( QgsField( "fid", QMetaType::Int, "integer" ) );
 
     QgsFeature f1( fields, 100 );
     f1.setAttribute( "fid", 100 );
@@ -572,7 +570,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( QJsonDocument( dfw.deltas() ) == QJsonDocument::fromJson( "[]" ) );
 
     QgsFields fields;
-    fields.append( QgsField( "fid", QVariant::Int, "integer" ) );
+    fields.append( QgsField( "fid", QMetaType::Int, "integer" ) );
     QgsFeature f1( fields, 100 );
     f1.setAttribute( "fid", 100 );
 
@@ -885,7 +883,7 @@ TEST_CASE( "DeltaFileWrapper" )
     dfw.reset();
 
     QgsFields fields;
-    fields.append( QgsField( QStringLiteral( "fid" ), QVariant::Int ) );
+    fields.append( QgsField( QStringLiteral( "fid" ), QMetaType::Int ) );
 
     QgsFeature f1( fields, 101 );
     f1.setAttribute( QStringLiteral( "fid" ), 101 );
@@ -1432,7 +1430,7 @@ TEST_CASE( "DeltaFileWrapper" )
     dfw.reset();
 
     QgsFields fields;
-    fields.append( QgsField( QStringLiteral( "fid" ), QVariant::Int ) );
+    fields.append( QgsField( QStringLiteral( "fid" ), QMetaType::Int ) );
 
     QgsFeature f1( fields, 101 );
 
@@ -1468,10 +1466,10 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields;
-    fields.append( QgsField( "dbl", QVariant::Double, "double" ) );
-    fields.append( QgsField( "int", QVariant::Int, "integer" ) );
-    fields.append( QgsField( "fid", QVariant::Int, "integer" ) );
-    fields.append( QgsField( "str", QVariant::String, "text" ) );
+    fields.append( QgsField( "dbl", QMetaType::Double, "double" ) );
+    fields.append( QgsField( "int", QMetaType::Int, "integer" ) );
+    fields.append( QgsField( "fid", QMetaType::Int, "integer" ) );
+    fields.append( QgsField( "str", QMetaType::QString, "text" ) );
     QgsFeature f1( fields, 100 );
     f1.setAttribute( QStringLiteral( "dbl" ), 3.14 );
     f1.setAttribute( QStringLiteral( "int" ), 42 );
@@ -1479,7 +1477,7 @@ TEST_CASE( "DeltaFileWrapper" )
     f1.setAttribute( QStringLiteral( "str" ), QStringLiteral( "stringy" ) );
 
     QgsFields fields2;
-    fields2.append( QgsField( "fid", QVariant::Int, "integer" ) );
+    fields2.append( QgsField( "fid", QMetaType::Int, "integer" ) );
     QgsFeature f2( fields2, 101 );
     f2.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     f2.setAttribute( QStringLiteral( "fid" ), 101 );
@@ -1952,7 +1950,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields = layer->fields();
-    QgsField expressionField( QStringLiteral( "expression" ), QVariant::String, QStringLiteral( "text" ) );
+    QgsField expressionField( QStringLiteral( "expression" ), QMetaType::QString, QStringLiteral( "text" ) );
 
     QgsFeature f( fields, 2 );
     f.setAttribute( QStringLiteral( "fid" ), 2 );
@@ -2018,7 +2016,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields = layer->fields();
-    QgsField expressionField( QStringLiteral( "expression" ), QVariant::String, QStringLiteral( "text" ) );
+    QgsField expressionField( QStringLiteral( "expression" ), QMetaType::QString, QStringLiteral( "text" ) );
 
     QgsFeature oldFeature = layer->getFeature( 1 );
     QgsFeature newFeature = layer->getFeature( 1 );
@@ -2075,7 +2073,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields = layer->fields();
-    QgsField expressionField( QStringLiteral( "expression" ), QVariant::String, QStringLiteral( "text" ) );
+    QgsField expressionField( QStringLiteral( "expression" ), QMetaType::QString, QStringLiteral( "text" ) );
 
     // this is the easiest way to create an expression field
     REQUIRE( layer->addExpressionField( QStringLiteral( " UPPER( str ) " ), expressionField ) >= 0 );

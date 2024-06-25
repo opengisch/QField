@@ -148,7 +148,7 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
     // the completion list (returned by the current method) is used by the locator line edit directly
     completionList.append( QStringLiteral( "@%1 " ).arg( field.name() ) );
 
-    if ( field.type() == QVariant::String )
+    if ( field.type() == QMetaType::QString )
     {
       expressionParts << QStringLiteral( "%1 ILIKE '%%2%'" ).arg( QgsExpression::quotedColumnRef( field.name() ), searchString );
     }

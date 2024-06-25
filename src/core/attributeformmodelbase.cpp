@@ -359,7 +359,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
       QVariant result = exp.evaluate( &mExpressionContext );
 
       QString resultString;
-      switch ( static_cast<QMetaType::Type>( result.type() ) )
+      switch ( static_cast<QMetaType::Type>( result.typeId() ) )
       {
         case QMetaType::Int:
         case QMetaType::UInt:
@@ -715,7 +715,7 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
           QVariant result = exp.evaluate( &mExpressionContext );
 
           QString resultString;
-          switch ( static_cast<QMetaType::Type>( result.type() ) )
+          switch ( static_cast<QMetaType::Type>( result.typeId() ) )
           {
             case QMetaType::Int:
             case QMetaType::UInt:
@@ -979,8 +979,12 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
     if ( !setup.isNull() )
       return setup;
 
-    //when it's a provider field with default value clause, take Textedit
+      //when it's a provider field with default value clause, take Textedit
+#if _QGIS_VERSION_INT >= 33800
+    if ( fields.fieldOrigin( fieldIndex ) == Qgis::FieldOrigin::Provider )
+#else
     if ( fields.fieldOrigin( fieldIndex ) == QgsFields::OriginProvider )
+#endif
     {
       int providerOrigin = fields.fieldOriginIndex( fieldIndex );
       if ( !mLayer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
@@ -990,7 +994,7 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
     //find the best one
     const QgsField field = fields.at( fieldIndex );
     //on a boolean type take "CheckBox"
-    if ( field.type() == QVariant::Bool )
+    if ( field.type() == QMetaType::Bool )
       setup = QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
     //on a date or time type take "DateTime"
     if ( field.isDateOrTime() )
@@ -1003,7 +1007,7 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
       setup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), config );
     }
     //on numeric types take "Range"
-    if ( field.type() == QVariant::Int || field.type() == QVariant::Double || field.isNumeric() )
+    if ( field.type() == QMetaType::Int || field.type() == QMetaType::Double || field.isNumeric() )
       setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
     //if it's a foreign key configured in a relation take "RelationReference"
     if ( !mLayer->referencingRelations( fieldIndex ).isEmpty() )
