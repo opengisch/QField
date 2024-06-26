@@ -1357,6 +1357,7 @@ public class QFieldActivity extends QtActivity {
                     InputStream in = new FileInputStream(file);
                     QFieldUtils.inputStreamToFile(in, result.getPath(),
                                                   file.length());
+                    file.delete();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
