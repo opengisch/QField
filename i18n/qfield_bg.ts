@@ -836,6 +836,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>No feature attributes were transferred</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Features</source>
+        <translation>Обекти</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -1539,6 +1547,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1969,6 +1981,28 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Internal device</source>
         <translation>Вградено устройство</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Любими</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

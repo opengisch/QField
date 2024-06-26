@@ -838,6 +838,14 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>No feature attributes were transferred</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Features</source>
+        <translation>Elementos</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -1541,6 +1549,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1971,6 +1983,28 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Internal device</source>
         <translation>Dispositivo interno</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

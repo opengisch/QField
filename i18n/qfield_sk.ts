@@ -838,6 +838,14 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
         <source>No feature attributes were transferred</source>
         <translation> Atribúty prvku neboli prenesené.</translation>
     </message>
+    <message>
+        <source>Features</source>
+        <translation>Prvky</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -1542,6 +1550,10 @@ Dôvod:
         <source>Update Attributes From Feature</source>
         <translation>Aktualizovať atribúty z prvku</translation>
     </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1972,6 +1984,28 @@ Dôvod:
     <message>
         <source>Internal device</source>
         <translation>Interné zariadenie</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Obľúbené</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

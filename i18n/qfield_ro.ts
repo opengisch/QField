@@ -839,6 +839,14 @@ Caracteristicile geometriilor vor fi combinate în elementul &apos;%1&apos;, car
         <source>No feature attributes were transferred</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Features</source>
+        <translation>Entități</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -1543,6 +1551,10 @@ Motiv:
         <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1973,6 +1985,28 @@ Motiv:
     <message>
         <source>Internal device</source>
         <translation>Dispozitiv intern</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Favorite</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

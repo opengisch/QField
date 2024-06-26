@@ -834,6 +834,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>No feature attributes were transferred</source>
         <translation>未传输任何要素属性</translation>
     </message>
+    <message>
+        <source>Features</source>
+        <translation>要素</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation>处理算法</translation>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -1537,6 +1545,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Update Attributes From Feature</source>
         <translation>从要素更新属性</translation>
     </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation>处理所选要素</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1967,6 +1979,28 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Internal device</source>
         <translation>内部设备</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation>常规参数</translation>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation>高级参数</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>收藏夹</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation>所有算法</translation>
     </message>
 </context>
 <context>

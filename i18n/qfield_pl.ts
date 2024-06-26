@@ -840,6 +840,14 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>No feature attributes were transferred</source>
         <translation>Nie przesłano żadnych atrybutów elementów</translation>
     </message>
+    <message>
+        <source>Features</source>
+        <translation>Obiekty</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation>Algorytmy przetwarzania</translation>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -1543,6 +1551,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Update Attributes From Feature</source>
         <translation>Zaktualizuj atrybuty z elementu</translation>
     </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation>Przetwarzaj wybrane elementy</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1976,6 +1988,28 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
 </context>
 <context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation>Parametry główne</translation>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation>Parametry zaawansowane</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Ulubione</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation>Wszystkie algorytmy</translation>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
@@ -2369,7 +2403,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Przechowywanie projektów w chmurze QFieldCloud zapewnia płynną synchronizację, edycję offline i zarządzanie zespołem.&lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
