@@ -128,12 +128,27 @@ EditorWidgetBase {
               }
             }
 
-            MouseArea {
-              anchors.fill: parent
-              onClicked: {
+            BusyIndicator {
+              id: addingIndicator
+              anchors { top: parent.top; right: parent.right; rightMargin: 10 }
+              width: parent.height
+              height: parent.height
+              running: false
+            }
+
+            Timer {
+              id: addingTimer
+
+              property string printName: ''
+
+              interval: 50
+              repeat: false
+
+              onTriggered: {
                 if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
                   // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
                   if (!save()) {
+                    addingIndicator.running = false
                     displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning')
                     return
                   }
@@ -151,8 +166,17 @@ EditorWidgetBase {
                 }
                 else
                 {
+                  addingIndicator.running = false
                   displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning')
                 }
+              }
+            }
+
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                addingIndicator.running = true
+                addingTimer.restart()
               }
             }
           }
@@ -345,9 +369,13 @@ EditorWidgetBase {
                 relationEditorModel.reload()
         }
 
-        onFeatureSaved: {
+        onFeatureSaved: (id) => {
             relationEditorModel.featureFocus = id
             relationEditorModel.reload()
+        }
+
+        onOpened: {
+          addingIndicator.running = false
         }
     }
 
