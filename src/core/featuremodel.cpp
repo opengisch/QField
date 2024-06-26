@@ -707,7 +707,7 @@ void FeatureModel::applyGeometry()
         while ( parts.hasNext() )
         {
           QgsGeometry part( parts.next() );
-          sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::GeometryType::Polygon );
+          sanitizedGeometry.addPartV2( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::WkbType ::Polygon );
         }
       }
       else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )

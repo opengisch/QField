@@ -90,6 +90,9 @@
 #include "positioningdevicemodel.h"
 #include "positioningutils.h"
 #include "printlayoutlistmodel.h"
+#include "processingalgorithm.h"
+#include "processingalgorithmparametersmodel.h"
+#include "processingalgorithmsmodel.h"
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
 #include "projectsource.h"
@@ -366,7 +369,7 @@ void QgisMobileapp::initDeclarative()
 #endif
   addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
 
-  qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
+  qRegisterMetaType<QMetaType::Type>( "QMetaType::Type" );
 
   // Register QGIS QML types
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
@@ -517,6 +520,10 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
+
+  qmlRegisterType<ProcessingAlgorithm>( "org.qfield", 1, 0, "ProcessingAlgorithm" );
+  qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );
+  qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
@@ -1082,7 +1089,7 @@ void QgisMobileapp::readProjectFile()
       int temporalFieldIndex = -1;
       for ( int i = 0; i < fields.size(); i++ )
       {
-        if ( fields[i].type() == QVariant::DateTime || fields[i].type() == QVariant::Date )
+        if ( fields[i].type() == QMetaType::QDateTime || fields[i].type() == QMetaType::QDate )
         {
           if ( temporalFieldIndex == -1 )
           {

@@ -318,7 +318,7 @@ int MultiFeatureListModelBase::selectedCount() const
   return static_cast<int>( mSelectedFeatures.size() );
 }
 
-bool MultiFeatureListModelBase::canEditAttributesSelection()
+bool MultiFeatureListModelBase::canEditAttributesSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -327,7 +327,7 @@ bool MultiFeatureListModelBase::canEditAttributesSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeAttributeValues );
 }
 
-bool MultiFeatureListModelBase::canMergeSelection()
+bool MultiFeatureListModelBase::canMergeSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -336,7 +336,7 @@ bool MultiFeatureListModelBase::canMergeSelection()
   return !vlayer->readOnly() && QgsWkbTypes::isMultiType( vlayer->wkbType() ) && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
-bool MultiFeatureListModelBase::canDeleteSelection()
+bool MultiFeatureListModelBase::canDeleteSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -345,7 +345,7 @@ bool MultiFeatureListModelBase::canDeleteSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
-bool MultiFeatureListModelBase::canDuplicateSelection()
+bool MultiFeatureListModelBase::canDuplicateSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -354,7 +354,39 @@ bool MultiFeatureListModelBase::canDuplicateSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
-bool MultiFeatureListModelBase::canMoveSelection()
+bool MultiFeatureListModelBase::canMoveSelection() const
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
+    return false;
+
+  const bool geometryLockedExpressionActive = vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
+  if ( geometryLockedExpressionActive )
+  {
+    const QString geometryLockedExpression = vlayer->customProperty( QStringLiteral( "QFieldSync/geometry_locked_expression" ), QString() ).toString().trimmed();
+    if ( !geometryLockedExpression.isEmpty() )
+    {
+      QgsExpressionContext expressionContext = vlayer->createExpressionContext();
+      for ( const QPair<QgsVectorLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
+      {
+        expressionContext.setFeature( selectedFeature.second );
+        QgsExpression expression( geometryLockedExpression );
+        expression.prepare( &expressionContext );
+        if ( !expression.evaluate( &expressionContext ).toBool() )
+        {
+          return false;
+        }
+      }
+    }
+  }
+
+  return true;
+}
+
+bool MultiFeatureListModelBase::canProcessSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -674,6 +706,8 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
       break;
     }
   }
+
+  emit selectedCountChanged();
 }
 
 void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
@@ -703,4 +737,6 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
       break;
     }
   }
+
+  emit selectedCountChanged();
 }

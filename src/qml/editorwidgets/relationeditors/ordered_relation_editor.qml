@@ -92,30 +92,35 @@ EditorWidgetBase {
         anchors { top: parent.top; right: parent.right; rightMargin: 10 }
         height: parent.height
 
-        ToolButton {
+        QfToolButton {
           id: addButton
           width: parent.height
           height: parent.height
           enabled: constraintsHardValid
 
-          contentItem: Rectangle {
-            anchors.fill: parent
-            color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
-            Image {
-              anchors.fill: parent
-              anchors.margins: 8
-              fillMode: Image.PreserveAspectFit
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( 'ic_add_white_24dp' )
-            }
-          }
+          round: false
+          iconSource: Theme.getThemeIcon( 'ic_add_white_24dp' )
+          bgcolor: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
         }
       }
 
-      MouseArea {
-        anchors.fill: parent
-        onClicked: {
+      BusyIndicator {
+        id: addingIndicator
+        anchors { top: parent.top; right: parent.right; rightMargin: 10 }
+        width: parent.height
+        height: parent.height
+        running: false
+      }
+
+      Timer {
+        id: addingTimer
+
+        property string printName: ''
+
+        interval: 50
+        repeat: false
+
+        onTriggered: {
           if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
             // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
             if (!save()) {
@@ -135,6 +140,13 @@ EditorWidgetBase {
           } else {
             displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning')
           }
+        }
+      }
+
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+          addingTimer.restart()
         }
       }
     }
@@ -455,9 +467,13 @@ EditorWidgetBase {
       }
     }
 
-    onFeatureSaved: {
+    onFeatureSaved: (id) => {
       orderedRelationModel.featureFocus = id
       orderedRelationModel.reload()
+    }
+
+    onOpened: {
+      addingIndicator.running = false
     }
   }
 

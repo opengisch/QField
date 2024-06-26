@@ -81,8 +81,7 @@ void SnappingUtils::snap()
     return;
   }
 
-  QgsPointXY point = mapSettings()->screenToCoordinate( mInputCoordinate );
-  QgsPointLocator::Match match = snapToMap( point );
+  QgsPointLocator::Match match = snapToMap( mapSettings()->screenToCoordinate( mInputCoordinate ) );
   mSnappingResult = SnappingResult( match );
 
   //set point containing ZM if we snapped to a point/vertex

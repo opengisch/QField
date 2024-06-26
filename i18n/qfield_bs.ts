@@ -837,6 +837,14 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <source>No feature attributes were transferred</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Features</source>
+        <translation>Objekti</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -1540,6 +1548,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1973,6 +1985,28 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
 </context>
 <context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
@@ -2166,7 +2200,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Pohranjivanje projekta na QFieldCloud omogućava sinhronizaciju, editovanje bez interneta i upravljanje timom.&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">Pohranjivanje projekta na QFieldCloud omogućava sinhronizaciju, editovanje bez interneta i upravljanje timom.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2362,6 +2396,10 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation type="unfinished"/>
     </message>
 </context>

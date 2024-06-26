@@ -32,6 +32,9 @@ set(QFIELD_CORE_SRCS
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
     positioning/positioningdevicemodel.cpp
+    processing/processingalgorithm.cpp
+    processing/processingalgorithmparametersmodel.cpp
+    processing/processingalgorithmsmodel.cpp
     appcoordinateoperationhandlers.cpp
     appinterface.cpp
     attributeformmodel.cpp
@@ -145,6 +148,9 @@ set(QFIELD_CORE_HDRS
     positioning/nmeagnssreceiver.h
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
+    processing/processingalgorithm.h
+    processing/processingalgorithmparametersmodel.h
+    processing/processingalgorithmsmodel.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h
@@ -303,7 +309,8 @@ target_include_directories(
          ${CMAKE_SOURCE_DIR}/src/core/platforms
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick
          ${CMAKE_SOURCE_DIR}/src/core/utils
-         ${CMAKE_SOURCE_DIR}/src/core/positioning)
+         ${CMAKE_SOURCE_DIR}/src/core/positioning
+         ${CMAKE_SOURCE_DIR}/src/core/processing)
 if(ANDROID)
   string(REPLACE "_" "_1" APP_PACKAGE_JNI_NAME "${APP_PACKAGE_NAME}")
   configure_file(platforms/android/qfield_android.h.in

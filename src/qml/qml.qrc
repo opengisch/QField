@@ -29,6 +29,11 @@
         <file>PositioningSettings.qml</file>
         <file>PositioningInformationView.qml</file>
         <file>PositioningPreciseView.qml</file>
+        <file>ProcessingAlgorithmsList.qml</file>
+        <file>ProcessingAlgorithmForm.qml</file>
+        <file>ProcessingAlgorithmPreview.qml</file>
+        <file>processingparameterwidgets/ProcessingParameterWidgetBase.qml</file>
+        <file>processingparameterwidgets/number.qml</file>
         <file>QFieldAudioRecorder.qml</file>
         <file>QFieldCamera.qml</file>
         <file>QFieldSettings.qml</file>
@@ -90,6 +95,7 @@
         <file>imports/Theme/QfOverlayContainer.qml</file>
         <file>imports/Theme/QfTabBar.qml</file>
         <file>imports/Theme/qmldir</file>
+        <file>imports/Theme/QfSwipeAnimator.qml</file>
         <file>TrackerSettings.qml</file>
         <file>TrackingSession.qml</file>
         <file>EmbeddedFeatureForm.qml</file>

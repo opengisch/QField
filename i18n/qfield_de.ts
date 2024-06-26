@@ -461,7 +461,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Zentriere dein Gerät über einem Code</translation>
     </message>
 </context>
 <context>
@@ -552,7 +552,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation type="unfinished"/>
+        <translation>Positionierungspräzision entspricht nicht der Vorgabe, Stützpunkt wurde nicht hinzugefügt</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
@@ -585,11 +585,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitalisiere eine Linie um ein Höhenprofil zu erstellen</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Erstelle Höhenprofil...</translation>
     </message>
 </context>
 <context>
@@ -633,27 +633,27 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Nimm ein Foto auf</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Nimm ein Video auf</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Nimm einen Audoclip auf</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Hänge ein Foto aus der Galerie an</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Hänge eine Datei an</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Zeichne eine Zkizze</translation>
     </message>
 </context>
 <context>
@@ -822,18 +822,26 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Übertrage die Objektattribute</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>Wähle unten ein Objekt aus, von welchem die Attribute auf das momentan geöffnete Feature übertragen werden sollen.</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>Die Attribute des Objekts wurden übertragen.</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
+        <translation>Keine Attribute des Objekts wurden übertragen</translation>
+    </message>
+    <message>
+        <source>Features</source>
+        <translation>Objekte</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1074,7 +1082,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>Zugangsdaten</translation>
     </message>
 </context>
 <context>
@@ -1180,11 +1188,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Schreibgeschützter Layer</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
-        <translation type="unfinished"/>
+        <translation>Schreibgeschütze Layergeometrien</translation>
     </message>
 </context>
 <context>
@@ -1301,7 +1309,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Gibt ein Liste von allen Objekte in durchsuchbaren Layern zurück, die einen passenden Anzeigenamen konfiguriert haben.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
@@ -1328,7 +1336,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Um nach Objekten im aktiven Layer zu suchen, wähle einen Layer über die Legende aus.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
@@ -1347,7 +1355,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Sucheinstellungen</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
@@ -1536,6 +1544,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1971,6 +1983,28 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoriten</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
@@ -2334,7 +2368,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Das Projekt hat neuere Daten in der Cloud für dich, du solltest synchronisieren!</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
@@ -2358,6 +2392,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2598,7 +2636,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, neuere Daten in der Cloud verfügbar</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>

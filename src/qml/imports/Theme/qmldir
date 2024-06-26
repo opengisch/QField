@@ -14,3 +14,4 @@ QfCalendarPanel 1.0 QfCalendarPanel.qml
 QfPageHeader 1.0 QfPageHeader.qml
 QfOverlayContainer 1.0 QfOverlayContainer.qml
 QfTabBar 1.0 QfTabBar.qml
+QfSwipeAnimator 1.0 QfSwipeAnimator.qml

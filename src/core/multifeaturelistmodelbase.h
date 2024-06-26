@@ -66,19 +66,22 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     int selectedCount() const;
 
     //! \copydoc MultiFeatureListModel::canEditAttributesSelection
-    bool canEditAttributesSelection();
+    bool canEditAttributesSelection() const;
 
     //! \copydoc MultiFeatureListModel::canMergeSelection
-    bool canMergeSelection();
+    bool canMergeSelection() const;
 
     //! \copydoc MultiFeatureListModel::canDeleteSelection
-    bool canDeleteSelection();
+    bool canDeleteSelection() const;
 
     //! \copydoc MultiFeatureListModel::canDuplicateSelection
-    bool canDuplicateSelection();
+    bool canDuplicateSelection() const;
 
     //! \copydoc MultiFeatureListModel::canMoveSelection
-    bool canMoveSelection();
+    bool canMoveSelection() const;
+
+    //! \copydoc MultiFeatureListModel::canProcessSelection
+    bool canProcessSelection() const;
 
     //! \copydoc MultiFeatureListModel::mergeSelection
     bool mergeSelection();

@@ -853,6 +853,12 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
     }
+
+    ProcessingAlgorithmPreview {
+      id: processingAlgorithmPreview
+      algorithm: featureForm.algorithm
+      mapSettings: mapCanvas.mapSettings
+    }
   }
 
   InformationDrawer {

@@ -838,6 +838,14 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>No feature attributes were transferred</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Features</source>
+        <translation>Elementi</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
@@ -1541,6 +1549,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>Update Attributes From Feature</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1974,6 +1986,28 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
 </context>
 <context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Preferiti</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
@@ -2167,7 +2201,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>L&apos;archiviazione dei progetti su QFieldCloud offre continua sincronizzazione, modifica offline e una gestione ottimizzata del lavoro in team.&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">L&apos;archiviazione dei progetti su QFieldCloud offre continua sincronizzazione, modifica offline e una gestione ottimizzata del lavoro in team.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2364,6 +2398,10 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
         <translation>Il progetto corrente non consente la disattivazione dell&apos;invio automatico</translation>
+    </message>
+    <message>
+        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

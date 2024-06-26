@@ -438,7 +438,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Géométrie</translation>
     </message>
 </context>
 <context>
@@ -835,6 +835,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Features</source>
+        <translation>Entités</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1522,15 +1530,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Attributs de l&apos;entité copiés dans le presse-papiers</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Attributs de l&apos;entité mis à jour depuis le presse-papiers</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Aucun attribut de l&apos;entité n&apos;a été mis à jour depuis le presse-papiers</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
@@ -1538,6 +1546,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Update Attributes From Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1771,7 +1783,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de gestion des extensions</translation>
     </message>
 </context>
 <context>
@@ -1973,6 +1985,28 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
 </context>
 <context>
+    <name>ProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation>Paramètres généraux</translation>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation>Paramètres avancés</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoris</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation>Tous les algorithmes</translation>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
@@ -2165,7 +2199,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Le stockage des projets sur QFieldCloud offre une synchronisation transparente, une édition hors ligne et une gestion d&apos;équipe. &lt;br&gt; &lt;br&gt;</translation>
+        <translation type="vanished">Le stockage des projets sur QFieldCloud offre une synchronisation transparente, une édition hors ligne et une gestion d&apos;équipe. &lt;br&gt; &lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2341,15 +2375,15 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud est en train d&apos;empaqueter les dernières données rien que pour vous ; cela pourrait prendre un peu de temps, merci de patienter</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement en cours, %1% sur %2 rapatrié(s)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement en cours, %1% récupéré</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
@@ -2362,6 +2396,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
+        <translation>Héberger les projets sur QFieldCloud permet une synchronisation fluide, l&apos;édition hors-ligne et la gestion d&apos;équipe.&lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
@@ -2605,15 +2643,15 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud est en train d&apos;empaqueter les dernières données rien que pour vous ; cela pourrait prendre un peu de temps, merci de patienter</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement en cours, %1% sur %2 récupéré(s)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement en cours, %1% récupéré</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
@@ -4084,7 +4122,7 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;ajouter une entité-enfant : vérifier que l&apos;entité-parent respecte toutes les contraintes et peut être sauvegardée</translation>
     </message>
 </context>
 <context>
@@ -4497,7 +4535,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation>La capture activée</translation>
+        <translation>Capture activée</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
@@ -4644,7 +4682,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;ajouter une entité-enfant : vérifier que l&apos;entité-parent respecte toutes les contraintes et peut être sauvegardée</translation>
     </message>
 </context>
 </TS>

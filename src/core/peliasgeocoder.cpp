@@ -46,17 +46,17 @@ QgsGeocoderInterface::Flags PeliasGeocoder::flags() const
 QgsFields PeliasGeocoder::appendedFields() const
 {
   QgsFields fields;
-  fields.append( QgsField( QStringLiteral( "name" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "gid" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "layer" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "country" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "region" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "localadmin" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "locality" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "neighbourhood" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "street" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "housenumber" ), QVariant::String ) );
-  fields.append( QgsField( QStringLiteral( "postalcode" ), QVariant::String ) );
+  fields.append( QgsField( QStringLiteral( "name" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "gid" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "layer" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "country" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "region" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "localadmin" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "locality" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "neighbourhood" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "street" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "housenumber" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "postalcode" ), QMetaType::QString ) );
   return fields;
 }
 

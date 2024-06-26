@@ -78,6 +78,7 @@ jobs:
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D CMAKE_INSTALL_PREFIX=/usr \
                 -D CMAKE_EXPORT_COMPILE_COMMANDS=ON \
+                -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
                 -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
 
       - name: 📑 Upload dep build logs
