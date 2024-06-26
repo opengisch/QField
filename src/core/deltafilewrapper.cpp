@@ -531,14 +531,26 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
 
     switch ( newFields.fieldOrigin( idx ) )
     {
+#if _QGIS_VERSION_INT >= 33800
+      case Qgis::FieldOrigin::Expression:
+      case Qgis::FieldOrigin::Edit:
+      // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
+      case Qgis::FieldOrigin::Join:
+#else
       case QgsFields::OriginExpression:
       case QgsFields::OriginEdit:
       // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
       case QgsFields::OriginJoin:
+#endif
         ignoredFields++;
         continue;
+#if _QGIS_VERSION_INT >= 33800
+      case Qgis::FieldOrigin::Provider:
+      case Qgis::FieldOrigin::Unknown:
+#else
       case QgsFields::OriginProvider:
       case QgsFields::OriginUnknown:
+#endif
         break;
     }
 
@@ -739,13 +751,25 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
 
     switch ( newFields.fieldOrigin( idx ) )
     {
+#if _QGIS_VERSION_INT >= 33800
+      case Qgis::FieldOrigin::Expression:
+      case Qgis::FieldOrigin::Edit:
+      // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
+      case Qgis::FieldOrigin::Join:
+#else
       case QgsFields::OriginExpression:
       case QgsFields::OriginEdit:
       // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
       case QgsFields::OriginJoin:
+#endif
         continue;
+#if _QGIS_VERSION_INT >= 33800
+      case Qgis::FieldOrigin::Provider:
+      case Qgis::FieldOrigin::Unknown:
+#else
       case QgsFields::OriginProvider:
       case QgsFields::OriginUnknown:
+#endif
         break;
     }
 

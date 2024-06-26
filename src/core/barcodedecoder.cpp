@@ -89,15 +89,20 @@ void BarcodeDecoder::decodeImage( const QImage &image )
   {
     ZXing::ImageView imageView( image.bits(), image.width(), image.height(), imageFormat, static_cast<int>( image.bytesPerLine() ) );
 
+#if ZXing_VERSION_MAJOR >= 2
+    ZXing::ReaderOptions options;
+    options.setFormats( ZXing::BarcodeFormat::Any );
+    options.setTryRotate( true );
+
+    ZXing::Result result = ZXing::ReadBarcode( imageView, options );
+    const std::string text = result.text();
+    QString resultText = QString::fromStdString( text.c_str() );
+#else
     ZXing::DecodeHints hints;
     hints.setFormats( ZXing::BarcodeFormat::Any );
     hints.setTryRotate( true );
 
     ZXing::Result result = ZXing::ReadBarcode( imageView, hints );
-#if ZXing_VERSION_MAJOR >= 2
-    const std::string text = result.text();
-    QString resultText = QString::fromStdString( text.c_str() );
-#else
     const std::wstring text = result.text();
     QString resultText = QString::fromWCharArray( text.c_str() );
 #endif

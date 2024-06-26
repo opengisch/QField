@@ -369,7 +369,7 @@ void QgisMobileapp::initDeclarative()
 #endif
   addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
 
-  qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
+  qRegisterMetaType<QMetaType::Type>( "QMetaType::Type" );
 
   // Register QGIS QML types
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
@@ -1089,7 +1089,7 @@ void QgisMobileapp::readProjectFile()
       int temporalFieldIndex = -1;
       for ( int i = 0; i < fields.size(); i++ )
       {
-        if ( fields[i].type() == QVariant::DateTime || fields[i].type() == QVariant::Date )
+        if ( fields[i].type() == QMetaType::QDateTime || fields[i].type() == QMetaType::QDate )
         {
           if ( temporalFieldIndex == -1 )
           {

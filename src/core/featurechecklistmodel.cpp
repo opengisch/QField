@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 #include "featurechecklistmodel.h"
-#include "qgsmessagelog.h"
 #include "qgspostgresstringutils.h"
 #include "qgsvaluerelationfieldformatter.h"
 
@@ -69,13 +68,13 @@ QVariant FeatureCheckListModel::attributeValue() const
   for ( const QString &s : std::as_const( mCheckedEntries ) )
   {
     // Convert to proper type
-    const QVariant::Type type { fkType() };
+    const QMetaType::Type type { fkType() };
     switch ( type )
     {
-      case QVariant::Type::Int:
+      case QMetaType::Int:
         vl.push_back( s.toInt() );
         break;
-      case QVariant::Type::LongLong:
+      case QMetaType::LongLong:
         vl.push_back( s.toLongLong() );
         break;
       default:
@@ -86,7 +85,7 @@ QVariant FeatureCheckListModel::attributeValue() const
 
   if ( mAllowMulti )
   {
-    if ( mAttributeField.type() == QVariant::Map || mAttributeField.type() == QVariant::List )
+    if ( mAttributeField.type() == QMetaType::QVariantMap || mAttributeField.type() == QMetaType::QVariantList || mAttributeField.type() == QMetaType::QStringList )
     {
       value = vl;
     }
@@ -110,9 +109,9 @@ void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
 
   if ( mAllowMulti )
   {
-    if ( mAttributeField.type() == QVariant::Map || mAttributeField.type() == QVariant::List )
+    if ( mAttributeField.type() == QMetaType::QVariantMap || mAttributeField.type() == QMetaType::QVariantList || mAttributeField.type() == QMetaType::QStringList )
     {
-      if ( attributeValue.canConvert( QVariant::String ) )
+      if ( attributeValue.canConvert<QString>() )
       {
         QString value = attributeValue.value<QString>();
         if ( !value.isEmpty() )
@@ -133,7 +132,7 @@ void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
   }
   else
   {
-    if ( attributeValue.canConvert( QVariant::String ) )
+    if ( attributeValue.canConvert<QString>() )
     {
       QString value = attributeValue.value<QString>();
 
@@ -229,7 +228,7 @@ void FeatureCheckListModel::setUnchecked( const QModelIndex &index )
   emit listUpdated();
 }
 
-QVariant::Type FeatureCheckListModel::fkType() const
+QMetaType::Type FeatureCheckListModel::fkType() const
 {
   if ( currentLayer() )
   {
@@ -240,5 +239,5 @@ QVariant::Type FeatureCheckListModel::fkType() const
       return fields.at( idx ).type();
     }
   }
-  return QVariant::Type::Invalid;
+  return QMetaType::UnknownType;
 }
