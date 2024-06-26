@@ -147,7 +147,6 @@ bool ProcessingAlgorithm::run( bool previewMode )
   }
 
   QgsProcessingContext context;
-  context.setFlags( QgsProcessingContext::Flags() );
   context.setProject( QgsProject::instance() );
 
   QgsProcessingFeedback feedback;
@@ -186,7 +185,8 @@ bool ProcessingAlgorithm::run( bool previewMode )
         mInPlaceLayer->startEditing();
       }
 
-      QgsProcessingFeatureBasedAlgorithm *alg = static_cast<QgsProcessingFeatureBasedAlgorithm *>( featureBasedAlgorithm->create( { { QStringLiteral( "IN_PLACE" ), true } } ) );
+      std::unique_ptr<QgsProcessingFeatureBasedAlgorithm> alg;
+      alg.reset( static_cast<QgsProcessingFeatureBasedAlgorithm *>( featureBasedAlgorithm->create( { { QStringLiteral( "IN_PLACE" ), true } } ) ) );
       if ( !alg->prepare( parameters, context, &feedback ) )
       {
         return false;
