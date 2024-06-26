@@ -174,6 +174,14 @@ Rectangle {
     State {
       name: "FeatureFormEdit"
       PropertyChanges {
+        target: globalFeaturesList
+        shown: false
+      }
+      PropertyChanges {
+        target: featureFormList
+        shown: true
+      }
+      PropertyChanges {
         target: featureListToolBar
         state: "Edit"
       }
