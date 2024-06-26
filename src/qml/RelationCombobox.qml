@@ -597,7 +597,8 @@ Item {
             MouseArea {
                 enabled: !useCompleter
                 anchors.fill: parent
-                onClicked: {
+
+                onClicked: (mouse) => {
                     mouse.accepted = true
                     searchFeaturePopup.open()
                 }
