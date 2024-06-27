@@ -51,6 +51,7 @@
 #include "digitizinglogger.h"
 #include "distancearea.h"
 #include "drawingcanvas.h"
+#include "expressioncontextutils.h"
 #include "expressionevaluator.h"
 #include "expressionvariablemodel.h"
 #include "featurechecklistmodel.h"
@@ -518,6 +519,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
+  REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
