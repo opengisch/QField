@@ -837,7 +837,8 @@ Page {
 
         text:
         {
-          var currentLayer = model.featureModel.currentLayer
+          const featureModel = model.featureModel
+          var currentLayer = featureModel ? featureModel.currentLayer : null
           var layerName = 'N/A'
           if (currentLayer != null)
             layerName = currentLayer.name
