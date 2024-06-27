@@ -3596,8 +3596,8 @@ ApplicationWindow {
           loginDialogPopup.open()
       }
 
-      function onReloadEverything() {
-          iface.reloadProject()
+      function onFlushIsValid() {
+          flatLayerTree.flushIsValid()
       }
 
       function onShowLoginBrowser(url) {

@@ -78,6 +78,11 @@ void FlatLayerTreeModel::unfreeze( bool resetModel )
   mSourceModel->unfreeze( resetModel );
 }
 
+void FlatLayerTreeModel::flushIsValid()
+{
+  mSourceModel->flushIsValid();
+}
+
 void FlatLayerTreeModel::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking )
 {
   mSourceModel->setLayerInTracking( nodeLayer, tracking );
@@ -134,6 +139,11 @@ void FlatLayerTreeModelBase::unfreeze( bool resetModel )
   mFrozen = 0;
   if ( resetModel )
     buildMap( mLayerTreeModel );
+}
+
+void FlatLayerTreeModelBase::flushIsValid()
+{
+  emit dataChanged( index( 0, 0 ), index( mIndexMap.size() - 1, 0 ), QVector<int>() << FlatLayerTreeModel::IsValid );
 }
 
 void FlatLayerTreeModelBase::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )

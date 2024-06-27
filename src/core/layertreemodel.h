@@ -71,6 +71,8 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     Q_INVOKABLE void freeze();
     //! Unfreezes the model and resume listening to source model signals
     Q_INVOKABLE void unfreeze( bool resetModel = false );
+    //! Resets the IsValid value for all layers
+    Q_INVOKABLE void flushIsValid();
 
     //! Sets the information if the \a nodeLayer is currently in \a tracking state
     void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
@@ -161,6 +163,8 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     Q_INVOKABLE void freeze();
     //! Unfreezes the model and resume listening to source model signals
     Q_INVOKABLE void unfreeze( bool resetModel = false );
+    //! Resets the IsValid value for all layers
+    Q_INVOKABLE void flushIsValid();
 
     //! Sets the information if the \a nodeLayer is currently in \a tracking state
     void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );

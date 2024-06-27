@@ -21,7 +21,9 @@
 #include <QThread>
 #include <qgscredentials.h>
 #include <qgsdatasourceuri.h>
+#include <qgsmaplayer.h>
 #include <qgsmessagelog.h>
+#include <qgsproject.h>
 
 QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
@@ -83,7 +85,15 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
       }
       else
       {
-        emit reloadEverything();
+        const QList<QgsMapLayer *> mapLayers = QgsProject::instance()->mapLayers().values();
+        for ( QgsMapLayer *mapLayer : mapLayers )
+        {
+          if ( !mapLayer->isValid() && mapLayer->dataProvider() )
+          {
+            mapLayer->setDataSource( mapLayer->source(), mapLayer->name(), mapLayer->dataProvider()->name() );
+          }
+        }
+        emit flushIsValid();
       }
     } );
   }
