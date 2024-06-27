@@ -19,6 +19,7 @@
 #include "positioning.h"
 #include "qfield_qml_init.h"
 #include "qgsquickcoordinatetransformer.h"
+#include "valuemapmodel.h"
 
 #include <QProcess>
 #include <QQmlContext>
@@ -47,8 +48,6 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
 #include <qgswkbtypes.h>
-
-#include <valuemapmodel.h>
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
