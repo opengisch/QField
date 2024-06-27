@@ -29,13 +29,13 @@ EditorWidgetBase {
     color: Theme.mainTextColor
     opacity: 0.45
     wrapMode: Text.Wrap
-    textFormat: (config['IsMultiline'] === true && config['UseHtml']) || stringUtilities.hasLinks(value)
+    textFormat: (config['IsMultiline'] === true && config['UseHtml']) || StringUtils.hasLinks(value)
                 ? TextEdit.RichText
                 : TextEdit.AutoText
 
     text: value == null ? '' : config['IsMultiline'] === true
-                               ? config['UseHtml'] === true ? value : stringUtilities.insertLinks(value)
-                               : stringUtilities.insertLinks(value).replace('\n','')
+                               ? config['UseHtml'] === true ? value : StringUtils.insertLinks(value)
+                               : StringUtils.insertLinks(value).replace('\n','')
 
     onLinkActivated: (link) => { Qt.openUrlExternally(link) }
   }
