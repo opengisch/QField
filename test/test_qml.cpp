@@ -47,10 +47,8 @@
 #include <qgsquickmaptransform.h>
 #include <qgsrelationmanager.h>
 #include <qgssnappingutils.h>
-#include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
-#include <qgswkbtypes.h>
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
@@ -204,10 +202,7 @@ class Setup : public QObject
       qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
       qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
       qmlRegisterUncreatableType<QgsProjectDisplaySettings>( "org.qgis", 1, 0, "ProjectDisplaySettings", "" );
-      qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
-      qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
       qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
-      qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
       qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
       qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
       qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
