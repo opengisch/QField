@@ -7,8 +7,14 @@ import "../../src/qml/editorwidgets" as EditorWidgets
 TestCase {
   name: "EditorWidgets"
 
+  Item {
+    // mainWindow for widgets
+    id: mainWindowItem
+  }
+
   EditorWidgets.TextEdit {
     id: textEdit
+    property var mainWindow: mainWindowItem
     property string value: "DEFAULT_VALUE"
     property var config: undefined
     property bool isEnabled: true
@@ -16,6 +22,7 @@ TestCase {
 
   EditorWidgets.Range {
     id: range
+    property var mainWindow: mainWindowItem
     property real value: default_value
     property var config: undefined
     property bool isEnabled: true
@@ -25,6 +32,7 @@ TestCase {
 
   EditorWidgets.DateTime {
     id: dateTime
+    property var mainWindow: mainWindowItem
     fieldIsDate: false // to simulate LayerUtils.fieldType( field ) != 'QDate'
     property string value: "2022-01-01"
     property var config: undefined
@@ -34,6 +42,7 @@ TestCase {
 
   EditorWidgets.CheckBox {
     id: checkBox
+    property var mainWindow: mainWindowItem
     property bool value: true
     property var config: undefined
     property var field: undefined
@@ -41,6 +50,7 @@ TestCase {
 
   EditorWidgets.ValueMap {
     id: valueMap
+    property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: undefined
     property var field: undefined
@@ -65,6 +75,7 @@ TestCase {
 
   EditorWidgets.UuidGenerator {
     id: uuidGenerator
+    property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: undefined
     property bool isAdding: false

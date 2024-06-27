@@ -10,18 +10,18 @@ TestCase {
   name: "FeatureForm"
 
 
+  Item {
+    id: mainWindowItem
+  }
+
   QFieldControls.FeatureForm {
     id: featureForm
     property real testValue: 20
-    property var mainWindow: item
+    property var mainWindow: mainWindowItem
     model: tmpModel
 
     AttributeFormModel{
       id: tmpModel
-    }
-
-    Item {
-      id: item
     }
   }
 
