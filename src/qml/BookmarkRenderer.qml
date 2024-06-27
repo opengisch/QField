@@ -9,6 +9,8 @@ import Theme 1.0
 Item {
     id: bookmarkRenderer
 
+    property bool interactive: true
+
     property var bookmarkIndex: undefined
     property string bookmarkId: ''
     property string bookmarkName: ''
@@ -124,6 +126,7 @@ Item {
                 }
 
                 MouseArea {
+                    enabled: bookmarkRenderer.interactive
                     anchors.fill: bookmark
                     onClicked: {
                         displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));

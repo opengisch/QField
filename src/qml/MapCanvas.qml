@@ -33,6 +33,7 @@ Item {
 
   property bool interactive: true
   property bool hovered: false
+  property bool dragged: mainDragHandler.active || stylusDragHandler
   property bool pinched: pinchHandler.active
   property bool freehandDigitizing: false
   property bool isMapRotationEnabled: false

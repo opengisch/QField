@@ -7,11 +7,16 @@ import Theme 1.0
 
 Repeater {
   id: bookmarkHighlight
+
+  property bool interactive: true
   property MapSettings mapSettings
 
   model: qfieldSettings.showBookmarks ? bookmarkModel : undefined
 
   delegate: BookmarkRenderer {
+    id: bookmarkRenderer
+
+    interactive: bookmarkHighlight.interactive
     mapSettings: bookmarkHighlight.mapSettings
     geometryWrapper.qgsGeometry: model.BookmarkPoint
     geometryWrapper.crs: model.BookmarkCrs

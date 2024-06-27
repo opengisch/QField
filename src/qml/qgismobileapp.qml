@@ -713,6 +713,7 @@ ApplicationWindow {
 
     BookmarkHighlight {
         id: bookmarkHighlight
+        interactive: !mapCanvasMap.dragged
         mapSettings: mapCanvas.mapSettings
     }
 
