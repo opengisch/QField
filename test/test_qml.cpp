@@ -25,19 +25,15 @@
 #include <QQmlEngine>
 #include <QQmlFileSelector>
 #include <QtQuickTest>
+#include <qgis.h>
+#include <qgscoordinatereferencesystem.h>
 #include <qgsfeature.h>
 #include <qgsgeometry.h>
+#include <qgslocatormodel.h>
+#include <qgsmaplayer.h>
 #include <qgsmaplayerproxymodel.h>
 #include <qgsmapthemecollection.h>
 #include <qgspoint.h>
-#include <qgssnappingutils.h>
-#include <qgsvectorlayer.h>
-
-#include <valuemapmodel.h>
-// #include <QgsLocatorProxyMod
-#include <qgis.h>
-#include <qgscoordinatereferencesystem.h>
-#include <qgsmaplayer.h>
 #include <qgsproject.h>
 #include <qgsprojectdisplaysettings.h>
 #include <qgsquickcoordinatetransformer.h>
@@ -46,10 +42,13 @@
 #include <qgsquickmapsettings.h>
 #include <qgsquickmaptransform.h>
 #include <qgsrelationmanager.h>
+#include <qgssnappingutils.h>
 #include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
 #include <qgswkbtypes.h>
+
+#include <valuemapmodel.h>
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
@@ -184,7 +183,7 @@ class Setup : public QObject
       qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
       qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
       qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
-      // qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
+      qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
       qmlRegisterType<QgsVectorLayerEditBuffer>( "org.qgis", 1, 0, "QgsVectorLayerEditBuffer" );
       qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
       qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
