@@ -806,9 +806,11 @@ Page {
         font: Theme.strongFont
         color: Theme.light
 
-        text: {
-          var currentLayer = model.featureModel.currentLayer;
-          var layerName = 'N/A';
+        text:
+        {
+          const featureModel = model.featureModel
+          var currentLayer = featureModel ? featureModel.currentLayer : null
+          var layerName = 'N/A'
           if (currentLayer != null)
             layerName = currentLayer.name;
           if (form.state === 'Add')
