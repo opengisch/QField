@@ -1996,6 +1996,18 @@ Dôvod:
         <source>Advanced Parameters</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There are no general parameters attached to this algorithm.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Algorithm description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>

@@ -1994,6 +1994,18 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Advanced Parameters</source>
         <translation>Paramètres avancés</translation>
     </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There are no general parameters attached to this algorithm.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Algorithm description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>

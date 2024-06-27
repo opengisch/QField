@@ -1997,6 +1997,18 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Advanced Parameters</source>
         <translation>Parametry zaawansowane</translation>
     </message>
+    <message>
+        <source>Help</source>
+        <translation>Pomoc</translation>
+    </message>
+    <message>
+        <source>There are no general parameters attached to this algorithm.</source>
+        <translation>Do tego algorytmu nie są przypisane żadne ogólne parametry.</translation>
+    </message>
+    <message>
+        <source>Algorithm description</source>
+        <translation>Opis algorytmu</translation>
+    </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>
