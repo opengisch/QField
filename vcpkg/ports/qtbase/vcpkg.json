@@ -1,7 +1,7 @@
 {
   "name": "qtbase",
-  "version": "6.6.3",
-  "description": "Qt Application Framework Base Module. Includes Core, GUI, Widgets, Networking, SQL, Concurrent and other essential qt components.",
+  "version": "6.7.2",
+  "description": "Qt Base (Core, Gui, Widgets, Network, ...)",
   "homepage": "https://www.qt.io/",
   "license": null,
   "supports": "!uwp",
@@ -22,6 +22,14 @@
       "features": [
         "doubleconversion"
       ]
+    },
+    {
+      "name": "qtbase",
+      "default-features": false,
+      "features": [
+        "cups"
+      ],
+      "platform": "osx"
     },
     {
       "name": "qtbase",
@@ -52,7 +60,10 @@
   "default-features": [
     "brotli",
     "concurrent",
-    "dbus",
+    {
+      "name": "dbus",
+      "platform": "!(static & windows)"
+    },
     "default-features",
     "doubleconversion",
     "freetype",
@@ -61,7 +72,14 @@
     "icu",
     "jpeg",
     "network",
-    "openssl",
+    {
+      "name": "opengl",
+      "platform": "!ios"
+    },
+    {
+      "name": "openssl",
+      "platform": "!ios"
+    },
     "pcre2",
     "png",
     {
@@ -105,9 +123,25 @@
         }
       ]
     },
+    "cups": {
+      "description": "Provides support for the Common Unix Printing System.",
+      "supports": "linux | osx"
+    },
     "dbus": {
       "description": "Qt D-Bus",
       "dependencies": [
+        {
+          "name": "dbus",
+          "default-features": false
+        },
+        {
+          "name": "qtbase",
+          "host": true,
+          "default-features": false,
+          "features": [
+            "dbus"
+          ]
+        },
         {
           "name": "qtbase",
           "default-features": false,
@@ -147,14 +181,6 @@
             "gles2"
           ],
           "platform": "android"
-        },
-        {
-          "name": "qtbase",
-          "default-features": false,
-          "features": [
-            "opengl"
-          ],
-          "platform": "!ios"
         }
       ]
     },
@@ -166,7 +192,7 @@
     },
     "egl": {
       "description": "EGL",
-      "supports": "linux | android",
+      "supports": "linux",
       "dependencies": [
         "egl"
       ]
