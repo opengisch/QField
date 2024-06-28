@@ -227,7 +227,8 @@ else()
     list(APPEND FEATURE_GUI_OPTIONS -DINPUT_xkbcommon=no)
 endif()
 
-# Disable OpenGL ES 3.1 and 3.2
+# Disable OpenGL ES 3, 3.1 and 3.2
+list(APPEND FEATURE_GUI_OPTIONS -DFEATURE_opengles3:BOOL=OFF)
 list(APPEND FEATURE_GUI_OPTIONS -DFEATURE_opengles31:BOOL=OFF)
 list(APPEND FEATURE_GUI_OPTIONS -DFEATURE_opengles32:BOOL=OFF)
 
