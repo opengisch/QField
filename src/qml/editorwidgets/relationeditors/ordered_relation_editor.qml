@@ -198,9 +198,13 @@ EditorWidgetBase {
 
       onClicked: {
         if (orderedRelationModel.relation.referencingLayer !== undefined) {
-          locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
-          locatorHighlightItem.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs;
-          mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, orderedRelationModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature, featureForm.x, featureForm.y);
+          locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry
+          locatorHighlightItem.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs
+          mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
+                                                             orderedRelationModel.relation.referencingLayer,
+                                                             nmRelationId ? model.nmReferencingFeature : model.referencingFeature,
+                                                             featureForm.x,  // do we need rename to featureFormList ??
+                                                             featureForm.y)  // do we need rename to featureFormList ??
         }
       }
 

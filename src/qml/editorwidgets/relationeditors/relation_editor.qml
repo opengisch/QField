@@ -211,11 +211,17 @@ EditorWidgetBase {
         id: mouseArea
         anchors.fill: parent
 
-        onClicked: {
-          if (relationEditorModel.relation.referencingLayer !== undefined) {
-            locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
-            locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs;
-            mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, relationEditorModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature, featureForm.x, featureForm.y);
+            onClicked: {
+              if (relationEditorModel.relation.referencingLayer !== undefined) {
+                locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry
+                locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs
+                mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
+                                                                   relationEditorModel.relation.referencingLayer,
+                                                                   nmRelationId ? model.nmReferencingFeature : model.referencingFeature,
+                                                                   featureForm.x,  // do we need rename to featureFormList ??
+                                                                   featureForm.y)  // do we need rename to featureFormList ??
+              }
+            }
           }
         }
       }

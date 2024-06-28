@@ -85,7 +85,7 @@ Rectangle {
 
     height: toolBar.topMargin + 48
 
-    color: (featureFormList.model.constraintsHardValid && featureFormList.model.constraintsSoftValid) || toolBar.state !== "Edit" ? Theme.mainColor : !featureFormList.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
+    color: ( featureForm.model.constraintsHardValid && featureForm.model.constraintsSoftValid ) || toolBar.state !== "Edit" ? Theme.mainColor : !featureForm.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
 
     clip: true
     focus: true
@@ -244,18 +244,18 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_check_white_48dp")
-    opacity: featureFormList.model.constraintsHardValid ? 1.0 : 0.3
+    iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
+    opacity: featureForm.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
-      if (toolBar.state == "ProcessingLaunch") {
-        processingRunClicked();
-      } else {
-        if (featureFormList.model.constraintsHardValid) {
-          toolBar.save();
-        } else {
-          displayToast("Constraints not valid", 'warning');
-        }
-      }
+     if (toolBar.state == "ProcessingLaunch") {
+       processingRunClicked()
+     } else {
+       if( featureForm.model.constraintsHardValid ) {
+         toolBar.save()
+       } else {
+         displayToast( "Constraints not valid", 'warning' )
+       }
+     }
     }
     Behavior on width  {
       PropertyAnimation {
@@ -294,7 +294,11 @@ Rectangle {
 
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureFormList.model.featureModel.geometryLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state == "Navigation" && !readOnly && projectInfo.editRights
+    visible: stateMachine.state === "digitize"
+             && ! selection.focusedGeometry.isNull
+             && ! featureForm.model.featureModel.geometryLocked
+             && ( projectInfo.editRights || editButton.isCreatedCloudFeature )
+             && toolBar.state == "Navigation" && !readOnly && projectInfo.editRights
 
     anchors.right: editButton.left
     anchors.top: parent.top
@@ -634,8 +638,8 @@ Rectangle {
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
-          clipboardManager.copyFeatureToClipboard(featureFormList.model.featureModel.feature, true);
-          mainWindow.displayToast(qsTr('Feature attributes copied to clipboard'));
+          clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.feature, true)
+          mainWindow.displayToast(qsTr('Feature attributes copied to clipboard'))
         }
       }
 
@@ -650,10 +654,10 @@ Rectangle {
         enabled: clipboardManager && clipboardManager.holdsFeature
 
         onClicked: {
-          var feature = clipboardManager.pasteFeatureFromClipboard();
-          if (featureFormList.model.featureModel.updateAttributesFromFeature(feature)) {
-            featureFormList.model.featureModel.save();
-            mainWindow.displayToast(qsTr('Feature attributes updated from clipboard'));
+          var feature = clipboardManager.pasteFeatureFromClipboard()
+          if (featureForm.model.featureModel.updateAttributesFromFeature(feature)) {
+            featureForm.model.featureModel.save()
+            mainWindow.displayToast(qsTr('Feature attributes updated from clipboard'))
           } else {
             mainWindow.displayToast(qsTr('No feature attributes were updated from clipboard'));
           }
@@ -728,9 +732,12 @@ Rectangle {
 
     MenuItem {
       id: moveFeatureBtn
-      text: qsTr('Move Feature')
-      icon.source: Theme.getThemeVectorIcon("ic_move_white_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureFormList.model.featureModel.geometryLocked))
+      text: qsTr( 'Move Feature' )
+      icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
+      enabled: (
+                 (projectInfo.editRights || editButton.isCreatedCloudFeature)
+                 && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked)
+      )
       visible: enabled
 
       font: Theme.defaultFont
