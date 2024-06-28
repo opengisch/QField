@@ -114,19 +114,19 @@ Rectangle {
       name: "FeatureList"
       PropertyChanges {
         target: globalFeaturesList
-        shown: true
+        visible: true
       }
       PropertyChanges {
         target: featureForm
-        shown: false
+        visible: false
       }
       PropertyChanges {
         target: processingAlgorithmsList
-        shown: false
+        visible: false
       }
       PropertyChanges {
         target: processingAlgorithmForm
-        shown: false
+        visible: false
       }
       PropertyChanges {
         target: featureListToolBar
@@ -149,11 +149,11 @@ Rectangle {
       name: "FeatureForm"
       PropertyChanges {
         target: globalFeaturesList
-        shown: false
+        visible: false
       }
       PropertyChanges {
         target: featureForm
-        shown: true
+        visible: true
       }
       PropertyChanges {
         target: featureListToolBar
@@ -169,11 +169,11 @@ Rectangle {
       name: "FeatureFormEdit"
       PropertyChanges {
         target: globalFeaturesList
-        shown: false
+        visible: false
       }
       PropertyChanges {
         target: featureForm
-        shown: true
+        visible: true
       }
       PropertyChanges {
         target: featureListToolBar
@@ -189,15 +189,15 @@ Rectangle {
       name: "ProcessingAlgorithmsList"
       PropertyChanges {
         target: processingAlgorithmsList
-        shown: true
+        visible: true
       }
       PropertyChanges {
         target: processingAlgorithmForm
-        shown: false
+        visible: false
       }
       PropertyChanges {
         target: globalFeaturesList
-        shown: false
+        visible: false
       }
       PropertyChanges {
         target: featureListToolBar
@@ -213,11 +213,11 @@ Rectangle {
       name: "ProcessingAlgorithmForm"
       PropertyChanges {
         target: processingAlgorithmsList
-        shown: false
+        visible: false
       }
       PropertyChanges {
         target: processingAlgorithmForm
-        shown: true
+        visible: true
       }
       PropertyChanges {
         target: featureListToolBar
@@ -251,9 +251,7 @@ Rectangle {
     anchors.bottom: parent.bottom
     anchors.bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - featureListToolBar.height
-
-    property bool shown: false
-    visible: shown
+    visible: false
 
     clip: true
 
@@ -407,9 +405,7 @@ Rectangle {
     anchors.bottom: parent.bottom
     bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
-
-    property bool shown: false
-    visible: shown
+    visible: false
 
     digitizingToolbar: featureFormList.digitizingToolbar
     codeReader: featureFormList.codeReader
@@ -446,9 +442,7 @@ Rectangle {
     anchors.right: parent.right
     anchors.bottom: parent.bottom
     anchors.bottomMargin: mainWindow.sceneBottomMargin
-
-    property bool shown: false
-    visible: shown
+    visible: false
 
     onAlgorithmSelected: (id) => {
       processingAlgorithm.id = id
@@ -466,9 +460,7 @@ Rectangle {
     anchors.right: parent.right
     anchors.bottom: parent.bottom
     anchors.bottomMargin: mainWindow.sceneBottomMargin
-
-    property bool shown: false
-    visible: shown
+    visible: false
   }
 
   ProcessingAlgorithm {
