@@ -215,9 +215,7 @@ EditorWidgetBase {
                 locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs
                 mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
                                                                    relationEditorModel.relation.referencingLayer,
-                                                                   nmRelationId ? model.nmReferencingFeature : model.referencingFeature,
-                                                                   featureForm.x,  // do we need rename to featureFormList ??
-                                                                   featureForm.y)  // do we need rename to featureFormList ??
+                                                                   nmRelationId ? model.nmReferencingFeature : model.referencingFeature)
               }
             }
           }
