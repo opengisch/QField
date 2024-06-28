@@ -61,6 +61,7 @@
           "name": "openssl",
           "platform": "!ios"
         },
+        "opengl",
         "pcre2",
         "png",
         {
