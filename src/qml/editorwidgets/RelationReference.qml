@@ -70,8 +70,8 @@ EditorWidgetBase {
         mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
                                                            listModel.currentLayer,
                                                            feature,
-                                                           featureForm.x,
-                                                           featureForm.y)
+                                                           featureForm.x,    // do we need rename to featureFormList ??
+                                                           featureForm.y)    // do we need rename to featureFormList ??
       }
     }
   }
