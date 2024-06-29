@@ -18,6 +18,10 @@
 #include "qfield_qml_init.h"
 #include "qgismobileapp.h"
 
+#include <qgis.h>
+#include <qgsapplication.h>
+#include <qgsproject.h>
+
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
 class NmeaServer : public QObject
@@ -158,10 +162,19 @@ class Setup : public QObject
     void qmlEngineAvailable( QQmlEngine *engine )
     {
       qmlInit( engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
+
 
       QgsApplication *mApp;
       QgisMobileapp::initDeclarative( mApp, engine );
+
+      QString mPath = QCoreApplication::applicationDirPath() + "../../../resources/sample_projects/bees.qgz";
+      bool loadResult = QgsProject::instance()->read( mPath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
+      qDebug() << "Project loading" << ( loadResult ? "Successful" : "Failed" );
+
+      // do i need this ?
+      QgsProject::instance()->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+      engine->rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
+      engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
     }
 };
 

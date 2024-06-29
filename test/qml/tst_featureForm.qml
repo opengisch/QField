@@ -14,14 +14,38 @@ TestCase {
     id: mainWindowItem
   }
 
+  function getMethods(obj)
+  {
+      var res = [];
+      for(var m in obj) {
+          if(typeof obj[m] == "function") {
+              res.push(m)
+          }
+      }
+      return res;
+  }
+
   QFieldControls.FeatureForm {
     id: featureForm
     property real testValue: 20
     property var mainWindow: mainWindowItem
-    model: tmpModel
 
-    AttributeFormModel{
-      id: tmpModel
+    model: AttributeFormModel {
+      featureModel: FeatureModel {
+        project: qgisProject
+        // currentLayer: qgisProject.mapLayersByName('Apiary')[0]
+        // feature: qgisProject.mapLayersByName('Apiary')[0][0] // .getFeature(FEATURE_ID)
+        // features: featureFormList.selection.model.selectedFeatures
+        // cloudUserInformation: projectInfo.cloudUserInformation
+      }
+    }
+
+    Component.onCompleted: {
+      console.log("1 ==>", qgisProject)
+      // console.log("2 ==>", qgisProject.mapLayer())
+      console.log("3 ==>", qgisProject.mapLayersByName('Apiary'))
+      console.log("4 ==>", qgisProject.mapLayersByName('Apiary')[0])
+      mapLayersByShortName
     }
   }
 
