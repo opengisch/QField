@@ -16,7 +16,9 @@
  ***************************************************************************/
 
 #include "coordinatereferencesystemutils.h"
+#include "platformutilities.h"
 #include "positioning.h"
+#include "qfield.h"
 #include "qfield_qml_init.h"
 #include "qgsquickcoordinatetransformer.h"
 #include "valuemapmodel.h"
@@ -27,6 +29,7 @@
 #include <QQmlFileSelector>
 #include <QtQuickTest>
 #include <qgis.h>
+#include <qgsapplication.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsfeature.h>
 #include <qgsgeometry.h>
@@ -162,6 +165,18 @@ class Setup : public QObject
       mNmeaServerHappy.start( nmeaServerLocation );
       mNmeaServerHappyWithIMU.start( nmeaServerLocation );
       mNmeaServerHappyMonch2WithIMU.start( nmeaServerLocation );
+
+      QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+      QCoreApplication::setOrganizationDomain( "opengis.ch" );
+      QCoreApplication::setApplicationName( qfield::appName );
+
+      QgsApplication::setPrefixPath( QGIS_PREFIX_PATH, true );
+
+      QgsApplication::initQgis();
+#ifdef RELATIVE_PREFIX_PATH
+      QgsApplication::setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
+#endif
+      QgsApplication::createDatabase();
     }
 
     void cleanupTestCase()
@@ -170,6 +185,8 @@ class Setup : public QObject
       mNmeaServerHappy.kill();
       mNmeaServerHappyWithIMU.kill();
       mNmeaServerHappyMonch2WithIMU.kill();
+
+      QgsApplication::exitQgis();
     }
 
     void qmlEngineAvailable( QQmlEngine *engine )
