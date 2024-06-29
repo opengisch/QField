@@ -15,8 +15,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
+#include "qfield.h"
 #include "qfield_qml_init.h"
 #include "qgismobileapp.h"
+
+#include <qgis.h>
+#include <qgsapplication.h>
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
@@ -131,6 +136,18 @@ class Setup : public QObject
       mNmeaServerHappy.start( nmeaServerLocation );
       mNmeaServerHappyWithIMU.start( nmeaServerLocation );
       mNmeaServerHappyMonch2WithIMU.start( nmeaServerLocation );
+
+      QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+      QCoreApplication::setOrganizationDomain( "opengis.ch" );
+      QCoreApplication::setApplicationName( qfield::appName );
+
+      QgsApplication::setPrefixPath( QGIS_PREFIX_PATH, true );
+
+      QgsApplication::initQgis();
+#ifdef RELATIVE_PREFIX_PATH
+      QgsApplication::setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
+#endif
+      QgsApplication::createDatabase();
     }
 
     void cleanupTestCase()
@@ -139,6 +156,8 @@ class Setup : public QObject
       mNmeaServerHappy.kill();
       mNmeaServerHappyWithIMU.kill();
       mNmeaServerHappyMonch2WithIMU.kill();
+
+      QgsApplication::exitQgis();
     }
 
     void qmlEngineAvailable( QQmlEngine *engine )
