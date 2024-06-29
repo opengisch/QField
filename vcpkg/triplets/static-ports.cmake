@@ -11,4 +11,10 @@ set(STATIC_PORTS
     qca # OSSL plugin not discovered unless static
     qgis
     ffmpeg
+    openh264
+    avcodec
+    avdevice
+    avformat
+    swresample
+    swscale
 )
