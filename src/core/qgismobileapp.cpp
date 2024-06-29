@@ -555,8 +555,7 @@ void QgisMobileapp::initDeclarative( QgsApplication *mApp, QQmlEngine *engine )
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
   // Calculate device pixels
-  qreal dpi = mApp->primaryScreen()->logicalDotsPerInch();
-  dpi *= mApp->primaryScreen()->devicePixelRatio();
+  qreal dpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
 
   // Register some globally available variables
   engine->rootContext()->setContextProperty( "qVersion", qVersion() );
