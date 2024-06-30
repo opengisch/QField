@@ -17,6 +17,8 @@
 #ifndef GEOFENCER_H
 #define GEOFENCER_H
 
+#include "featureexpressionvaluesgatherer.h"
+
 #include <QObject>
 #include <QTimer>
 #include <qgscoordinatereferencesystem.h>
@@ -40,6 +42,8 @@ class Geofencer : public QObject
     Q_PROPERTY( QgsVectorLayer *areasLayer READ areasLayer WRITE setAreasLayer NOTIFY areasLayerChanged )
 
     Q_PROPERTY( bool isWithin READ isWithin NOTIFY isWithinChanged );
+    Q_PROPERTY( QString isWithinAreaName READ isWithinAreaName NOTIFY isWithinChanged );
+    Q_PROPERTY( QString lastWithinAreaName READ lastWithinAreaName NOTIFY isWithinChanged );
 
   public:
     explicit Geofencer( QObject *parent = nullptr );
@@ -87,6 +91,23 @@ class Geofencer : public QObject
      */
     void setAreasLayer( QgsVectorLayer *layer );
 
+    /**
+     * Returns whether the current position is within an area.
+     */
+    bool isWithin() const;
+
+    /**
+     * Returns the area name within which the current position overlaps. If
+     * no overlap, an empty string will be returned.
+     */
+    QString isWithinAreaName() const;
+
+    /**
+     * Returns the last area name within which the position had overlapped. If
+     * no overlap has yet to occur, an empty string will be returned.
+     */
+    QString lastWithinAreaName() const;
+
   signals:
 
     void activeChanged();
@@ -97,8 +118,9 @@ class Geofencer : public QObject
     void isWithinChanged();
 
   private:
-    void fetchAreas();
-    void clearAreas();
+    void cleanupGatherer();
+    void gatherAreas();
+    void processAreas();
 
     void checkWithin();
 
@@ -108,9 +130,12 @@ class Geofencer : public QObject
     QgsCoordinateReferenceSystem mPositionCrs;
 
     QPointer<QgsVectorLayer> mAreasLayer;
-    QMap<QgsFeatureId, QgsGeometryEngine *> mFetchedAreaGeometries;
+    QList<FeatureExpressionValuesGatherer::Entry> mAreas;
 
-    bool mIsWithin = false;
+    int mIsWithinIndex = -1;
+    int mLastWithinIndex = -1;
+
+    FeatureExpressionValuesGatherer *mGatherer = nullptr;
 };
 
 #endif // GEOFENCER_H
