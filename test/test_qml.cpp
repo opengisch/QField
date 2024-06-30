@@ -167,7 +167,7 @@ class Setup : public QObject
       QgsApplication *mApp;
       QgisMobileapp::initDeclarative( mApp, engine );
 
-      QString mPath = QCoreApplication::applicationDirPath() + "../../../resources/sample_projects/bees.qgz";
+      QString mPath = QCoreApplication::applicationDirPath() + "/../../../resources/sample_projects/bees.qgz";
       bool loadResult = QgsProject::instance()->read( mPath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
       qDebug() << "Project loading" << ( loadResult ? "Successful" : "Failed" );
 
