@@ -1312,6 +1312,43 @@ Page {
                   }
 
                   Label {
+                      text: qsTr("Prevent digitizing while geofencing is in alarm mode")
+                      font: Theme.defaultFont
+                      color: Theme.mainTextColor
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: geofencingPreventDigitizingDuringAlarm.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: geofencingPreventDigitizingDuringAlarm
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      checked: positioningSettings.geofencingPreventDigitizingDuringAlarm
+                      onCheckedChanged: {
+                          positioningSettings.geofencingPreventDigitizingDuringAlarm = checked
+                      }
+                  }
+
+                  Label {
+                      text: qsTr( "When enabled, the digitizing of new features will be blocked if a project's geofencing is active and the current position triggers an alarm." )
+                      font: Theme.tipFont
+                      color: Theme.secondaryTextColor
+
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                  }
+
+                  Item {
+                      // empty cell in grid layout
+                      width: 1
+                  }
+
+                  Label {
                       text: qsTr("Antenna height compensation")
                       font: Theme.defaultFont
                       color: Theme.mainTextColor

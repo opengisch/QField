@@ -76,13 +76,14 @@ void Geofencer::processAreas()
   if ( mActive )
   {
     checkWithin();
+    checkAlert();
   }
 }
 
 void Geofencer::checkWithin()
 {
   int isWithinIndex = -1;
-  if ( mActive && !mAreas.isEmpty() )
+  if ( mActive && !mAreas.isEmpty() && !mPosition.isEmpty() )
   {
     std::unique_ptr<QgsGeometryEngine> geometryEngine;
     geometryEngine.reset( QgsGeometry::createGeometryEngine( &mPosition ) );
@@ -106,6 +107,36 @@ void Geofencer::checkWithin()
     mIsWithinIndex = isWithinIndex;
 
     emit isWithinChanged();
+  }
+}
+
+void Geofencer::checkAlert()
+{
+  bool isAlerting = false;
+
+  if ( mActive && !mAreas.isEmpty() && !mPosition.isEmpty() )
+  {
+    switch ( mBehavior )
+    {
+      case AlertWhenInsideGeofencedArea:
+        isAlerting = isWithin();
+        break;
+
+      case AlertWhenOutsideGeofencedArea:
+        isAlerting = !isWithin();
+        break;
+
+      case InformWhenEnteringLeavingGeofencedArea:
+        isAlerting = false;
+        break;
+    }
+  }
+
+  if ( mIsAlerting != isAlerting )
+  {
+    mIsAlerting = isAlerting;
+
+    emit isAlertingChanged();
   }
 }
 
@@ -145,6 +176,21 @@ void Geofencer::setActive( bool active )
   emit activeChanged();
 
   checkWithin();
+  checkAlert();
+}
+
+void Geofencer::setBehavior( Behaviors behavior )
+{
+  if ( mBehavior == behavior )
+  {
+    return;
+  }
+
+  mBehavior = behavior;
+
+  emit behaviorChanged();
+
+  checkAlert();
 }
 
 void Geofencer::setPosition( const QgsPoint &position )
@@ -158,6 +204,7 @@ void Geofencer::setPosition( const QgsPoint &position )
   emit positionChanged();
 
   checkWithin();
+  checkAlert();
 }
 
 void Geofencer::setPositionCrs( const QgsCoordinateReferenceSystem &crs )
@@ -189,6 +236,7 @@ void Geofencer::setAreasLayer( QgsVectorLayer *layer )
 void Geofencer::applyProjectSettings( QgsProject *project )
 {
   bool active = false;
+  Behaviors behavior = AlertWhenInsideGeofencedArea;
   QgsVectorLayer *layer = nullptr;
 
   if ( project )
@@ -199,8 +247,10 @@ void Geofencer::applyProjectSettings( QgsProject *project )
     {
       layer = qobject_cast<QgsVectorLayer *>( project->mapLayer( layerId ) );
     }
+    behavior = static_cast<Behaviors>( project->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingBehavior" ), static_cast<int>( AlertWhenOutsideGeofencedArea ) ) );
   }
 
   setActive( active );
+  setBehavior( behavior );
   setAreasLayer( layer );
 }

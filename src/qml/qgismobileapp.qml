@@ -864,17 +864,18 @@ ApplicationWindow {
 
   Geofencer {
     id: geofencer
+
     position: positionSource.projectedPosition
     positionCrs: mapCanvas.mapSettings.destinationCrs
 
     onIsWithinChanged: {
-      if (projectInfo.geofencingBehavior == ProjectInfo.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
+      if (behavior == Geofencer.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
         platformUtilities.vibrate(500)
         displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error')
-      } else if (projectInfo.geofencingBehavior == ProjectInfo.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
+      } else if (behavior == Geofencer.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
         platformUtilities.vibrate(500)
         displayToast(qsTr("Position outside areas after leaving ‘%1’").arg(lastWithinAreaName), 'error')
-      } else if (projectInfo.geofencingBehavior == ProjectInfo.InformWhenEnteringLeavingGeofencedArea) {
+      } else if (behavior == Geofencer.InformWhenEnteringLeavingGeofencedArea) {
         if (isWithin) {
           displayToast(qsTr("Position entered into ‘%1’").arg(isWithinAreaName))
         } else if (lastWithinAreaName != '') {
@@ -896,10 +897,14 @@ ApplicationWindow {
 
     SequentialAnimation {
       id: geofencerFeedbackAnimation
-      running: geofencer.active &&
-               ((projectInfo.geofencingBehavior == ProjectInfo.AlertWhenInsideGeofencedArea && geofencer.isWithin) ||
-                (projectInfo.geofencingBehavior == ProjectInfo.AlertWhenOutsideGeofencedArea && !geofencer.isWithin))
+      running: geofencer.isAlerting
       loops: Animation.Infinite
+
+      onRunningChanged: {
+        if (!running) {
+          geofencerFeedback.opacity = 0
+        }
+      }
 
       OpacityAnimator {
         target: geofencerFeedback
@@ -1977,6 +1982,7 @@ ApplicationWindow {
         id: digitizingToolbar
 
         stateVisible: !screenLocker.enabled &&
+                      (!positioningSettings.geofencingPreventDigitizingDuringAlarm || !geofencer.isAlerting) &&
                       ((stateMachine.state === "digitize"
                         && dashBoard.activeLayer
                         && !dashBoard.activeLayer.readOnly
@@ -3580,7 +3586,6 @@ ApplicationWindow {
 
       layoutListInstantiator.model.reloadModel()
 
-      projectInfo.geofencingBehavior = iface.readProjectNumEntry("qfieldsync", "geofencingBehavior", ProjectInfo.AlertWhenInsideGeofencedArea)
       geofencer.applyProjectSettings(qgisProject)
     }
 
@@ -3606,8 +3611,6 @@ ApplicationWindow {
 
     property bool insertRights: hasInsertRights
     property bool editRights: hasEditRights
-
-    property int geofencingBehavior: ProjectInfo.AlertWhenInsideGeofencedArea
   }
 
   MessageLog {

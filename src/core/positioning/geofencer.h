@@ -35,17 +35,28 @@ class Geofencer : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool active READ active WRITE setActive NOTIFY activeChanged )
+    Q_PROPERTY( Behaviors behavior READ behavior WRITE setBehavior NOTIFY behaviorChanged )
 
     Q_PROPERTY( QgsPoint position READ position WRITE setPosition NOTIFY positionChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem positionCrs READ positionCrs WRITE setPositionCrs NOTIFY positionCrsChanged )
 
     Q_PROPERTY( QgsVectorLayer *areasLayer READ areasLayer WRITE setAreasLayer NOTIFY areasLayerChanged )
 
+    Q_PROPERTY( bool isAlerting READ isAlerting NOTIFY isAlertingChanged )
+
     Q_PROPERTY( bool isWithin READ isWithin NOTIFY isWithinChanged );
     Q_PROPERTY( QString isWithinAreaName READ isWithinAreaName NOTIFY isWithinChanged );
     Q_PROPERTY( QString lastWithinAreaName READ lastWithinAreaName NOTIFY isWithinChanged );
 
   public:
+    enum Behaviors
+    {
+      AlertWhenInsideGeofencedArea = 1,       //<! Alarm will be raised when the position is within an area
+      AlertWhenOutsideGeofencedArea,          //<! Alarm will be raised when the position falls outside all areas
+      InformWhenEnteringLeavingGeofencedArea, //<! No alarm will be raise but information on areas being entered and departed raised
+    };
+    Q_ENUM( Behaviors )
+
     explicit Geofencer( QObject *parent = nullptr );
     virtual ~Geofencer();
 
@@ -65,6 +76,16 @@ class Geofencer : public QObject
      * \see active
      */
     void setActive( bool active );
+
+    /**
+     * Returns thegeofencing behavior.
+     */
+    Behaviors behavior() const { return mBehavior; }
+
+    /**
+     * Sets the geofencing behavior.
+     */
+    void setBehavior( Behaviors behavior );
 
     /**
      * Returns the position to be used to check for overlap with areas.
@@ -97,6 +118,11 @@ class Geofencer : public QObject
     void setAreasLayer( QgsVectorLayer *layer );
 
     /**
+     * Returns TRUE when the geofencer's behavior is triggering an alarm.
+     */
+    bool isAlerting() const { return mIsAlerting; }
+
+    /**
      * Returns whether the current position is within an area.
      */
     bool isWithin() const;
@@ -116,10 +142,12 @@ class Geofencer : public QObject
   signals:
 
     void activeChanged();
+    void behaviorChanged();
     void invertLogicChanged();
     void positionChanged();
     void positionCrsChanged();
     void areasLayerChanged();
+    void isAlertingChanged();
     void isWithinChanged();
     void projectChanged();
 
@@ -129,14 +157,18 @@ class Geofencer : public QObject
     void processAreas();
 
     void checkWithin();
+    void checkAlert();
 
     bool mActive = false;
+    Behaviors mBehavior = AlertWhenInsideGeofencedArea;
 
     QgsPoint mPosition;
     QgsCoordinateReferenceSystem mPositionCrs;
 
     QPointer<QgsVectorLayer> mAreasLayer;
     QList<FeatureExpressionValuesGatherer::Entry> mAreas;
+
+    bool mIsAlerting = false;
 
     int mIsWithinIndex = -1;
     int mLastWithinIndex = -1;
