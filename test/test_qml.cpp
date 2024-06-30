@@ -170,11 +170,8 @@ class Setup : public QObject
       QgisMobileapp::initDeclarative( mApp, engine );
 
       QString mPath = QCoreApplication::applicationDirPath() + "/../../../resources/sample_projects/bees.qgz";
-      bool loadResult = QgsProject::instance()->read( mPath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
-      qDebug() << "Project loading" << ( loadResult ? "Successful" : "Failed" );
+      bool loadResult = QgsProject::instance()->read( mPath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews | Qgis::ProjectReadFlag::DontLoadLayouts );
 
-      // do i need this ?
-      QgsProject::instance()->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
       engine->rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
     }

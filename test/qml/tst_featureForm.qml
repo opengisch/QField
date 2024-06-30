@@ -27,14 +27,13 @@ TestCase {
 
   QFieldControls.FeatureForm {
     id: featureForm
-    property real testValue: 20
     property var mainWindow: mainWindowItem
 
     model: AttributeFormModel {
       featureModel: FeatureModel {
         project: qgisProject
-        // currentLayer: qgisProject.mapLayersByName('Apiary')[0]
-        // feature: qgisProject.mapLayersByName('Apiary')[0][0] // .getFeature(FEATURE_ID)
+        currentLayer: qgisProject.mapLayersByName('Apiary')[0]
+        // feature: qgisProject.mapLayersByName('Apiary')[0].getFeature(FEATURE_ID)
         // features: featureFormList.selection.model.selectedFeatures
         // cloudUserInformation: projectInfo.cloudUserInformation
       }
@@ -42,14 +41,27 @@ TestCase {
 
     Component.onCompleted: {
       console.log("1 ==>", qgisProject)
-      // console.log("2 ==>", qgisProject.mapLayer())
-      console.log("3 ==>", qgisProject.mapLayersByName('Apiary'))
-      console.log("4 ==>", qgisProject.mapLayersByName('Apiary')[0])
-      mapLayersByShortName
+      console.log("2 ==>", qgisProject.mapLayersByName('Apiary'))
+      console.log("3 ==>", getMethods(qgisProject.mapLayersByName('Apiary')[0]))
     }
   }
 
   function test_01_featureForm() {
-    compare(featureForm.testValue, 20)
+    console.log(featureForm.model)
+    console.log(featureForm.model.rowCount())
+
+    console.log("------------------------------------------")
+    console.log("- ", qgisProject.mapLayersByName('Apiary'))
+    console.log("- ", qgisProject.mapLayersByName('Tracks'))
+    console.log("- ", qgisProject.mapLayersByName('Fields'))
+    console.log("- ", qgisProject.mapLayersByName('Basemaps'))
+    console.log("- ", qgisProject.mapLayersByName('Tables'))
+    console.log("------------------------------------------")
+    console.log("------------------------------------------")
+    console.log("- ", qgisProject.mapLayersByName('Apiary')[0].getFeatures())
+    // console.log("- ", qgisProject.mapLayersByName('Tracks').getFeatures())
+    // console.log("- ", qgisProject.mapLayersByName('Fields').getFeatures())
+    console.log("------------------------------------------")
+    compare(featureForm.model.rowCount(), 6)
   }
 }
