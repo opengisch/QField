@@ -3569,6 +3569,8 @@ ApplicationWindow {
 
       layoutListInstantiator.model.reloadModel()
 
+      projectInfo.geofencingBehavior = iface.readProjectNumEntry("qfieldsync", "geofencingBehavior", ProjectInfo.AlertWhenInsideGeofencedArea)
+      console.log(projectInfo.geofencingBehavior)
       geofencer.applyProjectSettings(qgisProject)
     }
 
@@ -3594,6 +3596,8 @@ ApplicationWindow {
 
     property bool insertRights: hasInsertRights
     property bool editRights: hasEditRights
+
+    property int geofencingBehavior: ProjectInfo.AlertWhenInsideGeofencedArea
   }
 
   MessageLog {

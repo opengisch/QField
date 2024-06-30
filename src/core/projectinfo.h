@@ -80,6 +80,14 @@ class ProjectInfo : public QObject
     Q_PROPERTY( CloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged )
 
   public:
+    enum GeofencingBehaviors
+    {
+      AlertWhenInsideGeofencedArea = 1,
+      AlertWhenOutsideGeofencedArea,
+      InformWhenEnteringLeavingGeofencedArea,
+    };
+    Q_ENUM( GeofencingBehaviors )
+
     explicit ProjectInfo( QObject *parent = nullptr );
 
     virtual ~ProjectInfo() = default;
