@@ -8,6 +8,7 @@ import Theme 1.0
 Item {
     property bool collapsed: true
     property alias color: titleText.color
+    property alias detailsColor: detailsText.color
     property alias font: titleText.font
     property alias titleText: titleText.text
     property alias detailsText: detailsText.text
@@ -75,7 +76,6 @@ Item {
         font.family: titleText.font.family
 
         color: titleText.color
-        opacity: 0.25
 
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap

@@ -304,6 +304,7 @@ Popup {
             Layout.rightMargin: 10
 
             color: Theme.darkRed
+            detailsColor: Theme.secondaryTextColor
             font: Theme.tipFont
 
             titleText: detailsText.startsWith('[QF/')
