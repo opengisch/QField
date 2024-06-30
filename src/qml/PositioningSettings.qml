@@ -46,5 +46,5 @@ Settings {
     property int trackerMeasureType: 0
     property int digitizingMeasureType: 1
 
-    property bool geofencingPreventDigitizingDuringAlarm: false
+    property bool geofencingPreventDigitizingDuringAlert: false
 }

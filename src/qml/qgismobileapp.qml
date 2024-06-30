@@ -1982,7 +1982,7 @@ ApplicationWindow {
         id: digitizingToolbar
 
         stateVisible: !screenLocker.enabled &&
-                      (!positioningSettings.geofencingPreventDigitizingDuringAlarm || !geofencer.isAlerting) &&
+                      (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) &&
                       ((stateMachine.state === "digitize"
                         && dashBoard.activeLayer
                         && !dashBoard.activeLayer.readOnly

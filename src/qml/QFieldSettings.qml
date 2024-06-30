@@ -1312,7 +1312,7 @@ Page {
                   }
 
                   Label {
-                      text: qsTr("Prevent digitizing while geofencing is in alarm mode")
+                      text: qsTr("Prevent digitizing while geofencing is in alert mode")
                       font: Theme.defaultFont
                       color: Theme.mainTextColor
                       wrapMode: Text.WordWrap
@@ -1320,22 +1320,22 @@ Page {
 
                       MouseArea {
                           anchors.fill: parent
-                          onClicked: geofencingPreventDigitizingDuringAlarm.toggle()
+                          onClicked: geofencingPreventDigitizingDuringAlert.toggle()
                       }
                   }
 
                   QfSwitch {
-                      id: geofencingPreventDigitizingDuringAlarm
+                      id: geofencingPreventDigitizingDuringAlert
                       Layout.preferredWidth: implicitContentWidth
                       Layout.alignment: Qt.AlignTop
-                      checked: positioningSettings.geofencingPreventDigitizingDuringAlarm
+                      checked: positioningSettings.geofencingPreventDigitizingDuringAlert
                       onCheckedChanged: {
-                          positioningSettings.geofencingPreventDigitizingDuringAlarm = checked
+                          positioningSettings.geofencingPreventDigitizingDuringAlert = checked
                       }
                   }
 
                   Label {
-                      text: qsTr( "When enabled, the digitizing of new features will be blocked if a project's geofencing is active and the current position triggers an alarm." )
+                      text: qsTr( "When enabled, the digitizing of new features will be blocked if a project's geofencing is active and the current position triggers an alert." )
                       font: Theme.tipFont
                       color: Theme.secondaryTextColor
 
