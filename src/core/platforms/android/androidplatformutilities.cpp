@@ -880,7 +880,7 @@ void AndroidPlatformUtilities::vibrate( int milliseconds ) const
 {
   if ( mActivity.isValid() )
   {
-    runOnAndroidMainThread( [handle] {
+    runOnAndroidMainThread( [milliseconds] {
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
