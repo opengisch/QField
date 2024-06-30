@@ -877,8 +877,10 @@ ApplicationWindow {
         displayToast(qsTr("Position outside areas after leaving ‘%1’").arg(lastWithinAreaName), 'error')
       } else if (behavior == Geofencer.InformWhenEnteringLeavingGeofencedArea) {
         if (isWithin) {
+          platformUtilities.vibrate(250)
           displayToast(qsTr("Position entered into ‘%1’").arg(isWithinAreaName))
         } else if (lastWithinAreaName != '') {
+          platformUtilities.vibrate(250)
           displayToast(qsTr("Position left from ‘%1’").arg(lastWithinAreaName))
         }
       }
