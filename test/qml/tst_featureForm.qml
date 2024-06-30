@@ -33,7 +33,7 @@ TestCase {
       featureModel: FeatureModel {
         project: qgisProject
         currentLayer: qgisProject.mapLayersByName('Apiary')[0]
-        // feature: qgisProject.mapLayersByName('Apiary')[0].getFeature(FEATURE_ID)
+        feature: qgisProject.mapLayersByName('Apiary')[0].getFeature("64")
         // features: featureFormList.selection.model.selectedFeatures
         // cloudUserInformation: projectInfo.cloudUserInformation
       }
@@ -58,10 +58,43 @@ TestCase {
     console.log("- ", qgisProject.mapLayersByName('Tables'))
     console.log("------------------------------------------")
     console.log("------------------------------------------")
-    console.log("- ", qgisProject.mapLayersByName('Apiary')[0].getFeatures())
+    console.log("- ", qgisProject.mapLayersByName('Apiary')[0].getFeature("64"))
     // console.log("- ", qgisProject.mapLayersByName('Tracks').getFeatures())
     // console.log("- ", qgisProject.mapLayersByName('Fields').getFeatures())
     console.log("------------------------------------------")
+    let mf = qgisProject.mapLayersByName('Apiary')[0].getFeature("64")
+    console.log("=>", mf.attributes)
+    console.log("->", mf.attribute("photo"))
+    console.log("->", mf.attribute("beekeeper"))
+    console.log("->", mf.attribute("number of boxes"))
+
     compare(featureForm.model.rowCount(), 6)
   }
 }
+
+// qgisProject.mapLayersByName('Apiary')[0].getFeature("64").attributes
+// QVariant(
+//   QgsAttributes,
+// 	QList(
+// 		QVariant(qlonglong, 64),
+// 		QVariant(int, 7),
+// 		QVariant(QString, "Apis Mellifera Carnica"),
+// 		QVariant(QString, "1000"),
+// 		QVariant(QString, "Stephen Hawking"),
+// 		QVariant(QString, "DCIM/3.jpg"),
+// 		QVariant(bool, false),
+// 		QVariant(QString, ""),
+// 		QVariant(int, 10),
+// 		QVariant(int, 0),
+// 		QVariant(QString, "{3180afb7-080d-4382-91fc-4a30c1ddd001}"),
+// 		QVariant(QString, ""),
+// 		QVariant(QString, ""),
+// 		QVariant(double, 0),
+// 		QVariant(double, 0),
+// 		QVariant(double, 0),
+// 		QVariant(double, 0),
+// 		QVariant(int, 0),
+// 		QVariant(QString, ""),
+// 		QVariant(bool, false)
+// 	)
+// )
