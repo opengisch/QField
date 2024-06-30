@@ -62,6 +62,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.Html;
@@ -241,6 +242,16 @@ public class QFieldActivity extends QtActivity {
                 return false;
         }
         return false;
+    }
+
+    private void vibrate(int milliseconds) {
+        Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            v.vibrate(VibrationEffect.createOneShot(
+                milliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            v.vibrate(milliseconds);
+        }
     }
 
     private void processProjectIntent() {

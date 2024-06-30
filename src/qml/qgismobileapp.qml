@@ -869,6 +869,7 @@ ApplicationWindow {
 
     onIsWithinChanged: {
       if (isWithin) {
+        platformUtilities.vibrate(500)
         displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error')
       }
     }

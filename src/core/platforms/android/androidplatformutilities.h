@@ -86,6 +86,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     bool isSystemDarkTheme() const override;
 
+    void vibrate( int milliseconds ) const override;
+
   private:
     // separate multiple permissions using a semi-column (;)
     bool checkAndAcquirePermissions( const QString &permissions ) const;
