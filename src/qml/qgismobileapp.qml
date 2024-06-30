@@ -868,9 +868,18 @@ ApplicationWindow {
     positionCrs: mapCanvas.mapSettings.destinationCrs
 
     onIsWithinChanged: {
-      if (isWithin) {
+      if (projectInfo.geofencingBehavior == ProjectInfo.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
         platformUtilities.vibrate(500)
         displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error')
+      } else if (projectInfo.geofencingBehavior == ProjectInfo.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
+        platformUtilities.vibrate(500)
+        displayToast(qsTr("Position outside areas after leaving ‘%1’").arg(lastWithinAreaName), 'error')
+      } else if (projectInfo.geofencingBehavior == ProjectInfo.InformWhenEnteringLeavingGeofencedArea) {
+        if (isWithin) {
+          displayToast(qsTr("Position entered into ‘%1’").arg(isWithinAreaName))
+        } else if (lastWithinAreaName != '') {
+          displayToast(qsTr("Position left from ‘%1’").arg(lastWithinAreaName))
+        }
       }
     }
   }
@@ -887,7 +896,9 @@ ApplicationWindow {
 
     SequentialAnimation {
       id: geofencerFeedbackAnimation
-      running: geofencer.active && geofencer.isWithin
+      running: geofencer.active &&
+               ((projectInfo.geofencingBehavior == ProjectInfo.AlertWhenInsideGeofencedArea && geofencer.isWithin) ||
+                (projectInfo.geofencingBehavior == ProjectInfo.AlertWhenOutsideGeofencedArea && !geofencer.isWithin))
       loops: Animation.Infinite
 
       OpacityAnimator {
@@ -3570,7 +3581,6 @@ ApplicationWindow {
       layoutListInstantiator.model.reloadModel()
 
       projectInfo.geofencingBehavior = iface.readProjectNumEntry("qfieldsync", "geofencingBehavior", ProjectInfo.AlertWhenInsideGeofencedArea)
-      console.log(projectInfo.geofencingBehavior)
       geofencer.applyProjectSettings(qgisProject)
     }
 
