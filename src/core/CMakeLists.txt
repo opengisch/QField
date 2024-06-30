@@ -172,11 +172,11 @@ set(QFIELD_CORE_HDRS
     expressionevaluator.h
     expressionvariablemodel.h
     featurechecklistmodel.h
+    featureexpressionvaluesgatherer.h
     featurelistextentcontroller.h
     featurelistmodel.h
     featurelistmodelselection.h
     featuremodel.h
-    fieldexpressionvaluesgatherer.h
     focusstack.h
     geometry.h
     geometryeditorsmodel.h

@@ -17,7 +17,7 @@
 #ifndef FEATURELISTMODEL_H
 #define FEATURELISTMODEL_H
 
-#include "fieldexpressionvaluesgatherer.h"
+#include "featureexpressionvaluesgatherer.h"
 
 #include <QAbstractItemModel>
 #include <QTimer>
