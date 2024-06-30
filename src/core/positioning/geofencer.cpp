@@ -185,3 +185,22 @@ void Geofencer::setAreasLayer( QgsVectorLayer *layer )
 
   gatherAreas();
 }
+
+void Geofencer::applyProjectSettings( QgsProject *project )
+{
+  bool active = false;
+  QgsVectorLayer *layer = nullptr;
+
+  if ( project )
+  {
+    active = project->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingActive" ), false );
+    const QString layerId = project->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingLayer" ) );
+    if ( !layerId.isEmpty() )
+    {
+      layer = qobject_cast<QgsVectorLayer *>( project->mapLayer( layerId ) );
+    }
+  }
+
+  setActive( active );
+  setAreasLayer( layer );
+}

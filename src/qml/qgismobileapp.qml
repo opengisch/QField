@@ -18,6 +18,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
+import QtQuick.Effects
 import QtQuick.Window 2.14
 import QtQml 2.14
 import QtSensors 5.14
@@ -859,6 +860,63 @@ ApplicationWindow {
       algorithm: featureForm.algorithm
       mapSettings: mapCanvas.mapSettings
     }
+  }
+
+  Geofencer {
+    id: geofencer
+    position: positionSource.projectedPosition
+    positionCrs: mapCanvas.mapSettings.destinationCrs
+
+    onIsWithinChanged: {
+      if (isWithin) {
+        displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error')
+      }
+    }
+  }
+
+  MultiEffect {
+    id: geofencerFeedback
+    anchors.fill: geofencerFeedbackSource
+    source: geofencerFeedbackSource
+    visible: true
+    blurEnabled: true
+    blurMax: 64
+    blur: 2.0
+    opacity: 0
+
+    SequentialAnimation {
+      id: geofencerFeedbackAnimation
+      running: geofencer.active && geofencer.isWithin
+      loops: Animation.Infinite
+
+      OpacityAnimator {
+        target: geofencerFeedback
+        from: 0;
+        to: 0.75;
+        duration: 1000
+      }
+      OpacityAnimator {
+        target: geofencerFeedback
+        from: 0.75;
+        to: 0;
+        duration: 1000
+      }
+    }
+  }
+
+  Rectangle {
+    id: geofencerFeedbackSource
+    width: Math.min(250, mainWindow.width / 2)
+    height: width
+    radius: width / 2
+    visible: false
+
+    x: parent.width - width / 2
+    y: locationToolbar.y + gnssButton.y + (gnssButton.height / 2) - height / 2
+
+    color: Theme.errorColor
+    border.width: 2
+    border.color: "#ffffff"
   }
 
   InformationDrawer {
@@ -3509,6 +3567,8 @@ ApplicationWindow {
       }
 
       layoutListInstantiator.model.reloadModel()
+
+      geofencer.applyProjectSettings(qgisProject)
     }
 
     function onSetMapExtent(extent) {

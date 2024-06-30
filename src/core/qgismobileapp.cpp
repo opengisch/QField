@@ -63,6 +63,7 @@
 #include "featureutils.h"
 #include "fileutils.h"
 #include "focusstack.h"
+#include "geofencer.h"
 #include "geometry.h"
 #include "geometryeditorsmodel.h"
 #include "geometryutils.h"
@@ -451,6 +452,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ProjectSource>( "org.qfield", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qfield", 1, 0, "ViewStatus" );
 
+  qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );

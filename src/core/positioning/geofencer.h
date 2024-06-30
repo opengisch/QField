@@ -50,6 +50,11 @@ class Geofencer : public QObject
     virtual ~Geofencer();
 
     /**
+     * Sets the polygon layer holding areas from a given \a project.
+     */
+    Q_INVOKABLE void applyProjectSettings( QgsProject *project );
+
+    /**
      * Returns TRUE when geofencing is active.
      * \see setActive
      */
@@ -82,12 +87,12 @@ class Geofencer : public QObject
     void setPositionCrs( const QgsCoordinateReferenceSystem &crs );
 
     /**
-     * Returns the polygon layer from which areas will be taken from.
+     * Returns the polygon layer holding areas.
      */
     QgsVectorLayer *areasLayer() const { return mAreasLayer.data(); }
 
     /**
-     * Sets the polygon layer from which areas will be taken from
+     * Sets the polygon layer holding areas.
      */
     void setAreasLayer( QgsVectorLayer *layer );
 
@@ -116,6 +121,7 @@ class Geofencer : public QObject
     void positionCrsChanged();
     void areasLayerChanged();
     void isWithinChanged();
+    void projectChanged();
 
   private:
     void cleanupGatherer();
