@@ -5,6 +5,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 import "../../src/qml/" as QFieldControls
+import "Utils.js" as Utils
 
 TestCase {
   name: "FeatureForm"
@@ -28,24 +29,59 @@ TestCase {
   QFieldControls.FeatureForm {
     id: featureForm
     property var mainWindow: mainWindowItem
+    property var mSelectedLayer: qgisProject.mapLayersByName('Apiary')[0]
+    property var mSelectedFeature: qgisProject.mapLayersByName('Apiary')[0].getFeature("64")
 
     model: AttributeFormModel {
       featureModel: FeatureModel {
         project: qgisProject
-        currentLayer: qgisProject.mapLayersByName('Apiary')[0]
-        feature: qgisProject.mapLayersByName('Apiary')[0].getFeature("64")
+        currentLayer: featureForm.mSelectedLayer
+        feature: featureForm.mSelectedFeature
         // features: featureFormList.selection.model.selectedFeatures
         // cloudUserInformation: projectInfo.cloudUserInformation
       }
     }
-
-    Component.onCompleted: {
-      console.log("1 ==>", qgisProject)
-      console.log("2 ==>", qgisProject.mapLayersByName('Apiary'))
-      console.log("3 ==>", getMethods(qgisProject.mapLayersByName('Apiary')[0]))
-    }
   }
 
+
+  /**
+   * Test function to verify that the qgisProject has been loaded and attributes are accessible.
+   *
+   * This function checks the initial values of features in three different layers:
+   * - Apiary layer with id 64
+   * - Tracks layer with id 1
+   * - Field layer with id 39
+   *
+   * It verifies the attribute values for each feature in these layers, including
+   * their FID, name, region, editor name, proprietor, photo, date of review, reviewer, and plants.
+   */
+  function test_00_featureForm() {
+    // check initial value of an `Apiary` layer with id = 64
+    const apiaryId64 = qgisProject.mapLayersByName('Apiary')[0].getFeature("64")
+    compare(apiaryId64.attribute("fid"), 64)
+    compare(apiaryId64.attribute("photo"), "DCIM/3.jpg")
+    compare(apiaryId64.attribute("beekeeper"), "Stephen Hawking")
+    compare(apiaryId64.attribute("Amount of Bees"), "1000")
+    compare(apiaryId64.attribute("number of boxes"), 7)
+    compare(apiaryId64.attribute("Species of Bees"), "Apis Mellifera Carnica")
+
+    // check initial value of an `Tracks` layer with id 1
+    const trackId1 = qgisProject.mapLayersByName('Tracks')[0].getFeature("1")
+    compare(trackId1.attribute("fid"), 1)
+    compare(trackId1.attribute("Track Name"), "Munt Sura")
+    compare(trackId1.attribute("Region"), "")
+    compare(trackId1.attribute("Editor Name"), "Linda Camathiias")
+
+    // check initial value of an `Field` layer with id 39
+    const reviewDate = new Date("2019-05-23T04:30:00.000")
+    const fieldId1 = qgisProject.mapLayersByName('Fields')[0].getFeature("39")
+    compare(fieldId1.attribute("fid"), 39)
+    compare(fieldId1.attribute("Proprietor"), "national")
+    compare(fieldId1.attribute("photo"), "DCIM/taraxacum.jpg")
+    compare(fieldId1.attribute("Date of Review"), reviewDate)
+    compare(fieldId1.attribute("Reviewer"), "David Signer")
+    compare(fieldId1.attribute("Plants"), "taraxacum") // description: Dandelions
+  }
   function test_01_featureForm() {
     console.log(featureForm.model)
     console.log(featureForm.model.rowCount())
