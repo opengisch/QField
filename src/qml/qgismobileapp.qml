@@ -868,19 +868,22 @@ ApplicationWindow {
     position: positionSource.projectedPosition
     positionCrs: mapCanvas.mapSettings.destinationCrs
 
+    readonly property int longVibration: 1000
+    readonly property int shortVibration: 500
+
     onIsWithinChanged: {
       if (behavior == Geofencer.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
-        platformUtilities.vibrate(500)
+        platformUtilities.vibrate(longVibration)
         displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error')
       } else if (behavior == Geofencer.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
-        platformUtilities.vibrate(500)
+        platformUtilities.vibrate(longVibration)
         displayToast(qsTr("Position outside areas after leaving ‘%1’").arg(lastWithinAreaName), 'error')
       } else if (behavior == Geofencer.InformWhenEnteringLeavingGeofencedArea) {
         if (isWithin) {
-          platformUtilities.vibrate(250)
+          platformUtilities.vibrate(shortVibration)
           displayToast(qsTr("Position entered into ‘%1’").arg(isWithinAreaName))
         } else if (lastWithinAreaName != '') {
-          platformUtilities.vibrate(250)
+          platformUtilities.vibrate(shortVibration)
           displayToast(qsTr("Position left from ‘%1’").arg(lastWithinAreaName))
         }
       }
@@ -934,8 +937,6 @@ ApplicationWindow {
     y: locationToolbar.y + gnssButton.y + (gnssButton.height / 2) - height / 2
 
     color: Theme.errorColor
-    border.width: 2
-    border.color: "#ffffff"
   }
 
   InformationDrawer {
