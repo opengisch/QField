@@ -82,6 +82,7 @@ Page {
       model: form.model.hasTabs ? form.model : 0
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
+      objectName: "tabRow"
 
       delegate: TabButton {
         id: tabButton
@@ -93,6 +94,7 @@ Page {
         rightPadding: 8
         width: contentItem.width + leftPadding + rightPadding
         height: 48
+        objectName: "tabRowdDlegate_" + index
 
         onClicked: {
           tabRow.currentIndex = index
@@ -187,6 +189,7 @@ Page {
               model: form.model.hasTabs
                      ? contentModel
                      : form.model
+              objectName: "fieldRepeater"
               delegate: fieldItem
             }
           }
@@ -462,6 +465,7 @@ Page {
           property var containerGroupIndex: GroupIndex
           property var labelOverrideColor: LabelOverrideColor
           property var labelColor: LabelColor
+          property string itemType: Type
 
           active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) ||
                   ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
@@ -542,6 +546,7 @@ Page {
 
             Loader {
               id: attributeEditorLoader
+              objectName: "attributeEditorLoader" + Name
 
               anchors { left: parent.left; right: parent.right }
 
@@ -787,6 +792,7 @@ Page {
     id: toolbar
     height: visible ? form.topMargin + 48 : 0
     visible: form.state === 'Add'
+    objectName: "toolbar"
 
     anchors {
       top: parent.top
@@ -831,6 +837,7 @@ Page {
         id: titleLabel
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
+        objectName: "titleLabel"
 
         font: Theme.strongFont
         color: Theme.light
