@@ -10,20 +10,8 @@ import "Utils.js" as Utils
 TestCase {
   name: "FeatureForm"
 
-
   Item {
     id: mainWindowItem
-  }
-
-  function getMethods(obj)
-  {
-      var res = [];
-      for(var m in obj) {
-          if(typeof obj[m] == "function") {
-              res.push(m)
-          }
-      }
-      return res;
   }
 
   QFieldControls.FeatureForm {
@@ -82,55 +70,81 @@ TestCase {
     compare(fieldId1.attribute("Reviewer"), "David Signer")
     compare(fieldId1.attribute("Plants"), "taraxacum") // description: Dandelions
   }
+
+  /**
+   * Test case for featureForm (Apiary type).
+   *
+   * This function checks the visibility of the toolbar, the title label, and the tab row.
+   * It also verifies the presence and values of various UI elements within each tab.
+   *
+   * Specifically, it checks:
+   * - The toolbar visibility
+   * - The title text
+   * - The tab row count
+   * - Each tab has a corresponding text and is currently selected
+   * - The fields in the "General" tab are correctly populated with values
+   */
   function test_01_featureForm() {
-    console.log(featureForm.model)
-    console.log(featureForm.model.rowCount())
+    const toolbar = Utils.findChildren(featureForm, "toolbar")
+    compare(toolbar.visible, false)
 
-    console.log("------------------------------------------")
-    console.log("- ", qgisProject.mapLayersByName('Apiary'))
-    console.log("- ", qgisProject.mapLayersByName('Tracks'))
-    console.log("- ", qgisProject.mapLayersByName('Fields'))
-    console.log("- ", qgisProject.mapLayersByName('Basemaps'))
-    console.log("- ", qgisProject.mapLayersByName('Tables'))
-    console.log("------------------------------------------")
-    console.log("------------------------------------------")
-    console.log("- ", qgisProject.mapLayersByName('Apiary')[0].getFeature("64"))
-    // console.log("- ", qgisProject.mapLayersByName('Tracks').getFeatures())
-    // console.log("- ", qgisProject.mapLayersByName('Fields').getFeatures())
-    console.log("------------------------------------------")
-    let mf = qgisProject.mapLayersByName('Apiary')[0].getFeature("64")
-    console.log("=>", mf.attributes)
-    console.log("->", mf.attribute("photo"))
-    console.log("->", mf.attribute("beekeeper"))
-    console.log("->", mf.attribute("number of boxes"))
+    const titleLabel = Utils.findChildren(featureForm, "titleLabel")
+    compare(titleLabel.text, "View feature on Apiary")
 
-    compare(featureForm.model.rowCount(), 6)
+    const tabRow = Utils.findChildren(featureForm, "tabRow")
+    compare(tabRow.model.hasTabs, true)
+    compare(tabRow.model.rowCount(), 6)
+
+    const tabs = ["General", "Picture", "Issues", "Review", "Consumption", "GNSS"]
+    for (var i = 0; i < tabRow.model.rowCount(); ++i) {
+      tabRow.currentIndex = i
+      const delegate = Utils.findChildren(featureForm, "tabRowdDlegate_" + i)
+      compare(delegate.text, tabs[i])
+      compare(delegate.isCurrentIndex, true)
+      compare(tabRow.currentIndex, i)
+    }
+
+    // test fields in tabRow.currentIndex = 0 ("General")
+    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater")
+    const testModel = [{
+                         "containerName": "Number of Boxes",
+                         "widgetType": "Range",
+                         "source": "editorwidgets/Range.qml",
+                         "value": 7
+                       }, {
+                         "containerName": "Species of Bees",
+                         "widgetType": "ValueMap",
+                         "source": "editorwidgets/ValueMap.qml",
+                         "value": "Apis Mellifera Carnica"
+                       }, {
+                         "containerName": "Amount of Bees",
+                         "widgetType": "ValueMap",
+                         "source": "editorwidgets/ValueMap.qml",
+                         "value": "1000"
+                       }, {
+                         "containerName": "Beekeeper",
+                         "widgetType": "TextEdit",
+                         "source": "editorwidgets/TextEdit.qml",
+                         "value": "Stephen Hawking"
+                       }, {
+                         "containerName": "Yearly Harvest (kg)",
+                         "widgetType": "Range",
+                         "source": "editorwidgets/Range.qml",
+                         "value": 10
+                       }]
+
+    for (var j = 0; j < fieldItem.count; ++j) {
+      const itemLoader = fieldItem.itemAt(j).children[2].children[0]
+      const fieldContainer = fieldItem.itemAt(j).children[2].children[1]
+      const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName)
+      const attributeConfig = attributeEditorLoader.config
+      const initialValue = attributeEditorLoader.currentFeature.attribute(itemLoader.containerName)
+
+      compare(itemLoader.containerName, testModel[j].containerName)
+      compare(fieldContainer.children[0].text, testModel[j].containerName)
+      compare(attributeEditorLoader.widget, testModel[j].widgetType)
+      compare(attributeEditorLoader.source, testModel[j].source)
+      compare(initialValue, testModel[j].value)
+    }
   }
 }
-
-// qgisProject.mapLayersByName('Apiary')[0].getFeature("64").attributes
-// QVariant(
-//   QgsAttributes,
-// 	QList(
-// 		QVariant(qlonglong, 64),
-// 		QVariant(int, 7),
-// 		QVariant(QString, "Apis Mellifera Carnica"),
-// 		QVariant(QString, "1000"),
-// 		QVariant(QString, "Stephen Hawking"),
-// 		QVariant(QString, "DCIM/3.jpg"),
-// 		QVariant(bool, false),
-// 		QVariant(QString, ""),
-// 		QVariant(int, 10),
-// 		QVariant(int, 0),
-// 		QVariant(QString, "{3180afb7-080d-4382-91fc-4a30c1ddd001}"),
-// 		QVariant(QString, ""),
-// 		QVariant(QString, ""),
-// 		QVariant(double, 0),
-// 		QVariant(double, 0),
-// 		QVariant(double, 0),
-// 		QVariant(double, 0),
-// 		QVariant(int, 0),
-// 		QVariant(QString, ""),
-// 		QVariant(bool, false)
-// 	)
-// )
