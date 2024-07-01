@@ -168,7 +168,7 @@ class Setup : public QObject
       QgisMobileapp::initDeclarative( mApp, engine );
 
       QString mPath = QCoreApplication::applicationDirPath() + "/../../../resources/sample_projects/bees.qgz";
-      bool loadResult = QgsProject::instance()->read( mPath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews | Qgis::ProjectReadFlag::DontLoadLayouts );
+      QgsProject::instance()->read( mPath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews | Qgis::ProjectReadFlag::DontLoadLayouts );
 
       engine->rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
