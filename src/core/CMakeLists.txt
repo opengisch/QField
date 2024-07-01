@@ -32,6 +32,7 @@ set(QFIELD_CORE_SRCS
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
     positioning/positioningdevicemodel.cpp
+    positioning/geofencer.cpp
     processing/processingalgorithm.cpp
     processing/processingalgorithmparametersmodel.cpp
     processing/processingalgorithmsmodel.cpp
@@ -148,6 +149,7 @@ set(QFIELD_CORE_HDRS
     positioning/nmeagnssreceiver.h
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
+    positioning/geofencer.h
     processing/processingalgorithm.h
     processing/processingalgorithmparametersmodel.h
     processing/processingalgorithmsmodel.h
@@ -170,11 +172,11 @@ set(QFIELD_CORE_HDRS
     expressionevaluator.h
     expressionvariablemodel.h
     featurechecklistmodel.h
+    featureexpressionvaluesgatherer.h
     featurelistextentcontroller.h
     featurelistmodel.h
     featurelistmodelselection.h
     featuremodel.h
-    fieldexpressionvaluesgatherer.h
     focusstack.h
     geometry.h
     geometryeditorsmodel.h

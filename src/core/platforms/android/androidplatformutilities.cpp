@@ -876,6 +876,20 @@ bool AndroidPlatformUtilities::isSystemDarkTheme() const
   return false;
 }
 
+void AndroidPlatformUtilities::vibrate( int milliseconds ) const
+{
+  if ( mActivity.isValid() )
+  {
+    runOnAndroidMainThread( [milliseconds] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "vibrate", "(I)V", milliseconds );
+      }
+    } );
+  }
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -1,5 +1,5 @@
 /***************************************************************************
-  fieldexpressionvaluesgatherer.h - FieldExpressionValuesGatherer
+  featureexpressionvaluesgatherer.h - FeatureExpressionValuesGatherer
 
  ---------------------
  begin                : 29.1.2021
@@ -15,8 +15,8 @@
  ***************************************************************************/
 
 
-#ifndef FIELDEXPRESSIONVALUESGATHERER_H
-#define FIELDEXPRESSIONVALUESGATHERER_H
+#ifndef FEATUREEXPRESSIONVALUESGATHERER_H
+#define FEATUREEXPRESSIONVALUESGATHERER_H
 
 #include <QMutex>
 #include <QThread>
@@ -29,7 +29,7 @@
 /**
  * \class FieldExpressionValuesGatherer
  * Gathers features with substring matching on an expression.
- * \note This is a is an exact copy of QGIS' QgsFieldExpressionValuesGatherer
+ * \note This is a is an exact copy of QGIS' QgsFeatureExpressionValuesGatherer
  */
 class FeatureExpressionValuesGatherer : public QThread
 {
@@ -169,4 +169,4 @@ class FeatureExpressionValuesGatherer : public QThread
     QVariant mData;
 };
 
-#endif // FIELDEXPRESSIONVALUESGATHERER_H
+#endif // FEATUREEXPRESSIONVALUESGATHERER_H
