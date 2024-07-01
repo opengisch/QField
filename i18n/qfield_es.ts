@@ -439,7 +439,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometría</translation>
     </message>
 </context>
 <context>
