@@ -88,7 +88,7 @@ Rectangle {
 
     height: toolBar.topMargin + 48
 
-    color: ( featureFormList.model.constraintsHardValid && featureFormList.model.constraintsSoftValid ) || toolBar.state !== "Edit" ? Theme.mainColor : !featureFormList.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
+    color: ( featureForm.model.constraintsHardValid && featureForm.model.constraintsSoftValid ) || toolBar.state !== "Edit" ? Theme.mainColor : !featureForm.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
 
     clip: true
     focus: true
@@ -263,12 +263,12 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
-    opacity: featureFormList.model.constraintsHardValid ? 1.0 : 0.3
+    opacity: featureForm.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
      if (toolBar.state == "ProcessingLaunch") {
        processingRunClicked()
      } else {
-       if( featureFormList.model.constraintsHardValid ) {
+       if( featureForm.model.constraintsHardValid ) {
          toolBar.save()
        } else {
          displayToast( "Constraints not valid", 'warning' )
@@ -314,7 +314,7 @@ Rectangle {
 
     visible: stateMachine.state === "digitize"
              && ! selection.focusedGeometry.isNull
-             && ! featureFormList.model.featureModel.geometryLocked
+             && ! featureForm.model.featureModel.geometryLocked
              && ( projectInfo.editRights || editButton.isCreatedCloudFeature )
              && toolBar.state == "Navigation" && !readOnly && projectInfo.editRights
 
@@ -660,7 +660,7 @@ Rectangle {
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
-          clipboardManager.copyFeatureToClipboard(featureFormList.model.featureModel.feature, true)
+          clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.feature, true)
           mainWindow.displayToast(qsTr('Feature attributes copied to clipboard'))
         }
       }
@@ -677,8 +677,8 @@ Rectangle {
 
         onClicked: {
           var feature = clipboardManager.pasteFeatureFromClipboard()
-          if (featureFormList.model.featureModel.updateAttributesFromFeature(feature)) {
-            featureFormList.model.featureModel.save()
+          if (featureForm.model.featureModel.updateAttributesFromFeature(feature)) {
+            featureForm.model.featureModel.save()
             mainWindow.displayToast(qsTr('Feature attributes updated from clipboard'))
           } else {
             mainWindow.displayToast(qsTr('No feature attributes were updated from clipboard'))
@@ -756,7 +756,7 @@ Rectangle {
       icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
       enabled: (
                  (projectInfo.editRights || editButton.isCreatedCloudFeature)
-                 && (!selection.focusedLayer || !featureFormList.model.featureModel.geometryLocked)
+                 && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked)
       )
       visible: enabled
 

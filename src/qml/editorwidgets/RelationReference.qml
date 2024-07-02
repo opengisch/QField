@@ -69,9 +69,7 @@ EditorWidgetBase {
         locatorHighlightItem.geometryWrapper.crs = listModel.currentLayer.crs
         mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
                                                            listModel.currentLayer,
-                                                           feature,
-                                                           featureForm.x,
-                                                           featureForm.y)
+                                                           feature)
       }
     }
   }

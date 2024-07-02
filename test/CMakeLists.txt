@@ -41,7 +41,8 @@ macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
 endmacro (ADD_QFIELD_TEST)
 
 macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
-  add_executable(${TESTNAME} ${TESTSRC})
+  file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
+  add_executable(${TESTNAME} ${TESTSRC} ${test_qmlfiles})
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5. Retry with Qt6
   # Same is in src/app/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
@@ -49,7 +50,6 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(Qt6 COMPONENTS QmlImportScanner)
 
-    file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
     file(COPY ${test_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
     get_target_property(qfield_qmlfiles qfield_qml QML_FILES)
@@ -61,8 +61,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
            "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
     endif()
 
-    qt_import_qml_plugins(${TESTNAME}
-                           PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
+    qt_import_qml_plugins(${TESTNAME} PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
   endif()
 
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
