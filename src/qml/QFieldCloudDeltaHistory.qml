@@ -1,10 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
@@ -12,21 +10,20 @@ Popup {
 
     property alias model: deltaList.model
 
-    width: Math.min( 400, mainWindow.width - Theme.popupScreenEdgeMargin * 2 )
+    width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin * 2)
     x: (parent.width - width) / 2
     y: (parent.height - page.height) / 2
     padding: 0
 
     onOpened: function () {
-      page.height = mainWindow.height - 160 + 60
-
-      if ( cloudProjectsModel.currentProjectId ) {
-        cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
-      }
+        page.height = mainWindow.height - 160 + 60;
+        if (cloudProjectsModel.currentProjectId) {
+            cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId);
+        }
     }
 
     onClosed: function () {
-      deltaList.model = null
+        deltaList.model = null;
     }
 
     Page {
@@ -35,39 +32,39 @@ Popup {
         height: deltaList.height + 60
         padding: 10
         header: ToolBar {
-          id: toolBar
-          height: 48
+            id: toolBar
+            height: 48
 
-          background: Rectangle {
-            color: "transparent"
-          }
-
-          Label {
-            anchors.centerIn: parent
-            leftPadding: 48
-            rightPadding: 48
-            width: parent.width - 20
-            text: !!model ? qsTr( "Push History" ) : qsTr( "Loading…" )
-            font: Theme.strongFont
-            color: Theme.mainColor
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-          }
-
-          QfToolButton {
-            id: closeButton
-            anchors {
-              top: parent.top
-              right: parent.right
+            background: Rectangle {
+                color: "transparent"
             }
-            iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
-            iconColor: Theme.mainTextColor
-            bgcolor: Theme.mainBackgroundColor
 
-            onClicked: {
-              popup.close();
+            Label {
+                anchors.centerIn: parent
+                leftPadding: 48
+                rightPadding: 48
+                width: parent.width - 20
+                text: !!model ? qsTr("Push History") : qsTr("Loading…")
+                font: Theme.strongFont
+                color: Theme.mainColor
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
             }
-          }
+
+            QfToolButton {
+                id: closeButton
+                anchors {
+                    top: parent.top
+                    right: parent.right
+                }
+                iconSource: Theme.getThemeIcon('ic_close_black_24dp')
+                iconColor: Theme.mainTextColor
+                bgcolor: Theme.mainBackgroundColor
+
+                onClicked: {
+                    popup.close();
+                }
+            }
         }
 
         Column {
@@ -75,15 +72,15 @@ Popup {
             width: parent.width
 
             Label {
-              leftPadding: 48
-              rightPadding: 48
-              width: parent.width
-              visible: !!model && model.rowCount === 0
+                leftPadding: 48
+                rightPadding: 48
+                width: parent.width
+                visible: !!model && model.rowCount === 0
 
-              text: qsTr( "No changes have been pushed yet!" )
-              color: Theme.mainTextDisabledColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
+                text: qsTr("No changes have been pushed yet!")
+                color: Theme.mainTextDisabledColor
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
             }
 
             ListView {
@@ -108,8 +105,8 @@ Popup {
                             topPadding: 5
                             leftPadding: 5
                             text: {
-                              var dt = new Date(CreatedAt)
-                              return dt.toLocaleString()
+                                var dt = new Date(CreatedAt);
+                                return dt.toLocaleString();
                             }
                             font: Theme.defaultFont
                             color: Theme.mainTextColor
@@ -121,29 +118,29 @@ Popup {
                             leftPadding: 5
                             bottomPadding: 5
                             text: {
-                                var status = ''
-                                switch(Status) {
-                                  case DeltaListModel.PendingStatus:
-                                    status = 'pending'
+                                var status = '';
+                                switch (Status) {
+                                case DeltaListModel.PendingStatus:
+                                    status = 'pending';
                                     break;
-                                  case DeltaListModel.BusyStatus:
-                                    status = 'busy'
+                                case DeltaListModel.BusyStatus:
+                                    status = 'busy';
                                     break;
-                                  case DeltaListModel.AppliedStatus:
-                                    status = 'applied'
+                                case DeltaListModel.AppliedStatus:
+                                    status = 'applied';
                                     break;
-                                  case DeltaListModel.ConflictStatus:
-                                    status = 'conflict'
+                                case DeltaListModel.ConflictStatus:
+                                    status = 'conflict';
                                     break;
-                                  case DeltaListModel.NotAppliedStatus:
-                                    status = 'not applied'
+                                case DeltaListModel.NotAppliedStatus:
+                                    status = 'not applied';
                                     break;
-                                  case DeltaListModel.ErrorStatus:
-                                    status = 'error'
+                                case DeltaListModel.ErrorStatus:
+                                    status = 'error';
                                     break;
                                 }
-                                return 'Status: ' + status + ( Output != '' ? ' (' + Output + ')' : '' )
-                              }
+                                return 'Status: ' + status + (Output != '' ? ' (' + Output + ')' : '');
+                            }
                             font: Theme.tipFont
                             color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap

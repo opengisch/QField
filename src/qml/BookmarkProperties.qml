@@ -1,10 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
@@ -25,24 +23,24 @@ Popup {
     }
 
     function saveBookmark() {
-        bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text, groupField.value)
+        bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text, groupField.value);
     }
 
     Page {
         width: parent.width
         padding: 10
         header: QfPageHeader {
-          id: pageHeader
-          title: qsTr( "Bookmark Properties" )
+            id: pageHeader
+            title: qsTr("Bookmark Properties")
 
-          showBackButton: false
-          showApplyButton: false
-          showCancelButton: true
-          backgroundFill: false
+            showBackButton: false
+            showApplyButton: false
+            showCancelButton: true
+            backgroundFill: false
 
-          onCancel: {
-            bookmarkProperties.close()
-          }
+            onCancel: {
+                bookmarkProperties.close();
+            }
         }
 
         ColumnLayout {
@@ -92,14 +90,12 @@ Popup {
                     height: groupField.iconSize
                     color: Theme.bookmarkDefault
                     border.width: 4
-                    border.color: groupField.value != 'orange' &&
-                                  groupField.value != 'red' &&
-                                  groupField.value != 'blue' ? Theme.mainTextColor : "transparent"
+                    border.color: groupField.value != 'orange' && groupField.value != 'red' && groupField.value != 'blue' ? Theme.mainTextColor : "transparent"
                     radius: 2
 
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: groupField.value = '';
+                        onClicked: groupField.value = ''
                     }
                 }
                 Rectangle {
@@ -113,7 +109,7 @@ Popup {
 
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: groupField.value = 'orange';
+                        onClicked: groupField.value = 'orange'
                     }
                 }
                 Rectangle {
@@ -127,7 +123,7 @@ Popup {
 
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: groupField.value = 'red';
+                        onClicked: groupField.value = 'red'
                     }
                 }
                 Rectangle {
@@ -141,7 +137,7 @@ Popup {
 
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: groupField.value = 'blue';
+                        onClicked: groupField.value = 'blue'
                     }
                 }
                 Item {
@@ -156,11 +152,10 @@ Popup {
                 text: qsTr('Copy bookmark details')
 
                 onClicked: {
-                    var point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId)
-                    var crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId)
-                    var coordinates = StringUtils.pointInformation(point, crs)
-
-                    platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates)
+                    var point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId);
+                    var crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId);
+                    var coordinates = StringUtils.pointInformation(point, crs);
+                    platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates);
                     displayToast(qsTr('Bookmark details copied to clipboard'));
                 }
             }
@@ -188,14 +183,14 @@ Popup {
         font: Theme.defaultFont
 
         z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-        x: ( mainWindow.width - width ) / 2
-        y: ( mainWindow.height - height ) / 2
+        x: (mainWindow.width - width) / 2
+        y: (mainWindow.height - height) / 2
 
-        title: qsTr( "Remove bookmark" )
+        title: qsTr("Remove bookmark")
         Label {
             width: parent.width
             wrapMode: Text.WordWrap
-            text: qsTr( "You are about to remove a bookmark, proceed?" )
+            text: qsTr("You are about to remove a bookmark, proceed?")
         }
 
         standardButtons: Dialog.Ok | Dialog.Cancel

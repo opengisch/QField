@@ -2,17 +2,17 @@ import QtQuick 2.14
 import QtQuick.Effects
 
 MultiEffect {
-  id: effect
+    id: effect
 
-  // dummy properties to support Qt5 and Qt6
-  property int samples
-  property int radius
-  property bool transparentBorder
+    // dummy properties to support Qt5 and Qt6
+    property int samples
+    property int radius
+    property bool transparentBorder
 
-  // property aliases
-  property alias color: effect.shadowColor
-  property alias horizontalOffset: effect.shadowHorizontalOffset
-  property alias verticalOffset: effect.shadowVerticalOffset
+    // property aliases
+    property alias color: effect.shadowColor
+    property alias horizontalOffset: effect.shadowHorizontalOffset
+    property alias verticalOffset: effect.shadowVerticalOffset
 
-  shadowEnabled: true
+    shadowEnabled: true
 }

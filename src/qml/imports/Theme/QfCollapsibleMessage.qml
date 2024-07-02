@@ -2,7 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-
 import Theme 1.0
 
 Item {
@@ -17,8 +16,11 @@ Item {
     height: collapsed ? titleText.height + 1 : titleText.height + detailsText.height + 1
     implicitHeight: height
 
-    Behavior on height {
-        NumberAnimation { duration: 100; easing.type: Easing.InQuad; }
+    Behavior on height  {
+        NumberAnimation {
+            duration: 100
+            easing.type: Easing.InQuad
+        }
     }
 
     Rectangle {
@@ -85,7 +87,7 @@ Item {
         anchors.fill: parent
 
         onClicked: {
-            parent.collapsed = !parent.collapsed
+            parent.collapsed = !parent.collapsed;
         }
     }
 }

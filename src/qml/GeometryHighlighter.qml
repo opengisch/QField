@@ -1,47 +1,46 @@
 import QtQuick 2.14
-
 import org.qfield 1.0
 
 Item {
-  id: geometryHighlighter
+    id: geometryHighlighter
 
-  property alias geometryWrapper: geometryRenderer.geometryWrapper
-  property int duration: 3000
+    property alias geometryWrapper: geometryRenderer.geometryWrapper
+    property int duration: 3000
 
-  SequentialAnimation {
-    id: timer
-    running: false
-    loops: 3
-    alwaysRunToEnd: true
+    SequentialAnimation {
+        id: timer
+        running: false
+        loops: 3
+        alwaysRunToEnd: true
 
-    OpacityAnimator {
-      target: geometryHighlighter;
-      from: 1;
-      to: 0;
-      duration: 500
+        OpacityAnimator {
+            target: geometryHighlighter
+            from: 1
+            to: 0
+            duration: 500
+        }
+        OpacityAnimator {
+            target: geometryHighlighter
+            from: 0
+            to: 1
+            duration: 500
+        }
+
+        onFinished: {
+            geometryHighlighter.geometryWrapper.clear();
+        }
     }
-    OpacityAnimator {
-      target: geometryHighlighter;
-      from: 0;
-      to: 1;
-      duration: 500
+
+    GeometryRenderer {
+        id: geometryRenderer
+        mapSettings: mapCanvas.mapSettings
     }
 
-    onFinished: {
-      geometryHighlighter.geometryWrapper.clear()
+    Connections {
+        target: geometryRenderer.geometryWrapper
+
+        function onQgsGeometryChanged() {
+            timer.restart();
+        }
     }
-  }
-
-  GeometryRenderer {
-    id: geometryRenderer
-    mapSettings: mapCanvas.mapSettings
-  }
-
-  Connections {
-    target: geometryRenderer.geometryWrapper
-
-    function onQgsGeometryChanged() {
-      timer.restart()
-    }
-  }
 }

@@ -81,3 +81,9 @@ repos:
     files: .zenodo.json
     types: [json]
     args: ["--schemafile", "https://raw.githubusercontent.com/rouault/zenodo_json_schema/master/zenodo-json-schema.json"]
+
+
+- repo: https://github.com/nrbnlulu/qt-hooks
+  rev: v0.1.0  # current revision
+  hooks:
+    -  id: qml-format

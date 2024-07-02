@@ -14,1035 +14,987 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
 
 Rectangle {
-  id: featureForm
+    id: featureForm
 
-  property ProcessingAlgorithm algorithm: processingAlgorithm
+    property ProcessingAlgorithm algorithm: processingAlgorithm
 
-  property FeatureListModelSelection selection
-  property MapSettings mapSettings
-  property DigitizingToolbar digitizingToolbar
-  property ConfirmationToolbar moveFeaturesToolbar
-  property CodeReader codeReader
+    property FeatureListModelSelection selection
+    property MapSettings mapSettings
+    property DigitizingToolbar digitizingToolbar
+    property ConfirmationToolbar moveFeaturesToolbar
+    property CodeReader codeReader
 
-  property color selectionColor
-  property alias model: globalFeaturesList.model
-  property alias extentController: featureListToolBar.extentController
+    property color selectionColor
+    property alias model: globalFeaturesList.model
+    property alias extentController: featureListToolBar.extentController
 
-  property bool allowEdit
-  property bool allowDelete
+    property bool allowEdit
+    property bool allowDelete
 
-  property bool multiSelection: false
-  property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
-  property bool isVertical: parent.width < parent.height || parent.width < 300
+    property bool multiSelection: false
+    property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
+    property bool isVertical: parent.width < parent.height || parent.width < 300
 
-  property bool canvasOperationRequested: digitizingToolbar.geometryRequested ||
-                                          moveFeaturesToolbar.moveFeaturesRequested
+    property bool canvasOperationRequested: digitizingToolbar.geometryRequested || moveFeaturesToolbar.moveFeaturesRequested
 
-  signal showMessage(string message)
-  signal editGeometry
+    signal showMessage(string message)
+    signal editGeometry
 
-  function requestCancel() {
-    featureFormList.requestCancel();
-  }
-
-  width: {
-      if ( props.isVisible || featureForm.canvasOperationRequested )
-      {
-          if (fullScreenView || parent.width < parent.height || parent.width < 300)
-          {
-              parent.width
-          }
-          else
-          {
-              Math.min(Math.max(200, parent.width / 2.25), parent.width)
-          }
-      }
-      else
-      {
-
-          0
-      }
-  }
-  height: {
-     if ( props.isVisible || featureForm.canvasOperationRequested )
-     {
-         if (fullScreenView || parent.width > parent.height)
-         {
-             parent.height
-         }
-         else
-         {
-             isVertical = true
-             Math.min(Math.max( 200, parent.height / 2 ), parent.height)
-         }
-     }
-     else
-     {
-         0
-     }
-  }
-
-  anchors.bottomMargin: featureForm.canvasOperationRequested ? featureForm.height : 0
-  anchors.rightMargin: featureForm.canvasOperationRequested ? -featureForm.width : 0
-  opacity: featureForm.canvasOperationRequested ? 0.5 : 1
-
-  enabled: !featureForm.canvasOperationRequested
-  visible: props.isVisible
-
-  states: [
-    State {
-      name: "Hidden"
-      StateChangeScript {
-        script: {
-          hide()
-          if( featureFormList.state === "Edit" ){
-            //e.g. tip on the canvas during an edit
-            featureFormList.confirm()
-          }
-        }
-      }
-    },
-    /* Shows a list of features */
-    State {
-      name: "FeatureList"
-      PropertyChanges {
-        target: globalFeaturesList
-        shown: true
-      }
-      PropertyChanges {
-        target: featureFormList
-        shown: false
-      }
-      PropertyChanges {
-        target: processingAlgorithmsList
-        shown: false
-      }
-      PropertyChanges {
-        target: processingAlgorithmForm
-        shown: false
-      }
-      PropertyChanges {
-        target: featureListToolBar
-        state: "Indication"
-      }
-      StateChangeScript {
-        script: {
-          show()
-          locatorItem.state = "off"
-          if( featureFormList.state === "Edit" ){
-            ///e.g. tip on the canvas during an edit
-            featureFormList.confirm()
-          }
-          featureListToolBar.title = qsTr('Features')
-        }
-      }
-    },
-    /* Shows the form for the currently selected feature */
-    State {
-      name: "FeatureForm"
-      PropertyChanges {
-        target: globalFeaturesList
-        shown: false
-      }
-      PropertyChanges {
-        target: featureFormList
-        shown: true
-      }
-      PropertyChanges {
-        target: featureListToolBar
-        state: "Navigation"
-      }
-      PropertyChanges {
-        target: featureFormList
-        state: "ReadOnly"
-
-      }
-    },
-    /* Shows an editable form for the currently selected feature */
-    State {
-      name: "FeatureFormEdit"
-      PropertyChanges {
-        target: globalFeaturesList
-        shown: false
-      }
-      PropertyChanges {
-        target: featureFormList
-        shown: true
-      }
-      PropertyChanges {
-        target: featureListToolBar
-        state: "Edit"
-      }
-      PropertyChanges {
-        target: featureFormList
-        state: "Edit"
-      }
-    },
-    /* Show a list of processing algorithms compatible with the selected feature(s) */
-    State {
-      name: "ProcessingAlgorithmsList"
-      PropertyChanges {
-        target: processingAlgorithmsList
-        shown: true
-      }
-      PropertyChanges {
-        target: processingAlgorithmForm
-        shown: false
-      }
-      PropertyChanges {
-        target: globalFeaturesList
-        shown: false
-      }
-      PropertyChanges {
-        target: featureListToolBar
-        state: "Processing"
-      }
-      StateChangeScript {
-        script: {
-          featureListToolBar.title = qsTr('Processing Algorithms')
-        }
-      }
-    },
-    State {
-      name: "ProcessingAlgorithmForm"
-      PropertyChanges {
-        target: processingAlgorithmsList
-        shown: false
-      }
-      PropertyChanges {
-        target: processingAlgorithmForm
-        shown: true
-      }
-      PropertyChanges {
-        target: featureListToolBar
-        state: "ProcessingLaunch"
-      }
-      StateChangeScript {
-        script: {
-          featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName
-          featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName
-        }
-      }
+    function requestCancel() {
+        featureFormList.requestCancel();
     }
-  ]
-  state: "Hidden"
 
-  color: Theme.mainBackgroundColor
-  clip: true
+    width: {
+        if (props.isVisible || featureForm.canvasOperationRequested) {
+            if (fullScreenView || parent.width < parent.height || parent.width < 300) {
+                parent.width;
+            } else {
+                Math.min(Math.max(200, parent.width / 2.25), parent.width);
+            }
+        } else {
+            0;
+        }
+    }
+    height: {
+        if (props.isVisible || featureForm.canvasOperationRequested) {
+            if (fullScreenView || parent.width > parent.height) {
+                parent.height;
+            } else {
+                isVertical = true;
+                Math.min(Math.max(200, parent.height / 2), parent.height);
+            }
+        } else {
+            0;
+        }
+    }
 
-  QtObject {
-    id: props
+    anchors.bottomMargin: featureForm.canvasOperationRequested ? featureForm.height : 0
+    anchors.rightMargin: featureForm.canvasOperationRequested ? -featureForm.width : 0
+    opacity: featureForm.canvasOperationRequested ? 0.5 : 1
 
-    property bool isVisible: false
-  }
+    enabled: !featureForm.canvasOperationRequested
+    visible: props.isVisible
 
-  ListView {
-    id: globalFeaturesList
+    states: [
+        State {
+            name: "Hidden"
+            StateChangeScript {
+                script: {
+                    hide();
+                    if (featureFormList.state === "Edit") {
+                        //e.g. tip on the canvas during an edit
+                        featureFormList.confirm();
+                    }
+                }
+            }
+        },
+        /* Shows a list of features */
+        State {
+            name: "FeatureList"
+            PropertyChanges {
+                target: globalFeaturesList
+                shown: true
+            }
+            PropertyChanges {
+                target: featureFormList
+                shown: false
+            }
+            PropertyChanges {
+                target: processingAlgorithmsList
+                shown: false
+            }
+            PropertyChanges {
+                target: processingAlgorithmForm
+                shown: false
+            }
+            PropertyChanges {
+                target: featureListToolBar
+                state: "Indication"
+            }
+            StateChangeScript {
+                script: {
+                    show();
+                    locatorItem.state = "off";
+                    if (featureFormList.state === "Edit") {
+                        ///e.g. tip on the canvas during an edit
+                        featureFormList.confirm();
+                    }
+                    featureListToolBar.title = qsTr('Features');
+                }
+            }
+        },
+        /* Shows the form for the currently selected feature */
+        State {
+            name: "FeatureForm"
+            PropertyChanges {
+                target: globalFeaturesList
+                shown: false
+            }
+            PropertyChanges {
+                target: featureFormList
+                shown: true
+            }
+            PropertyChanges {
+                target: featureListToolBar
+                state: "Navigation"
+            }
+            PropertyChanges {
+                target: featureFormList
+                state: "ReadOnly"
+            }
+        },
+        /* Shows an editable form for the currently selected feature */
+        State {
+            name: "FeatureFormEdit"
+            PropertyChanges {
+                target: globalFeaturesList
+                shown: false
+            }
+            PropertyChanges {
+                target: featureFormList
+                shown: true
+            }
+            PropertyChanges {
+                target: featureListToolBar
+                state: "Edit"
+            }
+            PropertyChanges {
+                target: featureFormList
+                state: "Edit"
+            }
+        },
+        /* Show a list of processing algorithms compatible with the selected feature(s) */
+        State {
+            name: "ProcessingAlgorithmsList"
+            PropertyChanges {
+                target: processingAlgorithmsList
+                shown: true
+            }
+            PropertyChanges {
+                target: processingAlgorithmForm
+                shown: false
+            }
+            PropertyChanges {
+                target: globalFeaturesList
+                shown: false
+            }
+            PropertyChanges {
+                target: featureListToolBar
+                state: "Processing"
+            }
+            StateChangeScript {
+                script: {
+                    featureListToolBar.title = qsTr('Processing Algorithms');
+                }
+            }
+        },
+        State {
+            name: "ProcessingAlgorithmForm"
+            PropertyChanges {
+                target: processingAlgorithmsList
+                shown: false
+            }
+            PropertyChanges {
+                target: processingAlgorithmForm
+                shown: true
+            }
+            PropertyChanges {
+                target: featureListToolBar
+                state: "ProcessingLaunch"
+            }
+            StateChangeScript {
+                script: {
+                    featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName;
+                    featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName;
+                }
+            }
+        }
+    ]
+    state: "Hidden"
 
-    anchors.top: featureListToolBar.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-    anchors.bottomMargin: mainWindow.sceneBottomMargin
-    height: parent.height - featureListToolBar.height
-
-    property bool shown: false
-    visible: shown
-
+    color: Theme.mainBackgroundColor
     clip: true
 
-    ScrollBar.vertical: ScrollBar {
-      width: 6
-      policy: globalFeaturesList.childrenRect.height > globalFeaturesList.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+    QtObject {
+        id: props
 
-      contentItem: Rectangle {
-        implicitWidth: 6
-        implicitHeight: 25
-        color: Theme.mainColor
-      }
+        property bool isVisible: false
     }
 
-    section.property: "layerName"
-    section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
-    section.delegate: Component {
-      /* section header: layer name */
-      Rectangle {
-        width: parent.width
-        height: 30
-        color: Theme.controlBorderColor
+    ListView {
+        id: globalFeaturesList
 
-        Text {
-          anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
-          font.bold: true
-          font.pointSize: Theme.resultFont.pointSize
-          color: Theme.mainTextColor
-          text: section
-        }
-      }
-    }
-
-    delegate: Rectangle {
-      id: itemBackground
-      anchors {
-        left: parent ? parent.left : undefined
-        right: parent ? parent.right: undefined
-      }
-      focus: true
-      height: Math.max( 48, featureText.height )
-      color: "transparent"
-
-      Ripple {
-          clip: true
-          width: parent.width
-          height: parent.height
-          pressed: mouseArea.pressed
-          anchor: itemBackground
-          active: mouseArea.pressed
-          color: Material.rippleColor
-      }
-
-      CheckBox {
-          anchors { leftMargin: 5; left: parent.left; verticalCenter: parent.verticalCenter }
-          checked: featureSelected
-          visible: featureForm.multiSelection
-      }
-
-      Text {
-        id: featureText
-        anchors {
-          leftMargin: featureForm.multiSelection ? 50 : 10
-          left: parent.left
-          verticalCenter: parent.verticalCenter
-        }
-        font.bold: true
-        font.pointSize: Theme.resultFont.pointSize
-        color: Theme.mainTextColor
-        text: display
-      }
-
-      Rectangle {
+        anchors.top: featureListToolBar.bottom
         anchors.left: parent.left
-        height: parent.height
-        width: 6
-        color: featureForm.selectionColor
-        opacity: index == featureForm.selection.focusedItem && featureForm.selection.model.selectedCount == 0 ? 1 : 0
-        Behavior on opacity {
-          PropertyAnimation {
-            easing.type: Easing.OutQuart
-          }
-        }
-      }
-
-      MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-
-        onClicked: {
-          if ( featureForm.multiSelection ) {
-              featureForm.selection.toggleSelectedItem( index );
-              if ( featureForm.selection.model.selectedCount == 0 ) {
-                  featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
-                  featureForm.multiSelection = false;
-              }
-              featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
-          } else {
-            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
-            featureForm.state = "FeatureForm"
-            featureForm.selection.focusedItem = index
-            featureForm.multiSelection = false;
-          }
-
-          featureFormList.model.applyFeatureModel()
-        }
-
-        onPressAndHold:
-        {
-          featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
-          featureForm.selection.focusedItem = index
-          featureForm.selection.toggleSelectedItem( index );
-          featureForm.multiSelection = true;
-
-        }
-      }
-
-      /* bottom border */
-      Rectangle {
+        anchors.right: parent.right
         anchors.bottom: parent.bottom
-        height: 1
-        color: Theme.controlBorderColor
-        width: parent.width
-      }
+        anchors.bottomMargin: mainWindow.sceneBottomMargin
+        height: parent.height - featureListToolBar.height
+
+        property bool shown: false
+        visible: shown
+
+        clip: true
+
+        ScrollBar.vertical: ScrollBar {
+            width: 6
+            policy: globalFeaturesList.childrenRect.height > globalFeaturesList.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+
+            contentItem: Rectangle {
+                implicitWidth: 6
+                implicitHeight: 25
+                color: Theme.mainColor
+            }
+        }
+
+        section.property: "layerName"
+        section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+        section.delegate: Component {
+            /* section header: layer name */
+            Rectangle {
+                width: parent.width
+                height: 30
+                color: Theme.controlBorderColor
+
+                Text {
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        verticalCenter: parent.verticalCenter
+                    }
+                    font.bold: true
+                    font.pointSize: Theme.resultFont.pointSize
+                    color: Theme.mainTextColor
+                    text: section
+                }
+            }
+        }
+
+        delegate: Rectangle {
+            id: itemBackground
+            anchors {
+                left: parent ? parent.left : undefined
+                right: parent ? parent.right : undefined
+            }
+            focus: true
+            height: Math.max(48, featureText.height)
+            color: "transparent"
+
+            Ripple {
+                clip: true
+                width: parent.width
+                height: parent.height
+                pressed: mouseArea.pressed
+                anchor: itemBackground
+                active: mouseArea.pressed
+                color: Material.rippleColor
+            }
+
+            CheckBox {
+                anchors {
+                    leftMargin: 5
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
+                checked: featureSelected
+                visible: featureForm.multiSelection
+            }
+
+            Text {
+                id: featureText
+                anchors {
+                    leftMargin: featureForm.multiSelection ? 50 : 10
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
+                font.bold: true
+                font.pointSize: Theme.resultFont.pointSize
+                color: Theme.mainTextColor
+                text: display
+            }
+
+            Rectangle {
+                anchors.left: parent.left
+                height: parent.height
+                width: 6
+                color: featureForm.selectionColor
+                opacity: index == featureForm.selection.focusedItem && featureForm.selection.model.selectedCount == 0 ? 1 : 0
+                Behavior on opacity  {
+                    PropertyAnimation {
+                        easing.type: Easing.OutQuart
+                    }
+                }
+            }
+
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+
+                onClicked: {
+                    if (featureForm.multiSelection) {
+                        featureForm.selection.toggleSelectedItem(index);
+                        if (featureForm.selection.model.selectedCount == 0) {
+                            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+                            featureForm.multiSelection = false;
+                        }
+                        featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
+                    } else {
+                        featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+                        featureForm.state = "FeatureForm";
+                        featureForm.selection.focusedItem = index;
+                        featureForm.multiSelection = false;
+                    }
+                    featureFormList.model.applyFeatureModel();
+                }
+
+                onPressAndHold: {
+                    featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel;
+                    featureForm.selection.focusedItem = index;
+                    featureForm.selection.toggleSelectedItem(index);
+                    featureForm.multiSelection = true;
+                }
+            }
+
+            /* bottom border */
+            Rectangle {
+                anchors.bottom: parent.bottom
+                height: 1
+                color: Theme.controlBorderColor
+                width: parent.width
+            }
+        }
+
+        /* bottom border */
+        Rectangle {
+            anchors.bottom: parent.bottom
+            height: 1
+            color: Theme.controlBorderColor
+            width: parent.width
+        }
+
+        Behavior on height  {
+            PropertyAnimation {
+                easing.type: Easing.OutQuart
+            }
+        }
     }
 
-    /* bottom border */
-    Rectangle {
-      anchors.bottom: parent.bottom
-      height: 1
-      color: Theme.controlBorderColor
-      width: parent.width
+    FeatureForm {
+        id: featureFormList
+
+        anchors.top: featureListToolBar.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        bottomMargin: mainWindow.sceneBottomMargin
+        height: parent.height - globalFeaturesList.height
+
+        property bool shown: false
+        visible: shown
+
+        digitizingToolbar: featureForm.digitizingToolbar
+        codeReader: featureForm.codeReader
+
+        model: AttributeFormModel {
+            featureModel: FeatureModel {
+                project: qgisProject
+                currentLayer: featureForm.selection.focusedLayer
+                feature: featureForm.selection.focusedFeature
+                features: featureForm.selection.model.selectedFeatures
+                cloudUserInformation: projectInfo.cloudUserInformation
+            }
+        }
+
+        focus: true
+
+        onCancelled: {
+            featureForm.selection.focusedItemChanged();
+            featureFormList.model.featureModel.reset();
+            featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm";
+            if (!qfieldSettings.autoSave) {
+                displayToast(qsTr("Changes discarded"), 'warning');
+            }
+        }
     }
 
-    Behavior on height {
-      PropertyAnimation {
-        easing.type: Easing.OutQuart
-      }
-    }
-  }
+    ProcessingAlgorithmsList {
+        id: processingAlgorithmsList
 
-  FeatureForm {
-    id: featureFormList
+        inPlaceLayer: featureForm.selection.model.selectedLayer
 
-    anchors.top: featureListToolBar.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-    bottomMargin: mainWindow.sceneBottomMargin
-    height: parent.height - globalFeaturesList.height
+        anchors.top: featureListToolBar.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: mainWindow.sceneBottomMargin
 
-    property bool shown: false
-    visible: shown
+        property bool shown: false
+        visible: shown
 
-    digitizingToolbar: featureForm.digitizingToolbar
-    codeReader: featureForm.codeReader
-
-    model: AttributeFormModel {
-      featureModel: FeatureModel {
-        project: qgisProject
-        currentLayer: featureForm.selection.focusedLayer
-        feature: featureForm.selection.focusedFeature
-        features: featureForm.selection.model.selectedFeatures
-        cloudUserInformation: projectInfo.cloudUserInformation
-      }
+        onAlgorithmSelected: id => {
+            processingAlgorithm.id = id;
+            featureForm.state = "ProcessingAlgorithmForm";
+        }
     }
 
-    focus: true
+    ProcessingAlgorithmForm {
+        id: processingAlgorithmForm
 
-    onCancelled: {
-      featureForm.selection.focusedItemChanged()
-      featureFormList.model.featureModel.reset()
-      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
-      if (!qfieldSettings.autoSave) {
-          displayToast( qsTr( "Changes discarded" ), 'warning' )
-      }
-    }
-  }
+        algorithmId: processingAlgorithm.id
 
-  ProcessingAlgorithmsList {
-    id: processingAlgorithmsList
+        anchors.top: featureListToolBar.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: mainWindow.sceneBottomMargin
 
-    inPlaceLayer: featureForm.selection.model.selectedLayer
-
-    anchors.top: featureListToolBar.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-    anchors.bottomMargin: mainWindow.sceneBottomMargin
-
-    property bool shown: false
-    visible: shown
-
-    onAlgorithmSelected: (id) => {
-      processingAlgorithm.id = id
-      featureForm.state = "ProcessingAlgorithmForm"
-    }
-  }
-
-  ProcessingAlgorithmForm {
-    id: processingAlgorithmForm
-
-    algorithmId: processingAlgorithm.id
-
-    anchors.top: featureListToolBar.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-    anchors.bottomMargin: mainWindow.sceneBottomMargin
-
-    property bool shown: false
-    visible: shown
-  }
-
-  ProcessingAlgorithm {
-    id: processingAlgorithm
-
-    parameters: processingAlgorithmForm.algorithmParametersModel.parameters
-
-    inPlaceLayer: featureForm.selection.model.selectedLayer
-    inPlaceFeatures: featureForm.selection.model.selectedFeatures
-
-    preview: featureForm.state == "ProcessingAlgorithmForm"
-  }
-
-  NavigationBar {
-    id: featureListToolBar
-
-    topMargin: featureForm.y == 0 ? mainWindow.sceneTopMargin : 0.0
-
-    allowDelete: allowDelete
-    model: globalFeaturesList.model
-    selection: featureForm.selection
-    multiSelection: featureForm.multiSelection
-    extentController: FeaturelistExtentController {
-      model: globalFeaturesList.model
-      selection: featureForm.selection
-      mapSettings: featureForm.mapSettings
-
-      onFeatureFormStateRequested: {
-        featureForm.state = "FeatureForm"
-      }
+        property bool shown: false
+        visible: shown
     }
 
-    onBackClicked: {
-        featureForm.focus = true;
-        if ( featureForm.state != "FeatureList" ) {
+    ProcessingAlgorithm {
+        id: processingAlgorithm
+
+        parameters: processingAlgorithmForm.algorithmParametersModel.parameters
+
+        inPlaceLayer: featureForm.selection.model.selectedLayer
+        inPlaceFeatures: featureForm.selection.model.selectedFeatures
+
+        preview: featureForm.state == "ProcessingAlgorithmForm"
+    }
+
+    NavigationBar {
+        id: featureListToolBar
+
+        topMargin: featureForm.y == 0 ? mainWindow.sceneTopMargin : 0.0
+
+        allowDelete: allowDelete
+        model: globalFeaturesList.model
+        selection: featureForm.selection
+        multiSelection: featureForm.multiSelection
+        extentController: FeaturelistExtentController {
+            model: globalFeaturesList.model
+            selection: featureForm.selection
+            mapSettings: featureForm.mapSettings
+
+            onFeatureFormStateRequested: {
+                featureForm.state = "FeatureForm";
+            }
+        }
+
+        onBackClicked: {
+            featureForm.focus = true;
+            if (featureForm.state != "FeatureList") {
+                featureForm.state = "FeatureList";
+            } else {
+                featureForm.state = "Hidden";
+            }
+        }
+
+        onStatusIndicatorClicked: {
             featureForm.state = "FeatureList";
-        } else {
+        }
+
+        onStatusIndicatorSwiped: direction => {
+            if (isVertical) {
+                if (direction === 'up') {
+                    fullScreenView = true;
+                } else if (direction === 'down') {
+                    if (fullScreenView) {
+                        fullScreenView = false;
+                    } else {
+                        if (featureForm.state != 'FeatureFormEdit') {
+                            featureForm.state = 'Hidden';
+                        }
+                    }
+                }
+            } else {
+                if (direction === 'left') {
+                    fullScreenView = true;
+                } else if (direction === 'right') {
+                    if (fullScreenView) {
+                        fullScreenView = false;
+                    } else {
+                        if (featureForm.state != 'FeatureFormEdit') {
+                            featureForm.state = 'Hidden';
+                        }
+                    }
+                }
+            }
+        }
+
+        onEditAttributesButtonClicked: {
+            if (trackingModel.featureInTracking(selection.focusedLayer, selection.focusedFeature.id)) {
+                displayToast(qsTr("Stop tracking this feature to edit attributes"));
+            } else {
+                featureForm.state = "FeatureFormEdit";
+            }
+        }
+
+        onEditGeometryButtonClicked: {
+            if (trackingModel.featureInTracking(selection.focusedLayer, selection.focusedFeature.id)) {
+                displayToast(qsTr("Stop tracking this feature to edit geometry"));
+            } else {
+                editGeometry();
+            }
+        }
+
+        onSave: {
+            featureFormList.confirm();
+            featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm";
+            displayToast(qsTr("Changes saved"));
+        }
+
+        onCancel: {
+            featureForm.requestCancel();
+        }
+
+        onDestinationClicked: {
+            navigation.setDestinationFeature(featureForm.selection.focusedFeature, featureForm.selection.focusedLayer);
             featureForm.state = "Hidden";
         }
-    }
 
-    onStatusIndicatorClicked: {
-      featureForm.state = "FeatureList"
-    }
-
-    onStatusIndicatorSwiped: (direction) => {
-      if (isVertical) {
-        if (direction === 'up') {
-          fullScreenView = true
-        } else if (direction === 'down') {
-          if ( fullScreenView ) {
-            fullScreenView = false
-          } else {
-            if (featureForm.state != 'FeatureFormEdit') {
-              featureForm.state = 'Hidden'
+        onMoveClicked: {
+            if (featureForm.selection.focusedItem !== -1) {
+                featureForm.state = "FeatureList";
+                featureForm.multiSelection = true;
+                featureForm.selection.model.toggleSelectedItem(featureForm.selection.focusedItem);
+                moveFeaturesToolbar.initializeMoveFeatures();
             }
-          }
         }
-      } else {
-        if (direction === 'left') {
-          fullScreenView = true
-        } else if (direction === 'right') {
-          if ( fullScreenView ) {
-            fullScreenView = false
-          } else {
-            if (featureForm.state != 'FeatureFormEdit') {
-              featureForm.state = 'Hidden'
+
+        onDuplicateClicked: {
+            if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer, featureForm.selection.focusedFeature)) {
+                displayToast(qsTr("Successfully duplicated feature"));
+                featureForm.selection.focusedItem = -1;
+                featureForm.state = "FeatureList";
+                featureForm.multiSelection = true;
+                moveFeaturesToolbar.initializeMoveFeatures();
             }
-          }
         }
-      }
-    }
 
-    onEditAttributesButtonClicked: {
-        if( trackingModel.featureInTracking(selection.focusedLayer, selection.focusedFeature.id) )
-        {
-            displayToast( qsTr( "Stop tracking this feature to edit attributes" ) )
+        onTransferClicked: {
+            transferDialog.show();
         }
-        else
-        {
-            featureForm.state = "FeatureFormEdit"
-        }
-    }
 
-    onEditGeometryButtonClicked: {
-        if( trackingModel.featureInTracking(selection.focusedLayer, selection.focusedFeature.id) )
-        {
-            displayToast( qsTr( "Stop tracking this feature to edit geometry" ) )
-        }
-        else
-        {
-            editGeometry()
-        }
-    }
-
-    onSave: {
-        featureFormList.confirm()
-        featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
-        displayToast( qsTr( "Changes saved" ) )
-    }
-
-    onCancel: {
-        featureForm.requestCancel();
-    }
-
-    onDestinationClicked: {
-      navigation.setDestinationFeature(featureForm.selection.focusedFeature,featureForm.selection.focusedLayer)
-      featureForm.state = "Hidden";
-    }
-
-    onMoveClicked: {
-        if (featureForm.selection.focusedItem !== -1) {
-            featureForm.state = "FeatureList"
-            featureForm.multiSelection = true
-            featureForm.selection.model.toggleSelectedItem(featureForm.selection.focusedItem)
-            moveFeaturesToolbar.initializeMoveFeatures()
-        }
-    }
-
-    onDuplicateClicked: {
-        if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature)) {
-          displayToast( qsTr( "Successfully duplicated feature" ) )
-
-          featureForm.selection.focusedItem = -1
-          featureForm.state = "FeatureList"
-          featureForm.multiSelection = true
-
-          moveFeaturesToolbar.initializeMoveFeatures()
-        }
-    }
-
-    onTransferClicked: {
-        transferDialog.show()
-    }
-
-    onDeleteClicked: {
-        var selectedFeatures = featureForm.selection.model.selectedFeatures
-        var selectedFeature = selectedFeatures && selectedFeatures.length > 0 ? selectedFeatures[0] : null
-
-        if(
-            selectedFeature
-            && featureForm.selection.focusedLayer
-            && trackingModel.featureInTracking(featureForm.selection.focusedLayer, selectedFeature)
-        )
-        {
-          displayToast( qsTr( "A number of features are being tracked, stop tracking to delete those" ) )
-        }
-        else
-        {
-          deleteDialog.show()
-        }
-    }
-
-    onToggleMultiSelection: {
-        featureForm.selection.focusedItem = -1;
-        if ( featureForm.multiSelection ) {
-            if (featureForm.state == "ProcessingAlgorithmsList" || featureForm.state == "ProcessingAlgorithmForm") {
-              featureForm.state = "FeatureList"
+        onDeleteClicked: {
+            var selectedFeatures = featureForm.selection.model.selectedFeatures;
+            var selectedFeature = selectedFeatures && selectedFeatures.length > 0 ? selectedFeatures[0] : null;
+            if (selectedFeature && featureForm.selection.focusedLayer && trackingModel.featureInTracking(featureForm.selection.focusedLayer, selectedFeature)) {
+                displayToast(qsTr("A number of features are being tracked, stop tracking to delete those"));
+            } else {
+                deleteDialog.show();
             }
-
-            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
-            featureFormList.model.applyFeatureModel()
-            featureForm.selection.model.clearSelection();
-        } else {
-            featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
         }
-        featureForm.multiSelection = !featureForm.multiSelection;
-        featureForm.focus = true;
-    }
 
-    onMultiEditClicked: {
-        if (featureForm.selection.focusedItem == -1) {
-          // focus on the first selected item to grab its layer
-          featureForm.selection.focusedItem = 0;
+        onToggleMultiSelection: {
+            featureForm.selection.focusedItem = -1;
+            if (featureForm.multiSelection) {
+                if (featureForm.state == "ProcessingAlgorithmsList" || featureForm.state == "ProcessingAlgorithmForm") {
+                    featureForm.state = "FeatureList";
+                }
+                featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+                featureFormList.model.applyFeatureModel();
+                featureForm.selection.model.clearSelection();
+            } else {
+                featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel;
+            }
+            featureForm.multiSelection = !featureForm.multiSelection;
+            featureForm.focus = true;
         }
-        featureForm.state = "FeatureFormEdit"
-    }
 
-    onMultiMergeClicked: {
-        if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
-        {
-          displayToast( qsTr( "A number of features are being tracked, stop tracking to merge those" ) )
+        onMultiEditClicked: {
+            if (featureForm.selection.focusedItem == -1) {
+                // focus on the first selected item to grab its layer
+                featureForm.selection.focusedItem = 0;
+            }
+            featureForm.state = "FeatureFormEdit";
         }
-        else
-        {
-          mergeDialog.show()
+
+        onMultiMergeClicked: {
+            if (trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures)) {
+                displayToast(qsTr("A number of features are being tracked, stop tracking to merge those"));
+            } else {
+                mergeDialog.show();
+            }
+        }
+
+        onMultiMoveClicked: {
+            moveFeaturesToolbar.initializeMoveFeatures();
+        }
+
+        onMultiProcessingClicked: {
+            featureForm.state = "ProcessingAlgorithmsList";
+        }
+
+        onProcessingRunClicked: {
+            processingAlgorithm.run();
+            featureForm.state = "FeatureList";
+        }
+
+        CoordinateTransformer {
+            id: moveFeaturesTransformer
+            sourceCrs: mapCanvas.mapSettings.destinationCrs
+            destinationCrs: featureForm.selection.model.selectedLayer ? featureForm.selection.model.selectedLayer.crs : mapCanvas.mapSettings.destinationCrs
+        }
+
+        Connections {
+            target: moveFeaturesToolbar
+
+            function onMoveConfirmed() {
+                moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.endPoint;
+                var translateX = moveFeaturesTransformer.projectedPosition.x;
+                var translateY = moveFeaturesTransformer.projectedPosition.y;
+                moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.startPoint;
+                translateX -= moveFeaturesTransformer.projectedPosition.x;
+                translateY -= moveFeaturesTransformer.projectedPosition.y;
+                featureForm.model.moveSelection(translateX, translateY);
+            }
+        }
+
+        onMultiDuplicateClicked: {
+            if (featureForm.multiSelection) {
+                if (featureForm.model.duplicateSelection()) {
+                    displayToast(qsTr("Successfully duplicated selected features, list updated to show newly-created features"));
+                    moveFeaturesToolbar.initializeMoveFeatures();
+                }
+            }
+        }
+
+        onMultiDeleteClicked: {
+            if (trackingModel.featuresInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures)) {
+                displayToast(qsTr("A number of features are being tracked, stop tracking to delete those"));
+            } else {
+                deleteDialog.show();
+            }
         }
     }
 
-    onMultiMoveClicked: {
-        moveFeaturesToolbar.initializeMoveFeatures()
+    Keys.onReleased: event => {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+            // if visible overlays (such as embedded feature forms) are present, don't take over
+            if (Overlay.overlay && Overlay.overlay.visibleChildren.length > 1 || (Overlay.overlay.visibleChildren.length === 1 && !toast.visible))
+                return;
+            if (state != "FeatureList") {
+                if (featureListToolBar.state === "Edit") {
+                    featureFormList.requestCancel();
+                } else {
+                    state = "FeatureList";
+                }
+            } else {
+                if (featureForm.multiSelection) {
+                    featureForm.selection.model.clearSelection();
+                    featureForm.selection.focusedItem = -1;
+                    featureForm.multiSelection = false;
+                } else {
+                    state = "Hidden";
+                }
+            }
+            event.accepted = true;
+        }
     }
 
-    onMultiProcessingClicked: {
-      featureForm.state = "ProcessingAlgorithmsList"
+    Behavior on width  {
+        PropertyAnimation {
+            duration: parent.width > parent.height ? 250 : 0
+            easing.type: Easing.OutQuart
+
+            onRunningChanged: {
+                if (running)
+                    mapCanvasMap.freeze('formresize');
+                else
+                    mapCanvasMap.unfreeze('formresize');
+            }
+        }
     }
 
-    onProcessingRunClicked: {
-      processingAlgorithm.run()
-      featureForm.state = "FeatureList"
+    Behavior on height  {
+        PropertyAnimation {
+            duration: parent.width < parent.height ? 250 : 0
+            easing.type: Easing.OutQuart
+
+            onRunningChanged: {
+                if (running)
+                    mapCanvasMap.freeze('formresize');
+                else
+                    mapCanvasMap.unfreeze('formresize');
+            }
+        }
     }
 
-    CoordinateTransformer {
-        id: moveFeaturesTransformer
-        sourceCrs: mapCanvas.mapSettings.destinationCrs
-        destinationCrs: featureForm.selection.model.selectedLayer ? featureForm.selection.model.selectedLayer.crs : mapCanvas.mapSettings.destinationCrs
+    Behavior on anchors.rightMargin  {
+        PropertyAnimation {
+            duration: 250
+            easing.type: Easing.OutQuart
+
+            onRunningChanged: {
+                if (running)
+                    mapCanvasMap.freeze('formresize');
+                else
+                    mapCanvasMap.unfreeze('formresize');
+            }
+        }
+    }
+
+    Behavior on anchors.bottomMargin  {
+        PropertyAnimation {
+            duration: 250
+            easing.type: Easing.OutQuart
+
+            onRunningChanged: {
+                if (running)
+                    mapCanvasMap.freeze('formresize');
+                else
+                    mapCanvasMap.unfreeze('formresize');
+            }
+        }
     }
 
     Connections {
-        target: moveFeaturesToolbar
+        target: globalFeaturesList.model
 
-        function onMoveConfirmed() {
-            moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.endPoint
-            var translateX = moveFeaturesTransformer.projectedPosition.x
-            var translateY = moveFeaturesTransformer.projectedPosition.y
-            moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.startPoint
-            translateX -= moveFeaturesTransformer.projectedPosition.x
-            translateY -= moveFeaturesTransformer.projectedPosition.y
-            featureForm.model.moveSelection(translateX, translateY)
+        function onRowsInserted(parent, first, VectorLayerStatic) {
+            if (model.rowCount() > 0) {
+                state = "FeatureList";
+            } else {
+                showMessage(qsTr('No feature at this position'));
+                state = "Hidden";
+            }
         }
-    }
 
-    onMultiDuplicateClicked: {
-        if  (featureForm.multiSelection) {
-          if (featureForm.model.duplicateSelection()) {
-              displayToast( qsTr( "Successfully duplicated selected features, list updated to show newly-created features" ) )
-              moveFeaturesToolbar.initializeMoveFeatures()
-          }
+        function onCountChanged() {
+            if (model.rowCount() === 0) {
+                state = "Hidden";
+            }
         }
-    }
 
-    onMultiDeleteClicked: {
-        if( trackingModel.featuresInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
-        {
-          displayToast( qsTr( "A number of features are being tracked, stop tracking to delete those" ) )
+        function onModelReset() {
+            if (model.rowCount() > 0) {
+                state = "FeatureList";
+            } else {
+                state = "Hidden";
+            }
         }
-        else
-        {
-          deleteDialog.show()
-        }
-    }
-  }
-
-  Keys.onReleased: (event) => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          // if visible overlays (such as embedded feature forms) are present, don't take over
-          if (Overlay.overlay && Overlay.overlay.visibleChildren.length > 1 || (Overlay.overlay.visibleChildren.length === 1 && !toast.visible))
-              return;
-
-          if (state != "FeatureList") {
-              if (featureListToolBar.state === "Edit") {
-                  featureFormList.requestCancel();
-              } else {
-                  state = "FeatureList";
-              }
-          } else  {
-              if (featureForm.multiSelection) {
-                  featureForm.selection.model.clearSelection();
-                  featureForm.selection.focusedItem = -1
-                  featureForm.multiSelection = false;
-              } else {
-                  state = "Hidden";
-              }
-          }
-          event.accepted = true;
-      }
-  }
-
-  Behavior on width {
-    PropertyAnimation {
-      duration: parent.width > parent.height ? 250 : 0
-      easing.type: Easing.OutQuart
-
-      onRunningChanged: {
-        if ( running )
-          mapCanvasMap.freeze('formresize')
-        else
-          mapCanvasMap.unfreeze('formresize')
-      }
-    }
-  }
-
-  Behavior on height {
-    PropertyAnimation {
-      duration: parent.width < parent.height ? 250 : 0
-      easing.type: Easing.OutQuart
-
-      onRunningChanged: {
-        if ( running )
-          mapCanvasMap.freeze('formresize')
-        else
-          mapCanvasMap.unfreeze('formresize')
-      }
-    }
-  }
-
-  Behavior on anchors.rightMargin {
-    PropertyAnimation {
-      duration: 250
-      easing.type: Easing.OutQuart
-
-      onRunningChanged: {
-        if ( running )
-          mapCanvasMap.freeze('formresize')
-        else
-          mapCanvasMap.unfreeze('formresize')
-      }
-    }
-  }
-
-  Behavior on anchors.bottomMargin {
-    PropertyAnimation {
-      duration: 250
-      easing.type: Easing.OutQuart
-
-      onRunningChanged: {
-        if ( running )
-          mapCanvasMap.freeze('formresize')
-        else
-          mapCanvasMap.unfreeze('formresize')
-      }
-    }
-  }
-
-  Connections {
-    target: globalFeaturesList.model
-
-    function onRowsInserted(parent, first, VectorLayerStatic) {
-      if ( model.rowCount() > 0 ) {
-        state = "FeatureList"
-      } else {
-        showMessage( qsTr('No feature at this position') )
-        state = "Hidden"
-      }
-    }
-
-    function onCountChanged() {
-      if ( model.rowCount() === 0 ) {
-        state = "Hidden"
-      }
-    }
-
-    function onModelReset() {
-      if ( model.rowCount() > 0 ) {
-        state = "FeatureList"
-      } else {
-        state = "Hidden"
-      }
-    }
-  }
-
-  function show()
-  {
-    props.isVisible = true
-    focus = true
-  }
-
-  function hide()
-  {
-    props.isVisible = false;
-    focus = false;
-
-    fullScreenView = qfieldSettings.fullScreenIdentifyView;
-
-    if ( !featureForm.canvasOperationRequested )
-    {
-      featureForm.multiSelection = false;
-      featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
-      featureForm.selection.clear();
-      if ( featureForm.selection.model ) {
-        featureForm.selection.model.clearSelection();
-      }
-      model.clear();
-    }
-  }
-
-  Dialog {
-    id: mergeDialog
-    parent: mainWindow.contentItem
-
-    property int selectedCount: 0
-    property string featureDisplayName: ''
-    property bool isMerged: false
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
-
-    title: qsTr( "Merge feature(s)" )
-    Label {
-      width: parent.width
-      wrapMode: Text.WordWrap
-      text: qsTr( "Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", mergeDialog.selectedCount ).arg( mergeDialog.featureDisplayName )
-    }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
-    onAccepted: {
-      if ( isMerged ) {
-        return;
-      }
-
-      isMerged = featureForm.model.mergeSelection()
-
-      if ( isMerged ) {
-        displayToast( qsTr( "Successfully merged %n feature(s)", "", selectedCount ) );
-      } else {
-        displayToast( qsTr( "Failed to merge %n feature(s)", "", selectedCount ), 'warning' );
-      }
-
-      visible = false
-      featureForm.focus = true;
-    }
-    onRejected: {
-      visible = false
-      featureForm.focus = true;
     }
 
     function show() {
-        this.isMerged = false;
-        this.selectedCount = featureForm.model.selectedCount;
-        this.featureDisplayName = FeatureUtils.displayName(featureForm.selection.focusedLayer,featureForm.model.selectedFeatures[0])
-        this.open();
+        props.isVisible = true;
+        focus = true;
     }
-  }
 
-  Dialog {
-    id: transferDialog
-    parent: mainWindow.contentItem
+    function hide() {
+        props.isVisible = false;
+        focus = false;
+        fullScreenView = qfieldSettings.fullScreenIdentifyView;
+        if (!featureForm.canvasOperationRequested) {
+            featureForm.multiSelection = false;
+            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+            featureForm.selection.clear();
+            if (featureForm.selection.model) {
+                featureForm.selection.model.clearSelection();
+            }
+            model.clear();
+        }
+    }
 
-    visible: false
-    modal: true
-    font: Theme.defaultFont
+    Dialog {
+        id: mergeDialog
+        parent: mainWindow.contentItem
 
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
+        property int selectedCount: 0
+        property string featureDisplayName: ''
+        property bool isMerged: false
 
-    title: qsTr( "Transfer Feature Attributes" )
-
-    Column {
-      width: childrenRect.width
-      height: childrenRect.height
-      spacing: 10
-
-      TextMetrics {
-        id: transferLabelMetrics
-        font: transferLabel.font
-        text: transferLabel.text
-      }
-
-      Label {
-        id: transferLabel
-        width: mainWindow.width - 60 < transferLabelMetrics.width ? mainWindow.width - 60 : transferLabelMetrics.width
-        text: qsTr("Select a feature below from which attributes will be transfered onto the currently opened feature.")
-        wrapMode: Text.WordWrap
+        visible: false
+        modal: true
         font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
 
-      ComboBox {
-        id: transferComboBox
-        width: transferLabel.width
+        x: (mainWindow.width - width) / 2
+        y: (mainWindow.height - height) / 2
 
-        model: FeatureListModel {
-          id: transferFeatureListModel
+        title: qsTr("Merge feature(s)")
+        Label {
+            width: parent.width
+            wrapMode: Text.WordWrap
+            text: qsTr("Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", mergeDialog.selectedCount).arg(mergeDialog.featureDisplayName)
         }
 
-        textRole: "displayString"
-        valueRole: "featureId"
-      }
-    }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
-    onAccepted: {
-      let feature = transferFeatureListModel.getFeatureById(transferComboBox.currentValue)
-      if (featureFormList.model.featureModel.updateAttributesFromFeature(feature)) {
-        featureFormList.model.featureModel.save()
-        mainWindow.displayToast(qsTr('Feature attributes transferred'))
-      } else {
-        mainWindow.displayToast(qsTr('No feature attributes were transferred'))
-      }
-      transferFeatureListModel.currentLayer = null
-    }
-
-    onRejected: {
-      transferFeatureListModel.currentLayer = null
-    }
-
-    function show() {
-      transferFeatureListModel.displayValueField = featureFormList.model.featureModel.currentLayer.displayExpression
-      transferFeatureListModel.currentLayer = featureFormList.model.featureModel.currentLayer
-      this.open();
-    }
-  }
-
-  Dialog {
-    id: deleteDialog
-    parent: mainWindow.contentItem
-
-    property int selectedCount: 0
-    property bool isDeleted: false
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
-
-    title: qsTr( "Delete feature(s)" )
-    Label {
-      width: parent.width
-      wrapMode: Text.WordWrap
-      text: qsTr( "Should the %n feature(s) selected really be deleted?", "0", deleteDialog.selectedCount )
-    }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
-    onAccepted: {
-      if ( isDeleted ) {
-        return;
-      }
-
-      if  ( featureForm.multiSelection ) {
-        isDeleted = featureForm.model.deleteSelection()
-      } else {
-        isDeleted = featureForm.selection.model.deleteFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature.id)
-      }
-
-      if ( isDeleted ) {
-        displayToast( qsTr( "Successfully deleted %n feature(s)", "", selectedCount ) );
-        if ( !featureForm.multiSelection ) {
-          featureForm.selection.focusedItem = -1
-          featureForm.state = "FeatureList"
+        standardButtons: Dialog.Ok | Dialog.Cancel
+        onAccepted: {
+            if (isMerged) {
+                return;
+            }
+            isMerged = featureForm.model.mergeSelection();
+            if (isMerged) {
+                displayToast(qsTr("Successfully merged %n feature(s)", "", selectedCount));
+            } else {
+                displayToast(qsTr("Failed to merge %n feature(s)", "", selectedCount), 'warning');
+            }
+            visible = false;
+            featureForm.focus = true;
         }
-        if ( featureForm.selection.model.count === 0 )
-          featureForm.state = "Hidden";
-      } else {
-        displayToast( qsTr( "Failed to delete %n feature(s)", "", selectedCount ), 'error' );
-      }
-
-      visible = false
-      featureForm.focus = true;
-    }
-    onRejected: {
-      visible = false
-      featureForm.focus = true;
-    }
-
-    function show() {
-        this.isDeleted = false;
-        this.selectedCount = featureForm.multiSelection ? featureForm.model.selectedCount : 1;
-        this.open();
-    }
-  }
-
-  //if project changed we should hide drawer in case it's still open with old values
-  //it pedals back, "simulates" a cancel without touching anything, but does not reset the model
-  Connections {
-    target: qgisProject
-
-    function onLayersWillBeRemoved(layerIds) {
-        if( state != "FeatureList" ) {
-          if( featureListToolBar.state === "Edit"){
-              featureForm.state = "FeatureForm"
-              displayToast( qsTr( "Changes discarded" ), 'warning' )
-          }
-          state = "FeatureList"
+        onRejected: {
+            visible = false;
+            featureForm.focus = true;
         }
-        state = "Hidden"
+
+        function show() {
+            this.isMerged = false;
+            this.selectedCount = featureForm.model.selectedCount;
+            this.featureDisplayName = FeatureUtils.displayName(featureForm.selection.focusedLayer, featureForm.model.selectedFeatures[0]);
+            this.open();
+        }
     }
-  }
+
+    Dialog {
+        id: transferDialog
+        parent: mainWindow.contentItem
+
+        visible: false
+        modal: true
+        font: Theme.defaultFont
+
+        x: (mainWindow.width - width) / 2
+        y: (mainWindow.height - height) / 2
+
+        title: qsTr("Transfer Feature Attributes")
+
+        Column {
+            width: childrenRect.width
+            height: childrenRect.height
+            spacing: 10
+
+            TextMetrics {
+                id: transferLabelMetrics
+                font: transferLabel.font
+                text: transferLabel.text
+            }
+
+            Label {
+                id: transferLabel
+                width: mainWindow.width - 60 < transferLabelMetrics.width ? mainWindow.width - 60 : transferLabelMetrics.width
+                text: qsTr("Select a feature below from which attributes will be transfered onto the currently opened feature.")
+                wrapMode: Text.WordWrap
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+            }
+
+            ComboBox {
+                id: transferComboBox
+                width: transferLabel.width
+
+                model: FeatureListModel {
+                    id: transferFeatureListModel
+                }
+
+                textRole: "displayString"
+                valueRole: "featureId"
+            }
+        }
+
+        standardButtons: Dialog.Ok | Dialog.Cancel
+        onAccepted: {
+            let feature = transferFeatureListModel.getFeatureById(transferComboBox.currentValue);
+            if (featureFormList.model.featureModel.updateAttributesFromFeature(feature)) {
+                featureFormList.model.featureModel.save();
+                mainWindow.displayToast(qsTr('Feature attributes transferred'));
+            } else {
+                mainWindow.displayToast(qsTr('No feature attributes were transferred'));
+            }
+            transferFeatureListModel.currentLayer = null;
+        }
+
+        onRejected: {
+            transferFeatureListModel.currentLayer = null;
+        }
+
+        function show() {
+            transferFeatureListModel.displayValueField = featureFormList.model.featureModel.currentLayer.displayExpression;
+            transferFeatureListModel.currentLayer = featureFormList.model.featureModel.currentLayer;
+            this.open();
+        }
+    }
+
+    Dialog {
+        id: deleteDialog
+        parent: mainWindow.contentItem
+
+        property int selectedCount: 0
+        property bool isDeleted: false
+
+        visible: false
+        modal: true
+        font: Theme.defaultFont
+
+        x: (mainWindow.width - width) / 2
+        y: (mainWindow.height - height) / 2
+
+        title: qsTr("Delete feature(s)")
+        Label {
+            width: parent.width
+            wrapMode: Text.WordWrap
+            text: qsTr("Should the %n feature(s) selected really be deleted?", "0", deleteDialog.selectedCount)
+        }
+
+        standardButtons: Dialog.Ok | Dialog.Cancel
+        onAccepted: {
+            if (isDeleted) {
+                return;
+            }
+            if (featureForm.multiSelection) {
+                isDeleted = featureForm.model.deleteSelection();
+            } else {
+                isDeleted = featureForm.selection.model.deleteFeature(featureForm.selection.focusedLayer, featureForm.selection.focusedFeature.id);
+            }
+            if (isDeleted) {
+                displayToast(qsTr("Successfully deleted %n feature(s)", "", selectedCount));
+                if (!featureForm.multiSelection) {
+                    featureForm.selection.focusedItem = -1;
+                    featureForm.state = "FeatureList";
+                }
+                if (featureForm.selection.model.count === 0)
+                    featureForm.state = "Hidden";
+            } else {
+                displayToast(qsTr("Failed to delete %n feature(s)", "", selectedCount), 'error');
+            }
+            visible = false;
+            featureForm.focus = true;
+        }
+        onRejected: {
+            visible = false;
+            featureForm.focus = true;
+        }
+
+        function show() {
+            this.isDeleted = false;
+            this.selectedCount = featureForm.multiSelection ? featureForm.model.selectedCount : 1;
+            this.open();
+        }
+    }
+
+    //if project changed we should hide drawer in case it's still open with old values
+    //it pedals back, "simulates" a cancel without touching anything, but does not reset the model
+    Connections {
+        target: qgisProject
+
+        function onLayersWillBeRemoved(layerIds) {
+            if (state != "FeatureList") {
+                if (featureListToolBar.state === "Edit") {
+                    featureForm.state = "FeatureForm";
+                    displayToast(qsTr("Changes discarded"), 'warning');
+                }
+                state = "FeatureList";
+            }
+            state = "Hidden";
+        }
+    }
 }

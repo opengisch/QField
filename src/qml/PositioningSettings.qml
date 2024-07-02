@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtCore
-
 import org.qfield 1.0
 
 Settings {
@@ -8,7 +7,7 @@ Settings {
     property bool positioningCoordinateLock: false
 
     property string positioningDevice: ""
-    property string positioningDeviceName: qsTr( "Internal device" );
+    property string positioningDeviceName: qsTr("Internal device")
     property int elevationCorrectionMode: Positioning.ElevationCorrectionMode.None
     property bool logging: false
 

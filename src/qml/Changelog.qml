@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import Theme 1.0
 import org.qfield 1.0
 
@@ -30,7 +29,7 @@ Popup {
             showBackButton: true
 
             onBack: {
-                changelogPopup.close()
+                changelogPopup.close();
             }
         }
 
@@ -46,7 +45,7 @@ Popup {
                 Layout.bottomMargin: 10
                 flickableDirection: Flickable.VerticalFlick
                 interactive: true
-                contentWidth: parent.width;
+                contentWidth: parent.width
                 contentHeight: changelogGrid.height
                 clip: true
 
@@ -74,18 +73,20 @@ Popup {
                         wrapMode: Text.WordWrap
 
                         text: {
-                            switch ( changelogContents.status ) {
+                            switch (changelogContents.status) {
                             case ChangelogContents.IdleStatus:
                             case ChangelogContents.LoadingStatus:
-                                return ''
+                                return '';
                             case ChangelogContents.SuccessStatus:
-                                return changelogContents.markdown
+                                return changelogContents.markdown;
                             case ChangelogContents.ErrorStatus:
-                                return qsTr( 'Error while fetching changelog, try again later.' )
+                                return qsTr('Error while fetching changelog, try again later.');
                             }
                         }
 
-                        onLinkActivated: (link) => { Qt.openUrlExternally(link) }
+                        onLinkActivated: link => {
+                            Qt.openUrlExternally(link);
+                        }
                     }
 
                     BusyIndicator {
@@ -100,9 +101,9 @@ Popup {
             QfButton {
                 id: sponsorshipButton
                 Layout.fillWidth: true
-                icon.source: Theme.getThemeVectorIcon( 'ic_sponsor_white_24dp' )
+                icon.source: Theme.getThemeVectorIcon('ic_sponsor_white_24dp')
 
-                text: qsTr( 'Support QField')
+                text: qsTr('Support QField')
                 onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
             }
         }
@@ -111,38 +112,33 @@ Popup {
     ChangelogContents {
         id: changelogContents
         onMarkdownChanged: {
-            if ( changelogContents.markdown ) {
-                settings.setValue( "/QField/isLoadingChangelog", false )
-                settings.remove( "/QField/isCrashingSslDevice" )
+            if (changelogContents.markdown) {
+                settings.setValue("/QField/isLoadingChangelog", false);
+                settings.remove("/QField/isCrashingSslDevice");
             }
         }
     }
 
     onClosed: {
-        settings.setValue( "/QField/ChangelogVersion", appVersion )
-        changelogFlickable.contentY = 0
+        settings.setValue("/QField/ChangelogVersion", appVersion);
+        changelogFlickable.contentY = 0;
     }
 
     onOpened: {
-        if ( settings.valueBool( "/QField/isLoadingChangelog", false ) ) {
-            settings.setValue( "/QField/isCrashingSslDevice", true )
+        if (settings.valueBool("/QField/isLoadingChangelog", false)) {
+            settings.setValue("/QField/isCrashingSslDevice", true);
         } else {
-            settings.remove( "/QField/isCrashingSslDevice" )
+            settings.remove("/QField/isCrashingSslDevice");
         }
-
-        if ( settings.valueBool( "/QField/isCrashingSslDevice", false ) === true ) {
-            changelogBody.text = qsTr( "Check the latest QField changes on " )
-                    + ' <a href="https://github.com/opengisch/qfield/releases">' + qsTr( 'QField releases page' ) + '</a>.'
-            return
+        if (settings.valueBool("/QField/isCrashingSslDevice", false) === true) {
+            changelogBody.text = qsTr("Check the latest QField changes on ") + ' <a href="https://github.com/opengisch/qfield/releases">' + qsTr('QField releases page') + '</a>.';
+            return;
         }
-
-        if ( changelogContents.status === ChangelogContents.SuccessStatus || changelogContents.status === ChangelogContents.LoadingStatus )
-            return
-
-        settings.remove( "/QField/isLoadingChangelog" )
-        settings.setValue( "/QField/isLoadingChangelog", true )
-        settings.sync()
-
-        changelogContents.request()
+        if (changelogContents.status === ChangelogContents.SuccessStatus || changelogContents.status === ChangelogContents.LoadingStatus)
+            return;
+        settings.remove("/QField/isLoadingChangelog");
+        settings.setValue("/QField/isLoadingChangelog", true);
+        settings.sync();
+        changelogContents.request();
     }
 }
