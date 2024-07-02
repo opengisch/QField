@@ -71,6 +71,7 @@ TestCase {
     compare(fieldId1.attribute("Plants"), "taraxacum") // description: Dandelions
   }
 
+
   /**
    * Test case for the featureForm (Apiary type).
    *
@@ -99,7 +100,6 @@ TestCase {
    * 4. Each tab delegate has a valid text value and is currently selected.
    * 5. Each field repeater item in the "General" tab has valid container names, widget types, and source values, and matches the expected attribute editor loader values.
    */
-
   function test_01_featureForm() {
     const toolbar = Utils.findChildren(featureForm, "toolbar")
     compare(toolbar.visible, false)
@@ -164,6 +164,7 @@ TestCase {
     }
   }
 
+
   /**
    * Test case for the featureForm (Field type).
    *
@@ -197,7 +198,7 @@ TestCase {
    */
   function test_02_featureForm() {
     featureForm.mSelectedLayer = qgisProject.mapLayersByName('Fields')[0]
-    featureForm.mSelectedFeature = qgisProject.mapLayersByName('Fields')[0].getFeature("39")
+    featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("39")
 
     const toolbar = Utils.findChildren(featureForm, "toolbar")
     compare(toolbar.visible, false)
@@ -209,7 +210,7 @@ TestCase {
     compare(tabRow.model.hasTabs, true)
     compare(tabRow.model.rowCount(), 4)
 
-    const tabs = ["General", "Picture","Review", "Consuming Apiaries"]
+    const tabs = ["General", "Picture", "Review", "Consuming Apiaries"]
     for (var i = 0; i < tabRow.model.rowCount(); ++i) {
       tabRow.currentIndex = i
       const delegate = Utils.findChildren(featureForm, "tabRowdDlegate_" + i)
@@ -247,4 +248,76 @@ TestCase {
     }
   }
 
+
+  /**
+   * Test case for the featureForm (Tracks type).
+   *
+   * This test verifies that the feature form is properly initialized and displays the expected data for a selected feature from the "Tracks" layer.
+   *
+   * Preconditions:
+   * - The qgisProject object is initialized and has a layer named "Tracks".
+   *
+   * Steps:
+   * 1. Set the mSelectedLayer property of featureForm to the "Tracks" layer.
+   * 2. Set the mSelectedFeature property of featureForm to the first feature in the "Tracks" layer.
+   * 3. Verify that the toolbar is not visible.
+   * 4. Verify that the title label text is "View feature on Tracks".
+   * 5. Verify that the tab row does not have any tabs (i.e., model.hasTabs is false).
+   * 6. For each field repeater item:
+   *   - Verify that the item loader has a valid container name matching the expected value.
+   *   - Verify that the field container has a child element with a text value matching the expected container name.
+   *   - Verify that the attribute editor loader has a valid widget type and source matching the expected values.
+   *   - Verify that the attribute editor loader's current feature attribute value matches the expected value.
+   *
+   * Expected Results:
+   * 1. The toolbar is not visible.
+   * 2. The title label text is "View feature on Tracks".
+   * 3. The tab row does not have any tabs.
+   * 4. Each field repeater item has valid container names, widget types, and source values, and matches the expected attribute editor loader values.
+   */
+  function test_03_featureForm() {
+    featureForm.mSelectedLayer = qgisProject.mapLayersByName('Tracks')[0]
+    featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("1")
+
+    const toolbar = Utils.findChildren(featureForm, "toolbar")
+    compare(toolbar.visible, false)
+
+    const titleLabel = Utils.findChildren(featureForm, "titleLabel")
+    compare(titleLabel.text, "View feature on Tracks")
+
+    const tabRow = Utils.findChildren(featureForm, "tabRow")
+    compare(tabRow.model.hasTabs, undefined) // Notice: its better to be false not undefined
+
+    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater")
+    const testModel = [{
+                         "containerName": "Track Name",
+                         "widgetType": "TextEdit",
+                         "source": "editorwidgets/TextEdit.qml",
+                         "value": "Munt Sura"
+                       }, {
+                         "containerName": "Region",
+                         "widgetType": "TextEdit",
+                         "source": "editorwidgets/TextEdit.qml",
+                         "value": ""
+                       }, {
+                         "containerName": "Editor Name",
+                         "widgetType": "TextEdit",
+                         "source": "editorwidgets/TextEdit.qml",
+                         "value": "Linda Camathiias"
+                       }]
+
+    for (var j = 0; j < fieldItem.count; ++j) {
+      const itemLoader = fieldItem.itemAt(j).children[2].children[0]
+      const fieldContainer = fieldItem.itemAt(j).children[2].children[1]
+      const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName)
+      const attributeConfig = attributeEditorLoader.config
+      const initialValue = attributeEditorLoader.currentFeature.attribute(itemLoader.containerName)
+
+      compare(itemLoader.containerName, testModel[j].containerName)
+      compare(fieldContainer.children[0].text, testModel[j].containerName)
+      compare(attributeEditorLoader.widget, testModel[j].widgetType)
+      compare(attributeEditorLoader.source, testModel[j].source)
+      compare(initialValue, testModel[j].value)
+    }
+  }
 }
