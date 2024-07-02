@@ -1,8 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import Theme 1.0
-
 import "."
 
 EditorWidgetBase {
@@ -20,27 +18,21 @@ EditorWidgetBase {
   }
 
   Label {
-      id: checkValue
-      height: fontMetrics.height + 20
-      anchors {
-          left: parent.left
-          right: checkBox.left
-      }
+    id: checkValue
+    height: fontMetrics.height + 20
+    anchors {
+      left: parent.left
+      right: checkBox.left
+    }
 
-      topPadding: 10
-      bottomPadding: 10
-      font.pointSize: Theme.defaultFont.pointSize
-      font.bold: Theme.defaultFont.bold
-      font.italic: isNull
-      color: isEnabled && !isNull ? Theme.mainTextColor : Theme.mainTextDisabledColor
+    topPadding: 10
+    bottomPadding: 10
+    font.pointSize: Theme.defaultFont.pointSize
+    font.bold: Theme.defaultFont.bold
+    font.italic: isNull
+    color: isEnabled && !isNull ? Theme.mainTextColor : Theme.mainTextDisabledColor
 
-      text: !isNull
-            ? checkBox.checked
-              ? checkedLabel
-              : uncheckedLabel
-            : isEnabled
-              ? qsTr('NULL')
-              : ''
+    text: !isNull ? checkBox.checked ? checkedLabel : uncheckedLabel : isEnabled ? qsTr('NULL') : ''
   }
 
   QfSwitch {
@@ -56,16 +48,16 @@ EditorWidgetBase {
     }
 
     checked: {
-        if (isBool) {
-            var actualValue = value
-            // Some datasets - such as Geopackage - can send the value as a 'True' or 'False' string, we have to work around that
-            if (!isNull && typeof value == 'string') {
-              actualValue = value.toLowerCase() === 'true'
-            }
-            return !isNull ? actualValue : false;
-        } else {
-            return !isNull ? String(value) === config['CheckedState'] : false;
+      if (isBool) {
+        var actualValue = value;
+        // Some datasets - such as Geopackage - can send the value as a 'True' or 'False' string, we have to work around that
+        if (!isNull && typeof value == 'string') {
+          actualValue = value.toLowerCase() === 'true';
         }
+        return !isNull ? actualValue : false;
+      } else {
+        return !isNull ? String(value) === config['CheckedState'] : false;
+      }
     }
   }
 
@@ -75,35 +67,34 @@ EditorWidgetBase {
     anchors.fill: parent
 
     onClicked: {
-      var editedValue = true
+      var editedValue = true;
       if (isBool) {
-        var actualValue = value
+        var actualValue = value;
         // Some datasets - such as Geopackage - can send the value as a 'True' or 'False' string, we have to work around that
         if (!isNull && typeof value == 'string') {
-          actualValue = value.toLowerCase() === 'true'
+          actualValue = value.toLowerCase() === 'true';
         }
-        editedValue = !isNull ? !actualValue : true
+        editedValue = !isNull ? !actualValue : true;
       } else {
         if (!isNull) {
           // Type coercion is desired here as custom unchecked/checked states are stored as strings yet value could be integers
-          editedValue = value == config['CheckedState'] ? config['UncheckedState'] : config['CheckedState']
+          editedValue = value == config['CheckedState'] ? config['UncheckedState'] : config['CheckedState'];
         } else {
-          editedValue = config['CheckedState']
+          editedValue = config['CheckedState'];
         }
       }
-
-      valueChangeRequested(editedValue, false)
+      valueChangeRequested(editedValue, false);
     }
   }
 
   Rectangle {
-      id: backgroundRect
-      anchors.left: parent.left
-      anchors.right: parent.right
-      y: checkValue.height - height - checkValue.bottomPadding / 2
-      implicitWidth: 120
-      height: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? 2 : 1
-      color: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? Theme.accentColor : Theme.accentLightColor
+    id: backgroundRect
+    anchors.left: parent.left
+    anchors.right: parent.right
+    y: checkValue.height - height - checkValue.bottomPadding / 2
+    implicitWidth: 120
+    height: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? 2 : 1
+    color: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? Theme.accentColor : Theme.accentLightColor
   }
 
   FontMetrics {

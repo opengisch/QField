@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import Theme 1.0
 
 Container {
@@ -23,40 +22,44 @@ Container {
   property alias iconColor: toggleButton.iconColor
 
   onNameChanged: {
-    collapsed = settings.valueBool("QField/QfToolButtonContainer/"+name+"/collapsed", true)
+    collapsed = settings.valueBool("QField/QfToolButtonContainer/" + name + "/collapsed", true);
   }
 
   width: {
-    switch(container.direction) {
-      case QfToolButtonDrawer.Direction.Up:
-      case QfToolButtonDrawer.Direction.Down:
-        return size
-      case QfToolButtonDrawer.Direction.Left:
-      case QfToolButtonDrawer.Direction.Right:
-        return collapsed ? size : size + content.contentWidth + container.spacing * 2
+    switch (container.direction) {
+    case QfToolButtonDrawer.Direction.Up:
+    case QfToolButtonDrawer.Direction.Down:
+      return size;
+    case QfToolButtonDrawer.Direction.Left:
+    case QfToolButtonDrawer.Direction.Right:
+      return collapsed ? size : size + content.contentWidth + container.spacing * 2;
     }
   }
   height: {
-    switch(container.direction) {
-      case QfToolButtonDrawer.Direction.Up:
-      case QfToolButtonDrawer.Direction.Down:
-        return collapsed ? size : size + content.contentHeight + container.spacing * 2
-      case QfToolButtonDrawer.Direction.Left:
-      case QfToolButtonDrawer.Direction.Right:
-        return size
+    switch (container.direction) {
+    case QfToolButtonDrawer.Direction.Up:
+    case QfToolButtonDrawer.Direction.Down:
+      return collapsed ? size : size + content.contentHeight + container.spacing * 2;
+    case QfToolButtonDrawer.Direction.Left:
+    case QfToolButtonDrawer.Direction.Right:
+      return size;
     }
   }
   spacing: 4
   clip: true
 
-  Behavior on width {
+  Behavior on width  {
     enabled: true
-    NumberAnimation { duration: 200 }
+    NumberAnimation {
+      duration: 200
+    }
   }
 
-  Behavior on height {
+  Behavior on height  {
     enabled: true
-    NumberAnimation { duration: 200 }
+    NumberAnimation {
+      duration: 200
+    }
   }
 
   contentItem: Rectangle {
@@ -67,50 +70,48 @@ Container {
     ListView {
       id: content
       width: {
-        switch(container.direction) {
-          case QfToolButtonDrawer.Direction.Up:
-          case QfToolButtonDrawer.Direction.Down:
-            return container.size
-          case QfToolButtonDrawer.Direction.Left:
-          case QfToolButtonDrawer.Direction.Right:
-            return content.contentWidth
+        switch (container.direction) {
+        case QfToolButtonDrawer.Direction.Up:
+        case QfToolButtonDrawer.Direction.Down:
+          return container.size;
+        case QfToolButtonDrawer.Direction.Left:
+        case QfToolButtonDrawer.Direction.Right:
+          return content.contentWidth;
         }
       }
       height: {
-        switch(container.direction) {
-          case QfToolButtonDrawer.Direction.Up:
-          case QfToolButtonDrawer.Direction.Down:
-            return content.contentHeight
-          case QfToolButtonDrawer.Direction.Left:
-          case QfToolButtonDrawer.Direction.Right:
-            return container.size
+        switch (container.direction) {
+        case QfToolButtonDrawer.Direction.Up:
+        case QfToolButtonDrawer.Direction.Down:
+          return content.contentHeight;
+        case QfToolButtonDrawer.Direction.Left:
+        case QfToolButtonDrawer.Direction.Right:
+          return container.size;
         }
       }
       x: {
         switch (container.direction) {
-          case QfToolButtonDrawer.Direction.Up:
-          case QfToolButtonDrawer.Direction.Down:
-          case QfToolButtonDrawer.Direction.Left:
-            return container.spacing
-          case QfToolButtonDrawer.Direction.Right:
-            return container.size + container.spacing
+        case QfToolButtonDrawer.Direction.Up:
+        case QfToolButtonDrawer.Direction.Down:
+        case QfToolButtonDrawer.Direction.Left:
+          return container.spacing;
+        case QfToolButtonDrawer.Direction.Right:
+          return container.size + container.spacing;
         }
       }
       y: {
         switch (container.direction) {
-          case QfToolButtonDrawer.Direction.Up:
-          case QfToolButtonDrawer.Direction.Left:
-          case QfToolButtonDrawer.Direction.Right:
-            return container.spacing
-          case QfToolButtonDrawer.Direction.Down:
-            return container.size + container.spacing
+        case QfToolButtonDrawer.Direction.Up:
+        case QfToolButtonDrawer.Direction.Left:
+        case QfToolButtonDrawer.Direction.Right:
+          return container.spacing;
+        case QfToolButtonDrawer.Direction.Down:
+          return container.size + container.spacing;
         }
       }
       model: container.contentModel
       snapMode: ListView.SnapToItem
-      orientation: container.direction === QfToolButtonDrawer.Direction.Up || container.direction === QfToolButtonDrawer.Direction.Down
-                   ? ListView.Vertical
-                   : ListView.Horizontal
+      orientation: container.direction === QfToolButtonDrawer.Direction.Up || container.direction === QfToolButtonDrawer.Direction.Down ? ListView.Vertical : ListView.Horizontal
       spacing: container.spacing
     }
 
@@ -119,31 +120,31 @@ Container {
       width: container.size
       height: container.size
       x: {
-        switch(direction) {
-          case QfToolButtonDrawer.Direction.Down:
-          case QfToolButtonDrawer.Direction.Right:
-            return 0
-          case QfToolButtonDrawer.Direction.Up:
-          case QfToolButtonDrawer.Direction.Left:
-            return container.width - container.size
+        switch (direction) {
+        case QfToolButtonDrawer.Direction.Down:
+        case QfToolButtonDrawer.Direction.Right:
+          return 0;
+        case QfToolButtonDrawer.Direction.Up:
+        case QfToolButtonDrawer.Direction.Left:
+          return container.width - container.size;
         }
       }
       y: {
-        switch(direction) {
-          case QfToolButtonDrawer.Direction.Down:
-          case QfToolButtonDrawer.Direction.Right:
-            return 0
-          case QfToolButtonDrawer.Direction.Up:
-          case QfToolButtonDrawer.Direction.Left:
-            return container.height - container.size
+        switch (direction) {
+        case QfToolButtonDrawer.Direction.Down:
+        case QfToolButtonDrawer.Direction.Right:
+          return 0;
+        case QfToolButtonDrawer.Direction.Up:
+        case QfToolButtonDrawer.Direction.Left:
+          return container.height - container.size;
         }
       }
       round: true
 
       onClicked: {
-        container.collapsed = !container.collapsed
+        container.collapsed = !container.collapsed;
         if (name != "") {
-          settings.setValue("QField/QfToolButtonContainer/" + name + "/collapsed", container.collapsed)
+          settings.setValue("QField/QfToolButtonContainer/" + name + "/collapsed", container.collapsed);
         }
       }
     }

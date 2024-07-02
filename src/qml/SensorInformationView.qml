@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -17,9 +16,7 @@ Rectangle {
   property color backgroundColor: Theme.mainBackgroundColor
   property color alternateBackgroundColor: Theme.sensorBackgroundColor
   property color textColor: Theme.mainTextColor
-  property real contentHeight: parent.width > 620
-          ? cellHeight * Math.ceil(grid.count / 3)
-          : cellHeight * Math.ceil(grid.count / 2)
+  property real contentHeight: parent.width > 620 ? cellHeight * Math.ceil(grid.count / 3) : cellHeight * Math.ceil(grid.count / 2)
 
   width: parent.width
   anchors.margins: 20
@@ -32,9 +29,7 @@ Rectangle {
     Layout.preferredHeight: childrenRect.height
     width: parent.width
     height: parent.height
-    cellWidth: parent.width > 620
-               ? parent.width / 3
-               : parent.width / 2
+    cellWidth: parent.width > 620 ? parent.width / 3 : parent.width / 2
     cellHeight: sensorInformationView.cellHeight
     flow: GridLayout.TopToBottom
 
@@ -65,7 +60,7 @@ Rectangle {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: sensorInformationView.textColor
-          text: SensorLastValue ? (SensorLastValue + '').trim() : qsTr( "N/A" )
+          text: SensorLastValue ? (SensorLastValue + '').trim() : qsTr("N/A")
           verticalAlignment: Text.AlignVCenter
           elide: Text.ElideRight
         }

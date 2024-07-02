@@ -1,9 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qfield 1.0
-
 import Theme 1.0
 
 Item {
@@ -22,8 +20,10 @@ Item {
   }
 
   function getSettings() {
-    return {'address': deviceAddress.trim(),
-            'port': parseInt(devicePort)};
+    return {
+      "address": deviceAddress.trim(),
+      "port": parseInt(devicePort)
+    };
   }
 
   GridLayout {
@@ -34,32 +34,32 @@ Item {
 
     Label {
       Layout.fillWidth: true
-      text: qsTr( "Address:" )
+      text: qsTr("Address:")
       font: Theme.defaultFont
       wrapMode: Text.WordWrap
     }
 
     QfTextField {
-        id: udpDeviceAddress
-        Layout.fillWidth: true
-        font: Theme.defaultFont
-        text: '127.0.0.1'
-        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+      id: udpDeviceAddress
+      Layout.fillWidth: true
+      font: Theme.defaultFont
+      text: '127.0.0.1'
+      inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
     }
 
     Label {
-        Layout.fillWidth: true
-        text: qsTr( "Port:" )
-        font: Theme.defaultFont
-        wrapMode: Text.WordWrap
+      Layout.fillWidth: true
+      text: qsTr("Port:")
+      font: Theme.defaultFont
+      wrapMode: Text.WordWrap
     }
 
     QfTextField {
-        id: udpDevicePort
-        Layout.fillWidth: true
-        font: Theme.defaultFont
-        text: '11111'
-        inputMethodHints: Qt.ImhFormattedNumbersOnly
+      id: udpDevicePort
+      Layout.fillWidth: true
+      font: Theme.defaultFont
+      text: '11111'
+      inputMethodHints: Qt.ImhFormattedNumbersOnly
     }
   }
 }

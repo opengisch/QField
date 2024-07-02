@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import Theme 1.0
 import org.qfield 1.0
 
@@ -18,35 +17,67 @@ Rectangle {
 
   state: "hidden"
   states: [
-      State {
-          name: "hidden"
-          PropertyChanges { target: busyOverlay; opacity: 0 }
-          PropertyChanges { target: busyOverlay; visible: false }
-      },
-
-      State {
-          name: "visible"
-          PropertyChanges { target: busyOverlay; visible: true }
-          PropertyChanges { target: busyOverlay; opacity: 1 }
-      }]
-  transitions: [
-      Transition {
-          from: "hidden"
-          to: "visible"
-          SequentialAnimation {
-              PropertyAnimation { target: busyOverlay; property: "visible"; duration: 0 }
-              ScriptAction { script: busyProgress.value = 0.0; }
-              NumberAnimation { target: busyOverlay; easing.type: Easing.InOutQuad; properties: "opacity"; duration: 250 }
-          }
-      },
-      Transition {
-          from: "visible"
-          to: "hidden"
-          SequentialAnimation {
-              PropertyAnimation { target: busyOverlay; easing.type: Easing.InOutQuad; property: "opacity"; duration: 250 }
-              PropertyAnimation { target: busyOverlay; property: "visible"; duration: 0 }
-          }
+    State {
+      name: "hidden"
+      PropertyChanges {
+        target: busyOverlay
+        opacity: 0
       }
+      PropertyChanges {
+        target: busyOverlay
+        visible: false
+      }
+    },
+    State {
+      name: "visible"
+      PropertyChanges {
+        target: busyOverlay
+        visible: true
+      }
+      PropertyChanges {
+        target: busyOverlay
+        opacity: 1
+      }
+    }
+  ]
+  transitions: [
+    Transition {
+      from: "hidden"
+      to: "visible"
+      SequentialAnimation {
+        PropertyAnimation {
+          target: busyOverlay
+          property: "visible"
+          duration: 0
+        }
+        ScriptAction {
+          script: busyProgress.value = 0.0
+        }
+        NumberAnimation {
+          target: busyOverlay
+          easing.type: Easing.InOutQuad
+          properties: "opacity"
+          duration: 250
+        }
+      }
+    },
+    Transition {
+      from: "visible"
+      to: "hidden"
+      SequentialAnimation {
+        PropertyAnimation {
+          target: busyOverlay
+          easing.type: Easing.InOutQuad
+          property: "opacity"
+          duration: 250
+        }
+        PropertyAnimation {
+          target: busyOverlay
+          property: "visible"
+          duration: 0
+        }
+      }
+    }
   ]
 
   BusyIndicator {
@@ -69,7 +100,7 @@ Rectangle {
     to: 1.0
   }
 
-  Rectangle{
+  Rectangle {
     id: busyMessageShield
     anchors.top: busyIndicator.bottom
     anchors.topMargin: 10

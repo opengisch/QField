@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qfield 1.0
 import Theme 1.0
 
@@ -56,7 +55,7 @@ Item {
         id: loginFeedbackLabel
         Layout.fillWidth: true
         visible: false
-        text: qsTr( "Failed to sign in" )
+        text: qsTr("Failed to sign in")
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
         color: Theme.errorColor
@@ -67,18 +66,17 @@ Item {
 
           function onLoginFailed(reason) {
             if (!qfieldCloudLogin.parent.visible)
-              return
-
-            loginFeedbackLabel.visible = true
-            loginFeedbackLabel.text = reason
+              return;
+            loginFeedbackLabel.visible = true;
+            loginFeedbackLabel.text = reason;
           }
 
           function onStatusChanged() {
-             if (cloudConnection.status === QFieldCloudConnection.Connecting) {
-              loginFeedbackLabel.visible = false
-              loginFeedbackLabel.text = ''
+            if (cloudConnection.status === QFieldCloudConnection.Connecting) {
+              loginFeedbackLabel.visible = false;
+              loginFeedbackLabel.text = '';
             } else {
-              loginFeedbackLabel.visible = cloudConnection.status === QFieldCloudConnection.Disconnected && loginFeedbackLabel.text.length
+              loginFeedbackLabel.visible = cloudConnection.status === QFieldCloudConnection.Disconnected && loginFeedbackLabel.text.length;
             }
           }
         }
@@ -87,9 +85,8 @@ Item {
       Text {
         id: serverUrlLabel
         Layout.fillWidth: true
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-                 && ( cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive )
-        text: qsTr( "Server URL\n(Leave empty to use the default server)" )
+        visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
+        text: qsTr("Server URL\n(Leave empty to use the default server)")
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
         color: 'gray'
@@ -100,23 +97,21 @@ Item {
         id: serverUrlField
         Layout.preferredWidth: parent.width / 1.3
         Layout.alignment: Qt.AlignHCenter
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-                 && ( prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive )
+        visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
         enabled: visible
         height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
-        text: prefixUrlWithProtocol(cloudConnection.url )=== cloudConnection.defaultUrl ? '' : cloudConnection.url
+        text: prefixUrlWithProtocol(cloudConnection.url) === cloudConnection.defaultUrl ? '' : cloudConnection.url
 
         onTextChanged: text = text.replace(/\s+/g, '')
         onEditingFinished: cloudConnection.url = text ? prefixUrlWithProtocol(text) : cloudConnection.defaultUrl
         onReturnPressed: loginFormSumbitHandler()
 
         function prefixUrlWithProtocol(url) {
-          if (!url || url.startsWith('http://')  || url.startsWith('https://') )
-            return url
-
-          return 'https://' + url
+          if (!url || url.startsWith('http://') || url.startsWith('https://'))
+            return url;
+          return 'https://' + url;
         }
       }
 
@@ -124,7 +119,7 @@ Item {
         id: usernamelabel
         Layout.fillWidth: true
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-        text: qsTr( "Username or email" )
+        text: qsTr("Username or email")
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
         color: Theme.mainTextColor
@@ -142,14 +137,14 @@ Item {
         horizontalAlignment: Text.AlignHCenter
 
         onTextChanged: text = text.replace(/\s+/g, '')
-        onReturnPressed: loginFormSumbitHandler();
+        onReturnPressed: loginFormSumbitHandler()
       }
 
       Text {
         id: passwordlabel
         Layout.fillWidth: true
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-        text: qsTr( "Password" )
+        text: qsTr("Password")
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
         color: Theme.mainTextColor
@@ -177,7 +172,7 @@ Item {
 
       QfButton {
         Layout.fillWidth: true
-        text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr( "Sign out" ) : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr( "Signing in, please wait" ) : qsTr( "Sign in" )
+        text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
         enabled: cloudConnection.status != QFieldCloudConnection.Connecting
 
         onClicked: loginFormSumbitHandler()
@@ -187,7 +182,7 @@ Item {
         id: cloudRegisterLabel
         Layout.fillWidth: true
         Layout.topMargin: 6
-        text: qsTr( 'New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr( 'Register an account' ) + '</a>.'
+        text: qsTr('New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr('Register an account') + '</a>.'
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
         color: Theme.mainTextColor
@@ -195,13 +190,13 @@ Item {
         wrapMode: Text.WordWrap
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
 
-        onLinkActivated: (link) => {
+        onLinkActivated: link => {
           if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
-            browserPopup.url = link
-            browserPopup.fullscreen = true
-            browserPopup.open()
+            browserPopup.url = link;
+            browserPopup.fullscreen = true;
+            browserPopup.open();
           } else {
-            Qt.openUrlExternally(link)
+            Qt.openUrlExternally(link);
           }
         }
       }
@@ -209,21 +204,22 @@ Item {
       Text {
         id: cloudIntroLabel
         Layout.fillWidth: true
-        text: qsTr( 'The easiest way to transfer you project from QGIS to your devices!' ) +
-              ' <a href="https://qfield.cloud/">' + qsTr( 'Learn more about QFieldCloud' ) + '</a>.'
+        text: qsTr('The easiest way to transfer you project from QGIS to your devices!') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
         color: Theme.mainTextColor
         textFormat: Text.RichText
         wrapMode: Text.WordWrap
 
-        onLinkActivated: (link) => { Qt.openUrlExternally(link) }
+        onLinkActivated: link => {
+          Qt.openUrlExternally(link);
+        }
       }
 
       Item {
-          // spacer item
-          Layout.fillWidth: true
-          Layout.fillHeight: true
+        // spacer item
+        Layout.fillWidth: true
+        Layout.fillHeight: true
       }
     }
   }
@@ -232,27 +228,26 @@ Item {
     target: cloudConnection
 
     function onStatusChanged() {
-      if ( cloudConnection.status === QFieldCloudConnection.LoggedIn )
-        usernameField.text = cloudConnection.username
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn)
+        usernameField.text = cloudConnection.username;
     }
   }
 
   function loginFormSumbitHandler() {
     if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
-      cloudConnection.logout()
+      cloudConnection.logout();
     } else {
-      cloudConnection.username = usernameField.text
-      cloudConnection.password = passwordField.text
-      cloudConnection.login()
+      cloudConnection.username = usernameField.text;
+      cloudConnection.password = passwordField.text;
+      cloudConnection.login();
     }
   }
 
   function toggleServerUrlEditing() {
-    if ( cloudConnection.url != cloudConnection.defaultUrl ) {
-      isServerUrlEditingActive = true
-      return
+    if (cloudConnection.url != cloudConnection.defaultUrl) {
+      isServerUrlEditingActive = true;
+      return;
     }
-
-    isServerUrlEditingActive = !isServerUrlEditingActive
+    isServerUrlEditingActive = !isServerUrlEditingActive;
   }
 }

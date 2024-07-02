@@ -24,7 +24,12 @@ Item {
   transitions: Transition {
     from: "*"
     to: "*"
-    NumberAnimation { target: nyukiContainer; property: "anchors.bottomMargin"; duration: 1000; easing.type: Easing.InOutQuad }
+    NumberAnimation {
+      target: nyukiContainer
+      property: "anchors.bottomMargin"
+      duration: 1000
+      easing.type: Easing.InOutQuad
+    }
   }
 
   Image {
@@ -39,20 +44,20 @@ Item {
     sourceSize.height: 1024
 
     Rectangle {
-        width: 12
-        height: 12
-        color: "white"
-        x: 83
-        y: 83
-        radius: 5
+      width: 12
+      height: 12
+      color: "white"
+      x: 83
+      y: 83
+      radius: 5
     }
     Rectangle {
-        width: 12
-        height: 12
-        color: "white"
-        x: 105
-        y: 83
-        radius: 5
+      width: 12
+      height: 12
+      color: "white"
+      x: 105
+      y: 83
+      radius: 5
     }
     Rectangle {
       id: nyukiLeft
@@ -65,9 +70,11 @@ Item {
       rotation: 0
       transformOrigin: Item.TopLeft
       SequentialAnimation {
-        PauseAnimation { duration: 1000 }
+        PauseAnimation {
+          duration: 1000
+        }
         NumberAnimation {
-          target:  nyukiLeft
+          target: nyukiLeft
           property: "rotation"
           to: 359
           duration: 2000
@@ -88,9 +95,11 @@ Item {
       rotation: 0
       transformOrigin: Item.TopRight
       SequentialAnimation {
-        PauseAnimation { duration: 1000 }
+        PauseAnimation {
+          duration: 1000
+        }
         NumberAnimation {
-          target:  nyukiRight
+          target: nyukiRight
           property: "rotation"
           to: -359
           duration: 2000
@@ -102,4 +111,3 @@ Item {
     }
   }
 }
-

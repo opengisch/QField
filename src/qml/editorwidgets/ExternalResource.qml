@@ -3,11 +3,9 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Window 2.14
 import QtMultimedia
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-
 import "."
 import ".."
 
@@ -23,38 +21,39 @@ EditorWidgetBase {
   property string prefixToRelativePath: {
     if (qgisProject == undefined)
       return "";
-
-    var path = ""
-    if (config["RelativeStorage"] === 1 ) {
-      path = qgisProject.homePath
-      if (!path.endsWith("/")) path = path +  "/"
-    } else if (config["RelativeStorage"] === 2 ) {
-      var collection = config["PropertyCollection"]
-      var props = collection["properties"]
+    var path = "";
+    if (config["RelativeStorage"] === 1) {
+      path = qgisProject.homePath;
+      if (!path.endsWith("/"))
+        path = path + "/";
+    } else if (config["RelativeStorage"] === 2) {
+      var collection = config["PropertyCollection"];
+      var props = collection["properties"];
       if (props) {
-        if(props["propertyRootPath"]) {
-          var rootPathProps = props["propertyRootPath"]
-          rootPathEvaluator.expressionText = rootPathProps["expression"]
+        if (props["propertyRootPath"]) {
+          var rootPathProps = props["propertyRootPath"];
+          rootPathEvaluator.expressionText = rootPathProps["expression"];
         }
       }
-      rootPathEvaluator.feature = currentFeature
-      rootPathEvaluator.layer = currentLayer
-      var evaluatedFilepath = rootPathEvaluator.evaluate().replace("\\", "/")
+      rootPathEvaluator.feature = currentFeature;
+      rootPathEvaluator.layer = currentLayer;
+      var evaluatedFilepath = rootPathEvaluator.evaluate().replace("\\", "/");
       if (evaluatedFilepath) {
-        path = evaluatedFilepath
+        path = evaluatedFilepath;
       } else {
-        path = config["DefaultRoot"] ? config["DefaultRoot"] : qgisProject.homePath
-        if (!path.endsWith("/")) path = path +  "/"
+        path = config["DefaultRoot"] ? config["DefaultRoot"] : qgisProject.homePath;
+        if (!path.endsWith("/"))
+          path = path + "/";
       }
     }
 
     // since we've hardcoded the project path by default so far, let's maintain that until we improve things in qfieldsync
     if (path == "") {
-      path = qgisProject.homePath
-      if (!path.endsWith("/")) path = path +  "/"
+      path = qgisProject.homePath;
+      if (!path.endsWith("/"))
+        path = path + "/";
     }
-
-    return path
+    return path;
   }
 
   property ResourceSource __resourceSource
@@ -77,32 +76,30 @@ EditorWidgetBase {
   onCurrentValueChanged: {
     if (currentValue != undefined && currentValue !== '') {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
-      var fullValue = isHttp ? value : prefixToRelativePath + value
-      var mimeType = FileUtils.mimeTypeName(fullValue)
-      isImage = !config.UseLink && mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType)
-      isAudio = !config.UseLink && mimeType.startsWith("audio/")
-      isVideo = !config.UseLink && mimeType.startsWith("video/")
-
-      image.visible = isImage
-      geoTagBadge.visible = isImage
+      var fullValue = isHttp ? value : prefixToRelativePath + value;
+      var mimeType = FileUtils.mimeTypeName(fullValue);
+      isImage = !config.UseLink && mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType);
+      isAudio = !config.UseLink && mimeType.startsWith("audio/");
+      isVideo = !config.UseLink && mimeType.startsWith("video/");
+      image.visible = isImage;
+      geoTagBadge.visible = isImage;
       if (isImage) {
-        mediaFrame.height = 200
-
-        image.visible = true
-        image.hasImage = true
-        image.opacity = 1
-        image.anchors.topMargin = 0
-        image.source = (!isHttp ? 'file://' : '') + fullValue
-        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue)
+        mediaFrame.height = 200;
+        image.visible = true;
+        image.hasImage = true;
+        image.opacity = 1;
+        image.anchors.topMargin = 0;
+        image.source = (!isHttp ? 'file://' : '') + fullValue;
+        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue);
       } else if (isAudio || isVideo) {
-        player.firstFrameDrawn = false
-        player.sourceUrl = (!isHttp ? 'file://' : '') + fullValue
+        player.firstFrameDrawn = false;
+        player.sourceUrl = (!isHttp ? 'file://' : '') + fullValue;
       }
     } else {
-      image.source = ''
-      image.visible = documentViewer == document_IMAGE
-      image.opacity = 0.15
-      geoTagBadge.visible = false
+      image.source = '';
+      image.visible = documentViewer == document_IMAGE;
+      image.opacity = 0.15;
+      geoTagBadge.visible = false;
       player.sourceUrl = '';
     }
   }
@@ -115,18 +112,18 @@ EditorWidgetBase {
       var value;
       if (currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
         value = JSON.parse(currentLayer.customProperty('QFieldSync/attachment_naming'))[field.name];
-        return value !== undefined ? value : ''
+        return value !== undefined ? value : '';
       } else if (currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
         // Fallback to old configuration key
         value = JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name];
-        return value !== undefined ? value : ''
+        return value !== undefined ? value : '';
       }
-      return ''
+      return '';
     }
   }
 
   function getResourceFilePath() {
-    var evaluatedFilepath = expressionEvaluator.evaluate()
+    var evaluatedFilepath = expressionEvaluator.evaluate();
     var filepath = evaluatedFilepath;
     if (FileUtils.fileSuffix(evaluatedFilepath) === '') {
       // we need an extension for media types (image, audio, video), fallback to hardcoded values
@@ -140,7 +137,7 @@ EditorWidgetBase {
         filepath = 'files/' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '_{filename}';
       }
     }
-    filepath = filepath.replace('\\', '/')
+    filepath = filepath.replace('\\', '/');
     return filepath;
   }
 
@@ -159,14 +156,13 @@ EditorWidgetBase {
     color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : 'gray'
 
     text: {
-      var fieldValue = prefixToRelativePath + currentValue
+      var fieldValue = prefixToRelativePath + currentValue;
       if (UrlUtils.isRelativeOrFileUrl(fieldValue)) {
-        fieldValue = config.FullUrl ? fieldValue : FileUtils.fileName(fieldValue)
+        fieldValue = config.FullUrl ? fieldValue : FileUtils.fileName(fieldValue);
       }
-      fieldValue = StringUtils.insertLinks(fieldValue)
-
-      hasValue = currentValue !== undefined && !!fieldValue
-      return hasValue ? fieldValue : qsTr('No Value')
+      fieldValue = StringUtils.insertLinks(fieldValue);
+      hasValue = currentValue !== undefined && !!fieldValue;
+      return hasValue ? fieldValue : qsTr('No Value');
     }
 
     font.pointSize: Theme.defaultFont.pointSize
@@ -186,13 +182,13 @@ EditorWidgetBase {
       anchors.fill: parent
 
       onClicked: {
-        if ( !value )
-          return
-
-        if (!UrlUtils.isRelativeOrFileUrl(value)) { // matches `http://...` but not `file://...` paths
-          Qt.openUrlExternally(value)
+        if (!value)
+          return;
+        if (!UrlUtils.isRelativeOrFileUrl(value)) {
+          // matches `http://...` but not `file://...` paths
+          Qt.openUrlExternally(value);
         } else if (FileUtils.fileExists(prefixToRelativePath + value)) {
-          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this)
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
         }
       }
     }
@@ -232,8 +228,8 @@ EditorWidgetBase {
       cache: false
 
       Image {
-        property bool hasGeoTag: false
         id: geoTagBadge
+        property bool hasGeoTag: false
         visible: false
         anchors.bottom: image.bottom
         anchors.right: image.right
@@ -279,7 +275,7 @@ EditorWidgetBase {
           source: player.sourceUrl
 
           onHasVideoChanged: {
-            mediaFrame.height = hasVideo ? 254 : 48
+            mediaFrame.height = hasVideo ? 254 : 48;
             if (!player.firstFrameDrawn && hasVideo) {
               play();
             }
@@ -309,9 +305,7 @@ EditorWidgetBase {
     MouseArea {
       enabled: mediaFrame.visible
       width: parent.width
-      height: playerControls.visible
-              ? player.height - 54
-              : image.height
+      height: playerControls.visible ? player.height - 54 : image.height
 
       onClicked: {
         if (FileUtils.fileExists(prefixToRelativePath + value)) {
@@ -327,14 +321,14 @@ EditorWidgetBase {
       visible: image.status === Image.Ready && isEnabled
 
       round: true
-      iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
+      iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
       iconColor: "white"
       bgcolor: Theme.darkGraySemiOpaque
 
       onClicked: {
-        sketcherConnection.enabled = true
-        sketcher.loadImage(image.source)
-        sketcher.open()
+        sketcherConnection.enabled = true;
+        sketcher.loadImage(image.source);
+        sketcher.open();
       }
     }
 
@@ -344,18 +338,16 @@ EditorWidgetBase {
       enabled: false
 
       function onFinished(path) {
-        var filepath = getResourceFilePath()
-        filepath = filepath.replace('{filename}', FileUtils.fileName(path))
-        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path))
-        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
-
-        valueChangeRequested(filepath, false)
-
-        enabled = false
+        var filepath = getResourceFilePath();
+        filepath = filepath.replace('{filename}', FileUtils.fileName(path));
+        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path));
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath);
+        valueChangeRequested(filepath, false);
+        enabled = false;
       }
 
       function onCancelled() {
-        enabled = false
+        enabled = false;
       }
     }
 
@@ -373,17 +365,15 @@ EditorWidgetBase {
       QfToolButton {
         id: playButton
 
-        iconSource: player.active && player.item.playbackState === MediaPlayer.PlayingState
-                    ? Theme.getThemeVectorIcon('ic_pause_black_24dp')
-                    : Theme.getThemeVectorIcon('ic_play_black_24dp')
+        iconSource: player.active && player.item.playbackState === MediaPlayer.PlayingState ? Theme.getThemeVectorIcon('ic_pause_black_24dp') : Theme.getThemeVectorIcon('ic_play_black_24dp')
         iconColor: Theme.mainTextColor
         bgcolor: "transparent"
 
         onClicked: {
           if (player.item.playbackState === MediaPlayer.PlayingState) {
-            player.item.pause()
+            player.item.pause();
           } else {
-            player.item.play()
+            player.item.play();
           }
         }
       }
@@ -398,7 +388,7 @@ EditorWidgetBase {
         enabled: to > 0
 
         onMoved: {
-          player.item.seek(value * 1000)
+          player.item.seek(value * 1000);
         }
       }
 
@@ -419,7 +409,7 @@ EditorWidgetBase {
             seconds -= hours * 60 * 60;
             var minutes = Math.floor(seconds / 60) + '';
             seconds = (seconds - minutes * 60) + '';
-            return hours.padStart(2,'0') + ':' + minutes.padStart(2,'0') + ':' + seconds.padStart(2,'0');
+            return hours.padStart(2, '0') + ':' + minutes.padStart(2, '0') + ':' + seconds.padStart(2, '0');
           } else {
             return '-';
           }
@@ -516,7 +506,7 @@ EditorWidgetBase {
   Loader {
     id: audioRecorderLoader
     sourceComponent: audioRecorderComponent
-    active:false
+    active: false
   }
 
   Loader {
@@ -534,25 +524,24 @@ EditorWidgetBase {
       visible: false
 
       Component.onCompleted: {
-        open()
+        open();
       }
 
       onFinished: {
-        var filepath = getResourceFilePath()
-        filepath = filepath.replace('{filename}', FileUtils.fileName(path))
-        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path))
-        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
-
-        valueChangeRequested(filepath, false)
-        close()
+        var filepath = getResourceFilePath();
+        filepath = filepath.replace('{filename}', FileUtils.fileName(path));
+        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path));
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath);
+        valueChangeRequested(filepath, false);
+        close();
       }
 
       onCanceled: {
-        close()
+        close();
       }
 
       onClosed: {
-        audioRecorderLoader.active = false
+        audioRecorderLoader.active = false;
       }
     }
   }
@@ -566,37 +555,35 @@ EditorWidgetBase {
 
       Component.onCompleted: {
         if (isVideo) {
-          qfieldCamera.state = 'VideoCapture'
-          open()
+          qfieldCamera.state = 'VideoCapture';
+          open();
         } else {
-          qfieldCamera.state = 'PhotoCapture'
-          open()
+          qfieldCamera.state = 'PhotoCapture';
+          open();
         }
       }
 
-      onFinished: (path) => {
-        var filepath = getResourceFilePath()
-        filepath = filepath.replace('{filename}', FileUtils.fileName(path))
-        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path))
-        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
-
+      onFinished: path => {
+        var filepath = getResourceFilePath();
+        filepath = filepath.replace('{filename}', FileUtils.fileName(path));
+        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path));
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath);
         if (!cameraLoader.isVideo) {
-          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
-          if(maximumWidhtHeight > 0) {
-            FileUtils.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
+          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+          if (maximumWidhtHeight > 0) {
+            FileUtils.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight);
           }
         }
-
-        valueChangeRequested(filepath, false)
-        close()
+        valueChangeRequested(filepath, false);
+        close();
       }
 
       onCanceled: {
-        close()
+        close();
       }
 
       onClosed: {
-        cameraLoader.active = false
+        cameraLoader.active = false;
       }
     }
   }
@@ -604,13 +591,12 @@ EditorWidgetBase {
   Connections {
     target: __resourceSource
     function onResourceReceived(path) {
-      if( path ) {
-        var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
-        if(maximumWidhtHeight > 0) {
-          FileUtils.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight)
+      if (path) {
+        var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+        if (maximumWidhtHeight > 0) {
+          FileUtils.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight);
         }
-
-        valueChangeRequested(path, false)
+        valueChangeRequested(path, false);
       }
     }
   }
@@ -629,85 +615,84 @@ EditorWidgetBase {
 
     function onStatusReceived(statusText) {
       if (statusText !== "") {
-        displayToast( qsTr("Cannot handle this file type"), 'error')
+        displayToast(qsTr("Cannot handle this file type"), 'error');
       }
     }
   }
 
   function attachFile() {
-    Qt.inputMethod.hide()
-    var filepath = getResourceFilePath()
+    Qt.inputMethod.hide();
+    var filepath = getResourceFilePath();
     if (documentViewer == document_AUDIO) {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles, this)
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, PlatformUtilities.AudioFiles, this);
     } else {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath+'/', filepath, this)
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, this);
     }
   }
 
   function attachGallery() {
-    Qt.inputMethod.hide()
-    var filepath = getResourceFilePath()
+    Qt.inputMethod.hide();
+    var filepath = getResourceFilePath();
     if (documentViewer == document_VIDEO) {
-      __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath+'/', filepath, this)
+      __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);
     } else {
-      __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath, this)
+      __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/', filepath, this);
     }
   }
 
   function capturePhoto() {
-    Qt.inputMethod.hide()
-    if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
-      var filepath = getResourceFilePath()
+    Qt.inputMethod.hide();
+    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true)) {
+      var filepath = getResourceFilePath();
       // Pictures taken by cameras will always be JPG
-      filepath = filepath.replace('{extension}', 'JPG')
-      __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
+      filepath = filepath.replace('{extension}', 'JPG');
+      __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/', filepath, FileUtils.fileSuffix(filepath), this);
     } else {
-      platformUtilities.createDir(qgisProject.homePath, 'DCIM')
-      cameraLoader.isVideo = false
-      cameraLoader.active = true
+      platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+      cameraLoader.isVideo = false;
+      cameraLoader.active = true;
     }
   }
 
   function captureVideo() {
-    Qt.inputMethod.hide()
-    if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
-      var filepath = getResourceFilePath()
+    Qt.inputMethod.hide();
+    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true)) {
+      var filepath = getResourceFilePath();
       // Video taken by cameras will always be MP4
-      filepath = filepath.replace('{extension}', 'MP4')
-      __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath), this)
+      filepath = filepath.replace('{extension}', 'MP4');
+      __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath + '/', filepath, FileUtils.fileSuffix(filepath), this);
     } else {
-      platformUtilities.createDir(qgisProject.homePath, 'DCIM')
-      cameraLoader.isVideo = true
-      cameraLoader.active = true
+      platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+      cameraLoader.isVideo = true;
+      cameraLoader.active = true;
     }
   }
 
   function captureAudio() {
-    Qt.inputMethod.hide()
-    audioRecorderLoader.active = true
+    Qt.inputMethod.hide();
+    audioRecorderLoader.active = true;
   }
 
   Component.onCompleted: {
-    menu.addItem(capturePhotoMenuItem)
-    menu.addItem(captureVideoMenuItem)
-    menu.addItem(captureAudioMenuItem)
-    menu.addItem(separatorGalleryItem)
+    menu.addItem(capturePhotoMenuItem);
+    menu.addItem(captureVideoMenuItem);
+    menu.addItem(captureAudioMenuItem);
+    menu.addItem(separatorGalleryItem);
     if (platformUtilities.capabilities & PlatformUtilities.FilePicker) {
-      menu.addItem(attachFileMenuItem)
+      menu.addItem(attachFileMenuItem);
     }
-    menu.addItem(attachGalleryMenuItem)
-    menu.addItem(separatorDrawingItem)
-    menu.addItem(attachDrawingMenuItem)
-
+    menu.addItem(attachGalleryMenuItem);
+    menu.addItem(separatorDrawingItem);
+    menu.addItem(attachDrawingMenuItem);
     hasMenu = true;
   }
 
   MenuItem {
     id: capturePhotoMenuItem
-    text: qsTr( 'Take a photo' )
+    text: qsTr('Take a photo')
 
     font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon( "ic_camera_photo_black_24dp" )
+    icon.source: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
     height: 48
     leftPadding: Theme.menuItemLeftPadding
 
@@ -716,10 +701,10 @@ EditorWidgetBase {
 
   MenuItem {
     id: captureVideoMenuItem
-    text: qsTr( 'Take a video' )
+    text: qsTr('Take a video')
 
     font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon( "ic_camera_video_black_24dp" )
+    icon.source: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
     height: 48
     leftPadding: Theme.menuItemLeftPadding
 
@@ -728,24 +713,27 @@ EditorWidgetBase {
 
   MenuItem {
     id: captureAudioMenuItem
-    text: qsTr( 'Record an audio clip' )
+    text: qsTr('Record an audio clip')
 
     font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon( "ic_microphone_black_24dp" )
+    icon.source: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
     height: 48
     leftPadding: Theme.menuItemLeftPadding
 
     onTriggered: captureAudio()
   }
 
-  MenuSeparator { id: separatorGalleryItem; width: parent.width }
+  MenuSeparator {
+    id: separatorGalleryItem
+    width: parent.width
+  }
 
   MenuItem {
     id: attachGalleryMenuItem
-    text: qsTr( 'Attach a gallery item' )
+    text: qsTr('Attach a gallery item')
 
     font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon( "ic_gallery_black_24dp" )
+    icon.source: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
     height: 48
     leftPadding: Theme.menuItemLeftPadding
 
@@ -754,31 +742,34 @@ EditorWidgetBase {
 
   MenuItem {
     id: attachFileMenuItem
-    text: qsTr( 'Attach a file' )
+    text: qsTr('Attach a file')
 
     font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon( "ic_file_black_24dp" )
+    icon.source: Theme.getThemeVectorIcon("ic_file_black_24dp")
     height: 48
     leftPadding: Theme.menuItemLeftPadding
 
     onTriggered: attachFile()
   }
 
-  MenuSeparator { id: separatorDrawingItem; width: parent.width }
+  MenuSeparator {
+    id: separatorDrawingItem
+    width: parent.width
+  }
 
   MenuItem {
     id: attachDrawingMenuItem
-    text: qsTr( 'Draw a sketch' )
+    text: qsTr('Draw a sketch')
 
     font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
+    icon.source: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
     height: 48
     leftPadding: Theme.menuItemLeftPadding
 
     onTriggered: {
-      sketcherConnection.enabled = true
-      sketcher.clear()
-      sketcher.open()
+      sketcherConnection.enabled = true;
+      sketcher.clear();
+      sketcher.open();
     }
   }
 }

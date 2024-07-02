@@ -1,8 +1,6 @@
 import QtQuick 2.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 
 Item {
   id: geometryRenderer
@@ -21,13 +19,11 @@ Item {
     target: geometryWrapper
 
     function onQgsGeometryChanged() {
-      geometryComponent.sourceComponent = undefined
+      geometryComponent.sourceComponent = undefined;
       if (geometryWrapper && geometryWrapper.qgsGeometry.type === Qgis.GeometryType.Point) {
-        geometryComponent.sourceComponent = pointHighlight
-      }
-      else
-      {
-        geometryComponent.sourceComponent = linePolygonHighlight
+        geometryComponent.sourceComponent = pointHighlight;
+      } else {
+        geometryComponent.sourceComponent = linePolygonHighlight;
       }
     }
   }
@@ -66,8 +62,8 @@ Item {
           mapPoint: _ct.projectedPosition
         }
 
-        x: mapToScreenPosition.screenPoint.x - width/2
-        y: mapToScreenPosition.screenPoint.y - width/2
+        x: mapToScreenPosition.screenPoint.x - width / 2
+        y: mapToScreenPosition.screenPoint.y - width / 2
 
         color: Qt.hsla(geometryRenderer.color.hslHue, geometryRenderer.color.hslSaturation, geometryRenderer.color.hslLightness, 0.5)
         width: geometryRenderer.pointSize

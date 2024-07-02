@@ -2,7 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Window 2.14
-
 import org.qfield 1.0
 
 Drawer {
@@ -19,18 +18,18 @@ Drawer {
   closePolicy: Popup.NoAutoClose // prevent accidental feature addition when clicking outside of the popup drawer
 
   width: {
-      if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
-          parent.width
-      } else {
-          Math.min(Math.max(200, parent.width / 2.25), parent.width)
-      }
+    if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
+      parent.width;
+    } else {
+      Math.min(Math.max(200, parent.width / 2.25), parent.width);
+    }
   }
   height: {
-     if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
-         parent.height
-     } else {
-         Math.min(Math.max(200, parent.height / 2), parent.height)
-     }
+    if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
+      parent.height;
+    } else {
+      Math.min(Math.max(200, parent.height / 2), parent.height);
+    }
   }
 
   interactive: overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ? true : false
@@ -41,32 +40,31 @@ Drawer {
    * If the drawer is closed by back key or integrated functionality (by Drawer) it has to save in the end
    * To make a difference between these scenarios we need position of the drawer and the isSaved flag of the FeatureForm
    */
-
   onOpened: {
-      isAdding = true
+    isAdding = true;
   }
 
   onClosed: {
-      if ( !digitizingToolbar.geometryRequested ) {
-          if( !overlayFeatureForm.isSaved ) {
-              overlayFeatureForm.confirm()
-          } else {
-              overlayFeatureForm.isSaved = false //reset
-          }
-          digitizingRubberband.model.reset()
-          featureModel.resetFeature()
-          isAdding = false
+    if (!digitizingToolbar.geometryRequested) {
+      if (!overlayFeatureForm.isSaved) {
+        overlayFeatureForm.confirm();
+      } else {
+        overlayFeatureForm.isSaved = false; //reset
       }
+      digitizingRubberband.model.reset();
+      featureModel.resetFeature();
+      isAdding = false;
+    }
   }
 
   Connections {
-      target: digitizingToolbar
+    target: digitizingToolbar
 
-      function onGeometryRequestedChanged() {
-          if ( digitizingToolbar.geometryRequested && overlayFeatureFormDrawer.isAdding ) {
-              overlayFeatureFormDrawer.close() // note: the digitizing toolbar will re-open the drawer to avoid panel stacking issues
-          }
+    function onGeometryRequestedChanged() {
+      if (digitizingToolbar.geometryRequested && overlayFeatureFormDrawer.isAdding) {
+        overlayFeatureFormDrawer.close(); // note: the digitizing toolbar will re-open the drawer to avoid panel stacking issues
       }
+    }
   }
 
   FeatureForm {
@@ -81,14 +79,14 @@ Drawer {
     property bool isSaved: false
 
     model: AttributeFormModel {
-        id: attributeFormModel
-        featureModel: FeatureModel {
-            project: qgisProject
-            positionInformation: coordinateLocator.positionInformation
-            positionLocked: coordinateLocator.overrideLocation !== undefined
-            topSnappingResult: coordinateLocator.topSnappingResult
-            cloudUserInformation: projectInfo.cloudUserInformation
-        }
+      id: attributeFormModel
+      featureModel: FeatureModel {
+        project: qgisProject
+        positionInformation: coordinateLocator.positionInformation
+        positionLocked: coordinateLocator.overrideLocation !== undefined
+        topSnappingResult: coordinateLocator.topSnappingResult
+        cloudUserInformation: projectInfo.cloudUserInformation
+      }
     }
 
     state: "Add"
@@ -96,21 +94,21 @@ Drawer {
     focus: overlayFeatureFormDrawer.opened
 
     onConfirmed: {
-      displayToast( qsTr( "Changes saved" ) )
+      displayToast(qsTr("Changes saved"));
       //close drawer if still open
-      if ( overlayFeatureFormDrawer.position > 0 ) {
+      if (overlayFeatureFormDrawer.position > 0) {
         overlayFeatureForm.isSaved = true; //because just saved
         overlayFeatureFormDrawer.close();
       } else {
-        overlayFeatureForm.isSaved = false //reset
+        overlayFeatureForm.isSaved = false; //reset
       }
       digitizingToolbar.digitizingLogger.writeCoordinates();
     }
 
     onCancelled: {
-      displayToast( qsTr( "Changes discarded" ) )
+      displayToast(qsTr("Changes discarded"));
       //close drawer if still open
-      if ( overlayFeatureFormDrawer.position > 0 ) {
+      if (overlayFeatureFormDrawer.position > 0) {
         overlayFeatureForm.isSaved = true; //because never changed
         overlayFeatureFormDrawer.close();
       } else {
@@ -119,27 +117,27 @@ Drawer {
       digitizingToolbar.digitizingLogger.clearCoordinates();
     }
 
-    Keys.onReleased: (event) => {
+    Keys.onReleased: event => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if( overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ) {
-          overlayFeatureFormDrawer.close()
+        if (overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave) {
+          overlayFeatureFormDrawer.close();
         } else {
           //block closing to fix constraints or cancel with button
-          displayToast( qsTr( "Constraints not valid" ), 'warning' )
+          displayToast(qsTr("Constraints not valid"), 'warning');
         }
-        event.accepted = true
+        event.accepted = true;
       }
     }
 
     Component.onCompleted: {
-        focusstack.addFocusTaker( this )
+      focusstack.addFocusTaker(this);
     }
   }
 
   Component.onCompleted: {
     if (Material.roundedScale) {
-      Material.roundedScale = Material.NotRounded
+      Material.roundedScale = Material.NotRounded;
     }
-    close()
+    close();
   }
 }

@@ -48,9 +48,9 @@ Flickable {
   // handle text selection and showing cursor rectangle
   function ensureCursorVisible(cursorRectangle) {
     if (contentX >= cursorRectangle.x) {
-      contentX = cursorRectangle.x
+      contentX = cursorRectangle.x;
     } else if (contentX + width <= cursorRectangle.x + cursorRectangle.width) {
-      contentX = cursorRectangle.x + cursorRectangle.width - width
+      contentX = cursorRectangle.x + cursorRectangle.width - width;
     }
   }
 }

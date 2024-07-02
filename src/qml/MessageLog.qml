@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qfield 1.0
 import Theme 1.0
 
@@ -14,16 +13,16 @@ Page {
   signal finished
 
   header: QfPageHeader {
-      title: qsTr( 'Message Logs' )
+    title: qsTr('Message Logs')
 
-      showBackButton: true
-      showApplyButton: false
-      showCancelButton: false
+    showBackButton: true
+    showApplyButton: false
+    showCancelButton: false
 
-      topMargin: mainWindow.sceneTopMargin
+    topMargin: mainWindow.sceneTopMargin
 
-      onFinished: messageLog.finished()
-    }
+    onFinished: messageLog.finished()
+  }
 
   ColumnLayout {
     anchors.margins: 8
@@ -33,11 +32,11 @@ Page {
     spacing: 10
 
     Rectangle {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        color: Theme.controlBackgroundColor
-        border.color: Theme.controlBorderColor
-        border.width: 1
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      color: Theme.controlBackgroundColor
+      border.color: Theme.controlBorderColor
+      border.width: 1
 
       ListView {
         id: table
@@ -71,7 +70,7 @@ Page {
               id: datetext
               objectName: 'dateText'
               padding: 5
-              text: MessageDateTime.replace(' ','\n')
+              text: MessageDateTime.replace(' ', '\n')
               font: Theme.tipFont
               color: Theme.secondaryTextColor
             }
@@ -82,7 +81,7 @@ Page {
             Text {
               id: tagtext
               objectName: 'tagText'
-              padding: MessageTag ? 5: 0
+              padding: MessageTag ? 5 : 0
               text: MessageTag
               font.pointSize: Theme.tipFont.pointSize
               font.bold: true
@@ -101,12 +100,11 @@ Page {
 
               MouseArea {
                 anchors.fill: parent
-                onClicked:
-                {
-                    copyHelper.text = messagetext.text
-                    copyHelper.selectAll()
-                    copyHelper.copy()
-                    displayToast(qsTr("Message text copied"))
+                onClicked: {
+                  copyHelper.text = messagetext.text;
+                  copyHelper.selectAll();
+                  copyHelper.copy();
+                  displayToast(qsTr("Message text copied"));
                 }
               }
             }
@@ -115,40 +113,40 @@ Page {
       }
     }
 
-    TextEdit{
-        id: copyHelper
-        visible: false
+    TextEdit {
+      id: copyHelper
+      visible: false
     }
 
     QfButton {
-        text: qsTr("Log runtime profiler")
-        Layout.fillWidth: true
+      text: qsTr("Log runtime profiler")
+      Layout.fillWidth: true
 
-        onClicked: {
-            iface.logRuntimeProfiler()
-        }
+      onClicked: {
+        iface.logRuntimeProfiler();
+      }
     }
 
     QfButton {
-        text: qsTr("Clear message log")
-        Layout.fillWidth: true
+      text: qsTr("Clear message log")
+      Layout.fillWidth: true
 
-        onClicked: {
-            table.model.clear()
-            displayToast(qsTr("Message log cleared"))
-            messageLog.finished()
-        }
+      onClicked: {
+        table.model.clear();
+        displayToast(qsTr("Message log cleared"));
+        messageLog.finished();
+      }
     }
 
     QfButton {
-        id: submitLog
-        Layout.fillWidth: true
-        text: qsTr("Send application log")
-        visible: qfieldSettings.enableInfoCollection && platformUtilities.capabilities & PlatformUtilities.SentryFramework
+      id: submitLog
+      Layout.fillWidth: true
+      text: qsTr("Send application log")
+      visible: qfieldSettings.enableInfoCollection && platformUtilities.capabilities & PlatformUtilities.SentryFramework
 
-        onClicked: {
-            applicationLogDialog.open()
-        }
+      onClicked: {
+        applicationLogDialog.open();
+      }
     }
   }
 
@@ -158,11 +156,11 @@ Page {
     focus: true
     font: Theme.defaultFont
 
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height - 80 ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
-      appliationLogInput.text = ''
+      appliationLogInput.text = '';
     }
 
     Column {
@@ -209,9 +207,9 @@ Page {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      var applicationLogMessage = appliationLogInput.text.trim()
-      iface.sendLog(applicationLogMessage != '' ? applicationLogMessage : 'Manual log submission', includeCloudInformationCheckBox.checked ? cloudConnection.username : '')
-      displayToast(qsTr("Your application log is being sent…"))
+      var applicationLogMessage = appliationLogInput.text.trim();
+      iface.sendLog(applicationLogMessage != '' ? applicationLogMessage : 'Manual log submission', includeCloudInformationCheckBox.checked ? cloudConnection.username : '');
+      displayToast(qsTr("Your application log is being sent…"));
     }
   }
 
@@ -219,13 +217,13 @@ Page {
     target: model
 
     function onRowsInserted(parent, first, last) {
-      if ( !visible )
-        unreadMessages = true
+      if (!visible)
+        unreadMessages = true;
     }
   }
 
   onVisibleChanged: {
-    if ( visible )
-      unreadMessages = false
+    if (visible)
+      unreadMessages = false;
   }
 }

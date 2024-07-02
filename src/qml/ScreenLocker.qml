@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import Theme 1.0
 
 Item {
@@ -14,10 +13,10 @@ Item {
 
   onEnabledChanged: {
     if (enabled) {
-      unlockNode.opacity = 1
-      unlockOpacityTimer.restart()
+      unlockNode.opacity = 1;
+      unlockOpacityTimer.restart();
     } else {
-      unlockNode.opacity = 0
+      unlockNode.opacity = 0;
     }
   }
 
@@ -63,8 +62,8 @@ Item {
     anchors.fill: parent
 
     onPressed: {
-      unlockNode.opacity = 1
-      unlockOpacityTimer.restart()
+      unlockNode.opacity = 1;
+      unlockOpacityTimer.restart();
     }
   }
 
@@ -82,8 +81,10 @@ Item {
     radius: width / 2
     opacity: unlockHandler.entered ? 1 : 0
 
-    Behavior on opacity {
-      NumberAnimation { duration: 250 }
+    Behavior on opacity  {
+      NumberAnimation {
+        duration: 250
+      }
     }
   }
 
@@ -108,17 +109,15 @@ Item {
       height: 36
       fillMode: Image.PreserveAspectFit
       smooth: true
-      source: unlockHandler.unlocked
-              ? Theme.getThemeVectorIcon('ic_lock_open_green_24dp')
-              : unlockHandler.entered
-                ? Theme.getThemeVectorIcon('ic_lock_open_white_24dp')
-                : Theme.getThemeVectorIcon('ic_lock_white_24dp')
+      source: unlockHandler.unlocked ? Theme.getThemeVectorIcon('ic_lock_open_green_24dp') : unlockHandler.entered ? Theme.getThemeVectorIcon('ic_lock_open_white_24dp') : Theme.getThemeVectorIcon('ic_lock_white_24dp')
       sourceSize.width: 96
       sourceSize.height: 96
     }
 
-    Behavior on opacity {
-      NumberAnimation { duration: 250 }
+    Behavior on opacity  {
+      NumberAnimation {
+        duration: 250
+      }
     }
   }
 
@@ -137,40 +136,40 @@ Item {
 
     onActiveChanged: {
       if (active) {
-        var x = centroid.position.x - centerX
-        var y = centroid.position.y - centerY
-        var distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
+        var x = centroid.position.x - centerX;
+        var y = centroid.position.y - centerY;
+        var distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
         if (distance < screenLocker.threshold / 3) {
-          unlockOpacityTimer.stop()
-          entered = true
+          unlockOpacityTimer.stop();
+          entered = true;
         }
       } else {
         if (unlocked) {
-          screenLocker.enabled = false
+          screenLocker.enabled = false;
         } else {
-          unlockOpacityTimer.restart()
+          unlockOpacityTimer.restart();
         }
-        entered = false
-        unlocked = false
-        unlockNode.offsetX = 0
-        unlockNode.offsetY = 0
+        entered = false;
+        unlocked = false;
+        unlockNode.offsetX = 0;
+        unlockNode.offsetY = 0;
       }
     }
 
     onCentroidChanged: {
       if (entered) {
-        var x = centroid.position.x - centerX
-        var y = centroid.position.y - centerY
-        var distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
+        var x = centroid.position.x - centerX;
+        var y = centroid.position.y - centerY;
+        var distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
         if (distance < screenLocker.threshold) {
-          unlockNode.offsetX = x
-          unlockNode.offsetY = y
-          unlocked = false
+          unlockNode.offsetX = x;
+          unlockNode.offsetY = y;
+          unlocked = false;
         } else {
-          var angle = Math.atan2(x, y)
-          unlockNode.offsetX = screenLocker.threshold * Math.sin(angle)
-          unlockNode.offsetY = screenLocker.threshold * Math.cos(angle)
-          unlocked = true
+          var angle = Math.atan2(x, y);
+          unlockNode.offsetX = screenLocker.threshold * Math.sin(angle);
+          unlockNode.offsetY = screenLocker.threshold * Math.cos(angle);
+          unlocked = true;
         }
       }
     }
@@ -183,8 +182,7 @@ Item {
     running: false
 
     onTriggered: {
-      unlockNode.opacity = 0
+      unlockNode.opacity = 0;
     }
   }
 }
-

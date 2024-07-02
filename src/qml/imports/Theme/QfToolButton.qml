@@ -2,7 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-
 import Theme 1.0
 
 RoundButton {
@@ -23,11 +22,11 @@ RoundButton {
   implicitWidth: width
   implicitHeight: height
 
-  topInset:0
-  bottomInset:0
-  leftInset:0
-  rightInset:0
-  padding:10
+  topInset: 0
+  bottomInset: 0
+  leftInset: 0
+  rightInset: 0
+  padding: 10
 
   background: Rectangle {
     id: backgroundRectangle
@@ -39,7 +38,7 @@ RoundButton {
     radius: round ? height / 2 : 0
     clip: true
 
-    Behavior on color {
+    Behavior on color  {
       ColorAnimation {
         duration: 200
       }
@@ -54,9 +53,7 @@ RoundButton {
       pressed: button.down
       anchor: parent
       active: button.down
-      color: Theme.darkTheme
-             ? bgcolor == "#ffffff" ? "#10000000" : "#10ffffff"
-             : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
+      color: Theme.darkTheme ? bgcolor == "#ffffff" ? "#10000000" : "#10ffffff" : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
     }
   }
 
@@ -85,9 +82,7 @@ RoundButton {
       anchors.fill: parent
       color: bottomRightIndicatorFgColor
       text: bottomRightIndicatorText
-      font.pixelSize: bottomRightIndicatorText.length == 1
-                      ? height / 1.6
-                      : height / 1.8
+      font.pixelSize: bottomRightIndicatorText.length == 1 ? height / 1.6 : height / 1.8
       horizontalAlignment: Qt.AlignHCenter
       verticalAlignment: Qt.AlignVCenter
     }

@@ -4,9 +4,7 @@ import QtQuick.Shapes
 import QtQuick.Window
 import QtMultimedia
 import QtCore
-
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
@@ -20,7 +18,7 @@ Popup {
   property var currentPosition
 
   signal finished(string path)
-  signal canceled()
+  signal canceled
 
   x: 0
   y: 0
@@ -35,35 +33,35 @@ Popup {
   property string state: "PhotoCapture"
   onStateChanged: {
     if (state == "PhotoCapture") {
-      photoPreview.source = ''
-      videoPreview.source = ''
+      photoPreview.source = '';
+      videoPreview.source = '';
     } else if (state == "VideoCapture") {
-      photoPreview.source = ''
-      videoPreview.source = ''
+      photoPreview.source = '';
+      videoPreview.source = '';
     }
   }
 
   onAboutToShow: {
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
-      cameraPermission.request()
+      cameraPermission.request();
     }
     if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
-      microphonePermission.request()
+      microphonePermission.request();
     }
   }
 
   Component.onCompleted: {
-    let cameraPicked = false
+    let cameraPicked = false;
     if (settings.deviceId != '') {
-      for(const device of mediaDevices.videoInputs) {
+      for (const device of mediaDevices.videoInputs) {
         if (device.id == settings.deviceId) {
-          camera.cameraDevice = device
-          cameraPicked = true
+          camera.cameraDevice = device;
+          cameraPicked = true;
         }
       }
     }
     if (!cameraPicked) {
-      camera.cameraDevice = mediaDevices.defaultVideoInput
+      camera.cameraDevice = mediaDevices.defaultVideoInput;
     }
   }
 
@@ -92,7 +90,7 @@ Popup {
     }
 
     MediaDevices {
-        id: mediaDevices
+      id: mediaDevices
     }
 
     CaptureSession {
@@ -104,20 +102,20 @@ Popup {
         active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted
 
         function zoomIn(increase) {
-          var zoom = camera.zoomFactor + increase
+          var zoom = camera.zoomFactor + increase;
           if (zoom < camera.maximumZoomFactor) {
-            camera.zoomFactor = zoom
+            camera.zoomFactor = zoom;
           } else {
-            camera.zoomFactor = camera.maximumZoomFactor
+            camera.zoomFactor = camera.maximumZoomFactor;
           }
         }
 
         function zoomOut(decrease) {
           var zoom = camera.zoomFactor - decrease;
           if (zoom > 1) {
-            camera.zoomFactor = zoom
+            camera.zoomFactor = zoom;
           } else {
-            camera.zoomFactor = 1
+            camera.zoomFactor = 1;
           }
         }
       }
@@ -126,9 +124,9 @@ Popup {
         id: imageCapture
 
         onImageSaved: (requestId, path) => {
-          currentPath  = path
-          photoPreview.source = 'file://'+path
-          cameraItem.state = "PhotoPreview"
+          currentPath = path;
+          photoPreview.source = 'file://' + path;
+          cameraItem.state = "PhotoPreview";
         }
       }
       recorder: MediaRecorder {
@@ -136,8 +134,8 @@ Popup {
 
         onRecorderStateChanged: {
           if (cameraItem.state == "VideoPreview" && recorderState === MediaRecorder.StoppedState) {
-            videoPreview.source = captureSession.recorder.actualLocation
-            videoPreview.play()
+            videoPreview.source = captureSession.recorder.actualLocation;
+            videoPreview.play();
           }
         }
       }
@@ -156,12 +154,8 @@ Popup {
 
       property bool isLandscape: (mainWindow.width / mainWindow.height) > (videoOutput.contentRect.width / videoOutput.contentRect.height)
 
-      width: isLandscape
-             ? videoOutput.contentRect.width * mainWindow.height / videoOutput.contentRect.height
-             : mainWindow.width
-      height: isLandscape
-              ? mainWindow.height
-              : videoOutput.contentRect.height * mainWindow.width / videoOutput.contentRect.width
+      width: isLandscape ? videoOutput.contentRect.width * mainWindow.height / videoOutput.contentRect.height : mainWindow.width
+      height: isLandscape ? mainWindow.height : videoOutput.contentRect.height * mainWindow.width / videoOutput.contentRect.width
 
       ShapePath {
         strokeColor: "#99000000"
@@ -171,13 +165,34 @@ Popup {
         startX: grid.width / 3
         startY: 0
 
-        PathLine { x: grid.width / 3; y: grid.height }
-        PathMove { x: grid.width / 3 * 2; y: 0 }
-        PathLine { x: grid.width / 3 * 2; y: grid.height }
-        PathMove { x: 0; y: grid.height / 3 }
-        PathLine { x: grid.width; y: grid.height / 3 }
-        PathMove { x: 0; y: grid.height / 3 * 2 }
-        PathLine { x: grid.width; y: grid.height / 3 * 2 }
+        PathLine {
+          x: grid.width / 3
+          y: grid.height
+        }
+        PathMove {
+          x: grid.width / 3 * 2
+          y: 0
+        }
+        PathLine {
+          x: grid.width / 3 * 2
+          y: grid.height
+        }
+        PathMove {
+          x: 0
+          y: grid.height / 3
+        }
+        PathLine {
+          x: grid.width
+          y: grid.height / 3
+        }
+        PathMove {
+          x: 0
+          y: grid.height / 3 * 2
+        }
+        PathLine {
+          x: grid.width
+          y: grid.height / 3 * 2
+        }
       }
 
       ShapePath {
@@ -188,13 +203,34 @@ Popup {
         startX: grid.width / 3
         startY: 0
 
-        PathLine { x: grid.width / 3; y: grid.height }
-        PathMove { x: grid.width / 3 * 2; y: 0 }
-        PathLine { x: grid.width / 3 * 2; y: grid.height }
-        PathMove { x: 0; y: grid.height / 3 }
-        PathLine { x: grid.width; y: grid.height / 3 }
-        PathMove { x: 0; y: grid.height / 3 * 2 }
-        PathLine { x: grid.width; y: grid.height / 3 * 2 }
+        PathLine {
+          x: grid.width / 3
+          y: grid.height
+        }
+        PathMove {
+          x: grid.width / 3 * 2
+          y: 0
+        }
+        PathLine {
+          x: grid.width / 3 * 2
+          y: grid.height
+        }
+        PathMove {
+          x: 0
+          y: grid.height / 3
+        }
+        PathLine {
+          x: grid.width
+          y: grid.height / 3
+        }
+        PathMove {
+          x: 0
+          y: grid.height / 3 * 2
+        }
+        PathLine {
+          x: grid.width
+          y: grid.height / 3 * 2
+        }
       }
     }
 
@@ -225,13 +261,13 @@ Popup {
       enabled: cameraItem.visible && cameraItem.isCapturing
       anchors.fill: parent
 
-      onPinchUpdated: (pinch) => {
-                        if (pinch.scale > pinch.previousScale) {
-                          camera.zoomIn(0.05)
-                        } else {
-                          camera.zoomOut(0.05)
-                        }
-                      }
+      onPinchUpdated: pinch => {
+        if (pinch.scale > pinch.previousScale) {
+          camera.zoomIn(0.05);
+        } else {
+          camera.zoomOut(0.05);
+        }
+      }
     }
 
     WheelHandler {
@@ -239,14 +275,11 @@ Popup {
       target: null
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
-      onWheel: (event) => {
-        if (event.angleDelta.y > 0)
-        {
-          camera.zoomIn(0.25)
-        }
-        else
-        {
-          camera.zoomOut(0.25)
+      onWheel: event => {
+        if (event.angleDelta.y > 0) {
+          camera.zoomIn(0.25);
+        } else {
+          camera.zoomOut(0.25);
         }
       }
     }
@@ -280,49 +313,41 @@ Popup {
             height: 64
             radius: 32
             color: Theme.darkGraySemiOpaque
-            border.color: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState !== MediaRecorder.StoppedState
-                          ? "red"
-                          : "white"
+            border.color: cameraItem.state == "VideoCapture" && captureSession.recorder.recorderState !== MediaRecorder.StoppedState ? "red" : "white"
             border.width: 2
 
             QfToolButton {
               id: captureButton
 
               anchors.centerIn: parent
-              visible: camera.cameraStatus == Camera.ActiveStatus ||
-                       camera.cameraStatus == Camera.LoadedStatus ||
-                       camera.cameraStatus == Camera.StandbyStatus
+              visible: camera.cameraStatus == Camera.ActiveStatus || camera.cameraStatus == Camera.LoadedStatus || camera.cameraStatus == Camera.StandbyStatus
 
               round: true
               roundborder: true
-              iconSource: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview"
-                          ? Theme.getThemeIcon("ic_check_white_48dp")
-                          : ''
-              bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview"
-                       ? Theme.mainColor
-                       : cameraItem.state == "VideoCapture" ? "red" : "white"
+              iconSource: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.getThemeIcon("ic_check_white_48dp") : ''
+              bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.mainColor : cameraItem.state == "VideoCapture" ? "red" : "white"
 
               onClicked: {
                 if (cameraItem.state == "PhotoCapture") {
-                  captureSession.imageCapture.captureToFile(qgisProject.homePath+ '/DCIM/')
-                  currentPosition = positionSource.positionInformation
+                  captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
+                  currentPosition = positionSource.positionInformation;
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
-                    captureSession.recorder.record()
+                    captureSession.recorder.record();
                   } else {
-                    cameraItem.state = "VideoPreview"
-                    captureSession.recorder.stop()
-                    var path = captureSession.recorder.actualLocation.toString()
-                    var filePos = path.indexOf('file://')
-                    currentPath = filePos === 0 ? path.substring(7) : path
+                    cameraItem.state = "VideoPreview";
+                    captureSession.recorder.stop();
+                    var path = captureSession.recorder.actualLocation.toString();
+                    var filePos = path.indexOf('file://');
+                    currentPath = filePos === 0 ? path.substring(7) : path;
                   }
                 } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
                   if (cameraItem.state == "PhotoPreview") {
                     if (settings.geoTagging && positionSource.active) {
-                      FileUtils.addImageMetadata(currentPath, currentPosition)
+                      FileUtils.addImageMetadata(currentPath, currentPosition);
                     }
                   }
-                  cameraItem.finished(currentPath)
+                  cameraItem.finished(currentPath);
                 }
               }
             }
@@ -339,7 +364,7 @@ Popup {
             bgcolor: Theme.darkGraySemiOpaque
             round: true
 
-            text: camera.zoomFactor.toFixed(1) +'X'
+            text: camera.zoomFactor.toFixed(1) + 'X'
             font: Theme.tinyFont
 
             onClicked: {
@@ -355,7 +380,7 @@ Popup {
             y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) - (height / 2)
 
             iconSource: {
-              switch(camera.flashMode) {
+              switch (camera.flashMode) {
               case Camera.FlashAuto:
                 return Theme.getThemeVectorIcon('ic_flash_auto_black_24dp');
               case Camera.FlashOn:
@@ -363,7 +388,7 @@ Popup {
               case Camera.FlashOff:
                 return Theme.getThemeVectorIcon('ic_flash_off_black_24dp');
               default:
-                return'';
+                return '';
               }
             }
             iconColor: "white"
@@ -374,7 +399,7 @@ Popup {
               if (camera.flashMode === Camera.FlashOff) {
                 camera.flashMode = Camera.FlashOn;
               } else {
-                camera.flashMode = Camera.FlashOff
+                camera.flashMode = Camera.FlashOff;
               }
             }
           }
@@ -401,7 +426,7 @@ Popup {
                   seconds -= hours * 60 * 60;
                   var minutes = Math.floor(seconds / 60) + '';
                   seconds = (seconds - minutes * 60) + '';
-                  return hours.padStart(2,'0') + ':' + minutes.padStart(2,'0') + ':' + seconds.padStart(2,'0');
+                  return hours.padStart(2, '0') + ':' + minutes.padStart(2, '0') + ':' + seconds.padStart(2, '0');
                 } else {
                   // tiny bit of a cheat here as the first second isn't triggered
                   return '00:00:01';
@@ -434,15 +459,15 @@ Popup {
 
       onClicked: {
         if (cameraItem.state == "PhotoPreview") {
-          cameraItem.state = "PhotoCapture"
+          cameraItem.state = "PhotoCapture";
         } else if (cameraItem.state == "VideoPreview") {
-          videoPreview.stop()
-          cameraItem.state = "VideoCapture"
+          videoPreview.stop();
+          cameraItem.state = "VideoCapture";
         } else {
           if (currentPath != '') {
-            platformUtilities.rmFile(currentPath)
+            platformUtilities.rmFile(currentPath);
           }
-          cameraItem.canceled()
+          cameraItem.canceled();
         }
       }
     }
@@ -464,7 +489,7 @@ Popup {
       round: true
 
       onClicked: {
-        cameraSelectionMenu.popup(cameraSelectionButton.x, cameraSelectionButton.y)
+        cameraSelectionMenu.popup(cameraSelectionButton.x, cameraSelectionButton.y);
       }
     }
 
@@ -472,14 +497,14 @@ Popup {
       id: cameraSelectionMenu
 
       width: {
-          let result = 50;
-          let padding = 0;
-          for (let i = 0; i < count; ++i) {
-              let item = itemAt(i);
-              result = Math.max(item.contentItem.implicitWidth, result);
-              padding = Math.max(item.leftPadding + item.rightPadding, padding);
-          }
-          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : 0;
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+          let item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.leftPadding + item.rightPadding, padding);
+        }
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : 0;
       }
 
       Repeater {
@@ -489,11 +514,7 @@ Popup {
           property string deviceId: modelData.id
           property bool isDefault: modelData.isDefault
 
-          text: modelData.description +
-                (modelData.position !== CameraDevice.UnspecifiedPosition
-                 ? ' (' + (modelData.position === CameraDevice.FrontFace
-                          ? qsTr('front') : qsTr('back')) + ')'
-                 : '')
+          text: modelData.description + (modelData.position !== CameraDevice.UnspecifiedPosition ? ' (' + (modelData.position === CameraDevice.FrontFace ? qsTr('front') : qsTr('back')) + ')' : '')
           height: 48
           leftPadding: Theme.menuItemCheckLeftPadding
           font: Theme.defaultFont
@@ -507,8 +528,8 @@ Popup {
 
           onCheckedChanged: {
             if (checked && settings.deviceId !== modelData.id) {
-              settings.deviceId = modelData.id
-              camera.cameraDevice = modelData
+              settings.deviceId = modelData.id;
+              camera.cameraDevice = modelData;
             }
           }
         }
@@ -530,8 +551,8 @@ Popup {
 
       onClicked: {
         if (positionSource.active) {
-          settings.geoTagging = !settings.geoTagging
-          displayToast(settings.geoTagging ? qsTr("Geotagging enabled") : qsTr("Geotagging disabled"))
+          settings.geoTagging = !settings.geoTagging;
+          displayToast(settings.geoTagging ? qsTr("Geotagging enabled") : qsTr("Geotagging disabled"));
         }
       }
     }
@@ -550,8 +571,8 @@ Popup {
       round: true
 
       onClicked: {
-        settings.showGrid = !settings.showGrid
-        displayToast(settings.showGrid ? qsTr("Grid enabled") : qsTr("Grid disabled"))
+        settings.showGrid = !settings.showGrid;
+        displayToast(settings.showGrid ? qsTr("Grid enabled") : qsTr("Grid disabled"));
       }
     }
   }

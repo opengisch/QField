@@ -3,7 +3,6 @@ import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -23,16 +22,15 @@ ListView {
   spacing: 0
 
   function openProperties(index) {
-    itemProperties.index = legend.model.index(index, 0)
-    itemProperties.open()
-    itemProperties.forceActiveFocus()
+    itemProperties.index = legend.model.index(index, 0);
+    itemProperties.open();
+    itemProperties.forceActiveFocus();
   }
 
   delegate: Rectangle {
+    id: rectangle
     property int itemPadding: 30 * TreeLevel
     property bool isSelectedLayer: Type === "layer" && VectorLayerPointer && VectorLayerPointer == activeLayer
-
-    id: rectangle
     width: parent ? parent.width : undefined
     height: line.height + 7
     color: isSelectedLayer ? Theme.mainColor : "transparent"
@@ -42,30 +40,28 @@ ListView {
       anchors.fill: parent
       enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
       acceptedButtons: Qt.LeftButton | Qt.RightButton
-      onClicked: (mouse) => {
+      onClicked: mouse => {
         if (!allowActiveLayerChange)
-          return
-
+          return;
         if (ReadOnly || GeometryLocked)
-          return
-
+          return;
         if (VectorLayerPointer && VectorLayerPointer.isValid) {
-          activeLayer = VectorLayerPointer
-          projectInfo.activeLayer = VectorLayerPointer
+          activeLayer = VectorLayerPointer;
+          projectInfo.activeLayer = VectorLayerPointer;
         }
       }
 
       onDoubleClicked: {
-        openProperties(index)
+        openProperties(index);
       }
 
       onPressAndHold: {
-        openProperties(index)
+        openProperties(index);
       }
 
-      onReleased: (mouse) => {
+      onReleased: mouse => {
         if (mouse.button === Qt.RightButton) {
-          pressAndHold(mouse)
+          pressAndHold(mouse);
         }
       }
     }
@@ -111,7 +107,7 @@ ListView {
             visible: HasChildren
             rotation: !IsCollapsed ? 90 : 0
 
-            Behavior on rotation {
+            Behavior on rotation  {
               NumberAnimation {
                 duration: 100
               }
@@ -119,8 +115,8 @@ ListView {
 
             onClicked: {
               if (HasChildren) {
-                IsCollapsed = !IsCollapsed
-                projectInfo.saveLayerTreeState()
+                IsCollapsed = !IsCollapsed;
+                projectInfo.saveLayerTreeState();
               }
             }
           }
@@ -156,9 +152,9 @@ ListView {
             visible: HasSpatialExtent
             enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             onClicked: {
-              layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible)
-              flatLayerTree.mapTheme = ''
-              projectInfo.saveLayerTreeState()
+              layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible);
+              flatLayerTree.mapTheme = '';
+              projectInfo.saveLayerTreeState();
             }
           }
         }
@@ -177,34 +173,33 @@ ListView {
             mipmap: true
             source: {
               if (!legend.isVisible)
-                return ''
-
+                return '';
               if (LegendImage != '') {
-                return "image://legend/" + LegendImage
+                return "image://legend/" + LegendImage;
               } else if (LayerType == "vectorlayer") {
                 switch (VectorLayerPointer.geometryType()) {
                 case Qgis.GeometryType.Point:
-                  return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp')
+                  return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
                 case Qgis.GeometryType.Line:
-                  return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp')
+                  return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
                 case Qgis.GeometryType.Polygon:
-                  return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp')
+                  return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
                 case Qgis.GeometryType.Null:
                 case Qgis.GeometryType.Unknown:
-                  return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp')
+                  return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
                 }
               } else if (LayerType == "rasterlayer") {
-                return Theme.getThemeVectorIcon('ic_rasterlayer_18dp')
+                return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
               } else if (LayerType == "meshlayer") {
-                return Theme.getThemeVectorIcon('ic_meshlayer_18dp')
+                return Theme.getThemeVectorIcon('ic_meshlayer_18dp');
               } else if (LayerType == "vectortilelayer") {
-                return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp')
+                return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp');
               } else if (LayerType == "annotationlayer") {
-                return Theme.getThemeVectorIcon('ic_annotationlayer_18dp')
+                return Theme.getThemeVectorIcon('ic_annotationlayer_18dp');
               } else if (Type == "group") {
-                return Theme.getThemeVectorIcon('ic_group_18dp')
+                return Theme.getThemeVectorIcon('ic_group_18dp');
               } else {
-                return ''
+                return '';
               }
             }
             width: 16
@@ -218,15 +213,8 @@ ListView {
 
         Text {
           id: layerName
-          width: rectangle.width
-                 - itemPadding
-                 - 46 // legend icon + right padding
-                 - (collapsedState.isVisible ? collapsedState.width : 0)
-                 - (layerVisibility.isVisible ? layerVisibility.width : 0)
-                 - (trackingBadge.isVisible ? trackingBadge.width + 5 : 0)
-                 - (lockedBadge.isVisible ? lockedBadge.width + 5 : 0)
-                 - (invalidBadge.isVisible ? invalidBadge.width + 5 : 0)
-                 - (snappingBadge.isVisible ? snappingBadge.width + 5 : 0)
+          width: rectangle.width - itemPadding - 46 // legend icon + right padding
+          - (collapsedState.isVisible ? collapsedState.width : 0) - (layerVisibility.isVisible ? layerVisibility.width : 0) - (trackingBadge.isVisible ? trackingBadge.width + 5 : 0) - (lockedBadge.isVisible ? lockedBadge.width + 5 : 0) - (invalidBadge.isVisible ? invalidBadge.width + 5 : 0) - (snappingBadge.isVisible ? snappingBadge.width + 5 : 0)
           padding: 3
           leftPadding: 0
           text: Name
@@ -237,11 +225,11 @@ ListView {
           opacity: Visible ? 1 : 0.25
           color: {
             if (isSelectedLayer)
-              return Theme.light
+              return Theme.light;
             else if (IsValid)
-              return Theme.mainTextColor
+              return Theme.mainTextColor;
             else
-              return Theme.secondaryTextColor
+              return Theme.secondaryTextColor;
           }
         }
 
@@ -260,10 +248,10 @@ ListView {
           icon.color: Theme.mainTextColor
 
           onClicked: {
-            displayToast(qsTr('This layer is is currently tracking the device position.'))
+            displayToast(qsTr('This layer is is currently tracking the device position.'));
           }
 
-          SequentialAnimation on bgcolor {
+          SequentialAnimation on bgcolor  {
             running: isVisible && legend.isVisible
             loops: Animation.Infinite
             ColorAnimation {
@@ -296,7 +284,7 @@ ListView {
           icon.color: Theme.errorColor
 
           onClicked: {
-            displayToast(qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.'))
+            displayToast(qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.'));
           }
         }
 
@@ -317,21 +305,16 @@ ListView {
 
           onClicked: {
             if (ReadOnly) {
-              displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'))
+              displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'));
             } else {
-              displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'))
+              displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'));
             }
           }
         }
 
         QfToolButton {
           id: snappingBadge
-          property bool isVisible: stateMachine.state === "digitize" &&
-                                   qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration &&
-                                   Type === "layer" &&
-                                   LayerType === "vectorlayer" &&
-                                   VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null &&
-                                   VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
+          property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === "layer" && LayerType === "vectorlayer" && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
           visible: isVisible
           height: 24
           width: 24
@@ -345,8 +328,8 @@ ListView {
           icon.color: SnappingEnabled ? 'white' : Theme.mainTextColor
 
           onClicked: {
-            SnappingEnabled = !SnappingEnabled
-            projectInfo.saveLayerSnappingConfiguration(VectorLayerPointer)
+            SnappingEnabled = !SnappingEnabled;
+            projectInfo.saveLayerSnappingConfiguration(VectorLayerPointer);
           }
         }
       }

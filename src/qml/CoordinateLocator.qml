@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -43,12 +42,7 @@ Item {
   // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
   readonly property point displayPosition: {
     // this property gets initially evaluated before the `currentCoordinate`
-    const coordinate = currentCoordinate
-      ? currentCoordinate
-      : !!overrideLocation
-        ? overrideLocation
-        : snappingUtils.snappedCoordinate;
-
+    const coordinate = currentCoordinate ? currentCoordinate : !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate;
     return !!mapSettings.visibleExtent && coordinate !== undefined ? mapSettings.coordinateToScreen(coordinate) : Qt.point();
   }
 
@@ -65,35 +59,18 @@ Item {
     mapSettings: locator.mapSettings
     inputCoordinate: {
       // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
-      const location = sourceLocation === undefined
-        ? Qt.point(locator.width / 2, locator.height / 2)
-        : sourceLocation;
-
+      const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
       if (snapToCommonAngleButton.isSnapToCommonAngleEnabled) {
-        locator.commonAngleInDegrees = getCommonAngleInDegrees(
-          location,
-          locator.rubberbandModel,
-          snapToCommonAngleButton.snapToCommonAngleDegrees,
-          snapToCommonAngleButton.isSnapToCommonAngleRelative,
-        );
-
+        locator.commonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
         const coords = calculateSnapToAngleLineEndCoords(snappedPoint, locator.commonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000);
-
         snapToCommonAngleLines.endCoordX = coords.x || 0;
         snapToCommonAngleLines.endCoordY = coords.y || 0;
-
-        return snapPointToCommonAngle(
-          location,
-          locator.rubberbandModel,
-          locator.commonAngleInDegrees,
-          snapToCommonAngleButton.isSnapToCommonAngleRelative,
-        );
+        return snapPointToCommonAngle(location, locator.rubberbandModel, locator.commonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
       } else {
         locator.commonAngleInDegrees = null;
         snapToCommonAngleLines.endCoordX = 0;
         snapToCommonAngleLines.endCoordY = 0;
       }
-
       return location;
     }
     config: qgisProject ? qgisProject.snappingConfig : snappingUtils.emptySnappingConfig()
@@ -102,15 +79,12 @@ Item {
     property point snappedPoint
 
     onSnappingResultChanged: {
-      if ( snappingResult.isValid )
-      {
-        snappedCoordinate = snappingResult.point
-        snappedPoint = mapSettings.coordinateToScreen( snappedCoordinate )
-      }
-      else
-      {
-        snappedPoint = inputCoordinate
-        snappedCoordinate = mapSettings.screenToCoordinate( snappedPoint )
+      if (snappingResult.isValid) {
+        snappedCoordinate = snappingResult.point;
+        snappedPoint = mapSettings.coordinateToScreen(snappedCoordinate);
+      } else {
+        snappedPoint = inputCoordinate;
+        snappedCoordinate = mapSettings.screenToCoordinate(snappedPoint);
       }
     }
   }
@@ -137,20 +111,17 @@ Item {
       anchors.left: parent.left
       anchors.leftMargin: 1.2
       height: parent.height - 2.4
-      width: (positioningSettings.averagedPositioning
-              ? Math.min(parent.width,(parent.width * (averagedPositionCount / positioningSettings.averagedPositioningMinimumCount)))
-              : parent.width) - 2.4
-      color: positioningSettings.accuracyIndicator
-             ? !positionSource.positionInformation
-               || !positionSource.positionInformation.haccValid
-               || positionSource.positionInformation.hacc > positioningSettings.accuracyBad
-               ? Theme.accuracyBad
-               : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
-                 ? Theme.accuracyTolerated
-                 : Theme.accuracyExcellent
-              : Theme.positionColor
+      width: (positioningSettings.averagedPositioning ? Math.min(parent.width, (parent.width * (averagedPositionCount / positioningSettings.averagedPositioningMinimumCount))) : parent.width) - 2.4
+      color: positioningSettings.accuracyIndicator ? !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent : Theme.positionColor
 
-      transitions: [ Transition { NumberAnimation { property: "width"; duration: 200 } } ]
+      transitions: [
+        Transition {
+          NumberAnimation {
+            property: "width"
+            duration: 200
+          }
+        }
+      ]
     }
 
     Text {
@@ -177,18 +148,24 @@ Item {
     x: displayPosition.x - halfWidth
     y: displayPosition.y - halfWidth
 
-    Behavior on x {
+    Behavior on x  {
       enabled: !overrideLocation && !sourceLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
-      NumberAnimation { duration: 100 }
+      NumberAnimation {
+        duration: 100
+      }
     }
 
-    Behavior on y {
+    Behavior on y  {
       enabled: !overrideLocation && !sourceLocation
-      NumberAnimation { duration: 100 }
+      NumberAnimation {
+        duration: 100
+      }
     }
 
-    Behavior on width {
-      SmoothedAnimation { duration: 2000 }
+    Behavior on width  {
+      SmoothedAnimation {
+        duration: 2000
+      }
     }
 
     ShapePath {
@@ -205,36 +182,52 @@ Item {
       fillColor: "transparent"
 
       PathAngleArc {
-        centerX: crosshairCircle.halfWidth; centerY: crosshairCircle.halfWidth
-        radiusX: crosshairCircle.halfWidth; radiusY: crosshairCircle.halfWidth
-        startAngle: 0 + crosshairCircle.arcSpacing; sweepAngle: 90 - crosshairCircle.arcSpacing * 2
+        centerX: crosshairCircle.halfWidth
+        centerY: crosshairCircle.halfWidth
+        radiusX: crosshairCircle.halfWidth
+        radiusY: crosshairCircle.halfWidth
+        startAngle: 0 + crosshairCircle.arcSpacing
+        sweepAngle: 90 - crosshairCircle.arcSpacing * 2
       }
       PathAngleArc {
-        centerX: crosshairCircle.halfWidth; centerY: crosshairCircle.halfWidth
-        radiusX: crosshairCircle.halfWidth; radiusY: crosshairCircle.halfWidth
-        startAngle: 90 + crosshairCircle.arcSpacing; sweepAngle: 90 - crosshairCircle.arcSpacing * 2
+        centerX: crosshairCircle.halfWidth
+        centerY: crosshairCircle.halfWidth
+        radiusX: crosshairCircle.halfWidth
+        radiusY: crosshairCircle.halfWidth
+        startAngle: 90 + crosshairCircle.arcSpacing
+        sweepAngle: 90 - crosshairCircle.arcSpacing * 2
       }
       PathAngleArc {
-        centerX: crosshairCircle.halfWidth; centerY: crosshairCircle.halfWidth
-        radiusX: crosshairCircle.halfWidth; radiusY: crosshairCircle.halfWidth
-        startAngle: 180 + crosshairCircle.arcSpacing; sweepAngle: 90 - crosshairCircle.arcSpacing * 2
+        centerX: crosshairCircle.halfWidth
+        centerY: crosshairCircle.halfWidth
+        radiusX: crosshairCircle.halfWidth
+        radiusY: crosshairCircle.halfWidth
+        startAngle: 180 + crosshairCircle.arcSpacing
+        sweepAngle: 90 - crosshairCircle.arcSpacing * 2
       }
       PathAngleArc {
-        centerX: crosshairCircle.halfWidth; centerY: crosshairCircle.halfWidth
-        radiusX: crosshairCircle.halfWidth; radiusY: crosshairCircle.halfWidth
-        startAngle: 270 + crosshairCircle.arcSpacing; sweepAngle: 90 - crosshairCircle.arcSpacing * 2
+        centerX: crosshairCircle.halfWidth
+        centerY: crosshairCircle.halfWidth
+        radiusX: crosshairCircle.halfWidth
+        radiusY: crosshairCircle.halfWidth
+        startAngle: 270 + crosshairCircle.arcSpacing
+        sweepAngle: 90 - crosshairCircle.arcSpacing * 2
       }
       PathMove {
-        x: crosshairCircle.halfWidth; y: crosshairCircle.halfWidth - 8
+        x: crosshairCircle.halfWidth
+        y: crosshairCircle.halfWidth - 8
       }
       PathLine {
-        x: crosshairCircle.halfWidth; y: crosshairCircle.halfWidth + 8
+        x: crosshairCircle.halfWidth
+        y: crosshairCircle.halfWidth + 8
       }
       PathMove {
-        x: crosshairCircle.halfWidth - 8; y: crosshairCircle.halfWidth
+        x: crosshairCircle.halfWidth - 8
+        y: crosshairCircle.halfWidth
       }
       PathLine {
-        x: crosshairCircle.halfWidth + 8; y: crosshairCircle.halfWidth
+        x: crosshairCircle.halfWidth + 8
+        y: crosshairCircle.halfWidth
       }
     }
   }
@@ -245,7 +238,7 @@ Item {
     property double endCoordX: 0
     property double endCoordY: 0
 
-    visible: !!locator.commonAngleInDegrees || ( endCoordX !== 0 && endCoordY !== 0 )
+    visible: !!locator.commonAngleInDegrees || (endCoordX !== 0 && endCoordY !== 0)
     width: parent.width
     height: parent.height
     anchors.centerIn: parent
@@ -258,10 +251,14 @@ Item {
       strokeWidth: 4
       strokeColor: "#fff"
       strokeStyle: ShapePath.DashLine
-      dashPattern: [ 5, 3 ]
-      startX: snappedPoint.x; startY: snappedPoint.y
+      dashPattern: [5, 3]
+      startX: snappedPoint.x
+      startY: snappedPoint.y
 
-      PathLine { x: snapToCommonAngleLines.endCoordX; y: snapToCommonAngleLines.endCoordY }
+      PathLine {
+        x: snapToCommonAngleLines.endCoordX
+        y: snapToCommonAngleLines.endCoordY
+      }
     }
 
     // inner line
@@ -270,9 +267,13 @@ Item {
       strokeColor: "#000"
       strokeStyle: ShapePath.DashLine
       dashPattern: outerLine.dashPattern.map(v => v * 2)
-      startX: snappedPoint.x; startY: snappedPoint.y
+      startX: snappedPoint.x
+      startY: snappedPoint.y
 
-      PathLine { x: snapToCommonAngleLines.endCoordX; y: snapToCommonAngleLines.endCoordY }
+      PathLine {
+        x: snapToCommonAngleLines.endCoordX
+        y: snapToCommonAngleLines.endCoordY
+      }
     }
   }
 
@@ -300,20 +301,19 @@ Item {
   }
 
   Component.onCompleted: {
-    crosshairPathBuffer.pathElements = crosshairPath.pathElements
+    crosshairPathBuffer.pathElements = crosshairPath.pathElements;
   }
 
   Connections {
     target: snappingUtils
 
     function onSnappingResultChanged() {
-      crosshairCircle.isSnapped = overrideLocation == undefined && snappingUtils.snappingResult.isValid
+      crosshairCircle.isSnapped = overrideLocation == undefined && snappingUtils.snappingResult.isValid;
     }
   }
 
-  function flash()
-  {
-    flashAnimation.start()
+  function flash() {
+    flashAnimation.start();
   }
 
   /**
@@ -329,7 +329,6 @@ Item {
     if (!rubberbandModel) {
       return;
     }
-
     const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
     const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20;
     const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40;
@@ -340,27 +339,19 @@ Item {
     if (rubberbandPointsCount < 2) {
       return;
     }
-
     const distanceFromLastPoint = Math.sqrt((currentPoint.x - previousPoint.x) ** 2 + (currentPoint.y - previousPoint.y) ** 2);
     if (distanceFromLastPoint < MINIMAL_PIXEL_DISTANCE_TRESHOLD) {
       return;
     }
-
     const commonAngle = commonAngleStepDeg * Math.PI / 180;
     // see if soft common angle constraint should be performed
     // only if not in HardLock mode
-    let softAngle = Math.atan2(
-      currentPoint.y - previousPoint.y,
-      currentPoint.x - previousPoint.x
-    );
+    let softAngle = Math.atan2(currentPoint.y - previousPoint.y, currentPoint.x - previousPoint.x);
     let deltaAngle = 0;
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
-      deltaAngle = Math.atan2(
-        previousPoint.y - penultimatePoint.y,
-        previousPoint.x - penultimatePoint.x
-      );
+      deltaAngle = Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
       softAngle -= deltaAngle;
     }
     const quo = Math.round(softAngle / commonAngle);
@@ -369,10 +360,7 @@ Item {
       softAngle = quo * commonAngle;
       // http://mathworld.wolfram.com/Point-LineDistance2-Dimensional.html
       // use the direction vector (cos(a),sin(a)) from previous point. |x2-x1|=1 since sin2+cos2=1
-      const dist = Math.abs(
-        Math.cos(softAngle + deltaAngle) * (previousPoint.y - currentPoint.y) -
-        Math.sin(softAngle + deltaAngle) * (previousPoint.x - currentPoint.x)
-      );
+      const dist = Math.abs(Math.cos(softAngle + deltaAngle) * (previousPoint.y - currentPoint.y) - Math.sin(softAngle + deltaAngle) * (previousPoint.x - currentPoint.x));
       if (dist < SOFT_CONSTRAINT_TOLERANCE_PIXEL) {
         return 180.0 / Math.PI * softAngle;
       }
@@ -397,28 +385,20 @@ Item {
     if (commonAngleDegrees == null) {
       return currentPoint;
     }
-
     let angleValue = commonAngleDegrees * Math.PI / 180;
     const returnPoint = currentPoint;
     const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
     const rubberbandPointsCount = rubberbandModel.vertexCount;
-
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
-      angleValue += Math.atan2(
-        previousPoint.y - penultimatePoint.y,
-        previousPoint.x - penultimatePoint.x,
-      )
+      angleValue += Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
     }
-
     const cosa = Math.cos(angleValue);
     const sina = Math.sin(angleValue);
     const v = (currentPoint.x - previousPoint.x) * cosa + (currentPoint.y - previousPoint.y) * sina;
-
     returnPoint.x = (previousPoint.x + cosa * v);
     returnPoint.y = (previousPoint.y + sina * v);
-
     return returnPoint;
   }
 
@@ -430,37 +410,30 @@ Item {
    * @param {number} screenSize - size of the screen. Used to make sure the end of the line is outside the screen.
    */
   function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, isRelativeAngle, screenSize) {
-    if ( rubberbandModel == null ) {
+    if (rubberbandModel == null) {
       return {};
     }
-
     const rubberbandPointsCount = rubberbandModel.vertexCount;
 
     // if the angle is null or undefined, return empty coordinate map
     if (angleDegrees == null) {
       return {};
     }
-
-    let deltaAngle = 0
+    let deltaAngle = 0;
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
-      deltaAngle = Math.atan2(
-        previousPoint.y - penultimatePoint.y,
-        previousPoint.x - penultimatePoint.x
-      );
+      deltaAngle = Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
     }
-
     const x1 = currentPoint.x;
     const y1 = currentPoint.y;
     const angleRadians = angleDegrees * Math.PI / 180 + deltaAngle;
     const x2 = x1 + screenSize * Math.cos(angleRadians);
     const y2 = y1 + screenSize * Math.sin(angleRadians);
-
     return {
-      x: x2,
-      y: y2
+      "x": x2,
+      "y": y2
     };
   }
 }

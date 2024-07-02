@@ -1,10 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
 import QtQuick.Window 2.14
-
 import org.qgis 1.0
 import Theme 1.0
-
 import "."
 
 Item {
@@ -28,14 +26,11 @@ Item {
     property point screenLocation
     property real screenAccuracy
 
-    property bool isOnMapCanvas: screenLocation.x > 0
-                              && screenLocation.x < mapCanvas.width
-                              && screenLocation.y > 0
-                              && screenLocation.y < mapCanvas.height
+    property bool isOnMapCanvas: screenLocation.x > 0 && screenLocation.x < mapCanvas.width && screenLocation.y > 0 && screenLocation.y < mapCanvas.height
   }
   function updateScreenLocation() {
-    props.screenLocation = mapSettings.coordinateToScreen( location )
-    props.screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint
+    props.screenLocation = mapSettings.coordinateToScreen(location);
+    props.screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint;
   }
 
   Rectangle {
@@ -47,7 +42,7 @@ Item {
     x: props.screenLocation.x - width / 2
     y: props.screenLocation.y - height / 2
 
-    radius: width/2
+    radius: width / 2
 
     color: locationMarker.semiOpaqueColor
     border.color: locationMarker.color
@@ -77,20 +72,33 @@ Item {
         strokeWidth: 0
         strokeColor: "transparent"
         fillGradient: LinearGradient {
-          x1: 24; y1: 48
-          x2: 24; y2: 0
-          GradientStop { position: 0.0; color: locationMarker.color }
-          GradientStop { position: 1.0; color: locationMarker.semiOpaqueColor }
+          x1: 24
+          y1: 48
+          x2: 24
+          y2: 0
+          GradientStop {
+            position: 0.0
+            color: locationMarker.color
+          }
+          GradientStop {
+            position: 1.0
+            color: locationMarker.semiOpaqueColor
+          }
         }
         joinStyle: ShapePath.MiterJoin
 
         PathAngleArc {
-          centerX: 24; centerY: 48
-          radiusX: 48; radiusY: 48
+          centerX: 24
+          centerY: 48
+          radiusX: 48
+          radiusY: 48
           startAngle: -90 - (compassDirectionMarker.wideness / 2)
           sweepAngle: compassDirectionMarker.wideness
         }
-        PathLine { x: 24; y: 48 }
+        PathLine {
+          x: 24
+          y: 48
+        }
       }
     }
 
@@ -102,10 +110,18 @@ Item {
         strokeWidth: 0
         strokeColor: "transparent"
         fillGradient: LinearGradient {
-          x1: 24; y1: 48
-          x2: 24; y2: 0
-          GradientStop { position: 0.0; color: locationMarker.color }
-          GradientStop { position: 1.0; color: locationMarker.semiOpaqueColor }
+          x1: 24
+          y1: 48
+          x2: 24
+          y2: 0
+          GradientStop {
+            position: 0.0
+            color: locationMarker.color
+          }
+          GradientStop {
+            position: 1.0
+            color: locationMarker.semiOpaqueColor
+          }
         }
         joinStyle: ShapePath.MiterJoin
         startX: 24
@@ -115,12 +131,18 @@ Item {
           x: 48 * Math.sin((180 - (compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 24
           y: 48 * Math.cos((180 - (compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 48
         }
-        PathLine { x: 24; y: 40 }
+        PathLine {
+          x: 24
+          y: 40
+        }
         PathLine {
           x: 48 * Math.sin((180 + (compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 24
-          y: 48 * Math.cos((180+- (compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 48
+          y: 48 * Math.cos((180 + -(compassDirectionMarker.wideness / 2)) * Math.PI / 180) + 48
         }
-        PathLine { x: 24; y: 48 }
+        PathLine {
+          x: 24
+          y: 48
+        }
       }
     }
   }
@@ -145,19 +167,31 @@ Item {
       joinStyle: ShapePath.MiterJoin
       startX: 13
       startY: 2
-      PathLine { x: 21; y: 22 }
-      PathLine { x: 13; y: 16 }
-      PathLine { x: 5; y: 22 }
-      PathLine { x: 13; y: 2 }
+      PathLine {
+        x: 21
+        y: 22
+      }
+      PathLine {
+        x: 13
+        y: 16
+      }
+      PathLine {
+        x: 5
+        y: 22
+      }
+      PathLine {
+        x: 13
+        y: 2
+      }
     }
 
     layer.enabled: true
     layer.effect: QfDropShadow {
-        transparentBorder: true
-        samples: 16
-        color: "#99000000"
-        horizontalOffset: 0
-        verticalOffset: 0
+      transparentBorder: true
+      samples: 16
+      color: "#99000000"
+      horizontalOffset: 0
+      verticalOffset: 0
     }
   }
 
@@ -179,11 +213,11 @@ Item {
 
     layer.enabled: true
     layer.effect: QfDropShadow {
-        transparentBorder: true
-        samples: 16
-        color: "#99000000"
-        horizontalOffset: 0
-        verticalOffset: 0
+      transparentBorder: true
+      samples: 16
+      color: "#99000000"
+      horizontalOffset: 0
+      verticalOffset: 0
     }
   }
 
@@ -197,9 +231,9 @@ Item {
     y: Math.min(mapCanvas.height - width, Math.max(0, props.screenLocation.y - width / 2))
 
     transform: Rotation {
-        origin.x: edgeMarker.width / 2;
-        origin.y: edgeMarker.width / 2;
-        angle:-(Math.atan2(mapCanvas.width / 2 - props.screenLocation.x, mapCanvas.height / 2 - props.screenLocation.y) / Math.PI) * 180
+      origin.x: edgeMarker.width / 2
+      origin.y: edgeMarker.width / 2
+      angle: -(Math.atan2(mapCanvas.width / 2 - props.screenLocation.x, mapCanvas.height / 2 - props.screenLocation.y) / Math.PI) * 180
     }
 
     ShapePath {
@@ -210,37 +244,45 @@ Item {
       joinStyle: ShapePath.MiterJoin
       startX: 10
       startY: 0
-      PathLine { x: 18; y: 20 }
-      PathLine { x: 2; y: 20 }
-      PathLine { x: 10; y: 0 }
+      PathLine {
+        x: 18
+        y: 20
+      }
+      PathLine {
+        x: 2
+        y: 20
+      }
+      PathLine {
+        x: 10
+        y: 0
+      }
     }
 
     layer.enabled: true
     layer.effect: QfDropShadow {
-        transparentBorder: true
-        samples: 16
-        color: "#99000000"
-        horizontalOffset: 0
-        verticalOffset: 0
+      transparentBorder: true
+      samples: 16
+      color: "#99000000"
+      horizontalOffset: 0
+      verticalOffset: 0
     }
   }
 
   Connections {
     target: mapSettings
 
-
     function onExtentChanged() {
-      updateScreenLocation()
+      updateScreenLocation();
     }
     function onRotationChanged() {
-      updateScreenLocation()
+      updateScreenLocation();
     }
     function onOutputSizeChanged() {
-      updateScreenLocation()
+      updateScreenLocation();
     }
   }
 
   onLocationChanged: {
-   updateScreenLocation()
+    updateScreenLocation();
   }
 }
