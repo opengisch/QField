@@ -9,23 +9,23 @@ Item {
     property bool isLoaded: false
     property bool hasMenu: false
     property Menu menu: Menu {
-      id: itemMenu
-      title: qsTr( "Item Menu" )
-      z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
+        id: itemMenu
+        title: qsTr("Item Menu")
+        z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
-      width: {
-          let result = 50;
-          let padding = 0;
-          for (let i = 0; i < count; ++i) {
-              let item = itemAt(i);
-              result = Math.max(item.contentItem.implicitWidth, result);
-              padding = Math.max(item.leftPadding + item.rightPadding, padding);
-          }
-          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-      }
+        width: {
+            let result = 50;
+            let padding = 0;
+            for (let i = 0; i < count; ++i) {
+                let item = itemAt(i);
+                result = Math.max(item.contentItem.implicitWidth, result);
+                padding = Math.max(item.leftPadding + item.rightPadding, padding);
+            }
+            return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+        }
 
-      topMargin: mainWindow.sceneTopMargin
-      bottomMargin: mainWindow.sceneBottomMargin
+        topMargin: mainWindow.sceneTopMargin
+        bottomMargin: mainWindow.sceneBottomMargin
     }
 
     /* This signal is emmited when an editor widget has changed the value.

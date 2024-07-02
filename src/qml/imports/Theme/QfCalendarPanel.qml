@@ -1,20 +1,17 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-
 import Theme 1.0
 import org.qfield 1.0
-
 import "."
-
 
 Popup {
     id: calendarPopup
 
-    property bool isDateTime: false;
+    property bool isDateTime: false
     property date selectedDate: new Date()
 
-    signal dateTimePicked(var date);
+    signal dateTimePicked(var date)
 
     modal: true
     focus: true
@@ -43,21 +40,22 @@ Popup {
         property string action: ''
 
         onTriggered: {
-          switch(action) {
-              case 'decreaseYear':
-                  calendar.decreaseYear();
-                  break;
-              case 'decreaseMonth':
-                  calendar.decreaseMonth();
-                  break;
-              case 'increaseYear':
-                  calendar.increaseYear();
-                  break;
-              case 'increaseMonth':
-                  calendar.increaseMonth();
-                  break;
-          }
-          if ( interval > 100 ) interval = interval * 0.8;
+            switch (action) {
+            case 'decreaseYear':
+                calendar.decreaseYear();
+                break;
+            case 'decreaseMonth':
+                calendar.decreaseMonth();
+                break;
+            case 'increaseYear':
+                calendar.increaseYear();
+                break;
+            case 'increaseMonth':
+                calendar.increaseMonth();
+                break;
+            }
+            if (interval > 100)
+                interval = interval * 0.8;
         }
     }
 
@@ -69,8 +67,12 @@ Popup {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked:  (mouse) => { mouse.accepted = true }
-                onWheel: (wheel) => { wheel.accepted = true }
+                onClicked: mouse => {
+                    mouse.accepted = true;
+                }
+                onWheel: wheel => {
+                    wheel.accepted = true;
+                }
             }
 
             GridLayout {
@@ -84,7 +86,7 @@ Popup {
 
                     QfToolButton {
                         enabled: true
-                        iconSource: Theme.getThemeIcon( 'ic_doublearrow_left_black_24dp' )
+                        iconSource: Theme.getThemeIcon('ic_doublearrow_left_black_24dp')
                         iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
@@ -96,16 +98,16 @@ Popup {
                             changeCalendarTimer.restart();
                         }
                         onReleased: {
-                            changeCalendarTimer.stop()
+                            changeCalendarTimer.stop();
                         }
                         onCanceled: {
-                            changeCalendarTimer.stop()
+                            changeCalendarTimer.stop();
                         }
                     }
 
                     QfToolButton {
                         enabled: true
-                        iconSource: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
+                        iconSource: Theme.getThemeIcon('ic_arrow_left_black_24dp')
                         iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
@@ -117,10 +119,10 @@ Popup {
                             changeCalendarTimer.restart();
                         }
                         onReleased: {
-                            changeCalendarTimer.stop()
+                            changeCalendarTimer.stop();
                         }
                         onCanceled: {
-                            changeCalendarTimer.stop()
+                            changeCalendarTimer.stop();
                         }
                     }
                 }
@@ -141,7 +143,7 @@ Popup {
 
                     QfToolButton {
                         enabled: true
-                        iconSource: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
+                        iconSource: Theme.getThemeIcon('ic_arrow_right_black_24dp')
                         iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
@@ -153,15 +155,15 @@ Popup {
                             changeCalendarTimer.restart();
                         }
                         onReleased: {
-                            changeCalendarTimer.stop()
+                            changeCalendarTimer.stop();
                         }
                         onCanceled: {
-                            changeCalendarTimer.stop()
+                            changeCalendarTimer.stop();
                         }
                     }
                     QfToolButton {
                         enabled: true
-                        iconSource: Theme.getThemeIcon( 'ic_doublearrow_right_black_24dp' )
+                        iconSource: Theme.getThemeIcon('ic_doublearrow_right_black_24dp')
                         iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
@@ -173,10 +175,10 @@ Popup {
                             changeCalendarTimer.restart();
                         }
                         onReleased: {
-                            changeCalendarTimer.stop()
+                            changeCalendarTimer.stop();
                         }
                         onCanceled: {
-                            changeCalendarTimer.stop()
+                            changeCalendarTimer.stop();
                         }
                     }
                 }
@@ -204,7 +206,7 @@ Popup {
                     property date today: new Date()
 
                     function decreaseYear() {
-                      year -= 1;
+                        year -= 1;
                     }
                     function increaseYear() {
                         year += 1;
@@ -221,7 +223,7 @@ Popup {
                         if (month !== Calendar.December) {
                             month += 1;
                         } else {
-                            month = Calendar.January
+                            month = Calendar.January;
                             year += 1;
                         }
                     }
@@ -237,7 +239,7 @@ Popup {
                     delegate: Rectangle {
                         property bool isSelectedDate: calendarPopup.selectedDate.getFullYear() === model.date.getFullYear() && calendarPopup.selectedDate.getMonth() === model.date.getMonth() && calendarPopup.selectedDate.getDate() === model.date.getDate()
                         property bool isNow: calendar.today.getFullYear() === model.date.getFullYear() && calendar.today.getMonth() === model.date.getMonth() && calendar.today.getDate() === model.date.getDate()
-                        color:  isSelectedDate ? Theme.mainColor : "transparent"
+                        color: isSelectedDate ? Theme.mainColor : "transparent"
                         width: 18
                         height: 18
                         radius: 10
@@ -255,18 +257,16 @@ Popup {
                         }
                     }
 
-                    onClicked: (date) => {
-                        if (calendarPopup.selectedDate.getFullYear() !== date.getFullYear() ||
-                            calendarPopup.selectedDate.getMonth() !== date.getMonth() ||
-                            calendarPopup.selectedDate.getDate() !== date.getDate()) {
-                          calendarPopup.selectedDate = date;
+                    onClicked: date => {
+                        if (calendarPopup.selectedDate.getFullYear() !== date.getFullYear() || calendarPopup.selectedDate.getMonth() !== date.getMonth() || calendarPopup.selectedDate.getDate() !== date.getDate()) {
+                            calendarPopup.selectedDate = date;
                         } else {
-                          calendarPopup.selectDate();
+                            calendarPopup.selectDate();
                         }
                     }
 
                     function resetDate() {
-                        calendarPopup.selectedDate = new Date()
+                        calendarPopup.selectedDate = new Date();
                     }
                 }
             }
@@ -285,7 +285,7 @@ Popup {
                     Layout.alignment: Qt.AlignRight
                     Layout.row: 0
                     Layout.column: 0
-                    text: qsTr( "Hours" )
+                    text: qsTr("Hours")
                     font: Theme.tipFont
                 }
                 SpinBox {
@@ -303,7 +303,7 @@ Popup {
                     Layout.alignment: Qt.AlignRight
                     Layout.row: 1
                     Layout.column: 0
-                    text: qsTr( "Minutes" )
+                    text: qsTr("Minutes")
                     font: Theme.tipFont
                 }
                 SpinBox {
@@ -321,7 +321,7 @@ Popup {
                     Layout.alignment: Qt.AlignRight
                     Layout.row: 2
                     Layout.column: 0
-                    text: qsTr( "Seconds" )
+                    text: qsTr("Seconds")
                     font: Theme.tipFont
                 }
                 SpinBox {
@@ -341,25 +341,23 @@ Popup {
         RowLayout {
             QfButton {
                 id: okButton
-                text: qsTr( "OK" )
+                text: qsTr("OK")
                 font: Theme.tipFont
                 Layout.fillWidth: true
 
-                onClicked: selectDate();
+                onClicked: selectDate()
             }
         }
     }
 
     function selectDate() {
-        var newDate = calendarPopup.selectedDate
+        var newDate = calendarPopup.selectedDate;
         if (calendarPanel.isDateTime) {
             newDate.setHours(hoursSpinBox.value);
             newDate.setMinutes(minutesSpinBox.value);
             newDate.setSeconds(secondsSpinBox.value);
         }
         dateTimePicked(newDate);
-        calendarPanel.close()
+        calendarPanel.close();
     }
 }
-
-

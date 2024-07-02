@@ -2,76 +2,72 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtWebView 1.14
-
 import org.qfield 1.0
 import Theme 1.0
 
 Popup {
-  id: browserPanel
+    id: browserPanel
 
-  signal cancel()
+    signal cancel
 
-  property var browserView: undefined
-  property var browserCookies: []
+    property var browserView: undefined
+    property var browserCookies: []
 
-  property string url: ''
-  property bool fullscreen: false
-  property bool clearCookiesOnOpen: false
+    property string url: ''
+    property bool fullscreen: false
+    property bool clearCookiesOnOpen: false
 
-  width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
-  height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
-  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
-  y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
-  padding: 0
-  modal: true
-  closePolicy: Popup.CloseOnEscape
+    width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
+    height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
+    x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
+    y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
+    padding: 0
+    modal: true
+    closePolicy: Popup.CloseOnEscape
 
-  Page {
-    id: browserContainer
-    anchors.fill: parent
-    header: QfPageHeader {
-      id: pageHeader
-      title: browserView && !browserView.loading && browserView.title !== ''
-             ? browserView.title
-             : qsTr("Browser")
+    Page {
+        id: browserContainer
+        anchors.fill: parent
+        header: QfPageHeader {
+            id: pageHeader
+            title: browserView && !browserView.loading && browserView.title !== '' ? browserView.title : qsTr("Browser")
 
-      showBackButton: browserPanel.fullscreen
-      showApplyButton: false
-      showCancelButton: !browserPanel.fullscreen
+            showBackButton: browserPanel.fullscreen
+            showApplyButton: false
+            showCancelButton: !browserPanel.fullscreen
 
-      busyIndicatorState: browserView && browserView.loading ? "on" : "off"
+            busyIndicatorState: browserView && browserView.loading ? "on" : "off"
 
-      topMargin: browserPanel.fullscreen ? mainWindow.sceneTopMargin : 0
+            topMargin: browserPanel.fullscreen ? mainWindow.sceneTopMargin : 0
 
-      onBack: {
-        browserPanel.cancel()
-      }
+            onBack: {
+                browserPanel.cancel();
+            }
 
-      onCancel: {
-        browserPanel.cancel()
-      }
+            onCancel: {
+                browserPanel.cancel();
+            }
+        }
+
+        Item {
+            id: browserContent
+            anchors {
+                top: parent.top
+                left: parent.left
+            }
+            width: parent.width
+            height: parent.height
+        }
     }
 
-    Item {
-      id: browserContent
-      anchors {
-        top: parent.top
-        left: parent.left
-      }
-      width: parent.width
-      height: parent.height
-    }
-  }
-
-  onAboutToShow: {
-    // Reset tracked cookies
-    browserCookies = []
-
-    if (url != '') {
-      if (browserView === undefined) {
-        // avoid cost of WevView creation until needed
-        if (qVersion >= '6.0.0') {
-          browserView = Qt.createQmlObject('import QtWebView
+    onAboutToShow: {
+        // Reset tracked cookies
+        browserCookies = [];
+        if (url != '') {
+            if (browserView === undefined) {
+                // avoid cost of WevView creation until needed
+                if (qVersion >= '6.0.0') {
+                    browserView = Qt.createQmlObject('import QtWebView
             WebView {
               id: browserView
               anchors { top: parent.top; left: parent.left; right: parent.right; }
@@ -84,12 +80,12 @@ Popup {
               onCookieAdded: (domain, name) => {
                 browserPanel.browserCookies.push([domain, name])
               }
-            }', browserContent)
-          if (clearCookiesOnOpen) {
-            browserView.deleteAllCookies()
-          }
-        } else {
-          browserView = Qt.createQmlObject('import QtWebView 1.14
+            }', browserContent);
+                    if (clearCookiesOnOpen) {
+                        browserView.deleteAllCookies();
+                    }
+                } else {
+                    browserView = Qt.createQmlObject('import QtWebView 1.14
             WebView {
               id: browserView
               anchors { top: parent.top; left: parent.left; right: parent.right; }
@@ -99,21 +95,20 @@ Popup {
                   height = parent.height; opacity = 1
                 }
               }
-            }', browserContent)
+            }', browserContent);
+                }
+            }
+            browserView.anchors.fill = undefined;
+            browserView.url = url;
+            browserView.opacity = 0;
         }
-      }
-      browserView.anchors.fill = undefined
-      browserView.url = url
-      browserView.opacity = 0
+        clearCookiesOnOpen = false;
     }
 
-    clearCookiesOnOpen = false
-  }
-
-  function deleteCookies() {
-    for(const [domain, name] of browserCookies) {
-      browserView.deleteCookie(domain, name)
+    function deleteCookies() {
+        for (const [domain, name] of browserCookies) {
+            browserView.deleteCookie(domain, name);
+        }
+        browserCookies = [];
     }
-    browserCookies = [];
-  }
 }

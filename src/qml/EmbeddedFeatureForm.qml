@@ -1,8 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
@@ -24,20 +22,20 @@ Popup {
 
         property bool wasVisible: false
         function onGeometryRequestedChanged() {
-            if ( digitizingToolbar.geometryRequested && formPopup.visible ) {
-                wasVisible = true
-                formPopup.visible = false
-            } else if ( !digitizingToolbar.geometryRequested && wasVisible ) {
-                wasVisible = false
-                formPopup.visible = true
+            if (digitizingToolbar.geometryRequested && formPopup.visible) {
+                wasVisible = true;
+                formPopup.visible = false;
+            } else if (!digitizingToolbar.geometryRequested && wasVisible) {
+                wasVisible = false;
+                formPopup.visible = true;
             }
         }
     }
 
     onAboutToShow: {
         if (state === 'Add') {
-           form.featureCreated = false;
-           formFeatureModel.resetAttributes();
+            form.featureCreated = false;
+            formFeatureModel.resetAttributes();
         }
     }
 
@@ -80,31 +78,31 @@ Popup {
         anchors.fill: parent
 
         onConfirmed: {
-            formPopup.featureSaved(formFeatureModel.feature.id)
-            closePopup()
+            formPopup.featureSaved(formFeatureModel.feature.id);
+            closePopup();
         }
 
         onCancelled: {
-            formPopup.featureCancelled()
-            closePopup()
+            formPopup.featureCancelled();
+            closePopup();
         }
 
         function closePopup() {
             if (formPopup.opened) {
-                isSaved = true
-                formPopup.close()
+                isSaved = true;
+                formPopup.close();
             } else {
-                isSaved = false
+                isSaved = false;
             }
         }
     }
 
     onClosed: {
         if (!form.isSaved) {
-            form.confirm()
+            form.confirm();
             digitizingToolbar.digitizingLogger.writeCoordinates();
         } else {
-            form.isSaved = false
+            form.isSaved = false;
             digitizingToolbar.digitizingLogger.clearCoordinates();
         }
     }

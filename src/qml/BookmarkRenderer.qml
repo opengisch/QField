@@ -1,9 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Item {
@@ -26,9 +24,9 @@ Item {
         target: geometryWrapper
 
         function onQgsGeometryChanged() {
-            geometryComponent.sourceComponent = undefined
+            geometryComponent.sourceComponent = undefined;
             if (geometryWrapper && geometryWrapper.qgsGeometry.type === Qgis.GeometryType.Point) {
-                geometryComponent.sourceComponent = pointHighlight
+                geometryComponent.sourceComponent = pointHighlight;
             }
         }
     }
@@ -70,14 +68,14 @@ Item {
                         joinStyle: ShapePath.MiterJoin
                         fillColor: {
                             switch (bookmarkRenderer.bookmarkGroup) {
-                                case 'red':
-                                    return Theme.bookmarkRed;
-                                case 'orange':
-                                    return Theme.bookmarkOrange;
-                                case 'blue':
-                                    return Theme.bookmarkBlue;
-                                default:
-                                    return Theme.bookmarkDefault;
+                            case 'red':
+                                return Theme.bookmarkRed;
+                            case 'orange':
+                                return Theme.bookmarkOrange;
+                            case 'blue':
+                                return Theme.bookmarkBlue;
+                            default:
+                                return Theme.bookmarkDefault;
                             }
                         }
 
@@ -95,7 +93,7 @@ Item {
                             radiusX: 36
                             radiusY: 36
                         }
-                        PathArc{
+                        PathArc {
                             x: 6
                             y: 16
                             radiusX: 36
@@ -138,7 +136,7 @@ Item {
                             bookmarkProperties.bookmarkGroup = bookmarkRenderer.bookmarkGroup;
                             bookmarkProperties.open();
                         } else {
-                            displayToast(qsTr('Project bookmarks cannot be edited'))
+                            displayToast(qsTr('Project bookmarks cannot be edited'));
                         }
                     }
                 }
@@ -153,4 +151,3 @@ Item {
         sourceComponent: geometryWrapper && geometryWrapper.qgsGeometry.type === Qgis.GeometryType.Point ? pointHighlight : undefined
     }
 }
-

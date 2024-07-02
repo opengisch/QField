@@ -1,5 +1,4 @@
 pragma Singleton
-
 import QtQuick 2.14
 import QtQuick.Controls.Material 2.14
 
@@ -13,7 +12,7 @@ QtObject {
     readonly property color mainTextDisabledColor: darkTheme ? "#73EEEEEE" : "#73000000"
     readonly property color mainColor: "#80cc28"
 
-    readonly property color secondaryTextColor: darkTheme? "#AAAAAA" : "#999999"
+    readonly property color secondaryTextColor: darkTheme ? "#AAAAAA" : "#999999"
 
     readonly property color controlBackgroundColor: darkTheme ? "#202020" : "#ffffff"
     readonly property color controlBackgroundAlternateColor: darkTheme ? "#202020" : "#e6e6e6" // used by feature form editor widgets
@@ -68,14 +67,40 @@ QtObject {
 
     property real fontScale: 1.0
 
-    property font defaultFont: Qt.font({pointSize: systemFontPointSize * fontScale, weight: Font.Normal})
-    property font tinyFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.75, weight: Font.Normal})
-    property font tipFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.875, weight: Font.Normal})
-    property font resultFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.8125, weight: Font.Normal})
-    property font strongFont: Qt.font({pointSize: systemFontPointSize * fontScale, bold: true, weight: Font.Bold})
-    property font strongTipFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.875, bold: true, weight: Font.Bold})
-    property font secondaryTitleFont: Qt.font({pointSize: systemFontPointSize * fontScale * 1.125, weight: Font.Normal})
-    property font titleFont: Qt.font({pointSize: systemFontPointSize * fontScale * 1.25, weight: Font.Normal})
+    property font defaultFont: Qt.font({
+            "pointSize": systemFontPointSize * fontScale,
+            "weight": Font.Normal
+        })
+    property font tinyFont: Qt.font({
+            "pointSize": systemFontPointSize * fontScale * 0.75,
+            "weight": Font.Normal
+        })
+    property font tipFont: Qt.font({
+            "pointSize": systemFontPointSize * fontScale * 0.875,
+            "weight": Font.Normal
+        })
+    property font resultFont: Qt.font({
+            "pointSize": systemFontPointSize * fontScale * 0.8125,
+            "weight": Font.Normal
+        })
+    property font strongFont: Qt.font({
+            "pointSize": systemFontPointSize * fontScale,
+            "bold": true,
+            "weight": Font.Bold
+        })
+    property font strongTipFont: Qt.font({
+            "pointSize": systemFontPointSize * fontScale * 0.875,
+            "bold": true,
+            "weight": Font.Bold
+        })
+    property font secondaryTitleFont: Qt.font({
+            "pointSize": systemFontPointSize * fontScale * 1.125,
+            "weight": Font.Normal
+        })
+    property font titleFont: Qt.font({
+            "pointSize": systemFontPointSize * fontScale * 1.25,
+            "weight": Font.Normal
+        })
 
     readonly property int popupScreenEdgeMargin: 40
 
@@ -84,73 +109,64 @@ QtObject {
     readonly property int menuItemCheckLeftPadding: 16
 
     function getThemeIcon(name) {
-      var ppiName
-      if ( ppi >= 360 )
-        ppiName = "xxxhdpi";
-       else if ( ppi >= 270 )
-        ppiName = "xxhdpi";
-       else if ( ppi >= 180 )
-        ppiName = "xhdpi";
-       else if ( ppi >= 135 )
-        ppiName = "hdpi";
-       else
-        ppiName = "mdpi";
-
-      var theme = 'qfield';
-
-      var path = 'qrc:/themes/' + theme + '/' + ppiName + '/' + name + '.png';
-      return path;
+        var ppiName;
+        if (ppi >= 360)
+            ppiName = "xxxhdpi";
+        else if (ppi >= 270)
+            ppiName = "xxhdpi";
+        else if (ppi >= 180)
+            ppiName = "xhdpi";
+        else if (ppi >= 135)
+            ppiName = "hdpi";
+        else
+            ppiName = "mdpi";
+        var theme = 'qfield';
+        var path = 'qrc:/themes/' + theme + '/' + ppiName + '/' + name + '.png';
+        return path;
     }
 
     function getThemeVectorIcon(name) {
-      var theme = 'qfield';
-
-      var path = 'qrc:/themes/' + theme + '/nodpi/' + name + '.svg';
-      return path;
+        var theme = 'qfield';
+        var path = 'qrc:/themes/' + theme + '/nodpi/' + name + '.svg';
+        return path;
     }
 
     function colorToHtml(color) {
-      return "rgba(%1,%2,%3,%4)".arg(Math.floor(Theme.errorColor.r * 255)).arg(Math.floor(Theme.errorColor.g * 255)).arg(Math.floor(Theme.errorColor.b * 255)).arg(Math.floor(Theme.errorColor.a * 255));
-
+        return "rgba(%1,%2,%3,%4)".arg(Math.floor(Theme.errorColor.r * 255)).arg(Math.floor(Theme.errorColor.g * 255)).arg(Math.floor(Theme.errorColor.b * 255)).arg(Math.floor(Theme.errorColor.a * 255));
     }
 
     function toInlineStyles(styleProperties) {
-      var styles = ''
-
-      for (var property in styleProperties) {
-        var value = styleProperties[property];
-        styles += property
-        styles += ': '
-        styles += typeof value == 'color'
-          ? colorToHtml(value)
-          : value
-        styles += ';'
-      }
-
-      return styles;
+        var styles = '';
+        for (var property in styleProperties) {
+            var value = styleProperties[property];
+            styles += property;
+            styles += ': ';
+            styles += typeof value == 'color' ? colorToHtml(value) : value;
+            styles += ';';
+        }
+        return styles;
     }
 
     function applyAppearance() {
-      var appearance = settings.value('appearance', 'system')
-      if (appearance === undefined || appearance === 'system') {
-        darkTheme = platformUtilities.isSystemDarkTheme()
-      } else if (appearance === 'light') {
-        darkTheme = false
-      } else if (appearance === 'dark') {
-        darkTheme = true
-      }
-      Material.theme = darkTheme ? "Dark" : "Light"
-      mainBackgroundColor = Material.backgroundColor
-      mainTextColor = Material.foreground
+        var appearance = settings.value('appearance', 'system');
+        if (appearance === undefined || appearance === 'system') {
+            darkTheme = platformUtilities.isSystemDarkTheme();
+        } else if (appearance === 'light') {
+            darkTheme = false;
+        } else if (appearance === 'dark') {
+            darkTheme = true;
+        }
+        Material.theme = darkTheme ? "Dark" : "Light";
+        mainBackgroundColor = Material.backgroundColor;
+        mainTextColor = Material.foreground;
     }
 
     function applyFontScale() {
-      fontScale = settings.value('fontScale', 1.0)
+        fontScale = settings.value('fontScale', 1.0);
     }
 
     Component.onCompleted: {
-      applyAppearance()
-      applyFontScale()
+        applyAppearance();
+        applyFontScale();
     }
 }
-

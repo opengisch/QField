@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -11,7 +10,7 @@ Popup {
 
     property MapSettings mapSettings
 
-    width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeMargin )
+    width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeMargin)
     x: (parent.width - width) / 2
     y: (parent.height - height) / 2
     padding: 0
@@ -75,14 +74,11 @@ Popup {
                     text: Qt.formatDateTime(mapCanvas.mapSettings.temporalBegin, "yyyy-MM-dd HH:mm:ss")
 
                     onTextEdited: {
-                        var newDate = Date.fromLocaleString(Qt.locale(), beginField.text, "yyyy-MM-dd HH:mm:ss")
-                        if ( newDate.toLocaleString() !== "" )
-                        {
-                            mapCanvas.mapSettings.temporalBegin = newDate
-                        }
-                        else
-                        {
-                            mapCanvas.mapSettings.temporalBegin = Date.fromLocaleString('')
+                        var newDate = Date.fromLocaleString(Qt.locale(), beginField.text, "yyyy-MM-dd HH:mm:ss");
+                        if (newDate.toLocaleString() !== "") {
+                            mapCanvas.mapSettings.temporalBegin = newDate;
+                        } else {
+                            mapCanvas.mapSettings.temporalBegin = Date.fromLocaleString('');
                         }
                     }
                 }
@@ -92,7 +88,7 @@ Popup {
                     iconColor: Theme.mainTextColor
                     bgcolor: "transparent"
                     onClicked: {
-                        calendarPanel.selectedDate = mapCanvas.mapSettings.temporalBegin
+                        calendarPanel.selectedDate = mapCanvas.mapSettings.temporalBegin;
                         calendarPanel.temporalField = 'begin';
                         calendarPanel.open();
                     }
@@ -113,7 +109,6 @@ Popup {
                 Layout.leftMargin: 20
                 Layout.rightMargin: 20
 
-
                 QfTextField {
                     id: endField
                     Layout.fillWidth: true
@@ -128,14 +123,11 @@ Popup {
                     text: Qt.formatDateTime(mapCanvas.mapSettings.temporalEnd, "yyyy-MM-dd HH:mm:ss")
 
                     onTextEdited: {
-                        var newDate = Date.fromLocaleString(Qt.locale(), endField.text, "yyyy-MM-dd HH:mm:ss")
-                        if ( newDate.toLocaleString() !== "" )
-                        {
-                            mapCanvas.mapSettings.temporalEnd = newDate
-                        }
-                        else
-                        {
-                            mapCanvas.mapSettings.temporalEnd = Date.fromLocaleString('')
+                        var newDate = Date.fromLocaleString(Qt.locale(), endField.text, "yyyy-MM-dd HH:mm:ss");
+                        if (newDate.toLocaleString() !== "") {
+                            mapCanvas.mapSettings.temporalEnd = newDate;
+                        } else {
+                            mapCanvas.mapSettings.temporalEnd = Date.fromLocaleString('');
                         }
                     }
                 }
@@ -145,7 +137,7 @@ Popup {
                     iconColor: Theme.mainTextColor
                     bgcolor: "transparent"
                     onClicked: {
-                        calendarPanel.selectedDate = mapCanvas.mapSettings.temporalEnd
+                        calendarPanel.selectedDate = mapCanvas.mapSettings.temporalEnd;
                         calendarPanel.temporalField = 'end';
                         calendarPanel.open();
                     }
@@ -163,10 +155,10 @@ Popup {
 
         onDateTimePicked: {
             if (temporalField == 'begin') {
-                mapCanvas.mapSettings.temporalBegin = date
+                mapCanvas.mapSettings.temporalBegin = date;
                 beginField.text = Qt.formatDateTime(date, "yyyy-MM-dd HH:mm:ss");
             } else if (temporalField == 'end') {
-                mapCanvas.mapSettings.temporalEnd = date
+                mapCanvas.mapSettings.temporalEnd = date;
                 endField.text = Qt.formatDateTime(date, "yyyy-MM-dd HH:mm:ss");
             }
             temporalField = '';

@@ -1,116 +1,108 @@
 import QtQuick 2.3
 import QtTest 1.0
-
 import org.qfield 1.0
 import Theme 1.0
-
 import "../../src/qml/editorwidgets" as EditorWidgets
 
 TestCase {
-  name: "EditorWidgets"
+    name: "EditorWidgets"
 
-  EditorWidgets.TextEdit {
-    id: textEdit
-    property string value: "DEFAULT_VALUE"
-    property var config: undefined
-    property bool isEnabled: true
-  }
-
-  EditorWidgets.Range {
-    id: range
-    property real value: default_value
-    property var config: undefined
-    property bool isEnabled: true
-
-    readonly property real default_value: 999
-  }
-
-  EditorWidgets.DateTime {
-    id: dateTime
-    fieldIsDate: false // to simulate LayerUtils.fieldType( field ) != 'QDate'
-    property string value: "2022-01-01"
-    property var config: undefined
-    property var field: undefined
-    property bool isEnabled: true
-  }
-
-  EditorWidgets.CheckBox {
-    id: checkBox
-    property bool value: true
-    property var config: undefined
-    property var field: undefined
-  }
-
-  EditorWidgets.ValueMap {
-    id: valueMap
-    property var value: undefined
-    property var config: undefined
-    property var field: undefined
-    property var currentLayer: undefined
-
-    // to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> toggleButtons view
-    Item {
-      id: currentLayerTrue
-      function customProperty(value) {
-        return 100
-      }
+    EditorWidgets.TextEdit {
+        id: textEdit
+        property string value: "DEFAULT_VALUE"
+        property var config: undefined
+        property bool isEnabled: true
     }
 
-    // to to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> comboBox veiw
-    Item {
-      id: currentLayerFalse
-      function customProperty(value) {
-        return 0
-      }
+    EditorWidgets.Range {
+        id: range
+        property real value: default_value
+        property var config: undefined
+        property bool isEnabled: true
+
+        readonly property real default_value: 999
     }
-  }
 
-  EditorWidgets.UuidGenerator{
-    id: uuidGenerator
-    property var value: undefined
-    property var config: undefined
-    property bool isAdding: false
-  }
+    EditorWidgets.DateTime {
+        id: dateTime
+        fieldIsDate: false // to simulate LayerUtils.fieldType( field ) != 'QDate'
+        property string value: "2022-01-01"
+        property var config: undefined
+        property var field: undefined
+        property bool isEnabled: true
+    }
 
+    EditorWidgets.CheckBox {
+        id: checkBox
+        property bool value: true
+        property var config: undefined
+        property var field: undefined
+    }
 
-  /**
+    EditorWidgets.ValueMap {
+        id: valueMap
+        property var value: undefined
+        property var config: undefined
+        property var field: undefined
+        property var currentLayer: undefined
+
+        // to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> toggleButtons view
+        Item {
+            id: currentLayerTrue
+            function customProperty(value) {
+                return 100;
+            }
+        }
+
+        // to to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> comboBox veiw
+        Item {
+            id: currentLayerFalse
+            function customProperty(value) {
+                return 0;
+            }
+        }
+    }
+
+    EditorWidgets.UuidGenerator {
+        id: uuidGenerator
+        property var value: undefined
+        property var config: undefined
+        property bool isAdding: false
+    }
+
+    /**
    * Test case for textEdit widget
    *
    * This function tests the textEdit widget's functionality by setting its config to allow multiline and use html,
    * setting its value to "six", verifying that it contains "six", resetting its config to disable multiline and html,
    * setting its value to "seven", and comparing its children's texts with "six" and "seven".
    */
-  function test_01_textEdit() {
-    const textReadonlyValue = textEdit.children[0]
-    const textField = textEdit.children[1]
-    const textArea = textEdit.children[2]
-
-    compare(textReadonlyValue.text, "") // NOTE: If the config is undefined, the label will be an empty string.
-    compare(textField.text, "DEFAULT_VALUE")
-    compare(textArea.text, "DEFAULT_VALUE")
-
-    textEdit.config = {
-      "IsMultiline": true,
-      "UseHtml": true
+    function test_01_textEdit() {
+        const textReadonlyValue = textEdit.children[0];
+        const textField = textEdit.children[1];
+        const textArea = textEdit.children[2];
+        compare(textReadonlyValue.text, ""); // NOTE: If the config is undefined, the label will be an empty string.
+        compare(textField.text, "DEFAULT_VALUE");
+        compare(textArea.text, "DEFAULT_VALUE");
+        textEdit.config = {
+            "IsMultiline": true,
+            "UseHtml": true
+        };
+        textEdit.value = "SECOND_VALUE";
+        verify(textReadonlyValue.text.search("SECOND_VALUE") !== -1);
+        compare(textField.text, "SECOND_VALUE");
+        verify(textArea.text.search("SECOND_VALUE") !== -1);
+        textEdit.config = {
+            "IsMultiline": false,
+            "UseHtml": false
+        };
+        textEdit.value = "THIRD_VALUE";
+        compare(textReadonlyValue.text, "SECOND_VALUE"); // NOTE: If the values in the config are set to `false`, the label text will not change.
+        compare(textField.text, "THIRD_VALUE");
+        compare(textArea.text, "THIRD_VALUE");
     }
-    textEdit.value = "SECOND_VALUE"
 
-    verify(textReadonlyValue.text.search("SECOND_VALUE") !== -1)
-    compare(textField.text, "SECOND_VALUE")
-    verify(textArea.text.search("SECOND_VALUE") !== -1)
-
-    textEdit.config = {
-      "IsMultiline": false,
-      "UseHtml": false
-    }
-    textEdit.value = "THIRD_VALUE"
-
-    compare(textReadonlyValue.text, "SECOND_VALUE") // NOTE: If the values in the config are set to `false`, the label text will not change.
-    compare(textField.text, "THIRD_VALUE")
-    compare(textArea.text, "THIRD_VALUE")
-  }
-
-  /**
+    /**
    * Test case for range widget
    *
    * This function tests the range widget's functionality by:
@@ -127,57 +119,52 @@ TestCase {
    *
    * Finally, setting the value of the range and verifying that it is displayed correctly in both text and slider formats.
    */
-  function test_01_range() {
-    const sliderRow = range.children[0]
-    const textField = sliderRow.children[0]
-    const valueLabel = range.children[1].children[0]
-    const slider = range.children[1].children[1]
+    function test_01_range() {
+        const sliderRow = range.children[0];
+        const textField = sliderRow.children[0];
+        const valueLabel = range.children[1].children[0];
+        const slider = range.children[1].children[1];
+        compare(textField.text, range.default_value + "");
+        range.config = {
+            "Style": undefined,
+            "Precision": undefined,
+            "Min": undefined,
+            "Max": undefined,
+            "Step": undefined,
+            "Suffix": undefined
+        };
+        range.value = 3;
+        compare(range.widgetStyle, "TextField");
+        compare(range.precision, 1);
+        compare(range.min, -Infinity);
+        compare(range.max, Infinity);
+        compare(range.step, 1);
+        compare(range.suffix, "");
 
-    compare(textField.text, range.default_value + "")
-
-    range.config = {
-      "Style": undefined,
-      "Precision": undefined,
-      "Min": undefined,
-      "Max": undefined,
-      "Step": undefined,
-      "Suffix": undefined
+        // Row
+        // compare(sliderRow.visible, true) // ERROR ? should work but not working!
+        compare(textField.text, "3");
+        range.config = {
+            "Style": "Slider",
+            "Precision": 2,
+            "Min": -10,
+            "Max": 10,
+            "Step": 10,
+            "Suffix": "DEFAULT_SUFFIX"
+        };
+        range.value = 4;
+        compare(range.widgetStyle, "Slider");
+        compare(range.precision, 2);
+        compare(range.min, -10);
+        compare(range.max, 10);
+        compare(range.step, 10);
+        compare(range.suffix, "DEFAULT_SUFFIX");
+        compare(sliderRow.visible, false);
+        compare(valueLabel.text, range.min + ".00DEFAULT_SUFFIX"); // NOTE: using `range.min` because of `rangeItem.parent.value`
+        compare(slider.value, range.min); // NOTE: using `range.min` because of `rangeItem.parent.value`
     }
-    range.value = 3
-    compare(range.widgetStyle, "TextField")
-    compare(range.precision, 1)
-    compare(range.min, -Infinity)
-    compare(range.max, Infinity)
-    compare(range.step, 1)
-    compare(range.suffix, "")
 
-    // Row
-    // compare(sliderRow.visible, true) // ERROR ? should work but not working!
-
-    compare(textField.text, "3")
-
-    range.config = {
-      "Style": "Slider",
-      "Precision": 2,
-      "Min": -10,
-      "Max": 10,
-      "Step": 10,
-      "Suffix": "DEFAULT_SUFFIX"
-    }
-    range.value = 4
-    compare(range.widgetStyle, "Slider")
-    compare(range.precision, 2)
-    compare(range.min, -10)
-    compare(range.max, 10)
-    compare(range.step, 10)
-    compare(range.suffix, "DEFAULT_SUFFIX")
-
-    compare(sliderRow.visible, false)
-    compare(valueLabel.text, range.min + ".00DEFAULT_SUFFIX") // NOTE: using `range.min` because of `rangeItem.parent.value`
-    compare(slider.value, range.min) // NOTE: using `range.min` because of `rangeItem.parent.value`
-  }
-
-  /**
+    /**
    * Test case for datetime widget
    *
    * This function tests the datetime widget's functionality by:
@@ -192,37 +179,32 @@ TestCase {
    *
    * TODO: Test `fieldIsDate = true` too, if the field is a date only -> revert the time zone offset.
    */
-  function test_01_dateTime() {
-    const label = dateTime.children[1].children[0]
-
-    compare(label.text, "") // NOTE: setting value without setting `config` and `field` objects won't work
-
-    const testTimes = ["2023-01-01", "2023-01-01 23:33:56"]
-    const displayFormats = ["yyyy-MM-dd", "yyyy-MM.dd", "yyyy-MM-dd HH:mm:ss", "HH:mm:ss", "HH:mm"]
-    const results = ["2023-01-01", "2023-01.01", "2023-01-01 00:00:00", "00:00:00", "00:00",
-                     "2023-01-01", "2023-01.01", "2023-01-01 23:33:56", "23:33:56", "23:33"]
-    let resultIdx = 0
-
-    for (let time of testTimes) {
-      for (let format of displayFormats) {
-        dateTime.fieldIsDate = false;
-        dateTime.config = {
-          "display_format": format,
-          "calendar_popup": true,
-          "field_format": "UNKNOWN!",
-          "allow_null": false
+    function test_01_dateTime() {
+        const label = dateTime.children[1].children[0];
+        compare(label.text, ""); // NOTE: setting value without setting `config` and `field` objects won't work
+        const testTimes = ["2023-01-01", "2023-01-01 23:33:56"];
+        const displayFormats = ["yyyy-MM-dd", "yyyy-MM.dd", "yyyy-MM-dd HH:mm:ss", "HH:mm:ss", "HH:mm"];
+        const results = ["2023-01-01", "2023-01.01", "2023-01-01 00:00:00", "00:00:00", "00:00", "2023-01-01", "2023-01.01", "2023-01-01 23:33:56", "23:33:56", "23:33"];
+        let resultIdx = 0;
+        for (let time of testTimes) {
+            for (let format of displayFormats) {
+                dateTime.fieldIsDate = false;
+                dateTime.config = {
+                    "display_format": format,
+                    "calendar_popup": true,
+                    "field_format": "UNKNOWN!",
+                    "allow_null": false
+                };
+                dateTime.field = {
+                    "isDateOrTime": true
+                };
+                dateTime.value = time;
+                compare(label.text, results[resultIdx++]);
+            }
         }
-        dateTime.field = {
-          "isDateOrTime": true
-        }
-
-        dateTime.value = time
-        compare(label.text, results[resultIdx++])
-      }
     }
-  }
 
-  /**
+    /**
    * Test case for checkBox widget
    *
    * This function tests the checkBox widget's functionality by:
@@ -240,76 +222,67 @@ TestCase {
    * - Sets `TextDisplayMethod` to 0 and verifies that the display is different
    * - Sets `type` of the field to 0 and verifies that the display is different
    */
-  function test_01_checkBox() {
-    const labelItem = checkBox.children[0]
-    const checkBoxItem = checkBox.children[1]
+    function test_01_checkBox() {
+        const labelItem = checkBox.children[0];
+        const checkBoxItem = checkBox.children[1];
+        compare(checkBox.value, true);
+        compare(checkBox.isBool, false);
+        compare(checkBox.isNull, false);
+        compare(checkBox.checkedLabel, ""); // NOTE: `checkedLabel` initialized with "" when config is undefined
+        compare(checkBox.uncheckedLabel, ""); // NOTE: `uncheckedLabel` initialized with "" when config is undefined
+        compare(labelItem.text, "");
+        compare(checkBoxItem.checked, false); // NOTE: even if `value` be true, without config `checked` will be false
+        checkBox.config = {
+            "TextDisplayMethod": 1,
+            "CheckedState": "DEFAULT_CHECKED_STATE",
+            "UncheckedState": "DEFAULT_UNCHECKED_STATE"
+        };
+        checkBox.field = {
+            "type": 1
+        };
+        checkBox.value = true;
+        compare(checkBox.value, true);
+        compare(checkBox.isBool, true);
+        compare(checkBox.isNull, false);
+        compare(checkBox.checkedLabel, "DEFAULT_CHECKED_STATE");
+        compare(checkBox.uncheckedLabel, "DEFAULT_UNCHECKED_STATE");
+        compare(labelItem.text, "DEFAULT_CHECKED_STATE");
+        compare(checkBoxItem.checked, true);
+        checkBox.value = false;
+        compare(labelItem.text, "DEFAULT_UNCHECKED_STATE");
+        compare(checkBoxItem.checked, false);
 
-    compare(checkBox.value, true)
-    compare(checkBox.isBool, false)
-    compare(checkBox.isNull, false)
-    compare(checkBox.checkedLabel, "") // NOTE: `checkedLabel` initialized with "" when config is undefined
-    compare(checkBox.uncheckedLabel, "") // NOTE: `uncheckedLabel` initialized with "" when config is undefined
+        // test TextDisplayMethod = 0
+        checkBox.config = {
+            "TextDisplayMethod": 0,
+            "CheckedState": "DEFAULT_CHECKED_STATE",
+            "UncheckedState": "DEFAULT_UNCHECKED_STATE"
+        };
+        checkBox.field = {
+            "type": 1
+        };
+        checkBox.value = true;
+        compare(checkBox.checkedLabel, "True");
+        compare(checkBox.uncheckedLabel, "False");
 
-    compare(labelItem.text, "")
-    compare(checkBoxItem.checked, false) // NOTE: even if `value` be true, without config `checked` will be false
-
-    checkBox.config = {
-      "TextDisplayMethod": 1,
-      "CheckedState": "DEFAULT_CHECKED_STATE",
-      "UncheckedState": "DEFAULT_UNCHECKED_STATE"
+        // test field type = 0
+        checkBox.config = {
+            "TextDisplayMethod": 1,
+            "CheckedState": "DEFAULT_CHECKED_STATE",
+            "UncheckedState": "DEFAULT_UNCHECKED_STATE"
+        };
+        checkBox.field = {
+            "type": 0
+        };
+        checkBox.value = true;
+        compare(labelItem.text, "DEFAULT_UNCHECKED_STATE"); // NOTE: value is true but it in unchecked state
+        compare(checkBoxItem.checked, false); // NOTE: value is true but its not checked
+        checkBox.value = false;
+        compare(labelItem.text, "DEFAULT_UNCHECKED_STATE");
+        compare(checkBoxItem.checked, false);
     }
-    checkBox.field = {
-      "type": 1
-    }
-    checkBox.value = true
-    compare(checkBox.value, true)
-    compare(checkBox.isBool, true)
-    compare(checkBox.isNull, false)
-    compare(checkBox.checkedLabel, "DEFAULT_CHECKED_STATE")
-    compare(checkBox.uncheckedLabel, "DEFAULT_UNCHECKED_STATE")
 
-    compare(labelItem.text, "DEFAULT_CHECKED_STATE")
-    compare(checkBoxItem.checked, true)
-
-    checkBox.value = false
-
-    compare(labelItem.text, "DEFAULT_UNCHECKED_STATE")
-    compare(checkBoxItem.checked, false)
-
-    // test TextDisplayMethod = 0
-    checkBox.config = {
-      "TextDisplayMethod": 0,
-      "CheckedState": "DEFAULT_CHECKED_STATE",
-      "UncheckedState": "DEFAULT_UNCHECKED_STATE"
-    }
-    checkBox.field = {
-      "type": 1
-    }
-    checkBox.value = true
-    compare(checkBox.checkedLabel, "True")
-    compare(checkBox.uncheckedLabel, "False")
-
-    // test field type = 0
-    checkBox.config = {
-      "TextDisplayMethod": 1,
-      "CheckedState": "DEFAULT_CHECKED_STATE",
-      "UncheckedState": "DEFAULT_UNCHECKED_STATE"
-    }
-    checkBox.field = {
-      "type": 0
-    }
-    checkBox.value = true
-
-    compare(labelItem.text, "DEFAULT_UNCHECKED_STATE") // NOTE: value is true but it in unchecked state
-    compare(checkBoxItem.checked, false) // NOTE: value is true but its not checked
-
-    checkBox.value = false
-
-    compare(labelItem.text, "DEFAULT_UNCHECKED_STATE")
-    compare(checkBoxItem.checked, false)
-  }
-
-  /**
+    /**
    * Tests the valueMap object and its properties
    *
    * This function tests the valueMap object and its properties, including:
@@ -321,42 +294,38 @@ TestCase {
    *
    * TODO: needs more checks on search and changing selected item in combobox or toggleButtons
    */
-  function test_01_valueMap() {
-    const toggleButtonsItem = valueMap.children[0].children[0]
-    const comboBoxItem = valueMap.children[0].children[1]
-
-    compare(valueMap.toggleButtonsThreshold, 0)
-    compare(valueMap.state, "comboBoxItemView")
-    compare(valueMap.currentItemCount, 0)
-    compare(comboBoxItem.model.length, undefined)
-    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-
-    valueMap.config = {
-      "map": [{
-          "Buckfast bee": "Apis Mellifera"
-        }, {
-          "Carniolan honey bee": "Apis Mellifera Carnica"
-        }, {
-          "European honey bee": "Apis Mellifera Mellifera"
-        }]
+    function test_01_valueMap() {
+        const toggleButtonsItem = valueMap.children[0].children[0];
+        const comboBoxItem = valueMap.children[0].children[1];
+        compare(valueMap.toggleButtonsThreshold, 0);
+        compare(valueMap.state, "comboBoxItemView");
+        compare(valueMap.currentItemCount, 0);
+        compare(comboBoxItem.model.length, undefined);
+        compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex);
+        valueMap.config = {
+            "map": [{
+                    "Buckfast bee": "Apis Mellifera"
+                }, {
+                    "Carniolan honey bee": "Apis Mellifera Carnica"
+                }, {
+                    "European honey bee": "Apis Mellifera Mellifera"
+                }]
+        };
+        valueMap.currentLayer = currentLayerTrue;
+        valueMap.value = "Apis Mellifera";
+        compare(valueMap.state, "toggleButtonsView");
+        compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex);
+        compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex);
+        compare(valueMap.currentKeyValue, "Apis Mellifera");
+        valueMap.currentLayer = currentLayerFalse;
+        valueMap.value = "Apis Mellifera Carnica";
+        compare(valueMap.state, "comboBoxItemView");
+        compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex);
+        compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex);
+        compare(valueMap.currentKeyValue, "Apis Mellifera Carnica");
     }
 
-    valueMap.currentLayer = currentLayerTrue
-    valueMap.value = "Apis Mellifera"
-    compare(valueMap.state, "toggleButtonsView")
-    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-    compare(valueMap.currentKeyValue, "Apis Mellifera")
-
-    valueMap.currentLayer = currentLayerFalse
-    valueMap.value = "Apis Mellifera Carnica"
-    compare(valueMap.state, "comboBoxItemView")
-    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-    compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex)
-    compare(valueMap.currentKeyValue, "Apis Mellifera Carnica")
-  }
-
-  /**
+    /**
    * Tests the UUIDGenerator object and its properties
    *
    * This function tests the UUIDGenerator object and its properties, including:
@@ -368,19 +337,17 @@ TestCase {
    * TODO:
    * - The generateUUID function
    */
-  function test_01_UuidGenerator() {
-    const label = uuidGenerator.children[0]
-    compare(label.text, "");
-    compare(uuidGenerator.isLoaded, false);
-
-    uuidGenerator.value = "ANY_VALUE"
-    compare(label.text, "ANY_VALUE");
-
-    uuidGenerator.isAdding = true
-    uuidGenerator.isLoaded = true
-    uuidGenerator.value = ""
-    // NOTE: with isAdding && isLoaded && empty value, label should be StringUtils.createUuid()
-    // but because `StringUtils` is not defined it should remain as its previous value
-    compare(label.text, "ANY_VALUE");
-  }
+    function test_01_UuidGenerator() {
+        const label = uuidGenerator.children[0];
+        compare(label.text, "");
+        compare(uuidGenerator.isLoaded, false);
+        uuidGenerator.value = "ANY_VALUE";
+        compare(label.text, "ANY_VALUE");
+        uuidGenerator.isAdding = true;
+        uuidGenerator.isLoaded = true;
+        uuidGenerator.value = "";
+        // NOTE: with isAdding && isLoaded && empty value, label should be StringUtils.createUuid()
+        // but because `StringUtils` is not defined it should remain as its previous value
+        compare(label.text, "ANY_VALUE");
+    }
 }

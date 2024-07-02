@@ -1,10 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
@@ -23,17 +21,17 @@ Popup {
         height: locatorfiltersList.height + 60
         padding: 10
         header: QfPageHeader {
-          id: pageHeader
-          title: qsTr( "Search Bar Settings" )
+            id: pageHeader
+            title: qsTr("Search Bar Settings")
 
-          showBackButton: false
-          showApplyButton: false
-          showCancelButton: true
-          backgroundFill: false
+            showBackButton: false
+            showApplyButton: false
+            showCancelButton: true
+            backgroundFill: false
 
-          onCancel: {
-            popup.close()
-          }
+            onCancel: {
+                popup.close();
+            }
         }
 
         Column {
@@ -43,7 +41,7 @@ Popup {
             ListView {
                 id: locatorfiltersList
                 width: parent.width
-                height: Math.min( childrenRect.height, mainWindow.height - 160 );
+                height: Math.min(childrenRect.height, mainWindow.height - 160)
                 clip: true
 
                 delegate: Rectangle {
@@ -79,23 +77,23 @@ Popup {
                             Layout.fillWidth: true
                             leftPadding: 5
                             bottomPadding: 5
-                            text: qsTr('When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.').arg('<b>'+Prefix+'</b>')
+                            text: qsTr('When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.').arg('<b>' + Prefix + '</b>')
                             font: Theme.tipFont
                             color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                         }
                         CheckBox {
-                              Layout.fillWidth: true
-                              topPadding: 5
-                              bottomPadding: 5
-                              text: qsTr('Enable %1 locator by default').arg('<b>'+Name+'</b>')
-                              font: Theme.tipFont
-                              indicator.height: 16
-                              indicator.width: 16
-                              indicator.implicitHeight: 24
-                              indicator.implicitWidth: 24
-                              checked: Default? true : false
-                              onCheckedChanged: Default = checked
+                            Layout.fillWidth: true
+                            topPadding: 5
+                            bottomPadding: 5
+                            text: qsTr('Enable %1 locator by default').arg('<b>' + Name + '</b>')
+                            font: Theme.tipFont
+                            indicator.height: 16
+                            indicator.width: 16
+                            indicator.implicitHeight: 24
+                            indicator.implicitWidth: 24
+                            checked: Default ? true : false
+                            onCheckedChanged: Default = checked
                         }
                     }
                 }

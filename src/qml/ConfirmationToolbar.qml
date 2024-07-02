@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -21,7 +20,7 @@ VisibilityFadingRow {
 
     QfToolButton {
         id: cancelButton
-        iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
+        iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
         visible: true
         round: true
         bgcolor: Theme.darkRed
@@ -31,7 +30,7 @@ VisibilityFadingRow {
 
     QfToolButton {
         id: confirmButton
-        iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
+        iconSource: Theme.getThemeIcon("ic_check_white_48dp")
         visible: true
         round: true
         bgcolor: Theme.mainColor
