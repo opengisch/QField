@@ -111,57 +111,36 @@ TestCase {
     compare(tabRow.model.hasTabs, true)
     compare(tabRow.model.rowCount(), 6)
 
-    const tabs = ["General", "Picture", "Issues", "Review", "Consumption", "GNSS"]
-    for (var i = 0; i < tabRow.model.rowCount(); ++i) {
-      tabRow.currentIndex = i
-      const delegate = Utils.findChildren(featureForm, "tabRowdDlegate_" + i)
-      compare(delegate.text, tabs[i])
-      compare(delegate.isCurrentIndex, true)
-      compare(tabRow.currentIndex, i)
-    }
+    const expectedTabs = ["General", "Picture", "Issues", "Review", "Consumption", "GNSS"]
+    compareFeatureFormTabNamesWithExpectedResults(expectedTabs)
 
-    // test fields in tabRow.currentIndex = 0 ("General")
-    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater")
-    const testModel = [{
-                         "containerName": "Number of Boxes",
-                         "widgetType": "Range",
-                         "source": "editorwidgets/Range.qml",
-                         "value": 7
-                       }, {
-                         "containerName": "Species of Bees",
-                         "widgetType": "ValueMap",
-                         "source": "editorwidgets/ValueMap.qml",
-                         "value": "Apis Mellifera Carnica"
-                       }, {
-                         "containerName": "Amount of Bees",
-                         "widgetType": "ValueMap",
-                         "source": "editorwidgets/ValueMap.qml",
-                         "value": "1000"
-                       }, {
-                         "containerName": "Beekeeper",
-                         "widgetType": "TextEdit",
-                         "source": "editorwidgets/TextEdit.qml",
-                         "value": "Stephen Hawking"
-                       }, {
-                         "containerName": "Yearly Harvest (kg)",
-                         "widgetType": "Range",
-                         "source": "editorwidgets/Range.qml",
-                         "value": 10
-                       }]
-
-    for (var j = 0; j < fieldItem.count; ++j) {
-      const itemLoader = fieldItem.itemAt(j).children[2].children[0]
-      const fieldContainer = fieldItem.itemAt(j).children[2].children[1]
-      const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName)
-      const attributeConfig = attributeEditorLoader.config
-      const initialValue = attributeEditorLoader.currentFeature.attribute(itemLoader.containerName)
-
-      compare(itemLoader.containerName, testModel[j].containerName)
-      compare(fieldContainer.children[0].text, testModel[j].containerName)
-      compare(attributeEditorLoader.widget, testModel[j].widgetType)
-      compare(attributeEditorLoader.source, testModel[j].source)
-      compare(initialValue, testModel[j].value)
-    }
+    const expectedModel = [{
+                             "containerName": "Number of Boxes",
+                             "widgetType": "Range",
+                             "source": "editorwidgets/Range.qml",
+                             "value": 7
+                           }, {
+                             "containerName": "Species of Bees",
+                             "widgetType": "ValueMap",
+                             "source": "editorwidgets/ValueMap.qml",
+                             "value": "Apis Mellifera Carnica"
+                           }, {
+                             "containerName": "Amount of Bees",
+                             "widgetType": "ValueMap",
+                             "source": "editorwidgets/ValueMap.qml",
+                             "value": "1000"
+                           }, {
+                             "containerName": "Beekeeper",
+                             "widgetType": "TextEdit",
+                             "source": "editorwidgets/TextEdit.qml",
+                             "value": "Stephen Hawking"
+                           }, {
+                             "containerName": "Yearly Harvest (kg)",
+                             "widgetType": "Range",
+                             "source": "editorwidgets/Range.qml",
+                             "value": 10
+                           }]
+    compareFeatureFormWithExpectedResults(expectedModel)
   }
 
 
@@ -206,46 +185,21 @@ TestCase {
     const titleLabel = Utils.findChildren(featureForm, "titleLabel")
     compare(titleLabel.text, "View feature on Fields")
 
-    const tabRow = Utils.findChildren(featureForm, "tabRow")
-    compare(tabRow.model.hasTabs, true)
-    compare(tabRow.model.rowCount(), 4)
+    const expectedTabs = ["General", "Picture", "Review", "Consuming Apiaries"]
+    compareFeatureFormTabNamesWithExpectedResults(expectedTabs)
 
-    const tabs = ["General", "Picture", "Review", "Consuming Apiaries"]
-    for (var i = 0; i < tabRow.model.rowCount(); ++i) {
-      tabRow.currentIndex = i
-      const delegate = Utils.findChildren(featureForm, "tabRowdDlegate_" + i)
-      compare(delegate.text, tabs[i])
-      compare(delegate.isCurrentIndex, true)
-      compare(tabRow.currentIndex, i)
-    }
-
-    // test fields in tabRow.currentIndex = 0 ("General")
-    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater")
-    const testModel = [{
-                         "containerName": "Proprietor",
-                         "widgetType": "ValueMap",
-                         "source": "editorwidgets/ValueMap.qml",
-                         "value": "national"
-                       }, {
-                         "containerName": "Plants",
-                         "widgetType": "ValueMap",
-                         "source": "editorwidgets/ValueMap.qml",
-                         "value": "taraxacum"
-                       }]
-
-    for (var j = 0; j < fieldItem.count; ++j) {
-      const itemLoader = fieldItem.itemAt(j).children[2].children[0]
-      const fieldContainer = fieldItem.itemAt(j).children[2].children[1]
-      const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName)
-      const attributeConfig = attributeEditorLoader.config
-      const initialValue = attributeEditorLoader.currentFeature.attribute(itemLoader.containerName)
-
-      compare(itemLoader.containerName, testModel[j].containerName)
-      compare(fieldContainer.children[0].text, testModel[j].containerName)
-      compare(attributeEditorLoader.widget, testModel[j].widgetType)
-      compare(attributeEditorLoader.source, testModel[j].source)
-      compare(initialValue, testModel[j].value)
-    }
+    const expectedModel = [{
+                             "containerName": "Proprietor",
+                             "widgetType": "ValueMap",
+                             "source": "editorwidgets/ValueMap.qml",
+                             "value": "national"
+                           }, {
+                             "containerName": "Plants",
+                             "widgetType": "ValueMap",
+                             "source": "editorwidgets/ValueMap.qml",
+                             "value": "taraxacum"
+                           }]
+    compareFeatureFormWithExpectedResults(expectedModel)
   }
 
 
@@ -288,36 +242,53 @@ TestCase {
     const tabRow = Utils.findChildren(featureForm, "tabRow")
     compare(tabRow.model.hasTabs, undefined) // Notice: its better to be false not undefined
 
-    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater")
-    const testModel = [{
-                         "containerName": "Track Name",
-                         "widgetType": "TextEdit",
-                         "source": "editorwidgets/TextEdit.qml",
-                         "value": "Munt Sura"
-                       }, {
-                         "containerName": "Region",
-                         "widgetType": "TextEdit",
-                         "source": "editorwidgets/TextEdit.qml",
-                         "value": ""
-                       }, {
-                         "containerName": "Editor Name",
-                         "widgetType": "TextEdit",
-                         "source": "editorwidgets/TextEdit.qml",
-                         "value": "Linda Camathiias"
-                       }]
+    const expectedModel = [{
+                             "containerName": "Track Name",
+                             "widgetType": "TextEdit",
+                             "source": "editorwidgets/TextEdit.qml",
+                             "value": "Munt Sura"
+                           }, {
+                             "containerName": "Region",
+                             "widgetType": "TextEdit",
+                             "source": "editorwidgets/TextEdit.qml",
+                             "value": ""
+                           }, {
+                             "containerName": "Editor Name",
+                             "widgetType": "TextEdit",
+                             "source": "editorwidgets/TextEdit.qml",
+                             "value": "Linda Camathiias"
+                           }]
+    compareFeatureFormWithExpectedResults(expectedModel)
+  }
 
+  function compareFeatureFormTabNamesWithExpectedResults(expectedTabs) {
+    const tabRow = Utils.findChildren(featureForm, "tabRow")
+    compare(tabRow.model.hasTabs, true)
+    compare(tabRow.model.rowCount(), expectedTabs.length)
+    for (var i = 0; i < tabRow.model.rowCount(); ++i) {
+      tabRow.currentIndex = i
+      const delegate = Utils.findChildren(featureForm, "tabRowdDlegate_" + i)
+      compare(delegate.text, expectedTabs[i])
+      compare(delegate.isCurrentIndex, true)
+      compare(tabRow.currentIndex, i)
+    }
+  }
+
+  function compareFeatureFormWithExpectedResults(expectedModel) {
+    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater")
     for (var j = 0; j < fieldItem.count; ++j) {
       const itemLoader = fieldItem.itemAt(j).children[2].children[0]
       const fieldContainer = fieldItem.itemAt(j).children[2].children[1]
+      const fieldLabel = fieldContainer.children[0].text
       const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName)
       const attributeConfig = attributeEditorLoader.config
       const initialValue = attributeEditorLoader.currentFeature.attribute(itemLoader.containerName)
 
-      compare(itemLoader.containerName, testModel[j].containerName)
-      compare(fieldContainer.children[0].text, testModel[j].containerName)
-      compare(attributeEditorLoader.widget, testModel[j].widgetType)
-      compare(attributeEditorLoader.source, testModel[j].source)
-      compare(initialValue, testModel[j].value)
+      compare(itemLoader.containerName, expectedModel[j].containerName)
+      compare(fieldLabel, expectedModel[j].containerName)
+      compare(attributeEditorLoader.widget, expectedModel[j].widgetType)
+      compare(attributeEditorLoader.source, expectedModel[j].source)
+      compare(initialValue, expectedModel[j].value)
     }
   }
 }
