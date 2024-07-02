@@ -95,8 +95,8 @@ class FeatureCheckListModel : public FeatureListModel
     void listUpdated();
 
   private:
-    void setChecked( const QModelIndex &index );
-    void setUnchecked( const QModelIndex &index );
+    void setChecked( const QModelIndex &idx );
+    void setUnchecked( const QModelIndex &idx );
     QVariant::Type fkType() const;
 
     QgsField mAttributeField;

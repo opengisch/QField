@@ -116,10 +116,6 @@ EditorWidgetBase {
 
             checked: model.checked
 
-            onCheckedChanged: {
-              model.checked = checked
-            }
-
             indicator.height: 16
             indicator.width: 16
             indicator.implicitHeight: 24
@@ -147,7 +143,7 @@ EditorWidgetBase {
 
           onClicked: {
             if (isEnabled) {
-              checkBox.checked = !checkBox.checked
+              model.checked = !model.checked
             }
           }
         }
