@@ -3187,6 +3187,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>When switched on, the map can be rotated by the user.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Prevent digitizing while geofencing is in alert mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the digitizing of new features will be blocked if a project&apos;s geofencing is active and the current position triggers an alert.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4650,6 +4658,22 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position has trespassed into ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from ‘%1’</source>
         <translation type="unfinished"/>
     </message>
 </context>
