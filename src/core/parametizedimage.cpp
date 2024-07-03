@@ -126,7 +126,7 @@ void ParametizedImage::paint( QPainter *painter )
     const double drawnHeight = std::ceil( sourceRatio >= itemRatio ? mSourceSize.height() * size().width() / mSourceSize.width() : size().height() );
     const double devicePixelRatio = window()->screen()->devicePixelRatio();
     QImage sourceImage = QgsApplication::instance()->imageCache()->pathAsImage( mSource, QSize( drawnWidth * devicePixelRatio, drawnHeight * devicePixelRatio ), true, 1, fitsInCache, true );
-    painter->drawImage( ( size().width() - drawnWidth ) / 2, ( size().height() - drawnHeight ) / 2, sourceImage );
+    painter->drawImage( QRectF( ( size().width() - drawnWidth ) / 2, ( size().height() - drawnHeight ) / 2, drawnWidth, drawnHeight ), sourceImage );
   }
   else
   {
