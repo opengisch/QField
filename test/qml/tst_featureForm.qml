@@ -10,10 +10,6 @@ import "Utils.js" as Utils
 TestCase {
   name: "FeatureForm"
 
-  Item {
-    id: mainWindowItem
-  }
-
   QFieldControls.FeatureForm {
     id: featureForm
     property var mainWindow: mainWindowItem
@@ -261,6 +257,44 @@ TestCase {
     compareFeatureFormWithExpectedResults(expectedModel)
   }
 
+
+  /**
+   * Test case for featureForm
+   *
+   * This test case tests the functionality of the featureForm component.
+   *
+   * It sets the selected layer and feature, and then checks the initial state of the attribute editor.
+   * It then changes the value of the attribute editor, toggles the edit state, and checks that the value has been updated correctly.
+   */
+  function test_04_featureForm() {
+    featureForm.mSelectedLayer = qgisProject.mapLayersByName('Apiary')[0]
+    featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("64")
+
+    const toolbar = Utils.findChildren(featureForm, "toolbar")
+    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater")
+    const itemLoader = fieldItem.itemAt(0).children[2].children[0]
+    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName)
+
+    compare(itemLoader.containerName, "Number of Boxes")
+    compare(attributeEditorLoader.isEditing, false)
+    compare(attributeEditorLoader.value, 7)
+
+    featureForm.state = 'Edit'
+
+    compare(attributeEditorLoader.isEditing, true)
+
+    attributeEditorLoader.value = 99
+
+    compare(attributeEditorLoader.value, 99)
+  }
+
+
+  /**
+   * Compares the feature form tab names with expected results by checking if the tabs exist and
+   * then iterating through each tab to compare its name with the expected name.
+   *
+   * @param expectedTabs - The expected tab names to compare with the feature form tabs.
+   */
   function compareFeatureFormTabNamesWithExpectedResults(expectedTabs) {
     const tabRow = Utils.findChildren(featureForm, "tabRow")
     compare(tabRow.model.hasTabs, true)
@@ -274,6 +308,13 @@ TestCase {
     }
   }
 
+
+  /**
+   * Compares the feature form with expected results by iterating through each field in the form and
+   * comparing its properties with the expected values.
+   *
+   * @param expectedModel - The expected model to compare with the feature form.
+   */
   function compareFeatureFormWithExpectedResults(expectedModel) {
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater")
     for (var j = 0; j < fieldItem.count; ++j) {
@@ -290,5 +331,34 @@ TestCase {
       compare(attributeEditorLoader.source, expectedModel[j].source)
       compare(initialValue, expectedModel[j].value)
     }
+  }
+
+  // dummy useless item to fix static id problems and avoid warnings
+  Item {
+    id: mainWindowItem
+  }
+
+  Item {
+    id: qfieldSettings
+    property bool autoSave: false
+  }
+
+  Item {
+    id: coordinateLocator
+    property string positionInformation: ""
+    property string overrideLocation: ""
+    property string topSnappingResult: ""
+  }
+
+  Item {
+    id: projectInfo
+    property string cloudUserInformation: ""
+  }
+
+  Item {
+    id: sketcher
+
+    signal finished
+    signal cancelled
   }
 }
