@@ -271,6 +271,7 @@ if(WITH_VCPKG)
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/svg/" DESTINATION "${CMAKE_INSTALL_DATADIR}/qgis/svg")
   install(DIRECTORY "${PROJ_DATA_PATH}/" DESTINATION "${CMAKE_INSTALL_DATADIR}/proj/")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "${CMAKE_INSTALL_DATADIR}/gdal")
+  install(FILES "${CMAKE_BINARY_DIR}/cacert.pem" DESTINATION ${CMAKE_INSTALL_DATADIR}/)
 
   add_dependencies(qfield deploy)
 endif()
