@@ -3,7 +3,6 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-
 import Theme 1.0
 import org.qfield 1.0
 
@@ -45,7 +44,7 @@ Item {
         height: 48
 
         onClicked: {
-          tabRow.currentIndex = index
+          tabRow.currentIndex = index;
         }
 
         background: Rectangle {
@@ -68,9 +67,7 @@ Item {
       }
 
       onCurrentIndexChanged: {
-        processingAlgorithmsModel.filters = currentIndex == 0
-                                           ? ProcessingAlgorithmsModel.InPlaceFilter | ProcessingAlgorithmsModel.FavoriteFilter
-                                           : ProcessingAlgorithmsModel.InPlaceFilter
+        processingAlgorithmsModel.filters = currentIndex == 0 ? ProcessingAlgorithmsModel.InPlaceFilter | ProcessingAlgorithmsModel.FavoriteFilter : ProcessingAlgorithmsModel.InPlaceFilter;
       }
     }
 
@@ -94,7 +91,10 @@ Item {
           color: Theme.controlBorderColor
 
           Text {
-            anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+            anchors {
+              horizontalCenter: parent.horizontalCenter
+              verticalCenter: parent.verticalCenter
+            }
             font.bold: true
             font.pointSize: Theme.resultFont.pointSize
             color: Theme.mainTextColor
@@ -107,10 +107,10 @@ Item {
         id: itemBackground
         anchors {
           left: parent ? parent.left : undefined
-          right: parent ? parent.right: undefined
+          right: parent ? parent.right : undefined
         }
         focus: true
-        height: Math.max( 48, itemText.height )
+        height: Math.max(48, itemText.height)
         color: "transparent"
 
         Ripple {
@@ -142,7 +142,7 @@ Item {
           anchors.fill: parent
 
           onClicked: {
-            processingAlgorithmsList.algorithmSelected(AlgorithmId)
+            processingAlgorithmsList.algorithmSelected(AlgorithmId);
           }
         }
 
@@ -160,7 +160,7 @@ Item {
           opacity: AlgorithmFavorite ? 1.0 : 0.75
 
           onClicked: {
-            AlgorithmFavorite = !AlgorithmFavorite
+            AlgorithmFavorite = !AlgorithmFavorite;
           }
         }
 

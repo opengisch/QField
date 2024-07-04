@@ -7,10 +7,20 @@ Row {
   opacity: 0
 
   states: [
-      State { when: visibilityFadingRow.stateVisible;
-              PropertyChanges { target: visibilityFadingRow; opacity: 1.0 }},
-      State { when: !visibilityFadingRow.stateVisible;
-              PropertyChanges { target: visibilityFadingRow; opacity: 0.0 }}
+    State {
+      when: visibilityFadingRow.stateVisible
+      PropertyChanges {
+        target: visibilityFadingRow
+        opacity: 1.0
+      }
+    },
+    State {
+      when: !visibilityFadingRow.stateVisible
+      PropertyChanges {
+        target: visibilityFadingRow
+        opacity: 0.0
+      }
+    }
   ]
 
   transitions: Transition {

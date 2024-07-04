@@ -1,9 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qfield 1.0
-
 import Theme 1.0
 
 Item {
@@ -22,8 +20,10 @@ Item {
   }
 
   function getSettings() {
-    return {'name': deviceName,
-            'address': deviceAddress};
+    return {
+      "name": deviceName,
+      "address": deviceAddress
+    };
   }
 
   Component.onCompleted: {
@@ -38,9 +38,7 @@ Item {
 
     Label {
       Layout.fillWidth: true
-      text: serialPortComboBox.count > 0
-            ? qsTr( "Select the serial port from the list below:" )
-            : qsTr( "No serial ports detected, refresh the list once a device is connected." )
+      text: serialPortComboBox.count > 0 ? qsTr("Select the serial port from the list below:") : qsTr("No serial ports detected, refresh the list once a device is connected.")
       font: Theme.defaultFont
 
       wrapMode: Text.WordWrap
@@ -82,23 +80,23 @@ Item {
     }
 
     Label {
-        id: serialPortName
-        Layout.fillWidth: true
-        visible: deviceAddress != ''
-        font: Theme.defaultFont
-        color: Theme.secondaryTextColor
-        text: qsTr('Serial port display name:') + '\n ' + deviceName
-        wrapMode: Text.WordWrap
+      id: serialPortName
+      Layout.fillWidth: true
+      visible: deviceAddress != ''
+      font: Theme.defaultFont
+      color: Theme.secondaryTextColor
+      text: qsTr('Serial port display name:') + '\n ' + deviceName
+      wrapMode: Text.WordWrap
     }
 
     Label {
-        id: serialPortAddress
-        Layout.fillWidth: true
-        visible: deviceAddress != ''
-        font: Theme.defaultFont
-        color: Theme.secondaryTextColor
-        text: qsTr('Serial port address:') + '\n ' + deviceAddress
-        wrapMode: Text.WordWrap
+      id: serialPortAddress
+      Layout.fillWidth: true
+      visible: deviceAddress != ''
+      font: Theme.defaultFont
+      color: Theme.secondaryTextColor
+      text: qsTr('Serial port address:') + '\n ' + deviceAddress
+      wrapMode: Text.WordWrap
     }
   }
 }

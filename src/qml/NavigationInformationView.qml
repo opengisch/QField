@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -38,8 +37,8 @@ Rectangle {
       } else {
         navigation.previousDestinationVertex();
       }
-
-      if (interval > 100) interval = interval * 0.8;
+      if (interval > 100)
+        interval = interval * 0.8;
     }
   }
 
@@ -67,16 +66,16 @@ Rectangle {
           iconColor: Theme.mainTextColor
 
           onPressed: {
-            navigation.previousDestinationVertex()
+            navigation.previousDestinationVertex();
             featureVertexTimer.moveForward = false;
-            featureVertexTimer.interval = 700
-            featureVertexTimer.restart()
+            featureVertexTimer.interval = 700;
+            featureVertexTimer.restart();
           }
           onReleased: {
-            featureVertexTimer.stop()
+            featureVertexTimer.stop();
           }
           onCanceled: {
-            featureVertexTimer.stop()
+            featureVertexTimer.stop();
           }
         }
 
@@ -104,16 +103,16 @@ Rectangle {
           iconColor: Theme.mainTextColor
 
           onPressed: {
-            navigation.nextDestinationVertex()
+            navigation.nextDestinationVertex();
             featureVertexTimer.moveForward = true;
-            featureVertexTimer.interval = 700
-            featureVertexTimer.restart()
+            featureVertexTimer.interval = 700;
+            featureVertexTimer.restart();
           }
           onReleased: {
-            featureVertexTimer.stop()
+            featureVertexTimer.stop();
           }
           onCanceled: {
-            featureVertexTimer.stop()
+            featureVertexTimer.stop();
           }
         }
       }
@@ -126,8 +125,8 @@ Rectangle {
       width: parent.width
       height: grid.rows * navigationInformationView.cellHeight
       flow: GridLayout.TopToBottom
-      rows: parent.width > 620? 1 : 2
-      property double cellWidth: grid.width / ( ceilsCount / grid.rows )
+      rows: parent.width > 620 ? 1 : 2
+      property double cellWidth: grid.width / (ceilsCount / grid.rows)
 
       Rectangle {
         height: cellHeight
@@ -144,18 +143,14 @@ Rectangle {
             Layout.fillWidth: false
             font: Theme.tipFont
             color: Theme.secondaryTextColor
-            text: coordinatesIsXY
-                  ? coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )
-                  : coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )
+            text: coordinatesIsXY ? coordinatesIsGeographic ? qsTr("Lon") : qsTr("X") : coordinatesIsGeographic ? qsTr("Lat") : qsTr("Y")
           }
 
           Text {
             Layout.fillWidth: true
             font: Theme.tipFont
             color: textColor
-            text: coordinatesIsXY
-                  ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                  : Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+            text: coordinatesIsXY ? Number(coordinates.x).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3) : Number(coordinates.y).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3)
             elide: Text.ElideRight
           }
         }
@@ -176,18 +171,14 @@ Rectangle {
             Layout.fillWidth: false
             font: Theme.tipFont
             color: Theme.secondaryTextColor
-            text: coordinatesIsXY
-                  ? coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )
-                  : coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )
+            text: coordinatesIsXY ? coordinatesIsGeographic ? qsTr("Lat") : qsTr("Y") : coordinatesIsGeographic ? qsTr("Lon") : qsTr("X")
           }
 
           Text {
             Layout.fillWidth: true
             font: Theme.tipFont
             color: textColor
-            text: coordinatesIsXY
-                  ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                  : Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+            text: coordinatesIsXY ? Number(coordinates.y).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3) : Number(coordinates.x).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3)
             elide: Text.ElideRight
           }
         }
@@ -215,9 +206,7 @@ Rectangle {
             Layout.fillWidth: true
             font: Theme.tipFont
             color: textColor
-            text:  positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                   ? UnitTypes.formatDistance( navigation.distance * UnitTypes.fromUnitToUnitFactor( navigation.distanceUnits, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits )
-                   : qsTr( "N/A" )
+            text: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? UnitTypes.formatDistance(navigation.distance * UnitTypes.fromUnitToUnitFactor(navigation.distanceUnits, projectInfo.distanceUnits), 3, projectInfo.distanceUnits) : qsTr("N/A")
             elide: Text.ElideRight
           }
         }
@@ -245,9 +234,7 @@ Rectangle {
             Layout.fillWidth: true
             font: Theme.tipFont
             color: textColor
-            text: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                  ? Number( navigation.bearing ).toLocaleString( Qt.locale(), 'f', 1 ) + '°'
-                  : qsTr( "N/A" )
+            text: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Number(navigation.bearing).toLocaleString(Qt.locale(), 'f', 1) + '°' : qsTr("N/A")
             elide: Text.ElideRight
           }
         }

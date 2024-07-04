@@ -2,7 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQml.Models 2.14
-
 import org.qfield 1.0
 import Theme 1.0
 
@@ -15,9 +14,7 @@ Page {
   signal finished(var loading)
 
   header: QfPageHeader {
-    title: projectFolderView
-           ? qsTr("Project Folder")
-           : qsTr("Local Projects & Datasets")
+    title: projectFolderView ? qsTr("Project Folder") : qsTr("Local Projects & Datasets")
 
     showBackButton: true
     showApplyButton: false
@@ -29,7 +26,7 @@ Page {
       if (table.model.currentDepth > 1) {
         table.model.moveUp();
       } else {
-        parent.finished(false)
+        parent.finished(false);
       }
     }
   }
@@ -60,9 +57,7 @@ Page {
         Text {
           Layout.fillWidth: true
           visible: text !== ''
-          text: table.model.currentPath !== 'root'
-                ? table.model.currentPath
-                : ''
+          text: table.model.currentPath !== 'root' ? table.model.currentPath : ''
           font: Theme.tipFont
           color: Theme.mainTextColor
           wrapMode: Text.NoWrap
@@ -85,7 +80,8 @@ Page {
       ListView {
         id: table
 
-        model: LocalFilesModel {}
+        model: LocalFilesModel {
+        }
 
         anchors.fill: parent
         anchors.margins: 1
@@ -96,16 +92,20 @@ Page {
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
           Rectangle {
-            width:parent.width
+            width: parent.width
             height: 30
             color: Theme.controlBorderColor
 
             Text {
-              anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+              anchors {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+              }
               font.bold: true
               font.pointSize: Theme.resultFont.pointSize
               color: Theme.mainTextColor
-              text: { switch (parseInt(section)) {
+              text: {
+                switch (parseInt(section)) {
                 case LocalFilesModel.Folder:
                   return qsTr('Folders');
                 case LocalFilesModel.Project:
@@ -128,12 +128,8 @@ Page {
           property int itemType: ItemType
           property string itemTitle: ItemTitle
           property string itemPath: ItemPath
-          property bool itemMenuLoadable: !projectFolderView &&
-                                          (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
-          property bool itemMenuVisible: (platformUtilities.capabilities & PlatformUtilities.CustomExport ||
-                                          platformUtilities.capabilities & PlatformUtilities.CustomSend) &&
-                                         (ItemMetaType === LocalFilesModel.Dataset
-                                          || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root'))
+          property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
+          property bool itemMenuVisible: (platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root'))
 
           width: parent ? parent.width : undefined
           height: line.height
@@ -158,7 +154,7 @@ Page {
                 if (ItemHasThumbnail) {
                   return "image://localfiles/" + ItemPath;
                 } else {
-                  switch(ItemType) {
+                  switch (ItemType) {
                   case LocalFilesModel.ApplicationFolder:
                     return Theme.getThemeVectorIcon('ic_folder_qfield_gray_48dp');
                   case LocalFilesModel.ExternalStorage:
@@ -209,7 +205,7 @@ Page {
 
                 text: {
                   var info = '';
-                  switch(ItemType) {
+                  switch (ItemType) {
                   case LocalFilesModel.ProjectFile:
                     info = qsTr('Project file');
                     break;
@@ -240,17 +236,15 @@ Page {
               Layout.bottomMargin: 5
 
               bgcolor: "transparent"
-              iconSource: Theme.getThemeIcon( "ic_dot_menu_gray_24dp" )
+              iconSource: Theme.getThemeIcon("ic_dot_menu_gray_24dp")
               iconColor: Theme.mainTextColor
 
               onClicked: {
-                var gc = mapToItem(qfieldLocalDataPickerScreen, 0, 0)
-
-                itemMenu.itemMetaType = ItemMetaType
-                itemMenu.itemType = ItemType
-                itemMenu.itemPath = ItemPath
-                itemMenu.popup(gc.x + width - itemMenu.width,
-                               gc.y - height)
+                var gc = mapToItem(qfieldLocalDataPickerScreen, 0, 0);
+                itemMenu.itemMetaType = ItemMetaType;
+                itemMenu.itemType = ItemType;
+                itemMenu.itemPath = ItemPath;
+                itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
               }
             }
           }
@@ -260,65 +254,52 @@ Page {
           property Item pressedItem
           anchors.fill: parent
           anchors.rightMargin: 48
-          onClicked: (mouse) => {
+          onClicked: mouse => {
             if (itemMenu.visible) {
               itemMenu.close();
             } else if (importMenu.visible) {
               importMenu.close();
             } else {
-              var item = table.itemAt(
-                    table.contentX + mouse.x,
-                    table.contentY + mouse.y
-                    )
+              var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
               if (item) {
-                if (item.itemMetaType === LocalFilesModel.Folder ||
-                    item.itemMetaType === LocalFilesModel.Favorite) {
+                if (item.itemMetaType === LocalFilesModel.Folder || item.itemMetaType === LocalFilesModel.Favorite) {
                   table.model.currentPath = item.itemPath;
-                } else if (!qfieldLocalDataPickerScreen.projectFolderView &&
-                           (item.itemMetaType === LocalFilesModel.Project
-                           || item.itemMetaType === LocalFilesModel.Dataset)) {
+                } else if (!qfieldLocalDataPickerScreen.projectFolderView && (item.itemMetaType === LocalFilesModel.Project || item.itemMetaType === LocalFilesModel.Dataset)) {
                   iface.loadFile(item.itemPath, item.itemTitle);
                   finished(true);
                 }
               }
             }
           }
-          onPressed: (mouse) => {
+          onPressed: mouse => {
             if (itemMenu.visible || importMenu.visible)
               return;
-
-            var item = table.itemAt(
-                  table.contentX + mouse.x,
-                  table.contentY + mouse.y
-                  )
+            var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
             if (item && item.itemMenuLoadable) {
-              pressedItem = item.children[0].children[1].children[0]
-              pressedItem.color = "#5a8725"
+              pressedItem = item.children[0].children[1].children[0];
+              pressedItem.color = "#5a8725";
             }
           }
           onCanceled: {
             if (pressedItem) {
-              pressedItem.color = Theme.mainColor
-              pressedItem = null
+              pressedItem.color = Theme.mainColor;
+              pressedItem = null;
             }
           }
           onReleased: {
             if (pressedItem) {
-              pressedItem.color = Theme.mainColor
-              pressedItem = null
+              pressedItem.color = Theme.mainColor;
+              pressedItem = null;
             }
           }
 
-          onPressAndHold: (mouse) => {
-            var item = table.itemAt(
-                  table.contentX + mouse.x,
-                  table.contentY + mouse.y
-                  )
+          onPressAndHold: mouse => {
+            var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
             if (item && item.itemMenuVisible) {
-              itemMenu.itemMetaType = item.itemMetaType
-              itemMenu.itemType = item.itemType
-              itemMenu.itemPath = item.itemPath
-              itemMenu.popup(mouse.x, mouse.y)
+              itemMenu.itemMetaType = item.itemMetaType;
+              itemMenu.itemType = item.itemType;
+              itemMenu.itemPath = item.itemPath;
+              itemMenu.popup(mouse.x, mouse.y);
             }
           }
         }
@@ -329,10 +310,7 @@ Page {
         round: true
 
         // Since the project menu only has one action for now, hide if PlatformUtilities.UpdateProjectFromArchive is missing
-        property bool isLocalProject: qgisProject
-                                      && QFieldCloudUtils.getProjectId(qgisProject.fileName) === ''
-                                      && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
-                                      && platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
+        property bool isLocalProject: qgisProject && QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz')) && platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
         visible: (projectFolderView && isLocalProject && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
@@ -341,14 +319,14 @@ Page {
         anchors.rightMargin: 10
 
         bgcolor: Theme.mainColor
-        iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
+        iconSource: Theme.getThemeIcon("ic_add_white_24dp")
 
         onClicked: {
-          var xy = mapToItem(mainWindow.contentItem, actionButton.width, actionButton.height)
+          var xy = mapToItem(mainWindow.contentItem, actionButton.width, actionButton.height);
           if (projectFolderView) {
-            projectMenu.popup(xy.x - projectMenu.width, xy.y - projectMenu.height - header.height)
+            projectMenu.popup(xy.x - projectMenu.width, xy.y - projectMenu.height - header.height);
           } else {
-            importMenu.popup(xy.x - importMenu.width, xy.y - importMenu.height - header.height)
+            importMenu.popup(xy.x - importMenu.width, xy.y - importMenu.height - header.height);
           }
         }
       }
@@ -364,14 +342,14 @@ Page {
       title: qsTr('Item Actions')
 
       width: {
-          let result = 50;
-          let padding = 0;
-          for (let i = 0; i < count; ++i) {
-              let item = itemAt(i);
-              result = Math.max(item.contentItem.implicitWidth, result);
-              padding = Math.max(item.leftPadding + item.rightPadding, padding);
-          }
-          return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+          let item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.leftPadding + item.rightPadding, padding);
+        }
+        return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
       }
 
       topMargin: sceneTopMargin
@@ -379,8 +357,7 @@ Page {
 
       MenuItem {
         id: sendDatasetTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend
-                 && itemMenu.itemMetaType == LocalFilesModel.Dataset
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Dataset
         visible: enabled
 
         font: Theme.defaultFont
@@ -388,14 +365,15 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Send to..." )
-        onTriggered: { platformUtilities.sendDatasetTo(itemMenu.itemPath); }
+        text: qsTr("Send to...")
+        onTriggered: {
+          platformUtilities.sendDatasetTo(itemMenu.itemPath);
+        }
       }
 
       MenuItem {
         id: exportDatasetTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport
-                 && itemMenu.itemMetaType == LocalFilesModel.Dataset
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport && itemMenu.itemMetaType == LocalFilesModel.Dataset
         visible: enabled
 
         font: Theme.defaultFont
@@ -403,30 +381,31 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Export to folder..." )
-        onTriggered: { platformUtilities.exportDatasetTo(itemMenu.itemPath); }
+        text: qsTr("Export to folder...")
+        onTriggered: {
+          platformUtilities.exportDatasetTo(itemMenu.itemPath);
+        }
       }
 
       MenuItem {
         id: removeDataset
-        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset
-                 && !qfieldLocalDataPickerScreen.projectFolderView
-                 && table.model.isDeletedAllowedInCurrentPath
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
         visible: enabled
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled? undefined : 0
+        height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Remove dataset" )
-        onTriggered: { platformUtilities.removeDataset(itemMenu.itemPath); }
+        text: qsTr("Remove dataset")
+        onTriggered: {
+          platformUtilities.removeDataset(itemMenu.itemPath);
+        }
       }
 
       MenuItem {
         id: exportFolderTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport &&
-                 itemMenu.itemMetaType == LocalFilesModel.Folder
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport && itemMenu.itemMetaType == LocalFilesModel.Folder
         visible: enabled
 
         font: Theme.defaultFont
@@ -434,14 +413,15 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Export to folder..." )
-        onTriggered: { platformUtilities.exportFolderTo(itemMenu.itemPath); }
+        text: qsTr("Export to folder...")
+        onTriggered: {
+          platformUtilities.exportFolderTo(itemMenu.itemPath);
+        }
       }
 
       MenuItem {
         id: sendCompressedFolderTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend
-                 && itemMenu.itemMetaType == LocalFilesModel.Folder
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Folder
         visible: enabled
 
         font: Theme.defaultFont
@@ -449,15 +429,15 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Send compressed folder to..." )
-        onTriggered: { platformUtilities.sendCompressedFolderTo(itemMenu.itemPath); }
+        text: qsTr("Send compressed folder to...")
+        onTriggered: {
+          platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
+        }
       }
 
       MenuItem {
         id: removeProjectFolder
-        enabled: itemMenu.itemMetaType == LocalFilesModel.Folder
-                 && !qfieldLocalDataPickerScreen.projectFolderView
-                 && table.model.isDeletedAllowedInCurrentPath
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Folder && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
         visible: enabled
 
         font: Theme.defaultFont
@@ -465,8 +445,10 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Remove project folder" )
-        onTriggered: { platformUtilities.removeFolder(itemMenu.itemPath); }
+        text: qsTr("Remove project folder")
+        onTriggered: {
+          platformUtilities.removeFolder(itemMenu.itemPath);
+        }
       }
     }
 
@@ -476,14 +458,14 @@ Page {
       title: qsTr('Import Actions')
 
       width: {
-          let result = 50;
-          let padding = 0;
-          for (let i = 0; i < count; ++i) {
-              let item = itemAt(i);
-              result = Math.max(item.contentItem.implicitWidth, result);
-              padding = Math.max(item.leftPadding + item.rightPadding, padding);
-          }
-          return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+          let item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.leftPadding + item.rightPadding, padding);
+        }
+        return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
       }
 
       topMargin: sceneTopMargin
@@ -499,8 +481,10 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Import project from folder" )
-        onTriggered: { platformUtilities.importProjectFolder(); }
+        text: qsTr("Import project from folder")
+        onTriggered: {
+          platformUtilities.importProjectFolder();
+        }
       }
 
       MenuItem {
@@ -513,8 +497,10 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Import project from ZIP" )
-        onTriggered: { platformUtilities.importProjectArchive(); }
+        text: qsTr("Import project from ZIP")
+        onTriggered: {
+          platformUtilities.importProjectArchive();
+        }
       }
 
       MenuItem {
@@ -527,8 +513,10 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Import dataset(s)" )
-        onTriggered: { platformUtilities.importDatasets(); }
+        text: qsTr("Import dataset(s)")
+        onTriggered: {
+          platformUtilities.importDatasets();
+        }
       }
 
       MenuSeparator {
@@ -545,10 +533,10 @@ Page {
         width: parent.width
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Import URL" )
+        text: qsTr("Import URL")
         onTriggered: {
-          importUrlDialog.open()
-          importUrlInput.focus = true
+          importUrlDialog.open();
+          importUrlInput.focus = true;
         }
       }
 
@@ -563,8 +551,10 @@ Page {
         width: parent.width
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Storage management help" )
-        onTriggered: { Qt.openUrlExternally("https://docs.qfield.org/get-started/storage/") }
+        text: qsTr("Storage management help")
+        onTriggered: {
+          Qt.openUrlExternally("https://docs.qfield.org/get-started/storage/");
+        }
       }
     }
 
@@ -574,14 +564,14 @@ Page {
       title: qsTr('Project Actions')
 
       width: {
-          let result = 50;
-          let padding = 0;
-          for (let i = 0; i < count; ++i) {
-              let item = itemAt(i);
-              result = Math.max(item.contentItem.implicitWidth, result);
-              padding = Math.max(item.leftPadding + item.rightPadding, padding);
-          }
-          return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+          let item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.leftPadding + item.rightPadding, padding);
+        }
+        return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
       }
 
       topMargin: sceneTopMargin
@@ -597,8 +587,10 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr( "Update project from ZIP" )
-        onTriggered: { platformUtilities.updateProjectFromArchive(projectInfo.filePath); }
+        text: qsTr("Update project from ZIP")
+        onTriggered: {
+          platformUtilities.updateProjectFromArchive(projectInfo.filePath);
+        }
       }
     }
   }
@@ -609,11 +601,11 @@ Page {
     focus: true
     font: Theme.defaultFont
 
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height - 80 ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
-      importUrlInput.text = ''
+      importUrlInput.text = '';
     }
 
     Column {
@@ -644,7 +636,7 @@ Page {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      iface.importUrl(importUrlInput.text)
+      iface.importUrl(importUrlInput.text);
     }
   }
 
@@ -658,9 +650,9 @@ Page {
     }
   }
 
-  Keys.onReleased: (event) => {
+  Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true
+      event.accepted = true;
       if (table.model.currentDepth > 1) {
         table.model.moveUp();
       } else {
@@ -670,6 +662,6 @@ Page {
   }
 
   onVisibleChanged: {
-    focus = visible
+    focus = visible;
   }
 }

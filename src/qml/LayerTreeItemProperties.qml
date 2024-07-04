@@ -1,10 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
@@ -30,34 +28,27 @@ Popup {
   padding: 0
 
   onClosed: {
-    index = undefined
+    index = undefined;
   }
 
   onIndexChanged: {
     if (index === undefined)
-      return
-
-    updateTitle()
-    updateCredits()
-
-    itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible)
-    itemLabelsVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.LabelsVisible)
-
-    expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item')
-    expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
-
-    reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData)
-    zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
-    showFeaturesListButtonVisible = isShowFeaturesListButtonVisible()
-    showVisibleFeaturesListDropdownVisible = isShowVisibleFeaturesListDropdownVisible()
-
-    trackingButtonVisible = isTrackingButtonVisible()
-    trackingButtonText = trackingModel.layerInTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer))
-        ? qsTr('Stop tracking')
-        : qsTr('Setup tracking')
+      return;
+    updateTitle();
+    updateCredits();
+    itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
+    itemLabelsVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.LabelsVisible);
+    expandCheckBox.text = layerTree.data(index, FlatLayerTreeModel.Type) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item');
+    expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed);
+    reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData);
+    zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent);
+    showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
+    showVisibleFeaturesListDropdownVisible = isShowVisibleFeaturesListDropdownVisible();
+    trackingButtonVisible = isTrackingButtonVisible();
+    trackingButtonText = trackingModel.layerInTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
 
     // the layer tree model returns -1 for items that do not support the opacity setting
-    opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.Opacity) > -1
+    opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.Opacity) > -1;
   }
 
   Page {
@@ -85,14 +76,14 @@ Popup {
         visible: reloadDataButtonVisible
 
         bgcolor: "transparent"
-        iconSource: Theme.getThemeVectorIcon( 'refresh_24dp' )
+        iconSource: Theme.getThemeVectorIcon('refresh_24dp')
         iconColor: Theme.mainTextColor
 
         onClicked: {
-          layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
-          close()
-          dashBoard.visible = false
-          displayToast(qsTr('Reload of layer %1 triggered').arg(layerTree.data(index, Qt.DisplayName)))
+          layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload();
+          close();
+          dashBoard.visible = false;
+          displayToast(qsTr('Reload of layer %1 triggered').arg(layerTree.data(index, Qt.DisplayName)));
         }
       }
     }
@@ -124,7 +115,7 @@ Popup {
 
           wrapMode: Text.WordWrap
           textFormat: Text.RichText
-          text:  qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
+          text: qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
           font: Theme.tipFont
           color: Theme.errorColor
         }
@@ -140,7 +131,7 @@ Popup {
 
           onClicked: {
             layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
-            close()
+            close();
           }
         }
 
@@ -181,7 +172,7 @@ Popup {
 
           onClicked: {
             layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.LabelsVisible);
-            projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer))
+            projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer));
             close();
           }
         }
@@ -191,7 +182,7 @@ Popup {
 
           Layout.fillWidth: true
           Layout.topMargin: 4
-          Layout.bottomMargin:4
+          Layout.bottomMargin: 4
           spacing: 4
           visible: opacitySliderVisible
 
@@ -221,9 +212,8 @@ Popup {
             }
 
             QfSlider {
-              Layout.fillWidth: true
-
               id: slider
+              Layout.fillWidth: true
               value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) * 100 : 0
               from: 0
               to: 100
@@ -232,8 +222,8 @@ Popup {
               height: 40
 
               onMoved: function () {
-                layerTree.setData(index, value / 100, FlatLayerTreeModel.Opacity)
-                projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer))
+                layerTree.setData(index, value / 100, FlatLayerTreeModel.Opacity);
+                projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer));
               }
             }
           }
@@ -243,18 +233,14 @@ Popup {
           id: zoomToButton
           Layout.fillWidth: true
           Layout.topMargin: 5
-          text: index ? layerTree.data( index, FlatLayerTreeModel.Type ) === 'group'
-                        ? qsTr('Zoom to group')
-                        : layerTree.data( index, FlatLayerTreeModel.Type ) === 'legend'
-                          ? qsTr('Zoom to parent layer')
-                          : qsTr('Zoom to layer') : ''
+          text: index ? layerTree.data(index, FlatLayerTreeModel.Type) === 'group' ? qsTr('Zoom to group') : layerTree.data(index, FlatLayerTreeModel.Type) === 'legend' ? qsTr('Zoom to parent layer') : qsTr('Zoom to layer') : ''
           visible: zoomToButtonVisible
-          icon.source: Theme.getThemeVectorIcon( 'zoom_out_map_24dp' )
+          icon.source: Theme.getThemeVectorIcon('zoom_out_map_24dp')
 
           onClicked: {
             mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
-            close()
-            dashBoard.visible = false
+            close();
+            dashBoard.visible = false;
           }
         }
 
@@ -265,26 +251,25 @@ Popup {
           dropdown: showVisibleFeaturesListDropdownVisible
           text: qsTr('Show features list')
           visible: showFeaturesListButtonVisible
-          icon.source: Theme.getThemeVectorIcon( 'ic_list_black_24dp' )
+          icon.source: Theme.getThemeVectorIcon('ic_list_black_24dp')
 
           onClicked: {
-            if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
-              displayToast( qsTr( "The layer has no features" ) )
+            if (parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0) {
+              displayToast(qsTr("The layer has no features"));
             } else {
-              var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
-              var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression)
-              featureForm.model.setFeatures(vl, filter)
+              var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+              var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression);
+              featureForm.model.setFeatures(vl, filter);
               if (layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)) {
-                mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings)
+                mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
               }
             }
-
-            close()
-            dashBoard.visible = false
+            close();
+            dashBoard.visible = false;
           }
 
           onDropdownClicked: {
-            showFeaturesMenu.popup(showFeaturesList.width - showFeaturesMenu.width + 10, showFeaturesList.y + 10)
+            showFeaturesMenu.popup(showFeaturesList.width - showFeaturesMenu.width + 10, showFeaturesList.y + 10);
           }
         }
 
@@ -294,32 +279,31 @@ Popup {
           Layout.topMargin: 5
           text: trackingButtonText
           visible: trackingButtonVisible
-          icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+          icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
 
           onClicked: {
-            var layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
-            close()
-
+            var layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+            close();
             if (trackingModel.layerInTracking(layer)) {
               trackingModel.stopTracker(layer);
-              displayToast(qsTr('Track on layer %1 stopped').arg(layer.name))
+              displayToast(qsTr('Track on layer %1 stopped').arg(layer.name));
             } else {
               var tracker;
-              var idx = projectInfo.restoreTracker(layer)
+              var idx = projectInfo.restoreTracker(layer);
               if (idx.valid) {
-                tracker = trackings.itemAt(idx.row).tracker
+                tracker = trackings.itemAt(idx.row).tracker;
               } else {
-                idx = trackingModel.createTracker(layer)
-                tracker = trackings.itemAt(idx.row).tracker
-                tracker.visible = itemVisibleCheckBox.checked
-                tracker.minimumDistance = positioningSettings.trackerMinimumDistanceConstraint ? positioningSettings.trackerMinimumDistance : 0
-                tracker.timeInterval = positioningSettings.trackerTimeIntervalConstraint ? positioningSettings.trackerTimeInterval : 0
-                tracker.maximumDistance = positioningSettings.trackerErroneousDistanceSafeguard ? positioningSettings.trackerErroneousDistance : 0
-                tracker.sensorCapture = positioningSettings.trackerSensorCaptureConstraint
-                tracker.conjunction = positioningSettings.trackerMeetAllConstraints
-                tracker.measureType = positioningSettings.trackerMeasureType
+                idx = trackingModel.createTracker(layer);
+                tracker = trackings.itemAt(idx.row).tracker;
+                tracker.visible = itemVisibleCheckBox.checked;
+                tracker.minimumDistance = positioningSettings.trackerMinimumDistanceConstraint ? positioningSettings.trackerMinimumDistance : 0;
+                tracker.timeInterval = positioningSettings.trackerTimeIntervalConstraint ? positioningSettings.trackerTimeInterval : 0;
+                tracker.maximumDistance = positioningSettings.trackerErroneousDistanceSafeguard ? positioningSettings.trackerErroneousDistance : 0;
+                tracker.sensorCapture = positioningSettings.trackerSensorCaptureConstraint;
+                tracker.conjunction = positioningSettings.trackerMeetAllConstraints;
+                tracker.measureType = positioningSettings.trackerMeasureType;
               }
-              trackingModel.requestTrackingSetup(layer)
+              trackingModel.requestTrackingSetup(layer);
             }
           }
         }
@@ -346,10 +330,10 @@ Popup {
           MouseArea {
             anchors.fill: parent
             onClicked: {
-              if ( lockText.isReadOnly )
-                displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'))
+              if (lockText.isReadOnly)
+                displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'));
               else
-                displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'))
+                displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'));
             }
           }
         }
@@ -365,7 +349,9 @@ Popup {
           font.italic: true
           color: Theme.secondaryTextColor
 
-          onLinkActivated: (link) => { Qt.openUrlExternally(link) }
+          onLinkActivated: link => {
+            Qt.openUrlExternally(link);
+          }
         }
       }
     }
@@ -373,7 +359,7 @@ Popup {
 
   Menu {
     id: showFeaturesMenu
-    title: qsTr( "Show Features Menu" )
+    title: qsTr("Show Features Menu")
 
     width: {
       var result = 0;
@@ -394,16 +380,15 @@ Popup {
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
-        if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
-          displayToast( qsTr( "The layer has no features" ) )
+        if (parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0) {
+          displayToast(qsTr("The layer has no features"));
         } else {
-          var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
-          var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression)
-          featureForm.model.setFeatures( vl, filter, mapCanvas.mapSettings.visibleExtent )
+          var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+          var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression);
+          featureForm.model.setFeatures(vl, filter, mapCanvas.mapSettings.visibleExtent);
         }
-
-        close()
-        dashBoard.visible = false
+        close();
+        dashBoard.visible = false;
       }
     }
   }
@@ -414,7 +399,6 @@ Popup {
     function onDataChanged(topleft, bottomright, roles) {
       if (index === undefined)
         return;
-
       if (roles.includes(FlatLayerTreeModel.FeatureCount)) {
         updateTitle();
       }
@@ -423,55 +407,47 @@ Popup {
 
   function updateTitle() {
     if (index === undefined)
-      return
-
-    var title = layerTree.data(index, Qt.Name)
-    var type = layerTree.data(index, FlatLayerTreeModel.Type)
-    var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
+      return;
+    var title = layerTree.data(index, Qt.Name);
+    var type = layerTree.data(index, FlatLayerTreeModel.Type);
+    var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
     if (vl) {
       if (type === 'legend') {
-        title += ' (' + vl.name + ')'
+        title += ' (' + vl.name + ')';
       } else if (type === 'layer' && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
-        var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount)
+        var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount);
         if (count !== undefined && count >= 0) {
-            var countSuffix = ' [' + count + ']'
-
-            if (!title.endsWith(countSuffix))
-                title += countSuffix
+          var countSuffix = ' [' + count + ']';
+          if (!title.endsWith(countSuffix))
+            title += countSuffix;
         }
       }
     }
-    titleLabel.text = title
+    titleLabel.text = title;
   }
 
   function updateCredits() {
-    var credits = ''
+    var credits = '';
     if (index !== undefined) {
-      credits = StringUtils.insertLinks(layerTree.data(index, FlatLayerTreeModel.Credits))
+      credits = StringUtils.insertLinks(layerTree.data(index, FlatLayerTreeModel.Credits));
     } else {
-      credits = ''
+      credits = '';
     }
-
-    creditsText.text = credits
-    creditsText.visible = credits !== ''
+    creditsText.text = credits;
+    creditsText.visible = credits !== '';
   }
 
   function isTrackingButtonVisible() {
-    if ( !index )
-      return false
-
-    return layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer'
-        && !layerTree.data( index, FlatLayerTreeModel.ReadOnly )
-        && layerTree.data( index, FlatLayerTreeModel.Trackable )
+    if (!index)
+      return false;
+    return layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && !layerTree.data(index, FlatLayerTreeModel.ReadOnly) && layerTree.data(index, FlatLayerTreeModel.Trackable);
   }
 
   function isShowFeaturesListButtonVisible() {
-    return layerTree.data( index, FlatLayerTreeModel.IsValid )
-        && layerTree.data( index, FlatLayerTreeModel.LayerType ) === 'vectorlayer'
+    return layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data(index, FlatLayerTreeModel.LayerType) === 'vectorlayer';
   }
 
   function isShowVisibleFeaturesListDropdownVisible() {
-    return isShowFeaturesListButtonVisible()
-        && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
+    return isShowFeaturesListButtonVisible() && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent);
   }
 }

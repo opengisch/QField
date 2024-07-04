@@ -1,8 +1,6 @@
 import QtQuick 2.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Item {
@@ -12,7 +10,7 @@ Item {
   LinePolygon {
     visible: positionSource.active
     mapSettings: navigation.mapSettings
-    geometry:   QgsGeometryWrapper {
+    geometry: QgsGeometryWrapper {
       qgsGeometry: navigation.path
       crs: navigation.mapSettings.crs ? navigation.mapSettings.crs : CoordinateReferenceSystemUtils.invalidCrs()
     }

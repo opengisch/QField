@@ -1,24 +1,20 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Item {
   id: measuringTool
 
   property alias measuringRubberband: rubberband
-  property bool isClosingArea: rubberband.model.vertexCount > 2
-                               && vertexFirstLastDistance.screenDistance < 10
+  property bool isClosingArea: rubberband.model.vertexCount > 2 && vertexFirstLastDistance.screenDistance < 10
   property bool isArea: false
 
   MapToScreen {
     id: vertexFirstLastDistance
     mapSettings: rubberband.mapSettings
-    mapDistance: GeometryUtils.distanceBetweenPoints(rubberband.model.firstCoordinate,
-                                                     rubberband.model.currentCoordinate)
+    mapDistance: GeometryUtils.distanceBetweenPoints(rubberband.model.firstCoordinate, rubberband.model.currentCoordinate)
   }
 
   Repeater {
@@ -34,13 +30,10 @@ Item {
 
       visible: rubberband.model.vertexCount > 1
 
-      x: vertexToScreen.screenPoint.x - width/2
-      y: vertexToScreen.screenPoint.y - width/2
+      x: vertexToScreen.screenPoint.x - width / 2
+      y: vertexToScreen.screenPoint.y - width / 2
 
-      width: isClosingArea
-             && (index === 0 || index === rubberband.model.vertexCount - 1)
-             ? 20
-             : 10
+      width: isClosingArea && (index === 0 || index === rubberband.model.vertexCount - 1) ? 20 : 10
       height: width
 
       ShapePath {
@@ -48,9 +41,12 @@ Item {
         strokeWidth: 5
         fillColor: "transparent"
         PathAngleArc {
-          centerX: shape.width / 2; centerY: centerX
-          radiusX: centerX; radiusY: centerX
-          startAngle: 0; sweepAngle: 360
+          centerX: shape.width / 2
+          centerY: centerX
+          radiusX: centerX
+          radiusY: centerX
+          startAngle: 0
+          sweepAngle: 360
         }
       }
       ShapePath {
@@ -58,9 +54,12 @@ Item {
         strokeWidth: 3
         fillColor: "transparent"
         PathAngleArc {
-          centerX: shape.width / 2; centerY: centerX
-          radiusX: centerX; radiusY: centerX
-          startAngle: 0; sweepAngle: 360
+          centerX: shape.width / 2
+          centerY: centerX
+          radiusX: centerX
+          radiusY: centerX
+          startAngle: 0
+          sweepAngle: 360
         }
       }
     }
@@ -72,9 +71,7 @@ Item {
 
     model: RubberbandModel {
       frozen: false
-      geometryType: isClosingArea || isArea
-                    ? Qgis.GeometryType.Polygon
-                    : Qgis.GeometryType.Line
+      geometryType: isClosingArea || isArea ? Qgis.GeometryType.Polygon : Qgis.GeometryType.Line
       crs: rubberband.mapSettings.destinationCrs
     }
   }
@@ -83,8 +80,7 @@ Item {
     target: rubberband.model
 
     function onVertexCountChanged() {
-      if (rubberband.model.vertexCount > 2
-          && vertexFirstLastDistance.screenDistance < 10) {
+      if (rubberband.model.vertexCount > 2 && vertexFirstLastDistance.screenDistance < 10) {
         isArea = true;
       } else if (rubberband.model.vertexCount <= 1) {
         isArea = false;

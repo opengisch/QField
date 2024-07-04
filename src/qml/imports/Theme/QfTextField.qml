@@ -50,27 +50,27 @@ Item {
     }
 
     onActiveFocusChanged: {
-      if ( !activeFocus ) {
-        echoMode = textFieldWrapper.echoMode
+      if (!activeFocus) {
+        echoMode = textFieldWrapper.echoMode;
       }
     }
 
     onTextEdited: {
-        textFieldWrapper.textEdited()
+      textFieldWrapper.textEdited();
     }
 
     onEditingFinished: {
-        textFieldWrapper.editingFinished();
+      textFieldWrapper.editingFinished();
     }
 
     onFocusChanged: {
-        if (focus) {
-            Qt.inputMethod.show()
-        }
+      if (focus) {
+        Qt.inputMethod.show();
+      }
     }
 
     Keys.onReturnPressed: {
-        textFieldWrapper.returnPressed()
+      textFieldWrapper.returnPressed();
     }
   }
 
@@ -78,17 +78,13 @@ Item {
     id: showPasswordButton
     z: 1
     visible: !!textFieldWrapper.echoMode && textFieldWrapper.echoMode !== TextInput.Normal
-    iconSource: textField.echoMode === TextInput.Normal
-                ? Theme.getThemeVectorIcon('ic_hide_green_48dp')
-                : Theme.getThemeVectorIcon('ic_show_green_48dp')
+    iconSource: textField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
     anchors.right: textField.right
     anchors.verticalCenter: textField.verticalCenter
     opacity: textField.text.length > 0 ? 1 : 0.25
 
     onClicked: {
-      textField.echoMode = textField.echoMode === TextInput.Normal
-                           ? textFieldWrapper.echoMode
-                           : TextInput.Normal
+      textField.echoMode = textField.echoMode === TextInput.Normal ? textFieldWrapper.echoMode : TextInput.Normal;
     }
   }
 }

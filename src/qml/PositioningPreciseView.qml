@@ -2,10 +2,8 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Shapes 1.14
-
 import Theme 1.0
 import org.qfield 1.0
-
 import "."
 
 Item {
@@ -23,8 +21,7 @@ Item {
   property double positionX: Math.min(precision, projectDistance) * Math.cos((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionY: Math.min(precision, projectDistance) * Math.sin((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -projectVerticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
-  property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x,
-                                          preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
+  property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x, preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
 
   property string negativeLabel: UnitTypes.formatDistance(-precision, 2, projectInfo.distanceUnits)
   property string positiveLabel: UnitTypes.formatDistance(precision, 2, projectInfo.distanceUnits)
@@ -54,8 +51,7 @@ Item {
 
     Shape {
       id: preciseTarget
-      width: Math.min(positioningPreciseView.height - 10,
-                      positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
+      width: Math.min(positioningPreciseView.height - 10, positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
       height: width
       rotation: !isNaN(positionSource.orientation) ? -positionSource.orientation + positionSource.bearingTrueNorth : 0
 
@@ -118,7 +114,7 @@ Item {
           centerX: preciseTarget.width / 2
           centerY: centerX
           radiusX: preciseTarget.width / 8
-          radiusY:radiusX
+          radiusY: radiusX
           startAngle: 0
           sweepAngle: 360
         }
@@ -134,7 +130,7 @@ Item {
           centerX: preciseTarget.width / 2
           centerY: centerX
           radiusX: preciseTarget.width / 4
-          radiusY:radiusX
+          radiusY: radiusX
           startAngle: 0
           sweepAngle: 360
         }
@@ -150,7 +146,7 @@ Item {
           centerX: preciseTarget.width / 2
           centerY: centerX
           radiusX: preciseTarget.width / 2.66
-          radiusY:radiusX
+          radiusY: radiusX
           startAngle: 0
           sweepAngle: 360
         }
@@ -212,7 +208,6 @@ Item {
         styleColor: Theme.mainBackgroundColor
         text: '270'
       }
-
     }
 
     Rectangle {
@@ -276,7 +271,7 @@ Item {
           joinStyle: ShapePath.MiterJoin
           startX: preciseVerticalPosition.width / 2
           startY: startX
-          scale: Math.abs(projectVerticalDistance) <= precision ? Qt.size(1,1) : Qt.size(0,0);
+          scale: Math.abs(projectVerticalDistance) <= precision ? Qt.size(1, 1) : Qt.size(0, 0)
           PathAngleArc {
             centerX: preciseVerticalPosition.width / 2
             centerY: centerX
@@ -296,10 +291,19 @@ Item {
           joinStyle: ShapePath.MiterJoin
           startX: preciseVerticalPosition.width / 2
           startY: 0
-          scale: Math.abs(projectVerticalDistance) > precision ? Qt.size(1,1) : Qt.size(0,0);
-          PathLine { x: preciseVerticalPosition.width - 2; y: preciseVerticalPosition.width }
-          PathLine { x: 2; y: preciseVerticalPosition.width }
-          PathLine { x: preciseVerticalPosition.width / 2; y: 0 }
+          scale: Math.abs(projectVerticalDistance) > precision ? Qt.size(1, 1) : Qt.size(0, 0)
+          PathLine {
+            x: preciseVerticalPosition.width - 2
+            y: preciseVerticalPosition.width
+          }
+          PathLine {
+            x: 2
+            y: preciseVerticalPosition.width
+          }
+          PathLine {
+            x: preciseVerticalPosition.width / 2
+            y: 0
+          }
         }
       }
 
@@ -332,13 +336,11 @@ Item {
       strokeWidth: 1
       strokeColor: "transparent"
       strokeStyle: ShapePath.SolidLine
-      fillColor: hasReachedTarget
-                 ? Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.4)
-                 : Theme.positionColor
+      fillColor: hasReachedTarget ? Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.4) : Theme.positionColor
       fillRule: ShapePath.WindingFill
       startX: preciseHorizontalPosition.width / 2
       startY: startX
-      scale: projectDistance <= precision ? Qt.size(1,1) : Qt.size(0,0);
+      scale: projectDistance <= precision ? Qt.size(1, 1) : Qt.size(0, 0)
       PathAngleArc {
         centerX: preciseHorizontalPosition.width / 2
         centerY: centerX
@@ -358,10 +360,19 @@ Item {
       joinStyle: ShapePath.MiterJoin
       startX: preciseHorizontalPosition.width / 2
       startY: 0
-      scale: projectDistance > precision ? Qt.size(1,1) : Qt.size(0,0);
-      PathLine { x: preciseHorizontalPosition.width - 2; y: preciseHorizontalPosition.width }
-      PathLine { x: 2; y: preciseHorizontalPosition.width }
-      PathLine { x: preciseHorizontalPosition.width / 2; y: 0 }
+      scale: projectDistance > precision ? Qt.size(1, 1) : Qt.size(0, 0)
+      PathLine {
+        x: preciseHorizontalPosition.width - 2
+        y: preciseHorizontalPosition.width
+      }
+      PathLine {
+        x: 2
+        y: preciseHorizontalPosition.width
+      }
+      PathLine {
+        x: preciseHorizontalPosition.width / 2
+        y: 0
+      }
     }
   }
 
@@ -380,11 +391,20 @@ Item {
       fillColor: "transparent"
       startX: preciseHorizontalPosition.width / 2
       startY: 0
-      scale: hasReachedTarget ? Qt.size(1,1) : Qt.size(0,0);
+      scale: hasReachedTarget ? Qt.size(1, 1) : Qt.size(0, 0)
 
-      PathLine { x: preciseHorizontalPosition.width / 2; y: preciseHorizontalPosition.height }
-      PathMove { x: 0; y: preciseHorizontalPosition.height / 2 }
-      PathLine { x: preciseHorizontalPosition.width; y: preciseHorizontalPosition.height / 2 }
+      PathLine {
+        x: preciseHorizontalPosition.width / 2
+        y: preciseHorizontalPosition.height
+      }
+      PathMove {
+        x: 0
+        y: preciseHorizontalPosition.height / 2
+      }
+      PathLine {
+        x: preciseHorizontalPosition.width
+        y: preciseHorizontalPosition.height / 2
+      }
     }
   }
 
@@ -401,7 +421,7 @@ Item {
     styleColor: Theme.mainBackgroundColor
 
     property int decimals: projectDistance >= 1000 ? 3 : projectDistance >= 0.10 ? 2 : 1
-    text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( projectDistance, decimals, projectInfo.distanceUnits )
+    text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance(projectDistance, decimals, projectInfo.distanceUnits)
   }
 
   Rectangle {
@@ -438,8 +458,7 @@ Item {
     anchors.left: parent.left
     anchors.margins: 5
 
-    visible: (navigation.proximityAlarm || positioningPreciseView.hasAlarmSnoozed)
-             && projectDistance <= positioningPreciseView.precision
+    visible: (navigation.proximityAlarm || positioningPreciseView.hasAlarmSnoozed) && projectDistance <= positioningPreciseView.precision
     enabled: visible
 
     round: true
@@ -447,7 +466,7 @@ Item {
     iconSource: positioningPreciseView.hasAlarmSnoozed ? Theme.getThemeVectorIcon('ic_alarm_purple_24dp') : Theme.getThemeVectorIcon('ic_alarm_white_24dp')
 
     onClicked: {
-      positioningPreciseView.hasAlarmSnoozed = !positioningPreciseView.hasAlarmSnoozed
+      positioningPreciseView.hasAlarmSnoozed = !positioningPreciseView.hasAlarmSnoozed;
     }
   }
 

@@ -2,10 +2,8 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Item {
@@ -29,47 +27,119 @@ Item {
   height: childrenRect.height
 
   states: [
-      State {
-          name: "on"
-          PropertyChanges { target: searchFieldRect; visible: true; }
-          PropertyChanges { target: searchFieldRect; width: mainWindow.width - 62 }
-          PropertyChanges { target: codeReaderButton; visible: true; }
-          PropertyChanges { target: clearButton; visible: true; }
-          PropertyChanges { target: busyIndicator; visible: true; }
-      },
-      State {
-        name: "off"
-        PropertyChanges { target: busyIndicator; visible: false; }
-        PropertyChanges { target: clearButton; visible: false; }
-        PropertyChanges { target: codeReaderButton; visible: false; }
-        PropertyChanges { target: searchFieldRect; width: 48 }
-        PropertyChanges { target: searchFieldRect; visible: false; }
+    State {
+      name: "on"
+      PropertyChanges {
+        target: searchFieldRect
+        visible: true
       }
+      PropertyChanges {
+        target: searchFieldRect
+        width: mainWindow.width - 62
+      }
+      PropertyChanges {
+        target: codeReaderButton
+        visible: true
+      }
+      PropertyChanges {
+        target: clearButton
+        visible: true
+      }
+      PropertyChanges {
+        target: busyIndicator
+        visible: true
+      }
+    },
+    State {
+      name: "off"
+      PropertyChanges {
+        target: busyIndicator
+        visible: false
+      }
+      PropertyChanges {
+        target: clearButton
+        visible: false
+      }
+      PropertyChanges {
+        target: codeReaderButton
+        visible: false
+      }
+      PropertyChanges {
+        target: searchFieldRect
+        width: 48
+      }
+      PropertyChanges {
+        target: searchFieldRect
+        visible: false
+      }
+    }
   ]
 
   transitions: [
-      Transition {
-        from: "off"
-        to: "on"
-        SequentialAnimation {
-          PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
-          NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 250 }
-          PropertyAnimation { target: codeReaderButton; property: "visible"; duration: 0 }
-          PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
-          PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
+    Transition {
+      from: "off"
+      to: "on"
+      SequentialAnimation {
+        PropertyAnimation {
+          target: searchFieldRect
+          property: "visible"
+          duration: 0
         }
-      },
-      Transition {
-        from: "on"
-        to: "off"
-        SequentialAnimation {
-          PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
-          PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
-          PropertyAnimation { target: codeReaderButton; property: "visible"; duration: 0 }
-          NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 150 }
-          PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
+        NumberAnimation {
+          target: searchFieldRect
+          easing.type: Easing.InOutQuad
+          properties: "width"
+          duration: 250
+        }
+        PropertyAnimation {
+          target: codeReaderButton
+          property: "visible"
+          duration: 0
+        }
+        PropertyAnimation {
+          target: clearButton
+          property: "visible"
+          duration: 0
+        }
+        PropertyAnimation {
+          target: busyIndicator
+          property: "visible"
+          duration: 0
         }
       }
+    },
+    Transition {
+      from: "on"
+      to: "off"
+      SequentialAnimation {
+        PropertyAnimation {
+          target: busyIndicator
+          property: "visible"
+          duration: 0
+        }
+        PropertyAnimation {
+          target: clearButton
+          property: "visible"
+          duration: 0
+        }
+        PropertyAnimation {
+          target: codeReaderButton
+          property: "visible"
+          duration: 0
+        }
+        NumberAnimation {
+          target: searchFieldRect
+          easing.type: Easing.InOutQuad
+          properties: "width"
+          duration: 150
+        }
+        PropertyAnimation {
+          target: searchFieldRect
+          property: "visible"
+          duration: 0
+        }
+      }
+    }
   ]
 
   LocatorModelSuperBridge {
@@ -82,11 +152,11 @@ Item {
     featureListController: featureForm.extentController
 
     onMessageEmitted: {
-      displayToast(text)
+      displayToast(text);
     }
 
-    onSearchTextChangeRequested: (text) => {
-      searchField.text = text
+    onSearchTextChangeRequested: text => {
+      searchField.text = text;
     }
   }
 
@@ -98,11 +168,11 @@ Item {
   Connections {
     target: iface
 
-    function onLoadProjectEnded(path,name) {
+    function onLoadProjectEnded(path, name) {
       if (searchField.text.length > 0) {
         // Any pre-existing results would most likely be invalid in a new project context, clear
         searchField.text = '';
-        locatorItem.state = "off"
+        locatorItem.state = "off";
       }
     }
   }
@@ -113,7 +183,7 @@ Item {
     enabled: false
 
     function onDecoded(string) {
-      var prefix = locator.getPrefixFromSearchString(searchField.text)
+      var prefix = locator.getPrefixFromSearchString(searchField.text);
       searchField.text = prefix !== '' ? prefix + ' ' + string : string;
     }
 
@@ -158,16 +228,14 @@ Item {
       }
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
       onDisplayTextChanged: {
-        locatorItem.state = "on"
-
-        searchTermHandled = false
-        searchTermChanged(searchField.displayText)
+        locatorItem.state = "on";
+        searchTermHandled = false;
+        searchTermChanged(searchField.displayText);
         if (!searchTermHandled) {
-          locator.performSearch(searchField.displayText)
+          locator.performSearch(searchField.displayText);
         }
-
         if (searchField.displayText == 'f ' && dashBoard.activeLayer == undefined) {
-          displayToast(qsTr('To search features within the active layer, select a vector layer through the legend.'))
+          displayToast(qsTr('To search features within the active layer, select a vector layer through the legend.'));
         }
       }
     }
@@ -205,7 +273,7 @@ Item {
         searchField.text = '';
         searchField.forceActiveFocus();
       } else {
-        locatorItem.state = "off"
+        locatorItem.state = "off";
       }
     }
   }
@@ -227,7 +295,6 @@ Item {
 
     onClicked: {
       Qt.inputMethod.hide();
-
       codeReader.open();
       codeReaderConnection.enabled = true;
     }
@@ -235,15 +302,18 @@ Item {
 
   QfToolButton {
     id: searchButton
-    z:20
-    anchors { right: parent.right; top: parent.top; }
+    z: 20
+    anchors {
+      right: parent.right
+      top: parent.top
+    }
 
-    iconSource: Theme.getThemeVectorIcon( "ic_baseline_search_white" )
+    iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
     round: true
     bgcolor: Theme.mainColor
 
     onClicked: {
-      locatorItem.state = locatorItem.state =="off" ? "on" : "off"
+      locatorItem.state = locatorItem.state == "off" ? "on" : "off";
     }
 
     onPressAndHold: {
@@ -264,8 +334,11 @@ Item {
     visible: searchFieldRect.visible && resultsList.count > 0
     clip: true
 
-    Behavior on height {
-      NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
+    Behavior on height  {
+      NumberAnimation {
+        duration: 150
+        easing.type: Easing.InOutQuad
+      }
     }
 
     ListView {
@@ -275,7 +348,7 @@ Item {
       anchors.topMargin: 24
       model: searchField.displayText !== '' ? locator.proxyModel() : locatorFilters
       width: parent.width
-      height: resultsList.count > 0 ? Math.min( contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10 ) : 0
+      height: resultsList.count > 0 ? Math.min(contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10) : 0
       clip: true
 
       delegate: searchField.displayText !== '' ? resultsComponent : filtersComponent
@@ -353,9 +426,9 @@ Item {
 
           onClicked: {
             if (Prefix === 'f' && dashBoard.activeLayer == undefined) {
-              displayToast(qsTr('Activate a vector layer in the legend first to use this functionality'), 'warning')
+              displayToast(qsTr('Activate a vector layer in the legend first to use this functionality'), 'warning');
             } else {
-              searchField.text = Prefix + ' '
+              searchField.text = Prefix + ' ';
             }
           }
         }
@@ -401,11 +474,7 @@ Item {
             id: nameCell
             anchors.left: parent.left
             anchors.right: parent.right
-            text: isFilterName
-                  ? ResultFilterName
-                  : typeof(model.Text) == 'string'
-                    ? model.Text.trim()
-                    : ''
+            text: isFilterName ? ResultFilterName : typeof (model.Text) == 'string' ? model.Text.trim() : ''
             leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
@@ -449,8 +518,8 @@ Item {
               iconSource: Theme.getThemeIcon(IconPath)
 
               onClicked: {
-                locatorItem.state = "off"
-                locator.triggerResultAtRow(delegateRect.resultIndex, Id)
+                locatorItem.state = "off";
+                locator.triggerResultAtRow(delegateRect.resultIndex, Id);
               }
             }
           }
@@ -473,8 +542,8 @@ Item {
 
           onClicked: {
             if (!isFilterName && !isGroup && nameCell.text !== '') {
-              locator.triggerResultAtRow(index)
-              locatorItem.state = "off"
+              locator.triggerResultAtRow(index);
+              locatorItem.state = "off";
             }
           }
         }

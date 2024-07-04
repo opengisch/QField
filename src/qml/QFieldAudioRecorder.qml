@@ -4,16 +4,14 @@ import QtQuick.Layouts 1.14
 import QtQuick.Shapes 1.14
 import QtMultimedia
 import QtCore
-
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
-  id : audioRecorder
+  id: audioRecorder
 
   signal finished(string path)
-  signal canceled()
+  signal canceled
 
   property bool preRecording: true
   property bool hasRecordedClip: player.duration > 0
@@ -32,10 +30,9 @@ Popup {
 
   onAboutToShow: {
     preRecording = true;
-    player.source = ''
-
+    player.source = '';
     if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
-      microphonePermission.request()
+      microphonePermission.request();
     }
   }
 
@@ -64,11 +61,11 @@ Popup {
     running: false
 
     onTriggered: {
-      var path = recorder.actualLocation.toString()
+      var path = recorder.actualLocation.toString();
       // On Android, the file protocol prefix is present while on Linux it isn't
-      var filePos = path.indexOf('file://')
-      path = filePos == -1 ? 'file://' + path : path
-      player.source = path
+      var filePos = path.indexOf('file://');
+      path = filePos == -1 ? 'file://' + path : path;
+      player.source = path;
     }
   }
 
@@ -90,7 +87,6 @@ Popup {
         playerLoader.stop();
         loaded = true;
       }
-
       positionSlider.to = duration / 1000;
       positionSlider.value = 0;
     }
@@ -131,12 +127,12 @@ Popup {
           id: closeButton
           Layout.rightMargin: 10
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+          iconSource: Theme.getThemeIcon('ic_close_black_24dp')
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
-            audioRecorder.canceled()
+            audioRecorder.canceled();
           }
         }
       }
@@ -163,14 +159,14 @@ Popup {
 
           SequentialAnimation {
             NumberAnimation {
-              target:  levelFeedback
+              target: levelFeedback
               property: "width"
               to: 120 + (Math.min(audioFeedback.width, audioFeedback.height) - 120)
               duration: 2000
               easing.type: Easing.InOutQuad
             }
             NumberAnimation {
-              target:  levelFeedback
+              target: levelFeedback
               property: "width"
               to: 120
               duration: 2000
@@ -197,7 +193,12 @@ Popup {
               radius: recorder.recorderState === MediaRecorder.RecordingState ? 10 : width / 2
               color: "#FFFFFF"
 
-              Behavior on radius { PropertyAnimation { duration: 250; easing.type: Easing.InOutQuad } }
+              Behavior on radius  {
+                PropertyAnimation {
+                  duration: 250
+                  easing.type: Easing.InOutQuad
+                }
+              }
             }
 
             onClicked: {
@@ -211,7 +212,7 @@ Popup {
                   playerLoader.start();
                 } else {
                   playerLoader.stop();
-                  player.source = ''
+                  player.source = '';
                   recorder.record();
                 }
               }
@@ -228,17 +229,15 @@ Popup {
           enabled: audioRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.25
 
-          iconSource: player.playbackState == MediaPlayer.PlayingState
-                      ? Theme.getThemeVectorIcon('ic_pause_black_24dp')
-                      : Theme.getThemeVectorIcon('ic_play_black_24dp')
+          iconSource: player.playbackState == MediaPlayer.PlayingState ? Theme.getThemeVectorIcon('ic_pause_black_24dp') : Theme.getThemeVectorIcon('ic_play_black_24dp')
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
             if (player.playbackState == MediaPlayer.PlayingState) {
-              player.pause()
+              player.pause();
             } else {
-              player.play()
+              player.play();
             }
           }
         }
@@ -254,7 +253,7 @@ Popup {
           opacity: enabled ? 1 : 0.25
 
           onMoved: {
-            player.seek(value * 1000)
+            player.seek(value * 1000);
           }
         }
 
@@ -275,7 +274,7 @@ Popup {
               seconds -= hours * 60 * 60;
               var minutes = Math.floor(seconds / 60) + '';
               seconds = (seconds - minutes * 60) + '';
-              return hours.padStart(2,'0') + ':' + minutes.padStart(2,'0') + ':' + seconds.padStart(2,'0');
+              return hours.padStart(2, '0') + ':' + minutes.padStart(2, '0') + ':' + seconds.padStart(2, '0');
             } else {
               return '-';
             }
@@ -292,15 +291,15 @@ Popup {
           enabled: audioRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
+          iconSource: Theme.getThemeIcon('ic_check_black_48dp')
           iconColor: enabled ? "white" : Theme.mainTextColor
           bgcolor: enabled ? Theme.mainColor : "transparent"
           round: true
 
           onClicked: {
-            var path = recorder.actualLocation.toString()
-            var filePos = path.indexOf('file://')
-            audioRecorder.finished(filePos === 0 ? path.substring(7) : path)
+            var path = recorder.actualLocation.toString();
+            var filePos = path.indexOf('file://');
+            audioRecorder.finished(filePos === 0 ? path.substring(7) : path);
             audioRecorder.close();
           }
         }

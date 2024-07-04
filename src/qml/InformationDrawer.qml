@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import org.qfield 1.0
 import Theme 1.0
 
@@ -13,7 +12,7 @@ Item {
 
   width: parent.width
   height: mainContent.height + (mainContent.height > 0 ? 5 : 0) + mainWindow.sceneBottomMargin
-  Behavior on height {
+  Behavior on height  {
     PropertyAnimation {
       easing.type: Easing.OutQuart
     }
@@ -33,12 +32,7 @@ Item {
   property alias positioningPreciseView: positioningPreciseView
   property PositioningSettings positioningSettings
   property Positioning positionSource
-  property bool positioningPreciseEnabled: !elevationProfile.visible
-                                           && !isNaN(navigation.distance)
-                                           && navigation.isActive
-                                           && (positioningSettings.alwaysShowPreciseView
-                                              || ( positioningPreciseView.hasAcceptableAccuracy
-                                              &&  positioningPreciseView.projectDistance < positioningPreciseView.precision ))
+  property bool positioningPreciseEnabled: !elevationProfile.visible && !isNaN(navigation.distance) && navigation.isActive && (positioningSettings.alwaysShowPreciseView || (positioningPreciseView.hasAcceptableAccuracy && positioningPreciseView.projectDistance < positioningPreciseView.precision))
 
   // ElevationProfile
   property alias elevationProfile: elevationProfile

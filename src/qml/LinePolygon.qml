@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
-
 import Theme 1.0
 import org.qfield 1.0
 import org.qgis 1.0
@@ -10,22 +9,23 @@ LinePolygonShape {
 
   onPolylinesChanged: {
     if (polylines.length > 0) {
-      const pathElements = []
-      for(const polyline of polylines) {
-        var pathPolyline = componentPathPolyline.createObject(shapePath)
-        pathPolyline.path = polyline
-        pathElements.push(pathPolyline)
+      const pathElements = [];
+      for (const polyline of polylines) {
+        var pathPolyline = componentPathPolyline.createObject(shapePath);
+        pathPolyline.path = polyline;
+        pathElements.push(pathPolyline);
       }
-      shapePath.pathElements = pathElements
+      shapePath.pathElements = pathElements;
     } else {
-      shapePath.pathElements = [componentPathPolyline.createObject(shapePath)]
+      shapePath.pathElements = [componentPathPolyline.createObject(shapePath)];
     }
   }
 
   Component {
-    id: componentPathPolyline;
+    id: componentPathPolyline
 
-    PathPolyline {}
+    PathPolyline {
+    }
   }
 
   Shape {
@@ -37,9 +37,7 @@ LinePolygonShape {
       strokeColor: linePolygonShape.color
       strokeWidth: linePolygonShape.lineWidth / linePolygonShape.scale
       strokeStyle: ShapePath.SolidLine
-      fillColor: linePolygonShape.polylinesType === Qgis.GeometryType.Polygon
-                 ? Qt.hsla(strokeColor.hslHue, strokeColor.hslSaturation, strokeColor.hslLightness, 0.25)
-                 : "transparent"
+      fillColor: linePolygonShape.polylinesType === Qgis.GeometryType.Polygon ? Qt.hsla(strokeColor.hslHue, strokeColor.hslSaturation, strokeColor.hslLightness, 0.25) : "transparent"
       joinStyle: ShapePath.RoundJoin
       capStyle: ShapePath.RoundCap
     }

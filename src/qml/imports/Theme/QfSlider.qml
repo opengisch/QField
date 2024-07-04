@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.14
 Item {
   id: wrapper
 
-  property alias from: slider.from;
+  property alias from: slider.from
   property alias to: slider.to
   property alias stepSize: slider.stepSize
   property alias value: slider.value
@@ -54,7 +54,7 @@ Item {
       text: prefixText + getSampleOfNumberOfLength(Math.min(slider.to, 999)) + suffixText
 
       function getSampleOfNumberOfLength(number) {
-        return new Array(number.toString().length + 1).join(9)
+        return new Array(number.toString().length + 1).join(9);
       }
     }
   }

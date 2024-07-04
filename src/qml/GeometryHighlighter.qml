@@ -1,5 +1,4 @@
 import QtQuick 2.14
-
 import org.qfield 1.0
 
 Item {
@@ -15,20 +14,20 @@ Item {
     alwaysRunToEnd: true
 
     OpacityAnimator {
-      target: geometryHighlighter;
-      from: 1;
-      to: 0;
+      target: geometryHighlighter
+      from: 1
+      to: 0
       duration: 500
     }
     OpacityAnimator {
-      target: geometryHighlighter;
-      from: 0;
-      to: 1;
+      target: geometryHighlighter
+      from: 0
+      to: 1
       duration: 500
     }
 
     onFinished: {
-      geometryHighlighter.geometryWrapper.clear()
+      geometryHighlighter.geometryWrapper.clear();
     }
   }
 
@@ -41,7 +40,7 @@ Item {
     target: geometryRenderer.geometryWrapper
 
     function onQgsGeometryChanged() {
-      timer.restart()
+      timer.restart();
     }
   }
 }

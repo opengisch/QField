@@ -1,10 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQml 2.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Rectangle {
@@ -58,25 +56,45 @@ Rectangle {
     visible: opacity > 0
 
     states: [
-        State { name: 'on'
-                PropertyChanges { target: busyIndicator; opacity: 1.0 }},
-        State { name: 'off'
-                PropertyChanges { target: busyIndicator; opacity: 0.0 }}
+      State {
+        name: 'on'
+        PropertyChanges {
+          target: busyIndicator
+          opacity: 1.0
+        }
+      },
+      State {
+        name: 'off'
+        PropertyChanges {
+          target: busyIndicator
+          opacity: 0.0
+        }
+      }
     ]
     transitions: [
       Transition {
         from: "off"
         to: "on"
         SequentialAnimation {
-          NumberAnimation { target: busyIndicator; property: 'opacity'; duration: 100; }
+          NumberAnimation {
+            target: busyIndicator
+            property: 'opacity'
+            duration: 100
+          }
         }
       },
       Transition {
         from: "on"
         to: "off"
         SequentialAnimation {
-          PauseAnimation { duration: 100 }
-          NumberAnimation { target: busyIndicator; property: 'opacity'; duration: 200; }
+          PauseAnimation {
+            duration: 100
+          }
+          NumberAnimation {
+            target: busyIndicator
+            property: 'opacity'
+            duration: 200
+          }
         }
       }
     ]
@@ -91,9 +109,7 @@ Rectangle {
     font: Theme.tinyFont
     horizontalAlignment: Text.AlignHCenter
     wrapMode: Text.WordWrap
-    text: elevationProfileCanvas.isRendering
-          ? qsTr('Rendering elevation profile…')
-          : qsTr('Digitize a path to render the elevation profile')
+    text: elevationProfileCanvas.isRendering ? qsTr('Rendering elevation profile…') : qsTr('Digitize a path to render the elevation profile')
     style: Text.Outline
     styleColor: Theme.mainBackgroundColorSemiOpaque
   }

@@ -1,11 +1,9 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qfield 1.0
 import org.qgis 1.0
 import Theme 1.0
-
 import ".."
 import "."
 
@@ -16,15 +14,14 @@ EditorWidgetBase {
   enabled: true
 
   LayerResolver {
-      id: layerResolver
+    id: layerResolver
 
-      layerId: config['Layer']
-      layerName: config['LayerName']
-      layerSource: config['LayerSource']
-      layerProviderName: config['LayerProviderName']
-      project: qgisProject
+    layerId: config['Layer']
+    layerName: config['LayerName']
+    layerSource: config['LayerSource']
+    layerProviderName: config['LayerProviderName']
+    project: qgisProject
   }
-
 
   FeatureCheckListModel {
     id: listModel
@@ -45,7 +42,7 @@ EditorWidgetBase {
     attributeValue: value !== undefined ? value : ""
 
     onListUpdated: {
-      valueChangeRequested( attributeValue, false )
+      valueChangeRequested(attributeValue, false);
     }
   }
 
@@ -66,7 +63,7 @@ EditorWidgetBase {
 
     visible: Number(config['AllowMulti']) === 1
     width: parent.width
-    height: Math.max( valueListView.height, itemHeight)
+    height: Math.max(valueListView.height, itemHeight)
 
     color: Theme.controlBackgroundColor
     border.color: Theme.controlBorderColor
@@ -76,7 +73,7 @@ EditorWidgetBase {
       id: valueListView
       model: listModel
       width: parent.width
-      height: Math.min( 5 * valueRelationList.itemHeight, valueListView.count * valueRelationList.itemHeight )
+      height: Math.min(5 * valueRelationList.itemHeight, valueListView.count * valueRelationList.itemHeight)
       delegate: listComponent
       focus: true
       clip: true
@@ -84,10 +81,8 @@ EditorWidgetBase {
 
       property int storedIndex
 
-      onModelChanged:
-        currentIndex = storedIndex
-      onCurrentIndexChanged:
-        storedIndex = currentIndex
+      onModelChanged: currentIndex = storedIndex
+      onCurrentIndexChanged: storedIndex = currentIndex
     }
 
     Component {
@@ -95,8 +90,11 @@ EditorWidgetBase {
 
       Item {
         id: listItem
-        anchors { left: parent ? parent.left : undefined; right: parent ? parent.right : undefined }
-        height: Math.max( valueRelationList.itemHeight, valueText.height )
+        anchors {
+          left: parent ? parent.left : undefined
+          right: parent ? parent.right : undefined
+        }
+        height: Math.max(valueRelationList.itemHeight, valueText.height)
 
         focus: true
 
@@ -143,7 +141,7 @@ EditorWidgetBase {
 
           onClicked: {
             if (isEnabled) {
-              model.checked = !model.checked
+              model.checked = !model.checked;
             }
           }
         }
@@ -160,7 +158,6 @@ EditorWidgetBase {
   }
 
   function siblingValueChanged(field, feature) {
-    listModel.currentFormFeature = feature
+    listModel.currentFormFeature = feature;
   }
 }
-

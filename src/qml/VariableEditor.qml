@@ -1,18 +1,17 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qfield 1.0
 import Theme 1.0
 
 ColumnLayout {
   function reset() {
-    Qt.inputMethod.hide()
-    table.model.reloadVariables()
+    Qt.inputMethod.hide();
+    table.model.reloadVariables();
   }
 
   function apply() {
-    table.model.save()
+    table.model.save();
   }
 
   anchors.fill: parent
@@ -29,7 +28,8 @@ ColumnLayout {
 
     ListView {
       id: table
-      model: ExpressionVariableModel {}
+      model: ExpressionVariableModel {
+      }
       flickableDirection: Flickable.VerticalFlick
       boundsBehavior: Flickable.StopAtBounds
       clip: true
@@ -79,11 +79,11 @@ ColumnLayout {
               }
 
               onTextChanged: {
-                table.model.setName(index, text)
+                table.model.setName(index, text);
               }
 
               onCursorRectangleChanged: {
-                variableNameTextAnimator.ensureCursorVisible(cursorRectangle)
+                variableNameTextAnimator.ensureCursorVisible(cursorRectangle);
               }
             }
           }
@@ -116,11 +116,11 @@ ColumnLayout {
               }
 
               onTextChanged: {
-                table.model.setValue(index, text)
+                table.model.setValue(index, text);
               }
 
               onCursorRectangleChanged: {
-                variableValueTextAnimator.ensureCursorVisible(cursorRectangle)
+                variableValueTextAnimator.ensureCursorVisible(cursorRectangle);
               }
             }
           }
@@ -137,7 +137,7 @@ ColumnLayout {
             bgcolor: "transparent"
 
             onClicked: {
-              table.model.removeCustomVariable(index)
+              table.model.removeCustomVariable(index);
             }
           }
         }
@@ -151,10 +151,10 @@ ColumnLayout {
     text: qsTr("Add a new variable")
 
     onClicked: {
-      table.model.addCustomVariable("new_variable", "")
-      table.positionViewAtIndex(table.count - 1, ListView.visible)
+      table.model.addCustomVariable("new_variable", "");
+      table.positionViewAtIndex(table.count - 1, ListView.visible);
       // TODO: Use Qt 5.13 itemAtIndex( index )
-      table.children[0].children[table.count].children[0].children[0].forceActiveFocus()
+      table.children[0].children[table.count].children[0].children[0].forceActiveFocus();
     }
   }
 }

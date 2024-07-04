@@ -14,11 +14,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQml 2.15
-
 import org.qgis 1.0
 
 Item {
@@ -65,21 +63,21 @@ Item {
    * number of times.
    */
   function freeze(id) {
-    mapCanvasWrapper.__freezecount[id] = true
-    mapCanvasWrapper.freeze = true
+    mapCanvasWrapper.__freezecount[id] = true;
+    mapCanvasWrapper.freeze = true;
   }
 
   function unfreeze(id) {
-    delete mapCanvasWrapper.__freezecount[id]
-    mapCanvasWrapper.freeze = Object.keys(mapCanvasWrapper.__freezecount).length !== 0
+    delete mapCanvasWrapper.__freezecount[id];
+    mapCanvasWrapper.freeze = Object.keys(mapCanvasWrapper.__freezecount).length !== 0;
   }
 
   function zoomIn(point) {
-    mapCanvasWrapper.zoom(point, 0.67)
+    mapCanvasWrapper.zoom(point, 0.67);
   }
 
   function zoomOut(point) {
-    mapCanvasWrapper.zoom(point, 1.5)
+    mapCanvasWrapper.zoom(point, 1.5);
   }
 
   MapCanvasMap {
@@ -103,26 +101,25 @@ Item {
     property bool longPressActive: false
 
     onSingleTapped: (eventPoint, button) => {
-                      if (button === undefined) {
-                        button = eventPoint.event.button
-                      }
-
-                      if (button === Qt.RightButton) {
-                        mapArea.rightClicked(point.position, "stylus")
-                      } else {
-                        mapArea.clicked(point.position, "stylus")
-                      }
-                    }
+      if (button === undefined) {
+        button = eventPoint.event.button;
+      }
+      if (button === Qt.RightButton) {
+        mapArea.rightClicked(point.position, "stylus");
+      } else {
+        mapArea.clicked(point.position, "stylus");
+      }
+    }
 
     onLongPressed: {
-      mapArea.longPressed(point.position, "stylus")
-      longPressActive = true
+      mapArea.longPressed(point.position, "stylus");
+      longPressActive = true;
     }
 
     onPressedChanged: {
       if (longPressActive)
-        mapArea.longPressReleased("stylus")
-      longPressActive = false
+        mapArea.longPressReleased("stylus");
+      longPressActive = false;
     }
   }
 
@@ -145,32 +142,32 @@ Item {
     onActiveChanged: {
       if (active) {
         if (mainTapHandler.doublePressed) {
-          oldTranslationY = 0
-          zoomCenter = centroid.position
-          isZooming = true
-          freeze('zoom')
+          oldTranslationY = 0;
+          zoomCenter = centroid.position;
+          isZooming = true;
+          freeze('zoom');
         } else {
-          oldPos = centroid.position
-          isPanning = true
-          freeze('pan')
+          oldPos = centroid.position;
+          isPanning = true;
+          freeze('pan');
         }
       } else {
         if (isZooming || isPanning) {
-          unfreeze(isZooming ? 'zoom' : 'pan')
+          unfreeze(isZooming ? 'zoom' : 'pan');
         }
-        isZooming = false
-        isPanning = false
+        isZooming = false;
+        isPanning = false;
       }
     }
 
     onCentroidChanged: {
       if (active) {
         if (isZooming) {
-          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60))
-          oldTranslationY = translation.y
+          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          oldTranslationY = translation.y;
         } else if (isPanning) {
-          mapCanvasWrapper.pan(centroid.position, oldPos)
-          oldPos = centroid.position
+          mapCanvasWrapper.pan(centroid.position, oldPos);
+          oldPos = centroid.position;
         }
       }
     }
@@ -184,8 +181,8 @@ Item {
     property var tapPoint
 
     onTriggered: {
-      mainTapHandler.doublePressed = false
-      confirmedClicked(tapPoint)
+      mainTapHandler.doublePressed = false;
+      confirmedClicked(tapPoint);
     }
   }
 
@@ -200,38 +197,38 @@ Item {
     property bool doublePressed: false
 
     onLongPressed: {
-                     mapArea.longPressed(Qt.point(point.position.x, point.position.y), "touch")
-                     longPressActive = true
-                   }
+      mapArea.longPressed(Qt.point(point.position.x, point.position.y), "touch");
+      longPressActive = true;
+    }
 
     onPressedChanged: {
-                 if (pressed) {
-                   if (point.pressedButtons !== Qt.RightButton) {
-                     if (timer.running) {
-                       timer.stop()
-                       doublePressed = true
-                     } else {
-                       doublePressed = false
-                     }
-                   }
-                 }
-               }
+      if (pressed) {
+        if (point.pressedButtons !== Qt.RightButton) {
+          if (timer.running) {
+            timer.stop();
+            doublePressed = true;
+          } else {
+            doublePressed = false;
+          }
+        }
+      }
+    }
 
     onTapped: (eventPoint, button) => {
-                if (button === Qt.RightButton) {
-                  mapArea.rightClicked(Qt.point(eventPoint.position.x, eventPoint.position.y), "touch")
-                } else {
-                  if (!doublePressed) {
-                    timer.tapPoint = Qt.point(eventPoint.position.x, eventPoint.position.y)
-                    timer.restart()
-                  } else {
-                    mapCanvasWrapper.zoom(Qt.point(eventPoint.position.x, eventPoint.position.y), 0.8)
-                  }
-                }
-              }
+      if (button === Qt.RightButton) {
+        mapArea.rightClicked(Qt.point(eventPoint.position.x, eventPoint.position.y), "touch");
+      } else {
+        if (!doublePressed) {
+          timer.tapPoint = Qt.point(eventPoint.position.x, eventPoint.position.y);
+          timer.restart();
+        } else {
+          mapCanvasWrapper.zoom(Qt.point(eventPoint.position.x, eventPoint.position.y), 0.8);
+        }
+      }
+    }
 
     onCanceled: {
-      timer.stop()
+      timer.stop();
     }
   }
 
@@ -254,32 +251,32 @@ Item {
     onActiveChanged: {
       if (active) {
         if (mainTapHandler.doublePressed) {
-          oldTranslationY = 0
-          zoomCenter = centroid.position
-          isZooming = true
-          freeze('zoom')
+          oldTranslationY = 0;
+          zoomCenter = centroid.position;
+          isZooming = true;
+          freeze('zoom');
         } else {
-          oldPos = centroid.position
-          isPanning = true
-          freeze('pan')
+          oldPos = centroid.position;
+          isPanning = true;
+          freeze('pan');
         }
       } else {
         if (isZooming || isPanning) {
-          unfreeze(isZooming ? 'zoom' : 'pan')
+          unfreeze(isZooming ? 'zoom' : 'pan');
         }
-        isZooming = false
-        isPanning = false
+        isZooming = false;
+        isPanning = false;
       }
     }
 
     onCentroidChanged: {
       if (active) {
         if (isZooming) {
-          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60))
-          oldTranslationY = translation.y
+          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          oldTranslationY = translation.y;
         } else if (isPanning) {
-          mapCanvasWrapper.pan(centroid.position, oldPos)
-          oldPos = centroid.position
+          mapCanvasWrapper.pan(centroid.position, oldPos);
+          oldPos = centroid.position;
         }
       }
     }
@@ -289,7 +286,7 @@ Item {
     id: secondaryDragHandler
     target: null
     enabled: interactive
-    grabPermissions: PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything;
+    grabPermissions: PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
     acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
     acceptedButtons: Qt.RightButton
     dragThreshold: 10
@@ -299,21 +296,20 @@ Item {
 
     onActiveChanged: {
       if (active) {
-        oldTranslationY = 0
-        zoomCenter = centroid.position
-        freeze('zoom')
+        oldTranslationY = 0;
+        zoomCenter = centroid.position;
+        freeze('zoom');
       } else {
-        grabPermissions: PointerHandler.TakeOverForbidden
-        unfreeze('zoom')
+        grabPermissions: PointerHandler.TakeOverForbidden;
+        unfreeze('zoom');
       }
     }
 
     onTranslationChanged: {
       if (active) {
-        mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
+        mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y) / 60));
       }
-
-      oldTranslationY = translation.y
+      oldTranslationY = translation.y;
     }
   }
 
@@ -329,18 +325,18 @@ Item {
 
     onActiveChanged: {
       if (active) {
-        freeze('pan')
-        oldPos = centroid.position
+        freeze('pan');
+        oldPos = centroid.position;
       } else {
-        unfreeze('pan')
+        unfreeze('pan');
       }
     }
 
     onCentroidChanged: {
       if (active) {
-        var oldPos1 = oldPos
-        oldPos = centroid.position
-        mapCanvasWrapper.pan(centroid.position, oldPos1)
+        var oldPos1 = oldPos;
+        oldPos = centroid.position;
+        mapCanvasWrapper.pan(centroid.position, oldPos1);
       }
     }
   }
@@ -358,11 +354,11 @@ Item {
 
     onActiveChanged: {
       if (active) {
-        freeze('rotate')
-        oldTranslationY = 0
-        translationThresholdReached = false
+        freeze('rotate');
+        oldTranslationY = 0;
+        translationThresholdReached = false;
       } else {
-        unfreeze('rotate')
+        unfreeze('rotate');
       }
     }
 
@@ -370,78 +366,73 @@ Item {
       if (active) {
         if (translationThresholdReached) {
           if (oldTranslationY != 0) {
-            mapCanvasWrapper.rotate(oldTranslationY - translation.y)
+            mapCanvasWrapper.rotate(oldTranslationY - translation.y);
           }
-          oldTranslationY = translation.y
-          translationThresholdReached = true
+          oldTranslationY = translation.y;
+          translationThresholdReached = true;
         } else if (Math.abs(oldTranslationY - translation.y) > pinchHandler.rotationTreshold) {
-          oldTranslationY = translation.y
-          translationThresholdReached = true
+          oldTranslationY = translation.y;
+          translationThresholdReached = true;
         }
       }
     }
   }
 
   PinchHandler {
-      id: pinchHandler
-      enabled: interactive
-      target: null
-      acceptedButtons: Qt.NoButton | Qt.LeftButton
-      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-      acceptedDevices: PointerDevice.TouchScreen
-      dragThreshold: 5
+    id: pinchHandler
+    enabled: interactive
+    target: null
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: PointerDevice.TouchScreen
+    dragThreshold: 5
 
-      property real rotationTreshold: 20.0
+    property real rotationTreshold: 20.0
 
-      property var oldPos
-      property real oldScale: 1.0
-      property real oldRotation: 0.0
+    property var oldPos
+    property real oldScale: 1.0
+    property real oldRotation: 0.0
 
-      property bool rotationActive: false
-      property bool rotationTresholdReached: false
+    property bool rotationActive: false
+    property bool rotationTresholdReached: false
 
-      onActiveChanged: {
-          if ( active ) {
-              freeze('pinch')
-              oldScale = 1.0
-              oldRotation = 0.0
-              rotationTresholdReached = false
-              oldPos = centroid.position
-          } else {
-              unfreeze('pinch')
-          }
+    onActiveChanged: {
+      if (active) {
+        freeze('pinch');
+        oldScale = 1.0;
+        oldRotation = 0.0;
+        rotationTresholdReached = false;
+        oldPos = centroid.position;
+      } else {
+        unfreeze('pinch');
       }
+    }
 
-      onCentroidChanged: {
-          var oldPos1 = oldPos
-          oldPos = centroid.position
-          if ( active )
-          {
-              mapCanvasWrapper.pan(centroid.position, oldPos1)
-          }
+    onCentroidChanged: {
+      var oldPos1 = oldPos;
+      oldPos = centroid.position;
+      if (active) {
+        mapCanvasWrapper.pan(centroid.position, oldPos1);
       }
+    }
 
-      onRotationChanged: {
-          if ( active && isMapRotationEnabled )
-          {
-              if (rotationTresholdReached)
-              {
-                  mapCanvasWrapper.rotate(rotation - oldRotation)
-                  oldRotation = rotation
-              }
-              else if (Math.abs(rotation - oldRotation) > pinchHandler.rotationTreshold)
-              {
-                oldRotation = rotation
-                rotationTresholdReached = true
-              }
-          }
+    onRotationChanged: {
+      if (active && isMapRotationEnabled) {
+        if (rotationTresholdReached) {
+          mapCanvasWrapper.rotate(rotation - oldRotation);
+          oldRotation = rotation;
+        } else if (Math.abs(rotation - oldRotation) > pinchHandler.rotationTreshold) {
+          oldRotation = rotation;
+          rotationTresholdReached = true;
+        }
       }
+    }
 
-      onActiveScaleChanged: {
-          mapCanvasWrapper.zoom( pinchHandler.centroid.position, oldScale / pinchHandler.activeScale )
-          mapCanvasWrapper.pan( pinchHandler.centroid.position, oldPos )
-          oldScale = pinchHandler.activeScale
-      }
+    onActiveScaleChanged: {
+      mapCanvasWrapper.zoom(pinchHandler.centroid.position, oldScale / pinchHandler.activeScale);
+      mapCanvasWrapper.pan(pinchHandler.centroid.position, oldPos);
+      oldScale = pinchHandler.activeScale;
+    }
   }
 
   WheelHandler {
@@ -449,12 +440,12 @@ Item {
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
-    onWheel: (event) => {
-               if (event.angleDelta.y > 0) {
-                 zoomIn(point.position)
-               } else {
-                 zoomOut(point.position)
-               }
-             }
+    onWheel: event => {
+      if (event.angleDelta.y > 0) {
+        zoomIn(point.position);
+      } else {
+        zoomOut(point.position);
+      }
+    }
   }
 }

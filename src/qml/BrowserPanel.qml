@@ -2,14 +2,13 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtWebView 1.14
-
 import org.qfield 1.0
 import Theme 1.0
 
 Popup {
   id: browserPanel
 
-  signal cancel()
+  signal cancel
 
   property var browserView: undefined
   property var browserCookies: []
@@ -31,9 +30,7 @@ Popup {
     anchors.fill: parent
     header: QfPageHeader {
       id: pageHeader
-      title: browserView && !browserView.loading && browserView.title !== ''
-             ? browserView.title
-             : qsTr("Browser")
+      title: browserView && !browserView.loading && browserView.title !== '' ? browserView.title : qsTr("Browser")
 
       showBackButton: browserPanel.fullscreen
       showApplyButton: false
@@ -44,11 +41,11 @@ Popup {
       topMargin: browserPanel.fullscreen ? mainWindow.sceneTopMargin : 0
 
       onBack: {
-        browserPanel.cancel()
+        browserPanel.cancel();
       }
 
       onCancel: {
-        browserPanel.cancel()
+        browserPanel.cancel();
       }
     }
 
@@ -65,8 +62,7 @@ Popup {
 
   onAboutToShow: {
     // Reset tracked cookies
-    browserCookies = []
-
+    browserCookies = [];
     if (url != '') {
       if (browserView === undefined) {
         // avoid cost of WevView creation until needed
@@ -84,9 +80,9 @@ Popup {
               onCookieAdded: (domain, name) => {
                 browserPanel.browserCookies.push([domain, name])
               }
-            }', browserContent)
+            }', browserContent);
           if (clearCookiesOnOpen) {
-            browserView.deleteAllCookies()
+            browserView.deleteAllCookies();
           }
         } else {
           browserView = Qt.createQmlObject('import QtWebView 1.14
@@ -99,20 +95,19 @@ Popup {
                   height = parent.height; opacity = 1
                 }
               }
-            }', browserContent)
+            }', browserContent);
         }
       }
-      browserView.anchors.fill = undefined
-      browserView.url = url
-      browserView.opacity = 0
+      browserView.anchors.fill = undefined;
+      browserView.url = url;
+      browserView.opacity = 0;
     }
-
-    clearCookiesOnOpen = false
+    clearCookiesOnOpen = false;
   }
 
   function deleteCookies() {
-    for(const [domain, name] of browserCookies) {
-      browserView.deleteCookie(domain, name)
+    for (const [domain, name] of browserCookies) {
+      browserView.deleteCookie(domain, name);
     }
     browserCookies = [];
   }
