@@ -84,6 +84,6 @@ repos:
 
 
 - repo: https://github.com/nrbnlulu/qt-hooks
-  rev: v0.1.0  # current revision
+  rev: v0.1.5  # current revision
   hooks:
     -  id: qml-format
