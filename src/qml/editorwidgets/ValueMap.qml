@@ -199,9 +199,14 @@ EditorWidgetBase {
       }
 
       onCurrentTextChanged: {
-        if (valueMap.state === "comboBoxItemView") {
-          var key = model.keyForValue(currentText)
-          valueChangeRequested(key, false)
+        if (searchFeaturePopup.opened || valueMap.state !== "comboBoxItemView") {
+          return
+        }
+        var key = model.keyForValue(currentText)
+        if (currentKeyValue !== key) {
+          if (valueMap.state === "comboBoxItemView") {
+            valueChangeRequested(key, false)
+          }
         }
       }
 
@@ -304,7 +309,11 @@ EditorWidgetBase {
           showBackButton: false
           showApplyButton: false
           showCancelButton: true
-          onCancel: searchFeaturePopup.close()
+          onCancel: {
+            searchFeaturePopup.close()
+            listModel.setFilterFixedString('')
+            comboBox.currentIndex = listModel.keyToIndex(valueMap.currentKeyValue)
+          }
         }
 
         TextField {
@@ -429,8 +438,10 @@ EditorWidgetBase {
 
             function performClick() {
               if (key === currentKeyValue)
+              {
                 return
-
+              }
+              listModel.setFilterFixedString('')
               valueChangeRequested(key, false)
               searchFeaturePopup.close()
             }
