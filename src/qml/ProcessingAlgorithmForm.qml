@@ -10,6 +10,7 @@ Item {
   id: processingAlgorithmForm
 
   property ProcessingAlgorithmParametersModel algorithmParametersModel: processingAlgorithmParametersModel
+  property alias inPlaceLayer: processingAlgorithmParametersModel.inPlaceLayer
   property alias algorithmId: processingAlgorithmParametersModel.algorithmId
   property alias algorithmDisplayName: processingAlgorithmParametersModel.algorithmDisplayName
   property alias algorithmShortHelp: processingAlgorithmParametersModel.algorithmShortHelp

@@ -18,6 +18,7 @@
 #include "processingalgorithmparametersmodel.h"
 
 #include <qgsapplication.h>
+#include <qgscoordinatereferencesystem.h>
 #include <qgsprocessingalgorithm.h>
 #include <qgsprocessingparameters.h>
 #include <qgsprocessingregistry.h>
@@ -29,6 +30,7 @@ ProcessingAlgorithmParametersModel::ProcessingAlgorithmParametersModel( QObject 
 {
   setSourceModel( mModel );
   connect( mModel, &ProcessingAlgorithmParametersModelBase::algorithmIdChanged, this, &ProcessingAlgorithmParametersModel::algorithmIdChanged );
+  connect( mModel, &ProcessingAlgorithmParametersModelBase::inPlaceLayerChanged, this, &ProcessingAlgorithmParametersModel::inPlaceLayerChanged );
   connect( mModel, &ProcessingAlgorithmParametersModelBase::parametersChanged, this, &ProcessingAlgorithmParametersModel::parametersChanged );
 }
 
@@ -53,6 +55,16 @@ QString ProcessingAlgorithmParametersModel::algorithmId() const
 void ProcessingAlgorithmParametersModel::setAlgorithmId( const QString &id )
 {
   mModel->setAlgorithmId( id );
+}
+
+QgsVectorLayer *ProcessingAlgorithmParametersModel::inPlaceLayer() const
+{
+  return mModel->inPlaceLayer();
+}
+
+void ProcessingAlgorithmParametersModel::setInPlaceLayer( QgsVectorLayer *layer )
+{
+  mModel->setInPlaceLayer( layer );
 }
 
 bool ProcessingAlgorithmParametersModel::isValid() const
@@ -128,7 +140,7 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
 
   if ( mAlgorithm )
   {
-    const static QStringList sSupportedParameters = { QStringLiteral( "number" ) };
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ) };
     const QgsProcessingAlgorithm *algorithm = QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId );
     for ( const QgsProcessingParameterDefinition *definition : algorithm->parameterDefinitions() )
     {
@@ -161,6 +173,21 @@ void ProcessingAlgorithmParametersModelBase::setAlgorithmId( const QString &id )
   rebuild();
 
   emit algorithmIdChanged( mAlgorithmId );
+  emit parametersChanged();
+}
+
+void ProcessingAlgorithmParametersModelBase::setInPlaceLayer( QgsVectorLayer *layer )
+{
+  if ( mInPlaceLayer == layer )
+  {
+    return;
+  }
+
+  mInPlaceLayer = layer;
+
+  rebuild();
+
+  emit inPlaceLayerChanged();
   emit parametersChanged();
 }
 
@@ -242,6 +269,12 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
         configuration["minimum"] = parameterNumber->minimum();
         configuration["maximum"] = parameterNumber->maximum();
         configuration["dataType"] = static_cast<int>( parameterNumber->dataType() );
+      }
+      if ( const QgsProcessingParameterDistance *parameterDistance = dynamic_cast<const QgsProcessingParameterDistance *>( mParameters.at( index.row() ) ) )
+      {
+        configuration["minimum"] = parameterDistance->minimum();
+        configuration["maximum"] = parameterDistance->maximum();
+        configuration["distanceUnit"] = static_cast<int>( ( mInPlaceLayer ? mInPlaceLayer->crs().mapUnits() : Qgis::DistanceUnit::Unknown ) );
       }
       return configuration;
   }
