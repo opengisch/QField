@@ -9,7 +9,6 @@
   },
   "name": "qfield",
   "version-string": "dev",
-  "port-version": 1,
   "description": "A simplified and touch optimized frontend for QGIS.",
   "homepage": "https://github.com/opengisch/qfield",
   "dependencies": [
