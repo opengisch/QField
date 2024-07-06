@@ -1,5 +1,4 @@
 import QtQuick 2.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 
@@ -21,13 +20,13 @@ Repeater {
     geometryWrapper.qgsGeometry: model.geometry
     geometryWrapper.crs: model.crs
 
-    visible: featureListSelectionHighlight.visible && ( !showSelectedOnly || model.featureSelected )
+    visible: featureListSelectionHighlight.visible && (!showSelectedOnly || model.featureSelected)
     color: model.featureSelected ? featureListSelectionHighlight.selectedColor : selectionModel.model.selectedCount === 0 && selectionModel && model.index === selectionModel.focusedItem ? featureListSelectionHighlight.focusedColor : featureListSelectionHighlight.color
     z: model.index === selectionModel.focusedItem ? 1 : 0
 
     transform: Translate {
-        x: featureListSelectionHighlight.translateX
-        y: -featureListSelectionHighlight.translateY
+      x: featureListSelectionHighlight.translateX
+      y: -featureListSelectionHighlight.translateY
     }
   }
 }

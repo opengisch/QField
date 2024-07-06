@@ -1,12 +1,10 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-
-import '.'
+import "."
 
 Item {
   id: trackingSession
@@ -14,7 +12,7 @@ Item {
   property var tracker: model
 
   Component.onCompleted: {
-    tracker.rubberModel = rubberbandModel
+    tracker.rubberModel = rubberbandModel;
   }
 
   RubberbandModel {
@@ -25,25 +23,25 @@ Item {
 
     property int measureType: tracker.measureType
     measureValue: {
-      switch(measureType) {
-        case Tracker.SecondsSinceStart:
-          return ( positionSource.positionInformation.utcDateTime - tracker.startPositionTimestamp ) / 1000
-        case Tracker.Timestamp:
-          return positionSource.positionInformation.utcDateTime.getTime()
-        case Tracker.GroundSpeed:
-          return positionSource.positionInformation.speed
-        case Tracker.Bearing:
-          return positionSource.positionInformation.direction
-        case Tracker.HorizontalAccuracy:
-          return positionSource.positionInformation.hacc
-        case Tracker.VerticalAccuracy:
-          return positionSource.positionInformation.vacc
-        case Tracker.PDOP:
-          return positionSource.positionInformation.pdop
-        case Tracker.HDOP:
-          return positionSource.positionInformation.hdop
-        case Tracker.VDOP:
-          return positionSource.positionInformation.vdop
+      switch (measureType) {
+      case Tracker.SecondsSinceStart:
+        return (positionSource.positionInformation.utcDateTime - tracker.startPositionTimestamp) / 1000;
+      case Tracker.Timestamp:
+        return positionSource.positionInformation.utcDateTime.getTime();
+      case Tracker.GroundSpeed:
+        return positionSource.positionInformation.speed;
+      case Tracker.Bearing:
+        return positionSource.positionInformation.direction;
+      case Tracker.HorizontalAccuracy:
+        return positionSource.positionInformation.hacc;
+      case Tracker.VerticalAccuracy:
+        return positionSource.positionInformation.vacc;
+      case Tracker.PDOP:
+        return positionSource.positionInformation.pdop;
+      case Tracker.HDOP:
+        return positionSource.positionInformation.hdop;
+      case Tracker.VDOP:
+        return positionSource.positionInformation.vdop;
       }
       return 0;
     }
@@ -55,30 +53,22 @@ Item {
       if (!tracker.isActive || vertexCount == 0) {
         return;
       }
-
       if (geometryType === Qgis.GeometryType.Point) {
-        featureModel.applyGeometry()
+        featureModel.applyGeometry();
         featureModel.resetFeatureId();
         featureModel.resetAttributes(true);
         featureModel.create();
       } else {
-        if ((geometryType === Qgis.GeometryType.Line && vertexCount > 2) ||
-            (geometryType === Qgis.GeometryType.Polygon && vertexCount > 3))
-        {
-          featureModel.applyGeometry()
-
-          if ((geometryType === Qgis.GeometryType.Line && vertexCount == 3) ||
-              (geometryType === Qgis.GeometryType.Polygon && vertexCount == 4))
-          {
+        if ((geometryType === Qgis.GeometryType.Line && vertexCount > 2) || (geometryType === Qgis.GeometryType.Polygon && vertexCount > 3)) {
+          featureModel.applyGeometry();
+          if ((geometryType === Qgis.GeometryType.Line && vertexCount == 3) || (geometryType === Qgis.GeometryType.Polygon && vertexCount == 4)) {
             // indirect action, no need to check for success and display a toast, the log is enough
-            featureModel.create()
-            tracker.feature = featureModel.feature
-            projectInfo.saveTracker(featureModel.currentLayer)
-          }
-          else
-          {
+            featureModel.create();
+            tracker.feature = featureModel.feature;
+            projectInfo.saveTracker(featureModel.currentLayer);
+          } else {
             // indirect action, no need to check for success and display a toast, the log is enough
-            featureModel.save()
+            featureModel.save();
           }
         }
       }
@@ -89,10 +79,7 @@ Item {
     id: rubberband
     visible: tracker.visible
 
-    color: Qt.rgba(Math.min(0.75, Math.random()),
-                   Math.min(0.75,Math.random()),
-                   Math.min(0.75,Math.random()),
-                   0.6)
+    color: Qt.rgba(Math.min(0.75, Math.random()), Math.min(0.75, Math.random()), Math.min(0.75, Math.random()), 0.6)
     geometryType: Qgis.GeometryType.Line
 
     mapSettings: mapCanvas.mapSettings
@@ -107,7 +94,7 @@ Item {
 
     onFeatureChanged: {
       if (!tracker.isActive) {
-        updateRubberband()
+        updateRubberband();
       }
     }
 

@@ -2,7 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Layouts 1.14
-
 import Theme 1.0
 
 ToolBar {
@@ -50,25 +49,45 @@ ToolBar {
       visible: opacity > 0
 
       states: [
-          State { name: 'on'
-                  PropertyChanges { target: busyIndicator; opacity: 1.0 }},
-          State { name: 'off'
-                  PropertyChanges { target: busyIndicator; opacity: 0.0 }}
+        State {
+          name: 'on'
+          PropertyChanges {
+            target: busyIndicator
+            opacity: 1.0
+          }
+        },
+        State {
+          name: 'off'
+          PropertyChanges {
+            target: busyIndicator
+            opacity: 0.0
+          }
+        }
       ]
       transitions: [
         Transition {
           from: "off"
           to: "on"
           SequentialAnimation {
-            NumberAnimation { target: busyIndicator; property: 'opacity'; duration: 100; }
+            NumberAnimation {
+              target: busyIndicator
+              property: 'opacity'
+              duration: 100
+            }
           }
         },
         Transition {
           from: "on"
           to: "off"
           SequentialAnimation {
-            PauseAnimation { duration: 100 }
-            NumberAnimation { target: busyIndicator; property: 'opacity'; duration: 200; }
+            PauseAnimation {
+              duration: 100
+            }
+            NumberAnimation {
+              target: busyIndicator
+              property: 'opacity'
+              duration: 200
+            }
           }
         }
       ]
@@ -86,13 +105,12 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
-      iconSource: Theme.getThemeVectorIcon( 'ic_arrow_left_white_24dp' )
+      iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
       iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
 
-      onClicked:
-      {
-        back()
-        finished()
+      onClicked: {
+        back();
+        finished();
       }
     }
 
@@ -101,20 +119,19 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
-      iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+      iconSource: Theme.getThemeIcon('ic_check_white_48dp')
       iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
 
-      onClicked:
-      {
-        apply()
-        finished()
+      onClicked: {
+        apply();
+        finished();
       }
     }
 
     Label {
       id: titleLabel
-      leftPadding: !showApplyButton && showCancelButton ? 48: 0
-      rightPadding: (showApplyButton || showBackButton) && !showCancelButton ? 48: 0
+      leftPadding: !showApplyButton && showCancelButton ? 48 : 0
+      rightPadding: (showApplyButton || showBackButton) && !showCancelButton ? 48 : 0
       font: Theme.strongFont
       color: backgroundFill ? Theme.light : Theme.mainColor
       elide: Label.ElideRight
@@ -128,12 +145,12 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignRight
       clip: true
-      iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
+      iconSource: Theme.getThemeIcon('ic_close_white_24dp')
       iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
 
       onClicked: {
-        cancel()
-        finished()
+        cancel();
+        finished();
       }
     }
   }

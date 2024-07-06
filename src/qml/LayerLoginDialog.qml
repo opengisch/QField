@@ -1,13 +1,12 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qfield 1.0
 import Theme 1.0
 
 Page {
   signal enter(string usr, string pw)
-  signal cancel()
+  signal cancel
 
   property string credentialTitle
   property var inCancelation
@@ -18,7 +17,7 @@ Page {
     showApplyButton: false
     showCancelButton: true
     onCancel: {
-      parent.cancel()
+      parent.cancel();
     }
   }
 
@@ -113,10 +112,10 @@ Page {
         inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         horizontalAlignment: Text.AlignHCenter
         onReturnPressed: {
-          _processAuth()
+          _processAuth();
         }
         Keys.onEnterPressed: {
-          _processAuth()
+          _processAuth();
         }
       }
 
@@ -143,13 +142,13 @@ Page {
 
   onVisibleChanged: {
     if (visible) {
-      username.forceActiveFocus()
+      username.forceActiveFocus();
     }
   }
 
   function _processAuth() {
-    enter(username.text, password.text)
-    username.text = ''
-    password.text = ''
+    enter(username.text, password.text);
+    username.text = '';
+    password.text = '';
   }
 }

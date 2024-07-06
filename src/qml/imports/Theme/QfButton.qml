@@ -1,7 +1,6 @@
 import QtQuick.Controls 2.14
 import QtQuick.Controls.impl 2.14
 import QtQuick 2.14
-
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
 
@@ -28,26 +27,22 @@ Button {
   font: Theme.defaultFont
 
   background: Rectangle {
-      id: backgroundRectangle
-      anchors.fill: parent
-      color: !button.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor
-      radius: 12
-      border.width: 1
-      border.color: !parent.enabled
-                    ? Theme.controlBackgroundDisabledColor
-                    : button.bgcolor != "#00000000" ? button.bgcolor : button.color
+    id: backgroundRectangle
+    anchors.fill: parent
+    color: !button.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor
+    radius: 12
+    border.width: 1
+    border.color: !parent.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor != "#00000000" ? button.bgcolor : button.color
 
-      Ripple {
-          clip: true
-          width: parent.width
-          height: parent.height
-          pressed: button.down
-          anchor: parent
-          active: button.down
-          color: Theme.darkTheme
-                 ? "#22000000"
-                 : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
-      }
+    Ripple {
+      clip: true
+      width: parent.width
+      height: parent.height
+      pressed: button.down
+      anchor: parent
+      active: button.down
+      color: Theme.darkTheme ? "#22000000" : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
+    }
   }
 
   contentItem: IconLabel {
@@ -101,18 +96,17 @@ Button {
       opacity: 1
 
       onPaint: {
-        var ctx = getContext("2d")
-        ctx.fillStyle = button.color
-        ctx.strokeStyle = button.color
-        ctx.lineWidth = 1
-        ctx.moveTo(14, 15)
-        ctx.lineTo(width - 16, 15)
-        ctx.lineTo((width / 2) - 1, height - 15)
+        var ctx = getContext("2d");
+        ctx.fillStyle = button.color;
+        ctx.strokeStyle = button.color;
+        ctx.lineWidth = 1;
+        ctx.moveTo(14, 15);
+        ctx.lineTo(width - 16, 15);
+        ctx.lineTo((width / 2) - 1, height - 15);
         ctx.stroke();
-        ctx.fill()
+        ctx.fill();
       }
     }
-
 
     property bool pressed: false
     states: [
@@ -133,7 +127,12 @@ Button {
     ]
     transitions: [
       Transition {
-        NumberAnimation { target: dropdownArea; properties: "opacity"; easing.type: Easing.InOutQuad; duration: 250 }
+        NumberAnimation {
+          target: dropdownArea
+          properties: "opacity"
+          easing.type: Easing.InOutQuad
+          duration: 250
+        }
       }
     ]
 
@@ -147,4 +146,3 @@ Button {
     }
   }
 }
-

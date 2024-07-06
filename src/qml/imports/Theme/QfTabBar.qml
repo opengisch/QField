@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import Theme 1.0
 
 ListView {
@@ -26,12 +25,12 @@ ListView {
     font: Theme.defaultFont
     checked: tabRow.currentIndex === index
     onClicked: {
-      tabRow.currentIndex = index
+      tabRow.currentIndex = index;
     }
   }
 
   onCurrentIndexChanged: {
-    tabRow.positionViewAtIndex(currentIndex, ListView.Contain)
+    tabRow.positionViewAtIndex(currentIndex, ListView.Contain);
   }
 
   property real defaultHeight: 48

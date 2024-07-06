@@ -206,25 +206,23 @@ void FeatureCheckListModel::toggleCheckAll( const bool toggleChecked )
   }
 }
 
-void FeatureCheckListModel::setChecked( const QModelIndex &index )
+void FeatureCheckListModel::setChecked( const QModelIndex &idx )
 {
-  beginResetModel();
-
   if ( !mAllowMulti )
+  {
     mCheckedEntries.clear();
+    emit dataChanged( index( 0, 0, QModelIndex() ), index( rowCount() - 1, 0, QModelIndex() ), QList<int>() << CheckedRole );
+  }
 
-  mCheckedEntries.append( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
-  endResetModel();
-
+  mCheckedEntries.append( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
+  emit dataChanged( idx, idx, QList<int>() << CheckedRole );
   emit listUpdated();
 }
 
-void FeatureCheckListModel::setUnchecked( const QModelIndex &index )
+void FeatureCheckListModel::setUnchecked( const QModelIndex &idx )
 {
-  beginResetModel();
-  mCheckedEntries.removeAll( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
-  endResetModel();
-
+  mCheckedEntries.removeAll( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
+  emit dataChanged( idx, idx, QList<int>() << CheckedRole );
   emit listUpdated();
 }
 

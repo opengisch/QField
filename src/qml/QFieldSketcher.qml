@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtCore
-
 import Theme 1.0
 import org.qfield 1.0
 
@@ -10,7 +9,7 @@ Popup {
   id: sketcher
 
   signal finished(var path)
-  signal cancelled()
+  signal cancelled
 
   width: mainWindow.width
   height: mainWindow.height
@@ -23,7 +22,7 @@ Popup {
   dim: true
 
   onOpened: {
-    contentItem.forceActiveFocus()
+    contentItem.forceActiveFocus();
   }
 
   Settings {
@@ -42,9 +41,12 @@ Popup {
       fillColor: Theme.mainBackgroundColor
       frameColor: Theme.mainColor
 
-      Behavior on zoomFactor {
+      Behavior on zoomFactor  {
         enabled: !pinchHandler.active
-        NumberAnimation { duration: 100; easing.type: Easing.OutQuad; }
+        NumberAnimation {
+          duration: 100
+          easing.type: Easing.OutQuad
+        }
       }
     }
 
@@ -62,22 +64,22 @@ Popup {
       onActiveChanged: {
         if (active) {
           if (centroid.pressedButtons !== Qt.RightButton) {
-            drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
+            drawingCanvas.strokeBegin(centroid.position, settings.strokeColor);
           } else {
-            oldPosition = centroid.position
+            oldPosition = centroid.position;
           }
         } else {
-          drawingCanvas.strokeEnd(centroid.position)
+          drawingCanvas.strokeEnd(centroid.position);
         }
       }
 
       onCentroidChanged: {
         if (active) {
           if (centroid.pressedButtons === Qt.RightButton) {
-            drawingCanvas.pan(oldPosition, centroid.position)
-            oldPosition = centroid.position
+            drawingCanvas.pan(oldPosition, centroid.position);
+            oldPosition = centroid.position;
           } else {
-            drawingCanvas.strokeMove(centroid.position)
+            drawingCanvas.strokeMove(centroid.position);
           }
         }
       }
@@ -95,15 +97,15 @@ Popup {
 
       onActiveChanged: {
         if (active) {
-          drawingCanvas.strokeBegin(centroid.position, settings.strokeColor)
+          drawingCanvas.strokeBegin(centroid.position, settings.strokeColor);
         } else {
-          drawingCanvas.strokeEnd(centroid.position)
+          drawingCanvas.strokeEnd(centroid.position);
         }
       }
 
       onCentroidChanged: {
         if (active) {
-          drawingCanvas.strokeMove(centroid.position)
+          drawingCanvas.strokeMove(centroid.position);
         }
       }
     }
@@ -118,16 +120,16 @@ Popup {
 
       property point oldPosition
 
-      onScaleChanged: (delta) => {
-                        if (active) {
-                          drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * delta
-                        }
-                      }
-      onTranslationChanged: (delta) => {
-                              if (active) {
-                                drawingCanvas.pan(Qt.point(0, 0), Qt.point(delta.x, delta.y))
-                              }
-                            }
+      onScaleChanged: delta => {
+        if (active) {
+          drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * delta;
+        }
+      }
+      onTranslationChanged: delta => {
+        if (active) {
+          drawingCanvas.pan(Qt.point(0, 0), Qt.point(delta.x, delta.y));
+        }
+      }
     }
 
     WheelHandler {
@@ -136,7 +138,9 @@ Popup {
       target: null
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
-      onWheel: (event) => { drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75) }
+      onWheel: event => {
+        drawingCanvas.zoomFactor = drawingCanvas.zoomFactor * (event.angleDelta.y > 0 ? 1.25 : 0.75);
+      }
     }
 
     RowLayout {
@@ -147,7 +151,7 @@ Popup {
       spacing: 3
 
       Repeater {
-        model: [["#000000","#ffffff"], ["#ffffff","#000000"], ["#e41a1c","#e41a1c"], ["#377eb8","#377eb8"], ["#4daf4a","#4daf4a"]]
+        model: [["#000000", "#ffffff"], ["#ffffff", "#000000"], ["#e41a1c", "#e41a1c"], ["#377eb8", "#377eb8"], ["#4daf4a", "#4daf4a"]]
 
         QfToolButton {
           property color colorValue: modelData[0]
@@ -159,19 +163,25 @@ Popup {
           scale: settings.strokeColor == colorValue ? 1 : 0.66
           opacity: settings.strokeColor == colorValue ? 1 : 0.66
 
-          Behavior on scale {
+          Behavior on scale  {
             enabled: true
-            NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+            NumberAnimation {
+              duration: 200
+              easing.type: Easing.OutQuad
+            }
           }
-          Behavior on opacity {
+          Behavior on opacity  {
             enabled: true
-            NumberAnimation { duration: 200; easing.type: Easing.OutQuad; }
+            NumberAnimation {
+              duration: 200
+              easing.type: Easing.OutQuad
+            }
           }
 
           bgcolor: colorValue
 
           onClicked: {
-            settings.strokeColor = colorValue
+            settings.strokeColor = colorValue;
           }
         }
       }
@@ -240,9 +250,9 @@ Popup {
               color: "#55000000"
 
               Text {
+                id: titleText
                 anchors.centerIn: parent
                 width: templateItem.width
-                id: titleText
                 text: templateTitle
                 font: Theme.tipFont
                 color: "#ffffff"
@@ -254,9 +264,9 @@ Popup {
               anchors.fill: parent
               onClicked: {
                 if (templatePath !== '') {
-                  drawingCanvas.createCanvasFromImage(templatePath)
+                  drawingCanvas.createCanvasFromImage(templatePath);
                 } else {
-                  drawingCanvas.createBlankCanvas(mainWindow.width, mainWindow.height, "#ffffff")
+                  drawingCanvas.createBlankCanvas(mainWindow.width, mainWindow.height, "#ffffff");
                 }
               }
             }
@@ -279,8 +289,8 @@ Popup {
       round: true
 
       onClicked: {
-        sketcher.cancelled()
-        sketcher.close()
+        sketcher.cancelled();
+        sketcher.close();
       }
     }
 
@@ -293,13 +303,13 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+      iconSource: Theme.getThemeVectorIcon("ic_undo_black_24dp")
       iconColor: "white"
       bgcolor: Theme.darkGraySemiOpaque
       round: true
 
       onClicked: {
-        drawingCanvas.undo()
+        drawingCanvas.undo();
       }
     }
 
@@ -312,20 +322,20 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
+      iconSource: Theme.getThemeIcon("ic_check_white_48dp")
       iconColor: "white"
       bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.darkGraySemiOpaque
       round: true
 
       onClicked: {
-        sketcher.finished(drawingCanvas.save())
-        sketcher.close()
+        sketcher.finished(drawingCanvas.save());
+        sketcher.close();
       }
     }
   }
 
   function loadImage(path) {
-    drawingCanvas.createCanvasFromImage(path)
+    drawingCanvas.createCanvasFromImage(path);
   }
 
   function clear() {

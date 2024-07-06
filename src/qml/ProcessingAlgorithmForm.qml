@@ -3,7 +3,6 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-
 import Theme 1.0
 import org.qfield 1.0
 
@@ -21,7 +20,7 @@ Item {
     filters: ProcessingAlgorithmParametersModel.GeneralParameterFilter
 
     onAlgorithmIdChanged: {
-      filters = ProcessingAlgorithmParametersModel.GeneralParameterFilter
+      filters = ProcessingAlgorithmParametersModel.GeneralParameterFilter;
     }
   }
 
@@ -34,9 +33,7 @@ Item {
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
 
-      model: processingAlgorithmParametersModel.hasAdvancedParameters
-             ? [qsTr("General Parameters"), qsTr("Advanced Parameters"), qsTr("Help")]
-             : [qsTr("General Parameters"), qsTr("Help")]
+      model: processingAlgorithmParametersModel.hasAdvancedParameters ? [qsTr("General Parameters"), qsTr("Advanced Parameters"), qsTr("Help")] : [qsTr("General Parameters"), qsTr("Help")]
 
       delegate: TabButton {
         id: tabButton
@@ -52,7 +49,7 @@ Item {
         height: 48
 
         onClicked: {
-          tabRow.currentIndex = index
+          tabRow.currentIndex = index;
         }
 
         background: Rectangle {
@@ -75,7 +72,7 @@ Item {
       }
 
       onCurrentIndexChanged: {
-        processingAlgorithmParametersModel.filters = currentIndex == 0 ? ProcessingAlgorithmParametersModel.GeneralParameterFilter : ProcessingAlgorithmParametersModel.AdvancedParameterFilter
+        processingAlgorithmParametersModel.filters = currentIndex == 0 ? ProcessingAlgorithmParametersModel.GeneralParameterFilter : ProcessingAlgorithmParametersModel.AdvancedParameterFilter;
       }
     }
 
@@ -236,11 +233,14 @@ Item {
             property string widget: ParameterType
             property var configuration: ParameterConfiguration
 
-            anchors { left: parent.left; right: parent.right }
+            anchors {
+              left: parent.left
+              right: parent.right
+            }
 
             active: true
             source: {
-              return 'processingparameterwidgets/' + widget + '.qml'
+              return 'processingparameterwidgets/' + widget + '.qml';
             }
           }
 
@@ -248,7 +248,7 @@ Item {
             target: parameterWidgetLoader.item
 
             function onValueChangeRequested(value) {
-              ParameterValue = value
+              ParameterValue = value;
             }
           }
         }

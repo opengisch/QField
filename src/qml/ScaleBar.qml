@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
-
 import org.qfield 1.0
 import org.qgis 1.0
 import Theme 1.0
@@ -14,9 +13,9 @@ Item {
   height: childrenRect.height
 
   ScaleBarMeasurement {
-      id: measurement
-      project: qgisProject
-      referenceScreenLength: 300
+    id: measurement
+    project: qgisProject
+    referenceScreenLength: 300
   }
 
   Text {
@@ -29,12 +28,13 @@ Item {
     styleColor: "#CCFFFFFF"
 
     states: State {
-        name: "narrow"; when: label.width > bar.width
-        AnchorChanges {
-            target: label
-            anchors.horizontalCenter: undefined
-            anchors.left: bar.left
-        }
+      name: "narrow"
+      when: label.width > bar.width
+      AnchorChanges {
+        target: label
+        anchors.horizontalCenter: undefined
+        anchors.left: bar.left
+      }
     }
 
     text: measurement.label
@@ -51,16 +51,20 @@ Item {
       strokeWidth: barLine.strokeWidth + 1.5
       strokeColor: "#CCFFFFFF"
       fillColor: "transparent"
-      startX: 0; startY: 0
+      startX: 0
+      startY: 0
 
       PathLine {
-        x: 0; y: bar.height
+        x: 0
+        y: bar.height
       }
       PathLine {
-        x: measurement.screenLength; y: bar.height
+        x: measurement.screenLength
+        y: bar.height
       }
       PathLine {
-        x: measurement.screenLength; y: 0
+        x: measurement.screenLength
+        y: 0
       }
     }
 
@@ -69,16 +73,20 @@ Item {
       strokeWidth: scaleBar.lineWidth
       strokeColor: "#000000"
       fillColor: "transparent"
-      startX: 0; startY: 0
+      startX: 0
+      startY: 0
 
       PathLine {
-        x: 0; y: bar.height
+        x: 0
+        y: bar.height
       }
       PathLine {
-        x: measurement.screenLength; y: bar.height
+        x: measurement.screenLength
+        y: bar.height
       }
       PathLine {
-        x: measurement.screenLength; y: 0
+        x: measurement.screenLength
+        y: 0
       }
     }
   }

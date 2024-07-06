@@ -4,7 +4,6 @@ import QtQuick.Controls.Material.impl 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Particles 2.14
 import QtCore
-
 import org.qfield 1.0
 import Theme 1.0
 
@@ -29,12 +28,12 @@ Page {
   Rectangle {
     id: welcomeBackground
     anchors.fill: parent
-    gradient: Gradient  {
-      GradientStop  {
+    gradient: Gradient {
+      GradientStop {
         position: 0.0
         color: Theme.darkTheme ? "#99000000" : "#99A5A5A5"
       }
-      GradientStop  {
+      GradientStop {
         position: 0.33
         color: Theme.mainBackgroundColor
       }
@@ -59,15 +58,15 @@ Page {
 
       width: mainWindow.width
 
-      ImageDial{
+      ImageDial {
         id: imageDialLogo
         value: 1
 
         Layout.margins: 6
         Layout.topMargin: 14
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min( 138, mainWindow.height / 4 )
-        Layout.preferredHeight: Math.min( 138, mainWindow.height / 4 )
+        Layout.preferredWidth: Math.min(138, mainWindow.height / 4)
+        Layout.preferredHeight: Math.min(138, mainWindow.height / 4)
 
         source: "qrc:/images/qfield_logo.svg"
         rotationOffset: 220
@@ -81,12 +80,15 @@ Page {
         Layout.topMargin: 10
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min( 410, mainWindow.width - 30 )
+        Layout.preferredWidth: Math.min(410, mainWindow.width - 30)
         Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
         clip: true
 
-        Behavior on Layout.preferredHeight {
-          NumberAnimation { duration: 100; easing.type: Easing.InQuad; }
+        Behavior on Layout.preferredHeight  {
+          NumberAnimation {
+            duration: 100
+            easing.type: Easing.InQuad
+          }
         }
 
         interactive: false
@@ -96,12 +98,12 @@ Page {
 
           Rectangle {
             anchors.fill: parent
-            gradient: Gradient  {
-              GradientStop  {
+            gradient: Gradient {
+              GradientStop {
                 position: 0.0
                 color: "#4480cc28"
               }
-              GradientStop  {
+              GradientStop {
                 position: 0.88
                 color: "#0580cc28"
               }
@@ -133,11 +135,11 @@ Page {
                 rightPadding: 20
 
                 text: qsTr("Reach out")
-                icon.source: Theme.getThemeIcon( 'ic_create_white_24dp' )
+                icon.source: Theme.getThemeIcon('ic_create_white_24dp')
 
                 onClicked: {
-                  Qt.openUrlExternally("https://www.qfield.org/")
-                  feedbackView.Layout.preferredHeight = 0
+                  Qt.openUrlExternally("https://www.qfield.org/");
+                  feedbackView.Layout.preferredHeight = 0;
                 }
               }
             }
@@ -149,12 +151,12 @@ Page {
 
           Rectangle {
             anchors.fill: parent
-            gradient: Gradient  {
-              GradientStop  {
+            gradient: Gradient {
+              GradientStop {
                 position: 0.0
                 color: "#4480cc28"
               }
-              GradientStop  {
+              GradientStop {
                 position: 0.88
                 color: "#0580cc28"
               }
@@ -187,7 +189,7 @@ Page {
                 round: true
 
                 onClicked: {
-                  feedbackView.currentIndex = 0
+                  feedbackView.currentIndex = 0;
                 }
               }
               QfToolButton {
@@ -196,7 +198,7 @@ Page {
                 round: true
 
                 onClicked: {
-                  feedbackView.currentIndex = 2
+                  feedbackView.currentIndex = 2;
                 }
               }
             }
@@ -207,12 +209,12 @@ Page {
 
           Rectangle {
             anchors.fill: parent
-            gradient: Gradient  {
-              GradientStop  {
+            gradient: Gradient {
+              GradientStop {
                 position: 0.0
                 color: "#4480cc28"
               }
-              GradientStop  {
+              GradientStop {
                 position: 0.88
                 color: "#0580cc28"
               }
@@ -245,11 +247,11 @@ Page {
                 rightPadding: 20
 
                 text: qsTr("Rate us")
-                icon.source: Theme.getThemeVectorIcon( 'ic_star_white_24dp' )
+                icon.source: Theme.getThemeVectorIcon('ic_star_white_24dp')
 
                 onClicked: {
-                  Qt.openUrlExternally("market://details?id=ch.opengis.qfield")
-                  feedbackView.Layout.preferredHeight = 0
+                  Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
+                  feedbackView.Layout.preferredHeight = 0;
                 }
               }
             }
@@ -265,12 +267,15 @@ Page {
         Layout.topMargin: 10
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min( 410, mainWindow.width - 20 )
+        Layout.preferredWidth: Math.min(410, mainWindow.width - 20)
         Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
         clip: true
 
-        Behavior on Layout.preferredHeight {
-          NumberAnimation { duration: 100; easing.type: Easing.InQuad; }
+        Behavior on Layout.preferredHeight  {
+          NumberAnimation {
+            duration: 100
+            easing.type: Easing.InQuad
+          }
         }
 
         interactive: false
@@ -280,12 +285,12 @@ Page {
 
           Rectangle {
             anchors.fill: parent
-            gradient: Gradient  {
-              GradientStop  {
+            gradient: Gradient {
+              GradientStop {
                 position: 0.0
                 color: "#4480cc28"
               }
-              GradientStop  {
+              GradientStop {
                 position: 0.88
                 color: "#0580cc28"
               }
@@ -315,12 +320,12 @@ Page {
 
           Rectangle {
             anchors.fill: parent
-            gradient: Gradient  {
-              GradientStop  {
+            gradient: Gradient {
+              GradientStop {
                 position: 0.0
                 color: "#4480cc28"
               }
-              GradientStop  {
+              GradientStop {
                 position: 0.88
                 color: "#0580cc28"
               }
@@ -351,8 +356,8 @@ Page {
                 text: qsTr('I agree')
 
                 onClicked: {
-                  qfieldSettings.enableInfoCollection = true
-                  collectionView.visible = false
+                  qfieldSettings.enableInfoCollection = true;
+                  collectionView.visible = false;
                 }
               }
 
@@ -362,8 +367,8 @@ Page {
                 color: Theme.mainColor
 
                 onClicked: {
-                  qfieldSettings.enableInfoCollection = false
-                  collectionView.visible = false
+                  qfieldSettings.enableInfoCollection = false;
+                  collectionView.visible = false;
                 }
               }
             }
@@ -406,23 +411,23 @@ Page {
           QfButton {
             id: cloudProjectButton
             Layout.fillWidth: true
-            text: qsTr( "QFieldCloud projects" )
+            text: qsTr("QFieldCloud projects")
             onClicked: {
-              showQFieldCloudScreen()
+              showQFieldCloudScreen();
             }
           }
           QfButton {
             id: localProjectButton
             Layout.fillWidth: true
-            text: qsTr( "Open local file" )
+            text: qsTr("Open local file")
             onClicked: {
-              openLocalDataPicker()
+              openLocalDataPicker();
             }
           }
 
           Text {
             id: recentText
-            text: qsTr( "Recent Projects" )
+            text: qsTr("Recent Projects")
             font.pointSize: Theme.tipFont.pointSize
             font.bold: true
             color: Theme.mainTextColor
@@ -440,7 +445,8 @@ Page {
 
             ListView {
               id: table
-              ScrollBar.vertical: ScrollBar {}
+              ScrollBar.vertical: ScrollBar {
+              }
               flickableDirection: Flickable.AutoFlickIfNeeded
               boundsBehavior: Flickable.StopAtBounds
               clip: true
@@ -517,12 +523,16 @@ Page {
                       Image {
                         id: type
                         anchors.verticalCenter: parent.verticalCenter
-                        source: switch(ProjectType) {
-                                case 0: return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
-                                case 1: return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
-                                case 2: return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
-                                default: return '';
-                                }
+                        source: switch (ProjectType) {
+                        case 0:
+                          return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
+                        case 1:
+                          return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
+                        case 2:
+                          return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
+                        default:
+                          return '';
+                        }
                         sourceSize.width: 80
                         sourceSize.height: 80
                         width: 40
@@ -554,22 +564,19 @@ Page {
                           bottomPadding: 4
                           text: {
                             var notes = [];
-
-                            if ( index == 0 ) {
-                              var firstRun = settings && !settings.value( "/QField/FirstRunFlag", false )
-                              if (!firstRun && firstShown === false) notes.push( qsTr( "Last session" ) );
+                            if (index == 0) {
+                              var firstRun = settings && !settings.value("/QField/FirstRunFlag", false);
+                              if (!firstRun && firstShown === false)
+                                notes.push(qsTr("Last session"));
                             }
-
-                            if ( ProjectPath === registry.defaultProject ) {
-                              notes.push( qsTr( "Default project" ) );
+                            if (ProjectPath === registry.defaultProject) {
+                              notes.push(qsTr("Default project"));
                             }
-
-                            if ( ProjectPath === registry.baseMapProject ) {
-                              notes.push( qsTr( "Base map" ) );
+                            if (ProjectPath === registry.baseMapProject) {
+                              notes.push(qsTr("Base map"));
                             }
-
-                            if ( notes.length > 0 ) {
-                              return notes.join( '; ' );
+                            if (notes.length > 0) {
+                              return notes.join('; ');
                             } else {
                               return "";
                             }
@@ -590,40 +597,40 @@ Page {
               MouseArea {
                 property Item pressedItem
                 anchors.fill: parent
-                onClicked: (mouse) => {
-                  var item = table.itemAt(mouse.x, mouse.y)
+                onClicked: mouse => {
+                  var item = table.itemAt(mouse.x, mouse.y);
                   if (item) {
-                    if ( item.type == 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
-                      cloudConnection.login()
+                    if (item.type == 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
+                      cloudConnection.login();
                     }
-                    iface.loadFile(item.path,item.title)
+                    iface.loadFile(item.path, item.title);
                   }
                 }
-                onPressed: (mouse) => {
-                  var item = table.itemAt(mouse.x, mouse.y)
+                onPressed: mouse => {
+                  var item = table.itemAt(mouse.x, mouse.y);
                   if (item) {
-                    pressedItem = item
-                    pressedItem.isPressed = true
+                    pressedItem = item;
+                    pressedItem.isPressed = true;
                   }
                 }
                 onCanceled: {
                   if (pressedItem) {
-                    pressedItem.isPressed = false
-                    pressedItem = null
+                    pressedItem.isPressed = false;
+                    pressedItem = null;
                   }
                 }
                 onReleased: {
                   if (pressedItem) {
-                    pressedItem.isPressed = false
-                    pressedItem = null
+                    pressedItem.isPressed = false;
+                    pressedItem = null;
                   }
                 }
-                onPressAndHold: (mouse) => {
-                  var item = table.itemAt(mouse.x, mouse.y)
+                onPressAndHold: mouse => {
+                  var item = table.itemAt(mouse.x, mouse.y);
                   if (item) {
                     recentProjectActions.recentProjectPath = item.path;
                     recentProjectActions.recentProjectType = item.type;
-                    recentProjectActions.popup(mouse.x, mouse.y)
+                    recentProjectActions.popup(mouse.x, mouse.y);
                   }
                 }
               }
@@ -652,16 +659,16 @@ Page {
 
                 MenuItem {
                   id: defaultProject
-                  visible: recentProjectActions.recentProjectType != 2;
+                  visible: recentProjectActions.recentProjectType != 2
 
                   font: Theme.defaultFont
                   width: parent.width
-                  height: visible ? 48: 0
+                  height: visible ? 48 : 0
                   leftPadding: Theme.menuItemCheckLeftPadding
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.defaultProject
 
-                  text: qsTr( "Default Project" )
+                  text: qsTr("Default Project")
                   onTriggered: {
                     registry.defaultProject = recentProjectActions.recentProjectPath === registry.defaultProject ? '' : recentProjectActions.recentProjectPath;
                   }
@@ -669,16 +676,16 @@ Page {
 
                 MenuItem {
                   id: baseMapProject
-                  visible: recentProjectActions.recentProjectType != 2;
+                  visible: recentProjectActions.recentProjectType != 2
 
                   font: Theme.defaultFont
                   width: parent.width
-                  height: visible ? 48: 0
+                  height: visible ? 48 : 0
                   leftPadding: Theme.menuItemCheckLeftPadding
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.baseMapProject
 
-                  text: qsTr( "Individual Datasets Base Map" )
+                  text: qsTr("Individual Datasets Base Map")
                   onTriggered: {
                     registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
                   }
@@ -695,12 +702,12 @@ Page {
 
                   font: Theme.defaultFont
                   width: parent.width
-                  height: visible ? 48: 0
+                  height: visible ? 48 : 0
                   leftPadding: Theme.menuItemIconlessLeftPadding
 
-                  text: qsTr( "Remove from Recent Projects" )
+                  text: qsTr("Remove from Recent Projects")
                   onTriggered: {
-                    iface.removeRecentProject( recentProjectActions.recentProjectPath );
+                    iface.removeRecentProject(recentProjectActions.recentProjectPath);
                     model.reloadModel();
                   }
                 }
@@ -720,9 +727,7 @@ Page {
               wrapMode: Text.WordWrap
               color: reloadOnLaunch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
 
-              text: registry.defaultProject != ''
-                    ? qsTr('Load default project on launch')
-                    : qsTr('Load last opened project on launch')
+              text: registry.defaultProject != '' ? qsTr('Load default project on launch') : qsTr('Load last opened project on launch')
 
               MouseArea {
                 anchors.fill: parent
@@ -739,7 +744,7 @@ Page {
 
               checked: registry.loadProjectOnLaunch
               onCheckedChanged: {
-                registry.loadProjectOnLaunch = checked
+                registry.loadProjectOnLaunch = checked;
               }
             }
           }
@@ -756,7 +761,7 @@ Page {
       left: parent.left
       topMargin: mainWindow.sceneTopMargin
     }
-    iconSource: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
+    iconSource: Theme.getThemeIcon('ic_chevron_left_black_24dp')
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
@@ -781,17 +786,17 @@ Page {
       onReleased: mouse.accepted = false
       onDoubleClicked: mouse.accepted = false
       onPressAndHold: mouse.accepted = false
-      onClicked:  (mouse) => {
-        burstSomeSparkles(mouse.x, mouse.y)
-        mouse.accepted = false
+      onClicked: mouse => {
+        burstSomeSparkles(mouse.x, mouse.y);
+        mouse.accepted = false;
       }
-      onPressed:  (mouse) => {
-        burstSomeSparkles(mouse.x, mouse.y)
-        mouse.accepted = false
+      onPressed: mouse => {
+        burstSomeSparkles(mouse.x, mouse.y);
+        mouse.accepted = false;
       }
-      onPositionChanged: (mouse) => {
-        burstSomeSparkles(mouse.x, mouse.y)
-        mouse.accepted = false
+      onPositionChanged: mouse => {
+        burstSomeSparkles(mouse.x, mouse.y);
+        mouse.accepted = false;
       }
     }
 
@@ -864,61 +869,55 @@ Page {
   }
 
   function burstSomeSparkles(x, y) {
-    emitterParticles.burst(50, x, y)
-    emitterUnicorns.burst(1, x, y)
+    emitterParticles.burst(50, x, y);
+    emitterUnicorns.burst(1, x, y);
   }
 
   function adjustWelcomeScreen() {
     if (visible) {
       const currentProjectButtonVisible = !!qgisProject.fileName;
-      currentProjectButton.visible = currentProjectButtonVisible
-
+      currentProjectButton.visible = currentProjectButtonVisible;
       if (firstShown) {
         welcomeText.text = " ";
       } else {
-        var firstRun = !settings.valueBool( "/QField/FirstRunDone", false )
-        if ( firstRun ) {
-          welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try the sample projects listed below." )
-          settings.setValue( "/QField/FirstRunDone", true )
+        var firstRun = !settings.valueBool("/QField/FirstRunDone", false);
+        if (firstRun) {
+          welcomeText.text = qsTr("Welcome to QField. First time using this application? Try the sample projects listed below.");
+          settings.setValue("/QField/FirstRunDone", true);
         } else {
-          welcomeText.text = qsTr( "Welcome back to QField." )
+          welcomeText.text = qsTr("Welcome back to QField.");
         }
       }
     }
   }
 
   Component.onCompleted: {
-    adjustWelcomeScreen()
-
-    var runCount = settings.value("/QField/RunCount",0) * 1
-    var feedbackFormShown = settings.value("/QField/FeedbackFormShown",false)
+    adjustWelcomeScreen();
+    var runCount = settings.value("/QField/RunCount", 0) * 1;
+    var feedbackFormShown = settings.value("/QField/FeedbackFormShown", false);
     if (!feedbackFormShown) {
-      var now = new Date()
-      var dt = settings.value("/QField/FirstRunDate", "")
+      var now = new Date();
+      var dt = settings.value("/QField/FirstRunDate", "");
       if (dt != "") {
-        dt = new Date(dt)
-
+        dt = new Date(dt);
         var daysToPrompt = 30;
         var runsToPrompt = 5;
         if (runCount >= runsToPrompt && (now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
-          feedbackView.visible = true
-          settings.setValue("/QField/FeedbackFormShown",true)
+          feedbackView.visible = true;
+          settings.setValue("/QField/FeedbackFormShown", true);
         }
       } else {
-        settings.setValue("/QField/FirstRunDate", now.toISOString())
+        settings.setValue("/QField/FirstRunDate", now.toISOString());
       }
     }
-
     if (platformUtilities.capabilities & PlatformUtilities.SentryFramework) {
-      var collectionFormShown = settings.value("/QField/CollectionFormShownV2",false)
+      var collectionFormShown = settings.value("/QField/CollectionFormShownV2", false);
       if (!collectionFormShown) {
-        collectionView.visible = true
-        settings.setValue("/QField/CollectionFormShownV2",true)
+        collectionView.visible = true;
+        settings.setValue("/QField/CollectionFormShownV2", true);
       }
     }
-
-    settings.setValue("/QField/RunCount",runCount + 1)
-
+    settings.setValue("/QField/RunCount", runCount + 1);
     if (registry.defaultProject != '') {
       if (!FileUtils.fileExists(registry.defaultProject)) {
         registry.defaultProject = '';
@@ -927,12 +926,12 @@ Page {
   }
 
   onVisibleChanged: {
-    adjustWelcomeScreen()
-    focus = visible
+    adjustWelcomeScreen();
+    focus = visible;
     if (!visible) {
-      feedbackView.visible = false
-      collectionView.visible = false
-      firstShown = true
+      feedbackView.visible = false;
+      collectionView.visible = false;
+      firstShown = true;
     }
   }
 }

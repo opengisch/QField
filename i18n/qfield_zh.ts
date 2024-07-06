@@ -3185,6 +3185,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>打开后，用户可以旋转地图。</translation>
     </message>
+    <message>
+        <source>Prevent digitizing while geofencing is in alert mode</source>
+        <translation>在地理围栏处于警报模式时阻止数字化</translation>
+    </message>
+    <message>
+        <source>When enabled, the digitizing of new features will be blocked if a project&apos;s geofencing is active and the current position triggers an alert.</source>
+        <translation>启用后，如果工程的地理围栏处于活动状态且当前位置触发警报，将阻止新要素的数字化。</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4649,6 +4657,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Copy Feature Attributes</source>
         <translation>复制要素属性</translation>
+    </message>
+    <message>
+        <source>Position has trespassed into ‘%1’</source>
+        <translation>定位已侵入 ‘%1’</translation>
+    </message>
+    <message>
+        <source>Position outside areas after leaving ‘%1’</source>
+        <translation>离开 ‘%1’ 后定位在外部区域</translation>
+    </message>
+    <message>
+        <source>Position entered into ‘%1’</source>
+        <translation>定位已进入 ‘%1’</translation>
+    </message>
+    <message>
+        <source>Position left from ‘%1’</source>
+        <translation>定位从 ‘%1’ 离开</translation>
     </message>
 </context>
 <context>

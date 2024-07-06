@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -38,38 +37,27 @@ VisibilityFadingRow {
   signal vertexCountChanged
 
   Connections {
-      target: rubberbandModel
+    target: rubberbandModel
 
-      function onVertexCountChanged() {
-          var extraVertexNeed = coordinateLocator && coordinateLocator.positionLocked
-                                && positioningSettings.averagedPositioning
-                                && positioningSettings.averagedPositioningMinimumCount > 1
-                                ? 1
-                                : 0
+    function onVertexCountChanged() {
+      var extraVertexNeed = coordinateLocator && coordinateLocator.positionLocked && positioningSettings.averagedPositioning && positioningSettings.averagedPositioningMinimumCount > 1 ? 1 : 0;
 
-          // set geometry valid
-          if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0)
-          {
-            geometryValid = false
-          }
-          else if (Number( rubberbandModel.geometryType ) === 1)
-          {
-            // Line: at least 2 points
-            geometryValid = rubberbandModel.vertexCount > 1 + extraVertexNeed
-          }
-          else if (Number( rubberbandModel.geometryType ) === 2)
-          {
-            // Polygon: at least 3 points
-            geometryValid = rubberbandModel.vertexCount > 2 + extraVertexNeed
-          }
-          else
-          {
-            geometryValid = false
-          }
-
-          // emit the signal of digitizingToolbar
-          vertexCountChanged()
+      // set geometry valid
+      if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === 0) {
+        geometryValid = false;
+      } else if (Number(rubberbandModel.geometryType) === 1) {
+        // Line: at least 2 points
+        geometryValid = rubberbandModel.vertexCount > 1 + extraVertexNeed;
+      } else if (Number(rubberbandModel.geometryType) === 2) {
+        // Polygon: at least 3 points
+        geometryValid = rubberbandModel.vertexCount > 2 + extraVertexNeed;
+      } else {
+        geometryValid = false;
       }
+
+      // emit the signal of digitizingToolbar
+      vertexCountChanged();
+    }
   }
 
   DigitizingLogger {
@@ -87,18 +75,18 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: cancelButton
-    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
+    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
     bgcolor: Theme.darkRed
 
     onClicked: {
-      homeButton.waitingForDigitizingFinish = false
+      homeButton.waitingForDigitizingFinish = false;
       if (stateMachine.state !== "measure") {
         cancelDialog.open();
       } else {
         digitizingLogger.clearCoordinates();
-        rubberbandModel.reset()
+        rubberbandModel.reset();
         cancel();
       }
     }
@@ -107,24 +95,21 @@ VisibilityFadingRow {
   QfToolButton {
     id: confirmButton
     iconSource: {
-      Theme.getThemeIcon( "ic_check_white_48dp" )
+      Theme.getThemeIcon("ic_check_white_48dp");
     }
     visible: {
-      if (!showConfirmButton)
-      {
-        false
-      }
-      else
-      {
-        geometryValid
+      if (!showConfirmButton) {
+        false;
+      } else {
+        geometryValid;
       }
     }
     round: true
     bgcolor: Theme.mainColor
 
     onClicked: {
-      homeButton.waitingForDigitizingFinish = false
-      confirm()
+      homeButton.waitingForDigitizingFinish = false;
+      confirm();
     }
   }
 
@@ -136,29 +121,29 @@ VisibilityFadingRow {
     onTriggered: {
       if (!rubberbandModel || rubberbandModel.vertexCount == 0)
         stop();
-
-      removeVertex()
-      if (interval > 100) interval = interval * 0.8;
+      removeVertex();
+      if (interval > 100)
+        interval = interval * 0.8;
     }
   }
 
   QfToolButton {
     id: removeVertexButton
-    iconSource: Theme.getThemeIcon( "ic_remove_vertex_white_24dp" )
+    iconSource: Theme.getThemeIcon("ic_remove_vertex_white_24dp")
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
     bgcolor: Theme.darkGray
 
     onPressed: {
-      removeVertex()
-      removeVertexTimer.interval = 700
-      removeVertexTimer.restart()
+      removeVertex();
+      removeVertexTimer.interval = 700;
+      removeVertexTimer.restart();
     }
     onReleased: {
-      removeVertexTimer.stop()
+      removeVertexTimer.stop();
     }
     onCanceled: {
-      removeVertexTimer.stop()
+      removeVertexTimer.stop();
     }
   }
 
@@ -167,18 +152,17 @@ VisibilityFadingRow {
     round: true
     enabled: !screenHovering
     bgcolor: {
-        if (!enabled) {
-          Theme.darkGraySemiOpaque
-        } else if (!showConfirmButton) {
-          Theme.darkGray
-        } else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === Qgis.GeometryType.Point ||
-                   Number( rubberbandModel.geometryType ) === Qgis.GeometryType.Null) {
-          Theme.mainColor
-        } else {
-          Theme.darkGray
-        }
+      if (!enabled) {
+        Theme.darkGraySemiOpaque;
+      } else if (!showConfirmButton) {
+        Theme.darkGray;
+      } else if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
+        Theme.mainColor;
+      } else {
+        Theme.darkGray;
+      }
     }
-    iconSource: Theme.getThemeIcon( "ic_add_vertex_white_24dp" )
+    iconSource: Theme.getThemeIcon("ic_add_vertex_white_24dp")
     iconColor: enabled ? "white" : Theme.darkGraySemiOpaque
 
     property bool lastAdditionAveraged: false
@@ -189,11 +173,9 @@ VisibilityFadingRow {
       target: positionSource
 
       function onAveragedPositionCountChanged() {
-        if (addVertexButton.averagedPositionAutoRelease && positionSource.averagedPosition
-            && positionSource.averagedPositionCount >= positioningSettings.averagedPositioningMinimumCount
-            && positioningSettings.averagedPositioningAutomaticStop) {
+        if (addVertexButton.averagedPositionAutoRelease && positionSource.averagedPosition && positionSource.averagedPositionCount >= positioningSettings.averagedPositioningMinimumCount && positioningSettings.averagedPositioningAutomaticStop) {
           addVertexButton.averagedPositionPressAndHeld = true;
-          addVertexButton.released()
+          addVertexButton.released();
         }
       }
     }
@@ -214,25 +196,20 @@ VisibilityFadingRow {
       }
       averagedPositionPressAndHeld = false;
       averagedPositionAutoRelease = false;
-
       if (coordinateLocator && coordinateLocator.positionLocked) {
-        if (positioningSettings.averagedPositioning &&
-            positioningSettings.averagedPositioningMinimumCount > positionSource.averagedPositionCount) {
-          displayToast( qsTr( "The collected positions count does not meet the requirement" ), 'warning' )
+        if (positioningSettings.averagedPositioning && positioningSettings.averagedPositioningMinimumCount > positionSource.averagedPositionCount) {
+          displayToast(qsTr("The collected positions count does not meet the requirement"), 'warning');
           positionSource.averagedPosition = false;
           return;
         }
-
         if (!checkAccuracyRequirement()) {
           positionSource.averagedPosition = false;
           return;
         }
-
-        lastAdditionAveraged = true
-        addVertex()
-        if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point ||
-            Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
-            confirm()
+        lastAdditionAveraged = true;
+        addVertex();
+        if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
+          confirm();
         }
         positionSource.averagedPosition = false;
       }
@@ -248,27 +225,21 @@ VisibilityFadingRow {
       if (!checkAccuracyRequirement()) {
         return;
       }
-
-      if (coordinateLocator && coordinateLocator.positionLocked &&
-          positioningSettings.averagedPositioning &&
-          (positioningSettings.averagedPositioningMinimumCount > 1
-           || !positioningSettings.averagedPositioningAutomaticStop)) {
+      if (coordinateLocator && coordinateLocator.positionLocked && positioningSettings.averagedPositioning && (positioningSettings.averagedPositioningMinimumCount > 1 || !positioningSettings.averagedPositioningAutomaticStop)) {
         if (!positionSource.averagedPosition) {
           averagedPositionAutoRelease = true;
           positionSource.averagedPosition = true;
         } else {
           addVertexButton.averagedPositionPressAndHeld = true;
-          addVertexButton.released()
+          addVertexButton.released();
         }
         return;
       }
-
-      lastAdditionAveraged = false
-      if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point ||
-          Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
-          confirm()
+      lastAdditionAveraged = false;
+      if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
+        confirm();
       } else {
-          addVertex()
+        addVertex();
       }
     }
   }
@@ -281,20 +252,20 @@ VisibilityFadingRow {
     modal: true
     font: Theme.defaultFont
 
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height) / 2
 
-    title: qsTr( "Cancel digitizing" )
+    title: qsTr("Cancel digitizing")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr( "Should the digitized geometry be discarded?" )
+      text: qsTr("Should the digitized geometry be discarded?")
     }
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       digitizingLogger.clearCoordinates();
-      rubberbandModel.reset()
+      rubberbandModel.reset();
       cancel();
       visible = false;
     }
@@ -304,13 +275,9 @@ VisibilityFadingRow {
   }
 
   function checkAccuracyRequirement() {
-    if (coordinateLocator && coordinateLocator.positionLocked &&
-         positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement) {
-      if (positioningSettings.accuracyBad > 0 &&
-           (!coordinateLocator.positionInformation ||
-             !coordinateLocator.positionInformation.haccValid ||
-              coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad)) {
-        displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ), 'warning' )
+    if (coordinateLocator && coordinateLocator.positionLocked && positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement) {
+      if (positioningSettings.accuracyBad > 0 && (!coordinateLocator.positionInformation || !coordinateLocator.positionInformation.haccValid || coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad)) {
+        displayToast(qsTr("Position accuracy doesn't meet the minimum requirement, vertex not added"), 'warning');
         return false;
       }
     }
@@ -318,30 +285,28 @@ VisibilityFadingRow {
   }
 
   function triggerAddVertex() {
-    addVertexButton.clicked()
+    addVertexButton.clicked();
   }
 
   function addVertex() {
-    digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
-    coordinateLocator.flash()
-
-    rubberbandModel.addVertex()
+    digitizingLogger.addCoordinate(coordinateLocator.currentCoordinate);
+    coordinateLocator.flash();
+    rubberbandModel.addVertex();
   }
 
   function removeVertex() {
     digitizingLogger.removeLastCoordinate();
-    rubberbandModel.removeVertex()
-    mapSettings.setCenter( rubberbandModel.currentCoordinate, true )
+    rubberbandModel.removeVertex();
+    mapSettings.setCenter(rubberbandModel.currentCoordinate, true);
   }
 
   function confirm() {
-      rubberbandModel.frozen = true
-      if (addVertexButton.lastAdditionAveraged) {
-        rubberbandModel.removeVertex();
-      } else {
-        digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
-      }
-
-      confirmed()
+    rubberbandModel.frozen = true;
+    if (addVertexButton.lastAdditionAveraged) {
+      rubberbandModel.removeVertex();
+    } else {
+      digitizingLogger.addCoordinate(coordinateLocator.currentCoordinate);
+    }
+    confirmed();
   }
 }

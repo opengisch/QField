@@ -439,7 +439,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometría</translation>
     </message>
 </context>
 <context>
@@ -824,19 +824,19 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Transferir atributos de objeto</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar un objeto de debajo del que se transferirán los atributos al objeto abierto actualmente.</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>Atributos del objeto transferidos</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation>No se transfirió ningún atributo del objeto</translation>
     </message>
     <message>
         <source>Features</source>
@@ -844,7 +844,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Algoritmos de procesos</translation>
     </message>
 </context>
 <context>
@@ -1042,7 +1042,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navegación</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1050,7 +1050,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Vista precisa</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -1058,7 +1058,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Perfil de elevación</translation>
     </message>
 </context>
 <context>
@@ -1084,7 +1084,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>Detalles de credenciales</translation>
     </message>
 </context>
 <context>
@@ -1531,27 +1531,27 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Atributos del objeto copiados al portapapeles</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Atributos del objeto actualizados desde el portapapeles</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>No se actualizó ningún atributo del objeto desde el portapapeles</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Objeto establecido como destino de la navegación</translation>
     </message>
     <message>
         <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar atributos desde objeto</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Procesar objeto(s) seleccionado(s)</translation>
     </message>
 </context>
 <context>
@@ -1784,7 +1784,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú de administración de complementos</translation>
     </message>
 </context>
 <context>
@@ -1989,23 +1989,23 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Parámetros generales</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Parámetros avanzados</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Ayuda</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>No hay parámetros generales asociados a este algoritmo.</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>Descripción del algoritmo</translation>
     </message>
 </context>
 <context>
@@ -2016,7 +2016,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Todos los algoritmos</translation>
     </message>
 </context>
 <context>
@@ -2046,11 +2046,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>delantera</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>trasera</translation>
     </message>
 </context>
 <context>
@@ -2411,7 +2411,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Almacenar los proyectos en QFieldCloud ofrece una sincronización perfecta, edición fuera de línea y administración de equipos.&lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
@@ -3145,7 +3145,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está activado, el ratón actuará como si fuera un dedo. Cuando no está activado, el ratón funcionará como un lápiz óptico.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
@@ -3181,11 +3181,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar rotación del mapa</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando se activa, el usuario puede rotar el mapa.</translation>
+    </message>
+    <message>
+        <source>Prevent digitizing while geofencing is in alert mode</source>
+        <translation>Evitar digitalización mientras el geofencing está en modo alerta</translation>
+    </message>
+    <message>
+        <source>When enabled, the digitizing of new features will be blocked if a project&apos;s geofencing is active and the current position triggers an alert.</source>
+        <translation>Cuando está activado, la digitalización de objetos estará bloqueada si hay un geofencing de proyecto activo y las posición actual provoca una alerta.</translation>
     </message>
 </context>
 <context>
@@ -3336,15 +3344,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo cargar el tipo de letra: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>No se puede cargar el proyecto, el archivo &quot;%1&quot; no existe</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>No se puede leer el proyecto, el archivo &quot;%1&quot; no existe</translation>
     </message>
 </context>
 <context>
@@ -4135,7 +4143,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>No se puede añadir el objeto hijo: no es seguro que el objeto padre cumpla todas las restricciones y se pueda guardar</translation>
     </message>
 </context>
 <context>
@@ -4650,7 +4658,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Copiar atributos de objeto</translation>
+    </message>
+    <message>
+        <source>Position has trespassed into ‘%1’</source>
+        <translation>La posición ha traspasado a &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Position outside areas after leaving ‘%1’</source>
+        <translation>Posición fuera de áreas después de dejar &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Position entered into ‘%1’</source>
+        <translation>La posición entró en &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Position left from ‘%1’</source>
+        <translation>Posición abandonada desde &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -4693,7 +4717,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>No se puede añadir el objeto hijo: no es seguro que el objeto padre cumpla todas las restricciones y se pueda guardar</translation>
     </message>
 </context>
 </TS>

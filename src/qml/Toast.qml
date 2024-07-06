@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import Theme 1.0
 
 Popup {
@@ -20,8 +19,10 @@ Popup {
   closePolicy: Popup.NoAutoClose
 
   opacity: 0
-  Behavior on opacity {
-    NumberAnimation { duration: 250 }
+  Behavior on opacity  {
+    NumberAnimation {
+      duration: 250
+    }
   }
 
   background: Rectangle {
@@ -58,9 +59,7 @@ Popup {
 
         property int absoluteWidth: toastFontMetrics.boundingRect(text).width + 10
 
-        width: 40 + absoluteWidth + (toastIndicator.visible ? toastIndicator.width + 10 : 0) + (toastAction.visible ? toastAction.width + 10 : 0) > toast.width
-               ? toast.width - (toastIndicator.visible ? toastIndicator.width + 10 : 0) - (toastAction.visible ? toastAction.width + 10 : 0) - 40
-               : absoluteWidth
+        width: 40 + absoluteWidth + (toastIndicator.visible ? toastIndicator.width + 10 : 0) + (toastAction.visible ? toastAction.width + 10 : 0) > toast.width ? toast.width - (toastIndicator.visible ? toastIndicator.width + 10 : 0) - (toastAction.visible ? toastAction.width + 10 : 0) - 40 : absoluteWidth
         wrapMode: Text.Wrap
         topPadding: 3
         bottomPadding: 3
@@ -94,9 +93,9 @@ Popup {
 
   MouseArea {
     anchors.fill: parent
-    onPressed:  {
-      toast.close()
-      toast.opacity = 0
+    onPressed: {
+      toast.close();
+      toast.opacity = 0;
     }
   }
 
@@ -109,34 +108,32 @@ Popup {
     id: toastTimer
     interval: 3000
     onTriggered: {
-      toast.opacity = 0
+      toast.opacity = 0;
     }
   }
 
   onOpacityChanged: {
-    if ( opacity == 0 ) {
-      toastContent.visible = false
-      toast.close()
+    if (opacity == 0) {
+      toastContent.visible = false;
+      toast.close();
     }
   }
 
   function show(text, type, action_text, action_function) {
-    toastMessage.text = text
-    toast.type = type || 'info'
-
+    toastMessage.text = text;
+    toast.type = type || 'info';
     if (action_text !== undefined && action_function !== undefined) {
-      toastAction.text = action_text
-      toastAction.act = action_function
-      toastTimer.interval = 5000
+      toastAction.text = action_text;
+      toastAction.act = action_function;
+      toastTimer.interval = 5000;
     } else {
-      toastAction.text = ''
-      toastAction.act = undefined
-      toastTimer.interval = 3000
+      toastAction.text = '';
+      toastAction.act = undefined;
+      toastTimer.interval = 3000;
     }
-
-    toastContent.visible = true
-    toast.open()
-    toast.opacity = 1
-    toastTimer.restart()
+    toastContent.visible = true;
+    toast.open();
+    toast.opacity = 1;
+    toastTimer.restart();
   }
 }

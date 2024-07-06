@@ -174,6 +174,12 @@ class Setup : public QObject
 
       engine->rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
+
+      QgsExifTools mExifTools;
+      engine->rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
+
+      Settings mSettings;
+      engine->rootContext()->setContextProperty( "settings", &mSettings );
     }
 };
 

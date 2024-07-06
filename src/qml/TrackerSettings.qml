@@ -1,12 +1,10 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-
-import '.'
+import "."
 
 Popup {
   id: trackInformationPopup
@@ -26,26 +24,23 @@ Popup {
     target: trackingModel
 
     function onTrackingSetupRequested(trackerIndex, skipSettings) {
-      tracker = trackings.itemAt(trackerIndex.row).tracker
-
+      tracker = trackings.itemAt(trackerIndex.row).tracker;
       if (!skipSettings) {
-        trackerSettings.open()
-        trackerSettings.focus = true
+        trackerSettings.open();
+        trackerSettings.focus = true;
       } else {
-        featureModel.resetAttributes()
-        featureModel.applyGeometry()
-        tracker.feature = featureModel.feature
-
+        featureModel.resetAttributes();
+        featureModel.applyGeometry();
+        tracker.feature = featureModel.feature;
         if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
-          embeddedFeatureForm.active = true
+          embeddedFeatureForm.active = true;
         } else {
-          trackingModel.startTracker(tracker.vectorLayer)
-
-          displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
+          trackingModel.startTracker(tracker.vectorLayer);
+          displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
           if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
-            projectInfo.saveTracker(featureModel.currentLayer)
+            projectInfo.saveTracker(featureModel.currentLayer);
           }
-          tracker = undefined
+          tracker = undefined;
         }
       }
     }
@@ -53,27 +48,27 @@ Popup {
 
   onTrackerChanged: {
     if (tracker != undefined) {
-      featureModel.currentLayer = tracker.vectorLayer
-      timeInterval.checked = tracker.timeInterval > 0
-      timeIntervalValue.text = tracker.timeInterval > 0 ? tracker.timeInterval : positioningSettings.trackerTimeInterval
-      minimumDistance.checked = tracker.minimumDistance > 0
-      minimumDistanceValue.text = tracker.minimumDistance > 0 ? tracker.minimumDistance : positioningSettings.trackerMinimumDistance
-      erroneousDistanceSafeguard.checked = tracker.maximumDistance > 0
-      erroneousDistanceValue.text = tracker.maximumDistance > 0 ? tracker.maximumDistance : positioningSettings.trackerErroneousDistance
-      sensorCapture.checked = tracker.sensorCapture
-      allConstraints.checked = tracker.conjunction && (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1
-      measureComboBox.currentIndex = tracker.measureType
-      resumeTrackingButton.visible = tracker.feature.id >= 0
+      featureModel.currentLayer = tracker.vectorLayer;
+      timeInterval.checked = tracker.timeInterval > 0;
+      timeIntervalValue.text = tracker.timeInterval > 0 ? tracker.timeInterval : positioningSettings.trackerTimeInterval;
+      minimumDistance.checked = tracker.minimumDistance > 0;
+      minimumDistanceValue.text = tracker.minimumDistance > 0 ? tracker.minimumDistance : positioningSettings.trackerMinimumDistance;
+      erroneousDistanceSafeguard.checked = tracker.maximumDistance > 0;
+      erroneousDistanceValue.text = tracker.maximumDistance > 0 ? tracker.maximumDistance : positioningSettings.trackerErroneousDistance;
+      sensorCapture.checked = tracker.sensorCapture;
+      allConstraints.checked = tracker.conjunction && (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1;
+      measureComboBox.currentIndex = tracker.measureType;
+      resumeTrackingButton.visible = tracker.feature.id >= 0;
     }
   }
 
   function applySettings() {
-    tracker.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text
-    tracker.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text
-    tracker.maximumDistance = erroneousDistanceValue.text.length == 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text
-    tracker.sensorCapture = sensorCapture.checked
-    tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked
-    tracker.measureType = measureComboBox.currentIndex
+    tracker.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text;
+    tracker.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text;
+    tracker.maximumDistance = erroneousDistanceValue.text.length == 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text;
+    tracker.sensorCapture = sensorCapture.checked;
+    tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked;
+    tracker.measureType = measureComboBox.currentIndex;
   }
 
   Page {
@@ -81,9 +76,7 @@ Popup {
     anchors.fill: parent
 
     header: QfPageHeader {
-      title: tracker !== undefined && tracker.vectorLayer
-             ? qsTr("Tracking: %1").arg(tracker.vectorLayer.name)
-             : qsTr("Tracking")
+      title: tracker !== undefined && tracker.vectorLayer ? qsTr("Tracking: %1").arg(tracker.vectorLayer.name) : qsTr("Tracking")
 
       showApplyButton: false
       showCancelButton: false
@@ -91,7 +84,7 @@ Popup {
 
       onBack: {
         if (tracker != undefined) {
-          trackingModel.stopTracker(tracker.vectorLayer)
+          trackingModel.stopTracker(tracker.vectorLayer);
         }
         close();
       }
@@ -155,7 +148,7 @@ Popup {
             Layout.alignment: Qt.AlignTop
             checked: false
             onCheckedChanged: {
-              positioningSettings.trackerTimeIntervalConstraint = checked
+              positioningSettings.trackerTimeIntervalConstraint = checked;
             }
           }
 
@@ -180,15 +173,17 @@ Popup {
             Layout.preferredHeight: font.height + 20
 
             inputMethodHints: Qt.ImhFormattedNumbersOnly
-            validator: DoubleValidator { locale: 'C' }
+            validator: DoubleValidator {
+              locale: 'C'
+            }
 
             onTextChanged: {
-              positioningSettings.trackerTimeInterval = parseFloat( text )
+              positioningSettings.trackerTimeInterval = parseFloat(text);
             }
           }
 
           Label {
-            text: qsTr( "When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value." )
+            text: qsTr("When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.")
             font: Theme.tipFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -217,7 +212,7 @@ Popup {
             Layout.alignment: Qt.AlignTop
             checked: false
             onCheckedChanged: {
-              positioningSettings.trackerMinimumDistanceConstraint = checked
+              positioningSettings.trackerMinimumDistanceConstraint = checked;
             }
           }
 
@@ -228,7 +223,7 @@ Popup {
           }
 
           Label {
-            text: qsTr("Minimum distance [%1]").arg( UnitTypes.toAbbreviatedString( infoDistanceArea.lengthUnits ) )
+            text: qsTr("Minimum distance [%1]").arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
             font: Theme.defaultFont
             wrapMode: Text.WordWrap
             enabled: minimumDistance.checked
@@ -248,15 +243,17 @@ Popup {
             Layout.preferredHeight: font.height + 20
 
             inputMethodHints: Qt.ImhFormattedNumbersOnly
-            validator: DoubleValidator { locale: 'C' }
+            validator: DoubleValidator {
+              locale: 'C'
+            }
 
             onTextChanged: {
-              positioningSettings.trackerMinimumDistance = parseFloat( text )
+              positioningSettings.trackerMinimumDistance = parseFloat(text);
             }
           }
 
           Label {
-            text: qsTr( "When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value." )
+            text: qsTr("When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.")
             font: Theme.tipFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -285,12 +282,12 @@ Popup {
             Layout.alignment: Qt.AlignTop
             checked: false
             onCheckedChanged: {
-              positioningSettings.trackerSensorCaptureConstraint = checked
+              positioningSettings.trackerSensorCaptureConstraint = checked;
             }
           }
 
           Label {
-            text: qsTr( "When enabled, vertex additions will occur when sensors have captured new data." )
+            text: qsTr("When enabled, vertex additions will occur when sensors have captured new data.")
             font: Theme.tipFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -319,12 +316,12 @@ Popup {
             Layout.alignment: Qt.AlignTop
             checked: false
             onCheckedChanged: {
-              positioningSettings.trackerMeetAllConstraints = checked
+              positioningSettings.trackerMeetAllConstraints = checked;
             }
           }
 
           Label {
-            text: qsTr( "When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions." )
+            text: qsTr("When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.")
             font: Theme.tipFont
             color: Theme.secondaryTextColor
             textFormat: Qt.RichText
@@ -372,12 +369,12 @@ Popup {
             Layout.alignment: Qt.AlignTop
             checked: false
             onCheckedChanged: {
-              positioningSettings.trackerErroneousDistanceSafeguard = checked
+              positioningSettings.trackerErroneousDistanceSafeguard = checked;
             }
           }
 
           Label {
-            text: qsTr("Maximum tolerated distance [%1]").arg( UnitTypes.toAbbreviatedString( infoDistanceArea.lengthUnits ) )
+            text: qsTr("Maximum tolerated distance [%1]").arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
             font: Theme.defaultFont
             wrapMode: Text.WordWrap
             enabled: erroneousDistanceSafeguard.checked
@@ -397,15 +394,17 @@ Popup {
             Layout.preferredHeight: font.height + 20
 
             inputMethodHints: Qt.ImhFormattedNumbersOnly
-            validator: DoubleValidator { locale: 'C' }
+            validator: DoubleValidator {
+              locale: 'C'
+            }
 
             onTextChanged: {
-              positioningSettings.trackerErroneousDistance = parseFloat( text )
+              positioningSettings.trackerErroneousDistance = parseFloat(text);
             }
           }
 
           Label {
-            text: qsTr( "When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value." )
+            text: qsTr("When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.")
             font: Theme.tipFont
             color: Theme.secondaryTextColor
 
@@ -416,7 +415,7 @@ Popup {
 
           Label {
             id: measureLabel
-            text: qsTr( "Measure (M) value attached to vertices:" )
+            text: qsTr("Measure (M) value attached to vertices:")
             font: Theme.defaultFont
 
             wrapMode: Text.WordWrap
@@ -440,18 +439,7 @@ Popup {
             property bool loaded: false
             Component.onCompleted: {
               // This list matches the Tracker::MeasureType enum
-              var measurements = [
-                    qsTr("Elapsed time (seconds since start of tracking)"),
-                    qsTr("Timestamp (milliseconds since epoch)"),
-                    qsTr("Ground speed"),
-                    qsTr("Bearing"),
-                    qsTr("Horizontal accuracy"),
-                    qsTr("Vertical accuracy"),
-                    qsTr("PDOP"),
-                    qsTr("HDOP"),
-                    qsTr("VDOP")
-                  ];
-
+              var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
               model = measurements;
               loaded = true;
             }
@@ -467,7 +455,7 @@ Popup {
             id: measureTipLabel
             visible: !LayerUtils.hasMValue(featureModel.currentLayer)
             Layout.fillWidth: true
-            text: qsTr( "To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension." )
+            text: qsTr("To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension.")
             font: Theme.tipFont
             color: Theme.secondaryTextColor
 
@@ -481,24 +469,24 @@ Popup {
         Layout.fillWidth: true
         Layout.leftMargin: 10
         Layout.rightMargin: 10
-        text: qsTr( "Start tracking")
-        icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+        text: qsTr("Start tracking")
+        icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
 
         onClicked: {
-          applySettings()
-          featureModel.resetAttributes()
-          featureModel.applyGeometry()
-          tracker.feature = featureModel.feature
+          applySettings();
+          featureModel.resetAttributes();
+          featureModel.applyGeometry();
+          tracker.feature = featureModel.feature;
           if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
-            embeddedFeatureForm.active = true
+            embeddedFeatureForm.active = true;
           } else {
-            trackingModel.startTracker(tracker.vectorLayer)
-            displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
+            trackingModel.startTracker(tracker.vectorLayer);
+            displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
             if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
-              projectInfo.saveTracker(featureModel.currentLayer)
+              projectInfo.saveTracker(featureModel.currentLayer);
             }
-            tracker = undefined
-            trackerSettings.close()
+            tracker = undefined;
+            trackerSettings.close();
           }
         }
       }
@@ -508,19 +496,19 @@ Popup {
         Layout.fillWidth: true
         Layout.leftMargin: 10
         Layout.rightMargin: 10
-        text: qsTr( "Resume tracking")
-        icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+        text: qsTr("Resume tracking")
+        icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
         icon.color: Theme.mainColor
         bgcolor: "transparent"
         color: Theme.mainColor
         visible: false
 
         onClicked: {
-          applySettings()
-          trackingModel.startTracker(tracker.vectorLayer)
-          displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
-          projectInfo.saveTracker(featureModel.currentLayer)
-          trackerSettings.close()
+          applySettings();
+          trackingModel.startTracker(tracker.vectorLayer);
+          displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
+          projectInfo.saveTracker(featureModel.currentLayer);
+          trackerSettings.close();
         }
       }
     }
@@ -530,7 +518,8 @@ Popup {
     id: featureModel
     project: qgisProject
 
-    geometry: Geometry {}
+    geometry: Geometry {
+    }
 
     positionInformation: coordinateLocator.positionInformation
     positionLocked: true
@@ -548,8 +537,8 @@ Popup {
     sourceComponent: embeddedFeatureFormComponent
     active: false
     onLoaded: {
-      item.open()
-      item.forceActiveFocus()
+      item.open();
+      item.forceActiveFocus();
     }
   }
 
@@ -582,25 +571,25 @@ Popup {
         state: 'Add'
 
         onTemporaryStored: {
-          tracker.feature = featureModel.feature
-          embeddedFeatureFormPopup.close()
-          embeddedFeatureForm.active = false
-          trackingModel.startTracker(tracker.vectorLayer)
-          displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name))
+          tracker.feature = featureModel.feature;
+          embeddedFeatureFormPopup.close();
+          embeddedFeatureForm.active = false;
+          trackingModel.startTracker(tracker.vectorLayer);
+          displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
           if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
-            projectInfo.saveTracker(featureModel.currentLayer)
+            projectInfo.saveTracker(featureModel.currentLayer);
           }
-          tracker = undefined
-          trackerSettings.close()
+          tracker = undefined;
+          trackerSettings.close();
         }
 
         onCancelled: {
-          embeddedFeatureFormPopup.close()
-          embeddedFeatureForm.active = false
-          embeddedFeatureForm.focus = false
-          trackingModel.stopTracker(tracker.vectorLayer)
-          tracker = undefined
-          trackerSettings.close()
+          embeddedFeatureFormPopup.close();
+          embeddedFeatureForm.active = false;
+          embeddedFeatureForm.focus = false;
+          trackingModel.stopTracker(tracker.vectorLayer);
+          tracker = undefined;
+          trackerSettings.close();
         }
       }
     }

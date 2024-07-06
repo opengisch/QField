@@ -1,10 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
@@ -23,7 +21,7 @@ Popup {
     padding: 10
     header: QfPageHeader {
       id: pageHeader
-      title: qsTr( "Plugins" )
+      title: qsTr("Plugins")
 
       showBackButton: false
       showApplyButton: false
@@ -31,7 +29,7 @@ Popup {
       backgroundFill: false
 
       onCancel: {
-        popup.close()
+        popup.close();
       }
     }
 
@@ -61,7 +59,8 @@ Popup {
         visible: model.count > 0
         clip: true
 
-        model: ListModel {}
+        model: ListModel {
+        }
 
         delegate: Rectangle {
           id: rectangle
@@ -102,9 +101,9 @@ Popup {
                   anchors.fill: parent
                   onClicked: {
                     if (!Enabled) {
-                      pluginManager.enableAppPlugin(Uuid)
+                      pluginManager.enableAppPlugin(Uuid);
                     } else {
-                      pluginManager.disableAppPlugin(Uuid)
+                      pluginManager.disableAppPlugin(Uuid);
                     }
                   }
                 }
@@ -117,11 +116,11 @@ Popup {
               checked: Enabled
 
               onClicked: {
-                Enabled = checked == true
+                Enabled = checked == true;
                 if (Enabled) {
-                  pluginManager.enableAppPlugin(Uuid)
+                  pluginManager.enableAppPlugin(Uuid);
                 } else {
-                  pluginManager.disableAppPlugin(Uuid)
+                  pluginManager.disableAppPlugin(Uuid);
                 }
               }
             }
@@ -135,11 +134,11 @@ Popup {
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
-                onLinkActivated: (link) => {
-                                   authorDetails.authorName = Author
-                                   authorDetails.authorHomepage = Homepage
-                                   authorDetails.open()
-                                 }
+                onLinkActivated: link => {
+                  authorDetails.authorName = Author;
+                  authorDetails.authorHomepage = Homepage;
+                  authorDetails.open();
+                }
               }
 
               Label {
@@ -152,16 +151,16 @@ Popup {
 
               Label {
                 Layout.fillWidth: true
-                text:  "<a href='delete'>" + (Version != "" ? qsTr("Uninstall version %1").arg(Version) : qsTr("Uninstall plugin")) + "</a>"
+                text: "<a href='delete'>" + (Version != "" ? qsTr("Uninstall version %1").arg(Version) : qsTr("Uninstall plugin")) + "</a>"
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
 
-                onLinkActivated: (link) => {
-                                   uninstallConfirmation.pluginName = Name
-                                   uninstallConfirmation.pluginUuid = Uuid
-                                   uninstallConfirmation.open()
-                                 }
+                onLinkActivated: link => {
+                  uninstallConfirmation.pluginName = Name;
+                  uninstallConfirmation.pluginUuid = Uuid;
+                  uninstallConfirmation.open();
+                }
               }
             }
           }
@@ -176,11 +175,11 @@ Popup {
         text: qsTr("Install plugin from URL")
 
         onClicked: {
-          installFromUrlDialog.open()
+          installFromUrlDialog.open();
         }
 
         onDropdownClicked: {
-          pluginsManagementMenu.popup(installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10)
+          pluginsManagementMenu.popup(installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10);
         }
       }
 
@@ -192,9 +191,9 @@ Popup {
           let result = 50;
           let padding = 0;
           for (let i = 0; i < count; ++i) {
-              let item = itemAt(i);
-              result = Math.max(item.contentItem.implicitWidth, result);
-              padding = Math.max(item.leftPadding + item.rightPadding, padding);
+            let item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
           }
           return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
         }
@@ -207,7 +206,7 @@ Popup {
           leftPadding: Theme.menuItemLeftPadding
 
           onTriggered: {
-            pluginManager.clearPluginPermissions()
+            pluginManager.clearPluginPermissions();
           }
         }
       }
@@ -218,8 +217,8 @@ Popup {
     id: authorDetails
     title: authorName
     parent: mainWindow.contentItem
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height - 80 ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height - 80) / 2
 
     property string authorName: ""
     property string authorHomepage: ""
@@ -244,8 +243,8 @@ Popup {
         font: Theme.defaultFont
         color: Theme.mainTextColor
 
-        onLinkActivated: (link) => {
-          Qt.openUrlExternally(link)
+        onLinkActivated: link => {
+          Qt.openUrlExternally(link);
         }
       }
 
@@ -269,11 +268,11 @@ Popup {
     focus: true
     font: Theme.defaultFont
 
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height - 80 ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
-      installFromUrlInput.text = ''
+      installFromUrlInput.text = '';
     }
 
     Column {
@@ -304,7 +303,7 @@ Popup {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      pluginManager.installFromUrl(installFromUrlInput.text)
+      pluginManager.installFromUrl(installFromUrlInput.text);
     }
   }
 
@@ -312,8 +311,8 @@ Popup {
     id: uninstallConfirmation
     title: "Uninstall Plugin"
     parent: mainWindow.contentItem
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height - 80 ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height - 80) / 2
 
     property string pluginName: ""
     property string pluginUuid: ""
@@ -341,7 +340,7 @@ Popup {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      pluginManager.uninstall(pluginUuid)
+      pluginManager.uninstall(pluginUuid);
     }
   }
 
@@ -349,56 +348,62 @@ Popup {
     target: pluginManager
 
     function onInstallTriggered(name) {
-      pageHeader.busyIndicatorState = "on"
-      pageHeader.busyIndicatorValue = 0
-
-      displayToast(qsTr("Installing %1").arg(name))
+      pageHeader.busyIndicatorState = "on";
+      pageHeader.busyIndicatorValue = 0;
+      displayToast(qsTr("Installing %1").arg(name));
     }
 
     function onInstallProgress(progress) {
-      pageHeader.busyIndicatorValue = progress
+      pageHeader.busyIndicatorValue = progress;
     }
 
     function onInstallEnded(uuid, error) {
-      pageHeader.busyIndicatorState = "off"
-
+      pageHeader.busyIndicatorState = "off";
       if (uuid !== '') {
-        pluginManager.enableAppPlugin(uuid)
+        pluginManager.enableAppPlugin(uuid);
       } else {
-        displayToast(qsTr('Plugin installation failed: '+error, 'error'))
+        displayToast(qsTr('Plugin installation failed: ' + error, 'error'));
       }
     }
 
     function onAppPluginEnabled(uuid) {
-      for(let i = 0; i < pluginsList.model.count; i++) {
+      for (let i = 0; i < pluginsList.model.count; i++) {
         if (pluginsList.model.get(i).Uuid === uuid) {
-          pluginsList.model.get(i).Enabled = true
+          pluginsList.model.get(i).Enabled = true;
         }
       }
     }
 
     function onAppPluginDisabled(uuid) {
-      for(let i = 0; i < pluginsList.model.count; i++) {
+      for (let i = 0; i < pluginsList.model.count; i++) {
         if (pluginsList.model.get(i).Uuid === uuid) {
-          pluginsList.model.get(i).Enabled = false
+          pluginsList.model.get(i).Enabled = false;
         }
       }
     }
 
     function onAvailableAppPluginsChanged() {
-      refreshAppPluginsList()
+      refreshAppPluginsList();
     }
   }
 
   function refreshAppPluginsList() {
-    pluginsList.model.clear()
-
+    pluginsList.model.clear();
     for (const plugin of pluginManager.availableAppPlugins) {
-      pluginsList.model.append({"Uuid":plugin.uuid, "Enabled":pluginManager.isAppPluginEnabled(plugin.uuid), "Name":plugin.name, "Description":plugin.description, "Author":plugin.author, "Homepage":plugin.homepage, "Icon": plugin.icon, "Version": plugin.version})
+      pluginsList.model.append({
+          "Uuid": plugin.uuid,
+          "Enabled": pluginManager.isAppPluginEnabled(plugin.uuid),
+          "Name": plugin.name,
+          "Description": plugin.description,
+          "Author": plugin.author,
+          "Homepage": plugin.homepage,
+          "Icon": plugin.icon,
+          "Version": plugin.version
+        });
     }
   }
 
   Component.onCompleted: {
-    refreshAppPluginsList()
+    refreshAppPluginsList();
   }
 }

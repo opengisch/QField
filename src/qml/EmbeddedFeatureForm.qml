@@ -1,116 +1,114 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
-    id: formPopup
+  id: formPopup
 
-    property alias state: form.state
-    property alias embeddedLevel: form.embeddedLevel
-    property alias currentLayer: formFeatureModel.currentLayer
-    property alias linkedRelation: formFeatureModel.linkedRelation
-    property alias linkedRelationOrderingField: formFeatureModel.linkedRelationOrderingField
-    property alias linkedParentFeature: formFeatureModel.linkedParentFeature
-    property alias feature: formFeatureModel.feature
-    property alias attributeFormModel: formAttributeFormModel
-    property alias digitizingToolbar: form.digitizingToolbar
-    property alias codeReader: form.codeReader
+  property alias state: form.state
+  property alias embeddedLevel: form.embeddedLevel
+  property alias currentLayer: formFeatureModel.currentLayer
+  property alias linkedRelation: formFeatureModel.linkedRelation
+  property alias linkedRelationOrderingField: formFeatureModel.linkedRelationOrderingField
+  property alias linkedParentFeature: formFeatureModel.linkedParentFeature
+  property alias feature: formFeatureModel.feature
+  property alias attributeFormModel: formAttributeFormModel
+  property alias digitizingToolbar: form.digitizingToolbar
+  property alias codeReader: form.codeReader
 
-    Connections {
-        target: digitizingToolbar
+  Connections {
+    target: digitizingToolbar
 
-        property bool wasVisible: false
-        function onGeometryRequestedChanged() {
-            if ( digitizingToolbar.geometryRequested && formPopup.visible ) {
-                wasVisible = true
-                formPopup.visible = false
-            } else if ( !digitizingToolbar.geometryRequested && wasVisible ) {
-                wasVisible = false
-                formPopup.visible = true
-            }
-        }
+    property bool wasVisible: false
+    function onGeometryRequestedChanged() {
+      if (digitizingToolbar.geometryRequested && formPopup.visible) {
+        wasVisible = true;
+        formPopup.visible = false;
+      } else if (!digitizingToolbar.geometryRequested && wasVisible) {
+        wasVisible = false;
+        formPopup.visible = true;
+      }
+    }
+  }
+
+  onAboutToShow: {
+    if (state === 'Add') {
+      form.featureCreated = false;
+      formFeatureModel.resetAttributes();
+    }
+  }
+
+  signal featureSaved(int id)
+  signal featureCancelled
+
+  parent: mainWindow.contentItem
+  closePolicy: Popup.NoAutoClose // prevent accidental feature addition and editing
+
+  x: Theme.popupScreenEdgeMargin / 2
+  y: Theme.popupScreenEdgeMargin
+  z: 1000 + embeddedLevel
+
+  padding: 0
+  width: parent.width - Theme.popupScreenEdgeMargin
+  height: parent.height - Theme.popupScreenEdgeMargin * 2
+  modal: true
+
+  FeatureForm {
+    id: form
+    property bool isSaved: false
+
+    model: AttributeFormModel {
+      id: formAttributeFormModel
+      featureModel: FeatureModel {
+        id: formFeatureModel
+        project: qgisProject
+        positionInformation: coordinateLocator.positionInformation
+        positionLocked: coordinateLocator.overrideLocation !== undefined
+        topSnappingResult: coordinateLocator.topSnappingResult
+        cloudUserInformation: projectInfo.cloudUserInformation
+      }
     }
 
-    onAboutToShow: {
-        if (state === 'Add') {
-           form.featureCreated = false;
-           formFeatureModel.resetAttributes();
-        }
+    focus: true
+
+    embedded: true
+    toolbarVisible: true
+
+    anchors.fill: parent
+
+    onConfirmed: {
+      formPopup.featureSaved(formFeatureModel.feature.id);
+      closePopup();
     }
 
-    signal featureSaved(int id)
-    signal featureCancelled
-
-    parent: mainWindow.contentItem
-    closePolicy: Popup.NoAutoClose // prevent accidental feature addition and editing
-
-    x: Theme.popupScreenEdgeMargin / 2
-    y: Theme.popupScreenEdgeMargin
-    z: 1000 + embeddedLevel
-
-    padding: 0
-    width: parent.width - Theme.popupScreenEdgeMargin
-    height: parent.height - Theme.popupScreenEdgeMargin * 2
-    modal: true
-
-    FeatureForm {
-        id: form
-        property bool isSaved: false
-
-        model: AttributeFormModel {
-            id: formAttributeFormModel
-            featureModel: FeatureModel {
-                id: formFeatureModel
-                project: qgisProject
-                positionInformation: coordinateLocator.positionInformation
-                positionLocked: coordinateLocator.overrideLocation !== undefined
-                topSnappingResult: coordinateLocator.topSnappingResult
-                cloudUserInformation: projectInfo.cloudUserInformation
-            }
-        }
-
-        focus: true
-
-        embedded: true
-        toolbarVisible: true
-
-        anchors.fill: parent
-
-        onConfirmed: {
-            formPopup.featureSaved(formFeatureModel.feature.id)
-            closePopup()
-        }
-
-        onCancelled: {
-            formPopup.featureCancelled()
-            closePopup()
-        }
-
-        function closePopup() {
-            if (formPopup.opened) {
-                isSaved = true
-                formPopup.close()
-            } else {
-                isSaved = false
-            }
-        }
+    onCancelled: {
+      formPopup.featureCancelled();
+      closePopup();
     }
 
-    onClosed: {
-        if (!form.isSaved) {
-            form.confirm()
-            digitizingToolbar.digitizingLogger.writeCoordinates();
-        } else {
-            form.isSaved = false
-            digitizingToolbar.digitizingLogger.clearCoordinates();
-        }
+    function closePopup() {
+      if (formPopup.opened) {
+        isSaved = true;
+        formPopup.close();
+      } else {
+        isSaved = false;
+      }
     }
+  }
 
-    function applyGeometry(geometry) {
-        formFeatureModel.geometry = geometry;
-        formFeatureModel.applyGeometry();
+  onClosed: {
+    if (!form.isSaved) {
+      form.confirm();
+      digitizingToolbar.digitizingLogger.writeCoordinates();
+    } else {
+      form.isSaved = false;
+      digitizingToolbar.digitizingLogger.clearCoordinates();
     }
+  }
+
+  function applyGeometry(geometry) {
+    formFeatureModel.geometry = geometry;
+    formFeatureModel.applyGeometry();
+  }
 }

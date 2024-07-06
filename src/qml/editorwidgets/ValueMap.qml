@@ -3,11 +3,9 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-
 import org.qfield 1.0
 import org.qgis 1.0
 import Theme 1.0
-
 import "."
 import ".."
 
@@ -23,7 +21,7 @@ EditorWidgetBase {
 
   // Workaround to get a signal when the value has changed
   onCurrentKeyValueChanged: {
-    comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue)
+    comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue);
   }
 
   height: childrenRect.height
@@ -66,9 +64,7 @@ EditorWidgetBase {
 
   // Using the search and comboBox when there are less than X items in the dropdown proves to be poor UI on normally
   // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
-  readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined
-                                                ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold')
-                                                : 0
+  readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') : 0
   state: currentItemCount < toggleButtonsThreshold ? "toggleButtonsView" : "comboBoxItemView"
 
   property real currentItemCount: comboBox.count
@@ -77,7 +73,7 @@ EditorWidgetBase {
     id: listModel
     filterCaseSensitivity: Qt.CaseInsensitive
     onMapChanged: {
-      comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue)
+      comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue);
     }
   }
 
@@ -122,12 +118,12 @@ EditorWidgetBase {
 
             Component.onCompleted: {
               if (selected) {
-                toggleButtons.currentSelectedKey = key
-                toggleButtons.currentSelectedValue = value
+                toggleButtons.currentSelectedKey = key;
+                toggleButtons.currentSelectedValue = value;
               }
             }
 
-            Behavior on color {
+            Behavior on color  {
               ColorAnimation {
                 duration: 150
               }
@@ -135,7 +131,7 @@ EditorWidgetBase {
 
             Text {
               id: innerText
-              width: Math.min(flow.width - 32 , implicitWidth)
+              width: Math.min(flow.width - 32, implicitWidth)
               text: value
               elide: Text.ElideRight
               anchors.centerIn: parent
@@ -148,15 +144,15 @@ EditorWidgetBase {
               anchors.fill: parent
               onClicked: {
                 if (toggleButtons.selectedIndex != index) {
-                  comboBox.currentIndex = index
-                  toggleButtons.currentSelectedKey = key
-                  toggleButtons.currentSelectedValue = value
+                  comboBox.currentIndex = index;
+                  toggleButtons.currentSelectedKey = key;
+                  toggleButtons.currentSelectedValue = value;
                 } else {
-                  comboBox.currentIndex = -1
-                  toggleButtons.currentSelectedKey = ""
-                  toggleButtons.currentSelectedValue = ""
+                  comboBox.currentIndex = -1;
+                  toggleButtons.currentSelectedKey = "";
+                  toggleButtons.currentSelectedValue = "";
                 }
-                valueChangeRequested(toggleButtons.currentSelectedKey, false)
+                valueChangeRequested(toggleButtons.currentSelectedKey, false);
               }
 
               Ripple {
@@ -171,7 +167,6 @@ EditorWidgetBase {
           }
         }
       }
-
 
       Rectangle {
         y: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin - 1
@@ -194,14 +189,19 @@ EditorWidgetBase {
       textRole: 'value'
 
       Component.onCompleted: {
-        comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
-        model.valueMap = config['map']
+        comboBox.popup.z = 10000; // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
+        model.valueMap = config['map'];
       }
 
       onCurrentTextChanged: {
-        if (valueMap.state === "comboBoxItemView") {
-          var key = model.keyForValue(currentText)
-          valueChangeRequested(key, false)
+        if (searchFeaturePopup.opened || valueMap.state !== "comboBoxItemView") {
+          return;
+        }
+        var key = model.keyForValue(currentText);
+        if (currentKeyValue !== key) {
+          if (valueMap.state === "comboBoxItemView") {
+            valueChangeRequested(key, false);
+          }
         }
       }
 
@@ -210,11 +210,14 @@ EditorWidgetBase {
         propagateComposedEvents: true
 
         onClicked: mouse.accepted = false
-        onPressed: (mouse)=> { forceActiveFocus(); mouse.accepted = false; }
-        onReleased: mouse.accepted = false;
-        onDoubleClicked: mouse.accepted = false;
-        onPositionChanged: mouse.accepted = false;
-        onPressAndHold: mouse.accepted = false;
+        onPressed: mouse => {
+          forceActiveFocus();
+          mouse.accepted = false;
+        }
+        onReleased: mouse.accepted = false
+        onDoubleClicked: mouse.accepted = false
+        onPositionChanged: mouse.accepted = false
+        onPressAndHold: mouse.accepted = false
       }
 
       contentItem: Text {
@@ -241,9 +244,9 @@ EditorWidgetBase {
         }
 
         Rectangle {
+          id: backgroundRect
           visible: enabled
           anchors.fill: parent
-          id: backgroundRect
           border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
           border.width: comboBox.visualFocus ? 2 : 1
           color: Theme.controlBackgroundAlternateColor
@@ -268,7 +271,7 @@ EditorWidgetBase {
       iconColor: Theme.mainTextColor
 
       onClicked: {
-        searchFeaturePopup.open()
+        searchFeaturePopup.open();
       }
     }
 
@@ -288,12 +291,12 @@ EditorWidgetBase {
 
       onOpened: {
         if (resultsList.contentHeight > resultsList.height) {
-          searchField.forceActiveFocus()
+          searchField.forceActiveFocus();
         }
       }
 
       onClosed: {
-        searchField.text = ''
+        searchField.text = '';
       }
 
       Page {
@@ -304,12 +307,16 @@ EditorWidgetBase {
           showBackButton: false
           showApplyButton: false
           showCancelButton: true
-          onCancel: searchFeaturePopup.close()
+          onCancel: {
+            searchFeaturePopup.close();
+            listModel.setFilterFixedString('');
+            comboBox.currentIndex = listModel.keyToIndex(valueMap.currentKeyValue);
+          }
         }
 
         TextField {
-          z: 1
           id: searchField
+          z: 1
           anchors.left: parent.left
           anchors.right: parent.right
 
@@ -327,11 +334,11 @@ EditorWidgetBase {
 
           onDisplayTextChanged: listModel.setFilterFixedString(displayText)
 
-          Keys.onPressed: (event)=> {
+          Keys.onPressed: event => {
             if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
               if (listModel.rowCount() === 1) {
-                resultsList.itemAtIndex(0).performClick()
-                searchFeaturePopup.close()
+                resultsList.itemAtIndex(0).performClick();
+                searchFeaturePopup.close();
               }
             }
           }
@@ -342,7 +349,12 @@ EditorWidgetBase {
           z: 1
           width: fontMetrics.height
           height: fontMetrics.height
-          anchors { top: searchField.top; right: searchField.right; topMargin: height - 7; rightMargin: height - 7 }
+          anchors {
+            top: searchField.top
+            right: searchField.right
+            topMargin: height - 7
+            rightMargin: height - 7
+          }
 
           padding: 0
           iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
@@ -400,12 +412,12 @@ EditorWidgetBase {
               font.italic: value ? false : true
 
               checked: itemChecked
-              indicator: Rectangle {}
+              indicator: Rectangle {
+              }
 
-              text: searchField.displayText !== ''
-                    ? itemText.replace(new RegExp('('+searchField.displayText+')', "i"),
-                                            '<span style="text-decoration:underline;' + Theme.toInlineStyles({color:Theme.mainTextColor}) + '">$1</span>')
-                    : itemText
+              text: searchField.displayText !== '' ? itemText.replace(new RegExp('(' + searchField.displayText + ')', "i"), '<span style="text-decoration:underline;' + Theme.toInlineStyles({
+                    "color": Theme.mainTextColor
+                  }) + '">$1</span>') : itemText
 
               contentItem: Text {
                 text: parent.text
@@ -428,11 +440,12 @@ EditorWidgetBase {
             }
 
             function performClick() {
-              if (key === currentKeyValue)
-                return
-
-              valueChangeRequested(key, false)
-              searchFeaturePopup.close()
+              if (key === currentKeyValue) {
+                return;
+              }
+              listModel.setFilterFixedString('');
+              valueChangeRequested(key, false);
+              searchFeaturePopup.close();
             }
           }
 
@@ -440,17 +453,16 @@ EditorWidgetBase {
             anchors.fill: parent
             propagateComposedEvents: true
 
-            onClicked: (mouse)=> {
-              var item = resultsList.itemAt(resultsList.contentX + mouse.x, resultsList.contentY + mouse.y)
+            onClicked: mouse => {
+              var item = resultsList.itemAt(resultsList.contentX + mouse.x, resultsList.contentY + mouse.y);
               if (!item)
                 return;
-
-              item.performClick()
+              item.performClick();
             }
           }
 
           onMovementStarted: {
-            Qt.inputMethod.hide()
+            Qt.inputMethod.hide();
           }
         }
       }

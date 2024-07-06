@@ -51,6 +51,7 @@
 #include "digitizinglogger.h"
 #include "distancearea.h"
 #include "drawingcanvas.h"
+#include "expressioncontextutils.h"
 #include "expressionevaluator.h"
 #include "expressionvariablemodel.h"
 #include "featurechecklistmodel.h"
@@ -62,6 +63,7 @@
 #include "featureutils.h"
 #include "fileutils.h"
 #include "focusstack.h"
+#include "geofencer.h"
 #include "geometry.h"
 #include "geometryeditorsmodel.h"
 #include "geometryutils.h"
@@ -452,6 +454,7 @@ void QgisMobileapp::initDeclarative( QgsApplication *mApp, QQmlEngine *engine )
   qmlRegisterType<ProjectSource>( "org.qfield", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qfield", 1, 0, "ViewStatus" );
 
+  qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
@@ -527,6 +530,7 @@ void QgisMobileapp::initDeclarative( QgsApplication *mApp, QQmlEngine *engine )
   qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );
   qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
 
+  REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );

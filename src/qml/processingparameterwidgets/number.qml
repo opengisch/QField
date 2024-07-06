@@ -1,10 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-
 import Theme 1.0
 import org.qfield 1.0
 import org.qgis 1.0
-
 import "."
 
 ProcessingParameterWidgetBase {
@@ -37,12 +35,9 @@ ProcessingParameterWidgetBase {
       text: value !== undefined ? value : ''
 
       validator: {
-        if (isDouble)
-        {
+        if (isDouble) {
           doubleValidator;
-        }
-        else
-        {
+        } else {
           intValidator;
         }
       }
@@ -64,8 +59,8 @@ ProcessingParameterWidgetBase {
       onTextChanged: {
         if (text != value) {
           if (!isNaN(parseFloat(text))) {
-            let numberValue = Math.max(numberItem.min, Math.min(numberItem.max, text))
-            valueChangeRequested(numberValue)
+            let numberValue = Math.max(numberItem.min, Math.min(numberItem.max, text));
+            valueChangeRequested(numberValue);
           }
         }
       }
@@ -90,15 +85,15 @@ ProcessingParameterWidgetBase {
         decreaseValue();
       }
       onPressAndHold: {
-        changeValueTimer.increase = false
-        changeValueTimer.interval = 700
-        changeValueTimer.restart()
+        changeValueTimer.increase = false;
+        changeValueTimer.interval = 700;
+        changeValueTimer.restart();
       }
       onReleased: {
-        changeValueTimer.stop()
+        changeValueTimer.stop();
       }
       onCanceled: {
-        changeValueTimer.stop()
+        changeValueTimer.stop();
       }
     }
 
@@ -121,15 +116,15 @@ ProcessingParameterWidgetBase {
         increaseValue();
       }
       onPressAndHold: {
-        changeValueTimer.increase = true
-        changeValueTimer.interval = 700
-        changeValueTimer.restart()
+        changeValueTimer.increase = true;
+        changeValueTimer.interval = 700;
+        changeValueTimer.restart();
       }
       onReleased: {
-        changeValueTimer.stop()
+        changeValueTimer.stop();
       }
       onCanceled: {
-        changeValueTimer.stop()
+        changeValueTimer.stop();
       }
     }
   }
@@ -143,16 +138,16 @@ ProcessingParameterWidgetBase {
 
     onTriggered: {
       var hitBoundary = false;
-      if ( increase ) {
+      if (increase) {
         increaseValue();
-        hitBoundary = textField.text == numberItem.max
+        hitBoundary = textField.text == numberItem.max;
       } else {
         decreaseValue();
         hitBoundary = textField.text == numberItem.min;
       }
-
-      if ( !hitBoundary ) {
-        if ( interval > 50 ) interval = interval * 0.7;
+      if (!hitBoundary) {
+        if (interval > 50)
+          interval = interval * 0.7;
       } else {
         stop();
       }
@@ -160,26 +155,26 @@ ProcessingParameterWidgetBase {
   }
 
   function decreaseValue() {
-    var currentValue = Number.parseFloat(textField.text)
-    var newValue
+    var currentValue = Number.parseFloat(textField.text);
+    var newValue;
     if (!isNaN(currentValue)) {
       newValue = currentValue - numberItem.step;
-      valueChangeRequested(Math.max(numberItem.min, newValue))
+      valueChangeRequested(Math.max(numberItem.min, newValue));
     } else {
       newValue = 0;
-      valueChangeRequested(newValue, false)
+      valueChangeRequested(newValue, false);
     }
   }
 
   function increaseValue() {
-    var currentValue = Number.parseFloat(textField.text)
-    var newValue
+    var currentValue = Number.parseFloat(textField.text);
+    var newValue;
     if (!isNaN(currentValue)) {
       newValue = currentValue + numberItem.step;
-      valueChangeRequested(Math.min(numberItem.max, newValue ))
+      valueChangeRequested(Math.min(numberItem.max, newValue));
     } else {
       newValue = 0;
-      valueChangeRequested(newValue)
+      valueChangeRequested(newValue);
     }
   }
 

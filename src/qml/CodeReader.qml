@@ -4,13 +4,11 @@ import QtQuick.Layouts
 import QtQuick.Shapes
 import QtMultimedia
 import QtCore
-
 import org.qfield 1.0
-
 import Theme 1.0
 
 Popup {
-  id : codeReader
+  id: codeReader
 
   signal decoded(var string)
 
@@ -30,26 +28,25 @@ Popup {
   dim: true
 
   onAboutToShow: {
-    openedOnce = true
+    openedOnce = true;
     // when NFC is not accessible, make sure the only option, QR, is active
     if (!withNfc && !settings.cameraActive) {
-      settings.cameraActive = true
+      settings.cameraActive = true;
     }
-    decodedString = ''
-    barcodeDecoder.clearDecodedString()
-
+    decodedString = '';
+    barcodeDecoder.clearDecodedString();
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
-      cameraPermission.request()
+      cameraPermission.request();
     }
   }
 
   onOpened: {
-    contentItem.forceActiveFocus()
+    contentItem.forceActiveFocus();
   }
 
   onAboutToHide: {
     if (cameraLoader.active) {
-      cameraLoader.item.camera.torchMode = Camera.TorchOff
+      cameraLoader.item.camera.torchMode = Camera.TorchOff;
     }
   }
 
@@ -68,7 +65,7 @@ Popup {
 
     onDecodedStringChanged: {
       if (decodedString !== '') {
-        codeReader.decodedString = decodedString
+        codeReader.decodedString = decodedString;
         decodedFlashAnimation.start();
       }
     }
@@ -85,8 +82,8 @@ Popup {
 
         onReadStringChanged: {
           if (readString !== '') {
-            displayToast(qsTr('NFC text tag detected'))
-            codeReader.decodedString = readString
+            displayToast(qsTr('NFC text tag detected'));
+            codeReader.decodedString = readString;
             decodedFlashAnimation.start();
           }
         }
@@ -125,7 +122,7 @@ Popup {
           id: closeButton
           Layout.rightMargin: 10
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+          iconSource: Theme.getThemeIcon('ic_close_black_24dp')
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
 
@@ -160,14 +157,14 @@ Popup {
 
           SequentialAnimation {
             NumberAnimation {
-              target:  nearfieldFeedback
+              target: nearfieldFeedback
               property: "width"
               to: 120 + (Math.min(visualFeedback.width, visualFeedback.height) - 120)
               duration: 2000
               easing.type: Easing.InOutQuad
             }
             NumberAnimation {
-              target:  nearfieldFeedback
+              target: nearfieldFeedback
               property: "width"
               to: 120
               duration: 2000
@@ -213,7 +210,7 @@ Popup {
           }
 
           onLoaded: {
-            barcodeDecoder.videoSink = item.sink
+            barcodeDecoder.videoSink = item.sink;
           }
         }
 
@@ -225,8 +222,18 @@ Popup {
           color: "transparent"
           SequentialAnimation {
             id: decodedFlashAnimation
-            PropertyAnimation { target: decodedFlash; property: "color"; to: "white"; duration: 0 }
-            PropertyAnimation { target: decodedFlash; property: "color"; to: "transparent"; duration: 500 }
+            PropertyAnimation {
+              target: decodedFlash
+              property: "color"
+              to: "white"
+              duration: 0
+            }
+            PropertyAnimation {
+              target: decodedFlash
+              property: "color"
+              to: "transparent"
+              duration: 500
+            }
           }
         }
 
@@ -244,14 +251,46 @@ Popup {
 
             startX: 5
             startY: 10
-            PathArc { x: 10; y: 5; radiusX: 5; radiusY: 5 }
-            PathLine { x: frame.width - 10; y: 5; }
-            PathArc { x: frame.width - 5; y: 10; radiusX: 5; radiusY: 5 }
-            PathLine { x: frame.width - 5; y: frame.height - 10; }
-            PathArc { x: frame.width - 10; y: frame.height - 5; radiusX: 5; radiusY: 5 }
-            PathLine { x: 10; y: frame.height - 5; }
-            PathArc { x: 5; y: frame.height - 10; radiusX: 5; radiusY: 5 }
-            PathLine { x: 5; y: 10 }
+            PathArc {
+              x: 10
+              y: 5
+              radiusX: 5
+              radiusY: 5
+            }
+            PathLine {
+              x: frame.width - 10
+              y: 5
+            }
+            PathArc {
+              x: frame.width - 5
+              y: 10
+              radiusX: 5
+              radiusY: 5
+            }
+            PathLine {
+              x: frame.width - 5
+              y: frame.height - 10
+            }
+            PathArc {
+              x: frame.width - 10
+              y: frame.height - 5
+              radiusX: 5
+              radiusY: 5
+            }
+            PathLine {
+              x: 10
+              y: frame.height - 5
+            }
+            PathArc {
+              x: 5
+              y: frame.height - 10
+              radiusX: 5
+              radiusY: 5
+            }
+            PathLine {
+              x: 5
+              y: 10
+            }
           }
         }
 
@@ -269,21 +308,74 @@ Popup {
 
             startX: 20
             startY: 60
-            PathLine { x: 20; y: 25 }
-            PathArc { x: 25; y: 20; radiusX: 5; radiusY: 5 }
-            PathLine { x: 60; y: 20 }
-            PathMove { x: aim.width - 60; y: 20 }
-            PathLine { x: aim.width - 25; y: 20 }
-            PathArc { x: aim.width - 20; y: 25; radiusX: 5; radiusY: 5; }
-            PathLine { x: aim.width - 20; y: 60 }
-            PathMove { x: aim.width - 20; y: aim.height - 60 }
-            PathLine { x: aim.width - 20; y: aim.height - 25 }
-            PathArc { x: aim.width - 25; y: aim.height - 20; radiusX: 5; radiusY: 5 }
-            PathLine { x: aim.width - 60; y: aim.height - 20 }
-            PathMove { x: 60; y: aim.height - 20 }
-            PathLine { x: 25; y: aim.height - 20 }
-            PathArc { x: 20; y: aim.height - 25; radiusX: 5; radiusY: 5 }
-            PathLine { x: 20; y: aim.height - 60; }
+            PathLine {
+              x: 20
+              y: 25
+            }
+            PathArc {
+              x: 25
+              y: 20
+              radiusX: 5
+              radiusY: 5
+            }
+            PathLine {
+              x: 60
+              y: 20
+            }
+            PathMove {
+              x: aim.width - 60
+              y: 20
+            }
+            PathLine {
+              x: aim.width - 25
+              y: 20
+            }
+            PathArc {
+              x: aim.width - 20
+              y: 25
+              radiusX: 5
+              radiusY: 5
+            }
+            PathLine {
+              x: aim.width - 20
+              y: 60
+            }
+            PathMove {
+              x: aim.width - 20
+              y: aim.height - 60
+            }
+            PathLine {
+              x: aim.width - 20
+              y: aim.height - 25
+            }
+            PathArc {
+              x: aim.width - 25
+              y: aim.height - 20
+              radiusX: 5
+              radiusY: 5
+            }
+            PathLine {
+              x: aim.width - 60
+              y: aim.height - 20
+            }
+            PathMove {
+              x: 60
+              y: aim.height - 20
+            }
+            PathLine {
+              x: 25
+              y: aim.height - 20
+            }
+            PathArc {
+              x: 20
+              y: aim.height - 25
+              radiusX: 5
+              radiusY: 5
+            }
+            PathLine {
+              x: 20
+              y: aim.height - 60
+            }
           }
         }
 
@@ -293,12 +385,12 @@ Popup {
           anchors.bottomMargin: 20
           anchors.horizontalCenter: parent.horizontalCenter
           round: true
-          iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
+          iconSource: Theme.getThemeVectorIcon('ic_flashlight_white_48dp')
           iconColor: "white"
           bgcolor: Theme.darkGraySemiOpaque
 
           visible: settings.cameraActive && cameraLoader.active && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
-          state: cameraLoader.active &&  cameraLoader.item.camera.torchMode === Camera.TorchOn ? "On" : "Off"
+          state: cameraLoader.active && cameraLoader.item.camera.torchMode === Camera.TorchOn ? "On" : "Off"
           states: [
             State {
               name: "Off"
@@ -308,7 +400,6 @@ Popup {
                 bgcolor: Theme.darkGraySemiOpaque
               }
             },
-
             State {
               name: "On"
               PropertyChanges {
@@ -321,9 +412,9 @@ Popup {
 
           onClicked: {
             if (cameraLoader.item.camera.torchMode === Camera.TorchOff) {
-              cameraLoader.item.camera.torchMode = Camera.TorchOn
+              cameraLoader.item.camera.torchMode = Camera.TorchOn;
             } else {
-              cameraLoader.item.camera.torchMode = Camera.TorchOff
+              cameraLoader.item.camera.torchMode = Camera.TorchOff;
             }
           }
         }
@@ -335,7 +426,7 @@ Popup {
           anchors.right: flashlightButton.left
           anchors.rightMargin: 10
           round: true
-          iconSource: Theme.getThemeVectorIcon( 'ic_qr_code_black_24dp' )
+          iconSource: Theme.getThemeVectorIcon('ic_qr_code_black_24dp')
           iconColor: "white"
           bgcolor: Theme.darkGraySemiOpaque
 
@@ -349,7 +440,6 @@ Popup {
                 bgcolor: Theme.darkGraySemiOpaque
               }
             },
-
             State {
               name: "On"
               PropertyChanges {
@@ -372,7 +462,7 @@ Popup {
           anchors.left: flashlightButton.right
           anchors.leftMargin: 10
           round: true
-          iconSource: Theme.getThemeVectorIcon( 'ic_nfc_code_black_24dp' )
+          iconSource: Theme.getThemeVectorIcon('ic_nfc_code_black_24dp')
           iconColor: "white"
           bgcolor: Theme.darkGraySemiOpaque
 
@@ -386,7 +476,6 @@ Popup {
                 bgcolor: Theme.darkGraySemiOpaque
               }
             },
-
             State {
               name: "On"
               PropertyChanges {
@@ -410,9 +499,7 @@ Popup {
           id: decodedText
           Layout.fillWidth: true
 
-          text: codeReader.decodedString !== ''
-                ? codeReader.decodedString
-                : qsTr( 'Center your device on a code')
+          text: codeReader.decodedString !== '' ? codeReader.decodedString : qsTr('Center your device on a code')
           font: Theme.tipFont
           color: Theme.mainTextColor
           horizontalAlignment: Text.AlignLeft
@@ -425,17 +512,17 @@ Popup {
           enabled: codeReader.decodedString !== ''
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
+          iconSource: Theme.getThemeIcon('ic_check_black_48dp')
           iconColor: enabled ? "white" : Theme.mainTextColor
           bgcolor: enabled ? Theme.mainColor : "transparent"
           round: true
 
           onClicked: {
             if (codeReader.barcodeRequestedItem != undefined) {
-                codeReader.barcodeRequestedItem.requestedBarcodeReceived(codeReader.decodedString)
-                codeReader.barcodeRequestedItem = undefined;
+              codeReader.barcodeRequestedItem.requestedBarcodeReceived(codeReader.decodedString);
+              codeReader.barcodeRequestedItem = undefined;
             } else {
-                codeReader.decoded(codeReader.decodedString);
+              codeReader.decoded(codeReader.decodedString);
             }
             codeReader.close();
           }

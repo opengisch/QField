@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -33,9 +32,9 @@ Rectangle {
   Grid {
     id: grid
     flow: GridLayout.TopToBottom
-    rows: ( positionSource.deviceId === '' ? 1 : 2 ) * ( parent.width > 1000? 1 : parent.width > 620? 2 : 3 )
+    rows: (positionSource.deviceId === '' ? 1 : 2) * (parent.width > 1000 ? 1 : parent.width > 620 ? 2 : 3)
     width: parent.width
-    property double cellWidth: grid.width / ( ( positionSource.deviceId === '' ? 1 : 2 ) * 6 / grid.rows )
+    property double cellWidth: grid.width / ((positionSource.deviceId === '' ? 1 : 2) * 6 / grid.rows)
 
     Rectangle {
       height: cellHeight
@@ -52,22 +51,14 @@ Rectangle {
           Layout.fillWidth: false
           font: Theme.tipFont
           color: Theme.secondaryTextColor
-          text: coordinatesIsXY
-                ? coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )
-                : coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )
+          text: coordinatesIsXY ? coordinatesIsGeographic ? qsTr("Lon") : qsTr("X") : coordinatesIsGeographic ? qsTr("Lat") : qsTr("Y")
         }
 
         Text {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: textColor
-          text: coordinatesIsXY
-                ? positionSource.positionInformation && positionSource.positionInformation.longitudeValid
-                  ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                  : qsTr( "N/A" )
-                : positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                  ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                  : qsTr( "N/A" )
+          text: coordinatesIsXY ? positionSource.positionInformation && positionSource.positionInformation.longitudeValid ? Number(coordinates.x).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3) : qsTr("N/A") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Number(coordinates.y).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3) : qsTr("N/A")
           elide: Text.ElideRight
         }
       }
@@ -88,25 +79,15 @@ Rectangle {
           Layout.fillWidth: false
           font: Theme.tipFont
           color: Theme.secondaryTextColor
-          text: coordinatesIsXY
-                ? coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )
-                : coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )
-
+          text: coordinatesIsXY ? coordinatesIsGeographic ? qsTr("Lat") : qsTr("Y") : coordinatesIsGeographic ? qsTr("Lon") : qsTr("X")
         }
 
         Text {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: textColor
-          text: coordinatesIsXY
-                ? positionSource.positionInformation && positionSource.positionInformation.longitudeValid
-                  ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                  : qsTr( "N/A" )
-                : positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                  ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
-                  : qsTr( "N/A" )
+          text: coordinatesIsXY ? positionSource.positionInformation && positionSource.positionInformation.longitudeValid ? Number(coordinates.y).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3) : qsTr("N/A") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Number(coordinates.x).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3) : qsTr("N/A")
           elide: Text.ElideRight
-
         }
       }
     }
@@ -134,27 +115,25 @@ Rectangle {
           font: Theme.tipFont
           color: textColor
           text: {
-            var altitude = ''
+            var altitude = '';
             if (positionSource.positionInformation && positionSource.positionInformation.elevationValid) {
-              altitude += Number(positionSource.projectedPosition.z * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation + ' '
-              var details = []
+              altitude += Number(positionSource.projectedPosition.z * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation + ' ';
+              var details = [];
               if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile) {
-                details.push('grid')
+                details.push('grid');
               } else if (positionSource.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
-                details.push('ortho.')
+                details.push('ortho.');
               }
               if (!isNaN(parseFloat(antennaHeight))) {
-                details.push('ant.')
+                details.push('ant.');
               }
               if (details.length > 0) {
-                altitude += ' (%1)'.arg( details.join(', '))
+                altitude += ' (%1)'.arg(details.join(', '));
               }
-            }
-            else
-            {
+            } else {
               altitude += qsTr('N/A');
             }
-            return altitude
+            return altitude;
           }
           elide: Text.ElideRight
         }
@@ -183,9 +162,7 @@ Rectangle {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: textColor
-          text: positionSource.positionInformation && positionSource.positionInformation.speedValid
-                ? positionSource.positionInformation.speed.toLocaleString(Qt.locale(), 'f', 3) + " m/s"
-                : qsTr( "N/A" )
+          text: positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed.toLocaleString(Qt.locale(), 'f', 3) + " m/s" : qsTr("N/A")
           elide: Text.ElideRight
         }
       }
@@ -213,9 +190,7 @@ Rectangle {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: textColor
-          text: positionSource.positionInformation && positionSource.positionInformation.haccValid
-                ? Number(positionSource.positionInformation.hacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
-                : qsTr("N/A")
+          text: positionSource.positionInformation && positionSource.positionInformation.haccValid ? Number(positionSource.positionInformation.hacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation : qsTr("N/A")
           elide: Text.ElideRight
         }
       }
@@ -243,9 +218,7 @@ Rectangle {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: textColor
-          text: positionSource.positionInformation && positionSource.positionInformation.vaccValid
-                ? Number(positionSource.positionInformation.vacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation
-                : qsTr("N/A")
+          text: positionSource.positionInformation && positionSource.positionInformation.vaccValid ? Number(positionSource.positionInformation.vacc * distanceUnitFactor).toLocaleString(Qt.locale(), 'f', 3) + ' ' + distanceUnitAbbreviation : qsTr("N/A")
           elide: Text.ElideRight
         }
       }
@@ -274,9 +247,7 @@ Rectangle {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: textColor
-          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.pdop)
-                ? positionSource.positionInformation.pdop.toLocaleString(Qt.locale(), 'f', 1)
-                : qsTr('N/A')
+          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.pdop) ? positionSource.positionInformation.pdop.toLocaleString(Qt.locale(), 'f', 1) : qsTr('N/A')
           elide: Text.ElideRight
         }
       }
@@ -305,9 +276,7 @@ Rectangle {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: textColor
-          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.hdop)
-                ? positionSource.positionInformation.hdop.toLocaleString(Qt.locale(), 'f', 1)
-                : qsTr('N/A')
+          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.hdop) ? positionSource.positionInformation.hdop.toLocaleString(Qt.locale(), 'f', 1) : qsTr('N/A')
           elide: Text.ElideRight
         }
       }
@@ -336,9 +305,7 @@ Rectangle {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: textColor
-          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.vdop)
-                ? positionSource.positionInformation.vdop.toLocaleString(Qt.locale(), 'f', 1)
-                : qsTr('N/A')
+          text: positionSource.positionInformation && !isNaN(positionSource.positionInformation.vdop) ? positionSource.positionInformation.vdop.toLocaleString(Qt.locale(), 'f', 1) : qsTr('N/A')
           elide: Text.ElideRight
         }
       }

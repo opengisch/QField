@@ -45,17 +45,18 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
   public:
     enum Capability
     {
-      NoCapabilities = 0,                //!< No capabilities
-      NativeCamera = 1,                  //!< Native camera handling support
-      AdjustBrightness = 1 << 1,         //!< Screen brightness adjustment support
-      SentryFramework = 1 << 2,          //!< Sentry framework support
-      CustomLocalDataPicker = 1 << 3,    //!< Custom QML local data picker support
-      CustomImport = 1 << 4,             //!< Import project and dataset support
-      CustomExport = 1 << 5,             //!< Export project and dataset support
-      CustomSend = 1 << 6,               //!< Send/share files support
-      FilePicker = 1 << 7,               //!< File picker support
-      VolumeKeys = 1 << 8,               //!< Volume keys handling support
-      UpdateProjectFromArchive = 1 << 9, //!< Update local project from a ZIP archive support
+      NoCapabilities = 0,                 //!< No capabilities
+      NativeCamera = 1,                   //!< Native camera handling support
+      AdjustBrightness = 1 << 1,          //!< Screen brightness adjustment support
+      SentryFramework = 1 << 2,           //!< Sentry framework support
+      CustomLocalDataPicker = 1 << 3,     //!< Custom QML local data picker support
+      CustomImport = 1 << 4,              //!< Import project and dataset support
+      CustomExport = 1 << 5,              //!< Export project and dataset support
+      CustomSend = 1 << 6,                //!< Send/share files support
+      FilePicker = 1 << 7,                //!< File picker support
+      VolumeKeys = 1 << 8,                //!< Volume keys handling support
+      Vibrate = 1 << 9,                   //!< Haptic feedback / vibration support
+      UpdateProjectFromArchive = 1 << 10, //!< Update local project from a ZIP archive support
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
@@ -306,6 +307,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * Returns TRUE is the system uses a dark theme.
      */
     Q_INVOKABLE virtual bool isSystemDarkTheme() const;
+
+    /**
+     * Vibrates the device on supported platforms.
+     */
+    Q_INVOKABLE virtual void vibrate( int milliseconds ) const { Q_UNUSED( milliseconds ) }
 
     static PlatformUtilities *instance();
 

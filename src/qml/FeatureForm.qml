@@ -6,7 +6,6 @@ import QtQml.Models 2.14
 import QtQml 2.14
 import QtCharts 2.14 // Not actually used here but added so the android deploy script adds the relevant package
 import QtWebView 1.14
-
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -43,7 +42,7 @@ Page {
     if (!qfieldSettings.autoSave) {
       cancelDialog.open();
     } else {
-      cancel()
+      cancel();
     }
   }
 
@@ -97,7 +96,7 @@ Page {
         objectName: "tabRowdDlegate_" + index
 
         onClicked: {
-          tabRow.currentIndex = index
+          tabRow.currentIndex = index;
         }
 
         background: Rectangle {
@@ -186,9 +185,7 @@ Page {
             Repeater {
               // Note: digitizing a child geometry will temporarily hide the feature form,
               // we need to preserve items so signal connections are kept alive
-              model: form.model.hasTabs
-                     ? contentModel
-                     : form.model
+              model: form.model.hasTabs ? contentModel : form.model
               objectName: "fieldRepeater"
               delegate: fieldItem
             }
@@ -218,9 +215,7 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
-                 ? 0.45
-                 : 1
+        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
@@ -238,7 +233,9 @@ Page {
         opacity: textLabel.opacity
         color: Theme.mainTextColor
         linkColor: Theme.mainColor
-        onLinkActivated: (link) => { Qt.openUrlExternally(link) }
+        onLinkActivated: link => {
+          Qt.openUrlExternally(link);
+        }
       }
     }
   }
@@ -263,9 +260,7 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
-                 ? 0.45
-                 : 1
+        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
@@ -274,7 +269,7 @@ Page {
 
         property string code: containerCode
         onCodeChanged: {
-          var obj = Qt.createQmlObject(code,qmlItem,'qmlContent');
+          var obj = Qt.createQmlObject(code, qmlItem, 'qmlContent');
         }
 
         height: childrenRect.height
@@ -311,9 +306,7 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
-                 ? 0.45
-                 : 1
+        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
@@ -346,8 +339,7 @@ Page {
                   });
                 }
               }
-            }'
-            , htmlContent);
+            }', htmlContent);
         }
         htmlItem.loadHtml(htmlCode);
       }
@@ -385,7 +377,7 @@ Page {
 
           function onModelReset() {
             if (containerGroupIndex !== undefined && innerContainer.visible) {
-              innerSubModel.rootIndex = form.model.mapFromSource(containerGroupIndex)
+              innerSubModel.rootIndex = form.model.mapFromSource(containerGroupIndex);
             }
           }
         }
@@ -396,7 +388,8 @@ Page {
   Component {
     id: dummyContainer
 
-    Item {}
+    Item {
+    }
   }
 
   /**
@@ -406,11 +399,7 @@ Page {
     id: fieldItem
 
     Item {
-      width: parent && parent.width > 0
-             ? parent.width / ColumnCount > 200
-               ? parent.width / ColumnCount
-               : parent.width
-      : form.width
+      width: parent && parent.width > 0 ? parent.width / ColumnCount > 200 ? parent.width / ColumnCount : parent.width : form.width
       height: fieldGroupTitle.height + fieldContent.childrenRect.height
 
       Rectangle {
@@ -467,23 +456,14 @@ Page {
           property var labelColor: LabelColor
           property string itemType: Type
 
-          active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) ||
-                  ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
+          active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) || ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
           height: active ? item.childrenRect.height : 0
           anchors {
             left: parent.left
             right: parent.right
           }
 
-          sourceComponent: Type === 'container' && GroupIndex !== undefined && GroupIndex.valid
-                           ? innerContainer
-                           : Type === 'qml'
-                             ? qmlContainer
-                             : Type === 'html'
-                               ? htmlContainer
-                               : Type === 'text'
-                                 ? textContainer
-                                 : dummyContainer
+          sourceComponent: Type === 'container' && GroupIndex !== undefined && GroupIndex.valid ? innerContainer : Type === 'qml' ? qmlContainer : Type === 'html' ? htmlContainer : Type === 'text' ? textContainer : dummyContainer
         }
 
         Item {
@@ -512,9 +492,7 @@ Page {
             font.strikeout: LabelOverrideFont ? LabelFont.strikeout : false
             topPadding: 10
             bottomPadding: 5
-            opacity: (form.state === 'ReadOnly' || !AttributeEditable) || embedded && EditorWidget === 'RelationEditor'
-                     ? 0.45
-                     : 1
+            opacity: (form.state === 'ReadOnly' || !AttributeEditable) || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
             color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
           }
 
@@ -526,11 +504,10 @@ Page {
               top: fieldLabel.bottom
             }
 
-            font.pointSize: fieldLabel.font.pointSize/3*2
+            font.pointSize: fieldLabel.font.pointSize / 3 * 2
             text: {
-              if ( ConstraintHardValid && ConstraintSoftValid )
+              if (ConstraintHardValid && ConstraintSoftValid)
                 return '';
-
               return ConstraintDescription || '';
             }
             height: !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
@@ -542,13 +519,20 @@ Page {
           Item {
             id: placeholder
             height: attributeEditorLoader.childrenRect.height
-            anchors { left: parent.left; right: menuButton.left; top: constraintDescriptionLabel.bottom; }
+            anchors {
+              left: parent.left
+              right: menuButton.left
+              top: constraintDescriptionLabel.bottom
+            }
 
             Loader {
               id: attributeEditorLoader
               objectName: "attributeEditorLoader" + Name
 
-              anchors { left: parent.left; right: parent.right }
+              anchors {
+                left: parent.left
+                right: parent.right
+              }
 
               //disable widget if it's:
               // - not activated in multi edit mode
@@ -557,11 +541,9 @@ Page {
               // - a relation in multi edit mode
               property bool isAdding: form.state === 'Add'
               property bool isEditing: form.state === 'Edit'
-              property bool isEnabled: !!AttributeEditable
-                                       && form.state !== 'ReadOnly'
-                                       && !( Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel )
+              property bool isEnabled: !!AttributeEditable && form.state !== 'ReadOnly' && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
               property var value: AttributeValue
-              property var config: ( EditorWidgetConfig || {} )
+              property var config: (EditorWidgetConfig || {})
               property var widget: EditorWidget
               property var relationEditorWidget: RelationEditorWidget
               property var relationEditorWidgetConfig: RelationEditorWidgetConfig
@@ -579,10 +561,10 @@ Page {
 
               active: widget !== 'Hidden'
               source: {
-                if ( widget === 'RelationEditor' ) {
-                  return 'editorwidgets/relationeditors/' + ( RelationEditorWidget || 'relation_editor' ) + '.qml'
+                if (widget === 'RelationEditor') {
+                  return 'editorwidgets/relationeditors/' + (RelationEditorWidget || 'relation_editor') + '.qml';
                 }
-                return 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
+                return 'editorwidgets/' + (widget || 'TextEdit') + '.qml';
               }
 
               onLoaded: {
@@ -590,10 +572,8 @@ Page {
               }
 
               onStatusChanged: {
-                if ( attributeEditorLoader.status === Loader.Error ) {
-                  source = ( widget === 'RelationEditor' )
-                      ? 'editorwidgets/relationeditors/relation_editor.qml'
-                      : 'editorwidgets/TextEdit.qml'
+                if (attributeEditorLoader.status === Loader.Error) {
+                  source = (widget === 'RelationEditor') ? 'editorwidgets/relationeditors/relation_editor.qml' : 'editorwidgets/TextEdit.qml';
                 }
               }
             }
@@ -603,15 +583,15 @@ Page {
 
               function onAboutToSave() {
                 // it may not be implemented
-                if ( attributeEditorLoader.item.pushChanges ) {
-                  attributeEditorLoader.item.pushChanges( form.model.featureModel.feature )
+                if (attributeEditorLoader.item.pushChanges) {
+                  attributeEditorLoader.item.pushChanges(form.model.featureModel.feature);
                 }
               }
 
               function onValueChanged(field, oldValue, newValue) {
                 // it may not be implemented
-                if ( attributeEditorLoader.item.siblingValueChanged ) {
-                  attributeEditorLoader.item.siblingValueChanged( field, form.model.featureModel.feature )
+                if (attributeEditorLoader.item.siblingValueChanged) {
+                  attributeEditorLoader.item.siblingValueChanged(field, form.model.featureModel.feature);
                 }
               }
             }
@@ -621,39 +601,38 @@ Page {
 
               function onValueChangeRequested(value, isNull) {
                 //do not compare AttributeValue and value with strict comparison operators
-                if( ( AttributeValue != value || ( AttributeValue !== undefined && isNull ) ) && !( AttributeValue === undefined && isNull ) )
-                {
-                  var oldValue = AttributeValue
-                  AttributeValue = isNull ? undefined : value
-
-                  valueChanged(Field, oldValue, AttributeValue)
-
-                  if ( !AttributeAllowEdit && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ) {
+                if ((AttributeValue != value || (AttributeValue !== undefined && isNull)) && !(AttributeValue === undefined && isNull)) {
+                  var oldValue = AttributeValue;
+                  AttributeValue = isNull ? undefined : value;
+                  valueChanged(Field, oldValue, AttributeValue);
+                  if (!AttributeAllowEdit && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel) {
                     AttributeAllowEdit = true;
                   }
-
-                  if ( qfieldSettings.autoSave && !setupOnly && !master.ignoreChanges ) {
+                  if (qfieldSettings.autoSave && !setupOnly && !master.ignoreChanges) {
                     // indirect action, no need to check for success and display a toast, the log is enough
-                    save()
+                    save();
                   }
                 }
               }
               function onRequestGeometry(item, layer) {
-                form.digitizingToolbar.geometryRequested = true
-                form.digitizingToolbar.geometryRequestedItem = item
-                form.digitizingToolbar.geometryRequestedLayer = layer
+                form.digitizingToolbar.geometryRequested = true;
+                form.digitizingToolbar.geometryRequestedItem = item;
+                form.digitizingToolbar.geometryRequestedLayer = layer;
               }
 
               function onRequestBarcode(item) {
-                form.codeReader.barcodeRequestedItem = item
-                form.codeReader.open()
+                form.codeReader.barcodeRequestedItem = item;
+                form.codeReader.open();
               }
             }
           }
 
           QfToolButton {
             id: menuButton
-            anchors { right: rememberButton.left; top: constraintDescriptionLabel.bottom; }
+            anchors {
+              right: rememberButton.left
+              top: constraintDescriptionLabel.bottom
+            }
 
             visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item.hasMenu
             enabled: visible
@@ -664,7 +643,7 @@ Page {
             bgcolor: "transparent"
 
             onClicked: {
-              attributeEditorLoader.item.menu.popup(menuButton.x, menuButton.y)
+              attributeEditorLoader.item.menu.popup(menuButton.x, menuButton.y);
             }
           }
 
@@ -685,30 +664,34 @@ Page {
             }
 
             onClicked: {
-              RememberValue = !RememberValue
+              RememberValue = !RememberValue;
               if (RememberValue) {
-                displayToast(qsTr("The last entered value for this field will be remembered and reused when creating new features"))
+                displayToast(qsTr("The last entered value for this field will be remembered and reused when creating new features"));
               } else {
-                displayToast(qsTr("The last entered value for this field will not be reused when creating new features"))
+                displayToast(qsTr("The last entered value for this field will not be reused when creating new features"));
               }
-              projectInfo.saveLayerRememberedFields(form.model.featureModel.currentLayer)
+              projectInfo.saveLayerRememberedFields(form.model.featureModel.currentLayer);
             }
           }
 
           Label {
             id: multiEditAttributeLabel
-            text: (AttributeAllowEdit ? qsTr( "Value applied" ) : qsTr( "Value skipped" ) ) + qsTr( " (click to toggle)" )
+            text: (AttributeAllowEdit ? qsTr("Value applied") : qsTr("Value skipped")) + qsTr(" (click to toggle)")
             visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel && Type !== 'relation'
             height: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? undefined : 0
             bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
-            anchors { left: parent.left; top: placeholder.bottom;  rightMargin: 10; }
+            anchors {
+              left: parent.left
+              top: placeholder.bottom
+              rightMargin: 10
+            }
             font: Theme.tipFont
             color: AttributeAllowEdit ? Theme.mainColor : Theme.secondaryTextColor
 
             MouseArea {
               anchors.fill: parent
               onClicked: {
-                AttributeAllowEdit = !AttributeAllowEdit
+                AttributeAllowEdit = !AttributeAllowEdit;
               }
             }
           }
@@ -719,71 +702,59 @@ Page {
 
   function confirm() {
     //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
-    if ( !model.constraintsHardValid )
-    {
-      displayToast( qsTr( 'Constraints not valid'), 'warning' )
-      cancel()
-      return
+    if (!model.constraintsHardValid) {
+      displayToast(qsTr('Constraints not valid'), 'warning');
+      cancel();
+      return;
+    } else if (!model.constraintsSoftValid) {
+      displayToast(qsTr('Note: soft constraints were not met'));
     }
-    else if ( !model.constraintsSoftValid )
-    {
-      displayToast( qsTr( 'Note: soft constraints were not met') )
+    parent.focus = true;
+    if (setupOnly) {
+      temporaryStored();
+      return;
     }
-
-    parent.focus = true
-
-    if( setupOnly ) {
-      temporaryStored()
-      return
+    if (!save()) {
+      displayToast(qsTr('Unable to save changes'), 'error');
+      featureCreated = false;
+      return;
     }
-
-    if ( !save() ) {
-      displayToast( qsTr( 'Unable to save changes'), 'error' )
-      featureCreated = false
-      return
-    }
-
-    state = 'Edit'
-    featureCreated = false
-
-    confirmed()
+    state = 'Edit';
+    featureCreated = false;
+    confirmed();
   }
 
   function save() {
-    if( !model.constraintsHardValid ) {
-      return false
+    if (!model.constraintsHardValid) {
+      return false;
     }
-
-    aboutToSave()
-
+    aboutToSave();
     master.ignoreChanges = true;
-
     var isSuccess = false;
-    if( form.state === 'Add' && !featureCreated ) {
-      isSuccess = model.create()
-      featureCreated = isSuccess
+    if (form.state === 'Add' && !featureCreated) {
+      isSuccess = model.create();
+      featureCreated = isSuccess;
     } else {
-      isSuccess = model.save()
+      isSuccess = model.save();
     }
-
     master.ignoreChanges = false;
-    return isSuccess
+    return isSuccess;
   }
 
   function cancel() {
-    if( form.state === 'Add' && featureCreated ) {
+    if (form.state === 'Add' && featureCreated) {
       // indirect action, no need to check for success and display a toast, the log is enough
-      model.deleteFeature()
+      model.deleteFeature();
     }
-    cancelled()
-    featureCreated = false
+    cancelled();
+    featureCreated = false;
   }
 
   Connections {
     target: Qt.inputMethod
 
     function onVisibleChanged() {
-      Qt.inputMethod.commit()
+      Qt.inputMethod.commit();
     }
   }
 
@@ -800,7 +771,7 @@ Page {
     }
 
     background: Rectangle {
-      color: !model.constraintsHardValid ?  Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
+      color: !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
     }
 
     RowLayout {
@@ -813,22 +784,22 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: ( form.state === 'Add' || form.state === 'Edit' )
+        visible: (form.state === 'Add' || form.state === 'Edit')
         width: 48
         height: 48
         clip: true
 
-        iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
+        iconSource: Theme.getThemeIcon("ic_check_white_48dp")
         opacity: typeof featureFormList !== "undefined" ? featureFormList.model.constraintsHardValid ? 1.0 : 0.3 : 1.0
 
         onClicked: {
-          if( model.constraintsHardValid ) {
-            if ( !model.constraintsSoftValid ) {
-              displayToast( qsTr('Note: soft constraints were not met') )
+          if (model.constraintsHardValid) {
+            if (!model.constraintsSoftValid) {
+              displayToast(qsTr('Note: soft constraints were not met'));
             }
-            confirm()
+            confirm();
           } else {
-            displayToast( qsTr('Constraints not valid'), 'warning' )
+            displayToast(qsTr('Constraints not valid'), 'warning');
           }
         }
       }
@@ -842,20 +813,18 @@ Page {
         font: Theme.strongFont
         color: Theme.light
 
-        text:
-        {
-          const featureModel = model.featureModel
-          var currentLayer = featureModel ? featureModel.currentLayer : null
-          var layerName = 'N/A'
+        text: {
+          const featureModel = model.featureModel;
+          var currentLayer = featureModel ? featureModel.currentLayer : null;
+          var layerName = 'N/A';
           if (currentLayer != null)
-            layerName = currentLayer.name
-
-          if ( form.state === 'Add' )
-            qsTr( 'Add feature on %1' ).arg(layerName )
-          else if ( form.state === 'Edit' )
-            qsTr( 'Edit feature on %1' ).arg(layerName)
+            layerName = currentLayer.name;
+          if (form.state === 'Add')
+            qsTr('Add feature on %1').arg(layerName);
+          else if (form.state === 'Edit')
+            qsTr('Edit feature on %1').arg(layerName);
           else
-            qsTr( 'View feature on %1' ).arg(layerName)
+            qsTr('View feature on %1').arg(layerName);
         }
 
         fontSizeMode: Text.Fit
@@ -875,12 +844,12 @@ Page {
         clip: true
         visible: !setupOnly
 
-        iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
+        iconSource: form.state === 'Add' ? Theme.getThemeIcon('ic_delete_forever_white_24dp') : Theme.getThemeIcon('ic_close_white_24dp')
 
         onClicked: {
-          Qt.inputMethod.hide()
+          Qt.inputMethod.hide();
           if ((form.state === 'Add' || form.state === 'Edit')) {
-            form.requestCancel()
+            form.requestCancel();
           } else {
             cancel();
           }
@@ -898,21 +867,19 @@ Page {
     font: Theme.defaultFont
 
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height) / 2
 
-    title: qsTr( "Cancel editing" )
+    title: qsTr("Cancel editing")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: form.state === 'Add'
-            ? qsTr( "You are about to dismiss the new feature, proceed?" )
-            : qsTr( "You are about to leave editing state, any changes will be lost. Proceed?" )
+      text: form.state === 'Add' ? qsTr("You are about to dismiss the new feature, proceed?") : qsTr("You are about to leave editing state, any changes will be lost. Proceed?")
     }
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      form.cancel()
+      form.cancel();
     }
   }
 }

@@ -1,9 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
-
 import org.qfield 1.0
-
 import Theme 1.0
 
 Item {
@@ -22,8 +20,10 @@ Item {
   }
 
   function getSettings() {
-    return {'name': deviceName,
-            'address': deviceAddress};
+    return {
+      "name": deviceName,
+      "address": deviceAddress
+    };
   }
 
   GridLayout {
@@ -44,16 +44,15 @@ Item {
         text: qsTr('Scan for nearby devices')
 
         onClicked: {
-          bluetoothDeviceModel.startServiceDiscovery( false )
+          bluetoothDeviceModel.startServiceDiscovery(false);
         }
         onPressAndHold: {
-          fullDiscoveryDialog.open()
+          fullDiscoveryDialog.open();
         }
 
         enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
         opacity: enabled ? 1 : 0
       }
-
 
       BusyIndicator {
         id: busyIndicator
@@ -66,9 +65,7 @@ Item {
 
     Label {
       Layout.fillWidth: true
-      text: bluetoothDeviceComboBox.count > 0
-            ? qsTr( "Select the Bluetooth device from the list below:" )
-            : qsTr( "No Bluetooth devices detected, scan to populate nearby devices." )
+      text: bluetoothDeviceComboBox.count > 0 ? qsTr("Select the Bluetooth device from the list below:") : qsTr("No Bluetooth devices detected, scan to populate nearby devices.")
       font: Theme.defaultFont
 
       wrapMode: Text.WordWrap
@@ -104,58 +101,53 @@ Item {
         target: bluetoothDeviceModel
 
         function onModelReset() {
-          bluetoothDeviceComboBox.currentIndex = selectedBluetoothDevice
+          bluetoothDeviceComboBox.currentIndex = selectedBluetoothDevice;
         }
 
         function onLastErrorChanged(lastError) {
-            displayToast(qsTr('Scanning error: %1').arg(lastError), 'error')
-            console.log(lastError)
+          displayToast(qsTr('Scanning error: %1').arg(lastError), 'error');
+          console.log(lastError);
         }
 
         function onScanningStatusChanged(scanningStatus) {
-          if( scanningStatus === BluetoothDeviceModel.Scanning )
-          {
-            displayToast( qsTr('Scanning for paired devices') )
+          if (scanningStatus === BluetoothDeviceModel.Scanning) {
+            displayToast(qsTr('Scanning for paired devices'));
           }
-          if( scanningStatus === BluetoothDeviceModel.Failed )
-          {
-            displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ), 'error' )
+          if (scanningStatus === BluetoothDeviceModel.Failed) {
+            displayToast(qsTr('Scanning failed: %1').arg(bluetoothDeviceModel.lastError), 'error');
           }
-          if( scanningStatus === BluetoothDeviceModel.Succeeded )
-          {
-            var message = qsTr('Scanning done')
-            if ( bluetoothDeviceModel.rowCount() > 1 )
-            {
-              message += ': ' + qsTr( '%n device(s) found', '', bluetoothDeviceModel.rowCount() - 1 )
+          if (scanningStatus === BluetoothDeviceModel.Succeeded) {
+            var message = qsTr('Scanning done');
+            if (bluetoothDeviceModel.rowCount() > 1) {
+              message += ': ' + qsTr('%n device(s) found', '', bluetoothDeviceModel.rowCount() - 1);
             }
-            displayToast( message )
+            displayToast(message);
           }
-          if( scanningStatus === BluetoothDeviceModel.Canceled )
-          {
-            displayToast( qsTr('Scanning canceled') )
+          if (scanningStatus === BluetoothDeviceModel.Canceled) {
+            displayToast(qsTr('Scanning canceled'));
           }
         }
       }
     }
 
     Label {
-        id: bluetoothDeviceName
-        Layout.fillWidth: true
-        visible: deviceAddress != ''
-        font: Theme.defaultFont
-        color: Theme.secondaryTextColor
-        text: qsTr('Bluetooth device name:') + '\n ' + deviceName
-        wrapMode: Text.WordWrap
+      id: bluetoothDeviceName
+      Layout.fillWidth: true
+      visible: deviceAddress != ''
+      font: Theme.defaultFont
+      color: Theme.secondaryTextColor
+      text: qsTr('Bluetooth device name:') + '\n ' + deviceName
+      wrapMode: Text.WordWrap
     }
 
     Label {
-        id: bluetoothDeviceAddress
-        Layout.fillWidth: true
-        visible: deviceAddress != ''
-        font: Theme.defaultFont
-        color: Theme.secondaryTextColor
-        text: qsTr('Bluetooth device address:') + '\n ' + deviceAddress
-        wrapMode: Text.WordWrap
+      id: bluetoothDeviceAddress
+      Layout.fillWidth: true
+      visible: deviceAddress != ''
+      font: Theme.defaultFont
+      color: Theme.secondaryTextColor
+      text: qsTr('Bluetooth device address:') + '\n ' + deviceAddress
+      wrapMode: Text.WordWrap
     }
   }
 
@@ -167,24 +159,24 @@ Item {
     modal: true
     font: Theme.defaultFont
 
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height) / 2
 
-    title: qsTr( "Make a full service discovery" )
+    title: qsTr("Make a full service discovery")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr( 'A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
+      text: qsTr('A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
     }
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      bluetoothDeviceModel.startServiceDiscovery( true )
-      visible = false
+      bluetoothDeviceModel.startServiceDiscovery(true);
+      visible = false;
     }
     onRejected: {
-      bluetoothDeviceModel.startServiceDiscovery( false )
-      visible = false
+      bluetoothDeviceModel.startServiceDiscovery(false);
+      visible = false;
     }
   }
 }

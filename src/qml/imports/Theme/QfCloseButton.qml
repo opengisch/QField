@@ -2,7 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-
 import Theme 1.0
 
 ToolButton {
@@ -11,7 +10,7 @@ ToolButton {
   property string toolImage: ''
   property string toolText: qsTr("close")
 
-  signal close()
+  signal close
 
   height: 48
   width: height + buttonText.width + 32 + 24
@@ -43,7 +42,7 @@ ToolButton {
       pressed: button.down
       anchor: parent
       active: button.down
-      color:  "#22aaaaaa"
+      color: "#22aaaaaa"
     }
   }
 
@@ -69,14 +68,13 @@ ToolButton {
       fillMode: Image.PreserveAspectFit
       horizontalAlignment: Image.AlignHCenter
       verticalAlignment: Image.AlignVCenter
-      source: Theme.getThemeIcon( "ic_close_white_24dp" )
+      source: Theme.getThemeIcon("ic_close_white_24dp")
       sourceSize.width: 24 * screen.devicePixelRatio
       sourceSize.height: 24 * screen.devicePixelRatio
     }
   }
 
   onClicked: {
-    close()
+    close();
   }
 }
-

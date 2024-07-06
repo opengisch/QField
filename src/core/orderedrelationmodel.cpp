@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "fieldexpressionvaluesgatherer.h"
+#include "featureexpressionvaluesgatherer.h"
 #include "orderedrelationmodel.h"
 #include "qfield_core_export.h"
 #include "qgsexpressioncontextutils.h"

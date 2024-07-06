@@ -17,7 +17,11 @@
 
 
 #include "expressioncontextutils.h"
-#include "qgsgeometry.h"
+
+#include <qgsapplication.h>
+#include <qgsgeometry.h>
+#include <qgsmaplayer.h>
+#include <qgsproject.h>
 
 
 void addPositionVariable( QgsExpressionContextScope *scope, const QString &name, const QVariant &value, bool positionLocked, const QVariant &defaultValue = QVariant() )
@@ -29,6 +33,10 @@ void addPositionVariable( QgsExpressionContextScope *scope, const QString &name,
     scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_%1" ).arg( name ), defaultValue, true, true ) );
 }
 
+ExpressionContextUtils::ExpressionContextUtils( QObject *parent )
+  : QObject( parent )
+{
+}
 
 QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPositionInformation &positionInformation, bool positionLocked )
 {
@@ -110,4 +118,143 @@ QgsExpressionContextScope *ExpressionContextUtils::cloudUserScope( const CloudUs
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "cloud_username" ), cloudUserInformation.username, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "cloud_useremail" ), cloudUserInformation.email, true, true ) );
   return scope;
+}
+
+QVariantMap ExpressionContextUtils::layerVariables( QgsMapLayer *layer )
+{
+  if ( !layer )
+  {
+    return QVariantMap();
+  }
+
+  const QStringList variableNames = layer->customProperty( QStringLiteral( "variableNames" ) ).toStringList();
+  const QStringList variableValues = layer->customProperty( QStringLiteral( "variableValues" ) ).toStringList();
+
+  QVariantMap variables;
+  for ( int i = 0; i < variableNames.size(); i++ )
+  {
+    variables[variableNames.at( i )] = variableValues.at( i );
+  }
+  return variables;
+}
+
+void ExpressionContextUtils::setLayerVariable( QgsMapLayer *layer, const QString &name, const QVariant &value )
+{
+  if ( !layer )
+  {
+    return;
+  }
+
+  QStringList variableNames = layer->customProperty( QStringLiteral( "variableNames" ) ).toStringList();
+  QStringList variableValues = layer->customProperty( QStringLiteral( "variableValues" ) ).toStringList();
+
+  variableNames << name;
+  variableValues << value.toString();
+
+  layer->setCustomProperty( QStringLiteral( "variableNames" ), variableNames );
+  layer->setCustomProperty( QStringLiteral( "variableValues" ), variableValues );
+}
+
+void ExpressionContextUtils::setLayerVariables( QgsMapLayer *layer, const QVariantMap &variables )
+{
+  if ( !layer )
+  {
+    return;
+  }
+
+  QStringList variableNames;
+  QStringList variableValues;
+
+  QVariantMap::const_iterator it = variables.constBegin();
+  while ( ++it != variables.constEnd() )
+  {
+    variableNames << it.key();
+    variableValues << it.value().toString();
+  }
+
+  layer->setCustomProperty( QStringLiteral( "variableNames" ), variableNames );
+  layer->setCustomProperty( QStringLiteral( "variableValues" ), variableValues );
+}
+
+void ExpressionContextUtils::removeLayerVariable( QgsMapLayer *layer, const QString &name )
+{
+  if ( !layer )
+  {
+    return;
+  }
+
+  QVariantMap variables = layerVariables( layer );
+  if ( variables.remove( name ) )
+  {
+    setLayerVariables( layer, variables );
+  }
+}
+
+QVariantMap ExpressionContextUtils::projectVariables( QgsProject *project )
+{
+  if ( !project )
+  {
+    return QVariantMap();
+  }
+
+  return project->customVariables();
+}
+
+void ExpressionContextUtils::setProjectVariable( QgsProject *project, const QString &name, const QVariant &value )
+{
+  if ( !project )
+  {
+    return;
+  }
+
+  QVariantMap variables = project->customVariables();
+  variables.insert( name, value );
+  project->setCustomVariables( variables );
+}
+void ExpressionContextUtils::setProjectVariables( QgsProject *project, const QVariantMap &variables )
+{
+  if ( !project )
+  {
+    return;
+  }
+
+  project->setCustomVariables( variables );
+}
+
+void ExpressionContextUtils::removeProjectVariable( QgsProject *project, const QString &name )
+{
+  if ( !project )
+  {
+    return;
+  }
+
+  QVariantMap variables = project->customVariables();
+  if ( variables.remove( name ) )
+  {
+    project->setCustomVariables( variables );
+  }
+}
+
+QVariantMap ExpressionContextUtils::globalVariables()
+{
+  return QgsApplication::customVariables();
+}
+
+void ExpressionContextUtils::setGlobalVariable( const QString &name, const QVariant &value )
+{
+  QgsApplication::setCustomVariable( name, value );
+}
+
+void ExpressionContextUtils::setGlobalVariables( const QVariantMap &variables )
+{
+  QgsApplication::setCustomVariables( variables );
+}
+
+void ExpressionContextUtils::removeGlobalVariable( const QString &name )
+{
+  QVariantMap variables = QgsApplication::customVariables();
+  if ( variables.remove( name ) )
+  {
+    QgsApplication::setCustomVariables( variables );
+  }
 }

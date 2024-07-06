@@ -14,27 +14,23 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
+import QtQuick.Effects
 import QtQuick.Window 2.14
 import QtQml 2.14
 import QtSensors 5.14
 import QtCore
-
 import org.qgis 1.0
 import org.qfield 1.0
-
 import Theme 1.0
 
 ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint |
-         (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) |
-         (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
@@ -48,10 +44,9 @@ ApplicationWindow {
     repeat: false
     interval: 50
 
-    readonly property bool screenIsPortrait: (Screen.primaryOrientation === Qt.PortraitOrientation ||
-                                              Screen.primaryOrientation === Qt.InvertedPortraitOrientation)
-    onScreenIsPortraitChanged:{
-      start()
+    readonly property bool screenIsPortrait: (Screen.primaryOrientation === Qt.PortraitOrientation || Screen.primaryOrientation === Qt.InvertedPortraitOrientation)
+    onScreenIsPortraitChanged: {
+      start();
     }
 
     onTriggered: {
@@ -70,15 +65,15 @@ ApplicationWindow {
 
     Component.onCompleted: {
       if (Qt.platform.os !== "ios" && Qt.platform.os !== "android") {
-        width = Math.max(width, minimumSize)
-        height = Math.max(height, minimumSize)
-        x = Math.min(x, mainWindow.screen.width - width)
-        y = Math.min(y, mainWindow.screen.height - height)
+        width = Math.max(width, minimumSize);
+        height = Math.max(height, minimumSize);
+        x = Math.min(x, mainWindow.screen.width - width);
+        y = Math.min(y, mainWindow.screen.height - height);
       }
     }
   }
 
-  FocusStack{
+  FocusStack {
     id: focusstack
   }
 
@@ -92,17 +87,17 @@ ApplicationWindow {
 
     property int previousVisibilityState: Window.Windowed
 
-    Keys.onReleased: (event) => {
-      if ( event.key === Qt.Key_Back || event.key === Qt.Key_Escape ) {
-        if ( featureForm.visible ) {
-            featureForm.hide();
-        } else if ( stateMachine.state === 'measure' ) {
-          mainWindow.closeMeasureTool()
+    Keys.onReleased: event => {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        if (featureForm.visible) {
+          featureForm.hide();
+        } else if (stateMachine.state === 'measure') {
+          mainWindow.closeMeasureTool();
         } else {
           mainWindow.close();
         }
-        event.accepted = true
-      } else if ( event.key === Qt.Key_F11 ) {
+        event.accepted = true;
+      } else if (event.key === Qt.Key_F11) {
         if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
           if (mainWindow.visibility !== Window.FullScreen) {
             previousVisibilityState = mainWindow.visibility;
@@ -117,7 +112,7 @@ ApplicationWindow {
       }
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
@@ -125,8 +120,8 @@ ApplicationWindow {
   property LayerObserver layerObserverAlias: layerObserver
   property QgsGpkgFlusher gpkgFlusherAlias: gpkgFlusher
 
-  signal closeMeasureTool()
-  signal changeMode( string mode )
+  signal closeMeasureTool
+  signal changeMode(string mode)
 
   Item {
     id: stateMachine
@@ -136,62 +131,73 @@ ApplicationWindow {
     states: [
       State {
         name: "browse"
-        PropertyChanges { target: identifyTool; deactivated: false }
+        PropertyChanges {
+          target: identifyTool
+          deactivated: false
+        }
       },
-
       State {
         name: "digitize"
-        PropertyChanges { target: identifyTool; deactivated: false }
-        PropertyChanges { target: mainWindow; currentRubberband: digitizingRubberband }
+        PropertyChanges {
+          target: identifyTool
+          deactivated: false
+        }
+        PropertyChanges {
+          target: mainWindow
+          currentRubberband: digitizingRubberband
+        }
       },
-
       State {
         name: 'measure'
-        PropertyChanges { target: identifyTool; deactivated: true }
-        PropertyChanges { target: mainWindow; currentRubberband: measuringTool.measuringRubberband }
-        PropertyChanges { target: featureForm; state: "Hidden" }
+        PropertyChanges {
+          target: identifyTool
+          deactivated: true
+        }
+        PropertyChanges {
+          target: mainWindow
+          currentRubberband: measuringTool.measuringRubberband
+        }
+        PropertyChanges {
+          target: featureForm
+          state: "Hidden"
+        }
       }
     ]
     state: "browse"
   }
 
-  onChangeMode: (mode) => {
-    if ( stateMachine.state === mode )
-      return
-
-    stateMachine.lastState = stateMachine.state
-    stateMachine.state = mode
-    switch ( stateMachine.state )
-    {
-      case 'browse':
-        projectInfo.stateMode = mode
-        platformUtilities.setHandleVolumeKeys(false)
-        displayToast( qsTr( 'You are now in browse mode' ) );
-        break;
-      case 'digitize':
-        projectInfo.stateMode = mode
-        platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys)
-        dashBoard.ensureEditableLayerSelected();
-        if (dashBoard.activeLayer)
-        {
-          displayToast( qsTr( 'You are now in digitize mode on layer %1' ).arg( dashBoard.activeLayer.name ) );
-        }
-        else
-        {
-          displayToast( qsTr( 'You are now in digitize mode' ) );
-        }
-        break;
-      case 'measure':
-        platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys)
-        informationDrawer.elevationProfile.populateLayersFromProject();
-        displayToast( qsTr( 'You are now in measure mode' ) );
-        break;
+  onChangeMode: mode => {
+    if (stateMachine.state === mode)
+      return;
+    stateMachine.lastState = stateMachine.state;
+    stateMachine.state = mode;
+    switch (stateMachine.state) {
+    case 'browse':
+      projectInfo.stateMode = mode;
+      platformUtilities.setHandleVolumeKeys(false);
+      displayToast(qsTr('You are now in browse mode'));
+      break;
+    case 'digitize':
+      projectInfo.stateMode = mode;
+      platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys);
+      dashBoard.ensureEditableLayerSelected();
+      if (dashBoard.activeLayer) {
+        displayToast(qsTr('You are now in digitize mode on layer %1').arg(dashBoard.activeLayer.name));
+      } else {
+        displayToast(qsTr('You are now in digitize mode'));
+      }
+      break;
+    case 'measure':
+      platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys);
+      informationDrawer.elevationProfile.populateLayersFromProject();
+      displayToast(qsTr('You are now in measure mode'));
+      break;
     }
   }
 
   onCloseMeasureTool: {
-    overlayFeatureFormDrawer.close()
-    changeMode( stateMachine.lastState)
+    overlayFeatureFormDrawer.close();
+    changeMode(stateMachine.lastState);
   }
 
   /**
@@ -203,7 +209,7 @@ ApplicationWindow {
 
     deviceId: positioningSettings.positioningDevice
 
-    property bool currentness: false;
+    property bool currentness: false
     property alias destinationCrs: positionSource.coordinateTransformer.destinationCrs
     property real bearingTrueNorth: 0.0
 
@@ -221,7 +227,7 @@ ApplicationWindow {
 
     onProjectedPositionChanged: {
       if (active) {
-        bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs)
+        bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
           gnssButton.followLocation(false);
         }
@@ -240,10 +246,10 @@ ApplicationWindow {
 
     onPositioningActivatedChanged: {
       if (positioningActivated) {
-        displayToast( qsTr( "Activating positioning service" ) )
-        positionSource.active = true
+        displayToast(qsTr("Activating positioning service"));
+        positionSource.active = true;
       } else {
-        positionSource.active = false
+        positionSource.active = false;
       }
     }
   }
@@ -252,21 +258,21 @@ ApplicationWindow {
     target: positionSource.device
 
     function onLastErrorChanged() {
-        displayToast(qsTr('Positioning device error: %1').arg(positionSource.device.lastError), 'error')
+      displayToast(qsTr('Positioning device error: %1').arg(positionSource.device.lastError), 'error');
     }
   }
 
   Timer {
     id: positionTimer
 
-    property bool geocoderLocatorFiltersChecked: false;
+    property bool geocoderLocatorFiltersChecked: false
 
     interval: 2500
     repeat: true
     running: positionSource.active
     triggeredOnStart: true
     onTriggered: {
-      if ( positionSource.positionInformation ) {
+      if (positionSource.positionInformation) {
         positionSource.currentness = ((Date.now() - positionSource.positionInformation.utcDateTime.getTime()) / 1000) < 30;
         if (!geocoderLocatorFiltersChecked && positionSource.valid) {
           locatorItem.locatorFiltersModel.setGeocoderLocatorFiltersDefaulByPosition(positionSource.positionInformation);
@@ -282,106 +288,100 @@ ApplicationWindow {
     clip: true
 
     DragHandler {
-        id: freehandHandler
-        property bool isDigitizing: false
-        enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && (!featureForm.visible || digitizingToolbar.geometryRequested)
-        acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
-        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+      id: freehandHandler
+      property bool isDigitizing: false
+      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && (!featureForm.visible || digitizingToolbar.geometryRequested)
+      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
-        onActiveChanged: {
-            if (active) {
-                geometryEditorsToolbar.canvasFreehandBegin();
-            } else {
-                geometryEditorsToolbar.canvasFreehandEnd();
-                var screenLocation = centroid.position;
-                var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
-                var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
-                if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
-                        screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
-                {
-                    mapCanvas.mapSettings.setCenter(mapCanvas.mapSettings.screenToCoordinate(screenLocation));
-                }
-            }
+      onActiveChanged: {
+        if (active) {
+          geometryEditorsToolbar.canvasFreehandBegin();
+        } else {
+          geometryEditorsToolbar.canvasFreehandEnd();
+          var screenLocation = centroid.position;
+          var screenFraction = settings.value("/QField/Digitizing/FreehandRecenterScreenFraction", 5);
+          var threshold = Math.min(mainWindow.width, mainWindow.height) / screenFraction;
+          if (screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold || screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold) {
+            mapCanvas.mapSettings.setCenter(mapCanvas.mapSettings.screenToCoordinate(screenLocation));
+          }
         }
+      }
 
-        onCentroidChanged: {
-            if (active) {
-                if (centroid.position !== Qt.point(0, 0)) {
-                    coordinateLocator.sourceLocation = centroid.position
-                    if (!geometryEditorsToolbar.canvasClicked(centroid.position)) {
-                        digitizingToolbar.addVertex();
-                    }
-                }
+      onCentroidChanged: {
+        if (active) {
+          if (centroid.position !== Qt.point(0, 0)) {
+            coordinateLocator.sourceLocation = centroid.position;
+            if (!geometryEditorsToolbar.canvasClicked(centroid.position)) {
+              digitizingToolbar.addVertex();
             }
+          }
         }
+      }
     }
 
     HoverHandler {
-        id: hoverHandler
-        enabled: !(positionSource.active && positioningSettings.positioningCoordinateLock)
-                 && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
-        acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
-        grabPermissions: PointerHandler.TakeOverForbidden
+      id: hoverHandler
+      enabled: !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
+      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+      grabPermissions: PointerHandler.TakeOverForbidden
 
-        property bool hasBeenHovered: false
-        property bool skipHover: false
+      property bool hasBeenHovered: false
+      property bool skipHover: false
 
-        function pointInItem(point, item) {
-            var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
-            return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width &&
-                   point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
+      function pointInItem(point, item) {
+        var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
+        return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width && point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
+      }
+
+      onPointChanged: {
+        if (skipHover || !mapCanvasMap.hovered) {
+          return;
         }
 
-        onPointChanged: {
-            if (skipHover || !mapCanvasMap.hovered) {
-              return
-            }
-
-            // when hovering various toolbars, reset coordinate locator position for nicer UX
-            if ( !freehandHandler.active && ( pointInItem( point, digitizingToolbar ) || pointInItem( point, elevationProfileButton ) ) ) {
-                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate )
-            } else if ( !freehandHandler.active && pointInItem( point, geometryEditorsToolbar ) ) {
-                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate )
-            } else if ( !freehandHandler.active ) {
-                // after a click, it seems that the position is sent once at 0,0 => weird)
-                if (point.position !== Qt.point(0, 0)) {
-                    coordinateLocator.sourceLocation = point.position
-                }
-            }
+        // when hovering various toolbars, reset coordinate locator position for nicer UX
+        if (!freehandHandler.active && (pointInItem(point, digitizingToolbar) || pointInItem(point, elevationProfileButton))) {
+          coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(digitizingToolbar.rubberbandModel.lastCoordinate);
+        } else if (!freehandHandler.active && pointInItem(point, geometryEditorsToolbar)) {
+          coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
+        } else if (!freehandHandler.active) {
+          // after a click, it seems that the position is sent once at 0,0 => weird)
+          if (point.position !== Qt.point(0, 0)) {
+            coordinateLocator.sourceLocation = point.position;
+          }
         }
+      }
 
-        onActiveChanged: {
-            if ( !active ) {
-                coordinateLocator.sourceLocation = undefined
-            }
+      onActiveChanged: {
+        if (!active) {
+          coordinateLocator.sourceLocation = undefined;
         }
+      }
 
-        onHoveredChanged: {
-            if ( mapCanvasMap.pinched ) {
-              return
-            }
-
-            if ( skipHover ) {
-              if ( !hovered ) {
-                mapCanvasMap.hovered = false
-                dummyHoverTimer.restart()
-              }
-              return
-            }
-
-            mapCanvasMap.hovered = hovered
-            if ( hovered ) {
-                hasBeenHovered = true;
-            } else {
-                if ( currentRubberband && currentRubberband.model.vertexCount > 1 ) {
-                  coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( currentRubberband.model.lastCoordinate )
-                } else if ( geometryEditorsToolbar.editorRubberbandModel && geometryEditorsToolbar.editorRubberbandModel.vertexCount > 1 ) {
-                  coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate )
-                } else {
-                  coordinateLocator.sourceLocation = undefined
-                }
-            }
+      onHoveredChanged: {
+        if (mapCanvasMap.pinched) {
+          return;
         }
+        if (skipHover) {
+          if (!hovered) {
+            mapCanvasMap.hovered = false;
+            dummyHoverTimer.restart();
+          }
+          return;
+        }
+        mapCanvasMap.hovered = hovered;
+        if (hovered) {
+          hasBeenHovered = true;
+        } else {
+          if (currentRubberband && currentRubberband.model.vertexCount > 1) {
+            coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(currentRubberband.model.lastCoordinate);
+          } else if (geometryEditorsToolbar.editorRubberbandModel && geometryEditorsToolbar.editorRubberbandModel.vertexCount > 1) {
+            coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
+          } else {
+            coordinateLocator.sourceLocation = undefined;
+          }
+        }
+      }
     }
 
     /* The second hover handler is a workaround what appears to be an issue with
@@ -396,30 +396,29 @@ ApplicationWindow {
       repeat: false
 
       onTriggered: {
-        hoverHandler.skipHover = false
+        hoverHandler.skipHover = false;
       }
     }
 
     HoverHandler {
-        id: dummyHoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen
-                 && !(positionSource.active && positioningSettings.positioningCoordinateLock)
-        acceptedDevices: PointerDevice.TouchScreen
-        grabPermissions: PointerHandler.TakeOverForbidden
+      id: dummyHoverHandler
+      enabled: !qfieldSettings.mouseAsTouchScreen && !(positionSource.active && positioningSettings.positioningCoordinateLock)
+      acceptedDevices: PointerDevice.TouchScreen
+      grabPermissions: PointerHandler.TakeOverForbidden
 
-        onHoveredChanged: {
-            if ( hovered ) {
-                dummyHoverTimer.stop()
-                hoverHandler.skipHover = true
+      onHoveredChanged: {
+        if (hovered) {
+          dummyHoverTimer.stop();
+          hoverHandler.skipHover = true;
 
-                // Unfortunately, Qt fails to set the hovered property to false when stylus leaves proximity
-                // of the screen, we've got to compensate for that
-                mapCanvasMap.hovered = false
-                if ( !qfieldSettings.fingerTapDigitizing ) {
-                    coordinateLocator.sourceLocation = undefined
-                }
-            }
+          // Unfortunately, Qt fails to set the hovered property to false when stylus leaves proximity
+          // of the screen, we've got to compensate for that
+          mapCanvasMap.hovered = false;
+          if (!qfieldSettings.fingerTapDigitizing) {
+            coordinateLocator.sourceLocation = undefined;
+          }
         }
+      }
     }
 
     /* Initialize a MapSettings object. This will contain information about
@@ -447,15 +446,7 @@ ApplicationWindow {
     MapCanvas {
       id: mapCanvasMap
 
-      property bool isEnabled: !dashBoard.opened &&
-                               !welcomeScreen.visible &&
-                               !qfieldSettings.visible &&
-                               !qfieldLocalDataPickerScreen.visible &&
-                               !qfieldCloudScreen.visible &&
-                               !qfieldCloudPopup.visible &&
-                               !codeReader.visible &&
-                               !sketcher.visible &&
-                               !overlayFeatureFormDrawer.visible
+      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible
       interactive: isEnabled && !screenLocker.enabled
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
@@ -469,144 +460,125 @@ ApplicationWindow {
       anchors.fill: parent
 
       function pointInItem(point, item) {
-          var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
-          return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width &&
-                 point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
+        var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
+        return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width && point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
       }
 
       onClicked: (point, type) => {
-          if (type === "stylus" &&
-              ( overlayFeatureFormDrawer.opened || ( featureForm.visible && pointInItem( point, featureForm ) ) ) ) {
-              return;
+        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm)))) {
+          return;
+        }
+        if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
+          return;
+        }
+        if (locatorItem.state == "on") {
+          locatorItem.state = "off";
+          return;
+        }
+        if (type === "stylus") {
+          if (pointInItem(point, digitizingToolbar) || pointInItem(point, zoomToolbar) || pointInItem(point, mainToolbar) || pointInItem(point, mainMenuBar) || pointInItem(point, geometryEditorsToolbar) || pointInItem(point, locationToolbar) || pointInItem(point, digitizingToolbarContainer) || pointInItem(point, locatorItem)) {
+            return;
           }
 
-          if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
-              return;
+          // Check if geometry editor is taking over
+          const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
+          if (geometryEditorsToolbar.stateVisible) {
+            if (!positionLocked) {
+              geometryEditorsToolbar.canvasClicked(point, type);
+            }
+            return;
           }
-
-          if (locatorItem.state == "on") {
-              locatorItem.state = "off"
-              return;
-          }
-
-          if ( type === "stylus" ) {
-              if ( pointInItem( point, digitizingToolbar ) ||
-                   pointInItem( point, zoomToolbar ) ||
-                   pointInItem( point, mainToolbar ) ||
-                   pointInItem( point, mainMenuBar ) ||
-                   pointInItem( point, geometryEditorsToolbar ) ||
-                   pointInItem( point, locationToolbar ) ||
-                   pointInItem( point, digitizingToolbarContainer ) ||
-                   pointInItem( point, locatorItem ) ) {
-                  return;
-              }
-
-              // Check if geometry editor is taking over
-              const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock
-              if ( geometryEditorsToolbar.stateVisible ) {
-                  if ( !positionLocked ) {
-                       geometryEditorsToolbar.canvasClicked( point, type )
-                  }
-                  return
-              }
-
-              if ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === "measure" ) {
-                 if ( !positionLocked && ( !featureForm.visible || digitizingToolbar.geometryRequested ) ) {
-                     if ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Point ||
-                             Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Null ) {
-                         digitizingToolbar.confirm()
-                     } else {
-                         digitizingToolbar.addVertex()
-                     }
-                 }
+          if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer) || stateMachine.state === "measure") {
+            if (!positionLocked && (!featureForm.visible || digitizingToolbar.geometryRequested)) {
+              if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
+                digitizingToolbar.confirm();
               } else {
-                  if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit" ) {
-                      identifyTool.isMenuRequest = false
-                      identifyTool.identify(point)
-                  }
+                digitizingToolbar.addVertex();
               }
+            }
+          } else {
+            if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
+              identifyTool.isMenuRequest = false;
+              identifyTool.identify(point);
+            }
           }
+        }
       }
 
-      onConfirmedClicked: (point) => {
-          // Check if geometry editor is taking over
-          const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock
-          if ( geometryEditorsToolbar.stateVisible ) {
-              if ( !positionLocked ) {
-                geometryEditorsToolbar.canvasClicked( point, '' )
-              }
-              return
+      onConfirmedClicked: point => {
+        // Check if geometry editor is taking over
+        const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
+        if (geometryEditorsToolbar.stateVisible) {
+          if (!positionLocked) {
+            geometryEditorsToolbar.canvasClicked(point, '');
           }
-
-          if ( qfieldSettings.fingerTapDigitizing && ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === "measure" ) ) {
-              if ( !positionLocked && ( !featureForm.visible || digitizingToolbar.geometryRequested ) ) {
-                  coordinateLocator.sourceLocation = point
-              }
-          } else if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
-              identifyTool.isMenuRequest = false
-              identifyTool.identify(point)
+          return;
+        }
+        if (qfieldSettings.fingerTapDigitizing && ((stateMachine.state === "digitize" && digitizingFeature.currentLayer) || stateMachine.state === "measure")) {
+          if (!positionLocked && (!featureForm.visible || digitizingToolbar.geometryRequested)) {
+            coordinateLocator.sourceLocation = point;
           }
+        } else if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
+          identifyTool.isMenuRequest = false;
+          identifyTool.identify(point);
+        }
       }
 
       onLongPressed: (point, type) => {
-        if ( type === "stylus" ) {
-          if ( overlayFeatureFormDrawer.opened || ( featureForm.visible && pointInItem( point, featureForm ) ) ) {
-            return
+        if (type === "stylus") {
+          if (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm))) {
+            return;
           }
 
           // Check if geometry editor is taking over
-          if ( geometryEditorsToolbar.canvasLongPressed( point, type ) ) {
-            return
+          if (geometryEditorsToolbar.canvasLongPressed(point, type)) {
+            return;
           }
+          if (stateMachine.state === "digitize" && dashBoard.activeLayer) {
+            // the sourceLocation test checks if a (stylus) hover is active
+            if ((Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2) || (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2)) {
+              digitizingToolbar.addVertex();
 
-          if ( stateMachine.state === "digitize" && dashBoard.activeLayer ) { // the sourceLocation test checks if a (stylus) hover is active
-            if ( ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2 )
-               || ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2 ) ) {
-                digitizingToolbar.addVertex();
-
-                // When it's released, it will normally cause a release event to close the attribute form.
-                // We get around this by temporarily switching the closePolicy.
-                overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
-
-                digitizingToolbar.confirm()
-                return
+              // When it's released, it will normally cause a release event to close the attribute form.
+              // We get around this by temporarily switching the closePolicy.
+              overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape;
+              digitizingToolbar.confirm();
+              return;
             }
           }
 
           // do not use else, as if it was catch it has return before
-          identifyTool.isMenuRequest = false
-          identifyTool.identify(point)
+          identifyTool.isMenuRequest = false;
+          identifyTool.identify(point);
         } else {
           // Check if geometry editor is taking over
-          if ( geometryEditorsToolbar.canvasLongPressed(point) ) {
-            return
+          if (geometryEditorsToolbar.canvasLongPressed(point)) {
+            return;
           }
-
-          canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
-          canvasMenu.popup(point.x, point.y)
-          identifyTool.isMenuRequest = true
-          identifyTool.identify(point)
+          canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point);
+          canvasMenu.popup(point.x, point.y);
+          identifyTool.isMenuRequest = true;
+          identifyTool.identify(point);
         }
       }
 
       onRightClicked: (point, type) => {
-        canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
-        canvasMenu.popup(point.x, point.y)
-        identifyTool.isMenuRequest = true
-        identifyTool.identify(point)
+        canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point);
+        canvasMenu.popup(point.x, point.y);
+        identifyTool.isMenuRequest = true;
+        identifyTool.identify(point);
       }
 
-      onLongPressReleased: (type) => {
-        if ( type === "stylus" ) {
+      onLongPressReleased: type => {
+        if (type === "stylus") {
           // The user has released the long press. We can re-enable the default close behavior for the feature form.
           // The next press will be intentional to close the form.
-          overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside
+          overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside;
         }
       }
     }
 
-
-  /**************************************************
+    /**************************************************
    * Overlays, including:
    * - Coordinate Locator
    * - Location Marker
@@ -621,7 +593,7 @@ ApplicationWindow {
       property bool isMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model:  isMenuRequest ? canvasMenuFeatureListModel : featureForm.model
+      model: isMenuRequest ? canvasMenuFeatureListModel : featureForm.model
       searchRadiusMm: 3
     }
 
@@ -637,19 +609,20 @@ ApplicationWindow {
 
     /** Tracking sessions **/
     Repeater {
-        id: trackings
-        model: trackingModel
+      id: trackings
+      model: trackingModel
 
-        onCountChanged: {
-          if (count > 0) {
-            // Start positioning if not yet active
-            if (!positionSource.active) {
-              positioningSettings.positioningActivated = true
-            }
+      onCountChanged: {
+        if (count > 0) {
+          // Start positioning if not yet active
+          if (!positionSource.active) {
+            positioningSettings.positioningActivated = true;
           }
         }
+      }
 
-        TrackingSession {}
+      TrackingSession {
+      }
     }
 
     /** A rubberband for ditizing **/
@@ -663,23 +636,23 @@ ApplicationWindow {
         currentCoordinate: coordinateLocator.currentCoordinate
         measureValue: {
           if (coordinateLocator.positionLocked) {
-            switch(positioningSettings.digitizingMeasureType) {
-              case Tracker.Timestamp:
-                return coordinateLocator.positionInformation.utcDateTime.getTime()
-              case Tracker.GroundSpeed:
-                return coordinateLocator.positionInformation.speed
-              case Tracker.Bearing:
-                return coordinateLocator.positionInformation.direction
-              case Tracker.HorizontalAccuracy:
-                return coordinateLocator.positionInformation.hacc
-              case Tracker.VerticalAccuracy:
-                return coordinateLocator.positionInformation.vacc
-              case Tracker.PDOP:
-                return coordinateLocator.positionInformation.pdop
-              case Tracker.HDOP:
-                return coordinateLocator.positionInformation.hdop
-              case Tracker.VDOP:
-                return coordinateLocator.positionInformation.vdop
+            switch (positioningSettings.digitizingMeasureType) {
+            case Tracker.Timestamp:
+              return coordinateLocator.positionInformation.utcDateTime.getTime();
+            case Tracker.GroundSpeed:
+              return coordinateLocator.positionInformation.speed;
+            case Tracker.Bearing:
+              return coordinateLocator.positionInformation.direction;
+            case Tracker.HorizontalAccuracy:
+              return coordinateLocator.positionInformation.hacc;
+            case Tracker.VerticalAccuracy:
+              return coordinateLocator.positionInformation.vacc;
+            case Tracker.PDOP:
+              return coordinateLocator.positionInformation.pdop;
+            case Tracker.HDOP:
+              return coordinateLocator.positionInformation.hdop;
+            case Tracker.VDOP:
+              return coordinateLocator.positionInformation.vdop;
             }
           } else {
             return Number.NaN;
@@ -712,8 +685,8 @@ ApplicationWindow {
     }
 
     BookmarkHighlight {
-        id: bookmarkHighlight
-        mapSettings: mapCanvas.mapSettings
+      id: bookmarkHighlight
+      mapSettings: mapCanvas.mapSettings
     }
 
     Navigation {
@@ -721,10 +694,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
-      proximityAlarm: positioningSettings.preciseViewProximityAlarm
-                      && informationDrawer.positioningPreciseView.visible
-                      && informationDrawer.positioningPreciseView.hasAcceptableAccuracy
-                      && !informationDrawer.positioningPreciseView.hasAlarmSnoozed
+      proximityAlarm: positioningSettings.preciseViewProximityAlarm && informationDrawer.positioningPreciseView.visible && informationDrawer.positioningPreciseView.hasAcceptableAccuracy && !informationDrawer.positioningPreciseView.hasAlarmSnoozed
       proximityAlarmThreshold: positioningSettings.preciseViewPrecision
     }
 
@@ -738,7 +708,7 @@ ApplicationWindow {
 
       visible: informationDrawer.elevationProfile.visible
       mapSettings: mapCanvas.mapSettings
-      geometry:   QgsGeometryWrapper {
+      geometry: QgsGeometryWrapper {
         qgsGeometry: informationDrawer.elevationProfile.profileCurve
         crs: informationDrawer.elevationProfile.crs
       }
@@ -772,19 +742,9 @@ ApplicationWindow {
 
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.positionInformation
-                 && positionSource.positionInformation.directionValid
-                 ? positionSource.positionInformation.direction
-                 : -1
-      speed: positionSource.positionInformation
-             && positionSource.positionInformation.speedValid
-             ? positionSource.positionInformation.speed
-             : -1
-      orientation: !isNaN(positionSource.orientation)
-                   ? positionSource.orientation + positionSource.bearingTrueNorth < 0
-                     ? 360 + positionSource.orientation + positionSource.bearingTrueNorth
-                     : positionSource.orientation + positionSource.bearingTrueNorth
-                   : -1
+      direction: positionSource.positionInformation && positionSource.positionInformation.directionValid ? positionSource.positionInformation.direction : -1
+      speed: positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1
+      orientation: !isNaN(positionSource.orientation) ? positionSource.orientation + positionSource.bearingTrueNorth < 0 ? 360 + positionSource.orientation + positionSource.bearingTrueNorth : positionSource.orientation + positionSource.bearingTrueNorth : -1
     }
 
     /* Rubberband for vertices  */
@@ -829,8 +789,8 @@ ApplicationWindow {
 
       // take rotation into account
       property double rotationRadians: -mapSettings.rotation * Math.PI / 180
-      translateX: mapToScreenTranslateX.screenDistance * Math.cos( rotationRadians ) - mapToScreenTranslateY.screenDistance * Math.sin( rotationRadians )
-      translateY: mapToScreenTranslateY.screenDistance * Math.cos( rotationRadians ) + mapToScreenTranslateX.screenDistance * Math.sin( rotationRadians )
+      translateX: mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians)
+      translateY: mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians)
 
       color: "yellow"
       focusedColor: "#ff7777"
@@ -861,6 +821,83 @@ ApplicationWindow {
     }
   }
 
+  Geofencer {
+    id: geofencer
+
+    position: positionSource.projectedPosition
+    positionCrs: mapCanvas.mapSettings.destinationCrs
+
+    readonly property int longVibration: 1000
+    readonly property int shortVibration: 500
+
+    onIsWithinChanged: {
+      if (behavior == Geofencer.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
+        platformUtilities.vibrate(longVibration);
+        displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error');
+      } else if (behavior == Geofencer.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
+        platformUtilities.vibrate(longVibration);
+        displayToast(qsTr("Position outside areas after leaving ‘%1’").arg(lastWithinAreaName), 'error');
+      } else if (behavior == Geofencer.InformWhenEnteringLeavingGeofencedArea) {
+        if (isWithin) {
+          platformUtilities.vibrate(shortVibration);
+          displayToast(qsTr("Position entered into ‘%1’").arg(isWithinAreaName));
+        } else if (lastWithinAreaName != '') {
+          platformUtilities.vibrate(shortVibration);
+          displayToast(qsTr("Position left from ‘%1’").arg(lastWithinAreaName));
+        }
+      }
+    }
+  }
+
+  MultiEffect {
+    id: geofencerFeedback
+    anchors.fill: geofencerFeedbackSource
+    source: geofencerFeedbackSource
+    visible: true
+    blurEnabled: true
+    blurMax: 64
+    blur: 2.0
+    opacity: 0
+
+    SequentialAnimation {
+      id: geofencerFeedbackAnimation
+      running: geofencer.isAlerting
+      loops: Animation.Infinite
+
+      onRunningChanged: {
+        if (!running) {
+          geofencerFeedback.opacity = 0;
+        }
+      }
+
+      OpacityAnimator {
+        target: geofencerFeedback
+        from: 0
+        to: 0.75
+        duration: 1000
+      }
+      OpacityAnimator {
+        target: geofencerFeedback
+        from: 0.75
+        to: 0
+        duration: 1000
+      }
+    }
+  }
+
+  Rectangle {
+    id: geofencerFeedbackSource
+    width: Math.min(250, mainWindow.width / 2)
+    height: width
+    radius: width / 2
+    visible: false
+
+    x: parent.width - width / 2
+    y: locationToolbar.y + gnssButton.y + (gnssButton.height / 2) - height / 2
+
+    color: Theme.errorColor
+  }
+
   InformationDrawer {
     id: informationDrawer
 
@@ -875,7 +912,6 @@ ApplicationWindow {
    * - Scale Bar
    * - UI elements such as QfToolButtons
    **************************************************/
-
   Item {
     id: mapCanvasOverlays
     anchors.fill: mapCanvas
@@ -895,7 +931,7 @@ ApplicationWindow {
       height: 48
       radius: 4
 
-      color:'#55000000'
+      color: '#55000000'
 
       Text {
         id: titleDecoration
@@ -932,7 +968,7 @@ ApplicationWindow {
       radius: 4
       clip: true
 
-      color:'#55000000'
+      color: '#55000000'
 
       Text {
         id: copyrightDecoration
@@ -994,7 +1030,7 @@ ApplicationWindow {
         return newX;
       }
       y: {
-        var newY = coordinateLocator.displayPosition.y + 14
+        var newY = coordinateLocator.displayPosition.y + 14;
         if (newY + height > mapCanvas.y + mapCanvas.height)
           newY -= height - 28;
         return newY;
@@ -1002,61 +1038,15 @@ ApplicationWindow {
 
       textFormat: Text.PlainText
       text: {
-        if ((qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure') {
-          var point = GeometryUtils.reprojectPoint(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+        if ((qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize") || stateMachine.state === 'measure') {
+          var point = GeometryUtils.reprojectPoint(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
           var coordinates;
           if (coordinatesIsXY) {
-            coordinates = '%1: %2\n%3: %4\n'
-            .arg(coordinatesIsGeographic ? qsTr( 'Lon' ) : 'X')
-            .arg(point.x.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ))
-            .arg(coordinatesIsGeographic ? qsTr( 'Lat' ) : 'Y')
-            .arg(point.y.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ));
+            coordinates = '%1: %2\n%3: %4\n'.arg(coordinatesIsGeographic ? qsTr('Lon') : 'X').arg(point.x.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2)).arg(coordinatesIsGeographic ? qsTr('Lat') : 'Y').arg(point.y.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2));
           } else {
-            coordinates = '%1: %2\n%3: %4\n'
-            .arg(coordinatesIsGeographic ? qsTr( 'Lat' ) : 'Y')
-            .arg(point.y.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ))
-            .arg(coordinatesIsGeographic ? qsTr( 'Lon' ) : 'X')
-            .arg(point.x.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ));
+            coordinates = '%1: %2\n%3: %4\n'.arg(coordinatesIsGeographic ? qsTr('Lat') : 'Y').arg(point.y.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2)).arg(coordinatesIsGeographic ? qsTr('Lon') : 'X').arg(point.x.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2));
           }
-
-          return '%1%2%3%4%5%6'
-          .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing
-               ? coordinates
-               : '')
-
-          .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
-               ? '%1: %2\n'
-                 .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length' ) )
-                 .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.segmentLength, projectInfo.distanceUnits ) , 3, projectInfo.distanceUnits ) )
-               : '')
-
-          .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
-               ? '%1: %2\n'
-                 .arg( qsTr( 'Azimuth') )
-                 .arg( UnitTypes.formatAngle( digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees ) )
-               : '')
-
-          .arg(currentRubberband && currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon
-               ? digitizingGeometryMeasure.perimeterValid
-                 ? '%1: %2\n'
-                   .arg( qsTr( 'Perimeter') )
-                   .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.perimeter, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits ) )
-                 : ''
-               : digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
-               ? '%1: %2\n'
-                 .arg( qsTr( 'Length') )
-                 .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.length, projectInfo.distanceUnits ),3, projectInfo.distanceUnits ) )
-               : '')
-
-          .arg(digitizingGeometryMeasure.areaValid
-               ? '%1: %2\n'
-                 .arg( qsTr( 'Area') )
-                 .arg(UnitTypes.formatArea( digitizingGeometryMeasure.convertAreaMeansurement( digitizingGeometryMeasure.area, projectInfo.areaUnits ), 3, projectInfo.areaUnits ) )
-               : '')
-
-          .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing
-               ? coordinates
-               : '')
+          return '%1%2%3%4%5%6'.arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? coordinates : '').arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0 ? '%1: %2\n'.arg(digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr('Segment') : qsTr('Length')).arg(UnitTypes.formatDistance(digitizingGeometryMeasure.convertLengthMeansurement(digitizingGeometryMeasure.segmentLength, projectInfo.distanceUnits), 3, projectInfo.distanceUnits)) : '').arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0 ? '%1: %2\n'.arg(qsTr('Azimuth')).arg(UnitTypes.formatAngle(digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees)) : '').arg(currentRubberband && currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon ? digitizingGeometryMeasure.perimeterValid ? '%1: %2\n'.arg(qsTr('Perimeter')).arg(UnitTypes.formatDistance(digitizingGeometryMeasure.convertLengthMeansurement(digitizingGeometryMeasure.perimeter, projectInfo.distanceUnits), 3, projectInfo.distanceUnits)) : '' : digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? '%1: %2\n'.arg(qsTr('Length')).arg(UnitTypes.formatDistance(digitizingGeometryMeasure.convertLengthMeansurement(digitizingGeometryMeasure.length, projectInfo.distanceUnits), 3, projectInfo.distanceUnits)) : '').arg(digitizingGeometryMeasure.areaValid ? '%1: %2\n'.arg(qsTr('Area')).arg(UnitTypes.formatArea(digitizingGeometryMeasure.convertAreaMeansurement(digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits)) : '').arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing ? coordinates : '');
         } else {
           return '';
         }
@@ -1074,7 +1064,7 @@ ApplicationWindow {
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: 4
-      anchors.bottomMargin:  54
+      anchors.bottomMargin: 54
       round: true
       bgcolor: Theme.darkGraySemiOpaque
       iconSource: Theme.getThemeVectorIcon('ic_compass_arrow_24dp')
@@ -1102,7 +1092,7 @@ ApplicationWindow {
 
     QfToolButton {
       id: alertIcon
-      iconSource: Theme.getThemeVectorIcon( "ic_alert_black_24dp" )
+      iconSource: Theme.getThemeVectorIcon("ic_alert_black_24dp")
       round: true
       bgcolor: "transparent"
       visible: !screenLocker.enabled && messageLog.unreadMessages
@@ -1118,7 +1108,7 @@ ApplicationWindow {
       anchors.right: parent.right
       anchors.rightMargin: 10
       anchors.bottom: parent.bottom
-      anchors.bottomMargin: (parent.height - zoomToolbar.height / 2 ) / 2
+      anchors.bottomMargin: (parent.height - zoomToolbar.height / 2) / 2
       spacing: 8
       visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainer.y) < 0.41
 
@@ -1128,14 +1118,15 @@ ApplicationWindow {
         anchors.right: parent.right
 
         bgcolor: Theme.darkGray
-        iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
+        iconSource: Theme.getThemeIcon("ic_add_white_24dp")
 
         width: 36
         height: 36
 
         onClicked: {
-          if ( gnssButton.followActive ) gnssButton.followActiveSkipExtentChanged = true;
-          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
+          if (gnssButton.followActive)
+            gnssButton.followActiveSkipExtentChanged = true;
+          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
         }
       }
       QfToolButton {
@@ -1144,14 +1135,15 @@ ApplicationWindow {
         anchors.right: parent.right
 
         bgcolor: Theme.darkGray
-        iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
+        iconSource: Theme.getThemeIcon("ic_remove_white_24dp")
 
         width: 36
         height: 36
 
         onClicked: {
-          if ( gnssButton.followActive ) gnssButton.followActiveSkipExtentChanged = true;
-          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
+          if (gnssButton.followActive)
+            gnssButton.followActiveSkipExtentChanged = true;
+          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
         }
       }
     }
@@ -1170,20 +1162,20 @@ ApplicationWindow {
 
       visible: !screenLocker.enabled && stateMachine.state !== 'measure'
 
-      Keys.onReleased: (event) => {
-                         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-                           event.accepted = true
-                           state = "off"
-                         }
-                       }
+      Keys.onReleased: event => {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          event.accepted = true;
+          state = "off";
+        }
+      }
 
       onStateChanged: {
-        if ( state == "off" ) {
-          focus = false
-          if ( featureForm.visible ) {
-            featureForm.focus = true
+        if (state == "off") {
+          focus = false;
+          if (featureForm.visible) {
+            featureForm.focus = true;
           } else {
-            keyHandler.focus = true
+            keyHandler.focus = true;
           }
         }
       }
@@ -1211,30 +1203,30 @@ ApplicationWindow {
       QfToolButton {
         id: menuButton
         round: true
-        iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
+        iconSource: Theme.getThemeIcon("ic_menu_white_24dp")
         bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
 
         onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
 
         onPressAndHold: {
-          mainMenu.popup(menuButton.x, menuButton.y)
+          mainMenu.popup(menuButton.x, menuButton.y);
         }
       }
 
       QfCloseButton {
         id: closeMeasureTool
         visible: stateMachine.state === 'measure'
-        toolImage: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
-        toolText: qsTr( 'Close measure tool' )
+        toolImage: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
+        toolText: qsTr('Close measure tool')
 
         onClose: mainWindow.closeMeasureTool()
       }
 
       QfCloseButton {
         id: closeGeometryEditorsTool
-        visible: ( stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0 )
+        visible: (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
         toolImage: geometryEditorsToolbar.image
-        toolText: qsTr( 'Stop editing' )
+        toolText: qsTr('Stop editing')
 
         onClose: geometryEditorsToolbar.cancelEditors()
       }
@@ -1242,8 +1234,8 @@ ApplicationWindow {
       QfCloseButton {
         id: abortRequestGeometry
         visible: digitizingToolbar.geometryRequested
-        toolImage: Theme.getThemeIcon( "ic_edit_geometry_white" )
-        toolText: qsTr( 'Cancel addition' )
+        toolImage: Theme.getThemeIcon("ic_edit_geometry_white")
+        toolText: qsTr('Cancel addition')
 
         onClose: digitizingToolbar.cancel()
       }
@@ -1266,14 +1258,7 @@ ApplicationWindow {
         iconSource: Theme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
         iconColor: "white"
         spacing: 4
-        visible: stateMachine.state === "digitize"
-                 && dashBoard.activeLayer
-                 && dashBoard.activeLayer.isValid
-                 && (
-                   dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
-                   || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point
-                   )
+        visible: stateMachine.state === "digitize" && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point)
 
         QfToolButton {
           id: snappingButton
@@ -1282,7 +1267,7 @@ ApplicationWindow {
           padding: 2
           round: true
           state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
-          iconSource: Theme.getThemeVectorIcon( "ic_snapping_white_24dp" )
+          iconSource: Theme.getThemeVectorIcon("ic_snapping_white_24dp")
           iconColor: "white"
           bgcolor: Theme.darkGray
 
@@ -1296,7 +1281,6 @@ ApplicationWindow {
                 bgcolor: Theme.darkGraySemiOpaque
               }
             },
-
             State {
               name: "On"
               PropertyChanges {
@@ -1308,11 +1292,11 @@ ApplicationWindow {
           ]
 
           onClicked: {
-            var snappingConfig = qgisProject.snappingConfig
-            snappingConfig.enabled = !snappingConfig.enabled
-            qgisProject.snappingConfig = snappingConfig
-            projectInfo.snappingEnabled = snappingConfig.enabled
-            displayToast( snappingConfig.enabled ? qsTr( "Snapping turned on" ) : qsTr( "Snapping turned off" ) )
+            var snappingConfig = qgisProject.snappingConfig;
+            snappingConfig.enabled = !snappingConfig.enabled;
+            qgisProject.snappingConfig = snappingConfig;
+            projectInfo.snappingEnabled = snappingConfig.enabled;
+            displayToast(snappingConfig.enabled ? qsTr("Snapping turned on") : qsTr("Snapping turned off"));
           }
         }
 
@@ -1323,7 +1307,7 @@ ApplicationWindow {
           padding: 2
           round: true
           state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
-          iconSource: Theme.getThemeVectorIcon( "ic_topology_white_24dp" )
+          iconSource: Theme.getThemeVectorIcon("ic_topology_white_24dp")
           iconColor: "white"
           bgcolor: Theme.darkGray
 
@@ -1337,7 +1321,6 @@ ApplicationWindow {
                 bgcolor: Theme.darkGraySemiOpaque
               }
             },
-
             State {
               name: "On"
               PropertyChanges {
@@ -1350,7 +1333,7 @@ ApplicationWindow {
 
           onClicked: {
             qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
-            displayToast( qgisProject.topologicalEditing ? qsTr( "Topological editing turned on" ) : qsTr( "Topological editing turned off" ) );
+            displayToast(qgisProject.topologicalEditing ? qsTr("Topological editing turned on") : qsTr("Topological editing turned off"));
           }
         }
 
@@ -1360,14 +1343,8 @@ ApplicationWindow {
           height: visible ? 40 : 0
           padding: 2
           round: true
-          visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize"
-                   && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
-                        (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon
-                         || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line))
-                       || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid &&
-                           (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-                            || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
-          iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )
+          visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
+          iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
           iconColor: "white"
           bgcolor: Theme.darkGray
 
@@ -1383,7 +1360,6 @@ ApplicationWindow {
                 bgcolor: Theme.darkGraySemiOpaque
               }
             },
-
             State {
               name: "On"
               PropertyChanges {
@@ -1395,18 +1371,16 @@ ApplicationWindow {
           ]
 
           onClicked: {
-            freehandDigitizing = !freehandDigitizing
-
+            freehandDigitizing = !freehandDigitizing;
             if (freehandDigitizing && positioningSettings.positioningCoordinateLock) {
               positioningSettings.positioningCoordinateLock = false;
             }
-
-            displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
-            settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
+            displayToast(freehandDigitizing ? qsTr("Freehand digitizing turned on") : qsTr("Freehand digitizing turned off"));
+            settings.setValue("/QField/Digitizing/FreehandActive", freehandDigitizing);
           }
 
           Component.onCompleted: {
-            freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
+            freehandDigitizing = settings.valueBool("/QField/Digitizing/FreehandActive", false);
           }
         }
 
@@ -1416,12 +1390,8 @@ ApplicationWindow {
           width: visible ? 40 : 0
           height: visible ? 40 : 0
           round: true
-          visible: dashBoard.activeLayer
-                   && (
-                     dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon
-                     || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line
-                     )
-          iconSource: Theme.getThemeVectorIcon( "ic_common_angle_white_24dp" )
+          visible: dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
+          iconSource: Theme.getThemeVectorIcon("ic_common_angle_white_24dp")
           iconColor: "white"
           bgcolor: Theme.darkGray
 
@@ -1440,7 +1410,6 @@ ApplicationWindow {
                 bgcolor: Theme.darkGraySemiOpaque
               }
             },
-
             State {
               name: "On"
               PropertyChanges {
@@ -1453,31 +1422,25 @@ ApplicationWindow {
 
           onClicked: {
             isSnapToCommonAngleEnabled = !isSnapToCommonAngleEnabled;
-            settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsEnabled", isSnapToCommonAngleEnabled );
-
-            displayToast(
-                  isSnapToCommonAngleEnabled
-                  ? qsTr( "Snap to %1° angle turned on" ).arg( snapToCommonAngleDegrees )
-                  : qsTr( "Snap to common angle turned off" )
-                  );
+            settings.setValue("/QField/Digitizing/SnapToCommonAngleIsEnabled", isSnapToCommonAngleEnabled);
+            displayToast(isSnapToCommonAngleEnabled ? qsTr("Snap to %1° angle turned on").arg(snapToCommonAngleDegrees) : qsTr("Snap to common angle turned off"));
           }
 
           onPressAndHold: {
-            snapToCommonAngleMenu.popup( parent.x, parent.y );
+            snapToCommonAngleMenu.popup(parent.x, parent.y);
           }
 
           Component.onCompleted: {
-            isSnapToCommonAngleEnabled = settings.valueBool( "/QField/Digitizing/SnapToCommonAngleIsEnabled", false );
-            isSnapToCommonAngleRelative = settings.valueBool( "/QField/Digitizing/SnapToCommonAngleIsRelative", true );
-            snapToCommonAngleDegrees = settings.valueInt( "/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleDegrees );
+            isSnapToCommonAngleEnabled = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsEnabled", false);
+            isSnapToCommonAngleRelative = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsRelative", true);
+            snapToCommonAngleDegrees = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleDegrees);
           }
-
 
           Menu {
             id: snapToCommonAngleMenu
 
             MenuItem {
-              text: qsTr( "Relative angle" )
+              text: qsTr("Relative angle")
               font: Theme.defaultFont
               height: 48
               leftPadding: Theme.menuItemCheckLeftPadding
@@ -1487,11 +1450,13 @@ ApplicationWindow {
 
               onTriggered: {
                 snapToCommonAngleButton.isSnapToCommonAngleRelative = checked;
-                settings.setValue( "/QField/Digitizing/SnapToCommonAngleIsRelative", snapToCommonAngleButton.isSnapToCommonAngleRelative );
+                settings.setValue("/QField/Digitizing/SnapToCommonAngleIsRelative", snapToCommonAngleButton.isSnapToCommonAngleRelative);
               }
             }
 
-            MenuSeparator { width: parent.width }
+            MenuSeparator {
+              width: parent.width
+            }
 
             Repeater {
               // list of common angles to snap to
@@ -1499,7 +1464,7 @@ ApplicationWindow {
               delegate: MenuItem {
                 required property int modelData
 
-                text: qsTr( "Snap every %1°" ).arg( modelData )
+                text: qsTr("Snap every %1°").arg(modelData)
 
                 font: Theme.defaultFont
                 height: 48
@@ -1510,16 +1475,13 @@ ApplicationWindow {
                 enabled: modelData !== snapToCommonAngleButton.snapToCommonAngleDegrees
 
                 onTriggered: {
-                  if ( !checked ) {
+                  if (!checked) {
                     return;
                   }
-
                   snapToCommonAngleButton.isSnapToCommonAngleEnabled = true;
                   snapToCommonAngleButton.snapToCommonAngleDegrees = modelData;
-                  settings.setValue( "/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleButton.snapToCommonAngleDegrees );
-
-                  displayToast( qsTr( "Snap to %1° angle turned on" ).arg( modelData ) );
-
+                  settings.setValue("/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleButton.snapToCommonAngleDegrees);
+                  displayToast(qsTr("Snap to %1° angle turned on").arg(modelData));
                   snapToCommonAngleMenu.close();
                 }
               }
@@ -1532,7 +1494,7 @@ ApplicationWindow {
         id: elevationProfileButton
         round: true
         visible: stateMachine.state === 'measure'
-        iconSource: Theme.getThemeVectorIcon( "ic_elevation_white_24dp" )
+        iconSource: Theme.getThemeVectorIcon("ic_elevation_white_24dp")
 
         bgcolor: Theme.darkGray
 
@@ -1544,37 +1506,35 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: elevationProfileButton
-              iconSource: Theme.getThemeVectorIcon( "ic_elevation_white_24dp" )
+              iconSource: Theme.getThemeVectorIcon("ic_elevation_white_24dp")
               bgcolor: Theme.darkGraySemiOpaque
             }
           },
-
           State {
             name: "On"
             PropertyChanges {
               target: elevationProfileButton
-              iconSource: Theme.getThemeVectorIcon( "ic_elevation_green_24dp" )
+              iconSource: Theme.getThemeVectorIcon("ic_elevation_green_24dp")
               bgcolor: Theme.darkGray
             }
           }
         ]
 
         onClicked: {
-          elevationProfileActive = !elevationProfileActive
+          elevationProfileActive = !elevationProfileActive;
 
           // Draw an elevation profile if we have enough points to do so
-          if ( digitizingToolbar.rubberbandModel.vertexCount > 2 ) {
+          if (digitizingToolbar.rubberbandModel.vertexCount > 2) {
             // Clear the pre-existing profile to trigger a zoom to full updated profile curve
             informationDrawer.elevationProfile.clear();
-            informationDrawer.elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(digitizingToolbar.rubberbandModel, informationDrawer.elevationProfile.crs)
+            informationDrawer.elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(digitizingToolbar.rubberbandModel, informationDrawer.elevationProfile.crs);
             informationDrawer.elevationProfile.refresh();
           }
-
-          settings.setValue( "/QField/Measuring/ElevationProfile", elevationProfileActive );
+          settings.setValue("/QField/Measuring/ElevationProfile", elevationProfileActive);
         }
 
         Component.onCompleted: {
-          elevationProfileActive = settings.valueBool( "/QField/Measuring/ElevationProfile", false )
+          elevationProfileActive = settings.valueBool("/QField/Measuring/ElevationProfile", false);
         }
       }
     }
@@ -1604,12 +1564,8 @@ ApplicationWindow {
         anchors.right: parent.right
 
         property bool isFollowLocationActive: positionSource.active && gnssButton.followActive && followIncludeDestination
-        iconSource: isFollowLocationActive
-                    ? Theme.getThemeIcon( "ic_navigation_flag_white_24dp" )
-                    : Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
-        bgcolor: isFollowLocationActive
-                 ? Theme.navigationColor
-                 : Theme.darkGray
+        iconSource: isFollowLocationActive ? Theme.getThemeIcon("ic_navigation_flag_white_24dp") : Theme.getThemeIcon("ic_navigation_flag_purple_24dp")
+        bgcolor: isFollowLocationActive ? Theme.navigationColor : Theme.darkGray
 
         /*
         / When set to true, when the map follows the device's current position, the extent
@@ -1619,24 +1575,20 @@ ApplicationWindow {
 
         onClicked: {
           if (positionSource.active && gnssButton.followActive) {
-            followIncludeDestination = !followIncludeDestination
+            followIncludeDestination = !followIncludeDestination;
             settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
-
-            gnssButton.followLocation(true)
+            gnssButton.followLocation(true);
           } else {
-            mapCanvas.mapSettings.setCenter(navigation.destination)
+            mapCanvas.mapSettings.setCenter(navigation.destination);
           }
         }
 
         onPressAndHold: {
-          navigationMenu.popup(
-                locationToolbar.x + locationToolbar.width - navigationMenu.width,
-                locationToolbar.y + navigationButton.height - navigationMenu.height
-                )
+          navigationMenu.popup(locationToolbar.x + locationToolbar.width - navigationMenu.width, locationToolbar.y + navigationButton.height - navigationMenu.height);
         }
 
         Component.onCompleted: {
-          followIncludeDestination = settings.valueBool("/QField/Navigation/FollowIncludeDestination", true)
+          followIncludeDestination = settings.valueBool("/QField/Navigation/FollowIncludeDestination", true);
         }
       }
 
@@ -1644,7 +1596,7 @@ ApplicationWindow {
         id: gnssLockButton
         anchors.right: parent.right
         state: positionSource.active && positioningSettings.positioningCoordinateLock ? "On" : "Off"
-        visible: gnssButton.state === "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
+        visible: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
         round: true
         checkable: true
         checked: positioningSettings.positioningCoordinateLock
@@ -1654,16 +1606,15 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: gnssLockButton
-              iconSource: Theme.getThemeIcon( "ic_gps_link_white_24dp" )
+              iconSource: Theme.getThemeIcon("ic_gps_link_white_24dp")
               bgcolor: Theme.darkGraySemiOpaque
             }
           },
-
           State {
             name: "On"
             PropertyChanges {
               target: gnssLockButton
-              iconSource: Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" )
+              iconSource: Theme.getThemeIcon("ic_gps_link_activated_white_24dp")
               bgcolor: Theme.darkGray
             }
           }
@@ -1676,17 +1627,16 @@ ApplicationWindow {
                 // deactivate freehand digitizing when cursor locked is on
                 freehandButton.clicked();
               }
-              displayToast( qsTr( "Coordinate cursor now locked to position" ) )
+              displayToast(qsTr("Coordinate cursor now locked to position"));
               if (positionSource.positionInformation.latitudeValid) {
                 var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
-                if ( screenLocation.x < 0 || screenLocation.x > mainWindow.width ||
-                    screenLocation.y < 0 || screenLocation.y > mainWindow.height ) {
+                if (screenLocation.x < 0 || screenLocation.x > mainWindow.width || screenLocation.y < 0 || screenLocation.y > mainWindow.height) {
                   mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
                 }
               }
               positioningSettings.positioningCoordinateLock = true;
             } else {
-              displayToast( qsTr( "Coordinate cursor unlocked" ) )
+              displayToast(qsTr("Coordinate cursor unlocked"));
               positioningSettings.positioningCoordinateLock = false;
               // deactivate any active averaged position collection
               positionSource.averagedPosition = false;
@@ -1704,11 +1654,11 @@ ApplicationWindow {
         anchors.right: parent.right
 
         onIconSourceChanged: {
-          if( state === "On" ){
-            if( positionSource.positionInformation && positionSource.positionInformation.latitudeValid ) {
-              displayToast( qsTr( "Received position" ) )
+          if (state === "On") {
+            if (positionSource.positionInformation && positionSource.positionInformation.latitudeValid) {
+              displayToast(qsTr("Received position"));
             } else {
-              displayToast( qsTr( "Searching for position" ) )
+              displayToast(qsTr("Searching for position"));
             }
           }
         }
@@ -1738,18 +1688,15 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: gnssButton
-              iconSource: Theme.getThemeVectorIcon( "ic_location_disabled_white_24dp" )
+              iconSource: Theme.getThemeVectorIcon("ic_location_disabled_white_24dp")
               bgcolor: Theme.darkGraySemiOpaque
             }
           },
-
           State {
             name: "On"
             PropertyChanges {
               target: gnssButton
-              iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-                          ? Theme.getThemeVectorIcon( "ic_location_valid_white_24dp" )
-                          : Theme.getThemeVectorIcon( "ic_location_white_24dp" )
+              iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeVectorIcon("ic_location_valid_white_24dp") : Theme.getThemeVectorIcon("ic_location_white_24dp")
               iconColor: followActive ? "white" : Theme.positionColor
               bgcolor: followActive ? Theme.positionColor : Theme.darkGray
             }
@@ -1758,34 +1705,24 @@ ApplicationWindow {
 
         onClicked: {
           if (followActive) {
-            followOrientationActive = true
+            followOrientationActive = true;
             followOrientation();
-            displayToast( qsTr( "Canvas follows location and compass orientation" ) )
+            displayToast(qsTr("Canvas follows location and compass orientation"));
           } else {
-            followActive = true
-            if ( positionSource.projectedPosition.x )
-            {
-              if ( !positionSource.active )
-              {
-                positioningSettings.positioningActivated = true
-              }
-              else
-              {
+            followActive = true;
+            if (positionSource.projectedPosition.x) {
+              if (!positionSource.active) {
+                positioningSettings.positioningActivated = true;
+              } else {
                 followLocation(true);
-                displayToast( qsTr( "Canvas follows location" ) )
+                displayToast(qsTr("Canvas follows location"));
               }
-            }
-            else
-            {
-              if ( positionSource.valid )
-              {
-                if ( positionSource.active )
-                {
-                  displayToast( qsTr( "Waiting for location" ) )
-                }
-                else
-                {
-                  positioningSettings.positioningActivated = true
+            } else {
+              if (positionSource.valid) {
+                if (positionSource.active) {
+                  displayToast(qsTr("Waiting for location"));
+                } else {
+                  positioningSettings.positioningActivated = true;
                 }
               }
             }
@@ -1793,42 +1730,27 @@ ApplicationWindow {
         }
 
         onPressAndHold: {
-          gnssMenu.popup(locationToolbar.x + locationToolbar.width - gnssMenu.width, locationToolbar.y + locationToolbar.height - gnssMenu.height)
+          gnssMenu.popup(locationToolbar.x + locationToolbar.width - gnssMenu.width, locationToolbar.y + locationToolbar.height - gnssMenu.height);
         }
 
         property int followLocationMinScale: 125
         property int followLocationMinMargin: 40
-        property int followLocationScreenFraction: settings ? settings.value( "/QField/Positioning/FollowScreenFraction", 5 ) : 5
+        property int followLocationScreenFraction: settings ? settings.value("/QField/Positioning/FollowScreenFraction", 5) : 5
 
         function followLocation(forceRecenter) {
           var screenLocation = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
           if (navigation.isActive && navigationButton.followIncludeDestination) {
             if (mapCanvas.mapSettings.scale > followLocationMinScale) {
               var screenDestination = mapCanvas.mapSettings.coordinateToScreen(navigation.destination);
-              if (forceRecenter
-                  || screenDestination.x < followLocationMinMargin
-                  || screenDestination.x > (mainWindow.width - followLocationMinMargin)
-                  || screenDestination.y < followLocationMinMargin
-                  || screenDestination.y > (mainWindow.height - followLocationMinMargin)
-                  || screenLocation.x < followLocationMinMargin
-                  || screenLocation.x > (mainWindow.width - followLocationMinMargin)
-                  || screenLocation.y < followLocationMinMargin
-                  || screenLocation.y > (mainWindow.height - followLocationMinMargin)
-                  || (Math.abs(screenDestination.x - screenLocation.x) < mainWindow.width / 3
-                      && Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 3)) {
+              if (forceRecenter || screenDestination.x < followLocationMinMargin || screenDestination.x > (mainWindow.width - followLocationMinMargin) || screenDestination.y < followLocationMinMargin || screenDestination.y > (mainWindow.height - followLocationMinMargin) || screenLocation.x < followLocationMinMargin || screenLocation.x > (mainWindow.width - followLocationMinMargin) || screenLocation.y < followLocationMinMargin || screenLocation.y > (mainWindow.height - followLocationMinMargin) || (Math.abs(screenDestination.x - screenLocation.x) < mainWindow.width / 3 && Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 3)) {
                 gnssButton.followActiveSkipExtentChanged = true;
                 var points = [positionSource.projectedPosition, navigation.destination];
-                mapCanvas.mapSettings.setExtentFromPoints(points, followLocationMinScale, true)
+                mapCanvas.mapSettings.setExtentFromPoints(points, followLocationMinScale, true);
               }
             }
           } else {
-            var threshold = Math.min( mainWindow.width, mainWindow.height ) / followLocationScreenFraction;
-            if ( forceRecenter
-                || screenLocation.x < mapCanvas.x + threshold
-                || screenLocation.x > mapCanvas.width - threshold
-                || screenLocation.y < mapCanvas.y + threshold
-                || screenLocation.y > mapCanvas.height - threshold )
-            {
+            var threshold = Math.min(mainWindow.width, mainWindow.height) / followLocationScreenFraction;
+            if (forceRecenter || screenLocation.x < mapCanvas.x + threshold || screenLocation.x > mapCanvas.width - threshold || screenLocation.y < mapCanvas.y + threshold || screenLocation.y > mapCanvas.height - threshold) {
               gnssButton.followActiveSkipExtentChanged = true;
               mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
             }
@@ -1836,8 +1758,8 @@ ApplicationWindow {
         }
         function followOrientation() {
           if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 10) {
-            gnssButton.followActiveSkipRotationChanged = true
-            mapCanvas.mapSettings.rotation = -positionSource.orientation
+            gnssButton.followActiveSkipRotationChanged = true;
+            mapCanvas.mapSettings.rotation = -positionSource.orientation;
           }
         }
 
@@ -1857,13 +1779,7 @@ ApplicationWindow {
           border.color: 'white'
 
           visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
-          color: !positionSource.positionInformation
-                 || !positionSource.positionInformation.haccValid
-                 || positionSource.positionInformation.hacc > positioningSettings.accuracyBad
-                 ? Theme.accuracyBad
-                 : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
-                   ? Theme.accuracyTolerated
-                   : Theme.accuracyExcellent
+          color: !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent
         }
       }
 
@@ -1871,23 +1787,23 @@ ApplicationWindow {
         target: mapCanvas.mapSettings
 
         function onExtentChanged() {
-          if ( gnssButton.followActive ) {
-            if ( gnssButton.followActiveSkipExtentChanged ) {
+          if (gnssButton.followActive) {
+            if (gnssButton.followActiveSkipExtentChanged) {
               gnssButton.followActiveSkipExtentChanged = false;
             } else {
-              gnssButton.followActive = false
-              gnssButton.followOrientationActive = false
-              displayToast( qsTr( "Canvas stopped following location" ) )
+              gnssButton.followActive = false;
+              gnssButton.followOrientationActive = false;
+              displayToast(qsTr("Canvas stopped following location"));
             }
           }
         }
 
         function onRotationChanged() {
-          if ( gnssButton.followOrientationActive ) {
-            if ( gnssButton.followActiveSkipRotationChanged ) {
-              gnssButton.followActiveSkipRotationChanged = false
+          if (gnssButton.followOrientationActive) {
+            if (gnssButton.followActiveSkipRotationChanged) {
+              gnssButton.followActiveSkipRotationChanged = false;
             } else {
-              gnssButton.followOrientationActive = false
+              gnssButton.followOrientationActive = false;
             }
           }
         }
@@ -1906,17 +1822,9 @@ ApplicationWindow {
       DigitizingToolbar {
         id: digitizingToolbar
 
-        stateVisible: !screenLocker.enabled &&
-                      ((stateMachine.state === "digitize"
-                        && dashBoard.activeLayer
-                        && !dashBoard.activeLayer.readOnly
-                        // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
-                        && dashBoard.activeLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
-                        && !geometryEditorsToolbar.stateVisible
-                        && !moveFeaturesToolbar.stateVisible
-                        && (projectInfo.editRights || projectInfo.insertRights))
-                       || stateMachine.state === 'measure'
-                       || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
+        stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && dashBoard.activeLayer && !dashBoard.activeLayer.readOnly &&
+            // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
+            dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && (projectInfo.editRights || projectInfo.insertRights)) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
         showConfirmButton: stateMachine.state === "digitize"
@@ -1941,137 +1849,119 @@ ApplicationWindow {
 
         property string previousStateMachineState: ''
         onGeometryRequestedChanged: {
-          if ( geometryRequested ) {
-            digitizingRubberband.model.reset()
-            previousStateMachineState = stateMachine.state
-            stateMachine.state = "digitize"
-          }
-          else
-          {
-            stateMachine.state = previousStateMachineState
+          if (geometryRequested) {
+            digitizingRubberband.model.reset();
+            previousStateMachineState = stateMachine.state;
+            stateMachine.state = "digitize";
+          } else {
+            stateMachine.state = previousStateMachineState;
           }
         }
 
         onVertexCountChanged: {
-          if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
-            if ( rubberbandModel.vertexCount > 2 ) {
+          if (stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive) {
+            if (rubberbandModel.vertexCount > 2) {
               // Clear the pre-existing profile to trigger a zoom to full updated profile curve
               informationDrawer.elevationProfile.clear();
-              informationDrawer.elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(rubberbandModel, informationDrawer.elevationProfile.crs)
+              informationDrawer.elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(rubberbandModel, informationDrawer.elevationProfile.crs);
               informationDrawer.elevationProfile.refresh();
             }
-          } else if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
-            if ( digitizingToolbar.geometryValid ) {
-              if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null)
-              {
-                digitizingRubberband.model.reset()
+          } else if (qfieldSettings.autoSave && stateMachine.state === "digitize") {
+            if (digitizingToolbar.geometryValid) {
+              if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null) {
+                digitizingRubberband.model.reset();
+              } else {
+                digitizingFeature.geometry.applyRubberband();
+                digitizingFeature.applyGeometry();
               }
-              else
-              {
-                digitizingFeature.geometry.applyRubberband()
-                digitizingFeature.applyGeometry()
-              }
-
-              if ( !overlayFeatureFormDrawer.featureForm.featureCreated )
-              {
-                overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
-                overlayFeatureFormDrawer.featureModel.applyGeometry()
-                overlayFeatureFormDrawer.featureModel.resetAttributes()
-                if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ) {
+              if (!overlayFeatureFormDrawer.featureForm.featureCreated) {
+                overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
+                overlayFeatureFormDrawer.featureModel.applyGeometry();
+                overlayFeatureFormDrawer.featureModel.resetAttributes();
+                if (overlayFeatureFormDrawer.featureForm.model.constraintsHardValid) {
                   // when the constrainst are fulfilled
                   // indirect action, no need to check for success and display a toast, the log is enough
-                  overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create()
+                  overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create();
                 }
               } else {
                 // indirect action, no need to check for success and display a toast, the log is enough
-                overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
-                overlayFeatureFormDrawer.featureModel.applyGeometry()
-                overlayFeatureFormDrawer.featureForm.save()
+                overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
+                overlayFeatureFormDrawer.featureModel.applyGeometry();
+                overlayFeatureFormDrawer.featureForm.save();
               }
             } else {
-              if ( overlayFeatureFormDrawer.featureForm.featureCreated ) {
+              if (overlayFeatureFormDrawer.featureForm.featureCreated) {
                 // delete the feature when the geometry gets invalid again
                 // indirect action, no need to check for success and display a toast, the log is enough
-                overlayFeatureFormDrawer.featureForm.featureCreated = !overlayFeatureFormDrawer.featureForm.deleteFeature()
+                overlayFeatureFormDrawer.featureForm.featureCreated = !overlayFeatureFormDrawer.featureForm.deleteFeature();
               }
             }
           }
         }
 
         onCancel: {
-          coordinateLocator.sourceLocation = undefined
-          if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
-            informationDrawer.elevationProfile.clear()
-            informationDrawer.elevationProfile.refresh()
+          coordinateLocator.sourceLocation = undefined;
+          if (stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive) {
+            informationDrawer.elevationProfile.clear();
+            informationDrawer.elevationProfile.refresh();
           } else {
-            if ( geometryRequested ) {
-              if ( overlayFeatureFormDrawer.isAdding ) {
-                overlayFeatureFormDrawer.open()
+            if (geometryRequested) {
+              if (overlayFeatureFormDrawer.isAdding) {
+                overlayFeatureFormDrawer.open();
               }
-              geometryRequested = false
+              geometryRequested = false;
             }
           }
-
           if (homeButton.waitingForDigitizingFinish) {
-            openWelcomeScreen()
+            openWelcomeScreen();
           }
         }
 
         onConfirmed: {
-          if ( geometryRequested )
-          {
-            if ( overlayFeatureFormDrawer.isAdding ) {
-              overlayFeatureFormDrawer.open()
+          if (geometryRequested) {
+            if (overlayFeatureFormDrawer.isAdding) {
+              overlayFeatureFormDrawer.open();
             }
-
-            coordinateLocator.flash()
-            digitizingFeature.geometry.applyRubberband()
-            geometryRequestedItem.requestedGeometryReceived(digitizingFeature.geometry)
-            digitizingRubberband.model.reset()
-            geometryRequested = false
-            coordinateLocator.sourceLocation = undefined
+            coordinateLocator.flash();
+            digitizingFeature.geometry.applyRubberband();
+            geometryRequestedItem.requestedGeometryReceived(digitizingFeature.geometry);
+            digitizingRubberband.model.reset();
+            geometryRequested = false;
+            coordinateLocator.sourceLocation = undefined;
             return;
           }
-
-          if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null)
-          {
-            digitizingRubberband.model.reset()
+          if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null) {
+            digitizingRubberband.model.reset();
+          } else {
+            coordinateLocator.flash();
+            digitizingFeature.geometry.applyRubberband();
+            digitizingFeature.applyGeometry();
+            digitizingRubberband.model.frozen = true;
+            digitizingFeature.updateRubberband();
           }
-          else
-          {
-            coordinateLocator.flash()
-            digitizingFeature.geometry.applyRubberband()
-            digitizingFeature.applyGeometry()
-            digitizingRubberband.model.frozen = true
-            digitizingFeature.updateRubberband()
-          }
-
-          if ( !digitizingFeature.suppressFeatureForm() )
-          {
-            overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
-            overlayFeatureFormDrawer.featureModel.applyGeometry()
-            overlayFeatureFormDrawer.featureModel.resetAttributes()
-            overlayFeatureFormDrawer.open()
-            overlayFeatureFormDrawer.state = "Add"
-          }
-          else
-          {
-            if ( !overlayFeatureFormDrawer.featureForm.featureCreated ) {
-              overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
-              overlayFeatureFormDrawer.featureModel.applyGeometry()
-              overlayFeatureFormDrawer.featureModel.resetAttributes()
-              if ( !overlayFeatureFormDrawer.featureModel.create() ) {
-                displayToast( qsTr( "Failed to create feature!" ), 'error' )
+          if (!digitizingFeature.suppressFeatureForm()) {
+            overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
+            overlayFeatureFormDrawer.featureModel.applyGeometry();
+            overlayFeatureFormDrawer.featureModel.resetAttributes();
+            overlayFeatureFormDrawer.open();
+            overlayFeatureFormDrawer.state = "Add";
+          } else {
+            if (!overlayFeatureFormDrawer.featureForm.featureCreated) {
+              overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
+              overlayFeatureFormDrawer.featureModel.applyGeometry();
+              overlayFeatureFormDrawer.featureModel.resetAttributes();
+              if (!overlayFeatureFormDrawer.featureModel.create()) {
+                displayToast(qsTr("Failed to create feature!"), 'error');
               }
             } else {
-              if ( !overlayFeatureFormDrawer.featureModel.save() ) {
-                displayToast( qsTr( "Failed to save feature!" ), 'error' )
+              if (!overlayFeatureFormDrawer.featureModel.save()) {
+                displayToast(qsTr("Failed to save feature!"), 'error');
               }
             }
-            digitizingRubberband.model.reset()
+            digitizingRubberband.model.reset();
             digitizingFeature.resetFeature();
           }
-          coordinateLocator.sourceLocation = undefined
+          coordinateLocator.sourceLocation = undefined;
         }
       }
 
@@ -2099,44 +1989,43 @@ ApplicationWindow {
         stateVisible: moveFeaturesRequested
 
         onConfirm: {
-          endPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y)
-          moveFeaturesRequested = false
-          moveConfirmed()
+          endPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
+          moveFeaturesRequested = false;
+          moveConfirmed();
         }
         onCancel: {
-          startPoint = undefined
-          endPoint = undefined
-          moveFeaturesRequested = false
-          moveCanceled()
+          startPoint = undefined;
+          endPoint = undefined;
+          moveFeaturesRequested = false;
+          moveCanceled();
         }
 
         function initializeMoveFeatures() {
-          if ( featureForm  && featureForm.selection.model.selectedCount === 1 ) {
-            featureForm.extentController.zoomToSelected()
+          if (featureForm && featureForm.selection.model.selectedCount === 1) {
+            featureForm.extentController.zoomToSelected();
           }
-
-          startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y)
-          moveFeaturesRequested = true
+          startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
+          moveFeaturesRequested = true;
         }
       }
     }
   }
 
   LocatorSettings {
-      id: locatorSettings
-      locatorFiltersModel: locatorItem.locatorFiltersModel
+    id: locatorSettings
+    locatorFiltersModel: locatorItem.locatorFiltersModel
 
-      modal: true
-      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: Overlay.overlay
+    modal: true
+    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    parent: Overlay.overlay
   }
 
   PluginManagerSettings {
-      id: pluginManagerSettings
+    id: pluginManagerSettings
 
-      modal: true
-      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: Overlay.overlay
+    modal: true
+    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    parent: Overlay.overlay
   }
 
   DashBoard {
@@ -2144,16 +2033,11 @@ ApplicationWindow {
     objectName: "dashBoard"
     allowActiveLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
-    interactive: !welcomeScreen.visible
-                 && !qfieldSettings.visible
-                 && !qfieldCloudScreen.visible
-                 && !qfieldLocalDataPickerScreen.visible
-                 && !codeReader.visible
-                 && !screenLocker.enabled
+    interactive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
 
     onOpenedChanged: {
-      if ( !opened ) {
-        if ( featureForm.visible ) {
+      if (!opened) {
+        if (featureForm.visible) {
           featureForm.focus = true;
         }
       }
@@ -2162,38 +2046,21 @@ ApplicationWindow {
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
       var activeLayerLocked = false;
-      for (var i = 0; i < layerTree.rowCount(); i++)
-      {
-        var index = layerTree.index(i, 0)
-        if (firstEditableLayer === null)
-        {
-          if (
-              layerTree.data(index,FlatLayerTreeModel.Type) === 'layer'
-              && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false
-              && layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false)
-          {
-             firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+      for (var i = 0; i < layerTree.rowCount(); i++) {
+        var index = layerTree.index(i, 0);
+        if (firstEditableLayer === null) {
+          if (layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false) {
+            firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
           }
         }
-        if (activeLayer != null && activeLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer))
-        {
-           if (
-               layerTree.data(index, FlatLayerTreeModel.ReadOnly) === true
-               || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === true
-           )
-           {
-             activeLayerLocked = true;
-           }
-           else
-           {
-             break;
-           }
+        if (activeLayer != null && activeLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) {
+          if (layerTree.data(index, FlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === true) {
+            activeLayerLocked = true;
+          } else {
+            break;
+          }
         }
-        if (
-            firstEditableLayer !== null
-            && (activeLayer == null || activeLayerLocked === true)
-        )
-        {
+        if (firstEditableLayer !== null && (activeLayer == null || activeLayerLocked === true)) {
           activeLayer = firstEditableLayer;
           break;
         }
@@ -2205,32 +2072,32 @@ ApplicationWindow {
     id: bookmarkProperties
   }
 
-  function openWelcomeScreen(){
-    mainMenu.close()
-    dashBoard.close()
-    welcomeScreen.visible = true
-    welcomeScreen.focus = true
-    homeButton.waitingForDigitizingFinish = false
+  function openWelcomeScreen() {
+    mainMenu.close();
+    dashBoard.close();
+    welcomeScreen.visible = true;
+    welcomeScreen.focus = true;
+    homeButton.waitingForDigitizingFinish = false;
   }
 
   Menu {
     id: mainMenu
-    title: qsTr( "Main Menu" )
+    title: qsTr("Main Menu")
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
 
     width: {
-        const toolbarWidth = mainMenuActionsToolbar.childrenRect.width + 4
-        let result = 50;
-        let padding = 0;
-        // Skip first Row item
-        for (let i = 1; i < count; ++i) {
-            const item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return Math.max(toolbarWidth, result + padding);
+      const toolbarWidth = mainMenuActionsToolbar.childrenRect.width + 4;
+      let result = 50;
+      let padding = 0;
+      // Skip first Row item
+      for (let i = 1; i < count; ++i) {
+        const item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.leftPadding + item.rightPadding, padding);
+      }
+      return Math.max(toolbarWidth, result + padding);
     }
 
     Row {
@@ -2250,7 +2117,7 @@ ApplicationWindow {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
+        iconSource: Theme.getThemeVectorIcon("ic_home_black_24dp")
         iconColor: Theme.mainTextColor
         bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
@@ -2259,10 +2126,10 @@ ApplicationWindow {
         onClicked: {
           if (currentRubberband && currentRubberband.model.vertexCount > 1) {
             digitizingToolbar.cancelDialog.open();
-            waitingForDigitizingFinish = true
+            waitingForDigitizingFinish = true;
           } else if (!waitingForDigitizingFinish) {
-            openWelcomeScreen()
-            highlighted = false
+            openWelcomeScreen();
+            highlighted = false;
           }
         }
       }
@@ -2272,15 +2139,15 @@ ApplicationWindow {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
+        iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
         iconColor: Theme.mainTextColor
         bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
-          mainMenu.close()
-          dashBoard.close()
-          changeMode( 'measure' )
-          highlighted = false
+          mainMenu.close();
+          dashBoard.close();
+          changeMode('measure');
+          highlighted = false;
         }
       }
 
@@ -2289,14 +2156,14 @@ ApplicationWindow {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
+        iconSource: Theme.getThemeVectorIcon("ic_lock_black_24dp")
         iconColor: Theme.mainTextColor
         bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
-          mainMenu.close()
-          dashBoard.close()
-          screenLocker.enabled = true
+          mainMenu.close();
+          dashBoard.close();
+          screenLocker.enabled = true;
         }
       }
 
@@ -2307,18 +2174,16 @@ ApplicationWindow {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeVectorIcon( "ic_undo_black_24dp" )
+        iconSource: Theme.getThemeVectorIcon("ic_undo_black_24dp")
         iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           if (isEnabled) {
             const msg = featureHistory.undoMessage();
-
-            if ( featureHistory.undo() ) {
-              displayToast( msg );
+            if (featureHistory.undo()) {
+              displayToast(msg);
             }
-
             dashBoard.close();
             mainMenu.close();
           }
@@ -2332,18 +2197,16 @@ ApplicationWindow {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeVectorIcon( "ic_redo_black_24dp" )
+        iconSource: Theme.getThemeVectorIcon("ic_redo_black_24dp")
         iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
           if (isEnabled) {
             const msg = featureHistory.redoMessage();
-
-            if ( featureHistory.redo() ) {
-              displayToast( msg );
+            if (featureHistory.redo()) {
+              displayToast(msg);
             }
-
             dashBoard.close();
             mainMenu.close();
           }
@@ -2351,152 +2214,155 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
       id: printItem
-      text: qsTr( "Print to PDF" )
+      text: qsTr("Print to PDF")
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_print_black_24dp" )
+      icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
       arrow: Canvas {
-          x: parent.width - width
-          y: (parent.height - height) / 2
-          implicitWidth: 40
-          implicitHeight: 40
-          opacity: layoutListInstantiator.count > 1 ? 1 : 0
-          onPaint: {
-              var ctx = getContext("2d")
-              ctx.strokeStyle = Theme.mainColor
-              ctx.lineWidth = 1
-              ctx.moveTo(15, 15)
-              ctx.lineTo(width - 15, height / 2)
-              ctx.lineTo(15, height - 15)
-              ctx.stroke();
-          }
+        x: parent.width - width
+        y: (parent.height - height) / 2
+        implicitWidth: 40
+        implicitHeight: 40
+        opacity: layoutListInstantiator.count > 1 ? 1 : 0
+        onPaint: {
+          var ctx = getContext("2d");
+          ctx.strokeStyle = Theme.mainColor;
+          ctx.lineWidth = 1;
+          ctx.moveTo(15, 15);
+          ctx.lineTo(width - 15, height / 2);
+          ctx.lineTo(15, height - 15);
+          ctx.stroke();
+        }
       }
 
       onTriggered: {
-        if (layoutListInstantiator.count > 1)
-        {
-          printMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
-        }
-        else if (layoutListInstantiator.count == 1)
-        {
+        if (layoutListInstantiator.count > 1) {
+          printMenu.popup(mainMenu.x, mainMenu.y + printItem.y);
+        } else if (layoutListInstantiator.count == 1) {
           mainMenu.close();
-          displayToast( qsTr( 'Printing...') )
-          printMenu.printName =layoutListInstantiator.model.titleAt( 0 );
+          displayToast(qsTr('Printing...'));
+          printMenu.printName = layoutListInstantiator.model.titleAt(0);
           printMenu.printTimer.restart();
-        }
-        else
-        {
+        } else {
           mainMenu.close();
-          toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/') })
+          toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function () {
+              Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/');
+            });
         }
-        highlighted = false
+        highlighted = false;
       }
     }
 
     MenuItem {
       id: sensorItem
-      text: qsTr( "Sensors" )
+      text: qsTr("Sensors")
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_sensor_on_black_24dp" )
+      icon.source: Theme.getThemeVectorIcon("ic_sensor_on_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
       arrow: Canvas {
-          x: parent.width - width
-          y: (parent.height - height) / 2
-          implicitWidth: 40
-          implicitHeight: 40
-          opacity: sensorListInstantiator.count > 0 ? 1 : 0
-          onPaint: {
-              var ctx = getContext("2d")
-              ctx.strokeStyle = Theme.mainColor
-              ctx.lineWidth = 1
-              ctx.moveTo(15, 15)
-              ctx.lineTo(width - 15, height / 2)
-              ctx.lineTo(15, height - 15)
-              ctx.stroke();
-          }
+        x: parent.width - width
+        y: (parent.height - height) / 2
+        implicitWidth: 40
+        implicitHeight: 40
+        opacity: sensorListInstantiator.count > 0 ? 1 : 0
+        onPaint: {
+          var ctx = getContext("2d");
+          ctx.strokeStyle = Theme.mainColor;
+          ctx.lineWidth = 1;
+          ctx.moveTo(15, 15);
+          ctx.lineTo(width - 15, height / 2);
+          ctx.lineTo(15, height - 15);
+          ctx.stroke();
+        }
       }
 
       onTriggered: {
         if (sensorListInstantiator.count > 0) {
-          sensorMenu.popup( mainMenu.x, mainMenu.y + sensorItem.y )
+          sensorMenu.popup(mainMenu.x, mainMenu.y + sensorItem.y);
         } else {
           mainMenu.close();
-          toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function() { Qt.openUrlExternally('https://docs.qfield.org/how-to/sensors/') })
+          toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function () {
+              Qt.openUrlExternally('https://docs.qfield.org/how-to/sensors/');
+            });
         }
-        highlighted = false
+        highlighted = false;
       }
     }
 
     MenuItem {
-      text: qsTr( "Project Folder" )
+      text: qsTr("Project Folder")
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_project_folder_black_24dp" )
+      icon.source: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
       onTriggered: {
-        dashBoard.close()
-        qfieldLocalDataPickerScreen.projectFolderView = true
-        qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath)
-        qfieldLocalDataPickerScreen.visible = true
+        dashBoard.close();
+        qfieldLocalDataPickerScreen.projectFolderView = true;
+        qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath);
+        qfieldLocalDataPickerScreen.visible = true;
       }
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
-      text: qsTr( "Settings" )
+      text: qsTr("Settings")
 
       font: Theme.defaultFont
       height: 48
       leftPadding: Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
-        dashBoard.close()
-        qfieldSettings.visible = true
-        highlighted = false
+        dashBoard.close();
+        qfieldSettings.visible = true;
+        highlighted = false;
       }
     }
 
     MenuItem {
-      text: qsTr( "Message Log" )
+      text: qsTr("Message Log")
 
       font: Theme.defaultFont
       height: 48
       leftPadding: Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
-        dashBoard.close()
-        messageLog.visible = true
-        highlighted = false
+        dashBoard.close();
+        messageLog.visible = true;
+        highlighted = false;
       }
     }
 
     MenuItem {
-      text: qsTr( "About QField" )
+      text: qsTr("About QField")
 
       font: Theme.defaultFont
       height: 48
       leftPadding: Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
-        dashBoard.close()
-        aboutDialog.visible = true
-        highlighted = false
+        dashBoard.close();
+        aboutDialog.visible = true;
+        highlighted = false;
       }
     }
   }
@@ -2507,24 +2373,24 @@ ApplicationWindow {
     property alias printTimer: timer
     property alias printName: timer.printName
 
-    title: qsTr( "Sensors" )
+    title: qsTr("Sensors")
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
 
     width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-            let item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+      let result = 50;
+      let padding = 0;
+      for (let i = 0; i < count; ++i) {
+        let item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.leftPadding + item.rightPadding, padding);
+      }
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
-      text: qsTr( 'Select sensor below' )
+      text: qsTr('Select sensor below')
 
       font: Theme.defaultFont
       height: 48
@@ -2539,35 +2405,37 @@ ApplicationWindow {
       model: SensorListModel {
         project: qgisProject
 
-        onSensorErrorOccurred: (errorString) => {
-          displayToast(qsTr('Sensor error: %1').arg(errorString), 'error')
+        onSensorErrorOccurred: errorString => {
+          displayToast(qsTr('Sensor error: %1').arg(errorString), 'error');
         }
       }
 
       MenuItem {
         text: SensorName
-        icon.source: SensorStatus == Qgis.DeviceConnectionStatus.Connected
-                     ? Theme.getThemeVectorIcon( "ic_sensor_on_black_24dp" )
-                     : Theme.getThemeVectorIcon( "ic_sensor_off_black_24dp" )
+        icon.source: SensorStatus == Qgis.DeviceConnectionStatus.Connected ? Theme.getThemeVectorIcon("ic_sensor_on_black_24dp") : Theme.getThemeVectorIcon("ic_sensor_off_black_24dp")
 
         font: Theme.defaultFont
         leftPadding: Theme.menuItemLeftPadding
 
         onTriggered: {
           if (SensorStatus == Qgis.DeviceConnectionStatus.Connected) {
-            displayToast( qsTr( 'Disconnecting sensor \'%1\'...').arg(SensorName) )
-            sensorListInstantiator.model.disconnectSensorId(SensorId)
-            highlighted = false
+            displayToast(qsTr('Disconnecting sensor \'%1\'...').arg(SensorName));
+            sensorListInstantiator.model.disconnectSensorId(SensorId);
+            highlighted = false;
           } else {
-            displayToast( qsTr( 'Connecting sensor \'%1\'...').arg(SensorName) )
-            sensorListInstantiator.model.connectSensorId(SensorId)
-            highlighted = false
+            displayToast(qsTr('Connecting sensor \'%1\'...').arg(SensorName));
+            sensorListInstantiator.model.connectSensorId(SensorId);
+            highlighted = false;
           }
         }
       }
 
-      onObjectAdded: (index, object) => { sensorMenu.insertItem(index+1, object) }
-      onObjectRemoved: (index, object) => { sensorMenu.removeItem(object) }
+      onObjectAdded: (index, object) => {
+        sensorMenu.insertItem(index + 1, object);
+      }
+      onObjectRemoved: (index, object) => {
+        sensorMenu.removeItem(object);
+      }
     }
   }
 
@@ -2577,24 +2445,24 @@ ApplicationWindow {
     property alias printTimer: timer
     property alias printName: timer.printName
 
-    title: qsTr( "Print" )
+    title: qsTr("Print")
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
 
     width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-            let item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+      let result = 50;
+      let padding = 0;
+      for (let i = 0; i < count; ++i) {
+        let item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.leftPadding + item.rightPadding, padding);
+      }
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
-      text: qsTr( 'Select layout below' )
+      text: qsTr('Select layout below')
 
       font: Theme.defaultFont
       height: 48
@@ -2617,14 +2485,18 @@ ApplicationWindow {
         leftPadding: Theme.menuItemLeftPadding
 
         onTriggered: {
-            highlighted = false
-            displayToast( qsTr( 'Printing...') )
-            printMenu.printName = Title
-            printMenu.printTimer.restart();
+          highlighted = false;
+          displayToast(qsTr('Printing...'));
+          printMenu.printName = Title;
+          printMenu.printTimer.restart();
         }
       }
-      onObjectAdded: (index, object) => { printMenu.insertItem(index+1, object) }
-      onObjectRemoved: (index, object) => { printMenu.removeItem(object) }
+      onObjectAdded: (index, object) => {
+        printMenu.insertItem(index + 1, object);
+      }
+      onObjectRemoved: (index, object) => {
+        printMenu.removeItem(object);
+      }
     }
 
     Timer {
@@ -2634,7 +2506,7 @@ ApplicationWindow {
 
       interval: 500
       repeat: false
-      onTriggered: iface.print( printName )
+      onTriggered: iface.print(printName)
     }
   }
 
@@ -2642,41 +2514,35 @@ ApplicationWindow {
     id: canvasMenu
     objectName: "canvasMenu"
 
-    title: qsTr( "Map Canvas Options" )
+    title: qsTr("Map Canvas Options")
     font: Theme.defaultFont
 
     property var point
     onPointChanged: {
-      var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+      var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
       var isXY = CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs);
-      var isGeographic = projectInfo.coordinateDisplayCrs.isGeographic
-
-      var xLabel = isGeographic ? qsTr( 'Lon' ) : 'X';
-      var xValue = Number( displayPoint.x ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
-      var yLabel = isGeographic ? qsTr( 'Lat' ) : 'Y'
-      var yValue = Number( displayPoint.y ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
-      const xItemText = isXY
-                   ? xLabel + ': ' + xValue
-                   : yLabel + ': ' + yValue
-      const yItemText = isXY
-                   ? yLabel + ': ' + yValue
-                   : xLabel + ': ' + xValue
-
-      cordinateItem.text = xItemText + "   " + yItemText
+      var isGeographic = projectInfo.coordinateDisplayCrs.isGeographic;
+      var xLabel = isGeographic ? qsTr('Lon') : 'X';
+      var xValue = Number(displayPoint.x).toLocaleString(Qt.locale(), 'f', isGeographic ? 7 : 3);
+      var yLabel = isGeographic ? qsTr('Lat') : 'Y';
+      var yValue = Number(displayPoint.y).toLocaleString(Qt.locale(), 'f', isGeographic ? 7 : 3);
+      const xItemText = isXY ? xLabel + ': ' + xValue : yLabel + ': ' + yValue;
+      const yItemText = isXY ? yLabel + ': ' + yValue : xLabel + ': ' + xValue;
+      cordinateItem.text = xItemText + "   " + yItemText;
     }
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
 
     width: {
-      const toolbarWidth = canvasMenuActionsToolbar.childrenRect.width + 4
+      const toolbarWidth = canvasMenuActionsToolbar.childrenRect.width + 4;
       let result = 0;
       let padding = 0;
       // Skip first Row item
       for (let i = 1; i < count; ++i) {
-          const item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.padding, padding);
+        const item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.padding, padding);
       }
       return Math.min(Math.max(toolbarWidth, result + padding * 2), mainWindow.width - 20);
     }
@@ -2693,7 +2559,10 @@ ApplicationWindow {
       property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
     }
 
-    MenuSeparator { width: parent.width; height: canvasMenuActionsToolbar.children.length > 0 ? undefined : 0 }
+    MenuSeparator {
+      width: parent.width
+      height: canvasMenuActionsToolbar.children.length > 0 ? undefined : 0
+    }
 
     MenuItem {
       id: cordinateItem
@@ -2701,28 +2570,30 @@ ApplicationWindow {
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
 
       onTriggered: {
-        const displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
-        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs))
+        const displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
+        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs));
         displayToast(qsTr('Coordinates copied to clipboard'));
       }
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
       id: addBookmarkItem
-      text: qsTr( "Add Bookmark" )
-      icon.source: Theme.getThemeIcon( "ic_bookmark_black_24dp" )
+      text: qsTr("Add Bookmark")
+      icon.source: Theme.getThemeIcon("ic_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
         var name = qsTr('Untitled bookmark');
-        var group = ''
+        var group = '';
         var id = bookmarkModel.addBookmarkAtPoint(canvasMenu.point, name, group);
         if (id !== '') {
           bookmarkProperties.bookmarkId = id;
@@ -2735,14 +2606,14 @@ ApplicationWindow {
 
     MenuItem {
       id: setDestinationItem
-      text: qsTr( "Set as Destination" )
-      icon.source: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
+      text: qsTr("Set as Destination")
+      icon.source: Theme.getThemeIcon("ic_navigation_flag_purple_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
-        navigation.destination = canvasMenu.point
+        navigation.destination = canvasMenu.point;
       }
     }
 
@@ -2762,18 +2633,20 @@ ApplicationWindow {
       onTriggered: qfieldSettings.enableMapRotation = checked
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
-      text: qsTr( 'Lock Screen' )
+      text: qsTr('Lock Screen')
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
+      icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
-        screenLocker.enabled = true
+        screenLocker.enabled = true;
       }
     }
 
@@ -2804,19 +2677,19 @@ ApplicationWindow {
         font: Theme.defaultFont
 
         width: {
-            let result = 50;
-            let padding = 0;
-            for (let i = 0; i < count; ++i) {
-                let item = itemAt(i);
-                result = Math.max(item.contentItem.implicitWidth, result);
-                padding = Math.max(item.leftPadding + item.rightPadding, padding);
-            }
-            return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+          let result = 50;
+          let padding = 0;
+          for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
+          }
+          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
         }
 
         Component.onCompleted: {
           if (featureMenu.icon !== undefined) {
-            featureMenu.icon.source = Theme.getThemeVectorIcon('ic_info_white_24dp')
+            featureMenu.icon.source = Theme.getThemeVectorIcon('ic_info_white_24dp');
           }
         }
 
@@ -2828,29 +2701,31 @@ ApplicationWindow {
           text: qsTr('Feature:') + ' ' + featureName
           enabled: false
         }
-        MenuSeparator { width: parent.width }
+        MenuSeparator {
+          width: parent.width
+        }
 
         MenuItem {
           text: qsTr('Open Feature Form')
           font: Theme.defaultFont
-          icon.source: Theme.getThemeIcon( "ic_baseline-list_alt-24px" )
+          icon.source: Theme.getThemeIcon("ic_baseline-list_alt-24px")
           leftPadding: Theme.menuItemLeftPadding
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
-            featureForm.selection.focusedItem = 0
-            featureForm.state = "FeatureForm"
+            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
+            featureForm.selection.focusedItem = 0;
+            featureForm.state = "FeatureForm";
           }
         }
 
         MenuItem {
           text: qsTr('Copy Feature Attributes')
           font: Theme.defaultFont
-          icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+          icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
           leftPadding: Theme.menuItemLeftPadding
 
           onTriggered: {
-            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true)
+            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true);
           }
         }
 
@@ -2858,56 +2733,59 @@ ApplicationWindow {
           text: qsTr('Duplicate Feature')
           font: Theme.defaultFont
           enabled: projectInfo.insertRights
-          icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
+          icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
           leftPadding: Theme.menuItemLeftPadding
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid)
-            featureForm.selection.focusedItem = 0
-            featureForm.multiSelection = true
-            featureForm.selection.toggleSelectedItem(0)
-            featureForm.state = "FeatureList"
+            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
+            featureForm.selection.focusedItem = 0;
+            featureForm.multiSelection = true;
+            featureForm.selection.toggleSelectedItem(0);
+            featureForm.state = "FeatureList";
             if (featureForm.model.canDuplicateSelection) {
-              if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature)) {
-                displayToast(qsTr('Successfully duplicated feature'))
-
-                featureForm.selection.focusedItem = -1
-                moveFeaturesToolbar.initializeMoveFeatures()
+              if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer, featureForm.selection.focusedFeature)) {
+                displayToast(qsTr('Successfully duplicated feature'));
+                featureForm.selection.focusedItem = -1;
+                moveFeaturesToolbar.initializeMoveFeatures();
                 return;
               }
             }
-            displayToast(qsTr('Feature duplication not available'))
+            displayToast(qsTr('Feature duplication not available'));
           }
         }
       }
 
-      onObjectAdded: (index, object) => { canvasMenu.insertMenu(index + 11, object) }
-      onObjectRemoved: (index, object) => { canvasMenu.removeMenu(object) }
+      onObjectAdded: (index, object) => {
+        canvasMenu.insertMenu(index + 11, object);
+      }
+      onObjectRemoved: (index, object) => {
+        canvasMenu.removeMenu(object);
+      }
     }
   }
 
   Menu {
     id: navigationMenu
-    title: qsTr( "Navigation Options" )
+    title: qsTr("Navigation Options")
     font: Theme.defaultFont
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
 
     width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-            let item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+      let result = 50;
+      let padding = 0;
+      for (let i = 0; i < count; ++i) {
+        let item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.leftPadding + item.rightPadding, padding);
+      }
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
       id: preciseViewItem
-      text: qsTr( "Precise View Settings" )
+      text: qsTr("Precise View Settings")
 
       font: Theme.defaultFont
       height: 48
@@ -2915,33 +2793,35 @@ ApplicationWindow {
       rightPadding: 40
 
       arrow: Canvas {
-          x: parent.width - width
-          y: (parent.height - height) / 2
-          implicitWidth: 40
-          implicitHeight: 40
-          visible: true
-          onPaint: {
-              var ctx = getContext("2d")
-              ctx.strokeStyle = Theme.mainColor
-              ctx.lineWidth = 1
-              ctx.moveTo(15, 15)
-              ctx.lineTo(width - 15, height / 2)
-              ctx.lineTo(15, height - 15)
-              ctx.stroke();
-          }
+        x: parent.width - width
+        y: (parent.height - height) / 2
+        implicitWidth: 40
+        implicitHeight: 40
+        visible: true
+        onPaint: {
+          var ctx = getContext("2d");
+          ctx.strokeStyle = Theme.mainColor;
+          ctx.lineWidth = 1;
+          ctx.moveTo(15, 15);
+          ctx.lineTo(width - 15, height / 2);
+          ctx.lineTo(15, height - 15);
+          ctx.stroke();
+        }
       }
 
       onTriggered: {
-        preciseViewMenu.popup( navigationMenu.x, navigationMenu.y - preciseViewItem.y )
-        highlighted = false
+        preciseViewMenu.popup(navigationMenu.x, navigationMenu.y - preciseViewItem.y);
+        highlighted = false;
       }
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
       id: cancelNavigationItem
-      text: qsTr( "Clear Destination" )
+      text: qsTr("Clear Destination")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
@@ -2954,25 +2834,25 @@ ApplicationWindow {
 
   Menu {
     id: preciseViewMenu
-    title: qsTr( "Precise View Settings" )
+    title: qsTr("Precise View Settings")
     font: Theme.defaultFont
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
 
     width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-            let item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
+      let result = 50;
+      let padding = 0;
+      for (let i = 0; i < count; ++i) {
+        let item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.leftPadding + item.rightPadding, padding);
+      }
+      return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.10, 2, projectInfo.distanceUnits))
+      text: qsTr("%1 Precision").arg(UnitTypes.formatDistance(0.10, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -2984,11 +2864,12 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 0.10
+      onCheckedChanged: if (checked)
+        positioningSettings.preciseViewPrecision = 0.10
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.25, 2, projectInfo.distanceUnits))
+      text: qsTr("%1 Precision").arg(UnitTypes.formatDistance(0.25, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3000,11 +2881,12 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 0.25
+      onCheckedChanged: if (checked)
+        positioningSettings.preciseViewPrecision = 0.25
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.5, 2, projectInfo.distanceUnits))
+      text: qsTr("%1 Precision").arg(UnitTypes.formatDistance(0.5, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3016,11 +2898,12 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 0.5
+      onCheckedChanged: if (checked)
+        positioningSettings.preciseViewPrecision = 0.5
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(1, 2, projectInfo.distanceUnits))
+      text: qsTr("%1 Precision").arg(UnitTypes.formatDistance(1, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3032,11 +2915,12 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 1
+      onCheckedChanged: if (checked)
+        positioningSettings.preciseViewPrecision = 1
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(2.5, 2, projectInfo.distanceUnits))
+      text: qsTr("%1 Precision").arg(UnitTypes.formatDistance(2.5, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3048,11 +2932,12 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 2.5
+      onCheckedChanged: if (checked)
+        positioningSettings.preciseViewPrecision = 2.5
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(5, 2, projectInfo.distanceUnits))
+      text: qsTr("%1 Precision").arg(UnitTypes.formatDistance(5, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3064,11 +2949,12 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 5
+      onCheckedChanged: if (checked)
+        positioningSettings.preciseViewPrecision = 5
     }
 
     MenuItem {
-      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(10, 2, projectInfo.distanceUnits))
+      text: qsTr("%1 Precision").arg(UnitTypes.formatDistance(10, 2, projectInfo.distanceUnits))
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3080,13 +2966,16 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 10
+      onCheckedChanged: if (checked)
+        positioningSettings.preciseViewPrecision = 10
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
-      text: qsTr( "Always Show Precise View" )
+      text: qsTr("Always Show Precise View")
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3101,7 +2990,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Enable Audio Proximity Feedback" )
+      text: qsTr("Enable Audio Proximity Feedback")
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3118,36 +3007,38 @@ ApplicationWindow {
 
   Menu {
     id: gnssMenu
-    title: qsTr( "Positioning Options" )
+    title: qsTr("Positioning Options")
     font: Theme.defaultFont
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
 
     width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-            let item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+      let result = 50;
+      let padding = 0;
+      for (let i = 0; i < count; ++i) {
+        let item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.leftPadding + item.rightPadding, padding);
+      }
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     MenuItem {
-        id: positioningDeviceName
-        text: positioningSettings.positioningDeviceName
-        height: 48
-        font: Theme.defaultFont
-        enabled:false
+      id: positioningDeviceName
+      text: positioningSettings.positioningDeviceName
+      height: 48
+      font: Theme.defaultFont
+      enabled: false
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
       id: positioningItem
-      text: qsTr( "Enable Positioning" )
+      text: qsTr("Enable Positioning")
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3162,7 +3053,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Show Position Information" )
+      text: qsTr("Show Position Information")
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -3177,33 +3068,35 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Positioning Settings" )
+      text: qsTr("Positioning Settings")
       height: 48
       leftPadding: Theme.menuItemIconlessLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
-        qfieldSettings.currentPanel = 1
-        qfieldSettings.visible = true
+        qfieldSettings.currentPanel = 1;
+        qfieldSettings.visible = true;
       }
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
-      text: qsTr( "Center to Location" )
+      text: qsTr("Center to Location")
       height: 48
       leftPadding: Theme.menuItemIconlessLeftPadding
       font: Theme.defaultFont
 
       onTriggered: {
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true)
+        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
       }
     }
 
     MenuItem {
-      text: qsTr( "Add Bookmark at Location" )
-      icon.source: Theme.getThemeIcon( "ic_bookmark_black_24dp" )
+      text: qsTr("Add Bookmark at Location")
+      icon.source: Theme.getThemeIcon("ic_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
@@ -3213,10 +3106,9 @@ ApplicationWindow {
           displayToast(qsTr('Current location unknown'));
           return;
         }
-
         var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
         var group = 'blue';
-        var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group)
+        var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
         if (id !== '') {
           bookmarkProperties.bookmarkId = id;
           bookmarkProperties.bookmarkName = name;
@@ -3227,26 +3119,21 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Copy Location Coordinates" )
+      text: qsTr("Copy Location Coordinates")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
 
       onTriggered: {
         if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
           displayToast(qsTr('Current location unknown'));
           return;
         }
-
-        var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs)
-        var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs)
-        coordinates += ' ('+ qsTr('Accuracy') + ' ' +
-                       ( positionSource.positionInformation && positionSource.positionInformation.haccValid
-                         ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
-                         : qsTr( "N/A" ) ) + ')';
-
-        platformUtilities.copyTextToClipboard(coordinates)
+        var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
+        var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
+        coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
+        platformUtilities.copyTextToClipboard(coordinates);
         displayToast(qsTr('Current location copied to clipboard'));
       }
     }
@@ -3264,12 +3151,16 @@ ApplicationWindow {
 
     focus: visible
 
-    anchors { right: parent.right; bottom: parent.bottom }
+    anchors {
+      right: parent.right
+      bottom: parent.bottom
+    }
 
     allowEdit: stateMachine.state === "digitize"
     allowDelete: stateMachine.state === "digitize"
 
-    model: MultiFeatureListModel {}
+    model: MultiFeatureListModel {
+    }
 
     selection: FeatureListModelSelection {
       id: featureListModelSelection
@@ -3283,29 +3174,24 @@ ApplicationWindow {
     onEditGeometry: {
       // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
       // important for snapping settings to make sense when set to current layer
-      if ( dashBoard.activeLayer != featureForm.selection.focusedLayer ) {
-        dashBoard.activeLayer = featureForm.selection.focusedLayer
-        displayToast( qsTr( "Current layer switched to the one holding the selected geometry." ) );
+      if (dashBoard.activeLayer != featureForm.selection.focusedLayer) {
+        dashBoard.activeLayer = featureForm.selection.focusedLayer;
+        displayToast(qsTr("Current layer switched to the one holding the selected geometry."));
       }
-      geometryEditingFeature.vertexModel.geometry = featureForm.selection.focusedGeometry
-      geometryEditingFeature.vertexModel.crs = featureForm.selection.focusedLayer.crs
-      geometryEditingFeature.currentLayer = featureForm.selection.focusedLayer
-      geometryEditingFeature.feature = featureForm.selection.focusedFeature
-
-      if (!geometryEditingVertexModel.editingAllowed)
-      {
-        displayToast( qsTr( "Editing of multi geometry layer is not supported yet." ) )
-        geometryEditingVertexModel.clear()
+      geometryEditingFeature.vertexModel.geometry = featureForm.selection.focusedGeometry;
+      geometryEditingFeature.vertexModel.crs = featureForm.selection.focusedLayer.crs;
+      geometryEditingFeature.currentLayer = featureForm.selection.focusedLayer;
+      geometryEditingFeature.feature = featureForm.selection.focusedFeature;
+      if (!geometryEditingVertexModel.editingAllowed) {
+        displayToast(qsTr("Editing of multi geometry layer is not supported yet."));
+        geometryEditingVertexModel.clear();
+      } else {
+        featureForm.state = "Hidden";
       }
-      else
-      {
-        featureForm.state = "Hidden"
-      }
-
-      geometryEditorsToolbar.init()
+      geometryEditorsToolbar.init();
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: focusstack.addFocusTaker(this)
 
     //that the focus is set by selecting the empty space
     MouseArea {
@@ -3314,17 +3200,17 @@ ApplicationWindow {
       enabled: !parent.activeFocus
 
       //onPressed because onClicked shall be handled in underlying MouseArea
-      onPressed: (mouse) => {
-        parent.focus=true
-        mouse.accepted=false
+      onPressed: mouse => {
+        parent.focus = true;
+        mouse.accepted = false;
       }
     }
   }
 
   QfDropShadow {
     anchors.fill: featureForm
-    horizontalOffset: mainWindow.width >= mainWindow.height ? -2: 0
-    verticalOffset: mainWindow.width < mainWindow.height ? -2: 0
+    horizontalOffset: mainWindow.width >= mainWindow.height ? -2 : 0
+    verticalOffset: mainWindow.width < mainWindow.height ? -2 : 0
     radius: 6.0
     color: "#80000000"
     source: featureForm
@@ -3340,8 +3226,8 @@ ApplicationWindow {
 
   function displayToast(message, type, action_text, action_function) {
     //toastMessage.text = message
-    if(!welcomeScreen.visible)
-      toast.show(message, type, action_text, action_function)
+    if (!welcomeScreen.visible)
+      toast.show(message, type, action_text, action_function);
   }
 
   Timer {
@@ -3359,26 +3245,25 @@ ApplicationWindow {
       if (stateMachine.state === 'browse' || !mapCanvasMap.isEnabled) {
         return;
       }
-
       switch (volumeKeyCode) {
-        case  Qt.Key_VolumeDown:
-          if (mapCanvasMap.interactive) {
-            digitizingToolbar.removeVertex();
-          }
-          break;
-        case Qt.Key_VolumeUp:
-          if (!geometryEditorsToolbar.canvasClicked(coordinateLocator.currentCoordinate)) {
-            digitizingToolbar.triggerAddVertex();
-          }
-          break;
-        default:
-          break;
+      case Qt.Key_VolumeDown:
+        if (mapCanvasMap.interactive) {
+          digitizingToolbar.removeVertex();
+        }
+        break;
+      case Qt.Key_VolumeUp:
+        if (!geometryEditorsToolbar.canvasClicked(coordinateLocator.currentCoordinate)) {
+          digitizingToolbar.triggerAddVertex();
+        }
+        break;
+      default:
+        break;
       }
     }
 
     function onImportTriggered(name) {
-      busyOverlay.text = qsTr("Importing %1").arg(name)
-      busyOverlay.state = "visible"
+      busyOverlay.text = qsTr("Importing %1").arg(name);
+      busyOverlay.state = "visible";
     }
 
     function onImportProgress(progress) {
@@ -3386,133 +3271,112 @@ ApplicationWindow {
     }
 
     function onImportEnded(path) {
-      busyOverlay.state = "hidden"
+      busyOverlay.state = "hidden";
       if (path !== '') {
-        qfieldLocalDataPickerScreen.model.currentPath = path
-        qfieldLocalDataPickerScreen.visible = true
-        welcomeScreen.visible = false
+        qfieldLocalDataPickerScreen.model.currentPath = path;
+        qfieldLocalDataPickerScreen.visible = true;
+        welcomeScreen.visible = false;
       } else {
-        displayToast(qsTr('Import URL failed'))
+        displayToast(qsTr('Import URL failed'));
       }
     }
 
-    function onLoadProjectTriggered(path,name) {
-      qfieldLocalDataPickerScreen.visible = false
-      qfieldLocalDataPickerScreen.focus = false
-      welcomeScreen.visible = false
-      welcomeScreen.focus = false
-
+    function onLoadProjectTriggered(path, name) {
+      qfieldLocalDataPickerScreen.visible = false;
+      qfieldLocalDataPickerScreen.focus = false;
+      welcomeScreen.visible = false;
+      welcomeScreen.focus = false;
       if (changelogPopup.visible)
-        changelogPopup.close()
-
-      dashBoard.layerTree.freeze()
-      mapCanvasMap.freeze('projectload')
-
-      busyOverlay.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
-      busyOverlay.state = "visible"
-
-      navigation.clearDestinationFeature()
-
-      projectInfo.filePath = ''
-      readProjectTimer.start()
+        changelogPopup.close();
+      dashBoard.layerTree.freeze();
+      mapCanvasMap.freeze('projectload');
+      busyOverlay.text = qsTr("Loading %1").arg(name !== '' ? name : path);
+      busyOverlay.state = "visible";
+      navigation.clearDestinationFeature();
+      projectInfo.filePath = '';
+      readProjectTimer.start();
     }
 
-    function onLoadProjectEnded(path,name) {
-      mapCanvasMap.unfreeze('projectload')
-      busyOverlay.state = "hidden"
-
-      projectInfo.filePath = path
-      stateMachine.state = projectInfo.stateMode
-      platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse')
-      dashBoard.activeLayer = projectInfo.activeLayer
-
-      drawingTemplateModel.projectFilePath = path
-
-      mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
-
-      var titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration()
-      titleDecoration.text = titleDecorationConfiguration["text"]
-      titleDecoration.color = titleDecorationConfiguration["color"]
-      titleDecoration.style = titleDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal
-      titleDecoration.styleColor = titleDecorationConfiguration["outlineColor"]
-      titleDecorationBackground.color = titleDecorationConfiguration["backgroundColor"]
-
-      var copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration()
-      copyrightDecoration.text = copyrightDecorationConfiguration["text"]
-      copyrightDecoration.color = copyrightDecorationConfiguration["color"]
-      copyrightDecoration.style = copyrightDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal
-      copyrightDecoration.styleColor = copyrightDecorationConfiguration["outlineColor"]
-      copyrightDecorationBackground.color = copyrightDecorationConfiguration["backgroundColor"]
-
-      var imageDecorationConfiguration = projectInfo.getImageDecorationConfiguration()
-      imageDecoration.source = imageDecorationConfiguration["source"]
-      imageDecoration.fillColor = imageDecorationConfiguration["fillColor"]
-      imageDecoration.strokeColor = imageDecorationConfiguration["strokeColor"]
-
-      recentProjectListModel.reloadModel()
-
-      const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
-      cloudProjectsModel.currentProjectId = cloudProjectId
-      cloudProjectsModel.refreshProjectModification(cloudProjectId)
+    function onLoadProjectEnded(path, name) {
+      mapCanvasMap.unfreeze('projectload');
+      busyOverlay.state = "hidden";
+      projectInfo.filePath = path;
+      stateMachine.state = projectInfo.stateMode;
+      platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse');
+      dashBoard.activeLayer = projectInfo.activeLayer;
+      drawingTemplateModel.projectFilePath = path;
+      mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
+      var titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
+      titleDecoration.text = titleDecorationConfiguration["text"];
+      titleDecoration.color = titleDecorationConfiguration["color"];
+      titleDecoration.style = titleDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
+      titleDecoration.styleColor = titleDecorationConfiguration["outlineColor"];
+      titleDecorationBackground.color = titleDecorationConfiguration["backgroundColor"];
+      var copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration();
+      copyrightDecoration.text = copyrightDecorationConfiguration["text"];
+      copyrightDecoration.color = copyrightDecorationConfiguration["color"];
+      copyrightDecoration.style = copyrightDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
+      copyrightDecoration.styleColor = copyrightDecorationConfiguration["outlineColor"];
+      copyrightDecorationBackground.color = copyrightDecorationConfiguration["backgroundColor"];
+      var imageDecorationConfiguration = projectInfo.getImageDecorationConfiguration();
+      imageDecoration.source = imageDecorationConfiguration["source"];
+      imageDecoration.fillColor = imageDecorationConfiguration["fillColor"];
+      imageDecoration.strokeColor = imageDecorationConfiguration["strokeColor"];
+      recentProjectListModel.reloadModel();
+      const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
+      cloudProjectsModel.currentProjectId = cloudProjectId;
+      cloudProjectsModel.refreshProjectModification(cloudProjectId);
       if (cloudProjectId !== '') {
-        var cloudProjectData = cloudProjectsModel.getProjectData(cloudProjectId)
-        switch(cloudProjectData.UserRole) {
-          case 'reader':
-            stateMachine.state = "browse"
-            projectInfo.hasInsertRights = false
-            projectInfo.hasEditRights = false
-            break;
-          case 'reporter':
-            projectInfo.hasInsertRights = true
-            projectInfo.hasEditRights = false
-            break;
-          case 'editor':
-          case 'manager':
-          case 'admin':
-            projectInfo.hasInsertRights = true
-            projectInfo.hasEditRights = true
-            break;
-          default:
-            projectInfo.hasInsertRights = true
-            projectInfo.hasEditRights = true
-            break;
+        var cloudProjectData = cloudProjectsModel.getProjectData(cloudProjectId);
+        switch (cloudProjectData.UserRole) {
+        case 'reader':
+          stateMachine.state = "browse";
+          projectInfo.hasInsertRights = false;
+          projectInfo.hasEditRights = false;
+          break;
+        case 'reporter':
+          projectInfo.hasInsertRights = true;
+          projectInfo.hasEditRights = false;
+          break;
+        case 'editor':
+        case 'manager':
+        case 'admin':
+          projectInfo.hasInsertRights = true;
+          projectInfo.hasEditRights = true;
+          break;
+        default:
+          projectInfo.hasInsertRights = true;
+          projectInfo.hasEditRights = true;
+          break;
         }
-
         if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
-          qfieldCloudPopup.show()
+          qfieldCloudPopup.show();
         }
-
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
+          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId);
         }
       } else {
-        projectInfo.hasInsertRights = true
-        projectInfo.hasEditRights = true
+        projectInfo.hasInsertRights = true;
+        projectInfo.hasEditRights = true;
       }
-
       if (stateMachine.state === "digitize") {
-          dashBoard.ensureEditableLayerSelected();
+        dashBoard.ensureEditableLayerSelected();
       }
-
-      var distanceString = iface.readProjectEntry("Measurement" ,"/DistanceUnits", "")
-      projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters
-      var areaString = iface.readProjectEntry("Measurement" ,"/AreaUnits", "")
-      projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : Qgis.AreaUnit.SquareMeters
-
+      var distanceString = iface.readProjectEntry("Measurement", "/DistanceUnits", "");
+      projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters;
+      var areaString = iface.readProjectEntry("Measurement", "/AreaUnits", "");
+      projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : Qgis.AreaUnit.SquareMeters;
       if (qgisProject.displaySettings) {
-        projectInfo.coordinateDisplayCrs = qgisProject.displaySettings.coordinateCrs
+        projectInfo.coordinateDisplayCrs = qgisProject.displaySettings.coordinateCrs;
       } else {
-        projectInfo.coordinateDisplayCrs = !mapCanvas.mapSettings.destinationCrs.isGeographic
-                                           && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
-                                           ? CoordinateReferenceSystemUtils.wgs84Crs()
-                                           : mapCanvas.mapSettings.destinationCrs
+        projectInfo.coordinateDisplayCrs = !mapCanvas.mapSettings.destinationCrs.isGeographic && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU" ? CoordinateReferenceSystemUtils.wgs84Crs() : mapCanvas.mapSettings.destinationCrs;
       }
-
-      layoutListInstantiator.model.reloadModel()
+      layoutListInstantiator.model.reloadModel();
+      geofencer.applyProjectSettings(qgisProject);
     }
 
     function onSetMapExtent(extent) {
-        mapCanvas.mapSettings.extent = extent;
+      mapCanvas.mapSettings.extent = extent;
     }
   }
 
@@ -3546,19 +3410,19 @@ ApplicationWindow {
     model: messageLogModel
 
     onFinished: {
-      visible = false
+      visible = false;
     }
 
-    Keys.onReleased: (event) => {
+    Keys.onReleased: event => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        visible = false
+        event.accepted = true;
+        visible = false;
       }
     }
 
     Component.onCompleted: {
-      focusstack.addFocusTaker( this )
-      unreadMessages = messageLogModel.rowCount() !== 0
+      focusstack.addFocusTaker(this);
+      unreadMessages = messageLogModel.rowCount() !== 0;
     }
   }
 
@@ -3573,15 +3437,22 @@ ApplicationWindow {
     Connections {
       target: iface
       function onLoadProjectTriggered(path) {
-        messageLogModel.suppress({"WFS": [""], "WMS": [""], "PostGIS": ["fe_sendauth: no password supplied"]})
+        messageLogModel.suppress({
+            "WFS": [""],
+            "WMS": [""],
+            "PostGIS": ["fe_sendauth: no password supplied"]
+          });
       }
 
       function onLoadProjectEnded() {
-        dashBoard.layerTree.unfreeze( true );
-        if( !qfieldAuthRequestHandler.handleLayerLogins() )
-        {
+        dashBoard.layerTree.unfreeze(true);
+        if (!qfieldAuthRequestHandler.handleLayerLogins()) {
           //project loaded without more layer handling needed
-          messageLogModel.unsuppress({"WFS": [], "WMS": [], "PostGIS": []})
+          messageLogModel.unsuppress({
+              "WFS": [],
+              "WMS": [],
+              "PostGIS": []
+            });
         }
       }
     }
@@ -3590,25 +3461,25 @@ ApplicationWindow {
       target: qfieldAuthRequestHandler
 
       function onShowLoginDialog(realm, title) {
-          loginDialog.realm = realm || ""
-          loginDialog.credentialTitle = title
-          badLayersView.visible = false
-          loginDialogPopup.open()
+        loginDialog.realm = realm || "";
+        loginDialog.credentialTitle = title;
+        badLayersView.visible = false;
+        loginDialogPopup.open();
       }
 
       function onReloadEverything() {
-          iface.reloadProject()
+        iface.reloadProject();
       }
 
       function onShowLoginBrowser(url) {
-          browserPopup.url = url;
-          browserPopup.fullscreen = false;
-          browserPopup.clearCookiesOnOpen = true
-          browserPopup.open();
+        browserPopup.url = url;
+        browserPopup.fullscreen = false;
+        browserPopup.clearCookiesOnOpen = true;
+        browserPopup.open();
       }
 
       function onHideLoginBrowser() {
-          browserPopup.close();
+        browserPopup.close();
       }
     }
 
@@ -3646,24 +3517,23 @@ ApplicationWindow {
 
         property string realm: ""
 
-        onEnter: ( username, password ) => {
-          qfieldAuthRequestHandler.enterCredentials( loginDialog.realm, username, password)
+        onEnter: (username, password) => {
+          qfieldAuthRequestHandler.enterCredentials(loginDialog.realm, username, password);
           inCancelation = false;
-          loginDialogPopup.close()
+          loginDialogPopup.close();
         }
 
         onCancel: {
           inCancelation = true;
-          loginDialogPopup.close()
+          loginDialogPopup.close();
         }
       }
 
       onClosed: {
         // handled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
-        qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, loginDialog.inCancelation )
+        qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, loginDialog.inCancelation);
       }
     }
-
   }
 
   About {
@@ -3673,14 +3543,14 @@ ApplicationWindow {
 
     visible: false
 
-    Keys.onReleased: (event) => {
+    Keys.onReleased: event => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        visible = false
+        event.accepted = true;
+        visible = false;
       }
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   TrackerSettings {
@@ -3695,17 +3565,17 @@ ApplicationWindow {
     focus: visible
 
     onFinished: {
-      visible = false
+      visible = false;
     }
 
-    Keys.onReleased: (event) => {
+    Keys.onReleased: event => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        finished()
+        event.accepted = true;
+        finished();
       }
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   QFieldCloudConnection {
@@ -3715,22 +3585,23 @@ ApplicationWindow {
 
     onStatusChanged: {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
-        displayToast(qsTr('Signed out'))
+        displayToast(qsTr('Signed out'));
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
-        displayToast(qsTr('Connecting...'))
+        displayToast(qsTr('Connecting...'));
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        displayToast(qsTr('Signed in'))
+        displayToast(qsTr('Signed in'));
         // Go ahead and upload pending attachments in the background
         platformUtilities.uploadPendingAttachments(cloudConnection);
-
-        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
+        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
         if (cloudProjectId) {
-          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
+          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId);
         }
       }
-      previousStatus = cloudConnection.status
+      previousStatus = cloudConnection.status;
     }
-    onLoginFailed: function(reason) { displayToast( reason ) }
+    onLoginFailed: function (reason) {
+      displayToast(reason);
+    }
   }
 
   QFieldCloudProjectsModel {
@@ -3739,37 +3610,34 @@ ApplicationWindow {
     layerObserver: layerObserverAlias
     gpkgFlusher: gpkgFlusherAlias
 
-    onProjectDownloaded: function ( projectId, projectName, hasError, errorString ) {
-      return hasError
-          ? displayToast( qsTr( "Project %1 failed to download" ).arg( projectName ), 'error' )
-          : displayToast( qsTr( "Project %1 successfully downloaded, it's now available to open" ).arg( projectName ) );
+    onProjectDownloaded: function (projectId, projectName, hasError, errorString) {
+      return hasError ? displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error') : displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
     }
 
-    onPushFinished: function ( projectId, hasError, errorString ) {
-      if ( hasError ) {
-        displayToast( qsTr( "Changes failed to reach QFieldCloud: %1" ).arg( errorString ), 'error' )
+    onPushFinished: function (projectId, hasError, errorString) {
+      if (hasError) {
+        displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
         return;
       }
-
-      displayToast( qsTr( "Changes successfully pushed to QFieldCloud" ) )
+      displayToast(qsTr("Changes successfully pushed to QFieldCloud"));
 
       // Go ahead and upload pending attachments in the background
       platformUtilities.uploadPendingAttachments(cloudConnection);
     }
 
-    onWarning: displayToast( message )
+    onWarning: displayToast(message)
 
     onDeltaListModelChanged: function () {
-      qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProjectData.DeltaList
+      qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProjectData.DeltaList;
     }
   }
 
   QFieldCloudDeltaHistory {
-      id: qfieldCloudDeltaHistory
+    id: qfieldCloudDeltaHistory
 
-      modal: true
-      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: Overlay.overlay
+    modal: true
+    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    parent: Overlay.overlay
   }
 
   QFieldCloudScreen {
@@ -3780,11 +3648,11 @@ ApplicationWindow {
     focus: visible
 
     onFinished: {
-      visible = false
-      welcomeScreen.visible = true
+      visible = false;
+      welcomeScreen.visible = true;
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   QFieldCloudPopup {
@@ -3814,13 +3682,13 @@ ApplicationWindow {
     focus: visible
 
     onFinished: {
-      visible = false
+      visible = false;
       if (model.currentPath === 'root') {
-        welcomeScreen.visible = loading ? false : true
+        welcomeScreen.visible = loading ? false : true;
       }
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   WelcomeScreen {
@@ -3838,35 +3706,35 @@ ApplicationWindow {
 
     onOpenLocalDataPicker: {
       if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
-        welcomeScreen.visible = false
-        qfieldLocalDataPickerScreen.projectFolderView = false
-        qfieldLocalDataPickerScreen.model.resetToRoot()
-        qfieldLocalDataPickerScreen.visible = true
+        welcomeScreen.visible = false;
+        qfieldLocalDataPickerScreen.projectFolderView = false;
+        qfieldLocalDataPickerScreen.model.resetToRoot();
+        qfieldLocalDataPickerScreen.visible = true;
       } else {
-        __projectSource = platformUtilities.openProject(this)
+        __projectSource = platformUtilities.openProject(this);
       }
     }
 
     onShowQFieldCloudScreen: {
-      welcomeScreen.visible = false
-      qfieldCloudScreen.visible = true
+      welcomeScreen.visible = false;
+      qfieldCloudScreen.visible = true;
     }
 
-    Keys.onReleased: (event) => {
+    Keys.onReleased: event => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if ( qgisProject.fileName != '') {
-          event.accepted = true
-          visible = false
-          focus = false
+        if (qgisProject.fileName != '') {
+          event.accepted = true;
+          visible = false;
+          focus = false;
         } else {
-          event.accepted = false
-          mainWindow.close()
+          event.accepted = false;
+          mainWindow.close();
         }
       }
     }
 
     Component.onCompleted: {
-      focusstack.addFocusTaker( this )
+      focusstack.addFocusTaker(this);
     }
   }
 
@@ -3876,8 +3744,8 @@ ApplicationWindow {
 
     parent: Overlay.overlay
 
-    property var expireDate: new Date(2038,1,19)
-    visible: settings && settings.value( "/QField/ChangelogVersion", "" ) !== appVersion && expireDate > new Date()
+    property var expireDate: new Date(2038, 1, 19)
+    visible: settings && settings.value("/QField/ChangelogVersion", "") !== appVersion && expireDate > new Date()
   }
 
   Toast {
@@ -3889,7 +3757,7 @@ ApplicationWindow {
     anchors.fill: parent
     enabled: codeReader.visible
 
-    onClicked: (mouse) => {
+    onClicked: mouse => {
       // Needed to avoid people interacting with the UI while the barcode reader is visible
       // (e.g. close the feature form while scanning a code to fill an attribute)
       return;
@@ -3912,7 +3780,7 @@ ApplicationWindow {
 
     function onSearchTermChanged(searchTerm) {
       var lowered = searchTerm.toLowerCase();
-      if ( lowered === 'hello nyuki') {
+      if (lowered === 'hello nyuki') {
         Qt.inputMethod.hide();
         locatorItem.searchTermHandled = true;
         nyuki.state = "shown";
@@ -3936,17 +3804,16 @@ ApplicationWindow {
   DropArea {
     id: dropArea
     anchors.fill: parent
-    onEntered: (drag) => {
-      if ( drag.urls.length !== 1 || !iface.isFileExtensionSupported( drag.urls[0] ) ) {
-          drag.accepted = false
-      }
-      else {
-        drag.accept (Qt.CopyAction)
-        drag.accepted = true
+    onEntered: drag => {
+      if (drag.urls.length !== 1 || !iface.isFileExtensionSupported(drag.urls[0])) {
+        drag.accepted = false;
+      } else {
+        drag.accept(Qt.CopyAction);
+        drag.accepted = true;
       }
     }
-    onDropped: (drop) => {
-      iface.loadFile( drop.urls[0] )
+    onDropped: drop => {
+      iface.loadFile(drop.urls[0]);
     }
   }
 
@@ -3957,20 +3824,19 @@ ApplicationWindow {
 
   property bool alreadyCloseRequested: false
 
-  onClosing: (close) => {
+  onClosing: close => {
     if (screenLocker.enabled) {
-       close.accepted = false
-       displayToast(qsTr("Unlock the screen to to close project and app"))
-       return
+      close.accepted = false;
+      displayToast(qsTr("Unlock the screen to to close project and app"));
+      return;
     }
-
     if (!alreadyCloseRequested) {
-      close.accepted = false
-      alreadyCloseRequested = true
-      displayToast(qsTr("Press back again to close project and app"))
-      closingTimer.start()
+      close.accepted = false;
+      alreadyCloseRequested = true;
+      displayToast(qsTr("Press back again to close project and app"));
+      closingTimer.start();
     } else {
-      close.accepted = true
+      close.accepted = true;
     }
   }
 
@@ -3978,7 +3844,7 @@ ApplicationWindow {
     id: closingTimer
     interval: 2000
     onTriggered: {
-        alreadyCloseRequested = false
+      alreadyCloseRequested = false;
     }
   }
 
@@ -3986,7 +3852,7 @@ ApplicationWindow {
     target: welcomeScreen.__projectSource
 
     function onProjectOpened(path) {
-      iface.loadFile(path)
+      iface.loadFile(path);
     }
   }
 
@@ -4022,8 +3888,8 @@ ApplicationWindow {
     font: Theme.defaultFont
 
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height) / 2
 
     property alias permanent: permanentCheckBox.checked
 
@@ -4033,7 +3899,7 @@ ApplicationWindow {
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: qsTr( "Do you grant permission to activate `%1`?" ).arg( pluginPermissionDialog.title )
+        text: qsTr("Do you grant permission to activate `%1`?").arg(pluginPermissionDialog.title)
       }
 
       CheckBox {
@@ -4044,13 +3910,13 @@ ApplicationWindow {
     }
 
     onAccepted: {
-      pluginManager.grantRequestedPluginPermission(permanent)
-      permanent = false
+      pluginManager.grantRequestedPluginPermission(permanent);
+      permanent = false;
     }
 
     onRejected: {
-      pluginManager.denyRequestedPluginPermission(permanent)
-      permanent = false
+      pluginManager.denyRequestedPluginPermission(permanent);
+      permanent = false;
     }
 
     standardButtons: Dialog.Yes | Dialog.No
@@ -4060,8 +3926,8 @@ ApplicationWindow {
     target: pluginManager
 
     function onPluginPermissionRequested(pluginName) {
-      pluginPermissionDialog.title = pluginName
-      pluginPermissionDialog.open()
+      pluginPermissionDialog.title = pluginName;
+      pluginPermissionDialog.open();
     }
   }
 }
