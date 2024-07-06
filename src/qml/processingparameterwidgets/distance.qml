@@ -85,39 +85,39 @@ ProcessingParameterWidgetBase {
       valueRole: "value"
       model: ListModel {
         ListElement {
-          display: "meters"
+          display: qsTr("meters")
           value: Qgis.DistanceUnit.Meters
         }
         ListElement {
-          display: "kilometers"
+          display: qsTr("kilometers")
           value: Qgis.DistanceUnit.Kilometers
         }
         ListElement {
-          display: "feet"
+          display: qsTr("feet")
           value: Qgis.DistanceUnit.Feet
         }
         ListElement {
-          display: "yards"
+          display: qsTr("yards")
           value: Qgis.DistanceUnit.Yards
         }
         ListElement {
-          display: "miles"
+          display: qsTr("miles")
           value: Qgis.DistanceUnit.Miles
         }
         ListElement {
-          display: "nautical miles"
+          display: qsTr("nautical miles")
           value: Qgis.DistanceUnit.NauticalMiles
         }
         ListElement {
-          display: "centimeters"
+          display: qsTr("centimeters")
           value: Qgis.DistanceUnit.Centimeters
         }
         ListElement {
-          display: "millimeters"
+          display: qsTr("millimeters")
           value: Qgis.DistanceUnit.Millimeters
         }
         ListElement {
-          display: "inches"
+          display: qsTr("inches")
           value: Qgis.DistanceUnit.Inches
         }
       }
