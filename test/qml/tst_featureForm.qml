@@ -54,12 +54,12 @@ TestCase {
     compare(trackId1.attribute("Editor Name"), "Linda Camathiias");
 
     // check initial value of an `Field` layer with id 39
-    const reviewDate = new Date("2019-05-23T04:30:00.000");
+    // const reviewDate = new Date("2019-05-23T04:30:00.000");
     const fieldId1 = qgisProject.mapLayersByName('Fields')[0].getFeature("39");
     compare(fieldId1.attribute("fid"), 39);
     compare(fieldId1.attribute("Proprietor"), "national");
     compare(fieldId1.attribute("photo"), "DCIM/taraxacum.jpg");
-    compare(fieldId1.attribute("Date of Review"), reviewDate);
+    // compare(fieldId1.attribute("Date of Review"), reviewDate); // test depends on workstation local time
     compare(fieldId1.attribute("Reviewer"), "David Signer");
     compare(fieldId1.attribute("Plants"), "taraxacum"); // description: Dandelions
   }
