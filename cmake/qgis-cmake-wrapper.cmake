@@ -98,6 +98,7 @@ if(TRUE) # Should possibly have a "static only" check
 
   _qgis_core_add_dependency(qca Qca CONFIG)
   _qgis_core_add_dependency(Protobuf Protobuf)
+  target_link_libraries(QGIS::Core INTERFACE protobuf::libprotobuf-lite)
   # Terrible hack ahead
   # 1. geos and proj add libc++.so to their pkgconfig linker instruction
   # 2. This is propagated through spatialite and GDAL
