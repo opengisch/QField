@@ -261,10 +261,10 @@ bool ProcessingAlgorithm::run( bool previewMode )
             }
             mInPlaceLayer->addFeatures( newFeatures );
           }
-
-          mInPlaceLayer->commitChanges();
         }
       }
+
+      mInPlaceLayer->commitChanges();
     }
     else
     {
