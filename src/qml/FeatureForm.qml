@@ -93,7 +93,7 @@ Page {
         rightPadding: 8
         width: contentItem.width + leftPadding + rightPadding
         height: 48
-        objectName: "tabRowdDlegate_" + index
+        objectName: "tabRowdDelegate_" + index
 
         onClicked: {
           tabRow.currentIndex = index;
