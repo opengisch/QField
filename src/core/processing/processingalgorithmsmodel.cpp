@@ -182,10 +182,6 @@ void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider
         continue;
       }
 
-      if ( algorithm->flags() & Qgis::ProcessingAlgorithmFlag::SupportsInPlaceEdits )
-      {
-        qDebug() << algorithm->displayName();
-      }
       mAlgorithms << AlgorithmItem( algorithm );
     }
   }
