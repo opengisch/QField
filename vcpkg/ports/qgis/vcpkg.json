@@ -57,11 +57,11 @@
         "harfbuzz",
         "jpeg",
         "network",
+        "opengl",
         {
           "name": "openssl",
           "platform": "!ios"
         },
-        "opengl",
         "pcre2",
         "png",
         {
