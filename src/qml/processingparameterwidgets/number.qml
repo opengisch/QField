@@ -19,6 +19,7 @@ ProcessingParameterWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.top: parent.top
+    spacing: 5
 
     TextField {
       id: textField
@@ -27,7 +28,7 @@ ProcessingParameterWidgetBase {
       bottomPadding: 10
       rightPadding: 0
       leftPadding: enabled ? 5 : 0
-      width: parent.width - decreaseButton.width - increaseButton.width
+      width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
 
       font: Theme.defaultFont
       color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor

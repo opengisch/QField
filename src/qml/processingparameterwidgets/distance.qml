@@ -22,6 +22,7 @@ ProcessingParameterWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.top: parent.top
+    spacing: 5
 
     TextField {
       id: textField
@@ -30,7 +31,7 @@ ProcessingParameterWidgetBase {
       bottomPadding: 10
       rightPadding: 0
       leftPadding: enabled ? 5 : 0
-      width: parent.width - decreaseButton.width - increaseButton.width - 10 - (distanceConvertible ? unitTypesComboBox.width : unitTypeLabel.width)
+      width: parent.width - decreaseButton.width - increaseButton.width - (distanceConvertible ? unitTypesComboBox.width : unitTypeLabel.width) - parent.spacing * 3
 
       font: Theme.defaultFont
       color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
@@ -73,7 +74,7 @@ ProcessingParameterWidgetBase {
       text: distanceUnit === Qgis.DistanceUnit.Degrees ? qsTr('degrees') : qsTr('<unknown>')
     }
 
-    ComboBox {
+    QfComboBox {
       id: unitTypesComboBox
 
       property bool initialized: false

@@ -177,7 +177,7 @@ EditorWidgetBase {
       }
     }
 
-    ComboBox {
+    QfComboBox {
       id: comboBox
       Layout.fillWidth: true
       font: Theme.defaultFont
@@ -218,40 +218,6 @@ EditorWidgetBase {
         onDoubleClicked: mouse.accepted = false
         onPositionChanged: mouse.accepted = false
         onPressAndHold: mouse.accepted = false
-      }
-
-      contentItem: Text {
-        leftPadding: enabled ? 5 : 0
-
-        text: comboBox.displayText
-        font: comboBox.font
-        color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignLeft
-        elide: Text.ElideRight
-      }
-
-      background: Item {
-        implicitWidth: 120
-        implicitHeight: 36
-
-        Rectangle {
-          visible: !enabled
-          y: comboBox.height - 2
-          width: comboBox.width
-          height: comboBox.activeFocus ? 2 : 1
-          color: comboBox.activeFocus ? Theme.accentColor : Theme.accentLightColor
-        }
-
-        Rectangle {
-          id: backgroundRect
-          visible: enabled
-          anchors.fill: parent
-          border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
-          border.width: comboBox.visualFocus ? 2 : 1
-          color: Theme.controlBackgroundAlternateColor
-          radius: 2
-        }
       }
     }
 
