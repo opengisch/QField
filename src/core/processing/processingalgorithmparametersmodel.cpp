@@ -140,7 +140,7 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
 
   if ( mAlgorithm )
   {
-    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ) };
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ) };
     const QgsProcessingAlgorithm *algorithm = QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId );
     for ( const QgsProcessingParameterDefinition *definition : algorithm->parameterDefinitions() )
     {
@@ -264,17 +264,21 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
       return mValues.at( index.row() );
     case ParameterConfigurationRole:
       QVariantMap configuration;
-      if ( const QgsProcessingParameterNumber *parameterNumber = dynamic_cast<const QgsProcessingParameterNumber *>( mParameters.at( index.row() ) ) )
-      {
-        configuration["minimum"] = parameterNumber->minimum();
-        configuration["maximum"] = parameterNumber->maximum();
-        configuration["dataType"] = static_cast<int>( parameterNumber->dataType() );
-      }
       if ( const QgsProcessingParameterDistance *parameterDistance = dynamic_cast<const QgsProcessingParameterDistance *>( mParameters.at( index.row() ) ) )
       {
         configuration["minimum"] = parameterDistance->minimum();
         configuration["maximum"] = parameterDistance->maximum();
         configuration["distanceUnit"] = static_cast<int>( ( mInPlaceLayer ? mInPlaceLayer->crs().mapUnits() : Qgis::DistanceUnit::Unknown ) );
+      }
+      else if ( const QgsProcessingParameterNumber *parameterNumber = dynamic_cast<const QgsProcessingParameterNumber *>( mParameters.at( index.row() ) ) )
+      {
+        configuration["minimum"] = parameterNumber->minimum();
+        configuration["maximum"] = parameterNumber->maximum();
+        configuration["dataType"] = static_cast<int>( parameterNumber->dataType() );
+      }
+      else if ( const QgsProcessingParameterEnum *parameterEnum = dynamic_cast<const QgsProcessingParameterEnum *>( mParameters.at( index.row() ) ) )
+      {
+        configuration["options"] = parameterEnum->options();
       }
       return configuration;
   }

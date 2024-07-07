@@ -158,7 +158,7 @@ void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider
   const QList<const QgsProcessingAlgorithm *> algorithms = provider->algorithms();
   for ( const QgsProcessingAlgorithm *algorithm : algorithms )
   {
-    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "sink" ), QStringLiteral( "source" ) };
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "sink" ), QStringLiteral( "source" ) };
     const QgsProcessingFeatureBasedAlgorithm *featureBasedAlgorithm = dynamic_cast<const QgsProcessingFeatureBasedAlgorithm *>( algorithm );
     if ( featureBasedAlgorithm )
     {
