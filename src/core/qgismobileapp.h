@@ -180,7 +180,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      */
     void clearProject();
 
-    static void initDeclarative( QgsApplication *mApp, QQmlEngine *engine );
+    static void initDeclarative( QQmlEngine *engine );
 
   signals:
     /**
@@ -207,7 +207,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     void onMapCanvasRefreshed();
 
   private:
-    void registerGlobalVariables();
+    void registerGlobalVariables( QgsApplication *mApp );
     void loadProjectQuirks();
     void saveProjectPreviewImage();
     bool printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination );
