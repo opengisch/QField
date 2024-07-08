@@ -100,6 +100,10 @@ jobs:
           path: |
             C:/src/**/*.log
 
+      - name: Fix openh264 linking
+        run: |
+          sed -i 's/ openh264\.lib //g' /c/builddir/build.ninja
+
       - name: 🌋 Build
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}

@@ -5,6 +5,7 @@ set(${PORT}_PATCHES
     static_find_modules.patch
     fix_avfoundation_target.patch
     remove-static-ssl-stub.patch
+    private_libs.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
