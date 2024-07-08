@@ -245,8 +245,12 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       for ( const QString &fontFile : fontFiles )
       {
         const int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
-        qInfo() << QStringLiteral( "App-wide font registered: %1" ).arg( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
-        if ( id == -1 )
+        if ( id >= 0 )
+        {
+          qInfo() << QStringLiteral( "App-wide font registered: %1" ).arg( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+          qInfo() << QFontDatabase::applicationFontFamilies( id );
+        }
+        else
         {
           QgsMessageLog::logMessage( tr( "Could not load font: %1" ).arg( fontFile ) );
         }
@@ -774,8 +778,12 @@ void QgisMobileapp::readProjectFile()
     for ( const QString &fontFile : fontFiles )
     {
       const int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
-      qInfo() << QStringLiteral( "Project font registered: %1" ).arg( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
-      if ( id == -1 )
+      if ( id >= 0 )
+      {
+        qInfo() << QStringLiteral( "Project font registered: %1" ).arg( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+        qInfo() << QFontDatabase::applicationFontFamilies( id );
+      }
+      else
       {
         QgsMessageLog::logMessage( tr( "Could not load font: %1" ).arg( fontFile ) );
       }
