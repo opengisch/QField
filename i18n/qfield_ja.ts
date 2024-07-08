@@ -439,7 +439,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>ジオメトリ</translation>
     </message>
 </context>
 <context>
@@ -571,7 +571,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>空白</translation>
     </message>
 </context>
 <context>
@@ -633,27 +633,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>写真を撮影</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>ビデオを撮影</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>オーディオクリップを録音する</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>ギャラリーからアイテムを追加する</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>ファイルを追加する</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>スケッチする</translation>
     </message>
 </context>
 <context>
@@ -708,11 +708,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>このフィールドに最後に入力された値は記憶され、新しい地物を作成する際に再利用されます。</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>このフィールドに最後に入力された値は、新しい地物を作成する際には再利用されません。</translation>
     </message>
 </context>
 <context>
@@ -735,7 +735,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>レイヤ &quot;%1&quot; に編集された地物のロールバックに失敗しました。</translation>
     </message>
 </context>
 <context>
@@ -820,19 +820,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>地物の属性を転送する</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>現在開いている地物に属性を転送する地物を以下から選択します。</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>地物の属性が転送されました</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation>地物の属性は転送されませんでした</translation>
     </message>
     <message>
         <source>Features</source>
@@ -840,7 +840,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>アルゴリズムを処理しています</translation>
     </message>
 </context>
 <context>
@@ -1038,7 +1038,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>ナビゲーション</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1046,7 +1046,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>精細ビュー</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -1054,7 +1054,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>標高プロファイル</translation>
     </message>
 </context>
 <context>
@@ -1080,7 +1080,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>資格情報詳細</translation>
     </message>
 </context>
 <context>
@@ -1527,27 +1527,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>地物の属性をクリップボードにコピー</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>クリップボードから地物の属性を更新</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>クリップボードから地物の属性は更新されませんでした</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>地物は目的地として設定されました</translation>
     </message>
     <message>
         <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
+        <translation>地物から属性を更新する</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>選択された地物を処理</translation>
     </message>
 </context>
 <context>
@@ -1713,74 +1713,74 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロードされたZIPファイルは解凍できませんでした</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロードされたZIPファイルには必須ファイルであるmain.qmlプラグインファイルが含まれていません</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロードされたファイルを保存できませんでした</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロードされたファイルはZIP圧縮されたプラグインではありません</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークエラー</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>プラグインはまだインストールされていません。プラグインの詳細については、%1 ドキュメント%2 を参照してください。</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>URLからプラグインをインストール</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>記憶されたパーミッションのクリア</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>URLを下に入力してプラグインをダウンロード、インストールする:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>%1をインストールしています</translation>
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>著者：%1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>本当に`%1`をアンインストールしますか？</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>バージョン %1 をアンインストールする</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>プラグインをアンインストール</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>上に表示されている作者の詳細は、プラグインによって自己申告されたものであり、独自に検証されたものではありません。プラグインの出所を信頼するようにしてください。</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>プラグイン管理メニュー</translation>
     </message>
 </context>
 <context>
@@ -1985,23 +1985,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>一般パラメーター</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>高度なパラメータ</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>ヘルプ</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>このアルゴリズムに一般的なパラメーターはありません。</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>アルゴリズムの詳細</translation>
     </message>
 </context>
 <context>
@@ -2012,7 +2012,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>全てのアルゴリズム</translation>
     </message>
 </context>
 <context>
@@ -2042,11 +2042,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>前へ</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>戻る</translation>
     </message>
 </context>
 <context>
@@ -2110,7 +2110,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>まだプッシュされた変更はありません</translation>
     </message>
 </context>
 <context>
@@ -2385,31 +2385,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロード中、 %1% / %2がフェッチされました</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロード中、 %1% がフェッチされました</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをダウンロードするためにQFieldCloudに連絡する</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n分ごとに変更を自動的にプッシュする</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>現在のプロジェクトでは、自動プッシュをオフにすることはできません。</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudにプロジェクトを保存することで、シームレスな同期、オフライン編集、チームでの管理が可能になります。&lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
@@ -2655,19 +2655,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロード中、 %1% / %2がフェッチされました…</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロード中、 %1% がフェッチされました…</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをダウンロードするためにQFieldCloudに連絡する</translation>
     </message>
 </context>
 <context>
@@ -3135,70 +3135,70 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>キャンバスを指でタップして頂点を追加できるようにする</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、マップキャンバスを指でタップすると、タップした位置に頂点が追加されます。</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、マウスは指のように動作します。無効にすると、マウスはスタイラスと同じ動作をします。</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>マップキャンバス</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>デジタイズ＆編集</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーインターフェース</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>外観:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>フォントサイズ:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>言語:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>上級</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>プラグインを管理</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>地図の回転を有効にする</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>スイッチを入れると、地図を回転させることができます。</translation>
     </message>
     <message>
         <source>Prevent digitizing while geofencing is in alert mode</source>
-        <translation type="unfinished"/>
+        <translation>ジオフェンシングがアラートモードの間、デジタイズを防止する</translation>
     </message>
     <message>
         <source>When enabled, the digitizing of new features will be blocked if a project&apos;s geofencing is active and the current position triggers an alert.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、プロジェクトのジオフェンシングが有効で、現在位置がアラートをトリガーした場合、新しい地物のデジタイズがブロックされます。</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>描画テンプレートの選択</translation>
     </message>
 </context>
 <context>
@@ -3338,19 +3338,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトプラグイン</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>フォントをロードできませんでした: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをロードできません。ファイル 「%1」は存在しません</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトを読み込めません。ファイル 「%1」は存在しません</translation>
     </message>
 </context>
 <context>
@@ -4141,7 +4141,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>子地物を追加できません：親地物がすべての制約を満たし、保存できることを確認してください</translation>
     </message>
 </context>
 <context>
@@ -4648,31 +4648,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>`%1` をアクティブにする許可を与えますか？</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>選択を覚える</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>地物の属性をコピー</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>現在位置が &apos;%1&apos; に侵入しました。</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos;を抜けた後の外部領域の位置</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>現在位置が &apos;%1&apos; に入りました。</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>現在位置が &apos;%1&apos; から出ました。</translation>
     </message>
 </context>
 <context>
@@ -4715,7 +4715,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>子地物を追加できません：親地物がすべての制約を満たし、保存できることを確認してください</translation>
     </message>
 </context>
 </TS>
