@@ -163,13 +163,13 @@ class Setup : public QObject
     {
       qmlInit( engine );
 
+      QgisMobileapp::initDeclarative( engine );
 
-      QgsApplication *mApp;
-      QgisMobileapp::initDeclarative( mApp, engine );
+      QString mPath = mDataDir + "/test_bees.qgz";
 
-      QString mPath = QCoreApplication::applicationDirPath() + "/../../../resources/sample_projects/bees.qgz";
       QgsProject::instance()->read( mPath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews | Qgis::ProjectReadFlag::DontLoadLayouts );
 
+      engine->rootContext()->setContextProperty( "ppi", 96 );
       engine->rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
     }

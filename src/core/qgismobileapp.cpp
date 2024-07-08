@@ -283,9 +283,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mPluginManager = new PluginManager( this );
 
   // cppcheck-suppress leakReturnValNotUsed
-  initDeclarative( mApp, this );
+  initDeclarative( this );
 
-  registerGlobalVariables();
+  registerGlobalVariables( mApp );
 
   if ( !dataDirs.isEmpty() )
   {
@@ -366,7 +366,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   } );
 }
 
-void QgisMobileapp::initDeclarative( QgsApplication *mApp, QQmlEngine *engine )
+void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 {
 #if defined( Q_OS_ANDROID ) && QT_VERSION >= QT_VERSION_CHECK( 5, 14, 0 )
   QResource::registerResource( QStringLiteral( "assets:/android_rcc_bundle.rcc" ) );
@@ -558,12 +558,8 @@ void QgisMobileapp::initDeclarative( QgsApplication *mApp, QQmlEngine *engine )
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
-  // Calculate device pixels
-  qreal dpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
-
   // Register some globally available variables
   engine->rootContext()->setContextProperty( "qVersion", qVersion() );
-  engine->rootContext()->setContextProperty( "ppi", dpi );
   engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
   engine->rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
   engine->rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
@@ -573,8 +569,12 @@ void QgisMobileapp::initDeclarative( QgsApplication *mApp, QQmlEngine *engine )
   engine->rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
 }
 
-void QgisMobileapp::registerGlobalVariables()
+void QgisMobileapp::registerGlobalVariables( QgsApplication *mApp )
 {
+  // Calculate device pixels
+  qreal dpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
+
+  rootContext()->setContextProperty( "ppi", dpi );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "pluginManager", mPluginManager );
