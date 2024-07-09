@@ -283,7 +283,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mPluginManager = new PluginManager( this );
 
   // cppcheck-suppress leakReturnValNotUsed
-  initDeclarative();
+  initDeclarative( this );
+
+  registerGlobalVariables();
 
   if ( !dataDirs.isEmpty() )
   {
@@ -364,12 +366,12 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   } );
 }
 
-void QgisMobileapp::initDeclarative()
+void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 {
 #if defined( Q_OS_ANDROID ) && QT_VERSION >= QT_VERSION_CHECK( 5, 14, 0 )
   QResource::registerResource( QStringLiteral( "assets:/android_rcc_bundle.rcc" ) );
 #endif
-  addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
+  engine->addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
 
   qRegisterMetaType<QMetaType::Type>( "QMetaType::Type" );
 
@@ -484,19 +486,19 @@ void QgisMobileapp::initDeclarative()
 #ifdef WITH_BLUETOOTH
   qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
   qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
-  rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
+  engine->rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
 #else
-  rootContext()->setContextProperty( "withBluetooth", QVariant( false ) );
+  engine->rootContext()->setContextProperty( "withBluetooth", QVariant( false ) );
 #endif
 #ifdef WITH_SERIALPORT
   qmlRegisterType<SerialPortModel>( "org.qfield", 1, 0, "SerialPortModel" );
   qmlRegisterType<SerialPortReceiver>( "org.qfield", 1, 0, "SerialPortReceiver" );
-  rootContext()->setContextProperty( "withSerialPort", QVariant( true ) );
+  engine->rootContext()->setContextProperty( "withSerialPort", QVariant( true ) );
 #else
-  rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
+  engine->rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
 #endif
   qmlRegisterType<NearFieldReader>( "org.qfield", 1, 0, "NearFieldReader" );
-  rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
+  engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
   qmlRegisterType<QFieldCloudConnection>( "org.qfield", 1, 0, "QFieldCloudConnection" );
@@ -556,24 +558,28 @@ void QgisMobileapp::initDeclarative()
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
-  // Calculate device pixels
-  qreal dpi = mApp->primaryScreen()->logicalDotsPerInch();
-  dpi *= mApp->primaryScreen()->devicePixelRatio();
-
   // Register some globally available variables
-  rootContext()->setContextProperty( "qVersion", qVersion() );
+  engine->rootContext()->setContextProperty( "qVersion", qVersion() );
+  engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
+  engine->rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
+  engine->rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
+  engine->rootContext()->setContextProperty( "appVersion", qfield::appVersion );
+  engine->rootContext()->setContextProperty( "appVersionStr", qfield::appVersionStr );
+  engine->rootContext()->setContextProperty( "gitRev", qfield::gitRev );
+  engine->rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
+}
+
+void QgisMobileapp::registerGlobalVariables()
+{
+  // Calculate device pixels
+  qreal dpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
+
   rootContext()->setContextProperty( "ppi", dpi );
-  rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
-  rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "pluginManager", mPluginManager );
   rootContext()->setContextProperty( "settings", &mSettings );
-  rootContext()->setContextProperty( "appVersion", qfield::appVersion );
-  rootContext()->setContextProperty( "appVersionStr", qfield::appVersionStr );
-  rootContext()->setContextProperty( "gitRev", qfield::gitRev );
   rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
-  rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
@@ -584,15 +590,13 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "clipboardManager", mClipboardManager.get() );
   rootContext()->setContextProperty( "messageLogModel", mMessageLogModel );
   rootContext()->setContextProperty( "drawingTemplateModel", mDrawingTemplateModel );
-
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
-
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
-
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
   addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
   addImageProvider( QLatin1String( "projects" ), mProjectsImageProvider );
 }
+
 
 void QgisMobileapp::loadProjectQuirks()
 {

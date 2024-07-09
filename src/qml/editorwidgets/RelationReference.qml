@@ -75,7 +75,7 @@ EditorWidgetBase {
         var feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue);
         locatorHighlightItem.geometryWrapper.qgsGeometry = feature.geometry;
         locatorHighlightItem.geometryWrapper.crs = listModel.currentLayer.crs;
-        mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature, featureForm.x, featureForm.y);
+        mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature);
       }
     }
   }

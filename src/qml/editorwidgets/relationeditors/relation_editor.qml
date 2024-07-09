@@ -215,7 +215,7 @@ EditorWidgetBase {
           if (relationEditorModel.relation.referencingLayer !== undefined) {
             locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
             locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs;
-            mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, relationEditorModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature, featureForm.x, featureForm.y);
+            mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, relationEditorModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
           }
         }
       }

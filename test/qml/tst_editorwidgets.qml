@@ -7,8 +7,14 @@ import "../../src/qml/editorwidgets" as EditorWidgets
 TestCase {
   name: "EditorWidgets"
 
+  Item {
+    // mainWindow for widgets
+    id: mainWindowItem
+  }
+
   EditorWidgets.TextEdit {
     id: textEdit
+    property var mainWindow: mainWindowItem
     property string value: "DEFAULT_VALUE"
     property var config: undefined
     property bool isEnabled: true
@@ -16,6 +22,7 @@ TestCase {
 
   EditorWidgets.Range {
     id: range
+    property var mainWindow: mainWindowItem
     property real value: default_value
     property var config: undefined
     property bool isEnabled: true
@@ -25,6 +32,7 @@ TestCase {
 
   EditorWidgets.DateTime {
     id: dateTime
+    property var mainWindow: mainWindowItem
     fieldIsDate: false // to simulate LayerUtils.fieldType( field ) != 'QDate'
     property string value: "2022-01-01"
     property var config: undefined
@@ -34,6 +42,7 @@ TestCase {
 
   EditorWidgets.CheckBox {
     id: checkBox
+    property var mainWindow: mainWindowItem
     property bool value: true
     property var config: undefined
     property var field: undefined
@@ -41,6 +50,7 @@ TestCase {
 
   EditorWidgets.ValueMap {
     id: valueMap
+    property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: undefined
     property var field: undefined
@@ -65,6 +75,7 @@ TestCase {
 
   EditorWidgets.UuidGenerator {
     id: uuidGenerator
+    property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: undefined
     property bool isAdding: false
@@ -74,8 +85,8 @@ TestCase {
    * Test case for textEdit widget
    *
    * This function tests the textEdit widget's functionality by setting its config to allow multiline and use html,
-   * setting its value to "six", verifying that it contains "six", resetting its config to disable multiline and html,
-   * setting its value to "seven", and comparing its children's texts with "six" and "seven".
+   * setting its value to "SECOND_VALUE", verifying that it contains "SECOND_VALUE", resetting its config to disable multiline and html,
+   * setting its value to "THIRD_VALUE", and comparing its children's texts with "THIRD_VALUE".
    */
   function test_01_textEdit() {
     const textReadonlyValue = textEdit.children[0];
@@ -97,7 +108,7 @@ TestCase {
       "UseHtml": false
     };
     textEdit.value = "THIRD_VALUE";
-    compare(textReadonlyValue.text, "SECOND_VALUE"); // NOTE: If the values in the config are set to `false`, the label text will not change.
+    compare(textReadonlyValue.text, "THIRD_VALUE");
     compare(textField.text, "THIRD_VALUE");
     compare(textArea.text, "THIRD_VALUE");
   }
@@ -346,8 +357,6 @@ TestCase {
     uuidGenerator.isAdding = true;
     uuidGenerator.isLoaded = true;
     uuidGenerator.value = "";
-    // NOTE: with isAdding && isLoaded && empty value, label should be StringUtils.createUuid()
-    // but because `StringUtils` is not defined it should remain as its previous value
-    compare(label.text, "ANY_VALUE");
+    verify(label.text !== "ANY_VALUE");
   }
 }

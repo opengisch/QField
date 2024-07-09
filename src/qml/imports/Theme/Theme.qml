@@ -148,7 +148,7 @@ QtObject {
   }
 
   function applyAppearance() {
-    var appearance = settings.value('appearance', 'system');
+    var appearance = settings ? settings.value('appearance', 'system') : undefined;
     if (appearance === undefined || appearance === 'system') {
       darkTheme = platformUtilities.isSystemDarkTheme();
     } else if (appearance === 'light') {
@@ -162,7 +162,7 @@ QtObject {
   }
 
   function applyFontScale() {
-    fontScale = settings.value('fontScale', 1.0);
+    fontScale = settings ? settings.value('fontScale', 1.0) : 1.0;
   }
 
   Component.onCompleted: {
