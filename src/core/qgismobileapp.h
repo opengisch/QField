@@ -207,7 +207,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     void onMapCanvasRefreshed();
 
   private:
-    void registerGlobalVariables( QgsApplication *mApp );
+    void registerGlobalVariables();
     void loadProjectQuirks();
     void saveProjectPreviewImage();
     bool printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination );
