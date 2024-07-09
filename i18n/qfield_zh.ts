@@ -3185,14 +3185,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>打开后，用户可以旋转地图。</translation>
     </message>
-    <message>
-        <source>Prevent digitizing while geofencing is in alert mode</source>
-        <translation>在地理围栏处于警报模式时阻止数字化</translation>
-    </message>
-    <message>
-        <source>When enabled, the digitizing of new features will be blocked if a project&apos;s geofencing is active and the current position triggers an alert.</source>
-        <translation>启用后，如果工程的地理围栏处于活动状态且当前位置触发警报，将阻止新要素的数字化。</translation>
-    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
