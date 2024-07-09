@@ -185,9 +185,7 @@ Page {
             Repeater {
               // Note: digitizing a child geometry will temporarily hide the feature form,
               // we need to preserve items so signal connections are kept alive
-              model: form.model.hasTabs
-                     ? contentModel
-                     : form.model
+              model: form.model.hasTabs ? contentModel : form.model
               objectName: "fieldRepeater"
               delegate: fieldItem
             }
@@ -815,11 +813,10 @@ Page {
         font: Theme.strongFont
         color: Theme.light
 
-        text:
-        {
-          const featureModel = model.featureModel
-          var currentLayer = featureModel ? featureModel.currentLayer : null
-          var layerName = 'N/A'
+        text: {
+          const featureModel = model.featureModel;
+          var currentLayer = featureModel ? featureModel.currentLayer : null;
+          var layerName = 'N/A';
           if (currentLayer != null)
             layerName = currentLayer.name;
           if (form.state === 'Add')

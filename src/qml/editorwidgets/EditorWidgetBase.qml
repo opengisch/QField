@@ -16,26 +16,24 @@ Item {
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
     width: {
-      let result = 50
-      let padding = 0
+      let result = 50;
+      let padding = 0;
       for (var i = 0; i < count; ++i) {
-        let item = itemAt(i)
-        result = Math.max(item.contentItem.implicitWidth, result)
-        padding = Math.max(item.leftPadding + item.rightPadding, padding)
+        let item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.leftPadding + item.rightPadding, padding);
       }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin
   }
 
-
   /**
    * This signal is emmited when an editor widget has changed the value.
    */
   signal valueChangeRequested(var value, bool isNull)
-
 
   /**
    * This signal is emitted when an editor widget is in need of a digitized geometry. The
@@ -44,7 +42,6 @@ Item {
    * handler is \c onRequestGeometry.
    */
   signal requestGeometry(var item, var layer)
-
 
   /**
    * This signal is emitted when an editor widget is requesting a barcode value. The

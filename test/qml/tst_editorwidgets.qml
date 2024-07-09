@@ -106,12 +106,11 @@ TestCase {
     textEdit.config = {
       "IsMultiline": false,
       "UseHtml": false
-    }
-    textEdit.value = "THIRD_VALUE"
-
-    compare(textReadonlyValue.text, "THIRD_VALUE")
-    compare(textField.text, "THIRD_VALUE")
-    compare(textArea.text, "THIRD_VALUE")
+    };
+    textEdit.value = "THIRD_VALUE";
+    compare(textReadonlyValue.text, "THIRD_VALUE");
+    compare(textField.text, "THIRD_VALUE");
+    compare(textArea.text, "THIRD_VALUE");
   }
 
   /**
@@ -355,10 +354,9 @@ TestCase {
     compare(uuidGenerator.isLoaded, false);
     uuidGenerator.value = "ANY_VALUE";
     compare(label.text, "ANY_VALUE");
-
-    uuidGenerator.isAdding = true
-    uuidGenerator.isLoaded = true
-    uuidGenerator.value = ""
+    uuidGenerator.isAdding = true;
+    uuidGenerator.isLoaded = true;
+    uuidGenerator.value = "";
     verify(label.text !== "ANY_VALUE");
   }
 }

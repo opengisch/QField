@@ -15,6 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
+#include "qfield.h"
 #include "qfield_qml_init.h"
 #include "qgismobileapp.h"
 
@@ -172,6 +174,12 @@ class Setup : public QObject
       engine->rootContext()->setContextProperty( "ppi", 96 );
       engine->rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
+
+      QgsExifTools mExifTools;
+      engine->rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
+
+      Settings mSettings;
+      engine->rootContext()->setContextProperty( "settings", &mSettings );
     }
 };
 

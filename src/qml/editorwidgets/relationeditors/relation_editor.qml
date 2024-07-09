@@ -211,15 +211,11 @@ EditorWidgetBase {
         id: mouseArea
         anchors.fill: parent
 
-            onClicked: {
-              if (relationEditorModel.relation.referencingLayer !== undefined) {
-                locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry
-                locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs
-                mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings,
-                                                                   relationEditorModel.relation.referencingLayer,
-                                                                   nmRelationId ? model.nmReferencingFeature : model.referencingFeature)
-              }
-            }
+        onClicked: {
+          if (relationEditorModel.relation.referencingLayer !== undefined) {
+            locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
+            locatorHighlightItem.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs;
+            mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, relationEditorModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
           }
         }
       }

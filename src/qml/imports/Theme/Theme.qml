@@ -148,7 +148,7 @@ QtObject {
   }
 
   function applyAppearance() {
-    var appearance = settings.value('appearance', 'system');
+    var appearance = settings ? settings.value('appearance', 'system') : undefined;
     if (appearance === undefined || appearance === 'system') {
       darkTheme = platformUtilities.isSystemDarkTheme();
     } else if (appearance === 'light') {
@@ -162,42 +162,11 @@ QtObject {
   }
 
   function applyFontScale() {
-    fontScale = settings.value('fontScale', 1.0);
+    fontScale = settings ? settings.value('fontScale', 1.0) : 1.0;
   }
 
-      for (var property in styleProperties) {
-        var value = styleProperties[property];
-        styles += property
-        styles += ': '
-        styles += typeof value == 'color'
-          ? colorToHtml(value)
-          : value
-        styles += ';'
-      }
-
-      return styles;
-    }
-
-    function applyAppearance() {
-      var appearance = settings ? settings.value('appearance', 'system') : undefined
-      if (appearance === undefined || appearance === 'system') {
-        darkTheme = platformUtilities.isSystemDarkTheme()
-      } else if (appearance === 'light') {
-        darkTheme = false
-      } else if (appearance === 'dark') {
-        darkTheme = true
-      }
-      Material.theme = darkTheme ? "Dark" : "Light"
-      mainBackgroundColor = Material.backgroundColor
-      mainTextColor = Material.foreground
-    }
-
-    function applyFontScale() {
-      fontScale = settings ? settings.value('fontScale', 1.0) : 1.0
-    }
-
-    Component.onCompleted: {
-      applyAppearance()
-      applyFontScale()
-    }
+  Component.onCompleted: {
+    applyAppearance();
+    applyFontScale();
+  }
 }
