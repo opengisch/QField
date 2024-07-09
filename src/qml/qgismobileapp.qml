@@ -3373,6 +3373,7 @@ ApplicationWindow {
       }
       layoutListInstantiator.model.reloadModel();
       geofencer.applyProjectSettings(qgisProject);
+      positioningSettings.geofencingPreventDigitizingDuringAlert = iface.readProjectBoolEntry("qfieldsync", "/geofencingShouldPreventDigitizing", false);
     }
 
     function onSetMapExtent(extent) {

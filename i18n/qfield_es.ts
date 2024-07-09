@@ -3187,14 +3187,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>Cuando se activa, el usuario puede rotar el mapa.</translation>
     </message>
-    <message>
-        <source>Prevent digitizing while geofencing is in alert mode</source>
-        <translation>Evitar digitalización mientras el geofencing está en modo alerta</translation>
-    </message>
-    <message>
-        <source>When enabled, the digitizing of new features will be blocked if a project&apos;s geofencing is active and the current position triggers an alert.</source>
-        <translation>Cuando está activado, la digitalización de objetos estará bloqueada si hay un geofencing de proyecto activo y las posición actual provoca una alerta.</translation>
-    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
