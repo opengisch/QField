@@ -100,6 +100,10 @@ jobs:
           path: |
             C:/src/**/*.log
 
+      - name: Fix openh264 linking
+        run: |
+          sed -i 's/ openh264\.lib //g' /c/builddir/build.ninja
+
       - name: 🌋 Build
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
@@ -123,12 +127,14 @@ jobs:
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.exe" >> $GITHUB_ENV
 
-      - name: 📑 Upload package logs
+      - name: 📑 Upload logs
         uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: package-logs-x64-windows-static
-          path: ${{ env.CMAKE_BUILD_DIR }}/_CPack_Packages/**/*.log
+          path: |
+            ${{ env.CMAKE_BUILD_DIR }}/_CPack_Packages/**/*.log
+            ${{ env.CMAKE_BUILD_DIR }}/CMakeCache.txt
 
       - name: 🎭 Sign
         if: ( github.event_name == 'release'  && startsWith(github.ref, 'refs/tags/v') ) || github.event_name == 'workflow_dispatch' && env.ARTIFACT_NAME != null
