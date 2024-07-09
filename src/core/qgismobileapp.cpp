@@ -285,7 +285,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative( this );
 
-  registerGlobalVariables( mApp );
+  registerGlobalVariables();
 
   if ( !dataDirs.isEmpty() )
   {
@@ -569,7 +569,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   engine->rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
 }
 
-void QgisMobileapp::registerGlobalVariables( QgsApplication *mApp )
+void QgisMobileapp::registerGlobalVariables()
 {
   // Calculate device pixels
   qreal dpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
