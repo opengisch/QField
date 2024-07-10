@@ -764,12 +764,6 @@ Page {
     height: visible ? form.topMargin + 48 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
-
-    anchors {
-      top: parent.top
-      topMargin: -1 // fix scene rounding issue leading to a white line
-    }
-
     background: Rectangle {
       color: !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
     }
