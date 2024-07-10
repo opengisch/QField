@@ -24,13 +24,9 @@ ProcessingParameterWidgetBase {
     anchors.top: parent.top
     spacing: 5
 
-    TextField {
+    QfTextField {
       id: textField
       height: fontMetrics.height + 20
-      topPadding: 10
-      bottomPadding: 10
-      rightPadding: 0
-      leftPadding: enabled ? 5 : 0
       width: parent.width - decreaseButton.width - increaseButton.width - (distanceConvertible ? unitTypesComboBox.width : unitTypeLabel.width) - parent.spacing * 3
 
       font: Theme.defaultFont
@@ -42,20 +38,8 @@ ProcessingParameterWidgetBase {
 
       inputMethodHints: Qt.ImhFormattedNumbersOnly
 
-      background: Rectangle {
-        implicitWidth: 120
-        color: "transparent"
-
-        Rectangle {
-          y: textField.height - height - textField.bottomPadding / 2
-          width: textField.width
-          height: textField.activeFocus ? 2 : 1
-          color: textField.activeFocus ? Theme.accentColor : Theme.accentLightColor
-        }
-      }
-
       onTextChanged: {
-        if (text != currentValue) {
+        if (parseFloat(text) !== currentValue) {
           if (!isNaN(parseFloat(text))) {
             let numberValue = Math.max(distanceItem.min, Math.min(distanceItem.max, text));
             prepareValueChangeRequest(numberValue);
@@ -67,7 +51,7 @@ ProcessingParameterWidgetBase {
     Label {
       id: unitTypeLabel
       visible: !distanceConvertible
-      width: distanceConvertible ? 100 : 0
+      width: distanceConvertible ? contentWidth : 0
       font: Theme.defaultFont
       color: Theme.mainTextColor
 
@@ -76,8 +60,6 @@ ProcessingParameterWidgetBase {
 
     QfComboBox {
       id: unitTypesComboBox
-
-      property bool initialized: false
 
       visible: distanceConvertible
       implicitContentWidthPolicy: ComboBox.WidestTextWhenCompleted
@@ -124,11 +106,9 @@ ProcessingParameterWidgetBase {
       }
 
       onCurrentIndexChanged: {
-        if (textField.text != value) {
-          if (!isNaN(parseFloat(textField.text))) {
-            let numberValue = Math.max(distanceItem.min, Math.min(distanceItem.max, textField.text));
-            prepareValueChangeRequest(numberValue);
-          }
+        if (!isNaN(parseFloat(textField.text))) {
+          let numberValue = Math.max(distanceItem.min, Math.min(distanceItem.max, textField.text));
+          prepareValueChangeRequest(numberValue);
         }
       }
 
@@ -140,7 +120,6 @@ ProcessingParameterWidgetBase {
               break;
             }
           }
-          initialized = true;
         }
       }
     }
@@ -218,11 +197,11 @@ ProcessingParameterWidgetBase {
     onTriggered: {
       var hitBoundary = false;
       if (increase) {
-        increaseValue();
-        hitBoundary = textField.text == distanceItem.max;
+        adjustValue(1);
+        hitBoundary = parseFloat(textField.text) === distanceItem.max;
       } else {
-        decreaseValue();
-        hitBoundary = textField.text == distanceItem.min;
+        adjustValue(-1);
+        hitBoundary = parseFloat(textField.text) === distanceItem.min;
       }
       if (!hitBoundary) {
         if (interval > 50)
@@ -233,27 +212,15 @@ ProcessingParameterWidgetBase {
     }
   }
 
-  function decreaseValue() {
-    var currentValue = Number.parseFloat(textField.text);
+  function adjustValue(direction) {
+    var currentValue = parseFloat(textField.text);
     var newValue;
     if (!isNaN(currentValue)) {
-      newValue = currentValue - distanceItem.step;
-      prepareValueChangeRequest(Math.max(distanceItem.min, newValue));
+      newValue = currentValue + (distanceItem.step * direction);
+      prepareValueChangeRequest(Math.min(distanceItem.max(Math.max(distanceItem.min, newValue))));
     } else {
       newValue = 0;
       prepareValueChangeRequest(newValue, false);
-    }
-  }
-
-  function increaseValue() {
-    var currentValue = Number.parseFloat(textField.text);
-    var newValue;
-    if (!isNaN(currentValue)) {
-      newValue = currentValue + distanceItem.step;
-      prepareValueChangeRequest(Math.min(distanceItem.max, newValue));
-    } else {
-      newValue = 0;
-      prepareValueChangeRequest(newValue);
     }
   }
 

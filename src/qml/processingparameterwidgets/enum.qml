@@ -19,8 +19,6 @@ ProcessingParameterWidgetBase {
     QfComboBox {
       id: unitTypesComboBox
 
-      property bool initialized: false
-
       width: parent.width
       model: configuration["options"]
 

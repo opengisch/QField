@@ -5,6 +5,7 @@ Item {
   id: textFieldWrapper
 
   property alias font: textField.font
+  property alias color: textField.color
   property alias text: textField.text
   property alias displayText: textField.displayText
   property alias placeholderText: textField.placeholderText
@@ -35,6 +36,8 @@ Item {
     placeholderTextColor: Theme.accentLightColor
     rightPadding: showPasswordButton.visible ? showPasswordButton.width : 0
     leftPadding: rightPadding
+    topPadding: 10
+    bottomPadding: 10
     inputMethodHints: Qt.ImhNone
 
     background: Rectangle {
