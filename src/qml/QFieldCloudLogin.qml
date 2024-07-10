@@ -99,14 +99,13 @@ Item {
         Layout.alignment: Qt.AlignHCenter
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
         enabled: visible
-        height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
         text: prefixUrlWithProtocol(cloudConnection.url) === cloudConnection.defaultUrl ? '' : cloudConnection.url
 
         onTextChanged: text = text.replace(/\s+/g, '')
         onEditingFinished: cloudConnection.url = text ? prefixUrlWithProtocol(text) : cloudConnection.defaultUrl
-        onReturnPressed: loginFormSumbitHandler()
+        Keys.onReturnPressed: loginFormSumbitHandler()
 
         function prefixUrlWithProtocol(url) {
           if (!url || url.startsWith('http://') || url.startsWith('https://'))
@@ -132,12 +131,11 @@ Item {
         Layout.alignment: Qt.AlignHCenter
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
-        height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
 
         onTextChanged: text = text.replace(/\s+/g, '')
-        onReturnPressed: loginFormSumbitHandler()
+        Keys.onReturnPressed: loginFormSumbitHandler()
       }
 
       Text {
@@ -158,11 +156,10 @@ Item {
         Layout.alignment: Qt.AlignHCenter
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
-        height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
 
-        onReturnPressed: loginFormSumbitHandler()
+        Keys.onReturnPressed: loginFormSumbitHandler()
       }
 
       FontMetrics {

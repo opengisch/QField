@@ -19,15 +19,12 @@ ProcessingParameterWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.top: parent.top
+    spacing: 5
 
-    TextField {
+    QfTextField {
       id: textField
       height: fontMetrics.height + 20
-      topPadding: 10
-      bottomPadding: 10
-      rightPadding: 0
-      leftPadding: enabled ? 5 : 0
-      width: parent.width - decreaseButton.width - increaseButton.width
+      width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
 
       font: Theme.defaultFont
       color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
@@ -43,18 +40,6 @@ ProcessingParameterWidgetBase {
       }
 
       inputMethodHints: Qt.ImhFormattedNumbersOnly
-
-      background: Rectangle {
-        implicitWidth: 120
-        color: "transparent"
-
-        Rectangle {
-          y: textField.height - height - textField.bottomPadding / 2
-          width: textField.width
-          height: textField.activeFocus ? 2 : 1
-          color: textField.activeFocus ? Theme.accentColor : Theme.accentLightColor
-        }
-      }
 
       onTextChanged: {
         if (text != value) {

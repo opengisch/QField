@@ -443,6 +443,7 @@ Rectangle {
   ProcessingAlgorithmForm {
     id: processingAlgorithmForm
 
+    inPlaceLayer: processingAlgorithm.inPlaceLayer
     algorithmId: processingAlgorithm.id
 
     anchors.top: featureListToolBar.bottom

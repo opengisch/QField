@@ -111,12 +111,9 @@ Page {
         echoMode: TextInput.Password
         inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         horizontalAlignment: Text.AlignHCenter
-        onReturnPressed: {
-          _processAuth();
-        }
-        Keys.onEnterPressed: {
-          _processAuth();
-        }
+
+        Keys.onReturnPressed: _processAuth()
+        Keys.onEnterPressed: _processAuth()
       }
 
       Item {

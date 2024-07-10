@@ -211,6 +211,30 @@ bool ProcessingAlgorithm::run( bool previewMode )
         }
         else
         {
+          auto updateOriginalFeature = [=]( const QgsFeature &outputFeature ) {
+            QgsGeometry outputGeometry = outputFeature.geometry();
+            if ( !outputGeometry.equals( feature.geometry() ) )
+            {
+              mInPlaceLayer->changeGeometry( feature.id(), outputGeometry );
+            }
+            if ( outputFeature.attributes() != feature.attributes() )
+            {
+              QgsAttributeMap newAttributes;
+              QgsAttributeMap oldAttributes;
+              const QgsFields fields = mInPlaceLayer->fields();
+              for ( const QgsField &field : fields )
+              {
+                const int index = fields.indexOf( field.name() );
+                if ( outputFeature.attribute( index ) != feature.attribute( index ) )
+                {
+                  newAttributes[index] = outputFeature.attribute( index );
+                  oldAttributes[index] = feature.attribute( index );
+                }
+              }
+              mInPlaceLayer->changeAttributeValues( feature.id(), newAttributes, oldAttributes );
+            }
+          };
+
           if ( outputFeatures.isEmpty() )
           {
             // Algorithm deleted the feature, remove from the layer
@@ -219,41 +243,28 @@ bool ProcessingAlgorithm::run( bool previewMode )
           else if ( outputFeatures.size() == 1 )
           {
             // Algorithm modified the feature, adjust accordingly
-            QgsGeometry outputGeometry = outputFeatures[0].geometry();
-            if ( !outputGeometry.equals( feature.geometry() ) )
-            {
-              mInPlaceLayer->changeGeometry( feature.id(), outputGeometry );
-            }
-            if ( outputFeatures[0].attributes() != feature.attributes() )
-            {
-              QgsAttributeMap newAttributes;
-              QgsAttributeMap oldAttributes;
-              const QgsFields fields = mInPlaceLayer->fields();
-              for ( const QgsField &field : fields )
-              {
-                const int index = fields.indexOf( field.name() );
-                if ( outputFeatures[0].attribute( index ) != feature.attribute( index ) )
-                {
-                  newAttributes[index] = outputFeatures[0].attribute( index );
-                  oldAttributes[index] = feature.attribute( index );
-                }
-              }
-              mInPlaceLayer->changeAttributeValues( feature.id(), newAttributes, oldAttributes );
-            }
+            updateOriginalFeature( outputFeatures[0] );
           }
           else if ( outputFeatures.size() > 1 )
           {
             QgsFeatureList newFeatures;
+            bool originalFeatureUpdated = false;
             for ( QgsFeature &outputFeature : outputFeatures )
             {
+              if ( !originalFeatureUpdated )
+              {
+                updateOriginalFeature( outputFeature );
+                originalFeatureUpdated = true;
+                continue;
+              }
               newFeatures << QgsVectorLayerUtils::createFeature( mInPlaceLayer.data(), outputFeature.geometry(), outputFeature.attributes().toMap(), &context.expressionContext() );
             }
             mInPlaceLayer->addFeatures( newFeatures );
           }
-
-          mInPlaceLayer->commitChanges();
         }
       }
+
+      mInPlaceLayer->commitChanges();
     }
     else
     {

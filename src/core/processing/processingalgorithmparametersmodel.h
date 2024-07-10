@@ -18,6 +18,8 @@
 #ifndef PROCESSINGALGORITHMPARAMETERSMODEL
 #define PROCESSINGALGORITHMPARAMETERSMODEL
 
+#include "qgsvectorlayer.h"
+
 #include <QAbstractListModel>
 #include <QSortFilterProxyModel>
 
@@ -39,6 +41,8 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
     Q_PROPERTY( ProcessingAlgorithmParametersModel::Filters filters READ filters WRITE setFilters NOTIFY filtersChanged )
 
     Q_PROPERTY( QString algorithmId READ algorithmId WRITE setAlgorithmId NOTIFY algorithmIdChanged )
+    Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
+
     Q_PROPERTY( bool isValid READ isValid NOTIFY algorithmIdChanged )
     Q_PROPERTY( bool hasParameters READ hasParameters NOTIFY algorithmIdChanged )
     Q_PROPERTY( bool hasAdvancedParameters READ hasAdvancedParameters NOTIFY algorithmIdChanged )
@@ -80,6 +84,16 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
      * Sets the current algorithm \a ID from which parameters are taken from.
      */
     void setAlgorithmId( const QString &id );
+
+    /**
+     * Returns the vector \a layer for in-place algorithms for parameters to take details from.
+     */
+    QgsVectorLayer *inPlaceLayer() const;
+
+    /**
+     * Sets the vector \a layer for in-place algorithm filter for parameters to take details from.
+     */
+    void setInPlaceLayer( QgsVectorLayer *layer );
 
     /**
      * Returns whether the current model refers to a valid algorithm.
@@ -130,6 +144,11 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
     void algorithmIdChanged( const QString &id );
 
     /**
+     * Emitted when the in place vector layer has changed
+     */
+    void inPlaceLayerChanged();
+
+    /**
      * Emitted when the parameters have changed.
      */
     void parametersChanged();
@@ -170,6 +189,16 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
      * Sets the current algorithm \a ID from which parameters are taken from.
      */
     void setAlgorithmId( const QString &id );
+
+    /**
+     * Returns the vector \a layer for in-place algorithms for parameters to take details from.
+     */
+    QgsVectorLayer *inPlaceLayer() const { return mInPlaceLayer.data(); }
+
+    /**
+     * Sets the vector \a layer for in-place algorithm filter for parameters to take details from.
+     */
+    void setInPlaceLayer( QgsVectorLayer *layer );
 
     /**
      * Returns whether the current model refers to a valid algorithm.
@@ -218,6 +247,11 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
     void algorithmIdChanged( const QString &id );
 
     /**
+     * Emitted when the in place vector layer has changed
+     */
+    void inPlaceLayerChanged();
+
+    /**
      * Emitted when the parameters have changed.
      */
     void parametersChanged();
@@ -230,6 +264,8 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
 
     QString mAlgorithmId;
     const QgsProcessingAlgorithm *mAlgorithm = nullptr;
+
+    QPointer<QgsVectorLayer> mInPlaceLayer;
 
     bool mHasAdvancedParameters = false;
 
