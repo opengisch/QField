@@ -103,6 +103,7 @@ Drawer {
         overlayFeatureForm.isSaved = false; //reset
       }
       digitizingToolbar.digitizingLogger.writeCoordinates();
+      resetTabs();
     }
 
     onCancelled: {
@@ -115,6 +116,7 @@ Drawer {
         overlayFeatureForm.isSaved = false; //reset
       }
       digitizingToolbar.digitizingLogger.clearCoordinates();
+      resetTabs();
     }
 
     Keys.onReleased: event => {

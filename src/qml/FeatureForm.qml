@@ -46,6 +46,10 @@ Page {
     }
   }
 
+  function resetTabs() {
+    tabRow.currentIndex = 0;
+  }
+
   clip: true
   states: [
     State {
