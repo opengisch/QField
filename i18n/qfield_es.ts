@@ -2387,7 +2387,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud está empaqueta los datos más recientes solo para usted; Esto puede llevar algún tiempo, por favor espere</translation>
+        <translation>QFieldCloud está empaquetando los datos más recientes para usted; esto puede llevar algún tiempo, por favor espere.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -2657,7 +2657,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud está empaqueta los datos más recientes solo para usted; Esto puede llevar algún tiempo, por favor espere</translation>
+        <translation>QFieldCloud está empaquetando los datos más recientes para usted; esto puede llevar algún tiempo, por favor espere.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -4093,6 +4093,53 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Bienvenido a QField. ¿Primera vez que usa la aplicación? Pruebe los proyectos de muestra listados debajo.</translation>
+    </message>
+</context>
+<context>
+    <name>distance</name>
+    <message>
+        <source>degrees</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>kilometers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>nautical miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>centimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>millimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>inches</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4100,6 +4100,53 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>distance</name>
+    <message>
+        <source>degrees</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>kilometers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>nautical miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>centimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>millimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>inches</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>

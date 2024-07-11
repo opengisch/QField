@@ -4094,6 +4094,53 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>distance</name>
+    <message>
+        <source>degrees</source>
+        <translation>度</translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>&lt;unknown&gt;</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>米</translation>
+    </message>
+    <message>
+        <source>kilometers</source>
+        <translation>千米</translation>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation>英尺</translation>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation>码</translation>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation>英里</translation>
+    </message>
+    <message>
+        <source>nautical miles</source>
+        <translation>海里</translation>
+    </message>
+    <message>
+        <source>centimeters</source>
+        <translation>厘米</translation>
+    </message>
+    <message>
+        <source>millimeters</source>
+        <translation>毫米</translation>
+    </message>
+    <message>
+        <source>inches</source>
+        <translation>英寸</translation>
+    </message>
+</context>
+<context>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
