@@ -78,11 +78,13 @@ Popup {
     anchors.fill: parent
 
     onConfirmed: {
+      form.resetTabs();
       formPopup.featureSaved(formFeatureModel.feature.id);
       closePopup();
     }
 
     onCancelled: {
+      form.resetTabs();
       formPopup.featureCancelled();
       closePopup();
     }
