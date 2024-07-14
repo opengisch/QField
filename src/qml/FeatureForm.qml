@@ -788,7 +788,7 @@ Page {
         clip: true
 
         iconSource: Theme.getThemeIcon("ic_check_white_48dp")
-        opacity: typeof featureFormList !== "undefined" ? featureFormList.model.constraintsHardValid ? 1.0 : 0.3 : 1.0
+        opacity: typeof featureForm !== "undefined" ? featureForm.model.constraintsHardValid ? 1.0 : 0.3 : 1.0
 
         onClicked: {
           if (model.constraintsHardValid) {
