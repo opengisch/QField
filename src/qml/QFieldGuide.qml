@@ -19,12 +19,16 @@ Popup {
   onVisibleChanged: {
     if (visible) {
       guide.index = 0;
+      enablePannelAnimation = false;
     }
   }
   onIndexChanged: {
     canvas.requestPaint();
+    if (index == 1)
+      enablePannelAnimation = true;
   }
 
+  property bool enablePannelAnimation: false
   property var steps: []
   property int targetMargins: 5
   property Component nextButton: nextButton
@@ -36,26 +40,14 @@ Popup {
 
   Component {
     id: nextButton
-    Button {
+    QfButton {
       text: isEnd ? guide.finishText : guide.nextText
       verticalPadding: 0
       horizontalPadding: 12
-      contentItem: Text {
-        color: "white"
-        anchors.fill: parent
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        font: parent.font
-        text: parent.text
-      }
-
-      background: Rectangle {
-        implicitWidth: 30
-        implicitHeight: 30
-        color: Theme.mainColor
-        radius: 4
-      }
-
+      bgcolor: Theme.mainColor
+      color: "white"
+      height: 32
+      radius: 5
       onClicked: {
         if (isEnd) {
           guide.close();
@@ -68,17 +60,14 @@ Popup {
 
   Component {
     id: prevButton
-    Button {
+    QfButton {
       text: guide.previousText
       verticalPadding: 0
       horizontalPadding: 12
-      background: Rectangle {
-        implicitWidth: 30
-        implicitHeight: 30
-        border.width: 0.5
-        border.color: "grey"
-        radius: 4
-      }
+      bgcolor: "#00000000"
+      color: Theme.gray
+      height: 32
+      radius: 5
       onClicked: {
         guide.index -= 1;
       }
@@ -145,7 +134,7 @@ Popup {
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = 'black';
       var rect = Qt.rect(internalObject.pos.x - guide.targetMargins, internalObject.pos.y - guide.targetMargins, internalObject.target.width + guide.targetMargins * 2, internalObject.target.height + guide.targetMargins * 2);
-      drawRoundedRect(rect, 2, ctx);
+      drawRoundedRect(rect, 8, ctx);
       ctx.restore();
     }
 
@@ -171,6 +160,22 @@ Popup {
     height: 88 + description.height + (animatedHint.visible ? animatedHint.height + 8 : 20)
     radius: 4
     clip: true
+
+    Behavior on x  {
+      enabled: enablePannelAnimation
+
+      NumberAnimation {
+        duration: 150
+      }
+    }
+    Behavior on y  {
+      enabled: enablePannelAnimation
+
+      NumberAnimation {
+        duration: 150
+      }
+    }
+
     property color color: Theme.mainBackgroundColor
     property int dir: {
       if (y < internalObject.pos.y)
@@ -269,16 +274,16 @@ Popup {
         rightMargin: 14
       }
     }
-    RoundButton {
+
+    QfButton {
       anchors {
         right: parent.right
         top: parent.top
         margins: 10
       }
-      text: "x"
-      width: 35
-      height: 35
-      padding: 0
+      width: 20
+      height: width
+      bgcolor: Theme.darkRed
       onClicked: {
         guide.close();
       }
@@ -290,6 +295,22 @@ Popup {
     width: 48
     height: width
     source: hintPannel.dir ? Theme.getThemeVectorIcon("ic_arrow_drop_down_48dp") : Theme.getThemeVectorIcon("ic_arrow_drop_up_48dp")
+
+    Behavior on x  {
+      enabled: enablePannelAnimation
+
+      NumberAnimation {
+        duration: 150
+      }
+    }
+    Behavior on y  {
+      enabled: enablePannelAnimation
+
+      NumberAnimation {
+        duration: 150
+      }
+    }
+
     x: {
       if (internalObject.target) {
         return internalObject.pos.x < 10 ? 16 : internalObject.pos.x - 12;
