@@ -38,6 +38,40 @@ ApplicationWindow {
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
 
+  Button {
+    text: "Tour"
+    anchors.centerIn: parent
+    z: 999999
+    onClicked: {
+      tour.open();
+    }
+  }
+
+  QFieldGuide {
+    id: tour
+    steps: [{
+        "title": qsTr("Zoom In Button"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => zoomInButton
+      }, {
+        "title": qsTr("Zoom Out Button"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => zoomOutButton
+      }, {
+        "title": qsTr("Menu Button"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => menuButton
+      }, {
+        "title": qsTr("GNSS Button"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => gnssButton
+      }, {
+        "title": qsTr("SearchBar"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => locatorItem
+      },]
+  }
+
   Timer {
     id: refreshSceneMargins
     running: false

@@ -537,5 +537,7 @@
         <file>themes/qfield/nodpi/ic_opacity_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_common_angle_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_password_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_arrow_drop_down_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_arrow_drop_up_48dp.svg</file>
     </qresource>
 </RCC>
