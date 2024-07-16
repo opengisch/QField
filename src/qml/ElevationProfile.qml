@@ -41,7 +41,7 @@ Rectangle {
     backgroundColor: Theme.mainBackgroundColorSemiOpaque
     borderColor: Theme.controlBackgroundAlternateColor
     axisLabelColor: Theme.secondaryTextColor
-    axisLabelSize: Theme.tipFont
+    axisLabelSize: Theme.tipFont.pointSize
   }
 
   ProgressBar {
