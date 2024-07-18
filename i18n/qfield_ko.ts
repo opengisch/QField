@@ -1265,19 +1265,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Imported projects</source>
-        <translation type="unfinished"/>
+        <translation>가져온 프로젝트</translation>
     </message>
     <message>
         <source>Imported datasets</source>
-        <translation type="unfinished"/>
+        <translation>가져온 데이터세트</translation>
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation type="unfinished"/>
+        <translation>추가 파일 디렉토리</translation>
     </message>
     <message>
         <source>Sample projects</source>
-        <translation type="unfinished"/>
+        <translation>샘플 프로젝트</translation>
     </message>
 </context>
 <context>

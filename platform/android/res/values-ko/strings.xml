@@ -9,6 +9,7 @@
     <string name="noexternalstorage_dialog">외부 저장소 (/sdcard)를 사용할 수 없는 것 같습니다. 이것은 USB를 통해 장치를 PC에 연결할 때 발생합니다. \nQGIS는 내부 저장소에서 실행할 수 있지만 용량이 부족할 수 있으므로 권장하지 않습니다. \n취소를 선택하고 USB 케이블을 분리 후 QGIS를 다시 시작하는 것이 좋습니다.</string>
     <string name="primary_storage">내부 저장소</string>
     <string name="secondary_storage">QField 파일 디렉토리</string>
+    <string name="secondary_storage_extra">추가 파일 디렉토리</string>
     <string name="secondary_storage_read_only">외부 저장소(읽기 전용)</string>
     <string name="inaccessible">접근 불능</string>
     <string name="loading">불러오는 중</string>
@@ -20,6 +21,9 @@
     <string name="remind_later">나중에 알림</string>
     <string name="no_thanks">아니오, 감사합니다!</string>
     <string name="favorite_directories">즐겨찾는 디렉토리</string>
+    <string name="favorites_sample_projects">샘플 프로젝트</string>
+    <string name="favorites_imported_projects">가져온 프로젝트</string>
+    <string name="favorites_imported_datasets">가져온 데이터세트</string>
     <string name="added_to_favorites">즐겨찾기에 추가됨</string>
     <string name="removed_from_favorites">즐겨찾기에서 제거됨</string>
     <string name="external_files_title">중요 사항</string>
