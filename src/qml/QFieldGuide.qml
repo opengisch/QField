@@ -7,6 +7,17 @@ import Theme
 
 Popup {
   id: guide
+
+  property bool enablePannelAnimation: false
+  property var steps: []
+  property int targetMargins: 5
+  property Component nextButton: nextButton
+  property Component previousButton: previousButton
+  property int index: 0
+  property string finishText: qsTr("Finish")
+  property string nextText: qsTr("Next")
+  property string previousText: qsTr("Previous")
+
   padding: 0
   parent: Overlay.overlay
   width: internalObject.parentWidth
@@ -28,20 +39,10 @@ Popup {
       enablePannelAnimation = true;
   }
 
-  property bool enablePannelAnimation: false
-  property var steps: []
-  property int targetMargins: 5
-  property Component nextButton: nextButton
-  property Component prevButton: prevButton
-  property int index: 0
-  property string finishText: qsTr("Finish")
-  property string nextText: qsTr("Next")
-  property string previousText: qsTr("Previous")
-
   Component {
     id: nextButton
     QfButton {
-      text: isEnd ? guide.finishText : guide.nextText
+      text: isLast ? guide.finishText : guide.nextText
       verticalPadding: 0
       horizontalPadding: 12
       bgcolor: Theme.mainColor
@@ -49,7 +50,7 @@ Popup {
       height: 32
       radius: 5
       onClicked: {
-        if (isEnd) {
+        if (isLast) {
           guide.close();
         } else {
           guide.index = guide.index + 1;
@@ -59,7 +60,7 @@ Popup {
   }
 
   Component {
-    id: prevButton
+    id: previousButton
     QfButton {
       text: guide.previousText
       verticalPadding: 0
@@ -124,8 +125,6 @@ Popup {
     id: canvas
     anchors.fill: parent
     onPaint: {
-      internalObject.pos = internalObject.target.mapToGlobal(0, 0);
-      internalObject.pos = Qt.point(internalObject.pos.x - internalObject.window.x, internalObject.pos.y - internalObject.window.y);
       var ctx = canvas.getContext("2d");
       ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
       ctx.save();
@@ -133,8 +132,12 @@ Popup {
       ctx.fillRect(0, 0, canvasSize.width, canvasSize.height);
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = 'black';
-      var rect = Qt.rect(internalObject.pos.x - guide.targetMargins, internalObject.pos.y - guide.targetMargins, internalObject.target.width + guide.targetMargins * 2, internalObject.target.height + guide.targetMargins * 2);
-      drawRoundedRect(rect, 8, ctx);
+      for (let i = 0; i < internalObject.target.length; ++i) {
+        internalObject.pos = internalObject.target[i].mapToGlobal(0, 0);
+        internalObject.pos = Qt.point(internalObject.pos.x - internalObject.window.x, internalObject.pos.y - internalObject.window.y);
+        var rect = Qt.rect(internalObject.pos.x - guide.targetMargins, internalObject.pos.y - guide.targetMargins, internalObject.target[i].width + guide.targetMargins * 2, internalObject.target[i].height + guide.targetMargins * 2);
+        drawRoundedRect(rect, 8, ctx);
+      }
       ctx.restore();
     }
 
@@ -156,6 +159,14 @@ Popup {
 
   Rectangle {
     id: hintPannel
+
+    property color color: Theme.mainBackgroundColor
+    property int dir: {
+      if (y < internalObject.pos.y)
+        return 1;
+      return 0;
+    }
+
     width: Math.max(250, mainWindow.width / 2)
     height: 88 + description.height + (animatedHint.visible ? animatedHint.height + 8 : 20)
     radius: 4
@@ -176,21 +187,15 @@ Popup {
       }
     }
 
-    property color color: Theme.mainBackgroundColor
-    property int dir: {
-      if (y < internalObject.pos.y)
-        return 1;
-      return 0;
-    }
     x: {
-      if (internalObject.target) {
-        return Math.min(Math.max(8, internalObject.pos.x + internalObject.target.width / 2 - width / 2), guide.width - width - 10);
+      if (internalObject.target[0]) {
+        return Math.min(Math.max(8, internalObject.pos.x + internalObject.target[0].width / 2 - width / 2), guide.width - width - 10);
       }
       return 0;
     }
     y: {
-      if (internalObject.target) {
-        var ty = internalObject.pos.y + internalObject.target.height + guide.targetMargins + 15;
+      if (internalObject.target[0]) {
+        var ty = internalObject.pos.y + internalObject.target[0].height + guide.targetMargins + 15;
         if ((ty + height) >= guide.height) {
           return internalObject.pos.y - height - guide.targetMargins - 8;
         }
@@ -241,20 +246,19 @@ Popup {
 
     AnimatedImage {
       id: animatedHint
-      width: 133
-      height: 100
       visible: internalObject.step.animatedGuide !== undefined
       source: visible ? internalObject.step.animatedGuide : ""
       anchors.top: description.bottom
-      anchors.left: parent.left
+      anchors.left: description.left
+      anchors.right: hintPannel.right
+      anchors.rightMargin: 15
       fillMode: AnimatedImage.PreserveAspectFit
-      anchors.leftMargin: 14
       anchors.topMargin: 8
     }
 
     Loader {
       id: nextButtonLoader
-      property bool isEnd: guide.index === steps.length - 1
+      property bool isLast: guide.index === steps.length - 1
       sourceComponent: nextButton
       anchors {
         bottom: parent.bottom
@@ -264,9 +268,9 @@ Popup {
       }
     }
     Loader {
-      id: prevButtonLoader
+      id: previousButtonLoader
       visible: guide.index !== 0
-      sourceComponent: prevButton
+      sourceComponent: previousButton
       anchors {
         right: nextButtonLoader.left
         bottom: parent.bottom
@@ -312,16 +316,40 @@ Popup {
     }
 
     x: {
-      if (internalObject.target) {
+      if (internalObject.target[0]) {
         return internalObject.pos.x < 10 ? 16 : internalObject.pos.x - 12;
       }
       return 0;
     }
     y: {
-      if (internalObject.target) {
-        return internalObject.pos.y + (hintPannel.dir ? -(height - 14) : internalObject.target.height - 14);
+      if (internalObject.target[0]) {
+        return internalObject.pos.y + (hintPannel.dir ? -(height - 14) : internalObject.target[0].height - 14);
       }
       return 0;
     }
   }
 }
+
+/** Example how to use:
+
+  QFieldGuide {
+    id: startupTour
+    steps: [{
+        "title": qsTr("Zoom Toolbar"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => [zoomToolbar]
+      }, {
+        "title": qsTr("Menu Button"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => [menuButton, zoomToolbar]
+      }, {
+        "title": qsTr("GNSS Button"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => [gnssButton]
+      }, {
+        "title": qsTr("SearchBar"),
+        "description": qsTr("Main responsibility is described."),
+        "target": () => [locatorItem]
+      },]
+  }
+*/
