@@ -20,6 +20,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QStandardPaths>
+#include <qgsexiftools.h>
 
 #include <cmath>
 
@@ -48,7 +49,8 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
 {
   clear();
 
-  QImageReader imageReader( path.startsWith( QStringLiteral( "file://" ) ) ? path.mid( 7 ) : path );
+  mLoadedImagePath = path.startsWith( QStringLiteral( "file://" ) ) ? path.mid( 7 ) : path;
+  QImageReader imageReader( mLoadedImagePath );
   imageReader.setAutoTransform( true );
   mBackgroundImage = imageReader.read();
 
@@ -65,6 +67,7 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
   }
   else
   {
+    mLoadedImagePath.clear();
     mDrawingImage = QImage();
     setIsEmpty( false );
   }
@@ -77,6 +80,7 @@ void DrawingCanvas::clear()
 {
   mStrokes.clear();
 
+  mLoadedImagePath.clear();
   mBackgroundImage = QImage();
   mDrawingImage = QImage();
 
@@ -97,9 +101,23 @@ QString DrawingCanvas::save() const
   painter.drawImage( 0, 0, mBackgroundImage );
   painter.drawImage( 0, 0, mDrawingImage );
 
+  if ( !mLoadedImagePath.isEmpty() )
+  {
+    QVariantMap metadata = QgsExifTools::readTags( mLoadedImagePath );
+    if ( !metadata.isEmpty() )
+    {
+      QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.jpg";
+      image.save( path, "jpg", 88 );
+      for ( const QString key : metadata.keys() )
+      {
+        QgsExifTools::tagImage( path, key, metadata[key] );
+      }
+      return path;
+    }
+  }
+
   QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.png";
   image.save( path, "png", 80 );
-
   return path;
 }
 
