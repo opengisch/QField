@@ -182,6 +182,8 @@ class DrawingCanvas : public QQuickPaintedItem
     bool mIsEmpty = true;
     bool mIsDirty = false;
 
+    QString mLoadedImagePath;
+
     QColor mFrameColor;
     double mZoomFactor = 1.0;
     QPointF mOffset = QPointF( 0, 0 );
