@@ -185,7 +185,7 @@ void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHei
                            : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
     scaledImage.save( imagePath );
 
-    for ( const QString key : metadata.keys() )
+    for ( const QString &key : metadata.keys() )
     {
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
     }
