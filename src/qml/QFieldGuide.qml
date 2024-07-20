@@ -8,11 +8,10 @@ import Theme
 Popup {
   id: guide
 
-  property bool enablePannelAnimation: false
+  required property var baseRoot
+  property bool enablePanelAnimation: false
   property var steps: []
   property int targetMargins: 5
-  property Component nextButton: nextButton
-  property Component previousButton: previousButton
   property int index: 0
   property string finishText: qsTr("Finish")
   property string nextText: qsTr("Next")
@@ -30,49 +29,13 @@ Popup {
   onVisibleChanged: {
     if (visible) {
       guide.index = 0;
-      enablePannelAnimation = false;
+      enablePanelAnimation = false;
     }
   }
   onIndexChanged: {
     canvas.requestPaint();
     if (index == 1)
-      enablePannelAnimation = true;
-  }
-
-  Component {
-    id: nextButton
-    QfButton {
-      text: isLast ? guide.finishText : guide.nextText
-      verticalPadding: 0
-      horizontalPadding: 12
-      bgcolor: Theme.mainColor
-      color: "white"
-      height: 32
-      radius: 5
-      onClicked: {
-        if (isLast) {
-          guide.close();
-        } else {
-          guide.index = guide.index + 1;
-        }
-      }
-    }
-  }
-
-  Component {
-    id: previousButton
-    QfButton {
-      text: guide.previousText
-      verticalPadding: 0
-      horizontalPadding: 12
-      bgcolor: "#00000000"
-      color: Theme.gray
-      height: 32
-      radius: 5
-      onClicked: {
-        guide.index -= 1;
-      }
-    }
+      enablePanelAnimation = true;
   }
 
   Item {
@@ -158,7 +121,7 @@ Popup {
   }
 
   Rectangle {
-    id: hintPannel
+    id: hintPanel
 
     property color color: Theme.mainBackgroundColor
     property int dir: {
@@ -167,20 +130,21 @@ Popup {
       return 0;
     }
 
-    width: Math.max(250, mainWindow.width / 2)
+    objectName: "hintPanel"
+    width: Math.max(250, baseRoot.width / 2)
     height: 88 + description.height + (animatedHint.visible ? animatedHint.height + 8 : 20)
     radius: 4
     clip: true
 
     Behavior on x  {
-      enabled: enablePannelAnimation
+      enabled: enablePanelAnimation
 
       NumberAnimation {
         duration: 150
       }
     }
     Behavior on y  {
-      enabled: enablePannelAnimation
+      enabled: enablePanelAnimation
 
       NumberAnimation {
         duration: 150
@@ -205,6 +169,7 @@ Popup {
     }
 
     Text {
+      objectName: "guideInternalTitle"
       font.bold: true
       elide: Text.ElideRight
       text: {
@@ -225,6 +190,7 @@ Popup {
 
     Text {
       id: description
+      objectName: "guideInternalDescription"
       wrapMode: Text.WrapAnywhere
       maximumLineCount: 4
       elide: Text.ElideRight
@@ -250,32 +216,59 @@ Popup {
       source: visible ? internalObject.step.animatedGuide : ""
       anchors.top: description.bottom
       anchors.left: description.left
-      anchors.right: hintPannel.right
+      anchors.right: hintPanel.right
       anchors.rightMargin: 15
       fillMode: AnimatedImage.PreserveAspectFit
       anchors.topMargin: 8
     }
 
-    Loader {
-      id: nextButtonLoader
+    QfButton {
+      id: nextButton
+
       property bool isLast: guide.index === steps.length - 1
-      sourceComponent: nextButton
+
+      objectName: "nextButton"
+      text: isLast ? guide.finishText : guide.nextText
+      verticalPadding: 0
+      horizontalPadding: 12
       anchors {
         bottom: parent.bottom
         bottomMargin: 8
         right: parent.right
         rightMargin: 15
       }
+      bgcolor: Theme.mainColor
+      color: "white"
+      height: 32
+      radius: 5
+      onClicked: {
+        if (isLast) {
+          guide.close();
+        } else {
+          guide.index = guide.index + 1;
+        }
+      }
     }
-    Loader {
-      id: previousButtonLoader
+
+    QfButton {
+      id: previousButton
+      objectName: "previousButton"
+      text: guide.previousText
+      verticalPadding: 0
+      horizontalPadding: 12
+      bgcolor: "#00000000"
+      color: Theme.gray
+      height: 32
+      radius: 5
       visible: guide.index !== 0
-      sourceComponent: previousButton
       anchors {
-        right: nextButtonLoader.left
+        right: nextButton.left
         bottom: parent.bottom
         bottomMargin: 8
         rightMargin: 14
+      }
+      onClicked: {
+        guide.index -= 1;
       }
     }
 
@@ -298,17 +291,17 @@ Popup {
     id: pointerToItem
     width: 48
     height: width
-    source: hintPannel.dir ? Theme.getThemeVectorIcon("ic_arrow_drop_down_48dp") : Theme.getThemeVectorIcon("ic_arrow_drop_up_48dp")
+    source: hintPanel.dir ? Theme.getThemeVectorIcon("ic_arrow_drop_down_48dp") : Theme.getThemeVectorIcon("ic_arrow_drop_up_48dp")
 
     Behavior on x  {
-      enabled: enablePannelAnimation
+      enabled: enablePanelAnimation
 
       NumberAnimation {
         duration: 150
       }
     }
     Behavior on y  {
-      enabled: enablePannelAnimation
+      enabled: enablePanelAnimation
 
       NumberAnimation {
         duration: 150
@@ -323,7 +316,7 @@ Popup {
     }
     y: {
       if (internalObject.target[0]) {
-        return internalObject.pos.y + (hintPannel.dir ? -(height - 14) : internalObject.target[0].height - 14);
+        return internalObject.pos.y + (hintPanel.dir ? -(height - 14) : internalObject.target[0].height - 14);
       }
       return 0;
     }
@@ -334,6 +327,7 @@ Popup {
 
   QFieldGuide {
     id: startupTour
+    baseRoot: mainWindow
     steps: [{
         "title": qsTr("Zoom Toolbar"),
         "description": qsTr("Main responsibility is described."),

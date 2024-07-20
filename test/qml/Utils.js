@@ -4,6 +4,11 @@ function findChildren(parent, objName) {
   if (parent.objectName === objName) {
     return parent
   }
+
+  if (parent.children === undefined) {
+    return null
+  }
+
   for (var i = 0; i < parent.children.length; ++i) {
     let children = findChildren(parent.children[i], objName)
     if (children !== null)
