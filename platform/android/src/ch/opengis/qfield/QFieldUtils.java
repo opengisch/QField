@@ -73,7 +73,9 @@ public class QFieldUtils {
             ZipEntry entry;
             while ((entry = zin.getNextEntry()) != null) {
                 String entryName = entry.getName().toLowerCase();
-                if (entryName.endsWith(".qgs") || entryName.endsWith(".qgz")) {
+                if ((entryName.endsWith(".qgs") ||
+                     entryName.endsWith(".qgz")) &&
+                    !entryName.contains(".qfieldsync")) {
                     projectName = entry.getName();
                     break;
                 }
