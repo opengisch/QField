@@ -108,7 +108,7 @@ QString DrawingCanvas::save() const
     {
       QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.jpg";
       image.save( path, "jpg", 88 );
-      for ( const QString key : metadata.keys() )
+      for ( const QString &key : metadata.keys() )
       {
         QgsExifTools::tagImage( path, key, metadata[key] );
       }
