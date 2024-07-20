@@ -89,17 +89,14 @@ ListView {
       // Collapsed state visual feedback
       Row {
         id: collapsedState
-        property bool isVisible: HasChildren
         anchors.verticalCenter: parent.verticalCenter
         height: 24
-        visible: isVisible
 
         Item {
           height: 24
-          width: HasChildren ? 24 : 0
+          width: 24
           clip: true
           anchors.verticalCenter: parent.verticalCenter
-          visible: HasChildren
 
           QfToolButton {
             height: 35
@@ -109,6 +106,7 @@ ListView {
             iconColor: isSelectedLayer ? "white" : Theme.mainTextColor
             bgcolor: "transparent"
             visible: HasChildren
+            enabled: HasChildren
             rotation: !IsCollapsed ? 90 : 0
 
             Behavior on rotation {
