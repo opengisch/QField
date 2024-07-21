@@ -145,9 +145,10 @@ EditorWidgetBase {
               repeat: false
 
               onTriggered: {
+                let saved = save()
                 if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
                   // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
-                  if (!save()) {
+                  if (!saved) {
                     addingIndicator.running = false
                     displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning')
                     return
