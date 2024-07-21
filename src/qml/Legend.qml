@@ -212,7 +212,7 @@ ListView {
         Text {
           id: layerName
           width: rectangle.width - itemPadding - 46 // legend icon + right padding
-          - (collapsedState.isVisible ? collapsedState.width : 0) - (layerVisibility.isVisible ? layerVisibility.width : 0) - (trackingBadge.isVisible ? trackingBadge.width + 5 : 0) - (lockedBadge.isVisible ? lockedBadge.width + 5 : 0) - (invalidBadge.isVisible ? invalidBadge.width + 5 : 0) - (snappingBadge.isVisible ? snappingBadge.width + 5 : 0)
+          - collapsedState.width - (layerVisibility.isVisible ? layerVisibility.width : 0) - (trackingBadge.isVisible ? trackingBadge.width + 5 : 0) - (lockedBadge.isVisible ? lockedBadge.width + 5 : 0) - (invalidBadge.isVisible ? invalidBadge.width + 5 : 0) - (snappingBadge.isVisible ? snappingBadge.width + 5 : 0)
           padding: 3
           leftPadding: 0
           text: Name
