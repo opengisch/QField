@@ -77,7 +77,6 @@ EditorWidgetBase {
 
     DoubleValidator {
       id: doubleValidator
-
       locale: 'C'
     }
 
@@ -90,7 +89,12 @@ EditorWidgetBase {
     }
 
     onTextChanged: {
-      valueChangeRequested( text, text == '' )
+      if (field.isNumeric) {
+        let value = parseFloat(text)
+        valueChangeRequested(value, isNaN(value))
+      } else {
+        valueChangeRequested(text, text === '')
+      }
     }
   }
 
