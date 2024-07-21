@@ -219,7 +219,7 @@ ListView {
           width: rectangle.width
                  - itemPadding
                  - 46 // legend icon + right padding
-                 - (collapsedState.isVisible ? collapsedState.width : 0)
+                 - collapsedState.width
                  - (layerVisibility.isVisible ? layerVisibility.width : 0)
                  - (trackingBadge.isVisible ? trackingBadge.width + 5 : 0)
                  - (lockedBadge.isVisible ? lockedBadge.width + 5 : 0)
