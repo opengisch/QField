@@ -2675,6 +2675,21 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
 </context>
 <context>
+    <name>QFieldGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
@@ -4759,6 +4774,41 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Não é possível adicionar o elemento filho: certifique-se de que o elemento pai cumpre todas as restrições e pode ser guardado</translation>
+    </message>
+</context>
+<context>
+    <name>tst_qFieldGuide</name>
+    <message>
+        <source>dummyItem1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem1 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem2 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem3 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem4 responsibility.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -2671,6 +2671,21 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
 </context>
 <context>
+    <name>QFieldGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
@@ -4758,6 +4773,41 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Impossible d&apos;ajouter une entité-enfant : vérifier que l&apos;entité-parent respecte toutes les contraintes et peut être sauvegardée</translation>
+    </message>
+</context>
+<context>
+    <name>tst_qFieldGuide</name>
+    <message>
+        <source>dummyItem1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem1 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem2 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem3 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem4 responsibility.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

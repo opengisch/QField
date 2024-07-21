@@ -2677,6 +2677,21 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
 </context>
 <context>
+    <name>QFieldGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>Zakończ</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Następny</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Poprzedni</translation>
+    </message>
+</context>
+<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
@@ -4761,6 +4776,41 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Nie można dodać elementu podrzędnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
+    </message>
+</context>
+<context>
+    <name>tst_qFieldGuide</name>
+    <message>
+        <source>dummyItem1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem1 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem2 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem3 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem4 responsibility.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

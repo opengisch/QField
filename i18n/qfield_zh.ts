@@ -2671,6 +2671,21 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
@@ -4755,6 +4770,41 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>无法添加子要素：确保父要素满足所有约束并且可以保存</translation>
+    </message>
+</context>
+<context>
+    <name>tst_qFieldGuide</name>
+    <message>
+        <source>dummyItem1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem1 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem2 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem3 responsibility.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>dummyItem4 responsibility.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
