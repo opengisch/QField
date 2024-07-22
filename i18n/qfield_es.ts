@@ -735,7 +735,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falló al revertir deshacer modificaciones de objeto en la capa &quot;%1&quot;  </translation>
     </message>
 </context>
 <context>
@@ -2676,15 +2676,15 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Terminar</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Siguiente</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Anterior</translation>
     </message>
 </context>
 <context>
@@ -2763,11 +2763,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import URL</source>
-        <translation>Importar dirección URL</translation>
+        <translation>Importar URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Escriba una URL a continuación para descargar e importar el proyecto o conjunto de datos:</translation>
+        <translation>Escriba una URL a continuación para descargar e importar el proyecto o el conjunto de datos:</translation>
     </message>
     <message>
         <source>Item Actions</source>
@@ -2783,7 +2783,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation>Actualiza proyecto desde ZIP</translation>
+        <translation>Actualizar proyecto desde ZIP</translation>
     </message>
 </context>
 <context>
@@ -4114,47 +4114,47 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>grados</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>metros</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>kilómetros</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>pies</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>yardas</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>millas</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>millas náuticas</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>centímetros</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>milímetros</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>pulgadas</translation>
     </message>
 </context>
 <context>
@@ -4778,35 +4778,35 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>tst_qFieldGuide</name>
     <message>
         <source>dummyItem1</source>
-        <translation type="unfinished"/>
+        <translation>elementoficticio1</translation>
     </message>
     <message>
         <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>responsabilidad del elementoficticio1.</translation>
     </message>
     <message>
         <source>dummyItem2</source>
-        <translation type="unfinished"/>
+        <translation>elementoficticio2</translation>
     </message>
     <message>
         <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>responsabilidad del elementoficticio2.</translation>
     </message>
     <message>
         <source>dummyItem3</source>
-        <translation type="unfinished"/>
+        <translation>elementoficticio3</translation>
     </message>
     <message>
         <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>responsabilidad del elementoficticio3.</translation>
     </message>
     <message>
         <source>dummyItem4</source>
-        <translation type="unfinished"/>
+        <translation>elementoficticio4</translation>
     </message>
     <message>
         <source>dummyItem4 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>responsabilidad del elementoficticio4.</translation>
     </message>
 </context>
 </TS>

@@ -4720,19 +4720,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Pozycja wkroczyła w obszar &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Pozycja poza obszarem po opuszczeniu &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Pozycja wkroczyła do &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Pozycja w lewo od &quot;%1&quot;</translation>
     </message>
 </context>
 <context>

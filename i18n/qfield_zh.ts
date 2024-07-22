@@ -2674,15 +2674,15 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>结束</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>下一项</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>上一项</translation>
     </message>
 </context>
 <context>

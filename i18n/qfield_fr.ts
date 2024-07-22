@@ -1408,7 +1408,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation>Cela enverra le log de votre session actuelle à l&apos;équipe de développement. Vous ne devez l&apos;envoyer uniquement si cela vous a été demandé.</translation>
+        <translation>Ceci enverra le log de votre session actuelle à l&apos;équipe de développement. Vous ne devez l&apos;envoyer uniquement que si cela vous a été demandé.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
@@ -2532,7 +2532,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>System message: </source>
-        <translation>Message système: </translation>
+        <translation>Message système : </translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
@@ -2547,7 +2547,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud Projects</translation>
+        <translation>Projets QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2678,11 +2678,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Suivant</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Précédent</translation>
     </message>
 </context>
 <context>
@@ -3133,7 +3133,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>Cette valeur corrigera les valeurs Z enregistrées à partir du dispositif de positionnement. Si une valeur de 1,6 est saisie, QField soustraira automatiquement 1,6 de chaque valeur enregistrée. Veiller à insérer la hauteur effective de l’antenne, c.-à-d. longueur du pôle + décalage du centre de phase de l’antenne</translation>
+        <translation>Cette valeur corrigera les valeurs Z enregistrées à partir du dispositif de positionnement. Si une valeur de 1,6 est saisie, QField soustraira automatiquement 1,6 de chaque valeur enregistrée. Veiller à insérer la hauteur effective de l’antenne, c.-à-d. longueur du pôle + décalage du centre de phase de l’antenne.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -3197,7 +3197,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Une fois activé, la carte peut être pivotée par l&apos;utilisateur</translation>
+        <translation>Une fois activé, la carte peut être pivotée par l&apos;utilisateur.</translation>
     </message>
 </context>
 <context>
