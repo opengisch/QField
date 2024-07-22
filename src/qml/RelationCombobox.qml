@@ -516,6 +516,7 @@ Item {
 
         onActiveFocusChanged: {
           searchableLabel.useCompleter = activeFocus;
+          iface.logMessage("onActiveFocusChanged: activeFocus=" + activeFocus);
           if (activeFocus) {
             if (text === '') {
               if (!featureListModel.addNull || comboBox.currentIndex != 0) {
@@ -530,6 +531,7 @@ Item {
                 comboBox.currentIndex = 0;
                 searchableLabel.completer = comboBox.displayText;
               } else {
+                iface.logMessage("applyAutoCompletion(true);");
                 applyAutoCompletion(true);
               }
             } else if (text !== '') {
@@ -553,6 +555,7 @@ Item {
         }
 
         function applyAutoCompletion(resetIfNone = false) {
+          iface.logMessage("applyAutoCompletion: resetIfNone=" + resetIfNone);
           var trimmedText = text.trim();
           var matches = featureListModel.findDisplayValueMatches(trimmedText);
           if (matches.length > 0) {
