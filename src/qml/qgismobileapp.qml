@@ -3374,6 +3374,7 @@ ApplicationWindow {
       layoutListInstantiator.model.reloadModel();
       geofencer.applyProjectSettings(qgisProject);
       positioningSettings.geofencingPreventDigitizingDuringAlert = iface.readProjectBoolEntry("qfieldsync", "/geofencingShouldPreventDigitizing", false);
+      setupGuides();
     }
 
     function onSetMapExtent(extent) {
@@ -3930,5 +3931,39 @@ ApplicationWindow {
       pluginPermissionDialog.title = pluginName;
       pluginPermissionDialog.open();
     }
+  }
+
+  function setupGuides() {
+    const startupGuide = settings.valueBool("/QField/showMapButtonsGuide", true);
+    if (startupGuide) {
+      runStartupTour();
+    }
+    settings.setValue("/QField/showMapButtonsGuide", false);
+  }
+
+  function runStartupTour() {
+    startupTour.open();
+  }
+
+  QFieldGuide {
+    id: startupTour
+    baseRoot: mainWindow
+    steps: [{
+        "title": qsTr("Zoom Toolbar"),
+        "description": qsTr("Here you can zoom in/out easily through these buttons."),
+        "target": () => [zoomToolbar]
+      }, {
+        "title": qsTr("Menu"),
+        "description": qsTr("You can open dashboard here, see map legends or start digitizing."),
+        "target": () => [menuButton]
+      }, {
+        "title": qsTr("GNSS"),
+        "description": qsTr("Global navigation satellite system provides positioning and navigation."),
+        "target": () => [gnssButton]
+      }, {
+        "title": qsTr("Search"),
+        "description": qsTr("Search and locate on the map."),
+        "target": () => [locatorItem]
+      },]
   }
 }

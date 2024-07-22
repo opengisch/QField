@@ -322,28 +322,3 @@ Popup {
     }
   }
 }
-
-/** Example how to use:
-
-  QFieldGuide {
-    id: startupTour
-    baseRoot: mainWindow
-    steps: [{
-        "title": qsTr("Zoom Toolbar"),
-        "description": qsTr("Main responsibility is described."),
-        "target": () => [zoomToolbar]
-      }, {
-        "title": qsTr("Menu Button"),
-        "description": qsTr("Main responsibility is described."),
-        "target": () => [menuButton, zoomToolbar]
-      }, {
-        "title": qsTr("GNSS Button"),
-        "description": qsTr("Main responsibility is described."),
-        "target": () => [gnssButton]
-      }, {
-        "title": qsTr("SearchBar"),
-        "description": qsTr("Main responsibility is described."),
-        "target": () => [locatorItem]
-      },]
-  }
-*/
