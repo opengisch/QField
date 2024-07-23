@@ -516,7 +516,6 @@ Item {
 
         onActiveFocusChanged: {
           searchableLabel.useCompleter = activeFocus;
-          iface.logMessage("onActiveFocusChanged: activeFocus=" + activeFocus);
           if (activeFocus) {
             if (text === '') {
               if (!featureListModel.addNull || comboBox.currentIndex != 0) {
@@ -526,13 +525,11 @@ Item {
               searchableLabel.completer = '';
             }
           } else {
-            iface.logMessage("onActiveFocusChanged: isLastKeyPressedReturn=%1 text=%2".arg(isLastKeyPressedReturn).arg(text));
             if (!isLastKeyPressedReturn) {
               if (text === '' && featureListModel.addNull) {
                 comboBox.currentIndex = 0;
                 searchableLabel.completer = comboBox.displayText;
               } else {
-                iface.logMessage("applyAutoCompletion(true);");
                 applyAutoCompletion(true);
               }
             } else if (text !== '') {
@@ -546,7 +543,6 @@ Item {
 
         property bool isLastKeyPressedReturn: false
         Keys.onPressed: event => {
-          iface.logMessage("Keys.onPressed: event.key=" + event.key);
           if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
             if (!isLastKeyPressedReturn) {
               applyAutoCompletion();
@@ -558,7 +554,6 @@ Item {
         }
 
         function applyAutoCompletion(resetIfNone = false) {
-          iface.logMessage("applyAutoCompletion: resetIfNone=" + resetIfNone);
           var trimmedText = text.trim();
           var matches = featureListModel.findDisplayValueMatches(trimmedText);
           if (matches.length > 0) {
