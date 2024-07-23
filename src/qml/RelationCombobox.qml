@@ -541,10 +541,12 @@ Item {
               searchableLabel.completer = comboBox.displayText;
             }
           }
+          isLastKeyPressedReturn = false;
         }
 
         property bool isLastKeyPressedReturn: false
         Keys.onPressed: event => {
+          iface.logMessage("Keys.onPressed: event.key=" + event.key);
           if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
             if (!isLastKeyPressedReturn) {
               applyAutoCompletion();
