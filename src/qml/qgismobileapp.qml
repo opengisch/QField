@@ -3374,7 +3374,7 @@ ApplicationWindow {
       layoutListInstantiator.model.reloadModel();
       geofencer.applyProjectSettings(qgisProject);
       positioningSettings.geofencingPreventDigitizingDuringAlert = iface.readProjectBoolEntry("qfieldsync", "/geofencingShouldPreventDigitizing", false);
-      setupGuides();
+      mapCanvasTour.startOnFreshRun();
     }
 
     function onSetMapExtent(extent) {
@@ -3933,39 +3933,34 @@ ApplicationWindow {
     }
   }
 
-  function setupGuides() {
-    const startupGuide = settings.valueBool("/QField/showMapButtonsGuide", true);
-    if (startupGuide) {
-      runStartupTour();
-    }
-    settings.setValue("/QField/showMapButtonsGuide", false);
-  }
-
-  function runStartupTour() {
-    if (startupTour.allowedToShow)
-      startupTour.open();
-  }
-
   QFieldGuide {
-    id: startupTour
+    id: mapCanvasTour
     baseRoot: mainWindow
-    objectName: "QFieldGuideStartupTour"
+    objectName: "QFieldGuideMapCanvasTour"
     steps: [{
-        "title": qsTr("Zoom Toolbar"),
-        "description": qsTr("Here you can zoom in/out easily through these buttons."),
-        "target": () => [zoomToolbar]
-      }, {
         "title": qsTr("Menu"),
-        "description": qsTr("You can open dashboard here, see map legends or start digitizing."),
+        "description": qsTr("You can open dashboard here to interact with the project's legends and map theme, or start digitizing by activating the editing mode. Long-pressing the button also gives you immediate access to the main menu."),
         "target": () => [menuButton]
       }, {
+        "title": qsTr("Zoom Toolbar"),
+        "description": qsTr("In addition to pinch gesture, these buttons helps you quickly zooming in and out."),
+        "target": () => [zoomToolbar]
+      }, {
         "title": qsTr("GNSS"),
-        "description": qsTr("Global navigation satellite system provides positioning and navigation."),
+        "description": qsTr("This button toggles your device's positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
         "target": () => [gnssButton]
       }, {
         "title": qsTr("Search"),
-        "description": qsTr("Search and locate on the map."),
+        "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
         "target": () => [locatorItem]
       },]
+
+    function startOnFreshRun() {
+      const startupGuide = settings.valueBool("/QField/showMapCanvasGuide", true);
+      if (startupGuide) {
+        runTour();
+      }
+      settings.setValue("/QField/showMapCanvasGuide", false);
+    }
   }
 }

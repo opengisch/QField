@@ -42,6 +42,11 @@ Popup {
     allowedToShow = false;
   }
 
+  function runTour() {
+    if (allowedToShow)
+      open();
+  }
+
   Item {
     id: internalObject
     property var window: Window.window
@@ -126,14 +131,13 @@ Popup {
 
   Rectangle {
     id: hintPanel
-
-    property color color: Theme.mainBackgroundColor
     property int dir: {
       if (y < internalObject.pos.y)
         return 1;
       return 0;
     }
 
+    color: Theme.mainBackgroundColor
     objectName: "hintPanel"
     width: Math.max(250, baseRoot.width / 2)
     height: 88 + description.height + (animatedHint.visible ? animatedHint.height + 8 : 20)
@@ -144,6 +148,7 @@ Popup {
       enabled: enablePanelAnimation
 
       NumberAnimation {
+        id: panelXAnimation
         duration: 150
       }
     }
@@ -151,6 +156,7 @@ Popup {
       enabled: enablePanelAnimation
 
       NumberAnimation {
+        id: panelYAnimation
         duration: 150
       }
     }
@@ -182,6 +188,7 @@ Popup {
         }
         return "";
       }
+      color: Theme.mainColor
       anchors {
         top: parent.top
         left: parent.left
@@ -197,6 +204,7 @@ Popup {
       objectName: "guideInternalDescription"
       wrapMode: Text.WrapAnywhere
       maximumLineCount: 4
+      color: Theme.mainTextColor
       elide: Text.ElideRight
       text: {
         if (internalObject.step) {
@@ -261,7 +269,7 @@ Popup {
       verticalPadding: 0
       horizontalPadding: 12
       bgcolor: "#00000000"
-      color: Theme.gray
+      color: Theme.mainColor
       height: 32
       radius: 5
       visible: guide.index !== 0
@@ -276,15 +284,21 @@ Popup {
       }
     }
 
-    QfButton {
+    QfToolButton {
       anchors {
         right: parent.right
         top: parent.top
-        margins: 10
+        margins: 2
       }
-      width: 20
+      width: 30
       height: width
-      bgcolor: Theme.darkRed
+      icon.color: Theme.mainTextColor
+      icon.source: Theme.getThemeIcon('ic_close_black_24dp')
+      icon.width: 45
+      icon.height: 45
+      padding: 0
+      bgcolor: "transparent"
+
       onClicked: {
         guide.close();
       }
@@ -296,21 +310,7 @@ Popup {
     width: 48
     height: width
     source: hintPanel.dir ? Theme.getThemeVectorIcon("ic_arrow_drop_down_48dp") : Theme.getThemeVectorIcon("ic_arrow_drop_up_48dp")
-
-    Behavior on x  {
-      enabled: enablePanelAnimation
-
-      NumberAnimation {
-        duration: 150
-      }
-    }
-    Behavior on y  {
-      enabled: enablePanelAnimation
-
-      NumberAnimation {
-        duration: 150
-      }
-    }
+    visible: panelXAnimation.running || panelYAnimation.running ? 0 : 1
 
     x: {
       if (internalObject.target[0]) {
