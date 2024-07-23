@@ -3181,7 +3181,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Langue :</translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -3344,7 +3344,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Extension de projet</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
