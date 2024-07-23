@@ -526,6 +526,7 @@ Item {
               searchableLabel.completer = '';
             }
           } else {
+            iface.logMessage("onActiveFocusChanged: isLastKeyPressedReturn=%1 text=%2".arg(isLastKeyPressedReturn).arg(text));
             if (!isLastKeyPressedReturn) {
               if (text === '' && featureListModel.addNull) {
                 comboBox.currentIndex = 0;
