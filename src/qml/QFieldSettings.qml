@@ -188,7 +188,7 @@ Page {
 
     QfTabBar {
       id: bar
-      model: ["General", "Positioning", "Variables"]
+      model: [qsTr("General"), qsTr("Positioning"), qsTr("Variables")]
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
     }
