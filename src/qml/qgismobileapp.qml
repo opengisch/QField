@@ -3942,12 +3942,14 @@ ApplicationWindow {
   }
 
   function runStartupTour() {
-    startupTour.open();
+    if (startupTour.allowedToShow)
+      startupTour.open();
   }
 
   QFieldGuide {
     id: startupTour
     baseRoot: mainWindow
+    objectName: "QFieldGuideStartupTour"
     steps: [{
         "title": qsTr("Zoom Toolbar"),
         "description": qsTr("Here you can zoom in/out easily through these buttons."),

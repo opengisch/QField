@@ -7,9 +7,9 @@ import Theme
 
 Popup {
   id: guide
-
   required property var baseRoot
   property bool enablePanelAnimation: false
+  property bool allowedToShow: true
   property var steps: []
   property int targetMargins: 5
   property int index: 0
@@ -36,6 +36,10 @@ Popup {
     canvas.requestPaint();
     if (index == 1)
       enablePanelAnimation = true;
+  }
+
+  function blockGuide() {
+    allowedToShow = false;
   }
 
   Item {
