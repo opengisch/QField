@@ -2894,15 +2894,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation type="vanished">General</translation>
+        <translation>General</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation type="vanished">Positioning</translation>
+        <translation>Positioning</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="vanished">Variables</translation>
+        <translation>Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>

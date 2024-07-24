@@ -460,7 +460,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centrer votre appareil sur un code</translation>
     </message>
 </context>
 <context>
@@ -1771,7 +1771,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation>Dösinstaller la version %1</translation>
+        <translation>Désinstaller la version %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
@@ -2860,15 +2860,15 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>General</source>
-        <translation type="vanished">Général</translation>
+        <translation>Général</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation type="vanished">Positionnement</translation>
+        <translation>Positionnement</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="vanished">Variables</translation>
+        <translation>Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -4705,7 +4705,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Accordez-vous la permission d&apos;activer `%1` ?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
