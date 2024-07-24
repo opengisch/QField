@@ -110,7 +110,7 @@ def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive)
     """
     assert app.existsAndVisible("mainWindow")
 
-    app.invokeMethod("mainWindow/QFieldGuideMapCanvasTour", "blockGuide", [])
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
 
     # Arbitrary wait period to insure project fully loaded and rendered
     time.sleep(4)

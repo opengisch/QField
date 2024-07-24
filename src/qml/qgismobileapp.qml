@@ -3936,7 +3936,8 @@ ApplicationWindow {
   QFieldGuide {
     id: mapCanvasTour
     baseRoot: mainWindow
-    objectName: "QFieldGuideMapCanvasTour"
+    objectName: 'mapCanvasTour'
+
     steps: [{
         "title": qsTr("Menu"),
         "description": qsTr("You can open dashboard here to interact with the project's legends and map theme, or start digitizing by activating the editing mode. Long-pressing the button also gives you immediate access to the main menu."),
@@ -3961,6 +3962,14 @@ ApplicationWindow {
         runTour();
       }
       settings.setValue("/QField/showMapCanvasGuide", false);
+    }
+  }
+
+  Item {
+    objectName: 'toursController'
+
+    function blockGuides() {
+      mapCanvasTour.blockGuide();
     }
   }
 }
