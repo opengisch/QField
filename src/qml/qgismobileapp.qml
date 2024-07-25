@@ -3939,11 +3939,11 @@ ApplicationWindow {
     objectName: 'mapCanvasTour'
 
     steps: [{
-        "title": qsTr("Menu"),
+        "title": qsTr("Dashboard"),
         "description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
         "target": () => [menuButton]
       }, {
-        "title": qsTr("Zoom Toolbar"),
+        "title": qsTr("Zoom"),
         "description": qsTr("In addition to the pinch gesture, these buttons help you quickly zoom in and out."),
         "target": () => [zoomToolbar]
       }, {

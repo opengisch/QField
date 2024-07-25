@@ -115,5 +115,6 @@
         <file>PluginManagerSettings.qml</file>
         <file>InformationDrawer.qml</file>
         <file>QFieldGuide.qml</file>
+        <file>imports/Theme/QfProgrerssRing.qml</file>
     </qresource>
 </RCC>

@@ -178,6 +178,17 @@ Popup {
       return 0;
     }
 
+    QfProgrerssRing {
+      id: progerss
+      value: (guide.index + 1) / steps.length
+      size: nextButton.height
+      anchors {
+        verticalCenter: nextButton.verticalCenter
+        left: parent.left
+        leftMargin: 15
+      }
+    }
+
     Text {
       objectName: "guideInternalTitle"
       font.bold: true
