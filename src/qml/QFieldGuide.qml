@@ -314,24 +314,31 @@ Popup {
     }
   }
 
-  Image {
+  Shape {
     id: pointerToItem
-    width: 48
-    height: width
-    source: hintPanel.dir ? Theme.getThemeVectorIcon("ic_arrow_drop_down_48dp") : Theme.getThemeVectorIcon("ic_arrow_drop_up_48dp")
+    rotation: hintPanel.dir ? 0 : 180
     visible: panelXAnimation.running || panelYAnimation.running ? 0 : 1
 
     x: {
       if (internalObject.target[0]) {
-        return internalObject.pos.x < 10 ? 16 : internalObject.pos.x - 12;
+        return internalObject.pos.x + internalObject.target[0].width / 4;
       }
       return 0;
     }
     y: {
       if (internalObject.target[0]) {
-        return internalObject.pos.y + (hintPanel.dir ? -(height - 14) : internalObject.target[0].height - 14);
+        return internalObject.pos.y + (hintPanel.dir ? -(height + 4) : internalObject.target[0].height + 4);
       }
       return 0;
+    }
+
+    ShapePath {
+      fillColor: Theme.mainBackgroundColor
+      strokeWidth: 1
+      strokeColor: Theme.mainBackgroundColor
+      PathSvg {
+        path: "M 0 0 L 20 0 L 10 10 Z"
+      }
     }
   }
 }
