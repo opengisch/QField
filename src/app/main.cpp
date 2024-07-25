@@ -99,6 +99,7 @@ int main( int argc, char **argv )
   QCoreApplication::setApplicationName( qfield::appName );
   const QSettings settings;
   const QString customLanguage = settings.value( "/customLanguage", QString() ).toString();
+
 #if WITH_SENTRY
   const bool enableSentry = settings.value( "/enableInfoCollection", true ).toBool();
   if ( enableSentry )
@@ -108,6 +109,23 @@ int main( int argc, char **argv )
 #endif
 
   Q_INIT_RESOURCE( qml );
+
+  QTranslator qfieldTranslator;
+  QTranslator qtTranslator;
+  bool qfieldTranslatorLoaded = false;
+  bool qtTranslatorLoaded = false;
+  if ( !customLanguage.isEmpty() )
+  {
+    qfieldTranslatorLoaded = qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
+    qtTranslatorLoaded = qtTranslator.load( QStringLiteral( "qt_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
+  }
+  if ( !qfieldTranslatorLoaded || qfieldTranslator.isEmpty() )
+    ( void ) qfieldTranslator.load( QLocale(), "qfield", "_", ":/i18n/" );
+  if ( !qtTranslatorLoaded || qtTranslator.isEmpty() )
+    ( void ) qtTranslator.load( QLocale(), "qt", "_", ":/i18n/" );
+
+  dummyApp->installTranslator( &qtTranslator );
+  dummyApp->installTranslator( &qfieldTranslator );
 
   QtWebView::initialize();
 
@@ -188,20 +206,6 @@ int main( int argc, char **argv )
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
   QCoreApplication::setApplicationName( qfield::appName );
-
-  QTranslator qfieldTranslator;
-  QTranslator qtTranslator;
-  bool qfieldTranslatorLoaded = false;
-  bool qtTranslatorLoaded = false;
-  if ( !customLanguage.isEmpty() )
-  {
-    qfieldTranslatorLoaded = qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
-    qtTranslatorLoaded = qtTranslator.load( QStringLiteral( "qt_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
-  }
-  if ( !qfieldTranslatorLoaded || qfieldTranslator.isEmpty() )
-    ( void ) qfieldTranslator.load( QLocale(), "qfield", "_", ":/i18n/" );
-  if ( !qtTranslatorLoaded || qtTranslator.isEmpty() )
-    ( void ) qtTranslator.load( QLocale(), "qt", "_", ":/i18n/" );
 
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
