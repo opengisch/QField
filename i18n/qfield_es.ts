@@ -2834,7 +2834,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Si se habilita, el objeto se guarda cuando tiene una geometría válida y se cumplan las restricciones y los atributos se acometen inmediatamente.</translation>
+        <translation>Si se habilita, el objeto se guarda cuando tiene una geometría válida y se cumplen las restricciones y los atributos se acometen inmediatamente.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -2862,15 +2862,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation type="vanished">General</translation>
+        <translation>General</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation type="vanished">Posicionamiento</translation>
+        <translation>Posicionamiento</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="vanished">Variables</translation>
+        <translation>Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>

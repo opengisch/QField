@@ -1482,7 +1482,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation type="vanished">Enregistrer l&apos;Entité comme Destination</translation>
+        <translation type="vanished">Définir l&apos;entité comme destination</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -4388,7 +4388,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">Définir les Coordonnées comme Destination</translation>
+        <translation type="vanished">Définir les coordonnées comme destination</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -4460,7 +4460,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">Définir Comme Destination</translation>
+        <translation type="vanished">Définir comme destination</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -4468,7 +4468,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Effacer la Destination</translation>
+        <translation>Effacer la destination</translation>
     </message>
     <message>
         <source>%1 Precision</source>
