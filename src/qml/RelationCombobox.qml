@@ -522,6 +522,7 @@ Item {
                           searchableLabel.completer = comboBox.displayText
                         }
                     }
+                    isLastKeyPressedReturn = false;
                 }
 
                 property bool isLastKeyPressedReturn: false
