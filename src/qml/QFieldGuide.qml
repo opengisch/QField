@@ -202,10 +202,8 @@ Popup {
     Text {
       id: description
       objectName: "guideInternalDescription"
-      wrapMode: Text.WrapAnywhere
-      maximumLineCount: 4
+      wrapMode: Text.WordWrap
       color: Theme.mainTextColor
-      elide: Text.ElideRight
       text: {
         if (internalObject.step) {
           return internalObject.step.description;
