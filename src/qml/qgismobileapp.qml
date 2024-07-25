@@ -3940,15 +3940,15 @@ ApplicationWindow {
 
     steps: [{
         "title": qsTr("Menu"),
-        "description": qsTr("You can open dashboard here to interact with the project's legends and map theme, or start digitizing by activating the editing mode. Long-pressing the button also gives you immediate access to the main menu."),
+        "description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
         "target": () => [menuButton]
       }, {
         "title": qsTr("Zoom Toolbar"),
-        "description": qsTr("In addition to pinch gesture, these buttons helps you quickly zooming in and out."),
+        "description": qsTr("In addition to the pinch gesture, these buttons help you quickly zoom in and out."),
         "target": () => [zoomToolbar]
       }, {
         "title": qsTr("GNSS"),
-        "description": qsTr("This button toggles your device's positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
+        "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
         "target": () => [gnssButton]
       }, {
         "title": qsTr("Search"),
