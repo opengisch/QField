@@ -21,6 +21,52 @@ TestCase {
     }
   }
 
+  FeatureModel {
+    id: featureModel
+    project: qgisProject
+    positionInformation: positioning.positionInformation
+    positionLocked: false
+  }
+
+  function test_00_featureModelPositioning() {
+    // wait a few seconds so positioning can catch some NMEA strings
+    wait(2500);
+    verify(featureModel.positionInformation !== undefined);
+    verify(featureModel.positionInformation.sourceName === "nmea");
+    verify(featureModel.positionInformation.latitude !== undefined);
+    verify(featureModel.positionInformation.longitude !== undefined);
+    verify(featureModel.positionInformation.elevation !== undefined);
+    verify(featureModel.positionInformation.speed !== undefined);
+    verify(featureModel.positionInformation.direction !== undefined);
+    verify(featureModel.positionInformation.satellitesInView !== undefined);
+    verify(featureModel.positionInformation.pdop !== undefined);
+    verify(featureModel.positionInformation.hdop !== undefined);
+    verify(featureModel.positionInformation.vdop !== undefined);
+    verify(featureModel.positionInformation.hacc !== undefined);
+    verify(featureModel.positionInformation.vacc !== undefined);
+    verify(featureModel.positionInformation.hvacc !== undefined);
+    verify(featureModel.positionInformation.utcDateTime !== undefined);
+    verify(featureModel.positionInformation.fixMode !== undefined);
+    verify(featureModel.positionInformation.fixType !== undefined);
+    verify(featureModel.positionInformation.quality !== undefined);
+    verify(featureModel.positionInformation.satellitesUsed !== undefined);
+    verify(featureModel.positionInformation.status !== undefined);
+    verify(featureModel.positionInformation.satPrn !== undefined);
+    verify(featureModel.positionInformation.satInfoComplete !== undefined);
+    verify(featureModel.positionInformation.isValid !== undefined);
+    verify(featureModel.positionInformation.fixStatus !== undefined);
+    verify(featureModel.positionInformation.qualityDescription !== undefined);
+    verify(featureModel.positionInformation.fixStatusDescription !== undefined);
+    verify(featureModel.positionInformation.averagedCount !== undefined);
+    verify(featureModel.positionInformation.imuCorrection !== undefined);
+    verify(featureModel.positionInformation.orientationValid !== undefined);
+
+  // These are nan:
+  // verify(featureModel.positionInformation.verticalSpeed !== undefined)
+  // verify(featureModel.positionInformation.magneticVariation !== undefined)
+  // verify(featureModel.positionInformation.orientation !== undefined)
+  }
+
   function test_01_ellipsoidalElevation() {
     positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None;
     coordinateTransformer.deltaZ = 0;
