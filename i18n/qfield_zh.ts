@@ -2860,15 +2860,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation type="vanished">常规</translation>
+        <translation>常规</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation type="vanished">定位</translation>
+        <translation>定位</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="vanished">变量</translation>
+        <translation>变量</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -4776,35 +4776,35 @@ Cancel to make a minimal device scan instead.</source>
     <name>tst_qFieldGuide</name>
     <message>
         <source>dummyItem1</source>
-        <translation type="unfinished"/>
+        <translation>虚拟项1</translation>
     </message>
     <message>
         <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>虚拟项1的作用。</translation>
     </message>
     <message>
         <source>dummyItem2</source>
-        <translation type="unfinished"/>
+        <translation>虚拟项2</translation>
     </message>
     <message>
         <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>虚拟项2的作用。</translation>
     </message>
     <message>
         <source>dummyItem3</source>
-        <translation type="unfinished"/>
+        <translation>虚拟项3</translation>
     </message>
     <message>
         <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>虚拟项3的作用。</translation>
     </message>
     <message>
         <source>dummyItem4</source>
-        <translation type="unfinished"/>
+        <translation>虚拟项4</translation>
     </message>
     <message>
         <source>dummyItem4 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>虚拟项4的作用。</translation>
     </message>
 </context>
 </TS>
