@@ -884,6 +884,7 @@ Page {
         if (firstRun) {
           welcomeText.text = qsTr("Welcome to QField. First time using this application? Try the sample projects listed below.");
           settings.setValue("/QField/FirstRunDone", true);
+          settings.setValue("/QField/showMapCanvasGuide", true);
         } else {
           welcomeText.text = qsTr("Welcome back to QField.");
         }

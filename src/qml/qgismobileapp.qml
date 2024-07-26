@@ -3374,6 +3374,7 @@ ApplicationWindow {
       layoutListInstantiator.model.reloadModel();
       geofencer.applyProjectSettings(qgisProject);
       positioningSettings.geofencingPreventDigitizingDuringAlert = iface.readProjectBoolEntry("qfieldsync", "/geofencingShouldPreventDigitizing", false);
+      mapCanvasTour.startOnFreshRun();
     }
 
     function onSetMapExtent(extent) {
@@ -3929,6 +3930,46 @@ ApplicationWindow {
     function onPluginPermissionRequested(pluginName) {
       pluginPermissionDialog.title = pluginName;
       pluginPermissionDialog.open();
+    }
+  }
+
+  QFieldGuide {
+    id: mapCanvasTour
+    baseRoot: mainWindow
+    objectName: 'mapCanvasTour'
+
+    steps: [{
+        "title": qsTr("Dashboard"),
+        "description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
+        "target": () => [menuButton]
+      }, {
+        "title": qsTr("Positioning"),
+        "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
+        "target": () => [gnssButton]
+      }, {
+        "title": qsTr("Search"),
+        "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
+        "target": () => [locatorItem]
+      }, {
+        "title": qsTr("Zoom"),
+        "description": qsTr("In addition to the pinch gesture, these buttons help you quickly zoom in and out."),
+        "target": () => [zoomToolbar]
+      }]
+
+    function startOnFreshRun() {
+      const startupGuide = settings.valueBool("/QField/showMapCanvasGuide", true);
+      if (startupGuide) {
+        runTour();
+      }
+      settings.setValue("/QField/showMapCanvasGuide", false);
+    }
+  }
+
+  Item {
+    objectName: 'toursController'
+
+    function blockGuides() {
+      mapCanvasTour.blockGuide();
     }
   }
 }
