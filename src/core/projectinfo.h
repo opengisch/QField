@@ -187,6 +187,9 @@ class ProjectInfo : public QObject
     //! Retrieves configuration of the image decoration
     Q_INVOKABLE QVariantMap getImageDecorationConfiguration();
 
+    //! Retrieves the default active layer for a given map theme
+    Q_INVOKABLE QgsMapLayer *getDefaultActiveLayerForMapTheme( const QString &mapTheme );
+
   signals:
 
     void filePathChanged();
