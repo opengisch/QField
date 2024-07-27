@@ -66,34 +66,47 @@ EditorWidgetBase {
 
     visible: Number(config['AllowMulti']) === 1
     width: parent.width
-    height: Math.max( valueListView.height, itemHeight)
+    height: Math.min(8 * valueRelationList.itemHeight, valueListView.contentHeight)
 
-    color: Theme.controlBackgroundColor
+    color: Theme.mainBackgroundColor
     border.color: Theme.controlBorderColor
     border.width: 1
 
     ListView {
       id: valueListView
-      model: listModel
-      width: parent.width
-      height: Math.min( 5 * valueRelationList.itemHeight, valueListView.count * valueRelationList.itemHeight )
-      delegate: listComponent
-      focus: true
-      clip: true
-      highlightRangeMode: ListView.StrictlyEnforceRange
 
       property int storedIndex
 
-      onModelChanged:
-        currentIndex = storedIndex
-      onCurrentIndexChanged:
-        storedIndex = currentIndex
-    }
+      onModelChanged: currentIndex = storedIndex
+      onCurrentIndexChanged: storedIndex = currentIndex
 
-    Component {
-      id: listComponent
+      anchors.fill: parent
+      anchors.margins: 1
+      model: listModel
+      focus: true
+      clip: true
 
-      Item {
+      section.property: listModel.groupField != "" ? "groupFieldValue" : ""
+      section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+      section.delegate: Rectangle {
+        width: parent.width
+        height: listModel.groupField != "" ? listModel.displayGroupName ? 30 : 5 : 0
+        color: Theme.controlBorderColor
+
+        Text {
+          anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+          }
+          font.bold: true
+          font.pointSize: Theme.resultFont.pointSize
+          color: Theme.mainTextColor
+          text: section
+          visible: listModel.displayGroupName
+        }
+      }
+
+      delegate: Item {
         id: listItem
         anchors { left: parent ? parent.left : undefined; right: parent ? parent.right : undefined }
         height: Math.max( valueRelationList.itemHeight, valueText.height )
@@ -104,7 +117,7 @@ EditorWidgetBase {
           id: checkBoxRow
           width: parent.width
           height: listItem.height
-          color: "transparent"
+          color: Theme.mainBackgroundColor
 
           CheckDelegate {
             id: checkBox
@@ -152,7 +165,7 @@ EditorWidgetBase {
           id: bottomLine
           anchors.bottom: parent.bottom
           height: 1
-          color: Theme.controlBorderColor
+          color: Theme.controlBackgroundAlternateColor
           width: parent.width
         }
       }
