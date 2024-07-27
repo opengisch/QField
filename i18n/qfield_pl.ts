@@ -2866,15 +2866,15 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>General</source>
-        <translation type="vanished">Główne</translation>
+        <translation>Główne</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation type="vanished">Lokalizacja</translation>
+        <translation>Lokalizacja</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="vanished">Zmienne</translation>
+        <translation>Zmienne</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -4733,6 +4733,42 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Position left from ‘%1’</source>
         <translation>Pozycja w lewo od &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Enable Map Rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dashboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Lokalizacja</translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

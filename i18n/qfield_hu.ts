@@ -2856,15 +2856,15 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>General</source>
-        <translation type="vanished">Általános</translation>
+        <translation>Általános</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation type="vanished">Pozícionálás</translation>
+        <translation>Pozícionálás</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="vanished">Változók</translation>
+        <translation>Változók</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -4722,6 +4722,42 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable Map Rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dashboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Pozícionálás</translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
         <translation type="unfinished"/>
     </message>
 </context>
