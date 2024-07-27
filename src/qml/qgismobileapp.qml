@@ -3305,7 +3305,7 @@ ApplicationWindow {
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse');
       let activeLayer = projectInfo.activeLayer;
       if (flatLayerTree.mapTheme != '') {
-        let defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
+        const defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
         if (defaultActiveLayer !== null) {
           activeLayer = defaultActiveLayer;
         }
@@ -3394,7 +3394,7 @@ ApplicationWindow {
 
     function onMapThemeChanged() {
       if (!flatLayerTree.isFrozen && flatLayerTree.mapTheme != '') {
-        let defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
+        const defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
         if (defaultActiveLayer !== null) {
           dashBoard.activeLayer = defaultActiveLayer;
         }
