@@ -67,6 +67,8 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     //! This should be triggered after a project has been loaded
     Q_INVOKABLE void updateCurrentMapTheme();
 
+    //! Returns TRUE if the model is frozen
+    bool isFrozen() const;
     //! Freezes the model as is, with any source model signals ignored
     Q_INVOKABLE void freeze();
     //! Unfreezes the model and resume listening to source model signals
@@ -84,6 +86,7 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
   signals:
     void mapThemeChanged();
     void isTemporalChanged();
+    void isFrozenChanged();
 
   private:
     void featureCountChanged();
@@ -111,6 +114,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
 
     Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
     Q_PROPERTY( bool isTemporal READ isTemporal NOTIFY isTemporalChanged )
+    Q_PROPERTY( bool isFrozen READ isFrozen NOTIFY isFrozenChanged )
 
   public:
     enum Roles
@@ -157,6 +161,8 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     //! This should be triggered after a project has been loaded
     Q_INVOKABLE void updateCurrentMapTheme();
 
+    //! Returns TRUE if the model is frozen
+    bool isFrozen() const;
     //! Freezes the model as is, with any source model signals ignored
     Q_INVOKABLE void freeze();
     //! Unfreezes the model and resume listening to source model signals
@@ -177,6 +183,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
   signals:
     void mapThemeChanged();
     void isTemporalChanged();
+    void isFrozenChanged();
 
   protected:
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;

@@ -3303,7 +3303,14 @@ ApplicationWindow {
       projectInfo.filePath = path;
       stateMachine.state = projectInfo.stateMode;
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse');
-      dashBoard.activeLayer = projectInfo.activeLayer;
+      let activeLayer = projectInfo.activeLayer;
+      if (flatLayerTree.mapTheme != '') {
+        let defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
+        if (defaultActiveLayer !== null) {
+          activeLayer = defaultActiveLayer;
+        }
+      }
+      dashBoard.activeLayer = activeLayer;
       drawingTemplateModel.projectFilePath = path;
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
       var titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
@@ -3379,6 +3386,19 @@ ApplicationWindow {
 
     function onSetMapExtent(extent) {
       mapCanvas.mapSettings.extent = extent;
+    }
+  }
+
+  Connections {
+    target: flatLayerTree
+
+    function onMapThemeChanged() {
+      if (!flatLayerTree.isFrozen && flatLayerTree.mapTheme != '') {
+        let defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
+        if (defaultActiveLayer !== null) {
+          dashBoard.activeLayer = defaultActiveLayer;
+        }
+      }
     }
   }
 

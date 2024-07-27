@@ -151,8 +151,8 @@ ListView {
             enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             onClicked: {
               layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible);
-              flatLayerTree.mapTheme = '';
               projectInfo.saveLayerTreeState();
+              flatLayerTree.mapTheme = '';
             }
           }
         }

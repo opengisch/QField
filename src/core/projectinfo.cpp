@@ -780,3 +780,23 @@ QVariantMap ProjectInfo::getImageDecorationConfiguration()
 
   return configuration;
 }
+
+QgsMapLayer *ProjectInfo::getDefaultActiveLayerForMapTheme( const QString &mapTheme )
+{
+  if ( mapTheme.isEmpty() )
+  {
+    return nullptr;
+  }
+
+  const QString json = QgsProject::instance()->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "/mapThemesActiveLayers" ) );
+  const QJsonDocument document = QJsonDocument::fromJson( json.toUtf8() );
+
+  QJsonObject entries = document.object();
+  if ( entries.contains( mapTheme ) )
+  {
+    const QString mapLayerId = entries.value( mapTheme ).toString();
+    return QgsProject::instance()->mapLayer( mapLayerId );
+  }
+
+  return nullptr;
+}

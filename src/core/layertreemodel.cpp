@@ -36,6 +36,7 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   setSourceModel( mSourceModel );
   connect( mSourceModel, &FlatLayerTreeModelBase::mapThemeChanged, this, &FlatLayerTreeModel::mapThemeChanged );
   connect( mSourceModel, &FlatLayerTreeModelBase::isTemporalChanged, this, &FlatLayerTreeModel::isTemporalChanged );
+  connect( mSourceModel, &FlatLayerTreeModelBase::isFrozenChanged, this, &FlatLayerTreeModel::isFrozenChanged );
 }
 
 QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
@@ -66,6 +67,11 @@ bool FlatLayerTreeModel::isTemporal() const
 void FlatLayerTreeModel::updateCurrentMapTheme()
 {
   mSourceModel->updateCurrentMapTheme();
+}
+
+bool FlatLayerTreeModel::isFrozen() const
+{
+  return mSourceModel->isFrozen();
 }
 
 void FlatLayerTreeModel::freeze()
@@ -124,14 +130,22 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModelBase::insertInMap );
 }
 
+bool FlatLayerTreeModelBase::isFrozen() const
+{
+  return mFrozen > 0;
+}
+
 void FlatLayerTreeModelBase::freeze()
 {
   mFrozen++;
+  emit isFrozenChanged();
 }
 
 void FlatLayerTreeModelBase::unfreeze( bool resetModel )
 {
   mFrozen = 0;
+  emit isFrozenChanged();
+
   if ( resetModel )
     buildMap( mLayerTreeModel );
 }
