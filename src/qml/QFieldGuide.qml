@@ -237,12 +237,14 @@ Popup {
       id: animatedHint
       visible: internalObject.step.animatedGuide !== undefined
       source: visible ? internalObject.step.animatedGuide : ""
-      anchors.top: description.bottom
-      anchors.left: description.left
-      anchors.right: hintPanel.right
-      anchors.rightMargin: 15
+      anchors {
+        bottom: parent.bottom
+        left: parent.left
+        right: hintPanel.right
+        rightMargin: 15
+        bottomMargin: 15
+      }
       fillMode: AnimatedImage.PreserveAspectFit
-      anchors.topMargin: 8
     }
 
     QfButton {
@@ -254,9 +256,9 @@ Popup {
       text: isLast ? guide.finishText : guide.nextText
       anchors {
         bottom: parent.bottom
-        bottomMargin: 8
         right: parent.right
         rightMargin: 15
+        bottomMargin: 15
       }
       bgcolor: Theme.mainColor
       height: 32
@@ -282,8 +284,8 @@ Popup {
       anchors {
         right: nextButton.left
         bottom: parent.bottom
-        bottomMargin: 8
-        rightMargin: 14
+        bottomMargin: 15
+        rightMargin: 15
       }
       onClicked: {
         guide.index -= 1;
