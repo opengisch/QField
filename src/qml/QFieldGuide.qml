@@ -190,8 +190,9 @@ Popup {
     }
 
     Text {
+      id: title
       objectName: "guideInternalTitle"
-      font.bold: true
+      font: Theme.strongFont
       elide: Text.ElideRight
       text: {
         if (internalObject.step) {
@@ -213,6 +214,7 @@ Popup {
     Text {
       id: description
       objectName: "guideInternalDescription"
+      font: Theme.tipFont
       wrapMode: Text.WordWrap
       color: Theme.mainTextColor
       text: {
@@ -245,13 +247,11 @@ Popup {
 
     QfButton {
       id: nextButton
+      objectName: "nextButton"
 
       property bool isLast: guide.index === steps.length - 1
 
-      objectName: "nextButton"
       text: isLast ? guide.finishText : guide.nextText
-      verticalPadding: 0
-      horizontalPadding: 12
       anchors {
         bottom: parent.bottom
         bottomMargin: 8
@@ -259,7 +259,6 @@ Popup {
         rightMargin: 15
       }
       bgcolor: Theme.mainColor
-      color: "white"
       height: 32
       radius: 5
       onClicked: {
@@ -275,9 +274,7 @@ Popup {
       id: previousButton
       objectName: "previousButton"
       text: guide.previousText
-      verticalPadding: 0
-      horizontalPadding: 12
-      bgcolor: "#00000000"
+      bgcolor: "transparent"
       color: Theme.mainColor
       height: 32
       radius: 5
@@ -297,14 +294,13 @@ Popup {
       anchors {
         right: parent.right
         top: parent.top
-        margins: 2
+        topMargin: 8
+        rightMargin: 8
       }
       width: 30
       height: width
       icon.color: Theme.mainTextColor
       icon.source: Theme.getThemeIcon('ic_close_black_24dp')
-      icon.width: 45
-      icon.height: 45
       padding: 0
       bgcolor: "transparent"
 
