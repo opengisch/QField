@@ -4730,15 +4730,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>启用地图旋转</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>仪表板</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>该按钮可以打开仪表板。使用仪表板，您将与图例和地图主题进行交互，或激活编辑模式开始数字化。长按按钮立即访问主菜单。</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4746,23 +4746,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>该按钮可以切换到定位系统。启用后，位置标记将显示在地图顶部。长按按钮将打开定位菜单，可以在其中探索其他功能。</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>搜索</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>搜索栏为您提供了快速查找工程中的要素，跳转到键入的经纬度点等的方法。</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>缩放</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>除了捏合手势外，这些按钮还可以帮助您快速放大和缩小。</translation>
     </message>
 </context>
 <context>

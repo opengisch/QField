@@ -4737,11 +4737,11 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Tableau de bord</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Ce bouton ouvre le tableau de bord. Avec ce tableau de bord, vous pouvez interagir avec le thème de légende et de carte, ou commencer à numériser en activant le mode Édition. Une pression longue du bouton vous donne un accès immédiat au menu principal. </translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4749,23 +4749,23 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Ce bouton sélectionne le système de positionnement. Si activé, un marqueur de position apparaîtra sur la carte. Une pression longue du bouton ouvrira le menu de positionnement où des fonctionnalités additionnelles sont accessibles.</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Recherche</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>La barre de recherche vous permet, d&apos;une manière rapide, de retrouver des entités dans votre projet, rejoindre un point à partir de la saisie de ses coordonnées et plus encore.</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Zoom</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>En plus du geste du pincement, ces boutons vous aident à zoomer et dézoomer.</translation>
     </message>
 </context>
 <context>
