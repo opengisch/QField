@@ -4732,15 +4732,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar rotación del mapa</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Cuadro de mandos</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Este botón abre el cuadro de mandos, en el que puede interactuar con la leyenda y el tema del mapa o comenzar a digitalizar activando el modo edición. Una pulsación larga del botón proporciona acceso inmediato al menú principal.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4748,23 +4748,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Este botón alterna el sistema de posicionamiento. Cuando está habilitado, aparecerá un marcador de posición en la parte superior del mapa. Una pulsación larga del botón abrirá el menú de posicionamiento, donde se pueden explorar funcionalidades adicionales.</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>La barra de búsqueda proporciona una forma rápida de encontrar objetos dentro del proyecto, saltar a una latitud y longitud introducidas y mucho más.</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Zoom</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>Además del gesto de pellizco, estos botones le ayudan a hacer zoom rápidamente.</translation>
     </message>
 </context>
 <context>

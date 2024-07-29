@@ -4736,15 +4736,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Włącz obracanie mapy</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Pulpit nawigacyjny</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Ten przycisk otwiera pulpit nawigacyjny. Za pomocą pulpitu nawigacyjnego możesz wchodzić w interakcje z legendą i motywem mapy lub rozpocząć digitalizację, aktywując tryb edycji. Długie naciśnięcie przycisku daje natychmiastowy dostęp do menu głównego.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4752,23 +4752,23 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Ten przycisk przełącza system pozycjonowania. Po włączeniu na górze mapy pojawi się znacznik pozycji. Długie naciśnięcie przycisku spowoduje otwarcie menu pozycjonowania, w którym można korzystać z dodatkowych funkcji.</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>Pasek wyszukiwania zapewnia szybki sposób na znalezienie elementów w projekcie, przejście do wpisanego punktu szerokości i długości geograficznej i wiele więcej.</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Powiększenie</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>Oprócz gestu uszczypnięcia, przyciski te pomagają w szybkim powiększaniu i pomniejszaniu.</translation>
     </message>
 </context>
 <context>
