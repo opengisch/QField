@@ -79,7 +79,7 @@ Item {
 
                             return "QField<br>" + appVersionStr + " (" + links + ")<br>Qt " + qVersion
                         }
-                        onLinkActivated: Qt.openUrlExternally(link)
+                        onLinkActivated: link => Qt.openUrlExternally(link)
                     }
                 }
 
@@ -111,7 +111,7 @@ Item {
                         color: Theme.light
                         textFormat: Text.RichText
                         text: qsTr( "Developed by" ) + '<br><a href="https://opengis.ch">OPENGIS.ch</a>'
-                        onLinkActivated: Qt.openUrlExternally(link)
+                        onLinkActivated: link => Qt.openUrlExternally(link)
                     }
                 }
             }
@@ -122,21 +122,30 @@ Item {
             Layout.fillWidth: true
             Layout.maximumWidth: parent.width
             Layout.alignment: Qt.AlignCenter
+            Layout.bottomMargin: 10
             horizontalAlignment: Text.AlignHCenter
             font: Theme.tinyFont
-            color: Theme.light
-            opacity: 0.6
+            color: Theme.secondaryTextColor
+            textFormat: Text.RichText
 
             text: {
-                var dataDirs = platformUtilities.appDataDirs();
+                let label = '';
+                let isDesktopPlatform = Qt.platform.os !== "ios" && Qt.platform.os !== "android";
+                let dataDirs = platformUtilities.appDataDirs();
                 if (dataDirs.length > 0) {
-                  return (dataDirs.length > 1
-                          ? 'QField app directories'
-                          : 'QField app directory')
-                         + '\n' + dataDirs.join('\n');
+                    label = dataDirs.length > 1 ? qsTr('QField app directories') : qsTr('QField app directory');
+                    for (let dataDir of dataDirs) {
+                        if (isDesktopPlatform) {
+                            label += '<br><a href="file://' + dataDir + '">' + dataDir + '</a>';
+                        } else {
+                            label += '<br>' + dataDir;
+                        }
+                    }
                 }
-                return '';
+                return label;
             }
+
+            onLinkActivated: link => Qt.openUrlExternally(link)
         }
 
         QfButton {
