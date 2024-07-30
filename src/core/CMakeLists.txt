@@ -24,6 +24,7 @@ set(QFIELD_CORE_SRCS
     locator/featureslocatorfilter.cpp
     locator/finlandlocatorfilter.cpp
     locator/gotolocatorfilter.cpp
+    locator/helplocatorfilter.cpp
     locator/locatormodelsuperbridge.cpp
     positioning/gnsspositioninformation.cpp
     positioning/internalgnssreceiver.cpp
@@ -140,6 +141,7 @@ set(QFIELD_CORE_HDRS
     locator/featureslocatorfilter.h
     locator/finlandlocatorfilter.h
     locator/gotolocatorfilter.h
+    locator/helplocatorfilter.h
     locator/locatormodelsuperbridge.h
     positioning/abstractgnssreceiver.h
     positioning/gnsspositioninformation.h

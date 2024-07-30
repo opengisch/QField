@@ -351,6 +351,17 @@ Item {
       height: resultsList.count > 0 ? Math.min(contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10) : 0
       clip: true
 
+      ScrollBar.vertical: ScrollBar {
+        width: 6
+        policy: resultsList.contentHeight > resultsList.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+
+        contentItem: Rectangle {
+          implicitWidth: 6
+          implicitHeight: 25
+          color: Theme.mainColor
+        }
+      }
+
       delegate: searchField.displayText !== '' ? resultsComponent : filtersComponent
     }
 
@@ -389,8 +400,9 @@ Item {
             id: nameCell
             anchors.left: parent.left
             anchors.right: parent.right
+            anchors.leftMargin: 5
+            anchors.rightMargin: 5
             text: Name + ' (' + Prefix + ')' + (Prefix === 'f' && dashBoard.activeLayer ? ' — ' + dashBoard.activeLayer.name : '')
-            leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
             color: Theme.mainTextColor
@@ -402,8 +414,9 @@ Item {
             id: descriptionCell
             anchors.left: parent.left
             anchors.right: parent.right
+            anchors.leftMargin: 5
+            anchors.rightMargin: 5
             text: Description || ''
-            leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
             color: Theme.secondaryTextColor
@@ -474,8 +487,9 @@ Item {
             id: nameCell
             anchors.left: parent.left
             anchors.right: parent.right
+            anchors.leftMargin: 5
+            anchors.rightMargin: 5
             text: isFilterName ? ResultFilterName : typeof (model.Text) == 'string' ? model.Text.trim() : ''
-            leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
             color: isFilterName ? "white" : Theme.mainTextColor
@@ -488,12 +502,13 @@ Item {
             visible: !isFilterName && !isGroup && text !== ''
             anchors.left: parent.left
             anchors.right: parent.right
+            anchors.leftMargin: 5
+            anchors.rightMargin: 5
             text: locator.getLocatorModelDescription(index)
-            leftPadding: 5
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
             color: Theme.secondaryTextColor
-            elide: Text.ElideRight
+            wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignLeft
           }
         }
