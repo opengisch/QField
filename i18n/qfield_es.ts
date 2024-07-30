@@ -21,6 +21,14 @@
         <source>Links Menu</source>
         <translation>Menú de enlaces</translation>
     </message>
+    <message>
+        <source>QField app directories</source>
+        <translation>Directorios de la app QField</translation>
+    </message>
+    <message>
+        <source>QField app directory</source>
+        <translation>Directorio de la app QField</translation>
+    </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
@@ -607,7 +615,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation>Copie &quot;%1&quot; al portapapeles</translation>
+        <translation>Copiar &quot;%1&quot; al portapapeles</translation>
     </message>
     <message>
         <source>Calculator</source>
@@ -719,7 +727,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation>Falló al deshacer creación de objetos en la capa &quot;%1&quot;</translation>
+        <translation>Falló al deshacer los objetos creados en la capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
@@ -904,7 +912,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Establecer entidad como destino</translation>
+        <translation>Establecer objeto como destino</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>

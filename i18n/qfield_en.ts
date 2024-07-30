@@ -23,6 +23,14 @@
         <source>Links Menu</source>
         <translation>Links Menu</translation>
     </message>
+    <message>
+        <source>QField app directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QField app directory</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>

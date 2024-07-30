@@ -21,6 +21,14 @@
         <source>Links Menu</source>
         <translation>链接菜单</translation>
     </message>
+    <message>
+        <source>QField app directories</source>
+        <translation>QField应用程序目录</translation>
+    </message>
+    <message>
+        <source>QField app directory</source>
+        <translation>QField应用程序目录</translation>
+    </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
