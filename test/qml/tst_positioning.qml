@@ -59,6 +59,17 @@ TestCase {
     verify(featureModel.feature.attribute("y") !== undefined);
     verify(featureModel.feature.attribute("z") !== undefined);
     verify(featureModel.positionInformation.latitude !== undefined);
+    featureModel.positionLocked = true;
+    featureModel.resetAttributes();
+    compare(featureModel.feature.attribute("source"), "nmea");
+    compare(featureModel.feature.attribute("Quality"), "Autonomous");
+    compare(featureModel.feature.attribute("Fix status"), "Fix3D");
+    verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
+    verify(featureModel.feature.attribute("Nb. of satellites") !== undefined);
+    verify(featureModel.feature.attribute("x") !== undefined);
+    verify(featureModel.feature.attribute("y") !== undefined);
+    verify(featureModel.feature.attribute("z") !== undefined);
+    verify(featureModel.positionInformation.latitude !== undefined);
   }
 
   function test_01_ellipsoidalElevation() {
