@@ -1047,6 +1047,13 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
 </context>
 <context>
+    <name>HelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
@@ -1337,6 +1344,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
         <translation>Restituisce un elenco di località e indirizzi in Finlandia con termini corrispondenti.</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

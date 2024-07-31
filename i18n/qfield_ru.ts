@@ -1049,6 +1049,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>HelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
@@ -1339,6 +1346,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
         <translation>Возвращает список мест и адресов в Финляндии с совпадающими словами</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

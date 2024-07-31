@@ -1047,6 +1047,13 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
+    <name>HelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation>Documentación de QField</translation>
+    </message>
+</context>
+<context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
@@ -1337,6 +1344,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
         <translation>Devuelve una lista de localizaciones y direcciones dentro de Finlandia en las que coinciden los términos</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>Devuelve las páginas de la documentación de QField con los términos que coincidan</translation>
     </message>
 </context>
 <context>

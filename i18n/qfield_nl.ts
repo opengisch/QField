@@ -1045,6 +1045,13 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
 </context>
 <context>
+    <name>HelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
@@ -1334,6 +1341,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
         <translation type="unfinished"/>
     </message>
 </context>

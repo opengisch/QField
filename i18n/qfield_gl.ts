@@ -1045,6 +1045,13 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
 </context>
 <context>
+    <name>HelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
@@ -1335,6 +1342,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
         <translation>Devolve unha lista de localizacións e enderezos sitos en Finlandia con termos coincidentes.</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

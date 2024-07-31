@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>Répertoires d&apos;application de QField</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>Répertoire d&apos;application de QField</translation>
     </message>
 </context>
 <context>
@@ -1046,6 +1046,13 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
 </context>
 <context>
+    <name>HelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation>Documentation de QField</translation>
+    </message>
+</context>
+<context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
@@ -1336,6 +1343,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
         <translation>Renvoie une liste de lieux et adresses en Finlande qui correspondent aux termes saisis.</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>Retourne les pages de documentation de QField correspondant aux termes.</translation>
     </message>
 </context>
 <context>

@@ -1047,6 +1047,13 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
 </context>
 <context>
+    <name>HelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
@@ -1338,6 +1345,10 @@ Dôvod:
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
         <translation>Zobrazí zoznam lokalít a adresných bodov vo Fínsku</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
