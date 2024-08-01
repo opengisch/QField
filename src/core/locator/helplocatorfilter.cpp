@@ -100,12 +100,17 @@ void HelpLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
 
     if ( locationLocale == userLocale )
     {
+      if ( location.startsWith( QStringLiteral( "reference/" ) ) || location.startsWith( QStringLiteral( "%1/reference/" ).arg( userLocale ) ) || location.startsWith( QStringLiteral( "success-stories/" ) ) || location.startsWith( QStringLiteral( "%1/success-stories/" ).arg( userLocale ) ) )
+      {
+        continue;
+      }
+
       bool match = false;
       int matchScore = 0;
       for ( const QString &word : words )
       {
         match = title.contains( word ) || text.contains( word );
-        matchScore += title.count( word ) * 2 + text.count( word );
+        matchScore += title.count( word ) * 3 + text.count( word );
       }
 
       if ( match )
