@@ -1052,7 +1052,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Dokumentacja QField</translation>
     </message>
 </context>
 <context>
@@ -1349,7 +1349,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Pokazuje strony dokumentacji QField pasujące do wybranych fukcji.</translation>
     </message>
 </context>
 <context>

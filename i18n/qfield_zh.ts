@@ -1046,7 +1046,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>QField文档</translation>
     </message>
 </context>
 <context>
@@ -1343,7 +1343,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>打开与项相匹配的QField文档页面。</translation>
     </message>
 </context>
 <context>
