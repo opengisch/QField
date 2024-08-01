@@ -21,6 +21,57 @@ TestCase {
     }
   }
 
+  FeatureModel {
+    id: featureModel
+    project: qgisProject
+    currentLayer: qgisProject.mapLayersByName('Apiary')[0]
+    positionInformation: positioning.positionInformation
+    positionLocked: false
+  }
+
+  /**
+   * Test the positioning of the feature model.
+   *
+   * This function performs the following steps:
+   * 1. Initially verifies that the positional attributes (x, y, z) are undefined,
+   *    indicating no data has been received yet.
+   * 2. Waits for 2500 milliseconds to allow the system to collect and process NMEA strings,
+   *    which carry essential navigation data.
+   * 3. Resets the feature model's attributes to ensure feature updated.
+   * 4. Validates that the attribute values for source, quality, fix status, and satellite count
+   *    are set correctly, confirming that the positioning data has been successfully acquired.
+   * 5. Verifies that the position coordinates (x, y, z) and are now defined,
+   *    signaling that the feature model has processed the positioning data correctly.
+   */
+  function test_00_featureModelPositioning() {
+    // wait a few seconds so positioning can catch some NMEA strings
+    verify(featureModel.feature.attribute("x") === undefined);
+    verify(featureModel.feature.attribute("y") === undefined);
+    verify(featureModel.feature.attribute("z") === undefined);
+    wait(2500);
+    featureModel.resetAttributes();
+    compare(featureModel.feature.attribute("source"), "manual");
+    compare(featureModel.feature.attribute("Quality"), "Autonomous");
+    compare(featureModel.feature.attribute("Fix status"), "Fix3D");
+    verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
+    verify(featureModel.feature.attribute("Nb. of satellites") !== undefined);
+    verify(featureModel.feature.attribute("x") !== undefined);
+    verify(featureModel.feature.attribute("y") !== undefined);
+    verify(featureModel.feature.attribute("z") !== undefined);
+    verify(featureModel.positionInformation.latitude !== undefined);
+    featureModel.positionLocked = true;
+    featureModel.resetAttributes();
+    compare(featureModel.feature.attribute("source"), "nmea");
+    compare(featureModel.feature.attribute("Quality"), "Autonomous");
+    compare(featureModel.feature.attribute("Fix status"), "Fix3D");
+    verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
+    verify(featureModel.feature.attribute("Nb. of satellites") !== undefined);
+    verify(featureModel.feature.attribute("x") !== undefined);
+    verify(featureModel.feature.attribute("y") !== undefined);
+    verify(featureModel.feature.attribute("z") !== undefined);
+    verify(featureModel.positionInformation.latitude !== undefined);
+  }
+
   function test_01_ellipsoidalElevation() {
     positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None;
     coordinateTransformer.deltaZ = 0;
