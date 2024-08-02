@@ -78,8 +78,11 @@ jobs:
         run: |
           echo "JAVA_HOME=${JAVA_HOME_17_X64}" >> $GITHUB_ENV
           echo "ANDROID_NDK_VERSION=25.2.9519653" >> $GITHUB_ENV
+          echo "ANDROID_NDK=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> $GITHUB_ENV
+          echo "ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> $GITHUB_ENV
           echo "ANDROID_BUILD_TOOLS_VERSION=33.0.0" >> $GITHUB_ENV
-          echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
+          echo "ndk.dir=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> local.properties
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
           BUILD_ROOT="/home/runner"
