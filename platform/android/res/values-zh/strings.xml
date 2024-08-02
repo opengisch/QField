@@ -16,7 +16,7 @@
     <string name="select_project">选择QGIS工程或数据集</string>
     <string name="recent_projects">最近工程和数据集</string>
     <string name="rate_title">评价QField</string>
-    <string name="rate_message">如果您喜欢使用QField，请花点时间对其评价。感谢您的支持!</string>
+    <string name="rate_message">如果您喜欢使用QField，烦请花点时间给个好评。感谢您的支持!</string>
     <string name="rate_now">评价</string>
     <string name="remind_later">稍后提醒</string>
     <string name="no_thanks">不用了，谢谢！</string>
