@@ -85,7 +85,7 @@ const QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorMes
 
   if ( errorMessage.contains( OVER_QUOTA ) )
   {
-    resultErrorMessage = "Your account's available storage is full.";
+    resultErrorMessage = tr( "Your account's available storage is full." );
   }
 
   return resultErrorMessage;
