@@ -77,6 +77,34 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
   return QString();
 }
 
+const QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorMessage )
+{
+  QString resultErrorMessage = errorMessage.startsWith( "[QF/" ) ? tr( "A server error has occured, please try again." ) : tr( "A network error has occured, please try again." );
+
+  const QString OVER_QUOTA( "over_quota" );
+
+  if ( errorMessage.contains( OVER_QUOTA ) )
+  {
+    resultErrorMessage = "Your account's available storage is full.";
+  }
+
+  return resultErrorMessage;
+}
+
+const QString QFieldCloudUtils::documentationFromErrorString( const QString &errorMessage )
+{
+  QString linkToDocumentation;
+
+  const QString OVER_QUOTA( "over_quota" );
+
+  if ( errorMessage.contains( OVER_QUOTA ) )
+  {
+    linkToDocumentation = "https://docs.qfield.org/get-started/storage-qfc/";
+  }
+
+  return linkToDocumentation;
+}
+
 void QFieldCloudUtils::setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value )
 {
   thread_local QgsSettings settings;

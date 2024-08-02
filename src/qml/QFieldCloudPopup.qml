@@ -301,17 +301,9 @@ Popup {
           detailsColor: Theme.secondaryTextColor
           font: Theme.tipFont
 
-          titleText: detailsText.startsWith('[QF/') ? qsTr('A server error has occured, please try again.') : qsTr('A network error has occured, please try again.')
+          externalLink: QFieldCloudUtils.documentationFromErrorString(detailsText)
+          titleText: QFieldCloudUtils.userFriendlyErrorString(detailsText)
           detailsText: ''
-
-          function humanizeError(errorString) {
-            if (errorString.includes("Network Error")) {
-              errorString = "Network Error";
-            } else if (errorString.includes("Quota Error")) {
-              errorString = "Quota Error";
-            }
-            return errorString;
-          }
 
           Connections {
             target: iface
@@ -327,14 +319,14 @@ Popup {
             function onPushFinished(projectId, hasError, errorString) {
               transferError.hasError = hasError;
               if (transferError.visible) {
-                transferError.detailsText = transferError.humanizeError(errorString);
+                transferError.detailsText = errorString;
               }
             }
 
             function onProjectDownloaded(projectId, projectName, hasError, errorString) {
               transferError.hasError = hasError;
               if (transferError.visible) {
-                transferError.detailsText = transferError.humanizeError(errorString);
+                transferError.detailsText = errorString;
               }
               const projectData = cloudProjectsModel.getProjectData(projectId);
               if (projectData.PackagedLayerErrors.length !== 0) {
