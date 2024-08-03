@@ -105,7 +105,7 @@ class QFieldCloudUtils : public QObject
      * @param errorMessage reveiced error message
      * @return const QString
      */
-    Q_INVOKABLE static const QString userFriendlyErrorString( const QString &errorMessage );
+    Q_INVOKABLE static QString userFriendlyErrorString( const QString &errorMessage );
 
     /**
      * Returns link to documentation page related to error message.
@@ -113,7 +113,7 @@ class QFieldCloudUtils : public QObject
      * @param errorMessage reveiced error message
      * @return const QString
      */
-    Q_INVOKABLE static const QString documentationFromErrorString( const QString &errorMessage );
+    Q_INVOKABLE static QString documentationFromErrorString( const QString &errorMessage );
 
     //! Sets a \a setting to a given \a value for project with given \a projectId to the permanent storage.
     static void setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value );

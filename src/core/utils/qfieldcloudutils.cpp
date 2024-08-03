@@ -77,7 +77,7 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
   return QString();
 }
 
-const QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorMessage )
+QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorMessage )
 {
   QString resultErrorMessage = errorMessage.startsWith( "[QF/" ) ? tr( "A server error has occured, please try again." ) : tr( "A network error has occured, please try again." );
 
@@ -91,7 +91,7 @@ const QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorMes
   return resultErrorMessage;
 }
 
-const QString QFieldCloudUtils::documentationFromErrorString( const QString &errorMessage )
+QString QFieldCloudUtils::documentationFromErrorString( const QString &errorMessage )
 {
   QString linkToDocumentation;
 
