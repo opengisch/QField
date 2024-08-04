@@ -89,11 +89,19 @@ EditorWidgetBase {
     }
 
     onTextChanged: {
-      if (field.isNumeric) {
-        let value = parseFloat(text)
-        valueChangeRequested(value, isNaN(value))
+      if (text !== '') {
+        if (field.isNumeric) {
+          let value = parseFloat(text)
+          // Only trigger value change for valid numerical values to insure we do not
+          // interfere with 'Autogenerate' value
+          if (!isNaN(value)) {
+            valueChangeRequested(value, false)
+          }
+        } else {
+          valueChangeRequested(text, false)
+        }
       } else {
-        valueChangeRequested(text, text === '')
+        valueChangeRequested(text, true)
       }
     }
   }
