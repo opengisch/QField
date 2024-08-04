@@ -631,7 +631,11 @@ Rectangle {
 
     onProcessingRunClicked: {
       processingAlgorithm.run();
-      featureFormList.state = "FeatureList";
+      if (globalFeaturesList.model.count > 0) {
+        featureFormList.state = "FeatureList";
+      } else {
+        featureFormList.state = "Hidden";
+      }
     }
 
     CoordinateTransformer {
