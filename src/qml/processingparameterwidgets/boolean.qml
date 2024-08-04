@@ -19,8 +19,8 @@ ProcessingParameterWidgetBase {
     Label {
       id: labelValue
 
+      anchors.verticalCenter: parent.verticalCenter
       width: parent.width - checkBox.width
-
       font.pointSize: Theme.defaultFont.pointSize
       font.bold: Theme.defaultFont.bold
 
@@ -29,6 +29,8 @@ ProcessingParameterWidgetBase {
 
     QfSwitch {
       id: checkBox
+
+      anchors.verticalCenter: parent.verticalCenter
       width: implicitContentWidth
       small: true
 
