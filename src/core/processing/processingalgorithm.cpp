@@ -288,15 +288,14 @@ bool ProcessingAlgorithm::run( bool previewMode )
           QgsFeatureList outputFeatures;
           while ( outputIterator.nextFeature( outputFeature ) )
           {
-            qDebug() << outputFeature.id();
             outputFeatures << outputFeature;
           }
 
           if ( previewMode )
           {
-            for ( const QgsFeature &outputFeature : outputFeatures )
+            for ( const QgsFeature &previewFeature : outputFeatures )
             {
-              mPreviewGeometries << outputFeature.geometry();
+              mPreviewGeometries << previewFeature.geometry();
             }
 
             emit previewGeometriesChanged();
@@ -311,6 +310,7 @@ bool ProcessingAlgorithm::run( bool previewMode )
             {
               inPlaceFeatureIds << feature.id();
             }
+
             outputFeatures = QgsVectorLayerUtils::makeFeaturesCompatible( outputFeatures, inPlaceLayer, regeneratePrimaryKey ? QgsFeatureSink::SinkFlag::RegeneratePrimaryKey : QgsFeatureSink::SinkFlags() );
 
             inPlaceLayer->startEditing();
