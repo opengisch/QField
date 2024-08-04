@@ -77,27 +77,23 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
   return QString();
 }
 
-QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorMessage )
+QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorString )
 {
-  QString resultErrorMessage = errorMessage.startsWith( "[QF/" ) ? tr( "A server error has occured, please try again." ) : tr( "A network error has occured, please try again." );
+  QString resultErrorString = errorString.startsWith( "[QF/" ) ? tr( "A server error has occured, please try again." ) : tr( "A network error has occured, please try again." );
 
-  const QString OVER_QUOTA( "over_quota" );
-
-  if ( errorMessage.contains( OVER_QUOTA ) )
+  if ( errorString.contains( ERROR_CODE_OVER_QUOTA ) )
   {
-    resultErrorMessage = tr( "Your account's available storage is full." );
+    resultErrorString = tr( "Your account's available storage is full." );
   }
 
-  return resultErrorMessage;
+  return resultErrorString;
 }
 
-QString QFieldCloudUtils::documentationFromErrorString( const QString &errorMessage )
+QString QFieldCloudUtils::documentationFromErrorString( const QString &errorString )
 {
   QString linkToDocumentation;
 
-  const QString OVER_QUOTA( "over_quota" );
-
-  if ( errorMessage.contains( OVER_QUOTA ) )
+  if ( errorString.contains( ERROR_CODE_OVER_QUOTA ) )
   {
     linkToDocumentation = "https://docs.qfield.org/get-started/storage-qfc/";
   }

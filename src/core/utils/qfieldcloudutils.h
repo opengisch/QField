@@ -16,9 +16,12 @@
 #ifndef QFIELDCLOUDUTILS_H
 #define QFIELDCLOUDUTILS_H
 
+#define ERROR_CODE_OVER_QUOTA QString( "over_quota" )
+
 #include <qfieldcloudprojectsmodel.h>
 #include <qgsmaplayer.h>
 #include <qgsproject.h>
+
 
 class QString;
 class QFieldCloudProjectsModel;
@@ -100,20 +103,20 @@ class QFieldCloudUtils : public QObject
     Q_INVOKABLE static const QString getProjectId( const QString &fileName );
 
     /**
-     * Returns user-friendly message.
+     * Returns a user-friendly error message.
      *
-     * @param errorMessage reveiced error message
-     * @return const QString
+     * @param errorString the error string to be processed.
+     * @return A user-friendly error message that will be displayed to the user, translated based on received error code.
      */
-    Q_INVOKABLE static QString userFriendlyErrorString( const QString &errorMessage );
+    Q_INVOKABLE static QString userFriendlyErrorString( const QString &errorString );
 
     /**
-     * Returns link to documentation page related to error message.
+     * Returns a documentation page hyperlink related to the provided error string.
      *
-     * @param errorMessage reveiced error message
-     * @return const QString
+     * @param errorString the error string to be processed
+     * @return The hyperlink to the documentation page related to the provided error code, or an empty string if no match is found.
      */
-    Q_INVOKABLE static QString documentationFromErrorString( const QString &errorMessage );
+    Q_INVOKABLE static QString documentationFromErrorString( const QString &errorString );
 
     //! Sets a \a setting to a given \a value for project with given \a projectId to the permanent storage.
     static void setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value );
