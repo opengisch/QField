@@ -2837,7 +2837,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Cuando está activado, los marcadores de usuario guardados y los del proyecto abierto actualmente se mostrarán en el mapa.</translation>
+        <translation>Cuando está activado, se mostrarán en el mapa los marcadores de usuario guardados y los del proyecto abierto actualmente.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -2865,7 +2865,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Considere el ratón como un dispositivo de pantalla táctil</translation>
+        <translation>Considerar el ratón como un dispositivo de pantalla táctil</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3163,11 +3163,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation>Utiliza teclas de volumen para digitalizar</translation>
+        <translation>Utilizar teclas de volumen para digitalizar</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Si se habilita, presionar la tecla de subir volumen del dispositivo adicionará un vértice mientras que presionar la tecla de bajar el volumen eliminará el último vértice registrado durante la sesión de digitalización.</translation>
+        <translation>Si se habilita, presionar la tecla de subir el volumen del dispositivo añadirá un vértice mientras que presionar la tecla de bajar el volumen eliminará el último vértice introducido durante la sesión de digitalización.</translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
