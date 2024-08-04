@@ -23,6 +23,7 @@
 #include <QJSValue>
 #include <QMutex>
 #include <qgscurvepolygon.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgsgeometrycollection.h>
 #include <qgsgeometryoptions.h>
 #include <qgsmessagelog.h>
@@ -469,6 +470,11 @@ QgsExpressionContext FeatureModel::createExpressionContext() const
     expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
   }
   expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+
+  if ( mLinkedParentFeature.isValid() )
+  {
+    expressionContext << QgsExpressionContextUtils::parentFormScope( mLinkedParentFeature );
+  }
 
   return expressionContext;
 }
