@@ -253,10 +253,6 @@ void AttributeFormModelBase::resetModel()
 void AttributeFormModelBase::applyFeatureModel()
 {
   mExpressionContext = mFeatureModel->createExpressionContext();
-  if ( mFeatureModel->linkedParentFeature().isValid() )
-  {
-    mExpressionContext << QgsExpressionContextUtils::parentFormScope( mFeatureModel->linkedParentFeature() );
-  }
   mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
 
   for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
