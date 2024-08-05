@@ -202,12 +202,8 @@ Page {
               }
             }
           }
-
-          ScrollBar.vertical: ScrollBar {
-            active: true
-            visible: table.contentHeight > table.height ? true : false
+          ScrollBar.vertical: QfScrollBar {
           }
-
           anchors.fill: parent
           anchors.margins: 1
           section.property: "Owner"

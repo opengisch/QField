@@ -446,7 +446,7 @@ Page {
 
             ListView {
               id: table
-              ScrollBar.vertical: ScrollBar {
+              ScrollBar.vertical: QfScrollBar {
               }
               flickableDirection: Flickable.AutoFlickIfNeeded
               boundsBehavior: Flickable.StopAtBounds

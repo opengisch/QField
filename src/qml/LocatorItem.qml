@@ -351,15 +351,7 @@ Item {
       height: resultsList.count > 0 ? Math.min(contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10) : 0
       clip: true
 
-      ScrollBar.vertical: ScrollBar {
-        width: 6
-        policy: resultsList.contentHeight > resultsList.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
-
-        contentItem: Rectangle {
-          implicitWidth: 6
-          implicitHeight: 25
-          color: Theme.mainColor
-        }
+      ScrollBar.vertical: QfScrollBar {
       }
 
       delegate: searchField.displayText !== '' ? resultsComponent : filtersComponent

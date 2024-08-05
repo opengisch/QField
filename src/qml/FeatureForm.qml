@@ -160,15 +160,7 @@ Page {
           contentHeight: content.height
           bottomMargin: form.bottomMargin
           clip: true
-
-          ScrollBar.vertical: ScrollBar {
-            policy: content.height > contentView.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
-            width: 6
-            contentItem: Rectangle {
-              implicitWidth: 6
-              implicitHeight: 25
-              color: Theme.mainColor
-            }
+          ScrollBar.vertical: QfScrollBar {
           }
 
           Rectangle {
