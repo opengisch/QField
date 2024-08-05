@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" fill="#e8eaed" version="1.1" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm0 0v-480 480Z" fill="#000"/>
+  <path d="m260-620v280.01" fill="#e8eaed" stop-color="#000000" stroke="#000" stroke-linecap="square" stroke-width="40" style="paint-order:stroke fill markers"/>
+  <path d="m699.99-340h-439.99" fill="#e8eaed" stop-color="#000000" stroke="#000" stroke-linecap="square" stroke-width="40" style="paint-order:stroke fill markers"/>
+ </g>
+ <g fill="none" stroke="#000" stroke-linecap="square" stroke-width="40">
+  <path d="m220-660h80" stop-color="#000000" style="paint-order:stroke fill markers"/>
+  <path d="m740-380v80" stop-color="#000000" style="paint-order:stroke fill markers"/>
+  <path d="m220-380v80" stop-color="#000000" style="paint-order:stroke fill markers"/>
+  <path d="m300-300h-80" stop-color="#000000" style="paint-order:stroke fill markers"/>
+ </g>
+</svg>

@@ -572,7 +572,7 @@ Popup {
       width: 48
       height: resolutionSelectionMenu.count > 1 ? 48 : 0
 
-      iconSource: Theme.getThemeVectorIcon("ic_camera_switch_black_24dp")
+      iconSource: Theme.getThemeVectorIcon("ic_camera_resolution_black_24dp")
       iconColor: "white"
       bgcolor: Theme.darkGraySemiOpaque
       round: true
@@ -620,7 +620,6 @@ Popup {
         model: camera.cameraDevice.videoFormats
 
         delegate: MenuItem {
-          property int formatIndex: index
           property int pixelFormat: modelData.pixelFormat
           property size resolution: modelData.resolution
 
