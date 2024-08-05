@@ -63,6 +63,7 @@ Popup {
     if (!cameraPicked) {
       camera.cameraDevice = mediaDevices.defaultVideoInput;
     }
+    camera.applyCameraFormat();
   }
 
   QfCameraPermission {
@@ -77,6 +78,8 @@ Popup {
     property bool geoTagging: true
     property bool showGrid: false
     property string deviceId: ''
+    property size resolution: Qt.size(0, 0)
+    property int pixelFormat: 0
   }
 
   Page {
@@ -100,6 +103,27 @@ Popup {
         id: camera
 
         active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted
+
+        function applyCameraFormat() {
+          if (settings.pixelFormat != 0) {
+            let fallbackIndex = -1;
+            let i = 0;
+            for (let format of camera.cameraDevice.videoFormats) {
+              if (format.resolution == settings.resolution && format.pixelFormat == settings.pixelFormat) {
+                camera.cameraFormat = camera.cameraDevice.videoFormats[i];
+                fallbackIndex = -1;
+                break;
+              } else if (format.resolution == settings.resolution) {
+                // If we can't match the pixel format and resolution, go for resolution match across devices
+                fallbackIndex = i;
+              }
+              i++;
+            }
+            if (fallbackIndex >= 0) {
+              camera.cameraFormat = camera.cameraDevice.videoFormats[fallbackIndex];
+            }
+          }
+        }
 
         function zoomIn(increase) {
           var zoom = camera.zoomFactor + increase;
@@ -530,6 +554,104 @@ Popup {
             if (checked && settings.deviceId !== modelData.id) {
               settings.deviceId = modelData.id;
               camera.cameraDevice = modelData;
+              camera.applyCameraFormat();
+            }
+          }
+        }
+      }
+    }
+
+    QfToolButton {
+      id: resolutionSelectionButton
+
+      anchors.left: parent.left
+      anchors.leftMargin: 4
+      anchors.top: cameraSelectionButton.bottom
+      anchors.topMargin: resolutionSelectionMenu.count > 1 ? 4 : 0
+
+      width: 48
+      height: resolutionSelectionMenu.count > 1 ? 48 : 0
+
+      iconSource: Theme.getThemeVectorIcon("ic_camera_switch_black_24dp")
+      iconColor: "white"
+      bgcolor: Theme.darkGraySemiOpaque
+      round: true
+
+      onClicked: {
+        resolutionSelectionMenu.popup(resolutionSelectionButton.x, resolutionSelectionButton.y);
+      }
+    }
+
+    Menu {
+      id: resolutionSelectionMenu
+
+      width: {
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+          let item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.leftPadding + item.rightPadding, padding);
+        }
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : 0;
+      }
+
+      function ratioFromResolution(resolution) {
+        if (resolution.width * 3 / 4 == resolution.height) {
+          return '4:3';
+        } else if (resolution.width * 9 / 16 == resolution.height) {
+          return '16:9';
+        } else if (resolution.width * 10 / 16 == resolution.height) {
+          return '16:10';
+        }
+        return '';
+      }
+
+      function pixelFormatDescription(pixelFormat) {
+        if (pixelFormat == 17) {
+          return 'YUYV';
+        } else if (pixelFormat == 29) {
+          return 'JPEG';
+        }
+        return '' + pixelFormat;
+      }
+
+      Repeater {
+        model: camera.cameraDevice.videoFormats
+
+        delegate: MenuItem {
+          property int formatIndex: index
+          property int pixelFormat: modelData.pixelFormat
+          property size resolution: modelData.resolution
+
+          text: {
+            let details = [];
+            let ratio = resolutionSelectionMenu.ratioFromResolution(resolution);
+            if (ratio !== '') {
+              details.push(ratio);
+            }
+            let description = resolutionSelectionMenu.pixelFormatDescription(pixelFormat);
+            if (description !== '') {
+              details.push(description);
+            }
+            return resolution.width + ' × ' + resolution.height + (details.length > 0 ? ' — ' + details.join(' / ') : '');
+          }
+          height: 48
+          leftPadding: Theme.menuItemCheckLeftPadding
+          font: Theme.defaultFont
+          enabled: !checked
+          checkable: true
+          checked: settings.resolution == resolution && settings.pixelFormat == pixelFormat
+          indicator.height: 20
+          indicator.width: 20
+          indicator.implicitHeight: 24
+          indicator.implicitWidth: 24
+
+          onCheckedChanged: {
+            if (checked && (settings.resolution != resolution || settings.pixelFormat != pixelFormat)) {
+              settings.resolution = resolution;
+              settings.pixelFormat = pixelFormat;
+              camera.applyCameraFormat();
             }
           }
         }
@@ -541,7 +663,7 @@ Popup {
 
       anchors.left: parent.left
       anchors.leftMargin: 4
-      anchors.top: cameraSelectionButton.bottom
+      anchors.top: resolutionSelectionButton.bottom
       anchors.topMargin: 4
 
       iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
