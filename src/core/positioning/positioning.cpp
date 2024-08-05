@@ -325,7 +325,13 @@ void Positioning::processCompassReading()
       default:
         break;
     }
+
     orientation += mCompass.reading()->azimuth();
+    if ( orientation < 0.0 )
+    {
+      orientation = 360 + orientation;
+    }
+
     if ( mOrientation != orientation )
     {
       mOrientation = orientation;
