@@ -81,7 +81,7 @@ QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorString )
 {
   QString resultErrorString = errorString.startsWith( "[QF/" ) ? tr( "A server error has occured, please try again." ) : tr( "A network error has occured, please try again." );
 
-  if ( errorString.contains( ERROR_CODE_OVER_QUOTA ) )
+  if ( errorString.contains( errorCodeOverQuota ) )
   {
     resultErrorString = tr( "Your account's available storage is full." );
   }
@@ -93,7 +93,7 @@ QString QFieldCloudUtils::documentationFromErrorString( const QString &errorStri
 {
   QString linkToDocumentation;
 
-  if ( errorString.contains( ERROR_CODE_OVER_QUOTA ) )
+  if ( errorString.contains( errorCodeOverQuota ) )
   {
     linkToDocumentation = "https://docs.qfield.org/get-started/storage-qfc/";
   }

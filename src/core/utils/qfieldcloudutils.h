@@ -16,8 +16,6 @@
 #ifndef QFIELDCLOUDUTILS_H
 #define QFIELDCLOUDUTILS_H
 
-#define ERROR_CODE_OVER_QUOTA QString( "over_quota" )
-
 #include <qfieldcloudprojectsmodel.h>
 #include <qgsmaplayer.h>
 #include <qgsproject.h>
@@ -132,6 +130,9 @@ class QFieldCloudUtils : public QObject
 
     //! Adds removes a \a fileName for a given \a projectId to the pending attachments list
     static void removePendingAttachment( const QString &projectId, const QString &fileName );
+
+  private:
+    static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };
 };
 
 #endif // QFIELDCLOUDUTILS_H
