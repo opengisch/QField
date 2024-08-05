@@ -10,13 +10,13 @@ T.ScrollBar {
   readonly property real _maxSize: 8
   readonly property real _minSize: 4
 
-  width: horizontal ? parent.width : 8
-  height: horizontal ? 8 : parent.height
+  width: horizontal ? parent.width : _maxSize
+  height: horizontal ? _maxSize : parent.height
   visible: control.policy !== T.ScrollBar.AlwaysOff
   anchors.right: parent.right
   background: Rectangle {
     id: background
-    radius: 5
+    radius: _minSize
     color: Theme.darkTheme ? "#2c2c2c" : "#aaffffff"
     opacity: {
       if (vertical) {
