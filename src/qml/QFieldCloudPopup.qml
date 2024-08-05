@@ -65,7 +65,8 @@ Popup {
     ScrollView {
       padding: 0
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical.policy: ScrollBar.AsNeeded
+      ScrollBar.vertical: QfScrollBar {
+      }
       contentWidth: mainGrid.width
       contentHeight: mainGrid.height
       anchors.fill: parent
@@ -583,7 +584,8 @@ Popup {
             Layout.margins: 10
             height: parent.height
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-            ScrollBar.vertical.policy: ScrollBar.AsNeeded
+            ScrollBar.vertical: QfScrollBar {
+            }
             contentWidth: qfieldCloudLogin.width
             contentHeight: qfieldCloudLogin.childrenRect.height
             clip: true

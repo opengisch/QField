@@ -25,7 +25,8 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical.policy: ScrollBar.AsNeeded
+      ScrollBar.vertical: QfScrollBar {
+      }
       contentItem: information
       contentWidth: information.width
       contentHeight: information.height

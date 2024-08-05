@@ -261,7 +261,8 @@ Page {
           leftPadding: 0
           rightPadding: 0
           ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical.policy: ScrollBar.AsNeeded
+          ScrollBar.vertical: QfScrollBar {
+          }
           contentWidth: generalSettingsGrid.width
           contentHeight: generalSettingsGrid.height
           anchors.fill: parent
@@ -802,7 +803,8 @@ Page {
           leftPadding: 20
           rightPadding: 20
           ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical.policy: ScrollBar.AsNeeded
+          ScrollBar.vertical: QfScrollBar {
+          }
           contentWidth: positioningGrid.width
           contentHeight: positioningGrid.height
           anchors.fill: parent

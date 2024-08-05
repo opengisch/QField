@@ -91,7 +91,8 @@ Popup {
     ScrollView {
       padding: 10
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical.policy: ScrollBar.AsNeeded
+      ScrollBar.vertical: QfScrollBar {
+      }
       contentWidth: popupLayout.childrenRect.width
       contentHeight: popupLayout.childrenRect.height
       height: Math.min(popupLayout.childrenRect.height + 20, mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneBottomMargin)
