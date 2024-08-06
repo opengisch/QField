@@ -92,11 +92,16 @@ EditorWidgetBase {
         image.hasImage = true
         image.opacity = 1
         image.anchors.topMargin = 0
-        image.source = (!isHttp ? 'file://' : '') + fullValue
+        image.source = UrlUtils.fromString(fullValue)
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue)
       } else if (isAudio || isVideo) {
+        mediaFrame.height = 48
+
+        image.visible = false
+        image.opacity = 0.5
+        image.source = ''
         player.firstFrameDrawn = false
-        player.sourceUrl = (!isHttp ? 'file://' : '') + fullValue
+        player.sourceUrl = UrlUtils.fromString(fullValue)
       }
     } else {
       image.source = ''
@@ -262,7 +267,7 @@ EditorWidgetBase {
       id: player
       active: isAudio || isVideo
 
-      property string sourceUrl: ''
+      property url sourceUrl: ''
       property bool firstFrameDrawn: false
 
       anchors.left: parent.left
@@ -324,7 +329,7 @@ EditorWidgetBase {
       id: sketchButton
       anchors.top: image.top
       anchors.right: image.right
-      visible: image.status === Image.Ready && isEnabled
+      visible: image.source != '' && image.status === Image.Ready && isEnabled
 
       round: true
       iconSource: Theme.getThemeVectorIcon( "ic_freehand_white_24dp" )

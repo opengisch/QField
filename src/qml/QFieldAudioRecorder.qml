@@ -64,11 +64,7 @@ Popup {
     running: false
 
     onTriggered: {
-      var path = recorder.actualLocation.toString()
-      // On Android, the file protocol prefix is present while on Linux it isn't
-      var filePos = path.indexOf('file://')
-      path = filePos == -1 ? 'file://' + path : path
-      player.source = path
+      player.source = UrlUtils.fromString(recorder.actualLocation.toString())
     }
   }
 
