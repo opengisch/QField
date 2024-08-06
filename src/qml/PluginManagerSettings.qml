@@ -85,7 +85,7 @@ Popup {
                 Layout.preferredWidth: 24
                 Layout.preferredHeight: 24
 
-                source: Icon !== '' ? 'file://' + Icon : ''
+                source: Icon !== '' ? UrlUtils.fromString(Icon) : ''
                 fillMode: Image.PreserveAspectFit
                 mipmap: true
               }

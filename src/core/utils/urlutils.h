@@ -30,11 +30,13 @@ class QFIELD_CORE_EXPORT UrlUtils : public QObject
   public:
     explicit UrlUtils( QObject *parent = nullptr );
 
-
     /**
-     * Checks whether the provided string is a relative url (has no protocol or starts with `file://`).
+     * Checks whether the provided string is a relative \a url (has no protocol or starts with `file://`).
      */
     static Q_INVOKABLE bool isRelativeOrFileUrl( const QString &url );
+
+    //! Returns a URL from a \a string with logic to handle local paths
+    static Q_INVOKABLE QUrl fromString( const QString &string );
 };
 
 #endif // URLUTILS_H
