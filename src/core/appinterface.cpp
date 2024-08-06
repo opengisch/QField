@@ -126,11 +126,6 @@ bool AppInterface::hasProjectOnLaunch() const
 bool AppInterface::loadFile( const QString &path, const QString &name )
 {
   qInfo() << QStringLiteral( "AppInterface loading file: %1" ).arg( path );
-  if ( QFileInfo::exists( path ) )
-  {
-    return mApp->loadProjectFile( path, name );
-  }
-
   const QUrl url( path );
   return mApp->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path(), name );
 }
