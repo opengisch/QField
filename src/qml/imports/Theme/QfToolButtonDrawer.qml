@@ -143,8 +143,8 @@ Container {
 
       onClicked: {
         container.collapsed = !container.collapsed;
-        if (name != "") {
-          settings.setValue("QField/QfToolButtonContainer/" + name + "/collapsed", container.collapsed);
+        if (container.name != "") {
+          settings.setValue("QField/QfToolButtonContainer/" + container.name + "/collapsed", container.collapsed);
         }
       }
     }
