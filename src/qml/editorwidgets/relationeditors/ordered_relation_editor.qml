@@ -251,7 +251,7 @@ EditorWidgetBase {
 
           Image {
             id: featureImage
-            source: ImagePath ? ('file://' + ImagePath) : Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+            source: ImagePath ? UrlUtils.fromString(ImagePath) : Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
             width: parent.height
             height: parent.height
             fillMode: Image.PreserveAspectFit

@@ -17,8 +17,8 @@
 
 #include "urlutils.h"
 
+#include <QFileInfo>
 #include <QUrl>
-
 
 UrlUtils::UrlUtils( QObject *parent )
   : QObject( parent )
@@ -28,8 +28,18 @@ UrlUtils::UrlUtils( QObject *parent )
 
 bool UrlUtils::isRelativeOrFileUrl( const QString &url )
 {
-  if ( url.startsWith( QStringLiteral( "file:///" ) ) )
+  if ( url.startsWith( QStringLiteral( "file://" ) ) )
     return true;
 
   return QUrl( url ).isRelative();
+}
+
+QUrl UrlUtils::fromString( const QString &string )
+{
+  if ( QFileInfo::exists( string ) )
+  {
+    return QUrl::fromLocalFile( string );
+  }
+
+  return QUrl( string );
 }

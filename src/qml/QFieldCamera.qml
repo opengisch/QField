@@ -149,7 +149,7 @@ Popup {
 
         onImageSaved: (requestId, path) => {
           currentPath = path;
-          photoPreview.source = 'file://' + path;
+          photoPreview.source = UrlUtils.fromString(path);
           cameraItem.state = "PhotoPreview";
         }
       }
