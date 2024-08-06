@@ -603,14 +603,23 @@ Popup {
           return '16:9';
         } else if (resolution.width * 10 / 16 == resolution.height) {
           return '16:10';
+        } else if (resolution.width / 2 == resolution.height) {
+          return '2:1';
+        } else if (resolution.width == resolution.height) {
+          return '1:1';
         }
         return '';
       }
 
       function pixelFormatDescription(pixelFormat) {
-        if (pixelFormat == 17) {
+        switch (pixelFormat) {
+        case 13:
+          return 'YUV420P';
+        case 14:
+          return 'YUV422P';
+        case 17:
           return 'YUYV';
-        } else if (pixelFormat == 29) {
+        case 29:
           return 'JPEG';
         }
         return '' + pixelFormat;
