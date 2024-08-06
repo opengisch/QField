@@ -149,7 +149,13 @@ public class QFieldActivity extends QtActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         prepareQtActivity();
+        getWindow().setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED |
+            WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED |
+            WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             int resourceId = getResources().getIdentifier("status_bar_height",
