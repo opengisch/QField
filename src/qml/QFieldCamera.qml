@@ -520,6 +520,9 @@ Popup {
     Menu {
       id: cameraSelectionMenu
 
+      topMargin: sceneTopMargin
+      bottomMargin: sceneBottomMargin
+
       width: {
         let result = 50;
         let padding = 0;
@@ -585,6 +588,9 @@ Popup {
     Menu {
       id: resolutionSelectionMenu
 
+      topMargin: sceneTopMargin
+      bottomMargin: sceneBottomMargin
+
       width: {
         let result = 50;
         let padding = 0;
@@ -597,18 +603,14 @@ Popup {
       }
 
       function ratioFromResolution(resolution) {
-        if (resolution.width * 3 / 4 == resolution.height) {
-          return '4:3';
-        } else if (resolution.width * 9 / 16 == resolution.height) {
-          return '16:9';
-        } else if (resolution.width * 10 / 16 == resolution.height) {
-          return '16:10';
-        } else if (resolution.width / 2 == resolution.height) {
-          return '2:1';
-        } else if (resolution.width == resolution.height) {
-          return '1:1';
+        let smallerValue = Math.min(resolution.width, resolution.height);
+        let gdc = 0;
+        for (let i = 1; i < smallerValue; i++) {
+          if (resolution.width % i === 0 && resolution.height % i === 0) {
+            gdc = i;
+          }
         }
-        return '';
+        return resolution.width / gdc + ':' + resolution.height / gdc;
       }
 
       function pixelFormatDescription(pixelFormat) {
