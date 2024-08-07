@@ -20,6 +20,7 @@
 #include <qgsmaplayer.h>
 #include <qgsproject.h>
 
+
 class QString;
 class QFieldCloudProjectsModel;
 class DeltaFileWrapperTest;
@@ -99,6 +100,22 @@ class QFieldCloudUtils : public QObject
      */
     Q_INVOKABLE static const QString getProjectId( const QString &fileName );
 
+    /**
+     * Returns a user-friendly error message.
+     *
+     * @param errorString the error string to be processed.
+     * @return A user-friendly error message that will be displayed to the user, translated based on received error code.
+     */
+    Q_INVOKABLE static QString userFriendlyErrorString( const QString &errorString );
+
+    /**
+     * Returns a documentation page hyperlink related to the provided error string.
+     *
+     * @param errorString the error string to be processed
+     * @return The hyperlink to the documentation page related to the provided error code, or an empty string if no match is found.
+     */
+    Q_INVOKABLE static QString documentationFromErrorString( const QString &errorString );
+
     //! Sets a \a setting to a given \a value for project with given \a projectId to the permanent storage.
     static void setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value );
 
@@ -113,6 +130,9 @@ class QFieldCloudUtils : public QObject
 
     //! Adds removes a \a fileName for a given \a projectId to the pending attachments list
     static void removePendingAttachment( const QString &projectId, const QString &fileName );
+
+  private:
+    static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };
 };
 
 #endif // QFIELDCLOUDUTILS_H

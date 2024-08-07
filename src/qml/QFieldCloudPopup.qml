@@ -301,7 +301,8 @@ Popup {
           detailsColor: Theme.secondaryTextColor
           font: Theme.tipFont
 
-          titleText: detailsText.startsWith('[QF/') ? qsTr('A server error has occured, please try again.') : qsTr('A network error has occured, please try again.')
+          externalLink: QFieldCloudUtils.documentationFromErrorString(detailsText)
+          titleText: QFieldCloudUtils.userFriendlyErrorString(detailsText)
           detailsText: ''
 
           Connections {
