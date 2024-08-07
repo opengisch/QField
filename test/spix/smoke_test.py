@@ -12,6 +12,7 @@ import shutil
 import platform
 from pathlib import Path
 from PIL import Image
+import pyautogui
 
 
 @pytest.fixture
@@ -166,6 +167,52 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
         messagesCount = messagesCount + 1
     extra.append(extras.html("Message logs count: {}".format(messagesCount)))
     assert messagesCount == 0
+
+
+@pytest.mark.project_file("test_image_attachment.qgz")
+def test_projection(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check for proper reprojection support (including rendering check and message logs).
+    This also tests that QField is able to reach proj's crucial proj.db
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    time.sleep(4)
+
+    messagesCount = 0
+    for i in range(0, 10):
+        message = app.getStringProperty(
+            "mainWindow/messageLog/messageItem_{}/messageText".format(i), "text"
+        )
+        if message == "":
+            break
+        extra.append(extras.html("Message logs content: {}".format(message)))
+        messagesCount = messagesCount + 1
+    extra.append(extras.html("Message logs count: {}".format(messagesCount)))
+    assert messagesCount == 0
+
+    bounds = app.getBoundingBox("mainWindow/mapCanvas")
+    move_x = bounds[0] + bounds[2] / 2
+    move_y = bounds[1] + bounds[3] / 3
+
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+
+    bounds = app.getBoundingBox("mainWindow/featureForm")
+    move_x = bounds[0] + bounds[2] / 2
+    move_y = bounds[1] + 80
+
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_image_attachment.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_image_attachment.png"/>'))
+
+    assert screenshot_check("test_image_attachment", "test_image_attachment")
 
 
 @pytest.mark.project_file("test_svg.qgz")
