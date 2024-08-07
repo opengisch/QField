@@ -17,7 +17,7 @@ T.ScrollBar {
   background: Rectangle {
     id: background
     radius: _minSize
-    color: Theme.darkTheme ? "#2c2c2c" : "#aaffffff"
+    color: Theme.scrollBarBackgroundColor
     opacity: {
       if (vertical) {
         return handle.width === _maxSize;
@@ -26,7 +26,7 @@ T.ScrollBar {
     }
     Behavior on opacity  {
       NumberAnimation {
-        duration: 50
+        duration: 20
       }
     }
   }
@@ -34,11 +34,12 @@ T.ScrollBar {
   contentItem: Item {
     property bool collapsed: (control.policy === T.ScrollBar.AlwaysOn || (control.active && control.size < 1.0))
     implicitWidth: control.interactive ? _maxSize : _minSize
-    implicitHeight: control.interactive ? _maxSize : _minSize
+    implicitHeight: Math.max(10, control.interactive ? _maxSize : _minSize)
+
     Rectangle {
       id: handle
       width: vertical ? _minSize : parent.width
-      height: horizontal ? _minSize : parent.height
+      height: Math.max(10, horizontal ? _minSize : parent.height)
       color: control.color
       anchors {
         right: vertical ? parent.right : undefined
@@ -55,7 +56,7 @@ T.ScrollBar {
         PropertyChanges {
           target: handle
           width: vertical ? _maxSize : parent.width
-          height: horizontal ? _maxSize : parent.height
+          height: Math.max(10, horizontal ? _maxSize : parent.height)
         }
       },
       State {
@@ -64,7 +65,7 @@ T.ScrollBar {
         PropertyChanges {
           target: handle
           width: vertical ? _minSize : parent.width
-          height: horizontal ? _minSize : parent.height
+          height: Math.max(10, horizontal ? _minSize : parent.height)
         }
       }
     ]

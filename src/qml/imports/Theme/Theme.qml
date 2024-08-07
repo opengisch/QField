@@ -61,6 +61,7 @@ QtObject {
   readonly property color vertexNewColorSemiOpaque: "#404CAF50"
 
   readonly property color processingPreview: '#99000000'
+  readonly property color scrollBarBackgroundColor: darkTheme ? mainBackgroundColorSemiOpaque : "#aaffffff"
 
   readonly property color accentColor: '#4CAF50'
   readonly property color accentLightColor: '#994CAF50'
