@@ -125,7 +125,7 @@ def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive)
     messagesCount = 0
     for i in range(0, 10):
         message = app.getStringProperty(
-            "mainWindow/messageLog/messageItem_{}/messageText".format(i), "text"
+            f"mainWindow/messageLog/messageItem_{i}/messageText", "text"
         )
         if message == "":
             break
@@ -157,7 +157,7 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
     messagesCount = 0
     for i in range(0, 10):
         message = app.getStringProperty(
-            "mainWindow/messageLog/messageItem_{}/messageText".format(i), "text"
+            f"mainWindow/messageLog/messageItem_{i}/messageText", "text"
         )
         if message == "":
             break
@@ -181,7 +181,7 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
     messagesCount = 0
     for i in range(0, 10):
         message = app.getStringProperty(
-            "mainWindow/messageLog/messageItem_{}/messageText".format(i), "text"
+            f"mainWindow/messageLog/messageItem_{i}/messageText", "text"
         )
         if message == "":
             break
@@ -245,7 +245,7 @@ def test_postgis_ssl(app, screenshot_path, screenshot_check, extra, process_aliv
     messagesCount = 0
     for i in range(0, 10):
         message = app.getStringProperty(
-            "mainWindow/messageLog/messageItem_{}/messageText".format(i), "text"
+            f"mainWindow/messageLog/messageItem_{i}/messageText", "text"
         )
         if message == "":
             break
