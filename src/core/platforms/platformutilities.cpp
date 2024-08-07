@@ -26,6 +26,7 @@
 #include "qgsmessagelog.h"
 #include "resourcesource.h"
 #include "stringutils.h"
+#include "urlutils.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -324,7 +325,7 @@ ResourceSource *PlatformUtilities::getFile( const QString &prefix, const QString
 
 ViewStatus *PlatformUtilities::open( const QString &uri, bool, QObject * )
 {
-  QDesktopServices::openUrl( QStringLiteral( "file://%1" ).arg( uri ) );
+  QDesktopServices::openUrl( UrlUtils::fromString( uri ) );
   return nullptr;
 }
 

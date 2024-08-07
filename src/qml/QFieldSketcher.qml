@@ -220,7 +220,7 @@ Popup {
               anchors.margins: 5
               visible: templatePath !== ''
               fillMode: Image.PreserveAspectFit
-              source: templatePath !== '' ? 'file://' + templatePath : ''
+              source: templatePath !== '' ? UrlUtils.fromString(templatePath) : ''
             }
 
             Rectangle {

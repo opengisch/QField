@@ -2,3 +2,5 @@ py
 pytest
 pytest-html
 pytest-image-diff
+pyautogui
+tk

@@ -136,7 +136,7 @@ Item {
                     label = dataDirs.length > 1 ? qsTr('QField app directories') : qsTr('QField app directory');
                     for (let dataDir of dataDirs) {
                         if (isDesktopPlatform) {
-                            label += '<br><a href="file://' + dataDir + '">' + dataDir + '</a>';
+                            label += '<br><a href="' + UrlUtils.fromString(dataDir) + '">' + dataDir + '</a>';
                         } else {
                             label += '<br>' + dataDir;
                         }
