@@ -56,7 +56,7 @@ Rectangle {
 
   width: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
-      if (fullScreenView || parent.width < parent.height || parent.width < 300) {
+      if (fullScreenView || parent.width <= parent.height || parent.width < 300) {
         parent.width;
       } else {
         Math.min(Math.max(200, parent.width / 2.25), parent.width);
