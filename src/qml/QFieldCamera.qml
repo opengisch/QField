@@ -110,7 +110,7 @@ Popup {
             let i = 0;
             for (let format of camera.cameraDevice.videoFormats) {
               if (format.resolution == cameraSettings.resolution && format.pixelFormat == cameraSettings.pixelFormat) {
-                camera.cameraFormat = camera.cameraDevice.videoFormats[i];
+                camera.cameraFormat = format;
                 fallbackIndex = -1;
                 break;
               } else if (format.resolution == cameraSettings.resolution) {
