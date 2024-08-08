@@ -52,9 +52,9 @@ Popup {
 
   Component.onCompleted: {
     let cameraPicked = false;
-    if (settings.deviceId != '') {
+    if (cameraSettings.deviceId != '') {
       for (const device of mediaDevices.videoInputs) {
-        if (device.id == settings.deviceId) {
+        if (device.id == cameraSettings.deviceId) {
           camera.cameraDevice = device;
           cameraPicked = true;
         }
@@ -63,6 +63,7 @@ Popup {
     if (!cameraPicked) {
       camera.cameraDevice = mediaDevices.defaultVideoInput;
     }
+    camera.applyCameraFormat();
   }
 
   QfCameraPermission {
@@ -73,10 +74,12 @@ Popup {
   }
 
   Settings {
-    id: settings
+    id: cameraSettings
     property bool geoTagging: true
     property bool showGrid: false
     property string deviceId: ''
+    property size resolution: Qt.size(0, 0)
+    property int pixelFormat: 0
   }
 
   Page {
@@ -100,6 +103,27 @@ Popup {
         id: camera
 
         active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted
+
+        function applyCameraFormat() {
+          if (cameraSettings.pixelFormat != 0) {
+            let fallbackIndex = -1;
+            let i = 0;
+            for (let format of camera.cameraDevice.videoFormats) {
+              if (format.resolution == cameraSettings.resolution && format.pixelFormat == cameraSettings.pixelFormat) {
+                camera.cameraFormat = format;
+                fallbackIndex = -1;
+                break;
+              } else if (format.resolution == cameraSettings.resolution) {
+                // If we can't match the pixel format and resolution, go for resolution match across devices
+                fallbackIndex = i;
+              }
+              i++;
+            }
+            if (fallbackIndex >= 0) {
+              camera.cameraFormat = camera.cameraDevice.videoFormats[fallbackIndex];
+            }
+          }
+        }
 
         function zoomIn(increase) {
           var zoom = camera.zoomFactor + increase;
@@ -149,7 +173,7 @@ Popup {
 
     Shape {
       id: grid
-      visible: settings.showGrid
+      visible: cameraSettings.showGrid
       anchors.centerIn: parent
 
       property bool isLandscape: (mainWindow.width / mainWindow.height) > (videoOutput.contentRect.width / videoOutput.contentRect.height)
@@ -343,7 +367,7 @@ Popup {
                   }
                 } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
                   if (cameraItem.state == "PhotoPreview") {
-                    if (settings.geoTagging && positionSource.active) {
+                    if (cameraSettings.geoTagging && positionSource.active) {
                       FileUtils.addImageMetadata(currentPath, currentPosition);
                     }
                   }
@@ -472,29 +496,101 @@ Popup {
       }
     }
 
-    QfToolButton {
-      id: cameraSelectionButton
+    QfToolButtonDrawer {
+      name: "cameraSettingsDrawer"
 
       anchors.left: parent.left
       anchors.leftMargin: 4
       anchors.top: backButton.bottom
-      anchors.topMargin: cameraSelectionMenu.count > 1 ? 4 : 0
+      anchors.topMargin: 4
 
-      width: 48
-      height: cameraSelectionMenu.count > 1 ? 48 : 0
-
-      iconSource: Theme.getThemeVectorIcon("ic_camera_switch_black_24dp")
+      iconSource: Theme.getThemeVectorIcon("ic_camera_settings_black_24dp")
       iconColor: "white"
       bgcolor: Theme.darkGraySemiOpaque
-      round: true
+      spacing: 4
+      collapsed: false
 
-      onClicked: {
-        cameraSelectionMenu.popup(cameraSelectionButton.x, cameraSelectionButton.y);
+      QfToolButton {
+        id: cameraSelectionButton
+
+        width: 40
+        height: cameraSelectionMenu.count > 1 ? width : 0
+        visible: cameraSelectionMenu.count
+        padding: 2
+
+        iconSource: Theme.getThemeVectorIcon("ic_camera_switch_black_24dp")
+        iconColor: "white"
+        bgcolor: Theme.darkGraySemiOpaque
+        round: true
+
+        onClicked: {
+          cameraSelectionMenu.popup(cameraSelectionButton.x, cameraSelectionButton.y);
+        }
+      }
+
+      QfToolButton {
+        id: resolutionSelectionButton
+
+        width: 40
+        height: resolutionSelectionMenu.count > 1 ? width : 0
+        visible: resolutionSelectionMenu.count
+        padding: 2
+
+        iconSource: Theme.getThemeVectorIcon("ic_camera_resolution_black_24dp")
+        iconColor: "white"
+        bgcolor: Theme.darkGraySemiOpaque
+        round: true
+
+        onClicked: {
+          resolutionSelectionMenu.popup(resolutionSelectionButton.x, resolutionSelectionButton.y);
+        }
+      }
+
+      QfToolButton {
+        id: geotagButton
+
+        width: 40
+        height: 40
+        padding: 2
+
+        iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+        iconColor: positionSource.active && cameraSettings.geoTagging ? Theme.mainColor : "white"
+        bgcolor: Theme.darkGraySemiOpaque
+        round: true
+
+        onClicked: {
+          if (positionSource.active) {
+            cameraSettings.geoTagging = !cameraSettings.geoTagging;
+            displayToast(cameraSettings.geoTagging ? qsTr("Geotagging enabled") : qsTr("Geotagging disabled"));
+          }
+        }
+      }
+
+      QfToolButton {
+        id: gridButton
+
+        width: 40
+        height: 40
+        padding: 2
+
+        iconSource: Theme.getThemeVectorIcon("ic_3x3_grid_white_24dp")
+        iconColor: cameraSettings.showGrid ? Theme.mainColor : "white"
+        bgcolor: Theme.darkGraySemiOpaque
+        round: true
+
+        onClicked: {
+          cameraSettings.showGrid = !cameraSettings.showGrid;
+          displayToast(cameraSettings.showGrid ? qsTr("Grid enabled") : qsTr("Grid disabled"));
+        }
       }
     }
 
     Menu {
       id: cameraSelectionMenu
+
+      topMargin: sceneTopMargin
+      bottomMargin: sceneBottomMargin
+      z: 10000 // 1000s are embedded feature forms, use higher value
 
       width: {
         let result = 50;
@@ -520,59 +616,104 @@ Popup {
           font: Theme.defaultFont
           enabled: !checked
           checkable: true
-          checked: deviceId == settings.deviceId || (isDefault && settings.deviceId == '')
+          checked: deviceId == cameraSettings.deviceId || (isDefault && cameraSettings.deviceId == '')
           indicator.height: 20
           indicator.width: 20
           indicator.implicitHeight: 24
           indicator.implicitWidth: 24
 
           onCheckedChanged: {
-            if (checked && settings.deviceId !== modelData.id) {
-              settings.deviceId = modelData.id;
+            if (checked && cameraSettings.deviceId !== modelData.id) {
+              cameraSettings.deviceId = modelData.id;
               camera.cameraDevice = modelData;
+              camera.applyCameraFormat();
             }
           }
         }
       }
     }
 
-    QfToolButton {
-      id: geotagButton
+    Menu {
+      id: resolutionSelectionMenu
 
-      anchors.left: parent.left
-      anchors.leftMargin: 4
-      anchors.top: cameraSelectionButton.bottom
-      anchors.topMargin: 4
+      topMargin: sceneTopMargin
+      bottomMargin: sceneBottomMargin
+      z: 10000 // 1000s are embedded feature forms, use higher value
 
-      iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
-      iconColor: positionSource.active && settings.geoTagging ? Theme.mainColor : "white"
-      bgcolor: Theme.darkGraySemiOpaque
-      round: true
-
-      onClicked: {
-        if (positionSource.active) {
-          settings.geoTagging = !settings.geoTagging;
-          displayToast(settings.geoTagging ? qsTr("Geotagging enabled") : qsTr("Geotagging disabled"));
+      width: {
+        let result = 50;
+        let padding = 0;
+        for (let i = 0; i < count; ++i) {
+          let item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
+        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : 0;
       }
-    }
 
-    QfToolButton {
-      id: gridButton
+      function ratioFromResolution(resolution) {
+        let smallerValue = Math.min(resolution.width, resolution.height);
+        let gdc = 0;
+        for (let i = 1; i < smallerValue; i++) {
+          if (resolution.width % i === 0 && resolution.height % i === 0) {
+            gdc = i;
+          }
+        }
+        return resolution.width / gdc + ':' + resolution.height / gdc;
+      }
 
-      anchors.left: parent.left
-      anchors.leftMargin: 4
-      anchors.top: geotagButton.bottom
-      anchors.topMargin: 4
+      function pixelFormatDescription(pixelFormat) {
+        switch (pixelFormat) {
+        case 13:
+          return 'YUV420P';
+        case 14:
+          return 'YUV422P';
+        case 17:
+          return 'YUYV';
+        case 29:
+          return 'JPEG';
+        }
+        return '' + pixelFormat;
+      }
 
-      iconSource: Theme.getThemeVectorIcon("ic_3x3_grid_white_24dp")
-      iconColor: settings.showGrid ? Theme.mainColor : "white"
-      bgcolor: Theme.darkGraySemiOpaque
-      round: true
+      Repeater {
+        model: camera.cameraDevice.videoFormats
 
-      onClicked: {
-        settings.showGrid = !settings.showGrid;
-        displayToast(settings.showGrid ? qsTr("Grid enabled") : qsTr("Grid disabled"));
+        delegate: MenuItem {
+          property int pixelFormat: modelData.pixelFormat
+          property size resolution: modelData.resolution
+
+          text: {
+            let details = [];
+            let ratio = resolutionSelectionMenu.ratioFromResolution(resolution);
+            if (ratio !== '') {
+              details.push(ratio);
+            }
+            let description = resolutionSelectionMenu.pixelFormatDescription(pixelFormat);
+            if (description !== '') {
+              details.push(description);
+            }
+            return resolution.width + ' × ' + resolution.height + (details.length > 0 ? ' — ' + details.join(' / ') : '');
+          }
+          height: 48
+          leftPadding: Theme.menuItemCheckLeftPadding
+          font: Theme.defaultFont
+          enabled: !checked
+          checkable: true
+          checked: cameraSettings.resolution == resolution && cameraSettings.pixelFormat == pixelFormat
+          indicator.height: 20
+          indicator.width: 20
+          indicator.implicitHeight: 24
+          indicator.implicitWidth: 24
+
+          onCheckedChanged: {
+            if (checked && (cameraSettings.resolution != resolution || cameraSettings.pixelFormat != pixelFormat)) {
+              cameraSettings.resolution = resolution;
+              cameraSettings.pixelFormat = pixelFormat;
+              camera.applyCameraFormat();
+            }
+          }
+        }
       }
     }
   }
