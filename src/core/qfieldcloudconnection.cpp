@@ -538,8 +538,8 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
 
 int QFieldCloudConnection::uploadPendingAttachments()
 {
-  if ( mUploadingAttachments )
-    return 0;
+  if ( mUploadPendingCount > 0 )
+    return mUploadPendingCount;
 
   QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
   if ( attachments.isEmpty() )
@@ -548,7 +548,17 @@ int QFieldCloudConnection::uploadPendingAttachments()
     return 0;
   }
 
-  mUploadCount = attachments.size();
+  mUploadPendingCount = attachments.size();
+  mUploadFailingCount = 0;
+  processPendingAttachments();
+  return mUploadPendingCount;
+}
+
+void QFieldCloudConnection::processPendingAttachments()
+{
+  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
+  mUploadPendingCount = attachments.size();
+
   QMultiMap<QString, QString>::const_iterator it = attachments.constBegin();
   while ( it != attachments.constEnd() )
   {
@@ -557,6 +567,7 @@ int QFieldCloudConnection::uploadPendingAttachments()
       // A pending attachment has been deleted from the local device, remove
       // This can happen when for e.g. users remove a cloud project from their devices
       QFieldCloudUtils::removePendingAttachment( it.key(), it.value() );
+      ++it;
       continue;
     }
 
@@ -580,21 +591,27 @@ int QFieldCloudConnection::uploadPendingAttachments()
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at `%1`, reason:\n%2" )
                                      .arg( fileName )
                                      .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
+        mUploadFailingCount++;
       }
       else
       {
         QFieldCloudUtils::removePendingAttachment( projectId, fileName );
+        mUploadPendingCount--;
+        mUploadFailingCount = 0;
       }
 
-      mUploadCount--;
-      if ( mUploadCount == 0 )
+      if ( mUploadPendingCount > 0 && mUploadFailingCount < 5 )
       {
-        // Once a batch of uploads has been successfully sent, check for any new attachments that would have been added in the meantime
-        uploadPendingAttachments();
+        // Move onto the next or retry the last attachment to upload
+        processPendingAttachments();
+      }
+      else
+      {
+        emit pendingAttachmentsUploadFinished();
       }
     } );
 
-    ++it;
+    break;
   }
-  return mUploadCount;
+  return;
 }
