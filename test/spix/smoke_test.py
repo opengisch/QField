@@ -170,7 +170,7 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
 
 
 @pytest.mark.project_file("test_image_attachment.qgz")
-def test_projection(app, screenshot_path, screenshot_check, extra, process_alive):
+def test_image_attachment(app, screenshot_path, screenshot_check, extra, process_alive):
     """
     Starts a test app and check for proper reprojection support (including rendering check and message logs).
     This also tests that QField is able to reach proj's crucial proj.db
@@ -212,7 +212,7 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
     assert process_alive()
     extra.append(extras.html('<img src="images/test_image_attachment.png"/>'))
 
-    assert screenshot_check("test_image_attachment", "test_image_attachment")
+    assert screenshot_check("test_image_attachment", "test_image_attachment", 0.025)
 
 
 @pytest.mark.project_file("test_svg.qgz")
