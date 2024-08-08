@@ -354,7 +354,13 @@ Popup {
               onClicked: {
                 if (cameraItem.state == "PhotoCapture") {
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
-                  currentPosition = positionSource.positionInformation;
+                  if (cameraSettings.geoTagging) {
+                    if (positionSource.active) {
+                      currentPosition = positionSource.positionInformation;
+                    } else {
+                      displayToast(qsTr("Image geotagging requires positioning to be turned on"), "warning");
+                    }
+                  }
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
                     captureSession.recorder.record();
@@ -554,15 +560,13 @@ Popup {
         padding: 2
 
         iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
-        iconColor: positionSource.active && cameraSettings.geoTagging ? Theme.mainColor : "white"
+        iconColor: cameraSettings.geoTagging ? Theme.mainColor : "white"
         bgcolor: Theme.darkGraySemiOpaque
         round: true
 
         onClicked: {
-          if (positionSource.active) {
-            cameraSettings.geoTagging = !cameraSettings.geoTagging;
-            displayToast(cameraSettings.geoTagging ? qsTr("Geotagging enabled") : qsTr("Geotagging disabled"));
-          }
+          cameraSettings.geoTagging = !cameraSettings.geoTagging;
+          displayToast(cameraSettings.geoTagging ? qsTr("Geotagging enabled") : qsTr("Geotagging disabled"));
         }
       }
 
