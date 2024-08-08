@@ -116,5 +116,6 @@
         <file>InformationDrawer.qml</file>
         <file>QFieldGuide.qml</file>
         <file>imports/Theme/QfProgrerssRing.qml</file>
+        <file>imports/Theme/QfScrollBar.qml</file>
     </qresource>
 </RCC>

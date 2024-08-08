@@ -135,7 +135,8 @@ Page {
         Layout.fillHeight: true
         height: parent.height
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        ScrollBar.vertical.policy: ScrollBar.AsNeeded
+        ScrollBar.vertical: QfScrollBar {
+        }
         contentWidth: qfieldCloudLogin.width
         contentHeight: qfieldCloudLogin.childrenRect.height
         clip: true
@@ -202,12 +203,8 @@ Page {
               }
             }
           }
-
-          ScrollBar.vertical: ScrollBar {
-            active: true
-            visible: table.contentHeight > table.height ? true : false
+          ScrollBar.vertical: QfScrollBar {
           }
-
           anchors.fill: parent
           anchors.margins: 1
           section.property: "Owner"

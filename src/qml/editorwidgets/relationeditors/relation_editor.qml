@@ -66,16 +66,7 @@ EditorWidgetBase {
       focus: true
       clip: true
       highlightRangeMode: ListView.ApplyRange
-
-      ScrollBar.vertical: ScrollBar {
-        width: 6
-        policy: ScrollBar.AlwaysOn
-
-        contentItem: Rectangle {
-          implicitWidth: 6
-          implicitHeight: itemHeight
-          color: Theme.mainColor
-        }
+      ScrollBar.vertical: QfScrollBar {
       }
     }
 

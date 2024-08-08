@@ -99,7 +99,8 @@ Popup {
         Layout.fillHeight: true
         padding: 10
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        ScrollBar.vertical.policy: ScrollBar.AsNeeded
+        ScrollBar.vertical: QfScrollBar {
+        }
         contentWidth: trackerSettingsGrid.width
         contentHeight: trackerSettingsGrid.height
         clip: true

@@ -83,20 +83,11 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
       visible: tabRow.currentIndex !== tabRow.model.length - 1
-
       contentWidth: content.width
       contentHeight: content.height
       bottomMargin: processingAlgorithmForm.bottomMargin
       clip: true
-
-      ScrollBar.vertical: ScrollBar {
-        policy: content.height > contentView.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
-        width: 6
-        contentItem: Rectangle {
-          implicitWidth: 6
-          implicitHeight: 25
-          color: Theme.mainColor
-        }
+      ScrollBar.vertical: QfScrollBar {
       }
 
       Rectangle {

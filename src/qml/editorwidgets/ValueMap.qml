@@ -340,21 +340,11 @@ EditorWidgetBase {
           anchors.right: parent.right
           anchors.top: searchField.bottom
           model: listModel
-
           width: parent.width
           height: searchFeaturePopup.height - searchField.height - 50
           clip: true
-
-          ScrollBar.vertical: ScrollBar {
-            policy: ScrollBar.AsNeeded
-            width: 6
-            contentItem: Rectangle {
-              implicitWidth: 6
-              implicitHeight: 25
-              color: Theme.mainColor
-            }
+          ScrollBar.vertical: QfScrollBar {
           }
-
           delegate: Rectangle {
             id: delegateRect
 

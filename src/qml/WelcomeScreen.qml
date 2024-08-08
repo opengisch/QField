@@ -44,7 +44,8 @@ Page {
     padding: 0
     topPadding: Math.max(0, Math.min(80, (mainWindow.height - welcomeGrid.height) / 2 - 45))
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-    ScrollBar.vertical.policy: ScrollBar.AsNeeded
+    ScrollBar.vertical: QfScrollBar {
+    }
     contentItem: welcomeGrid
     contentWidth: welcomeGrid.width
     contentHeight: welcomeGrid.height
@@ -445,7 +446,7 @@ Page {
 
             ListView {
               id: table
-              ScrollBar.vertical: ScrollBar {
+              ScrollBar.vertical: QfScrollBar {
               }
               flickableDirection: Flickable.AutoFlickIfNeeded
               boundsBehavior: Flickable.StopAtBounds

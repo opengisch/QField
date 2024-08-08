@@ -28,10 +28,7 @@ Page {
     Layout.fillHeight: true
     contentHeight: content.height
     clip: true
-
-    ScrollBar.vertical: ScrollBar {
-      width: 8
-      policy: height < flickable.contentHeight ? ScrollBar.AlwaysOn : ScrollBar.AsNeeded
+    ScrollBar.vertical: QfScrollBar {
     }
 
     ColumnLayout {
