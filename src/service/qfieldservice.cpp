@@ -23,15 +23,18 @@
 QFieldService::QFieldService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
+  qInfo() << "Service starting";
   QSettings settings;
   QEventLoop loop( this );
   QFieldCloudConnection connection;
   QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadFinished, &loop, &QEventLoop::quit );
   int pendingAttachments = connection.uploadPendingAttachments();
+  qInfo() << "Service pending attachments: " << pendingAttachments;
   if ( pendingAttachments > 0 )
   {
     loop.exec();
   }
+  qInfo() << "Service ending";
 
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   QAndroidJniObject activity = QtAndroid::androidService();
