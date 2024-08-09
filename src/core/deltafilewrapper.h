@@ -380,8 +380,9 @@ class DeltaFileWrapper : public QObject
 
     /**
      * Add file checksums from relevant changed attributes.
+     * \returns A std::tuple<QJsonObject, QJsonObject> where the first object reflects new file checksums and the second reflects old file checkums.
      */
-    void addAttachments( const QString &localLayerId, const QJsonObject &oldAttrs, const QJsonObject &newAttrs, QJsonObject &oldFileChecksums, QJsonObject &newFileChecksums );
+    std::tuple<QJsonObject, QJsonObject> addAttachments( const QString &localLayerId, const QJsonObject &newAttrs, const QJsonObject &oldAttrs = QJsonObject() );
 
     /**
      * Converts QVariant value to QJsonValue

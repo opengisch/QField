@@ -598,20 +598,20 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   if ( !hasFeatureChanged )
     return;
 
-  if ( tmpOldAttrs.length() > 0 || tmpNewAttrs.length() > 0 )
+  if ( !tmpOldAttrs.isEmpty() || !tmpNewAttrs.isEmpty() )
   {
     oldData.insert( QStringLiteral( "attributes" ), tmpOldAttrs );
     newData.insert( QStringLiteral( "attributes" ), tmpNewAttrs );
 
     QJsonObject oldFileChecksums;
     QJsonObject newFileChecksums;
-    addAttachments( localLayerId, tmpOldAttrs, tmpNewAttrs, oldFileChecksums, newFileChecksums );
-    if ( oldFileChecksums.length() > 0 )
+    std::tie( newFileChecksums, oldFileChecksums ) = addAttachments( localLayerId, tmpNewAttrs, tmpOldAttrs );
+    if ( !oldFileChecksums.isEmpty() )
     {
       oldData.insert( QStringLiteral( "files_sha256" ), oldFileChecksums );
     }
 
-    if ( newFileChecksums.length() > 0 )
+    if ( !newFileChecksums.isEmpty() )
     {
       newData.insert( QStringLiteral( "files_sha256" ), newFileChecksums );
     }
@@ -625,8 +625,11 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   appendDelta( delta );
 }
 
-void DeltaFileWrapper::addAttachments( const QString &localLayerId, const QJsonObject &oldAttrs, const QJsonObject &newAttrs, QJsonObject &oldFileChecksums, QJsonObject &newFileChecksums )
+std::tuple<QJsonObject, QJsonObject> DeltaFileWrapper::addAttachments( const QString &localLayerId, const QJsonObject &newAttrs, const QJsonObject &oldAttrs )
 {
+  QJsonObject newFileChecksums;
+  QJsonObject oldFileChecksums;
+
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
   const QStringList newAttrNames = newAttrs.keys();
   for ( const QString &name : newAttrNames )
@@ -655,6 +658,8 @@ void DeltaFileWrapper::addAttachments( const QString &localLayerId, const QJsonO
       }
     }
   }
+
+  return std::make_tuple( newFileChecksums, oldFileChecksums );
 }
 
 void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature )
@@ -696,11 +701,11 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
     }
   }
 
-  if ( tmpOldAttrs.length() > 0 )
+  if ( !tmpOldAttrs.isEmpty() )
   {
     oldData.insert( QStringLiteral( "attributes" ), tmpOldAttrs );
 
-    if ( tmpOldFileChecksums.length() > 0 )
+    if ( !tmpOldFileChecksums.isEmpty() )
     {
       oldData.insert( QStringLiteral( "files_sha256" ), tmpOldFileChecksums );
     }
@@ -756,15 +761,14 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
     tmpNewAttrs.insert( name, attributeToJsonValue( newVal ) );
   }
 
-  if ( tmpNewAttrs.length() > 0 )
+  if ( !tmpNewAttrs.isEmpty() )
   {
     newData.insert( QStringLiteral( "attributes" ), tmpNewAttrs );
 
-    const QJsonObject dummyOldAttrs;
     QJsonObject dummyOldFileChecksums;
     QJsonObject newFileChecksums;
-    addAttachments( localLayerId, dummyOldAttrs, tmpNewAttrs, dummyOldFileChecksums, newFileChecksums );
-    if ( newFileChecksums.length() > 0 )
+    std::tie( newFileChecksums, dummyOldFileChecksums ) = addAttachments( localLayerId, tmpNewAttrs );
+    if ( !newFileChecksums.isEmpty() )
     {
       newData.insert( QStringLiteral( "files_sha256" ), newFileChecksums );
     }
@@ -882,10 +886,9 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
     newCreate.insert( QStringLiteral( "geometry" ), newGeomString );
     newCreate.insert( QStringLiteral( "attributes" ), attributesCreate );
 
-    const QJsonObject dummyOldAttrs;
     QJsonObject dummyOldFileChecksums;
     QJsonObject newFileChecksums;
-    addAttachments( localLayerId, dummyOldAttrs, attributesCreate, dummyOldFileChecksums, newFileChecksums );
+    std::tie( newFileChecksums, dummyOldFileChecksums ) = addAttachments( localLayerId, attributesCreate );
     if ( !newFileChecksums.isEmpty() )
     {
       newCreate.insert( QStringLiteral( "files_sha256" ), newFileChecksums );
@@ -940,7 +943,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
 
           QJsonObject oldFileChecksums;
           QJsonObject newFileChecksums;
-          addAttachments( localLayerId, existingOldAttributes, existingNewAttributes, oldFileChecksums, newFileChecksums );
+          std::tie( newFileChecksums, oldFileChecksums ) = addAttachments( localLayerId, existingNewAttributes, existingOldAttributes );
           if ( !oldFileChecksums.isEmpty() )
           {
             existingOldData.insert( "files_sha256", oldFileChecksums );
