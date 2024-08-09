@@ -122,6 +122,9 @@ class QFieldCloudUtils : public QObject
     //! Gets a \a setting value for project with given \a projectId from the permanent storage. Return \a defaultValue if not present.
     static const QVariant projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue = QVariant() );
 
+    //! Returns TRUE if pending attachments are detected.
+    Q_INVOKABLE static bool hasPendingAttachments();
+
     //! Returns the list of attachments that have not yet been uploaded to the cloud.
     static const QMultiMap<QString, QString> getPendingAttachments();
 
