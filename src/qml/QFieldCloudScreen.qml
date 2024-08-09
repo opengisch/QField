@@ -570,6 +570,13 @@ Page {
         wrapMode: Text.WordWrap
       }
 
+      QfPagination {
+        allItemsCount: 20 * 7 + 1
+        onChangePage: (newPageIndex, count) => {
+          console.log(newPageIndex, count);
+        }
+      }
+
       QfButton {
         id: refreshProjectsListBtn
         Layout.fillWidth: true

@@ -118,5 +118,6 @@
         <file>QFieldGuide.qml</file>
         <file>imports/Theme/QfProgrerssRing.qml</file>
         <file>imports/Theme/QfScrollBar.qml</file>
+        <file>imports/Theme/QfPagination.qml</file>
     </qresource>
 </RCC>
