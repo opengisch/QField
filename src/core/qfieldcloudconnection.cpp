@@ -13,6 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appinterface.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudutils.h"
@@ -595,6 +596,20 @@ void QFieldCloudConnection::processPendingAttachments()
       }
       else
       {
+        const int httpCode = attachmentReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+        if ( httpCode != 201 )
+        {
+          qInfo() << QStringLiteral( "Attachment project ID: %1" ).arg( projectId );
+          qInfo() << QStringLiteral( "Attachment file name: %1" ).arg( fileName );
+          qInfo() << QStringLiteral( "Attachment reply HTTP status code: %1" ).arg( httpCode );
+          for ( const QByteArray &header : attachmentReply->rawHeaderList() )
+          {
+            qInfo() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
+          }
+          qInfo() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
+          AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
+        }
+
         QFieldCloudUtils::removePendingAttachment( projectId, fileName );
         mUploadPendingCount--;
         mUploadFailingCount = 0;
