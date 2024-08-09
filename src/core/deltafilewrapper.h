@@ -378,6 +378,11 @@ class DeltaFileWrapper : public QObject
      */
     bool applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &vectorLayers, bool shouldApplyInReverse );
 
+    /**
+     * Add file checksums from relevant changed attributes.
+     * \returns A std::tuple<QJsonObject, QJsonObject> where the first object reflects new file checksums and the second reflects old file checkums.
+     */
+    std::tuple<QJsonObject, QJsonObject> addAttachments( const QString &localLayerId, const QJsonObject &newAttrs, const QJsonObject &oldAttrs = QJsonObject() );
 
     /**
      * Converts QVariant value to QJsonValue
