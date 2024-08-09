@@ -907,7 +907,10 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
       attributesCreate.insert( attributeName, tmpNewAttrs.value( attributeName ) );
     }
 
-    newCreate.insert( QStringLiteral( "geometry" ), newGeomString );
+    if ( !newGeomString.isEmpty() )
+    {
+      newCreate.insert( QStringLiteral( "geometry" ), newGeomString );
+    }
     newCreate.insert( QStringLiteral( "attributes" ), attributesCreate );
 
     QJsonObject dummyOldFileChecksums;

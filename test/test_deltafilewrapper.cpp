@@ -844,6 +844,164 @@ TEST_CASE( "DeltaFileWrapper" )
                                                            .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
+    // Insure that an updated attachment will be incorporated into the create patch
+    QgsFeature f2 = QgsFeature( f );
+    f2.setAttribute( QStringLiteral( "attachment" ), attachmentFileName2 );
+
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f, f2, false );
+
+    expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
+            "localLayerCrs": "EPSG:3857",
+            "localLayerId": "dummyLayerIdL1",
+            "localLayerName": "layer_name",
+            "localPk": "100",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "100",
+            "method": "create",
+            "new": {
+              "attributes": {
+                "attachment": "%1",
+                "dbl": 3.14,
+                "fid": 100,
+                "int": 42,
+                "str": "stringy"
+              },
+              "files_sha256": {
+                "%1": "%2"
+              },
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+            }
+          }
+        ]
+      )"""" )
+                                             .arg( attachmentFileName2, attachmentFileChecksumSha2562 )
+                                             .toUtf8() );
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
+
+    // Insure that an updated geometry will be incorporated into the create patch
+    QgsFeature f3 = QgsFeature( f2 );
+    f3.setGeometry( QgsGeometry( new QgsPoint( 5.4, 3.2 ) ) );
+
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2, f3, false );
+
+    expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
+            "localLayerCrs": "EPSG:3857",
+            "localLayerId": "dummyLayerIdL1",
+            "localLayerName": "layer_name",
+            "localPk": "100",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "100",
+            "method": "create",
+            "new": {
+              "attributes": {
+                "attachment": "%1",
+                "dbl": 3.14,
+                "fid": 100,
+                "int": 42,
+                "str": "stringy"
+              },
+              "files_sha256": {
+                "%1": "%2"
+              },
+              "geometry": "Point (5.40000000000000036 3.20000000000000018)"
+            }
+          }
+        ]
+      )"""" )
+                                             .arg( attachmentFileName2, attachmentFileChecksumSha2562 )
+                                             .toUtf8() );
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
+
+    // Check if creates delta of a feature with a non existant attachment (subsequently edited to have one)
+    dfw.reset();
+    f = QgsFeature( layer->fields(), 100 );
+    f.setAttribute( QStringLiteral( "fid" ), 100 );
+    f.setAttribute( QStringLiteral( "dbl" ), 3.14 );
+    f.setAttribute( QStringLiteral( "int" ), 42 );
+    f.setAttribute( QStringLiteral( "str" ), QStringLiteral( "stringy" ) );
+
+    // Check if creates delta of a feature with a geometry and existing attachment
+    f.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
+
+    expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
+            "localLayerCrs": "EPSG:3857",
+            "localLayerId": "dummyLayerIdL1",
+            "localLayerName": "layer_name",
+            "localPk": "100",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "100",
+            "method": "create",
+            "new": {
+              "attributes": {
+                "attachment": null,
+                "dbl": 3.14,
+                "fid": 100,
+                "int": 42,
+                "str": "stringy"
+              },
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+            }
+          }
+        ]
+      )"""" )
+                                             .toUtf8() );
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
+
+    // Insure that a new attachment will be incorporated into the create patch
+    f2 = QgsFeature( f );
+    f2.setAttribute( QStringLiteral( "attachment" ), attachmentFileName2 );
+
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f, f2, false );
+
+    expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
+            "localLayerCrs": "EPSG:3857",
+            "localLayerId": "dummyLayerIdL1",
+            "localLayerName": "layer_name",
+            "localPk": "100",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "100",
+            "method": "create",
+            "new": {
+              "attributes": {
+                "attachment": "%1",
+                "dbl": 3.14,
+                "fid": 100,
+                "int": 42,
+                "str": "stringy"
+              },
+              "files_sha256": {
+                "%1": "%2"
+              },
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+            }
+          }
+        ]
+      )"""" )
+                                             .arg( attachmentFileName2, attachmentFileChecksumSha2562 )
+                                             .toUtf8() );
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
+
 
     // Check if creates delta of a feature with a NULL geometry and non existant attachment.
     // NOTE this is the same as calling f clearGeometry()
