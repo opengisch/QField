@@ -21,6 +21,7 @@ Page {
     showCancelButton: false
 
     busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting || cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off' || cloudProjectsModel.busyProjectIds.length > 0
+    busyIndicatorValue: busyIndicatorState === 'on' ? 0 : 1
 
     topMargin: mainWindow.sceneTopMargin
 
