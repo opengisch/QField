@@ -268,8 +268,58 @@ bool ProcessingAlgorithm::run( bool previewMode )
     }
     else
     {
-      // Currently, only feature-based algorithms are supported
-      return false;
+      parameters[QStringLiteral( "INPUT" )] = QgsProcessingFeatureSourceDefinition( mInPlaceLayer->id(),
+                                                                                    false,
+                                                                                    -1,
+                                                                                    Qgis::ProcessingFeatureSourceDefinitionFlags(),
+                                                                                    Qgis::InvalidGeometryCheck(),
+                                                                                    QStringLiteral( "$id IN (%1)" ).arg( featureIds.join( ',' ) ) );
+      parameters[QStringLiteral( "OUTPUT" )] = QStringLiteral( "memory:" );
+
+      bool ok;
+      QVariantMap results = mAlgorithm->run( parameters, context, &feedback, &ok, { { QStringLiteral( "IN_PLACE" ), true } } );
+      if ( ok )
+      {
+        QgsVectorLayer *outputLayer = qobject_cast<QgsVectorLayer *>( QgsProcessingUtils::mapLayerFromString( results[QStringLiteral( "OUTPUT" )].toString(), context ) );
+        if ( outputLayer )
+        {
+          QgsFeatureIterator outputIterator = outputLayer->getFeatures();
+          QgsFeature outputFeature;
+          QgsFeatureList outputFeatures;
+          while ( outputIterator.nextFeature( outputFeature ) )
+          {
+            outputFeatures << outputFeature;
+          }
+
+          if ( previewMode )
+          {
+            for ( const QgsFeature &previewFeature : outputFeatures )
+            {
+              mPreviewGeometries << previewFeature.geometry();
+            }
+
+            emit previewGeometriesChanged();
+          }
+          else
+          {
+            const bool regeneratePrimaryKey = outputLayer->customProperty( QStringLiteral( "OnConvertFormatRegeneratePrimaryKey" ), false ).toBool();
+
+            QgsVectorLayer *inPlaceLayer = mInPlaceLayer.data();
+            QgsFeatureIds inPlaceFeatureIds;
+            for ( const QgsFeature &feature : mInPlaceFeatures )
+            {
+              inPlaceFeatureIds << feature.id();
+            }
+
+            outputFeatures = QgsVectorLayerUtils::makeFeaturesCompatible( outputFeatures, inPlaceLayer, regeneratePrimaryKey ? QgsFeatureSink::SinkFlag::RegeneratePrimaryKey : QgsFeatureSink::SinkFlags() );
+
+            inPlaceLayer->startEditing();
+            inPlaceLayer->deleteFeatures( inPlaceFeatureIds );
+            inPlaceLayer->addFeatures( outputFeatures );
+            inPlaceLayer->commitChanges();
+          }
+        }
+      }
     }
   }
   else
