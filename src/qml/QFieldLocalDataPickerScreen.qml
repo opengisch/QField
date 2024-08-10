@@ -385,6 +385,7 @@ Page {
         onTriggered: {
           QFieldCloudUtils.addPendingAttachment(cloudProjectsModel.currentProjectId, itemMenu.itemPath);
           platformUtilities.uploadPendingAttachments(cloudConnection);
+          displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
         }
       }
 
