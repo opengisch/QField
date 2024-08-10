@@ -3701,9 +3701,10 @@ ApplicationWindow {
         displayToast(qsTr('Connecting...'))
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed in'))
-        // Go ahead and upload pending attachments in the background
-        platformUtilities.uploadPendingAttachments(cloudConnection);
-
+        if (QFieldCloudUtils.hasPendingAttachments()) {
+          // Go ahead and upload pending attachments in the background
+          platformUtilities.uploadPendingAttachments(cloudConnection);
+        }
         var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
         if (cloudProjectId) {
           cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId)
@@ -3731,11 +3732,12 @@ ApplicationWindow {
         displayToast( qsTr( "Changes failed to reach QFieldCloud: %1" ).arg( errorString ), 'error' )
         return;
       }
-
       displayToast( qsTr( "Changes successfully pushed to QFieldCloud" ) )
 
-      // Go ahead and upload pending attachments in the background
-      platformUtilities.uploadPendingAttachments(cloudConnection);
+      if (QFieldCloudUtils.hasPendingAttachments()) {
+        // Go ahead and upload pending attachments in the background
+        platformUtilities.uploadPendingAttachments(cloudConnection)
+      }
     }
 
     onWarning: displayToast( message )
