@@ -33,11 +33,7 @@ QFieldService::QFieldService( int &argc, char **argv )
     loop.exec();
   }
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QAndroidJniObject activity = QtAndroid::androidService();
-#else
   QJniObject activity = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context();
-#endif
   activity.callMethod<void>( "stopSelf" );
 
   exit( 0 );

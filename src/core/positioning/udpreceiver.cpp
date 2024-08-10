@@ -36,11 +36,7 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
 #endif
 
   connect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
-#if QT_VERSION < QT_VERSION_CHECK( 5, 15, 0 )
-  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::error ), this, &UdpReceiver::handleError );
-#else
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &UdpReceiver::handleError );
-#endif
 
   connect( mSocket, &QUdpSocket::readyRead, this, [=]() {
     QByteArray datagram;

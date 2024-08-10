@@ -69,10 +69,6 @@ void initGraphics()
   format.setSamples( 4 );
   QSurfaceFormat::setDefaultFormat( format );
 #endif
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
-#endif
 }
 
 int main( int argc, char **argv )

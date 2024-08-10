@@ -418,7 +418,6 @@ PlatformUtilities *PlatformUtilities::instance()
   return sPlatformUtils;
 }
 
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
 Qt::PermissionStatus PlatformUtilities::checkCameraPermission() const
 {
   QCameraPermission cameraPermission;
@@ -442,4 +441,3 @@ void PlatformUtilities::requestMicrophonePermission( std::function<void( Qt::Per
   QMicrophonePermission microphonePermission;
   qApp->requestPermission( microphonePermission, [=]( const QPermission &permission ) { func( permission.status() ); } );
 }
-#endif

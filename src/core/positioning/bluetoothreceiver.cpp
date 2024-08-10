@@ -18,10 +18,8 @@
 
 #include <QDebug>
 #include <QGuiApplication>
-
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
 #include <QPermissions>
-#endif
+
 
 BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   : NmeaGnssReceiver( parent )
@@ -30,19 +28,10 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
 {
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::error ), this, &BluetoothReceiver::handleError );
-#else
   connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
-#endif
 
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished );
-
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, [=]( QBluetoothLocalDevice::Error error ) {
-#else
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::error, [=]( QBluetoothLocalDevice::Error error ) {
-#endif
     if ( error != QBluetoothLocalDevice::NoError )
     {
       mLastError = QStringLiteral( "Local device returned an error (%1) for %2" ).arg( QMetaEnum::fromType<QBluetoothLocalDevice::Error>().valueToKey( error ), mAddress );
@@ -60,11 +49,6 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
       doConnectDevice();
     }
   } );
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  // Pairing confirmation is gone in Qt 6
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing );
-#endif
 
   initNmeaConnection( mSocket );
 
@@ -92,7 +76,6 @@ void BluetoothReceiver::handleDisconnectDevice()
 
 void BluetoothReceiver::handleConnectDevice()
 {
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
   if ( !mPermissionChecked )
   {
     QBluetoothPermission bluetoothPermission;
@@ -123,7 +106,7 @@ void BluetoothReceiver::handleConnectDevice()
       return;
     }
   }
-#endif
+
   if ( mAddress.isEmpty() )
   {
     return;
@@ -239,15 +222,6 @@ void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
     }
   }
 }
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-void BluetoothReceiver::confirmPairing( const QBluetoothAddress &address, QString pin )
-{
-  Q_UNUSED( address );
-  Q_UNUSED( pin );
-  mLocalDevice->pairingConfirmation( true );
-}
-#endif
 
 void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status )
 {

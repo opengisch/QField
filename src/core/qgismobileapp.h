@@ -256,9 +256,6 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 
 
 Q_DECLARE_METATYPE( QgsFeatureId )
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-Q_DECLARE_METATYPE( QgsFeatureIds )
-#endif
 Q_DECLARE_METATYPE( QgsAttributes )
 Q_DECLARE_METATYPE( QgsFieldConstraints )
 

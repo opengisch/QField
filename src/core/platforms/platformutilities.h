@@ -23,11 +23,9 @@
 #include "viewstatus.h"
 
 #include <QObject>
+#include <QPermission>
 #include <qgsfield.h>
 
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
-#include <QPermission>
-#endif
 
 class QFieldCloudConnection;
 class ProjectSource;
@@ -315,12 +313,10 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
 
     static PlatformUtilities *instance();
 
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
     virtual Qt::PermissionStatus checkCameraPermission() const;
     virtual void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func );
     virtual Qt::PermissionStatus checkMicrophonePermission() const;
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func );
-#endif
 
   signals:
     //! Emitted when a resource has been received.
