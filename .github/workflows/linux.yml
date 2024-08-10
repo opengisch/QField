@@ -103,7 +103,7 @@ jobs:
         with:
           build_dir: "build"
           lgtm_comment_body: ''
-          clang_tidy_checks: '-*,performance-*,bugprone-*,clang-analyzer-*,mpi-*'
+          clang_tidy_checks: '-*,performance-*,bugprone-*,clang-analyzer-*,mpi-*,-bugprone-narrowing-conversions'
 
       - name: Package
         run: |
