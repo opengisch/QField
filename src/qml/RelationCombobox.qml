@@ -184,9 +184,16 @@ Item {
           id: delegateRect
 
           property int idx: index
-          property string itemText: featureListModel.searchTerm != '' ? displayString.replace(new RegExp('(' + featureListModel.searchTerm + ')', "i"), '<span style="text-decoration:underline;' + Theme.toInlineStyles({
-                "color": Theme.mainTextColor
-              }) + '">$1</span>') : displayString
+          property string itemText: {
+            const encodedDisplayString = displayString.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+            if (featureListModel.searchTerm != '') {
+              return encodedDisplayString.replace(new RegExp('(?!=&[a-z]*)(' + featureListModel.searchTerm + ')(?![a-z]*;)', "i"), '<span style="text-decoration:underline;' + Theme.toInlineStyles({
+                    "color": Theme.mainTextColor
+                  }) + '">$1</span>');
+            } else {
+              return encodedDisplayString;
+            }
+          }
 
           anchors.margins: 10
           height: radioButton.visible ? radioButton.height : checkBoxButton.height

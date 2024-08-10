@@ -371,9 +371,16 @@ EditorWidgetBase {
               indicator: Rectangle {
               }
 
-              text: searchField.displayText !== '' ? itemText.replace(new RegExp('(' + searchField.displayText + ')', "i"), '<span style="text-decoration:underline;' + Theme.toInlineStyles({
-                    "color": Theme.mainTextColor
-                  }) + '">$1</span>') : itemText
+              text: {
+                const encodedItemText = itemText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+                if (searchField.displayText !== '') {
+                  return encodedItemText.replace(new RegExp('(?!=&[a-z]*)(' + searchField.displayText + ')(?![a-z]*;)', "i"), '<span style="text-decoration:underline;' + Theme.toInlineStyles({
+                        "color": Theme.mainTextColor
+                      }) + '">$1</span>');
+                } else {
+                  return encodedItemText;
+                }
+              }
 
               contentItem: Text {
                 text: parent.text
