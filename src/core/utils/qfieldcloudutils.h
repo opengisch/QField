@@ -126,7 +126,7 @@ class QFieldCloudUtils : public QObject
     static const QMultiMap<QString, QString> getPendingAttachments();
 
     //! Adds an \a fileName for a given \a projectId to the pending attachments list
-    static void addPendingAttachment( const QString &projectId, const QString &fileName );
+    Q_INVOKABLE static void addPendingAttachment( const QString &projectId, const QString &fileName );
 
     //! Adds removes a \a fileName for a given \a projectId to the pending attachments list
     static void removePendingAttachment( const QString &projectId, const QString &fileName );

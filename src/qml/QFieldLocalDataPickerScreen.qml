@@ -129,7 +129,7 @@ Page {
           property string itemTitle: ItemTitle
           property string itemPath: ItemPath
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
-          property bool itemMenuVisible: (platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root'))
+          property bool itemMenuVisible: ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root'))) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
 
           width: parent ? parent.width : undefined
           height: line.height
@@ -368,6 +368,23 @@ Page {
         text: qsTr("Send to...")
         onTriggered: {
           platformUtilities.sendDatasetTo(itemMenu.itemPath);
+        }
+      }
+
+      MenuItem {
+        id: pushDatasetToCloud
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset && itemMenu.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Push to QFieldCloud...")
+        onTriggered: {
+          QFieldCloudUtils.addPendingAttachment(cloudProjectsModel.currentProjectId, itemMenu.itemPath);
+          platformUtilities.uploadPendingAttachments(cloudConnection);
         }
       }
 
