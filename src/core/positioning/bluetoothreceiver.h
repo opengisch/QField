@@ -41,9 +41,7 @@ class BluetoothReceiver : public NmeaGnssReceiver
      * but meanwhile we keep them as the developer setup.
      */
     void pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status );
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    void confirmPairing( const QBluetoothAddress &address, QString pin );
-#endif
+
     void setSocketState( const QBluetoothSocket::SocketState socketState );
 
   private:

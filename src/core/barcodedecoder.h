@@ -19,19 +19,15 @@
 
 #include <QImage>
 #include <QObject>
-#include <QThread>
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
 #include <QPointer>
+#include <QThread>
 #include <QVideoSink>
-#endif
 
 class BarcodeDecoder : public QObject
 {
     Q_OBJECT
 
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
     Q_PROPERTY( QVideoSink *videoSink READ videoSink WRITE setVideoSink NOTIFY videoSinkChanged )
-#endif
     Q_PROPERTY( QString decodedString READ decodedString NOTIFY decodedStringChanged )
 
   public:
@@ -52,27 +48,21 @@ class BarcodeDecoder : public QObject
      */
     void decodeImage( const QImage &image );
 
-  signals:
-    void decodedStringChanged();
-
-  private:
-    QImage mImage;
-    QString mDecodedString;
-
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
-    QThread *mDecodingThread = nullptr;
-    QPointer<QVideoSink> mVideoSink;
-
-  signals:
-    void videoSinkChanged();
+    QVideoSink *videoSink() const;
+    void setVideoSink( QVideoSink *sink );
 
   public slots:
     void decodeVideoFrame( const QVideoFrame &frame );
 
-  public:
-    QVideoSink *videoSink() const;
-    void setVideoSink( QVideoSink *sink );
-#endif
+  signals:
+    void decodedStringChanged();
+    void videoSinkChanged();
+
+  private:
+    QImage mImage;
+    QString mDecodedString;
+    QThread *mDecodingThread = nullptr;
+    QPointer<QVideoSink> mVideoSink;
 };
 
 #endif // BARCODEDECODER_H

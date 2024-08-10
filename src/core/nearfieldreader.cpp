@@ -63,18 +63,10 @@ void NearFieldReader::setActive( bool active )
 #ifdef WITH_NFC
   if ( mActive )
   {
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
     mNearFieldManager->startTargetDetection( QNearFieldTarget::AnyAccess );
-#else
-    mNearFieldManager->setTargetAccessModes( QNearFieldManager::NdefReadTargetAccess );
-    mNearFieldManager->startTargetDetection();
-#endif
   }
   else
   {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    mNearFieldManager->setTargetAccessModes( QNearFieldManager::NoTargetAccess );
-#endif
     mNearFieldManager->stopTargetDetection();
   }
 #endif

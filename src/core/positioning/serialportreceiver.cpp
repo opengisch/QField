@@ -21,11 +21,7 @@ SerialPortReceiver::SerialPortReceiver( const QString &address, QObject *parent 
   , mAddress( address )
   , mSocket( new QSerialPort() )
 {
-#if QT_VERSION < QT_VERSION_CHECK( 5, 15, 0 )
-  connect( mSocket, qOverload<QSerialPort::SerialPortError>( &QSerialPort::error ), this, &SerialPortReceiver::handleError );
-#else
   connect( mSocket, qOverload<QSerialPort::SerialPortError>( &QSerialPort::errorOccurred ), this, &SerialPortReceiver::handleError );
-#endif
 
   initNmeaConnection( mSocket );
 

@@ -28,9 +28,6 @@
 #include "cpl_string.h"
 #include "cpl_vsi.h"
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include "barcodevideofilter.h"
-#endif
 #ifdef WITH_BLUETOOTH
 #include "bluetoothdevicemodel.h"
 #include "bluetoothreceiver.h"
@@ -87,6 +84,7 @@
 #include "nearfieldreader.h"
 #include "orderedrelationmodel.h"
 #include "parametizedimage.h"
+#include "permissions.h"
 #include "platformutilities.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
@@ -129,14 +127,11 @@
 #include "valuemapmodel.h"
 #include "vertexmodel.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
-#include "permissions.h"
-#endif
-
 #include <QDateTime>
 #include <QFileInfo>
 #include <QFontDatabase>
 #include <QPalette>
+#include <QPermissions>
 #include <QQmlFileSelector>
 #include <QResource>
 #include <QScreen>
@@ -190,9 +185,6 @@
 #include <qgsvectorlayereditbuffer.h>
 #include <qgsvectorlayertemporalproperties.h>
 
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 6, 0 )
-#include <QPermissions>
-#endif
 
 #define QUOTE( string ) _QUOTE( string )
 #define _QUOTE( string ) #string
@@ -513,13 +505,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
   qmlRegisterType<AudioRecorder>( "org.qfield", 1, 0, "AudioRecorder" );
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  qmlRegisterType<BarcodeVideoFilter>( "org.qfield", 1, 0, "BarcodeVideoFilter" );
-#endif
-#if QT_VERSION >= QT_VERSION_CHECK( 6, 5, 0 )
   qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
   qmlRegisterType<MicrophonePermission>( "org.qfield", 1, 0, "QfMicrophonePermission" );
-#endif
   qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );

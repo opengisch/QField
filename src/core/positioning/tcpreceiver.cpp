@@ -23,11 +23,7 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   , mSocket( new QTcpSocket() )
 {
   connect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
-#if QT_VERSION < QT_VERSION_CHECK( 5, 15, 0 )
-  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::error ), this, &TcpReceiver::handleError );
-#else
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &TcpReceiver::handleError );
-#endif
 
   connect( mSocket, &QAbstractSocket::connected, this, [=] {
     // This line enables gpsd's NMEA through TCP
