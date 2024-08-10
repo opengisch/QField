@@ -176,6 +176,7 @@ class QFieldCloudConnection : public QObject
     void setState( ConnectionState state );
     void setToken( const QByteArray &token );
     void invalidateToken();
+    void processPendingAttachments();
 
     QString mUrl;
 
@@ -190,8 +191,8 @@ class QFieldCloudConnection : public QObject
 
     int mPendingRequests = 0;
 
-    bool mUploadingAttachments = false;
-    int mUploadCount = 0;
+    int mUploadPendingCount = 0;
+    int mUploadFailingCount = 0;
 
     void setClientHeaders( QNetworkRequest &request );
 };

@@ -115,6 +115,11 @@ const QVariant QFieldCloudUtils::projectSetting( const QString &projectId, const
   return settings.value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
 }
 
+bool QFieldCloudUtils::hasPendingAttachments()
+{
+  return !QFieldCloudUtils::getPendingAttachments().isEmpty();
+}
+
 const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments()
 {
   QMultiMap<QString, QString> files;

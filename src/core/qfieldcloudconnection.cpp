@@ -13,6 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appinterface.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudutils.h"
@@ -538,8 +539,8 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
 
 int QFieldCloudConnection::uploadPendingAttachments()
 {
-  if ( mUploadingAttachments )
-    return 0;
+  if ( mUploadPendingCount > 0 )
+    return mUploadPendingCount;
 
   QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
   if ( attachments.isEmpty() )
@@ -548,7 +549,17 @@ int QFieldCloudConnection::uploadPendingAttachments()
     return 0;
   }
 
-  mUploadCount = attachments.size();
+  mUploadPendingCount = attachments.size();
+  mUploadFailingCount = 0;
+  processPendingAttachments();
+  return mUploadPendingCount;
+}
+
+void QFieldCloudConnection::processPendingAttachments()
+{
+  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
+  mUploadPendingCount = attachments.size();
+
   QMultiMap<QString, QString>::const_iterator it = attachments.constBegin();
   while ( it != attachments.constEnd() )
   {
@@ -557,6 +568,7 @@ int QFieldCloudConnection::uploadPendingAttachments()
       // A pending attachment has been deleted from the local device, remove
       // This can happen when for e.g. users remove a cloud project from their devices
       QFieldCloudUtils::removePendingAttachment( it.key(), it.value() );
+      ++it;
       continue;
     }
 
@@ -574,27 +586,62 @@ int QFieldCloudConnection::uploadPendingAttachments()
       Q_ASSERT( attachmentCloudReply->isFinished() );
       Q_ASSERT( attachmentReply );
 
-      // if there is an error, don't panic, we continue uploading. The files may be later manually synced.
+      // If there is an error, don't panic, we continue uploading. The files may be later manually synced.
+      const int httpCode = attachmentReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
       if ( attachmentReply->error() != QNetworkReply::NoError )
       {
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at `%1`, reason:\n%2" )
                                      .arg( fileName )
                                      .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
+
+        // Retry uploading for non-404 errors
+        if ( httpCode != 404 )
+        {
+          mUploadFailingCount++;
+
+          if ( mUploadFailingCount < 5 )
+          {
+            // Retry the last attachment to upload after a brief delay
+            QTimer::singleShot( std::pow( 5, mUploadFailingCount ) * 1000, this, [=] { processPendingAttachments(); } );
+          }
+          else
+          {
+            // Too many fails, bailing out for now
+            emit pendingAttachmentsUploadFinished();
+          }
+          return;
+        }
+      }
+
+      if ( httpCode != 201 && httpCode != 404 )
+      {
+        qInfo() << QStringLiteral( "Attachment project ID: %1" ).arg( projectId );
+        qInfo() << QStringLiteral( "Attachment file name: %1" ).arg( fileName );
+        qInfo() << QStringLiteral( "Attachment reply HTTP status code: %1" ).arg( httpCode );
+        for ( const QByteArray &header : attachmentReply->rawHeaderList() )
+        {
+          qInfo() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
+        }
+        qInfo() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
+        AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
+      }
+
+      QFieldCloudUtils::removePendingAttachment( projectId, fileName );
+      mUploadPendingCount--;
+      mUploadFailingCount = 0;
+
+      if ( mUploadPendingCount > 0 )
+      {
+        // Move onto the next attachment to upload
+        processPendingAttachments();
       }
       else
       {
-        QFieldCloudUtils::removePendingAttachment( projectId, fileName );
-      }
-
-      mUploadCount--;
-      if ( mUploadCount == 0 )
-      {
-        // Once a batch of uploads has been successfully sent, check for any new attachments that would have been added in the meantime
-        uploadPendingAttachments();
+        emit pendingAttachmentsUploadFinished();
       }
     } );
 
-    ++it;
+    break;
   }
-  return mUploadCount;
+  return;
 }
