@@ -586,38 +586,53 @@ void QFieldCloudConnection::processPendingAttachments()
       Q_ASSERT( attachmentCloudReply->isFinished() );
       Q_ASSERT( attachmentReply );
 
-      // if there is an error, don't panic, we continue uploading. The files may be later manually synced.
+      // If there is an error, don't panic, we continue uploading. The files may be later manually synced.
+      const int httpCode = attachmentReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
       if ( attachmentReply->error() != QNetworkReply::NoError )
       {
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at `%1`, reason:\n%2" )
                                      .arg( fileName )
                                      .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
-        mUploadFailingCount++;
-      }
-      else
-      {
-        const int httpCode = attachmentReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-        if ( httpCode != 201 )
+
+        // Retry uploading for non-404 errors
+        if ( httpCode != 404 )
         {
-          qInfo() << QStringLiteral( "Attachment project ID: %1" ).arg( projectId );
-          qInfo() << QStringLiteral( "Attachment file name: %1" ).arg( fileName );
-          qInfo() << QStringLiteral( "Attachment reply HTTP status code: %1" ).arg( httpCode );
-          for ( const QByteArray &header : attachmentReply->rawHeaderList() )
-          {
-            qInfo() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
-          }
-          qInfo() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
-          AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
-        }
+          mUploadFailingCount++;
 
-        QFieldCloudUtils::removePendingAttachment( projectId, fileName );
-        mUploadPendingCount--;
-        mUploadFailingCount = 0;
+          if ( mUploadFailingCount < 5 )
+          {
+            // Retry the last attachment to upload after a brief delay
+            QTimer::singleShot( std::pow( 5, mUploadFailingCount ) * 1000, this, [=] { processPendingAttachments(); } );
+          }
+          else
+          {
+            // Too many fails, bailing out for now
+            emit pendingAttachmentsUploadFinished();
+          }
+          return;
+        }
       }
 
-      if ( mUploadPendingCount > 0 && mUploadFailingCount < 5 )
+      if ( httpCode != 201 && httpCode != 404 )
       {
-        // Move onto the next or retry the last attachment to upload
+        qInfo() << QStringLiteral( "Attachment project ID: %1" ).arg( projectId );
+        qInfo() << QStringLiteral( "Attachment file name: %1" ).arg( fileName );
+        qInfo() << QStringLiteral( "Attachment reply HTTP status code: %1" ).arg( httpCode );
+        for ( const QByteArray &header : attachmentReply->rawHeaderList() )
+        {
+          qInfo() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
+        }
+        qInfo() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
+        AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
+      }
+
+      QFieldCloudUtils::removePendingAttachment( projectId, fileName );
+      mUploadPendingCount--;
+      mUploadFailingCount = 0;
+
+      if ( mUploadPendingCount > 0 )
+      {
+        // Move onto the next attachment to upload
         processPendingAttachments();
       }
       else
