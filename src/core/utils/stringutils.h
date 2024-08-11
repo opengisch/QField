@@ -20,6 +20,7 @@
 
 #include "qfield_core_export.h"
 
+#include <QColor>
 #include <QObject>
 #include <qgscoordinatereferencesystem.h>
 #include <qgspoint.h>
@@ -42,6 +43,9 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
 
     //! Checks whether the string \a term is part of \a source
     static bool fuzzyMatch( const QString &source, const QString &term );
+
+    //! Returns a string highlighting a text using HTML formatting
+    static Q_INVOKABLE QString highlightText( const QString &string, const QString &highlightText, const QColor &highlightColor = QColor() );
 
     //! Returns a string containing the \a point location and details of the \a crs
     static Q_INVOKABLE QString pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs );

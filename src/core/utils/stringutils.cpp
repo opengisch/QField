@@ -172,3 +172,15 @@ QString StringUtils::replaceFilenameTags( const QString &string, const QString &
   replacedString.replace( QStringLiteral( "{extension}" ), fi.completeSuffix() );
   return replacedString;
 }
+
+QString StringUtils::highlightText( const QString &string, const QString &highlightText, const QColor &highlightColor )
+{
+  QString formattedString = string.toHtmlEscaped();
+  if ( !highlightText.isEmpty() )
+  {
+    const QString formattedHighlightText = highlightText.toHtmlEscaped();
+    formattedString.replace( QRegularExpression( QStringLiteral( "(?!=&[a-z]*)(%1)(?![a-z]*;)" ).arg( formattedHighlightText ), QRegularExpression::CaseInsensitiveOption ), QStringLiteral( "<span style=\"text-decoration:underline;%1\">\\1</span>" ).arg( highlightColor.isValid() ? QStringLiteral( "color:%1" ).arg( highlightColor.name() ) : QString() ) );
+  }
+
+  return formattedString;
+}
