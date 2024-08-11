@@ -98,7 +98,7 @@ else()
   set(WITH_SENTRY 0)
 endif()
 
-set(QT_MIN_VERSION 6.5.0)
+set(QT_MIN_VERSION 6.6.0)
 
 if (ANDROID)
   if(VCPKG_TARGET_TRIPLET STREQUAL "arm-android" OR VCPKG_TARGET_TRIPLET STREQUAL "arm-neon-android")
