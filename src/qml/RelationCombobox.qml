@@ -187,10 +187,8 @@ Item {
             id: delegateRect
 
             property int idx: index
-            property string itemText: featureListModel.searchTerm != ''
-                                      ? displayString.replace(new RegExp('('+featureListModel.searchTerm+')', "i"),
-                                                              '<span style="text-decoration:underline;' + Theme.toInlineStyles({color:Theme.mainTextColor}) + '">$1</span>')
-                                      : displayString
+            property string itemText: StringUtils.highlightText(displayString, featureListModel.searchTerm, Theme.mainTextColor)
+
 
             anchors.margins: 10
             height: radioButton.visible ? radioButton.height : checkBoxButton.height

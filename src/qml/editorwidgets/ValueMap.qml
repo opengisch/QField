@@ -411,10 +411,7 @@ EditorWidgetBase {
               checked: itemChecked
               indicator: Rectangle {}
 
-              text: searchField.displayText !== ''
-                    ? itemText.replace(new RegExp('('+searchField.displayText+')', "i"),
-                                            '<span style="text-decoration:underline;' + Theme.toInlineStyles({color:Theme.mainTextColor}) + '">$1</span>')
-                    : itemText
+              text: StringUtils.highlightText(itemText, searchField.displayText, Theme.mainTextColor)
 
               contentItem: Text {
                 text: parent.text
