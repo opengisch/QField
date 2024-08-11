@@ -113,9 +113,9 @@ void SnappingUtils::snap()
   {
     const QgsFeature ft = match.layer()->getFeature( match.featureId() );
     QgsPoint snappedPoint = newPoint( ft.geometry().vertexAt( match.vertexIndex() ), vlayer->wkbType() );
-    if ( vlayer->crs() != mapSettings()->destinationCrs() )
+    if ( match.layer()->crs() != mapSettings()->destinationCrs() )
     {
-      QgsCoordinateTransform transform( vlayer->crs(), mapSettings()->destinationCrs(), QgsProject::instance()->transformContext() );
+      QgsCoordinateTransform transform( match.layer()->crs(), mapSettings()->destinationCrs(), QgsProject::instance()->transformContext() );
       try
       {
         snappedPoint.transform( transform );
