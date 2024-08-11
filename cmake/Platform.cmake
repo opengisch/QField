@@ -20,8 +20,8 @@ elseif(VCPKG_TARGET_TRIPLET STREQUAL "x86-android")
 endif()
 
 if(ANDROID_ABI)
-  set(ANDROID_BUILD_TOOLS_VERSION "33.0.0" CACHE STRING "Android build-tools version")
-  set(ANDROID_TARGET_PLATFORM 33 CACHE INT "Target Android platform SDK version")
+  set(ANDROID_BUILD_TOOLS_VERSION "34.0.0" CACHE STRING "Android build-tools version")
+  set(ANDROID_TARGET_PLATFORM 34 CACHE INT "Target Android platform SDK version")
   set(ANDROID_PLATFORM 21 CACHE INT "Minimum Android platform SDK version")
   set(ANDROID_PLATFORM_INT 21 CACHE INT "Minimum Android platform SDK version") # Used in build.gradle.in
   set(ANDROID_CPP_FEATURES "rtti exceptions")
