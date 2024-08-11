@@ -46,4 +46,13 @@ TEST_CASE( "StringUtils" )
     REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "q   r" ) == true );
     REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "q   ubra" ) == false );
   }
+
+  SECTION( "HighlightText" )
+  {
+    REQUIRE( StringUtils::highlightText( "QField roxx", "", QColor( Qt::black ) ) == "QField roxx" );
+    REQUIRE( StringUtils::highlightText( "QField roxx", "rox", QColor( Qt::black ) ) == "QField <span style=\"text-decoration:underline;color:#000000\">rox</span>x" );
+    REQUIRE( StringUtils::highlightText( "QField roxx", "doxx", QColor( Qt::black ) ) == "QField roxx" );
+    REQUIRE( StringUtils::highlightText( "QField <roxx>", "rox", QColor( Qt::black ) ) == "QField &lt;<span style=\"text-decoration:underline;color:#000000\">rox</span>x&gt;" );
+    REQUIRE( StringUtils::highlightText( "QField rox - rox", "rox", QColor( Qt::black ) ) == "QField <span style=\"text-decoration:underline;color:#000000\">rox</span> - <span style=\"text-decoration:underline;color:#000000\">rox</span>" );
+  }
 }
