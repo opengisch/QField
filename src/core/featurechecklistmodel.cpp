@@ -61,8 +61,6 @@ QHash<int, QByteArray> FeatureCheckListModel::roleNames() const
 
 QVariant FeatureCheckListModel::attributeValue() const
 {
-  QVariant value;
-
   QVariantList vl;
   //store as QVariantList because the field type supports data structure
   for ( const QString &s : std::as_const( mCheckedEntries ) )
@@ -83,23 +81,26 @@ QVariant FeatureCheckListModel::attributeValue() const
     }
   }
 
-  if ( mAllowMulti )
+  QVariant value;
+  if ( !vl.isEmpty() )
   {
-    if ( mAttributeField.type() == QMetaType::QVariantMap || mAttributeField.type() == QMetaType::QVariantList || mAttributeField.type() == QMetaType::QStringList )
+    if ( mAllowMulti )
     {
-      value = vl;
+      if ( mAttributeField.type() == QMetaType::QVariantMap || mAttributeField.type() == QMetaType::QVariantList || mAttributeField.type() == QMetaType::QStringList )
+      {
+        value = vl;
+      }
+      else
+      {
+        //make string
+        value = QgsPostgresStringUtils::buildArray( vl );
+      }
     }
     else
     {
-      //make string
-      value = QgsPostgresStringUtils::buildArray( vl );
+      value = vl.first();
     }
   }
-  else
-  {
-    value = vl.first();
-  }
-
   return value;
 }
 
