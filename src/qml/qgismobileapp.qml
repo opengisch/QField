@@ -3650,7 +3650,7 @@ ApplicationWindow {
       }
     }
 
-    onWarning: displayToast(message)
+    onWarning: message => displayToast(message)
 
     onDeltaListModelChanged: function () {
       qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProjectData.DeltaList;

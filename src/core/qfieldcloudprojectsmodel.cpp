@@ -222,14 +222,23 @@ QVariantMap QFieldCloudProjectsModel::getProjectData( const QString &projectId )
   return data;
 }
 
-void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic )
+void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, int limit, int offset )
 {
   switch ( mCloudConnection->status() )
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
     {
       QString url = shouldRefreshPublic ? QStringLiteral( "/api/v1/projects/public/" ) : QStringLiteral( "/api/v1/projects/" );
-      NetworkReply *reply = mCloudConnection->get( url );
+
+      QVariantMap params;
+
+      if ( limit != -1 && offset != -1 )
+      {
+        params["limit"] = QString::number( limit );
+        params["offset"] = QString::number( offset );
+      }
+
+      NetworkReply *reply = mCloudConnection->get( url, params );
       connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
       break;
     }
@@ -1643,7 +1652,7 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 
 void QFieldCloudProjectsModel::connectionStatusChanged()
 {
-  refreshProjectsList();
+  refreshProjectsList( false, 20, 0 );
 }
 
 void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId )
@@ -2016,7 +2025,6 @@ void QFieldCloudProjectsModel::projectSetAutoPushIntervalMins( const QString &pr
 void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 {
   beginResetModel();
-  mProjects.clear();
 
   QgsProject *qgisProject = QgsProject::instance();
 
@@ -2080,7 +2088,19 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
     cloudProject->lastRefreshedAt = QDateTime::currentDateTimeUtc();
 
-    mProjects << cloudProject;
+    // Check for duplicates in mProjects and add cloudProject only if it doesn't already exist.
+    bool duplicateFlag = false;
+    for ( int i = 0; i < mProjects.count(); ++i )
+    {
+      if ( mProjects[i]->id == cloudProject->id )
+      {
+        duplicateFlag = true;
+        break;
+      }
+    }
+
+    if ( !duplicateFlag )
+      mProjects << cloudProject;
   }
 
   QDirIterator userDirs( QFieldCloudUtils::localCloudDirectory(), QDir::Dirs | QDir::NoDotAndDotDot );

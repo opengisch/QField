@@ -192,6 +192,8 @@ Page {
 
           property bool overshootRefresh: false
           property bool refreshing: false
+          property int offset: 0
+          property int itemPerFetch: 20
 
           model: QFieldCloudProjectsFilterModel {
             projectsModel: cloudProjectsModel
@@ -200,12 +202,16 @@ Page {
 
             onFilterChanged: {
               if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
-                refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects);
+                table.offset = 0;
+                refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects, table.itemPerFetch, table.offset);
+                table.offset += table.itemPerFetch;
               }
             }
           }
+
           ScrollBar.vertical: QfScrollBar {
           }
+
           anchors.fill: parent
           anchors.margins: 1
           section.property: "Owner"
@@ -233,7 +239,7 @@ Page {
 
           onMovingChanged: {
             if (!moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
-              refreshProjectsList(filterBar.currentIndex !== 0);
+              refreshProjectsList(filterBar.currentIndex !== 0, table.itemPerFetch, table.offset);
             }
             overshootRefresh = false;
           }
@@ -418,6 +424,7 @@ Page {
           MouseArea {
             property Item pressedItem
             anchors.fill: parent
+            propagateComposedEvents: true
             onClicked: mouse => {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
               if (item) {
@@ -430,6 +437,7 @@ Page {
                   cloudProjectsModel.projectPackageAndDownload(item.projectId);
                 }
               }
+              mouse.accepted = false;
             }
             onPressed: mouse => {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
@@ -437,6 +445,7 @@ Page {
                 pressedItem = item;
                 pressedItem.isPressed = true;
               }
+              mouse.accepted = false;
             }
             onCanceled: {
               if (pressedItem) {
@@ -463,6 +472,26 @@ Page {
                 removeProject.visible = item.projectLocalPath !== '';
                 cancelDownloadProject.visible = item.status === QFieldCloudProjectsModel.ProjectStatus.Downloading;
                 projectActions.popup(mouse.x, mouse.y);
+              }
+              mouse.accepted = false;
+            }
+          }
+
+          footer: Item {
+            height: 60
+            width: parent.width
+            QfButton {
+              id: loadMore
+              width: parent.width - 24
+              height: 40
+              anchors.top: parent.top
+              anchors.topMargin: 10
+              anchors.horizontalCenter: parent.horizontalCenter
+              text: qsTr("Load more")
+              enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+              onClicked: {
+                refreshProjectsList(filterBar.currentIndex !== 0, table.itemPerFetch, table.offset);
+                table.offset += table.itemPerFetch;
               }
             }
           }
@@ -545,12 +574,10 @@ Page {
 
         MenuItem {
           id: cancelDownloadProject
-
           font: Theme.defaultFont
           width: parent.width
           height: visible ? 48 : 0
           leftPadding: Theme.menuItemLeftPadding
-
           text: qsTr("Cancel Project Download")
           onTriggered: {
             cloudProjectsModel.projectCancelDownload(projectActions.projectId);
@@ -569,23 +596,6 @@ Page {
         color: Theme.secondaryTextColor
         wrapMode: Text.WordWrap
       }
-
-      QfPagination {
-        allItemsCount: 20 * 7 + 1
-        onChangePage: (newPageIndex, count) => {
-          console.log(newPageIndex, count);
-        }
-      }
-
-      QfButton {
-        id: refreshProjectsListBtn
-        Layout.fillWidth: true
-        Layout.bottomMargin: mainWindow.sceneBottomMargin
-        text: qsTr("Refresh projects list")
-        enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
-
-        onClicked: refreshProjectsList(filterBar.currentIndex !== 0)
-      }
     }
   }
 
@@ -601,12 +611,12 @@ Page {
     }
   }
 
-  function refreshProjectsList(shouldRefreshPublic) {
+  function refreshProjectsList(shouldRefreshPublic, limit, offset) {
     if (cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
       return;
     }
     table.refreshing = true;
-    cloudProjectsModel.refreshProjectsList(shouldRefreshPublic);
+    cloudProjectsModel.refreshProjectsList(shouldRefreshPublic, limit, offset);
     displayToast(qsTr("Refreshing projects list"));
   }
 
