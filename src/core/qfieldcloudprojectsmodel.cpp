@@ -222,8 +222,14 @@ QVariantMap QFieldCloudProjectsModel::getProjectData( const QString &projectId )
   return data;
 }
 
-void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, int limit, int offset )
+void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, bool resetOffset )
 {
+  if ( resetOffset )
+  {
+    offset = 0;
+  }
+  refreshPublicProjects = shouldRefreshPublic;
+  qDebug() << "request for " << limit << offset;
   switch ( mCloudConnection->status() )
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
@@ -231,12 +237,11 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, in
       QString url = shouldRefreshPublic ? QStringLiteral( "/api/v1/projects/public/" ) : QStringLiteral( "/api/v1/projects/" );
 
       QVariantMap params;
+      params["limit"] = QString::number( limit );
+      params["offset"] = QString::number( offset );
 
-      if ( limit != -1 && offset != -1 )
-      {
-        params["limit"] = QString::number( limit );
-        params["offset"] = QString::number( offset );
-      }
+      offset += limit;
+
 
       NetworkReply *reply = mCloudConnection->get( url, params );
       connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
@@ -1652,7 +1657,8 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 
 void QFieldCloudProjectsModel::connectionStatusChanged()
 {
-  refreshProjectsList( false, 20, 0 );
+  refreshProjectsList();
+  refreshPublicProjects = false;
 }
 
 void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId )
@@ -1698,6 +1704,16 @@ void QFieldCloudProjectsModel::projectListReceived()
   QJsonDocument doc = QJsonDocument::fromJson( response );
   QJsonArray projects = doc.array();
   reload( projects );
+
+  if ( projects.size() > 0 )
+  {
+    qDebug() << "Fetch list size :" << projects.size();
+    refreshProjectsList( refreshPublicProjects );
+  }
+  else
+  {
+    qDebug() << "=============Finish==============";
+  }
 }
 
 NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, const QString &fileName )
@@ -2095,6 +2111,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       if ( mProjects[i]->id == cloudProject->id )
       {
         duplicateFlag = true;
+        qDebug() << "duplicated!";
         break;
       }
     }
