@@ -45,7 +45,7 @@ EditorWidgetBase {
     attributeValue: value !== undefined ? value : ""
 
     onListUpdated: {
-      valueChangeRequested( attributeValue, false )
+      valueChangeRequested(attributeValue, attributeValue === "");
     }
   }
 
