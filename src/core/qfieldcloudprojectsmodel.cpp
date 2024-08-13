@@ -2038,6 +2038,19 @@ void QFieldCloudProjectsModel::projectSetAutoPushIntervalMins( const QString &pr
   }
 }
 
+bool QFieldCloudProjectsModel::addCloudProjectIfNotDuplicate( CloudProject *cloudProject )
+{
+  for ( int i = 0; i < mProjects.count(); ++i )
+  {
+    if ( mProjects[i]->id == cloudProject->id )
+    {
+      return false;
+    }
+  }
+  mProjects << cloudProject;
+  return true;
+}
+
 void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 {
   beginResetModel();
@@ -2104,20 +2117,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
     cloudProject->lastRefreshedAt = QDateTime::currentDateTimeUtc();
 
-    // Check for duplicates in mProjects and add cloudProject only if it doesn't already exist.
-    bool duplicateFlag = false;
-    for ( int i = 0; i < mProjects.count(); ++i )
-    {
-      if ( mProjects[i]->id == cloudProject->id )
-      {
-        duplicateFlag = true;
-        qDebug() << "duplicated!";
-        break;
-      }
-    }
-
-    if ( !duplicateFlag )
-      mProjects << cloudProject;
+    addCloudProjectIfNotDuplicate( cloudProject );
   }
 
   QDirIterator userDirs( QFieldCloudUtils::localCloudDirectory(), QDir::Dirs | QDir::NoDotAndDotDot );
@@ -2157,7 +2157,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
       restoreLocalSettings( cloudProject, localPath );
 
-      mProjects << cloudProject;
+      addCloudProjectIfNotDuplicate( cloudProject );
 
       Q_ASSERT( projectId == cloudProject->id );
     }
