@@ -491,7 +491,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QString getJobTypeAsString( JobType jobType ) const;
 
     void downloadFileConnections( const QString &projectId, const QString &fileName );
-    void insertProjectList( QList<CloudProject *> projects );
+    void insertProjectList( const QList<CloudProject *> &projects );
     bool isProjectExists( CloudProject *project );
 };
 

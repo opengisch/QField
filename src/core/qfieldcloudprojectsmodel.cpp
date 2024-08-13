@@ -2037,7 +2037,7 @@ void QFieldCloudProjectsModel::projectSetAutoPushIntervalMins( const QString &pr
   }
 }
 
-void QFieldCloudProjectsModel::insertProjectList( QList<CloudProject *> projects )
+void QFieldCloudProjectsModel::insertProjectList( const QList<CloudProject *> &projects )
 {
   if ( projects.size() > 0 )
   {
