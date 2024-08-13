@@ -229,7 +229,7 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, bo
     offset = 0;
   }
   refreshPublicProjects = shouldRefreshPublic;
-  qDebug() << "request for " << limit << offset;
+  qDebug() << "New request from offset " << offset;
   switch ( mCloudConnection->status() )
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
@@ -241,7 +241,6 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, bo
       params["offset"] = QString::number( offset );
 
       offset += limit;
-
 
       NetworkReply *reply = mCloudConnection->get( url, params );
       connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
@@ -2038,23 +2037,35 @@ void QFieldCloudProjectsModel::projectSetAutoPushIntervalMins( const QString &pr
   }
 }
 
-bool QFieldCloudProjectsModel::addCloudProjectIfNotDuplicate( CloudProject *cloudProject )
+void QFieldCloudProjectsModel::insertProjectList( QList<CloudProject *> projects )
+{
+  if ( projects.size() > 0 )
+  {
+    int currentCount = mProjects.size();
+    for ( CloudProject *project : projects )
+    {
+      mProjects.append( project );
+    }
+    qDebug() << "Added -> " << projects.size();
+    beginInsertRows( QModelIndex(), currentCount, currentCount + projects.size() - 1 );
+    endInsertRows();
+  }
+}
+
+bool QFieldCloudProjectsModel::isProjectExists( CloudProject *project )
 {
   for ( int i = 0; i < mProjects.count(); ++i )
   {
-    if ( mProjects[i]->id == cloudProject->id )
+    if ( mProjects[i]->id == project->id )
     {
-      return false;
+      return true;
     }
   }
-  mProjects << cloudProject;
-  return true;
+  return false;
 }
 
 void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 {
-  beginResetModel();
-
   QgsProject *qgisProject = QgsProject::instance();
 
   auto restoreLocalSettings = [=]( CloudProject *cloudProject, const QDir &localPath ) {
@@ -2080,6 +2091,8 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     }
   };
 
+
+  QList<CloudProject *> freshCloudProjects;
   for ( const auto project : remoteProjects )
   {
     QVariantHash projectDetails = project.toObject().toVariantHash();
@@ -2117,9 +2130,15 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
     cloudProject->lastRefreshedAt = QDateTime::currentDateTimeUtc();
 
-    addCloudProjectIfNotDuplicate( cloudProject );
+    if ( !isProjectExists( cloudProject ) )
+    {
+      freshCloudProjects.push_back( cloudProject );
+    }
   }
 
+  insertProjectList( freshCloudProjects );
+
+  QList<CloudProject *> userSpecificProjects;
   QDirIterator userDirs( QFieldCloudUtils::localCloudDirectory(), QDir::Dirs | QDir::NoDotAndDotDot );
   while ( userDirs.hasNext() )
   {
@@ -2157,13 +2176,16 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
       restoreLocalSettings( cloudProject, localPath );
 
-      addCloudProjectIfNotDuplicate( cloudProject );
+      if ( !isProjectExists( cloudProject ) )
+      {
+        userSpecificProjects.push_back( cloudProject );
+      }
 
       Q_ASSERT( projectId == cloudProject->id );
     }
   }
 
-  endResetModel();
+  insertProjectList( userSpecificProjects );
 }
 
 int QFieldCloudProjectsModel::rowCount( const QModelIndex &parent ) const
