@@ -2068,6 +2068,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>back</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2269,11 +2273,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Ein Server-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
+        <translation type="vanished">Ein Server-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Ein Netzwerk-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
+        <translation type="vanished">Ein Netzwerk-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2687,6 +2691,21 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Ein Server-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Ein Netzwerk-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2797,6 +2816,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4122,6 +4149,17 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Willkommen bei QField. Sind sie zum erstene mal hier? Schauen sie sich doch mal die Beispielprojekte an.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Wahr</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Falsch</translation>
     </message>
 </context>
 <context>

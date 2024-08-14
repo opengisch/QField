@@ -2067,6 +2067,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>back</source>
         <translation>后退</translation>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation>图像地理标记需要打开定位功能</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2268,11 +2272,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>服务器出现错误，请重试。</translation>
+        <translation type="vanished">服务器出现错误，请重试。</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>网络出现错误，请重试。</translation>
+        <translation type="vanished">网络出现错误，请重试。</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2690,6 +2694,21 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>服务器出现错误，请重试。</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>网络出现错误，请重试。</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation>您帐户已无可用存储空间。</translation>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2801,6 +2820,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Update project from ZIP</source>
         <translation>从ZIP更新工程</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation>推送到QFieldCloud...</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>‘%1’ 正在上传到QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -4125,6 +4152,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>欢迎来到QField！是第一次使用本应用吗？请试试下面的示例工程吧。</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>真</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>假</translation>
     </message>
 </context>
 <context>

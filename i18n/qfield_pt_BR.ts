@@ -2065,6 +2065,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>back</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2264,11 +2268,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Ocorreu um erro no servidor, por favor tente novamente.</translation>
+        <translation type="vanished">Ocorreu um erro no servidor, por favor tente novamente.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Ocorreu um erro na rede, por favor tente novamente.</translation>
+        <translation type="vanished">Ocorreu um erro na rede, por favor tente novamente.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2683,6 +2687,21 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Ocorreu um erro no servidor, por favor tente novamente.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Ocorreu um erro na rede, por favor tente novamente.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2793,6 +2812,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4118,6 +4145,17 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Verdadeiro</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Falso</translation>
     </message>
 </context>
 <context>

@@ -2071,6 +2071,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>back</source>
         <translation>costas</translation>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2272,11 +2276,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Ocoreu um erro no servidor, por favor tente novamente.</translation>
+        <translation type="vanished">Ocoreu um erro no servidor, por favor tente novamente.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Ocorreu um erro na rede, por favor tente novamente.</translation>
+        <translation type="vanished">Ocorreu um erro na rede, por favor tente novamente.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2694,6 +2698,21 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Ocoreu um erro no servidor, por favor tente novamente.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Ocorreu um erro na rede, por favor tente novamente.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2805,6 +2824,14 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Update project from ZIP</source>
         <translation>Atualizar projeto do ZIP</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4129,6 +4156,17 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Bem-vindo ao QField. É a primeira vez que está a usar a aplicação? Experimente alguns exemplos de projetos listados abaixo.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Verdadeiro</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Falso</translation>
     </message>
 </context>
 <context>

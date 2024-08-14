@@ -2072,6 +2072,10 @@ Dôvod:
         <source>back</source>
         <translation>vzadu</translation>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2273,11 +2277,11 @@ Dôvod:
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Vyskytla sa serverová chyba, skúste to znova prosím.</translation>
+        <translation type="vanished">Vyskytla sa serverová chyba, skúste to znova prosím.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Vyskytla sa chyba siete, skúste to znova prosím.</translation>
+        <translation type="vanished">Vyskytla sa chyba siete, skúste to znova prosím.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2695,6 +2699,21 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Vyskytla sa serverová chyba, skúste to znova prosím.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Vyskytla sa chyba siete, skúste to znova prosím.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2806,6 +2825,14 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     <message>
         <source>Update project from ZIP</source>
         <translation>Aktualizovať projekt zo ZIP súboru</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4130,6 +4157,17 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Vitajte v QField. Používate túto aplikáciu prvýkrát? Pozrite si vzorové projekty nižšie.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>True</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>False</translation>
     </message>
 </context>
 <context>

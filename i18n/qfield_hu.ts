@@ -2068,6 +2068,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>back</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2268,11 +2272,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Szerver hiba történt, kérem próbálja újra.</translation>
+        <translation type="vanished">Szerver hiba történt, kérem próbálja újra.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Hálózati hiba történt, kérem próbálja újra.</translation>
+        <translation type="vanished">Hálózati hiba történt, kérem próbálja újra.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2686,6 +2690,21 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Szerver hiba történt, kérem próbálja újra.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Hálózati hiba történt, kérem próbálja újra.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2797,6 +2816,14 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Update project from ZIP</source>
         <translation>Projekt aktualizálása ZIP-ből</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4121,6 +4148,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Üdvözöljük a QField-ben. Először használja a programot? Próbálja ki a lentebb listázott projekteket.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Igaz</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Hamis</translation>
     </message>
 </context>
 <context>

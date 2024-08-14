@@ -2073,6 +2073,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>back</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2273,11 +2277,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Nastala chyba serveru, prosím zkuste znovu.</translation>
+        <translation type="vanished">Nastala chyba serveru, prosím zkuste znovu.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Nastala chyba sítě, prosím opakujte.</translation>
+        <translation type="vanished">Nastala chyba sítě, prosím opakujte.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2695,6 +2699,21 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Nastala chyba serveru, prosím zkuste znovu.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Nastala chyba sítě, prosím opakujte.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2805,6 +2824,14 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4130,6 +4157,17 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Vítejte v QFieldu. Poprvé používáte tuto aplikaci? Vyzkoušejte vzorové projekty uvedené níže.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>True</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>False</translation>
     </message>
 </context>
 <context>

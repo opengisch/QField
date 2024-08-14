@@ -2070,6 +2070,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>back</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2270,11 +2274,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Une erreur de serveur s&apos;est produite, veuillez réessayer.</translation>
+        <translation type="vanished">Une erreur de serveur s&apos;est produite, veuillez réessayer.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Une erreur de réseau s&apos;est produite, veuillez réessayer.</translation>
+        <translation type="vanished">Une erreur de réseau s&apos;est produite, veuillez réessayer.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2690,6 +2694,21 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Une erreur de serveur s&apos;est produite, veuillez réessayer.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Une erreur de réseau s&apos;est produite, veuillez réessayer.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2801,6 +2820,14 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Update project from ZIP</source>
         <translation>Mettre à jour le projet à partir du ZIP</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4126,6 +4153,17 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Bienvenue sur QField.
 Première utilisation de cette application ?
 Essayez les exemples de projets répertoriés ci-dessous.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Vrai</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Faux</translation>
     </message>
 </context>
 <context>

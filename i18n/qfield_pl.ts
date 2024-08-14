@@ -2073,6 +2073,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>back</source>
         <translation>tył</translation>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation>Geotagowanie obrazów wymaga włączenia pozycjonowania.</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2274,11 +2278,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Wystąpił błąd serwera, proszę spróbuj ponownie.</translation>
+        <translation type="vanished">Wystąpił błąd serwera, proszę spróbuj ponownie.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Wystąpił błąd sieci, proszę spróbuj ponownie.</translation>
+        <translation type="vanished">Wystąpił błąd sieci, proszę spróbuj ponownie.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2696,6 +2700,21 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Wystąpił błąd serwera, proszę spróbuj ponownie.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Wystąpił błąd sieci, proszę spróbuj ponownie.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation>Dostępna przestrzeń dyskowa Twojego konta jest pełna.</translation>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2807,6 +2826,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Update project from ZIP</source>
         <translation>Zaktualizuj projekt z archiwum ZIP</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation>Wyślij do QFieldCloud...</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>&quot;%1&quot; jest przesyłane do QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -4131,6 +4158,17 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Witaj w QField. Jeśli pierwszy raz używasz tej aplikacji, możesz wypróbować przykładowe projekty z poniższej listy.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Prawda</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Fałsz</translation>
     </message>
 </context>
 <context>

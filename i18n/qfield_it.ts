@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>Directory dell&apos;app QField</translation>
     </message>
 </context>
 <context>
@@ -447,7 +447,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometria</translation>
     </message>
 </context>
 <context>
@@ -844,7 +844,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation>Non è stato trasferito nessun attributo di elemento</translation>
     </message>
     <message>
         <source>Features</source>
@@ -852,7 +852,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Algoritmi di Elaborazione</translation>
     </message>
 </context>
 <context>
@@ -1050,14 +1050,14 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentazione QField</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigazione</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1065,7 +1065,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Vista precisa</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -1073,7 +1073,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Profilo altimetrico</translation>
     </message>
 </context>
 <context>
@@ -1099,7 +1099,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>Dettaglio Credenziali</translation>
     </message>
 </context>
 <context>
@@ -1347,7 +1347,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Restituisce le pagine di documentazione QField corrispondenti ai termini.</translation>
     </message>
 </context>
 <context>
@@ -1550,15 +1550,15 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Attributi elemento copiati negli appunti</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Attributi elemento aggiornati dagli appunti</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Nessun attributi elemento sono stati aggiornati dagli appunti</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
@@ -2071,6 +2071,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>back</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2272,11 +2276,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Si è verificato un errore del server, riprovare.</translation>
+        <translation type="vanished">Si è verificato un errore del server, riprovare.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Si è verificato un errore di rete, riprovare.</translation>
+        <translation type="vanished">Si è verificato un errore di rete, riprovare.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2697,6 +2701,21 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Si è verificato un errore del server, riprovare.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Si è verificato un errore di rete, riprovare.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2808,6 +2827,14 @@ Messaggio dell&apos;errore: %4</translation>
     <message>
         <source>Update project from ZIP</source>
         <translation>Aggiorna progetto da ZIP</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4132,6 +4159,17 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Benvenuti in QField! È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Vero</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Falso</translation>
     </message>
 </context>
 <context>

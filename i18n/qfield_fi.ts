@@ -2069,6 +2069,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>back</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2271,11 +2275,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Palvelinvirhe, yritä uudelleen.</translation>
+        <translation type="vanished">Palvelinvirhe, yritä uudelleen.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Tapahtui verkkovirhe, yritä uudelleen.</translation>
+        <translation type="vanished">Tapahtui verkkovirhe, yritä uudelleen.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2694,6 +2698,21 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Palvelinvirhe, yritä uudelleen.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Tapahtui verkkovirhe, yritä uudelleen.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2805,6 +2824,14 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Update project from ZIP</source>
         <translation>Päivitä projekti ZIP-tiedostosta.</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4129,6 +4156,17 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Tervetuloa käyttämään QFieldiä. Käytätkö sovellusta ensimmäistä kertaa? Kokeile esimerkkiprojekteja, jotka on listattu alla viimeisimmissä projekteissa.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Tosi</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Epätosi</translation>
     </message>
 </context>
 <context>

@@ -2073,6 +2073,10 @@ Motiv:
         <source>back</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2274,11 +2278,11 @@ Motiv:
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>A apărut o eroare de server, încercați din nou.</translation>
+        <translation type="vanished">A apărut o eroare de server, încercați din nou.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>A apărut o eroare de rețea, încercați din nou.</translation>
+        <translation type="vanished">A apărut o eroare de rețea, încercați din nou.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2696,6 +2700,21 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>A apărut o eroare de server, încercați din nou.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>A apărut o eroare de rețea, încercați din nou.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2806,6 +2825,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4131,6 +4158,17 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Adevărat</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Fals</translation>
     </message>
 </context>
 <context>

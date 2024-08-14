@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>Directorios da aplicación de QField</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>Directorio da aplicación de QField</translation>
     </message>
 </context>
 <context>
@@ -1048,7 +1048,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentación de QField</translation>
     </message>
 </context>
 <context>
@@ -1345,7 +1345,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Devolve as páxinas de documentación de QField que coincide cos termos.</translation>
     </message>
 </context>
 <context>
@@ -1548,23 +1548,23 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Atributos da entidade copiados ó portapapeis</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Atributos da entidade actulizados dende o portapapeis</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Non se actualizaron os atributos da entidade dende o portapapeis</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Entidade establecida como o destino da navegación</translation>
     </message>
     <message>
         <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar Atributos Dende a Entidade</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
@@ -1734,19 +1734,19 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido descomprimir o ficheiro zip descargado</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>O ficheiro zip descargado non contén o ficheiro de plugin mail.qml solicitado</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode gardar o ficheiro descargado</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>O ficheiro descargado non é un plugin comprimido</translation>
     </message>
     <message>
         <source>Network error</source>
@@ -1761,7 +1761,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Aínda non se instalou ningún plugin. Para aprender máis acerca dos plugins, %1mira a documentación%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
@@ -1769,11 +1769,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Limpar os permisos recordados</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Teclea un URL debaixo para descargar e instalar un plugin:</translation>
     </message>
     <message>
         <source>Installing %1</source>
@@ -2069,6 +2069,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>back</source>
         <translation>detrás</translation>
     </message>
+    <message>
+        <source>Image geotagging requires positioning to be turned on</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
@@ -2270,11 +2274,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Produciuse un erro no servidor, por favor, ténteo de novo.</translation>
+        <translation type="vanished">Produciuse un erro no servidor, por favor, ténteo de novo.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Produciuse un erro na rede, por favor, ténteo de novo.</translation>
+        <translation type="vanished">Produciuse un erro na rede, por favor, ténteo de novo.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2692,6 +2696,21 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
 </context>
 <context>
+    <name>QFieldCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Produciuse un erro no servidor, por favor, ténteo de novo.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Produciuse un erro na rede, por favor, ténteo de novo.</translation>
+    </message>
+    <message>
+        <source>Your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
@@ -2803,6 +2822,14 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>Update project from ZIP</source>
         <translation>Actualizar proxecto dende ZIP</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4127,6 +4154,17 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Benvido a QField. Primeira vez utilizando a aplicación? Proba os proxectos de exemplo listados abaixo.</translation>
+    </message>
+</context>
+<context>
+    <name>boolean</name>
+    <message>
+        <source>True</source>
+        <translation>Certo</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Falso</translation>
     </message>
 </context>
 <context>
