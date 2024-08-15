@@ -200,12 +200,13 @@ Page {
 
             onFilterChanged: {
               if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
-                refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects, true);
+                refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects);
               }
             }
           }
 
           ScrollBar.vertical: QfScrollBar {
+            verticalPadding: 15
           }
 
           anchors.fill: parent
@@ -235,7 +236,7 @@ Page {
 
           onMovingChanged: {
             if (!moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
-              refreshProjectsList(filterBar.currentIndex !== 0, false);
+              refreshProjectsList(filterBar.currentIndex !== 0);
             }
             overshootRefresh = false;
           }
@@ -577,7 +578,7 @@ Page {
         text: qsTr("Refresh projects list")
         enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
         onClicked: {
-          refreshProjectsList(filterBar.currentIndex !== 0, true);
+          refreshProjectsList(filterBar.currentIndex !== 0);
         }
       }
     }
@@ -595,12 +596,12 @@ Page {
     }
   }
 
-  function refreshProjectsList(shouldRefreshPublic, resetOffset) {
+  function refreshProjectsList(shouldRefreshPublic) {
     if (cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
       return;
     }
     table.refreshing = true;
-    cloudProjectsModel.refreshProjectsList(shouldRefreshPublic, resetOffset);
+    cloudProjectsModel.refreshProjectsList(shouldRefreshPublic);
     displayToast(qsTr("Refreshing projects list"));
   }
 

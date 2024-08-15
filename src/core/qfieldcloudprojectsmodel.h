@@ -174,6 +174,13 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       DeltaUploaded
     };
 
+    //! whether to fetch public projects and to specify the offset for pagination.
+    enum class ProjectsRequestAttribute
+    {
+      RefreshPublicProjects = QNetworkRequest::User + 1,
+      ProjectsFetchOffset = QNetworkRequest::User + 2
+    };
+
     Q_ENUM( ProjectRefreshReason )
 
     QFieldCloudProjectsModel();
@@ -229,8 +236,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Returns the cloud project data for given \a projectId.
     Q_INVOKABLE QVariantMap getProjectData( const QString &projectId ) const;
 
-    //! Requests the cloud projects list from the server. If \a shouldRefreshPublic is false, it will refresh only user's project, otherwise will refresh the public projects only.
-    Q_INVOKABLE void refreshProjectsList( bool shouldRefreshPublic = false, bool resetOffset = false );
+    //! Requests the cloud projects list from the server. If \a shouldRefreshPublic is false, it will refresh only user's project, otherwise will refresh the public projects only, starting from \a projectFetchOffset for pagination.
+    Q_INVOKABLE void refreshProjectsList( bool shouldRefreshPublic = false, int projectFetchOffset = 0 );
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
     Q_INVOKABLE void projectUpload( const QString &projectId, const bool shouldDownloadUpdates );
@@ -317,10 +324,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void layerObserverLayerEdited( const QString &layerId );
 
   private:
-    int offset = 0;
-    int limit = 500;
-    bool refreshPublicProjects = false;
-
     static const int sDelayBeforeStatusRetry = 1000;
 
     struct FileTransfer
@@ -462,6 +465,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
     QStringList mActiveProjectFilesToDownload;
+    const int mProjectsPerFetch = 500;
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
     CloudProject *findProject( const QString &projectId ) const;
@@ -491,8 +495,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QString getJobTypeAsString( JobType jobType ) const;
 
     void downloadFileConnections( const QString &projectId, const QString &fileName );
-    void insertProjectList( const QList<CloudProject *> &projects );
-    bool isProjectExists( CloudProject *project );
+    void insertProjects( const QList<CloudProject *> &projects );
 };
 
 Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectStatus )
