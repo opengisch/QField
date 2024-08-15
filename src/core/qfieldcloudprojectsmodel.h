@@ -465,7 +465,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
     QStringList mActiveProjectFilesToDownload;
-    const int mProjectsPerFetch = 500;
+    const int mProjectsPerFetch = 250;
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
     CloudProject *findProject( const QString &projectId ) const;
