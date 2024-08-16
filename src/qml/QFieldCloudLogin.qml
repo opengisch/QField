@@ -5,10 +5,12 @@ import org.qfield 1.0
 import Theme 1.0
 
 Item {
-  id: qfieldcloudLogin
+  id: qfieldCloudLogin
 
   property bool isServerUrlEditingActive: false
   property bool isVisible: false
+
+  height: connectionSettings.childrenRect.height
 
   Image {
     id: sourceImg
@@ -25,199 +27,190 @@ Item {
   ColumnLayout {
     id: connectionSettings
     width: parent.width
-    Layout.maximumWidth: 410
-    spacing: 0
+    Layout.minimumHeight: (logo.height + fontMetrics.height * 9) * 2
+    spacing: 6
 
-    ColumnLayout {
+    Image {
+      id: logo
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      fillMode: Image.PreserveAspectFit
+      smooth: true
+      source: "qrc:/images/qfieldcloud_logo.svg"
+      sourceSize.width: 124
+      sourceSize.height: 124
+
+      MouseArea {
+        anchors.fill: parent
+        onDoubleClicked: toggleServerUrlEditing()
+      }
+    }
+
+    Text {
+      id: loginFeedbackLabel
       Layout.fillWidth: true
-      Layout.fillHeight: true
-      Layout.maximumWidth: 410
-      Layout.minimumHeight: (logo.height + fontMetrics.height * 9) * 2
-      Layout.alignment: Qt.AlignHCenter
-      spacing: 10
+      visible: false
+      text: qsTr("Failed to sign in")
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.defaultFont
+      color: Theme.errorColor
+      wrapMode: Text.Wrap
 
-      Image {
-        id: logo
-        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        fillMode: Image.PreserveAspectFit
-        smooth: true
-        source: "qrc:/images/qfieldcloud_logo.svg"
-        sourceSize.width: 124
-        sourceSize.height: 124
+      Connections {
+        target: cloudConnection
 
-        MouseArea {
-          anchors.fill: parent
-          onDoubleClicked: toggleServerUrlEditing()
+        function onLoginFailed(reason) {
+          if (!qfieldCloudLogin.parent.visible)
+            return;
+          loginFeedbackLabel.visible = true;
+          loginFeedbackLabel.text = reason;
         }
-      }
 
-      Text {
-        id: loginFeedbackLabel
-        Layout.fillWidth: true
-        visible: false
-        text: qsTr("Failed to sign in")
-        horizontalAlignment: Text.AlignHCenter
-        font: Theme.defaultFont
-        color: Theme.errorColor
-        wrapMode: Text.Wrap
-
-        Connections {
-          target: cloudConnection
-
-          function onLoginFailed(reason) {
-            if (!qfieldCloudLogin.parent.visible)
-              return;
-            loginFeedbackLabel.visible = true;
-            loginFeedbackLabel.text = reason;
-          }
-
-          function onStatusChanged() {
-            if (cloudConnection.status === QFieldCloudConnection.Connecting) {
-              loginFeedbackLabel.visible = false;
-              loginFeedbackLabel.text = '';
-            } else {
-              loginFeedbackLabel.visible = cloudConnection.status === QFieldCloudConnection.Disconnected && loginFeedbackLabel.text.length;
-            }
-          }
-        }
-      }
-
-      Text {
-        id: serverUrlLabel
-        Layout.fillWidth: true
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
-        text: qsTr("Server URL\n(Leave empty to use the default server)")
-        horizontalAlignment: Text.AlignHCenter
-        font: Theme.defaultFont
-        color: 'gray'
-        wrapMode: Text.WordWrap
-      }
-
-      QfTextField {
-        id: serverUrlField
-        Layout.preferredWidth: parent.width / 1.3
-        Layout.alignment: Qt.AlignHCenter
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
-        enabled: visible
-        font: Theme.defaultFont
-        horizontalAlignment: Text.AlignHCenter
-        text: prefixUrlWithProtocol(cloudConnection.url) === cloudConnection.defaultUrl ? '' : cloudConnection.url
-
-        onTextChanged: text = text.replace(/\s+/g, '')
-        onEditingFinished: cloudConnection.url = text ? prefixUrlWithProtocol(text) : cloudConnection.defaultUrl
-        Keys.onReturnPressed: loginFormSumbitHandler()
-
-        function prefixUrlWithProtocol(url) {
-          if (!url || url.startsWith('http://') || url.startsWith('https://'))
-            return url;
-          return 'https://' + url;
-        }
-      }
-
-      Text {
-        id: usernamelabel
-        Layout.fillWidth: true
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-        text: qsTr("Username or email")
-        horizontalAlignment: Text.AlignHCenter
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
-
-      QfTextField {
-        id: usernameField
-        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-        Layout.preferredWidth: parent.width / 1.3
-        Layout.alignment: Qt.AlignHCenter
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-        enabled: visible
-        font: Theme.defaultFont
-        horizontalAlignment: Text.AlignHCenter
-
-        onTextChanged: text = text.replace(/\s+/g, '')
-        Keys.onReturnPressed: loginFormSumbitHandler()
-      }
-
-      Text {
-        id: passwordlabel
-        Layout.fillWidth: true
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-        text: qsTr("Password")
-        horizontalAlignment: Text.AlignHCenter
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
-
-      QfTextField {
-        id: passwordField
-        echoMode: TextInput.Password
-        inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-        Layout.preferredWidth: parent.width / 1.3
-        Layout.alignment: Qt.AlignHCenter
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-        enabled: visible
-        font: Theme.defaultFont
-        horizontalAlignment: Text.AlignHCenter
-
-        Keys.onReturnPressed: loginFormSumbitHandler()
-      }
-
-      FontMetrics {
-        id: fontMetrics
-        font: Theme.defaultFont
-      }
-
-      QfButton {
-        Layout.fillWidth: true
-        text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
-        enabled: cloudConnection.status != QFieldCloudConnection.Connecting
-
-        onClicked: loginFormSumbitHandler()
-      }
-
-      Text {
-        id: cloudRegisterLabel
-        Layout.fillWidth: true
-        Layout.topMargin: 6
-        text: qsTr('New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr('Register an account') + '</a>.'
-        horizontalAlignment: Text.AlignHCenter
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-        textFormat: Text.RichText
-        wrapMode: Text.WordWrap
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-
-        onLinkActivated: link => {
-          if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
-            browserPopup.url = link;
-            browserPopup.fullscreen = true;
-            browserPopup.open();
+        function onStatusChanged() {
+          if (cloudConnection.status === QFieldCloudConnection.Connecting) {
+            loginFeedbackLabel.visible = false;
+            loginFeedbackLabel.text = '';
           } else {
-            Qt.openUrlExternally(link);
+            loginFeedbackLabel.visible = cloudConnection.status === QFieldCloudConnection.Disconnected && loginFeedbackLabel.text.length;
           }
         }
       }
+    }
 
-      Text {
-        id: cloudIntroLabel
-        Layout.fillWidth: true
-        text: qsTr('The easiest way to transfer you project from QGIS to your devices!') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
-        horizontalAlignment: Text.AlignHCenter
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-        textFormat: Text.RichText
-        wrapMode: Text.WordWrap
+    Text {
+      id: serverUrlLabel
+      Layout.fillWidth: true
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
+      text: qsTr("Server URL\n(Leave empty to use the default server)")
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.defaultFont
+      color: 'gray'
+      wrapMode: Text.WordWrap
+    }
 
-        onLinkActivated: link => {
+    QfTextField {
+      id: serverUrlField
+      Layout.preferredWidth: parent.width / 1.3
+      Layout.alignment: Qt.AlignHCenter
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
+      enabled: visible
+      font: Theme.defaultFont
+      horizontalAlignment: Text.AlignHCenter
+      text: prefixUrlWithProtocol(cloudConnection.url) === cloudConnection.defaultUrl ? '' : cloudConnection.url
+
+      onTextChanged: text = text.replace(/\s+/g, '')
+      onEditingFinished: cloudConnection.url = text ? prefixUrlWithProtocol(text) : cloudConnection.defaultUrl
+      Keys.onReturnPressed: loginFormSumbitHandler()
+
+      function prefixUrlWithProtocol(url) {
+        if (!url || url.startsWith('http://') || url.startsWith('https://'))
+          return url;
+        return 'https://' + url;
+      }
+    }
+
+    Text {
+      id: usernamelabel
+      Layout.fillWidth: true
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+      text: qsTr("Username or email")
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.defaultFont
+      color: Theme.mainTextColor
+    }
+
+    QfTextField {
+      id: usernameField
+      inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+      Layout.preferredWidth: parent.width / 1.3
+      Layout.alignment: Qt.AlignHCenter
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+      enabled: visible
+      font: Theme.defaultFont
+      horizontalAlignment: Text.AlignHCenter
+
+      onTextChanged: text = text.replace(/\s+/g, '')
+      Keys.onReturnPressed: loginFormSumbitHandler()
+    }
+
+    Text {
+      id: passwordlabel
+      Layout.fillWidth: true
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+      text: qsTr("Password")
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.defaultFont
+      color: Theme.mainTextColor
+    }
+
+    QfTextField {
+      id: passwordField
+      echoMode: TextInput.Password
+      inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+      Layout.preferredWidth: parent.width / 1.3
+      Layout.alignment: Qt.AlignHCenter
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+      enabled: visible
+      font: Theme.defaultFont
+      horizontalAlignment: Text.AlignHCenter
+
+      Keys.onReturnPressed: loginFormSumbitHandler()
+    }
+
+    FontMetrics {
+      id: fontMetrics
+      font: Theme.defaultFont
+    }
+
+    QfButton {
+      Layout.fillWidth: true
+      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
+      enabled: cloudConnection.status != QFieldCloudConnection.Connecting
+
+      onClicked: loginFormSumbitHandler()
+    }
+
+    Text {
+      id: cloudRegisterLabel
+      Layout.fillWidth: true
+      Layout.topMargin: 6
+      text: qsTr('New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr('Register an account') + '</a>.'
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.defaultFont
+      color: Theme.mainTextColor
+      textFormat: Text.RichText
+      wrapMode: Text.WordWrap
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+
+      onLinkActivated: link => {
+        if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
+          browserPopup.url = link;
+          browserPopup.fullscreen = true;
+          browserPopup.open();
+        } else {
           Qt.openUrlExternally(link);
         }
       }
+    }
 
-      Item {
-        // spacer item
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+    Text {
+      id: cloudIntroLabel
+      Layout.fillWidth: true
+      text: qsTr('The easiest way to transfer you project from QGIS to your devices!') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.defaultFont
+      color: Theme.mainTextColor
+      textFormat: Text.RichText
+      wrapMode: Text.WordWrap
+
+      onLinkActivated: link => {
+        Qt.openUrlExternally(link);
       }
+    }
+
+    Item {
+      // spacer item
+      Layout.fillWidth: true
+      Layout.fillHeight: true
     }
   }
 
