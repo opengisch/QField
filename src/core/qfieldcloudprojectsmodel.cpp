@@ -228,13 +228,6 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, in
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
     {
-      if ( projectFetchOffset == 0 )
-      {
-        beginResetModel();
-        mProjects.clear();
-        endResetModel();
-      }
-
       QString url = shouldRefreshPublic ? QStringLiteral( "/api/v1/projects/public/" ) : QStringLiteral( "/api/v1/projects/" );
 
       QVariantMap params;
@@ -1709,12 +1702,20 @@ void QFieldCloudProjectsModel::projectListReceived()
 
   QJsonDocument doc = QJsonDocument::fromJson( response );
   QJsonArray projects = doc.array();
+
+  const bool isPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::RefreshPublicProjects ) ).toBool();
+  const int projectFetchOffset = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
+  if ( projectFetchOffset == 0 )
+  {
+    beginResetModel();
+    mProjects.clear();
+    endResetModel();
+  }
+
   reload( projects );
 
   if ( projects.size() > 0 )
   {
-    bool isPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::RefreshPublicProjects ) ).toBool();
-    int projectFetchOffset = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
     refreshProjectsList( isPublic, projectFetchOffset );
   }
 }
@@ -2092,7 +2093,6 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "lastLocalExportId" ), cloudProject->lastLocalExportId );
     }
   };
-
 
   QList<CloudProject *> freshCloudProjects;
   for ( const auto project : remoteProjects )
