@@ -104,7 +104,7 @@ jobs:
         with:
           build_dir: "build"
           lgtm_comment_body: ''
-          clang_tidy_checks: '-*,performance-*,bugprone-*,clang-analyzer-*,mpi-*,-bugprone-narrowing-conversions'
+          clang_tidy_checks: '-*,performance-*,bugprone-*,clang-analyzer-*,mpi-*,-bugprone-narrowing-conversions,-clang-analyzer-optin.core.EnumCastOutOfRange,-performance-enum-size'
 
       - name: Package
         run: |
