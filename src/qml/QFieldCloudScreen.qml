@@ -7,7 +7,7 @@ import Theme 1.0
 import "."
 
 Page {
-  id: qfieldcloudScreen
+  id: qfieldCloudScreen
 
   signal finished
 
@@ -128,24 +128,24 @@ Page {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.margins: 10
+      Layout.topMargin: connectionInformation.visible ? 10 : connectionInformation.childrenRect.height
       spacing: 2
       visible: !connectionInformation.visible
 
       ScrollView {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        height: parent.height
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical: QfScrollBar {
         }
         contentWidth: qfieldCloudLogin.width
-        contentHeight: qfieldCloudLogin.childrenRect.height
+        contentHeight: qfieldCloudLogin.height
         clip: true
 
         QFieldCloudLogin {
           id: qfieldCloudLogin
           isVisible: connectionSettings.visible
-          width: parent.parent.width
+          width: connectionSettings.width
         }
       }
 
@@ -410,12 +410,14 @@ Page {
 
           Label {
             anchors.fill: parent
-            horizontalAlignment: Qt.AlignHCenter
-            verticalAlignment: Qt.AlignVCenter
-            visible: parent.count == 0
-            text: table.refreshing ? qsTr("Refreshing projects list") : qsTr("No projects found")
-            font: Theme.strongTipFont
-            color: Theme.secondaryTextColor
+            anchors.margins: 20
+            visible: parent.count == 0 && filterBar.currentIndex === 0
+            text: table.refreshing ? qsTr("Refreshing projects list") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
+            font: Theme.defaultFont
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            onLinkActivated: Qt.openUrlExternally(link)
           }
 
           MouseArea {
@@ -425,7 +427,7 @@ Page {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
               if (item) {
                 if (item.projectLocalPath != '') {
-                  qfieldcloudScreen.visible = false;
+                  qfieldCloudScreen.visible = false;
                   iface.loadFile(item.projectLocalPath);
                 } else {
                   // fetch remote project
@@ -521,7 +523,7 @@ Page {
           text: qsTr("Open Project")
           onTriggered: {
             if (projectActions.projectLocalPath != '') {
-              qfieldcloudScreen.visible = false;
+              qfieldCloudScreen.visible = false;
               iface.loadFile(projectActions.projectLocalPath);
             }
           }

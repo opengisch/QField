@@ -80,6 +80,7 @@ Popup {
         rowSpacing: 2
 
         RowLayout {
+          id: connectionInformation
           visible: cloudConnection.status === QFieldCloudConnection.LoggedIn
 
           Text {
@@ -574,6 +575,7 @@ Popup {
           id: connectionSettings
           Layout.fillWidth: true
           Layout.fillHeight: true
+          Layout.topMargin: connectionInformation.visible ? 0 : connectionInformation.childrenRect.height
           spacing: 2
 
           property bool visibility: false
