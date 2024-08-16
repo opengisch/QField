@@ -174,7 +174,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       DeltaUploaded
     };
 
-    //! whether to fetch public projects and to specify the offset for pagination.
+    //! Attributes controlling fetching of projects
     enum class ProjectsRequestAttribute
     {
       RefreshPublicProjects = QNetworkRequest::User + 1,

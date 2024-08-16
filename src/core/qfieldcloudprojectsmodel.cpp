@@ -228,6 +228,13 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, in
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
     {
+      if ( projectFetchOffset == 0 )
+      {
+        beginResetModel();
+        mProjects.clear();
+        endResetModel();
+      }
+
       QString url = shouldRefreshPublic ? QStringLiteral( "/api/v1/projects/public/" ) : QStringLiteral( "/api/v1/projects/" );
 
       QVariantMap params;
