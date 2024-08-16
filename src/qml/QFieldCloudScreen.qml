@@ -204,8 +204,11 @@ Page {
               }
             }
           }
+
           ScrollBar.vertical: QfScrollBar {
+            verticalPadding: 15
           }
+
           anchors.fill: parent
           anchors.margins: 1
           section.property: "Owner"
@@ -239,7 +242,7 @@ Page {
           }
 
           onVerticalOvershootChanged: {
-            if (verticalOvershoot < -100)
+            if (verticalOvershoot < -100 || verticalOvershoot > 100)
               overshootRefresh = true;
           }
 
@@ -545,12 +548,10 @@ Page {
 
         MenuItem {
           id: cancelDownloadProject
-
           font: Theme.defaultFont
           width: parent.width
           height: visible ? 48 : 0
           leftPadding: Theme.menuItemLeftPadding
-
           text: qsTr("Cancel Project Download")
           onTriggered: {
             cloudProjectsModel.projectCancelDownload(projectActions.projectId);
@@ -576,8 +577,9 @@ Page {
         Layout.bottomMargin: mainWindow.sceneBottomMargin
         text: qsTr("Refresh projects list")
         enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
-
-        onClicked: refreshProjectsList(filterBar.currentIndex !== 0)
+        onClicked: {
+          refreshProjectsList(filterBar.currentIndex !== 0);
+        }
       }
     }
   }
