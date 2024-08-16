@@ -895,7 +895,7 @@ Page {
     if (visible) {
       const currentProjectButtonVisible = !!qgisProject.fileName;
       currentProjectButton.visible = currentProjectButtonVisible;
-      exitButton.visible = currentProjectButtonVisible;
+      exitButton.visible = currentProjectButtonVisible && (Qt.platform.os === "ios" || Qt.platform.os === "android");
       if (firstShown) {
         welcomeText.text = " ";
       } else {
