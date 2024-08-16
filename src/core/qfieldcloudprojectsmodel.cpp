@@ -45,8 +45,7 @@
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   : mProject( QgsProject::instance() )
 {
-  QJsonArray projects;
-  reload( projects );
+  loadProjects();
 
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
   connect( this, &QFieldCloudProjectsModel::currentProjectIdChanged, this, [=]() {
@@ -98,8 +97,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     mUsername = mCloudConnection->username();
     if ( mCloudConnection->status() != QFieldCloudConnection::ConnectionStatus::LoggedIn )
     {
-      QJsonArray projects;
-      reload( projects );
+      loadProjects();
     }
     connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [=]() {
       mUsername = mCloudConnection->username();
@@ -239,7 +237,7 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, in
       request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
 
       request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::RefreshPublicProjects ), shouldRefreshPublic );
-      request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset + mProjectsPerFetch );
+      request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset );
 
       mCloudConnection->setAuthenticationToken( request );
       NetworkReply *reply = mCloudConnection->get( request, url, params );
@@ -1698,11 +1696,6 @@ void QFieldCloudProjectsModel::projectListReceived()
     return;
   }
 
-  QByteArray response = rawReply->readAll();
-
-  QJsonDocument doc = QJsonDocument::fromJson( response );
-  QJsonArray projects = doc.array();
-
   const bool isPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::RefreshPublicProjects ) ).toBool();
   const int projectFetchOffset = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
   if ( projectFetchOffset == 0 )
@@ -1712,11 +1705,14 @@ void QFieldCloudProjectsModel::projectListReceived()
     endResetModel();
   }
 
-  reload( projects );
+  QByteArray response = rawReply->readAll();
+  QJsonDocument doc = QJsonDocument::fromJson( response );
+  QJsonArray projects = doc.array();
 
+  loadProjects( projects, projectFetchOffset > 0 );
   if ( projects.size() > 0 )
   {
-    refreshProjectsList( isPublic, projectFetchOffset );
+    refreshProjectsList( isPublic, projectFetchOffset + mProjectsPerFetch );
   }
 }
 
@@ -2048,16 +2044,22 @@ void QFieldCloudProjectsModel::insertProjects( const QList<CloudProject *> &proj
   int newProjectsCount = 0;
   for ( CloudProject *project : projects )
   {
-    bool duplicated = false;
+    bool found = false;
     for ( int i = 0; i < mProjects.count(); ++i )
     {
       if ( mProjects[i]->id == project->id )
       {
-        duplicated = true;
+        if ( mProjects[i]->checkout == LocalCheckout && project->checkout != LocalCheckout )
+        {
+          delete mProjects[i];
+          mProjects[i] = project;
+          emit dataChanged( index( i, 0 ), index( i, 0 ) );
+        }
+        found = true;
         break;
       }
     }
-    if ( !duplicated )
+    if ( !found )
     {
       newProjectsCount++;
       mProjects.append( project );
@@ -2067,7 +2069,7 @@ void QFieldCloudProjectsModel::insertProjects( const QList<CloudProject *> &proj
   endInsertRows();
 }
 
-void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
+void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool skipLocalProjects )
 {
   QgsProject *qgisProject = QgsProject::instance();
 
@@ -2136,51 +2138,53 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
   insertProjects( freshCloudProjects );
 
-  QList<CloudProject *> userSpecificProjects;
-  QDirIterator userDirs( QFieldCloudUtils::localCloudDirectory(), QDir::Dirs | QDir::NoDotAndDotDot );
-  while ( userDirs.hasNext() )
+  if ( !skipLocalProjects )
   {
-    userDirs.next();
-    const QString username = userDirs.fileName();
-
-    // We skip cloud projects that are not linked to the last successul logged in account
-    if ( username != mUsername )
-      continue;
-
-    QDirIterator projectDirs( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), username ), QDir::Dirs | QDir::NoDotAndDotDot );
-    while ( projectDirs.hasNext() )
+    QList<CloudProject *> userSpecificProjects;
+    QDirIterator userDirs( QFieldCloudUtils::localCloudDirectory(), QDir::Dirs | QDir::NoDotAndDotDot );
+    while ( userDirs.hasNext() )
     {
-      projectDirs.next();
+      userDirs.next();
+      const QString username = userDirs.fileName();
 
-      const QString projectId = projectDirs.fileName();
-      CloudProject *project = findProject( projectId );
-      if ( project )
+      // We skip cloud projects that are not linked to the last successul logged in account
+      if ( username != mUsername )
         continue;
 
-      const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-      if ( !QSettings().contains( QStringLiteral( "%1/name" ).arg( projectPrefix ) ) )
-        continue;
+      QDirIterator projectDirs( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), username ), QDir::Dirs | QDir::NoDotAndDotDot );
+      while ( projectDirs.hasNext() )
+      {
+        projectDirs.next();
 
-      const QString owner = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "owner" ) ).toString();
-      const QString name = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ) ).toString();
-      const QString description = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "description" ) ).toString();
-      const QString updatedAt = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
-      const QString userRole = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
-      const QString userRoleOrigin = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRoleOrigin" ) ).toString();
+        const QString projectId = projectDirs.fileName();
+        CloudProject *project = findProject( projectId );
+        if ( project )
+          continue;
 
-      CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, userRoleOrigin, LocalCheckout, ProjectStatus::Idle, QDateTime(), false, false );
+        const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
+        if ( !QSettings().contains( QStringLiteral( "%1/name" ).arg( projectPrefix ) ) )
+          continue;
 
-      cloudProject->localPath = QFieldCloudUtils::localProjectFilePath( username, cloudProject->id );
-      QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
-      restoreLocalSettings( cloudProject, localPath );
+        const QString owner = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "owner" ) ).toString();
+        const QString name = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ) ).toString();
+        const QString description = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "description" ) ).toString();
+        const QString updatedAt = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
+        const QString userRole = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
+        const QString userRoleOrigin = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRoleOrigin" ) ).toString();
 
+        CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, userRoleOrigin, LocalCheckout, ProjectStatus::Idle, QDateTime(), false, false );
 
-      userSpecificProjects.push_back( cloudProject );
-      Q_ASSERT( projectId == cloudProject->id );
+        cloudProject->localPath = QFieldCloudUtils::localProjectFilePath( username, cloudProject->id );
+        QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
+        restoreLocalSettings( cloudProject, localPath );
+
+        userSpecificProjects.push_back( cloudProject );
+        Q_ASSERT( projectId == cloudProject->id );
+      }
     }
-  }
 
-  insertProjects( userSpecificProjects );
+    insertProjects( userSpecificProjects );
+  }
 }
 
 int QFieldCloudProjectsModel::rowCount( const QModelIndex &parent ) const
