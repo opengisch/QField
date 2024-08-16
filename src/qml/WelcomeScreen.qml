@@ -45,6 +45,15 @@ Page {
     topPadding: Math.max(0, Math.min(80, (mainWindow.height - welcomeGrid.height) / 2 - 45))
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical: QfScrollBar {
+      opacity: active
+      _maxSize: 4
+      _minSize: 2
+
+      Behavior on opacity  {
+        NumberAnimation {
+          duration: 200
+        }
+      }
     }
     contentItem: welcomeGrid
     contentWidth: welcomeGrid.width

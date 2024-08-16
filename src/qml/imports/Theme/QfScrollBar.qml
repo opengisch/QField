@@ -7,8 +7,8 @@ T.ScrollBar {
   id: control
 
   property color color: Theme.mainColor
-  readonly property real _maxSize: 8
-  readonly property real _minSize: 4
+  property real _maxSize: 8
+  property real _minSize: 4
 
   width: horizontal ? parent.width : _maxSize
   height: horizontal ? _maxSize : parent.height
