@@ -407,12 +407,14 @@ Page {
 
           Label {
             anchors.fill: parent
-            horizontalAlignment: Qt.AlignHCenter
-            verticalAlignment: Qt.AlignVCenter
-            visible: parent.count == 0
-            text: table.refreshing ? qsTr("Refreshing projects list") : qsTr("No projects found")
-            font: Theme.strongTipFont
-            color: Theme.secondaryTextColor
+            anchors.margins: 20
+            visible: parent.count == 0 && filterBar.currentIndex === 0
+            text: table.refreshing ? qsTr("Refreshing projects list") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
+            font: Theme.defaultFont
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            onLinkActivated: Qt.openUrlExternally(link)
           }
 
           MouseArea {
