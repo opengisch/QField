@@ -553,6 +553,8 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
      */
     void setShowLocalOnly( bool showLocalOnly );
 
+    Q_INVOKABLE void setTextFilter( const QString &newTextFilter );
+
   signals:
 
     void projectsModelChanged();
@@ -566,6 +568,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     QFieldCloudProjectsModel *mSourceModel = nullptr;
     ProjectsFilter mFilter = PrivateProjects;
     bool mShowLocalOnly = false;
+    QString mTextFilter;
 };
 
 Q_DECLARE_METATYPE( QFieldCloudProjectsFilterModel::ProjectsFilter )

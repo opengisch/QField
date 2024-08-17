@@ -2453,22 +2453,38 @@ bool QFieldCloudProjectsFilterModel::showLocalOnly() const
 
 bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
-  if ( mShowLocalOnly && mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
+  auto currentRowIndex = mSourceModel->index( source_row, 0, source_parent );
+  if ( mShowLocalOnly && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
   {
     return false;
   }
 
-  bool ok = false;
+  bool matchesProjectType = false;
   switch ( mFilter )
   {
     case PrivateProjects:
       // the list will include public "community" projects that are present locally so they can appear in the "My projects" list
-      ok = mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::UserRoleOriginRole ).toString() != QStringLiteral( "public" )
-           || !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty();
+      matchesProjectType = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() != QStringLiteral( "public" )
+                           || !mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty();
       break;
     case PublicProjects:
-      ok = mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" );
+      matchesProjectType = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" );
       break;
   }
-  return ok;
+
+  QString Name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
+  QString Description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
+  QString Owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
+
+  bool matchesTextFilter = mTextFilter.isEmpty() || Name.contains( mTextFilter, Qt::CaseInsensitive ) || Description.contains( mTextFilter, Qt::CaseInsensitive ) || Owner.contains( mTextFilter, Qt::CaseInsensitive );
+
+  return matchesProjectType && matchesTextFilter;
+}
+
+void QFieldCloudProjectsFilterModel::setTextFilter( const QString &newTextFilter )
+{
+  if ( mTextFilter == newTextFilter )
+    return;
+  mTextFilter = newTextFilter;
+  invalidateFilter();
 }
