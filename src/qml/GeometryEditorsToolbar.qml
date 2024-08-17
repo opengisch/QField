@@ -6,7 +6,7 @@ import Theme
 
 /**
 This contains several geometry editing tools
-A tool must subclass VisibilityFadingRow
+A tool must subclass QfVisibilityFadingRow
 And contains following functions:
   * function init(featureModel, mapSettings, editorRubberbandModel)
   * function cancel()
@@ -22,7 +22,7 @@ It can optionally implement the functions:
   * canvasLongPressed(point)
   These functions must return true if they catch the event
 */
-VisibilityFadingRow {
+QfVisibilityFadingRow {
   id: geometryEditorsToolbar
 
   property FeatureModel featureModel //<! the feature which has its geometry being edited
@@ -100,7 +100,7 @@ VisibilityFadingRow {
       return false;
   }
 
-  VisibilityFadingRow {
+  QfVisibilityFadingRow {
     id: selectorRow
     stateVisible: true
 

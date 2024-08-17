@@ -4,7 +4,7 @@ import org.qfield
 import Theme
 import ".."
 
-VisibilityFadingRow {
+QfVisibilityFadingRow {
   id: reshapeToolbar
 
   signal finished

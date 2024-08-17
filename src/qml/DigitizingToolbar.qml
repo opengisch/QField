@@ -4,7 +4,7 @@ import org.qgis
 import org.qfield
 import Theme
 
-VisibilityFadingRow {
+QfVisibilityFadingRow {
   id: digitizingToolbar
 
   property RubberbandModel rubberbandModel

@@ -5,7 +5,7 @@ import org.qfield
 import Theme
 import ".."
 
-VisibilityFadingRow {
+QfVisibilityFadingRow {
   id: fillRingToolbar
 
   signal finished
