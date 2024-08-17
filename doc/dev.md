@@ -237,3 +237,46 @@ Before commiting, install pre-commit to auto-format your code.
 pip install pre-commit
 pre-commit install
 ```
+
+## Developer Walkthrough for Ubuntu Linux
+
+### Initial Setup
+
+1. **Clone the Source Code:**
+   - Use `git` to clone the repository from GitHub.
+
+2. **Install Required Tools:**
+   - Install Qt Creator, a compiler, and other dependencies:
+     ```bash
+     sudo apt update
+     sudo apt install qtcreator build-essential
+     ```
+
+#### Build
+
+1. **Build from Command Line:**
+   - Run the convenience script to build the project:
+     ```bash
+     ./scripts/build-for-linux.sh
+     ```
+
+2. **Resolve Dependencies:**
+   - If the build fails, check the error output for missing dependencies and install them as recommended.
+
+#### Setup the IDE
+
+1. **Open Qt Creator:**
+   - Launch Qt Creator from your application menu or terminal.
+
+2. **Setup Qt Installation:**
+   - Go to `Preferences -> Kits -> Qt Versions -> Add`.
+   - Select `qmake` from `build-x64-linux/vcpkg_installed/x64-linux/tools/Qt6/bin/qmake`.
+
+3. **Create a New Kit:**
+   - Add a new kit in the `Kits` tab, selecting the newly added Qt version.
+
+4. **Create a New Project:**
+   - Open the `CMakeLists.txt` file from the source code directory.
+   - Select the newly created kit with a Debug configuration, pointing to the `build-x64-linux` directory.
+
+You are now ready to develop and run the project using Qt Creator!
