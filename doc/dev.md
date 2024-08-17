@@ -238,7 +238,9 @@ pip install pre-commit
 pre-commit install
 ```
 
-## Developer Walkthrough for Ubuntu Linux
+## Developer Walkthrough for Linux
+
+The commands below are using `apt`, so they are written for Debian based systems like Ubuntu. Adapt accordingly for other distributions.
 
 ### Initial Setup
 
