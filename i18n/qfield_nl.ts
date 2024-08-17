@@ -2668,7 +2668,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>No projects found</source>
-        <translation>Geen projecten gevonden</translation>
+        <translation type="vanished">Geen projecten gevonden</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2693,6 +2693,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>QFieldCloud benaderen om project te downloaden</translation>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

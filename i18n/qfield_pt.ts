@@ -2670,7 +2670,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>No projects found</source>
-        <translation>Não foram encontrados projetos</translation>
+        <translation type="vanished">Não foram encontrados projetos</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2695,6 +2695,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>Ligando-se ao QFieldCloud para baixar o projeto</translation>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

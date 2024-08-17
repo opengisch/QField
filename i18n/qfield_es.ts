@@ -2668,7 +2668,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation>Proyecto no localizado</translation>
+        <translation type="vanished">Proyecto no localizado</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2693,6 +2693,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

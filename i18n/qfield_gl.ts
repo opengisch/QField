@@ -2668,7 +2668,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>No projects found</source>
-        <translation>Non se atoparon proxectos</translation>
+        <translation type="vanished">Non se atoparon proxectos</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2693,6 +2693,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>Chegando a QFieldCloud para descargar o proxecto</translation>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

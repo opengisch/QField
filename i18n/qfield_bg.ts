@@ -2670,7 +2670,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation>Няма намерени проекти</translation>
+        <translation type="vanished">Няма намерени проекти</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2694,6 +2694,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
 </context>

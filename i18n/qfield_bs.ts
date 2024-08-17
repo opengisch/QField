@@ -2695,6 +2695,10 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
         <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>

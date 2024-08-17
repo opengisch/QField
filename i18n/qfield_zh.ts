@@ -2666,7 +2666,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation>未找到工程</translation>
+        <translation type="vanished">未找到工程</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2691,6 +2691,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>联系QFieldCloud下载工程</translation>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

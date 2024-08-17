@@ -2662,7 +2662,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>No projects found</source>
-        <translation>Nem találtunk projekteket</translation>
+        <translation type="vanished">Nem találtunk projekteket</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2686,6 +2686,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
 </context>

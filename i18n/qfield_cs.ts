@@ -2671,7 +2671,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>No projects found</source>
-        <translation>Nenalezeny žádné projekty</translation>
+        <translation type="vanished">Nenalezeny žádné projekty</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2695,6 +2695,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
 </context>

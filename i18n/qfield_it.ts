@@ -2673,7 +2673,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>No projects found</source>
-        <translation>Nessun progetto trovato</translation>
+        <translation type="vanished">Nessun progetto trovato</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2698,6 +2698,10 @@ Messaggio dell&apos;errore: %4</translation>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>Raggiungi QFieldCloud per scaricare il progetto</translation>
+    </message>
+    <message>
+        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
