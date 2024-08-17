@@ -14,17 +14,17 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Controls.Material 2.14
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
 import QtQuick.Effects
-import QtQuick.Window 2.14
-import QtQml 2.14
-import QtSensors 5.14
+import QtQuick.Window
+import QtQml
+import QtSensors
 import QtCore
-import org.qgis 1.0
-import org.qfield 1.0
-import Theme 1.0
+import org.qgis
+import org.qfield
+import Theme
 
 ApplicationWindow {
   id: mainWindow

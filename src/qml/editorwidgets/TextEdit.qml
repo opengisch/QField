@@ -1,8 +1,7 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import Theme 1.0
-import org.qfield 1.0
-import "."
+import QtQuick
+import QtQuick.Controls
+import org.qfield
+import Theme
 
 EditorWidgetBase {
   id: topItem

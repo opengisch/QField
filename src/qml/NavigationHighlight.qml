@@ -1,7 +1,7 @@
-import QtQuick 2.14
-import org.qgis 1.0
-import org.qfield 1.0
-import Theme 1.0
+import QtQuick
+import org.qgis
+import org.qfield
+import Theme
 
 Item {
   id: navigationHighlight

@@ -1,5 +1,5 @@
-import QtQuick 2.14
-import Theme 1.0
+import QtQuick
+import Theme
 
 Rectangle {
   id: container

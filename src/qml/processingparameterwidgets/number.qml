@@ -1,9 +1,8 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import Theme 1.0
-import org.qfield 1.0
-import org.qgis 1.0
-import "."
+import QtQuick
+import QtQuick.Controls
+import Theme
+import org.qfield
+import org.qgis
 
 ProcessingParameterWidgetBase {
   id: numberItem

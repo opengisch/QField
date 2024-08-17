@@ -1,7 +1,6 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import Theme 1.0
-import "."
+import QtQuick
+import QtQuick.Controls
+import Theme
 
 EditorWidgetBase {
   height: childrenRect.height

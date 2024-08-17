@@ -14,10 +14,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQml 2.15
-import org.qgis 1.0
+import QtQuick
+import QtQuick.Controls
+import QtQml
+import org.qgis
 
 Item {
   id: mapArea
