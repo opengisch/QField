@@ -180,6 +180,16 @@ Page {
         }
       }
 
+      SearchBar {
+        Layout.fillWidth: true
+        Layout.preferredHeight: 41
+        color: Theme.mainBackgroundColor
+
+        onValidateFilter: function (filter) {
+          table.model.setTextFilter(filter);
+        }
+      }
+
       Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
@@ -192,71 +202,6 @@ Page {
 
           property bool overshootRefresh: false
           property bool refreshing: false
-          headerPositioning: ListView.OverlayHeader
-
-          header: Rectangle {
-            width: table.width
-            height: 41
-            color: Theme.mainBackgroundColor
-            z: 20
-
-            Rectangle {
-              width: table.width
-              height: 40
-              radius: 6
-              border.width: 1
-              color: Theme.mainBackgroundColor
-              border.color: searchBar.activeFocus ? Theme.mainColor : "transparent"
-
-              QfToolButton {
-                id: searchButton
-                width: 40
-                height: 40
-                anchors.left: parent.left
-                bgcolor: "transparent"
-                iconSource: Theme.getThemeIcon("ic_baseline_search_black")
-                iconColor: Theme.mainTextColor
-                onClicked: {
-                  table.model.setTextFilter(searchBar.text);
-                }
-              }
-
-              QfToolButton {
-                id: clearButton
-                anchors.right: parent.right
-                width: 40
-                height: 40
-                iconSource: Theme.getThemeIcon('ic_close_black_24dp')
-                iconColor: Theme.mainTextColor
-                bgcolor: "transparent"
-                visible: searchBar.text !== ""
-                onClicked: {
-                  searchBar.text = '';
-                  table.model.setTextFilter('');
-                }
-              }
-
-              TextField {
-                id: searchBar
-                padding: 7
-                anchors.left: searchButton.right
-                anchors.right: clearButton.left
-                anchors.rightMargin: 4
-                height: 40
-                leftPadding: padding + 4
-                selectByMouse: true
-                placeholderText: (!searchBar.activeFocus && text === "" && displayText === "") ? qsTr("Search for project") : ""
-                background: Item {
-                }
-                Keys.onEnterPressed: {
-                  table.model.setTextFilter(text);
-                }
-                Keys.onReturnPressed: {
-                  table.model.setTextFilter(text);
-                }
-              }
-            }
-          }
 
           model: QFieldCloudProjectsFilterModel {
             projectsModel: cloudProjectsModel
