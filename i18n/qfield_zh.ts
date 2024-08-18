@@ -2694,7 +2694,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>未找到云工程。要开始，请%1阅读文档%2。</translation>
     </message>
 </context>
 <context>
