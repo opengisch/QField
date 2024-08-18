@@ -47,6 +47,10 @@ ColumnLayout {
         property var itemRow: index
         property bool canDelete: table.model.isEditable(index)
 
+        function forceFocusOnVariableName() {
+          variableNameText.forceActiveFocus();
+        }
+
         Row {
           id: line
           spacing: 5
@@ -153,8 +157,7 @@ ColumnLayout {
     onClicked: {
       table.model.addCustomVariable("new_variable", "");
       table.positionViewAtIndex(table.count - 1, ListView.visible);
-      // TODO: Use Qt 5.13 itemAtIndex( index )
-      table.children[0].children[table.count].children[0].children[0].forceActiveFocus();
+      table.itemAtIndex(table.count - 1).forceFocusOnVariableName();
     }
   }
 }
