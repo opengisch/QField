@@ -118,6 +118,6 @@
         <file>QFieldGuide.qml</file>
         <file>imports/Theme/QfProgrerssRing.qml</file>
         <file>imports/Theme/QfScrollBar.qml</file>
-        <file>SearchBar.qml</file>
+        <file>imports/Theme/QfSearchBar.qml</file>
     </qresource>
 </RCC>

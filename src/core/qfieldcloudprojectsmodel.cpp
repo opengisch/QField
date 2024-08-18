@@ -2453,7 +2453,7 @@ bool QFieldCloudProjectsFilterModel::showLocalOnly() const
 
 bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
-  auto currentRowIndex = mSourceModel->index( source_row, 0, source_parent );
+  const QModelIndex currentRowIndex = mSourceModel->index( source_row, 0, source_parent );
   if ( mShowLocalOnly && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
   {
     return false;
@@ -2472,9 +2472,9 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
       break;
   }
 
-  QString Name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
-  QString Description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
-  QString Owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
+  const QString Name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
+  const QString Description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
+  const QString Owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
 
   bool matchesTextFilter = mTextFilter.isEmpty() || Name.contains( mTextFilter, Qt::CaseInsensitive ) || Description.contains( mTextFilter, Qt::CaseInsensitive ) || Owner.contains( mTextFilter, Qt::CaseInsensitive );
 
@@ -2487,4 +2487,9 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &newTextFilter
     return;
   mTextFilter = newTextFilter;
   invalidateFilter();
+}
+
+QString QFieldCloudProjectsFilterModel::textFilter() const
+{
+  return mTextFilter;
 }

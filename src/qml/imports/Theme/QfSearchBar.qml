@@ -3,10 +3,8 @@ import QtQuick.Controls
 import org.qfield
 import Theme
 
-Rectangle {
-  z: 20
-
-  signal validateFilter(string text)
+Item {
+  property alias searchTerm: searchBar.text
 
   Rectangle {
     width: parent.width
@@ -27,7 +25,6 @@ Rectangle {
       visible: searchBar.text !== ""
       onClicked: {
         searchBar.text = '';
-        validateFilter(searchBar.text);
       }
     }
 
@@ -40,7 +37,7 @@ Rectangle {
       iconSource: Theme.getThemeIcon("ic_baseline_search_black")
       iconColor: Theme.mainTextColor
       onClicked: {
-        validateFilter(searchBar.text);
+        searchBar.focus = true;
       }
     }
 
@@ -55,12 +52,6 @@ Rectangle {
       selectByMouse: true
       placeholderText: (!searchBar.activeFocus && text === "" && displayText === "") ? qsTr("Search for project") : ""
       background: Item {
-      }
-      Keys.onEnterPressed: {
-        validateFilter(searchBar.text);
-      }
-      Keys.onReturnPressed: {
-        validateFilter(searchBar.text);
       }
     }
   }

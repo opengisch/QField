@@ -180,14 +180,10 @@ Page {
         }
       }
 
-      SearchBar {
+      QfSearchBar {
+        id: searchBar
         Layout.fillWidth: true
         Layout.preferredHeight: 41
-        color: Theme.mainBackgroundColor
-
-        onValidateFilter: function (filter) {
-          table.model.setTextFilter(filter);
-        }
       }
 
       Rectangle {
@@ -207,7 +203,7 @@ Page {
             projectsModel: cloudProjectsModel
             filter: filterBar.currentIndex === 0 ? QFieldCloudProjectsFilterModel.PrivateProjects : QFieldCloudProjectsFilterModel.PublicProjects
             showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
-
+            textFilter: searchBar.searchTerm
             onFilterChanged: {
               if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
                 refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects);
