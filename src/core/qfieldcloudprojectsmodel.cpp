@@ -2472,11 +2472,11 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
       break;
   }
 
-  const QString Name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
-  const QString Description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
-  const QString Owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
+  const QString name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
+  const QString description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
+  const QString owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
 
-  bool matchesTextFilter = mTextFilter.isEmpty() || Name.contains( mTextFilter, Qt::CaseInsensitive ) || Description.contains( mTextFilter, Qt::CaseInsensitive ) || Owner.contains( mTextFilter, Qt::CaseInsensitive );
+  bool matchesTextFilter = mTextFilter.isEmpty() || name.contains( mTextFilter, Qt::CaseInsensitive ) || description.contains( mTextFilter, Qt::CaseInsensitive ) || owner.contains( mTextFilter, Qt::CaseInsensitive );
 
   return matchesProjectType && matchesTextFilter;
 }
