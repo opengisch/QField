@@ -319,7 +319,7 @@ Page {
 
       onHtmlCodeChanged: {
         if (htmlItem === undefined) {
-          htmlItem = Qt.createQmlObject('import QtWebView 1.14;
+          htmlItem = Qt.createQmlObject('import QtWebView;
             WebView {
               id: htmlItem;
               height: 0;

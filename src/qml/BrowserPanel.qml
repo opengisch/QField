@@ -66,36 +66,22 @@ Popup {
     if (url != '') {
       if (browserView === undefined) {
         // avoid cost of WevView creation until needed
-        if (qVersion >= '6.0.0') {
-          browserView = Qt.createQmlObject('import QtWebView
-            WebView {
-              id: browserView
-              anchors { top: parent.top; left: parent.left; right: parent.right; }
-              onLoadingChanged: {
-                if ( !loading ) {
-                  anchors.fill = parent; width = parent.width
-                  height = parent.height; opacity = 1
-                }
+        browserView = Qt.createQmlObject('import QtWebView
+          WebView {
+            id: browserView
+            anchors { top: parent.top; left: parent.left; right: parent.right; }
+            onLoadingChanged: {
+              if ( !loading ) {
+                anchors.fill = parent; width = parent.width
+                height = parent.height; opacity = 1
               }
-              onCookieAdded: (domain, name) => {
-                browserPanel.browserCookies.push([domain, name])
-              }
-            }', browserContent);
-          if (clearCookiesOnOpen) {
-            browserView.deleteAllCookies();
-          }
-        } else {
-          browserView = Qt.createQmlObject('import QtWebView 1.14
-            WebView {
-              id: browserView
-              anchors { top: parent.top; left: parent.left; right: parent.right; }
-              onLoadingChanged: {
-                if ( !loading ) {
-                  anchors.fill = parent; width = parent.width
-                  height = parent.height; opacity = 1
-                }
-              }
-            }', browserContent);
+            }
+            onCookieAdded: (domain, name) => {
+              browserPanel.browserCookies.push([domain, name])
+            }
+          }', browserContent);
+        if (clearCookiesOnOpen) {
+          browserView.deleteAllCookies();
         }
       }
       browserView.anchors.fill = undefined;
