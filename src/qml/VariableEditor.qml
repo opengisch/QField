@@ -29,6 +29,7 @@ ColumnLayout {
     ListView {
       id: table
       model: ExpressionVariableModel {
+        currentProject: qgisProject
       }
       flickableDirection: Flickable.VerticalFlick
       boundsBehavior: Flickable.StopAtBounds

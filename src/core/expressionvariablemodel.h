@@ -17,10 +17,13 @@
 #define EXPRESSIONVARIABLEMODEL_H
 
 #include <QStandardItemModel>
+#include <qgsproject.h>
 
 class ExpressionVariableModel : public QStandardItemModel
 {
     Q_OBJECT
+
+    Q_PROPERTY( QgsProject *currentProject READ currentProject WRITE setCurrentProject NOTIFY currentProjectChanged )
 
   public:
     enum Roles
@@ -49,8 +52,17 @@ class ExpressionVariableModel : public QStandardItemModel
 
     QHash<int, QByteArray> roleNames() const override;
 
+    QgsProject *currentProject() const;
+    void setCurrentProject( QgsProject *newCurrentProject );
+
+  signals:
+    void currentProjectChanged();
+
   private slots:
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
+
+  private:
+    QgsProject *mCurrentProject = nullptr;
 };
 
 #endif // EXPRESSIONVARIABLEMODEL_H

@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "expressionvariablemodel.h"
+#include "utils/expressioncontextutils.h"
 
 #include <QDebug>
 #include <QSettings>
@@ -72,7 +73,7 @@ void ExpressionVariableModel::reloadVariables()
   QStringList variableNames = scope->variableNames();
   variableNames.sort();
 
-  // First add readonly variables
+  // First add readonly app variables
   for ( const QString &varName : variableNames )
   {
     if ( scope->isReadOnly( varName ) )
@@ -89,6 +90,21 @@ void ExpressionVariableModel::reloadVariables()
       insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
     }
   }
+
+  // Second add readonly project variables
+  QVariantMap projectVariables = ExpressionContextUtils::projectVariables( mCurrentProject );
+  for ( const QString &varName : projectVariables.keys() )
+  {
+    QStandardItem *nameItem = new QStandardItem( varName );
+    QVariant varValue = projectVariables.value( varName ).toString();
+
+    nameItem->setData( varName, VariableName );
+    nameItem->setData( varValue, VariableValue );
+    nameItem->setEditable( false );
+
+    insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
+  }
+
 
   // Then add custom variables
   for ( const QString &varName : variableNames )
@@ -146,4 +162,17 @@ void ExpressionVariableModel::onDataChanged( const QModelIndex &topLeft, const Q
 {
   Q_UNUSED( bottomRight )
   Q_UNUSED( roles )
+}
+
+QgsProject *ExpressionVariableModel::currentProject() const
+{
+  return mCurrentProject;
+}
+
+void ExpressionVariableModel::setCurrentProject( QgsProject *newCurrentProject )
+{
+  if ( mCurrentProject == newCurrentProject )
+    return;
+  mCurrentProject = newCurrentProject;
+  emit currentProjectChanged();
 }
