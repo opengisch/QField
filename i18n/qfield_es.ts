@@ -2073,7 +2073,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
+        <translation>El geoetiquetado de imágenes requiere que el posicionamiento está activado</translation>
     </message>
 </context>
 <context>
@@ -2696,7 +2696,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>No se ha encontrado ningún proyecto en la nube. Para comenzar, %1lea la documentación%2.</translation>
     </message>
 </context>
 <context>
@@ -2711,7 +2711,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>El almacenamiento disponible de su cuenta está lleno.</translation>
     </message>
 </context>
 <context>
@@ -2829,11 +2829,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
+        <translation>Enviar a QFieldCloud...</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>‘%1’ se está subiendo a QFieldCloud</translation>
     </message>
 </context>
 <context>
