@@ -2481,11 +2481,11 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
   return matchesProjectType && matchesTextFilter;
 }
 
-void QFieldCloudProjectsFilterModel::setTextFilter( const QString &newTextFilter )
+void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 {
-  if ( mTextFilter == newTextFilter )
+  if ( mTextFilter == text )
     return;
-  mTextFilter = newTextFilter;
+  mTextFilter = text;
   invalidateFilter();
 }
 

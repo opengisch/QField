@@ -555,9 +555,14 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void setShowLocalOnly( bool showLocalOnly );
 
     /**
-     * Sets a filter text to apply to projects. This text will be searched in the project's name, owner's name, and descriptions.
+     * Sets a \a text string filter projects by matching it against the project's name or description
+     * as well well as owner's name.
      */
-    void setTextFilter( const QString &newTextFilter );
+    void setTextFilter( const QString &text );
+
+    /**
+     * Returns the current text string used to filter projects.
+     */
     QString textFilter() const;
 
   signals:
