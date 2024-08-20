@@ -125,23 +125,9 @@
         <file>themes/qfield/xxhdpi/ic_file_black_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_file_black_24dp.png</file>
         <file>themes/qfield/nodpi/ic_folder_gray_48dp.svg</file>
-        <file>themes/qfield/hdpi/ic_folder_gray_48dp.png</file>
-        <file>themes/qfield/mdpi/ic_folder_gray_48dp.png</file>
-        <file>themes/qfield/xhdpi/ic_folder_gray_48dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_folder_gray_48dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_folder_gray_48dp.png</file>
+        <file>themes/qfield/nodpi/ic_folder_favorite_gray_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_folder_qfield_gray_48dp.svg</file>
-        <file>themes/qfield/hdpi/ic_folder_qfield_gray_48dp.png</file>
-        <file>themes/qfield/mdpi/ic_folder_qfield_gray_48dp.png</file>
-        <file>themes/qfield/xhdpi/ic_folder_qfield_gray_48dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_folder_qfield_gray_48dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_folder_qfield_gray_48dp.png</file>
         <file>themes/qfield/nodpi/ic_sd_card_gray_48dp.svg</file>
-        <file>themes/qfield/hdpi/ic_sd_card_gray_48dp.png</file>
-        <file>themes/qfield/mdpi/ic_sd_card_gray_48dp.png</file>
-        <file>themes/qfield/xhdpi/ic_sd_card_gray_48dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_sd_card_gray_48dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_sd_card_gray_48dp.png</file>
         <file>themes/qfield/nodpi/ic_sensor_on_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_sensor_off_black_24dp.svg</file>
         <file>themes/qfield/hdpi/ic_merge_features_white_24dp.png</file>

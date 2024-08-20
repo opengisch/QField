@@ -80,6 +80,7 @@ class LocalFilesModel : public QAbstractListModel
       ItemPathRole,
       ItemSizeRole,
       ItemHasThumbnailRole,
+      ItemIsFavoriteRole,
     };
     Q_ENUM( Role )
 
@@ -96,6 +97,15 @@ class LocalFilesModel : public QAbstractListModel
 
     //! Resets the model and sets the first navigation history item to the provided \a path
     Q_INVOKABLE void resetToPath( const QString &path );
+
+    //! Returns whether \a path's favorite state is editable
+    Q_INVOKABLE bool isPathFavoriteEditable( const QString &path );
+
+    //! Adds the \a path to the favorites list
+    Q_INVOKABLE void addToFavorites( const QString &path );
+
+    //! Removes the \a path to the favorites list
+    Q_INVOKABLE void removeFromFavorites( const QString &path );
 
     //! Returns the current title derived from the current path
     QString currentTitle() const;
@@ -128,6 +138,8 @@ class LocalFilesModel : public QAbstractListModel
 
     QStringList mHistory;
     QList<Item> mItems;
+
+    QStringList mFavorites;
 };
 
 #endif // LOCALFILESMODEL_H
