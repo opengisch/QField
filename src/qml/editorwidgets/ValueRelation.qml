@@ -1,11 +1,10 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.14
-import org.qfield 1.0
-import org.qgis 1.0
-import Theme 1.0
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.qfield
+import org.qgis
+import Theme
 import ".."
-import "."
 
 EditorWidgetBase {
   id: valueRelation

@@ -1,5 +1,5 @@
-import QtQuick 2.14
-import org.qfield 1.0
+import QtQuick
+import org.qfield
 
 Item {
   id: geometryHighlighter

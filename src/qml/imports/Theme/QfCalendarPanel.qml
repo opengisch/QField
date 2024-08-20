@@ -1,9 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Theme 1.0
-import org.qfield 1.0
-import "."
+import org.qfield
+import Theme
 
 Popup {
   id: calendarPopup

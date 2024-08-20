@@ -1,5 +1,5 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
+import QtQuick
+import QtQuick.Controls
 
 Dial {
   id: control

@@ -1,9 +1,9 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQml 2.14
-import org.qgis 1.0
-import org.qfield 1.0
-import Theme 1.0
+import QtQuick
+import QtQuick.Controls
+import QtQml
+import org.qgis
+import org.qfield
+import Theme
 
 Rectangle {
   id: elevationProfile

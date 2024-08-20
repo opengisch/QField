@@ -69,7 +69,6 @@
         <file>TemporalProperties.qml</file>
         <file>LayerTreeItemProperties.qml</file>
         <file>VertexRubberband.qml</file>
-        <file>VisibilityFadingRow.qml</file>
         <file>LocatorItem.qml</file>
         <file>LocatorSettings.qml</file>
         <file>OverlayFeatureFormDrawer.qml</file>
@@ -100,6 +99,7 @@
         <file>imports/Theme/QfTabBar.qml</file>
         <file>imports/Theme/qmldir</file>
         <file>imports/Theme/QfSwipeAnimator.qml</file>
+        <file>imports/Theme/QfVisibilityFadingRow.qml</file>
         <file>TrackerSettings.qml</file>
         <file>TrackingSession.qml</file>
         <file>EmbeddedFeatureForm.qml</file>

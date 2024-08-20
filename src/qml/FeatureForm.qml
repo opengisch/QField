@@ -1,14 +1,14 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Controls.Material 2.14
-import QtQuick.Layouts 1.14
-import QtQml.Models 2.14
-import QtQml 2.14
-import QtCharts 2.14 // Not actually used here but added so the android deploy script adds the relevant package
-import QtWebView 1.14
-import org.qgis 1.0
-import org.qfield 1.0
-import Theme 1.0
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Layouts
+import QtQml.Models
+import QtQml
+import QtCharts
+import QtWebView
+import org.qgis
+import org.qfield
+import Theme
 
 Page {
   id: form
@@ -319,7 +319,7 @@ Page {
 
       onHtmlCodeChanged: {
         if (htmlItem === undefined) {
-          htmlItem = Qt.createQmlObject('import QtWebView 1.14;
+          htmlItem = Qt.createQmlObject('import QtWebView;
             WebView {
               id: htmlItem;
               height: 0;

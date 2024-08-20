@@ -1,6 +1,5 @@
-import QtQuick 2.14
 import QtCore
-import org.qfield 1.0
+import org.qfield
 
 Settings {
   property bool positioningActivated: false

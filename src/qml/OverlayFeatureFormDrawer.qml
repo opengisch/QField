@@ -1,8 +1,8 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Controls.Material 2.14
-import QtQuick.Window 2.14
-import org.qfield 1.0
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Window
+import org.qfield
 
 Drawer {
   id: overlayFeatureFormDrawer
