@@ -511,6 +511,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( QFieldCloudProjectsModel *projectsModel READ projectsModel WRITE setProjectsModel NOTIFY projectsModelChanged )
     Q_PROPERTY( ProjectsFilter filter READ filter WRITE setFilter NOTIFY filterChanged )
     Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
+    Q_PROPERTY( QString textFilter READ textFilter WRITE setTextFilter NOTIFY textFilterChanged )
 
   public:
     enum ProjectsFilter
@@ -539,7 +540,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     ProjectsFilter filter() const;
 
     /**
-     * Sets the the cloud project \a filter.
+     * Sets the cloud project \a filter.
      */
     void setFilter( ProjectsFilter filter );
 
@@ -553,11 +554,23 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
      */
     void setShowLocalOnly( bool showLocalOnly );
 
+    /**
+     * Sets a \a text string filter projects by matching it against the project's name or description
+     * as well well as owner's name.
+     */
+    void setTextFilter( const QString &text );
+
+    /**
+     * Returns the current text string used to filter projects.
+     */
+    QString textFilter() const;
+
   signals:
 
     void projectsModelChanged();
     void filterChanged();
     void showLocalOnlyChanged();
+    void textFilterChanged();
 
   protected:
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
@@ -566,6 +579,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     QFieldCloudProjectsModel *mSourceModel = nullptr;
     ProjectsFilter mFilter = PrivateProjects;
     bool mShowLocalOnly = false;
+    QString mTextFilter;
 };
 
 Q_DECLARE_METATYPE( QFieldCloudProjectsFilterModel::ProjectsFilter )

@@ -180,6 +180,12 @@ Page {
         }
       }
 
+      QfSearchBar {
+        id: searchBar
+        Layout.fillWidth: true
+        Layout.preferredHeight: 41
+      }
+
       Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
@@ -197,7 +203,7 @@ Page {
             projectsModel: cloudProjectsModel
             filter: filterBar.currentIndex === 0 ? QFieldCloudProjectsFilterModel.PrivateProjects : QFieldCloudProjectsFilterModel.PublicProjects
             showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
-
+            textFilter: searchBar.searchTerm
             onFilterChanged: {
               if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
                 refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects);
@@ -422,6 +428,7 @@ Page {
 
           MouseArea {
             property Item pressedItem
+            propagateComposedEvents: true
             anchors.fill: parent
             onClicked: mouse => {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
@@ -435,6 +442,7 @@ Page {
                   cloudProjectsModel.projectPackageAndDownload(item.projectId);
                 }
               }
+              mouse.accepted = false;
             }
             onPressed: mouse => {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
@@ -442,6 +450,7 @@ Page {
                 pressedItem = item;
                 pressedItem.isPressed = true;
               }
+              mouse.accepted = false;
             }
             onCanceled: {
               if (pressedItem) {
