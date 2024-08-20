@@ -30,16 +30,20 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
   const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized" ), false ).toBool();
   if ( !favoritesInitialized )
   {
-    QStringList favorites;
     const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
     if ( !applicationDirectory.isEmpty() )
     {
-      favorites << QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory )
-                << QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory );
+      mFavorites << QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory )
+                 << QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory );
     }
     const QString sampleProjectPath = PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) );
-    favorites << sampleProjectPath;
-    settings.setValue( QStringLiteral( "qfieldFavorites" ), favorites );
+    mFavorites << sampleProjectPath;
+    settings.setValue( QStringLiteral( "qfieldFavorites" ), mFavorites );
+    settings.setValue( QStringLiteral( "qfieldFavoritesInitialized" ), true );
+  }
+  else
+  {
+    mFavorites = settings.value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
   }
   resetToRoot();
 }
@@ -54,6 +58,7 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
   roles[ItemPathRole] = "ItemPath";
   roles[ItemSizeRole] = "ItemSize";
   roles[ItemHasThumbnailRole] = "ItemHasThumbnail";
+  roles[ItemIsFavoriteRole] = "ItemIsFavorite";
   return roles;
 }
 
@@ -75,6 +80,31 @@ void LocalFilesModel::resetToPath( const QString &path )
   if ( mHistory.isEmpty() )
   {
     resetToRoot();
+  }
+}
+
+bool LocalFilesModel::isPathFavoriteEditable( const QString &path )
+{
+  const QString sampleProjectPath = PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) );
+  return path != sampleProjectPath;
+}
+
+void LocalFilesModel::addToFavorites( const QString &path )
+{
+  if ( !mFavorites.contains( path ) )
+  {
+    mFavorites << path;
+    QSettings().setValue( QStringLiteral( "qfieldFavorites" ), mFavorites );
+    reloadModel();
+  }
+}
+
+void LocalFilesModel::removeFromFavorites( const QString &path )
+{
+  if ( mFavorites.removeAll( path ) )
+  {
+    QSettings().setValue( QStringLiteral( "qfieldFavorites" ), mFavorites );
+    reloadModel();
   }
 }
 
@@ -294,6 +324,9 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
     case ItemHasThumbnailRole:
       return mItems[index.row()].size < 25000000
              && SUPPORTED_DATASET_THUMBNAIL.contains( mItems[index.row()].format );
+
+    case ItemIsFavoriteRole:
+      return mFavorites.contains( mItems[index.row()].path );
   }
 
   return QVariant();

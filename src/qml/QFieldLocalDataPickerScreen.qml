@@ -81,6 +81,7 @@ Page {
         id: table
 
         model: LocalFilesModel {
+          id: localFilesModel
         }
 
         anchors.fill: parent
@@ -128,8 +129,9 @@ Page {
           property int itemType: ItemType
           property string itemTitle: ItemTitle
           property string itemPath: ItemPath
+          property bool itemIsFavorite: ItemIsFavorite
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
-          property bool itemMenuVisible: ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root'))) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
+          property bool itemMenuVisible: (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
 
           width: parent ? parent.width : undefined
           height: line.height
@@ -160,7 +162,7 @@ Page {
                   case LocalFilesModel.ExternalStorage:
                     return Theme.getThemeVectorIcon('ic_sd_card_gray_48dp');
                   case LocalFilesModel.SimpleFolder:
-                    return Theme.getThemeVectorIcon('ic_folder_gray_48dp');
+                    return Theme.getThemeVectorIcon(ItemMetaType == LocalFilesModel.Folder && ItemIsFavorite ? 'ic_folder_favorite_gray_48dp' : 'ic_folder_gray_48dp');
                   case LocalFilesModel.ProjectFile:
                     return Theme.getThemeVectorIcon('ic_map_green_48dp');
                   case LocalFilesModel.VectorDataset:
@@ -244,6 +246,7 @@ Page {
                 itemMenu.itemMetaType = ItemMetaType;
                 itemMenu.itemType = ItemType;
                 itemMenu.itemPath = ItemPath;
+                itemMenu.itemIsFavorite = ItemIsFavorite;
                 itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
               }
             }
@@ -299,6 +302,7 @@ Page {
               itemMenu.itemMetaType = item.itemMetaType;
               itemMenu.itemType = item.itemType;
               itemMenu.itemPath = item.itemPath;
+              itemMenu.itemIsFavorite = item.itemIsFavorite;
               itemMenu.popup(mouse.x, mouse.y);
             }
           }
@@ -338,6 +342,7 @@ Page {
       property int itemMetaType: 0
       property int itemType: 0
       property string itemPath: ''
+      property bool itemIsFavorite: false
 
       title: qsTr('Item Actions')
 
@@ -434,6 +439,26 @@ Page {
         text: qsTr("Export to folder...")
         onTriggered: {
           platformUtilities.exportFolderTo(itemMenu.itemPath);
+        }
+      }
+
+      MenuItem {
+        id: toggleFavoriteState
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Folder && localFilesModel.isPathFavoriteEditable(itemMenu.itemPath)
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: !itemMenu.itemIsFavorite ? qsTr("Add to favorites") : qsTr("Remove from favorites")
+        onTriggered: {
+          if (!itemMenu.itemIsFavorite) {
+            localFilesModel.addToFavorites(itemMenu.itemPath);
+          } else {
+            localFilesModel.removeFromFavorites(itemMenu.itemPath);
+          }
         }
       }
 
