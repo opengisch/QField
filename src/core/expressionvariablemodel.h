@@ -30,7 +30,8 @@ class ExpressionVariableModel : public QStandardItemModel
     {
       VariableName = Qt::UserRole,
       VariableValue,
-      VariableScopeRole
+      VariableScopeRole,
+      VariableEditable = Qt::EditRole
     };
 
     enum class VariableScope
@@ -50,8 +51,6 @@ class ExpressionVariableModel : public QStandardItemModel
     Q_INVOKABLE void save();
 
     Q_INVOKABLE void reloadVariables();
-
-    Q_INVOKABLE bool isEditable( int row );
 
     Q_INVOKABLE void setName( int row, const QString &name );
 

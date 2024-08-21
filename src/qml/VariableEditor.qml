@@ -46,7 +46,7 @@ ColumnLayout {
         color: "transparent"
 
         property var itemRow: index
-        property bool canDelete: table.model.isEditable(index)
+        property bool canDelete: VariableEditable
 
         function forceFocusOnVariableName() {
           variableNameText.forceActiveFocus();
@@ -72,7 +72,7 @@ ColumnLayout {
               leftPadding: 1
               rightPadding: 1
               text: VariableName
-              enabled: table.model.isEditable(index)
+              enabled: VariableEditable
               font: Theme.tipFont
               horizontalAlignment: TextInput.AlignLeft
               placeholderText: displayText === '' ? qsTr("Enter name") : ''
@@ -109,7 +109,7 @@ ColumnLayout {
               leftPadding: 1
               rightPadding: 1
               text: VariableValue
-              enabled: table.model.isEditable(index)
+              enabled: VariableEditable
               font: Theme.tipFont
               horizontalAlignment: TextInput.AlignLeft
               placeholderText: displayText === '' ? qsTr("Enter value") : ''
