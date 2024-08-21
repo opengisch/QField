@@ -4,7 +4,12 @@ import org.qfield
 import Theme
 
 Item {
-  property alias searchTerm: searchBar.text
+  id: searchBar
+
+  property alias searchTerm: searchField.text
+  property string placeHolderText: qsTr("Search")
+
+  signal returnPressed
 
   Rectangle {
     width: parent.width
@@ -12,7 +17,7 @@ Item {
     radius: 6
     border.width: 1
     color: Theme.mainBackgroundColor
-    border.color: searchBar.activeFocus ? Theme.mainColor : "transparent"
+    border.color: searchField.activeFocus ? Theme.mainColor : "transparent"
 
     QfToolButton {
       id: clearButton
@@ -22,9 +27,9 @@ Item {
       iconSource: Theme.getThemeIcon('ic_close_black_24dp')
       iconColor: Theme.mainTextColor
       bgcolor: "transparent"
-      visible: searchBar.text !== ""
+      visible: searchField.text !== ""
       onClicked: {
-        searchBar.text = '';
+        clear();
       }
     }
 
@@ -37,12 +42,12 @@ Item {
       iconSource: Theme.getThemeIcon("ic_baseline_search_black")
       iconColor: Theme.mainTextColor
       onClicked: {
-        searchBar.focus = true;
+        searchField.focus = true;
       }
     }
 
     TextField {
-      id: searchBar
+      id: searchField
       rightPadding: 7
       anchors.left: searchButton.right
       anchors.right: clearButton.left
@@ -50,9 +55,23 @@ Item {
       anchors.rightMargin: 4
       height: 40
       selectByMouse: true
-      placeholderText: (!searchBar.activeFocus && text === "" && displayText === "") ? qsTr("Search for project") : ""
+      placeholderText: (!searchField.activeFocus && text === "" && displayText === "") ? searchBar.placeHolderText : ""
       background: Item {
       }
+
+      Keys.onPressed: event => {
+        if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+          searchBar.returnPressed();
+        }
+      }
     }
+  }
+
+  function focusOnTextField() {
+    searchField.forceActiveFocus();
+  }
+
+  function clear() {
+    searchField.text = '';
   }
 }

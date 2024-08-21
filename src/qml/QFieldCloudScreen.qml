@@ -183,6 +183,7 @@ Page {
         id: searchBar
         Layout.fillWidth: true
         Layout.preferredHeight: 41
+        placeHolderText: qsTr("Search for project")
       }
 
       Rectangle {
