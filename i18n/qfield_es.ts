@@ -3378,6 +3378,13 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
 </context>
 <context>
+    <name>QfSearchBar</name>
+    <message>
+        <source>Search for project</source>
+        <translation>Buscar proyecto</translation>
+    </message>
+</context>
+<context>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>

@@ -3413,6 +3413,13 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
+    <name>QfSearchBar</name>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
