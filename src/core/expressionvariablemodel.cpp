@@ -166,10 +166,11 @@ QgsProject *ExpressionVariableModel::currentProject() const
   return mCurrentProject;
 }
 
-void ExpressionVariableModel::setCurrentProject( QgsProject *newCurrentProject )
+void ExpressionVariableModel::setCurrentProject( QgsProject *project )
 {
-  if ( mCurrentProject == newCurrentProject )
+  if ( mCurrentProject == project )
     return;
-  mCurrentProject = newCurrentProject;
+  mCurrentProject = project;
+  reloadVariables();
   emit currentProjectChanged();
 }

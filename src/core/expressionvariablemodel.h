@@ -59,7 +59,7 @@ class ExpressionVariableModel : public QStandardItemModel
     QHash<int, QByteArray> roleNames() const override;
 
     QgsProject *currentProject() const;
-    void setCurrentProject( QgsProject *newCurrentProject );
+    void setCurrentProject( QgsProject *project );
 
   signals:
     void currentProjectChanged();
