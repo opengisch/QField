@@ -29,7 +29,14 @@ class ExpressionVariableModel : public QStandardItemModel
     enum Roles
     {
       VariableName = Qt::UserRole,
-      VariableValue
+      VariableValue,
+      VariableScopeRole
+    };
+
+    enum class VariableScope
+    {
+      ApplicationScope,
+      ProjectScope
     };
 
     explicit ExpressionVariableModel( QObject *parent = nullptr );

@@ -40,6 +40,7 @@ void ExpressionVariableModel::addCustomVariable( const QString &varName, const Q
   QStandardItem *nameItem = new QStandardItem( varName );
   nameItem->setData( varName, VariableName );
   nameItem->setData( varVal, VariableValue );
+  nameItem->setData( QVariant::fromValue( VariableScope::ApplicationScope ), VariableScopeRole );
   nameItem->setEditable( true );
 
   insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
@@ -86,6 +87,7 @@ void ExpressionVariableModel::reloadVariables()
       nameItem->setData( varName, VariableName );
       nameItem->setData( varValue, VariableValue );
       nameItem->setEditable( false );
+      nameItem->setData( QVariant::fromValue( VariableScope::ApplicationScope ), VariableScopeRole );
 
       insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
     }
@@ -101,6 +103,7 @@ void ExpressionVariableModel::reloadVariables()
     nameItem->setData( varName, VariableName );
     nameItem->setData( varValue, VariableValue );
     nameItem->setEditable( false );
+    nameItem->setData( QVariant::fromValue( VariableScope::ProjectScope ), VariableScopeRole );
 
     insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
   }
@@ -155,6 +158,7 @@ QHash<int, QByteArray> ExpressionVariableModel::roleNames() const
   QHash<int, QByteArray> names = QStandardItemModel::roleNames();
   names[VariableName] = "VariableName";
   names[VariableValue] = "VariableValue";
+  names[VariableScopeRole] = "VariableScope";
   return names;
 }
 
