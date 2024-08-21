@@ -256,12 +256,12 @@ EditorWidgetBase {
 
       onOpened: {
         if (resultsList.contentHeight > resultsList.height) {
-          searchField.forceActiveFocus();
+          searchBar.focusOnTextField();
         }
       }
 
       onClosed: {
-        searchField.text = '';
+        searchBar.clear();
       }
 
       Page {
@@ -279,57 +279,22 @@ EditorWidgetBase {
           }
         }
 
-        TextField {
-          id: searchField
+        QfSearchBar {
+          id: searchBar
           z: 1
           anchors.left: parent.left
           anchors.right: parent.right
+          height: childrenRect.height
 
-          placeholderText: !focus && displayText === '' ? qsTr("Search…") : ''
-          placeholderTextColor: Theme.mainColor
+          onSearchTermChanged: {
+            listModel.setFilterFixedString(searchTerm);
+          }
 
-          height: fontMetrics.height * 2.5
-          padding: 24
-          bottomPadding: 9
-          font: Theme.defaultFont
-          selectByMouse: true
-          verticalAlignment: TextInput.AlignVCenter
-
-          inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
-
-          onDisplayTextChanged: listModel.setFilterFixedString(displayText)
-
-          Keys.onPressed: event => {
-            if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-              if (listModel.rowCount() === 1) {
-                resultsList.itemAtIndex(0).performClick();
-                searchFeaturePopup.close();
-              }
+          onReturnPressed: {
+            if (listModel.rowCount() === 1) {
+              resultsList.itemAtIndex(0).performClick();
+              searchFeaturePopup.close();
             }
-          }
-        }
-
-        QfToolButton {
-          id: clearButton
-          z: 1
-          width: fontMetrics.height
-          height: fontMetrics.height
-          anchors {
-            top: searchField.top
-            right: searchField.right
-            topMargin: height - 7
-            rightMargin: height - 7
-          }
-
-          padding: 0
-          iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
-          iconColor: Theme.mainTextColor
-          bgcolor: "transparent"
-
-          opacity: searchField.displayText.length > 0 ? 1 : 0.25
-
-          onClicked: {
-            searchField.text = '';
           }
         }
 
@@ -337,10 +302,10 @@ EditorWidgetBase {
           id: resultsList
           anchors.left: parent.left
           anchors.right: parent.right
-          anchors.top: searchField.bottom
+          anchors.top: searchBar.bottom
           model: listModel
           width: parent.width
-          height: searchFeaturePopup.height - searchField.height - 50
+          height: searchFeaturePopup.height - searchBar.height - 50
           clip: true
           ScrollBar.vertical: QfScrollBar {
           }
@@ -370,7 +335,7 @@ EditorWidgetBase {
               indicator: Rectangle {
               }
 
-              text: StringUtils.highlightText(itemText, searchField.displayText, Theme.mainTextColor)
+              text: StringUtils.highlightText(itemText, searchBar.searchTerm, Theme.mainTextColor)
 
               contentItem: Text {
                 text: parent.text
@@ -379,7 +344,7 @@ EditorWidgetBase {
                 verticalAlignment: Text.AlignVCenter
                 leftPadding: parent.indicator.width + parent.spacing
                 elide: Text.ElideRight
-                color: searchField.displayText !== '' ? Theme.secondaryTextColor : Theme.mainTextColor
+                color: searchBar.searchTerm !== '' ? Theme.secondaryTextColor : Theme.mainTextColor
                 textFormat: Text.RichText
               }
             }
