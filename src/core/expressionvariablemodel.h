@@ -58,7 +58,14 @@ class ExpressionVariableModel : public QStandardItemModel
 
     QHash<int, QByteArray> roleNames() const override;
 
+    /**
+     * Returns the current project used to retrieve variables from.
+     */
     QgsProject *currentProject() const;
+
+    /**
+     * Sets the project used to retrieve variables from.
+     */
     void setCurrentProject( QgsProject *project );
 
   signals:
