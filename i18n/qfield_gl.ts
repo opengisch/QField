@@ -2711,22 +2711,22 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>O almacenamento dispoñible da conta está cheo.</translation>
     </message>
 </context>
 <context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Rematar</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Previo</translation>
     </message>
 </context>
 <context>
@@ -2829,11 +2829,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
+        <translation>Enviar a QFieldCloud...</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>‘%1’ estase subindo a QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3381,7 +3381,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>QfSearchBar</name>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Buscar un proxecto</translation>
     </message>
 </context>
 <context>
@@ -3404,19 +3404,19 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin do Proxecto</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode cargar a fonte: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode cargar o proxecto, o ficheiro &quot;%1&quot; non existe</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode ler o proxecto, o ficheiro &quot;%1&quot; non existe</translation>
     </message>
 </context>
 <context>
@@ -4265,7 +4265,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode engadir unha entidade aniñada: asegúrate de que a entidade principal cumpre con tódalas restricións e que se poida gardar</translation>
     </message>
 </context>
 <context>
@@ -4684,11 +4684,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Está activado fotografar a un ángudo de %1º </translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Está apagado fotografar a un ángulo común</translation>
     </message>
     <message>
         <source>Relative angle</source>
@@ -4772,15 +4772,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Concedes permiso para activar `%1`?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Lembra a miña elección</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Copiar os Atributos da Entidade</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
@@ -4800,7 +4800,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Activar a Rotación do Mapa</translation>
     </message>
     <message>
         <source>Dashboard</source>
@@ -4820,15 +4820,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>A barra de busca proporciona unha forma rápida de atopar entidade dentro do proxecto, saltar a un punto tecleando latitude e lonxitudee moito máis.</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Zoom</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
@@ -4875,7 +4875,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode engadir unha entidade aniñada: asegúrate de que a entidade principal cumpre con tódalas restricións e que se poida gardar</translation>
     </message>
 </context>
 <context>
