@@ -35,7 +35,7 @@ bool ExpressionVariableModel::setData( const QModelIndex &index, const QVariant 
   return QStandardItemModel::setData( index, value, role );
 }
 
-void ExpressionVariableModel::addCustomVariable( const QString &varName, const QString &varVal )
+void ExpressionVariableModel::addCustomVariable( const QString &varName, const QString &varVal, const int &rowIndex )
 {
   QStandardItem *nameItem = new QStandardItem( varName );
   nameItem->setData( varName, VariableName );
@@ -43,7 +43,7 @@ void ExpressionVariableModel::addCustomVariable( const QString &varName, const Q
   nameItem->setData( QVariant::fromValue( VariableScope::ApplicationScope ), VariableScopeRole );
   nameItem->setData( true, VariableEditable );
 
-  insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
+  insertRow( rowIndex == -1 ? rowCount() : rowIndex, QList<QStandardItem *>() << nameItem );
 }
 
 void ExpressionVariableModel::removeCustomVariable( int row )
@@ -88,12 +88,20 @@ void ExpressionVariableModel::reloadVariables()
       nameItem->setData( varValue, VariableValue );
       nameItem->setData( QVariant::fromValue( VariableScope::ApplicationScope ), VariableScopeRole );
       nameItem->setData( false, VariableEditable );
+      nameItem->setEditable( false );
 
       insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
     }
   }
-
-  // Second add readonly project variables
+  // Second add custom variables
+  for ( const QString &varName : variableNames )
+  {
+    if ( !scope->isReadOnly( varName ) )
+    {
+      addCustomVariable( varName, scope->variable( varName ).toString() );
+    }
+  }
+  // Finally add readonly project variables
   QVariantMap projectVariables = ExpressionContextUtils::projectVariables( mCurrentProject );
   for ( const QString &varName : projectVariables.keys() )
   {
@@ -104,18 +112,9 @@ void ExpressionVariableModel::reloadVariables()
     nameItem->setData( varValue, VariableValue );
     nameItem->setData( QVariant::fromValue( VariableScope::ProjectScope ), VariableScopeRole );
     nameItem->setData( false, VariableEditable );
+    nameItem->setEditable( false );
 
     insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
-  }
-
-
-  // Then add custom variables
-  for ( const QString &varName : variableNames )
-  {
-    if ( !scope->isReadOnly( varName ) )
-    {
-      addCustomVariable( varName, scope->variable( varName ).toString() );
-    }
   }
 }
 

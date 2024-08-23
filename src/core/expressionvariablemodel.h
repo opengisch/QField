@@ -44,7 +44,7 @@ class ExpressionVariableModel : public QStandardItemModel
 
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-    Q_INVOKABLE void addCustomVariable( const QString &varName, const QString &varVal );
+    Q_INVOKABLE void addCustomVariable( const QString &varName, const QString &varVal, const int &rowIndex = -1 );
 
     Q_INVOKABLE void removeCustomVariable( int row );
 

@@ -47,6 +47,7 @@ ColumnLayout {
 
         property var itemRow: index
         property bool canDelete: VariableEditable
+        property var variableType: VariableScope
 
         function forceFocusOnVariableName() {
           variableNameText.forceActiveFocus();
@@ -156,9 +157,15 @@ ColumnLayout {
     text: qsTr("Add a new variable")
 
     onClicked: {
-      table.model.addCustomVariable("new_variable", "");
-      table.positionViewAtIndex(table.count - 1, ListView.visible);
-      table.itemAtIndex(table.count - 1).forceFocusOnVariableName();
+      let lastAppVariableIndex = 0;
+      for (let i = 0; i < table.count; ++i) {
+        if (table.itemAtIndex(i) && table.itemAtIndex(i).variableType === 0) {
+          lastAppVariableIndex = i;
+        }
+      }
+      table.model.addCustomVariable("new_variable", "", lastAppVariableIndex + 1);
+      table.positionViewAtIndex(lastAppVariableIndex + 1, ListView.Contain);
+      table.itemAtIndex(lastAppVariableIndex + 1).forceFocusOnVariableName();
     }
   }
 }
