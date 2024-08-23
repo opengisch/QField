@@ -52,8 +52,8 @@ curl -o /android-sdk-10406996.zip https://dl.google.com/android/repository/comma
 curl -o /android-ndk-r25c-linux.zip https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
 
 # Android NDK
-unzip /android-ndk-r25c-linux.zip
-rm -f android-ndk-r25c-linux.zip
+unzip /android-ndk-r26d-linux.zip
+rm -f android-ndk-r26d-linux.zip
 
 # Android SDK
 unzip /android-sdk-10406996.zip -d android-sdk
@@ -66,7 +66,7 @@ yes | /android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
 /android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools" "tools"
 END_OF_SCRIPT
 
-ENV ANDROID_NDK_HOME /android-ndk-r25c
+ENV ANDROID_NDK_HOME /android-ndk-r26d
 ENV ANDROID_SDK_ROOT /android-sdk
 
 WORKDIR /usr/src
