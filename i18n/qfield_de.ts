@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>QField App Verzeichnisse</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>QField App Verzeichnis</translation>
     </message>
 </context>
 <context>
@@ -1359,7 +1359,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Wähle in der Legende einen Vektorlayer aus, um diese Funktion zu benutzen</translation>
     </message>
 </context>
 <context>
@@ -1543,19 +1543,19 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Atlas erfolgreich gedruckt - das Ergebnis wurde in deinem Projektordner abgelegt</translation>
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Objektattribute in Zwischenablage kopiert</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Objektattribute aus Zwischenablage aktualisiert</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Keine Objektattribute wurden aus der Zwischenablage aktualisiert</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
@@ -1749,7 +1749,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Netzwerkfehler</translation>
     </message>
 </context>
 <context>
@@ -2013,7 +2013,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Hilfe</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
@@ -2134,7 +2134,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Keine Änderungen wurden bisher hochgeladen!</translation>
     </message>
 </context>
 <context>
@@ -2206,7 +2206,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Probleme beim packen eines QFieldCloud Layers</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
@@ -2233,7 +2233,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Das Speichern von Projekten in der QFieldCloud bietet nahtlose synchronisation, offline editieren und Team-Managment&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2261,7 +2261,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">QFieldCloud bereitet die neusten Daten für dich vor. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2269,7 +2269,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud wendet dieneusten hochgeladenen DÄnderungen an. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -2399,7 +2399,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Dieses Projekt hat eine neuere Projektdatei in der Cloud - synchronisiere bitte!</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
@@ -2407,31 +2407,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud packt die neusten Daten für dich; Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Downloade,  %1% von %2 fertig</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Downloade, %1% fertig</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Verbinde mit der QFieldCloud um das Projekt herunterzuladen</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Änderungen automatisch alle %n Minute(n) pushen</numerusform><numerusform>Lade Änderungen automatisch alle %n Minute(n) hoch</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Für das aktuelle Projekt kann das automatische Hochladen nicht deaktiviert werden</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Das Speichern von Projekten in der QFieldCloud bietet nahtlose synchronisation, offline editieren und Team-Managment &lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
@@ -2461,7 +2461,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Dateidownload gescheitert &quot;%1&quot;, Grund:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2493,7 +2493,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>Job(%1) wurde mit einem Fehlerstatus beendet.</translation>
     </message>
     <message>
         <source>Project busy.</source>
@@ -2501,19 +2501,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>Das Packen für `%1` wurde nicht erfolgreich beendet. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Aktualisierung der neuesten Informationen für `%1` fehlgeschlagen: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Abrufen der Daten</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Letzter Datenabruf Fehler.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
@@ -2521,7 +2521,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1: Der Layer `%2` ist nicht gültig. Fehler Code %3, Fehler Meldung: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
@@ -2599,7 +2599,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">QFieldCloud bereitet die neusten Daten für dich vor. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2651,7 +2651,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="unfinished"/>
+        <translation>Tippe und halte ein Cloud Projekt für zusätzliche Optionen</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -2667,7 +2667,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Projektoptionen</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
@@ -2675,22 +2675,26 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud packt die neusten Daten für dich; Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Downloade,  %1% von %2 fertig</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Downloade, %1% fertig</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Verbinde mit der QFieldCloud um das Projekt herunterzuladen</translation>
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for project</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2706,22 +2710,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Der Speicherplatz deines Accounts ist voll.</translation>
     </message>
 </context>
 <context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Beende</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Nächstes</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Vorheriges</translation>
     </message>
 </context>
 <context>
@@ -2816,7 +2820,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Projektoptionen</translation>
     </message>
     <message>
         <source>Update project from ZIP</source>
@@ -2824,11 +2828,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
+        <translation>Änderungen hochladen</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; wird hochgeladen</translation>
     </message>
 </context>
 <context>
@@ -3005,11 +3009,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation type="unfinished"/>
+        <translation>Ausgezeichnete Genauigkeit ab [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Anforderung an die Genauigkeit aktivieren</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
@@ -3299,11 +3303,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation type="unfinished"/>
+        <translation>Das Projekt beinhaltet keine gültige QGIS Projektdatei</translation>
     </message>
     <message>
         <source>Invalid job</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger Job</translation>
     </message>
     <message>
         <source>QGIS export failed</source>
@@ -3375,8 +3379,8 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
-        <translation type="unfinished"/>
+        <source>Search</source>
+        <translation>Suche</translation>
     </message>
 </context>
 <context>
@@ -3502,7 +3506,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Suchen…</translation>
+        <translation type="vanished">Suchen…</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -3597,7 +3601,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bereitet QField vor, dies ist ein einmaliger Vorgang, welcher einen kurzen Augenblick benötigt</translation>
     </message>
 </context>
 <context>
@@ -4023,7 +4027,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Suchen…</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4147,7 +4151,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Standart-Projekt beim Start laden</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
@@ -4185,39 +4189,39 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>Meter</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>Kilometer</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>Fuß</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>Yards</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>Meilen</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>Nautische Meilen</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>Zentimeter</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>Milimeter</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>Inch</translation>
     </message>
 </context>
 <context>
@@ -4228,11 +4232,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Lege Kind-Objekt im Layer %1 an</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kein kein Kind-Objekt anlegen: Der Primärschlüssel des Elter-Layer ist ungültig</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4256,7 +4260,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Kann kein Kind-Objekt anlegen: Das Attribut zum Verknüpfen von Eltern und Kindlayer ist nicht konfiguriert</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -4619,11 +4623,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 erfolgreich heruntergeladen, es steht nun zum Öffnen bereit</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="unfinished"/>
+        <translation>Änderungen wurden nicht in die QFieldCloud übertragen: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
@@ -4795,7 +4799,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere Kartendrehung</translation>
     </message>
     <message>
         <source>Dashboard</source>
@@ -4815,7 +4819,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
@@ -4838,11 +4842,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Füge Kind-Objekt im Layer %1 hinzu</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kein kein Kind-Objekt anlegen: Der Primärschlüssel des Elter-Layer ist ungültig</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -4866,7 +4870,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Kann kein Kind-Objekt anlegen: Das Attribut zum Verknüpfen von Eltern und Kindlayer ist nicht konfiguriert</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>

@@ -2701,6 +2701,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3383,7 +3387,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3510,7 +3514,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Hledat...</translation>
+        <translation type="vanished">Hledat...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4031,7 +4035,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Hledat...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

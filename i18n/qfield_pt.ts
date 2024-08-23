@@ -2700,6 +2700,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3382,7 +3386,7 @@ Cancele para fazer uma verificação mínima.</translation>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3509,7 +3513,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Pesquisar...</translation>
+        <translation type="vanished">Pesquisar...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4030,7 +4034,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Pesquisar...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

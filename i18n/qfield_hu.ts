@@ -2692,6 +2692,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3374,7 +3378,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3501,7 +3505,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Keresés...</translation>
+        <translation type="vanished">Keresés...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4022,7 +4026,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Keresés...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

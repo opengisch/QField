@@ -2698,6 +2698,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3380,7 +3384,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3507,7 +3511,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Zoek...</translation>
+        <translation type="vanished">Zoek...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4028,7 +4032,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Zoek...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

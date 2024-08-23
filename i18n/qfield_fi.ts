@@ -2700,6 +2700,10 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3382,8 +3386,8 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
-        <translation type="unfinished"/>
+        <source>Search</source>
+        <translation>Etsi</translation>
     </message>
 </context>
 <context>
@@ -3509,7 +3513,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Etsi...</translation>
+        <translation type="vanished">Etsi...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4030,7 +4034,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Etsi...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

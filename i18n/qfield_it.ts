@@ -2703,6 +2703,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3385,7 +3389,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3512,7 +3516,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Cerca...</translation>
+        <translation type="vanished">Cerca...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4033,7 +4037,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Cerca...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

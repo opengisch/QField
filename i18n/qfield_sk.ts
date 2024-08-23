@@ -2701,6 +2701,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3383,7 +3387,7 @@ Zrušiť a spraviť minimálny sken.</translation>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3510,7 +3514,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Hľadať...</translation>
+        <translation type="vanished">Hľadať...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4031,7 +4035,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Hľadať...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

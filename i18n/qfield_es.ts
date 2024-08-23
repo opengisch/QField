@@ -2698,6 +2698,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation>No se ha encontrado ningún proyecto en la nube. Para comenzar, %1lea la documentación%2.</translation>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation>Buscar proyecto</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3380,8 +3384,8 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
-        <translation>Buscar proyecto</translation>
+        <source>Search</source>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
@@ -3507,7 +3511,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Buscar...</translation>
+        <translation type="vanished">Buscar...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4028,7 +4032,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Buscar…</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

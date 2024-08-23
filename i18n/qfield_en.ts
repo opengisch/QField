@@ -2730,6 +2730,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -2865,6 +2869,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3415,7 +3427,7 @@ Cancel to make a minimal device scan instead.</translation>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3542,7 +3554,7 @@ Cancel to make a minimal device scan instead.</translation>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Search…</translation>
+        <translation type="vanished">Search…</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4063,7 +4075,7 @@ Cancel to make a minimal device scan instead.</translation>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation type="unfinished">Search…</translation>
+        <translation type="obsolete">Search…</translation>
     </message>
 </context>
 <context>

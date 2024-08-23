@@ -2702,6 +2702,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Search for project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3384,7 +3388,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <source>Search for project</source>
+        <source>Search</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3511,7 +3515,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation>Пошук…</translation>
+        <translation type="vanished">Пошук…</translation>
     </message>
     <message>
         <source>Invalid relation</source>
@@ -4032,7 +4036,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation>Пошук…</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
