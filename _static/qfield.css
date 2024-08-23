@@ -4,7 +4,7 @@ body {
 
 div.navbar{
   background-color:#80CC28;
-  // Animation
+  /* Animation */
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   height: 100px !important;
@@ -45,7 +45,7 @@ span.shadow-background {
 
 .navbar-brand>span,
 span.shadow-background {
-  // Animation
+  /* Animation */
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 
@@ -56,7 +56,7 @@ span.shadow-background {
 
 .navbar-brand>span.unobtrusive,
 span.shadow-background.unobtrusive {
-  // Animation
+  /* Animation */
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 
