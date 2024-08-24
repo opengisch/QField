@@ -48,7 +48,6 @@ void ProjectInfo::setFilePath( const QString &filePath )
   emit filePathChanged();
   emit stateModeChanged();
   emit activeLayerChanged();
-  emit cloudUserInformationChanged();
 }
 
 QString ProjectInfo::filePath() const
@@ -320,6 +319,11 @@ void ProjectInfo::setCloudUserInformation( const CloudUserInformation cloudUserI
   mSettings.setValue( QStringLiteral( "json" ), cloudUserInformation.toJson() );
   mSettings.endGroup();
 
+  emit cloudUserInformationChanged();
+}
+
+void ProjectInfo::restoreCloudUserInformation()
+{
   emit cloudUserInformationChanged();
 }
 
