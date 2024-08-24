@@ -35,20 +35,42 @@ bool ExpressionVariableModel::setData( const QModelIndex &index, const QVariant 
   return QStandardItemModel::setData( index, value, role );
 }
 
-void ExpressionVariableModel::addCustomVariable( const QString &varName, const QString &varVal, const int &rowIndex )
+int ExpressionVariableModel::addVariable( VariableScope scope, const QString &name, const QString &value )
 {
-  QStandardItem *nameItem = new QStandardItem( varName );
-  nameItem->setData( varName, VariableName );
-  nameItem->setData( varVal, VariableValue );
-  nameItem->setData( QVariant::fromValue( VariableScope::ApplicationScope ), VariableScopeRole );
-  nameItem->setData( true, VariableEditable );
+  int lastVariableInScope = rowCount();
+  for ( int i = 0; i < rowCount(); ++i )
+  {
+    if ( item( i )->data( VariableScopeRole ).value<VariableScope>() == scope )
+    {
+      lastVariableInScope = i;
+    }
+  }
 
-  insertRow( rowIndex == -1 ? rowCount() : rowIndex, QList<QStandardItem *>() << nameItem );
+  QStandardItem *nameItem = new QStandardItem( name );
+  nameItem->setData( name, VariableName );
+  nameItem->setData( value, VariableValue );
+  nameItem->setData( QVariant::fromValue( scope ), VariableScopeRole );
+  nameItem->setData( scope == VariableScope::ApplicationScope, VariableEditable );
+
+  insertRow( lastVariableInScope + 1, QList<QStandardItem *>() << nameItem );
+
+  return lastVariableInScope + 1;
 }
 
-void ExpressionVariableModel::removeCustomVariable( int row )
+void ExpressionVariableModel::removeVariable( VariableScope scope, const QString &name )
 {
-  removeRow( row );
+  for ( int i = 0; i < rowCount(); ++i )
+  {
+    QStandardItem *rowItem = item( i );
+    QString variableName = rowItem->data( VariableName ).toString();
+    VariableScope variableScope = rowItem->data( VariableScopeRole ).value<VariableScope>();
+
+    if ( variableName == name && variableScope == scope )
+    {
+      removeRow( i );
+      return;
+    }
+  }
 }
 
 void ExpressionVariableModel::save()
@@ -98,7 +120,7 @@ void ExpressionVariableModel::reloadVariables()
   {
     if ( !scope->isReadOnly( varName ) )
     {
-      addCustomVariable( varName, scope->variable( varName ).toString() );
+      addVariable( VariableScope::ApplicationScope, varName, scope->variable( varName ).toString() );
     }
   }
   // Finally add readonly project variables
