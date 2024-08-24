@@ -1,3 +1,17 @@
+platform :windows do
+  lane :upload_s3 do |options|
+    exe = options[:exe]
+
+    setup_ci if is_ci
+
+    aws_s3(
+      files: [exe],
+      endpoint: "https://sos-ch-dk-2.exo.io",
+      app_directory: "ci-builds/ios/#{ENV['CI_PACKAGE_FILE_SUFFIX']}"
+    )
+  end
+end
+
 platform :ios do
   lane :setup_signing do |options|
     signing_type = options[:type] # "development", "appstore"
