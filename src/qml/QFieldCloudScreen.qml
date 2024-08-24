@@ -428,7 +428,7 @@ Page {
 
           MouseArea {
             property Item pressedItem
-            propagateComposedEvents: true
+            propagateComposedEvents: false
             anchors.fill: parent
             onClicked: mouse => {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
@@ -442,7 +442,6 @@ Page {
                   cloudProjectsModel.projectPackageAndDownload(item.projectId);
                 }
               }
-              mouse.accepted = false;
             }
             onPressed: mouse => {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
@@ -450,7 +449,6 @@ Page {
                 pressedItem = item;
                 pressedItem.isPressed = true;
               }
-              mouse.accepted = false;
             }
             onCanceled: {
               if (pressedItem) {
