@@ -2839,6 +2839,14 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

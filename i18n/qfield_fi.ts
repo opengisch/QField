@@ -2841,6 +2841,14 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ on ladattu QFieldCloud</translation>
     </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

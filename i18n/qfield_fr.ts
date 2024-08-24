@@ -2837,6 +2837,14 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

@@ -142,7 +142,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Podes consultar a páxina de documentación do %1Portable Project%2 para máis axuda.</translation>
     </message>
 </context>
 <context>
@@ -579,7 +579,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>En Branco</translation>
     </message>
 </context>
 <context>
@@ -716,11 +716,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>O último valor introducido para este campo será recordado e reutilizado cando se creen novas entidades</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>O último valor introducido para este campo non será reutilizado cando se creen novas entidades</translation>
     </message>
 </context>
 <context>
@@ -743,7 +743,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Non se puideron reverter as modificacións de desfacer entidade na capa &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1785,11 +1785,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Seguro de querer desistalar `%1`?</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Desinstalar a versión %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
@@ -1797,11 +1797,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>Os detalles do autor amosados enriba son auto-reportados polo plugin enon están verificados independentemente. Por favor, asegúrate que confías nas orixes do plugin.</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú de xestión de Plugins</translation>
     </message>
 </context>
 <context>
@@ -2018,7 +2018,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>Non hai parámetros xerais ligados a este algoritmo.</translation>
     </message>
     <message>
         <source>Algorithm description</source>
@@ -2071,7 +2071,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
+        <translation>O xeoetiquetado de imaxes precisa que o posicionamento estea acendido</translation>
     </message>
 </context>
 <context>
@@ -2838,6 +2838,14 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ estase subindo a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Engadir a favoritos</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Eliminar de favoritos</translation>
     </message>
 </context>
 <context>

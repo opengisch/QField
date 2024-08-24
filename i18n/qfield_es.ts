@@ -2839,6 +2839,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ se está subiendo a QFieldCloud</translation>
     </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

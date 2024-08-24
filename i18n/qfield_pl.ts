@@ -2843,6 +2843,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>&quot;%1&quot; jest przesyłane do QFieldCloud</translation>
     </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
