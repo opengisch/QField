@@ -3360,7 +3360,10 @@ ApplicationWindow {
           qfieldCloudPopup.show();
         }
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+          projectInfo.cloudUserInformation = cloudConnection.userInformation;
           cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId);
+        } else {
+          projectInfo.restoreCloudUserInformation();
         }
       } else {
         projectInfo.hasInsertRights = true;
@@ -3408,7 +3411,6 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
     trackingModel: trackings.model
-    cloudUserInformation: cloudConnection.userInformation
 
     property var distanceUnits: Qgis.DistanceUnit.Meters
     property var areaUnits: Qgis.AreaUnit.SquareMeters
@@ -3618,6 +3620,7 @@ ApplicationWindow {
         }
         var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
         if (cloudProjectId) {
+          projectInfo.cloudUserInformation = userInformation;
           cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId);
         }
       }

@@ -169,6 +169,11 @@ class ProjectInfo : public QObject
      */
     void setCloudUserInformation( const CloudUserInformation cloudUserInformation );
 
+    /**
+     * Restores last saved cloud user information details attached to the current project
+     */
+    Q_INVOKABLE void restoreCloudUserInformation();
+
     //! Save an ongoing vector \a layer tracking session details
     Q_INVOKABLE void saveTracker( QgsVectorLayer *layer );
 
