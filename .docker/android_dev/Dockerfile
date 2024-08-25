@@ -49,7 +49,7 @@ apt-get -y dist-upgrade
 apt-get -y --no-install-recommends install $APT_PACKAGES
 
 curl -o /android-sdk-10406996.zip https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
-curl -o /android-ndk-r25c-linux.zip https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+curl -o /android-ndk-r26d-linux.zip https://dl.google.com/android/repository/android-ndk-r26d-linux.zip
 
 # Android NDK
 unzip /android-ndk-r26d-linux.zip
