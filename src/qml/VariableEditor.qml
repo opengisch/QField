@@ -29,6 +29,7 @@ ColumnLayout {
     ListView {
       id: table
       model: ExpressionVariableModel {
+        currentProject: qgisProject
       }
       flickableDirection: Flickable.VerticalFlick
       boundsBehavior: Flickable.StopAtBounds
@@ -45,7 +46,11 @@ ColumnLayout {
         color: "transparent"
 
         property var itemRow: index
-        property bool canDelete: table.model.isEditable(index)
+        property bool canDelete: VariableEditable
+
+        function forceFocusOnVariableName() {
+          variableNameText.forceActiveFocus();
+        }
 
         Row {
           id: line
@@ -67,7 +72,7 @@ ColumnLayout {
               leftPadding: 1
               rightPadding: 1
               text: VariableName
-              enabled: table.model.isEditable(index)
+              enabled: VariableEditable
               font: Theme.tipFont
               horizontalAlignment: TextInput.AlignLeft
               placeholderText: displayText === '' ? qsTr("Enter name") : ''
@@ -104,7 +109,7 @@ ColumnLayout {
               leftPadding: 1
               rightPadding: 1
               text: VariableValue
-              enabled: table.model.isEditable(index)
+              enabled: VariableEditable
               font: Theme.tipFont
               horizontalAlignment: TextInput.AlignLeft
               placeholderText: displayText === '' ? qsTr("Enter value") : ''
@@ -137,7 +142,7 @@ ColumnLayout {
             bgcolor: "transparent"
 
             onClicked: {
-              table.model.removeCustomVariable(index);
+              table.model.removeVariable(VariableScope, variableNameText.text);
             }
           }
         }
@@ -151,10 +156,10 @@ ColumnLayout {
     text: qsTr("Add a new variable")
 
     onClicked: {
-      table.model.addCustomVariable("new_variable", "");
-      table.positionViewAtIndex(table.count - 1, ListView.visible);
-      // TODO: Use Qt 5.13 itemAtIndex( index )
-      table.children[0].children[table.count].children[0].children[0].forceActiveFocus();
+      let applicationScope = 0;
+      let insertionPosition = table.model.addVariable(applicationScope, "new_variable", "");
+      table.positionViewAtIndex(insertionPosition, ListView.Contain);
+      table.itemAtIndex(insertionPosition).forceFocusOnVariableName();
     }
   }
 }

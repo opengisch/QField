@@ -31,6 +31,10 @@ Page {
     }
   }
 
+  function reset() {
+    variableEditor.reset();
+  }
+
   Settings {
     id: registry
     property bool showScaleBar: true

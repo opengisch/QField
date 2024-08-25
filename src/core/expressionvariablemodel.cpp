@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "expressionvariablemodel.h"
+#include "utils/expressioncontextutils.h"
 
 #include <QDebug>
 #include <QSettings>
@@ -34,19 +35,42 @@ bool ExpressionVariableModel::setData( const QModelIndex &index, const QVariant 
   return QStandardItemModel::setData( index, value, role );
 }
 
-void ExpressionVariableModel::addCustomVariable( const QString &varName, const QString &varVal )
+int ExpressionVariableModel::addVariable( VariableScope scope, const QString &name, const QString &value )
 {
-  QStandardItem *nameItem = new QStandardItem( varName );
-  nameItem->setData( varName, VariableName );
-  nameItem->setData( varVal, VariableValue );
-  nameItem->setEditable( true );
+  int lastVariableInScope = rowCount();
+  for ( int i = 0; i < rowCount(); ++i )
+  {
+    if ( item( i )->data( VariableScopeRole ).value<VariableScope>() == scope )
+    {
+      lastVariableInScope = i;
+    }
+  }
 
-  insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
+  QStandardItem *nameItem = new QStandardItem( name );
+  nameItem->setData( name, VariableName );
+  nameItem->setData( value, VariableValue );
+  nameItem->setData( QVariant::fromValue( scope ), VariableScopeRole );
+  nameItem->setData( scope == VariableScope::ApplicationScope, VariableEditable );
+
+  insertRow( lastVariableInScope + 1, QList<QStandardItem *>() << nameItem );
+
+  return lastVariableInScope + 1;
 }
 
-void ExpressionVariableModel::removeCustomVariable( int row )
+void ExpressionVariableModel::removeVariable( VariableScope scope, const QString &name )
 {
-  removeRow( row );
+  for ( int i = 0; i < rowCount(); ++i )
+  {
+    QStandardItem *rowItem = item( i );
+    QString variableName = rowItem->data( VariableName ).toString();
+    VariableScope variableScope = rowItem->data( VariableScopeRole ).value<VariableScope>();
+
+    if ( variableName == name && variableScope == scope )
+    {
+      removeRow( i );
+      return;
+    }
+  }
 }
 
 void ExpressionVariableModel::save()
@@ -72,7 +96,7 @@ void ExpressionVariableModel::reloadVariables()
   QStringList variableNames = scope->variableNames();
   variableNames.sort();
 
-  // First add readonly variables
+  // First add readonly app variables
   for ( const QString &varName : variableNames )
   {
     if ( scope->isReadOnly( varName ) )
@@ -84,28 +108,36 @@ void ExpressionVariableModel::reloadVariables()
 
       nameItem->setData( varName, VariableName );
       nameItem->setData( varValue, VariableValue );
+      nameItem->setData( QVariant::fromValue( VariableScope::ApplicationScope ), VariableScopeRole );
+      nameItem->setData( false, VariableEditable );
       nameItem->setEditable( false );
 
       insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
     }
   }
-
-  // Then add custom variables
+  // Second add custom variables
   for ( const QString &varName : variableNames )
   {
     if ( !scope->isReadOnly( varName ) )
     {
-      addCustomVariable( varName, scope->variable( varName ).toString() );
+      addVariable( VariableScope::ApplicationScope, varName, scope->variable( varName ).toString() );
     }
   }
-}
+  // Finally add readonly project variables
+  QVariantMap projectVariables = ExpressionContextUtils::projectVariables( mCurrentProject );
+  for ( const QString &varName : projectVariables.keys() )
+  {
+    QStandardItem *nameItem = new QStandardItem( varName );
+    QVariant varValue = projectVariables.value( varName ).toString();
 
-bool ExpressionVariableModel::isEditable( int row )
-{
-  QStandardItem *rowItem = item( row );
-  if ( rowItem )
-    return rowItem->isEditable();
-  return false;
+    nameItem->setData( varName, VariableName );
+    nameItem->setData( varValue, VariableValue );
+    nameItem->setData( QVariant::fromValue( VariableScope::ProjectScope ), VariableScopeRole );
+    nameItem->setData( false, VariableEditable );
+    nameItem->setEditable( false );
+
+    insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
+  }
 }
 
 void ExpressionVariableModel::setName( int row, const QString &name )
@@ -139,6 +171,8 @@ QHash<int, QByteArray> ExpressionVariableModel::roleNames() const
   QHash<int, QByteArray> names = QStandardItemModel::roleNames();
   names[VariableName] = "VariableName";
   names[VariableValue] = "VariableValue";
+  names[VariableScopeRole] = "VariableScope";
+  names[VariableEditable] = "VariableEditable";
   return names;
 }
 
@@ -146,4 +180,18 @@ void ExpressionVariableModel::onDataChanged( const QModelIndex &topLeft, const Q
 {
   Q_UNUSED( bottomRight )
   Q_UNUSED( roles )
+}
+
+QgsProject *ExpressionVariableModel::currentProject() const
+{
+  return mCurrentProject;
+}
+
+void ExpressionVariableModel::setCurrentProject( QgsProject *project )
+{
+  if ( mCurrentProject == project )
+    return;
+  mCurrentProject = project;
+  reloadVariables();
+  emit currentProjectChanged();
 }

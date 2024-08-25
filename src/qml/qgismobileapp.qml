@@ -2333,6 +2333,7 @@ ApplicationWindow {
 
       onTriggered: {
         dashBoard.close();
+        qfieldSettings.reset();
         qfieldSettings.visible = true;
         highlighted = false;
       }
