@@ -76,17 +76,22 @@ void ExpressionVariableModel::removeVariable( VariableScope scope, const QString
 
 void ExpressionVariableModel::save()
 {
-  QVariantMap variables;
   for ( int i = 0; i < rowCount(); ++i )
   {
-    const VariableScope itemScope = item( i )->data( VariableScopeRole ).value<VariableScope>();
-    if ( item( i )->isEditable() && itemScope == VariableScope::ApplicationScope )
+    const QStandardItem *currentItem = item( i );
+    const VariableScope itemScope = currentItem->data( VariableScopeRole ).value<VariableScope>();
+    const QString itemName = currentItem->data( VariableName ).toString();
+    const QString itemValue = currentItem->data( VariableValue ).toString();
+
+    if ( currentItem->isEditable() && itemScope == VariableScope::ApplicationScope )
     {
-      variables.insert( item( i )->data( VariableName ).toString(), item( i )->data( VariableValue ) );
+      QgsExpressionContextUtils::setGlobalVariable( itemName, itemValue );
+    }
+    else if ( itemScope == VariableScope::ProjectScope )
+    {
+      ExpressionContextUtils::setProjectVariable( mCurrentProject, itemName, itemValue );
     }
   }
-
-  QgsExpressionContextUtils::setGlobalVariables( variables );
 }
 
 void ExpressionVariableModel::reloadVariables()
