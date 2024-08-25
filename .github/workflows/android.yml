@@ -76,13 +76,14 @@ jobs:
         id: vars
         shell: bash
         run: |
+          NDK_VERSION=26.3.11579264
           echo "JAVA_HOME=${JAVA_HOME_17_X64}" >> $GITHUB_ENV
-          echo "ANDROID_NDK_VERSION=25.2.9519653" >> $GITHUB_ENV
-          echo "ANDROID_NDK=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> $GITHUB_ENV
-          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> $GITHUB_ENV
-          echo "ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> $GITHUB_ENV
           echo "ANDROID_BUILD_TOOLS_VERSION=34.0.0" >> $GITHUB_ENV
-          echo "ndk.dir=/usr/local/lib/android/sdk/ndk/25.2.9519653" >> local.properties
+          echo "ANDROID_NDK_VERSION=${NDK_VERSION}" >> $GITHUB_ENV
+          echo "ANDROID_NDK=/usr/local/lib/android/sdk/ndk/${NDK_VERSION}" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/${NDK_VERSION}" >> $GITHUB_ENV
+          echo "ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/${NDK_VERSION}" >> $GITHUB_ENV
+          echo "ndk.dir=/usr/local/lib/android/sdk/ndk/${NDK_VERSION}" >> local.properties
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
           BUILD_ROOT="/home/runner"
@@ -173,7 +174,7 @@ jobs:
           echo "$SIGNINGKEY" | base64 --decode > ./keystore.p12
 
       - name: Cache .gradle
-        uses: burrunan/gradle-cache-action@v1
+        uses: burrunan/gradle-cache-action@v2
 
       - name: Package
         env:
