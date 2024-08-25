@@ -2704,7 +2704,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Wyszukaj projekt</translation>
     </message>
 </context>
 <context>
@@ -2845,11 +2845,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj do ulubionych</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Usuń z ulubionych</translation>
     </message>
 </context>
 <context>
