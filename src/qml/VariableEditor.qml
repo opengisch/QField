@@ -46,7 +46,7 @@ ColumnLayout {
         color: "transparent"
 
         property var itemRow: index
-        property bool canDelete: VariableEditable
+        property bool canDelete: VariableEditable && VariableScope == 0 // application scope
 
         function forceFocusOnVariableName() {
           variableNameText.forceActiveFocus();
@@ -157,7 +157,7 @@ ColumnLayout {
 
     onClicked: {
       let applicationScope = 0;
-      let insertionPosition = table.model.addVariable(applicationScope, "new_variable", "");
+      let insertionPosition = table.model.addVariable(applicationScope, "new_variable", "", true);
       table.positionViewAtIndex(insertionPosition, ListView.Contain);
       table.itemAtIndex(insertionPosition).forceFocusOnVariableName();
     }
