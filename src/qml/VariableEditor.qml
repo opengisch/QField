@@ -157,7 +157,7 @@ ColumnLayout {
 
     onClicked: {
       let applicationScope = 0;
-      let insertionPosition = table.model.addVariable(applicationScope, "new_variable", "", true);
+      let insertionPosition = table.model.addVariable(applicationScope, "new_variable", "");
       table.positionViewAtIndex(insertionPosition, ListView.Contain);
       table.itemAtIndex(insertionPosition).forceFocusOnVariableName();
     }

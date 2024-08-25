@@ -62,9 +62,9 @@ void ExpressionVariableModel::removeVariable( VariableScope scope, const QString
 {
   for ( int i = 0; i < rowCount(); ++i )
   {
-    QStandardItem *rowItem = item( i );
-    QString variableName = rowItem->data( VariableName ).toString();
-    VariableScope variableScope = rowItem->data( VariableScopeRole ).value<VariableScope>();
+    const QStandardItem *rowItem = item( i );
+    const QString variableName = rowItem->data( VariableName ).toString();
+    const VariableScope variableScope = rowItem->data( VariableScopeRole ).value<VariableScope>();
 
     if ( variableName == name && variableScope == scope )
     {
@@ -79,7 +79,8 @@ void ExpressionVariableModel::save()
   QVariantMap variables;
   for ( int i = 0; i < rowCount(); ++i )
   {
-    if ( item( i )->isEditable() )
+    const VariableScope itemScope = item( i )->data( VariableScopeRole ).value<VariableScope>();
+    if ( item( i )->isEditable() && itemScope == VariableScope::ApplicationScope )
     {
       variables.insert( item( i )->data( VariableName ).toString(), item( i )->data( VariableValue ) );
     }
@@ -114,16 +115,17 @@ void ExpressionVariableModel::reloadVariables()
   {
     if ( !scope->isReadOnly( varName ) )
     {
-      addVariable( VariableScope::ApplicationScope, varName, scope->variable( varName ).toString(), true );
+      addVariable( VariableScope::ApplicationScope, varName, scope->variable( varName ).toString() );
     }
   }
   // Finally add readonly project variables
   QVariantMap projectVariables = ExpressionContextUtils::projectVariables( mCurrentProject );
-  for ( const QString &varName : projectVariables.keys() )
+  const QStringList projectVariableKeys = projectVariables.keys();
+  for ( const QString &varName : projectVariableKeys )
   {
     QVariant varValue = projectVariables.value( varName ).toString();
 
-    addVariable( VariableScope::ProjectScope, varName, varValue.toString(), false );
+    addVariable( VariableScope::ProjectScope, varName, varValue.toString() );
   }
 }
 
