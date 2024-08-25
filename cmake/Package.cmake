@@ -31,7 +31,7 @@ if(WIN32)
     # set(CPACK_WIX_TEMPLATE "${CMAKE_SOURCE_DIR}/cmake/windows/template.wxs.in")
     # set(CPACK_WIX_EXTRA_SOURCES "${CMAKE_SOURCE_DIR}/cmake/windows/shortcuts.wxs")
     # set(CPACK_GENERATOR "WIX")
-    
+
     message(STATUS "   + NSIS                             YES ")
     set(CPACK_NSIS_EXECUTABLES_DIRECTORY "usr\\\\bin")
     set(CPACK_NSIS_DISPLAY_NAME "QField")
