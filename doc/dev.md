@@ -36,11 +36,10 @@ development method.
 
 Installing all [QGIS development packages](https://github.com/qgis/QGIS/blob/master/INSTALL.md#33-install-build-dependencies)
 is a good start. The next step is to install QField specific dependencies,
-here is a non-exhaustive list of them on Ubuntu.
+here is a non-exhaustive list of them on Ubuntu 24.10.
 
 ```
-# TODO: update to qt6 as soon as distros start to ship qt6.5
-sudo apt install libqt5sensors5-dev libqt5webview5-dev libqt5multimedia5-plugins libqt5multimedia5 qtmultimedia5-dev libzxingcore-dev libqt5bluetooth5 libqt5charts5 qml-module-qtcharts qtconnectivity5-dev qml-module-qtbluetooth qml-module-qtlocation qml-module-qtwebengine qml-module-qtgraphicaleffects qml-module-qt-labs-settings qml-module-qtquick-controls2 qml-module-qtquick-layouts qml-module-qtwebview qml-module-qtmultimedia qml-module-qtquick-shapes qml-module-qtsensors qml-module-qt-labs-calendar qml-module-qtquick-particles2 zipcmp zipmerge ziptool
+sudo apt install build-essential cmake qt6-sensors-dev qt6-declarative-dev qt6-positioning-dev qt6-svg-dev qt6-webview-dev qt6-multimedia-dev qt6-connectivity-dev libzxing-dev libqt6charts6 qml6-module-qtcharts qml6-module-qtlocation qml6-module-qtwebengine qml6-module-qt-labs-settings qml6-module-qtquick-controls qml6-module-qtquick-layouts qml6-module-qtwebview qml6-module-qtmultimedia qml6-module-qtquick-shapes qml6-module-qtsensors qml6-module-qtquick-particles zipcmp zipmerge ziptool
 ```
 
 ### Configure
@@ -237,3 +236,48 @@ Before commiting, install pre-commit to auto-format your code.
 pip install pre-commit
 pre-commit install
 ```
+
+## Developer Walkthrough for Linux
+
+The commands below are using `apt`, so they are written for Debian based systems like Ubuntu. Adapt accordingly for other distributions.
+
+### Initial Setup
+
+1. **Clone the Source Code:**
+   - Use `git` to clone the repository from GitHub.
+
+2. **Install Required Tools:**
+   - Install Qt Creator, a compiler, and other dependencies:
+     ```bash
+     sudo apt update
+     sudo apt install qtcreator build-essential
+     ```
+
+#### Build
+
+1. **Build from Command Line:**
+   - Run the convenience script to build the project:
+     ```bash
+     ./scripts/build-for-linux.sh
+     ```
+
+2. **Resolve Dependencies:**
+   - If the build fails, check the error output for missing dependencies and install them as recommended.
+
+#### Setup the IDE
+
+1. **Open Qt Creator:**
+   - Launch Qt Creator from your application menu or terminal.
+
+2. **Setup Qt Installation:**
+   - Go to `Preferences -> Kits -> Qt Versions -> Add`.
+   - Select `qmake` from `build-x64-linux/vcpkg_installed/x64-linux/tools/Qt6/bin/qmake`.
+
+3. **Create a New Kit:**
+   - Add a new kit in the `Kits` tab, selecting the newly added Qt version.
+
+4. **Create a New Project:**
+   - Open the `CMakeLists.txt` file from the source code directory.
+   - Select the newly created kit with a Debug configuration, pointing to the `build-x64-linux` directory.
+
+You are now ready to develop and run the project using Qt Creator!
