@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>Рабочие каталоги QField</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>Рабочий каталог QField</translation>
     </message>
 </context>
 <context>
@@ -142,7 +142,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Дополнительную информацию вы можете найти на странице документации %1Portable Project%2.</translation>
     </message>
 </context>
 <context>
@@ -242,7 +242,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка сканирования: %1</translation>
     </message>
 </context>
 <context>
@@ -253,7 +253,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Отказано в разрешении на использование Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -304,7 +304,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Отказано в разрешении на использование Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -447,7 +447,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Геометрия</translation>
     </message>
 </context>
 <context>
@@ -641,27 +641,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Снять фото</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Снять видео</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Запись аудио</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Прикрепить из галереи</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Прикрепить файл</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Пометки</translation>
     </message>
 </context>
 <context>
@@ -716,34 +716,34 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Последнее введенное значение для этого поля будет запомнено и повторно использовано при создании новых </translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Последнее введенное значение для этого поля не будет повторно использоваться при создании новых </translation>
     </message>
 </context>
 <context>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось отменить создание объектов в слое &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось отменить удаление объектов в слое &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось отменить обновление объектов в слое &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Неудачная отмена изменения объектов в слое &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось откатить изменения функции отмены в слое &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -834,19 +834,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Передача атрибутов объектов</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>Выберите элемент ниже, атрибуты которого будут перенесены на открытый в данный момент элемент.</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>Атрибуты объектов переданы</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation>Атрибуты объектов не были переданы</translation>
     </message>
     <message>
         <source>Features</source>
@@ -854,7 +854,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Алгоритмы обработки</translation>
     </message>
 </context>
 <context>
@@ -1052,14 +1052,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Документация по QField</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Навигация</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1067,7 +1067,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Точный вид&quot;</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -1075,14 +1075,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Профиль высот</translation>
     </message>
 </context>
 <context>
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Отказано в разрешении на геолокацию</translation>
     </message>
 </context>
 <context>
@@ -1101,7 +1101,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>Учетные данные детально</translation>
     </message>
 </context>
 <context>
@@ -1349,7 +1349,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Вернуться на страницы документации QField, соответствующие терминам.</translation>
     </message>
 </context>
 <context>
@@ -1468,7 +1468,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Печать объекта(ов) Атласа в PDF</translation>
+        <translation>Печать Атласа объекта(ов) в PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
@@ -1492,7 +1492,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation type="vanished">Печать объекта Атласа в PDF</translation>
+        <translation type="vanished">Печать Атласа объекта в PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1552,27 +1552,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Атрибуты объекта скопированы в буфер обмена</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Атрибуты объектов обновлены из буфера обмена</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Ни один атрибут объекта не был обновлен из буфера обмена</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Набор объектов в качестве навигационной цели</translation>
     </message>
     <message>
         <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
+        <translation>Обновление атрибутов из объекта</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Обработка выбранного объекта(ов)</translation>
     </message>
 </context>
 <context>
@@ -1738,74 +1738,74 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>Загруженный zip-файл не удалось распаковать</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>Загруженный zip-файл не содержит необходимого файла плагина main.qml</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно сохранить загруженный файл</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>Загружаемый файл не является ZIP-плагином</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка сети</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Плагины</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Плагины еще не установлены. Чтобы узнать больше о плагинах, %1почитайте документацию%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>Установить плагин с URL-адреса</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Очистить имеющиеся разрешения</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Введите URL-адрес ниже, чтобы загрузить и установить плагин:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>Установка %1</translation>
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>Автор %1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Вы уверены, что хотите удалить `%1`?</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Удалить версию %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Удалить плагин</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>Данные об авторе, указанные выше, предоставлены плагином самостоятельно и не прошли независимую проверку. Убедитесь, что вы доверяете происхождению плагина.</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню управления плагинами</translation>
     </message>
 </context>
 <context>
@@ -2010,34 +2010,34 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Основные параметры</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Расширенные параметры</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Помощь</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>Для этого алгоритма не существует общих параметров.</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>Описание алгоритма</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Избранное</translation>
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Все алгоритмы</translation>
     </message>
 </context>
 <context>
@@ -2067,15 +2067,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>вперед</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>назад</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
+        <translation>Геотегирование изображений требует включения позиционирования</translation>
     </message>
 </context>
 <context>
@@ -2139,7 +2139,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Пока никаких изменений не произошло!</translation>
     </message>
 </context>
 <context>
@@ -2406,39 +2406,39 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Этот проект имеет обновленный файл проекта в облаке, вам рекомендуется синхронизироваться.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Этот проект имеет обновленные данные в облаке, их необходимо синхронизировать.</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud упаковывает последние данные для вас; это может занять некоторое время, пожалуйста, подождите</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка, %1% из %2 найдено</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка, %1% найдено</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Обращение к QFieldCloud для загрузки проекта</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Автоматически пУшить изменения каждые %n минут(ы)</numerusform><numerusform>Автоматически вноси изменения каждые %n минут(ы)</numerusform><numerusform>Автоматически вноси изменения каждые %n минут(ы)</numerusform><numerusform>Автоматически вноси изменения каждые %n минут(ы)</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Текущий проект не позволяет отключить автонажатие</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Хранение проектов в QFieldCloud обеспечивает бесшовную синхронизацию, автономное редактирование и управление командой. </translation>
     </message>
 </context>
 <context>
@@ -2471,7 +2471,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>прервано</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
@@ -2479,60 +2479,61 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Получение статуса задания, но проект удален.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Создание задания завершено, но в ответе сервера отсутствуют необходимые поля: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Получение статуса задания, но ни одно задание `%2` еще не запущено.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Получение статуса задания завершено, но проект удален.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>Ответ статуса задания (%1) не содержит всех ожидаемых ключей: status(string)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>Задание(%1) завершилось с неудачным статусом.</translation>
     </message>
     <message>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>Проект занят.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>Задание на упаковку завершилось неудачно для `%1`. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось обновить последнюю информацию для `%1`: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось получить последние данные о пакете.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка ответа на последние данные пакета.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка структуры данных последнего пакета.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1: Упакованный слой `%2` не валидный. Код ошибки %3, сообщение об ошибке: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось открыть временный файл для `%1`, причина: 
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
@@ -2542,23 +2543,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Сетевая ошибка. Не удалось загрузить файл `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка файловой системы. Не удалось записать файл во временное местоположение `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка файловой системы. Не удалось открыть файл для записи на временном `%1`.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>Проект `%1`, файл `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>Системное сообщение:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
@@ -2673,35 +2674,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Действия по проекту</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, обновленные данные доступны в облаке</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud упаковывает последние данные для вас; это может занять некоторое время, пожалуйста, подождите</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка, %1% из %2 найдено</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка, %1% найдено</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Обращение к QFieldCloud для загрузки проекта</translation>
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Не найдено ни одного облачного проекта. Чтобы начать работу, %1 прочитайте документацию%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Поиск проекта</translation>
     </message>
 </context>
 <context>
@@ -2716,22 +2717,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Доступное хранилище вашей учетной записи заполнено.</translation>
     </message>
 </context>
 <context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Завершено</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>След.</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Пред.</translation>
     </message>
 </context>
 <context>
@@ -2746,7 +2747,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Папки</translation>
     </message>
     <message>
         <source>Projects</source>
@@ -2758,35 +2759,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Избранное</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Файл проекта</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Векторный набор данных</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Растровый набор данных</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation type="unfinished"/>
+        <translation>Отправить ...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Экспорт в папку...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Удалить набор данных</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Отправить сжатую папку в...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -2794,59 +2795,59 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Импорт проекта из папки</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Импорт проекта из ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Импорт наборов данных</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Помощь в управлении хранилищем</translation>
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Импорт URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Введите URL-адрес, чтобы загрузить и импортировать проект или набор данных:</translation>
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Действия (над объектом)</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Действия при импорте</translation>
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Действия по проекту</translation>
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Обновление проекта из ZIP</translation>
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
+        <translation>Нажмите на QFieldCloud...</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; загружается в QFieldCloud</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Добавить в Избр.</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Удалить из Избр.</translation>
     </message>
 </context>
 <context>
@@ -2881,7 +2882,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>При включении на карте будут отображаться сохраненные и открытые в данный момент закладки проекта.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -2917,11 +2918,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Отправлять анонимные метрики</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, будут собираться и отправляться анонимизированные показатели, чтобы помочь улучшить QField для всех.</translation>
     </message>
     <message>
         <source>General</source>
@@ -3035,19 +3036,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>Включить усредненное позиционирование</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Минимальное количество собранных позиций</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Автоматическое завершение сбора при достижении минимального количества</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, при оцифровке вершин с курсором, зафиксированным на позиции, будет приниматься только усредненная позиция из минимального количества собранных позиций. Оцифровка с использованием усредненных позиций выполняется нажатием и удержанием кнопки добавления вершины, которая будет собирать позиции до тех пор, пока нажатие не будет отпущено. При включении этой функции соблюдаются требования к точности.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -3087,19 +3088,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Время бездействия в секундах, после которого яркость экрана будет снижена для экономии заряда батареи.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Измеренное значение (M), прикреплено к вершинам:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Временная метка (миллисекунды с эпохи)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3107,11 +3108,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Гор. точность</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Верт. точность</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3127,7 +3128,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>При оцифровке элементов с фиксацией координатного курсора в текущей позиции выбранный выше тип измерения будет добавлен к геометрии, если она имеет M-значение.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -3175,102 +3176,102 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Записывать NMEA-лог в файл</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Качество рендеринга подложки:</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Наилучшее качество</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Сниженное качество</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Наихудшее качество</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>При более низком качестве точность рендеринга снижается в пользу меньшего использования памяти и времени рендеринга.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Это значение корректирует значения Z, записанные с устройства позиционирования. Если введено значение 1,6, QField будет автоматически вычитать 1,6 из каждого записанного значения. Обязательно введите эффективную высоту антенны, т.е. длину мачты + смещение фазового центра антенны.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ортометрически с устройства</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Используйте клавиши громкости для оцифровки</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, нажатие клавиши увеличения громкости устройства добавит вершину, а нажатие клавиши уменьшения громкости удалит последнюю введенную вершину во время сеансов оцифровки.</translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Разрешить добавление вершин с помощью тапа</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Если включить эту функцию, то при нажатии пальцем на холст карты будет добавлена вершина в месте нажатия.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, мышь будет вести себя так, как будто это палец. Если отключить, мышь будет вести себя как стилус.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Карта-подложка</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Оцифровка и редактирование</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Пользовательский интерфейс</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Внешний вид:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Размер шрифта:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Язык:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Расширенные:</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Управление плагинами</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Включить поворот карты</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Во включенном состоянии карта может быть повернута пользователем.</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Выберите шаблон чертежа</translation>
     </message>
 </context>
 <context>
@@ -3353,11 +3354,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Пожалуйста, подождите, пока установка QField завершится.</translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>усредненный</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -3394,7 +3395,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Поиск</translation>
     </message>
 </context>
 <context>
@@ -3417,19 +3418,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Плагин проекта</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось загрузить шрифт: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно загрузить проект, файл &quot;%1&quot; не существует</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно прочитать проект, файл &quot;%1&quot; не существует</translation>
     </message>
 </context>
 <context>
@@ -3476,7 +3477,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU (инерц.датчик)</translation>
     </message>
 </context>
 <context>
@@ -3559,42 +3560,42 @@ Cancel to make a minimal device scan instead.</source>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Выберите последовательный порт из списка ниже:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Последовательные порты не обнаружены, обновите список после подключения устройства.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Обновить список</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Имя последовательного порта:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Адрес последовательного порта:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось найти устройство последовательного порта</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Попытка чтения из последовательного порта привела к ошибке</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>В подключении было отказано из-за отсутствия разрешений</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка приемника (последовательного порта): (%1)</translation>
     </message>
 </context>
 <context>
@@ -3622,11 +3623,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Адрес:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Порт:</translation>
     </message>
 </context>
 <context>
@@ -3657,26 +3658,26 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Удаленный шлюз (?) отказал в подключении</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка приемника UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Удаленный хост отказал в подключении</translation>
     </message>
 </context>
 <context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Временные свойства</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Включить временный фильтр</translation>
     </message>
 </context>
 <context>
@@ -3698,19 +3699,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Трекинг: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Трекинг</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки требований</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Требования к времени</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -3718,11 +3719,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, добавление вершин будет происходить, когда время между последней и новой вершиной будет соответствовать заданному минимальному значению.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Требования к дистанции</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3730,55 +3731,55 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, добавление вершин будет происходить, когда расстояние между последней и новой вершиной будет соответствовать заданному минимальному значению.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Требования к данным датчиков</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, добавление вершин будет происходить, когда датчики получат новые данные.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Дождитесь выполнения всех активных требований</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, вершины будут записываться только при выполнении всех активных требований. Если отключить эту функцию, добавление вершин будет происходить при выполнении отдельных требований.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Общие настройки</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Ошибочное безопасное расстояние</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Максимально допустимая дистанция [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, добавление вершин не будет происходить, если расстояние между последней и новой вершиной превышает заданное максимальное значение.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Измеренное значение (M), прикреплено к вершинам:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Прошедшее время (секунды с момента начала отслеживания)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Временная метка (миллисекунды с эпохи)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3786,11 +3787,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Гор. точность</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Верт. точность</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3806,7 +3807,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Чтобы активировать функцию измерения, убедитесь, что тип геометрии векторного слоя, используемый для сеанса отслеживания, имеет M-значения.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3818,7 +3819,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Обзор (резюме) трекинга</translation>
     </message>
 </context>
 <context>
@@ -3865,23 +3866,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Если оба ограничения отключены, добавление вершин будет происходить так часто, как это предусмотрено устройством позиционирования.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Измеренное значение (M), прикреплено к вершинам:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Прошедшее время (секунды с момента начала отслеживания)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Временная метка (миллисекунды с эпохи)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Скорость</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3889,11 +3890,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Гор. точность</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Верт. точность</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3909,7 +3910,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Чтобы активировать функцию измерения, убедитесь, что тип геометрии векторного слоя, используемый для сеанса отслеживания, имеет M-значения.</translation>
     </message>
 </context>
 <context>
@@ -3991,11 +3992,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Адрес:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Порт:</translation>
     </message>
 </context>
 <context>
@@ -4026,15 +4027,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Удаленный шлюз (?) отказал в подключении</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка приемника UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Удаленный хост отказал в подключении</translation>
     </message>
 </context>
 <context>
@@ -4097,19 +4098,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>Анонимизированный сбор метрик был отключен. Вы можете повторно включить его через панель настроек.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Чтобы улучшить стабильность для всех, QField собирает и отправляет анонимизированные метрики.</translation>
     </message>
     <message>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Я согл.</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Я не согл.</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -4149,23 +4150,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Проект по умолчанию</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Базовая карта</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Проект по умолчанию</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Отдельные наборы данных для &quot;Базовая карта&quot;</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка проекта по умолчанию при запуске</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
@@ -4173,11 +4174,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Последние действия в проекте</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Добро пожаловать в QField. Впервые используете это приложение? Попробуйте примеры проектов, перечисленные ниже.</translation>
     </message>
 </context>
 <context>
@@ -4195,47 +4196,47 @@ Cancel to make a minimal device scan instead.</source>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>град.</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>метры</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>КМ</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>футы</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>ярды</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>мили</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>морск. мили</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>СМ</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>ММ</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>дюймы</translation>
     </message>
 </context>
 <context>
@@ -4274,11 +4275,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно добавить дочернюю функцию: значение атрибута, связывающего родительскую и дочернюю функции, не установлено</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно добавить дочерний элемент: убедитесь, что родительский элемент соответствует всем ограничениям и может быть сохранена</translation>
     </message>
 </context>
 <context>
@@ -4313,7 +4314,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Периметр</translation>
     </message>
     <message>
         <source>Length</source>
@@ -4449,7 +4450,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Опции карты-подложки</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
@@ -4461,7 +4462,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Доб. коорд. в Закладки</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -4469,7 +4470,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Установить координаты как цель</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -4489,55 +4490,55 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки &quot;точного вида&quot;</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25м точность</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0,5 м Точность</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1м точность</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2,5м точность</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5м точность</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10м точность</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Всегда показывать &quot;точный вид&quot;</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>Центрировать</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Добавить местопол. в закладки</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Копировать координаты местоположения</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>-разлогинен-</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="unfinished"/>
+        <translation>-залогинен-</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -4545,19 +4546,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>Опции навигации</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="unfinished"/>
+        <translation>Очистить место назначения</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 Точность</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Включение звукового уведомления при приближении</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -4581,19 +4582,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Добавить закладку в текущем месте</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="unfinished"/>
+        <translation>Текущее местоположение неизвестно</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="unfinished"/>
+        <translation>Мое местоположение</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Копировать текущее местоположение</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -4605,7 +4606,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Текущее местоположение скопировано в буфер обмена</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
@@ -4653,11 +4654,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ошибка позиционирования: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Азимут</translation>
     </message>
     <message>
         <source>Lock Screen</source>
@@ -4665,7 +4666,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Печать в изображение</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -4673,11 +4674,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Печать</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка устройства позиционирования: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -4689,23 +4690,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Включена функция &quot;прилипания&quot;</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Функция &quot;прилипания&quot; выключена</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Включено прилипание к углу %1°</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Отключено прилипание к углу</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Относительный угол</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
@@ -4713,15 +4714,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Подложка отслеживает местоположение и ориентацию по компасу</translation>
     </message>
     <message>
         <source>No print layout available</source>
-        <translation type="unfinished"/>
+        <translation>Макет для печати отсутствует</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Узнать больше</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -4729,7 +4730,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Нет доступных датчиков</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -4737,91 +4738,91 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Выберите датчик ниже</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка датчика: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Отключение датчика &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Подключение датчика &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Выберите макет ниже</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Слой:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Объект:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Открыть форму атрибутов</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Дублирование функций недоступно</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Импорт %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось импортировать URL-адрес</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Разблокируйте экран, чтобы закрыть проект и приложение</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Даете ли вы разрешение на активацию `%1`?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Запомнить мой выбор</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Копировать атрибуты объекта</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Позиция вплотную к ‘%1’</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Позиция вне области (после выхода из)  &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Позиция в &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Позиция слева от &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Включить поворот карты</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Дашборд</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Эта кнопка открывает дашборд. С помощью дашборд-а вы можете работать с легендой и темой карты, а также начать оцифровку, активировав режим редактирования. Длительное нажатие на кнопку дает мгновенный доступ к главному меню.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4829,23 +4830,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Эта кнопка включает систему позиционирования. Если она включена, в верхней части карты появится маркер местоположения. Длительное нажатие на кнопку открывает меню позиционирования с доп.функциями</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>Строка поиска позволяет быстро находить объекты в проекте, переходить к введенной точке широты и долготы и многое другое.</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Зум</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>Помимо жеста &quot;щипок&quot;, эти кнопки помогают быстро увеличивать и уменьшать изображение.</translation>
     </message>
 </context>
 <context>
@@ -4884,11 +4885,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно добавить дочернюю функцию: значение атрибута, связывающего родительскую и дочернюю функции, не установлено</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно добавить дочерний элемент: убедитесь, что родительский элемент соответствует всем ограничениям и может быть сохранена</translation>
     </message>
 </context>
 <context>
