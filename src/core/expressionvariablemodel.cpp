@@ -83,7 +83,7 @@ void ExpressionVariableModel::save()
     const QString itemName = currentItem->data( VariableName ).toString();
     const QString itemValue = currentItem->data( VariableValue ).toString();
 
-    if ( currentItem->isEditable() && itemScope == VariableScope::ApplicationScope )
+    if ( currentItem->isEditable() && itemScope == VariableScope::GlobalScope )
     {
       QgsExpressionContextUtils::setGlobalVariable( itemName, itemValue );
     }
@@ -112,7 +112,7 @@ void ExpressionVariableModel::reloadVariables()
       if ( QString::compare( varValue.toString(), QStringLiteral( "Not available" ) ) == 0 )
         varValue = QVariant( QT_TR_NOOP( "Not Available" ) );
 
-      addVariable( VariableScope::ApplicationScope, varName, varValue.toString(), false );
+      addVariable( VariableScope::GlobalScope, varName, varValue.toString(), false );
     }
   }
   // Second add custom variables
@@ -120,7 +120,7 @@ void ExpressionVariableModel::reloadVariables()
   {
     if ( !scope->isReadOnly( varName ) )
     {
-      addVariable( VariableScope::ApplicationScope, varName, scope->variable( varName ).toString() );
+      addVariable( VariableScope::GlobalScope, varName, scope->variable( varName ).toString() );
     }
   }
   // Finally add readonly project variables

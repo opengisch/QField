@@ -36,7 +36,7 @@ class ExpressionVariableModel : public QStandardItemModel
 
     enum class VariableScope
     {
-      ApplicationScope,
+      GlobalScope,
       ProjectScope
     };
 
