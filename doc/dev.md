@@ -36,11 +36,10 @@ development method.
 
 Installing all [QGIS development packages](https://github.com/qgis/QGIS/blob/master/INSTALL.md#33-install-build-dependencies)
 is a good start. The next step is to install QField specific dependencies,
-here is a non-exhaustive list of them on Ubuntu.
+here is a non-exhaustive list of them on Ubuntu 24.10.
 
 ```
-# TODO: update to qt6 as soon as distros start to ship qt6.5
-sudo apt install libqt5sensors5-dev libqt5webview5-dev libqt5multimedia5-plugins libqt5multimedia5 qtmultimedia5-dev libzxingcore-dev libqt5bluetooth5 libqt5charts5 qml-module-qtcharts qtconnectivity5-dev qml-module-qtbluetooth qml-module-qtlocation qml-module-qtwebengine qml-module-qtgraphicaleffects qml-module-qt-labs-settings qml-module-qtquick-controls2 qml-module-qtquick-layouts qml-module-qtwebview qml-module-qtmultimedia qml-module-qtquick-shapes qml-module-qtsensors qml-module-qt-labs-calendar qml-module-qtquick-particles2 zipcmp zipmerge ziptool
+sudo apt install build-essential cmake qt6-sensors-dev qt6-declarative-dev qt6-positioning-dev qt6-svg-dev qt6-webview-dev qt6-multimedia-dev qt6-connectivity-dev libzxing-dev libqt6charts6 qml6-module-qtcharts qml6-module-qtlocation qml6-module-qtwebengine qml6-module-qt-labs-settings qml6-module-qtquick-controls qml6-module-qtquick-layouts qml6-module-qtwebview qml6-module-qtmultimedia qml6-module-qtquick-shapes qml6-module-qtsensors qml6-module-qtquick-particles zipcmp zipmerge ziptool
 ```
 
 ### Configure
