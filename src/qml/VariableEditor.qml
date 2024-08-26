@@ -46,7 +46,7 @@ ColumnLayout {
         color: "transparent"
 
         property var itemRow: index
-        property bool canDelete: VariableEditable && VariableScope == 0 // application scope
+        property bool canDelete: VariableEditable && VariableScope == ExpressionVariableModel.GlobalScope
 
         function forceFocusOnVariableName() {
           variableNameText.forceActiveFocus();
@@ -156,8 +156,7 @@ ColumnLayout {
     text: qsTr("Add a new variable")
 
     onClicked: {
-      let applicationScope = 0;
-      let insertionPosition = table.model.addVariable(applicationScope, "new_variable", "");
+      let insertionPosition = table.model.addVariable(ExpressionVariableModel.GlobalScope, "new_variable", "");
       table.positionViewAtIndex(insertionPosition, ListView.Contain);
       table.itemAtIndex(insertionPosition).forceFocusOnVariableName();
     }
