@@ -61,6 +61,7 @@ bool ExpressionVariableModel::setData( const QModelIndex &index, const QVariant 
 
     case VariableEditableRole:
     case VariableScopeRole:
+    default:
       break;
   }
 

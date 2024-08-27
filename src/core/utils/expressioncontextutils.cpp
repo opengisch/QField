@@ -211,6 +211,7 @@ void ExpressionContextUtils::setProjectVariable( QgsProject *project, const QStr
   variables.insert( name, value );
   project->setCustomVariables( variables );
 }
+
 void ExpressionContextUtils::setProjectVariables( QgsProject *project, const QVariantMap &variables )
 {
   if ( !project )

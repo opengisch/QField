@@ -128,6 +128,9 @@ ColumnLayout {
               onTextChanged: {
                 if (enabled && VariableValue != text) {
                   VariableValue = text;
+                  if (VariableScope == ExpressionVariableModel.ProjectScope) {
+                    projectInfo.saveVariable(VariableName, text);
+                  }
                 }
               }
 

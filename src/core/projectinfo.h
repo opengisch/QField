@@ -180,6 +180,8 @@ class ProjectInfo : public QObject
     //! Restore the last tracking session that occured within a vector \a layer.
     Q_INVOKABLE QModelIndex restoreTracker( QgsVectorLayer *layer );
 
+    Q_INVOKABLE void saveVariable( const QString &name, const QString &value );
+
     //! Restore various project settings
     static void restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree );
 
