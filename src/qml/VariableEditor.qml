@@ -86,7 +86,9 @@ ColumnLayout {
               }
 
               onTextChanged: {
-                table.model.setName(index, text);
+                if (enabled && VariableName != text) {
+                  VariableName = text;
+                }
               }
 
               onCursorRectangleChanged: {
@@ -124,7 +126,9 @@ ColumnLayout {
               }
 
               onTextChanged: {
-                table.model.setValue(index, text);
+                if (enabled && VariableValue != text) {
+                  VariableValue = text;
+                }
               }
 
               onCursorRectangleChanged: {
