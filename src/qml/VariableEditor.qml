@@ -74,7 +74,7 @@ ColumnLayout {
               rightPadding: 1
               width: variableNameTextAnimator.width
               text: VariableName
-              enabled: VariableEditable
+              enabled: VariableScope == ExpressionVariableModel.GlobalScope && VariableEditable
               font: Theme.tipFont
               horizontalAlignment: TextInput.AlignLeft
               placeholderText: displayText === '' ? qsTr("Enter name") : ''
