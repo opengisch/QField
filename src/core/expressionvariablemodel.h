@@ -47,7 +47,7 @@ class ExpressionVariableModel : public QStandardItemModel
 
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-    Q_INVOKABLE int addVariable( VariableScope scope, const QString &name, const QString &value, bool editable = true, bool preexisting = false );
+    Q_INVOKABLE int addVariable( VariableScope scope, const QString &name, const QString &value );
 
     Q_INVOKABLE void removeVariable( VariableScope scope, const QString &name );
 
@@ -74,6 +74,8 @@ class ExpressionVariableModel : public QStandardItemModel
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
 
   private:
+    void appendVariable( VariableScope scope, const QString &name, const QString &value, bool editable );
+
     QgsProject *mCurrentProject = nullptr;
 
     QList<QPair<VariableScope, QString>> mRemovedVariables;
