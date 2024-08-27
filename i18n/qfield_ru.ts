@@ -579,7 +579,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Blank</translation>
     </message>
 </context>
 <context>
@@ -4710,7 +4710,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Прилипать каждые %1°</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4896,35 +4896,35 @@ Cancel to make a minimal device scan instead.</source>
     <name>tst_qFieldGuide</name>
     <message>
         <source>dummyItem1</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem1</translation>
     </message>
     <message>
         <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem1 responsibility.</translation>
     </message>
     <message>
         <source>dummyItem2</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem2</translation>
     </message>
     <message>
         <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem2 responsibility.</translation>
     </message>
     <message>
         <source>dummyItem3</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem3</translation>
     </message>
     <message>
         <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem3 responsibility.</translation>
     </message>
     <message>
         <source>dummyItem4</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem4</translation>
     </message>
     <message>
         <source>dummyItem4 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem4 responsibility.</translation>
     </message>
 </context>
 </TS>
