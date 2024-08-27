@@ -34,6 +34,9 @@ ColumnLayout {
       spacing: 1
       anchors.fill: parent
 
+      ScrollBar.vertical: QfScrollBar {
+      }
+
       model: ExpressionVariableModel {
         currentProject: qgisProject
       }
@@ -62,7 +65,7 @@ ColumnLayout {
       delegate: Rectangle {
         id: rectangle
         width: parent ? parent.width : 0
-        height: line.height
+        height: line.height + 10
         color: "transparent"
 
         property var itemRow: index
@@ -76,15 +79,15 @@ ColumnLayout {
           id: line
           anchors {
             left: parent.left
-            leftMargin: 5
+            leftMargin: 10
             right: parent.right
-            rightMargin: 5
+            rightMargin: 10
           }
           spacing: 0
 
           QfSwipeAnimator {
             id: variableNameTextAnimator
-            width: table.width - 10
+            width: table.width - line.anchors.leftMargin * 2
             height: 24
             shouldAutoFlick: (width < variableNameText.implicitWidth) && !dragging && !variableNameText.activeFocus
             contentImplicitWidth: variableNameText.implicitWidth
@@ -93,16 +96,18 @@ ColumnLayout {
 
             TextField {
               id: variableNameText
-              topPadding: 0
+              topPadding: 5
               bottomPadding: 0
               leftPadding: 1
               rightPadding: 1
-              width: Math.max(table.width - 10, implicitWidth)
+              width: Math.max(table.width - line.anchors.leftMargin * 2, implicitWidth)
               height: variableNameTextAnimator.height
               text: VariableName
               enabled: VariableScope == ExpressionVariableModel.GlobalScope && VariableEditable
-              font: Theme.tinyFont
-              color: enabled ? variableNameText.activeFocus ? Theme.mainColor : Theme.mainTextColor : Theme.mainTextDisabledColor
+              opacity: enabled ? 1 : 0.45
+              font.bold: true
+              font.pointSize: Theme.tinyFont.pointSize
+              color: variableNameText.activeFocus ? Theme.mainColor : Theme.mainTextColor
               horizontalAlignment: TextInput.AlignLeft
               verticalAlignment: TextInput.AlignVCenter
 
@@ -127,7 +132,7 @@ ColumnLayout {
 
             QfSwipeAnimator {
               id: variableValueTextAnimator
-              width: table.width - 10 - (canDelete ? deleteVariableButton.width : 0)
+              width: table.width - line.anchors.leftMargin * 2 - (canDelete ? deleteVariableButton.width : 0)
               height: 40
               shouldAutoFlick: (width < variableValueText.implicitWidth) && !dragging && !variableValueText.activeFocus
               contentImplicitWidth: variableValueText.implicitWidth
@@ -140,7 +145,7 @@ ColumnLayout {
                 bottomPadding: 10
                 leftPadding: 1
                 rightPadding: 1
-                width: Math.max(table.width - 10 - (canDelete ? deleteVariableButton.width : 0), implicitWidth)
+                width: Math.max(table.width - line.anchors.leftMargin * 2 - (canDelete ? deleteVariableButton.width : 0), implicitWidth)
                 text: VariableValue
                 enabled: VariableEditable
                 font: Theme.defaultFont
