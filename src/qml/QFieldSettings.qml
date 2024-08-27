@@ -1112,7 +1112,7 @@ Page {
               }
 
               Label {
-                text: qsTr("Bad accuracy below [m]")
+                text: qsTr("Bad accuracy worse than [m]")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -1151,7 +1151,7 @@ Page {
               }
 
               Label {
-                text: qsTr("Excellent accuracy above [m]")
+                text: qsTr("Excellent accuracy better than [m]")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -1190,7 +1190,7 @@ Page {
               }
 
               Label {
-                text: qsTr("Enable accuracy requirement")
+                text: qsTr("Enforce accuracy requirement")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 enabled: accuracyIndicator.checked
@@ -1218,7 +1218,7 @@ Page {
               }
 
               Label {
-                text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is below bad, <span %2>yellow</span> if it falls short of excellent, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
+                text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
                         "color": Theme.accuracyBad
                       }))).arg("style='%1'".arg(Theme.toInlineStyles({
                         "color": Theme.accuracyTolerated
