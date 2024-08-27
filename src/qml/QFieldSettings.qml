@@ -1112,7 +1112,7 @@ Page {
               }
 
               Label {
-                text: qsTr("Bad accuracy worse than [m]")
+                text: qsTr("Bad accuracy threshold [m]")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -1151,7 +1151,7 @@ Page {
               }
 
               Label {
-                text: qsTr("Excellent accuracy better than [m]")
+                text: qsTr("Excellent accuracy threshold [m]")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
