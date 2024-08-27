@@ -36,15 +36,17 @@ class ExpressionVariableModel : public QStandardItemModel
 
     enum class VariableScope
     {
-      ApplicationScope,
+      GlobalScope,
       ProjectScope
     };
+
+    Q_ENUM( VariableScope )
 
     explicit ExpressionVariableModel( QObject *parent = nullptr );
 
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-    Q_INVOKABLE int addVariable( VariableScope scope, const QString &name, const QString &value );
+    Q_INVOKABLE int addVariable( VariableScope scope, const QString &name, const QString &value, bool editable = true );
 
     Q_INVOKABLE void removeVariable( VariableScope scope, const QString &name );
 
