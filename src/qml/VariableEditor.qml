@@ -39,6 +39,7 @@ ColumnLayout {
       anchors.margins: 3
       anchors.leftMargin: 9
       anchors.rightMargin: 5
+
       delegate: Rectangle {
         id: rectangle
         width: parent ? parent.width : 0
@@ -71,6 +72,7 @@ ColumnLayout {
               bottomPadding: 10
               leftPadding: 1
               rightPadding: 1
+              width: variableNameTextAnimator.width
               text: VariableName
               enabled: VariableEditable
               font: Theme.tipFont
@@ -108,6 +110,7 @@ ColumnLayout {
               bottomPadding: 10
               leftPadding: 1
               rightPadding: 1
+              width: variableValueTextAnimator.width
               text: VariableValue
               enabled: VariableEditable
               font: Theme.tipFont
