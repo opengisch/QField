@@ -3020,19 +3020,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Плохая точность ниже [м] </translation>
+        <translation type="vanished">Плохая точность ниже [м] </translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Отличная точность выше [м]</translation>
+        <translation type="vanished">Отличная точность выше [м]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Включить ограничение точности</translation>
+        <translation type="vanished">Включить ограничение точности</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Когда индикатор точности включен, к кнопке местоположения будет прикреплён значок, и он будет иметь &lt;span %1&gt;красный&lt;/span&gt; цвет, если значение точности ниже плохого значения, &lt;span %2&gt;желтый&lt;/span&gt;, если значение точности будет близко к отличному значению, или &lt;span %3&gt;зелёный&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Кроме того, можно включить режим ограничения точности, который ограничивает добавление вершин, когда курсор заблокирован на местоположение при значениях  точности выше плохого порога. </translation>
+        <translation type="vanished">Когда индикатор точности включен, к кнопке местоположения будет прикреплён значок, и он будет иметь &lt;span %1&gt;красный&lt;/span&gt; цвет, если значение точности ниже плохого значения, &lt;span %2&gt;желтый&lt;/span&gt;, если значение точности будет близко к отличному значению, или &lt;span %3&gt;зелёный&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Кроме того, можно включить режим ограничения точности, который ограничивает добавление вершин, когда курсор заблокирован на местоположение при значениях  точности выше плохого порога. </translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3265,6 +3265,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>Во включенном состоянии карта может быть повернута пользователем.</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

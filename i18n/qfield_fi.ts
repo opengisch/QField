@@ -3020,19 +3020,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Huono tarkkuus alla [m]</translation>
+        <translation type="vanished">Huono tarkkuus alla [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Erinomainen tarkkuus yllä [m]</translation>
+        <translation type="vanished">Erinomainen tarkkuus yllä [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Ota käyttöön tarkkuusvaatimus</translation>
+        <translation type="vanished">Ota käyttöön tarkkuusvaatimus</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Kun tarkkuusvaatimus otetaan käyttöön, sijaintipainikkeeseen liitetään värillinen tunnus. Jos tarkkuusarvo on alle huonon, tunnus näkyy &lt;span %1&gt;punaisena&lt;/span&gt;. Jos tarkkuusarvo on alle erinomaisen, tunnus näkyy &lt;span %2&gt;keltaisena&lt;/span&gt;. Jos tarkkuusarvo on erinomainen, tunnus näkyy &lt;span %3&gt;vihreänä&lt;/span&gt;. &lt;br&gt;&lt;br&gt;Lisäksi voidaan ottaa käyttöön tarkkuusrajoitustila, joka rajoittaa taitepisteiden lisäystä huonon tarkkuusarvon omaaviin sijainteihin.</translation>
+        <translation type="vanished">Kun tarkkuusvaatimus otetaan käyttöön, sijaintipainikkeeseen liitetään värillinen tunnus. Jos tarkkuusarvo on alle huonon, tunnus näkyy &lt;span %1&gt;punaisena&lt;/span&gt;. Jos tarkkuusarvo on alle erinomaisen, tunnus näkyy &lt;span %2&gt;keltaisena&lt;/span&gt;. Jos tarkkuusarvo on erinomainen, tunnus näkyy &lt;span %3&gt;vihreänä&lt;/span&gt;. &lt;br&gt;&lt;br&gt;Lisäksi voidaan ottaa käyttöön tarkkuusrajoitustila, joka rajoittaa taitepisteiden lisäystä huonon tarkkuusarvon omaaviin sijainteihin.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3265,6 +3265,22 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>Kun päällä, karttaa voidaan kiertää käyttäjän toimesta</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

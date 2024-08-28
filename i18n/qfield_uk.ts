@@ -3022,19 +3022,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Погана точність нижче [м]</translation>
+        <translation type="vanished">Погана точність нижче [м]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Чудова точність вище [м]</translation>
+        <translation type="vanished">Чудова точність вище [м]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Увімкнути вимогу точності</translation>
+        <translation type="vanished">Увімкнути вимогу точності</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Коли індикатор точності ввімкнено, значок прикріплюється до кнопки розташування і забарвлюється&lt;span %1&gt;червоним&lt;/span&gt; якщо значення точності нижче поганого, &lt;span %2&gt;жовтим&lt;/span&gt;якщо воно не відповідає відмінному, або &lt;span %3&gt;зеленим&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Крім того, можна ввімкнути режим обмеження точності, який обмежує додавання вершин, коли він заблокований, щоб координувати курсор до позицій зі значенням точності вище поганого порогу.</translation>
+        <translation type="vanished">Коли індикатор точності ввімкнено, значок прикріплюється до кнопки розташування і забарвлюється&lt;span %1&gt;червоним&lt;/span&gt; якщо значення точності нижче поганого, &lt;span %2&gt;жовтим&lt;/span&gt;якщо воно не відповідає відмінному, або &lt;span %3&gt;зеленим&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Крім того, можна ввімкнути режим обмеження точності, який обмежує додавання вершин, коли він заблокований, щоб координувати курсор до позицій зі значенням точності вище поганого порогу.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3266,6 +3266,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
 </context>

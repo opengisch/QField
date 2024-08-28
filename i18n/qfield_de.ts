@@ -34,7 +34,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Beschränkt die Suche auf das Feld &apos;%1&apos;.</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -142,7 +142,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Im Abschnitt über %1Portable Projekte%2 in der QField-Dokumentation finden Sie hierzu weitere Hinweise.</translation>
     </message>
 </context>
 <context>
@@ -242,7 +242,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim scannen: %1</translation>
     </message>
 </context>
 <context>
@@ -461,7 +461,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>NFC Text-Tag erkannt</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -518,7 +518,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation type="unfinished"/>
+        <translation>Erwartet, dass das json-Dokument ein Array mit Deltastatus ist</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
@@ -545,7 +545,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation type="unfinished"/>
+        <translation>Konnte kein Objekt zum Digitalisierungs-Log layer hinzufügen</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
@@ -568,7 +568,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>Die Anzahl der aufgenommenen Positionen ist zu gering</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -604,11 +604,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>Die Geometrie konnte nicht in mehrere Teile aufgeteilt werden</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>Die Geometrie konnte nicht bearbeitet werden</translation>
     </message>
 </context>
 <context>
@@ -731,11 +731,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Konnte das Löschen von Objekten im Layer &quot;%1&quot; nicht rückgängig machen</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Konnte das Updaten von Objekten im Layer &quot;%1&quot; nicht rückgängig machen</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
@@ -3013,19 +3013,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Schlechte Genauigkeit über [m]</translation>
+        <translation type="vanished">Schlechte Genauigkeit über [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Ausgezeichnete Genauigkeit ab [m]</translation>
+        <translation type="vanished">Ausgezeichnete Genauigkeit ab [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Anforderung an die Genauigkeit aktivieren</translation>
+        <translation type="vanished">Anforderung an die Genauigkeit aktivieren</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Wenn der Genauigkeitsindikator aktiviert ist, wird ein Badge an die Positionsschaltfläche angehängt und &lt;span %1&gt;rot&lt;/span&gt; gefärbt, wenn der Genauigkeitswert unter schlecht liegt, &lt;span %2&gt;gelb&lt;/span&gt;, wenn er unter exzellent liegt, oder &lt;span %3&gt;grün&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Zusätzlich kann ein Genauigkeitseinschränkungsmodus eingeschaltet werden, der das Hinzufügen von Definitionspunkten beim Sperren des Koordinatencursors auf Positionen mit einem Genauigkeitswert über dem Schwellenwert für schlechte Genauigkeit beschränkt.</translation>
+        <translation type="vanished">Wenn der Genauigkeitsindikator aktiviert ist, wird ein Badge an die Positionsschaltfläche angehängt und &lt;span %1&gt;rot&lt;/span&gt; gefärbt, wenn der Genauigkeitswert unter schlecht liegt, &lt;span %2&gt;gelb&lt;/span&gt;, wenn er unter exzellent liegt, oder &lt;span %3&gt;grün&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Zusätzlich kann ein Genauigkeitseinschränkungsmodus eingeschaltet werden, der das Hinzufügen von Definitionspunkten beim Sperren des Koordinatencursors auf Positionen mit einem Genauigkeitswert über dem Schwellenwert für schlechte Genauigkeit beschränkt.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3258,6 +3258,22 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>Wenn aktiviert die Kartenansicht gedreht werden</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3018,19 +3018,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Loša tačnost ispod [m]</translation>
+        <translation type="vanished">Loša tačnost ispod [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Odlična tačnost iznad [m]</translation>
+        <translation type="vanished">Odlična tačnost iznad [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Omogući zahtjev tačnosti</translation>
+        <translation type="vanished">Omogući zahtjev tačnosti</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Kada je indikator tačnosti omogućen, dodan je bedž na dugme lokacije i obojen &lt;span %1&gt;crveno&lt;/span&gt; ako je tačnost loša, &lt;span %2&gt;žuto&lt;/span&gt; ako je zamalo odlično ili &lt;span %3&gt;zeleno&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Dodatno, mo ograničenja tačnosti može biti uključen, što ograničava dodavanje tački kada je zaključan kursor za lokaciju sa tačnošću iznad praga.</translation>
+        <translation type="vanished">Kada je indikator tačnosti omogućen, dodan je bedž na dugme lokacije i obojen &lt;span %1&gt;crveno&lt;/span&gt; ako je tačnost loša, &lt;span %2&gt;žuto&lt;/span&gt; ako je zamalo odlično ili &lt;span %3&gt;zeleno&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Dodatno, mo ograničenja tačnosti može biti uključen, što ograničava dodavanje tački kada je zaključan kursor za lokaciju sa tačnošću iznad praga.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3262,6 +3262,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
 </context>

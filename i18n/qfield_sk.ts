@@ -3021,19 +3021,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Zlá presnosť pod [m]</translation>
+        <translation type="vanished">Zlá presnosť pod [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Výborná presnosť pod [m]</translation>
+        <translation type="vanished">Výborná presnosť pod [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Zapnúť požiadavku na presnosť</translation>
+        <translation type="vanished">Zapnúť požiadavku na presnosť</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Ak je požiadavka na presnosť zapnutá, k tlačidlu polohy je pripojený farebný štítok &lt;span %1&gt;červený&lt;/span&gt; ak je hodnota presnosti veľmi zlá, &lt;span %2&gt;žltý&lt;/span&gt; ak nedosahuje veľmi dobrú presnosť, alebo &lt;span %3&gt;zelený&lt;/span&gt;. Počas prichytenia kurzora na polohu môže byť aktivovaný mód obmedzenia presnosti, počas ktorého budú pridávané iba body s presnosťou lepšou ako &quot;veľmi zlá&quot;.</translation>
+        <translation type="vanished">Ak je požiadavka na presnosť zapnutá, k tlačidlu polohy je pripojený farebný štítok &lt;span %1&gt;červený&lt;/span&gt; ak je hodnota presnosti veľmi zlá, &lt;span %2&gt;žltý&lt;/span&gt; ak nedosahuje veľmi dobrú presnosť, alebo &lt;span %3&gt;zelený&lt;/span&gt;. Počas prichytenia kurzora na polohu môže byť aktivovaný mód obmedzenia presnosti, počas ktorého budú pridávané iba body s presnosťou lepšou ako &quot;veľmi zlá&quot;.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3266,6 +3266,22 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>Po zapnutí môže používateľ otáčať mapu</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

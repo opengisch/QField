@@ -3018,19 +3018,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Slechte nauwkeurigheid onder [m]</translation>
+        <translation type="vanished">Slechte nauwkeurigheid onder [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Uitstekende nauwkeurigheid boven [m]</translation>
+        <translation type="vanished">Uitstekende nauwkeurigheid boven [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Nauwkeurigheidsvereiste inschakelen</translation>
+        <translation type="vanished">Nauwkeurigheidsvereiste inschakelen</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Als de nauwkeurigheidsindicator is ingeschakeld, wordt een badge bevestigd aan de locatieknop en &lt;span %1&gt;rood&lt;/span&gt; gekleurd als de nauwkeurigheidswaarde lager is dan slecht, &lt;span %2&gt;geel&lt;/span&gt; als deze niet uitstekend is, of &lt;span %3&gt;groen&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Bovendien kan een nauwkeurigheidsvereiste worden ingeschakeld. Deze beperkt het toevoegen van knooppunten wanneer vergrendeld om de cursor te coördineren naar posities met een nauwkeurigheidswaarde boven de slechte drempel.</translation>
+        <translation type="vanished">Als de nauwkeurigheidsindicator is ingeschakeld, wordt een badge bevestigd aan de locatieknop en &lt;span %1&gt;rood&lt;/span&gt; gekleurd als de nauwkeurigheidswaarde lager is dan slecht, &lt;span %2&gt;geel&lt;/span&gt; als deze niet uitstekend is, of &lt;span %3&gt;groen&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Bovendien kan een nauwkeurigheidsvereiste worden ingeschakeld. Deze beperkt het toevoegen van knooppunten wanneer vergrendeld om de cursor te coördineren naar posities met een nauwkeurigheidswaarde boven de slechte drempel.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3262,6 +3262,22 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
 </context>

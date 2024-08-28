@@ -3022,19 +3022,19 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Precizie slabă sub [m]</translation>
+        <translation type="vanished">Precizie slabă sub [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Precizie excelentă peste [m]</translation>
+        <translation type="vanished">Precizie excelentă peste [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Permiteți cerința de precizie</translation>
+        <translation type="vanished">Permiteți cerința de precizie</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Când indicatorul de precizie este activat, o insignă este atașată la butonul de localizare și colorată &lt;span %1&gt;roșu&lt;/span&gt; dacă valoarea de precizie este sub valoarea minimă,&lt;span %2&gt;galben&lt;/span&gt; dacă e acceptabilă, sau &lt;span %3&gt;verde&lt;/span&gt; dacă este foarte bună.&lt;br&gt;&lt;br&gt;În plus, un mod de restricție a preciziei poate fi activat, ceea ce restricționează adăugarea nodurilor atunci când este blocată pentru a coordona cursorul la poziții cu o precizie peste pragul minim.</translation>
+        <translation type="vanished">Când indicatorul de precizie este activat, o insignă este atașată la butonul de localizare și colorată &lt;span %1&gt;roșu&lt;/span&gt; dacă valoarea de precizie este sub valoarea minimă,&lt;span %2&gt;galben&lt;/span&gt; dacă e acceptabilă, sau &lt;span %3&gt;verde&lt;/span&gt; dacă este foarte bună.&lt;br&gt;&lt;br&gt;În plus, un mod de restricție a preciziei poate fi activat, ceea ce restricționează adăugarea nodurilor atunci când este blocată pentru a coordona cursorul la poziții cu o precizie peste pragul minim.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3266,6 +3266,22 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
 </context>

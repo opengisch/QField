@@ -3016,19 +3016,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>低精度としての許容範囲 [m]</translation>
+        <translation type="vanished">低精度としての許容範囲 [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>高精度としての許容範囲 [m]</translation>
+        <translation type="vanished">高精度としての許容範囲 [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>精度の条件を有効にする</translation>
+        <translation type="vanished">精度の条件を有効にする</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>精度の閾値を有効にすると、ロケーションボタンにバッジが追加され、低精度の場合は &lt;span %1&gt;赤色&lt;/span&gt; に、どちらでもない場合は &lt;span %2&gt;黄色&lt;/span&gt; に、高精度の場合は &lt;span %3&gt;緑色&lt;/span&gt;に変わります。&lt;br&gt;&lt;br&gt;また、低精度の閾値の範囲内で座標カーソルをロックし、頂点の追加制限する精度制限モードを有効にすることもできます。</translation>
+        <translation type="vanished">精度の閾値を有効にすると、ロケーションボタンにバッジが追加され、低精度の場合は &lt;span %1&gt;赤色&lt;/span&gt; に、どちらでもない場合は &lt;span %2&gt;黄色&lt;/span&gt; に、高精度の場合は &lt;span %3&gt;緑色&lt;/span&gt;に変わります。&lt;br&gt;&lt;br&gt;また、低精度の閾値の範囲内で座標カーソルをロックし、頂点の追加制限する精度制限モードを有効にすることもできます。</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3261,6 +3261,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>スイッチを入れると、地図を回転させることができます。</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3014,19 +3014,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>الدقة المنخفضة أقل من [م]</translation>
+        <translation type="vanished">الدقة المنخفضة أقل من [م]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>الدقة الممتازة أكثر من [م]</translation>
+        <translation type="vanished">الدقة الممتازة أكثر من [م]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>تفعيل متطلبات الدقة</translation>
+        <translation type="vanished">تفعيل متطلبات الدقة</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>عند تمكين مؤشر الدقة ، يتم إرفاق شارة بزر الموقع ولون &lt;span %1&gt;أحمر&lt;/span&gt; إذا كانت قيمة الدقة أقل من المنخفضة ، أو &lt;span %2&gt;صفراء&lt;/span&gt; إذا كانت أقل من ممتازة ، أو &lt;span %3&gt;خضراء&lt;/span&gt;.&lt;br&gt;&lt;br&gt; بالإضافة إلى ذلك ، يمكن تبديل وضع تقييد الدقة ، والذي يقيد إضافة الرأس عند قفله لتنسيق المؤشر إلى المواضع بقيمة دقة أعلى من الحد المنخفض.</translation>
+        <translation type="vanished">عند تمكين مؤشر الدقة ، يتم إرفاق شارة بزر الموقع ولون &lt;span %1&gt;أحمر&lt;/span&gt; إذا كانت قيمة الدقة أقل من المنخفضة ، أو &lt;span %2&gt;صفراء&lt;/span&gt; إذا كانت أقل من ممتازة ، أو &lt;span %3&gt;خضراء&lt;/span&gt;.&lt;br&gt;&lt;br&gt; بالإضافة إلى ذلك ، يمكن تبديل وضع تقييد الدقة ، والذي يقيد إضافة الرأس عند قفله لتنسيق المؤشر إلى المواضع بقيمة دقة أعلى من الحد المنخفض.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3258,6 +3258,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
 </context>

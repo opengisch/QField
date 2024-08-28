@@ -3016,19 +3016,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>差精度低于 [米]</translation>
+        <translation type="vanished">差精度低于 [米]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>优精度高于 [米]</translation>
+        <translation type="vanished">优精度高于 [米]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>启用精度限制模式</translation>
+        <translation type="vanished">启用精度限制模式</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>启用精度指示器后，定位按钮上会附加一个标识：如果精度值较差，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值低于优，将其标记为&lt;span %2&gt;黄色&lt;/span&gt;；反之将其标记为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;差-&gt;红；良-&gt;黄；优-&gt;绿&lt;br&gt;此外，可以打开精度限制模式。当锁定坐标光标的定位精度值低于较差阈值时，将限制添加顶点。</translation>
+        <translation type="vanished">启用精度指示器后，定位按钮上会附加一个标识：如果精度值较差，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值低于优，将其标记为&lt;span %2&gt;黄色&lt;/span&gt;；反之将其标记为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;差-&gt;红；良-&gt;黄；优-&gt;绿&lt;br&gt;此外，可以打开精度限制模式。当锁定坐标光标的定位精度值低于较差阈值时，将限制添加顶点。</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3261,6 +3261,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>打开后，用户可以旋转地图。</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation>差精度阈值 [米]</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation>优精度阈值 [米]</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>执行精度要求</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>启用精度指示器后，位置按钮会附加标记：如果精度值较&lt;i&gt;差&lt;/i&gt;，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值良，标记颜色为&lt;span %2&gt;黄色&lt;/span&gt;，如果精度值&lt;i&gt;优&lt;/i&gt;，标记颜色为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;&lt;br&gt;此外，可以打开精度限制模式。当锁定光标坐标的位置精度值低于差阈值时，将限制添加顶点。</translation>
     </message>
 </context>
 <context>

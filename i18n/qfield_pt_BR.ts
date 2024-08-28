@@ -3009,19 +3009,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Má precisão abaixo de [m]</translation>
+        <translation type="vanished">Má precisão abaixo de [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Boa precisão acima de [m]</translation>
+        <translation type="vanished">Boa precisão acima de [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Ativar requisito de precisão</translation>
+        <translation type="vanished">Ativar requisito de precisão</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Quando o indicador de precisão está ativado, um ponto é anexado ao botão de localização e colorido &lt;span %1&gt;vermelho&lt;/span&gt; se o valor de precisão estiver abaixo de mau, &lt;span %2&gt;amarelo&lt;/span&gt; se ficar abaixo de excelente, ou &lt;span %3&gt;verde&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Além disso, um modo de restrição de precisão pode ser ativado, o que restringe a adição de vértice quando bloqueado para coordenar o cursor para posições com um valor de precisão acima do limite ruim.</translation>
+        <translation type="vanished">Quando o indicador de precisão está ativado, um ponto é anexado ao botão de localização e colorido &lt;span %1&gt;vermelho&lt;/span&gt; se o valor de precisão estiver abaixo de mau, &lt;span %2&gt;amarelo&lt;/span&gt; se ficar abaixo de excelente, ou &lt;span %3&gt;verde&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Além disso, um modo de restrição de precisão pode ser ativado, o que restringe a adição de vértice quando bloqueado para coordenar o cursor para posições com um valor de precisão acima do limite ruim.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3253,6 +3253,22 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
 </context>

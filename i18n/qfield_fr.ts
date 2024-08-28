@@ -3015,19 +3015,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation>Mauvaise précision au dessus de [m]</translation>
+        <translation type="vanished">Mauvaise précision au dessus de [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Excellente précision en dessous de [m]</translation>
+        <translation type="vanished">Excellente précision en dessous de [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Activer les conditions de précision </translation>
+        <translation type="vanished">Activer les conditions de précision </translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Quand l&apos;indicateur de précision est activé, un badge est attaché au bouton de localisation et est coloré en &lt;span %1&gt;rouge&lt;/span&gt; si la précision est au dessus de la valeur mauvaise, &lt;span %2&gt;jaune&lt;/span&gt; si elle s&apos;approche de la valeur excellente, en &lt;span %3&gt;vert&lt;/span&gt; sinon.&lt;br&gt;&lt;br&gt;En complément, des conditions de précision peuvent être activées pour restreindre l&apos;ajout de sommets lorsque la précision de la localisation se trouve au dessus du seuil mauvais.</translation>
+        <translation type="vanished">Quand l&apos;indicateur de précision est activé, un badge est attaché au bouton de localisation et est coloré en &lt;span %1&gt;rouge&lt;/span&gt; si la précision est au dessus de la valeur mauvaise, &lt;span %2&gt;jaune&lt;/span&gt; si elle s&apos;approche de la valeur excellente, en &lt;span %3&gt;vert&lt;/span&gt; sinon.&lt;br&gt;&lt;br&gt;En complément, des conditions de précision peuvent être activées pour restreindre l&apos;ajout de sommets lorsque la précision de la localisation se trouve au dessus du seuil mauvais.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3260,6 +3260,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>Une fois activé, la carte peut être pivotée par l&apos;utilisateur.</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold [m]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
