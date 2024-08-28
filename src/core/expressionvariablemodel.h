@@ -28,10 +28,11 @@ class ExpressionVariableModel : public QStandardItemModel
   public:
     enum Roles
     {
-      VariableName = Qt::UserRole,
-      VariableValue,
-      VariableScopeRole,
-      VariableEditable = Qt::EditRole
+      VariableEditableRole = Qt::EditRole,
+      VariableNameRole = Qt::UserRole,
+      VariableValueRole = Qt::UserRole + 1,
+      VariableScopeRole = Qt::UserRole + 2,
+      VariableOriginalNameRole = Qt::UserRole + 3,
     };
 
     enum class VariableScope
@@ -46,17 +47,13 @@ class ExpressionVariableModel : public QStandardItemModel
 
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-    Q_INVOKABLE int addVariable( VariableScope scope, const QString &name, const QString &value, bool editable = true );
+    Q_INVOKABLE int addVariable( VariableScope scope, const QString &name, const QString &value );
 
     Q_INVOKABLE void removeVariable( VariableScope scope, const QString &name );
 
     Q_INVOKABLE void save();
 
     Q_INVOKABLE void reloadVariables();
-
-    Q_INVOKABLE void setName( int row, const QString &name );
-
-    Q_INVOKABLE void setValue( int row, const QString &value );
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -77,7 +74,11 @@ class ExpressionVariableModel : public QStandardItemModel
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
 
   private:
+    void appendVariable( VariableScope scope, const QString &name, const QString &value, bool editable );
+
     QgsProject *mCurrentProject = nullptr;
+
+    QList<QPair<VariableScope, QString>> mRemovedVariables;
 };
 
 #endif // EXPRESSIONVARIABLEMODEL_H

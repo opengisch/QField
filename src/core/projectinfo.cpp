@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 
+#include "expressioncontextutils.h"
 #include "projectinfo.h"
 
 #include <QDateTime>
@@ -445,6 +446,14 @@ void ProjectInfo::mapThemeChanged()
   mSettings.endGroup();
 }
 
+void ProjectInfo::saveVariable( const QString &name, const QString &value )
+{
+  if ( mFilePath.isEmpty() )
+    return;
+
+  mSettings.setValue( QStringLiteral( "/qgis/projectInfo/%1/variables/%2" ).arg( mFilePath, name ), value );
+}
+
 void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree )
 {
   QSettings settings;
@@ -625,6 +634,13 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
     project->setSnappingConfig( config );
   }
   settings.endGroup();
+
+  settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/variables" ).arg( projectFilePath ) );
+  const QStringList variableNames = settings.allKeys();
+  for ( const QString &name : variableNames )
+  {
+    ExpressionContextUtils::setProjectVariable( project, name, settings.value( name ).toString() );
+  }
 }
 
 QVariantMap ProjectInfo::getTitleDecorationConfiguration()
