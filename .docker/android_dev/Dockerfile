@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1.4
 FROM ubuntu:22.04
 
+ENV ANDROID_NDK_VERSION=26.3.11579264
+
 # Add apt packages
 
 ## vcpkg prerequisites
@@ -48,14 +50,8 @@ apt-get -y dist-upgrade
 
 apt-get -y --no-install-recommends install $APT_PACKAGES
 
+# Android SDK/NDK
 curl -o /android-sdk-10406996.zip https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
-curl -o /android-ndk-r26d-linux.zip https://dl.google.com/android/repository/android-ndk-r26d-linux.zip
-
-# Android NDK
-unzip /android-ndk-r26d-linux.zip
-rm -f android-ndk-r26d-linux.zip
-
-# Android SDK
 unzip /android-sdk-10406996.zip -d android-sdk
 rm -f android-sdk-10406996.zip
 
@@ -63,10 +59,10 @@ shopt -s extglob
 mkdir /android-sdk/cmdline-tools/latest
 mv /android-sdk/cmdline-tools/!(latest) /android-sdk/cmdline-tools/latest
 yes | /android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
-/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools" "tools"
+/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools" "tools" "ndk;${ANDROID_NDK_VERSION}"
 END_OF_SCRIPT
 
-ENV ANDROID_NDK_HOME /android-ndk-r26d
 ENV ANDROID_SDK_ROOT /android-sdk
+ENV ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk/${ANDROID_NDK_VERSION}
 
 WORKDIR /usr/src
