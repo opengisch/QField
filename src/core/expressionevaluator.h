@@ -18,41 +18,75 @@
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
 
+#include "qgsquickmapsettings.h"
+
 #include <QObject>
 #include <qgsexpression.h>
 #include <qgsexpressioncontext.h>
 #include <qgsmaplayer.h>
+#include <qgsproject.h>
 
 class ExpressionEvaluator : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( Mode mode READ mode WRITE setMode NOTIFY modeChanged )
+
     Q_PROPERTY( QString expressionText READ expressionText WRITE setExpressionText NOTIFY expressionTextChanged )
+
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_PROPERTY( QgsMapLayer *layer READ layer WRITE setLayer NOTIFY layerChanged )
+    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
   public:
+    enum Mode
+    {
+      ExpressionMode,
+      ExpressionTemplateMode
+    };
+    Q_ENUM( Mode )
+
     explicit ExpressionEvaluator( QObject *parent = nullptr );
 
-    QString expressionText() { return mExpressionText; }
-    QgsFeature feature() { return mFeature; }
-    QgsMapLayer *layer() { return mLayer; }
+    Mode mode() const { return mMode; }
+    void setMode( Mode mode );
 
+    QString expressionText() { return mExpressionText; }
     void setExpressionText( const QString &expressionText );
+
+    QgsFeature feature() const { return mFeature; }
     void setFeature( const QgsFeature &feature );
+
+    QgsMapLayer *layer() const { return mLayer; }
     void setLayer( QgsMapLayer *layer );
+
+    QgsProject *project() const { return mProject; }
+    void setProject( QgsProject *project );
+
+    QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
     //! Returns the evaluated string value
     Q_INVOKABLE QVariant evaluate();
 
   signals:
-    void layerChanged( QgsMapLayer *layer );
-    void expressionTextChanged( QString expressionText );
-    void featureChanged( QgsFeature feature );
+    void modeChanged();
+    void expressionTextChanged();
+    void featureChanged();
+    void layerChanged();
+    void projectChanged();
+    void mapSettingsChanged();
 
   private:
+    Mode mMode = ExpressionMode;
+
     QString mExpressionText;
+
     QgsFeature mFeature;
     QgsMapLayer *mLayer = nullptr;
+    QgsProject *mProject = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
 };
 #endif // EXPRESSIONEVALUATOR_H

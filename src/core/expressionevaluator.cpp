@@ -17,44 +17,101 @@
 
 #include "expressionevaluator.h"
 #include "qgsexpressioncontextutils.h"
-#include "qgsproject.h"
 
 ExpressionEvaluator::ExpressionEvaluator( QObject *parent )
   : QObject( parent )
 {
 }
 
+void ExpressionEvaluator::setMode( Mode mode )
+{
+  if ( mMode == mode )
+    return;
+
+  mMode = mode;
+  emit modeChanged();
+}
+
 void ExpressionEvaluator::setExpressionText( const QString &expressionText )
 {
+  if ( mExpressionText == expressionText )
+    return;
+
   mExpressionText = expressionText;
-  emit expressionTextChanged( mExpressionText );
+  emit expressionTextChanged();
 }
 
 void ExpressionEvaluator::setFeature( const QgsFeature &feature )
 {
+  if ( mFeature == feature )
+    return;
+
   mFeature = feature;
-  emit featureChanged( mFeature );
+  emit featureChanged();
 }
 
 void ExpressionEvaluator::setLayer( QgsMapLayer *layer )
 {
+  if ( mLayer == layer )
+    return;
+
   mLayer = layer;
-  emit layerChanged( mLayer );
+  emit layerChanged();
+}
+
+void ExpressionEvaluator::setProject( QgsProject *project )
+{
+  if ( mProject == project )
+    return;
+
+  mProject = project;
+  emit projectChanged();
+}
+
+void ExpressionEvaluator::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  if ( mMapSettings == mapSettings )
+    return;
+
+  mMapSettings = mapSettings;
+  emit mapSettingsChanged();
 }
 
 QVariant ExpressionEvaluator::evaluate()
 {
-  if ( !mFeature.isValid() || !mLayer || mExpressionText.isEmpty() )
+  if ( mExpressionText.isEmpty() )
     return QString();
 
-  QgsExpression exp( mExpressionText );
   QgsExpressionContext expressionContext;
-  expressionContext.setFeature( mFeature );
-  expressionContext << QgsExpressionContextUtils::globalScope()
-                    << QgsExpressionContextUtils::projectScope( QgsProject::instance() )
-                    << QgsExpressionContextUtils::layerScope( mLayer );
+  expressionContext << QgsExpressionContextUtils::globalScope();
+  if ( mMapSettings )
+  {
+    expressionContext << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
+  }
+  if ( mProject )
+  {
+    expressionContext << QgsExpressionContextUtils::projectScope( mProject );
+  }
+  if ( mLayer )
+  {
+    expressionContext << QgsExpressionContextUtils::layerScope( mLayer );
+  }
+  if ( mFeature.isValid() )
+  {
+    expressionContext.setFeature( mFeature );
+  }
 
-  exp.prepare( &expressionContext );
-  QVariant value = exp.evaluate( &expressionContext );
+  QVariant value;
+  if ( mMode == ExpressionMode )
+  {
+    QgsExpression expression( mExpressionText );
+    expression.prepare( &expressionContext );
+    value = expression.evaluate( &expressionContext );
+  }
+  else
+  {
+    value = QgsExpression::replaceExpressionText( mExpressionText, &expressionContext );
+  }
+
   return value.toString();
 }
