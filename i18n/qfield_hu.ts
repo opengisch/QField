@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>QField alkalmazás könyvtárak</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>QField alkalmazás könyvtár</translation>
     </message>
 </context>
 <context>
@@ -447,7 +447,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometria</translation>
     </message>
 </context>
 <context>
@@ -579,7 +579,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Üres</translation>
     </message>
 </context>
 <context>
@@ -641,27 +641,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Készíts egy fotót</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Készíts egy videót</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Rögzíts hangot</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Csatolj elemet a galériából</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Csatolj egy fájlt</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Rajzolj egy vázlatot</translation>
     </message>
 </context>
 <context>
@@ -716,11 +716,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>A mezőben utoljára megadott érték rögzítésre és újrahasználatra kerül új elem létrehozásakor</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>A mezőben utoljára megadott érték nem kerül újrahasználatra új elem létrehozásakor</translation>
     </message>
 </context>
 <context>
@@ -743,7 +743,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült visszaállítani az elem módosításait a &quot;%1&quot; rétegben</translation>
     </message>
 </context>
 <context>
@@ -830,19 +830,19 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Az elem attribútumainak átvitele</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>Válassz egy elemet az alábbiakból, melynek attribútumai átvitelre kerülnek az éppen nyitott elembe</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>Az elem attribútumok átadódtak</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation>Az elem attribútumok nem kerültek átadásra</translation>
     </message>
     <message>
         <source>Features</source>
@@ -850,7 +850,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Feldolgozási eljárások</translation>
     </message>
 </context>
 <context>
@@ -1047,14 +1047,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>QField dokumentáció</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigáció</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1062,7 +1062,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Pontos nézet</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -1070,7 +1070,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Magassági szelvény</translation>
     </message>
 </context>
 <context>
@@ -1096,7 +1096,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>Hitelesítési adatok</translation>
     </message>
 </context>
 <context>
@@ -1344,7 +1344,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>A kifejezésnek megfelelő QField dokumentációs oldalak visszaadása</translation>
     </message>
 </context>
 <context>
@@ -1413,7 +1413,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Futtás jellemzőinek rögzítése</translation>
     </message>
     <message>
         <source>Type optional details</source>
@@ -1547,27 +1547,27 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Az elem attribútumai vágólapra másolódtak</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Az elem attribútumai frissültek a vágólapról</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Nem frissültek a vágólapról az elem attribútumai</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Az alakzat navigációs céllá tétele</translation>
     </message>
     <message>
         <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
+        <translation>Az attribútumok elemből történő frissítése</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Kiválasztott elem(ek) feldolgozása</translation>
     </message>
 </context>
 <context>
@@ -1733,74 +1733,74 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>A letöltött zip fájlt nem sikerült kicsomagolni</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>A letöltött zip fájl nem tartalmazza a szükséges main.qml bővítmény fájlt</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>A letöltött fájl nem menthető</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>A letöltött fájl nem egy tömörített bővítmény</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Hálózati hiba</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Bővítmények</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Még nem került telepítésre bővítmény. A bővítményekről többet  %1olvass a dokumentációban%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>Bővítmény telepítése URL megadásával</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Törölje a megjegyzett engedélyeket</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Írd be alább a bővítmény letöltéséhez és telepítéséhez szükséges URL-t:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 telepítése</translation>
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>Szerző: %1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban törölni kívánod `%1`-t?</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Törlésre kerülő verzió: %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Bővítmény törlése</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>A szerzői adatok fentebb, a bővítményben rögzítettek, nincsenek függetlennül hitelesítve. Kérlek bizonyosodj meg a bővítmény eredetében!</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Bővítmény kezelési menű</translation>
     </message>
 </context>
 <context>
@@ -2005,23 +2005,23 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Általános beállítások</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Különleges beállítások</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Help</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>Nincsenek általános beállítások társítva az eljáráshoz</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>Az eljárás leírása</translation>
     </message>
 </context>
 <context>
@@ -2032,7 +2032,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Minden eljárás</translation>
     </message>
 </context>
 <context>
@@ -2062,15 +2062,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>elülső</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>hátsó</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
+        <translation>Fotók georeferenciájához szükséges a bekapcsolt pozícionálás</translation>
     </message>
 </context>
 <context>
@@ -2133,7 +2133,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>A változások még nem mentek végbe!</translation>
     </message>
 </context>
 <context>
@@ -2406,19 +2406,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud az Ön számára csomagolja a legfrissebb adatokat; ez eltarthat egy ideig, kérjük legyen türelmes</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Letöltési folyamat: %1% -ból %2 letöltve</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Letöltési folyamat: %1% letöltve</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
@@ -2426,11 +2426,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Ebben a projektben nem lehetséges az automatikus mentés kikapcsolása</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>A projektek QFieldCloudon történő tárolása zökkenőmentes szinkronizálást, offline szerkesztést és csapatkezelést kínál.&lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
@@ -2674,27 +2674,27 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud az Ön számára csomagolja a legfrissebb adatokat; ez eltarthat egy ideig, kérjük legyen türelmes</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Letöltési folyamat: %1% -ból %2 letöltve</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Letöltési folyamat: %1% letöltve</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Nincsenek a felhőben projektek. Az elinduláshoz, %1olvasd el a dokumentációt%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Projektek keresése</translation>
     </message>
 </context>
 <context>
@@ -2709,22 +2709,22 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>A fiókja tárhelye megtelt.</translation>
     </message>
 </context>
 <context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Befejezés</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Következő</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Előző</translation>
     </message>
 </context>
 <context>
@@ -2827,19 +2827,19 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
+        <translation>Feltöltés a QFieldCloud-ra...</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>‘%1’ a QFieldCloud-ra való feltöltés alatt</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Hozzáadás a Kedvencekhez</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Eltávolítás a Kedvencek közül</translation>
     </message>
 </context>
 <context>
@@ -3024,7 +3024,8 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="vanished">Ha a pontosságjelző be van kapcsolva, a helymeghatározó gomb oldalán egy jelvény látható. Ez piros, ha a pontossági szint gyenge, sárga, ha jobb, de nem éri el a kiválót, illetve zöld ha kíválő. Ezenkívül bekapcsolható a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizáló kurzor a pozícióhoz van kötve. </translation>
+        <translation type="vanished">Ha pontossági jelző be van kapcsolva, a helymeghatározó gomb oldalán egy színezett jelvény látható. Ami &lt;span %1&gt;vörös&lt;/span&gt;ha a pontosság értéke rosszabb, a &lt;i&gt;gyenge&lt;/i&gt; értékénél, &lt;span %2&gt;sárga&lt;/span&gt; ha rosszabb, mint a  &lt;i&gt;kíváló&lt;/i&gt;, viszont ha jobb, akkor &lt;span%3&gt;zöld&lt;/span&gt;.
+Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizálás a pozícióhoz van kötve.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3072,7 +3073,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Függőleges eltolás rácsot használunk a magasságok pontosságának növelésére.</translation>
+        <translation>Függőleges eltolási rács  a magasság pontosságának növelésére. Függőleges eltolási rács fájl hozzáadás a dokumentáció szerint.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3120,7 +3121,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Az aktuális pozícióhoz rögzített  koordináta kurzorral történő elem digitalizálás közben  a fent kiválasztott mérési mód kerül hozzáadásra a geometriához, feltéve, hogy az rendelkezik M dimenzióval.</translation>
+        <translation>Az aktuális pozícióhoz kötött koordináta kurzorral történő digitalizálás közben a fent kiválasztott mérési érték kerül hozzáadásra a geometriához, feltéve, hogy az rendelkezik M dimenzióval.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -3260,19 +3261,20 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Rossz pontosság küszöbértéke [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Kiváló pontosság küszöbértéke [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Pontossági követelmény érvényesítése</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Ha pontossági jelző be van kapcsolva, a helymeghatározó gomb oldalán egy színezett jelvény látható. Ami &lt;span %1&gt;vörös&lt;/span&gt; ha a pontosság értéke rosszabb, a &lt;i&gt;gyenge&lt;/i&gt;értékénél, &lt;span %2&gt;sárga&lt;/span&gt; ha rosszabb, mint a &lt;i&gt;kíváló&lt;/i&gt;, viszont ha jobb, akkor &lt;span %3&gt;zöld&lt;/span&gt;.&lt;br&gt;
+Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizálás a pozícióhoz van kötve.</translation>
     </message>
 </context>
 <context>
@@ -3403,7 +3405,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Keresés</translation>
     </message>
 </context>
 <context>
@@ -3434,11 +3436,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>A projekt nem betölthető, a &quot;%1&quot; file nem létezik</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>A projekt nem olvasható, a &quot;%1&quot; file nem létezik</translation>
     </message>
 </context>
 <context>
@@ -4057,7 +4059,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Adja meg a nevet</translation>
+        <translation type="vanished">Adja meg a nevet</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4066,6 +4068,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Add a new variable</source>
         <translation>Új változó hozzáadása</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4204,47 +4214,47 @@ Cancel to make a minimal device scan instead.</source>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>fokok</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>km</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>láb</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>yard</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>mérföld</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>tengeri mérföld</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>cm</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>mm</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>hüvelyk</translation>
     </message>
 </context>
 <context>
@@ -4283,11 +4293,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Gyermek elem nem létrehozható: nincs megadva a szülő és gyermek elemet kapcsoló attibútum</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Gyermek elem nem létrehozható: győződjön meg, hogy a szülő elem minden megszorítása teljesül és menthető</translation>
     </message>
 </context>
 <context>
@@ -4530,7 +4540,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>köpontosítás az elhelyeszkedésre</translation>
+        <translation>Térképközép a helyedhez</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
@@ -4566,7 +4576,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Hangos közelítési jelzés bekapcsolása</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -4794,15 +4804,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Adsz engedélyt a `%1` aktiválására?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Emlékezz a választásomra</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Másold az elem attribútumait</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
@@ -4822,15 +4832,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Térképforgatás bekapcsolása</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Műszerfal</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Ez a gomb megnyitja a Műszerfalat. A Műszerfalon kezelheti a jelmagyarázatot és a térkép témákat, vagy a szerkesztési módba kapcsolással digitalizálást kezdhet. Hosszan nyomva a gombot azonnali hozzáférést ad a Főmenűhöz.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4838,23 +4848,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Ez a gomb kapcsolja a pozícionálási rendszert. Hosszan megnyomva megjelenik a pozícionálás menű, további funkciókat téve elérhetővé.</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Keresés</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>A kereső sor lehetőséget ad a projekt elemeinek gyors keresésére, egy koordinátákkal megadott pontra ugrásra és sok másra.</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Nagyítás</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>A két újjas zoomolási mozdulatok mellett ezek a gombok is segítik a belenagyítást és a kicsinyítést.</translation>
     </message>
 </context>
 <context>
@@ -4893,11 +4903,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Gyermek elem nem létrehozható: nincs megadva a szülő és gyermek elemet kapcsoló attibútum</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Gyermek elem nem létrehozható: győződjön meg, hogy a szülő elem minden megszorítása teljesül és menthető</translation>
     </message>
 </context>
 <context>

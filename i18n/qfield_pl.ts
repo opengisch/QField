@@ -4067,7 +4067,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Podaj nazwę</translation>
+        <translation type="vanished">Podaj nazwę</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4076,6 +4076,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Add a new variable</source>
         <translation>Dodaj nową zmienną</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

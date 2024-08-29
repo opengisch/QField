@@ -4047,7 +4047,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Vpiši ime</translation>
+        <translation type="vanished">Vpiši ime</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4056,6 +4056,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Add a new variable</source>
         <translation>Dodaj novo spremenljivko</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

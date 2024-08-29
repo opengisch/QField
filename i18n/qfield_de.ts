@@ -850,7 +850,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Verarbeitungs-Algorithmen</translation>
     </message>
 </context>
 <context>
@@ -1048,7 +1048,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>QField Dokumentation</translation>
     </message>
 </context>
 <context>
@@ -1258,7 +1258,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>Legend</name>
     <message>
         <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Layer trackt momentan die aktuelle Position</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1320,7 +1320,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Gibt eine Liste von Objekte aus dem aktiven Layer mit übereinstimmenden Attributen zurück. Um dies auf ein einzelnes Attribut zu beschränken stelle ein &apos;@&apos; vor dessen Namen.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
@@ -1328,19 +1328,19 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Gibt einen Punkt als X- und Y-Koordinatenpaar zurück - oder WGS84-Breiten- und Längengraden - zurück, die in der Suchleiste eingegeben wurden.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Gibt eine Liste der Benutzer und der aktuell geöffneten Projektlesezeichen mit übereinstimmenden Namen zurück.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Gibt den Wert eines Ausdrucks zurück, der in die Suchleiste eingegeben wurde.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Liefert eine Liste von Orten und Adressen in Finnland mit passenden Begriffen.</translation>
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
@@ -1409,7 +1409,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Deine QField Logdatei wird gesendet</translation>
     </message>
     <message>
         <source>Log runtime profiler</source>
@@ -1417,19 +1417,19 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Optionale Details eingeben</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Cloud-Nutzerdetails einbeziehen</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Dadurch wird ein Log deiner aktuellen Sitzung an das Entwicklungsteam gesendet. Du musst dies nur tun, wenn du dazu aufgefordert wirst.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Deine QField Logdatei wird gesendet...</translation>
     </message>
 </context>
 <context>
@@ -1559,15 +1559,15 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Objekt als Navigationsziel einstellen</translation>
     </message>
     <message>
         <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
+        <translation>Objektattribute aktualisieren</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Verarbeite ausgewählte(s) Objekt(e)</translation>
     </message>
 </context>
 <context>
@@ -1694,7 +1694,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Datei-Quelle konnte nicht gespeichert werden</translation>
     </message>
     <message>
         <source>Select Image File</source>
@@ -1733,19 +1733,19 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>Die heruntergeladene Zip-Datei konnte nicht entpackt werden</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>Die heruntergeladene Zip-Datei enthält nicht die erforderliche main.qml-Plugin-Datei</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Kann die heruntergeladene Datei nicht speichern</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>Download-Datei ist kein gezipptes Plugin</translation>
     </message>
     <message>
         <source>Network error</source>
@@ -1756,51 +1756,51 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Es wurden noch keine Plugins installiert. Um mehr über Plugins zu erfahren, %1lies die Dokumentation%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>Plugin aus URL installieren</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Gespeicherte Berechtigungen löschen</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Gib eine URL ein, um ein Plugin herunterzuladen und zu installieren:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>Installiere %1</translation>
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>Verfasst von %1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Bist du sicher, dass du `%1` deinstallieren willst?</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Version %1 deinstallieren</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin deinstallieren</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>Die oben gezeigten Daten des Entwicklers werden vom Plugin selbst angegeben und nicht unabhängig überprüft. Bitte stelle sicher, dass du der Herkunft des Plugins vertraust.</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Menü zur Verwaltung der Plugins</translation>
     </message>
 </context>
 <context>
@@ -1893,7 +1893,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Leer lassen um automatisch auszufüllen</translation>
     </message>
     <message>
         <source>Connection type:</source>
@@ -2005,11 +2005,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Allgemeine Einstellungen</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Fortgeschrittene Einstellungen</translation>
     </message>
     <message>
         <source>Help</source>
@@ -2017,11 +2017,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>Für diesen Algorithmus gibt es keine allgemeinen Parameter.</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>Beschreibung</translation>
     </message>
 </context>
 <context>
@@ -2032,7 +2032,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Alle Algorithmen</translation>
     </message>
 </context>
 <context>
@@ -2046,31 +2046,31 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging aktiviert</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging deaktiviert</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Grid aktiviert</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Grid deaktiviert</translation>
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>Vorderseite</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>Rückseite</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
+        <translation>Für das Geotagging von Bildern muss die Positionierung aktiviert sein</translation>
     </message>
 </context>
 <context>
@@ -2119,14 +2119,14 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Login Fehler aufgrund eines unerwarteten Redirect, bitte versuche es später erneut</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation type="unfinished"/>
+        <translation>Push Verlauf</translation>
     </message>
     <message>
         <source>Loading…</source>
@@ -2327,7 +2327,9 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stell sicher, diese bei Bedarf zuerst zu kopieren. 
+
+Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend empfohlen, es zurückzusetzen, um einen versehentlichen Datenverlust zu vermeiden, da keine der vorgenommenen Änderungen zurück in die Cloud übertragen werden.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -2695,7 +2697,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Suche nach Projekt</translation>
     </message>
 </context>
 <context>
@@ -2808,15 +2810,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Gib unten eine URL ein, um ein Projekt oder einen Datensatz herunterzuladen und zu importieren:</translation>
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Objekt Aktionen</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Aktionen importieren</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -2824,7 +2826,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Projekt aus ZIP aktualisieren</translation>
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
@@ -2836,11 +2838,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Zu Favoriten hinzufügen</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Aus Favoriten entfernen</translation>
     </message>
 </context>
 <context>
@@ -3033,11 +3035,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Mindestanzahl von gesammelten Positionen</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Beende das Sammeln automatisch, wenn die Mindestanzahl erreicht ist</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
@@ -3085,7 +3087,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Messe (M) der Knoten</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3121,7 +3123,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn du Objekte digitalisierst und das Fadenkreuz auf der aktuelle Position fixiert ist, wird die oben ausgewählte Messart zur Geometrie hinzugefügt, sofern sie ein M-Maß hat.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -3169,7 +3171,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>NMEA-Sätze vom Gerät in eine Datei protokollieren</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
@@ -3197,7 +3199,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Orthometrisch vom Gerät</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
@@ -3261,15 +3263,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Schwelle für schlechte Genauigkeit [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Schwelle für exzellente Genauigkeit [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Erzwinge Genauigkeitsvorgabe </translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
@@ -3315,15 +3317,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Validation Error</source>
-        <translation type="unfinished"/>
+        <translation>Validierungs-Fehler</translation>
     </message>
     <message>
         <source>Multiple Projects</source>
-        <translation type="unfinished"/>
+        <translation>Mehrere Projekte</translation>
     </message>
     <message>
         <source>Invalid delta file</source>
-        <translation type="unfinished"/>
+        <translation>Ungültige Deltadatei</translation>
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
@@ -3415,7 +3417,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>No project file currently opened</source>
-        <translation type="unfinished"/>
+        <translation>Derzeit keine Projekt Datei geöffnet</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
@@ -3431,11 +3433,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Schriftart %1 konnte nicht geladen werden</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Projekt kann nicht geladen werden, die Datei &quot;%1&quot; existiert nicht</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
@@ -3776,7 +3778,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Messe (M) der Knoten</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -3879,7 +3881,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Messe (M) der Knoten</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -4058,7 +4060,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Name eingeben</translation>
+        <translation type="vanished">Name eingeben</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4067,6 +4069,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Add a new variable</source>
         <translation>Neue Variable hinzufügen</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

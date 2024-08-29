@@ -4061,7 +4061,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Unesi Ime</translation>
+        <translation type="vanished">Unesi Ime</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4070,6 +4070,14 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Add a new variable</source>
         <translation>Dodaj novu varijablu</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

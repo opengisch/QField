@@ -4061,7 +4061,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>输入名称</translation>
+        <translation type="vanished">输入名称</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4070,6 +4070,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Add a new variable</source>
         <translation>添加新变量</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation>全局变量</translation>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation>工程变量</translation>
     </message>
 </context>
 <context>

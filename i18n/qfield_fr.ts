@@ -4060,7 +4060,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Entrez le nom</translation>
+        <translation type="vanished">Entrez le nom</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4069,6 +4069,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Add a new variable</source>
         <translation>Ajouter une nouvelle variable</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

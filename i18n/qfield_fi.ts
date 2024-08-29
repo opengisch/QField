@@ -4065,7 +4065,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Anna nimi</translation>
+        <translation type="vanished">Anna nimi</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4074,6 +4074,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Add a new variable</source>
         <translation>Lisää uusi muuttuja</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4063,7 +4063,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Introduce un nome</translation>
+        <translation type="vanished">Introduce un nome</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4072,6 +4072,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Add a new variable</source>
         <translation>Engade unha nova variable</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

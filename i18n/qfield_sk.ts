@@ -4066,7 +4066,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Zadajte názov</translation>
+        <translation type="vanished">Zadajte názov</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4075,6 +4075,14 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Add a new variable</source>
         <translation>Pridať novú premennú</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4063,7 +4063,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Voer naam in</translation>
+        <translation type="vanished">Voer naam in</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4072,6 +4072,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Add a new variable</source>
         <translation>Een nieuwe variabele toevoegen</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

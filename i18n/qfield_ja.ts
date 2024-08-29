@@ -4061,7 +4061,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>名前を入力してください</translation>
+        <translation type="vanished">名前を入力してください</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4070,6 +4070,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Add a new variable</source>
         <translation>新しい変数を追加する</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

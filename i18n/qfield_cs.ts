@@ -4066,7 +4066,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Zadat název</translation>
+        <translation type="vanished">Zadat název</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4075,6 +4075,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Add a new variable</source>
         <translation>Přidat novou proměnnou</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

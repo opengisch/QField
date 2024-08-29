@@ -4068,7 +4068,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Inserisci nome</translation>
+        <translation type="vanished">Inserisci nome</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4077,6 +4077,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Add a new variable</source>
         <translation>Aggiungi una nuova variabile</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

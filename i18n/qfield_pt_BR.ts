@@ -4054,7 +4054,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation>Insira o nome</translation>
+        <translation type="vanished">Insira o nome</translation>
     </message>
     <message>
         <source>Enter value</source>
@@ -4063,6 +4063,14 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Add a new variable</source>
         <translation>Adicione uma nova variável</translation>
+    </message>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
