@@ -88,6 +88,7 @@
 #include "platformutilities.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
+#include "positioningmodel.h"
 #include "positioningutils.h"
 #include "printlayoutlistmodel.h"
 #include "processingalgorithm.h"
@@ -502,6 +503,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<Navigation>( "org.qfield", 1, 0, "Navigation" );
   qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
+  qmlRegisterType<PositioningModel>( "org.qfield", 1, 0, "PositioningModel" );
   qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
   qmlRegisterType<AudioRecorder>( "org.qfield", 1, 0, "AudioRecorder" );
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );

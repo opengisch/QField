@@ -116,6 +116,53 @@ void NmeaGnssReceiver::handleStopLogging()
   mLogFile.close();
 }
 
+QList<QPair<QString, QVariant>> NmeaGnssReceiver::details()
+{
+  QList<QPair<QString, QVariant>> dataList;
+
+  dataList.append( qMakePair( "latitude", mCurrentNmeaGnssPositionInformation.latitude() ) );
+  dataList.append( qMakePair( "latitudeValid", mCurrentNmeaGnssPositionInformation.latitudeValid() ) );
+  dataList.append( qMakePair( "longitude", mCurrentNmeaGnssPositionInformation.longitude() ) );
+  dataList.append( qMakePair( "longitudeValid", mCurrentNmeaGnssPositionInformation.longitudeValid() ) );
+  dataList.append( qMakePair( "elevation", mCurrentNmeaGnssPositionInformation.elevation() ) );
+  dataList.append( qMakePair( "elevationValid", mCurrentNmeaGnssPositionInformation.elevationValid() ) );
+  dataList.append( qMakePair( "speed", mCurrentNmeaGnssPositionInformation.speed() ) );
+  dataList.append( qMakePair( "speedValid", mCurrentNmeaGnssPositionInformation.speedValid() ) );
+  dataList.append( qMakePair( "direction", mCurrentNmeaGnssPositionInformation.direction() ) );
+  dataList.append( qMakePair( "directionValid", mCurrentNmeaGnssPositionInformation.directionValid() ) );
+  dataList.append( qMakePair( "pdop", mCurrentNmeaGnssPositionInformation.pdop() ) );
+  dataList.append( qMakePair( "hdop", mCurrentNmeaGnssPositionInformation.hdop() ) );
+  dataList.append( qMakePair( "vdop", mCurrentNmeaGnssPositionInformation.vdop() ) );
+  dataList.append( qMakePair( "hacc", mCurrentNmeaGnssPositionInformation.hacc() ) );
+  dataList.append( qMakePair( "haccValid", mCurrentNmeaGnssPositionInformation.haccValid() ) );
+  dataList.append( qMakePair( "vacc", mCurrentNmeaGnssPositionInformation.vacc() ) );
+  dataList.append( qMakePair( "vaccValid", mCurrentNmeaGnssPositionInformation.vaccValid() ) );
+  dataList.append( qMakePair( "hvacc", mCurrentNmeaGnssPositionInformation.hvacc() ) );
+  dataList.append( qMakePair( "hvaccValid", mCurrentNmeaGnssPositionInformation.hvaccValid() ) );
+  dataList.append( qMakePair( "utcDateTime", mCurrentNmeaGnssPositionInformation.utcDateTime() ) );
+  dataList.append( qMakePair( "fixMode", mCurrentNmeaGnssPositionInformation.fixMode() ) );
+  dataList.append( qMakePair( "fixType", mCurrentNmeaGnssPositionInformation.fixType() ) );
+  dataList.append( qMakePair( "quality", mCurrentNmeaGnssPositionInformation.quality() ) );
+  dataList.append( qMakePair( "satellitesUsed", mCurrentNmeaGnssPositionInformation.satellitesUsed() ) );
+  dataList.append( qMakePair( "status", mCurrentNmeaGnssPositionInformation.status() ) );
+  dataList.append( qMakePair( "satInfoComplete", mCurrentNmeaGnssPositionInformation.satInfoComplete() ) );
+  dataList.append( qMakePair( "isValid", mCurrentNmeaGnssPositionInformation.isValid() ) );
+  dataList.append( qMakePair( "fixStatus", mCurrentNmeaGnssPositionInformation.fixStatus() ) );
+  dataList.append( qMakePair( "qualityDescription", mCurrentNmeaGnssPositionInformation.qualityDescription() ) );
+  dataList.append( qMakePair( "fixStatusDescription", mCurrentNmeaGnssPositionInformation.fixStatusDescription() ) );
+  dataList.append( qMakePair( "verticalSpeed", mCurrentNmeaGnssPositionInformation.verticalSpeed() ) );
+  dataList.append( qMakePair( "magneticVariation", mCurrentNmeaGnssPositionInformation.magneticVariation() ) );
+  dataList.append( qMakePair( "averagedCount", mCurrentNmeaGnssPositionInformation.averagedCount() ) );
+  dataList.append( qMakePair( "sourceName", mCurrentNmeaGnssPositionInformation.sourceName() ) );
+  dataList.append( qMakePair( "imuCorrection", mCurrentNmeaGnssPositionInformation.imuCorrection() ) );
+  dataList.append( qMakePair( "orientation", mCurrentNmeaGnssPositionInformation.orientation() ) );
+  dataList.append( qMakePair( "orientationValid", mCurrentNmeaGnssPositionInformation.orientationValid() ) );
+  // dataList.append(qMakePair("satPrn", QVariant::fromValue(mCurrentNmeaGnssPositionInformation.satPrn())));
+  // dataList.append(qMakePair("satellitesInView", QVariant::fromValue(mCurrentNmeaGnssPositionInformation.satellitesInView())));
+
+  return dataList;
+}
+
 void NmeaGnssReceiver::processImuSentence( const QString &sentence )
 {
   static const int PARAMETER_STATUS_INDEX = 19;
