@@ -917,11 +917,53 @@ ApplicationWindow {
     anchors.fill: mapCanvas
     anchors.bottomMargin: informationDrawer.height
 
+    ExpressionEvaluator {
+      id: decorationExpressionEvaluator
+      mode: ExpressionEvaluator.ExpressionTemplateMode
+      mapSettings: mapCanvas.mapSettings
+      project: qgisProject
+      positionInformation: positionSource.positionInformation
+      cloudUserInformation: projectInfo.cloudUserInformation
+    }
+
+    Connections {
+      target: mapCanvasMap
+      enabled: titleDecoration.isExpressionTemplate || copyrightDecoration.isExpressionTemplate
+
+      function onIsRenderingChanged() {
+        if (mapCanvasMap.isRendering) {
+          if (titleDecoration.isExpressionTemplate) {
+            decorationExpressionEvaluator.expressionText = titleDecoration.decorationText;
+            titleDecoration.text = decorationExpressionEvaluator.evaluate();
+          }
+          if (copyrightDecoration.isExpressionTemplate) {
+            decorationExpressionEvaluator.expressionText = copyrightDecoration.decorationText;
+            copyrightDecoration.text = decorationExpressionEvaluator.evaluate();
+          }
+        }
+      }
+    }
+
+    Connections {
+      target: positionSource
+      enabled: titleDecoration.isExpressionPositioning || copyrightDecoration.isExpressionPositioning
+
+      function onPositionInformationChanged() {
+        if (titleDecoration.isExpressionPositioning) {
+          decorationExpressionEvaluator.expressionText = titleDecoration.decorationText;
+          titleDecoration.text = decorationExpressionEvaluator.evaluate();
+        }
+        if (copyrightDecoration.isExpressionPositioning) {
+          decorationExpressionEvaluator.expressionText = copyrightDecoration.decorationText;
+          copyrightDecoration.text = decorationExpressionEvaluator.evaluate();
+        }
+      }
+    }
+
     Rectangle {
       id: titleDecorationBackground
 
       visible: titleDecoration.text != ''
-
       anchors.left: parent.left
       anchors.leftMargin: 56
       anchors.top: parent.top
@@ -935,6 +977,10 @@ ApplicationWindow {
 
       Text {
         id: titleDecoration
+
+        property string decorationText: ''
+        property bool isExpressionTemplate: decorationText.match('\[%.*%\]')
+        property bool isExpressionPositioning: isExpressionTemplate && decorationText.match('\[%.*(@gnss_|@position_).*%\]')
 
         width: parent.width - 4
         height: parent.height
@@ -972,6 +1018,10 @@ ApplicationWindow {
 
       Text {
         id: copyrightDecoration
+
+        property string decorationText: ''
+        property bool isExpressionTemplate: decorationText.match('\[%.*%\]')
+        property bool isExpressionPositioning: isExpressionTemplate && decorationText.match('\[%.*(@gnss_|@position_).*%\]')
 
         anchors.bottom: parent.bottom
 
@@ -3314,19 +3364,25 @@ ApplicationWindow {
       dashBoard.activeLayer = activeLayer;
       drawingTemplateModel.projectFilePath = path;
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
-      var titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
-      titleDecoration.text = titleDecorationConfiguration["text"];
+      let titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
       titleDecoration.color = titleDecorationConfiguration["color"];
       titleDecoration.style = titleDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
       titleDecoration.styleColor = titleDecorationConfiguration["outlineColor"];
       titleDecorationBackground.color = titleDecorationConfiguration["backgroundColor"];
-      var copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration();
-      copyrightDecoration.text = copyrightDecorationConfiguration["text"];
+      titleDecoration.decorationText = titleDecorationConfiguration["text"];
+      if (!titleDecoration.isExpressionTemplate) {
+        titleDecoration.text = titleDecorationConfiguration["text"];
+      }
+      let copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration();
       copyrightDecoration.color = copyrightDecorationConfiguration["color"];
       copyrightDecoration.style = copyrightDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
       copyrightDecoration.styleColor = copyrightDecorationConfiguration["outlineColor"];
       copyrightDecorationBackground.color = copyrightDecorationConfiguration["backgroundColor"];
-      var imageDecorationConfiguration = projectInfo.getImageDecorationConfiguration();
+      copyrightDecoration.decorationText = copyrightDecorationConfiguration["text"];
+      if (!titleDecoration.isExpressionTemplate) {
+        copyrightDecoration.text = copyrightDecorationConfiguration["text"];
+      }
+      let imageDecorationConfiguration = projectInfo.getImageDecorationConfiguration();
       imageDecoration.source = imageDecorationConfiguration["source"];
       imageDecoration.fillColor = imageDecorationConfiguration["fillColor"];
       imageDecoration.strokeColor = imageDecorationConfiguration["strokeColor"];
