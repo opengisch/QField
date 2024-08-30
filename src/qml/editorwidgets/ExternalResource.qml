@@ -16,6 +16,7 @@ EditorWidgetBase {
 
   ExpressionEvaluator {
     id: rootPathEvaluator
+    project: qgisProject
   }
   property string prefixToRelativePath: {
     if (qgisProject == undefined)
@@ -111,6 +112,7 @@ EditorWidgetBase {
     id: expressionEvaluator
     feature: currentFeature
     layer: currentLayer
+    project: qgisProject
     expressionText: {
       var value;
       if (currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
