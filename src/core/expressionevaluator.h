@@ -18,6 +18,8 @@
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
 
+#include "gnsspositioninformation.h"
+#include "qfieldcloudutils.h"
 #include "qgsquickmapsettings.h"
 
 #include <QObject>
@@ -39,6 +41,8 @@ class ExpressionEvaluator : public QObject
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation WRITE setPositionInformation NOTIFY positionInformationChanged )
+    Q_PROPERTY( CloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged )
 
   public:
     enum Mode
@@ -68,6 +72,12 @@ class ExpressionEvaluator : public QObject
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    GnssPositionInformation positionInformation() const { return mPositionInformation; }
+    void setPositionInformation( const GnssPositionInformation &positionInformation );
+
+    CloudUserInformation cloudUserInformation() const { return mCloudUserInformation; }
+    void setCloudUserInformation( const CloudUserInformation &cloudUserInformation );
+
     //! Returns the evaluated string value
     Q_INVOKABLE QVariant evaluate();
 
@@ -78,6 +88,8 @@ class ExpressionEvaluator : public QObject
     void layerChanged();
     void projectChanged();
     void mapSettingsChanged();
+    void positionInformationChanged();
+    void cloudUserInformationChanged();
 
   private:
     Mode mMode = ExpressionMode;
@@ -88,5 +100,7 @@ class ExpressionEvaluator : public QObject
     QgsMapLayer *mLayer = nullptr;
     QgsProject *mProject = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
+    GnssPositionInformation mPositionInformation;
+    CloudUserInformation mCloudUserInformation;
 };
 #endif // EXPRESSIONEVALUATOR_H

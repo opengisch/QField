@@ -15,8 +15,10 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "expressioncontextutils.h"
 #include "expressionevaluator.h"
-#include "qgsexpressioncontextutils.h"
+
+#include <qgsexpressioncontextutils.h>
 
 ExpressionEvaluator::ExpressionEvaluator( QObject *parent )
   : QObject( parent )
@@ -77,6 +79,18 @@ void ExpressionEvaluator::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
+void ExpressionEvaluator::setPositionInformation( const GnssPositionInformation &positionInformation )
+{
+  mPositionInformation = positionInformation;
+  emit positionInformationChanged();
+}
+
+void ExpressionEvaluator::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
+{
+  mCloudUserInformation = cloudUserInformation;
+  emit cloudUserInformationChanged();
+}
+
 QVariant ExpressionEvaluator::evaluate()
 {
   if ( mExpressionText.isEmpty() )
@@ -84,6 +98,15 @@ QVariant ExpressionEvaluator::evaluate()
 
   QgsExpressionContext expressionContext;
   expressionContext << QgsExpressionContextUtils::globalScope();
+
+  if ( mPositionInformation.isValid() )
+  {
+    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, false );
+  }
+  if ( !mCloudUserInformation.username.isEmpty() )
+  {
+    expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+  }
   if ( mMapSettings )
   {
     expressionContext << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
