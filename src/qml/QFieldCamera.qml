@@ -87,7 +87,7 @@ Popup {
     id: stampExpressionEvaluator
 
     mode: ExpressionEvaluator.ExpressionMode
-    expressionText: "format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\nLatitude %1 | Longitude %2 | Altitude %3 | Speed %4', coalesce(y(@gnss_coordinate), 'N/A'), coalesce(x(@gnss_coordinate), 'N/A'), coalesce(z(@gnss_coordinate), 'N/A'), if(@gnss_ground_speed != 'nan', @gnss_ground_speed || ' m/s', 'N/A')), '')"
+    expressionText: "format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\n" + qsTr("Latitude") + " %1 | " + qsTr("Longitude") + " %2 | " + qsTr("Altitude") + " %3 | " + qsTr("Speed") + " %4', coalesce(y(@gnss_coordinate), 'N/A'), coalesce(x(@gnss_coordinate), 'N/A'), coalesce(z(@gnss_coordinate), 'N/A'), if(@gnss_ground_speed != 'nan', @gnss_ground_speed || ' m/s', 'N/A')), '')"
 
     project: qgisProject
     positionInformation: currentPosition

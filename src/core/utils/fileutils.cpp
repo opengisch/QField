@@ -257,15 +257,18 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text )
     painter.setRenderHint( QPainter::Antialiasing );
 
     QFont font = painter.font();
-    const int pixelSize = std::min( img.width(), img.height() ) / 45;
-    font.setPixelSize( pixelSize );
+    font.setPixelSize( std::min( img.width(), img.height() ) / 40 );
     font.setBold( true );
 
     QgsRenderContext context = QgsRenderContext::fromQPainter( &painter );
     QgsTextFormat format;
     format.setFont( font );
+    format.setSize( font.pixelSize() );
+    format.setSizeUnit( Qgis::RenderUnit::Pixels );
     format.setColor( Qt::white );
     format.buffer().setColor( Qt::black );
+    format.buffer().setSize( 2 );
+    format.buffer().setSizeUnit( Qgis::RenderUnit::Pixels );
     format.buffer().setEnabled( true );
     QgsTextRenderer::drawText( QPointF( 10, img.height() - 10 ), 0, Qgis::TextHorizontalAlignment::Left, text.split( QStringLiteral( "\n" ) ), context, format );
 
