@@ -14,8 +14,8 @@ Popup {
   property bool isCapturing: state == "PhotoCapture" || state == "VideoCapture"
   property bool isPortraitMode: mainWindow.height > mainWindow.width
 
-  property string currentPath
-  property var currentPosition
+  property string currentPath: ''
+  property var currentPosition: PositioningUtils.createEmptyGnssPositionInformation()
 
   signal finished(string path)
   signal canceled
@@ -75,11 +75,22 @@ Popup {
 
   Settings {
     id: cameraSettings
+    property bool stamping: false
     property bool geoTagging: true
     property bool showGrid: false
     property string deviceId: ''
     property size resolution: Qt.size(0, 0)
     property int pixelFormat: 0
+  }
+
+  ExpressionEvaluator {
+    id: stampExpressionEvaluator
+
+    mode: ExpressionEvaluator.ExpressionMode
+    expressionText: "format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\nLatitude %1 | Longitude %2 | Altitude %3 | Speed %4', coalesce(y(@gnss_coordinate), 'N/A'), coalesce(x(@gnss_coordinate), 'N/A'), coalesce(z(@gnss_coordinate), 'N/A'), if(@gnss_ground_speed != 'nan', @gnss_ground_speed || ' m/s', 'N/A')), '')"
+
+    project: qgisProject
+    positionInformation: currentPosition
   }
 
   Page {
@@ -354,12 +365,13 @@ Popup {
               onClicked: {
                 if (cameraItem.state == "PhotoCapture") {
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
-                  if (cameraSettings.geoTagging) {
-                    if (positionSource.active) {
-                      currentPosition = positionSource.positionInformation;
-                    } else {
-                      displayToast(qsTr("Image geotagging requires positioning to be turned on"), "warning");
-                    }
+                  if (positionSource.active) {
+                    currentPosition = positionSource.positionInformation;
+                  } else {
+                    currentPosition = PositioningUtils.createEmptyGnssPositionInformation();
+                  }
+                  if (cameraSettings.geoTagging && !positionSource.active) {
+                    displayToast(qsTr("Image geotagging requires positioning to be turned on"), "warning");
                   }
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
@@ -375,6 +387,9 @@ Popup {
                   if (cameraItem.state == "PhotoPreview") {
                     if (cameraSettings.geoTagging && positionSource.active) {
                       FileUtils.addImageMetadata(currentPath, currentPosition);
+                    }
+                    if (cameraSettings.stamping) {
+                      FileUtils.addImageStamp(currentPath, stampExpressionEvaluator.evaluate());
                     }
                   }
                   cameraItem.finished(currentPath);
@@ -549,6 +564,24 @@ Popup {
 
         onClicked: {
           resolutionSelectionMenu.popup(resolutionSelectionButton.x, resolutionSelectionButton.y);
+        }
+      }
+
+      QfToolButton {
+        id: stampingButton
+
+        width: 40
+        height: 40
+        padding: 2
+
+        iconSource: Theme.getThemeVectorIcon("ic_text_black_24dp")
+        iconColor: cameraSettings.stamping ? Theme.mainColor : "white"
+        bgcolor: Theme.darkGraySemiOpaque
+        round: true
+
+        onClicked: {
+          cameraSettings.stamping = !cameraSettings.stamping;
+          displayToast(cameraSettings.stamping ? qsTr("Details stamping enabled") : qsTr("Details tamping disabled"));
         }
       }
 

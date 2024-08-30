@@ -55,6 +55,8 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
 
     Q_INVOKABLE void addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation );
 
+    Q_INVOKABLE void addImageStamp( const QString &imagePath, const QString &text );
+
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback = nullptr, bool wipeDestFolder = true );
     /**
      * Creates checksum of a file. Returns null QByteArray if cannot be calculated.

@@ -24,6 +24,8 @@
 #include <QImage>
 #include <QImageReader>
 #include <QMimeDatabase>
+#include <QPainter>
+#include <QPainterPath>
 #include <qgis.h>
 #include <qgsexiftools.h>
 #include <qgsfileutils.h>
@@ -183,7 +185,7 @@ void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHei
     QImage scaledImage = img.width() > img.height()
                            ? img.scaledToWidth( maximumWidthHeight, Qt::SmoothTransformation )
                            : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
-    scaledImage.save( imagePath );
+    scaledImage.save( imagePath, nullptr, 90 );
 
     for ( const QString &key : metadata.keys() )
     {
@@ -234,5 +236,44 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
   for ( const QString key : metadata.keys() )
   {
     QgsExifTools::tagImage( imagePath, key, metadata[key] );
+  }
+}
+
+void FileUtils::addImageStamp( const QString &imagePath, const QString &text )
+{
+  if ( !QFileInfo::exists( imagePath ) || text.isEmpty() )
+  {
+    return;
+  }
+
+  QVariantMap metadata = QgsExifTools::readTags( imagePath );
+  QImage img( imagePath );
+  if ( !img.isNull() )
+  {
+    QPainter painter( &img );
+    painter.setRenderHint( QPainter::Antialiasing );
+
+    QFont font = painter.font();
+    const int pixelSize = std::min( img.width(), img.height() ) / 45;
+    font.setPixelSize( pixelSize );
+    font.setBold( true );
+
+    QPainterPath path;
+    QStringList lines = text.split( QStringLiteral( "\n" ) );
+    for ( int i = 0; i < lines.size(); i++ )
+    {
+      path.addText( QPointF( 10, img.height() - ( ( pixelSize + pixelSize / 4 ) * ( lines.size() - i - 1 ) ) - 10 ), font, lines.at( i ) );
+    }
+
+    painter.setPen( Qt::black );
+    painter.setBrush( Qt::white );
+    painter.drawPath( path );
+
+    img.save( imagePath, nullptr, 90 );
+
+    for ( const QString &key : metadata.keys() )
+    {
+      QgsExifTools::tagImage( imagePath, key, metadata[key] );
+    }
   }
 }

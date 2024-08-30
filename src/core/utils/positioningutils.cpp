@@ -35,6 +35,11 @@ GnssPositionInformation PositioningUtils::createGnssPositionInformation( double 
                                   verticalSpeed, magneticVariation, 0, sourceName );
 }
 
+GnssPositionInformation PositioningUtils::createEmptyGnssPositionInformation()
+{
+  return GnssPositionInformation();
+}
+
 GnssPositionInformation PositioningUtils::averagedPositionInformation( const QList<QVariant> &positionsInformation )
 {
   QList<GnssPositionInformation> convertedList;
