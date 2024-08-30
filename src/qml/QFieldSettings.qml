@@ -15,7 +15,7 @@ Page {
   property alias locatorKeepScale: registry.locatorKeepScale
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias showBookmarks: registry.showBookmarks
-  property alias nativeCamera: registry.nativeCamera
+  property alias nativeCamera2: registry.nativeCamera2
   property alias digitizingVolumeKeys: registry.digitizingVolumeKeys
   property alias autoSave: registry.autoSave
   property alias fingerTapDigitizing: registry.fingerTapDigitizing
@@ -27,7 +27,7 @@ Page {
   Component.onCompleted: {
     if (settings.valueBool('nativeCameraLaunched', false)) {
       // a crash occured while the native camera was launched, disable it
-      nativeCamera = false;
+      nativeCamera2 = false;
     }
   }
 
@@ -42,7 +42,7 @@ Page {
     property bool locatorKeepScale: false
     property bool numericalDigitizingInformation: false
     property bool showBookmarks: true
-    property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
+    property bool nativeCamera2: false
     property bool digitizingVolumeKeys: platformUtilities.capabilities & PlatformUtilities.VolumeKeys
     property bool autoSave: false
     property bool fingerTapDigitizing: false
@@ -154,7 +154,7 @@ Page {
     ListElement {
       title: qsTr("Use native camera")
       description: qsTr("If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.")
-      settingAlias: "nativeCamera"
+      settingAlias: "nativeCamera2"
       isVisible: true
     }
     ListElement {
@@ -165,7 +165,7 @@ Page {
     }
     Component.onCompleted: {
       for (var i = 0; i < count; i++) {
-        if (get(i).settingAlias === 'nativeCamera') {
+        if (get(i).settingAlias === 'nativeCamera2') {
           setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera ? true : false);
         } else if (get(i).settingAlias === 'enableInfoCollection') {
           setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.SentryFramework ? true : false);

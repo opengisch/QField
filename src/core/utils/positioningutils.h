@@ -38,6 +38,11 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
     static Q_INVOKABLE GnssPositionInformation createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName );
 
     /**
+     * Creates an empty GnssPositionInformation.
+     */
+    static Q_INVOKABLE GnssPositionInformation createEmptyGnssPositionInformation();
+
+    /**
      * Returns an average GnssPositionInformation from a list of position information
      */
     static GnssPositionInformation averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation );
