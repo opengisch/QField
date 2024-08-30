@@ -29,6 +29,9 @@
 #include <qgis.h>
 #include <qgsexiftools.h>
 #include <qgsfileutils.h>
+#include <qgsrendercontext.h>
+#include <qgstextformat.h>
+#include <qgstextrenderer.h>
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
@@ -258,16 +261,13 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text )
     font.setPixelSize( pixelSize );
     font.setBold( true );
 
-    QPainterPath path;
-    QStringList lines = text.split( QStringLiteral( "\n" ) );
-    for ( int i = 0; i < lines.size(); i++ )
-    {
-      path.addText( QPointF( 10, img.height() - ( ( pixelSize + pixelSize / 4 ) * ( lines.size() - i - 1 ) ) - 10 ), font, lines.at( i ) );
-    }
-
-    painter.setPen( Qt::black );
-    painter.setBrush( Qt::white );
-    painter.drawPath( path );
+    QgsRenderContext context = QgsRenderContext::fromQPainter( &painter );
+    QgsTextFormat format;
+    format.setFont( font );
+    format.setColor( Qt::white );
+    format.buffer().setColor( Qt::black );
+    format.buffer().setEnabled( true );
+    QgsTextRenderer::drawText( QPointF( 10, img.height() - 10 ), 0, Qgis::TextHorizontalAlignment::Left, text.split( QStringLiteral( "\n" ) ), context, format );
 
     img.save( imagePath, nullptr, 90 );
 
