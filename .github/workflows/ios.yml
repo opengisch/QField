@@ -29,6 +29,10 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Reclaim disk space
+        run: |
+          rm -rf /Applications/Xcode_14*
+
       - name: 🌾 Prepare variables
         id: vars
         run: |
