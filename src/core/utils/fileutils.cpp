@@ -270,7 +270,7 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text )
     format.buffer().setSize( 2 );
     format.buffer().setSizeUnit( Qgis::RenderUnit::Pixels );
     format.buffer().setEnabled( true );
-    QgsTextRenderer::drawText( QPointF( 10, img.height() - 10 ), 0, Qgis::TextHorizontalAlignment::Left, text.split( QStringLiteral( "\n" ) ), context, format );
+    QgsTextRenderer::drawText( QRectF( 10, 10, img.width() - 20, img.height() - 20 ), 0, Qgis::TextHorizontalAlignment::Left, text.split( QStringLiteral( "\n" ) ), context, format, true, Qgis::TextVerticalAlignment::Bottom, Qgis::TextRendererFlag::WrapLines );
 
     img.save( imagePath, nullptr, 90 );
 
