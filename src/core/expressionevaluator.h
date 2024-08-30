@@ -28,6 +28,11 @@
 #include <qgsmaplayer.h>
 #include <qgsproject.h>
 
+
+/**
+ * @brief The ExpressionEvaluator class enables evaluation of expression
+ * strings and expression templates.
+ */
 class ExpressionEvaluator : public QObject
 {
     Q_OBJECT
@@ -45,40 +50,65 @@ class ExpressionEvaluator : public QObject
     Q_PROPERTY( CloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged )
 
   public:
+    //! Expression evaluator modes
     enum Mode
     {
-      ExpressionMode,
-      ExpressionTemplateMode
+      ExpressionMode,         //!< Handle expression text as expression strings
+      ExpressionTemplateMode, //!< Handle expression text as expression templates
     };
     Q_ENUM( Mode )
 
     explicit ExpressionEvaluator( QObject *parent = nullptr );
 
+    //! Returns the expression evaluator mode
     Mode mode() const { return mMode; }
+
+    //! Sets the expression evaluator \a mode
     void setMode( Mode mode );
 
+    //! Returns the expression text used when evaluating
     QString expressionText() { return mExpressionText; }
+
+    //! Sets the expression text used when evaluating
     void setExpressionText( const QString &expressionText );
 
+    //! Returns the feature attached to the expression context
     QgsFeature feature() const { return mFeature; }
+
+    //! Sets the feature attached to the expression context
     void setFeature( const QgsFeature &feature );
 
+    //! Returns the map layer attached to the expression context
     QgsMapLayer *layer() const { return mLayer; }
+
+    //! Sets the map layer attached to the expression context
     void setLayer( QgsMapLayer *layer );
 
+    //! Returns the project attached to the expression context
     QgsProject *project() const { return mProject; }
+
+    //! Sets the project attached to the expression context
     void setProject( QgsProject *project );
 
+    //! Returns the map settings attached to the expression context
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
+
+    //! Sets the map settings attached to the expression context
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    //! Returns the position information attached to the expression context
     GnssPositionInformation positionInformation() const { return mPositionInformation; }
+
+    //! Sets the position information attached to the expression context
     void setPositionInformation( const GnssPositionInformation &positionInformation );
 
+    //! Returns the cloud user information attached to the expression context
     CloudUserInformation cloudUserInformation() const { return mCloudUserInformation; }
+
+    //! Sets the cloud user information attached to the expression context
     void setCloudUserInformation( const CloudUserInformation &cloudUserInformation );
 
-    //! Returns the evaluated string value
+    //! Returns the evaluated expression text value
     Q_INVOKABLE QVariant evaluate();
 
   signals:
