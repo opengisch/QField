@@ -95,5 +95,6 @@ ADD_CATCH2_TEST(digitizingloggertest test_digitizinglogger.cpp FALSE)
 ADD_CATCH2_TEST(attributeformmodeltest test_attributeformmodel.cpp FALSE)
 ADD_CATCH2_TEST(orderedrelationmodeltest test_orderedrelationmodel.cpp FALSE)
 ADD_CATCH2_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel.cpp FALSE)
+ADD_CATCH2_TEST(expressionevaluatortest test_expressionevaluator.cpp TRUE)
 
 ADD_QFIELD_QML_TEST(qmltest test_qml.cpp)
