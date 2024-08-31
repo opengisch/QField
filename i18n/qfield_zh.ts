@@ -1850,15 +1850,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">位置精度因子 (PDOP)</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">水平精度因子 (HDOP)</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">垂直精度因子 (VDOP)</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
@@ -1959,15 +1959,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>PDOP</source>
-        <translation>位置精度因子 (PDOP)</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>水平精度因子 (HDOP)</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>垂直精度因子 (VDOP)</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
@@ -2061,15 +2061,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>front</source>
-        <translation>向前</translation>
+        <translation>前</translation>
     </message>
     <message>
         <source>back</source>
-        <translation>后退</translation>
+        <translation>后</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
         <translation>图像地理标记需要打开定位功能</translation>
+    </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation>详细水印已启用</translation>
+    </message>
+    <message>
+        <source>Details tamping disabled</source>
+        <translation>详细水印已禁用</translation>
     </message>
 </context>
 <context>

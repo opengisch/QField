@@ -2076,6 +2076,14 @@ Dôvod:
         <source>Image geotagging requires positioning to be turned on</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details tamping disabled</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

@@ -2075,6 +2075,14 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>Image geotagging requires positioning to be turned on</source>
         <translation>El geoetiquetado de imágenes requiere que el posicionamiento está activado</translation>
     </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details tamping disabled</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

@@ -2073,6 +2073,14 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Image geotagging requires positioning to be turned on</source>
         <translation>O xeoetiquetado de imaxes precisa que o posicionamento estea acendido</translation>
     </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details tamping disabled</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

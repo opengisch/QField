@@ -2077,6 +2077,14 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Image geotagging requires positioning to be turned on</source>
         <translation>Geotagowanie obrazów wymaga włączenia pozycjonowania.</translation>
     </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details tamping disabled</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

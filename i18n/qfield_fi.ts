@@ -2073,6 +2073,14 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Image geotagging requires positioning to be turned on</source>
         <translation>Kuvan geokoodaus edellyttää, että sijainti on käytössä</translation>
     </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details tamping disabled</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
