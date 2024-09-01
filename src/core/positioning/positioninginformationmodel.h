@@ -23,23 +23,75 @@ class PositioningInformationModel : public QStandardItemModel
 
     PositioningInformationModel( QObject *parent = nullptr );
 
+    /**
+     * @brief Sets the data for the given index
+     * @param index The index to set the data for
+     * @param value The new value
+     * @param role The role of the data
+     */
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
+
+    /**
+     * @brief Returns the names of the roles used by the model
+     */
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void setupConnections();
+
+    /**
+     * @brief Refreshes the data in the model
+     */
     void refreshData();
+
+    /**
+     * @brief Updates the information in the model with the given name and value
+     * @param name The name of the information to update
+     * @param value The new value
+     */
     void updateInfo( const QString &name, const QVariant &value );
 
+    /**
+     * @brief Returns the positioning source
+     */
     Positioning *positioningSource() const;
+
+    /**
+     * @brief Sets the positioning source
+     * @param newPositioningSource The new positioning source
+     */
     void setPositioningSource( Positioning *newPositioningSource );
 
+    /**
+     * @brief Returns the antenna height
+     */
     double antennaHeight() const;
+
+    /**
+     * @brief Sets the antenna height
+     * @param newAntennaHeight The new antenna height
+     */
     void setAntennaHeight( double newAntennaHeight );
 
+    /**
+     * @brief Returns the distance units
+     */
     Qgis::DistanceUnit distanceUnits() const;
+
+    /**
+     * @brief Sets the distance units
+     * @param newDistanceUnits The new distance units
+     */
     void setDistanceUnits( Qgis::DistanceUnit newDistanceUnits );
 
+    /**
+     * @brief Returns the coordinate display CRS
+     */
     QgsCoordinateReferenceSystem coordinateDisplayCrs() const;
+
+    /**
+     * @brief Sets the coordinate display CRS
+     * @param newCoordinateDisplayCrs The new CRS
+     */
     void setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &newCoordinateDisplayCrs );
 
   signals:
