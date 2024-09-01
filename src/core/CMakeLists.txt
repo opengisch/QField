@@ -34,7 +34,7 @@ set(QFIELD_CORE_SRCS
     positioning/positioning.cpp
     positioning/positioningdevicemodel.cpp
     positioning/geofencer.cpp
-    positioning/positioningmodel.cpp
+    positioning/positioninginformationmodel.cpp
     processing/processingalgorithm.cpp
     processing/processingalgorithmparametersmodel.cpp
     processing/processingalgorithmsmodel.cpp
@@ -153,7 +153,7 @@ set(QFIELD_CORE_HDRS
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
     positioning/geofencer.h
-    positioning/positioningmodel.h
+    positioning/positioninginformationmodel.h
     processing/processingalgorithm.h
     processing/processingalgorithmparametersmodel.h
     processing/processingalgorithmsmodel.h

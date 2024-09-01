@@ -5,7 +5,7 @@
 #include <QObject>
 #include <QStandardItemModel>
 
-class PositioningModel : public QStandardItemModel
+class PositioningInformationModel : public QStandardItemModel
 {
     Q_OBJECT
 
@@ -14,7 +14,6 @@ class PositioningModel : public QStandardItemModel
     Q_PROPERTY( Qgis::DistanceUnit distanceUnits READ distanceUnits WRITE setDistanceUnits NOTIFY distanceUnitsChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem coordinateDisplayCrs READ coordinateDisplayCrs WRITE setCoordinateDisplayCrs NOTIFY coordinateDisplayCrsChanged )
 
-
   public:
     enum Roles
     {
@@ -22,7 +21,7 @@ class PositioningModel : public QStandardItemModel
       ValueRole = Qt::UserRole + 1,
     };
 
-    PositioningModel( QObject *parent = nullptr );
+    PositioningInformationModel( QObject *parent = nullptr );
 
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
     QHash<int, QByteArray> roleNames() const override;
@@ -31,10 +30,8 @@ class PositioningModel : public QStandardItemModel
     void refreshData();
     void updateInfo( const QString &name, const QVariant &value );
 
-
     Positioning *positioningSource() const;
     void setPositioningSource( Positioning *newPositioningSource );
-
 
     double antennaHeight() const;
     void setAntennaHeight( double newAntennaHeight );

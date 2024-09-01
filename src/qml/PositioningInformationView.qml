@@ -8,8 +8,8 @@ import Theme
 Rectangle {
   id: positioningInformationView
 
-  property alias positionSource: positioningModel.positioningSource
-  property alias antennaHeight: positioningModel.antennaHeight
+  property alias positionSource: positioningInformationModel.positioningSource
+  property alias antennaHeight: positioningInformationModel.antennaHeight
 
   property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.positionBackgroundColor
@@ -28,8 +28,8 @@ Rectangle {
     readonly property real numberOfColumns: parent.width / cellWidth
 
     flow: GridView.FlowTopToBottom
-    model: PositioningModel {
-      id: positioningModel
+    model: PositioningInformationModel {
+      id: positioningInformationModel
       distanceUnits: projectInfo.distanceUnits
       coordinateDisplayCrs: projectInfo.coordinateDisplayCrs
     }
@@ -49,7 +49,7 @@ Rectangle {
     ScrollBar.vertical: QfScrollBar {
     }
     Component.onCompleted: {
-      positioningModel.setupConnections();
+      positioningInformationModel.setupConnections();
     }
     delegate: Rectangle {
       readonly property real currentColumn: parseInt(index / (grid.count / grid.numberOfColumns))

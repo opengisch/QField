@@ -1,22 +1,22 @@
 #include "coordinatereferencesystemutils.h"
 #include "geometryutils.h"
-#include "positioningmodel.h"
+#include "positioninginformationmodel.h"
 
 #include <QVariant>
 #include <qgsunittypes.h>
 
-PositioningModel::PositioningModel( QObject *parent )
+PositioningInformationModel::PositioningInformationModel( QObject *parent )
   : QStandardItemModel( parent )
 {
-  connect( this, &QStandardItemModel::dataChanged, this, &PositioningModel::onDataChanged );
+  connect( this, &QStandardItemModel::dataChanged, this, &PositioningInformationModel::onDataChanged );
 }
 
-void PositioningModel::setupConnections()
+void PositioningInformationModel::setupConnections()
 {
-  connect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningModel::refreshData );
+  connect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
 }
 
-void PositioningModel::refreshData()
+void PositioningInformationModel::refreshData()
 {
   if ( !mPositioningSource )
   {
@@ -57,7 +57,7 @@ void PositioningModel::refreshData()
   }
 }
 
-void PositioningModel::getCoordinateLabels( QString &coord1Label, QString &coord2Label, bool coordinatesIsXY, bool isGeographic )
+void PositioningInformationModel::getCoordinateLabels( QString &coord1Label, QString &coord2Label, bool coordinatesIsXY, bool isGeographic )
 {
   if ( isGeographic )
   {
@@ -71,7 +71,7 @@ void PositioningModel::getCoordinateLabels( QString &coord1Label, QString &coord
   }
 }
 
-void PositioningModel::getCoordinateValues( QString &coord1Value, QString &coord2Value, const QgsPoint &coordinates, bool coordinatesIsXY, bool isGeographic )
+void PositioningInformationModel::getCoordinateValues( QString &coord1Value, QString &coord2Value, const QgsPoint &coordinates, bool coordinatesIsXY, bool isGeographic )
 {
   if ( coordinatesIsXY )
   {
@@ -99,7 +99,7 @@ void PositioningModel::getCoordinateValues( QString &coord1Value, QString &coord
   }
 }
 
-QString PositioningModel::getAltitude( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
+QString PositioningInformationModel::getAltitude( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
 {
   if ( positioningSource()->positionInformation().elevationValid() )
   {
@@ -127,22 +127,22 @@ QString PositioningModel::getAltitude( double distanceUnitFactor, const QString 
   return tr( "N/A" );
 }
 
-QString PositioningModel::getSpeed()
+QString PositioningInformationModel::getSpeed()
 {
   return positioningSource()->positionInformation().speedValid() ? QLocale::system().toString( positioningSource()->positionInformation().speed(), 'f', 3 ) + " m/s" : tr( "N/A" );
 }
 
-QString PositioningModel::getHorizontalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
+QString PositioningInformationModel::getHorizontalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
 {
   return positioningSource()->positionInformation().haccValid() ? QLocale::system().toString( positioningSource()->positionInformation().hacc() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation : tr( "N/A" );
 }
 
-QString PositioningModel::getVerticalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
+QString PositioningInformationModel::getVerticalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
 {
   return positioningSource()->positionInformation().vaccValid() ? QLocale::system().toString( positioningSource()->positionInformation().vacc() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation : tr( "N/A" );
 }
 
-void PositioningModel::updateInfo( const QString &name, const QVariant &value )
+void PositioningInformationModel::updateInfo( const QString &name, const QVariant &value )
 {
   for ( int row = 0; row < rowCount(); ++row )
   {
@@ -161,7 +161,7 @@ void PositioningModel::updateInfo( const QString &name, const QVariant &value )
 }
 
 
-bool PositioningModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool PositioningInformationModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   QStandardItem *rowItem = item( index.row() );
   if ( !rowItem )
@@ -197,7 +197,7 @@ bool PositioningModel::setData( const QModelIndex &index, const QVariant &value,
   return false;
 }
 
-QHash<int, QByteArray> PositioningModel::roleNames() const
+QHash<int, QByteArray> PositioningInformationModel::roleNames() const
 {
   QHash<int, QByteArray> names = QStandardItemModel::roleNames();
   names[NameRole] = "Name";
@@ -205,18 +205,18 @@ QHash<int, QByteArray> PositioningModel::roleNames() const
   return names;
 }
 
-void PositioningModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
+void PositioningInformationModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
   Q_UNUSED( bottomRight )
   Q_UNUSED( roles )
 }
 
-Positioning *PositioningModel::positioningSource() const
+Positioning *PositioningInformationModel::positioningSource() const
 {
   return mPositioningSource;
 }
 
-void PositioningModel::setPositioningSource( Positioning *newPositioningSource )
+void PositioningInformationModel::setPositioningSource( Positioning *newPositioningSource )
 {
   if ( mPositioningSource == newPositioningSource )
     return;
@@ -224,12 +224,12 @@ void PositioningModel::setPositioningSource( Positioning *newPositioningSource )
   emit positioningSourceChanged();
 }
 
-double PositioningModel::antennaHeight() const
+double PositioningInformationModel::antennaHeight() const
 {
   return mAntennaHeight;
 }
 
-void PositioningModel::setAntennaHeight( double newAntennaHeight )
+void PositioningInformationModel::setAntennaHeight( double newAntennaHeight )
 {
   if ( qFuzzyCompare( mAntennaHeight, newAntennaHeight ) )
     return;
@@ -237,12 +237,12 @@ void PositioningModel::setAntennaHeight( double newAntennaHeight )
   emit antennaHeightChanged();
 }
 
-Qgis::DistanceUnit PositioningModel::distanceUnits() const
+Qgis::DistanceUnit PositioningInformationModel::distanceUnits() const
 {
   return mDistanceUnits;
 }
 
-void PositioningModel::setDistanceUnits( Qgis::DistanceUnit newDistanceUnits )
+void PositioningInformationModel::setDistanceUnits( Qgis::DistanceUnit newDistanceUnits )
 {
   if ( mDistanceUnits == newDistanceUnits )
     return;
@@ -250,12 +250,12 @@ void PositioningModel::setDistanceUnits( Qgis::DistanceUnit newDistanceUnits )
   emit distanceUnitsChanged();
 }
 
-QgsCoordinateReferenceSystem PositioningModel::coordinateDisplayCrs() const
+QgsCoordinateReferenceSystem PositioningInformationModel::coordinateDisplayCrs() const
 {
   return mCoordinateDisplayCrs;
 }
 
-void PositioningModel::setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &newCoordinateDisplayCrs )
+void PositioningInformationModel::setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &newCoordinateDisplayCrs )
 {
   if ( mCoordinateDisplayCrs == newCoordinateDisplayCrs )
     return;
