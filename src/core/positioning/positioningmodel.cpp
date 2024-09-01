@@ -114,7 +114,16 @@ void PositioningModel::refreshData()
   {
     altitude = tr( "N/A" );
   }
+
   updateInfo( "Altitude", altitude );
+
+  QString speed = "";
+  if ( positioningSource()->positionInformation().speedValid() )
+    speed = QLocale::system().toString( positioningSource()->positionInformation().speed(), 'f', 3 ) + " m/s";
+  else
+    speed = tr( "N/A" );
+
+  updateInfo( "Speed", speed );
 }
 
 void PositioningModel::updateInfo( const QString &name, const QVariant &value )
