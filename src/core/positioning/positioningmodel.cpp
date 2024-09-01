@@ -33,11 +33,11 @@ void PositioningModel::refreshData()
   //   updateInfo( key, value );
   // }
 
-  bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs() );
-  bool coordinatesIsGeographic = coordinateDisplayCrs().isGeographic();
-  QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
-  double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
-  QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
+  const bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs() );
+  const bool coordinatesIsGeographic = coordinateDisplayCrs().isGeographic();
+  const QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
+  const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
+  const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
 
   QString coord1Label;
   QString coord2Label;

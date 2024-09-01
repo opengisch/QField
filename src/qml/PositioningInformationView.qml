@@ -10,6 +10,8 @@ Rectangle {
 
   property alias positionSource: positioningModel.positioningSource
   property alias antennaHeight: positioningModel.antennaHeight
+  property real contentHeight: grid.contentHeight
+
   property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.positionBackgroundColor
   property color textColor: positionSource.currentness ? Theme.mainTextColor : Theme.secondaryTextColor
@@ -22,6 +24,14 @@ Rectangle {
 
   GridView {
     id: grid
+
+    readonly property real numberOfColumns: parent.width / cellWidth
+
+    model: PositioningModel {
+      id: positioningModel
+      distanceUnits: projectInfo.distanceUnits
+      coordinateDisplayCrs: projectInfo.coordinateDisplayCrs
+    }
     anchors.fill: parent
     cellHeight: positioningInformationView.cellHeight
     cellWidth: {
@@ -37,24 +47,14 @@ Rectangle {
     boundsBehavior: Flickable.StopAtBounds
     ScrollBar.vertical: QfScrollBar {
     }
-    model: PositioningModel {
-      id: positioningModel
-
-      distanceUnits: projectInfo.distanceUnits
-      coordinateDisplayCrs: projectInfo.coordinateDisplayCrs
-    }
-
     Component.onCompleted: {
       positioningModel.setupConnections();
     }
-
-    property real numberOfColumns: parent.width / cellWidth
-
     delegate: Rectangle {
       width: grid.cellWidth
       height: grid.cellHeight
 
-      property real currentRow: parseInt(index / grid.numberOfColumns)
+      readonly property real currentRow: parseInt(index / grid.numberOfColumns)
 
       color: {
         if (grid.numberOfColumns % 2 == 0) {
