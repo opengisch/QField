@@ -36,60 +36,52 @@ void PositioningModel::refreshData()
   bool coordinatesIsGeographic = coordinateDisplayCrs().isGeographic();
   QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
 
+  QString coord1Label;
+  QString coord2Label;
 
-  QString labelLongitudeOrX = coordinatesIsXY ? coordinatesIsGeographic ? tr( "Lon" ) : tr( "X" ) : coordinatesIsGeographic ? tr( "Lat" )
-                                                                                                                            : tr( "Y" );
-  QString valueLongitudeOrLatitude = "";
+  if ( coordinatesIsGeographic )
+  {
+    coord1Label = coordinatesIsXY ? tr( "Lon" ) : tr( "Lat" );
+    coord2Label = coordinatesIsXY ? tr( "Lat" ) : tr( "Lon" );
+  }
+  else
+  {
+    coord1Label = coordinatesIsXY ? tr( "X" ) : tr( "Y" );
+    coord2Label = coordinatesIsXY ? tr( "Y" ) : tr( "X" );
+  }
+
+  QString coord1Value = "";
+  QString coord2Value = "";
+
   if ( coordinatesIsXY )
   {
     if ( positioningSource()->positionInformation().longitudeValid() )
     {
-      valueLongitudeOrLatitude = QLocale::system().toString( coordinates.x(), 'f', coordinatesIsGeographic ? 7 : 3 );
+      coord1Value = QLocale::system().toString( coordinates.x(), 'f', coordinatesIsGeographic ? 7 : 3 );
+      coord2Value = QLocale::system().toString( coordinates.y(), 'f', coordinatesIsGeographic ? 7 : 3 );
     }
     else
     {
-      valueLongitudeOrLatitude = tr( "N/A" );
+      coord1Value = tr( "N/A" );
+      coord2Value = tr( "N/A" );
     }
   }
   else
   {
     if ( positioningSource()->positionInformation().latitudeValid() )
     {
-      valueLongitudeOrLatitude = QLocale::system().toString( coordinates.y(), 'f', coordinatesIsGeographic ? 7 : 3 );
+      coord1Value = QLocale::system().toString( coordinates.y(), 'f', coordinatesIsGeographic ? 7 : 3 );
+      coord2Value = QLocale::system().toString( coordinates.x(), 'f', coordinatesIsGeographic ? 7 : 3 );
     }
     else
     {
-      valueLongitudeOrLatitude = tr( "N/A" );
+      coord1Value = tr( "N/A" );
+      coord2Value = tr( "N/A" );
     }
   }
-  updateInfo( labelLongitudeOrX, valueLongitudeOrLatitude );
 
-  QString labelLatitudeOrY = coordinatesIsXY ? coordinatesIsGeographic ? tr( "Lat" ) : tr( "Y" ) : coordinatesIsGeographic ? tr( "Lon" )
-                                                                                                                           : tr( "X" );
-  QString valueLatitudeOrLongitude = "";
-  if ( coordinatesIsXY )
-  {
-    if ( positioningSource()->positionInformation().longitudeValid() )
-    {
-      valueLatitudeOrLongitude = QLocale::system().toString( coordinates.y(), 'f', coordinatesIsGeographic ? 7 : 3 );
-    }
-    else
-    {
-      valueLatitudeOrLongitude = tr( "N/A" );
-    }
-  }
-  else
-  {
-    if ( positioningSource()->positionInformation().latitudeValid() )
-    {
-      valueLatitudeOrLongitude = QLocale::system().toString( coordinates.x(), 'f', coordinatesIsGeographic ? 7 : 3 );
-    }
-    else
-    {
-      valueLatitudeOrLongitude = tr( "N/A" );
-    }
-  }
-  updateInfo( labelLatitudeOrY, valueLatitudeOrLongitude );
+  updateInfo( coord1Label, coord1Value );
+  updateInfo( coord2Label, coord2Value );
 }
 
 void PositioningModel::updateInfo( const QString &name, const QVariant &value )
