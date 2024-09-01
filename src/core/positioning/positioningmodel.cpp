@@ -39,10 +39,28 @@ void PositioningModel::refreshData()
   const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
 
-  QString coord1Label;
-  QString coord2Label;
+  QString coord1Label, coord2Label;
+  QString coord1Value, coord2Value;
 
-  if ( coordinatesIsGeographic )
+  getCoordinateLabels( coord1Label, coord2Label, coordinatesIsXY, coordinatesIsGeographic );
+  getCoordinateValues( coord1Value, coord2Value, coordinates, coordinatesIsXY, coordinatesIsGeographic );
+
+  const QString altitude = getAltitude( distanceUnitFactor, distanceUnitAbbreviation );
+  const QString speed = getSpeed();
+  const QString hAccuracy = getHorizontalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
+  const QString vAccuracy = getVerticalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
+
+  updateInfo( coord1Label, coord1Value );
+  updateInfo( coord2Label, coord2Value );
+  updateInfo( "Altitude", altitude );
+  updateInfo( "Speed", speed );
+  updateInfo( "H. Accuracy", hAccuracy );
+  updateInfo( "V. Accuracy", vAccuracy );
+}
+
+void PositioningModel::getCoordinateLabels( QString &coord1Label, QString &coord2Label, bool coordinatesIsXY, bool isGeographic )
+{
+  if ( isGeographic )
   {
     coord1Label = coordinatesIsXY ? tr( "Lon" ) : tr( "Lat" );
     coord2Label = coordinatesIsXY ? tr( "Lat" ) : tr( "Lon" );
@@ -52,42 +70,42 @@ void PositioningModel::refreshData()
     coord1Label = coordinatesIsXY ? tr( "X" ) : tr( "Y" );
     coord2Label = coordinatesIsXY ? tr( "Y" ) : tr( "X" );
   }
+}
 
-  QString coord1Value = "";
-  QString coord2Value = "";
-
+void PositioningModel::getCoordinateValues( QString &coord1Value, QString &coord2Value, const QgsPoint &coordinates, bool coordinatesIsXY, bool isGeographic )
+{
   if ( coordinatesIsXY )
   {
     if ( positioningSource()->positionInformation().longitudeValid() )
     {
-      coord1Value = QLocale::system().toString( coordinates.x(), 'f', coordinatesIsGeographic ? 7 : 3 );
-      coord2Value = QLocale::system().toString( coordinates.y(), 'f', coordinatesIsGeographic ? 7 : 3 );
+      coord1Value = QLocale::system().toString( coordinates.x(), 'f', isGeographic ? 7 : 3 );
+      coord2Value = QLocale::system().toString( coordinates.y(), 'f', isGeographic ? 7 : 3 );
     }
     else
     {
-      coord1Value = tr( "N/A" );
-      coord2Value = tr( "N/A" );
+      coord1Value = coord2Value = tr( "N/A" );
     }
   }
   else
   {
     if ( positioningSource()->positionInformation().latitudeValid() )
     {
-      coord1Value = QLocale::system().toString( coordinates.y(), 'f', coordinatesIsGeographic ? 7 : 3 );
-      coord2Value = QLocale::system().toString( coordinates.x(), 'f', coordinatesIsGeographic ? 7 : 3 );
+      coord1Value = QLocale::system().toString( coordinates.y(), 'f', isGeographic ? 7 : 3 );
+      coord2Value = QLocale::system().toString( coordinates.x(), 'f', isGeographic ? 7 : 3 );
     }
     else
     {
-      coord1Value = tr( "N/A" );
-      coord2Value = tr( "N/A" );
+      coord1Value = coord2Value = tr( "N/A" );
     }
   }
+}
 
-  QString altitude = "";
+QString PositioningModel::getAltitude( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
+{
   if ( positioningSource()->positionInformation().elevationValid() )
   {
-    altitude += QLocale::system().toString( positioningSource()->projectedPosition().z() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation + ' ';
-    QStringList details = {};
+    QString altitude = QLocale::system().toString( positioningSource()->projectedPosition().z() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation + ' ';
+    QStringList details;
 
     if ( positioningSource()->elevationCorrectionMode() == Positioning::ElevationCorrectionMode::OrthometricFromGeoidFile )
     {
@@ -105,48 +123,33 @@ void PositioningModel::refreshData()
     {
       altitude += QString( " (%1)" ).arg( details.join( ", " ) );
     }
+    return altitude;
   }
-  else
-  {
-    altitude = tr( "N/A" );
-  }
+  return tr( "N/A" );
+}
 
-  QString speed = "";
-  if ( positioningSource()->positionInformation().speedValid() )
-    speed = QLocale::system().toString( positioningSource()->positionInformation().speed(), 'f', 3 ) + " m/s";
-  else
-    speed = tr( "N/A" );
+QString PositioningModel::getSpeed()
+{
+  return positioningSource()->positionInformation().speedValid() ? QLocale::system().toString( positioningSource()->positionInformation().speed(), 'f', 3 ) + " m/s" : tr( "N/A" );
+}
 
+QString PositioningModel::getHorizontalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
+{
+  return positioningSource()->positionInformation().haccValid() ? QLocale::system().toString( positioningSource()->positionInformation().hacc() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation : tr( "N/A" );
+}
 
-  QString hAccuracy = "";
-  if ( positioningSource()->positionInformation().haccValid() )
-    hAccuracy = QLocale::system().toString( positioningSource()->positionInformation().hacc() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation;
-  else
-    hAccuracy = tr( "N/A" );
-
-  QString vAccuracy = "";
-  if ( positioningSource()->positionInformation().vaccValid() )
-    vAccuracy = QLocale::system().toString( positioningSource()->positionInformation().vacc() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation;
-  else
-    vAccuracy = tr( "N/A" );
-
-  updateInfo( coord1Label, coord1Value );
-  updateInfo( coord2Label, coord2Value );
-  updateInfo( "Altitude", altitude );
-  updateInfo( "Speed", speed );
-  updateInfo( "H. Accuracy", hAccuracy );
-  updateInfo( "V. Accuracy", vAccuracy );
+QString PositioningModel::getVerticalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
+{
+  return positioningSource()->positionInformation().vaccValid() ? QLocale::system().toString( positioningSource()->positionInformation().vacc() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation : tr( "N/A" );
 }
 
 void PositioningModel::updateInfo( const QString &name, const QVariant &value )
 {
-  // Check if the item already exists
   for ( int row = 0; row < rowCount(); ++row )
   {
     QStandardItem *rowItem = item( row );
     if ( rowItem->data( VariableNameRole ).toString() == name )
     {
-      // Item exists, update its value
       rowItem->setData( value.toString(), VariableValueRole );
       return;
     }

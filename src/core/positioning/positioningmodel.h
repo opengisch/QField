@@ -55,6 +55,14 @@ class PositioningModel : public QStandardItemModel
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
 
   private:
+    void getCoordinateLabels( QString &coord1Label, QString &coord2Label, bool coordinatesIsXY, bool isGeographic );
+    void getCoordinateValues( QString &coord1Value, QString &coord2Value, const QgsPoint &coordinates, bool coordinatesIsXY, bool isGeographic );
+    QString getAltitude( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
+    QString getSpeed();
+    QString getHorizontalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
+    QString getVerticalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
+
+  private:
     Positioning *mPositioningSource = nullptr;
     double mAntennaHeight = -1;
     Qgis::DistanceUnit mDistanceUnits;
