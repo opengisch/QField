@@ -2082,6 +2082,22 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Details tamping disabled</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Altitude</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Vitesse</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

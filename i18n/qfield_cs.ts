@@ -2085,6 +2085,22 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>Details tamping disabled</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Nadmořská výška</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Rychlost</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

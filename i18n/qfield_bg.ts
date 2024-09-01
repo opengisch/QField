@@ -2081,6 +2081,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Details tamping disabled</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Височина</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Скорост</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

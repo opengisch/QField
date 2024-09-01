@@ -2085,6 +2085,22 @@ Motiv:
         <source>Details tamping disabled</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Altitudine</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Viteză</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

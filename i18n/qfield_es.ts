@@ -2083,6 +2083,22 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>Details tamping disabled</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Altitud</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidad</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

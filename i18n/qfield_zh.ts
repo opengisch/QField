@@ -2079,6 +2079,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Details tamping disabled</source>
         <translation>详细水印已禁用</translation>
     </message>
+    <message>
+        <source>Latitude</source>
+        <translation>纬度</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>经度</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>海拔</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

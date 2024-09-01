@@ -2083,6 +2083,22 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Details tamping disabled</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Nadmorska visina</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Brzina</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
