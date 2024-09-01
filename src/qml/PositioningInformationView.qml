@@ -36,9 +36,7 @@ Rectangle {
     anchors.fill: parent
     cellHeight: positioningInformationView.cellHeight
     cellWidth: {
-      if (parent.width >= 1000)
-        return parent.width / 4;
-      else if (parent.width >= 620)
+      if (parent.width >= 620)
         return parent.width / 3;
       else if (parent.width >= 200)
         return parent.width / 2;
