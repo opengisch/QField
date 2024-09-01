@@ -39,7 +39,6 @@ void PositioningModel::refreshData()
   double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
 
-
   QString coord1Label;
   QString coord2Label;
 
@@ -84,9 +83,6 @@ void PositioningModel::refreshData()
     }
   }
 
-  updateInfo( coord1Label, coord1Value );
-  updateInfo( coord2Label, coord2Value );
-
   QString altitude = "";
   if ( positioningSource()->positionInformation().elevationValid() )
   {
@@ -115,15 +111,31 @@ void PositioningModel::refreshData()
     altitude = tr( "N/A" );
   }
 
-  updateInfo( "Altitude", altitude );
-
   QString speed = "";
   if ( positioningSource()->positionInformation().speedValid() )
     speed = QLocale::system().toString( positioningSource()->positionInformation().speed(), 'f', 3 ) + " m/s";
   else
     speed = tr( "N/A" );
 
+
+  QString hAccuracy = "";
+  if ( positioningSource()->positionInformation().haccValid() )
+    hAccuracy = QLocale::system().toString( positioningSource()->positionInformation().hacc() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation;
+  else
+    hAccuracy = tr( "N/A" );
+
+  QString vAccuracy = "";
+  if ( positioningSource()->positionInformation().vaccValid() )
+    vAccuracy = QLocale::system().toString( positioningSource()->positionInformation().vacc() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation;
+  else
+    vAccuracy = tr( "N/A" );
+
+  updateInfo( coord1Label, coord1Value );
+  updateInfo( coord2Label, coord2Value );
+  updateInfo( "Altitude", altitude );
   updateInfo( "Speed", speed );
+  updateInfo( "H. Accuracy", hAccuracy );
+  updateInfo( "V. Accuracy", vAccuracy );
 }
 
 void PositioningModel::updateInfo( const QString &name, const QVariant &value )
