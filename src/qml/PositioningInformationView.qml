@@ -8,7 +8,8 @@ import Theme
 Rectangle {
   id: positioningInformationView
 
-  property Positioning positionSource
+  property alias positionSource: positioningModel.positioningSource
+  property alias antennaHeight: positioningModel.antennaHeight
   property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.positionBackgroundColor
   property color textColor: positionSource.currentness ? Theme.mainTextColor : Theme.secondaryTextColor
@@ -38,7 +39,9 @@ Rectangle {
     }
     model: PositioningModel {
       id: positioningModel
-      positioningSource: positioningInformationView.positionSource
+
+      distanceUnits: projectInfo.distanceUnits
+      coordinateDisplayCrs: projectInfo.coordinateDisplayCrs
     }
 
     Component.onCompleted: {

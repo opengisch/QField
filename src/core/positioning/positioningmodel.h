@@ -10,6 +10,10 @@ class PositioningModel : public QStandardItemModel
     Q_OBJECT
 
     Q_PROPERTY( Positioning *positioningSource READ positioningSource WRITE setPositioningSource NOTIFY positioningSourceChanged )
+    Q_PROPERTY( double antennaHeight READ antennaHeight WRITE setAntennaHeight NOTIFY antennaHeightChanged )
+    Q_PROPERTY( Qgis::DistanceUnit distanceUnits READ distanceUnits WRITE setDistanceUnits NOTIFY distanceUnitsChanged )
+    Q_PROPERTY( QgsCoordinateReferenceSystem coordinateDisplayCrs READ coordinateDisplayCrs WRITE setCoordinateDisplayCrs NOTIFY coordinateDisplayCrsChanged )
+
 
   public:
     enum Roles
@@ -32,12 +36,27 @@ class PositioningModel : public QStandardItemModel
     void setPositioningSource( Positioning *newPositioningSource );
 
 
+    double antennaHeight() const;
+    void setAntennaHeight( double newAntennaHeight );
+
+    Qgis::DistanceUnit distanceUnits() const;
+    void setDistanceUnits( Qgis::DistanceUnit newDistanceUnits );
+
+    QgsCoordinateReferenceSystem coordinateDisplayCrs() const;
+    void setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &newCoordinateDisplayCrs );
+
   signals:
     void positioningSourceChanged();
+    void antennaHeightChanged();
+    void distanceUnitsChanged();
+    void coordinateDisplayCrsChanged();
 
   private slots:
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
 
   private:
     Positioning *mPositioningSource = nullptr;
+    double mAntennaHeight;
+    Qgis::DistanceUnit mDistanceUnits;
+    QgsCoordinateReferenceSystem mCoordinateDisplayCrs;
 };

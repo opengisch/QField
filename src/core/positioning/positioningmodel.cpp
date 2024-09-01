@@ -1,3 +1,5 @@
+#include "coordinatereferencesystemutils.h"
+#include "geometryutils.h"
 #include "positioningmodel.h"
 
 #include <QVariant>
@@ -20,15 +22,74 @@ void PositioningModel::refreshData()
     return;
   }
 
-  QList<QPair<QString, QVariant>> details = mPositioningSource->device()->details();
+  //! Update all info dynamically :)
+  //QList<QPair<QString, QVariant>> details = mPositioningSource->device()->details();
+  // for ( int i = 0; i < details.size(); ++i )
+  // {
+  //   const QString key = details[i].first;
+  //   const QVariant value = details[i].second;
 
-  for ( int i = 0; i < details.size(); ++i )
+  //   updateInfo( key, value );
+  // }
+
+  bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs() );
+  bool coordinatesIsGeographic = coordinateDisplayCrs().isGeographic();
+  QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
+
+
+  QString labelLongitudeOrX = coordinatesIsXY ? coordinatesIsGeographic ? tr( "Lon" ) : tr( "X" ) : coordinatesIsGeographic ? tr( "Lat" )
+                                                                                                                            : tr( "Y" );
+  QString valueLongitudeOrLatitude = "";
+  if ( coordinatesIsXY )
   {
-    const QString key = details[i].first;
-    const QVariant value = details[i].second;
-
-    updateInfo( key, value );
+    if ( positioningSource()->positionInformation().longitudeValid() )
+    {
+      valueLongitudeOrLatitude = QLocale::system().toString( coordinates.x(), 'f', coordinatesIsGeographic ? 7 : 3 );
+    }
+    else
+    {
+      valueLongitudeOrLatitude = tr( "N/A" );
+    }
   }
+  else
+  {
+    if ( positioningSource()->positionInformation().latitudeValid() )
+    {
+      valueLongitudeOrLatitude = QLocale::system().toString( coordinates.y(), 'f', coordinatesIsGeographic ? 7 : 3 );
+    }
+    else
+    {
+      valueLongitudeOrLatitude = tr( "N/A" );
+    }
+  }
+  updateInfo( labelLongitudeOrX, valueLongitudeOrLatitude );
+
+  QString labelLatitudeOrY = coordinatesIsXY ? coordinatesIsGeographic ? tr( "Lat" ) : tr( "Y" ) : coordinatesIsGeographic ? tr( "Lon" )
+                                                                                                                           : tr( "X" );
+  QString valueLatitudeOrLongitude = "";
+  if ( coordinatesIsXY )
+  {
+    if ( positioningSource()->positionInformation().longitudeValid() )
+    {
+      valueLatitudeOrLongitude = QLocale::system().toString( coordinates.y(), 'f', coordinatesIsGeographic ? 7 : 3 );
+    }
+    else
+    {
+      valueLatitudeOrLongitude = tr( "N/A" );
+    }
+  }
+  else
+  {
+    if ( positioningSource()->positionInformation().latitudeValid() )
+    {
+      valueLatitudeOrLongitude = QLocale::system().toString( coordinates.x(), 'f', coordinatesIsGeographic ? 7 : 3 );
+    }
+    else
+    {
+      valueLatitudeOrLongitude = tr( "N/A" );
+    }
+  }
+  updateInfo( labelLatitudeOrY, valueLatitudeOrLongitude );
 }
 
 void PositioningModel::updateInfo( const QString &name, const QVariant &value )
@@ -113,5 +174,43 @@ void PositioningModel::setPositioningSource( Positioning *newPositioningSource )
     return;
   mPositioningSource = newPositioningSource;
   emit positioningSourceChanged();
-  refreshData();
+}
+
+double PositioningModel::antennaHeight() const
+{
+  return mAntennaHeight;
+}
+
+void PositioningModel::setAntennaHeight( double newAntennaHeight )
+{
+  if ( qFuzzyCompare( mAntennaHeight, newAntennaHeight ) )
+    return;
+  mAntennaHeight = newAntennaHeight;
+  emit antennaHeightChanged();
+}
+
+Qgis::DistanceUnit PositioningModel::distanceUnits() const
+{
+  return mDistanceUnits;
+}
+
+void PositioningModel::setDistanceUnits( Qgis::DistanceUnit newDistanceUnits )
+{
+  if ( mDistanceUnits == newDistanceUnits )
+    return;
+  mDistanceUnits = newDistanceUnits;
+  emit distanceUnitsChanged();
+}
+
+QgsCoordinateReferenceSystem PositioningModel::coordinateDisplayCrs() const
+{
+  return mCoordinateDisplayCrs;
+}
+
+void PositioningModel::setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &newCoordinateDisplayCrs )
+{
+  if ( mCoordinateDisplayCrs == newCoordinateDisplayCrs )
+    return;
+  mCoordinateDisplayCrs = newCoordinateDisplayCrs;
+  emit coordinateDisplayCrsChanged();
 }
