@@ -3,6 +3,7 @@
 #include "positioningmodel.h"
 
 #include <QVariant>
+#include <qgsunittypes.h>
 
 PositioningModel::PositioningModel( QObject *parent )
   : QStandardItemModel( parent )
@@ -35,6 +36,9 @@ void PositioningModel::refreshData()
   bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs() );
   bool coordinatesIsGeographic = coordinateDisplayCrs().isGeographic();
   QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
+  double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
+  QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
+
 
   QString coord1Label;
   QString coord2Label;
@@ -82,6 +86,35 @@ void PositioningModel::refreshData()
 
   updateInfo( coord1Label, coord1Value );
   updateInfo( coord2Label, coord2Value );
+
+  QString altitude = "";
+  if ( positioningSource()->positionInformation().elevationValid() )
+  {
+    altitude += QLocale::system().toString( positioningSource()->projectedPosition().z() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation + ' ';
+    QStringList details = {};
+
+    if ( positioningSource()->elevationCorrectionMode() == Positioning::ElevationCorrectionMode::OrthometricFromGeoidFile )
+    {
+      details.push_back( "grid" );
+    }
+    else if ( positioningSource()->elevationCorrectionMode() == Positioning::ElevationCorrectionMode::OrthometricFromDevice )
+    {
+      details.push_back( "ortho." );
+    }
+    if ( antennaHeight() != -1 )
+    {
+      details.push_back( "ant." );
+    }
+    if ( details.length() > 0 )
+    {
+      altitude += QString( " (%1)" ).arg( details.join( ", " ) );
+    }
+  }
+  else
+  {
+    altitude = tr( "N/A" );
+  }
+  updateInfo( "Altitude", altitude );
 }
 
 void PositioningModel::updateInfo( const QString &name, const QVariant &value )

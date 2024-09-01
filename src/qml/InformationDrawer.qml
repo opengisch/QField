@@ -68,7 +68,7 @@ Item {
         height: 200 // contentHeight
         visible: positioningInformationViewEnabled
         positionSource: controller.positionSource
-        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : -1
       }
     }
 

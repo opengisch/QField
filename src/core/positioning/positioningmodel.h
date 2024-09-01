@@ -56,7 +56,7 @@ class PositioningModel : public QStandardItemModel
 
   private:
     Positioning *mPositioningSource = nullptr;
-    double mAntennaHeight;
+    double mAntennaHeight = -1;
     Qgis::DistanceUnit mDistanceUnits;
     QgsCoordinateReferenceSystem mCoordinateDisplayCrs;
 };
