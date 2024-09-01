@@ -23,21 +23,12 @@ void PositioningModel::refreshData()
     return;
   }
 
-  //! Update all info dynamically :)
-  //QList<QPair<QString, QVariant>> details = mPositioningSource->device()->details();
-  // for ( int i = 0; i < details.size(); ++i )
-  // {
-  //   const QString key = details[i].first;
-  //   const QVariant value = details[i].second;
-
-  //   updateInfo( key, value );
-  // }
-
   const bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs() );
   const bool coordinatesIsGeographic = coordinateDisplayCrs().isGeographic();
   const QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
   const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
+  const QList<QPair<QString, QVariant>> deviceDetails = mPositioningSource->device()->details();
 
   QString coord1Label, coord2Label;
   QString coord1Value, coord2Value;
@@ -56,6 +47,14 @@ void PositioningModel::refreshData()
   updateInfo( "Speed", speed );
   updateInfo( "H. Accuracy", hAccuracy );
   updateInfo( "V. Accuracy", vAccuracy );
+
+  for ( int i = 0; i < deviceDetails.size(); ++i )
+  {
+    const QString key = deviceDetails[i].first;
+    const QVariant value = deviceDetails[i].second;
+
+    updateInfo( key, value );
+  }
 }
 
 void PositioningModel::getCoordinateLabels( QString &coord1Label, QString &coord2Label, bool coordinatesIsXY, bool isGeographic )
@@ -148,16 +147,16 @@ void PositioningModel::updateInfo( const QString &name, const QVariant &value )
   for ( int row = 0; row < rowCount(); ++row )
   {
     QStandardItem *rowItem = item( row );
-    if ( rowItem->data( VariableNameRole ).toString() == name )
+    if ( rowItem->data( NameRole ).toString() == name )
     {
-      rowItem->setData( value.toString(), VariableValueRole );
+      rowItem->setData( value.toString(), ValueRole );
       return;
     }
   }
 
   QStandardItem *nameItem = new QStandardItem( name );
-  nameItem->setData( name, VariableNameRole );
-  nameItem->setData( value.toString(), VariableValueRole );
+  nameItem->setData( name, NameRole );
+  nameItem->setData( value.toString(), ValueRole );
   insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
 }
 
@@ -172,23 +171,23 @@ bool PositioningModel::setData( const QModelIndex &index, const QVariant &value,
 
   switch ( role )
   {
-    case VariableNameRole:
-      if ( rowItem->data( VariableNameRole ) == value )
+    case NameRole:
+      if ( rowItem->data( NameRole ) == value )
       {
         return false;
       }
 
-      rowItem->setData( value, VariableNameRole );
+      rowItem->setData( value, NameRole );
       return true;
 
-    case VariableValueRole:
+    case ValueRole:
 
-      if ( rowItem->data( VariableValueRole ) == value )
+      if ( rowItem->data( ValueRole ) == value )
       {
         return false;
       }
 
-      rowItem->setData( value, VariableValueRole );
+      rowItem->setData( value, ValueRole );
       return true;
 
     default:
@@ -201,8 +200,8 @@ bool PositioningModel::setData( const QModelIndex &index, const QVariant &value,
 QHash<int, QByteArray> PositioningModel::roleNames() const
 {
   QHash<int, QByteArray> names = QStandardItemModel::roleNames();
-  names[VariableNameRole] = "VariableName";
-  names[VariableValueRole] = "VariableValue";
+  names[NameRole] = "Name";
+  names[ValueRole] = "Value";
   return names;
 }
 

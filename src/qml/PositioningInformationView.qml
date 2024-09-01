@@ -10,23 +10,24 @@ Rectangle {
 
   property alias positionSource: positioningModel.positioningSource
   property alias antennaHeight: positioningModel.antennaHeight
-  property real contentHeight: grid.contentHeight
 
   property color backgroundColor: "transparent"
   property color alternateBackgroundColor: Theme.positionBackgroundColor
   property color textColor: positionSource.currentness ? Theme.mainTextColor : Theme.secondaryTextColor
   property double cellHeight: 26
   property double cellPadding: 6
+  property real contentHeight: grid.count / grid.numberOfColumns * cellHeight
 
+  color: Theme.mainBackgroundColorSemiOpaque
   anchors.margins: 20
   width: parent.width
-  color: Theme.mainBackgroundColorSemiOpaque
 
   GridView {
     id: grid
 
     readonly property real numberOfColumns: parent.width / cellWidth
 
+    flow: GridView.FlowTopToBottom
     model: PositioningModel {
       id: positioningModel
       distanceUnits: projectInfo.distanceUnits
@@ -51,20 +52,15 @@ Rectangle {
       positioningModel.setupConnections();
     }
     delegate: Rectangle {
+      readonly property real currentColumn: parseInt(index / (grid.count / grid.numberOfColumns))
+
       width: grid.cellWidth
       height: grid.cellHeight
-
-      readonly property real currentRow: parseInt(index / grid.numberOfColumns)
-
       color: {
-        if (grid.numberOfColumns % 2 == 0) {
-          if (currentRow % 2 == 0) {
-            return index % 2 == 0 ? positioningInformationView.alternateBackgroundColor : positioningInformationView.backgroundColor;
-          } else {
-            return index % 2 == 0 ? positioningInformationView.backgroundColor : positioningInformationView.alternateBackgroundColor;
-          }
+        if (currentColumn % 2 == 0) {
+          return index % 2 == 0 ? alternateBackgroundColor : backgroundColor;
         } else {
-          return index % 2 == 0 ? positioningInformationView.alternateBackgroundColor : positioningInformationView.backgroundColor;
+          return index % 2 == 0 ? backgroundColor : alternateBackgroundColor;
         }
       }
 
@@ -77,14 +73,14 @@ Rectangle {
         Text {
           font: Theme.tipFont
           color: Theme.secondaryTextColor
-          text: VariableName
+          text: Name
         }
 
         Text {
           Layout.fillWidth: true
           font: Theme.tipFont
           color: positioningInformationView.textColor
-          text: VariableValue ? VariableValue : qsTr("N/A")
+          text: Value ? Value : qsTr("N/A")
           verticalAlignment: Text.AlignVCenter
           elide: Text.ElideRight
         }

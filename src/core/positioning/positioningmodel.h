@@ -18,8 +18,8 @@ class PositioningModel : public QStandardItemModel
   public:
     enum Roles
     {
-      VariableNameRole = Qt::UserRole,
-      VariableValueRole = Qt::UserRole + 1,
+      NameRole = Qt::UserRole,
+      ValueRole = Qt::UserRole + 1,
     };
 
     PositioningModel( QObject *parent = nullptr );
