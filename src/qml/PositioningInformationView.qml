@@ -42,14 +42,15 @@ Rectangle {
     }
     delegate: Rectangle {
       readonly property real currentColumn: parseInt(index / (grid.count / grid.numberOfColumns))
+      readonly property real currentRow: index % (grid.count / grid.numberOfColumns)
 
       width: grid.cellWidth
       height: grid.cellHeight
       color: {
         if (currentColumn % 2 == 0) {
-          return index % 2 == 0 ? alternateBackgroundColor : backgroundColor;
+          return currentRow % 2 == 0 ? alternateBackgroundColor : backgroundColor;
         } else {
-          return index % 2 == 0 ? backgroundColor : alternateBackgroundColor;
+          return currentRow % 2 == 0 ? backgroundColor : alternateBackgroundColor;
         }
       }
 
