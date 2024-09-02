@@ -241,6 +241,11 @@ void PositioningInformationModel::setAntennaHeight( double antennaHeight )
     return;
   mAntennaHeight = antennaHeight;
   emit antennaHeightChanged();
+
+  const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
+  const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
+  const QString altitude = getAltitude( distanceUnitFactor, distanceUnitAbbreviation );
+  updateInfo( "Altitude", altitude );
 }
 
 Qgis::DistanceUnit PositioningInformationModel::distanceUnits() const
