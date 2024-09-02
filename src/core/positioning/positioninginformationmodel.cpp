@@ -142,8 +142,16 @@ void PositioningInformationModel::updateInfo( const QString &name, const QVarian
   for ( int row = 0; row < rowCount(); ++row )
   {
     QStandardItem *rowItem = item( row );
+
     if ( rowItem->data( NameRole ).toString() == name )
     {
+      rowItem->setData( value.toString(), ValueRole );
+      return;
+    }
+
+    if ( ( rowItem->data( NameRole ).toString() == "X" && name == "Lon" ) || ( rowItem->data( NameRole ).toString() == "Y" && name == "Lat" ) || ( rowItem->data( NameRole ).toString() == "Lon" && name == "X" ) || ( rowItem->data( NameRole ).toString() == "Lat" && name == "Y" ) )
+    {
+      rowItem->setData( name, NameRole );
       rowItem->setData( value.toString(), ValueRole );
       return;
     }
@@ -218,7 +226,8 @@ void PositioningInformationModel::setPositioningSource( Positioning *positioning
 
   if ( mPositioningSource )
   {
-    disconnect( positioningSourceConnection );
+    disconnect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
+    disconnect( mPositioningSource, &Positioning::deviceChanged, this, &PositioningInformationModel::softReset );
   }
 
   mPositioningSource = positioningSource;
@@ -226,8 +235,16 @@ void PositioningInformationModel::setPositioningSource( Positioning *positioning
 
   if ( mPositioningSource )
   {
-    positioningSourceConnection = connect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
+    connect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
+    connect( mPositioningSource, &Positioning::deviceChanged, this, &PositioningInformationModel::softReset );
+    refreshData();
   }
+}
+
+void PositioningInformationModel::softReset()
+{
+  if ( mPositioningSource->deviceId() == "" )
+    removeRows( 6, rowCount() - 6 );
 }
 
 double PositioningInformationModel::antennaHeight() const
