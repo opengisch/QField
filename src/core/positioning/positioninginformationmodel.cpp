@@ -211,9 +211,9 @@ Positioning *PositioningInformationModel::positioningSource() const
   return mPositioningSource;
 }
 
-void PositioningInformationModel::setPositioningSource( Positioning *newPositioningSource )
+void PositioningInformationModel::setPositioningSource( Positioning *positioningSource )
 {
-  if ( mPositioningSource == newPositioningSource )
+  if ( mPositioningSource == positioningSource )
     return;
 
   if ( mPositioningSource )
@@ -235,11 +235,11 @@ double PositioningInformationModel::antennaHeight() const
   return mAntennaHeight;
 }
 
-void PositioningInformationModel::setAntennaHeight( double newAntennaHeight )
+void PositioningInformationModel::setAntennaHeight( double antennaHeight )
 {
-  if ( qFuzzyCompare( mAntennaHeight, newAntennaHeight ) )
+  if ( qFuzzyCompare( mAntennaHeight, antennaHeight ) )
     return;
-  mAntennaHeight = newAntennaHeight;
+  mAntennaHeight = antennaHeight;
   emit antennaHeightChanged();
 }
 
@@ -248,11 +248,11 @@ Qgis::DistanceUnit PositioningInformationModel::distanceUnits() const
   return mDistanceUnits;
 }
 
-void PositioningInformationModel::setDistanceUnits( Qgis::DistanceUnit newDistanceUnits )
+void PositioningInformationModel::setDistanceUnits( Qgis::DistanceUnit distanceUnits )
 {
-  if ( mDistanceUnits == newDistanceUnits )
+  if ( mDistanceUnits == distanceUnits )
     return;
-  mDistanceUnits = newDistanceUnits;
+  mDistanceUnits = distanceUnits;
   emit distanceUnitsChanged();
 }
 
@@ -261,10 +261,10 @@ QgsCoordinateReferenceSystem PositioningInformationModel::coordinateDisplayCrs()
   return mCoordinateDisplayCrs;
 }
 
-void PositioningInformationModel::setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &newCoordinateDisplayCrs )
+void PositioningInformationModel::setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &coordinateDisplayCrs )
 {
-  if ( mCoordinateDisplayCrs == newCoordinateDisplayCrs )
+  if ( mCoordinateDisplayCrs == coordinateDisplayCrs )
     return;
-  mCoordinateDisplayCrs = newCoordinateDisplayCrs;
+  mCoordinateDisplayCrs = coordinateDisplayCrs;
   emit coordinateDisplayCrsChanged();
 }

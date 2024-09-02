@@ -57,7 +57,7 @@ class PositioningInformationModel : public QStandardItemModel
      * @brief Updates the positioning source and reconnects the positionInformationChanged signal to refreshData, while disconnecting the previous connection.
      * @param positioningSource The new positioning source to update with
      */
-    void setPositioningSource( Positioning *newPositioningSource );
+    void setPositioningSource( Positioning *positioningSource );
 
     /**
      * @brief Returns the antenna height
@@ -68,7 +68,7 @@ class PositioningInformationModel : public QStandardItemModel
      * @brief Sets the antenna height
      * @param newAntennaHeight The new antenna height
      */
-    void setAntennaHeight( double newAntennaHeight );
+    void setAntennaHeight( double antennaHeight );
 
     /**
      * @brief Returns the distance units
@@ -79,7 +79,7 @@ class PositioningInformationModel : public QStandardItemModel
      * @brief Sets the distance units
      * @param newDistanceUnits The new distance units
      */
-    void setDistanceUnits( Qgis::DistanceUnit newDistanceUnits );
+    void setDistanceUnits( Qgis::DistanceUnit distanceUnits );
 
     /**
      * @brief Returns the coordinate display CRS
@@ -90,7 +90,7 @@ class PositioningInformationModel : public QStandardItemModel
      * @brief Sets the coordinate display CRS
      * @param newCoordinateDisplayCrs The new CRS
      */
-    void setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &newCoordinateDisplayCrs );
+    void setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &coordinateDisplayCrs );
 
   signals:
     void positioningSourceChanged();

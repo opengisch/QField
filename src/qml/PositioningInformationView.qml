@@ -40,9 +40,6 @@ Rectangle {
     boundsBehavior: Flickable.StopAtBounds
     ScrollBar.vertical: QfScrollBar {
     }
-    Component.onCompleted: {
-      positioningInformationModel.setupConnections();
-    }
     delegate: Rectangle {
       readonly property real currentColumn: parseInt(index / (grid.count / grid.numberOfColumns))
 
