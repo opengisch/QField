@@ -11,11 +11,6 @@ PositioningInformationModel::PositioningInformationModel( QObject *parent )
   connect( this, &QStandardItemModel::dataChanged, this, &PositioningInformationModel::onDataChanged );
 }
 
-void PositioningInformationModel::setupConnections()
-{
-  connect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
-}
-
 void PositioningInformationModel::refreshData()
 {
   if ( !mPositioningSource )
@@ -220,8 +215,19 @@ void PositioningInformationModel::setPositioningSource( Positioning *newPosition
 {
   if ( mPositioningSource == newPositioningSource )
     return;
-  mPositioningSource = newPositioningSource;
+
+  if ( mPositioningSource )
+  {
+    disconnect( positioningSourceConnection );
+  }
+
+  mPositioningSource = positioningSource;
   emit positioningSourceChanged();
+
+  if ( mPositioningSource )
+  {
+    positioningSourceConnection = connect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
+  }
 }
 
 double PositioningInformationModel::antennaHeight() const

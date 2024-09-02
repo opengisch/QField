@@ -36,8 +36,6 @@ class PositioningInformationModel : public QStandardItemModel
      */
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void setupConnections();
-
     /**
      * @brief Refreshes the data in the model
      */
@@ -56,8 +54,8 @@ class PositioningInformationModel : public QStandardItemModel
     Positioning *positioningSource() const;
 
     /**
-     * @brief Sets the positioning source
-     * @param newPositioningSource The new positioning source
+     * @brief Updates the positioning source and reconnects the positionInformationChanged signal to refreshData, while disconnecting the previous connection.
+     * @param positioningSource The new positioning source to update with
      */
     void setPositioningSource( Positioning *newPositioningSource );
 
@@ -116,4 +114,5 @@ class PositioningInformationModel : public QStandardItemModel
     double mAntennaHeight = -1;
     Qgis::DistanceUnit mDistanceUnits;
     QgsCoordinateReferenceSystem mCoordinateDisplayCrs;
+    QMetaObject::Connection positioningSourceConnection;
 };

@@ -25,7 +25,7 @@ Rectangle {
   GridView {
     id: grid
 
-    readonly property real numberOfColumns: parent.width / cellWidth
+    readonly property real numberOfColumns: parent.width > 1000 ? 6 : parent.width > 620 ? 3 : 2
 
     flow: GridView.FlowTopToBottom
     model: PositioningInformationModel {
@@ -35,13 +35,7 @@ Rectangle {
     }
     anchors.fill: parent
     cellHeight: positioningInformationView.cellHeight
-    cellWidth: {
-      if (parent.width >= 620)
-        return parent.width / 3;
-      else if (parent.width >= 200)
-        return parent.width / 2;
-      return parent.width;
-    }
+    cellWidth: parent.width / numberOfColumns
     clip: true
     boundsBehavior: Flickable.StopAtBounds
     ScrollBar.vertical: QfScrollBar {
