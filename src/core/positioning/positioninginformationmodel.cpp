@@ -164,6 +164,27 @@ void PositioningInformationModel::updateInfo( const QString &name, const QVarian
 }
 
 
+void PositioningInformationModel::updateCoordinates()
+{
+  const bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs() );
+  const bool coordinatesIsGeographic = coordinateDisplayCrs().isGeographic();
+  const QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
+
+  QString coord1Label, coord2Label;
+  QString coord1Value, coord2Value;
+
+  getCoordinateLabels( coord1Label, coord2Label, coordinatesIsXY, coordinatesIsGeographic );
+  getCoordinateValues( coord1Value, coord2Value, coordinates, coordinatesIsXY, coordinatesIsGeographic );
+
+  QStandardItem *coordinates1 = item( 0 );
+  QStandardItem *coordinates2 = item( 1 );
+
+  coordinates1->setData( coord1Label, NameRole );
+  coordinates1->setData( coord1Value, ValueRole );
+  coordinates2->setData( coord2Label, NameRole );
+  coordinates2->setData( coord2Value, ValueRole );
+}
+
 bool PositioningInformationModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   QStandardItem *rowItem = item( index.row() );
@@ -290,16 +311,5 @@ void PositioningInformationModel::setCoordinateDisplayCrs( const QgsCoordinateRe
   mCoordinateDisplayCrs = coordinateDisplayCrs;
   emit coordinateDisplayCrsChanged();
 
-  const bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs );
-  const bool coordinatesIsGeographic = coordinateDisplayCrs.isGeographic();
-  const QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs );
-
-  QString coord1Label, coord2Label;
-  QString coord1Value, coord2Value;
-
-  getCoordinateLabels( coord1Label, coord2Label, coordinatesIsXY, coordinatesIsGeographic );
-  getCoordinateValues( coord1Value, coord2Value, coordinates, coordinatesIsXY, coordinatesIsGeographic );
-
-  updateInfo( coord1Label, coord1Value );
-  updateInfo( coord2Label, coord2Value );
+  updateCoordinates();
 }

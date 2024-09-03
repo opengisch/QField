@@ -105,6 +105,7 @@ class PositioningInformationModel : public QStandardItemModel
     void getCoordinateLabels( QString &coord1Label, QString &coord2Label, bool coordinatesIsXY, bool isGeographic );
     void getCoordinateValues( QString &coord1Value, QString &coord2Value, const QgsPoint &coordinates, bool coordinatesIsXY, bool isGeographic );
     void softReset();
+    void updateCoordinates();
     QString getAltitude( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
     QString getSpeed();
     QString getHorizontalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
