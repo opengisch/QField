@@ -30,10 +30,10 @@ void PositioningInformationModel::refreshData()
   const QString hAccuracy = getHorizontalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
   const QString vAccuracy = getVerticalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
 
-  updateInfo( "Altitude", altitude );
-  updateInfo( "Speed", speed );
-  updateInfo( "H. Accuracy", hAccuracy );
-  updateInfo( "V. Accuracy", vAccuracy );
+  updateInfo( tr( "Altitude" ), altitude );
+  updateInfo( tr( "Speed" ), speed );
+  updateInfo( tr( "H. Accuracy" ), hAccuracy );
+  updateInfo( tr( "V. Accuracy" ), vAccuracy );
 
   for ( int i = 0; i < deviceDetails.size(); ++i )
   {
@@ -95,15 +95,15 @@ QString PositioningInformationModel::getAltitude( double distanceUnitFactor, con
 
     if ( positioningSource()->elevationCorrectionMode() == Positioning::ElevationCorrectionMode::OrthometricFromGeoidFile )
     {
-      details.push_back( "grid" );
+      details.push_back( tr( "grid" ) );
     }
     else if ( positioningSource()->elevationCorrectionMode() == Positioning::ElevationCorrectionMode::OrthometricFromDevice )
     {
-      details.push_back( "ortho." );
+      details.push_back( tr( "ortho." ) );
     }
     if ( antennaHeight() != -1 )
     {
-      details.push_back( "ant." );
+      details.push_back( tr( "ant." ) );
     }
     if ( details.length() > 0 )
     {
@@ -137,13 +137,6 @@ void PositioningInformationModel::updateInfo( const QString &name, const QVarian
 
     if ( rowItem->data( NameRole ).toString() == name )
     {
-      rowItem->setData( value.toString(), ValueRole );
-      return;
-    }
-
-    if ( ( rowItem->data( NameRole ).toString() == "X" && name == "Lon" ) || ( rowItem->data( NameRole ).toString() == "Y" && name == "Lat" ) || ( rowItem->data( NameRole ).toString() == "Lon" && name == "X" ) || ( rowItem->data( NameRole ).toString() == "Lat" && name == "Y" ) )
-    {
-      rowItem->setData( name, NameRole );
       rowItem->setData( value.toString(), ValueRole );
       return;
     }
@@ -283,7 +276,7 @@ void PositioningInformationModel::setAntennaHeight( double antennaHeight )
   const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
   const QString altitude = getAltitude( distanceUnitFactor, distanceUnitAbbreviation );
-  updateInfo( "Altitude", altitude );
+  updateInfo( tr( "Altitude" ), altitude );
 }
 
 Qgis::DistanceUnit PositioningInformationModel::distanceUnits() const
