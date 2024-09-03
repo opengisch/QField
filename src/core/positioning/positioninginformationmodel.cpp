@@ -101,7 +101,7 @@ QString PositioningInformationModel::getAltitude( double distanceUnitFactor, con
     {
       details.push_back( tr( "ortho." ) );
     }
-    if ( antennaHeight() != -1 )
+    if ( antennaHeight() != 0 )
     {
       details.push_back( tr( "ant." ) );
     }

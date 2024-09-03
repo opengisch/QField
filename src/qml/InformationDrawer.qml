@@ -68,7 +68,7 @@ Item {
         height: Math.min(contentHeight, mainWindow.height / 3)
         visible: positioningInformationViewEnabled
         positionSource: controller.positionSource
-        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : -1
+        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
       }
     }
 
