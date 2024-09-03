@@ -18,26 +18,18 @@ void PositioningInformationModel::refreshData()
     return;
   }
 
-  const bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs() );
-  const bool coordinatesIsGeographic = coordinateDisplayCrs().isGeographic();
   const QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
   const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
   const QList<QPair<QString, QVariant>> deviceDetails = mPositioningSource->device()->details();
 
-  QString coord1Label, coord2Label;
-  QString coord1Value, coord2Value;
-
-  getCoordinateLabels( coord1Label, coord2Label, coordinatesIsXY, coordinatesIsGeographic );
-  getCoordinateValues( coord1Value, coord2Value, coordinates, coordinatesIsXY, coordinatesIsGeographic );
+  updateCoordinates();
 
   const QString altitude = getAltitude( distanceUnitFactor, distanceUnitAbbreviation );
   const QString speed = getSpeed();
   const QString hAccuracy = getHorizontalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
   const QString vAccuracy = getVerticalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
 
-  updateInfo( coord1Label, coord1Value );
-  updateInfo( coord2Label, coord2Value );
   updateInfo( "Altitude", altitude );
   updateInfo( "Speed", speed );
   updateInfo( "H. Accuracy", hAccuracy );
@@ -176,13 +168,21 @@ void PositioningInformationModel::updateCoordinates()
   getCoordinateLabels( coord1Label, coord2Label, coordinatesIsXY, coordinatesIsGeographic );
   getCoordinateValues( coord1Value, coord2Value, coordinates, coordinatesIsXY, coordinatesIsGeographic );
 
-  QStandardItem *coordinates1 = item( 0 );
-  QStandardItem *coordinates2 = item( 1 );
+  if ( rowCount() == 0 )
+  {
+    updateInfo( coord1Label, coord1Value );
+    updateInfo( coord2Label, coord2Value );
+  }
+  else
+  {
+    QStandardItem *coordinates1 = item( 0 );
+    QStandardItem *coordinates2 = item( 1 );
 
-  coordinates1->setData( coord1Label, NameRole );
-  coordinates1->setData( coord1Value, ValueRole );
-  coordinates2->setData( coord2Label, NameRole );
-  coordinates2->setData( coord2Value, ValueRole );
+    coordinates1->setData( coord1Label, NameRole );
+    coordinates1->setData( coord1Value, ValueRole );
+    coordinates2->setData( coord2Label, NameRole );
+    coordinates2->setData( coord2Value, ValueRole );
+  }
 }
 
 bool PositioningInformationModel::setData( const QModelIndex &index, const QVariant &value, int role )
