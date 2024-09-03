@@ -54,15 +54,15 @@ void PositioningInformationModel::refreshData()
 
 void PositioningInformationModel::getCoordinateLabels( QString &coord1Label, QString &coord2Label, bool coordinatesIsXY, bool isGeographic )
 {
-  if ( isGeographic )
+  if ( coordinatesIsXY )
   {
-    coord1Label = coordinatesIsXY ? tr( "Lon" ) : tr( "Lat" );
-    coord2Label = coordinatesIsXY ? tr( "Lat" ) : tr( "Lon" );
+    coord1Label = isGeographic ? tr( "Lon" ) : tr( "X" );
+    coord2Label = isGeographic ? tr( "Lat" ) : tr( "Y" );
   }
   else
   {
-    coord1Label = coordinatesIsXY ? tr( "X" ) : tr( "Y" );
-    coord2Label = coordinatesIsXY ? tr( "Y" ) : tr( "X" );
+    coord1Label = isGeographic ? tr( "Lat" ) : tr( "Y" );
+    coord2Label = isGeographic ? tr( "Lon" ) : tr( "X" );
   }
 }
 
@@ -289,4 +289,17 @@ void PositioningInformationModel::setCoordinateDisplayCrs( const QgsCoordinateRe
     return;
   mCoordinateDisplayCrs = coordinateDisplayCrs;
   emit coordinateDisplayCrsChanged();
+
+  const bool coordinatesIsXY = CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( coordinateDisplayCrs );
+  const bool coordinatesIsGeographic = coordinateDisplayCrs.isGeographic();
+  const QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs );
+
+  QString coord1Label, coord2Label;
+  QString coord1Value, coord2Value;
+
+  getCoordinateLabels( coord1Label, coord2Label, coordinatesIsXY, coordinatesIsGeographic );
+  getCoordinateValues( coord1Value, coord2Value, coordinates, coordinatesIsXY, coordinatesIsGeographic );
+
+  updateInfo( coord1Label, coord1Value );
+  updateInfo( coord2Label, coord2Value );
 }
