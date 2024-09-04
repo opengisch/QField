@@ -32,6 +32,7 @@ jobs:
       - name: Reclaim disk space
         run: |
           rm -rf /Applications/Xcode_14*
+          rm -rf /Applications/Xcode_16*
 
       - name: 🌾 Prepare variables
         id: vars
