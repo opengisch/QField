@@ -57,14 +57,6 @@
       "default-features": false
     },
     {
-      "name": "qtbase",
-      "default-features": false,
-      "features": [
-        "gles3"
-      ],
-      "platform": "!windows & !osx & !android"
-    },
-    {
       "name": "qtcharts",
       "features": [
         "qml"
