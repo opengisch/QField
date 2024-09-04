@@ -18,7 +18,6 @@ void PositioningInformationModel::refreshData()
     return;
   }
 
-  const QgsPoint coordinates = GeometryUtils::reprojectPoint( positioningSource()->sourcePosition(), CoordinateReferenceSystemUtils::wgs84Crs(), coordinateDisplayCrs() );
   const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
   const QList<QPair<QString, QVariant>> deviceDetails = mPositioningSource->device()->details();
