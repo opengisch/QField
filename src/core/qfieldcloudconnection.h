@@ -73,6 +73,7 @@ class QFieldCloudConnection : public QObject
     Q_PROPERTY( QString avatarUrl READ avatarUrl NOTIFY avatarUrlChanged )
     Q_PROPERTY( QString url READ url WRITE setUrl NOTIFY urlChanged )
     Q_PROPERTY( QString defaultUrl READ defaultUrl CONSTANT )
+    Q_PROPERTY( QStringList urls READ urls NOTIFY urlsChanged )
 
     Q_PROPERTY( ConnectionStatus status READ status NOTIFY statusChanged )
     Q_PROPERTY( ConnectionState state READ state NOTIFY stateChanged )
@@ -99,6 +100,11 @@ class QFieldCloudConnection : public QObject
      * Default server connection URL, pointing to the production server.
      */
     static QString defaultUrl();
+
+    /**
+     * Returns the connections URLs successfully logged in in the past.
+     */
+    Q_INVOKABLE QStringList urls() const;
 
     QString username() const;
     void setUsername( const QString &username );
@@ -162,6 +168,7 @@ class QFieldCloudConnection : public QObject
     void passwordChanged();
     void avatarUrlChanged();
     void urlChanged();
+    void urlsChanged();
     void statusChanged();
     void stateChanged();
     void tokenChanged();

@@ -90,6 +90,20 @@ QString QFieldCloudConnection::defaultUrl()
   return QStringLiteral( "https://app.qfield.cloud" );
 }
 
+QStringList QFieldCloudConnection::urls() const
+{
+  QStringList savedUrls = QSettings().value( QStringLiteral( "/QFieldCloud/urls" ) ).toStringList();
+  if ( !savedUrls.contains( defaultUrl() ) )
+  {
+    savedUrls.prepend( defaultUrl() );
+  }
+  if ( !savedUrls.contains( mUrl ) )
+  {
+    savedUrls << mUrl;
+  }
+  return savedUrls;
+}
+
 QString QFieldCloudConnection::username() const
 {
   return mUsername;
@@ -218,8 +232,9 @@ void QFieldCloudConnection::login()
       setToken( token );
     }
 
+    QSettings settings;
     mUsername = resp.value( QStringLiteral( "username" ) ).toString();
-    QSettings().setValue( "/QFieldCloud/username", mUsername );
+    settings.setValue( QStringLiteral( "/QFieldCloud/username" ), mUsername );
     emit usernameChanged();
 
     mAvatarUrl = resp.value( QStringLiteral( "avatar_url" ) ).toString();
@@ -227,6 +242,13 @@ void QFieldCloudConnection::login()
     mUserInformation = CloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );
     emit userInformationChanged();
 
+    QStringList savedUrls = settings.value( QStringLiteral( "/QFieldCloud/urls" ), QStringList() << defaultUrl() ).toStringList();
+    if ( !savedUrls.contains( mUrl ) )
+    {
+      savedUrls << mUrl;
+      settings.setValue( QStringLiteral( "/QFieldCloud/urls" ), savedUrls );
+      emit urlsChanged();
+    }
     setStatus( ConnectionStatus::LoggedIn );
   } );
 }

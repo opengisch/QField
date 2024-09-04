@@ -87,24 +87,50 @@ Item {
       wrapMode: Text.WordWrap
     }
 
-    QfTextField {
-      id: serverUrlField
+    ComboBox {
+      id: serverUrlComboBox
       Layout.preferredWidth: parent.width / 1.3
       Layout.alignment: Qt.AlignHCenter
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
       enabled: visible
       font: Theme.defaultFont
-      horizontalAlignment: Text.AlignHCenter
-      text: prefixUrlWithProtocol(cloudConnection.url) === cloudConnection.defaultUrl ? '' : cloudConnection.url
+      editable: true
+      model: [''].concat(cloudConnection.urls)
 
-      onTextChanged: text = text.replace(/\s+/g, '')
-      onEditingFinished: cloudConnection.url = text ? prefixUrlWithProtocol(text) : cloudConnection.defaultUrl
-      Keys.onReturnPressed: loginFormSumbitHandler()
+      Component.onCompleted: {
+        if (cloudConnection.url != cloudConnection.defaultUrl) {
+          currentIndex = find(cloudConnection.url);
+        }
+      }
 
-      function prefixUrlWithProtocol(url) {
-        if (!url || url.startsWith('http://') || url.startsWith('https://'))
-          return url;
-        return 'https://' + url;
+      onModelChanged: {
+        if (cloudConnection.url != cloudConnection.defaultUrl) {
+          currentIndex = find(cloudConnection.url);
+        }
+      }
+
+      onDisplayTextChanged: {
+        serverUrlField.text = displayText;
+      }
+
+      contentItem: QfTextField {
+        id: serverUrlField
+
+        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+        Layout.preferredWidth: parent.width / 1.3
+        Layout.alignment: Qt.AlignHCenter
+        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+        enabled: visible
+        font: Theme.defaultFont
+        horizontalAlignment: Text.AlignHCenter
+        text: parent.displayText
+
+        onTextChanged: text = text.replace(/\s+/g, '')
+        Keys.onReturnPressed: loginFormSumbitHandler()
+      }
+
+      background: Rectangle {
+        color: "transparent"
       }
     }
 
@@ -223,12 +249,19 @@ Item {
     }
   }
 
+  function prefixUrlWithProtocol(url) {
+    if (!url || url.startsWith('http://') || url.startsWith('https://'))
+      return url;
+    return 'https://' + url;
+  }
+
   function loginFormSumbitHandler() {
     if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
       cloudConnection.logout();
     } else {
       cloudConnection.username = usernameField.text;
       cloudConnection.password = passwordField.text;
+      cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
       cloudConnection.login();
     }
   }
