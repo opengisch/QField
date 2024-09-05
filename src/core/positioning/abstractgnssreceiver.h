@@ -61,6 +61,8 @@ class AbstractGnssReceiver : public QObject
 
     Q_INVOKABLE virtual AbstractGnssReceiver::Capabilities capabilities() const { return NoCapabilities; }
 
+    virtual QList<QPair<QString, QVariant>> details() { return {}; }
+
   signals:
     void validChanged();
     void lastGnssPositionInformationChanged( GnssPositionInformation &lastGnssPositionInformation );

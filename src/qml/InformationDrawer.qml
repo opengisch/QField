@@ -65,10 +65,10 @@ Item {
       PositioningInformationView {
         id: positioningInformationView
         width: parent.width
-        height: contentHeight
+        height: Math.min(contentHeight, mainWindow.height / 3)
         visible: positioningInformationViewEnabled
         positionSource: controller.positionSource
-        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
       }
     }
 

@@ -116,6 +116,20 @@ void NmeaGnssReceiver::handleStopLogging()
   mLogFile.close();
 }
 
+QList<QPair<QString, QVariant>> NmeaGnssReceiver::details()
+{
+  QList<QPair<QString, QVariant>> dataList;
+
+  dataList.append( qMakePair( "PDOP", QLocale::system().toString( mCurrentNmeaGnssPositionInformation.pdop(), 'f', 1 ) ) );
+  dataList.append( qMakePair( "HDOP", QLocale::system().toString( mCurrentNmeaGnssPositionInformation.hdop(), 'f', 1 ) ) );
+  dataList.append( qMakePair( "VDOP", QLocale::system().toString( mCurrentNmeaGnssPositionInformation.vdop(), 'f', 1 ) ) );
+  dataList.append( qMakePair( "Valid", mCurrentNmeaGnssPositionInformation.isValid() ? "True" : "False" ) );
+  dataList.append( qMakePair( "Fix", mCurrentNmeaGnssPositionInformation.fixStatusDescription() ) );
+  dataList.append( qMakePair( "Quality", mCurrentNmeaGnssPositionInformation.qualityDescription() ) );
+
+  return dataList;
+}
+
 void NmeaGnssReceiver::processImuSentence( const QString &sentence )
 {
   static const int PARAMETER_STATUS_INDEX = 19;
