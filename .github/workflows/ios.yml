@@ -33,6 +33,7 @@ jobs:
         run: |
           rm -rf /Applications/Xcode_14*
           rm -rf /Applications/Xcode_16*
+          rm -rf /Users/runner/Library/Android/sdk
 
       - name: 🌾 Prepare variables
         id: vars
