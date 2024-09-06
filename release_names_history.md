@@ -27,3 +27,4 @@
 - Borneo (3.1)
 - Congo (3.2)
 - Darién (3.3)
+- Ebo (3.4)
