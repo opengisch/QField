@@ -208,7 +208,11 @@ Page {
                 round: true
 
                 onClicked: {
-                  feedbackView.currentIndex = 2;
+                  if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
+                    feedbackView.currentIndex = 2;
+                  } else {
+                    feedbackView.Layout.preferredHeight = 0;
+                  }
                 }
               }
             }
@@ -240,7 +244,7 @@ Page {
             Text {
               Layout.margins: 6
               Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("That's great! We'd love for you to click on the button below and leave a comment on the store.")
+              text: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
               font: Theme.defaultFont
               color: Theme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
@@ -260,7 +264,13 @@ Page {
                 icon.source: Theme.getThemeVectorIcon('ic_star_white_24dp')
 
                 onClicked: {
-                  Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
+                  if (Qt.platform.os === "windows") {
+                    Qt.openUrlExternally("https://apps.microsoft.com/detail/xp99h3bcx4bw7f");
+                  } else if (Qt.platform.os === "android") {
+                    Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
+                  } else if (Qt.platform.os === "ios") {
+                    Qt.openUrlExternally("itms-apps://itunes.apple.com/app/qfield-for-qgis/id1531726814");
+                  }
                   feedbackView.Layout.preferredHeight = 0;
                 }
               }
