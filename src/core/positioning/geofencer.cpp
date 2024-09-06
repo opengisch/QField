@@ -241,7 +241,7 @@ void Geofencer::applyProjectSettings( QgsProject *project )
 
   if ( project )
   {
-    active = project->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingActive" ), false );
+    active = project->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingIsActive" ), false );
     const QString layerId = project->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingLayer" ) );
     if ( !layerId.isEmpty() )
     {
