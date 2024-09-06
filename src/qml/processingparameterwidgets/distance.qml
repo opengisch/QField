@@ -136,10 +136,10 @@ ProcessingParameterWidgetBase {
       visible: enabled
 
       onClicked: {
-        decreaseValue();
+        adjustValue(-1);
       }
       onDoubleClicked: {
-        decreaseValue();
+        adjustValue(-1);
       }
       onPressAndHold: {
         changeValueTimer.increase = false;
@@ -167,10 +167,10 @@ ProcessingParameterWidgetBase {
       visible: enabled
 
       onClicked: {
-        increaseValue();
+        adjustValue(1);
       }
       onDoubleClicked: {
-        increaseValue();
+        adjustValue(1);
       }
       onPressAndHold: {
         changeValueTimer.increase = true;
@@ -216,7 +216,7 @@ ProcessingParameterWidgetBase {
     var newValue;
     if (!isNaN(currentValue)) {
       newValue = currentValue + (distanceItem.step * direction);
-      prepareValueChangeRequest(Math.min(distanceItem.max(Math.max(distanceItem.min, newValue))));
+      prepareValueChangeRequest(Math.min(distanceItem.max, Math.max(distanceItem.min, newValue)));
     } else {
       newValue = 0;
       prepareValueChangeRequest(newValue, false);

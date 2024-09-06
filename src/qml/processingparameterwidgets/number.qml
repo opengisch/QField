@@ -63,10 +63,10 @@ ProcessingParameterWidgetBase {
       visible: enabled
 
       onClicked: {
-        decreaseValue();
+        adjustValue(-1);
       }
       onDoubleClicked: {
-        decreaseValue();
+        adjustValue(-1);
       }
       onPressAndHold: {
         changeValueTimer.increase = false;
@@ -94,10 +94,10 @@ ProcessingParameterWidgetBase {
       visible: enabled
 
       onClicked: {
-        increaseValue();
+        adjustValue(1);
       }
       onDoubleClicked: {
-        increaseValue();
+        adjustValue(1);
       }
       onPressAndHold: {
         changeValueTimer.increase = true;
@@ -123,11 +123,11 @@ ProcessingParameterWidgetBase {
     onTriggered: {
       var hitBoundary = false;
       if (increase) {
-        increaseValue();
-        hitBoundary = textField.text == numberItem.max;
+        adjustValue(1);
+        hitBoundary = parseFloat(textField.text) === numberItem.max;
       } else {
-        decreaseValue();
-        hitBoundary = textField.text == numberItem.min;
+        adjustValue(-1);
+        hitBoundary = parseFloat(textField.text) === numberItem.min;
       }
       if (!hitBoundary) {
         if (interval > 50)
@@ -138,27 +138,15 @@ ProcessingParameterWidgetBase {
     }
   }
 
-  function decreaseValue() {
-    var currentValue = Number.parseFloat(textField.text);
+  function adjustValue(direction) {
+    var currentValue = parseFloat(textField.text);
     var newValue;
     if (!isNaN(currentValue)) {
-      newValue = currentValue - numberItem.step;
-      valueChangeRequested(Math.max(numberItem.min, newValue));
+      newValue = currentValue + (numberItem.step * direction);
+      valueChangeRequested(Math.min(numberItem.max, Math.max(numberItem.min, newValue)));
     } else {
       newValue = 0;
       valueChangeRequested(newValue, false);
-    }
-  }
-
-  function increaseValue() {
-    var currentValue = Number.parseFloat(textField.text);
-    var newValue;
-    if (!isNaN(currentValue)) {
-      newValue = currentValue + numberItem.step;
-      valueChangeRequested(Math.min(numberItem.max, newValue));
-    } else {
-      newValue = 0;
-      valueChangeRequested(newValue);
     }
   }
 
