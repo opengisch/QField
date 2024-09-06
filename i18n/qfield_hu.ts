@@ -1921,27 +1921,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>Lon</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>Lat</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>Magasság</translation>
@@ -1959,28 +1939,99 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>V. pontosság</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">Magasság</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Sebesség</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">Hz. pontosság</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">V. pontosság</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>Hibátlan</translation>
+        <translation type="vanished">Hibátlan</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>Fix</translation>
+        <translation type="vanished">Fix</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>Minőség</translation>
+        <translation type="vanished">Minőség</translation>
     </message>
 </context>
 <context>

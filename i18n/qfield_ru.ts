@@ -1926,27 +1926,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>Долгота</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>Н/Д</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>Широта</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>Высота</translation>
@@ -1964,28 +1944,99 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Верт. точность</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>Долгота</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Широта</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Н/Д</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">Долгота</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Н/Д</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">Широта</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">Высота</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Скорость</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">Гор. точность</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">Верт. точность</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>Действительный</translation>
+        <translation type="vanished">Действительный</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>Фиксированный</translation>
+        <translation type="vanished">Фиксированный</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>Качество</translation>
+        <translation type="vanished">Качество</translation>
     </message>
 </context>
 <context>

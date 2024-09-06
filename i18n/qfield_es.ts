@@ -1924,27 +1924,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>Lon</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>Lat</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>Altitud</translation>
@@ -1962,28 +1942,99 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>Precisión vertical</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/D</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">Altitud</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Velocidad</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">Precisión horizontal</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">Precisión vertical</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>Válido</translation>
+        <translation type="vanished">Válido</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>Fijo</translation>
+        <translation type="vanished">Fijo</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>Calidad</translation>
+        <translation type="vanished">Calidad</translation>
     </message>
 </context>
 <context>

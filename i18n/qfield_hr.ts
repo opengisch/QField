@@ -1924,27 +1924,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>Dužina</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>Nedostupno</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>Širina</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>Nadmorska visina</translation>
@@ -1962,28 +1942,99 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation>V. točnost</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>Dužina</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Širina</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Nedostupno</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">Dužina</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Nedostupno</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">Širina</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">Nadmorska visina</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Brzina</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">H. točnost</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">V. točnost</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>Valjano</translation>
+        <translation type="vanished">Valjano</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>Fiksirano</translation>
+        <translation type="vanished">Fiksirano</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>Kvaliteta</translation>
+        <translation type="vanished">Kvaliteta</translation>
     </message>
 </context>
 <context>

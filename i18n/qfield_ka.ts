@@ -1916,27 +1916,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>გრძედი</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>განედი</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>სიმაღლე (ზღვ. დონიდან)</translation>
@@ -1954,16 +1934,87 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ვერტ. სიზუსტე</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>გრძედი</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>განედი</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">გრძედი</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">განედი</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">სიმაღლე (ზღვ. დონიდან)</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">სიჩქარე</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">ჰორიზ. სიზუსტე</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">ვერტ. სიზუსტე</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
@@ -1971,11 +2022,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fix</source>
-        <translation>მოგვარება</translation>
+        <translation type="vanished">მოგვარება</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>ხარისხი</translation>
+        <translation type="vanished">ხარისხი</translation>
     </message>
 </context>
 <context>

@@ -1920,27 +1920,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>経度</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>緯度</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>高度</translation>
@@ -1958,28 +1938,99 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>垂直方向の精度</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>経度</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>緯度</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">経度</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">緯度</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">高度</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">スピード</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">水平方向の精度</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">垂直方向の精度</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP（位置精度劣化度）</translation>
+        <translation type="vanished">PDOP（位置精度劣化度）</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP（水平精度劣化度）</translation>
+        <translation type="vanished">HDOP（水平精度劣化度）</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP（垂直精度劣化度）</translation>
+        <translation type="vanished">VDOP（垂直精度劣化度）</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>有効</translation>
+        <translation type="vanished">有効</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>修正</translation>
+        <translation type="vanished">修正</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>品質</translation>
+        <translation type="vanished">品質</translation>
     </message>
 </context>
 <context>

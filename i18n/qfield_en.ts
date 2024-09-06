@@ -1945,14 +1945,65 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
+    <name>PositioningInformationModel</name>
+    <message>
+        <source>Altitude</source>
+        <translation type="unfinished">Altitude</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished">Speed</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="unfinished">H. Accuracy</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="unfinished">V. Accuracy</translation>
+    </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="unfinished">Lon</translation>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished">X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="unfinished">Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished">Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation type="unfinished">N/A</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1960,51 +2011,51 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation>Altitude</translation>
+        <translation type="vanished">Altitude</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation type="vanished">Speed</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>H. Accuracy</translation>
+        <translation type="vanished">H. Accuracy</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>V. Accuracy</translation>
+        <translation type="vanished">V. Accuracy</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>Valid</translation>
+        <translation type="vanished">Valid</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>Fix</translation>
+        <translation type="vanished">Fix</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>Quality</translation>
+        <translation type="vanished">Quality</translation>
     </message>
 </context>
 <context>

@@ -1922,27 +1922,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>Lon</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/B</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>Lat</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>Hoogte</translation>
@@ -1960,28 +1940,99 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>V. Nauwkeurigheid</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/B</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/B</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">Hoogte</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Snelheid</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">H. Nauwkeurigheid</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">V. Nauwkeurigheid</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>Geldig</translation>
+        <translation type="vanished">Geldig</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>Vast</translation>
+        <translation type="vanished">Vast</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>Kwaliteit</translation>
+        <translation type="vanished">Kwaliteit</translation>
     </message>
 </context>
 <context>

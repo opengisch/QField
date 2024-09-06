@@ -1925,27 +1925,7 @@ Dôvod:
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>Zemepisná dĺžka</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>Zem. výška</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>Nadmorská výška</translation>
@@ -1963,28 +1943,99 @@ Dôvod:
         <translation>Vertikálna presnosť</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>Zem. dĺžka</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Zem. výška</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">Zemepisná dĺžka</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">Zem. výška</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">Nadmorská výška</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Rýchlosť</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">Horizontálna presnoť</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">Vertikálna presnosť</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>Platné</translation>
+        <translation type="vanished">Platné</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>Oprava</translation>
+        <translation type="vanished">Oprava</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>Kvalita</translation>
+        <translation type="vanished">Kvalita</translation>
     </message>
 </context>
 <context>

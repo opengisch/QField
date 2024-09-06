@@ -1920,27 +1920,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PositioningInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>经度</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>不可用</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>纬度</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
+    <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
         <translation>海拔</translation>
@@ -1958,28 +1938,99 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>高程精度</translation>
     </message>
     <message>
+        <source>Lon</source>
+        <translation>经度</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>纬度</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>不可用</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation>网格</translation>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation>ortho.</translation>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation>ant.</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation type="vanished">经度</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="vanished">X</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>不可用</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">纬度</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">海拔</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">速度</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">平面精度</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">高程精度</translation>
+    </message>
+    <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation>有效</translation>
+        <translation type="vanished">有效</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation>修复</translation>
+        <translation type="vanished">修复</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>高标准</translation>
+        <translation type="vanished">高标准</translation>
     </message>
 </context>
 <context>
