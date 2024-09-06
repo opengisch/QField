@@ -63,7 +63,7 @@ Popup {
     if (!cameraPicked) {
       camera.cameraDevice = mediaDevices.defaultVideoInput;
     }
-    camera.applyCameraFormat();
+    camera.applyCameraFormat(false);
   }
 
   QfCameraPermission {
@@ -113,9 +113,10 @@ Popup {
       camera: Camera {
         id: camera
 
-        active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted
+        property bool restarting: false
+        active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted && !restarting
 
-        function applyCameraFormat() {
+        function applyCameraFormat(restart) {
           if (cameraSettings.pixelFormat != 0) {
             let fallbackIndex = -1;
             let i = 0;
@@ -132,6 +133,10 @@ Popup {
             }
             if (fallbackIndex >= 0) {
               camera.cameraFormat = camera.cameraDevice.videoFormats[fallbackIndex];
+            }
+            if (restart) {
+              camera.restarting = true;
+              camera.restarting = false;
             }
           }
         }
@@ -663,7 +668,7 @@ Popup {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               camera.cameraDevice = modelData;
-              camera.applyCameraFormat();
+              camera.applyCameraFormat(true);
             }
           }
         }
@@ -747,7 +752,7 @@ Popup {
             if (checked && (cameraSettings.resolution != resolution || cameraSettings.pixelFormat != pixelFormat)) {
               cameraSettings.resolution = resolution;
               cameraSettings.pixelFormat = pixelFormat;
-              camera.applyCameraFormat();
+              camera.applyCameraFormat(true);
             }
           }
         }
