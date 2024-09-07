@@ -749,6 +749,25 @@ Section "-Core installation"
 
   !insertmacro MUI_STARTMENU_WRITE_END
 
+  WriteRegStr HKCR '.qgs' '' 'QField'
+  WriteRegStr HKCR '.qgz' '' 'QField'
+  WriteRegStr HKCR '.qgs\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR '.qgz\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR '.kml\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR '.kmz\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR '.gpkg\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR '.geojson\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR '.mbtiles\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR '.tif\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR '.tiff\OpenWithProgids' 'QField' ''
+  WriteRegStr HKCR 'QField' '' 'QField'
+  WriteRegStr HKCR 'QField\shell' '' 'open'
+  WriteRegStr HKCR 'QField\DefaultIcon' '' '$INSTDIR\usr\bin\qfield.exe,0'
+  WriteRegStr HKCR 'QField\shell\open\command' '' '"$INSTDIR\usr\bin\qfield.exe" "%1"'
+  WriteRegStr HKCR 'QField\shell\edit' '' 'Edit'
+  WriteRegStr HKCR 'QField\shell\edit\command' '' '"$INSTDIR\usr\bin\qfield.exe" "%1"'
+  System::Call 'Shell32::SHChangeNotify(i 0x8000000, i 0, i 0, i 0)'
+
 @CPACK_NSIS_EXTRA_INSTALL_COMMANDS@
 
 SectionEnd
@@ -848,6 +867,8 @@ Section "Uninstall"
   ReadRegStr $INSTALL_DESKTOP SHCTX \
     "Software\Microsoft\Windows\CurrentVersion\Uninstall\@CPACK_PACKAGE_INSTALL_REGISTRY_KEY@" "InstallToDesktop"
   ;MessageBox MB_OK "Install to desktop: $INSTALL_DESKTOP "
+
+  DeleteRegKey HKCR 'QField'
 
 @CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS@
 
