@@ -52,6 +52,8 @@ jobs:
             qt_arch: 'android_x86'
             all_files_access: 'ON'
             artifact_name: 'android-x86'
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
     steps:
       - name: 🐣 Checkout
@@ -209,9 +211,8 @@ jobs:
 
       - name: 📮 Upload debug symbols
         # if: release or labeled PR
-        if: ${{ matrix.all_files_access == 'OFF' }}
+        if: ${{ matrix.all_files_access == 'OFF' && env.SENTRY_AUTH_TOKEN != '' }}
         env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
         run: |
