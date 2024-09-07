@@ -18,23 +18,23 @@ Check the [documentation](https://docs.qfield.org/)
 
 ### Android
 
-[![Get in Google play](https://qfield.org/images/play_store.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
+[![Get it on Google Play](https://qfield.org/images/play_store.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
 
 ### iOS
 
-[![Get it on the App store](https://qfield.org/images/app_store.png)](https://apps.apple.com/app/qfield-for-qgis/id1531726814)
+[![Get it on App Store](https://qfield.org/images/app_store.png)](https://apps.apple.com/app/qfield-for-qgis/id1531726814)
 
 ### Windows
 
-<a href="https://qfield.org/get_latest?platform=windows" target="_blank">![Download the latest windows beta version](https://qfield.org/images/download_windows.png)</a>
+[![Get it on Microsoft Store](https://qfield.org/images/download_windows.png)](https://apps.microsoft.com/detail/xp99h3bcx4bw7f)
 
-### Linux (Beta)
+### Linux
 
-<a href="https://qfield.org/get_latest?platform=linux" target="_blank">Download the latest Linux beta version</a>.
+<a href="https://qfield.org/get_latest?platform=linux" target="_blank">Download the latest Linux version</a>.
 
-### MacOS (Beta)
+### MacOS
 
-<a href="https://qfield.org/get_latest?platform=macos" target="_blank">Download the latest MacOS beta version</a>.
+<a href="https://qfield.org/get_latest?platform=macos" target="_blank">Download the latest MacOS version</a>.
 
 
 ## Verify Authenticity of the App (Android only)
