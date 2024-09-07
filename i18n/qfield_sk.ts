@@ -4190,7 +4190,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>To je skvelé! Potešíte nás, ak kliknete na tlačítko nižšie a zanecháte komentár.</translation>
+        <translation type="vanished">To je skvelé! Potešíte nás, ak kliknete na tlačítko nižšie a zanecháte komentár.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4279,6 +4279,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Vitajte v QField. Používate túto aplikáciu prvýkrát? Pozrite si vzorové projekty nižšie.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

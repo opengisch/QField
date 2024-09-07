@@ -4187,7 +4187,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Xenial! Encantaríanos que premeses o botón de abaixo e deixaras un comentario na tenda.</translation>
+        <translation type="vanished">Xenial! Encantaríanos que premeses o botón de abaixo e deixaras un comentario na tenda.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4276,6 +4276,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Benvido a QField. Primeira vez utilizando a aplicación? Proba os proxectos de exemplo listados abaixo.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

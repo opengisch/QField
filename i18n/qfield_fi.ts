@@ -4189,7 +4189,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit kommentin sovelluskauppaan.</translation>
+        <translation type="vanished">Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit kommentin sovelluskauppaan.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4278,6 +4278,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Tervetuloa käyttämään QFieldiä. Käytätkö sovellusta ensimmäistä kertaa? Kokeile esimerkkiprojekteja, jotka on listattu alla viimeisimmissä projekteissa.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

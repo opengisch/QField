@@ -4183,7 +4183,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Nagyszerű! Kérünk, az alábbi gombra kattintva oszd meg velünk az észrevételeidet.</translation>
+        <translation type="vanished">Nagyszerű! Kérünk, az alábbi gombra kattintva oszd meg velünk az észrevételeidet.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4272,6 +4272,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Üdvözöljük a QField-ben. Először használja a programot? Próbálja ki a lentebb listázott projekteket.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4187,7 +4187,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Dat is geweldig! We zouden het leuk vinden als je op de onderstaande knop klikt en een opmerking in de store achterlaat.</translation>
+        <translation type="vanished">Dat is geweldig! We zouden het leuk vinden als je op de onderstaande knop klikt en een opmerking in de store achterlaat.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4275,6 +4275,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
 </context>

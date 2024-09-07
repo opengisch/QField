@@ -4183,7 +4183,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>ذلك رائع! نود أن تنقر على الزر أدناه وتترك تعليقًا في المتجر.</translation>
+        <translation type="vanished">ذلك رائع! نود أن تنقر على الزر أدناه وتترك تعليقًا في المتجر.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4271,6 +4271,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
 </context>

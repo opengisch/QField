@@ -4185,7 +4185,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>非常好！希望您单击下面的按钮，并在应用商店中留言。</translation>
+        <translation type="vanished">非常好！希望您单击下面的按钮，并在应用商店中留言。</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4274,6 +4274,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>欢迎来到QField！是第一次使用本应用吗？请试试下面的示例工程吧。</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>太棒了！希望您点击下面的按钮并留下评论。</translation>
     </message>
 </context>
 <context>

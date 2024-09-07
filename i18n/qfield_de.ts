@@ -4184,7 +4184,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Das ist großartig! Wir würden uns freuen, wenn Du auf die Schaltfläche unten klickst und einen Kommentar zum Shop hinterlässt.</translation>
+        <translation type="vanished">Das ist großartig! Wir würden uns freuen, wenn Du auf die Schaltfläche unten klickst und einen Kommentar zum Shop hinterlässt.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4273,6 +4273,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Willkommen bei QField. Sind sie zum erstene mal hier? Schauen sie sich doch mal die Beispielprojekte an.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

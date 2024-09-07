@@ -4189,7 +4189,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Fantástico! Adoraríamos que você clicasse no botão abaixo e deixasse um comentário na loja de aplicações.</translation>
+        <translation type="vanished">Fantástico! Adoraríamos que você clicasse no botão abaixo e deixasse um comentário na loja de aplicações.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4278,6 +4278,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Bem-vindo ao QField. É a primeira vez que está a usar a aplicação? Experimente alguns exemplos de projetos listados abaixo.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

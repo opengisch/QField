@@ -4191,7 +4191,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Це чудово! Ми будемо раді, щоб ви натиснули кнопку нижче та залишили коментар про програму.</translation>
+        <translation type="vanished">Це чудово! Ми будемо раді, щоб ви натиснули кнопку нижче та залишили коментар про програму.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4279,6 +4279,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
 </context>

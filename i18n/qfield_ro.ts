@@ -4191,7 +4191,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Super! Am aprecia dacă ai lăsa și un comentariu în app-store.</translation>
+        <translation type="vanished">Super! Am aprecia dacă ai lăsa și un comentariu în app-store.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4279,6 +4279,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
 </context>

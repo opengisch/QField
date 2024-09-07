@@ -4190,7 +4190,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>To je skvělé! Budeme rádi, když kliknete na tlačítko níže a zanecháte komentář k obchodu.</translation>
+        <translation type="vanished">To je skvělé! Budeme rádi, když kliknete na tlačítko níže a zanecháte komentář k obchodu.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4279,6 +4279,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Vítejte v QFieldu. Poprvé používáte tuto aplikaci? Vyzkoušejte vzorové projekty uvedené níže.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

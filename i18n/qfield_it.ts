@@ -4192,7 +4192,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Grandioso! Sarebbe fantastico se cliccassi sul pulsante qui sotto e lasciassi una recensione sullo Store.</translation>
+        <translation type="vanished">Grandioso! Sarebbe fantastico se cliccassi sul pulsante qui sotto e lasciassi una recensione sullo Store.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4281,6 +4281,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Benvenuti in QField! È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
