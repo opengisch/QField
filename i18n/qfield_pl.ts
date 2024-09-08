@@ -3357,7 +3357,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Gdy wskaźnik dokładności jest włączony, plakietka jest dołączona do przycisku lokalizacji i ma kolor &lt;span %1&gt;czerwony&lt;/span&gt; jeśli wartość dokładności jest gorsza niż &lt;i&gt;zła&lt;/i&gt;, &lt;span %2&gt;żółty&lt;/span&gt; jeśli jest gorsza niż &lt;i&gt;doskonała&lt;/i&gt;, lub &lt;span %3&gt;zielony&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Ponadto można włączyć tryb ograniczenia dokładności, który ogranicza dodawanie wierzchołków po zablokowaniu kursora współrzędnych do pozycji o wartości dokładności gorszej niż zły próg.</translation>
     </message>
 </context>
 <context>
@@ -4283,7 +4283,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>To świetnie! Chcielibyśmy, abyś kliknął(ęła) przycisk poniżej i zostawił(a) recenzję.</translation>
     </message>
 </context>
 <context>
