@@ -46,6 +46,7 @@ jobs:
 
       - name: ⛓️ Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
+        if: ${{ github.repository_owner == 'opengisch' }}
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
@@ -56,6 +57,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🔏 Setup code signing
+        if: ${{ github.repository_owner == 'opengisch' }}
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
@@ -133,6 +135,8 @@ jobs:
           ctest --output-on-failure -R smoke -C ${{ env.BUILD_TYPE }}
 
       - name: 📦 Package
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
           echo "Killing XProtect..."; sudo pkill -9 XProtect >/dev/null || true; # see https://github.com/actions/runner-images/issues/7522
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
