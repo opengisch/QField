@@ -13,6 +13,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -52,8 +55,6 @@ jobs:
             qt_arch: 'android_x86'
             all_files_access: 'ON'
             artifact_name: 'android-x86'
-    env:
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
     steps:
       - name: 🐣 Checkout
@@ -223,7 +224,7 @@ jobs:
     name: deploy to play store
     runs-on: ubuntu-20.04
     needs: build
-    if: ${{ github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
+    if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) && env.SENTRY_AUTH_TOKEN != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -264,7 +265,7 @@ jobs:
     name: comment (pr)
     runs-on: ubuntu-20.04
     needs: build
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' && env.SENTRY_AUTH_TOKEN != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -295,7 +296,7 @@ jobs:
     name: comment (commit)
     runs-on: ubuntu-20.04
     needs: build
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' && env.SENTRY_AUTH_TOKEN != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
