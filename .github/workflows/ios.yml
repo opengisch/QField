@@ -14,6 +14,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   build:
     name: build (ios)
@@ -42,6 +45,7 @@ jobs:
 
       - name: ⛓️ Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
@@ -52,6 +56,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🔏 Setup code signing
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
@@ -141,6 +146,7 @@ jobs:
           cmake --build  /Users/runner/builddir --target bundle --config Release
 
       - name: 🍺 Deploy
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
           S3_BUCKET: qfieldapks
           S3_REGION: ch-dk-2
@@ -165,6 +171,7 @@ jobs:
           bundle exec fastlane ios upload_testflight ipa:/Users/runner/builddir/qfieldIpa/QField.ipa
 
       - name: 📮 Upload debug symbols
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         # if: release or labeled PR
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
