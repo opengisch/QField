@@ -13,6 +13,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   build:
     strategy:
@@ -46,7 +49,7 @@ jobs:
 
       - name: ⛓️ Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
-        if: ${{ github.repository_owner == 'opengisch' }}
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
@@ -57,7 +60,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🔏 Setup code signing
-        if: ${{ github.repository_owner == 'opengisch' }}
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
@@ -174,6 +177,7 @@ jobs:
             ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 
       - name: 📮 Upload debug symbols
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         # if: release or labeled PR
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
