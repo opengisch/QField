@@ -7,6 +7,7 @@ on:
 jobs:
   sync_translations:
     runs-on: ubuntu-22.04
+    if: ${{ github.repository == 'opengisch/QField' }}
     steps:
       - uses: actions/checkout@v4
         with:
