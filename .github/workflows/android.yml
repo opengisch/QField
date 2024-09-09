@@ -224,17 +224,20 @@ jobs:
     name: deploy to play store
     runs-on: ubuntu-20.04
     needs: build
-    if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) && env.SENTRY_AUTH_TOKEN != '' }}
+    if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
 
       - name: Vars
         id: vars
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           ./scripts/ci/env_gh.sh
 
       - name: Download apks
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk
@@ -242,6 +245,7 @@ jobs:
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk
 
       - name: Upload to Google Play Store
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
 
@@ -265,17 +269,21 @@ jobs:
     name: comment (pr)
     runs-on: ubuntu-20.04
     needs: build
-    if: ${{ github.event_name == 'pull_request' && env.SENTRY_AUTH_TOKEN != '' }}
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
+
       - name: Vars
         id: vars
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           ./scripts/ci/env_gh.sh
 
       - name: 💬 Create comment
         uses: marocchino/sticky-pull-request-comment@v2
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
           message: |
@@ -296,16 +304,21 @@ jobs:
     name: comment (commit)
     runs-on: ubuntu-20.04
     needs: build
-    if: ${{ github.event_name == 'push' && env.SENTRY_AUTH_TOKEN != '' }}
+    if: ${{ github.event_name == 'push' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
+
       - name: Vars
         id: vars
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           ./scripts/ci/env_gh.sh
+
       - name: Comment commit
         uses: peter-evans/commit-comment@v3
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |
