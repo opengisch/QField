@@ -95,7 +95,7 @@ Popup {
         id: positioningDeviceName
         Layout.fillWidth: true
         font: Theme.defaultFont
-        placeholderText: displayText == '' ? qsTr('Leave empty to auto-fill') : ''
+        placeholderText: displayText === '' ? qsTr('Leave empty to auto-fill') : ''
       }
 
       Label {
@@ -130,6 +130,8 @@ Popup {
               return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
             case PositioningDeviceModel.SerialPortDevice:
               return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+            case PositioningDeviceModel.EgenioussDevice:
+              return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
             }
             return '';
           }
@@ -154,6 +156,8 @@ Popup {
               return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
             case PositioningDeviceModel.SerialPortDevice:
               return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+            case PositioningDeviceModel.EgenioussDevice:
+              return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
             }
             return '';
           }
@@ -177,6 +181,10 @@ Popup {
           name: qsTr('UDP (NMEA)')
           value: PositioningDeviceModel.UdpDevice
         }
+        ListElement {
+          name: qsTr('Egeniouss')
+          value: PositioningDeviceModel.EgenioussDevice
+        }
       }
 
       Loader {
@@ -193,6 +201,8 @@ Popup {
             return "qrc:/qml/UdpDeviceChooser.qml";
           case PositioningDeviceModel.SerialPortDevice:
             return "qrc:/qml/SerialPortDeviceChooser.qml";
+          case PositioningDeviceModel.EgenioussDevice:
+            return "qrc:/qml/TcpDeviceChooser.qml";
           }
           return '';
         }
