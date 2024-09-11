@@ -2149,6 +2149,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Speed</source>
         <translation>Vitesse</translation>
     </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

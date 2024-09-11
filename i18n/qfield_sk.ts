@@ -2151,6 +2151,10 @@ Dôvod:
         <source>Speed</source>
         <translation>Rýchlosť</translation>
     </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

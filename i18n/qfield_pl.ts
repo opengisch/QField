@@ -2152,6 +2152,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Speed</source>
         <translation>Prędkość</translation>
     </message>
+    <message>
+        <source>Orientation</source>
+        <translation>Orientacja</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

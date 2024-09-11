@@ -2146,6 +2146,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Speed</source>
         <translation>速度</translation>
     </message>
+    <message>
+        <source>Orientation</source>
+        <translation>方向</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>

@@ -2152,6 +2152,10 @@ Motiv:
         <source>Speed</source>
         <translation>Viteză</translation>
     </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
