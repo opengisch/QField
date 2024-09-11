@@ -586,7 +586,7 @@ Popup {
 
         onClicked: {
           cameraSettings.stamping = !cameraSettings.stamping;
-          displayToast(cameraSettings.stamping ? qsTr("Details stamping enabled") : qsTr("Details tamping disabled"));
+          displayToast(cameraSettings.stamping ? qsTr("Details stamping enabled") : qsTr("Details stamping disabled"));
         }
       }
 
