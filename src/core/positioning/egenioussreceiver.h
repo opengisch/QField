@@ -21,6 +21,16 @@ class EgenioussReceiver : public AbstractGnssReceiver
     void onErrorOccurred( QAbstractSocket::SocketError socketError );
 
   private:
+    void processReceivedData();
+
+  private:
     QTcpSocket *mTcpSocket = nullptr;
-    QString mReceivedData;
+    QByteArray mReceivedData;
+
+    uint8_t startByte;
+    uint8_t protocolVersion;
+    uint8_t counter;
+    uint8_t messageId;
+    uint32_t N;
+    QByteArray payload;
 };

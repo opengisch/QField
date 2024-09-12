@@ -35,7 +35,7 @@ Rectangle {
       id: grid
 
       readonly property real numberOfColumns: parent.width > 1000 ? 6 : parent.width > 620 ? 3 : 2
-      readonly property real numberOfRows: grid.count / numberOfColumns
+      readonly property real numberOfRows: Math.ceil(grid.count / numberOfColumns)
 
       flow: GridView.FlowTopToBottom
       boundsBehavior: Flickable.StopAtBounds
@@ -44,15 +44,15 @@ Rectangle {
         distanceUnits: projectInfo.distanceUnits
         coordinateDisplayCrs: projectInfo.coordinateDisplayCrs
       }
-      height: numberOfRows * cellHeight
+      height: grid.numberOfRows * cellHeight
       width: parent.width
       cellHeight: positioningInformationView.cellHeight
       cellWidth: parent.width / numberOfColumns
       clip: true
 
       delegate: Rectangle {
-        readonly property real currentColumn: parseInt(index / (grid.count / grid.numberOfColumns))
-        readonly property real currentRow: index % (grid.count / grid.numberOfColumns)
+        readonly property real currentColumn: parseInt(index / grid.numberOfRows)
+        readonly property real currentRow: index % grid.numberOfRows
 
         width: grid.cellWidth
         height: grid.cellHeight
