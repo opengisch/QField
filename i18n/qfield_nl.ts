@@ -2129,10 +2129,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2150,6 +2146,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>

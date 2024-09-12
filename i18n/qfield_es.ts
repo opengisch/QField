@@ -2131,10 +2131,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2152,6 +2148,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>

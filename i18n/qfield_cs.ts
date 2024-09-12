@@ -2133,10 +2133,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2154,6 +2150,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>

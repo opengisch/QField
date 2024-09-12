@@ -2129,10 +2129,6 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2150,6 +2146,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>

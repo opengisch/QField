@@ -2133,10 +2133,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation>Szerokość geograficzna</translation>
     </message>
@@ -2155,6 +2151,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Orientation</source>
         <translation>Orientacja</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

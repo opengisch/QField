@@ -2124,11 +2124,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation>详细水印已启用</translation>
-    </message>
-    <message>
-        <source>Details tamping disabled</source>
-        <translation>详细水印已禁用</translation>
+        <translation>戳记已启用</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2149,6 +2145,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Orientation</source>
         <translation>方向</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation>戳记已禁用</translation>
     </message>
 </context>
 <context>
