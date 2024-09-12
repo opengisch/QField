@@ -201,7 +201,7 @@ class Positioning : public QObject
     void setLogging( bool logging );
 
   signals:
-
+    void detailsChanged();
     void activeChanged();
     void deviceIdChanged();
     void deviceChanged();

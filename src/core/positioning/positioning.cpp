@@ -182,6 +182,7 @@ void Positioning::setupDevice()
     mReceiver->disconnectDevice();
     mReceiver->stopLogging();
     disconnect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
+    disconnect( mReceiver, &AbstractGnssReceiver::detailsChanged, this, &Positioning::detailsChanged );
     mReceiver->deleteLater();
     mReceiver = nullptr;
   }
@@ -228,6 +229,7 @@ void Positioning::setupDevice()
   // Reset the position information to insure no cross contamination between receiver types
   lastGnssPositionInformationChanged( GnssPositionInformation() );
   connect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
+  connect( mReceiver, &AbstractGnssReceiver::detailsChanged, this, &Positioning::detailsChanged );
   setValid( mReceiver->valid() );
 
   emit deviceChanged();

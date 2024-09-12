@@ -241,6 +241,7 @@ void PositioningInformationModel::setPositioningSource( Positioning *positioning
   {
     disconnect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
     disconnect( mPositioningSource, &Positioning::deviceChanged, this, &PositioningInformationModel::softReset );
+    disconnect( mPositioningSource, &Positioning::detailsChanged, this, &PositioningInformationModel::refreshData );
   }
 
   mPositioningSource = positioningSource;
@@ -250,6 +251,7 @@ void PositioningInformationModel::setPositioningSource( Positioning *positioning
   {
     connect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
     connect( mPositioningSource, &Positioning::deviceChanged, this, &PositioningInformationModel::softReset );
+    connect( mPositioningSource, &Positioning::detailsChanged, this, &PositioningInformationModel::refreshData );
     refreshData();
   }
 }
