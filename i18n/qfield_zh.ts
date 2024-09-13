@@ -3335,7 +3335,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation>启用地图旋转</translation>
+        <translation>旋转地图</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
@@ -4917,7 +4917,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation>启用地图旋转</translation>
+        <translation>旋转地图</translation>
     </message>
     <message>
         <source>Dashboard</source>

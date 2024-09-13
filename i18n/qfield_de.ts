@@ -739,11 +739,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Rückgängig gemachte Feature-Änderung in Ebene &quot;%1&quot; konnte nicht übertragen werden</translation>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Rollback von rückgängig gemachten Featureänderungen in Ebene &quot;%1&quot; fehlgeschlagen</translation>
     </message>
 </context>
 <context>
@@ -1344,7 +1344,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Gibt QField-Dokumentationsseiten zurück, die den Begriffen entsprechen.</translation>
     </message>
 </context>
 <context>
@@ -1378,11 +1378,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn er deaktiviert ist, kann dieser Positionsgeber-Filter immer noch verwendet werden, indem das Präfix %1 in die Suchleiste eingegeben wird.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>%1 Positionsgeber standardmäßig einschalten</translation>
     </message>
 </context>
 <context>
@@ -1413,7 +1413,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Log-Laufzeit-Profiler</translation>
     </message>
     <message>
         <source>Type optional details</source>
@@ -1617,7 +1617,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Die IMU-Position konnte nicht analysiert werden: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -1960,7 +1960,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>Raster</translation>
     </message>
     <message>
         <source>ortho.</source>
@@ -2129,11 +2129,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Breitengrad</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Längengrad</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2145,7 +2145,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Himmelsrichtung </translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
