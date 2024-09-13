@@ -8,6 +8,7 @@
 EgenioussReceiver::EgenioussReceiver( const QString &address, const int port, QObject *parent )
   : AbstractGnssReceiver( parent ), mAddress( address ), mPort( port ), mTcpSocket( new QTcpSocket( this ) )
 {
+  setValid( !mAddress.isEmpty() && mPort > 0 );
 }
 
 void EgenioussReceiver::handleConnectDevice()
@@ -15,17 +16,20 @@ void EgenioussReceiver::handleConnectDevice()
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::onErrorOccurred );
 
-  mTcpSocket->connectToHost( QHostAddress::LocalHost, mPort );
+  if ( mAddress.isEmpty() || mPort == 0 )
+  {
+    return;
+  }
+
+  mTcpSocket->connectToHost( QHostAddress( mAddress ), mPort, QTcpSocket::ReadWrite );
 
   if ( !mTcpSocket->waitForConnected( 3000 ) )
   {
-    setValid( false );
     mLastError = mTcpSocket->errorString();
     emit lastErrorChanged( mLastError );
   }
   else
   {
-    setValid( true );
     mSocketState = QAbstractSocket::ConnectedState;
     emit socketStateChanged( mSocketState );
   }
