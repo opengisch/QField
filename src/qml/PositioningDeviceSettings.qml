@@ -202,7 +202,7 @@ Popup {
           case PositioningDeviceModel.SerialPortDevice:
             return "qrc:/qml/SerialPortDeviceChooser.qml";
           case PositioningDeviceModel.EgenioussDevice:
-            return "qrc:/qml/TcpDeviceChooser.qml";
+            return "qrc:/qml/EgenioussDeviceChooser.qml";
           }
           return '';
         }

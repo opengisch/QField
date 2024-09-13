@@ -43,6 +43,7 @@
         <file>ScaleBar.qml</file>
         <file>SensorInformationView.qml</file>
         <file>Toast.qml</file>
+        <file>EgenioussDeviceChooser.qml</file>
         <file>TcpDeviceChooser.qml</file>
         <file>UdpDeviceChooser.qml</file>
         <file>VariableEditor.qml</file>

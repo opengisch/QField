@@ -173,7 +173,7 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
       return QStringLiteral( "serial:%1" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString() );
 
     case EgenioussDevice:
-      return QStringLiteral( "egeniouss:%1" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString() );
+      return QStringLiteral( "egeniouss:%1:%2" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
   }
 
   return QString();

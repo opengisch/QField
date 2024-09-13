@@ -5,8 +5,8 @@
 #include <QJsonObject>
 #include <QJsonValue>
 
-EgenioussReceiver::EgenioussReceiver( QObject *parent )
-  : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket( this ) )
+EgenioussReceiver::EgenioussReceiver( const QString &address, const int port, QObject *parent )
+  : AbstractGnssReceiver( parent ), mAddress( address ), mPort( port ), mTcpSocket( new QTcpSocket( this ) )
 {
 }
 
@@ -15,7 +15,7 @@ void EgenioussReceiver::handleConnectDevice()
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::onErrorOccurred );
 
-  mTcpSocket->connectToHost( QHostAddress::LocalHost, 1235 );
+  mTcpSocket->connectToHost( QHostAddress::LocalHost, mPort );
 
   if ( !mTcpSocket->waitForConnected( 3000 ) )
   {
@@ -50,9 +50,12 @@ QList<QPair<QString, QVariant>> EgenioussReceiver::details()
   QJsonDocument jsonDoc = QJsonDocument::fromJson( payload );
   QJsonObject jsonObject = jsonDoc.object();
 
+  if ( jsonDoc.isNull() || !jsonDoc.isObject() )
+  {
+    return dataList; // Failed to parse JSON
+  }
+
   dataList.append( qMakePair( "q", jsonObject.value( "q" ).toString() ) );
-  dataList.append( qMakePair( "utc", jsonObject.value( "utc" ).toDouble() ) );
-  dataList.append( qMakePair( "utc convert", QDateTime( QDateTime::fromMSecsSinceEpoch( jsonObject.value( "utc" ).toDouble(), Qt::UTC ) ).toString() ) );
 
   return dataList;
 }
@@ -105,7 +108,7 @@ void EgenioussReceiver::onReadyRead()
       0,
       std::numeric_limits<double>::quiet_NaN(),
       std::numeric_limits<double>::quiet_NaN(),
-      QDateTime::fromMSecsSinceEpoch( jsonObject.value( "utc" ).toDouble(), Qt::UTC ),
+      QDateTime::fromMSecsSinceEpoch( jsonObject.value( "utc" ).toDouble() / 1e6, Qt::UTC ),
       QChar(),
       0,
       1 );

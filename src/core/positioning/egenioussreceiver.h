@@ -9,7 +9,7 @@ class EgenioussReceiver : public AbstractGnssReceiver
     Q_OBJECT
 
   public:
-    explicit EgenioussReceiver( QObject *parent = nullptr );
+    explicit EgenioussReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
 
   private:
     void handleConnectDevice() override;
@@ -25,6 +25,8 @@ class EgenioussReceiver : public AbstractGnssReceiver
 
   private:
     QTcpSocket *mTcpSocket = nullptr;
+    QString mAddress;
+    int mPort = 0;
     GnssPositionInformation mLastGnssPositionInformation;
     QByteArray mReceivedData;
     QByteArray payload;

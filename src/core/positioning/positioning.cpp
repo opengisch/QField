@@ -192,23 +192,21 @@ void Positioning::setupDevice()
   }
   else
   {
+    const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
+    const QString address = mDeviceId.mid( 4, portSeparator - 4 );
+    const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
+
     if ( mDeviceId.startsWith( QStringLiteral( "tcp:" ) ) )
     {
-      const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
-      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
-      const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = new TcpReceiver( address, port, this );
     }
     else if ( mDeviceId.startsWith( QStringLiteral( "udp:" ) ) )
     {
-      const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
-      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
-      const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = new UdpReceiver( address, port, this );
     }
     else if ( mDeviceId.startsWith( QStringLiteral( "egeniouss:" ) ) )
     {
-      mReceiver = new EgenioussReceiver( this );
+      mReceiver = new EgenioussReceiver( address, port, this );
     }
 #ifdef WITH_SERIALPORT
     else if ( mDeviceId.startsWith( QStringLiteral( "serial:" ) ) )
