@@ -8,12 +8,13 @@
 EgenioussReceiver::EgenioussReceiver( QObject *parent )
   : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket( this ) )
 {
-  connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
-  connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::onErrorOccurred );
 }
 
 void EgenioussReceiver::handleConnectDevice()
 {
+  connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
+  connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::onErrorOccurred );
+
   mTcpSocket->connectToHost( QHostAddress::LocalHost, 1235 );
 
   if ( !mTcpSocket->waitForConnected( 3000 ) )
@@ -32,6 +33,9 @@ void EgenioussReceiver::handleConnectDevice()
 
 void EgenioussReceiver::handleDisconnectDevice()
 {
+  disconnect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
+  disconnect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::onErrorOccurred );
+
   if ( mTcpSocket->state() == QAbstractSocket::ConnectedState )
   {
     mTcpSocket->disconnectFromHost();
@@ -47,6 +51,8 @@ QList<QPair<QString, QVariant>> EgenioussReceiver::details()
   QJsonObject jsonObject = jsonDoc.object();
 
   dataList.append( qMakePair( "q", jsonObject.value( "q" ).toString() ) );
+  dataList.append( qMakePair( "utc", jsonObject.value( "utc" ).toDouble() ) );
+  dataList.append( qMakePair( "utc convert", QDateTime( QDateTime::fromMSecsSinceEpoch( jsonObject.value( "utc" ).toDouble(), Qt::UTC ) ).toString() ) );
 
   return dataList;
 }
@@ -99,7 +105,7 @@ void EgenioussReceiver::onReadyRead()
       0,
       std::numeric_limits<double>::quiet_NaN(),
       std::numeric_limits<double>::quiet_NaN(),
-      QDateTime(),
+      QDateTime::fromMSecsSinceEpoch( jsonObject.value( "utc" ).toDouble(), Qt::UTC ),
       QChar(),
       0,
       1 );
