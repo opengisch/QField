@@ -90,7 +90,19 @@ void EgenioussReceiver::onReadyRead()
     mLastGnssPositionInformation = GnssPositionInformation(
       jsonObject.value( "lat" ).toDouble(),
       jsonObject.value( "lon" ).toDouble(),
-      jsonObject.value( "alt" ).toDouble() );
+      jsonObject.value( "alt" ).toDouble(),
+      std::numeric_limits<double>::quiet_NaN(),
+      std::numeric_limits<double>::quiet_NaN(),
+      QList<QgsSatelliteInfo>(),
+      0,
+      0,
+      0,
+      std::numeric_limits<double>::quiet_NaN(),
+      std::numeric_limits<double>::quiet_NaN(),
+      QDateTime(),
+      QChar(),
+      0,
+      1 );
 
     emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
   }
