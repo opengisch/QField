@@ -25,12 +25,7 @@ class EgenioussReceiver : public AbstractGnssReceiver
 
   private:
     QTcpSocket *mTcpSocket = nullptr;
+    GnssPositionInformation mLastGnssPositionInformation;
     QByteArray mReceivedData;
-
-    uint8_t startByte;
-    uint8_t protocolVersion;
-    uint8_t counter;
-    uint8_t messageId;
-    uint32_t N;
     QByteArray payload;
 };

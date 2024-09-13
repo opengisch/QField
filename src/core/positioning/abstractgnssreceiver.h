@@ -64,7 +64,6 @@ class AbstractGnssReceiver : public QObject
     virtual QList<QPair<QString, QVariant>> details() { return {}; }
 
   signals:
-    void detailsChanged();
     void validChanged();
     void lastGnssPositionInformationChanged( GnssPositionInformation &lastGnssPositionInformation );
     void socketStateChanged( QAbstractSocket::SocketState socketState );
