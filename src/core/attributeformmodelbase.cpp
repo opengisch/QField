@@ -17,6 +17,7 @@
 #include "attributeformmodel.h"
 #include "attributeformmodelbase.h"
 
+#include <QDirIterator>
 #include <QRegularExpression>
 #include <qgsattributeeditorelement.h>
 #include <qgsattributeeditorfield.h>
@@ -34,13 +35,31 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
+Q_GLOBAL_STATIC( QStringList, sSupportedEditorWidgets );
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
 {
   connect( QgsProject::instance(), &QgsProject::mapThemeCollectionChanged, this, &AttributeFormModelBase::onMapThemeCollectionChanged );
   if ( QgsProject::instance()->mapThemeCollection() )
+  {
     onMapThemeCollectionChanged();
+  }
+
+  if ( sSupportedEditorWidgets->isEmpty() )
+  {
+    QDirIterator it( ":qml/editorwidgets" );
+    while ( it.hasNext() )
+    {
+      it.next();
+      const QFileInfo fileInfo = it.fileInfo();
+      if ( fileInfo.isFile() )
+      {
+        sSupportedEditorWidgets->append( fileInfo.baseName() );
+      }
+    }
+    sSupportedEditorWidgets->append( QStringLiteral( "RelationEditor" ) );
+  }
 }
 
 void AttributeFormModelBase::onMapThemeCollectionChanged()
@@ -964,48 +983,33 @@ void AttributeFormModelBase::setConstraintsSoftValid( bool constraintsSoftValid 
 QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
 {
   QgsFields fields = mLayer->fields();
-
-  //make the default one
-  QgsEditorWidgetSetup setup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
-
   if ( fieldIndex >= 0 && fieldIndex < fields.count() )
   {
     //when field has a configured setup, take it
-    setup = mLayer->editorWidgetSetup( fieldIndex );
-    if ( !setup.isNull() )
-      return setup;
+    QgsEditorWidgetSetup configuredSetup = mLayer->editorWidgetSetup( fieldIndex );
+    if ( !configuredSetup.isNull() )
+    {
+      if ( !sSupportedEditorWidgets->contains( configuredSetup.type() ) )
+      {
+        return QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
+      }
+      return configuredSetup;
+    }
 
-      //when it's a provider field with default value clause, take Textedit
+    //when it's a provider field with default value clause, take Textedit
 #if _QGIS_VERSION_INT >= 33800
     if ( fields.fieldOrigin( fieldIndex ) == Qgis::FieldOrigin::Provider )
 #else
     if ( fields.fieldOrigin( fieldIndex ) == QgsFields::OriginProvider )
 #endif
     {
-      int providerOrigin = fields.fieldOriginIndex( fieldIndex );
+      const int providerOrigin = fields.fieldOriginIndex( fieldIndex );
       if ( !mLayer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
-        return setup;
+      {
+        return QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
+      }
     }
 
-    //find the best one
-    const QgsField field = fields.at( fieldIndex );
-    //on a boolean type take "CheckBox"
-    if ( field.type() == QMetaType::Bool )
-      setup = QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
-    //on a date or time type take "DateTime"
-    if ( field.isDateOrTime() )
-    {
-      QVariantMap config;
-      config.insert( QStringLiteral( "field_format" ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
-      config.insert( QStringLiteral( "display_format" ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
-      config.insert( QStringLiteral( "calendar_popup" ), true );
-      config.insert( QStringLiteral( "allow_null" ), true );
-      setup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), config );
-    }
-    //on numeric types take "Range"
-    if ( field.type() == QMetaType::Int || field.type() == QMetaType::Double || field.isNumeric() )
-      setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
-    //if it's a foreign key configured in a relation take "RelationReference"
     if ( !mLayer->referencingRelations( fieldIndex ).isEmpty() )
     {
       QgsRelation relation = mLayer->referencingRelations( fieldIndex )[0];
@@ -1013,11 +1017,34 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
       config.insert( QStringLiteral( "Relation" ), relation.id() );
       config.insert( QStringLiteral( "AllowAddFeatures" ), false );
       config.insert( QStringLiteral( "ShowOpenFormButton" ), true );
-      setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), config );
+      return QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), config );
+    }
+
+    // Find the best one based on field type
+    const QgsField field = fields.at( fieldIndex );
+    if ( field.type() == QMetaType::Bool )
+    {
+      // on a boolean type, take "CheckBox"
+      return QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
+    }
+    else if ( field.isDateOrTime() )
+    {
+      // on a time types, take "DateTime"
+      QVariantMap config;
+      config.insert( QStringLiteral( "field_format" ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
+      config.insert( QStringLiteral( "display_format" ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
+      config.insert( QStringLiteral( "calendar_popup" ), true );
+      config.insert( QStringLiteral( "allow_null" ), true );
+      return QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), config );
+    }
+    else if ( field.type() == QMetaType::Int || field.type() == QMetaType::Double || field.isNumeric() )
+    {
+      // on numeric types, take "Range"
+      return QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
     }
   }
 
-  return setup;
+  return QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
 }
 
 bool AttributeFormModelBase::hasTabs() const
