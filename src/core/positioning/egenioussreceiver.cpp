@@ -5,12 +5,18 @@
 #include <QJsonValue>
 
 EgenioussReceiver::EgenioussReceiver( QObject *parent )
-  : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket( this ) )
+  : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() )
 {
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::onErrorOccurred );
   connect( mTcpSocket, &QTcpSocket::connected, this, &EgenioussReceiver::connected );
   connect( mTcpSocket, &QTcpSocket::disconnected, this, &EgenioussReceiver::disconnected );
+}
+
+EgenioussReceiver::~EgenioussReceiver()
+{
+  mTcpSocket->deleteLater();
+  mTcpSocket = nullptr;
 }
 
 void EgenioussReceiver::handleConnectDevice()
