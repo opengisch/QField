@@ -22,6 +22,7 @@ void EgenioussReceiver::connected()
 {
   mSocketState = QAbstractSocket::ConnectedState;
   emit socketStateChanged( mSocketState );
+  setValid( true );
 }
 
 void EgenioussReceiver::handleDisconnectDevice()
@@ -47,7 +48,7 @@ QList<QPair<QString, QVariant>> EgenioussReceiver::details()
     return detailsList;
   }
 
-  detailsList.append( qMakePair( "q", mPayload.value( "q" ).toString() ) );
+  detailsList.append( qMakePair( "q", mPayload.value( "q" ).toDouble() ) );
 
   return detailsList;
 }

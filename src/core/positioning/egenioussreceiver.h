@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EGENIOUSSRECEIVER_H
+#define EGENIOUSSRECEIVER_H
 
 #include "abstractgnssreceiver.h"
 
@@ -32,3 +33,5 @@ class EgenioussReceiver : public AbstractGnssReceiver
     const QHostAddress::SpecialAddress mAddress = QHostAddress::LocalHost;
     const int mPort = 1235;
 };
+
+#endif // EGENIOUSSRECEIVER_H
