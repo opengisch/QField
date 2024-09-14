@@ -453,7 +453,7 @@ Page {
           property string itemType: Type
 
           active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) || ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
-          height: active ? item.childrenRect.height : 0
+          height: status == Loader.Ready ? item.childrenRect.height : 0
           anchors {
             left: parent.left
             right: parent.right
