@@ -91,6 +91,12 @@
       "host": true,
       "default-features": false
     },
+    {
+      "name": "qtwebsockets",
+      "features": [
+        "qml"
+      ]
+    },
     "qtwebview",
     {
       "name": "sentry-cocoa",
