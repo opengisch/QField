@@ -22,6 +22,7 @@ import QtQuick.Window
 import QtQml
 import QtSensors
 import QtCore
+import QtWebSockets // Not used here but added so QML registers its dependencies for plugins to use
 import org.qgis
 import org.qfield
 import Theme
