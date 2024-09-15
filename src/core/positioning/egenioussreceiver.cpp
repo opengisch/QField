@@ -13,12 +13,6 @@ EgenioussReceiver::EgenioussReceiver( QObject *parent )
   connect( mTcpSocket, &QTcpSocket::disconnected, this, &EgenioussReceiver::disconnected );
 }
 
-EgenioussReceiver::~EgenioussReceiver()
-{
-  mTcpSocket->deleteLater();
-  mTcpSocket = nullptr;
-}
-
 void EgenioussReceiver::handleConnectDevice()
 {
   mTcpSocket->connectToHost( mAddress, mPort, QTcpSocket::ReadWrite );
