@@ -348,6 +348,7 @@ target_link_libraries(
          Qt::Concurrent
          Qt::WebView
          Qt::Multimedia
+         Qt::WebSockets
          QGIS::Core
          QGIS::Analysis
          ZXing::ZXing
