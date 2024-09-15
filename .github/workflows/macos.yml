@@ -115,8 +115,6 @@ jobs:
                 -D ENABLE_TESTS=ON \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-                -D SENTRY_ENV="${APP_ENV}" \
                 -D MACOS_CODE_SIGN_IDENTITY="Apple Development" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ matrix.deployment-target }} \

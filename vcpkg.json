@@ -100,7 +100,7 @@
     "qtwebview",
     {
       "name": "sentry-cocoa",
-      "platform": "ios | osx"
+      "platform": "ios"
     },
     {
       "name": "sentry-native",
