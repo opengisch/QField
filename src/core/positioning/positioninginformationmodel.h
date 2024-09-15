@@ -1,4 +1,5 @@
-#pragma once
+#ifndef POSITIONINGINFORMATIONMODEL_H
+#define POSITIONINGINFORMATIONMODEL_H
 
 #include "positioning.h"
 
@@ -118,3 +119,5 @@ class PositioningInformationModel : public QStandardItemModel
     QgsCoordinateReferenceSystem mCoordinateDisplayCrs;
     QMetaObject::Connection positioningSourceConnection;
 };
+
+#endif // POSITIONINGINFORMATIONMODEL_H

@@ -8,7 +8,7 @@ EgenioussReceiver::EgenioussReceiver( QObject *parent )
   : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() )
 {
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
-  connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::onErrorOccurred );
+  connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );
   connect( mTcpSocket, &QTcpSocket::connected, this, &EgenioussReceiver::connected );
   connect( mTcpSocket, &QTcpSocket::disconnected, this, &EgenioussReceiver::disconnected );
 }
@@ -101,8 +101,24 @@ void EgenioussReceiver::onReadyRead()
   emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 }
 
-void EgenioussReceiver::onErrorOccurred( QAbstractSocket::SocketError socketError )
+void EgenioussReceiver::handleError( QAbstractSocket::SocketError error )
 {
-  mLastError = mTcpSocket->errorString();
+  switch ( error )
+  {
+    case QAbstractSocket::HostNotFoundError:
+      mLastError = tr( "Could not find the remote host" );
+      break;
+    case QAbstractSocket::NetworkError:
+      mLastError = tr( "Attempt to read or write from socket returned an error" );
+      break;
+    case QAbstractSocket::ConnectionRefusedError:
+      mLastError = tr( "The connection was refused by the remote host" );
+      break;
+    default:
+      mLastError = tr( "TCP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
+      break;
+  }
+  qInfo() << QStringLiteral( "EgenioussReceiver: Error: %1" ).arg( mLastError );
+
   emit lastErrorChanged( mLastError );
 }
