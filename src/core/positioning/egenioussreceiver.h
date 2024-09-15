@@ -20,7 +20,7 @@ class EgenioussReceiver : public AbstractGnssReceiver
 
   private slots:
     void onReadyRead();
-    void handleError( QAbstractSocket::SocketError socketError );
+    void handleError( QAbstractSocket::SocketError error );
 
   private:
     void processReceivedData();
