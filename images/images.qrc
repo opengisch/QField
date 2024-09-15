@@ -529,5 +529,6 @@
         <file>themes/qfield/nodpi/ic_arrow_drop_down_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_arrow_drop_up_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_shutdown_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_egeniouss_receiver_black_24dp.svg</file>
     </qresource>
 </RCC>

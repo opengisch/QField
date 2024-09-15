@@ -872,7 +872,7 @@ Page {
                       case PositioningDeviceModel.SerialPortDevice:
                         return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
                       case PositioningDeviceModel.EgenioussDevice:
-                        return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+                        return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
                       }
                       return '';
                     }
@@ -900,7 +900,7 @@ Page {
                       case PositioningDeviceModel.SerialPortDevice:
                         return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
                       case PositioningDeviceModel.EgenioussDevice:
-                        return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+                        return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
                       }
                       return '';
                     }
