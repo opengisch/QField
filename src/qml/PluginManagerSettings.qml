@@ -14,6 +14,9 @@ Popup {
   y: (parent.height - height) / 2
   padding: 0
 
+  signal unLoadClicked(string Uuid)
+  signal loadClicked(string Uuid)
+
   Page {
     id: page
     width: parent.width
@@ -119,8 +122,10 @@ Popup {
                 Enabled = checked == true;
                 if (Enabled) {
                   pluginManager.enableAppPlugin(Uuid);
+                  loadClicked(Uuid);
                 } else {
                   pluginManager.disableAppPlugin(Uuid);
+                  unLoadClicked(Uuid);
                 }
               }
             }

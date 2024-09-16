@@ -41,6 +41,20 @@ Popup {
     return positioningDeviceItem.item.getSettings();
   }
 
+  function handleEgenioussChange() {
+    if (positioningSettings.enableEgeniouss) {
+      positioningDeviceTypeModel.insert(0, {
+          "name": qsTr('Egeniouss'),
+          "value": PositioningDeviceModel.EgenioussDevice
+        });
+    } else {
+      positioningDeviceTypeModel.remove(0, 1);
+      positioningDeviceModel.removeDevice("Egeniouss");
+      positioningDeviceComboBox.currentIndex = 0;
+    }
+    positioningDeviceType.model = positioningDeviceTypeModel;
+  }
+
   Component.onCompleted: {
     if (withBluetooth) {
       positioningDeviceTypeModel.insert(0, {
@@ -54,7 +68,14 @@ Popup {
           "value": PositioningDeviceModel.SerialPortDevice
         });
     }
+    if (positioningSettings.enableEgeniouss) {
+      positioningDeviceTypeModel.insert(0, {
+          "name": qsTr('Egeniouss'),
+          "value": PositioningDeviceModel.EgenioussDevice
+        });
+    }
     positioningDeviceType.model = positioningDeviceTypeModel;
+    positioningSettings.onEnableEgenioussChanged.connect(handleEgenioussChange);
   }
 
   Page {
@@ -180,10 +201,6 @@ Popup {
         ListElement {
           name: qsTr('UDP (NMEA)')
           value: PositioningDeviceModel.UdpDevice
-        }
-        ListElement {
-          name: qsTr('Egeniouss')
-          value: PositioningDeviceModel.EgenioussDevice
         }
       }
 
