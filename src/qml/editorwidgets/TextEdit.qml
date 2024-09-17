@@ -146,52 +146,56 @@ EditorWidgetBase {
     hasMenu = true;
   }
 
-  MenuItem {
-    id: copyTextItem
-    text: qsTr('Copy Text')
+  Item {
+    visible: false
 
-    font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+    MenuItem {
+      id: copyTextItem
+      text: qsTr('Copy Text')
 
-    onTriggered: {
-      platformUtilities.copyTextToClipboard(value);
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        platformUtilities.copyTextToClipboard(value);
+      }
     }
-  }
 
-  MenuItem {
-    id: pasteTextItem
-    text: qsTr('Paste Text')
+    MenuItem {
+      id: pasteTextItem
+      text: qsTr('Paste Text')
 
-    font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
 
-    onTriggered: {
-      var text = platformUtilities.getTextFromClipboard();
-      text = text.trim();
-      valueChangeRequested(text, text == '');
+      onTriggered: {
+        var text = platformUtilities.getTextFromClipboard();
+        text = text.trim();
+        valueChangeRequested(text, text == '');
+      }
     }
-  }
 
-  MenuSeparator {
-    id: separatorItem
-    width: parent.width
-  }
+    MenuSeparator {
+      id: separatorItem
+      width: parent.width
+    }
 
-  MenuItem {
-    id: scanCodeItem
-    text: qsTr('Scan Code')
+    MenuItem {
+      id: scanCodeItem
+      text: qsTr('Scan Code')
 
-    font: Theme.defaultFont
-    icon.source: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      icon.source: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
 
-    onTriggered: {
-      requestBarcode(topItem);
+      onTriggered: {
+        requestBarcode(topItem);
+      }
     }
   }
 
