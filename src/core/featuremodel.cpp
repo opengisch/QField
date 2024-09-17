@@ -533,16 +533,19 @@ bool FeatureModel::save()
 
     case MultiFeatureModel:
     {
-      for ( QgsFeature &feature : mFeatures )
+      // We need to copy these members as the first feature updated triggers a refresh of the selected features, leading to changes in feature model members
+      const QgsFeature referenceFeature = mFeature;
+      const QList<bool> attributesAllowEdit = mAttributesAllowEdit;
+      QList<QgsFeature> features = mFeatures;
+      for ( QgsFeature &feature : features )
       {
-        for ( int i = 0; i < mFeature.attributes().count(); i++ )
+        for ( int i = 0; i < referenceFeature.attributes().count(); i++ )
         {
-          if ( !mAttributesAllowEdit[i] )
+          if ( !attributesAllowEdit[i] )
             continue;
 
-          feature.setAttribute( i, mFeature.attributes().at( i ) );
+          feature.setAttribute( i, referenceFeature.attributes().at( i ) );
         }
-
         if ( !mLayer->updateFeature( feature ) )
         {
           QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
