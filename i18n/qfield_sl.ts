@@ -252,7 +252,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth dovoljenje zavrnjeno</translation>
     </message>
 </context>
 <context>
@@ -303,7 +303,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth dovoljenje zavrnjeno</translation>
     </message>
 </context>
 <context>
@@ -446,7 +446,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometrija</translation>
     </message>
 </context>
 <context>
@@ -578,7 +578,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Prazno</translation>
     </message>
 </context>
 <context>
@@ -640,23 +640,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Posnemi fotografijo</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Posnemi videoposnetek</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Posnemi zvočni posnetek</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Priložite predmet iz galerije</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Priložite datoteko</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
@@ -1893,7 +1893,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -2056,7 +2056,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Pomoč</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
@@ -3472,7 +3472,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Iskanje</translation>
     </message>
 </context>
 <context>
@@ -4285,47 +4285,47 @@ Cancel to make a minimal device scan instead.</source>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>stopinje</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>metri</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>kilometri</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>čevlji</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>jardi</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>milje</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>morske milje</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>centimetri</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>milimetri</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>inči</translation>
     </message>
 </context>
 <context>
@@ -4923,7 +4923,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Iskanje</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
@@ -4931,7 +4931,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Povečava</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
