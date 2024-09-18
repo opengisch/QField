@@ -288,10 +288,12 @@ void PluginManager::enableAppPlugin( const QString &uuid )
       loadPlugin( mAvailableAppPlugins[uuid].path(), mAvailableAppPlugins[uuid].name() );
     }
   }
+  callPluginMethod( uuid, "appWideActivated" );
 }
 
 void PluginManager::disableAppPlugin( const QString &uuid )
 {
+  callPluginMethod( uuid, "appWideDisabled" );
   if ( mAvailableAppPlugins.contains( uuid ) )
   {
     if ( mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
@@ -454,4 +456,28 @@ QString PluginManager::findProjectPlugin( const QString &projectPath )
     }
   }
   return QString();
+}
+
+void PluginManager::callPluginMethod( const QString &uuid, const QString &methodName )
+{
+  if ( !mAvailableAppPlugins.contains( uuid ) )
+  {
+    return;
+  }
+
+  const QString pluginPath = mAvailableAppPlugins[uuid].path();
+  if ( !mLoadedPlugins.contains( pluginPath ) )
+  {
+    return;
+  }
+
+  const QPointer<QObject> object = mLoadedPlugins[pluginPath];
+
+  const char *normalizedSignature = QMetaObject::normalizedSignature( ( methodName + "()" ).toStdString().c_str() );
+  const int methodExists = object->metaObject()->indexOfSlot( normalizedSignature );
+
+  if ( methodExists != -1 )
+  {
+    QMetaObject::invokeMethod( object.data(), methodName.toStdString().c_str() );
+  }
 }

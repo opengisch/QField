@@ -2077,12 +2077,6 @@ ApplicationWindow {
     modal: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
     parent: Overlay.overlay
-
-    onUnLoadClicked: function (Uuid) {
-      if (Uuid.search === "qfield-egeniouss-plugin") {
-        positioningSettings.enableEgeniouss = false;
-      }
-    }
   }
 
   DashBoard {
