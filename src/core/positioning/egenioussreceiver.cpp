@@ -11,6 +11,7 @@ EgenioussReceiver::EgenioussReceiver( QObject *parent )
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );
   connect( mTcpSocket, &QTcpSocket::connected, this, &EgenioussReceiver::connected );
   connect( mTcpSocket, &QTcpSocket::disconnected, this, &EgenioussReceiver::disconnected );
+  setValid( true );
 }
 
 void EgenioussReceiver::handleConnectDevice()
