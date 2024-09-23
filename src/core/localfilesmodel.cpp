@@ -249,6 +249,7 @@ void LocalFilesModel::reloadModel()
     {
       const QStringList items = dir.entryList( QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, QDir::DirsFirst | QDir::IgnoreCase );
       QList<Item> folders;
+      QList<Item> files;
       QList<Item> projects;
       QList<Item> datasets;
       for ( const QString &item : items )
@@ -279,9 +280,13 @@ void LocalFilesModel::reloadModel()
           {
             datasets << Item( ItemMetaType::Dataset, ItemType::RasterDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
+          else if ( suffix == QStringLiteral( "log" ) || suffix == QStringLiteral( "txt" ) )
+          {
+            files << Item( ItemMetaType::File, ItemType::OtherFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
+          }
         }
       }
-      mItems << folders << projects << datasets;
+      mItems << folders << projects << datasets << files;
     }
   }
 
