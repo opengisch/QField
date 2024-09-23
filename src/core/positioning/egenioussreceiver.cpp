@@ -21,6 +21,7 @@ void EgenioussReceiver::handleConnectDevice()
 void EgenioussReceiver::connected()
 {
   mSocketState = QAbstractSocket::ConnectedState;
+  mSocketStateString = tr( "Successfully connected" );
   emit socketStateChanged( mSocketState );
   setValid( true );
 }
@@ -35,6 +36,7 @@ void EgenioussReceiver::disconnected()
   if ( mTcpSocket->state() == QAbstractSocket::ConnectedState )
   {
     mSocketState = QAbstractSocket::UnconnectedState;
+    mSocketStateString = tr( "Disconnected" );
     emit socketStateChanged( mSocketState );
   }
 }
@@ -55,27 +57,39 @@ QList<QPair<QString, QVariant>> EgenioussReceiver::details()
 
 void EgenioussReceiver::onReadyRead()
 {
+  const int minimumDataSize = 9;
+  const uint8_t validStartByte = 0xFE;
+  const int payloadHeaderSize = 8;
+
   QByteArray mReceivedData = mTcpSocket->readAll();
-  if ( mReceivedData.size() < 9 )
+  if ( mReceivedData.size() < minimumDataSize )
   {
-    return; // Received data is too short to process.
+    mLastError = tr( "Received data is too short to process" );
+    emit lastErrorChanged( mLastError );
+    return;
   }
-  if ( static_cast<uint8_t>( mReceivedData[0] ) != 0xFE )
+  if ( static_cast<uint8_t>( mReceivedData[0] ) != validStartByte )
   {
-    return; // Invalid start byte
+    mLastError = tr( "Invalid start byte" );
+    emit lastErrorChanged( mLastError );
+    return;
   }
   uint32_t payloadLength;
   QDataStream dataStream( mReceivedData.mid( 4, 4 ) );
   dataStream.setByteOrder( QDataStream::LittleEndian );
   dataStream >> payloadLength;
-  if ( mReceivedData.size() < 8 + payloadLength )
+  if ( mReceivedData.size() < payloadHeaderSize + payloadLength )
   {
-    return; // Received data is too short to contain the payload.
+    mLastError = tr( "Received data is too short to contain the payload" );
+    emit lastErrorChanged( mLastError );
+    return;
   }
-  QJsonDocument jsonDoc = QJsonDocument::fromJson( mReceivedData.mid( 8, payloadLength ) );
+  QJsonDocument jsonDoc = QJsonDocument::fromJson( mReceivedData.mid( payloadHeaderSize, payloadLength ) );
   if ( jsonDoc.isNull() || !jsonDoc.isObject() )
   {
-    return; // Failed to parse JSON
+    mLastError = tr( "Failed to parse JSON" );
+    emit lastErrorChanged( mLastError );
+    return;
   }
   mPayload = jsonDoc.object();
   const double latitude = mPayload.value( "lat" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lat" ).toDouble();
@@ -118,6 +132,8 @@ void EgenioussReceiver::handleError( QAbstractSocket::SocketError error )
       mLastError = tr( "TCP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
       break;
   }
+  mSocketState = QAbstractSocket::UnconnectedState;
+  mSocketStateString = mLastError;
   qInfo() << QStringLiteral( "EgenioussReceiver: Error: %1" ).arg( mLastError );
 
   emit lastErrorChanged( mLastError );

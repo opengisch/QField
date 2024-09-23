@@ -42,7 +42,7 @@ Popup {
   }
 
   function handleEgenioussChange() {
-    if (positioningSettings.enableEgeniouss) {
+    if (positioningSettings.egenioussEnabled) {
       positioningDeviceTypeModel.insert(0, {
           "name": qsTr('Egeniouss'),
           "value": PositioningDeviceModel.EgenioussDevice
@@ -68,14 +68,14 @@ Popup {
           "value": PositioningDeviceModel.SerialPortDevice
         });
     }
-    if (positioningSettings.enableEgeniouss) {
+    if (positioningSettings.egenioussEnabled) {
       positioningDeviceTypeModel.insert(0, {
           "name": qsTr('Egeniouss'),
           "value": PositioningDeviceModel.EgenioussDevice
         });
     }
     positioningDeviceType.model = positioningDeviceTypeModel;
-    positioningSettings.onEnableEgenioussChanged.connect(handleEgenioussChange);
+    positioningSettings.onEgenioussEnabledChanged.connect(handleEgenioussChange);
   }
 
   Page {
