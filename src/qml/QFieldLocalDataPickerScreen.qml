@@ -113,6 +113,8 @@ Page {
                   return qsTr('Projects');
                 case LocalFilesModel.Dataset:
                   return qsTr('Datasets');
+                case LocalFilesModel.File:
+                  return qsTr('Files');
                 case LocalFilesModel.Favorite:
                   return qsTr('Favorites');
                 }
@@ -131,7 +133,7 @@ Page {
           property string itemPath: ItemPath
           property bool itemIsFavorite: ItemIsFavorite
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
-          property bool itemMenuVisible: (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
+          property bool itemMenuVisible: ((ItemType === LocalFilesModel.SimpleFolder || ItemMetaType == LocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
 
           width: parent ? parent.width : undefined
           height: line.height
@@ -167,6 +169,7 @@ Page {
                     return Theme.getThemeVectorIcon('ic_map_green_48dp');
                   case LocalFilesModel.VectorDataset:
                   case LocalFilesModel.RasterDataset:
+                  case LocalFilesModel.OtherFile:
                     return Theme.getThemeVectorIcon('ic_file_green_48dp');
                   }
                 }
@@ -362,7 +365,7 @@ Page {
 
       MenuItem {
         id: sendDatasetTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Dataset
+        enabled: itemMenu.itemMetaType === LocalFilesModel.File || (platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Dataset)
         visible: enabled
 
         font: Theme.defaultFont
