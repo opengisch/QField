@@ -140,7 +140,7 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
 
   if ( mAlgorithm )
   {
-    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "boolean" ) };
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "boolean" ), QStringLiteral( "source" ) };
     const QgsProcessingAlgorithm *algorithm = QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId );
     for ( const QgsProcessingParameterDefinition *definition : algorithm->parameterDefinitions() )
     {
@@ -151,8 +151,10 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
           mHasAdvancedParameters = true;
         }
 
-        mParameters << definition;
-        mValues << definition->defaultValue();
+        if(definition->name() != "INPUT"){
+          mParameters << definition;
+          mValues << definition->defaultValue();
+        }
       }
     }
   }
@@ -282,6 +284,20 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
       {
         const QgsProcessingParameterEnum *parameterEnum = dynamic_cast<const QgsProcessingParameterEnum *>( mParameters.at( index.row() ) );
         configuration["options"] = parameterEnum->options();
+      }
+      else if ( mParameters.at( index.row() )->type() == QStringLiteral( "source" ) )
+      {
+        QMap<QString, QgsMapLayer *> map = QgsProject::instance()->mapLayers();
+        QStringList list;
+        QgsProcessingContext context;
+        context.setProject( QgsProject::instance());
+        for (auto it = map.begin(); it != map.end(); ++it) {
+          // only consider vector layers for now
+          if ( it.value()->type() ==  Qgis::LayerType::Vector && QgsProcessingUtils::variantToSource( it.value()->name(), context, mParameters.at( index.row() )->defaultValue() ) )  {
+            list.append(it.value()->name());
+          }
+        }
+        configuration["options"] = list;
       }
       return configuration;
   }
