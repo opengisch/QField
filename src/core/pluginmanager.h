@@ -115,7 +115,7 @@ class PluginManager : public QObject
 
   private slots:
     void handleWarnings( const QList<QQmlError> &warnings );
-    void callPluginMethod( const QString &uuid, const QString &slotName );
+    void callPluginMethod( const QString &uuid, const QString &methodName );
 
   private:
     QQmlEngine *mEngine = nullptr;
