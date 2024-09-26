@@ -2924,6 +2924,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Remove from favorites</source>
         <translation>从收藏夹中移除</translation>
     </message>
+    <message>
+        <source>Files</source>
+        <translation>文件</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

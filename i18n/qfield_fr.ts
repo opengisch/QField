@@ -2924,6 +2924,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Remove from favorites</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

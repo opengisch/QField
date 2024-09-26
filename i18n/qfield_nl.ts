@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>QField app-mappen</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>QField app-map</translation>
     </message>
 </context>
 <context>
@@ -447,7 +447,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometrie</translation>
     </message>
 </context>
 <context>
@@ -568,7 +568,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>De verzamelde posities voldoen niet aan het vereiste</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -579,7 +579,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Leeg</translation>
     </message>
 </context>
 <context>
@@ -604,11 +604,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>De geometrie kon niet in meerdere onderdelen worden gewijzigd</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>De geometrie kon niet worden gewijzigd</translation>
     </message>
 </context>
 <context>
@@ -641,27 +641,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Maak een foto</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Maak een video</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Neem een ​​audioclip op</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Voeg een galerij-item toe</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Bestand toevoegen</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Schets iets</translation>
     </message>
 </context>
 <context>
@@ -716,11 +716,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>De laatst ingevoerde waarde voor dit veld wordt onthouden en hergebruikt bij het maken van nieuwe objecten</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>De laatst ingevoerde waarde voor dit veld wordt niet hergebruikt bij het maken van een nieuw objecten</translation>
     </message>
 </context>
 <context>
@@ -850,7 +850,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Verwerkingsalgoritmen</translation>
     </message>
 </context>
 <context>
@@ -1048,14 +1048,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>QField documentatie</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigatie</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -2924,6 +2924,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4927,7 +4931,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Met deze knop wordt het dashboard geopend. Met het dashboard kunt u communiceren met de legenda en het kaartthema, of beginnen met digitaliseren door de bewerkingsmodus te activeren. Door de knop lang in te drukken, krijgt u direct toegang tot het hoofdmenu.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4935,7 +4939,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Met deze knop schakelt u tussen het positioneringssysteem. Indien ingeschakeld, verschijnt er een positiemarkering bovenaan de kaart. Als u lang op de knop drukt, wordt het positioneringsmenu geopend, waar u aanvullende functionaliteiten kunt verkennen.</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4943,7 +4947,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>De zoekbalk biedt u een snelle manier om objecten binnen uw project te vinden, naar een getypt lengte- en breedtegraad te springen, en nog veel meer.</translation>
     </message>
     <message>
         <source>Zoom</source>
@@ -5001,35 +5005,35 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>tst_qFieldGuide</name>
     <message>
         <source>dummyItem1</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem1</translation>
     </message>
     <message>
         <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem1 verantwoordelijkheid.</translation>
     </message>
     <message>
         <source>dummyItem2</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem2</translation>
     </message>
     <message>
         <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem2 verantwoordelijkheid.</translation>
     </message>
     <message>
         <source>dummyItem3</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem3</translation>
     </message>
     <message>
         <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem3 verantwoordelijkheid.</translation>
     </message>
     <message>
         <source>dummyItem4</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem4</translation>
     </message>
     <message>
         <source>dummyItem4 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem4 verantwoordelijkheid.</translation>
     </message>
 </context>
 </TS>

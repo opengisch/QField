@@ -2929,6 +2929,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>Remove from favorites</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

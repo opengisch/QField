@@ -2930,6 +2930,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Remove from favorites</source>
         <translation>Usuń z ulubionych</translation>
     </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

@@ -2920,6 +2920,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Remove from favorites</source>
         <translation>Eltávolítás a Kedvencek közül</translation>
     </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

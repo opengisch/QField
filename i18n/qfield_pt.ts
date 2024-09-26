@@ -2928,6 +2928,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>Remove from favorites</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>

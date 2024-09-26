@@ -1961,15 +1961,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>ruudukko</translation>
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>ortho.</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ant.</translation>
     </message>
 </context>
 <context>
@@ -2126,15 +2126,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Tietojen leimaus käytössä</translation>
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Leveyspiiri (Latitude)</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Pituuspiiri (Longitude)</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2146,11 +2146,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Suunta</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Tietojen leimaus pois päältä</translation>
     </message>
 </context>
 <context>
@@ -2777,11 +2777,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Pilviprojekteja ei löytynyt. Aloita %1lukemalla dokumentaatio%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Etsi projekti</translation>
     </message>
 </context>
 <context>
@@ -2922,10 +2922,14 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Lisää suosikkeihin</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation>Poista suosikeista</translation>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3347,19 +3351,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Huono tarkkuus raja-arvo [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Erinomainen tarkkuus raja-arvo [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Vaadi tarkkuusvaatimus</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Kun tarkkuusosoitin on käytössä, sijaintipainikkeeseen kiinnitetään merkki, joka värjätään &lt;span %1&gt;punaiseksi, jos tarkkuusarvo on huonompi, &lt;span %2&gt;keltaiseksi, jos se ei ole erinomainen, tai &lt;span %3. &gt;vihreä.Lisäksi voidaan kytkeä päälle tarkkuusrajoitustila, joka rajoittaa taitepisteiden lisäämistä kun koordinaattikursori lukittu  paikkoihin, joiden tarkkuusarvo on huonompi kuin huonon raja-arvo.</translation>
     </message>
 </context>
 <context>
@@ -4156,11 +4160,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Globaalit muuttujat</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Projektin muuttujat</translation>
     </message>
 </context>
 <context>
@@ -4285,7 +4289,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit arvostelun.</translation>
     </message>
 </context>
 <context>
@@ -4925,11 +4929,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation>Kojelauta (dashboard)</translation>
+        <translation>Hallintapaneeli</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation>Tämä painike avaa kojelaudan. Kojelaudan avulla voit olla vuorovaikutuksessa selitteen ja karttateeman kanssa tai aloittaa digitoinnin aktivoimalla muokkaustilan. Painamalla pitkään painiketta pääset välittömästi päävalikkoon.</translation>
+        <translation>Tämä painike avaa hallintapaneelin. Hallintapaneelin avulla voit olla vuorovaikutuksessa selitteen ja karttateeman kanssa tai aloittaa digitoinnin aktivoimalla muokkaustilan. Painamalla pitkään painiketta pääset välittömästi päävalikkoon.</translation>
     </message>
     <message>
         <source>Positioning</source>

@@ -2958,6 +2958,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Remove from favorites</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
