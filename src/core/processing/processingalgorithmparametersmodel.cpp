@@ -151,7 +151,8 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
           mHasAdvancedParameters = true;
         }
 
-        if(definition->name() != "INPUT"){
+        if ( definition->name() != "INPUT" )
+        {
           mParameters << definition;
           mValues << definition->defaultValue();
         }
@@ -290,11 +291,13 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
         QMap<QString, QgsMapLayer *> map = QgsProject::instance()->mapLayers();
         QStringList list;
         QgsProcessingContext context;
-        context.setProject( QgsProject::instance());
-        for (auto it = map.begin(); it != map.end(); ++it) {
+        context.setProject( QgsProject::instance() );
+        for ( auto it = map.begin(); it != map.end(); ++it )
+        {
           // only consider vector layers for now
-          if ( it.value()->type() ==  Qgis::LayerType::Vector && QgsProcessingUtils::variantToSource( it.value()->name(), context, mParameters.at( index.row() )->defaultValue() ) )  {
-            list.append(it.value()->name());
+          if ( it.value()->type() == Qgis::LayerType::Vector && QgsProcessingUtils::variantToSource( it.value()->name(), context, mParameters.at( index.row() )->defaultValue() ) )
+          {
+            list.append( it.value()->name() );
           }
         }
         configuration["options"] = list;
