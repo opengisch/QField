@@ -20,10 +20,12 @@ ProcessingParameterWidgetBase {
 
       width: parent.width
       model: configuration["options"]
+      textRole: "key"
+      valueRole: "value"
 
-      onCurrentTextChanged: {
-        if (currentText != value) {
-          valueChangeRequested(currentText);
+      onCurrentValueChanged: {
+        if (currentValue != value) {
+          valueChangeRequested(currentValue);
         }
       }
     }

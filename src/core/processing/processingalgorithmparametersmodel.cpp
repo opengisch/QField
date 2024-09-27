@@ -289,15 +289,17 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
       else if ( mParameters.at( index.row() )->type() == QStringLiteral( "source" ) )
       {
         QMap<QString, QgsMapLayer *> map = QgsProject::instance()->mapLayers();
-        QStringList list;
+        QVariantList list;
+        QVariantMap supportedLayers;
         QgsProcessingContext context;
         context.setProject( QgsProject::instance() );
         for ( auto it = map.begin(); it != map.end(); ++it )
         {
-          // only consider vector layers for now
           if ( it.value()->type() == Qgis::LayerType::Vector && QgsProcessingUtils::variantToSource( it.value()->name(), context, mParameters.at( index.row() )->defaultValue() ) )
           {
-            list.append( it.value()->name() );
+            supportedLayers["key"] = it.value()->name();
+            supportedLayers["value"] = it.key();
+            list.append( supportedLayers );
           }
         }
         configuration["options"] = list;
