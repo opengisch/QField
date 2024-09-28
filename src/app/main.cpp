@@ -30,6 +30,7 @@
 #include <qgsapplication.h>
 #include <qgslogger.h>
 #include <qgsprojutils.h>
+#include <qgsstyle.h>
 
 #ifdef WITH_SPIX
 #include <Spix/AnyRpcServer.h>
@@ -144,10 +145,10 @@ int main( int argc, char **argv )
     QgsApplication::setLocale( QLocale() );
   }
 
-  const QString qfieldFont( qgetenv( "QFIELD_FONT_TTF" ) );
-  if ( !qfieldFont.isEmpty() )
+  const QString qfieldFontName( qgetenv( "QFIELD_FONT_NAME" ) );
+  if ( !qfieldFontName.isEmpty() )
   {
-    const QString qfieldFontName( qgetenv( "QFIELD_FONT_NAME" ) );
+    const QString qfieldFont( qgetenv( "QFIELD_FONT_TTF" ) );
     const int qfieldFontSize = QString( qgetenv( "QFIELD_FONT_SIZE" ) ).toInt();
     QFontDatabase::addApplicationFont( qfieldFont );
     app.setFont( QFont( qfieldFontName, qfieldFontSize ) );
@@ -195,6 +196,16 @@ int main( int argc, char **argv )
   app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
 #endif
   app.createDatabase();
+
+  if ( !qfieldFontName.isEmpty() )
+  {
+    QgsStyle *defaultStyle = QgsStyle::defaultStyle();
+    QgsTextFormat textFormat = defaultStyle->defaultTextFormat();
+    QFont font = textFormat.font();
+    font.setFamily( qfieldFontName );
+    textFormat.setFont( font );
+    defaultStyle->addTextFormat( QStringLiteral( "Default" ), textFormat, true );
+  }
 
   QSettings::setDefaultFormat( QSettings::NativeFormat );
 
