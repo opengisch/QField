@@ -2129,10 +2129,6 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2147,6 +2143,14 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Speed</source>
         <translation>Velocidade</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2921,6 +2925,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>Remove from favorites</source>
         <translation>Eliminar de favoritos</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4187,7 +4195,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Xenial! Encantaríanos que premeses o botón de abaixo e deixaras un comentario na tenda.</translation>
+        <translation type="vanished">Xenial! Encantaríanos que premeses o botón de abaixo e deixaras un comentario na tenda.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4276,6 +4284,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Benvido a QField. Primeira vez utilizando a aplicación? Proba os proxectos de exemplo listados abaixo.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

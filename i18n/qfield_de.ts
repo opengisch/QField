@@ -739,11 +739,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Rückgängig gemachte Feature-Änderung in Ebene &quot;%1&quot; konnte nicht übertragen werden</translation>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Rollback von rückgängig gemachten Featureänderungen in Ebene &quot;%1&quot; fehlgeschlagen</translation>
     </message>
 </context>
 <context>
@@ -1344,7 +1344,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Gibt QField-Dokumentationsseiten zurück, die den Begriffen entsprechen.</translation>
     </message>
 </context>
 <context>
@@ -1378,11 +1378,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn er deaktiviert ist, kann dieser Positionsgeber-Filter immer noch verwendet werden, indem das Präfix %1 in die Suchleiste eingegeben wird.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>%1 Positionsgeber standardmäßig einschalten</translation>
     </message>
 </context>
 <context>
@@ -1413,7 +1413,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Log-Laufzeit-Profiler</translation>
     </message>
     <message>
         <source>Type optional details</source>
@@ -1617,7 +1617,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>NmeaGnssReceiver</name>
     <message>
         <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
+        <translation>Die IMU-Position konnte nicht analysiert werden: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -1960,7 +1960,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>Raster</translation>
     </message>
     <message>
         <source>ortho.</source>
@@ -2128,16 +2128,12 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Breitengrad</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Längengrad</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2146,6 +2142,14 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Speed</source>
         <translation>Geschw.</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>Himmelsrichtung </translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2918,6 +2922,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Remove from favorites</source>
         <translation>Aus Favoriten entfernen</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4184,7 +4192,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Das ist großartig! Wir würden uns freuen, wenn Du auf die Schaltfläche unten klickst und einen Kommentar zum Shop hinterlässt.</translation>
+        <translation type="vanished">Das ist großartig! Wir würden uns freuen, wenn Du auf die Schaltfläche unten klickst und einen Kommentar zum Shop hinterlässt.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4273,6 +4281,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Willkommen bei QField. Sind sie zum erstene mal hier? Schauen sie sich doch mal die Beispielprojekte an.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

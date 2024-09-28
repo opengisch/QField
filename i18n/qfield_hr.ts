@@ -2131,10 +2131,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2149,6 +2145,14 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Speed</source>
         <translation>Brzina</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2918,6 +2922,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4185,7 +4193,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Odlično! Voljeli bi da kliknete na donje dugme i u ostavite komentar u trgovini.</translation>
+        <translation type="vanished">Odlično! Voljeli bi da kliknete na donje dugme i u ostavite komentar u trgovini.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4274,6 +4282,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Dobrodošli u QField. Prvi puta koristite aplikaciju? Probajte primjere projekata koji su popisani ispod.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

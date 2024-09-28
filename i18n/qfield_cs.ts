@@ -2133,10 +2133,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2151,6 +2147,14 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Speed</source>
         <translation>Rychlost</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2923,6 +2927,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4190,7 +4198,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>To je skvělé! Budeme rádi, když kliknete na tlačítko níže a zanecháte komentář k obchodu.</translation>
+        <translation type="vanished">To je skvělé! Budeme rádi, když kliknete na tlačítko níže a zanecháte komentář k obchodu.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4279,6 +4287,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Vítejte v QFieldu. Poprvé používáte tuto aplikaci? Vyzkoušejte vzorové projekty uvedené níže.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

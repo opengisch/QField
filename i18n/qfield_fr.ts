@@ -769,11 +769,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>Un certain nombre d&apos;entités sont suivis, arrêtez le suivi pour les supprimer</translation>
+        <translation>Un certain nombre d&apos;entités sont suivies, arrêtez le suivi pour les supprimer</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>Un certain nombre d&apos;entités sont suivis, arrêtez le suivi pour les fusionner</translation>
+        <translation>Un certain nombre d&apos;entités sont suivies, arrêtez le suivi pour les fusionner</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
@@ -1322,7 +1322,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Retourne une liste d&apos;entités de la couche active avec les attributs correspondants. La restriction de la correspondance à un seul attribut est réalisée en précisant son nom avec le préfixe &apos;@&apos;.</translation>
+        <translation>Renvoie une liste d&apos;entités de la couche active avec les attributs correspondants. La restriction de la correspondance à un seul attribut est réalisée en précisant son nom avec le préfixe &apos;@&apos;.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
@@ -1346,7 +1346,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation>Retourne les pages de documentation de QField correspondant aux termes.</translation>
+        <translation>Renvoie les pages de documentation de QField correspondant aux termes.</translation>
     </message>
 </context>
 <context>
@@ -2123,23 +2123,19 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
+        <translation>Le géo-étiquetage d&apos;image exige que la géolocalisation soit activée</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Latitude</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Longitude</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2148,6 +2144,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Speed</source>
         <translation>Vitesse</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2769,7 +2773,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun projet cloud trouvé. Pour commencer %1consulter la documentation%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
@@ -2906,11 +2910,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
+        <translation>Pousser vers QFieldCloud...</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>‘%1’ est en train d&apos;être téléversé vers QFieldCloud</translation>
     </message>
     <message>
         <source>Add to favorites</source>
@@ -2918,6 +2922,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2945,7 +2953,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Activé, les coordonnées telles que la latitude et la longitude seront superposées sur la carte pendant la numérisation de nouvelles entités ou l&apos;utilisation de l&apos;outil de mesure.</translation>
+        <translation>Si activé, les coordonnées telles que la latitude et la longitude seront superposées sur la carte pendant la numérisation de nouvelles entités ou l&apos;utilisation de l&apos;outil de mesure.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -2953,7 +2961,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Lorsqu&apos;il est activé, les signets de projet enregistrés et actuellement ouverts par l&apos;utilisateur seront affichés sur la carte.</translation>
+        <translation>Si activé, les signets de projet enregistrés et actuellement ouverts par l&apos;utilisateur seront affichés sur la carte.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -3338,19 +3346,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Mauvais seuil de précision [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Excellent seuil de précision [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Renforcer les exigences de précisions</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsque l&apos;indicateur de précision est activé, un badge est attaché au bouton de localisation et est coloré en &lt;span %1&gt;rouge&lt;/span&gt; si la valeur est plus que &lt;i&gt;mauvaise&lt;/i&gt;, &lt;span %2&gt;jaune&lt;/span&gt; si elle n&apos;est pas &lt;i&gt;excellente&lt;/i&gt;, ou &lt;span %3&gt;vert&lt;/span&gt;.&lt;br&gt;&lt;br&gt;De plus, un mode restrictif peut être activé, empêchant l&apos;ajout de sommets lorsque la précision des coordonnées du curseur est mauvaise.</translation>
     </message>
 </context>
 <context>
@@ -3785,7 +3793,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation>Suivi: %1</translation>
+        <translation>Suivi : %1</translation>
     </message>
     <message>
         <source>Tracking</source>
@@ -3805,7 +3813,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation>Quand activé, l&apos;ajout de nouveau sommet sera possible si le délai avec le sommet précédent respecte la valeur minimum définie.</translation>
+        <translation>Si activé, l&apos;ajout d&apos;un nouveau sommet sera possible si le délai avec le sommet précédent respecte la valeur minimum définie.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
@@ -3817,7 +3825,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation>Quand activé, l&apos;ajout de nouveau sommet sera possible si la distance avec le sommet précédent respecte la valeur minimum définie.</translation>
+        <translation>Si activé, l&apos;ajout d&apos;un nouveau sommet sera possible si la distance avec le sommet précédent respecte la valeur minimum définie.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
@@ -3825,7 +3833,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation>Lorsqu&apos;il est activé, les ajouts de sommets se produiront lorsque les capteurs auront capturé de nouvelles données.</translation>
+        <translation>Si activé, les ajouts de sommets se produiront lorsque les capteurs auront capturé de nouvelles données.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
@@ -3841,15 +3849,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Protection de distance erronée</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation>Distance maximum tolérée [%1]</translation>
+        <translation>Distance maximale tolérée [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation>Quand activé, l&apos;ajout de nouveau sommet ne sera pas possible si la distance avec le sommet précédent dépasse la valeur maximum définie.</translation>
+        <translation>Si activé, l&apos;ajout d&apos;un nouveau sommet ne sera pas possible si la distance avec le sommet précédent dépasse la valeur maximum définie.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -4147,11 +4155,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables globales</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables de projet</translation>
     </message>
 </context>
 <context>
@@ -4184,7 +4192,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Super ! Nous adorerions que vous cliquiez sur le bouton ci-dessous et laissiez un commentaire sur le magasin d&apos;applications.</translation>
+        <translation type="vanished">Super ! Nous adorerions que vous cliquiez sur le bouton ci-dessous et laissiez un commentaire sur le magasin d&apos;applications.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4275,6 +4283,10 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Bienvenue sur QField.
 Première utilisation de cette application ?
 Essayez les exemples de projets répertoriés ci-dessous.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

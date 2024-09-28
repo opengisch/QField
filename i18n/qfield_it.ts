@@ -2131,10 +2131,6 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2149,6 +2145,14 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Speed</source>
         <translation>Velocità</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2925,6 +2929,10 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4192,7 +4200,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Grandioso! Sarebbe fantastico se cliccassi sul pulsante qui sotto e lasciassi una recensione sullo Store.</translation>
+        <translation type="vanished">Grandioso! Sarebbe fantastico se cliccassi sul pulsante qui sotto e lasciassi una recensione sullo Store.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4281,6 +4289,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Benvenuti in QField! È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
