@@ -2124,11 +2124,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation>详细水印已启用</translation>
-    </message>
-    <message>
-        <source>Details tamping disabled</source>
-        <translation>详细水印已禁用</translation>
+        <translation>戳记已启用</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2145,6 +2141,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Speed</source>
         <translation>速度</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation>戳记已禁用</translation>
     </message>
 </context>
 <context>
@@ -2920,6 +2924,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Remove from favorites</source>
         <translation>从收藏夹中移除</translation>
     </message>
+    <message>
+        <source>Files</source>
+        <translation>文件</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
@@ -3331,7 +3339,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation>启用地图旋转</translation>
+        <translation>旋转地图</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
@@ -4185,7 +4193,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>非常好！希望您单击下面的按钮，并在应用商店中留言。</translation>
+        <translation type="vanished">非常好！希望您单击下面的按钮，并在应用商店中留言。</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4274,6 +4282,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>欢迎来到QField！是第一次使用本应用吗？请试试下面的示例工程吧。</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>太棒了！希望您点击下面的按钮并留下评论。</translation>
     </message>
 </context>
 <context>
@@ -4909,7 +4921,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation>启用地图旋转</translation>
+        <translation>旋转地图</translation>
     </message>
     <message>
         <source>Dashboard</source>

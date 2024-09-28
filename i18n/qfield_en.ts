@@ -2152,10 +2152,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2170,6 +2166,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Speed</source>
         <translation type="unfinished">Speed</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2952,6 +2956,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4222,7 +4230,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</translation>
+        <translation type="vanished">That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4310,6 +4318,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
