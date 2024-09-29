@@ -37,6 +37,7 @@
         <file>processingparameterwidgets/enum.qml</file>
         <file>processingparameterwidgets/distance.qml</file>
         <file>processingparameterwidgets/number.qml</file>
+        <file>processingparameterwidgets/source.qml</file>
         <file>QFieldAudioRecorder.qml</file>
         <file>QFieldCamera.qml</file>
         <file>QFieldSettings.qml</file>

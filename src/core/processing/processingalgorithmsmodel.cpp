@@ -171,7 +171,7 @@ void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider
           break;
         }
 
-        if ( parameter->type() == QStringLiteral( "source" ) && ( featureBasedAlgorithm && parameter->name() != featureBasedAlgorithm->inputParameterName() || parameter->name() != QStringLiteral( "INPUT" ) ) )
+        if ( parameter->type() == QStringLiteral( "source" ) && featureBasedAlgorithm && parameter->name() != featureBasedAlgorithm->inputParameterName() )
         {
           isSupported = false;
           break;
