@@ -484,10 +484,10 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
           continue;
 
         QgsField field = mLayer->fields().at( fieldIndex );
+        const QgsEditorWidgetSetup setup = findBest( fieldIndex );
 
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
-        item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
-        const QgsEditorWidgetSetup setup = findBest( fieldIndex );
+        item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) && setup.type() != QStringLiteral( "Binary" ), AttributeFormModel::AttributeEditable );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
@@ -1041,6 +1041,11 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
     {
       // on numeric types, take "Range"
       return QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
+    }
+    else if ( field.typeName() == QStringLiteral( "Binary" ) )
+    {
+      // on blob type, take "Binary"
+      return QgsEditorWidgetSetup( QStringLiteral( "Binary" ), QVariantMap() );
     }
   }
 
