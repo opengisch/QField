@@ -360,7 +360,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   {
     QString code = mEditorWidgetCodes[item];
 
-    QRegularExpression re( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)" );
+    QRegularExpression re( R"re(expression\.evaluate\s*\(\s*"(.*?[^\\])"\))re", QRegularExpression::PatternOption::MultilineOption | QRegularExpression::PatternOption::DotMatchesEverythingOption );
     QRegularExpressionMatch match = re.match( code );
     while ( match.hasMatch() )
     {
