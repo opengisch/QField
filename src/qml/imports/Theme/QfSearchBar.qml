@@ -6,7 +6,7 @@ import Theme
 Item {
   id: searchBar
 
-  property alias searchTerm: searchField.text
+  property alias searchTerm: searchField.displayText
   property string placeHolderText: qsTr("Search")
 
   signal returnPressed
@@ -69,6 +69,10 @@ Item {
 
   function focusOnTextField() {
     searchField.forceActiveFocus();
+  }
+
+  function setSearchTerm(term) {
+    searchField.text = term;
   }
 
   function clear() {
