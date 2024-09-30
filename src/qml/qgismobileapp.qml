@@ -3827,11 +3827,16 @@ ApplicationWindow {
   Changelog {
     id: changelogPopup
     objectName: 'changelogPopup'
-
     parent: Overlay.overlay
 
-    property var expireDate: new Date(2038, 1, 19)
-    visible: settings && settings.value("/QField/ChangelogVersion", "") !== appVersion && expireDate > new Date()
+    Component.onCompleted: {
+      const changelogVersion = settings.value("/QField/ChangelogVersion", "");
+      if (changelogVersion === "") {
+        settings.setValue("/QField/ChangelogVersion", appVersion);
+      } else if (changelogVersion !== appVersion) {
+        open();
+      }
+    }
   }
 
   Toast {
