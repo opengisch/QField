@@ -31,7 +31,7 @@ QfVisibilityFadingRow {
   property GeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
-  property string image: Theme.getThemeIcon("ic_edit_geometry_white")
+  property string image: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
 
   spacing: 4
 
@@ -174,7 +174,7 @@ QfVisibilityFadingRow {
       toolbarRow.source = '';
       vertexRubberband.isVisible = false;
       selectorRow.stateVisible = true;
-      image = Theme.getThemeIcon("ic_edit_geometry_white");
+      image = Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp");
       settings.setValue("/QField/GeometryEditorLastUsed", -1);
     }
   }

@@ -1285,7 +1285,7 @@ ApplicationWindow {
       QfCloseButton {
         id: abortRequestGeometry
         visible: digitizingToolbar.geometryRequested
-        toolImage: Theme.getThemeIcon("ic_edit_geometry_white")
+        toolImage: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
         toolText: qsTr('Cancel addition')
 
         onClose: digitizingToolbar.cancel()

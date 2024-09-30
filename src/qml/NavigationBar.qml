@@ -300,7 +300,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    iconSource: Theme.getThemeIcon("ic_edit_geometry_white")
+    iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
 
     width: visible ? 48 : 0
     height: 48
@@ -341,7 +341,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_edit_attributes_white")
+    iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
 
     onClicked: {
       toolBar.editAttributesButtonClicked();
@@ -454,7 +454,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_edit_attributes_white")
+    iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
 
     enabled: toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
