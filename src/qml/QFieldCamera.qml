@@ -502,7 +502,7 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 4
 
-      iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+      iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
       iconColor: "white"
       bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.5)
       round: true

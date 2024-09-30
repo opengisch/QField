@@ -283,7 +283,7 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+      iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
       iconColor: "white"
       bgcolor: Theme.darkGraySemiOpaque
       round: true
