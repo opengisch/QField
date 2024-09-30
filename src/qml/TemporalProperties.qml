@@ -84,7 +84,7 @@ Popup {
         }
 
         QfToolButton {
-          iconSource: Theme.getThemeIcon("ic_calendar_month_black_24dp")
+          iconSource: Theme.getThemeVectorIcon("ic_calendar_month_black_24dp")
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           onClicked: {
@@ -133,7 +133,7 @@ Popup {
         }
 
         QfToolButton {
-          iconSource: Theme.getThemeIcon("ic_calendar_month_black_24dp")
+          iconSource: Theme.getThemeVectorIcon("ic_calendar_month_black_24dp")
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           onClicked: {

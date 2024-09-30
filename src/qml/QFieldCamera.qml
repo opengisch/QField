@@ -597,7 +597,7 @@ Popup {
         height: 40
         padding: 2
 
-        iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+        iconSource: positionSource.active ? Theme.getThemeVectorIcon("ic_geotag_white_24dp") : Theme.getThemeVectorIcon("ic_geotag_missing_white_24dp")
         iconColor: cameraSettings.geoTagging ? Theme.mainColor : "white"
         bgcolor: Theme.darkGraySemiOpaque
         round: true

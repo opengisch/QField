@@ -41,23 +41,8 @@
         <file>themes/qfield/nodpi/ic_print_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_home_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_transfer_into_black_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_add_circle_outline_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/nodpi/ic_remove_white_24dp.svg</file>
-        <file>themes/qfield/mdpi/ic_add_circle_outline_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_add_circle_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_add_circle_outline_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_add_circle_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_add_circle_outline_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_add_circle_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_add_circle_outline_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/nodpi/ic_create_white_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_create_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_create_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_create_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_create_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_create_white_24dp.png</file>
         <file>themes/qfield/nodpi/ic_clear_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_add_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_add_vertex_white_24dp.svg</file>
@@ -77,28 +62,11 @@
         <file>themes/qfield/nodpi/ic_sd_card_gray_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_sensor_on_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_sensor_off_black_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_merge_features_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_merge_features_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_merge_features_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_merge_features_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_merge_features_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_calendar_month_black_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_calendar_month_black_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_calendar_month_black_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_calendar_month_black_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_calendar_month_black_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_merge_features_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_calendar_month_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_calendar_today_black_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_calendar_today_black_18dp.png</file>
-        <file>themes/qfield/mdpi/ic_calendar_today_black_18dp.png</file>
-        <file>themes/qfield/xhdpi/ic_calendar_today_black_18dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_calendar_today_black_18dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_calendar_today_black_18dp.png</file>
         <file>themes/qfield/nodpi/ic_close_white_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_ellipsis_green_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_ellipsis_green_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_ellipsis_green_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_ellipsis_green_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_ellipsis_green_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_ellipsis_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_active_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_attention_24dp.svg</file>
@@ -111,40 +79,15 @@
         <file>themes/qfield/nodpi/ic_cloud_project_download_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_upload_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_localonly_48dp.svg</file>
-        <file>themes/qfield/hdpi/ic_geotag_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_geotag_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_geotag_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_geotag_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_geotag_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_geotag_missing_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_geotag_missing_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_geotag_missing_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_geotag_missing_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_geotag_missing_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_geotag_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_geotag_missing_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_compass_arrow_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_chevron_left_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_chevron_right_white_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_fullscreen_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_fullscreen_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_fullscreen_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_fullscreen_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_fullscreen_white_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_fullscreen_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_duplicate_black_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_delete_forever_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_delete_forever_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_delete_forever_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_delete_forever_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_delete_forever_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_dot_menu_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_dot_menu_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_dot_menu_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_dot_menu_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_dot_menu_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_dot_menu_gray_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_dot_menu_gray_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_dot_menu_gray_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_dot_menu_gray_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_dot_menu_gray_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_delete_forever_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_dot_menu_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_flashlight_white_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_flashlight_green_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_gallery_black_24dp.svg</file>
@@ -155,11 +98,6 @@
         <file>themes/qfield/nodpi/ic_camera_photo_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_camera_video_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_photo_notavailable_black_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_print_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_print_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_print_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_print_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_print_white_24dp.png</file>
         <file>themes/qfield/nodpi/ic_alarm_purple_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_alarm_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_alert_black_24dp.svg</file>
@@ -186,26 +124,10 @@
         <file>themes/qfield/nodpi/ic_edit_geometry_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_edit_attributes_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_baseline_search_white.svg</file>
-        <file>themes/qfield/hdpi/ic_doublearrow_left_black_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_doublearrow_left_black_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_doublearrow_left_black_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_doublearrow_left_black_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_doublearrow_left_black_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_doublearrow_right_black_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_doublearrow_right_black_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_doublearrow_right_black_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_doublearrow_right_black_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_doublearrow_right_black_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_arrow_left_black_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_arrow_right_black_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_arrow_left_black_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_arrow_right_black_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_arrow_left_black_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_arrow_right_black_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_arrow_left_black_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_arrow_right_black_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_arrow_left_black_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_arrow_right_black_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_doublearrow_left_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_doublearrow_right_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_arrow_left_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_arrow_right_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_split_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_reshape_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_erase_tool_white_24dp.svg</file>
@@ -215,16 +137,6 @@
         <file>themes/qfield/nodpi/ic_ring_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_vertex_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_view_black_24dp.svg</file>
-        <file>themes/qfield/hdpi/content-cut.png</file>
-        <file>themes/qfield/mdpi/content-cut.png</file>
-        <file>themes/qfield/xhdpi/content-cut.png</file>
-        <file>themes/qfield/xxhdpi/content-cut.png</file>
-        <file>themes/qfield/xxxhdpi/content-cut.png</file>
-        <file>themes/qfield/hdpi/more_horiz.png</file>
-        <file>themes/qfield/mdpi/more_horiz.png</file>
-        <file>themes/qfield/xhdpi/more_horiz.png</file>
-        <file>themes/qfield/xxhdpi/more_horiz.png</file>
-        <file>themes/qfield/xxxhdpi/more_horiz.png</file>
         <file>themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_bookmark_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_legend_collapsed_state_24dp.svg</file>

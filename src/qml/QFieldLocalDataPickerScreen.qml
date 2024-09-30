@@ -241,7 +241,7 @@ Page {
               Layout.bottomMargin: 5
 
               bgcolor: "transparent"
-              iconSource: Theme.getThemeIcon("ic_dot_menu_gray_24dp")
+              iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
               iconColor: Theme.mainTextColor
 
               onClicked: {

@@ -381,7 +381,8 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_dot_menu_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+    iconColor: "white"
 
     onClicked: {
       if (toolBar.state == "Indication") {
@@ -508,7 +509,7 @@ Rectangle {
 
     MenuItem {
       text: qsTr('Print Atlas Feature(s) to PDF')
-      icon.source: Theme.getThemeIcon("ic_print_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
       enabled: toolBar.model && toolBar.model.selectedCount > 0 && LayerUtils.isAtlasCoverageLayer(toolBar.model.selectedLayer)
 
       font: Theme.defaultFont
@@ -531,7 +532,7 @@ Rectangle {
     MenuItem {
       id: mergeSelectedFeaturesBtn
       text: qsTr('Merge Selected Features')
-      icon.source: Theme.getThemeIcon("ic_merge_features_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_merge_features_white_24dp")
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
       font: Theme.defaultFont
@@ -567,7 +568,7 @@ Rectangle {
     MenuItem {
       id: deleteSelectedFeaturesBtn
       text: qsTr('Delete Selected Feature(s)')
-      icon.source: Theme.getThemeIcon("ic_delete_forever_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
       enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
       visible: enabled
       height: enabled ? undefined : 0
@@ -665,7 +666,7 @@ Rectangle {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeIcon("ic_print_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
         enabled: LayerUtils.isAtlasCoverageLayer(selection.focusedLayer)
@@ -699,7 +700,7 @@ Rectangle {
 
     MenuItem {
       text: qsTr('Zoom to Feature')
-      icon.source: Theme.getThemeIcon("ic_fullscreen_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_fullscreen_white_24dp")
 
       font: Theme.defaultFont
       height: 48
@@ -771,7 +772,7 @@ Rectangle {
     MenuItem {
       id: deleteFeatureBtn
       text: qsTr('Delete Feature')
-      icon.source: Theme.getThemeIcon("ic_delete_forever_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
       enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !selection.focusedLayer.customProperty("QFieldSync/is_geometry_locked", false)))
       visible: enabled
 

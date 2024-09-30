@@ -243,7 +243,7 @@ EditorWidgetBase {
         fillMode: Image.PreserveAspectFit
         width: 24
         height: 24
-        source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+        source: hasGeoTag ? Theme.getThemeVectorIcon("ic_geotag_white_24dp") : Theme.getThemeVectorIcon("ic_geotag_missing_white_24dp")
         sourceSize.width: 24 * Screen.devicePixelRatio
         sourceSize.height: 24 * Screen.devicePixelRatio
       }
