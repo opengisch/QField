@@ -105,7 +105,7 @@ EditorWidgetBase {
           enabled: constraintsHardValid
 
           round: false
-          iconSource: Theme.getThemeIcon('ic_add_white_24dp')
+          iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
           bgcolor: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
         }
       }

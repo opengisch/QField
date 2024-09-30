@@ -1169,7 +1169,7 @@ ApplicationWindow {
         anchors.right: parent.right
 
         bgcolor: Theme.darkGray
-        iconSource: Theme.getThemeIcon("ic_add_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
 
         width: 36
         height: 36
@@ -1186,7 +1186,7 @@ ApplicationWindow {
         anchors.right: parent.right
 
         bgcolor: Theme.darkGray
-        iconSource: Theme.getThemeIcon("ic_remove_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
 
         width: 36
         height: 36
