@@ -464,7 +464,8 @@ Page {
                 Layout.alignment: Qt.AlignVCenter
                 clip: true
 
-                iconSource: Theme.getThemeIcon("ic_ellipsis_green_24dp")
+                iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+                iconColor: Theme.mainColor
                 bgcolor: "transparent"
 
                 onClicked: {
@@ -493,7 +494,8 @@ Page {
                 Layout.alignment: Qt.AlignVCenter
                 clip: true
 
-                iconSource: Theme.getThemeIcon("ic_ellipsis_green_24dp")
+                iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+                iconColor: Theme.mainColor
                 bgcolor: "transparent"
 
                 onClicked: {

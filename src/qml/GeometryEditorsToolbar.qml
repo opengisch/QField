@@ -165,7 +165,8 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: activeToolButton
-    iconSource: Theme.getThemeIcon("more_horiz")
+    iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+    iconColor: "white"
     round: true
     visible: !selectorRow.stateVisible && !(toolbarRow.item && toolbarRow.item.stateVisible && toolbarRow.item.blocking)
     bgcolor: Theme.mainColor

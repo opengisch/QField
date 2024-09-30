@@ -337,7 +337,7 @@ EditorWidgetBase {
             height: 40
 
             round: false
-            iconSource: Theme.getThemeIcon('ic_delete_forever_white_24dp')
+            iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
             iconColor: Theme.mainTextColor
             bgcolor: 'transparent'
 
