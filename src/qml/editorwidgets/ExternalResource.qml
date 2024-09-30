@@ -229,7 +229,7 @@ EditorWidgetBase {
       horizontalAlignment: Image.AlignHCenter
       verticalAlignment: Image.AlignVCenter
 
-      source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+      source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
       cache: false
 
       Image {
@@ -501,7 +501,7 @@ EditorWidgetBase {
     anchors.right: parent.right
     anchors.top: parent.top
 
-    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_file_black_24dp")
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
