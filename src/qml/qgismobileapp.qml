@@ -2640,7 +2640,7 @@ ApplicationWindow {
     MenuItem {
       id: addBookmarkItem
       text: qsTr("Add Bookmark")
-      icon.source: Theme.getThemeIcon("ic_bookmark_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
@@ -3150,7 +3150,7 @@ ApplicationWindow {
 
     MenuItem {
       text: qsTr("Add Bookmark at Location")
-      icon.source: Theme.getThemeIcon("ic_bookmark_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
