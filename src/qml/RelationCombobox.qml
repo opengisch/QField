@@ -69,7 +69,7 @@ Item {
 
     onOpened: {
       if (searchableText.typedFilter != '') {
-        searchBar.searchTerm = searchableText.typedFilter;
+        searchBar.setSearchTerm(searchableText.typedFilter);
       }
       if (resultsList.contentHeight > resultsList.height) {
         searchBar.focusOnTextField();
@@ -99,7 +99,7 @@ Item {
         height: childrenRect.height
 
         onSearchTermChanged: {
-          featureListModel.searchTerm = searchTerm;
+          featureListModel.setSearchTerm(searchTerm);
         }
 
         onReturnPressed: {
