@@ -262,7 +262,7 @@ Item {
     padding: 2
     z: 12
 
-    iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_black_18dp")
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
     opacity: searchField.displayText.length > 0 ? 1 : 0.25

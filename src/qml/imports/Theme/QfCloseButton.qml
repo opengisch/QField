@@ -68,7 +68,7 @@ ToolButton {
       fillMode: Image.PreserveAspectFit
       horizontalAlignment: Image.AlignHCenter
       verticalAlignment: Image.AlignVCenter
-      source: Theme.getThemeIcon("ic_close_white_24dp")
+      source: Theme.getThemeVectorIcon("ic_close_white_24dp")
       sourceSize.width: 24 * screen.devicePixelRatio
       sourceSize.height: 24 * screen.devicePixelRatio
     }

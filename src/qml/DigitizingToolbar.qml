@@ -75,7 +75,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: cancelButton
-    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
     bgcolor: Theme.darkRed
@@ -95,7 +95,7 @@ QfVisibilityFadingRow {
   QfToolButton {
     id: confirmButton
     iconSource: {
-      Theme.getThemeIcon("ic_check_white_48dp");
+      Theme.getThemeVectorIcon("ic_check_white_24dp");
     }
     visible: {
       if (!showConfirmButton) {

@@ -123,7 +123,7 @@ Popup {
           id: closeButton
           Layout.rightMargin: 10
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeIcon('ic_close_black_24dp')
+          iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
 
@@ -287,7 +287,7 @@ Popup {
           enabled: audioRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeIcon('ic_check_black_48dp')
+          iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
           iconColor: enabled ? "white" : Theme.mainTextColor
           bgcolor: enabled ? Theme.mainColor : "transparent"
           round: true
