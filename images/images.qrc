@@ -331,17 +331,8 @@
         <file>themes/qfield/xxxhdpi/ic_explore_white_24dp.png</file>
         <file>themes/qfield/nodpi/ic_info_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_baseline-list_white_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_edit_geometry_white.png</file>
-        <file>themes/qfield/xxxhdpi/ic_edit_geometry_white.png</file>
-        <file>themes/qfield/mdpi/ic_edit_geometry_white.png</file>
-        <file>themes/qfield/xhdpi/ic_edit_geometry_white.png</file>
-        <file>themes/qfield/xxhdpi/ic_edit_geometry_white.png</file>
-        <file>themes/qfield/nodpi/ic_edit_attributes_white-24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_edit_attributes_white.png</file>
-        <file>themes/qfield/xxxhdpi/ic_edit_attributes_white.png</file>
-        <file>themes/qfield/mdpi/ic_edit_attributes_white.png</file>
-        <file>themes/qfield/xhdpi/ic_edit_attributes_white.png</file>
-        <file>themes/qfield/xxhdpi/ic_edit_attributes_white.png</file>
+        <file>themes/qfield/nodpi/ic_edit_geometry_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_edit_attributes_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_baseline_search_white.svg</file>
         <file>themes/qfield/hdpi/ic_baseline_search_white.png</file>
         <file>themes/qfield/xxxhdpi/ic_baseline_search_white.png</file>
