@@ -129,7 +129,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: removeVertexButton
-    iconSource: Theme.getThemeIcon("ic_remove_vertex_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_remove_vertex_white_24dp")
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
     bgcolor: Theme.darkGray
@@ -162,7 +162,7 @@ QfVisibilityFadingRow {
         Theme.darkGray;
       }
     }
-    iconSource: Theme.getThemeIcon("ic_add_vertex_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_add_vertex_white_24dp")
     iconColor: enabled ? "white" : Theme.darkGraySemiOpaque
 
     property bool lastAdditionAveraged: false
