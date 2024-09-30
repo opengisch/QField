@@ -598,7 +598,7 @@ Item {
 
       bgcolor: "transparent"
       opacity: enabled ? 1 : 0.3
-      iconSource: Theme.getThemeIcon("ic_add_black_48dp")
+      iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
       iconColor: Theme.mainTextColor
 
       visible: enabled && allowAddFeature && relation !== undefined && relation.isValid
