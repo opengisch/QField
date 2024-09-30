@@ -57,7 +57,7 @@ Popup {
           top: parent.top
           right: parent.right
         }
-        iconSource: Theme.getThemeIcon('ic_close_black_24dp')
+        iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
         iconColor: Theme.mainTextColor
         bgcolor: Theme.mainBackgroundColor
 

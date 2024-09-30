@@ -244,7 +244,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_check_white_48dp")
+    iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     opacity: featureForm.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
       if (toolBar.state == "ProcessingLaunch") {
@@ -276,7 +276,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
 
     onClicked: {
       toolBar.cancel();
@@ -410,7 +410,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
 
     enabled: (toolBar.multiSelection && toolBar.model)
 

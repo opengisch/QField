@@ -175,7 +175,7 @@ EditorWidgetBase {
         width: 24
         height: 24
         padding: 0
-        iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
+        iconSource: Theme.getThemeVectorIcon("ic_clear_black_18dp")
         iconColor: Theme.mainTextColor
         visible: (value !== undefined) && enabled && (config['allow_null'] === undefined || config['allow_null'])
 

@@ -75,7 +75,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: cancelButton
-    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
     round: true
     visible: featureModel && featureModel.vertexModel.dirty && !qfieldSettings.autoSave
     bgcolor: "#900000"
@@ -88,7 +88,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: applyButton
-    iconSource: Theme.getThemeIcon("ic_check_white_48dp")
+    iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     round: true
     visible: featureModel && featureModel.vertexModel.dirty
     bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.darkGray
