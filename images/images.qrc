@@ -79,15 +79,11 @@
         <file>themes/qfield/xhdpi/ic_remove_vertex_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_remove_vertex_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_remove_vertex_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_menu_white_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_menu_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_move_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_location_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_location_valid_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_location_disabled_white_24dp.svg</file>
-        <file>themes/qfield/mdpi/ic_menu_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_menu_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_menu_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_menu_white_24dp.png</file>
         <file>themes/qfield/nodpi/ic_map_white_24dp.svg</file>
         <file>themes/qfield/hdpi/ic_map_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_map_white_24dp.png</file>
@@ -313,16 +309,8 @@
         <file>themes/qfield/xhdpi/ic_clear_black_18dp.png</file>
         <file>themes/qfield/xxhdpi/ic_clear_black_18dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_clear_black_18dp.png</file>
-        <file>themes/qfield/hdpi/ic_gps_link_activated_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_gps_link_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_gps_link_activated_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_gps_link_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_gps_link_activated_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_gps_link_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_gps_link_activated_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_gps_link_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_gps_link_activated_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_gps_link_white_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_location_locked_active_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_location_locked_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_qr_code_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_nfc_code_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_qr_nfc_code_black_24dp.svg</file>

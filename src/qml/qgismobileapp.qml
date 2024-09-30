@@ -1254,7 +1254,7 @@ ApplicationWindow {
       QfToolButton {
         id: menuButton
         round: true
-        iconSource: Theme.getThemeIcon("ic_menu_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_menu_white_24dp")
         bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
 
         onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
@@ -1657,7 +1657,7 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: gnssLockButton
-              iconSource: Theme.getThemeIcon("ic_gps_link_white_24dp")
+              iconSource: Theme.getThemeVectorIcon("ic_location_locked_white_24dp")
               bgcolor: Theme.darkGraySemiOpaque
             }
           },
@@ -1665,7 +1665,8 @@ ApplicationWindow {
             name: "On"
             PropertyChanges {
               target: gnssLockButton
-              iconSource: Theme.getThemeIcon("ic_gps_link_activated_white_24dp")
+              iconSource: Theme.getThemeVectorIcon("ic_location_locked_active_white_24dp")
+              iconColor: Theme.positionColor
               bgcolor: Theme.darkGray
             }
           }
