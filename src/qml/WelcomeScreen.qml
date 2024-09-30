@@ -781,7 +781,7 @@ Page {
       left: parent.left
       topMargin: mainWindow.sceneTopMargin
     }
-    iconSource: Theme.getThemeIcon('ic_chevron_left_black_24dp')
+    iconSource: Theme.getThemeVectorIcon('ic_chevron_left_white_24dp')
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 

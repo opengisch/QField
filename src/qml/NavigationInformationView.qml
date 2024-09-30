@@ -62,7 +62,7 @@ Rectangle {
           height: 36
           round: true
           bgcolor: "transparent"
-          iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+          iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
           iconColor: Theme.mainTextColor
 
           onPressed: {
@@ -99,7 +99,7 @@ Rectangle {
           height: 36
           round: true
           bgcolor: "transparent"
-          iconSource: Theme.getThemeIcon("ic_chevron_right_white_24dp")
+          iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
           iconColor: Theme.mainTextColor
 
           onPressed: {

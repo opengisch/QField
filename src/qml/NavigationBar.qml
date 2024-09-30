@@ -180,7 +180,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_chevron_right_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
 
     enabled: (toolBar.state == "Navigation")
 
@@ -212,7 +212,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: toolBar.state == "Navigation" ? Theme.getThemeIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
+    iconSource: toolBar.state == "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
 
     enabled: toolBar.state != "Edit" && !toolBar.multiSelection
 
