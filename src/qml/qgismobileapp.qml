@@ -1615,7 +1615,8 @@ ApplicationWindow {
         anchors.right: parent.right
 
         property bool isFollowLocationActive: positionSource.active && gnssButton.followActive && followIncludeDestination
-        iconSource: isFollowLocationActive ? Theme.getThemeIcon("ic_navigation_flag_white_24dp") : Theme.getThemeIcon("ic_navigation_flag_purple_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
+        iconColor: isFollowLocationActive ? "white" : Theme.navigationColor
         bgcolor: isFollowLocationActive ? Theme.navigationColor : Theme.darkGray
 
         /*
@@ -2660,7 +2661,7 @@ ApplicationWindow {
     MenuItem {
       id: setDestinationItem
       text: qsTr("Set as Destination")
-      icon.source: Theme.getThemeIcon("ic_navigation_flag_purple_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
@@ -2761,7 +2762,7 @@ ApplicationWindow {
         MenuItem {
           text: qsTr('Open Feature Form')
           font: Theme.defaultFont
-          icon.source: Theme.getThemeIcon("ic_baseline-list_alt-24px")
+          icon.source: Theme.getThemeVectorIcon("ic_baseline-list_white_24dp")
           leftPadding: Theme.menuItemLeftPadding
 
           onTriggered: {

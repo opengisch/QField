@@ -522,7 +522,7 @@ Item {
               padding: 0
               bgcolor: "transparent"
 
-              iconSource: Theme.getThemeIcon(IconPath)
+              iconSource: Theme.getThemeVectorIcon(IconPath)
 
               onClicked: {
                 locatorItem.state = "off";

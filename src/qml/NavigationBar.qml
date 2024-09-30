@@ -681,7 +681,7 @@ Rectangle {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeIcon("ic_navigation_flag_purple_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
 
