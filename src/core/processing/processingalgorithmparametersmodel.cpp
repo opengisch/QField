@@ -151,7 +151,7 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
           mHasAdvancedParameters = true;
         }
 
-        if ( definition->type() == QStringLiteral( "source" ) && definition->name() != "INPUT" )
+        if ( definition->type() != QStringLiteral( "source" ) || definition->name() != "INPUT" )
         {
           mParameters << definition;
           mValues << definition->defaultValue();
