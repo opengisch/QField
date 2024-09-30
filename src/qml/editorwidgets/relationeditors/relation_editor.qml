@@ -115,7 +115,7 @@ EditorWidgetBase {
             enabled: constraintsHardValid
 
             round: false
-            iconSource: Theme.getThemeIcon('ic_add_white_24dp')
+            iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
             bgcolor: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
           }
         }
@@ -235,7 +235,7 @@ EditorWidgetBase {
           height: 40
 
           round: false
-          iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white-24dp') : Theme.getThemeVectorIcon('ic_baseline-list_alt-24dp')
+          iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
           iconColor: Theme.mainTextColor
           bgcolor: 'transparent'
 
@@ -256,7 +256,7 @@ EditorWidgetBase {
           height: 40
 
           round: false
-          iconSource: Theme.getThemeIcon('ic_delete_forever_white_24dp')
+          iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
           iconColor: Theme.mainTextColor
           bgcolor: 'transparent'
 

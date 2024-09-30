@@ -364,7 +364,7 @@ Popup {
 
               round: true
               roundborder: true
-              iconSource: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.getThemeIcon("ic_check_white_48dp") : ''
+              iconSource: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.getThemeVectorIcon("ic_check_white_24dp") : ''
               bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.mainColor : cameraItem.state == "VideoCapture" ? "red" : "white"
 
               onClicked: {
@@ -502,7 +502,7 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 4
 
-      iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+      iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
       iconColor: "white"
       bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.5)
       round: true
@@ -597,7 +597,7 @@ Popup {
         height: 40
         padding: 2
 
-        iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+        iconSource: positionSource.active ? Theme.getThemeVectorIcon("ic_geotag_white_24dp") : Theme.getThemeVectorIcon("ic_geotag_missing_white_24dp")
         iconColor: cameraSettings.geoTagging ? Theme.mainColor : "white"
         bgcolor: Theme.darkGraySemiOpaque
         round: true

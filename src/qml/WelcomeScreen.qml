@@ -145,7 +145,7 @@ Page {
                 rightPadding: 20
 
                 text: qsTr("Reach out")
-                icon.source: Theme.getThemeIcon('ic_create_white_24dp')
+                icon.source: Theme.getThemeVectorIcon('ic_create_white_24dp')
 
                 onClicked: {
                   Qt.openUrlExternally("https://www.qfield.org/");
@@ -781,7 +781,7 @@ Page {
       left: parent.left
       topMargin: mainWindow.sceneTopMargin
     }
-    iconSource: Theme.getThemeIcon('ic_chevron_left_black_24dp')
+    iconSource: Theme.getThemeVectorIcon('ic_chevron_left_white_24dp')
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 

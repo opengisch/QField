@@ -283,7 +283,7 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+      iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
       iconColor: "white"
       bgcolor: Theme.darkGraySemiOpaque
       round: true
@@ -322,7 +322,7 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeIcon("ic_check_white_48dp")
+      iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
       iconColor: "white"
       bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.darkGraySemiOpaque
       round: true

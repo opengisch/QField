@@ -580,7 +580,7 @@ Item {
       Layout.preferredHeight: 48
 
       bgcolor: "transparent"
-      iconSource: Theme.getThemeIcon("ic_baseline_search_black")
+      iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
       iconColor: Theme.mainTextColor
 
       visible: enabled
@@ -598,7 +598,7 @@ Item {
 
       bgcolor: "transparent"
       opacity: enabled ? 1 : 0.3
-      iconSource: Theme.getThemeIcon("ic_add_black_48dp")
+      iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
       iconColor: Theme.mainTextColor
 
       visible: enabled && allowAddFeature && relation !== undefined && relation.isValid
