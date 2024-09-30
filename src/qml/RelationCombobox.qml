@@ -580,7 +580,7 @@ Item {
       Layout.preferredHeight: 48
 
       bgcolor: "transparent"
-      iconSource: Theme.getThemeIcon("ic_baseline_search_black")
+      iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
       iconColor: Theme.mainTextColor
 
       visible: enabled
