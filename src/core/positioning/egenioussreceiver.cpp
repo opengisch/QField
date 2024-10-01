@@ -9,9 +9,13 @@ EgenioussReceiver::EgenioussReceiver( QObject *parent )
 {
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );
-  connect( mTcpSocket, &QTcpSocket::connected, this, &EgenioussReceiver::connected );
-  connect( mTcpSocket, &QTcpSocket::disconnected, this, &EgenioussReceiver::disconnected );
+  connect( mTcpSocket, &QTcpSocket::stateChanged, this, &EgenioussReceiver::setSocketState );
   setValid( true );
+}
+
+EgenioussReceiver::~EgenioussReceiver()
+{
+  disconnect( mTcpSocket, &QTcpSocket::stateChanged, this, &EgenioussReceiver::setSocketState );
 }
 
 void EgenioussReceiver::handleConnectDevice()
@@ -19,27 +23,46 @@ void EgenioussReceiver::handleConnectDevice()
   mTcpSocket->connectToHost( mAddress, mPort, QTcpSocket::ReadWrite );
 }
 
-void EgenioussReceiver::connected()
-{
-  mSocketState = QAbstractSocket::ConnectedState;
-  mSocketStateString = tr( "Successfully connected" );
-  emit socketStateChanged( mSocketState );
-  setValid( true );
-}
-
 void EgenioussReceiver::handleDisconnectDevice()
 {
   mTcpSocket->disconnectFromHost();
 }
 
-void EgenioussReceiver::disconnected()
+void EgenioussReceiver::setSocketState( const QAbstractSocket::SocketState socketState )
 {
-  if ( mTcpSocket->state() == QAbstractSocket::ConnectedState )
+  if ( mSocketState == socketState )
   {
-    mSocketState = QAbstractSocket::UnconnectedState;
-    mSocketStateString = tr( "Disconnected" );
-    emit socketStateChanged( mSocketState );
+    return;
   }
+
+  switch ( socketState )
+  {
+    case QAbstractSocket::ConnectingState:
+    case QAbstractSocket::HostLookupState:
+    {
+      mSocketStateString = tr( "Connecting…" );
+      break;
+    }
+    case QAbstractSocket::ConnectedState:
+    case QAbstractSocket::BoundState:
+    {
+      mSocketStateString = tr( "Successfully connected" );
+      break;
+    }
+    case QAbstractSocket::UnconnectedState:
+    {
+      mSocketStateString = tr( "Disconnected" );
+      break;
+    }
+    default:
+    {
+      mSocketStateString = tr( "Socket state %1" ).arg( static_cast<int>( socketState ) );
+    }
+  }
+
+  mSocketState = socketState;
+  emit socketStateChanged( mSocketState );
+  emit socketStateStringChanged( mSocketStateString );
 }
 
 QList<QPair<QString, QVariant>> EgenioussReceiver::details()
