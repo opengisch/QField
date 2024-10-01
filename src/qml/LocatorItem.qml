@@ -262,7 +262,7 @@ Item {
     padding: 2
     z: 12
 
-    iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_black_18dp")
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
     opacity: searchField.displayText.length > 0 ? 1 : 0.25
@@ -522,7 +522,7 @@ Item {
               padding: 0
               bgcolor: "transparent"
 
-              iconSource: Theme.getThemeIcon(IconPath)
+              iconSource: Theme.getThemeVectorIcon(IconPath)
 
               onClicked: {
                 locatorItem.state = "off";

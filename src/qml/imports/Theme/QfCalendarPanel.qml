@@ -85,7 +85,7 @@ Popup {
 
           QfToolButton {
             enabled: true
-            iconSource: Theme.getThemeIcon('ic_doublearrow_left_black_24dp')
+            iconSource: Theme.getThemeVectorIcon('ic_doublearrow_left_black_24dp')
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
             roundborder: true
@@ -106,7 +106,7 @@ Popup {
 
           QfToolButton {
             enabled: true
-            iconSource: Theme.getThemeIcon('ic_arrow_left_black_24dp')
+            iconSource: Theme.getThemeVectorIcon('ic_arrow_left_black_24dp')
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
             roundborder: true
@@ -142,7 +142,7 @@ Popup {
 
           QfToolButton {
             enabled: true
-            iconSource: Theme.getThemeIcon('ic_arrow_right_black_24dp')
+            iconSource: Theme.getThemeVectorIcon('ic_arrow_right_black_24dp')
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
             roundborder: true
@@ -162,7 +162,7 @@ Popup {
           }
           QfToolButton {
             enabled: true
-            iconSource: Theme.getThemeIcon('ic_doublearrow_right_black_24dp')
+            iconSource: Theme.getThemeVectorIcon('ic_doublearrow_right_black_24dp')
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
             roundborder: true

@@ -634,7 +634,7 @@ Page {
             enabled: visible
             width: visible ? 48 : 0
 
-            iconSource: Theme.getThemeIcon("ic_dot_menu_gray_24dp")
+            iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
 
@@ -779,7 +779,7 @@ Page {
         height: 48
         clip: true
 
-        iconSource: Theme.getThemeIcon("ic_check_white_48dp")
+        iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
         opacity: model.constraintsHardValid ? 1.0 : 0.3
 
         onClicked: {
@@ -834,7 +834,7 @@ Page {
         clip: true
         visible: !setupOnly
 
-        iconSource: form.state === 'Add' ? Theme.getThemeIcon('ic_delete_forever_white_24dp') : Theme.getThemeIcon('ic_close_white_24dp')
+        iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
 
         onClicked: {
           Qt.inputMethod.hide();

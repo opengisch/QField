@@ -241,7 +241,7 @@ Page {
               Layout.bottomMargin: 5
 
               bgcolor: "transparent"
-              iconSource: Theme.getThemeIcon("ic_dot_menu_gray_24dp")
+              iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
               iconColor: Theme.mainTextColor
 
               onClicked: {
@@ -326,7 +326,7 @@ Page {
         anchors.rightMargin: 10
 
         bgcolor: Theme.mainColor
-        iconSource: Theme.getThemeIcon("ic_add_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
 
         onClicked: {
           var xy = mapToItem(mainWindow.contentItem, actionButton.width, actionButton.height);

@@ -375,7 +375,7 @@ Popup {
             text: qsTr('Synchronize')
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            icon.source: Theme.getThemeIcon('ic_cloud_synchronize_24dp')
+            icon.source: Theme.getThemeVectorIcon('ic_cloud_synchronize_24dp')
 
             onClicked: projectUpload(true)
           }
@@ -398,7 +398,7 @@ Popup {
             text: qsTr('Push changes')
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            icon.source: Theme.getThemeIcon('ic_cloud_upload_24dp')
+            icon.source: Theme.getThemeVectorIcon('ic_cloud_upload_24dp')
 
             onClicked: projectUpload(false)
           }

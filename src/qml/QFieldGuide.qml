@@ -302,7 +302,7 @@ Popup {
       width: 30
       height: width
       icon.color: Theme.mainTextColor
-      icon.source: Theme.getThemeIcon('ic_close_black_24dp')
+      icon.source: Theme.getThemeVectorIcon('ic_close_white_24dp')
       padding: 0
       bgcolor: "transparent"
 

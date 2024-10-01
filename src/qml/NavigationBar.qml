@@ -180,7 +180,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_chevron_right_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
 
     enabled: (toolBar.state == "Navigation")
 
@@ -212,7 +212,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: toolBar.state == "Navigation" ? Theme.getThemeIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
+    iconSource: toolBar.state == "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
 
     enabled: toolBar.state != "Edit" && !toolBar.multiSelection
 
@@ -244,7 +244,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_check_white_48dp")
+    iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     opacity: featureForm.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
       if (toolBar.state == "ProcessingLaunch") {
@@ -276,7 +276,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
 
     onClicked: {
       toolBar.cancel();
@@ -300,7 +300,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    iconSource: Theme.getThemeIcon("ic_edit_geometry_white")
+    iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
 
     width: visible ? 48 : 0
     height: 48
@@ -341,7 +341,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_edit_attributes_white")
+    iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
 
     onClicked: {
       toolBar.editAttributesButtonClicked();
@@ -381,7 +381,8 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_dot_menu_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+    iconColor: "white"
 
     onClicked: {
       if (toolBar.state == "Indication") {
@@ -410,7 +411,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
 
     enabled: (toolBar.multiSelection && toolBar.model)
 
@@ -454,7 +455,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon("ic_edit_attributes_white")
+    iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
 
     enabled: toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
@@ -508,7 +509,7 @@ Rectangle {
 
     MenuItem {
       text: qsTr('Print Atlas Feature(s) to PDF')
-      icon.source: Theme.getThemeIcon("ic_print_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
       enabled: toolBar.model && toolBar.model.selectedCount > 0 && LayerUtils.isAtlasCoverageLayer(toolBar.model.selectedLayer)
 
       font: Theme.defaultFont
@@ -531,7 +532,7 @@ Rectangle {
     MenuItem {
       id: mergeSelectedFeaturesBtn
       text: qsTr('Merge Selected Features')
-      icon.source: Theme.getThemeIcon("ic_merge_features_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_merge_features_white_24dp")
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
       font: Theme.defaultFont
@@ -567,7 +568,7 @@ Rectangle {
     MenuItem {
       id: deleteSelectedFeaturesBtn
       text: qsTr('Delete Selected Feature(s)')
-      icon.source: Theme.getThemeIcon("ic_delete_forever_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
       enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
       visible: enabled
       height: enabled ? undefined : 0
@@ -665,7 +666,7 @@ Rectangle {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeIcon("ic_print_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
         enabled: LayerUtils.isAtlasCoverageLayer(selection.focusedLayer)
@@ -681,7 +682,7 @@ Rectangle {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeIcon("ic_navigation_flag_purple_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
 
@@ -699,7 +700,7 @@ Rectangle {
 
     MenuItem {
       text: qsTr('Zoom to Feature')
-      icon.source: Theme.getThemeIcon("ic_fullscreen_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_fullscreen_white_24dp")
 
       font: Theme.defaultFont
       height: 48
@@ -771,7 +772,7 @@ Rectangle {
     MenuItem {
       id: deleteFeatureBtn
       text: qsTr('Delete Feature')
-      icon.source: Theme.getThemeIcon("ic_delete_forever_white_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
       enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !selection.focusedLayer.customProperty("QFieldSync/is_geometry_locked", false)))
       visible: enabled
 

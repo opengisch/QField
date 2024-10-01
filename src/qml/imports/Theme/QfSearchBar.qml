@@ -24,7 +24,7 @@ Item {
       anchors.right: parent.right
       width: 40
       height: 40
-      iconSource: Theme.getThemeIcon('ic_close_black_24dp')
+      iconSource: Theme.getThemeVectorIcon('ic_clear_white_24dp')
       iconColor: Theme.mainTextColor
       bgcolor: "transparent"
       visible: searchField.text !== ""
@@ -39,7 +39,7 @@ Item {
       height: 40
       anchors.left: parent.left
       bgcolor: "transparent"
-      iconSource: Theme.getThemeIcon("ic_baseline_search_black")
+      iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
       iconColor: Theme.mainTextColor
       onClicked: {
         searchField.focus = true;
