@@ -104,7 +104,7 @@ void InternalGnssReceiver::handleConnectDevice()
     Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
     if ( permissionStatus == Qt::PermissionStatus::Undetermined )
     {
-      qApp->requestPermission( locationPermission, [=]( const QPermission &permission ) {
+      qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
         if ( permission.status() == Qt::PermissionStatus::Granted )
         {
           mPermissionChecked = true;

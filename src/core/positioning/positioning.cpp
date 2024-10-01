@@ -20,6 +20,7 @@
 #ifdef WITH_SERIALPORT
 #include "serialportreceiver.h"
 #endif
+#include "egenioussreceiver.h"
 #include "internalgnssreceiver.h"
 #include "positioning.h"
 #include "positioningutils.h"
@@ -204,6 +205,10 @@ void Positioning::setupDevice()
       const QString address = mDeviceId.mid( 4, portSeparator - 4 );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = new UdpReceiver( address, port, this );
+    }
+    else if ( mDeviceId.startsWith( QStringLiteral( "egeniouss:" ) ) )
+    {
+      mReceiver = new EgenioussReceiver( this );
     }
 #ifdef WITH_SERIALPORT
     else if ( mDeviceId.startsWith( QStringLiteral( "serial:" ) ) )

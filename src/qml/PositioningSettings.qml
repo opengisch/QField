@@ -45,4 +45,5 @@ Settings {
   property int digitizingMeasureType: 1
 
   property bool geofencingPreventDigitizingDuringAlert: false
+  property bool egenioussEnabled: false
 }

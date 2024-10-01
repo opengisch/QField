@@ -72,6 +72,7 @@ class AbstractGnssReceiver : public QObject
 
   private:
     friend class InternalGnssReceiver;
+    friend class EgenioussReceiver;
     friend class NmeaGnssReceiver;
     friend class BluetoothReceiver;
     friend class TcpReceiver;

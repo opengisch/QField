@@ -41,6 +41,20 @@ Popup {
     return positioningDeviceItem.item.getSettings();
   }
 
+  function handleEgenioussChange() {
+    if (positioningSettings.egenioussEnabled) {
+      positioningDeviceTypeModel.insert(0, {
+          "name": qsTr('Egeniouss'),
+          "value": PositioningDeviceModel.EgenioussDevice
+        });
+    } else {
+      positioningDeviceTypeModel.remove(0, 1);
+      positioningDeviceModel.removeDevice("Egeniouss");
+      positioningDeviceComboBox.currentIndex = 0;
+    }
+    positioningDeviceType.model = positioningDeviceTypeModel;
+  }
+
   Component.onCompleted: {
     if (withBluetooth) {
       positioningDeviceTypeModel.insert(0, {
@@ -54,7 +68,14 @@ Popup {
           "value": PositioningDeviceModel.SerialPortDevice
         });
     }
+    if (positioningSettings.egenioussEnabled) {
+      positioningDeviceTypeModel.insert(0, {
+          "name": qsTr('Egeniouss'),
+          "value": PositioningDeviceModel.EgenioussDevice
+        });
+    }
     positioningDeviceType.model = positioningDeviceTypeModel;
+    positioningSettings.onEgenioussEnabledChanged.connect(handleEgenioussChange);
   }
 
   Page {
@@ -95,7 +116,7 @@ Popup {
         id: positioningDeviceName
         Layout.fillWidth: true
         font: Theme.defaultFont
-        placeholderText: displayText == '' ? qsTr('Leave empty to auto-fill') : ''
+        placeholderText: displayText === '' ? qsTr('Leave empty to auto-fill') : ''
       }
 
       Label {
@@ -130,6 +151,8 @@ Popup {
               return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
             case PositioningDeviceModel.SerialPortDevice:
               return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+            case PositioningDeviceModel.EgenioussDevice:
+              return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
             }
             return '';
           }
@@ -154,6 +177,8 @@ Popup {
               return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
             case PositioningDeviceModel.SerialPortDevice:
               return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+            case PositioningDeviceModel.EgenioussDevice:
+              return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
             }
             return '';
           }
@@ -193,6 +218,8 @@ Popup {
             return "qrc:/qml/UdpDeviceChooser.qml";
           case PositioningDeviceModel.SerialPortDevice:
             return "qrc:/qml/SerialPortDeviceChooser.qml";
+          case PositioningDeviceModel.EgenioussDevice:
+            return "qrc:/qml/EgenioussDeviceChooser.qml";
           }
           return '';
         }

@@ -119,7 +119,7 @@ void TcpReceiver::handleError( QAbstractSocket::SocketError error )
       mLastError = tr( "The connection was refused by the remote host" );
       break;
     default:
-      mLastError = tr( "UDP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
+      mLastError = tr( "TCP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
       break;
   }
   qInfo() << QStringLiteral( "TcpReceiver: Error: %1" ).arg( mLastError );

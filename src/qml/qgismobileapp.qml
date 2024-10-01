@@ -244,6 +244,7 @@ ApplicationWindow {
 
   PositioningSettings {
     id: positioningSettings
+    objectName: "positioningSettings"
 
     onPositioningActivatedChanged: {
       if (positioningActivated) {

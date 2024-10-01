@@ -138,22 +138,28 @@ void PluginManager::handleWarnings( const QList<QQmlError> &warnings )
 
 void PluginManager::grantRequestedPluginPermission( bool permanent )
 {
+  QSettings settings;
+  QString pluginKey = mPermissionRequestPluginPath;
+  pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+  settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+  const QString uuid = settings.value( QStringLiteral( "uuid" ) ).toString();
+
   if ( permanent )
   {
-    QSettings settings;
-    QString pluginKey = mPermissionRequestPluginPath;
-    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
-    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
     settings.setValue( QStringLiteral( "permissionGranted" ), true );
-    if ( !settings.value( QStringLiteral( "uuid" ) ).toString().isEmpty() )
+    if ( !uuid.isEmpty() )
     {
       settings.setValue( QStringLiteral( "userEnabled" ), true );
     }
-    settings.endGroup();
   }
 
+  settings.endGroup();
   loadPlugin( mPermissionRequestPluginPath, QString(), true );
   mPermissionRequestPluginPath.clear();
+  if ( !uuid.isEmpty() )
+  {
+    callPluginMethod( uuid, "appWideEnabled" );
+  }
 }
 
 void PluginManager::denyRequestedPluginPermission( bool permanent )
@@ -272,10 +278,11 @@ void PluginManager::enableAppPlugin( const QString &uuid )
 {
   if ( mAvailableAppPlugins.contains( uuid ) )
   {
-    if ( !mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
+    const QString pluginPath = mAvailableAppPlugins[uuid].path();
+    if ( !mLoadedPlugins.contains( pluginPath ) )
     {
       QSettings settings;
-      QString pluginKey = mAvailableAppPlugins[uuid].path();
+      QString pluginKey = pluginPath;
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
       settings.setValue( QStringLiteral( "uuid" ), uuid );
@@ -285,13 +292,19 @@ void PluginManager::enableAppPlugin( const QString &uuid )
       }
       settings.endGroup();
 
-      loadPlugin( mAvailableAppPlugins[uuid].path(), mAvailableAppPlugins[uuid].name() );
+      loadPlugin( pluginPath, mAvailableAppPlugins[uuid].name() );
+
+      if ( mLoadedPlugins.contains( pluginPath ) )
+      {
+        callPluginMethod( uuid, "appWideEnabled" );
+      }
     }
   }
 }
 
 void PluginManager::disableAppPlugin( const QString &uuid )
 {
+  callPluginMethod( uuid, "appWideDisabled" );
   if ( mAvailableAppPlugins.contains( uuid ) )
   {
     if ( mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
@@ -454,4 +467,28 @@ QString PluginManager::findProjectPlugin( const QString &projectPath )
     }
   }
   return QString();
+}
+
+void PluginManager::callPluginMethod( const QString &uuid, const QString &methodName )
+{
+  if ( !mAvailableAppPlugins.contains( uuid ) )
+  {
+    return;
+  }
+
+  const QString pluginPath = mAvailableAppPlugins[uuid].path();
+  if ( !mLoadedPlugins.contains( pluginPath ) )
+  {
+    return;
+  }
+
+  const QPointer<QObject> object = mLoadedPlugins[pluginPath];
+
+  const char *normalizedSignature = QMetaObject::normalizedSignature( ( methodName + "()" ).toStdString().c_str() );
+  const int methodIndex = object->metaObject()->indexOfSlot( normalizedSignature );
+
+  if ( methodIndex != -1 )
+  {
+    QMetaObject::invokeMethod( object.data(), methodName.toStdString().c_str() );
+  }
 }
