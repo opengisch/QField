@@ -49,8 +49,10 @@ Popup {
         });
     } else {
       positioningDeviceTypeModel.remove(0, 1);
-      positioningDeviceModel.removeDevice("Egeniouss");
-      positioningDeviceComboBox.currentIndex = 0;
+      if (positioningDeviceModel.findIndexFromDeviceId("egeniouss:") !== -1) {
+        positioningDeviceModel.removeDevice("Egeniouss");
+        positioningDeviceComboBox.currentIndex = 0;
+      }
     }
     positioningDeviceType.model = positioningDeviceTypeModel;
   }

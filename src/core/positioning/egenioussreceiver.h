@@ -12,10 +12,12 @@ class EgenioussReceiver : public AbstractGnssReceiver
 
   public:
     explicit EgenioussReceiver( QObject *parent = nullptr );
+    ~EgenioussReceiver();
 
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
+    void setSocketState( const QAbstractSocket::SocketState socketState );
     QList<QPair<QString, QVariant>> details() override;
 
   private slots:
@@ -24,8 +26,6 @@ class EgenioussReceiver : public AbstractGnssReceiver
 
   private:
     void processReceivedData();
-    void connected();
-    void disconnected();
 
   private:
     QTcpSocket *mTcpSocket = nullptr;
