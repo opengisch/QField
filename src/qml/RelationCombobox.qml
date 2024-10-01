@@ -99,7 +99,7 @@ Item {
         height: childrenRect.height
 
         onSearchTermChanged: {
-          featureListModel.setSearchTerm(searchTerm);
+          featureListModel.searchTerm = searchTerm;
         }
 
         onReturnPressed: {
