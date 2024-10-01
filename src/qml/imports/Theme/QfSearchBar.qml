@@ -55,6 +55,7 @@ Item {
       anchors.rightMargin: 4
       height: 40
       selectByMouse: true
+      inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
       placeholderText: (!searchField.activeFocus && text === "" && displayText === "") ? searchBar.placeHolderText : ""
       background: Item {
       }
