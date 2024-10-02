@@ -597,6 +597,49 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Yhdistetty onnistuneesti</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Yhteys katkaistu</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Isäntälaitetta ei löytynyt</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Etäpalvelin kieltäytyi yhteydestä</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1926,6 +1969,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Serial port (NMEA)</source>
         <translation>Sarjaportti (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3768,11 +3815,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Vastaanottavan UDP:n virhe (%1)</translation>
+        <translation type="vanished">Vastaanottavan UDP:n virhe (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Etäpalvelin kieltäytyi yhteydestä</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

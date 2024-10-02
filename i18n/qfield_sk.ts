@@ -597,6 +597,49 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Úspešne pripojené</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odpojené</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Vzdialený hostiteľ nenájdený</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Pokus o čítanie alebo zápis soketu nebol úspešný</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Pripojenie bolo zamietnuté vzdialeným hostiteľom</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1929,6 +1972,10 @@ Dôvod:
     <message>
         <source>Serial port (NMEA)</source>
         <translation>Sériový port (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3769,11 +3816,15 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Chyba UDP príjmača (%1)</translation>
+        <translation type="vanished">Chyba UDP príjmača (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Pripojenie bolo zamietnuté vzdialeným hostiteľom</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -597,6 +597,49 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Úspěšně připojeno</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odpojeno</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Vzdálený hostitel nenalezen</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Pokus o čtení nebo zápis z/do socketu vrátil chybu</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Připojení bylo odmítnuto vzdáleným hostitelem</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1930,6 +1973,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Serial port (NMEA)</source>
         <translation>Sériový port (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3769,11 +3816,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Chyba UDP přijímače (%1)</translation>
+        <translation type="vanished">Chyba UDP přijímače (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Připojení bylo odmítnuto vzdáleným hostitelem</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

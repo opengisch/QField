@@ -597,6 +597,49 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Connesso con successo</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Disconnesso</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Impossibile trovare l&apos;host remoto</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Il tentativo di leggere o scrivere sul socket ha ritornato un errore</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>La connessione è stata rifiutata dall&apos;host remoto</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1928,6 +1971,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Serial port (NMEA)</source>
         <translation>Porta Seriale (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3771,11 +3818,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Errore del ricevitore UDP (%1)</translation>
+        <translation type="vanished">Errore del ricevitore UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>La connessione è stata rifiutata dall&apos;host remoto</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

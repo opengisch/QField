@@ -597,6 +597,49 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Conexão bem sucedida</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Não foi possível encontrar o host remoto</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Tentativa de ler ou escrever a partir do socket retornou um erro</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1921,6 +1964,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Serial port (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3761,6 +3808,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
 </context>

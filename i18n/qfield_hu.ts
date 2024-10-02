@@ -597,6 +597,49 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Sikeresen kapcsolódtam</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Lecsatlakoztam</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Nem tudok kapcsolódni a távoli géphez</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Az olvasási, vagy írási kísérlet a csatornán hibát jelez</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>A csatlakozást a távoli gép visszautasította</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1925,6 +1968,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Serial port (NMEA)</source>
         <translation>Soros port (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3762,11 +3809,15 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP vételi hiba (%1)</translation>
+        <translation type="vanished">UDP vételi hiba (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>A csatlakozást a távoli gép visszautasította</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

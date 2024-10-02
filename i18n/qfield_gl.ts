@@ -597,6 +597,49 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Correctamente conectado</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Non se puido atopar o servidor remoto</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>A tentativa de lectura ou escritura do socket devolveu un erro</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Rexeitouse a conexión polo hospedador remoto</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1926,6 +1969,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Serial port (NMEA)</source>
         <translation>Porto serie (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3766,11 +3813,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Erro de recepción UDP (%1)</translation>
+        <translation type="vanished">Erro de recepción UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Rexeitouse a conexión polo hospedador remoto</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

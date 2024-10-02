@@ -597,6 +597,49 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Succesvol verbonden</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Verbroken</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Remote host niet gevonden</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>De verbinding is geweigerd door de remote host</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1926,6 +1969,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Serial port (NMEA)</source>
         <translation>Seriële poort (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3771,6 +3818,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>De verbinding is geweigerd door de remote host</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

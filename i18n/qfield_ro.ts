@@ -598,6 +598,49 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Conectat cu succes</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Deconectat</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Nu s-a putut găsi gazda la distanță</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1929,6 +1972,10 @@ Motiv:
     </message>
     <message>
         <source>Serial port (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3770,10 +3817,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Eroare la receptorul UDP (%1)</translation>
+        <translation type="vanished">Eroare la receptorul UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
 </context>

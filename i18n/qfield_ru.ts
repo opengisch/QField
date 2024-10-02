@@ -597,6 +597,49 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Подключено успешно</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Отключено</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Невозможно найти удалённый хост</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Попытка чтения или записи с сокета возвратила ошибку</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Удаленный хост отказал в подключении</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1930,6 +1973,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Serial port (NMEA)</source>
         <translation>Последовательный порт (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3768,11 +3815,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Ошибка приемника UDP (%1)</translation>
+        <translation type="vanished">Ошибка приемника UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Удаленный хост отказал в подключении</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

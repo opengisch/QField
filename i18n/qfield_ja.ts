@@ -597,6 +597,49 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation>接続しました</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>接続を解除しました</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>リモートホストが見つかりません</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>ソケットからの読み取りまたは書き込みの試行がエラーを返しました。</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>リモートホストによって接続が拒否されました。</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -1924,6 +1967,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Serial port (NMEA)</source>
         <translation>シリアルポート (NMEA)</translation>
+    </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3764,11 +3811,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP 受信エラー (%1)</translation>
+        <translation type="vanished">UDP 受信エラー (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>リモートホストによって接続が拒否されました。</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
