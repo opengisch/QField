@@ -31,6 +31,9 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     explicit InternalGnssReceiver( QObject *parent = nullptr );
     ~InternalGnssReceiver() override = default;
 
+  public slots:
+    QAbstractSocket::SocketState socketState() override;
+
   private slots:
 
     void onApplicationStateChanged( Qt::ApplicationState state );
@@ -57,6 +60,7 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     QList<int> mSatellitesID;
     QList<QgsSatelliteInfo> mSatellitesInfo;
     bool mSatelliteInformationValid = true;
+    QAbstractSocket::SocketState mSocketState = QAbstractSocket::UnconnectedState;
 };
 
 #endif // INTERNALGNSSRECEIVER_H

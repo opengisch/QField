@@ -65,44 +65,38 @@ void TcpReceiver::handleDisconnectDevice()
 
 void TcpReceiver::setSocketState( const QAbstractSocket::SocketState socketState )
 {
-  if ( mSocketState == socketState )
-  {
-    return;
-  }
+  emit socketStateChanged( socketState );
+  emit socketStateStringChanged( socketStateString() );
+}
 
-  switch ( socketState )
+QAbstractSocket::SocketState TcpReceiver::socketState()
+{
+  return mSocket ? mSocket->state() : QAbstractSocket::UnconnectedState;
+}
+
+QString TcpReceiver::socketStateString()
+{
+  const QAbstractSocket::SocketState currentState = socketState();
+  switch ( currentState )
   {
-    case QAbstractSocket::HostLookupState:
     case QAbstractSocket::ConnectingState:
-    {
-      mSocketStateString = tr( "Connecting…" );
-      break;
-    }
+    case QAbstractSocket::HostLookupState:
+      return tr( "Connecting…" );
     case QAbstractSocket::ConnectedState:
-    {
-      mReconnectOnDisconnect = true;
-      mSocketStateString = tr( "Successfully connected" );
-      break;
-    }
+      return tr( "Successfully connected" );
     case QAbstractSocket::UnconnectedState:
     {
-      mSocketStateString = tr( "Disconnected" );
+      QString mSocketStateString = tr( "Disconnected" );
       if ( mReconnectOnDisconnect )
       {
         mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
         mReconnectTimer.start( 2000 );
       }
-      break;
+      return mSocketStateString;
     }
     default:
-    {
-      mSocketStateString = tr( "Socket state %1" ).arg( static_cast<int>( socketState ) );
-    }
+      return tr( "Socket state %1" ).arg( static_cast<int>( currentState ) );
   }
-
-  mSocketState = socketState;
-  emit socketStateChanged( mSocketState );
-  emit socketStateStringChanged( mSocketStateString );
 }
 
 void TcpReceiver::handleError( QAbstractSocket::SocketError error )
@@ -122,6 +116,9 @@ void TcpReceiver::handleError( QAbstractSocket::SocketError error )
       mLastError = tr( "TCP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
       break;
   }
+
+  setSocketState( QAbstractSocket::UnconnectedState );
+
   qInfo() << QStringLiteral( "TcpReceiver: Error: %1" ).arg( mLastError );
 
   emit lastErrorChanged( mLastError );

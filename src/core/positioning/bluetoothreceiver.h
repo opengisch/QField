@@ -34,6 +34,10 @@ class BluetoothReceiver : public NmeaGnssReceiver
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~BluetoothReceiver() override;
 
+  public slots:
+    QAbstractSocket::SocketState socketState() override;
+    QString socketStateString() override;
+
   private slots:
     /**
      * these functions used for repairing are only needed in the linux (not android) environment

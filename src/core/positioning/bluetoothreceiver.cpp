@@ -163,43 +163,37 @@ void BluetoothReceiver::doConnectDevice()
 
 void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState socketState )
 {
-  if ( mSocketState == static_cast<QAbstractSocket::SocketState>( socketState ) )
-  {
-    return;
-  }
+  emit socketStateChanged( static_cast<QAbstractSocket::SocketState>( socketState ) );
+  emit socketStateStringChanged( socketStateString() );
+}
 
-  switch ( socketState )
+QAbstractSocket::SocketState BluetoothReceiver::socketState()
+{
+  return mSocket ? static_cast<QAbstractSocket::SocketState>( mSocket->state() ) : QAbstractSocket::UnconnectedState;
+}
+
+QString BluetoothReceiver::socketStateString()
+{
+  const QAbstractSocket::SocketState currentState = socketState();
+  switch ( currentState )
   {
-    case QBluetoothSocket::SocketState::ServiceLookupState:
-    case QBluetoothSocket::SocketState::ConnectingState:
+    case QAbstractSocket::ConnectingState:
+    case QAbstractSocket::HostLookupState:
+      return tr( "Connecting…" );
+    case QAbstractSocket::ConnectedState:
+      return tr( "Successfully connected" );
+    case QAbstractSocket::UnconnectedState:
     {
-      mSocketStateString = tr( "Connecting…" );
-      break;
-    }
-    case QBluetoothSocket::SocketState::ConnectedState:
-    {
-      mSocketStateString = tr( "Successfully connected" );
-      break;
-    }
-    case QBluetoothSocket::SocketState::UnconnectedState:
-    {
-      mSocketStateString = tr( "Disconnected" );
+      QString mSocketStateString = tr( "Disconnected" );
       if ( !mDisconnecting && mSocket->error() != QBluetoothSocket::SocketError::NoSocketError )
         mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
-
       if ( mConnectOnDisconnect )
         doConnectDevice();
-      break;
+      return mSocketStateString;
     }
     default:
-    {
-      mSocketStateString = tr( "Socket state %1" ).arg( static_cast<int>( socketState ) );
-    }
+      return tr( "Socket state %1" ).arg( static_cast<int>( currentState ) );
   }
-
-  mSocketState = static_cast<QAbstractSocket::SocketState>( socketState );
-  emit socketStateChanged( mSocketState );
-  emit socketStateStringChanged( mSocketStateString );
 }
 
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )

@@ -52,6 +52,12 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &InternalGnssReceiver::onApplicationStateChanged );
 }
 
+
+QAbstractSocket::SocketState InternalGnssReceiver::socketState()
+{
+  return mSocketState;
+}
+
 void InternalGnssReceiver::onApplicationStateChanged( Qt::ApplicationState state )
 {
 #ifdef Q_OS_ANDROID

@@ -34,14 +34,19 @@ SerialPortReceiver::~SerialPortReceiver()
   mSocket = nullptr;
 }
 
+QAbstractSocket::SocketState SerialPortReceiver::socketState()
+{
+  return mSocketState;
+}
+
 void SerialPortReceiver::handleDisconnectDevice()
 {
   if ( mSocketState == QAbstractSocket::ConnectedState )
   {
     mSocket->close();
-
     mSocketState = QAbstractSocket::UnconnectedState;
     emit socketStateChanged( mSocketState );
+    emit socketStateStringChanged( socketStateString() );
   }
 }
 
@@ -59,6 +64,7 @@ void SerialPortReceiver::handleConnectDevice()
   {
     mSocketState = QAbstractSocket::ConnectedState;
     emit socketStateChanged( mSocketState );
+    emit socketStateStringChanged( socketStateString() );
   }
 }
 

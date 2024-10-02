@@ -26,8 +26,6 @@ class AbstractGnssReceiver : public QObject
     Q_OBJECT
 
     Q_PROPERTY( GnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
-    Q_PROPERTY( QAbstractSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
-    Q_PROPERTY( QString socketStateString READ socketStateString NOTIFY socketStateStringChanged )
     Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
   public:
@@ -55,19 +53,36 @@ class AbstractGnssReceiver : public QObject
 
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
 
-    QAbstractSocket::SocketState socketState() const { return mSocketState; }
-    QString socketStateString() const { return mSocketStateString; }
     QString lastError() const { return mLastError; }
 
     Q_INVOKABLE virtual AbstractGnssReceiver::Capabilities capabilities() const { return NoCapabilities; }
 
     virtual QList<QPair<QString, QVariant>> details() { return {}; }
 
+  public slots:
+    virtual QAbstractSocket::SocketState socketState() { return QAbstractSocket::SocketState::UnconnectedState; }
+    virtual QString socketStateString()
+    {
+      switch ( socketState() )
+      {
+        case QAbstractSocket::ConnectingState:
+        case QAbstractSocket::HostLookupState:
+          return tr( "Connecting…" );
+        case QAbstractSocket::ConnectedState:
+        case QAbstractSocket::BoundState:
+          return tr( "Successfully connected" );
+        case QAbstractSocket::UnconnectedState:
+          return tr( "Disconnected" );
+        default:
+          return tr( "Socket state %1" ).arg( static_cast<int>( socketState() ) );
+      }
+    }
+
   signals:
     void validChanged();
     void lastGnssPositionInformationChanged( GnssPositionInformation &lastGnssPositionInformation );
-    void socketStateChanged( QAbstractSocket::SocketState socketState );
-    void socketStateStringChanged( QString &socketStateString );
+    void socketStateChanged( const QAbstractSocket::SocketState socketState );
+    void socketStateStringChanged( const QString &socketStateString );
     void lastErrorChanged( QString &lastError );
 
   private:
@@ -87,8 +102,6 @@ class AbstractGnssReceiver : public QObject
 
     bool mValid = false;
     GnssPositionInformation mLastGnssPositionInformation;
-    QAbstractSocket::SocketState mSocketState = QAbstractSocket::UnconnectedState;
-    QString mSocketStateString;
     QString mLastError;
 };
 
