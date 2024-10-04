@@ -32,15 +32,6 @@ void EgenioussReceiver::handleDisconnectDevice()
   mTcpSocket->disconnectFromHost();
 }
 
-QAbstractSocket::SocketState EgenioussReceiver::socketState() const
-{
-  if ( mTcpSocket == nullptr )
-  {
-    return QAbstractSocket::UnconnectedState;
-  }
-  return mTcpSocket->state();
-}
-
 QList<QPair<QString, QVariant>> EgenioussReceiver::details() const
 {
   QList<QPair<QString, QVariant>> detailsList;

@@ -25,6 +25,10 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &TcpReceiver::handleError );
   connect( mSocket, &QTcpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
     setSocketState( state );
+    if ( state == QAbstractSocket::SocketState::UnconnectedState && mReconnectOnDisconnect )
+    {
+      mReconnectTimer.start( 2000 );
+    }
   } );
 
   connect( mSocket, &QAbstractSocket::connected, this, [=] {
@@ -63,38 +67,15 @@ void TcpReceiver::handleDisconnectDevice()
   mSocket->disconnectFromHost();
 }
 
-QAbstractSocket::SocketState TcpReceiver::socketState() const
-{
-  if ( mSocket == nullptr )
-  {
-    return QAbstractSocket::UnconnectedState;
-  }
-  return mSocket->state();
-}
-
 QString TcpReceiver::socketStateString()
 {
   const QAbstractSocket::SocketState currentState = socketState();
-  switch ( currentState )
+  QString socketStateString = AbstractGnssReceiver::socketStateString();
+  if ( currentState == QAbstractSocket::UnconnectedState && mReconnectOnDisconnect )
   {
-    case QAbstractSocket::ConnectingState:
-    case QAbstractSocket::HostLookupState:
-      return tr( "Connecting…" );
-    case QAbstractSocket::ConnectedState:
-      return tr( "Successfully connected" );
-    case QAbstractSocket::UnconnectedState:
-    {
-      QString socketStateString = tr( "Disconnected" );
-      if ( mReconnectOnDisconnect )
-      {
-        socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
-        mReconnectTimer.start( 2000 );
-      }
-      return socketStateString;
-    }
-    default:
-      return tr( "Socket state %1" ).arg( static_cast<int>( currentState ) );
+    socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
   }
+  return socketStateString;
 }
 
 void TcpReceiver::handleError( QAbstractSocket::SocketError error )
