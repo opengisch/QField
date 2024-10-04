@@ -101,7 +101,8 @@ void GridModel::update()
   mAnnotations.clear();
 
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
-  if ( mXInterval / mMapSettings->mapUnitsPerPoint() < 3 || mYInterval / mMapSettings->mapUnitsPerPoint() < 3 )
+  double smallestScreenInterval = std::min( mXInterval / mMapSettings->mapUnitsPerPoint(), mYInterval / mMapSettings->mapUnitsPerPoint() );
+  if ( smallestScreenInterval < 10 )
   {
     if ( hadGrid )
     {
@@ -113,7 +114,7 @@ void GridModel::update()
   QList<QPointF> line;
   QPointF intersectionPoint;
 
-  if ( mDrawMarkers )
+  if ( mDrawMarkers && smallestScreenInterval > 20 )
   {
     double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
     while ( xPos <= visibleExtent.xMaximum() )

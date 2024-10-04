@@ -22,10 +22,8 @@ Item {
 
     onMarkersChanged: {
       let svgPath = "";
-      if (gridModel.markers.length > 0 && gridModel.markers.length < 2000) {
-        for (const marker of gridModel.markers) {
-          svgPath += "M " + (marker.x) + " " + (marker.y - 5) + " L " + (marker.x) + " " + (marker.y + 5) + " " + "M " + (marker.x - 5) + " " + (marker.y) + " L " + (marker.x + 5) + " " + (marker.y) + " ";
-        }
+      for (const marker of gridModel.markers) {
+        svgPath += "M " + (marker.x) + " " + (marker.y - 5) + " L " + (marker.x) + " " + (marker.y + 5) + " " + "M " + (marker.x - 5) + " " + (marker.y) + " L " + (marker.x + 5) + " " + (marker.y) + " ";
       }
       markerSvgPath.path = svgPath;
     }
