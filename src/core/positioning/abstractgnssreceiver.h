@@ -26,7 +26,7 @@ class AbstractGnssReceiver : public QObject
     Q_OBJECT
 
     Q_PROPERTY( GnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
-    Q_PROPERTY( QAbstractSocket::SocketState socketState READ socketState WRITE setSocketState NOTIFY socketStateChanged )
+    Q_PROPERTY( QAbstractSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
     Q_PROPERTY( QString socketStateString READ socketStateString NOTIFY socketStateStringChanged )
     Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
@@ -60,10 +60,9 @@ class AbstractGnssReceiver : public QObject
 
     virtual QList<QPair<QString, QVariant>> details() const { return {}; }
     virtual QAbstractSocket::SocketState socketState() const { return mSocketState; }
-
-
-  public slots:
     virtual QString socketStateString();
+
+  protected:
     void setSocketState( const QAbstractSocket::SocketState &state );
 
   signals:

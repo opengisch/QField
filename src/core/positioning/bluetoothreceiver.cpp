@@ -29,16 +29,38 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
 {
   connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
   connect( mSocket, &QBluetoothSocket::stateChanged, this, [=]( QBluetoothSocket::SocketState state ) {
-    const QAbstractSocket::SocketState currentState = static_cast<QAbstractSocket::SocketState>( state );
+    QAbstractSocket::SocketState currentState;
+    switch ( state )
+    {
+      case QBluetoothSocket::SocketState::UnconnectedState:
+        currentState = QAbstractSocket::UnconnectedState;
+        break;
+      case QBluetoothSocket::SocketState::ConnectingState:
+        currentState = QAbstractSocket::ConnectingState;
+        break;
+      case QBluetoothSocket::SocketState::ConnectedState:
+        currentState = QAbstractSocket::ConnectedState;
+        break;
+      case QBluetoothSocket::SocketState::ClosingState:
+        currentState = QAbstractSocket::ClosingState;
+        break;
+      case QBluetoothSocket::SocketState::ListeningState:
+        currentState = QAbstractSocket::ListeningState;
+        break;
+      default:
+        currentState = QAbstractSocket::UnconnectedState;
+        break;
+    }
     setSocketState( currentState );
-    if ( currentState == QAbstractSocket::SocketState::UnconnectedState && mConnectOnDisconnect )
+
+    if ( currentState == QAbstractSocket::UnconnectedState && mConnectOnDisconnect )
     {
       doConnectDevice();
     }
   } );
 
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished );
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, [=]( QBluetoothLocalDevice::Error error ) {
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, this, [=]( QBluetoothLocalDevice::Error error ) {
     if ( error != QBluetoothLocalDevice::NoError )
     {
       mLastError = QStringLiteral( "Local device returned an error (%1) for %2" ).arg( QMetaEnum::fromType<QBluetoothLocalDevice::Error>().valueToKey( error ), mAddress );

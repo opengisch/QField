@@ -1,3 +1,19 @@
+/***************************************************************************
+ egeniousseeceiver.cpp - EgenioussReceiver
+
+ ---------------------
+ begin                : October 2024
+ copyright            : (C) 2024 by Mohsen Dehghanzadeh
+ email                : mohsen@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include "egenioussreceiver.h"
 
 #include <QHostAddress>
@@ -9,9 +25,7 @@ EgenioussReceiver::EgenioussReceiver( QObject *parent )
 {
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );
-  connect( mTcpSocket, &QTcpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
-    setSocketState( state );
-  } );
+  connect( mTcpSocket, &QTcpSocket::stateChanged, this, &AbstractGnssReceiver::setSocketState );
 
   setValid( true );
 }
