@@ -9,13 +9,17 @@ EgenioussReceiver::EgenioussReceiver( QObject *parent )
 {
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );
-  connect( mTcpSocket, &QTcpSocket::stateChanged, this, &EgenioussReceiver::setSocketState );
+  connect( mTcpSocket, &QTcpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
+    setSocketState( state );
+  } );
+
   setValid( true );
 }
 
 EgenioussReceiver::~EgenioussReceiver()
 {
-  disconnect( mTcpSocket, &QTcpSocket::stateChanged, this, &EgenioussReceiver::setSocketState );
+  mTcpSocket->deleteLater();
+  mTcpSocket = nullptr;
 }
 
 void EgenioussReceiver::handleConnectDevice()
@@ -28,18 +32,16 @@ void EgenioussReceiver::handleDisconnectDevice()
   mTcpSocket->disconnectFromHost();
 }
 
-QAbstractSocket::SocketState EgenioussReceiver::socketState()
+QAbstractSocket::SocketState EgenioussReceiver::socketState() const
 {
-  return mTcpSocket ? mTcpSocket->state() : QAbstractSocket::UnconnectedState;
+  if ( mTcpSocket == nullptr )
+  {
+    return QAbstractSocket::UnconnectedState;
+  }
+  return mTcpSocket->state();
 }
 
-void EgenioussReceiver::setSocketState( const QAbstractSocket::SocketState socketState )
-{
-  emit socketStateChanged( socketState );
-  emit socketStateStringChanged( socketStateString() );
-}
-
-QList<QPair<QString, QVariant>> EgenioussReceiver::details()
+QList<QPair<QString, QVariant>> EgenioussReceiver::details() const
 {
   QList<QPair<QString, QVariant>> detailsList;
 
@@ -130,8 +132,6 @@ void EgenioussReceiver::handleError( QAbstractSocket::SocketError error )
       mLastError = tr( "TCP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
       break;
   }
-  setSocketState( QAbstractSocket::UnconnectedState );
-
   qInfo() << QStringLiteral( "EgenioussReceiver: Error: %1" ).arg( mLastError );
 
   emit lastErrorChanged( mLastError );

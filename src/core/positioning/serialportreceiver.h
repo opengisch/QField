@@ -33,9 +33,6 @@ class SerialPortReceiver : public NmeaGnssReceiver
     explicit SerialPortReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~SerialPortReceiver() override;
 
-  public slots:
-    QAbstractSocket::SocketState socketState() override;
-
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
@@ -43,9 +40,7 @@ class SerialPortReceiver : public NmeaGnssReceiver
 
     QString mAddress;
 
-    QSerialPort *mSocket = nullptr;
-
-    QAbstractSocket::SocketState mSocketState = QAbstractSocket::UnconnectedState;
+    QSerialPort *mSerialPort = nullptr;
 };
 
 #endif // SERIALPORTRECEIVER_H

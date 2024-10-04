@@ -34,14 +34,10 @@ class UdpReceiver : public NmeaGnssReceiver
   public:
     explicit UdpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
     ~UdpReceiver() override;
+    QAbstractSocket::SocketState socketState() const override;
 
   public slots:
-    QAbstractSocket::SocketState socketState() override;
     QString socketStateString() override;
-
-  private slots:
-
-    void setSocketState( QAbstractSocket::SocketState socketState );
 
   private:
     void handleConnectDevice() override;

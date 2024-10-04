@@ -50,7 +50,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
   private:
     void handleStartLogging() override;
     void handleStopLogging() override;
-    QList<QPair<QString, QVariant>> details() override;
+    QList<QPair<QString, QVariant>> details() const override;
 
     void processImuSentence( const QString &sentence );
 
