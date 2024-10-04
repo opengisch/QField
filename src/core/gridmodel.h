@@ -63,8 +63,9 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     Q_PROPERTY( double xOffset READ xOffset WRITE setXOffset NOTIFY xOffsetChanged )
     Q_PROPERTY( double yOffset READ yOffset WRITE setYOffset NOTIFY yOffsetChanged )
 
-    Q_PROPERTY( QList<QList<QPointF>> lines READ lines NOTIFY linesChanged )
-    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY annotationsChanged )
+    Q_PROPERTY( QList<QList<QPointF>> lines READ lines NOTIFY gridChanged )
+    Q_PROPERTY( QList<QPointF> markers READ markers NOTIFY gridChanged )
+    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY gridChanged )
 
   public:
     //! Default constructor
@@ -103,6 +104,9 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     //! Returns the grid lines
     QList<QList<QPointF>> lines() const { return mLines; }
 
+    //! Returns the grid markers
+    QList<QPointF> markers() const { return mMarkers; }
+
     //! Returns the grid annotations
     QList<GridAnnotation> annotations() const { return mAnnotations; }
 
@@ -122,11 +126,8 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     //! Emitted when the grid Y offset has changed
     void yOffsetChanged();
 
-    //! Emitted when the grid lines have changed
-    void linesChanged();
-
-    //! Emitted when the grid annotations have changed
-    void annotationsChanged();
+    //! Emitted when the grid lines, markers, and/or annotations have changed
+    void gridChanged();
 
   private:
     void update();
@@ -138,8 +139,13 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     double mXOffset = 0.0;
     double mYOffset = 0.0;
 
+    bool mDrawLines = true;
     QList<QList<QPointF>> mLines;
+    bool mDrawMarkers = true;
+    QList<QPointF> mMarkers;
+    bool mDrawAnnotations = true;
     QList<GridAnnotation> mAnnotations;
+
     QLocale mLocale;
 };
 Q_DECLARE_METATYPE( GridAnnotation )

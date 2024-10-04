@@ -14,10 +14,21 @@ Item {
   property alias yOffset: gridModel.yOffset
 
   property color lineColor: "#000000"
+  property color markerColor: "#000000"
   property color annotationColor: "#000000"
 
   GridModel {
     id: gridModel
+
+    onMarkersChanged: {
+      let svgPath = "";
+      if (gridModel.markers.length > 0 && gridModel.markers.length < 2000) {
+        for (const marker of gridModel.markers) {
+          svgPath += "M " + (marker.x) + " " + (marker.y - 5) + " L " + (marker.x) + " " + (marker.y + 5) + " " + "M " + (marker.x - 5) + " " + (marker.y) + " L " + (marker.x + 5) + " " + (marker.y) + " ";
+        }
+      }
+      markerSvgPath.path = svgPath;
+    }
   }
 
   Instantiator {
@@ -48,6 +59,27 @@ Item {
     }
   }
 
+  Shape {
+    id: markers
+    visible: gridModel.markers.length > 0
+    anchors.fill: parent
+
+    ShapePath {
+      id: markerPath
+      strokeColor: markerColor
+      strokeWidth: 2
+      strokeStyle: ShapePath.SolidLine
+      fillColor: "transparent"
+      joinStyle: ShapePath.RoundJoin
+      capStyle: ShapePath.RoundCap
+
+      PathSvg {
+        id: markerSvgPath
+        path: ""
+      }
+    }
+  }
+
   Repeater {
     id: annotations
     model: gridModel.annotations
@@ -56,9 +88,8 @@ Item {
       x: modelData.coordinate.x - width / 2
       y: modelData.coordinate.y - height / 2
 
-      width: 4
-      height: 4
-      radius: width / 2
+      width: 1
+      height: 1
 
       color: lineColor
 

@@ -94,17 +94,18 @@ void GridModel::update()
     return;
   }
 
-  bool hadLines = !mLines.isEmpty();
+  bool hadGrid = !mLines.isEmpty() || !mMarkers.isEmpty() || !mAnnotations.isEmpty();
+
   mLines.clear();
+  mMarkers.clear();
   mAnnotations.clear();
 
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   if ( mXInterval / mMapSettings->mapUnitsPerPoint() < 3 || mYInterval / mMapSettings->mapUnitsPerPoint() < 3 )
   {
-    if ( hadLines )
+    if ( hadGrid )
     {
-      emit linesChanged();
-      emit annotationsChanged();
+      emit gridChanged();
     }
     return;
   }
@@ -112,48 +113,73 @@ void GridModel::update()
   QList<QPointF> line;
   QPointF intersectionPoint;
 
-  double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
-  const QLineF topBorder( QPointF( 0, 0 ), QPointF( mMapSettings->outputSize().width(), 0 ) );
-  const QLineF bottomBorder( QPointF( 0, mMapSettings->outputSize().height() ), QPointF( mMapSettings->outputSize().width(), mMapSettings->outputSize().height() ) );
-  while ( xPos <= visibleExtent.xMaximum() )
+  if ( mDrawMarkers )
   {
-    const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMaximum() ) ) );
-    if ( currentLine.intersects( topBorder, &intersectionPoint ) )
+    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
+    while ( xPos <= visibleExtent.xMaximum() )
     {
-      mAnnotations << GridAnnotation( GridAnnotation::Top, intersectionPoint, mLocale.toString( xPos, 'f', 0 ) );
+      double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), mYInterval ) + mYOffset;
+      while ( yPos <= visibleExtent.yMaximum() )
+      {
+        mMarkers << mMapSettings->coordinateToScreen( QgsPoint( xPos, yPos ) );
+        yPos += mYInterval;
+      }
+      xPos += mXInterval;
     }
-    if ( currentLine.intersects( bottomBorder, &intersectionPoint ) )
-    {
-      mAnnotations << GridAnnotation( GridAnnotation::Bottom, intersectionPoint, mLocale.toString( xPos, 'f', 0 ) );
-    }
-
-    line << currentLine.p1() << currentLine.p2();
-    mLines << line;
-    line.clear();
-    xPos += mXInterval;
   }
 
-  double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), mYInterval ) + mYOffset;
-  const QLineF leftBorder( QPointF( 0, 0 ), QPointF( 0, mMapSettings->outputSize().height() ) );
-  const QLineF rightBorder( QPointF( mMapSettings->outputSize().width(), 0 ), QPointF( mMapSettings->outputSize().width(), mMapSettings->outputSize().height() ) );
-  while ( yPos <= visibleExtent.yMaximum() )
+  if ( mDrawLines || mDrawAnnotations )
   {
-    const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMinimum(), yPos ) ), mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMaximum(), yPos ) ) );
-    if ( currentLine.intersects( leftBorder, &intersectionPoint ) )
+    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
+    const QLineF topBorder( QPointF( 0, 0 ), QPointF( mMapSettings->outputSize().width(), 0 ) );
+    const QLineF bottomBorder( QPointF( 0, mMapSettings->outputSize().height() ), QPointF( mMapSettings->outputSize().width(), mMapSettings->outputSize().height() ) );
+    while ( xPos <= visibleExtent.xMaximum() )
     {
-      mAnnotations << GridAnnotation( GridAnnotation::Left, intersectionPoint, mLocale.toString( yPos, 'f', 0 ) );
-    }
-    if ( currentLine.intersects( rightBorder, &intersectionPoint ) )
-    {
-      mAnnotations << GridAnnotation( GridAnnotation::Right, intersectionPoint, mLocale.toString( yPos, 'f', 0 ) );
+      const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMaximum() ) ) );
+
+      if ( mDrawAnnotations )
+      {
+        if ( currentLine.intersects( topBorder, &intersectionPoint ) )
+        {
+          mAnnotations << GridAnnotation( GridAnnotation::Top, intersectionPoint, mLocale.toString( xPos, 'f', 0 ) );
+        }
+        if ( currentLine.intersects( bottomBorder, &intersectionPoint ) )
+        {
+          mAnnotations << GridAnnotation( GridAnnotation::Bottom, intersectionPoint, mLocale.toString( xPos, 'f', 0 ) );
+        }
+      }
+
+      line << currentLine.p1() << currentLine.p2();
+      mLines << line;
+      line.clear();
+      xPos += mXInterval;
     }
 
-    line << currentLine.p1() << currentLine.p2();
-    mLines << line;
-    line.clear();
-    yPos += mYInterval;
+    double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), mYInterval ) + mYOffset;
+    const QLineF leftBorder( QPointF( 0, 0 ), QPointF( 0, mMapSettings->outputSize().height() ) );
+    const QLineF rightBorder( QPointF( mMapSettings->outputSize().width(), 0 ), QPointF( mMapSettings->outputSize().width(), mMapSettings->outputSize().height() ) );
+    while ( yPos <= visibleExtent.yMaximum() )
+    {
+      const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMinimum(), yPos ) ), mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMaximum(), yPos ) ) );
+
+      if ( mDrawAnnotations )
+      {
+        if ( currentLine.intersects( leftBorder, &intersectionPoint ) )
+        {
+          mAnnotations << GridAnnotation( GridAnnotation::Left, intersectionPoint, mLocale.toString( yPos, 'f', 0 ) );
+        }
+        if ( currentLine.intersects( rightBorder, &intersectionPoint ) )
+        {
+          mAnnotations << GridAnnotation( GridAnnotation::Right, intersectionPoint, mLocale.toString( yPos, 'f', 0 ) );
+        }
+      }
+
+      line << currentLine.p1() << currentLine.p2();
+      mLines << line;
+      line.clear();
+      yPos += mYInterval;
+    }
   }
 
-  emit linesChanged();
-  emit annotationsChanged();
+  emit gridChanged();
 }
