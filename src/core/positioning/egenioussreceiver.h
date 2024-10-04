@@ -15,7 +15,6 @@ class EgenioussReceiver : public AbstractGnssReceiver
     ~EgenioussReceiver();
 
     QList<QPair<QString, QVariant>> details() const override;
-    QAbstractSocket::SocketState socketState() const override;
 
   private:
     void handleConnectDevice() override;

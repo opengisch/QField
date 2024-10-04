@@ -33,7 +33,6 @@ class BluetoothReceiver : public NmeaGnssReceiver
   public:
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~BluetoothReceiver() override;
-    QAbstractSocket::SocketState socketState() const override;
 
   public slots:
     QString socketStateString() override;
