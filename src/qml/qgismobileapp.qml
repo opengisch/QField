@@ -578,6 +578,10 @@ ApplicationWindow {
           overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside;
         }
       }
+
+      GridRenderer {
+        mapSettings: mapCanvas.mapSettings
+      }
     }
 
     /**************************************************
