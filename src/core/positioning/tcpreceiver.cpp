@@ -22,8 +22,10 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   , mPort( port )
   , mSocket( new QTcpSocket() )
 {
-  connect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &TcpReceiver::handleError );
+  connect( mSocket, &QTcpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
+    setSocketState( state );
+  } );
 
   connect( mSocket, &QAbstractSocket::connected, this, [=] {
     // This line enables gpsd's NMEA through TCP
@@ -41,8 +43,6 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
 
 TcpReceiver::~TcpReceiver()
 {
-  disconnect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
-
   mSocket->deleteLater();
   mSocket = nullptr;
 }
@@ -63,15 +63,13 @@ void TcpReceiver::handleDisconnectDevice()
   mSocket->disconnectFromHost();
 }
 
-void TcpReceiver::setSocketState( const QAbstractSocket::SocketState socketState )
+QAbstractSocket::SocketState TcpReceiver::socketState() const
 {
-  emit socketStateChanged( socketState );
-  emit socketStateStringChanged( socketStateString() );
-}
-
-QAbstractSocket::SocketState TcpReceiver::socketState()
-{
-  return mSocket ? mSocket->state() : QAbstractSocket::UnconnectedState;
+  if ( mSocket == nullptr )
+  {
+    return QAbstractSocket::UnconnectedState;
+  }
+  return mSocket->state();
 }
 
 QString TcpReceiver::socketStateString()
@@ -86,13 +84,13 @@ QString TcpReceiver::socketStateString()
       return tr( "Successfully connected" );
     case QAbstractSocket::UnconnectedState:
     {
-      QString mSocketStateString = tr( "Disconnected" );
+      QString socketStateString = tr( "Disconnected" );
       if ( mReconnectOnDisconnect )
       {
-        mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
+        socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
         mReconnectTimer.start( 2000 );
       }
-      return mSocketStateString;
+      return socketStateString;
     }
     default:
       return tr( "Socket state %1" ).arg( static_cast<int>( currentState ) );
@@ -116,9 +114,6 @@ void TcpReceiver::handleError( QAbstractSocket::SocketError error )
       mLastError = tr( "TCP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
       break;
   }
-
-  setSocketState( QAbstractSocket::UnconnectedState );
-
   qInfo() << QStringLiteral( "TcpReceiver: Error: %1" ).arg( mLastError );
 
   emit lastErrorChanged( mLastError );

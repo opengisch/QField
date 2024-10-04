@@ -14,18 +14,16 @@ class EgenioussReceiver : public AbstractGnssReceiver
     explicit EgenioussReceiver( QObject *parent = nullptr );
     ~EgenioussReceiver();
 
-  public slots:
-    QAbstractSocket::SocketState socketState() override;
+    QList<QPair<QString, QVariant>> details() const override;
+    QAbstractSocket::SocketState socketState() const override;
 
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
-    QList<QPair<QString, QVariant>> details() override;
 
   private slots:
     void onReadyRead();
     void handleError( QAbstractSocket::SocketError error );
-    void setSocketState( const QAbstractSocket::SocketState socketState );
 
   private:
     void processReceivedData();

@@ -35,7 +35,7 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     connect( mGeoPositionSource.get(), &QGeoPositionInfoSource::positionUpdated, this, &InternalGnssReceiver::handlePositionUpdated );
     connect( mGeoPositionSource.get(), qOverload<QGeoPositionInfoSource::Error>( &QGeoPositionInfoSource::errorOccurred ), this, &InternalGnssReceiver::handleError );
 
-    mSocketState = QAbstractSocket::ConnectedState;
+    setSocketState( QAbstractSocket::ConnectedState );
 
     setValid( true );
   }
@@ -50,12 +50,6 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   }
 
   connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &InternalGnssReceiver::onApplicationStateChanged );
-}
-
-
-QAbstractSocket::SocketState InternalGnssReceiver::socketState()
-{
-  return mSocketState;
 }
 
 void InternalGnssReceiver::onApplicationStateChanged( Qt::ApplicationState state )

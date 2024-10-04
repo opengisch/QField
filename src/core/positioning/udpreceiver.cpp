@@ -35,8 +35,10 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
   mSocket->setSocketDescriptor( sockfd, QUdpSocket::UnconnectedState );
 #endif
 
-  connect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &UdpReceiver::handleError );
+  connect( mSocket, &QUdpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
+    setSocketState( state );
+  } );
 
   connect( mSocket, &QUdpSocket::readyRead, this, [=]() {
     QByteArray datagram;
@@ -63,8 +65,6 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
 
 UdpReceiver::~UdpReceiver()
 {
-  disconnect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
-
   mSocket->deleteLater();
   mSocket = nullptr;
   mBuffer->deleteLater();
@@ -90,15 +90,13 @@ void UdpReceiver::handleDisconnectDevice()
   mSocket->close();
 }
 
-void UdpReceiver::setSocketState( const QAbstractSocket::SocketState socketState )
+QAbstractSocket::SocketState UdpReceiver::socketState() const
 {
-  emit socketStateChanged( socketState );
-  emit socketStateStringChanged( socketStateString() );
-}
-
-QAbstractSocket::SocketState UdpReceiver::socketState()
-{
-  return mSocket ? mSocket->state() : QAbstractSocket::UnconnectedState;
+  if ( mSocket == nullptr )
+  {
+    return QAbstractSocket::UnconnectedState;
+  }
+  return mSocket->state();
 }
 
 QString UdpReceiver::socketStateString()
@@ -114,13 +112,13 @@ QString UdpReceiver::socketStateString()
       return tr( "Successfully connected" );
     case QAbstractSocket::UnconnectedState:
     {
-      QString mSocketStateString = tr( "Disconnected" );
+      QString socketStateString = tr( "Disconnected" );
       if ( mReconnectOnDisconnect )
       {
-        mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
+        socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
         mReconnectTimer.start( 2000 );
       }
-      return mSocketStateString;
+      return socketStateString;
     }
     default:
       return tr( "Socket state %1" ).arg( static_cast<int>( currentState ) );
@@ -144,9 +142,6 @@ void UdpReceiver::handleError( QAbstractSocket::SocketError error )
       mLastError = tr( "UDP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
       break;
   }
-
-  setSocketState( QAbstractSocket::UnconnectedState );
-
   qInfo() << QStringLiteral( "UdpReceiver: Error: %1" ).arg( mLastError );
 
   emit lastErrorChanged( mLastError );

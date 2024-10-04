@@ -33,9 +33,9 @@ class BluetoothReceiver : public NmeaGnssReceiver
   public:
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~BluetoothReceiver() override;
+    QAbstractSocket::SocketState socketState() const override;
 
   public slots:
-    QAbstractSocket::SocketState socketState() override;
     QString socketStateString() override;
 
   private slots:
@@ -45,8 +45,6 @@ class BluetoothReceiver : public NmeaGnssReceiver
      * but meanwhile we keep them as the developer setup.
      */
     void pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status );
-
-    void setSocketState( const QBluetoothSocket::SocketState socketState );
 
   private:
     void handleConnectDevice() override;

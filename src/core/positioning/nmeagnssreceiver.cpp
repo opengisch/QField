@@ -116,7 +116,7 @@ void NmeaGnssReceiver::handleStopLogging()
   mLogFile.close();
 }
 
-QList<QPair<QString, QVariant>> NmeaGnssReceiver::details()
+QList<QPair<QString, QVariant>> NmeaGnssReceiver::details() const
 {
   QList<QPair<QString, QVariant>> dataList;
 
