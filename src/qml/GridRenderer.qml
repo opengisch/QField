@@ -20,29 +20,25 @@ Item {
   GridModel {
     id: gridModel
 
+    onLinesChanged: {
+      let svgPath = "";
+      for (const line of lines) {
+        svgPath += "M " + (line[0].x) + " " + (line[0].y) + " L " + (line[1].x) + " " + (line[1].y) + " ";
+      }
+      lineSvgPath.path = svgPath;
+    }
+
     onMarkersChanged: {
       let svgPath = "";
-      for (const marker of gridModel.markers) {
+      for (const marker of markers) {
         svgPath += "M " + (marker.x) + " " + (marker.y - 5) + " L " + (marker.x) + " " + (marker.y + 5) + " " + "M " + (marker.x - 5) + " " + (marker.y) + " L " + (marker.x + 5) + " " + (marker.y) + " ";
       }
       markerSvgPath.path = svgPath;
     }
   }
 
-  Instantiator {
-    id: lineInstantiator
-    asynchronous: true
-    model: gridModel.lines
-    onModelChanged: linesPath.pathElements = []
-    onObjectAdded: (index, object) => linesPath.pathElements.push(object)
-
-    PathPolyline {
-      path: modelData
-    }
-  }
-
   Shape {
-    id: lines
+    id: linesContainer
     visible: gridModel.lines.length > 0
     anchors.fill: parent
 
@@ -54,11 +50,16 @@ Item {
       fillColor: "transparent"
       joinStyle: ShapePath.RoundJoin
       capStyle: ShapePath.RoundCap
+
+      PathSvg {
+        id: lineSvgPath
+        path: ""
+      }
     }
   }
 
   Shape {
-    id: markers
+    id: markersContainer
     visible: gridModel.markers.length > 0
     anchors.fill: parent
 
@@ -79,7 +80,7 @@ Item {
   }
 
   Repeater {
-    id: annotations
+    id: annotationsContainer
     model: gridModel.annotations
 
     Rectangle {
@@ -92,6 +93,7 @@ Item {
       color: lineColor
 
       Text {
+        id: annotation
         anchors.top: modelData.position === GridAnnotation.Top ? parent.bottom : undefined
         anchors.bottom: modelData.position === GridAnnotation.Bottom ? parent.top : undefined
         anchors.left: modelData.position === GridAnnotation.Left ? parent.right : undefined
