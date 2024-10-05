@@ -6,6 +6,7 @@ import Theme
 Item {
   id: gridRenderer
 
+  property alias enabled: gridModel.enabled
   property alias mapSettings: gridModel.mapSettings
 
   property alias xInterval: gridModel.xInterval
@@ -13,9 +14,16 @@ Item {
   property alias xOffset: gridModel.xOffset
   property alias yOffset: gridModel.yOffset
 
+  property alias prepareLines: gridModel.prepareLines
   property color lineColor: "#000000"
+
+  property alias prepareMarkers: gridModel.prepareMarkers
   property color markerColor: "#000000"
+
+  property alias prepareAnnotations: gridModel.prepareAnnotations
   property color annotationColor: "#000000"
+  property bool hasAnnotationOutline: false
+  property color annotationOutlineColor: "#ffffff"
 
   GridModel {
     id: gridModel
@@ -103,8 +111,8 @@ Item {
 
         font: Theme.tinyFont
         color: annotationColor
-        style: Text.Outline
-        styleColor: "#ffffff"
+        style: hasAnnotationOutline ? Text.Outline : Text.Normal
+        styleColor: annotationOutlineColor
 
         text: modelData.label
       }

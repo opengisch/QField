@@ -56,6 +56,8 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
+
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
     Q_PROPERTY( double xInterval READ xInterval WRITE setXInterval NOTIFY xIntervalChanged )
@@ -63,13 +65,22 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     Q_PROPERTY( double xOffset READ xOffset WRITE setXOffset NOTIFY xOffsetChanged )
     Q_PROPERTY( double yOffset READ yOffset WRITE setYOffset NOTIFY yOffsetChanged )
 
+    Q_PROPERTY( bool prepareLines READ prepareLines WRITE setPrepareLines NOTIFY prepareLinesChanged )
     Q_PROPERTY( QList<QList<QPointF>> lines READ lines NOTIFY gridChanged )
+    Q_PROPERTY( bool prepareMarkers READ prepareMarkers WRITE setPrepareMarkers NOTIFY prepareMarkersChanged )
     Q_PROPERTY( QList<QPointF> markers READ markers NOTIFY gridChanged )
+    Q_PROPERTY( bool prepareAnnotations READ prepareAnnotations WRITE setPrepareAnnotations NOTIFY prepareAnnotationsChanged )
     Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY gridChanged )
 
   public:
     //! Default constructor
     explicit GridModel( QObject *parent = nullptr );
+
+    //! Returns TRUE when grid elements will be prepared
+    bool enabled() const { return mEnabled; }
+
+    //! Sets whether grid elements will be prepared
+    void setEnabled( bool enabled );
 
     //! Returns the map settings object
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
@@ -101,16 +112,37 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     //! Sets the grid Y interval
     void setYOffset( double offset );
 
+    //! Returns whether grid lines will be prepared
+    bool prepareLines() const { return mPrepareLines; }
+
+    //! Sets whether grid lines will be prepared
+    void setPrepareLines( bool prepare );
+
     //! Returns the grid lines
     QList<QList<QPointF>> lines() const { return mLines; }
 
+    //! Returns whether grid markers will be prepared
+    bool prepareMarkers() const { return mPrepareMarkers; }
+
+    //! Sets whether grid markers will be prepared
+    void setPrepareMarkers( bool prepare );
+
     //! Returns the grid markers
     QList<QPointF> markers() const { return mMarkers; }
+
+    //! Returns whether grid annotations will be prepared
+    bool prepareAnnotations() const { return mPrepareAnnotations; }
+
+    //! Sets whether grid annotations will be prepared
+    void setPrepareAnnotations( bool prepare );
 
     //! Returns the grid annotations
     QList<GridAnnotation> annotations() const { return mAnnotations; }
 
   signals:
+    //! Emitted when the grid enabled setting has changed
+    void enabledChanged();
+
     //! Emitted when the map settings object has changed
     void mapSettingsChanged();
 
@@ -126,11 +158,22 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     //! Emitted when the grid Y offset has changed
     void yOffsetChanged();
 
+    //! Emitted when grid lines preparation setting has changed
+    void prepareLinesChanged();
+
+    //! Emitted when grid markers preparation setting has changed
+    void prepareMarkersChanged();
+
+    //! Emitted when grid annotations preparation setting has changed
+    void prepareAnnotationsChanged();
+
     //! Emitted when the grid lines, markers, and/or annotations have changed
     void gridChanged();
 
   private:
     void update();
+
+    bool mEnabled = false;
 
     QgsQuickMapSettings *mMapSettings = nullptr;
 
@@ -139,11 +182,11 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     double mXOffset = 0.0;
     double mYOffset = 0.0;
 
-    bool mDrawLines = true;
+    bool mPrepareLines = true;
     QList<QList<QPointF>> mLines;
-    bool mDrawMarkers = true;
+    bool mPrepareMarkers = false;
     QList<QPointF> mMarkers;
-    bool mDrawAnnotations = true;
+    bool mPrepareAnnotations = false;
     QList<GridAnnotation> mAnnotations;
 
     QLocale mLocale;

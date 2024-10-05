@@ -580,6 +580,7 @@ ApplicationWindow {
       }
 
       GridRenderer {
+        id: gridDecoration
         mapSettings: mapCanvas.mapSettings
       }
     }
@@ -3394,6 +3395,16 @@ ApplicationWindow {
       imageDecoration.source = imageDecorationConfiguration["source"];
       imageDecoration.fillColor = imageDecorationConfiguration["fillColor"];
       imageDecoration.strokeColor = imageDecorationConfiguration["strokeColor"];
+      let gridDecorationConfiguration = projectInfo.getGridDecorationConfiguration();
+      gridDecoration.enabled = gridDecorationConfiguration["hasLines"] || gridDecorationConfiguration["hasMarkers"];
+      gridDecoration.prepareLines = gridDecorationConfiguration["hasLines"];
+      gridDecoration.lineColor = gridDecorationConfiguration["lineColor"];
+      gridDecoration.prepareMarkers = gridDecorationConfiguration["hasMarkers"];
+      gridDecoration.markerColor = gridDecorationConfiguration["markerColor"];
+      gridDecoration.prepareAnnotations = gridDecorationConfiguration["hasAnnotations"];
+      gridDecoration.annotationColor = gridDecorationConfiguration["annotationColor"];
+      gridDecoration.hasAnnotationOutline = gridDecorationConfiguration["hasAnnotationOutline"];
+      gridDecoration.annotationOutlineColor = gridDecorationConfiguration["annotationOutlineColor"];
       recentProjectListModel.reloadModel();
       const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
       cloudProjectsModel.currentProjectId = cloudProjectId;

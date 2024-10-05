@@ -21,6 +21,30 @@ GridModel::GridModel( QObject *parent )
 {
 }
 
+void GridModel::setEnabled( bool enabled )
+{
+  if ( mEnabled == enabled )
+    return;
+
+  mEnabled = enabled;
+  emit enabledChanged();
+
+  if ( mEnabled )
+  {
+    update();
+  }
+  else
+  {
+    if ( !mLines.isEmpty() || !mMarkers.isEmpty() || !mAnnotations.isEmpty() )
+    {
+      mLines.clear();
+      mMarkers.clear();
+      mAnnotations.clear();
+      emit gridChanged();
+    }
+  }
+}
+
 void GridModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
@@ -87,9 +111,75 @@ void GridModel::setYOffset( double offset )
   update();
 }
 
+void GridModel::setPrepareLines( bool prepare )
+{
+  if ( mPrepareLines == prepare )
+    return;
+
+  mPrepareLines = prepare;
+  emit prepareLinesChanged();
+
+  if ( mPrepareLines )
+  {
+    update();
+  }
+  else
+  {
+    if ( !mLines.isEmpty() )
+    {
+      mLines.clear();
+      emit gridChanged();
+    }
+  }
+}
+
+void GridModel::setPrepareMarkers( bool prepare )
+{
+  if ( mPrepareMarkers == prepare )
+    return;
+
+  mPrepareMarkers = prepare;
+  emit prepareMarkersChanged();
+
+  if ( mPrepareMarkers )
+  {
+    update();
+  }
+  else
+  {
+    if ( !mMarkers.isEmpty() )
+    {
+      mMarkers.clear();
+      emit gridChanged();
+    }
+  }
+}
+
+void GridModel::setPrepareAnnotations( bool prepare )
+{
+  if ( mPrepareAnnotations == prepare )
+    return;
+
+  mPrepareAnnotations = prepare;
+  emit prepareAnnotationsChanged();
+
+  if ( mPrepareAnnotations )
+  {
+    update();
+  }
+  else
+  {
+    if ( !mAnnotations.isEmpty() )
+    {
+      mAnnotations.clear();
+      emit gridChanged();
+    }
+  }
+}
+
 void GridModel::update()
 {
-  if ( !mMapSettings )
+  if ( !mEnabled || !mMapSettings )
   {
     return;
   }
@@ -114,7 +204,7 @@ void GridModel::update()
   QList<QPointF> line;
   QPointF intersectionPoint;
 
-  if ( mDrawMarkers && smallestScreenInterval > 20 )
+  if ( mPrepareMarkers && smallestScreenInterval > 20 )
   {
     double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
     while ( xPos <= visibleExtent.xMaximum() )
@@ -129,7 +219,7 @@ void GridModel::update()
     }
   }
 
-  if ( mDrawLines || mDrawAnnotations )
+  if ( mPrepareLines || mPrepareAnnotations )
   {
     double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
     const QLineF topBorder( QPointF( 0, 0 ), QPointF( mMapSettings->outputSize().width(), 0 ) );
@@ -138,7 +228,7 @@ void GridModel::update()
     {
       const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMaximum() ) ) );
 
-      if ( mDrawAnnotations )
+      if ( mPrepareAnnotations )
       {
         if ( currentLine.intersects( topBorder, &intersectionPoint ) )
         {
@@ -163,7 +253,7 @@ void GridModel::update()
     {
       const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMinimum(), yPos ) ), mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMaximum(), yPos ) ) );
 
-      if ( mDrawAnnotations )
+      if ( mPrepareAnnotations )
       {
         if ( currentLine.intersects( leftBorder, &intersectionPoint ) )
         {
