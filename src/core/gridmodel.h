@@ -20,9 +20,8 @@
 #include "qgsquickmapsettings.h"
 
 /**
- * This model manages lists of lines or points representing a grid.
+ * Holds details for a given grid annotation.
  */
-
 class QFIELD_CORE_EXPORT GridAnnotation
 {
     Q_GADGET
@@ -52,6 +51,9 @@ class QFIELD_CORE_EXPORT GridAnnotation
     double value;
 };
 
+/**
+ * This model manages lists of lines, markers, and annotations representing a grid.
+ */
 class QFIELD_CORE_EXPORT GridModel : public QObject
 {
     Q_OBJECT
