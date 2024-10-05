@@ -192,7 +192,7 @@ void GridModel::update()
 
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   double smallestScreenInterval = std::min( mXInterval / mMapSettings->mapUnitsPerPoint(), mYInterval / mMapSettings->mapUnitsPerPoint() );
-  if ( smallestScreenInterval < 10 )
+  if ( smallestScreenInterval < ( mPrepareMarkers ? 20 : 10 ) )
   {
     if ( hadGrid )
     {
@@ -204,7 +204,7 @@ void GridModel::update()
   QList<QPointF> line;
   QPointF intersectionPoint;
 
-  if ( mPrepareMarkers && smallestScreenInterval > 20 )
+  if ( mPrepareMarkers )
   {
     double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
     while ( xPos <= visibleExtent.xMaximum() )
@@ -232,17 +232,21 @@ void GridModel::update()
       {
         if ( currentLine.intersects( topBorder, &intersectionPoint ) )
         {
-          mAnnotations << GridAnnotation( GridAnnotation::Top, intersectionPoint, mLocale.toString( xPos, 'f', 0 ) );
+          mAnnotations << GridAnnotation( GridAnnotation::Top, intersectionPoint, xPos );
         }
         if ( currentLine.intersects( bottomBorder, &intersectionPoint ) )
         {
-          mAnnotations << GridAnnotation( GridAnnotation::Bottom, intersectionPoint, mLocale.toString( xPos, 'f', 0 ) );
+          mAnnotations << GridAnnotation( GridAnnotation::Bottom, intersectionPoint, xPos );
         }
       }
 
-      line << currentLine.p1() << currentLine.p2();
-      mLines << line;
-      line.clear();
+      if ( mPrepareLines )
+      {
+        line << currentLine.p1() << currentLine.p2();
+        mLines << line;
+        line.clear();
+      }
+
       xPos += mXInterval;
     }
 
@@ -257,17 +261,21 @@ void GridModel::update()
       {
         if ( currentLine.intersects( leftBorder, &intersectionPoint ) )
         {
-          mAnnotations << GridAnnotation( GridAnnotation::Left, intersectionPoint, mLocale.toString( yPos, 'f', 0 ) );
+          mAnnotations << GridAnnotation( GridAnnotation::Left, intersectionPoint, yPos );
         }
         if ( currentLine.intersects( rightBorder, &intersectionPoint ) )
         {
-          mAnnotations << GridAnnotation( GridAnnotation::Right, intersectionPoint, mLocale.toString( yPos, 'f', 0 ) );
+          mAnnotations << GridAnnotation( GridAnnotation::Right, intersectionPoint, yPos );
         }
       }
 
-      line << currentLine.p1() << currentLine.p2();
-      mLines << line;
-      line.clear();
+      if ( mPrepareLines )
+      {
+        line << currentLine.p1() << currentLine.p2();
+        mLines << line;
+        line.clear();
+      }
+
       yPos += mYInterval;
     }
   }

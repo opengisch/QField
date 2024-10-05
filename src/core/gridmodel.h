@@ -29,7 +29,7 @@ class QFIELD_CORE_EXPORT GridAnnotation
 
     Q_PROPERTY( Positions position MEMBER position )
     Q_PROPERTY( QPointF coordinate MEMBER coordinate )
-    Q_PROPERTY( QString label MEMBER label )
+    Q_PROPERTY( double value MEMBER value )
 
   public:
     enum Positions
@@ -41,15 +41,15 @@ class QFIELD_CORE_EXPORT GridAnnotation
     };
     Q_ENUM( Positions )
 
-    GridAnnotation( const Positions position = Top, const QPointF coordinate = QPointF(), const QString label = QString() )
+    GridAnnotation( const Positions position = Top, const QPointF coordinate = QPointF(), const double value = 0.0 )
       : position( position )
       , coordinate( coordinate )
-      , label( label )
+      , value( value )
     {}
 
     Positions position = Top;
     QPointF coordinate;
-    QString label;
+    double value;
 };
 
 class QFIELD_CORE_EXPORT GridModel : public QObject
@@ -182,7 +182,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     double mXOffset = 0.0;
     double mYOffset = 0.0;
 
-    bool mPrepareLines = true;
+    bool mPrepareLines = false;
     QList<QList<QPointF>> mLines;
     bool mPrepareMarkers = false;
     QList<QPointF> mMarkers;

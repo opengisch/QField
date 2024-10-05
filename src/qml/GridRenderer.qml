@@ -21,8 +21,9 @@ Item {
   property color markerColor: "#000000"
 
   property alias prepareAnnotations: gridModel.prepareAnnotations
+  property int annotationPrecision: 0
   property color annotationColor: "#000000"
-  property bool hasAnnotationOutline: false
+  property bool annotationHasOutline: false
   property color annotationOutlineColor: "#ffffff"
 
   GridModel {
@@ -111,10 +112,10 @@ Item {
 
         font: Theme.tinyFont
         color: annotationColor
-        style: hasAnnotationOutline ? Text.Outline : Text.Normal
+        style: annotationHasOutline ? Text.Outline : Text.Normal
         styleColor: annotationOutlineColor
 
-        text: modelData.label
+        text: Number(modelData.value).toLocaleString(Qt.locale(), 'f', annotationPrecision)
       }
     }
   }
