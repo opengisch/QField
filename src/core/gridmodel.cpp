@@ -219,11 +219,12 @@ void GridModel::update()
     }
   }
 
+  const QSizeF sceneSize = mMapSettings->outputSize() / mMapSettings->devicePixelRatio();
   if ( mPrepareLines || mPrepareAnnotations )
   {
     double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
-    const QLineF topBorder( QPointF( 0, 0 ), QPointF( mMapSettings->outputSize().width(), 0 ) );
-    const QLineF bottomBorder( QPointF( 0, mMapSettings->outputSize().height() ), QPointF( mMapSettings->outputSize().width(), mMapSettings->outputSize().height() ) );
+    const QLineF topBorder( QPointF( 0, 0 ), QPointF( sceneSize.width(), 0 ) );
+    const QLineF bottomBorder( QPointF( 0, sceneSize.height() ), QPointF( sceneSize.width(), sceneSize.height() ) );
     while ( xPos <= visibleExtent.xMaximum() )
     {
       const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMaximum() ) ) );
@@ -251,8 +252,8 @@ void GridModel::update()
     }
 
     double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), mYInterval ) + mYOffset;
-    const QLineF leftBorder( QPointF( 0, 0 ), QPointF( 0, mMapSettings->outputSize().height() ) );
-    const QLineF rightBorder( QPointF( mMapSettings->outputSize().width(), 0 ), QPointF( mMapSettings->outputSize().width(), mMapSettings->outputSize().height() ) );
+    const QLineF leftBorder( QPointF( 0, 0 ), QPointF( 0, sceneSize.height() ) );
+    const QLineF rightBorder( QPointF( sceneSize.width(), 0 ), QPointF( sceneSize.width(), sceneSize.height() ) );
     while ( yPos <= visibleExtent.yMaximum() )
     {
       const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMinimum(), yPos ) ), mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMaximum(), yPos ) ) );
