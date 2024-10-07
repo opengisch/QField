@@ -608,19 +608,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>A beérkezett adat túl rövid a feldolgozáshoz</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Hibás kezdő bájt</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>A beérkezett adat túl rövid, hogy tartalmazza a &quot;rakományt&quot;</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült a JSON értelmezése</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -636,7 +636,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP vételi hiba (%1)</translation>
     </message>
 </context>
 <context>
@@ -2014,11 +2014,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>rács</translation>
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>deréksz.</translation>
     </message>
     <message>
         <source>ant.</source>
@@ -2183,11 +2183,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Szélesség</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Hosszúság</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2199,7 +2199,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Orientáció</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
@@ -2555,7 +2555,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Változások automatikus küldése %n percenként</numerusform><numerusform>Változások automatikus küldése %n percenként</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
@@ -2976,7 +2976,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Fájlok</translation>
     </message>
 </context>
 <context>
@@ -3817,7 +3817,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP vételi hiba (%1)</translation>
     </message>
 </context>
 <context>
@@ -4212,11 +4212,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Globális változók</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Projekt változók</translation>
     </message>
 </context>
 <context>
@@ -4341,7 +4341,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Ez nagyszerű! Szeretnénk, ha az alábbi gombra kattintana, és leírná a véleményét.</translation>
     </message>
 </context>
 <context>
