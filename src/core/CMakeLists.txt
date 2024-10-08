@@ -65,6 +65,7 @@ set(QFIELD_CORE_SRCS
     focusstack.cpp
     geometry.cpp
     geometryeditorsmodel.cpp
+    gridmodel.cpp
     identifytool.cpp
     layerobserver.cpp
     featurehistory.cpp
@@ -186,6 +187,7 @@ set(QFIELD_CORE_HDRS
     focusstack.h
     geometry.h
     geometryeditorsmodel.h
+    gridmodel.h
     identifytool.h
     layerobserver.h
     featurehistory.h

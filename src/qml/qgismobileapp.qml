@@ -578,6 +578,11 @@ ApplicationWindow {
           overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside;
         }
       }
+
+      GridRenderer {
+        id: gridDecoration
+        mapSettings: mapCanvas.mapSettings
+      }
     }
 
     /**************************************************
@@ -3368,7 +3373,7 @@ ApplicationWindow {
       dashBoard.activeLayer = activeLayer;
       drawingTemplateModel.projectFilePath = path;
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
-      let titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
+      const titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
       titleDecoration.color = titleDecorationConfiguration["color"];
       titleDecoration.style = titleDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
       titleDecoration.styleColor = titleDecorationConfiguration["outlineColor"];
@@ -3377,7 +3382,7 @@ ApplicationWindow {
       if (!titleDecoration.isExpressionTemplate) {
         titleDecoration.text = titleDecorationConfiguration["text"];
       }
-      let copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration();
+      const copyrightDecorationConfiguration = projectInfo.getCopyrightDecorationConfiguration();
       copyrightDecoration.color = copyrightDecorationConfiguration["color"];
       copyrightDecoration.style = copyrightDecorationConfiguration["hasOutline"] === true ? Text.Outline : Text.Normal;
       copyrightDecoration.styleColor = copyrightDecorationConfiguration["outlineColor"];
@@ -3386,10 +3391,22 @@ ApplicationWindow {
       if (!titleDecoration.isExpressionTemplate) {
         copyrightDecoration.text = copyrightDecorationConfiguration["text"];
       }
-      let imageDecorationConfiguration = projectInfo.getImageDecorationConfiguration();
+      const imageDecorationConfiguration = projectInfo.getImageDecorationConfiguration();
       imageDecoration.source = imageDecorationConfiguration["source"];
       imageDecoration.fillColor = imageDecorationConfiguration["fillColor"];
       imageDecoration.strokeColor = imageDecorationConfiguration["strokeColor"];
+      const gridDecorationConfiguration = projectInfo.getGridDecorationConfiguration();
+      gridDecoration.enabled = false;
+      gridDecoration.prepareLines = gridDecorationConfiguration["hasLines"];
+      gridDecoration.lineColor = gridDecorationConfiguration["lineColor"];
+      gridDecoration.prepareMarkers = gridDecorationConfiguration["hasMarkers"];
+      gridDecoration.markerColor = gridDecorationConfiguration["markerColor"];
+      gridDecoration.prepareAnnotations = gridDecorationConfiguration["hasAnnotations"];
+      gridDecoration.annotationPrecision = gridDecorationConfiguration["annotationPrecision"];
+      gridDecoration.annotationColor = gridDecorationConfiguration["annotationColor"];
+      gridDecoration.annotationHasOutline = gridDecorationConfiguration["annotationHasOutline"];
+      gridDecoration.annotationOutlineColor = gridDecorationConfiguration["annotationOutlineColor"];
+      gridDecoration.enabled = gridDecorationConfiguration["hasLines"] || gridDecorationConfiguration["hasMarkers"];
       recentProjectListModel.reloadModel();
       const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
       cloudProjectsModel.currentProjectId = cloudProjectId;
