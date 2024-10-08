@@ -160,7 +160,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
@@ -608,19 +608,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>Vastaanotettu data on liian lyhyt käsiteltäväksi</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen aloitustavu</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>Vastaanotettu data on liian lyhyt tietosisällön säilyttämiseen</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>JSONin jäsentäminen epäonnistui</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -636,7 +636,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP-vastaanottimen virhe (% 1)</translation>
     </message>
 </context>
 <context>
@@ -1972,7 +1972,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Nerokas</translation>
     </message>
 </context>
 <context>
@@ -2984,7 +2984,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostot</translation>
     </message>
 </context>
 <context>
@@ -3823,7 +3823,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP-vastaanottimen virhe (% 1)</translation>
     </message>
 </context>
 <context>
