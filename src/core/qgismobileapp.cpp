@@ -1123,7 +1123,7 @@ void QgisMobileapp::readProjectFile()
 
     if ( suffix.compare( QLatin1String( "pdf" ) ) == 0 )
     {
-      // GeoPDFs should have vector layers hidden by default
+      // Geospatial PDFs should have vector layers hidden by default
       for ( QgsMapLayer *layer : vectorLayers )
       {
         mProject->layerTreeRoot()->findLayer( layer->id() )->setItemVisibilityChecked( false );
