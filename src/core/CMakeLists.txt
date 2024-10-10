@@ -26,6 +26,7 @@ set(QFIELD_CORE_SRCS
     locator/gotolocatorfilter.cpp
     locator/helplocatorfilter.cpp
     locator/locatormodelsuperbridge.cpp
+    positioning/abstractgnssreceiver.cpp
     positioning/gnsspositioninformation.cpp
     positioning/internalgnssreceiver.cpp
     positioning/nmeagnssreceiver.cpp

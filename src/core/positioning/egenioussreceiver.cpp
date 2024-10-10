@@ -1,3 +1,19 @@
+/***************************************************************************
+ egeniousseeceiver.cpp - EgenioussReceiver
+
+ ---------------------
+ begin                : October 2024
+ copyright            : (C) 2024 by Mohsen Dehghanzadeh
+ email                : mohsen@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include "egenioussreceiver.h"
 
 #include <QHostAddress>
@@ -9,9 +25,15 @@ EgenioussReceiver::EgenioussReceiver( QObject *parent )
 {
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );
-  connect( mTcpSocket, &QTcpSocket::connected, this, &EgenioussReceiver::connected );
-  connect( mTcpSocket, &QTcpSocket::disconnected, this, &EgenioussReceiver::disconnected );
+  connect( mTcpSocket, &QTcpSocket::stateChanged, this, &AbstractGnssReceiver::setSocketState );
+
   setValid( true );
+}
+
+EgenioussReceiver::~EgenioussReceiver()
+{
+  mTcpSocket->deleteLater();
+  mTcpSocket = nullptr;
 }
 
 void EgenioussReceiver::handleConnectDevice()
@@ -19,30 +41,12 @@ void EgenioussReceiver::handleConnectDevice()
   mTcpSocket->connectToHost( mAddress, mPort, QTcpSocket::ReadWrite );
 }
 
-void EgenioussReceiver::connected()
-{
-  mSocketState = QAbstractSocket::ConnectedState;
-  mSocketStateString = tr( "Successfully connected" );
-  emit socketStateChanged( mSocketState );
-  setValid( true );
-}
-
 void EgenioussReceiver::handleDisconnectDevice()
 {
   mTcpSocket->disconnectFromHost();
 }
 
-void EgenioussReceiver::disconnected()
-{
-  if ( mTcpSocket->state() == QAbstractSocket::ConnectedState )
-  {
-    mSocketState = QAbstractSocket::UnconnectedState;
-    mSocketStateString = tr( "Disconnected" );
-    emit socketStateChanged( mSocketState );
-  }
-}
-
-QList<QPair<QString, QVariant>> EgenioussReceiver::details()
+QList<QPair<QString, QVariant>> EgenioussReceiver::details() const
 {
   QList<QPair<QString, QVariant>> detailsList;
 
@@ -133,8 +137,6 @@ void EgenioussReceiver::handleError( QAbstractSocket::SocketError error )
       mLastError = tr( "TCP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
       break;
   }
-  mSocketState = QAbstractSocket::UnconnectedState;
-  mSocketStateString = mLastError;
   qInfo() << QStringLiteral( "EgenioussReceiver: Error: %1" ).arg( mLastError );
 
   emit lastErrorChanged( mLastError );
