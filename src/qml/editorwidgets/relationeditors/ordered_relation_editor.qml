@@ -131,7 +131,7 @@ EditorWidgetBase {
         repeat: false
 
         onTriggered: {
-          let saved = save();
+          let saved = form.state === 'Add' ? save() : true;
           if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
             // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
             if (!saved) {
@@ -375,6 +375,14 @@ EditorWidgetBase {
     }
   }
 
+  BusyIndicator {
+    id: busyIndicator
+    anchors.centerIn: parent
+    width: 36
+    height: 36
+    running: orderedRelationModel.isLoading
+  }
+
   Dialog {
     id: deleteDialog
     parent: mainWindow.contentItem
@@ -412,14 +420,6 @@ EditorWidgetBase {
     onRejected: {
       visible = false;
     }
-  }
-
-  BusyIndicator {
-    id: busyIndicator
-    anchors.centerIn: parent
-    width: 36
-    height: 36
-    running: orderedRelationModel.isLoading
   }
 
   EmbeddedFeatureForm {
