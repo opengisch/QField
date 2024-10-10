@@ -169,6 +169,11 @@ if(VCPKG_TARGET_IS_IOS)
     list(APPEND QGIS_OPTIONS -DWITH_QTSERIALPORT=FALSE)
 endif()
 
+# Build crssync only runs when building natively.
+if(NOT HOST_TRIPLET STREQUAL TARGET_TRIPLET)
+    list(APPEND QGIS_OPTIONS -DNATIVE_CRSSYNC_BIN=true)
+endif()
+
 vcpkg_configure_cmake(
     SOURCE_PATH ${SOURCE_PATH}
     #PREFER_NINJA
