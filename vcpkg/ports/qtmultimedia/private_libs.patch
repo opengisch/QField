@@ -1,0 +1,19 @@
+diff --git a/cmake/FindFFmpeg.cmake b/cmake/FindFFmpeg.cmake
+index 6316dde..54f807b 100644
+--- a/cmake/FindFFmpeg.cmake
++++ b/cmake/FindFFmpeg.cmake
+@@ -264,9 +264,11 @@ function(__ffmpeg_internal_set_dependencies _component)
+     string(REGEX MATCHALL "${prefix_l}[^ ]+" libs_dependency ${out})
+     string(REGEX MATCHALL "[^ ]+${suffix_lib}" libs_dependency_lib ${out})
+ 
+-    string(REGEX REPLACE ".*Libs.private:([^\n\r]+).*" "\\1" out "${pcfile}")
+-    string(REGEX MATCHALL "${prefix_l}[^ ]+" libs_private_dependency ${out})
+-    string(REGEX MATCHALL "[^ ]+${suffix_lib}" libs_private_dependency_lib ${out})
++    if(out MATCHES "Libs.private:")
++      string(REGEX REPLACE ".*Libs.private:([^\n\r]+).*" "\\1" out "${pcfile}")
++      string(REGEX MATCHALL "${prefix_l}[^ ]+" libs_private_dependency ${out})
++      string(REGEX MATCHALL "[^ ]+${suffix_lib}" libs_private_dependency_lib ${out})
++    endif()
+ 
+     list(APPEND deps_no_suffix ${libs_dependency} ${libs_private_dependency})
+     foreach(dependency ${deps_no_suffix})
