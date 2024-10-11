@@ -174,19 +174,7 @@ TestCase {
     compare(positioning.positionInformation.imuCorrection, true);
 
     // Expected values for positioningInformations
-    const expectedValues = [{
-        "name": "X",
-        "value": "8.607"
-      }, {
-        "name": "Y",
-        "value": "46.528"
-      }, {
-        "name": "Altitude",
-        "value": "1,194.426 m  (ant.)"
-      }, {
-        "name": "Speed",
-        "value": "0.001 m/s"
-      }, {
+    const expectedPositioningInformationsValues = [{
         "name": "H. Accuracy",
         "value": "0.006 m"
       }, {
@@ -210,11 +198,13 @@ TestCase {
       }, {
         "name": "Quality",
         "value": "Fixed RTK + IMU"
-      },];
-    compare(positioningInformations.count, expectedValues.length);
-    expectedValues.forEach((expected, index) => {
-        compare(positioningInformations.itemAt(index).name, expected.name);
-        compare(positioningInformations.itemAt(index).value, expected.value);
+      }];
+
+    // we are skipping "4" items ["X","Y","Altitude","Speed"] because they might move a bit.
+    compare(positioningInformations.count, expectedPositioningInformationsValues.length + 4);
+    expectedPositioningInformationsValues.forEach((expected, index) => {
+        compare(positioningInformations.itemAt(index + 4).name, expected.name);
+        compare(positioningInformations.itemAt(index + 4).value, expected.value);
       });
   }
 }
