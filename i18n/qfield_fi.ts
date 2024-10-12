@@ -816,7 +816,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Ominaisuus monistettu onnistuneesti</translation>
+        <translation>Kohde monistettu onnistuneesti</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
@@ -828,7 +828,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Valittujen ominaisuuksien monistaminen onnistui, luettelo päivitettiin näyttämään juuri luodut ominaisuudet</translation>
+        <translation>Valittujen kohteiden monistaminen onnistui, luettelo päivitettiin näyttämään juuri luodut kohteet</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -1522,11 +1522,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Siirrä valitut ominaisuudet</translation>
+        <translation>Siirrä valittu kohde/kohteet</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Monista valitut ominaisuudet</translation>
+        <translation>Monista valitut kohteet</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
@@ -1558,7 +1558,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Monista ominaisuus</translation>
+        <translation>Monista kohde</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -4851,11 +4851,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Monista ominaisuus</translation>
+        <translation>Monista kohde</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Ominaisuus monistettu onnistuneesti</translation>
+        <translation>Kohde monistettu onnistuneesti</translation>
     </message>
     <message>
         <source>Snapping turned on</source>

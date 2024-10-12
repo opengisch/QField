@@ -608,19 +608,19 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>Los datos recibidos son demasiado cortos para procesarlos</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Byte de inicio no válido</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>Los datos recibidos son demasiado cortos para contener los datos</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo procesar JSON</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -636,7 +636,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Error de receptor TCP (%1)</translation>
     </message>
 </context>
 <context>
@@ -2307,7 +2307,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Registrarse</translation>
+        <translation>Iniciar sesión</translation>
     </message>
     <message>
         <source>New user?</source>
@@ -3821,7 +3821,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Error de receptor TCP (%1)</translation>
     </message>
 </context>
 <context>
