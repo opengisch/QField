@@ -684,9 +684,10 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
         continue;
       }
 
-      // Do not paste values for attributes that have default values
-      if ( !mFeature.fields()[idx].defaultValueDefinition().expression().isEmpty() )
+      const QgsField field = mFeature.fields()[idx];
+      if ( !field.defaultValueDefinition().expression().isEmpty() && !field.defaultValueDefinition().applyOnUpdate() )
       {
+        // Skip attributes that have default value set only once on feature creation to avoid overriding generated UUIDs
         continue;
       }
 
