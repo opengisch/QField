@@ -35,7 +35,7 @@
   <uses-feature android:required="false" android:name="android.hardware.location.gps" />
   <uses-feature android:required="false" android:name="android.hardware.microphone" />
   <uses-feature android:required="false" android:name="android.hardware.bluetooth" />
-  <uses-feature android:required="false" android:name="android.hardware.usb" />
+  <uses-feature android:required="false" android:name="android.hardware.usb.host" />
 
   <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
