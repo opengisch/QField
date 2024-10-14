@@ -850,27 +850,16 @@ Page {
       }
     }
   }
-
-  Dialog {
+  QfDialog {
     id: cancelDialog
     parent: mainWindow.contentItem
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
-
     title: qsTr("Cancel editing")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
       text: form.state === 'Add' ? qsTr("You are about to dismiss the new feature, proceed?") : qsTr("You are about to leave editing state, any changes will be lost. Proceed?")
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       form.cancel();
     }

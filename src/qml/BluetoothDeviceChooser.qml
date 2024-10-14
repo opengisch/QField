@@ -154,17 +154,9 @@ Item {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: fullDiscoveryDialog
     parent: mainWindow.contentItem
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
-
     title: qsTr("Make a full service discovery")
     Label {
       width: parent.width
@@ -172,7 +164,6 @@ Item {
       text: qsTr('A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
     }
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       bluetoothDeviceModel.startServiceDiscovery(true);
       visible = false;
