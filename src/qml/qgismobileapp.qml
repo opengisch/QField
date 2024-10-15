@@ -325,13 +325,13 @@ ApplicationWindow {
     DragHandler {
       id: rotateDragHandler
       enabled: rotateFeaturesToolbar.rotateFeaturesRequested == true && !freehandButton.visible && !freehandButton.freehandDigitizing
-      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen| PointerDevice.Mouse : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.Stylus
+      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen | PointerDevice.Mouse : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
-    property real pressClickX: 0
-    property real pressClickY: 0
-    property real screenCenterX: 0
-    property real screenCenterY: 0
+      property real pressClickX: 0
+      property real pressClickY: 0
+      property real screenCenterX: 0
+      property real screenCenterY: 0
 
       onActiveChanged: {
         if (active) {
@@ -344,17 +344,17 @@ ApplicationWindow {
 
       onTranslationChanged: {
         if (active) {
-            let newPositionX = pressClickX + translation.x
-            let newPositionY = pressClickY + translation.y
-            screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).x;
-            screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).y;
-            let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX)
-            if (angle != 0) {
-              rotateFeaturesHighlight.originX = screenCenterX;
-              rotateFeaturesHighlight.originY = screenCenterY;
-              rotateFeaturesHighlight.rotationDegrees = angle * 180 / Math.PI;
-            }
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
+          screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).x;
+          screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
+          if (angle != 0) {
+            rotateFeaturesHighlight.originX = screenCenterX;
+            rotateFeaturesHighlight.originY = screenCenterY;
+            rotateFeaturesHighlight.rotationDegrees = angle * 180 / Math.PI;
           }
+        }
       }
     }
 
@@ -811,7 +811,7 @@ ApplicationWindow {
     /* Highlight the currently selected item on the feature list */
     FeatureListSelectionHighlight {
       id: featureListHighlight
-      visible: !moveFeaturesToolbar.moveFeaturesRequested && ! rotateFeaturesToolbar.rotateFeaturesRequested
+      visible: !moveFeaturesToolbar.moveFeaturesRequested && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       selectionModel: featureForm.selection
       mapSettings: mapCanvas.mapSettings
@@ -2137,7 +2137,7 @@ ApplicationWindow {
 
         onConfirm: {
           rotateFeaturesRequested = false;
-          angle = rotateFeaturesHighlight.rotationDegrees
+          angle = rotateFeaturesHighlight.rotationDegrees;
           rotateConfirmed();
         }
         onCancel: {

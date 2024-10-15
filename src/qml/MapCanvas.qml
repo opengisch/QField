@@ -33,7 +33,7 @@ Item {
   property bool hovered: false
   property bool pinched: pinchHandler.active
   property bool freehandDigitizing: false
-  property bool isRotationFeaturesRequested:false
+  property bool isRotationFeaturesRequested: false
   property bool isMapRotationEnabled: false
 
   // for signals, type can be "stylus" for any device click or "touch"
@@ -371,19 +371,19 @@ Item {
 
     onTranslationChanged: {
       if (active) {
-        if(lastRotateAngle != 0){
-          var newPositionX = pressClickX + translation.x
-          var newPositionY = pressClickY + translation.y
-          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX)
+        if (lastRotateAngle != 0) {
+          var newPositionX = pressClickX + translation.x;
+          var newPositionY = pressClickY + translation.y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
           if (angle != 0) {
-            mapCanvasWrapper.rotate(angle * 180 / Math.PI-lastRotateAngle);
+            mapCanvasWrapper.rotate(angle * 180 / Math.PI - lastRotateAngle);
           }
-          lastRotateAngle = angle * 180 / Math.PI
+          lastRotateAngle = angle * 180 / Math.PI;
         } else {
-        let newPositionX = pressClickX + translation.x
-          let newPositionY = pressClickY + translation.y
-          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX)
-          lastRotateAngle = angle * 180 / Math.PI
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
+          lastRotateAngle = angle * 180 / Math.PI;
         }
       }
     }

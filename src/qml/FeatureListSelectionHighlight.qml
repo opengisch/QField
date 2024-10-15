@@ -27,15 +27,16 @@ Repeater {
     color: model.featureSelected ? featureListSelectionHighlight.selectedColor : selectionModel.model.selectedCount === 0 && selectionModel && model.index === selectionModel.focusedItem ? featureListSelectionHighlight.focusedColor : featureListSelectionHighlight.color
     z: model.index === selectionModel.focusedItem ? 1 : 0
 
-    transform: [Translate {
-      x: featureListSelectionHighlight.translateX
-      y: -featureListSelectionHighlight.translateY
-    }, Rotation {
-      origin.x: featureListSelectionHighlight.originX
-      origin.y: featureListSelectionHighlight.originY
-      angle: featureListSelectionHighlight.rotationDegrees
-    }]
-
-
+    transform: [
+      Translate {
+        x: featureListSelectionHighlight.translateX
+        y: -featureListSelectionHighlight.translateY
+      },
+      Rotation {
+        origin.x: featureListSelectionHighlight.originX
+        origin.y: featureListSelectionHighlight.originY
+        angle: featureListSelectionHighlight.rotationDegrees
+      }
+    ]
   }
 }
