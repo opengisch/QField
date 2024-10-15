@@ -33,6 +33,7 @@ Item {
   property bool hovered: false
   property bool pinched: pinchHandler.active
   property bool freehandDigitizing: false
+  property bool isRotationFeaturesRequested:false
   property bool isMapRotationEnabled: false
 
   // for signals, type can be "stylus" for any device click or "touch"
@@ -125,7 +126,7 @@ Item {
 
   DragHandler {
     id: stylusDragHandler
-    enabled: interactive && !freehandDigitizing
+    enabled: interactive && !freehandDigitizing && !isRotationFeaturesRequested
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
     acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
@@ -234,7 +235,7 @@ Item {
 
   DragHandler {
     id: mainDragHandler
-    enabled: interactive && !hovered && !freehandDigitizing
+    enabled: interactive && !hovered && !freehandDigitizing && !isRotationFeaturesRequested
     target: null
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType

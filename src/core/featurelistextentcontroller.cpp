@@ -62,6 +62,28 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
   }
 }
 
+QgsPoint FeatureListExtentController::getCentroidFromSelected() const
+{
+  QgsPoint point( 0.0, 0.0, 0.0 );
+  if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings )
+  {
+    QgsFeature feat = mSelection->focusedFeature();
+    QgsVectorLayer *layer = mSelection->focusedLayer();
+
+    if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
+    {
+      // QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feat );
+      // if ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) )
+      //   mMapSettings->setExtent( extent, true );
+      QgsGeometry geom = feat.geometry();
+      QgsPointXY centroid = geom.centroid().asPoint();
+      point.setX( centroid.x() );
+      point.setY( centroid.y() );
+    }
+  }
+  return point;
+}
+
 void FeatureListExtentController::onModelChanged()
 {
   if ( mModel && mSelection )

@@ -1584,6 +1584,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Duplicate Feature</translation>
     </message>
     <message>
+        <source>Rotate Feature</source>
+        <translation>Rotate Feature</translation>
+    </message>
+    <message>
         <source>Delete Feature</source>
         <translation>Delete Feature</translation>
     </message>

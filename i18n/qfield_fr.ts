@@ -1562,6 +1562,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>Dupliquer l&apos;entité</translation>
     </message>
     <message>
+        <source>Rotate Feature</source>
+        <translation>Pivoter l&apos;entité</translation>
+    </message>
+    <message>
         <source>Delete Feature</source>
         <translation>Supprimer l&apos;entité</translation>
     </message>
