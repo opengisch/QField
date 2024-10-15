@@ -34,9 +34,8 @@ class TcpReceiver : public NmeaGnssReceiver
     explicit TcpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
     ~TcpReceiver() override;
 
-  private slots:
-
-    void setSocketState( QAbstractSocket::SocketState socketState );
+  public slots:
+    QString socketStateString() override;
 
   private:
     void handleConnectDevice() override;

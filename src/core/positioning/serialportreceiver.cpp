@@ -19,29 +19,27 @@
 SerialPortReceiver::SerialPortReceiver( const QString &address, QObject *parent )
   : NmeaGnssReceiver( parent )
   , mAddress( address )
-  , mSocket( new QSerialPort() )
+  , mSerialPort( new QSerialPort() )
 {
-  connect( mSocket, qOverload<QSerialPort::SerialPortError>( &QSerialPort::errorOccurred ), this, &SerialPortReceiver::handleError );
+  connect( mSerialPort, qOverload<QSerialPort::SerialPortError>( &QSerialPort::errorOccurred ), this, &SerialPortReceiver::handleError );
 
-  initNmeaConnection( mSocket );
+  initNmeaConnection( mSerialPort );
 
   setValid( !mAddress.isEmpty() );
 }
 
 SerialPortReceiver::~SerialPortReceiver()
 {
-  mSocket->deleteLater();
-  mSocket = nullptr;
+  mSerialPort->deleteLater();
+  mSerialPort = nullptr;
 }
 
 void SerialPortReceiver::handleDisconnectDevice()
 {
-  if ( mSocketState == QAbstractSocket::ConnectedState )
+  if ( socketState() == QAbstractSocket::ConnectedState )
   {
-    mSocket->close();
-
-    mSocketState = QAbstractSocket::UnconnectedState;
-    emit socketStateChanged( mSocketState );
+    mSerialPort->close();
+    setSocketState( QAbstractSocket::UnconnectedState );
   }
 }
 
@@ -53,12 +51,11 @@ void SerialPortReceiver::handleConnectDevice()
   }
   qInfo() << "SerialPortReceiver: Initiating connection to port name: " << mAddress;
 
-  mSocket->setPortName( mAddress );
-  mSocket->setBaudRate( QSerialPort::Baud9600 );
-  if ( mSocket->open( QIODevice::ReadOnly ) )
+  mSerialPort->setPortName( mAddress );
+  mSerialPort->setBaudRate( QSerialPort::Baud9600 );
+  if ( mSerialPort->open( QIODevice::ReadOnly ) )
   {
-    mSocketState = QAbstractSocket::ConnectedState;
-    emit socketStateChanged( mSocketState );
+    setSocketState( QAbstractSocket::ConnectedState );
   }
 }
 

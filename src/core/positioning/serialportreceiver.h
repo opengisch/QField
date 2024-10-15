@@ -40,7 +40,7 @@ class SerialPortReceiver : public NmeaGnssReceiver
 
     QString mAddress;
 
-    QSerialPort *mSocket = nullptr;
+    QSerialPort *mSerialPort = nullptr;
 };
 
 #endif // SERIALPORTRECEIVER_H

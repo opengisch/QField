@@ -22,8 +22,14 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   , mPort( port )
   , mSocket( new QTcpSocket() )
 {
-  connect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &TcpReceiver::handleError );
+  connect( mSocket, &QTcpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
+    setSocketState( state );
+    if ( state == QAbstractSocket::SocketState::UnconnectedState && mReconnectOnDisconnect )
+    {
+      mReconnectTimer.start( 2000 );
+    }
+  } );
 
   connect( mSocket, &QAbstractSocket::connected, this, [=] {
     // This line enables gpsd's NMEA through TCP
@@ -41,8 +47,6 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
 
 TcpReceiver::~TcpReceiver()
 {
-  disconnect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
-
   mSocket->deleteLater();
   mSocket = nullptr;
 }
@@ -63,46 +67,15 @@ void TcpReceiver::handleDisconnectDevice()
   mSocket->disconnectFromHost();
 }
 
-void TcpReceiver::setSocketState( const QAbstractSocket::SocketState socketState )
+QString TcpReceiver::socketStateString()
 {
-  if ( mSocketState == socketState )
+  const QAbstractSocket::SocketState currentState = socketState();
+  QString socketStateString = AbstractGnssReceiver::socketStateString();
+  if ( currentState == QAbstractSocket::UnconnectedState && mReconnectOnDisconnect )
   {
-    return;
+    socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
   }
-
-  switch ( socketState )
-  {
-    case QAbstractSocket::HostLookupState:
-    case QAbstractSocket::ConnectingState:
-    {
-      mSocketStateString = tr( "Connecting…" );
-      break;
-    }
-    case QAbstractSocket::ConnectedState:
-    {
-      mReconnectOnDisconnect = true;
-      mSocketStateString = tr( "Successfully connected" );
-      break;
-    }
-    case QAbstractSocket::UnconnectedState:
-    {
-      mSocketStateString = tr( "Disconnected" );
-      if ( mReconnectOnDisconnect )
-      {
-        mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
-        mReconnectTimer.start( 2000 );
-      }
-      break;
-    }
-    default:
-    {
-      mSocketStateString = tr( "Socket state %1" ).arg( static_cast<int>( socketState ) );
-    }
-  }
-
-  mSocketState = socketState;
-  emit socketStateChanged( mSocketState );
-  emit socketStateStringChanged( mSocketStateString );
+  return socketStateString;
 }
 
 void TcpReceiver::handleError( QAbstractSocket::SocketError error )
