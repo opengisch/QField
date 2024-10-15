@@ -160,7 +160,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
@@ -529,11 +529,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation type="unfinished"/>
+        <translation>Erwartet, dass alle Array-Elemente ein Objekt sind, aber das Element bei #%1 ist keines</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation type="unfinished"/>
+        <translation>Erwartet, dass alle Array-Elemente ein Objekt mit einem &quot;%1&quot;-Schlüssel sind, aber das Element bei #%2 ist keines</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
@@ -544,11 +544,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Der Standardwertausdruck für das Feld %2 des Digitalisierungsloggers hat einen Parser Fehler: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Der Standardwertausdruck für das Feld %2 des Digitalisierungsloggers hat einen Auswertungs-Fehler: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
@@ -556,11 +556,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation type="unfinished"/>
+        <translation>Übergebung der Digitalisierung der Logs-Layer-Änderung fehlgeschlagen</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>Digitalisieren derLogs-Layer-Bearbeitung fehlgeschlagen</translation>
     </message>
 </context>
 <context>
@@ -608,19 +608,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>Zu wenige Daten für die Verarbeitung empfangen</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiges Start-Byte</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>Zu wenige Daten für den Payload empfangen</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>JSON kann nicht geparst werden</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -632,11 +632,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Die Verbindung wurde vom Remote-Host abgelehnt.</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP-Empfänger Fehler (%1)</translation>
     </message>
 </context>
 <context>
@@ -1428,11 +1428,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation>Wenn er deaktiviert ist, kann dieser Positionsgeber-Filter immer noch verwendet werden, indem das Präfix %1 in die Suchleiste eingegeben wird.</translation>
+        <translation>Wenn er deaktiviert ist, kann dieser Such-Filter immer noch verwendet werden, indem das Präfix %1 in die Suchleiste eingegeben wird.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation>%1 Positionsgeber standardmäßig einschalten</translation>
+        <translation>%1 Such-Filter standardmäßig einschalten</translation>
     </message>
 </context>
 <context>
@@ -1971,7 +1971,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
 </context>
 <context>
@@ -1982,7 +1982,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Speed</source>
-        <translation>Geschw.</translation>
+        <translation>Geschwindigkeit</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
@@ -1994,7 +1994,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Lon</source>
-        <translation>Länge</translation>
+        <translation>Längengrad</translation>
     </message>
     <message>
         <source>X</source>
@@ -2010,7 +2010,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>N/A</source>
-        <translation>N. a.</translation>
+        <translation>k. A.</translation>
     </message>
     <message>
         <source>grid</source>
@@ -2018,18 +2018,18 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>ortho.</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>Ant.</translation>
     </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Länge</translation>
+        <translation type="vanished">Längengrad</translation>
     </message>
     <message>
         <source>X</source>
@@ -2037,11 +2037,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>N/A</source>
-        <translation>N. a.</translation>
+        <translation>k. A.</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Breite</translation>
+        <translation type="vanished">Breitengrad</translation>
     </message>
     <message>
         <source>Y</source>
@@ -2053,7 +2053,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Geschw.</translation>
+        <translation type="vanished">Geschwindigkeit</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
@@ -2096,7 +2096,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation>Ortungsgenauigkeit zu gering für diese Genauigkeitstufe</translation>
+        <translation>Ortungsgenauigkeit zu gering für diese Präzisionsstufe</translation>
     </message>
 </context>
 <context>
@@ -2110,11 +2110,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation>Allgemeine Einstellungen</translation>
+        <translation>Allgemeine Parameter</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation>Fortgeschrittene Einstellungen</translation>
+        <translation>Fortgeschrittene Parameter</translation>
     </message>
     <message>
         <source>Help</source>
@@ -2126,7 +2126,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation>Beschreibung</translation>
+        <translation>Beschreibung des Algorithmus </translation>
     </message>
 </context>
 <context>
@@ -2175,11 +2175,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation>Für das Geotagging von Bildern muss die Positionierung aktiviert sein</translation>
+        <translation>Für das Geotagging von Bildern muss die Positionierung aktiviert sein.</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Details stempeln aktiviert</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2195,7 +2195,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Speed</source>
-        <translation>Geschw.</translation>
+        <translation>Geschwindigkeit </translation>
     </message>
     <message>
         <source>Orientation</source>
@@ -2203,18 +2203,18 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Details stempeln aktiviert</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation>[Timeout] Die Anfrage dauerte zu lange um beendet zu werden, versuche es noch einmal.</translation>
+        <translation>[Timeout] Die Anfrage dauerte zu lange um bearbeitet zu werden, bitte versuchen Sie es noch einmal.</translation>
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
-        <translation>[abgebrochen] Die Anfrage wurde abgebrochen</translation>
+        <translation>[abgebrochen] Die Anfrage wurde abgebrochen.</translation>
     </message>
     <message>
         <source>Server Error.</source>
@@ -2226,7 +2226,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation>Server nicht gefunden, bitte überprüfe die Server URL</translation>
+        <translation>Server nicht gefunden, bitte überprüfen Sie die Server URL.</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
@@ -2238,7 +2238,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Session expired</source>
-        <translation>Session abgelaufen</translation>
+        <translation>Sitzung abgelaufen</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
@@ -2252,14 +2252,14 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation>Login Fehler aufgrund eines unerwarteten Redirect, bitte versuche es später erneut</translation>
+        <translation>Login Fehler aufgrund einer unerwarteten Weiterleitung, bitte versuchen Sie es später erneut.</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Push Verlauf</translation>
+        <translation>Push-Verlauf</translation>
     </message>
     <message>
         <source>Loading…</source>
@@ -2267,24 +2267,24 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation>Keine Änderungen wurden bisher hochgeladen!</translation>
+        <translation>Es wurden bisher keine Änderungen gepusht!</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Anmeldung fehlgeschlagen</translation>
+        <translation type="vanished">Einloggen fehlgeschlagen </translation>
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>Einloggen fehlgeschlagen</translation>
+        <translation>Anmeldung fehlgeschlagen</translation>
     </message>
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>Server URL
-(Leerlassen um den Standartserver zu benützen)</translation>
+        <translation>Server-URL
+(Leerlassen, um den Standardserver zu nutzen)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -2296,19 +2296,19 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Auslogge</translation>
+        <translation>Ausloggen</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>Einlogge, bitte warten</translation>
+        <translation>Anmeldung läuft, bitte warten.</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Einloggen</translation>
+        <translation>Anmelden</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>Noch kein Konto?</translation>
+        <translation>Neuer Nutzer?</translation>
     </message>
     <message>
         <source>Register an account</source>
@@ -2320,38 +2320,38 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Anmeldung läuft, bitte warten</translation>
+        <translation type="vanished">Login läuft, bitte warten</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Anmelden</translation>
+        <translation type="vanished">Einloggen</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Der einfachste Weg um ein QGIS Projekt auf deine Geräte zu bringen!</translation>
+        <translation>Der einfachste Weg, um QGIS-Projekte auf Ihre Mobil-Geräte zu bringen!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Erfahre mehr über QFieldCloud</translation>
+        <translation>Erfahre mehr über QFieldCloud.</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Probleme beim packen eines QFieldCloud Layers</translation>
+        <translation type="vanished">Probleme beim Packen eines QFieldCloud-Layers.</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Einige Layer sind nicht korrekt in QFieldCloud verpackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist vom QFieldCloud-Server nicht zugänglich.</translation>
+        <translation type="vanished">Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist fürden QFieldCloud-Server nicht zugänglich.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud hat Probleme beim Packen deines Projektes</translation>
+        <translation>QFieldCloud hat Probleme beim Packen Ihres Projekts.</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Einige Ebenen wurden nicht korrekt in QFieldCloud verpackt. Diese Ebenen könnten falsch konfiguriert sein oder ihre Datenquelle ist vom QFieldCloud-Server nicht zugänglich. Bitte prüfen Sie die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Website.</translation>
+        <translation>Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich. Bitte prüfen Sie die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Webseite.</translation>
     </message>
 </context>
 <context>
@@ -2366,7 +2366,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="vanished">Das Speichern von Projekten in der QFieldCloud bietet nahtlose synchronisation, offline editieren und Team-Managment&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">Das Speichern von Projekten in der QFieldCloud bietet nahtlose Synchronisation, Offline-Bearbeitung und Team-Managment.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2378,11 +2378,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Verbinde zur Cloud</translation>
+        <translation>Verbindung zur Cloud</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Hallo &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation>Grüße &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -2390,39 +2390,39 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation type="vanished">Lade runter %1%…</translation>
+        <translation type="vanished">Download läuft %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud bereitet die neusten Daten für dich vor. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
+        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für Sie vor. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation>Lade hoch %1%…</translation>
+        <translation>Upload läuft %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud wendet dieneusten hochgeladenen DÄnderungen an. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
+        <translation>QFieldCloud wendet die neuesten hochgeladenen Änderungen an. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation type="vanished">Ein Server-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
+        <translation type="vanished">Ein Server-Fehler ist aufgetreten, bitte versuchen Sie es noch einmal.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="vanished">Ein Netzwerk-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
+        <translation type="vanished">Ein Netzwerk-Fehler ist aufgetreten, bitte versuchen Sie es noch einmal.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>Es gibt %n lokale Änderung</numerusform><numerusform>Es gibt %n lokale Änderungen</numerusform></translation>
+        <translation><numerusform>Es gibt %n lokale Änderung</numerusform><numerusform>Es gibt %n lokale Änderung(en).</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>Es gibt keine lokalen Änderungen</translation>
+        <translation>Es gibt keine lokalen Änderungen.</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>Das lokal gespeicherte Cloud-Projekt ist beschädigt worden</translation>
+        <translation>Das lokal gespeicherte Cloud-Projekt ist beschädigt worden.</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -2430,11 +2430,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Synchronisieren Sie das gesamte Projekt mit allen geänderten Funktionen und laden Sie das frisch aktualisierte Projekt mit allen angewandten Änderungen aus QFieldCloud herunter.</translation>
+        <translation>Synchronisieren Sie das gesamte Projekt mit allen Änderungen und laden Sie das frisch aktualisierte Projekt aus QFieldCloud herunter.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Änderungen hochladen</translation>
+        <translation>Änderungen pushen</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
@@ -2454,15 +2454,15 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Alle geänderten Objekte in den lokalen Cloud-Ebenen rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
+        <translation type="vanished">Alle geänderten Objekte in den lokalen Cloud-Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stell sicher, diese bei Bedarf zuerst zu kopieren. 
+        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stellen Sie  sicher, diese bei Bedarf zuerst zu kopieren. 
 
-Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend empfohlen, es zurückzusetzen, um einen versehentlichen Datenverlust zu vermeiden, da keine der vorgenommenen Änderungen zurück in die Cloud übertragen werden.</translation>
+Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend empfohlen, es zurückzusetzen, um einen versehentlichen Datenverlust zu vermeiden, da keine der vorgenommenen Änderungen zurück in die Cloud übertragen wird.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -2498,11 +2498,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>Keine Änderungen gepusht</translation>
+        <translation>Noch keine Änderungen gepusht.</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n Attachment wird im Hintergrund hochgeladen</numerusform><numerusform>%n Attachments werden im Hintergrund hochgeladen</numerusform></translation>
+        <translation type="vanished"><numerusform>%n Attachment wird im Hintergrund hochgeladen</numerusform><numerusform>%n Anhänge werden im Hintergrund hochgeladen.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -2514,11 +2514,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Letzte Warnung: Das Zurücksetzen des Cloud-Projekts löscht alle lokalen Änderungen. Sind Sie sicher, dass Sie das tun wollen?</translation>
+        <translation>Letzte Warnung: Das Zurücksetzen des Cloud-Projekts löscht alle lokalen Änderungen. Sind Sie sicher, dass Sie das ausführen wollen?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Verbinden zu Cloud</translation>
+        <translation>Cloud wird verbunden.</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2534,39 +2534,39 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Dieses Projekt hat eine neuere Projektdatei in der Cloud - synchronisiere bitte!</translation>
+        <translation>Dieses Projekt hat eine aktuellere Projektdatei in der Cloud - synchronisieren Sie bitte!</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>Das Projekt hat neuere Daten in der Cloud für dich, du solltest synchronisieren!</translation>
+        <translation>Das Projekt hat aktuellere Daten in der Cloud, Sie sollten synchronisieren!</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud packt die neusten Daten für dich; Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
+        <translation>QFieldCloud packt die neuesten Daten. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation>Downloade,  %1% von %2 fertig</translation>
+        <translation>Download,  %1% von %2 fertig</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation>Downloade, %1% fertig</translation>
+        <translation>Download, %1% fertig</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Verbinde mit der QFieldCloud um das Projekt herunterzuladen</translation>
+        <translation>Verbinde mit der QFieldCloud, um das Projekt herunterzuladen.</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>Änderungen automatisch alle %n Minute(n) pushen</numerusform><numerusform>Lade Änderungen automatisch alle %n Minute(n) hoch</numerusform></translation>
+        <translation><numerusform>Änderungen automatisch alle %n Minute(n) pushen</numerusform><numerusform>Änderungen automatisch alle %n Minute(n) pushen.</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>Für das aktuelle Projekt kann das automatische Hochladen nicht deaktiviert werden</translation>
+        <translation>Für das aktuelle Projekt kann das automatische Pushen nicht deaktiviert werden.</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Das Speichern von Projekten in der QFieldCloud bietet nahtlose synchronisation, offline editieren und Team-Managment &lt;br&gt;&lt;br&gt;</translation>
+        <translation>Das Speichern von Projekten in der QFieldCloud bietet nahtlose Synchronisation, Offline-Bearbeitung und Team-Managment. &lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
@@ -2582,21 +2582,21 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Temporäre Datei für &quot;%1&quot; konnte nicht geöffnet werden, Grund:
+        <translation type="vanished">Temporäre Datei für &quot;%1&quot; konnte nicht geöffnet werden. Grund:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Das Hochladen des Anhangs, der unter &quot;%1&quot; gespeichert ist, ist fehlgeschlagen, Grund: %2</translation>
+        <translation type="vanished">Das Hochladen des Anhangs, der unter &quot;%1&quot; gespeichert ist, ist fehlgeschlagen. Grund: %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Dateidownload gescheitert &quot;%1&quot;, Grund:</translation>
+        <translation type="vanished">Dateidownload von &quot;%1&quot; gescheitert. Grund:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Dateidownload gescheitert &quot;%1&quot;, Grund:</translation>
+        <translation type="vanished">Heruntergeladene Datei in &quot;%1&quot; konnte nicht geschrieben werden. Grund:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -2604,11 +2604,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>Projekt(%1) Auslöser-Antwort Aktualisieren enthält nicht alle erwarteten Schlüssel: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation>Job Status erhalten, aber das Projekt wurde gelöscht.</translation>
+        <translation>Auftrags-Status erhalten, aber das Projekt wurde gelöscht.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
@@ -2616,27 +2616,27 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Job Status erhalten, aber `%2` noch kein Job gestartet.</translation>
+        <translation>Auftrags-Status erhalten, aber noch kein `%2`-Auftrag gestartet.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Job Status abgeschlossen, aber das Projekt wurde gelöscht.</translation>
+        <translation>Auftrags-Status *Abgeschlossen*, aber das Projekt wurde gelöscht.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>Auftrag(%1)-Status-Antwort enthält nicht alle erwarteten Schlüssel: status(string)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation>Job(%1) wurde mit einem Fehlerstatus beendet.</translation>
+        <translation>Auftrag(%1) wurde mit einem Fehlerstatus beendet.</translation>
     </message>
     <message>
         <source>Project busy.</source>
-        <translation>Projekt in Arbeit.</translation>
+        <translation>Projekt arbeitet.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>Das Packen für `%1` wurde nicht erfolgreich beendet. %2</translation>
+        <translation>Der Packen-Auftrag für `%1` wurde nicht erfolgreich beendet. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
@@ -2644,7 +2644,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation>Fehler beim Abrufen der Daten</translation>
+        <translation>Fehler beim Abrufen der letzten Paket-Daten.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
@@ -2661,13 +2661,13 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Die temporäre Datei für `%1` konnte nicht geöffnet werden. Grund:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Upload des Anhangs fehlgeschlagen, gespeichert in `%1`, Grund:
-%2</translation>
+        <translation type="vanished">Upload des in `%1` gespeicherten Anhangs fehlgeschlagen. Grund:%2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -2675,11 +2675,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Dateisystem-Fehler. Die Datei konnte nicht in den temporären Speicherort `%1` geschrieben werden.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Dateisystem-Fehler. Die Datei konnte nicht geöffnet werden, um sie in den temporären Speicherort `%1` zu schreiben.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2695,14 +2695,14 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation type="unfinished"/>
+        <translation>Einige der heruntergeladenen Dateien konnten nicht auf das Mobilgerät kopiert werden. Überprüfen Sie Ihren Gerätespeicher.</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud Projekte</translation>
+        <translation>QFieldCloud-Projekte</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2734,7 +2734,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud bereitet die neusten Daten für dich vor. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
+        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für Sie vor. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2786,11 +2786,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation>Tippe und halte ein Cloud Projekt für zusätzliche Optionen</translation>
+        <translation>Tippe Sie lang auf ein Cloud Projekt, um zusätzliche Optionen angezeigt zu bekommen.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>Projekte aktualisieren</translation>
+        <translation>Projektliste aktualisieren</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
@@ -2806,19 +2806,19 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation>, neuere Daten in der Cloud verfügbar</translation>
+        <translation>, aktualisierte Daten in der Cloud verfügbar</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud packt die neusten Daten für dich; Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld...</translation>
+        <translation>QFieldCloud packt die neusten Daten. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation>Downloade,  %1% von %2 fertig</translation>
+        <translation>Download,  %1% von %2 fertig</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation>Downloade, %1% fertig</translation>
+        <translation>Download, %1% fertig</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
@@ -2826,7 +2826,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Keine Cloud-Projekte gefunden. Um loszulegen, %1lesen Sie die Dokumentation%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
@@ -3814,11 +3814,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Die Verbindung wurde vom Remote-Host abgelehnt.</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP-Empfänger Fehler (%1)</translation>
     </message>
 </context>
 <context>
@@ -4187,7 +4187,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Die Verbindung wurde vom Remote-Host abgelehnt.</translation>
     </message>
 </context>
 <context>
