@@ -325,7 +325,7 @@ ApplicationWindow {
     DragHandler {
       id: rotateDragHandler
       enabled: rotateFeaturesToolbar.rotateFeaturesRequested == true && !freehandButton.visible && !freehandButton.freehandDigitizing
-      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen| PointerDevice.Mouse : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
     property real pressClickX: 0
