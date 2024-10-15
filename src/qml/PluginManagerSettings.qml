@@ -309,7 +309,6 @@ Popup {
     id: uninstallConfirmation
     title: "Uninstall Plugin"
     parent: mainWindow.contentItem
-    modal: false
     y: (mainWindow.height - height - 80) / 2
 
     property string pluginName: ""

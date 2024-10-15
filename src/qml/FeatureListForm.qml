@@ -905,7 +905,11 @@ Rectangle {
     property bool isDeleted: false
 
     title: qsTr("Delete feature(s)")
-    text: qsTr("Should the %n feature(s) selected really be deleted?", "0", deleteDialog.selectedCount)
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr("Should the %n feature(s) selected really be deleted?", "0", deleteDialog.selectedCount)
+    }
     onAccepted: {
       if (isDeleted) {
         return;
