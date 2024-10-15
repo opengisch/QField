@@ -2139,6 +2139,12 @@ ApplicationWindow {
     homeButton.waitingForDigitizingFinish = false;
   }
 
+  function activateMeasurementMode() {
+    mainMenu.close();
+    dashBoard.close();
+    changeMode('measure');
+  }
+
   Menu {
     id: mainMenu
     title: qsTr("Main Menu")
@@ -2194,6 +2200,7 @@ ApplicationWindow {
       }
 
       QfToolButton {
+        id: measurementButton
         anchors.verticalCenter: parent.verticalCenter
         height: 48
         width: 48
@@ -2203,10 +2210,12 @@ ApplicationWindow {
         bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
 
         onClicked: {
-          mainMenu.close();
-          dashBoard.close();
-          changeMode('measure');
-          highlighted = false;
+          if (featureForm.state === "ProcessingAlgorithmForm") {
+            cancelAlgorithmDialog.visible = true;
+          } else {
+            activateMeasurementMode();
+            highlighted = false;
+          }
         }
       }
 
@@ -4031,6 +4040,35 @@ ApplicationWindow {
     }
 
     standardButtons: Dialog.Yes | Dialog.No
+  }
+
+  Dialog {
+    id: cancelAlgorithmDialog
+    parent: mainWindow.contentItem
+
+    visible: false
+    modal: true
+    font: Theme.defaultFont
+
+    z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
+    x: (mainWindow.width - width) / 2
+    y: (mainWindow.height - height) / 2
+
+    title: qsTr("Cancel algorithm")
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr("You are about to dismiss algorithm, proceed?")
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      featureForm.state = "FeatureList";
+      activateMeasurementMode();
+    }
+    onDiscarded: {
+      cancelAlgorithmDialog.visible = false;
+    }
   }
 
   Connections {
