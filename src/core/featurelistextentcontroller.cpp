@@ -72,10 +72,11 @@ QgsPoint FeatureListExtentController::getCentroidFromSelected() const
 
     if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
     {
-      // QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feat );
-      // if ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) )
-      //   mMapSettings->setExtent( extent, true );
       QgsGeometry geom = feat.geometry();
+
+      QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
+      geom.transform( transf );
+
       QgsPointXY centroid = geom.centroid().asPoint();
       point.setX( centroid.x() );
       point.setY( centroid.y() );
