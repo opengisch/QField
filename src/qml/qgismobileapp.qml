@@ -1755,7 +1755,7 @@ ApplicationWindow {
             name: "On"
             PropertyChanges {
               target: gnssButton
-              iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeVectorIcon("ic_location_valid_white_24dp") : Theme.getThemeVectorIcon("ic_location_white_24dp")
+              iconSource: trackings.count > 0 ? Theme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeVectorIcon("ic_location_valid_white_24dp") : Theme.getThemeVectorIcon("ic_location_white_24dp")
               iconColor: followActive ? "white" : Theme.positionColor
               bgcolor: followActive ? Theme.positionColor : Theme.darkGray
             }
