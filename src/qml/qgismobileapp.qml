@@ -3342,6 +3342,11 @@ ApplicationWindow {
     }
 
     function onLoadProjectTriggered(path, name) {
+      messageLogModel.suppress({
+          "WFS": [""],
+          "WMS": [""],
+          "PostGIS": ["fe_sendauth: no password supplied"]
+        });
       qfieldLocalDataPickerScreen.visible = false;
       qfieldLocalDataPickerScreen.focus = false;
       welcomeScreen.visible = false;
@@ -3360,6 +3365,17 @@ ApplicationWindow {
     function onLoadProjectEnded(path, name) {
       mapCanvasMap.unfreeze('projectload');
       busyOverlay.state = "hidden";
+      dashBoard.layerTree.unfreeze(true);
+      if (qfieldAuthRequestHandler.hasPendingAuthRequest) {
+        qfieldAuthRequestHandler.handleLayerLogins();
+      } else {
+        // project in need of handling layer credentials
+        messageLogModel.unsuppress({
+            "WFS": [],
+            "WMS": [],
+            "PostGIS": []
+          });
+      }
       projectInfo.filePath = path;
       stateMachine.state = projectInfo.stateMode;
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse');
@@ -3370,7 +3386,10 @@ ApplicationWindow {
           activeLayer = defaultActiveLayer;
         }
       }
-      dashBoard.activeLayer = activeLayer;
+      if (!qfieldAuthRequestHandler.hasPendingAuthRequest) {
+        // only set active layer when not handling layer credentials
+        dashBoard.activeLayer = activeLayer;
+      }
       drawingTemplateModel.projectFilePath = path;
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
       const titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
@@ -3447,7 +3466,7 @@ ApplicationWindow {
         projectInfo.hasInsertRights = true;
         projectInfo.hasEditRights = true;
       }
-      if (stateMachine.state === "digitize") {
+      if (stateMachine.state === "digitize" && !qfieldAuthRequestHandler.hasPendingAuthRequest) {
         dashBoard.ensureEditableLayerSelected();
       }
       var distanceString = iface.readProjectEntry("Measurement", "/DistanceUnits", "");
@@ -3535,29 +3554,6 @@ ApplicationWindow {
 
   Item {
     id: layerLogin
-
-    Connections {
-      target: iface
-      function onLoadProjectTriggered(path) {
-        messageLogModel.suppress({
-            "WFS": [""],
-            "WMS": [""],
-            "PostGIS": ["fe_sendauth: no password supplied"]
-          });
-      }
-
-      function onLoadProjectEnded() {
-        dashBoard.layerTree.unfreeze(true);
-        if (!qfieldAuthRequestHandler.handleLayerLogins()) {
-          //project loaded without more layer handling needed
-          messageLogModel.unsuppress({
-              "WFS": [],
-              "WMS": [],
-              "PostGIS": []
-            });
-        }
-      }
-    }
 
     Connections {
       target: qfieldAuthRequestHandler

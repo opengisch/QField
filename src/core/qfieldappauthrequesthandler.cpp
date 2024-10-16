@@ -39,6 +39,24 @@ void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const 
   QgsCredentials::instance()->put( realm, username, password );
 }
 
+bool QFieldAppAuthRequestHandler::hasPendingAuthRequest() const
+{
+  if ( mBrowserAuthenticationOngoing )
+  {
+    return true;
+  }
+
+  int pendingCount = mRealms.size();
+  for ( const RealmEntry &realm : mRealms )
+  {
+    if ( realm.canceled )
+    {
+      pendingCount--;
+    }
+  }
+  return pendingCount > 0;
+}
+
 QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm() const
 {
   auto entry = std::find_if( mRealms.begin(), mRealms.end(), []( const RealmEntry &entry ) { return !entry.canceled; } );
@@ -59,6 +77,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
           if ( mRealms.at( i ).realm == realm )
           {
             mRealms.replace( i, RealmEntry( realm, true ) );
+            emit hasPendingAuthRequestChanged();
             break;
           }
         }
@@ -71,6 +90,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
           if ( mRealms.at( i ).realm == realm )
           {
             mRealms.removeAt( i );
+            emit hasPendingAuthRequestChanged();
             break;
           }
         }
@@ -116,6 +136,7 @@ void QFieldAppAuthRequestHandler::authNeeded( const QString &realm )
 
   RealmEntry unhandledRealm( realm );
   mRealms << unhandledRealm;
+  emit hasPendingAuthRequestChanged();
 }
 
 void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth )
@@ -176,17 +197,23 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
 
 void QFieldAppAuthRequestHandler::handleAuthRequestOpenBrowser( const QUrl &url )
 {
+  mBrowserAuthenticationOngoing = true;
+  emit hasPendingAuthRequestChanged();
   emit showLoginBrowser( url.toString() );
 }
 
 void QFieldAppAuthRequestHandler::handleAuthRequestCloseBrowser()
 {
   emit hideLoginBrowser();
+  mBrowserAuthenticationOngoing = false;
+  emit hasPendingAuthRequestChanged();
 }
 
 void QFieldAppAuthRequestHandler::abortAuthBrowser()
 {
   QgsNetworkAccessManager::instance()->abortAuthBrowser();
+  mBrowserAuthenticationOngoing = false;
+  emit hasPendingAuthRequestChanged();
 }
 
 QString QFieldAppAuthRequestHandler::getCredentialTitle( const QString &realm )
