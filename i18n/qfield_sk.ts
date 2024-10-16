@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Pripájanie...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Úspešne pripojené</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odpojené</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stav soketu %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -267,19 +286,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Pripájanie...</translation>
+        <translation type="vanished">Pripájanie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspešne pripojené</translation>
+        <translation type="vanished">Úspešne pripojené</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojené</translation>
+        <translation type="vanished">Odpojené</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -600,11 +619,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspešne pripojené</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojené</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3788,19 +3807,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Pripájanie...</translation>
+        <translation type="vanished">Pripájanie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspešne pripojené</translation>
+        <translation type="vanished">Úspešne pripojené</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojené</translation>
+        <translation type="vanished">Odpojené</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4161,19 +4180,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Pripájanie...</translation>
+        <translation type="vanished">Pripájanie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspešne pripojené</translation>
+        <translation type="vanished">Úspešne pripojené</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojené</translation>
+        <translation type="vanished">Odpojené</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>

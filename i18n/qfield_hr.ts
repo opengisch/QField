@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Spajanje...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Uspješno spojeno</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odspojeno</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stanje priključka %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -267,19 +286,19 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Spajanje...</translation>
+        <translation type="vanished">Spajanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno spojeno</translation>
+        <translation type="vanished">Uspješno spojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odspojeno</translation>
+        <translation type="vanished">Odspojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje priključka %1</translation>
+        <translation type="vanished">Stanje priključka %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -600,11 +619,11 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno spojeno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odspojeno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3783,19 +3802,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Spajanje...</translation>
+        <translation type="vanished">Spajanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno spojeno</translation>
+        <translation type="vanished">Uspješno spojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odspojeno</translation>
+        <translation type="vanished">Odspojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje priključka %1</translation>
+        <translation type="vanished">Stanje priključka %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4156,19 +4175,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Spajanje...</translation>
+        <translation type="vanished">Spajanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno spojeno</translation>
+        <translation type="vanished">Uspješno spojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odspojeno</translation>
+        <translation type="vanished">Odspojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje priključka %1</translation>
+        <translation type="vanished">Stanje priključka %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>

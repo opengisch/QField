@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Verbinden…</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Erfolgreich verbunden</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Getrennt</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Anschlussstatus %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -267,19 +286,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinden…</translation>
+        <translation type="vanished">Verbinden…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Erfolgreich verbunden</translation>
+        <translation type="vanished">Erfolgreich verbunden</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Getrennt</translation>
+        <translation type="vanished">Getrennt</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Anschlussstatus %1</translation>
+        <translation type="vanished">Anschlussstatus %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -600,11 +619,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Erfolgreich verbunden</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Getrennt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -2907,7 +2926,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Zum Ordner exportieren</translation>
+        <translation>In Ordner exportieren</translation>
     </message>
     <message>
         <source>Remove dataset</source>
@@ -2923,11 +2942,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Importiere Projekte vom Ordner</translation>
+        <translation>Importiere Projekt aus Ordner</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Projekte vom ZIP Ordner importieren</translation>
+        <translation>Projekt aus ZIP Ordner importieren</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
@@ -2935,7 +2954,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Speicherverwaltung Hilfe</translation>
+        <translation>Speicherverwaltung - Hilfe</translation>
     </message>
     <message>
         <source>Import URL</source>
@@ -2943,7 +2962,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Gib unten eine URL ein, um ein Projekt oder einen Datensatz herunterzuladen und zu importieren:</translation>
+        <translation>Geben Sie unten eine URL ein, um ein Projekt oder einen Datensatz herunterzuladen und zu importieren:</translation>
     </message>
     <message>
         <source>Item Actions</source>
@@ -2959,15 +2978,15 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation>Projekt aus ZIP aktualisieren</translation>
+        <translation>Projekt aus ZIP-Ordner aktualisieren</translation>
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
-        <translation>Änderungen hochladen</translation>
+        <translation>Push zu QFieldCloud...</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>&apos;%1&apos; wird hochgeladen</translation>
+        <translation>‘%1’ wird in die QFieldCloud hochgeladen </translation>
     </message>
     <message>
         <source>Add to favorites</source>
@@ -2979,7 +2998,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Dateien</translation>
     </message>
 </context>
 <context>
@@ -2994,11 +3013,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navigation mit feststehendem Maßstab</translation>
+        <translation>Navigation mit festem Maßstab</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Wenn Navigation mit feststehendem Maßstab aktiviert ist, wird beim Fokussieren zu einem Suchresultat der Maßstab nicht verändert. Wenn Navigation mit feststehendem Maßstab deaktiviert ist, wird zum entsprechenden Objekt gezoomt.</translation>
+        <translation>Wenn *Navigation mit festem Maßstab* aktiviert ist, wird beim Fokussieren auf ein Suchresultat der Maßstab nicht verändert. Wenn *Navigation mit festem Maßstab* deaktiviert ist, wird zum entsprechenden Objekt gezoomt.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
@@ -3006,7 +3025,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Wenn diese Funktion eingeschaltet ist, werden Koordinateninformationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Objekte oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
+        <translation>Wenn diese Funktion eingeschaltet ist, werden Informationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Objekte oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -3022,7 +3041,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>Falls die Option deaktiviert wird, wird QField eine minimalistische, interne Kamera-App anstatt der standart Kamera verwenden &lt;br&gt; Hinweis: Aktiviere diese Option und installiere die &quot;Open Camera&quot;-App, um Fotos mit Standortdaten aufzunehmen.</translation>
+        <translation>Falls die Option deaktiviert wird, wird QField eine minimalistische, interne Kamera-App anstatt der Standard-Kamera verwenden &lt;br&gt; Tipp: Aktivieren Sie diese Option und installieren Sie die &quot;Open Camera&quot;-App, um Fotos mit Standortdaten aufzunehmen.</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3030,11 +3049,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Wenn diese Option aktiviert ist, wird das Feature gespeichert, nachdem eine gültige Geometrie vorliegt, die Bedingungen erfüllt sind und die Attribute sofort festgelegt werden.</translation>
+        <translation>Wenn diese Option aktiviert ist, wird das Feature gespeichert, nachdem eine gültige Geometrie vorliegt und alle Bedingungen erfüllt sind. Die Attribute werden sofort übernommen.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Bildschirm bei Inaktivität runterdimmen</translation>
+        <translation>Bildschirm bei Inaktivität herunterdimmen.</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3042,7 +3061,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Verwende Maus als Touchscreen-Eingabe</translation>
+        <translation>Eine Maus als Touchscreen-Gerät</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3054,7 +3073,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>Wenn aktiviert, werden anonymisierte Metriken gesammelt und gesendet, um QField für alle zu verbessern.</translation>
+        <translation>Wenn aktiviert, werden anonymisierte Metriken gesammelt und gesendet, um QField verbessern zu helfen .</translation>
     </message>
     <message>
         <source>General</source>
@@ -3078,7 +3097,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>Um die ausgewählte Sprache der Benutzeroberfläche anzuwenden, muss QField komplett heruntergefahren und neu gestartet werden.</translation>
+        <translation>Um die ausgewählte Sprache der Benutzeroberfläche anzuwenden, muss QField komplett ausgeschaltet und neu gestartet werden.</translation>
     </message>
     <message>
         <source>system</source>
@@ -3086,7 +3105,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Fehlende oder unvollständige Sprachübersetzung gefunden? %1Mach mit bei der Übersetzergruppe.%2</translation>
+        <translation>Fehlende oder unvollständige Sprachübersetzung gefunden? %1Machen Sie mit bei der Übersetzergruppe.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
@@ -3094,7 +3113,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Scan für gepaarte Geräte</translation>
+        <translation type="vanished">Scan nach gekoppelten Geräten</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
@@ -3106,7 +3125,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n Gerät(e) gefunden</numerusform><numerusform>%n Gerät(e) gefunden</numerusform></translation>
+        <translation type="vanished"><numerusform>%n Gerät(e) gefunden</numerusform><numerusform>%n Geräte gefunden</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -3123,8 +3142,8 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Ein vollständiger Servicescan kann länger dauern. Willst du wirklich einen vollständigen Servicescan durchfüren?
-Abbrechen um einen minimalen Scan durchzuführen. </translation>
+        <translation type="vanished">Ein vollständiger Servicescan kann länger dauern. Wollen Sie wirklich einen vollständigen Servicescan durchführen?
+Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -3136,7 +3155,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Verbindung zu %1 wird durchgeführt</translation>
+        <translation>Verbindung zu %1 wird hergestellt</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3156,31 +3175,31 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation type="vanished">Ausgezeichnete Genauigkeit ab [m]</translation>
+        <translation type="vanished">Ausgezeichnete Genauigkeit unter [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation type="vanished">Anforderung an die Genauigkeit aktivieren</translation>
+        <translation type="vanished">Genauigkeits-Anforderungen aktivieren</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="vanished">Wenn der Genauigkeitsindikator aktiviert ist, wird ein Badge an die Positionsschaltfläche angehängt und &lt;span %1&gt;rot&lt;/span&gt; gefärbt, wenn der Genauigkeitswert unter schlecht liegt, &lt;span %2&gt;gelb&lt;/span&gt;, wenn er unter exzellent liegt, oder &lt;span %3&gt;grün&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Zusätzlich kann ein Genauigkeitseinschränkungsmodus eingeschaltet werden, der das Hinzufügen von Definitionspunkten beim Sperren des Koordinatencursors auf Positionen mit einem Genauigkeitswert über dem Schwellenwert für schlechte Genauigkeit beschränkt.</translation>
+        <translation type="vanished">Wenn der Genauigkeitsindikator aktiviert ist, wird ein Abzeichen an die Positionsschaltfläche angehängt und &lt;span %1&gt;rot&lt;/span&gt; gefärbt, wenn der Genauigkeitswert schlecht ist, &lt;span %2&gt;gelb&lt;/span&gt;, wenn er dazwischen liegt, oder &lt;span %3&gt;grün, wenn er exzellent ist&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Zusätzlich kann eine Genauigkeitseinschränkung gesetzt werden, die das Hinzufügen von Knotenpunkten an dem auf die aktuelle Position festgesetzten Fadenkreuz-Cursor, mit einem Genauigkeitswert über dem Schwellenwert, verhindert.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Aktivieren Sie die gemittelte Positionierungsanforderung</translation>
+        <translation>Aktivieren Sie die Positionsmittelung</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation>Mindestanzahl von gesammelten Positionen</translation>
+        <translation>Mindestanzahl an gemessenen Positionen</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Beende das Sammeln automatisch, wenn die Mindestanzahl erreicht ist</translation>
+        <translation>Messung  automatisch beenden, wenn die Mindestanzahl erreicht ist.</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Wenn diese Funktion aktiviert ist, wird beim Digitalisieren von Scheitelpunkten mit einem auf eine Position fixierten Cursor nur eine gemittelte Position aus einer Mindestanzahl von gesammelten Positionen akzeptiert. Das Digitalisieren unter Verwendung gemittelter Positionen erfolgt durch Drücken und Halten der Taste &quot;Scheitelpunkt hinzufügen&quot;, die so lange Positionen sammelt, bis die Taste losgelassen wird. Die Einstellungen für die Genauigkeitsanforderungen werden beachtet, wenn sie aktiviert sind.</translation>
+        <translation>Wenn diese Funktion aktiviert ist, wird beim Digitalisieren von Knotenpunkten, mit einem auf eine Position fixierten Fadenkreuz-Cursor, nur die gemittelte Position aus einer Mindestanzahl von gemessenen Positionen akzeptiert. Das Digitalisieren unter Verwendung gemittelter Positionen erfolgt durch Drücken und Halten der Taste &quot;Knotenpunkt hinzufügen&quot;, wobei so lange Positionen gemessen werden, bis die Taste losgelassen wird. Die Einstellungen für die Genauigkeitsanforderungen werden beachtet, wenn sie aktiviert sind.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -3192,7 +3211,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Z-Werte, die vom Positioniergerät aufgezeichnet werden, werden um diesen Wert korrigiert. Wenn ein Wert von 1,6 eingegeben wird, führt dies zu einer Korrektur von -1,6 für jeden aufgezeichneten Wert.</translation>
+        <translation type="vanished">Z-Werte, die vom GPS-Empfänger aufgezeichnet werden, werden um diesen Wert korrigiert. Wenn ein Wert von 1,6 eingegeben wird, führt dies zu einer Korrektur von -1,6 für jeden aufgezeichneten Wert.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -3200,7 +3219,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Verwenden Sie die Höhe, wie sie vom Ortungsgerät gemeldet wird. Überspringen Sie jede Höhenkorrektur, die durch die Transformation des Koordinatensystems impliziert sein könnte.</translation>
+        <translation>Verwenden Sie die Höhe, wie sie vom GPS-Empfänger gemeldet wird. Überspringen Sie jede Höhenkorrektur, die durch die Transformation des Koordinatensystems geschehen könnte.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
@@ -3212,11 +3231,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Die vertikale Gitterverschiebung wird verwendet, um die Höhengenauigkeit zu erhöhen.</translation>
+        <translation>Die vertikale Gitterverschiebung wird verwendet, um die Höhengenauigkeit zu verbessern.</translation>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField Einstellungen</translation>
+        <translation>QField-Einstellungen</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -3224,11 +3243,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Messe (M) der Knoten</translation>
+        <translation>Messe (M)-Werte der Knotenpunkte:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Zeitstempel (Milisekunden seit Zeitalter)</translation>
+        <translation>Zeitstempel (Milisekunden seit letzter Messung)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3260,7 +3279,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Wenn du Objekte digitalisierst und das Fadenkreuz auf der aktuelle Position fixiert ist, wird die oben ausgewählte Messart zur Geometrie hinzugefügt, sofern sie ein M-Maß hat.</translation>
+        <translation>Wenn Objekte digitalisiert werden und das Fadenkreuz (Koordinaten-Cursor) auf die aktuelle Position fixiert ist, wird das Ergebnis der oben ausgewählten Messart zur Geometrie hinzugefügt, sofern sie einen M-Wert hat.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -3328,11 +3347,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Eine niedrigere Qualität mindert die Renderinggenauigkeit zugunsten einer geringeren Speicherauslastung und Rendering-Zeit ein.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Z-Werte, die vom GPS-Empfänger aufgezeichnet werden, werden um diesen Wert korrigiert. Wenn ein Wert von 1,6 eingegeben wird, führt dies zu einer Korrektur von -1,6 für jeden aufgezeichneten Wert. Vergewissern Sie sich, dass die komplette Antennhöhe (Stabhöhe + Antenne-Phasenzentrum-Korrektur) richtig gesetzt ist.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -3344,19 +3363,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn diese Option aktiviert ist, wird durch Drücken der Lauter-Taste des Geräts ein Knotenpunkt hinzugefügt, während durch Drücken der Leiser-Taste der während der Digitalisierungssitzungen zuletzt eingegebene Knotenpunkt entfernt wird.</translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Erfasse Features und Knotenpunkte durch tippen auf die Karten</translation>
+        <translation>Fingertippen auf die Karte erlauben, um Objekte und Knotenpunkte hinzuzufügen. </translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Wenn aktiviert kann ein Feature oder Knotenpunkt durch tippen auf die Karten am ausgewählten Ort erfasst werden</translation>
+        <translation>Wenn aktiviert, kann ein Objekt oder Knotenpunkt durch Tippen auf die Karte an diesem Ort erfasst werden.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Wenn aktiviert wird die Mausaktion als Fingereingabe interpretiert, wenn deaktiviert, dann als Stifteingabe</translation>
+        <translation>Wenn aktiviert, wird die Maus als Finger interpretiert, wenn deaktiviert, als Eingabe-Stift.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
@@ -3364,7 +3383,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation>Erfassen und Editieren</translation>
+        <translation>Digitalisieren und Editieren</translation>
     </message>
     <message>
         <source>User Interface</source>
@@ -3372,15 +3391,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation>Design</translation>
+        <translation>Design:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation>Schriftgröße</translation>
+        <translation>Schriftgröße:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation>Sprache</translation>
+        <translation>Sprache:</translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -3388,7 +3407,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation>Plugins Verwalten</translation>
+        <translation>Plugins verwalten</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
@@ -3396,7 +3415,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Wenn aktiviert die Kartenansicht gedreht werden</translation>
+        <translation>Wenn aktiviert, kann die Kartenansicht gedreht werden.</translation>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
@@ -3412,7 +3431,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn der Genauigkeitsindikator aktiviert ist, wird ein Abzeichen an die Positionsschaltfläche angehängt und &lt;span %1&gt;rot1 gefärbt, wenn der Genauigkeitswert schlecht ist, &lt;span %2&gt;gelb2, wenn er dazwischen liegt, oder &lt;span %3&gt;grün, wenn er exzellent ist3.45 Zusätzlich kann eine Genauigkeitseinschränkung gesetzt werden, die das Hinzufügen von Knotenpunkten an dem auf die aktuelle Position festgesetzten Fadenkreuz-Cursor, mit einem Genauigkeitswert über dem Schwellenwert, verhindert.</translation>
     </message>
 </context>
 <context>
@@ -3426,7 +3445,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>QObject</name>
     <message>
         <source>Digitizing Logger</source>
-        <translation type="unfinished"/>
+        <translation>Digitalisierungs-Logger</translation>
     </message>
     <message>
         <source>Authentication required</source>
@@ -3434,7 +3453,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation>QFieldCloud unbekannter Fehler</translation>
+        <translation>QFieldCloud: unbekannter Fehler</translation>
     </message>
     <message>
         <source>Status not ok</source>
@@ -3442,7 +3461,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Empty content</source>
-        <translation>ohne Inhalt</translation>
+        <translation>Leerer Inhalt</translation>
     </message>
     <message>
         <source>Object not found</source>
@@ -3466,19 +3485,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation>Das Projekt beinhaltet keine gültige QGIS Projektdatei</translation>
+        <translation>Das Projekt beinhaltet keine gültige QGIS-Projektdatei.</translation>
     </message>
     <message>
         <source>Invalid job</source>
-        <translation>Ungültiger Job</translation>
+        <translation>Ungültiger Auftrag</translation>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation>QGIS Export fehlgeschlagen</translation>
+        <translation>QGIS-Export fehlgeschlagen</translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
-        <translation>QGIS kann das QGIS Projekt nicht öffnen</translation>
+        <translation>QGIS kann das QGIS-Projekt nicht öffnen.</translation>
     </message>
     <message>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
@@ -3486,7 +3505,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Could not flush database %1 (%3) </source>
-        <translation>Datenbank konnte nicht abgespeichert werden %1 (%3)</translation>
+        <translation>Datenbank konnte nicht abgeglichen werden %1 (%3)</translation>
     </message>
     <message>
         <source>Position</source>
@@ -3494,11 +3513,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Map Tool Capture</source>
-        <translation>Erfassungswerkzeug</translation>
+        <translation>Karten-Erfassungswerkzeug</translation>
     </message>
     <message>
         <source>Cloud User Info</source>
-        <translation>Cloud User Info</translation>
+        <translation>Cloud-User-Info</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
@@ -3536,7 +3555,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>Schließen</translation>
+        <translation>schließen</translation>
     </message>
 </context>
 <context>
@@ -3550,15 +3569,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="vanished">Projekt-Datei &quot;%1&quot; existiert nicht</translation>
+        <translation type="vanished">Projekt-Datei &quot;%1&quot; existiert nicht.</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
-        <translation>Derzeit keine Projekt Datei geöffnet</translation>
+        <translation>Derzeit keine Projekt-Datei geöffnet</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation type="vanished">Konnte die Schriftart %1 nicht laden</translation>
+        <translation type="vanished">Konnte die Schriftart %1 nicht laden.</translation>
     </message>
     <message>
         <source>Loading font %1</source>
@@ -3566,26 +3585,26 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation>projektbezogenes Plugin</translation>
+        <translation>Projekt-Plugin</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation>Schriftart %1 konnte nicht geladen werden</translation>
+        <translation>Schriftart %1 konnte nicht geladen werden.</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation>Projekt kann nicht geladen werden, die Datei &quot;%1&quot; existiert nicht</translation>
+        <translation>Projekt kann nicht geladen werden, die Datei &quot;%1&quot; existiert nicht.</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Projekt kann nicht gelesen werden, die Datei &quot;%1&quot; existiert nicht.</translation>
     </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
     <message>
         <source>Simulation mode</source>
-        <translation type="unfinished"/>
+        <translation>Simulations-Modus</translation>
     </message>
     <message>
         <source>Manual input mode</source>
@@ -3625,7 +3644,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -3639,30 +3658,30 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Rotieren der Karte wird nicht unterstützt. Reset von %1 zu 0.</translation>
+        <translation type="vanished">Rotieren der Karte wird nicht unterstützt. Zurücksetzen von %1 zu 0.</translation>
     </message>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation>Ungültiger referenzierender Layer</translation>
+        <translation>Ungültiger Referenz-Layer</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Kann nicht mit dem Editieren beginnen</translation>
+        <translation>Kann nicht mit dem Bearbeiten beginnen.</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation>Feature kann nicht gelöscht werden</translation>
+        <translation>Objekt kann nicht gelöscht werden.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Kann Änderungen auf Layer %1 nicht rückgängig machen</translation>
+        <translation>Kann Änderungen im Layer %1 nicht rückgängig machen.</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Kann Änderungen auf Layer %1 nicht committen</translation>
+        <translation>Kann Änderungen im Layer %1 nicht übergeben.</translation>
     </message>
 </context>
 <context>
@@ -3680,14 +3699,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>Die Geometrie konnte nicht überarbeitet werden</translation>
+        <translation>Die Geometrie konnte nicht geändert werden.</translation>
     </message>
 </context>
 <context>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation type="vanished">Die Geometrie konnte nicht überarbeitet werden</translation>
+        <translation type="vanished">Die Geometrie konnte nicht geändert werden.</translation>
     </message>
 </context>
 <context>
@@ -3701,18 +3720,18 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>SensorInformationView</name>
     <message>
         <source>N/A</source>
-        <translation>N. a.</translation>
+        <translation>k. A.</translation>
     </message>
 </context>
 <context>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Seriellen Port aus folgender Liste auswählen:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Keine seriellen Ports gefunden. Liste aktualisieren, wenn das Gerät verbunden ist.</translation>
     </message>
     <message>
         <source>Refresh list</source>
@@ -3720,51 +3739,51 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation>Anzeigename der seriellen Schnittstelle:</translation>
+        <translation>Anzeigename des seriellen Ports:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation>Adresse der seriellen Schnittstelle:</translation>
+        <translation>Adresse des seriellen Ports:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation>Serieller Anschluss nicht zu finden</translation>
+        <translation>Gerät am seriellen Port konnte nicht gefunden werden.</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Versuch, den seriellen Port auszulesen, gab einen Fehler zurück.</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>Die Verbindung wurde aufgrund fehlender Berechtigung verweigert.</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Fehler von Empfänger am seriellen Port (%1)</translation>
     </message>
 </context>
 <context>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation>Objekt konnte nicht zerrschnitten werden </translation>
+        <translation>Objekt konnte nicht geteilt werden. </translation>
     </message>
 </context>
 <context>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
-        <translation type="vanished">Objekt konnte nicht zerrschnitten werden </translation>
+        <translation type="vanished">Objekt konnte nicht geteilt werden. </translation>
     </message>
 </context>
 <context>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">Bereitet QField vor, dies ist ein einmaliger Vorgang, welcher einen kurzen Augenblick benötigt</translation>
+        <translation type="vanished">QField wird vorbereitet. Dies ist ein einmaliger Vorgang, welcher einen Augenblick benötigt</translation>
     </message>
 </context>
 <context>
@@ -3782,23 +3801,23 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinden…</translation>
+        <translation type="vanished">Verbinden…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Erfolgreich verbunden</translation>
+        <translation type="vanished">Erfolgreich verbunden</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Getrennt</translation>
+        <translation type="vanished">Getrennt</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Anschlussstatus %1</translation>
+        <translation type="vanished">Anschlussstatus %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Kann den Remote Host nicht finden</translation>
+        <translation>Kann den Remote Host nicht finden.</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -3806,11 +3825,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Die Verbindung wurde vom Remote-Host abgelehnt.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">UDP-Empfänger Fehler (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -3825,11 +3844,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Temporäre Eigenschaften</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Temporären Filter einschalten</translation>
     </message>
 </context>
 <context>
@@ -3851,31 +3870,31 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tracking: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Tracking</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Vorgabe-Einstellungen</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Zeit-Vorgabe</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>Minimumzeit [sek]</translation>
+        <translation>Minimumzeit [Sek]</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, wird ein Knotenpunkt hinzugefügt, wenn die Zeit nach dem letzten Knotenpunkt einen konfigurierten Mindestwert erreicht hat.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Distanz-Vorgabe</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3883,23 +3902,23 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, wird ein Knotenpunkt hinzugefügt, wenn die Distanz nach dem letzten Knotenpunkt einen konfigurierten Mindestwert erreicht hat.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Sensor-Daten-Vorgaben</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, wird ein Knotenpunkt hinzugefügt, wenn die/der angeschlossene(n) Sensor(en) neue Daten erfasst haben.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Warten; auf alle aktiven Vorgaben</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, wird ein Knotenpunkt nur dann hinzugefügt, wenn alle aktiven Vorgaben erfüllt wurden. Deaktiviert, lösen individuelle Vorgaben das Hinzufügen eines Knotenpunkts aus.</translation>
     </message>
     <message>
         <source>General Settings</source>
@@ -3907,19 +3926,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Falsche Distanz-Schutzmaßnahme</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Maximal tolerierte Distanz [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, wird kein Knotenpunkt hinzugefügt, wenn die Distanz nach dem letzten Knotenpunkt größer als ein konfigurierter Maximalwert ist.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Messe (M) der Knoten</translation>
+        <translation>Messe (M)-Werte der Knotenpunkte:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -3927,7 +3946,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Zeitstempel (Milisekunden seit Zeitalter)</translation>
+        <translation>Zeitstempel (Millisekunden seit letzter Messung)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3959,7 +3978,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation>Um die Messfunktion zu aktivieren, stellen Sie sicher, dass der Geometrietyp der für die Trackingsitzung verwendeten Vektorebene eine M-Dimension hat.</translation>
+        <translation>Um die Messfunktion zu aktivieren, stellen Sie sicher, dass der Geometrietyp des für die Trackingsitzung verwendeten Vektorlayers eine M-Dimension hat.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -3967,34 +3986,34 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Tracking auf Layer %1 aktiviert</translation>
+        <translation>Tracking für Layer %1 aktiviert</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Tracking abschließen</translation>
     </message>
 </context>
 <context>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="vanished">Tracking auf Layer %1 aktiviert</translation>
+        <translation type="vanished">Tracking für Layer %1 aktiviert</translation>
     </message>
     <message>
         <source>Tracker Settings</source>
-        <translation type="vanished">Tracker - Optionen</translation>
+        <translation type="vanished">Tracker-Optionen</translation>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zeiteinschränkung aktivieren</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation type="vanished">Minimumzeit [sek]</translation>
+        <translation type="vanished">Minimumzeit [Sek]</translation>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Distanzeinschränkung aktivieren</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -4002,11 +4021,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aufnehmen wenn beide Einschränkungen zutreffen</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wenn aktiviert, wird nur dann ein Knotenpunkt hinzugefügt, wenn beide Einschränkungen zutreffen. Deaktiviert werden individuelle Einschränkungen beachtet.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -4018,11 +4037,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wenn beide Einschränkungen deaktiviert wurden, werden Knotenpunkte so oft hinzugefügt, wie Daten vom GPS-Empfänger geliefert werden.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="vanished">Messe (M) der Knoten</translation>
+        <translation type="vanished">Messe (M)-Werte der Knotenpunkte:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -4030,7 +4049,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="vanished">Zeitstempel (Milisekunden seit Zeitalter)</translation>
+        <translation type="vanished">Zeitstempel (Millisekunden seit letzter Messung)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4155,19 +4174,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinden…</translation>
+        <translation type="vanished">Verbinden…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Erfolgreich verbunden</translation>
+        <translation type="vanished">Erfolgreich verbunden</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Getrennt</translation>
+        <translation type="vanished">Getrennt</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Anschlussstatus %1</translation>
+        <translation type="vanished">Anschlussstatus %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4179,11 +4198,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Die Verbindung wurde vom Remote Host abgelehnt.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>UDP-Empfänger-Fehler (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -4213,25 +4232,25 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Globale Variable</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Projekt-Variable</translation>
     </message>
 </context>
 <context>
     <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Feature konnte nicht gespeichert werden!</translation>
+        <translation>Objekt konnte nicht gespeichert werden!</translation>
     </message>
 </context>
 <context>
     <name>VertexEditorToolbar</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">Feature konnte nicht gespeichert werden!</translation>
+        <translation type="vanished">Objekt konnte nicht gespeichert werden!</translation>
     </message>
 </context>
 <context>
@@ -4242,23 +4261,23 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation type="unfinished"/>
+        <translation>Kontaktieren Sie uns!</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>Hallo, wie gefällt dir die Anwendung von QField bisher?</translation>
+        <translation>Hallo, wie gefällt Ihnen Ihre Erfahrung mit QField bisher?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="vanished">Das ist großartig! Wir würden uns freuen, wenn Du auf die Schaltfläche unten klickst und einen Kommentar zum Shop hinterlässt.</translation>
+        <translation type="vanished">Das ist großartig! Wir würden uns freuen, wenn Sie auf die Schaltfläche unten klicken und einen Kommentar im Shop hinterlassen.</translation>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Bewerte uns</translation>
+        <translation>Bewerten Sie uns</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>Die Sammlung anonymisierter Metriken wurde deaktiviert. Du  kannst sie über das Einstellungsfeld wieder aktivieren.</translation>
+        <translation>Die Sammlung anonymisierter Metriken wurde deaktiviert. Sie können sie unter Einstellungen wieder aktivieren.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -4290,15 +4309,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hintergrundkarten-Projekt</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hintergrundkarten-Projekt</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Lösche aus Liste der kürzlich geöffneten Projekte</translation>
+        <translation>Aus Liste der kürzlich geöffneten Projekte löschen</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -4322,11 +4341,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Hintergrundkarte für individuelle Datensets</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation>Standart-Projekt beim Start laden</translation>
+        <translation>Standardprojekt beim Start laden</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
@@ -4334,7 +4353,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Aktionen für zuletzt geöffnete Projekte</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
@@ -4342,7 +4361,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Das ist großartig! Wir würden uns freuen, wenn Sie auf die Schaltfläche unten klicken und einen Kommentar hinterlassen.</translation>
     </message>
 </context>
 <context>
@@ -4360,11 +4379,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>Grad</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>meters</source>
@@ -4396,7 +4415,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation>Milimeter</translation>
+        <translation>Millimeter</translation>
     </message>
     <message>
         <source>inches</source>
@@ -4407,7 +4426,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Bedingung sicherstellen</translation>
+        <translation>Bedingungen beachten</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4419,15 +4438,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Verknüpfung lösen %1 (%2) von %3</translation>
+        <translation>Verknüpfung lösen für Objekt %1 (%2) von %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Objekt Löschen %1 (%2) von %3</translation>
+        <translation>Objekt %1 (%2) von % löschen</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Soll das Objekt &lt;b&gt;%1 (%2)&lt;/b&gt; von Layer &lt;b&gt;%3&lt;/b&gt; gelöst werden?&lt;br&gt;&lt;i&gt;(Die Verknüpfung wird gelöscht auf dem Layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation>Soll das Objekt &lt;b&gt;%1 (%2)&lt;/b&gt;von Layer &lt;b&gt;%3&lt;/b&gt; gelöst werden?&lt;br&gt;&lt;i&gt;(Die Verknüpfung wird  auf dem Layer &lt;b&gt;%4&lt;/b&gt; gelöscht)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
@@ -4435,34 +4454,34 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Referenziertes Feature konnte nicht gelöscht werden</translation>
+        <translation>Referenz-Objekt konnte nicht gelöscht werden.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Kann kein Kind-Objekt anlegen: Das Attribut zum Verknüpfen von Eltern und Kindlayer ist nicht konfiguriert</translation>
+        <translation>Kann kein Kind-Objekt anlegen: Das Attribut zum Verknüpfen von Eltern- und Kindlayer ist nicht konfiguriert.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Kann kein Kind-Objekt anlegen: Es muss sichergestellt sein, dass das Eltern-Objekt alle Einschränkungen erfüllt und gespeichert werden kann.</translation>
     </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Navigationsmodus aktiv</translation>
+        <translation>Sie sind nun im Browser-Modus.</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Digitalisierungsmodus für Layer %1 aktiv</translation>
+        <translation>Sie sind nun im Digitalisierungs-Modus für Layer %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>Digitalisierungs - Modus aktiviert</translation>
+        <translation>Sie sind nun im Digitalisierungs-Modus</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>Bemaßungs - Modus aktiviert</translation>
+        <translation>Sie sind nun im Meß-Modus</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -4510,15 +4529,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Freihand-Digitalisierung angeschaltet</translation>
+        <translation>Freihand-Digitalisierung an</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Freihand Digitalisierung abgeschaltet</translation>
+        <translation>Freihand Digitalisierung aus</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Cursor an aktueller Position fixiert</translation>
+        <translation>Cursor an aktueller Position gefangen</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -4534,7 +4553,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Kartenausschnitt folgt dem Standort</translation>
+        <translation>Kartenausschnitt folgt dem aktuellen Standort</translation>
     </message>
     <message>
         <source>Waiting for location</source>
@@ -4542,23 +4561,23 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">Positionierung aktiviert</translation>
+        <translation type="vanished">Positionierung an</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">Positionierung deaktiviert</translation>
+        <translation type="vanished">Positionierung aus</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Kartenausschnitt folgt nicht mehr dem Standort</translation>
+        <translation>Kartenausschnitt folgt nicht mehr dem aktuellen Standort</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Feature konnte nicht erstellt werden!</translation>
+        <translation>Objekt konnte nicht erstellt werden!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Feature konnte nicht gespeichert werden!</translation>
+        <translation>Objekt konnte nicht gespeichert werden!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -4574,7 +4593,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">Drucke als PDF</translation>
+        <translation type="vanished">Wird als PDF gedruckt</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -4606,15 +4625,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Positionierung wird gestartet...</translation>
+        <translation>Positionierungsdienst wird gestartet...</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation type="vanished">QField hat keine Berechtigung die Positionierung zu verwenden</translation>
+        <translation type="vanished">QField hat keine Berechtigung die Positionierung zu verwenden.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Kartenbildoption</translation>
+        <translation>Kartenansicht-Optionen</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
@@ -4626,7 +4645,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Lesezeichen bei Koordinaten hinzufügen</translation>
+        <translation type="vanished">Lesezeichen an Koordinaten hinzufügen</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -4654,11 +4673,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Einstellungen Detailansicht</translation>
+        <translation>Detailansicht-Einstellungen </translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0,25m Genauigkeit</translation>
+        <translation type="vanished">0,25 m Genauigkeit</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
@@ -4666,19 +4685,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1m Genauigkeit</translation>
+        <translation type="vanished">1 m Genauigkeit</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2,5m Genauigkeit</translation>
+        <translation type="vanished">2,5 m Genauigkeit</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5m Genauigkeit</translation>
+        <translation type="vanished">5 m Genauigkeit</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10m Genauigkeit</translation>
+        <translation type="vanished">10 m Genauigkeit</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -4710,7 +4729,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Navigationsmöglichkeiten</translation>
+        <translation>Navigations-Optionen</translation>
     </message>
     <message>
         <source>Clear Destination</source>
@@ -4722,11 +4741,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Akustische Näherungswarnton aktivieren</translation>
+        <translation>Näherungswarnton aktivieren</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Positionierungsoptionen</translation>
+        <translation>Positionierungs-Optionen</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
@@ -4766,7 +4785,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N. a.</translation>
+        <translation>k. A.</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
@@ -4778,7 +4797,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Das Editieren von mehrteiligen Geometrien wird noch nicht unterstützt.</translation>
+        <translation>Das Editieren von Multi-Geometrie-Layern wird noch nicht unterstützt.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -4802,7 +4821,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Projekt %1 erfolgreich heruntergeladen, es steht nun zum Öffnen bereit</translation>
+        <translation>Projekt %1 erfolgreich heruntergeladen, es steht nun zum Öffnen bereit.</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
@@ -4810,11 +4829,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Änderungen erfolgreich in die QFieldCloud hochgeladen</translation>
+        <translation>Änderungen erfolgreich in die QFieldCloud gepusht.</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Zurück erneut drücken, um QField zu beenden</translation>
+        <translation>Erneut *Zurück* drücken, um QField zu beenden.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -4842,7 +4861,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>Fehler Ortungsgerät: %1</translation>
+        <translation>Ortungsgerät-Fehler: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -4850,31 +4869,31 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Objekt dupliziert</translation>
+        <translation>Objekt erfolgreich dupliziert</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation>Fangen aktiviert</translation>
+        <translation>Fangen an</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation>Fangen deaktiviert</translation>
+        <translation>Fangen aus</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation>Fangen an %1° -Hilfslinie aktiviert</translation>
+        <translation>An %1° -Winkel fangen</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation>Hilfslinie für Standardwinkel aktiviert</translation>
+        <translation>*In einem bekannten Winkel fangen* aus</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation>relativer Winkel</translation>
+        <translation>Relativer Winkel</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation>Fangen an jeder %1° -Hilfslinie </translation>
+        <translation>Fangen alle %1° </translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4886,7 +4905,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation>mehr Erfahren</translation>
+        <translation>Mehr Erfahren</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -4902,31 +4921,31 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Unten einen Sensor auswählen</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Sensor-Fehler: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Sensor wird getrennt &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Sensor wird verbunden &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Unten Layout auswählen</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>Layer</translation>
+        <translation>Layer:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation>Objekt</translation>
+        <translation>Objekt:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
@@ -4934,7 +4953,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation>Objekte duplizieren nicht verfügbar</translation>
+        <translation>*Objekt duplizieren* nicht verfügbar</translation>
     </message>
     <message>
         <source>Importing %1</source>
@@ -4946,11 +4965,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
-        <translation>Bildschirm entsperren um Projekt und App zu beenden</translation>
+        <translation>Bildschirm entsperren, um Projekt und App zu beenden</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Erteilen Sie die Berechtigung, um `%1` zu aktivieren?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
@@ -4962,19 +4981,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Position hat ‘%1’ überschritten</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Position außerhalb der Flächen nach Verlassen von &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Position in ‘%1’ gewandert</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Position hat ‘%1’ verlassen</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -4982,11 +5001,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Dashboard</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Diese Schaltfläche öffnet das Dashboard. Dort können Sie auf die Legende und die Kartenthemen zugreifen oder das Digitalisieren und die Bearbeitung starten. Ein langer Druck öffnet das Hauptmenü.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4994,7 +5013,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Diese Schaltfläche schaltet das Positionierungssystem an. Wenn aktiv, erscheint ein Positionsindikator auf der Karte. Ein langer Druck öffnet das Positionierungs-Menü, das weitere Möglichkeiten bietet.</translation>
     </message>
     <message>
         <source>Search</source>
@@ -5002,22 +5021,22 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>Die Suchleiste ermöglicht das schnelle Finden von Objekten in Ihrem Projekt. Außerdem kann man schnell auf eingegebene Koordinaten springen und noch viel mehr.</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Zoom</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>Zusätzlich zum *Finger-Zoom* helfen diese Schaltflächen schnell hinein- oder herauszuzoomen.</translation>
     </message>
 </context>
 <context>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Bedingung sicherstellen</translation>
+        <translation>Einschränkungen einhalten</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5029,23 +5048,23 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Verknüpfung lösen %1 (%2) von %3</translation>
+        <translation>Objekt-Verknüpfung  %1 (%2) von %3 lösen.</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Objekt Löschen %1 (%2) von %3</translation>
+        <translation>Objekt  %1 (%2) in %3 löschen</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Soll das Objekt &lt;b&gt;%1 (%2)&lt;/b&gt; von Layer &lt;b&gt;%3&lt;/b&gt; gelöst werden?&lt;br&gt;&lt;i&gt;(Die Verknüpfung wird gelöscht auf dem Layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation>Soll das Objekt &lt;b&gt;%1 (%2)&lt;/b&gt; von Layer &lt;b&gt;%3&lt;/b&gt; gelöst werden?&lt;br&gt;&lt;i&gt;(Die Verknüpfung wird  auf dem Layer &lt;b&gt;%4&lt;/b&gt;gelöscht).&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Soll das Objekt &lt;b&gt;%1 (%2)&lt;/b&gt; auf dem Layer &lt;b&gt;%3&lt;/b&gt; gelöscht werden?</translation>
+        <translation>Soll das Objekt &lt;b&gt;%1 (%2)&lt;/b&gt; im Layer &lt;b&gt;%3&lt;/b&gt; gelöscht werden?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Referenziertes Feature konnte nicht gelöscht werden</translation>
+        <translation>Referenz-Feature konnte nicht gelöscht werden.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
@@ -5053,7 +5072,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Kann kein Kind-Objekt anlegen: Es muss sichergestellt sein, dass das Eltern-Objekt alle Einschränkungen erfüllt und gespeichert werden kann.</translation>
     </message>
 </context>
 <context>

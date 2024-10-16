@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Підключення...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Вдале підключення</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Відключено</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Стан сокету %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -267,19 +286,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Підключення...</translation>
+        <translation type="vanished">Підключення...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Вдале підключення</translation>
+        <translation type="vanished">Вдале підключення</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Відключено</translation>
+        <translation type="vanished">Відключено</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Стан сокету %1</translation>
+        <translation type="vanished">Стан сокету %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -600,11 +619,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Вдале підключення</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Відключено</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3789,19 +3808,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Підключення...</translation>
+        <translation type="vanished">Підключення...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Вдале підключення</translation>
+        <translation type="vanished">Вдале підключення</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Відключено</translation>
+        <translation type="vanished">Відключено</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Стан сокету %1</translation>
+        <translation type="vanished">Стан сокету %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4162,19 +4181,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Підключення...</translation>
+        <translation type="vanished">Підключення...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Вдале підключення</translation>
+        <translation type="vanished">Вдале підключення</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Відключено</translation>
+        <translation type="vanished">Відключено</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Стан сокету %1</translation>
+        <translation type="vanished">Стан сокету %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>

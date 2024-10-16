@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Connecting…</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Successfully connected</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Disconnected</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Socket state %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -267,19 +286,19 @@ Cancel to make a minimal device scan instead.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connecting…</translation>
+        <translation type="vanished">Connecting…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Successfully connected</translation>
+        <translation type="vanished">Successfully connected</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation type="vanished">Disconnected</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket state %1</translation>
+        <translation type="vanished">Socket state %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -600,11 +619,11 @@ Cancel to make a minimal device scan instead.</translation>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Successfully connected</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3783,19 +3802,19 @@ Cancel to make a minimal device scan instead.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connecting…</translation>
+        <translation type="vanished">Connecting…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Successfully connected</translation>
+        <translation type="vanished">Successfully connected</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation type="vanished">Disconnected</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket state %1</translation>
+        <translation type="vanished">Socket state %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4156,19 +4175,19 @@ Cancel to make a minimal device scan instead.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connecting…</translation>
+        <translation type="vanished">Connecting…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Successfully connected</translation>
+        <translation type="vanished">Successfully connected</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation type="vanished">Disconnected</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket state %1</translation>
+        <translation type="vanished">Socket state %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>

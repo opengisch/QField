@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Povezivanje...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Uspješno povezan</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odpojeno</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stanje utičnice %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -266,19 +285,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Povezivanje...</translation>
+        <translation type="vanished">Povezivanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno povezan</translation>
+        <translation type="vanished">Uspješno povezan</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojeno</translation>
+        <translation type="vanished">Odpojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje utičnice %1</translation>
+        <translation type="vanished">Stanje utičnice %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -599,11 +618,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno povezan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojeno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3785,19 +3804,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Povezivanje...</translation>
+        <translation type="vanished">Povezivanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno povezan</translation>
+        <translation type="vanished">Uspješno povezan</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojeno</translation>
+        <translation type="vanished">Odpojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje utičnice %1</translation>
+        <translation type="vanished">Stanje utičnice %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4158,19 +4177,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Povezivanje...</translation>
+        <translation type="vanished">Povezivanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno povezan</translation>
+        <translation type="vanished">Uspješno povezan</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojeno</translation>
+        <translation type="vanished">Odpojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje utičnice %1</translation>
+        <translation type="vanished">Stanje utičnice %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>

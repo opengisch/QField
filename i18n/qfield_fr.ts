@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Connexion...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Connexion réussie</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Déconnecté</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Etat du socket %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -266,19 +285,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connexion...</translation>
+        <translation type="vanished">Connexion...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Connexion réussie</translation>
+        <translation type="vanished">Connexion réussie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Déconnecté</translation>
+        <translation type="vanished">Déconnecté</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Etat du socket %1</translation>
+        <translation type="vanished">Etat du socket %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -599,11 +618,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Connexion réussie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Déconnecté</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3782,19 +3801,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connexion...</translation>
+        <translation type="vanished">Connexion...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Connexion réussie</translation>
+        <translation type="vanished">Connexion réussie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Déconnecté</translation>
+        <translation type="vanished">Déconnecté</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Etat du socket %1</translation>
+        <translation type="vanished">Etat du socket %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4155,19 +4174,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connexion...</translation>
+        <translation type="vanished">Connexion...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Connexion réussie</translation>
+        <translation type="vanished">Connexion réussie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Déconnecté</translation>
+        <translation type="vanished">Déconnecté</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Etat du socket %1</translation>
+        <translation type="vanished">Etat du socket %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>

@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Verbinden...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Succesvol verbonden</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Verbroken</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Socket status %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -267,19 +286,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinden...</translation>
+        <translation type="vanished">Verbinden...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Succesvol verbonden</translation>
+        <translation type="vanished">Succesvol verbonden</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Verbroken</translation>
+        <translation type="vanished">Verbroken</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket status %1</translation>
+        <translation type="vanished">Socket status %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -600,11 +619,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Succesvol verbonden</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Verbroken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3785,19 +3804,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinden...</translation>
+        <translation type="vanished">Verbinden...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Succesvol verbonden</translation>
+        <translation type="vanished">Succesvol verbonden</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Verbroken</translation>
+        <translation type="vanished">Verbroken</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket status %1</translation>
+        <translation type="vanished">Socket status %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4158,19 +4177,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinden...</translation>
+        <translation type="vanished">Verbinden...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Succesvol verbonden</translation>
+        <translation type="vanished">Succesvol verbonden</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Verbroken</translation>
+        <translation type="vanished">Verbroken</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket status %1</translation>
+        <translation type="vanished">Socket status %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>

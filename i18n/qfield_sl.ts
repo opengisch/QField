@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Povezovanje...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Uspešno vzpostavljena povezava</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Prekinjena povezava</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -266,15 +285,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Povezovanje...</translation>
+        <translation type="vanished">Povezovanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspešno vzpostavljena povezava</translation>
+        <translation type="vanished">Uspešno vzpostavljena povezava</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Prekinjena povezava</translation>
+        <translation type="vanished">Prekinjena povezava</translation>
     </message>
     <message>
         <source>Socket state %1</source>
@@ -599,11 +618,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspešno vzpostavljena povezava</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Prekinjena povezava</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3769,15 +3788,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Povezovanje...</translation>
+        <translation type="vanished">Povezovanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspešno vzpostavljena povezava</translation>
+        <translation type="vanished">Uspešno vzpostavljena povezava</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Prekinjena povezava</translation>
+        <translation type="vanished">Prekinjena povezava</translation>
     </message>
     <message>
         <source>Socket state %1</source>
@@ -4142,15 +4161,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Povezovanje...</translation>
+        <translation type="vanished">Povezovanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspešno vzpostavljena povezava</translation>
+        <translation type="vanished">Uspešno vzpostavljena povezava</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Prekinjena povezava</translation>
+        <translation type="vanished">Prekinjena povezava</translation>
     </message>
     <message>
         <source>Socket state %1</source>

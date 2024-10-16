@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Muodostetaan yhteyttä...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Yhdistetty onnistuneesti</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Yhteys katkaistu</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Liittimen tila %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -267,19 +286,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Muodostetaan yhteyttä...</translation>
+        <translation type="vanished">Muodostetaan yhteyttä...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Yhdistetty onnistuneesti</translation>
+        <translation type="vanished">Yhdistetty onnistuneesti</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Yhteys katkaistu</translation>
+        <translation type="vanished">Yhteys katkaistu</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Liittimen tila %1</translation>
+        <translation type="vanished">Liittimen tila %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -600,11 +619,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Yhdistetty onnistuneesti</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Yhteys katkaistu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3787,19 +3806,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Muodostetaan yhteyttä...</translation>
+        <translation type="vanished">Muodostetaan yhteyttä...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Yhdistetty onnistuneesti</translation>
+        <translation type="vanished">Yhdistetty onnistuneesti</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Yhteys katkaistu</translation>
+        <translation type="vanished">Yhteys katkaistu</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Liittimen tila %1</translation>
+        <translation type="vanished">Liittimen tila %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4160,19 +4179,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Muodostetaan yhteyttä...</translation>
+        <translation type="vanished">Muodostetaan yhteyttä...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Yhdistetty onnistuneesti</translation>
+        <translation type="vanished">Yhdistetty onnistuneesti</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Yhteys katkaistu</translation>
+        <translation type="vanished">Yhteys katkaistu</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Liittimen tila %1</translation>
+        <translation type="vanished">Liittimen tila %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>

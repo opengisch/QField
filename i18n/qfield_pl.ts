@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Łączenie...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Połączono pomyślnie</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Rozłączono</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stan gniazda %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -267,19 +286,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Łączenie...</translation>
+        <translation type="vanished">Łączenie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Połączono pomyślnie</translation>
+        <translation type="vanished">Połączono pomyślnie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Rozłączono</translation>
+        <translation type="vanished">Rozłączono</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stan gniazda %1</translation>
+        <translation type="vanished">Stan gniazda %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -600,11 +619,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation>Połączono pomyślnie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Rozłączono</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -3789,19 +3808,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Łączenie...</translation>
+        <translation type="vanished">Łączenie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Połączono pomyślnie</translation>
+        <translation type="vanished">Połączono pomyślnie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Rozłączono</translation>
+        <translation type="vanished">Rozłączono</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stan gniazda %1</translation>
+        <translation type="vanished">Stan gniazda %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4162,19 +4181,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Łączenie...</translation>
+        <translation type="vanished">Łączenie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Połączono pomyślnie</translation>
+        <translation type="vanished">Połączono pomyślnie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Rozłączono</translation>
+        <translation type="vanished">Rozłączono</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stan gniazda %1</translation>
+        <translation type="vanished">Stan gniazda %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
