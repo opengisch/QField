@@ -38,6 +38,8 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool hasPendingAuthRequest READ hasPendingAuthRequest NOTIFY hasPendingAuthRequestChanged )
+
   public:
     QFieldAppAuthRequestHandler();
 
@@ -58,12 +60,16 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
     //! abort an ongoing external browser authentication request
     Q_INVOKABLE void abortAuthBrowser();
 
+    //! returns the number of pending authentication requests
+    bool hasPendingAuthRequest() const;
+
   signals:
     void showLoginDialog( const QString &realm, const QString &title );
     void loginDialogClosed( const QString &realm, const bool canceled );
     void reloadEverything();
     void showLoginBrowser( const QString &url );
     void hideLoginBrowser();
+    void hasPendingAuthRequestChanged();
 
   protected:
     bool request( const QString &realm, QString &username, QString &password, const QString &message = QString() ) override;
@@ -95,6 +101,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
     };
 
     QList<RealmEntry> mRealms;
+    bool mBrowserAuthenticationOngoing = false;
 };
 
 #endif // QFIELDAPPAUTHREQUESTHANDLER_H
