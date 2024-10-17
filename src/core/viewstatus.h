@@ -19,6 +19,9 @@
 
 #include <QObject>
 
+/**
+ * \ingroup core
+ */
 class ViewStatus : public QObject
 {
     Q_OBJECT

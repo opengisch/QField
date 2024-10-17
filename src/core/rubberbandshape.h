@@ -29,6 +29,7 @@ class QgsQuickMapSettings;
  * @brief The RubberbandShape class is used to provide the shape data to draw rubber bands
  * on the map canvas using the QML Shape item.
  * It is aimed to be used with either a VertexModel or a RubberbandModel.
+ * \ingroup core
  */
 class RubberbandShape : public QQuickItem
 {

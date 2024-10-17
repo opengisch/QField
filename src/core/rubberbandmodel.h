@@ -32,9 +32,9 @@
 class QgsVectorLayer;
 
 /**
- * This model manages a list of vertices.
- *
- * It can be used as a linestring or as a ring in a polygon.
+ * This model manages a list of vertices. It can be used as a linestring or
+ * as a ring in a polygon.
+ * \ingroup core
  */
 
 class QFIELD_CORE_EXPORT RubberbandModel : public QObject

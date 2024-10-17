@@ -25,6 +25,7 @@
 /**
  * The nmeareceiver connects to a device and feeds the QgsNmeaConnection.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * \ingroup coure
  */
 class NmeaGnssReceiver : public AbstractGnssReceiver
 {

@@ -26,6 +26,7 @@
 /**
  * The UdpReceiver connects to a device and feeds the QgsNmeaConnection over a UDP socket.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * \ingroup core
  */
 class UdpReceiver : public NmeaGnssReceiver
 {

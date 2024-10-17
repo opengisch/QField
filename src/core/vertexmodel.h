@@ -32,6 +32,7 @@ class QgsQuickMapSettings;
  * There are different modes: no editing, edit (move/remove) nodes, add nodes (to be implemented)
  *
  * The model holds all vertices and the candidates for new vertices. If you need the existing nodes, use flatVertices().
+ * \ingroup core
  */
 class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 {

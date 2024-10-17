@@ -32,6 +32,7 @@ typedef QMap<QgsFeatureId, QgsFeature> QgsChangedFeatures;
 
 /**
  * Monitors all layers for changes and writes those changes to a delta file
+ * \ingroup core
  */
 class LayerObserver : public QObject
 {

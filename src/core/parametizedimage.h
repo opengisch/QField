@@ -22,6 +22,9 @@
 
 #define DEFAULT_STROKE_WIDTH 5
 
+/**
+ * \ingroup core
+ */
 class ParametizedImage : public QQuickPaintedItem
 {
     Q_OBJECT

@@ -18,7 +18,10 @@
 
 #include <QObject>
 
-//! Obtain the QField changelog contents from the GitHub releases API.
+/**
+ * Obtain the QField changelog contents from the GitHub releases API.
+ * \ingroup core
+ */
 class ChangelogContents : public QObject
 {
     Q_OBJECT

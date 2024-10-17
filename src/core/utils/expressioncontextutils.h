@@ -25,6 +25,9 @@
 
 #include <qgsexpressioncontext.h>
 
+/**
+ * \ingroup core
+ */
 class ExpressionContextUtils : public QObject
 {
     Q_OBJECT

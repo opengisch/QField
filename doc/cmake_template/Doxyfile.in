@@ -944,6 +944,8 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = @CMAKE_SOURCE_DIR@/src/core/ \
+                         @CMAKE_SOURCE_DIR@/src/core/utils \
+                         @CMAKE_SOURCE_DIR@/src/core/positioning \
                          @CMAKE_SOURCE_DIR@/src/qml/ \
                          @CMAKE_SOURCE_DIR@/doc/
 

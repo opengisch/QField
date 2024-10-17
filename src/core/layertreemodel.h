@@ -25,6 +25,9 @@ class QgsLayerTreeModel;
 class QgsProject;
 class QgsQuickMapSettings;
 
+/**
+ * \ingroup core
+ */
 class FlatLayerTreeModelBase : public QAbstractProxyModel
 {
     Q_OBJECT
@@ -108,6 +111,9 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     int mFrozen = 0;
 };
 
+/**
+ * \ingroup core
+ */
 class FlatLayerTreeModel : public QSortFilterProxyModel
 {
     Q_OBJECT

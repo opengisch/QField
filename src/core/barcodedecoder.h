@@ -23,6 +23,9 @@
 #include <QThread>
 #include <QVideoSink>
 
+/**
+ * \ingroup core
+ */
 class BarcodeDecoder : public QObject
 {
     Q_OBJECT

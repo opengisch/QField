@@ -44,6 +44,7 @@ class QgsMapLayer;
  * order in the canvas.
  *
  * Passes to the legend (LayerTreeModel) the information, if the layer is in a tracking session
+ * \ingroup core
  */
 class LayerTreeMapCanvasBridge : public QObject
 {

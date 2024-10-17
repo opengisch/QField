@@ -24,6 +24,7 @@
 /**
  * The serial port receiver connects to a device and feeds the QgsNmeaConnection over QSerialPort.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * \ingroup core
  */
 class SerialPortReceiver : public NmeaGnssReceiver
 {

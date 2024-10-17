@@ -26,6 +26,7 @@
 
 /**
  * A wrapper around QNetworkReply that allows retriable requests.
+ * \ingroup core
  */
 class NetworkReply : public QObject
 {

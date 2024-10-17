@@ -24,6 +24,9 @@
 class QgsProject;
 class QgsVectorLayer;
 
+/**
+ * \ingroup core
+ */
 class PrintLayoutListModel : public QAbstractListModel
 {
     Q_OBJECT

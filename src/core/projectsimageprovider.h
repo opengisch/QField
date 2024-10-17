@@ -18,6 +18,9 @@
 
 #include <QQuickImageProvider>
 
+/**
+ * \ingroup core
+ */
 class ProjectsImageProvider : public QQuickImageProvider
 {
   public:

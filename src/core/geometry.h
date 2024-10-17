@@ -21,6 +21,9 @@
 #include <QtPositioning/QGeoCoordinate>
 #include <qgsgeometry.h>
 
+/**
+ * \ingroup core
+ */
 class Geometry : public QObject
 {
     Q_OBJECT

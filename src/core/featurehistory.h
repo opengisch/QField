@@ -9,7 +9,9 @@
 
 typedef QPair<QgsFeature, QgsFeature> OldNewFeaturePair;
 
-
+/**
+ * \ingroup core
+ */
 class FeatureHistory : public QObject
 {
     Q_OBJECT

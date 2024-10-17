@@ -64,6 +64,9 @@ class QgsPrintLayout;
 #define SUPPORTED_VECTOR_EXTENSIONS QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "gml" ), QStringLiteral( "mif" ), QStringLiteral( "fgb" ), QStringLiteral( "db" ), QStringLiteral( "sqlite" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ) } )
 #define SUPPORTED_RASTER_EXTENSIONS QStringList( { QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ) } )
 
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT

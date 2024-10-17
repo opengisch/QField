@@ -19,6 +19,9 @@
 #include <QAbstractItemModel>
 #include <QObject>
 
+/**
+ * \ingroup core
+ */
 class ModelHelper : public QObject
 {
     Q_OBJECT

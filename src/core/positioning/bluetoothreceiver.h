@@ -25,6 +25,7 @@
 /**
  * The bluetoothreceiver connects to a device and feeds the QgsNmeaConnection over QBluetoothSocket.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * \ingroup core
  */
 class BluetoothReceiver : public NmeaGnssReceiver
 {

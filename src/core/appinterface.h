@@ -27,6 +27,9 @@ class QgsRectangle;
 class QgsFeature;
 class QQuickItem;
 
+/**
+ * \ingroup core
+ */
 class AppInterface : public QObject
 {
     Q_OBJECT

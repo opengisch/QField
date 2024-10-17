@@ -21,6 +21,9 @@
 
 #include <qgsvectorlayer.h>
 
+/**
+ * \ingroup core
+ */
 class FeatureCheckListModel : public FeatureListModel
 {
     Q_OBJECT

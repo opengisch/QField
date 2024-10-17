@@ -25,6 +25,9 @@
 
 class GnssPositionInformation;
 
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT FileUtils : public QObject
 {
     Q_OBJECT

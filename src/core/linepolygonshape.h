@@ -26,6 +26,7 @@ class QgsGeometry;
 /**
  * @brief The LinePolygonShape class is used to provide the shape data to draw geometries
  * on the map canvas using the QML Shape item.
+ * \ingroup core
  */
 class LinePolygonShape : public QQuickItem
 {

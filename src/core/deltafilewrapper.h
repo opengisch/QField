@@ -29,7 +29,7 @@ const QString DeltaFormatVersion = QStringLiteral( "1.0" );
 
 /**
  * A class that wraps the operations with a delta file. All read and write operations to a delta file should go through this class.
- *
+ * \ingroup core
  */
 class DeltaFileWrapper : public QObject
 {

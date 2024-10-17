@@ -22,7 +22,10 @@
 #include <QAbstractListModel>
 #include <QVariant>
 
-//! \copydoc ValueMapModel
+/**
+ * A base model that manages the key/value pairs for a ValueMap widget.
+ * \ingroup core
+ */
 class ValueMapModelBase : public QAbstractListModel
 {
     Q_OBJECT

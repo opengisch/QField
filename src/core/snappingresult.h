@@ -20,6 +20,9 @@
 #include <qgspointlocator.h>
 #include <qgsvectorlayer.h>
 
+/**
+ * \ingroup core
+ */
 class SnappingResult
 {
     Q_GADGET

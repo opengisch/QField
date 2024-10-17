@@ -23,6 +23,9 @@
 #include <QGeoSatelliteInfoSource>
 #include <QObject>
 
+/**
+ * \ingroup core
+ */
 class InternalGnssReceiver : public AbstractGnssReceiver
 {
     Q_OBJECT
