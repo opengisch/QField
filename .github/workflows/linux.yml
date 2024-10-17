@@ -58,6 +58,8 @@ jobs:
 
       - name: 🌱 Install dependencies and generate project files
         run: |
+          pip install -r ./doc/requirements.txt
+
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
