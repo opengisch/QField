@@ -609,19 +609,12 @@ Popup {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: revertDialog
     parent: mainWindow.contentItem
 
     property int selectedCount: 0
     property bool isDeleted: false
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
 
     title: qsTr("Revert local changes")
     Label {
@@ -629,8 +622,6 @@ Popup {
       wrapMode: Text.WordWrap
       text: qsTr("Should local changes be reverted?")
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
 
     onAccepted: {
       revertLocalChangesFromCurrentProject();
@@ -641,19 +632,12 @@ Popup {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: resetDialog
     parent: mainWindow.contentItem
 
     property int selectedCount: 0
     property bool isDeleted: false
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
 
     title: qsTr("Reset cloud project")
     Label {
@@ -661,8 +645,6 @@ Popup {
       wrapMode: Text.WordWrap
       text: qsTr("Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?")
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
 
     onAccepted: {
       resetCurrentProject();

@@ -641,13 +641,10 @@ Page {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: importUrlDialog
     title: "Import URL"
     focus: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
     y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
@@ -680,7 +677,6 @@ Page {
       }
     }
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       iface.importUrl(importUrlInput.text);
     }

@@ -143,13 +143,10 @@ Page {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: applicationLogDialog
     title: qsTr("Send application log")
     focus: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
     y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
@@ -198,7 +195,6 @@ Page {
       }
     }
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       var applicationLogMessage = appliationLogInput.text.trim();
       iface.sendLog(applicationLogMessage != '' ? applicationLogMessage : 'Manual log submission', includeCloudInformationCheckBox.checked ? cloudConnection.username : '');
