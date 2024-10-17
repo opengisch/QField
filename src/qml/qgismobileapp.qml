@@ -4063,7 +4063,7 @@ ApplicationWindow {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      featureForm.state = "FeatureList";
+      featureForm.state = "Hidden";
       activateMeasurementMode();
     }
     onDiscarded: {
