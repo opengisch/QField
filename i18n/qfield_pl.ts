@@ -179,7 +179,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
