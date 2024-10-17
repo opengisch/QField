@@ -187,7 +187,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      * Emitted when a project file is being loaded
      *
      * @param filename The filename of the project that is being loaded
-     * @param projectname The project name that is being loaded
+     * @param name The project name that is being loaded
      */
     void loadProjectTriggered( const QString &filename, const QString &name );
 

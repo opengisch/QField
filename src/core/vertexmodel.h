@@ -217,7 +217,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     //! \copydoc vertexCount
     int vertexCount() const;
-    //! \copyddoc ringCount
+    //! \copydoc ringCount
     int ringCount() const;
 
     //! \copydoc dirty

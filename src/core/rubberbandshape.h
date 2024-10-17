@@ -41,11 +41,11 @@ class RubberbandShape : public QQuickItem
     //! Geometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
     Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
 
-    //! Color of the main rubberband
+    //! Color of the rubberband
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     //! Color of the rubberband outline
     Q_PROPERTY( QColor outlineColor READ outlineColor WRITE setOutlineColor NOTIFY outlineColorChanged )
-    //! Line width of the main rubberband
+    //! Line width of the rubberband
     Q_PROPERTY( qreal lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
 
     //! List of polylines representing the rubber band
@@ -75,20 +75,10 @@ class RubberbandShape : public QQuickItem
     //! \copydoc outlineColor
     void setOutlineColor( const QColor &color );
 
-    //! \copydoc width
+    //! \copydoc lineWidth
     float lineWidth() const;
-    //! \copydoc width
+    //! \copydoc lineWidth
     void setLineWidth( float width );
-
-    //! \copydoc colorCurrentPoint
-    QColor colorCurrentPoint() const;
-    //! \copydoc
-    void setColorCurrentPoint( const QColor &color );
-
-    //! \copydoc widthCurrentPoint
-    float lineWidthCurrentPoint() const;
-    //! \copydoc widthCurrentPoint
-    void setLineWidthCurrentPoint( float width );
 
     //! \copydoc geometryType
     Qgis::GeometryType geometryType() const { return mGeometryType; }
@@ -109,12 +99,8 @@ class RubberbandShape : public QQuickItem
     void colorChanged();
     //! \copydoc outlineColor
     void outlineColorChanged();
-    //! \copydoc width
+    //! \copydoc lineWidth
     void lineWidthChanged();
-    //! \copydoc colorCurrentPoint
-    void colorCurrentPointChanged();
-    //! \copydoc widthCurrentPoint
-    void lineWidthCurrentPointChanged();
     //! \copydoc geometryType
     void geometryTypeChanged();
     //! \copydoc polylines
