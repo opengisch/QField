@@ -23,6 +23,9 @@
 #include <QObject>
 #include <QQuickItem>
 
+/**
+ * \ingroup core
+ */
 class FeatureListExtentController : public QObject
 {
     Q_OBJECT

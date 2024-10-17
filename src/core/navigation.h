@@ -25,6 +25,9 @@
 #include <QTimer>
 #include <qgsdistancearea.h>
 
+/**
+ * \ingroup core
+ */
 class Navigation : public QObject
 {
     Q_OBJECT

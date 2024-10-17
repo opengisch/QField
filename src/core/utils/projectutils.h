@@ -20,6 +20,9 @@
 #include <QObject>
 #include <qgsproject.h>
 
+/**
+ * \ingroup core
+ */
 class ProjectUtils : public QObject
 {
     Q_OBJECT

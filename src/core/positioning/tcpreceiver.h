@@ -25,6 +25,7 @@
 /**
  * The TcpReceiver connects to a device and feeds the QgsNmeaConnection over a TCP socket.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * \ingroup core
  */
 class TcpReceiver : public NmeaGnssReceiver
 {

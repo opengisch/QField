@@ -29,6 +29,7 @@
  * This class provides an interface to manage geofencing of areas as well as
  * providing feedback whenever the position trespasses into or out of those
  * areas.
+ * \ingroup core
  */
 class Geofencer : public QObject
 {

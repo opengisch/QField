@@ -20,7 +20,9 @@
 #include <qgsproject.h>
 #include <qgsprojectbadlayerhandler.h>
 
-
+/**
+ * \ingroup core
+ */
 class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
 {
     Q_OBJECT

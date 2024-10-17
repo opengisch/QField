@@ -23,6 +23,9 @@ class Geometry;
 class RubberbandModel;
 class QgsProject;
 
+/**
+ * \ingroup core
+ */
 class DistanceArea : public QObject
 {
     Q_OBJECT

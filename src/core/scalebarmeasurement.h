@@ -23,6 +23,9 @@
 
 class QgsProject;
 
+/**
+ * \ingroup core
+ */
 class ScaleBarMeasurement : public QObject
 {
     Q_OBJECT

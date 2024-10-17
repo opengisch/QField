@@ -23,6 +23,9 @@
 class QgsProject;
 class QgsVectorLayer;
 
+/**
+ * \ingroup core
+ */
 class SensorListModel : public QSortFilterProxyModel
 {
     Q_OBJECT

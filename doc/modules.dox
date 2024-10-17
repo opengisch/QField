@@ -1,0 +1,11 @@
+/** @defgroup core core library
+
+The QField core library contains all C++ classes.
+
+*/
+
+/** @defgroup qml qml library
+
+The QField  qml library contains all items.
+
+*/

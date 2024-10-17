@@ -25,6 +25,9 @@
 #include <QSortFilterProxyModel>
 #include <qgsfeaturerequest.h>
 
+/**
+ * \ingroup core
+ */
 class MultiFeatureListModel : public QSortFilterProxyModel
 {
     Q_OBJECT

@@ -22,6 +22,7 @@
 
 /**
  * A model that provides serial ports available on the device.
+ * \ingroup core
  */
 class SerialPortModel : public QAbstractListModel
 {

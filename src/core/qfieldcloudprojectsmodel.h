@@ -33,6 +33,9 @@ class LayerObserver;
 class QgsMapLayer;
 class QgsProject;
 
+/**
+ * \ingroup core
+ */
 class QFieldCloudProjectsModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -503,7 +506,9 @@ Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectModification )
 Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectModifications )
 Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProjectsModel::ProjectModifications )
 
-
+/**
+ * \ingroup core
+ */
 class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT

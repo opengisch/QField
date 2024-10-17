@@ -21,6 +21,7 @@
 
 /**
  * @brief The ScreenDimmer class handles dimming of screen brightness.
+ * \ingroup core
  */
 class ScreenDimmer : public QObject
 {

@@ -19,6 +19,9 @@
 #include <QList>
 #include <QQuickItem>
 
+/**
+ * \ingroup core
+ */
 class FocusStack : public QObject
 {
     Q_OBJECT

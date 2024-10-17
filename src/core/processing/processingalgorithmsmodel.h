@@ -28,6 +28,9 @@ class QgsVectorLayer;
 
 class ProcessingAlgorithmsModelBase;
 
+/**
+ * \ingroup core
+ */
 class AlgorithmItem
 {
   public:
@@ -45,6 +48,7 @@ class AlgorithmItem
  * \brief A sort/filter proxy model for providers and algorithms available within QField
  * which automatically sorts the toolbox in a logical fashion and supports filtering
  * the results.
+ * \ingroup core
  */
 class ProcessingAlgorithmsModel : public QSortFilterProxyModel
 {

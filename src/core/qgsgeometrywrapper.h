@@ -24,7 +24,8 @@
 
 /**
  * @brief The QgsGeometryWrapper class wraps QGIS geometry and CRS classes
- * to have their contents available from QML
+ * to have their contents available from QML.
+ * \ingroup core
  */
 class QgsGeometryWrapper : public QObject
 {

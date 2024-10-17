@@ -22,6 +22,9 @@
 #include <QJsonObject>
 #include <QTcpSocket>
 
+/**
+ * \ingroup core
+ */
 class EgenioussReceiver : public AbstractGnssReceiver
 {
     Q_OBJECT

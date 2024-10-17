@@ -129,6 +129,8 @@ find_package(GDAL REQUIRED)
 find_package(Qca REQUIRED)
 find_package(LibZip REQUIRED)
 
+add_subdirectory(doc)
+
 if(ANDROID)
   # Qt by default assumes that cmake files live in `lib/cmake`. Point to `share` instead.
   # See https://github.com/qt/qtbase/blob/39290c508e2c7fa816c6f79b3eb284adc0cad3c0/src/corelib/Qt6AndroidMacros.cmake#L1016C16-L1026

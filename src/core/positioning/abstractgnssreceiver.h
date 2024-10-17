@@ -21,6 +21,9 @@
 #include <QAbstractSocket>
 #include <QObject>
 
+/**
+ * \ingroup core
+ */
 class AbstractGnssReceiver : public QObject
 {
     Q_OBJECT

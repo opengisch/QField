@@ -24,6 +24,9 @@
 #include <qgseditformconfig.h>
 #include <qgsexpressioncontext.h>
 
+/**
+ * \ingroup core
+ */
 class AttributeFormModelBase : public QStandardItemModel
 {
     Q_OBJECT

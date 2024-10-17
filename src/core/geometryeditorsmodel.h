@@ -23,7 +23,9 @@
 #include <QQuickItem>
 #include <QStandardItemModel>
 
-
+/**
+ * \ingroup core
+ */
 class GeometryEditorsModel : public QStandardItemModel
 {
     Q_OBJECT

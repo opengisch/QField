@@ -22,6 +22,9 @@
 
 #include <QObject>
 
+/**
+ * \ingroup core
+ */
 class FeatureListModelSelection : public QObject
 {
     Q_OBJECT
