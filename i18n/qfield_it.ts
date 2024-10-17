@@ -1582,6 +1582,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation>Duplica l&apos;elemento</translation>
     </message>
     <message>
+        <source>Rotate Feature</source>
+        <translation>Ruota l&apos;elemento</translation>
+    </message>
+    <message>
         <source>Delete Feature</source>
         <translation>Cancella l&apos;elemento</translation>
     </message>

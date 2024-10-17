@@ -38,6 +38,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( bool canDeleteSelection READ canDeleteSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canDuplicateSelection READ canDuplicateSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canMoveSelection READ canMoveSelection NOTIFY selectedCountChanged )
+    Q_PROPERTY( bool canRotateSelection READ canRotateSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canProcessSelection READ canProcessSelection NOTIFY selectedCountChanged )
 
   public:
@@ -109,6 +110,9 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     //! Returns TRUE if the selected features' geometry can be moved
     bool canMoveSelection() const;
 
+    //! Returns TRUE if the selected features' geometry can be rotated
+    bool canRotateSelection() const;
+
     //! Returns TRUE if the selected features can run processing algorithms
     bool canProcessSelection() const;
 
@@ -145,6 +149,9 @@ class MultiFeatureListModel : public QSortFilterProxyModel
 
     //! Moves selected features along a given \a vector.
     Q_INVOKABLE bool moveSelection( const double x, const double y );
+
+    //! Rotate selected features along a given \a vector.
+    Q_INVOKABLE bool rotateSelection( const double angle );
 
     /**
      * Toggles the selection state of a given item.

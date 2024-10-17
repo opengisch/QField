@@ -45,6 +45,7 @@ Rectangle {
   signal destinationClicked
   signal moveClicked
   signal duplicateClicked
+  signal rotateClicked
   signal transferClicked
   signal deleteClicked
 
@@ -753,6 +754,21 @@ Rectangle {
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: duplicateClicked()
+    }
+
+    MenuItem {
+      id: rotateFeatureBtn
+      text: qsTr('Rotate Feature')
+      icon.source: Theme.getThemeVectorIcon("ic_rotate_white_24dp")
+      // allow only rotation for line or polygon
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked)) && (selection.focusedLayer.geometryType() == 1 || selection.focusedLayer.geometryType() == 2)
+      visible: enabled
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: rotateClicked()
     }
 
     MenuItem {

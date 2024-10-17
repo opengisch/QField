@@ -21,6 +21,7 @@
 #include "identifytool.h"
 
 #include <QAbstractItemModel>
+#include <qgis.h>
 #include <qgsfeaturerequest.h>
 
 class MultiFeatureListModelBase : public QAbstractItemModel
@@ -80,6 +81,9 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     //! \copydoc MultiFeatureListModel::canMoveSelection
     bool canMoveSelection() const;
 
+    //! \copydoc MultiFeatureListModel::canRotateSelection
+    bool canRotateSelection() const;
+
     //! \copydoc MultiFeatureListModel::canProcessSelection
     bool canProcessSelection() const;
 
@@ -106,6 +110,9 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     //! \copydoc MultiFeatureListModel::moveSelection
     bool moveSelection( const double x, const double y );
+
+    //! \copydoc MultiFeatureListModel::rotateSelection
+    bool rotateSelection( const double angle );
 
     //! \copydoc MultiFeatureListModel::toggleSelectedItem
     void toggleSelectedItem( int item );
