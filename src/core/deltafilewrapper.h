@@ -29,7 +29,7 @@ const QString DeltaFormatVersion = QStringLiteral( "1.0" );
 
 /**
  * A class that wraps the operations with a delta file. All read and write operations to a delta file should go through this class.
- *
+ * \ingroup core
  */
 class DeltaFileWrapper : public QObject
 {
@@ -61,6 +61,7 @@ class DeltaFileWrapper : public QObject
     /**
      * Construct a new Feature Deltas object.
      *
+     * @param project the current project
      * @param fileName complete file name with path where the object should be stored
      */
     DeltaFileWrapper( const QgsProject *project, const QString &fileName );
@@ -281,6 +282,7 @@ class DeltaFileWrapper : public QObject
      * @param sourcePkAttrName attribute name of the primary key
      * @param oldFeature the old version of the feature that has been modified
      * @param newFeature the new version of the feature that has been modified
+     * @param storeSnapshot store a complete snapshot of the feature
      */
     void addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot = true );
 

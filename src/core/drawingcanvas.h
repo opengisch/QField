@@ -23,6 +23,9 @@
 
 #define DEFAULT_STROKE_WIDTH 5
 
+/**
+ * \ingroup core
+ */
 class DrawingCanvas : public QQuickPaintedItem
 {
     Q_OBJECT

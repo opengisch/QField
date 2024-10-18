@@ -25,6 +25,9 @@
 
 class FeatureExpressionValuesGatherer;
 
+/**
+ * \ingroup core
+ */
 class OrderedRelationModel : public ReferencingFeatureListModel
 {
     Q_OBJECT

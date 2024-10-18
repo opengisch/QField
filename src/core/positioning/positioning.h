@@ -31,6 +31,7 @@
 /**
  * This class connects to GNSS devices (internal or bluetooth NMEA) and provides
  * positioning details.
+ * \ingroup core
  */
 class Positioning : public QObject
 {

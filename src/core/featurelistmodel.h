@@ -33,6 +33,7 @@ class QgsVectorLayer;
  * For each feature, the display expression is exposed as DisplayRole
  * and a keyField as KeyFieldRole for a unique identifier.
  * If a displayValueField is set it replaces the display expression of the layer.
+ * \ingroup core
  */
 class FeatureListModel : public QAbstractItemModel
 {

@@ -32,6 +32,7 @@
 /**
  * @brief The ExpressionEvaluator class enables evaluation of expression
  * strings and expression templates.
+ * \ingroup core
  */
 class ExpressionEvaluator : public QObject
 {

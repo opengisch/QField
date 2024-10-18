@@ -20,6 +20,9 @@
 #include <QPointer>
 #include <QStandardItem>
 
+/**
+ * \ingroup core
+ */
 class SubModel : public QAbstractItemModel
 {
     Q_OBJECT

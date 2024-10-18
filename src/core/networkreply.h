@@ -26,6 +26,7 @@
 
 /**
  * A wrapper around QNetworkReply that allows retriable requests.
+ * \ingroup core
  */
 class NetworkReply : public QObject
 {
@@ -34,20 +35,18 @@ class NetworkReply : public QObject
   public:
     /**
      * A wrapper around QNetworkReply that allows retriable requests.
-     * @param op HTTP method
-     * @param nam network access manager
+     * @param operation HTTP method
      * @param request the request to be performed
-     * @param payload the request payload
+     * @param payloadByteArray the request payload
      */
     NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray );
 
 
     /**
      * A wrapper around QNetworkReply that allows retriable requests.
-     * @param op HTTP method
-     * @param nam network access manager
+     * @param operation HTTP method
      * @param request the request to be performed
-     * @param payload the request payload
+     * @param payloadMultiPart the request payload
      */
     NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart );
 
@@ -67,7 +66,7 @@ class NetworkReply : public QObject
 
     /**
      * Reimplements QNetworkReply::ignoreSslErrors.
-     * @param error a list of error to be ignored.
+     * @param errors a list of error to be ignored.
      */
     void ignoreSslErrors( const QList<QSslError> &errors );
 
@@ -84,7 +83,7 @@ class NetworkReply : public QObject
     /**
      * Replicates `QNetworkReply::downloadProgress` signal.
      * @note Because download may fail mid request and then retried, the bytesReceived may be reset back to 0.
-     * @param bytesSent
+     * @param bytesReceived
      * @param bytesTotal
      */
     void downloadProgress( int bytesReceived, int bytesTotal );

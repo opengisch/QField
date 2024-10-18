@@ -24,10 +24,11 @@
 #include <QObject>
 #include <QVariantMap>
 
-
 class QNetworkRequest;
 
-
+/**
+ * \ingroup core
+ */
 class QFieldCloudConnection : public QObject
 {
     Q_OBJECT

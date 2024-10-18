@@ -24,6 +24,7 @@
  * Alerts users when a transform grids are required (or desired) for an operation between two
  * CRSes, yet they are not available on the current system. Derived from the
  * QgsAppCoordinateOperationHandlers class created by QGIS developer Nyall Dawson.
+ * \ingroup core
  */
 class AppMissingGridHandler : public QObject
 {

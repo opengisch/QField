@@ -33,6 +33,7 @@ class ProcessingAlgorithmParametersModelBase;
  * \brief A sort/filter proxy model for providers and algorithms available within QField
  * which automatically sorts the toolbox in a logical fashion and supports filtering
  * the results.
+ * \ingroup core
  */
 class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
 {

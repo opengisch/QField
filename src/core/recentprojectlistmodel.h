@@ -18,6 +18,9 @@
 
 #include <QAbstractListModel>
 
+/**
+ * \ingroup core
+ */
 class RecentProjectListModel : public QAbstractListModel
 {
     Q_OBJECT

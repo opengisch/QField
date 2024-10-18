@@ -28,6 +28,9 @@
 class QgsVectorLayer;
 class RubberbandModel;
 
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 {
     Q_OBJECT

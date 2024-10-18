@@ -22,6 +22,9 @@
 
 class FeatureModel;
 
+/**
+ * \ingroup core
+ */
 class AttributeFormModel : public QSortFilterProxyModel
 {
     Q_OBJECT

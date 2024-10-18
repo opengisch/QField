@@ -31,6 +31,7 @@ class QgsVectorLayer;
 
 /**
  * \brief A processing algorithm item capable of runnning a given algorithm.
+ * \ingroup core
  */
 class ProcessingAlgorithm : public QObject
 {

@@ -23,6 +23,9 @@ class QgsQuickMapSettings;
 
 #include <qgssnappingutils.h>
 
+/**
+ * \ingroup core
+ */
 class SnappingUtils : public QgsSnappingUtils
 {
     Q_OBJECT

@@ -20,6 +20,9 @@
 #include <QObject>
 #include <QQmlEngine>
 
+/**
+ * \ingroup core
+ */
 class PluginInformation
 {
     Q_GADGET
@@ -67,6 +70,9 @@ class PluginInformation
 
 Q_DECLARE_METATYPE( PluginInformation )
 
+/**
+ * \ingroup core
+ */
 class PluginManager : public QObject
 {
     Q_OBJECT

@@ -24,6 +24,9 @@
 
 class Navigation;
 
+/**
+ * \ingroup core
+ */
 class NavigationModel : public QAbstractListModel
 {
     Q_OBJECT

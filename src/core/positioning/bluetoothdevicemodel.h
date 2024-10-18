@@ -23,7 +23,8 @@
 #include <QtBluetooth/QBluetoothServiceInfo>
 
 /**
- * A model that provides all paired bluetooth devices name/address that are accessible over the serial port
+ * A model that provides all paired bluetooth devices name/address that are accessible over the serial port.
+ * \ingroup core
  */
 class BluetoothDeviceModel : public QAbstractListModel
 {
@@ -71,7 +72,7 @@ class BluetoothDeviceModel : public QAbstractListModel
 
     /**
      * Starts a scan to discovery nearby Bluetooth devices
-     * \param fullDisocvery set to TRUE to trigger a more expensive scan
+     * \param fullDiscovery set to TRUE to trigger a more expensive scan
      */
     Q_INVOKABLE void startServiceDiscovery( const bool fullDiscovery );
 

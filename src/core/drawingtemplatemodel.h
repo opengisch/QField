@@ -18,6 +18,9 @@
 
 #include <QAbstractListModel>
 
+/**
+ * \ingroup core
+ */
 class DrawingTemplateModel : public QAbstractListModel
 {
     Q_OBJECT
