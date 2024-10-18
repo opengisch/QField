@@ -4,6 +4,10 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ * \brief Bookmark renderer item
+ */
 Item {
   id: bookmarkRenderer
 

@@ -65,7 +65,8 @@ class QgsPrintLayout;
 #define SUPPORTED_RASTER_EXTENSIONS QStringList( { QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ) } )
 
 /**
- * \ingroup core
+ * \defgroup core
+ * \brief QField C++ classes
  */
 class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {
