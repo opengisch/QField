@@ -25,6 +25,7 @@
 /**
  * The nmeareceiver connects to a device and feeds the QgsNmeaConnection.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * \ingroup coure
  */
 class NmeaGnssReceiver : public AbstractGnssReceiver
 {
@@ -50,7 +51,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
   private:
     void handleStartLogging() override;
     void handleStopLogging() override;
-    QList<QPair<QString, QVariant>> details() override;
+    QList<QPair<QString, QVariant>> details() const override;
 
     void processImuSentence( const QString &sentence );
 

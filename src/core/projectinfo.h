@@ -33,7 +33,8 @@ class FlatLayerTreeModel;
 /**
  * This class stores current projection information such as
  * extent and map theme in order for those to be saved and
- * afterwards restored when the project is re-opened
+ * afterwards restored when the project is re-opened.
+ * \ingroup core
  */
 class ProjectInfo : public QObject
 {
@@ -193,6 +194,9 @@ class ProjectInfo : public QObject
 
     //! Retrieves configuration of the image decoration
     Q_INVOKABLE QVariantMap getImageDecorationConfiguration();
+
+    //! Retrieves configuration of the grid decoration
+    Q_INVOKABLE QVariantMap getGridDecorationConfiguration();
 
     //! Retrieves the default active layer for a given map theme
     Q_INVOKABLE QgsMapLayer *getDefaultActiveLayerForMapTheme( const QString &mapTheme );

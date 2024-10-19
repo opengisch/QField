@@ -5,23 +5,24 @@ import org.qfield
 import Theme
 
 /**
-This contains several geometry editing tools
-A tool must subclass QfVisibilityFadingRow
-And contains following functions:
-  * function init(featureModel, mapSettings, editorRubberbandModel)
-  * function cancel()
-The following signal:
-  * signal finished()
-It can optionally implement properties:
-  * blocking (bool) which prevents from switching tools
-  * vertexRubberbandVisible (bool) to show the vertex rubberband (false by default)
-It can optionally implement properties which will be bind:
-  * screenHovering determines if a pen is currently hovering the screen
-It can optionally implement the functions:
-  * canvasClicked(point)
-  * canvasLongPressed(point)
-  These functions must return true if they catch the event
-*/
+ * This contains several geometry editing tools
+ * A tool must subclass QfVisibilityFadingRow and contains following functions:
+ *  - function init(featureModel, mapSettings, editorRubberbandModel)
+ *  - function cancel()
+ * The following signal:
+ *  - signal finished()
+ * It can optionally implement properties:
+ *  - blocking (bool) which prevents from switching tools
+ *  - vertexRubberbandVisible (bool) to show the vertex rubberband (false by default)
+ * It can optionally implement properties which will be bind:
+ *  - screenHovering determines if a pen is currently hovering the screen
+ * It can optionally implement the functions:
+ *  - canvasClicked(point)
+ *  - canvasLongPressed(point)
+ * These functions must return true if they catch the event.
+ *
+ * \ingroup qml
+ */
 QfVisibilityFadingRow {
   id: geometryEditorsToolbar
 
@@ -31,7 +32,7 @@ QfVisibilityFadingRow {
   property GeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
-  property string image: Theme.getThemeIcon("ic_edit_geometry_white")
+  property string image: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
 
   spacing: 4
 
@@ -165,7 +166,8 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: activeToolButton
-    iconSource: Theme.getThemeIcon("more_horiz")
+    iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+    iconColor: "white"
     round: true
     visible: !selectorRow.stateVisible && !(toolbarRow.item && toolbarRow.item.stateVisible && toolbarRow.item.blocking)
     bgcolor: Theme.mainColor
@@ -174,7 +176,7 @@ QfVisibilityFadingRow {
       toolbarRow.source = '';
       vertexRubberband.isVisible = false;
       selectorRow.stateVisible = true;
-      image = Theme.getThemeIcon("ic_edit_geometry_white");
+      image = Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp");
       settings.setValue("/QField/GeometryEditorLastUsed", -1);
     }
   }

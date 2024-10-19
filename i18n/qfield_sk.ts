@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Pripájanie...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Úspešne pripojené</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odpojené</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stav soketu %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Pripájanie...</translation>
+        <translation type="vanished">Pripájanie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspešne pripojené</translation>
+        <translation type="vanished">Úspešne pripojené</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojené</translation>
+        <translation type="vanished">Odpojené</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Item Menu</source>
         <translation>Menu položiek</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Vzdialený hostiteľ nenájdený</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Pokus o čítanie alebo zápis soketu nebol úspešný</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Pripojenie bolo zamietnuté vzdialeným hostiteľom</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1923,6 +1992,10 @@ Dôvod:
         <source>Serial port (NMEA)</source>
         <translation>Sériový port (NMEA)</translation>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -2132,10 +2205,6 @@ Dôvod:
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2150,6 +2219,14 @@ Dôvod:
     <message>
         <source>Speed</source>
         <translation>Rýchlosť</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2923,6 +3000,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3726,19 +3807,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Pripájanie...</translation>
+        <translation type="vanished">Pripájanie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspešne pripojené</translation>
+        <translation type="vanished">Úspešne pripojené</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojené</translation>
+        <translation type="vanished">Odpojené</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3754,11 +3835,15 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Chyba UDP príjmača (%1)</translation>
+        <translation type="vanished">Chyba UDP príjmača (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Pripojenie bolo zamietnuté vzdialeným hostiteľom</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4095,19 +4180,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Pripájanie...</translation>
+        <translation type="vanished">Pripájanie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspešne pripojené</translation>
+        <translation type="vanished">Úspešne pripojené</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojené</translation>
+        <translation type="vanished">Odpojené</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4190,7 +4275,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>To je skvelé! Potešíte nás, ak kliknete na tlačítko nižšie a zanecháte komentár.</translation>
+        <translation type="vanished">To je skvelé! Potešíte nás, ak kliknete na tlačítko nižšie a zanecháte komentár.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4279,6 +4364,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Vitajte v QField. Používate túto aplikáciu prvýkrát? Pozrite si vzorové projekty nižšie.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

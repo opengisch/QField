@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Muodostetaan yhteyttä...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Yhdistetty onnistuneesti</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Yhteys katkaistu</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Liittimen tila %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation>(Blob)</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Muodostetaan yhteyttä...</translation>
+        <translation type="vanished">Muodostetaan yhteyttä...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Yhdistetty onnistuneesti</translation>
+        <translation type="vanished">Yhdistetty onnistuneesti</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Yhteys katkaistu</translation>
+        <translation type="vanished">Yhteys katkaistu</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Liittimen tila %1</translation>
+        <translation type="vanished">Liittimen tila %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -590,6 +616,49 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation>Vastaanotettu data on liian lyhyt käsiteltäväksi</translation>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation>Virheellinen aloitustavu</translation>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation>Vastaanotettu data on liian lyhyt tietosisällön säilyttämiseen</translation>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation>JSONin jäsentäminen epäonnistui</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Isäntälaitetta ei löytynyt</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Etäpalvelin kieltäytyi yhteydestä</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>TCP-vastaanottimen virhe (% 1)</translation>
+    </message>
+</context>
+<context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
@@ -766,7 +835,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Ominaisuus monistettu onnistuneesti</translation>
+        <translation>Kohde monistettu onnistuneesti</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
@@ -778,7 +847,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Valittujen ominaisuuksien monistaminen onnistui, luettelo päivitettiin näyttämään juuri luodut ominaisuudet</translation>
+        <translation>Valittujen kohteiden monistaminen onnistui, luettelo päivitettiin näyttämään juuri luodut kohteet</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -1472,11 +1541,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Siirrä valitut ominaisuudet</translation>
+        <translation>Siirrä valittu kohde/kohteet</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Monista valitut ominaisuudet</translation>
+        <translation>Monista valitut kohteet</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
@@ -1508,7 +1577,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Monista ominaisuus</translation>
+        <translation>Monista kohde</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -1920,6 +1989,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Serial port (NMEA)</source>
         <translation>Sarjaportti (NMEA)</translation>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation>Nerokas</translation>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -1961,15 +2034,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>ruudukko</translation>
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>ortho.</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ant.</translation>
     </message>
 </context>
 <context>
@@ -2126,19 +2199,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Tietojen leimaus käytössä</translation>
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Leveyspiiri (Latitude)</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Pituuspiiri (Longitude)</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2147,6 +2216,14 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Speed</source>
         <translation>Nopeus</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>Suunta</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation>Tietojen leimaus pois päältä</translation>
     </message>
 </context>
 <context>
@@ -2773,11 +2850,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Pilviprojekteja ei löytynyt. Aloita %1lukemalla dokumentaatio%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Etsi projekti</translation>
     </message>
 </context>
 <context>
@@ -2918,11 +2995,15 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Lisää suosikkeihin</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Poista suosikeista</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>Tiedostot</translation>
     </message>
 </context>
 <context>
@@ -3343,19 +3424,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Huono tarkkuus raja-arvo [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Erinomainen tarkkuus raja-arvo [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Vaadi tarkkuusvaatimus</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Kun tarkkuusosoitin on käytössä, sijaintipainikkeeseen kiinnitetään merkki, joka värjätään &lt;span %1&gt;punaiseksi, jos tarkkuusarvo on huonompi, &lt;span %2&gt;keltaiseksi, jos se ei ole erinomainen, tai &lt;span %3. &gt;vihreä.Lisäksi voidaan kytkeä päälle tarkkuusrajoitustila, joka rajoittaa taitepisteiden lisäämistä kun koordinaattikursori lukittu  paikkoihin, joiden tarkkuusarvo on huonompi kuin huonon raja-arvo.</translation>
     </message>
 </context>
 <context>
@@ -3725,19 +3806,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Muodostetaan yhteyttä...</translation>
+        <translation type="vanished">Muodostetaan yhteyttä...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Yhdistetty onnistuneesti</translation>
+        <translation type="vanished">Yhdistetty onnistuneesti</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Yhteys katkaistu</translation>
+        <translation type="vanished">Yhteys katkaistu</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Liittimen tila %1</translation>
+        <translation type="vanished">Liittimen tila %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3753,11 +3834,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Vastaanottavan UDP:n virhe (%1)</translation>
+        <translation type="vanished">Vastaanottavan UDP:n virhe (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Etäpalvelin kieltäytyi yhteydestä</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>TCP-vastaanottimen virhe (% 1)</translation>
     </message>
 </context>
 <context>
@@ -4094,19 +4179,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Muodostetaan yhteyttä...</translation>
+        <translation type="vanished">Muodostetaan yhteyttä...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Yhdistetty onnistuneesti</translation>
+        <translation type="vanished">Yhdistetty onnistuneesti</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Yhteys katkaistu</translation>
+        <translation type="vanished">Yhteys katkaistu</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Liittimen tila %1</translation>
+        <translation type="vanished">Liittimen tila %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4152,11 +4237,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Globaalit muuttujat</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Projektin muuttujat</translation>
     </message>
 </context>
 <context>
@@ -4189,7 +4274,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit kommentin sovelluskauppaan.</translation>
+        <translation type="vanished">Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit kommentin sovelluskauppaan.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4278,6 +4363,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Tervetuloa käyttämään QFieldiä. Käytätkö sovellusta ensimmäistä kertaa? Kokeile esimerkkiprojekteja, jotka on listattu alla viimeisimmissä projekteissa.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit arvostelun.</translation>
     </message>
 </context>
 <context>
@@ -4781,11 +4870,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Monista ominaisuus</translation>
+        <translation>Monista kohde</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Ominaisuus monistettu onnistuneesti</translation>
+        <translation>Kohde monistettu onnistuneesti</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
@@ -4917,11 +5006,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation>Kojelauta (dashboard)</translation>
+        <translation>Hallintapaneeli</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation>Tämä painike avaa kojelaudan. Kojelaudan avulla voit olla vuorovaikutuksessa selitteen ja karttateeman kanssa tai aloittaa digitoinnin aktivoimalla muokkaustilan. Painamalla pitkään painiketta pääset välittömästi päävalikkoon.</translation>
+        <translation>Tämä painike avaa hallintapaneelin. Hallintapaneelin avulla voit olla vuorovaikutuksessa selitteen ja karttateeman kanssa tai aloittaa digitoinnin aktivoimalla muokkaustilan. Painamalla pitkään painiketta pääset välittömästi päävalikkoon.</translation>
     </message>
     <message>
         <source>Positioning</source>

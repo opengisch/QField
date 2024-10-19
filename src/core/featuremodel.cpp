@@ -533,16 +533,19 @@ bool FeatureModel::save()
 
     case MultiFeatureModel:
     {
-      for ( QgsFeature &feature : mFeatures )
+      // We need to copy these members as the first feature updated triggers a refresh of the selected features, leading to changes in feature model members
+      const QgsFeature referenceFeature = mFeature;
+      const QList<bool> attributesAllowEdit = mAttributesAllowEdit;
+      QList<QgsFeature> features = mFeatures;
+      for ( QgsFeature &feature : features )
       {
-        for ( int i = 0; i < mFeature.attributes().count(); i++ )
+        for ( int i = 0; i < referenceFeature.attributes().count(); i++ )
         {
-          if ( !mAttributesAllowEdit[i] )
+          if ( !attributesAllowEdit[i] )
             continue;
 
-          feature.setAttribute( i, mFeature.attributes().at( i ) );
+          feature.setAttribute( i, referenceFeature.attributes().at( i ) );
         }
-
         if ( !mLayer->updateFeature( feature ) )
         {
           QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
@@ -681,9 +684,10 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
         continue;
       }
 
-      // Do not paste values for attributes that have default values
-      if ( !mFeature.fields()[idx].defaultValueDefinition().expression().isEmpty() )
+      const QgsField field = mFeature.fields()[idx];
+      if ( !field.defaultValueDefinition().expression().isEmpty() && !field.defaultValueDefinition().applyOnUpdate() )
       {
+        // Skip attributes that have default value set only once on feature creation to avoid overriding generated UUIDs
         continue;
       }
 

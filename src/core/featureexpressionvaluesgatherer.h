@@ -27,9 +27,9 @@
 #include <qgsvectorlayerfeatureiterator.h>
 
 /**
- * \class FieldExpressionValuesGatherer
  * Gathers features with substring matching on an expression.
  * \note This is a is an exact copy of QGIS' QgsFeatureExpressionValuesGatherer
+ * \ingroup core
  */
 class FeatureExpressionValuesGatherer : public QThread
 {

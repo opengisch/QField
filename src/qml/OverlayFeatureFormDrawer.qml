@@ -4,6 +4,9 @@ import QtQuick.Controls.Material
 import QtQuick.Window
 import org.qfield
 
+/**
+ * \ingroup qml
+ */
 Drawer {
   id: overlayFeatureFormDrawer
 
@@ -69,8 +72,7 @@ Drawer {
 
   FeatureForm {
     id: overlayFeatureForm
-    height: parent.height
-    width: parent.width
+    anchors.fill: parent
     visible: true
 
     topMargin: overlayFeatureFormDrawer.y == 0 ? mainWindow.sceneTopMargin : 0.0

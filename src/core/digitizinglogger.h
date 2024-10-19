@@ -26,6 +26,9 @@
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
+/**
+ * \ingroup core
+ */
 class DigitizingLogger : public QObject
 {
     Q_OBJECT

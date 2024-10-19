@@ -13,6 +13,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   build:
     strategy:
@@ -46,6 +49,7 @@ jobs:
 
       - name: ⛓️ Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
@@ -56,6 +60,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🔏 Setup code signing
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
@@ -110,8 +115,6 @@ jobs:
                 -D ENABLE_TESTS=ON \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-                -D SENTRY_ENV="${APP_ENV}" \
                 -D MACOS_CODE_SIGN_IDENTITY="Apple Development" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ matrix.deployment-target }} \
@@ -133,6 +136,8 @@ jobs:
           ctest --output-on-failure -R smoke -C ${{ env.BUILD_TYPE }}
 
       - name: 📦 Package
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
           echo "Killing XProtect..."; sudo pkill -9 XProtect >/dev/null || true; # see https://github.com/actions/runner-images/issues/7522
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
@@ -170,6 +175,7 @@ jobs:
             ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 
       - name: 📮 Upload debug symbols
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         # if: release or labeled PR
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}

@@ -21,6 +21,18 @@ TestCase {
     }
   }
 
+  Repeater {
+    id: positioningInformations
+    model: PositioningInformationModel {
+      distanceUnits: qgisProject.distanceUnits
+      positioningSource: positioning
+    }
+    delegate: Item {
+      property string name: Name
+      property string value: Value
+    }
+  }
+
   FeatureModel {
     id: featureModel
     project: qgisProject
@@ -160,5 +172,39 @@ TestCase {
     wait(2500);
     compare(positioning.positionInformation.qualityDescription, "Fixed RTK + IMU");
     compare(positioning.positionInformation.imuCorrection, true);
+
+    // Expected values for positioningInformations
+    const expectedPositioningInformationsValues = [{
+        "name": "H. Accuracy",
+        "value": "0.006 m"
+      }, {
+        "name": "V. Accuracy",
+        "value": "0.016 m"
+      }, {
+        "name": "PDOP",
+        "value": "1.5"
+      }, {
+        "name": "HDOP",
+        "value": "0.9"
+      }, {
+        "name": "VDOP",
+        "value": "1.2"
+      }, {
+        "name": "Valid",
+        "value": "True"
+      }, {
+        "name": "Fix",
+        "value": "Fix3D"
+      }, {
+        "name": "Quality",
+        "value": "Fixed RTK + IMU"
+      }];
+
+    // we are skipping "4" items ["X","Y","Altitude","Speed"] because they might move a bit.
+    compare(positioningInformations.count, expectedPositioningInformationsValues.length + 4);
+    expectedPositioningInformationsValues.forEach((expected, index) => {
+        compare(positioningInformations.itemAt(index + 4).name, expected.name);
+        compare(positioningInformations.itemAt(index + 4).value, expected.value);
+      });
   }
 }

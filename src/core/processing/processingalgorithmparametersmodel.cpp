@@ -140,7 +140,7 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
 
   if ( mAlgorithm )
   {
-    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "boolean" ) };
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "boolean" ), QStringLiteral( "source" ) };
     const QgsProcessingAlgorithm *algorithm = QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId );
     for ( const QgsProcessingParameterDefinition *definition : algorithm->parameterDefinitions() )
     {
@@ -151,8 +151,11 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
           mHasAdvancedParameters = true;
         }
 
-        mParameters << definition;
-        mValues << definition->defaultValue();
+        if ( definition->type() != QStringLiteral( "source" ) || definition->name() != "INPUT" )
+        {
+          mParameters << definition;
+          mValues << definition->defaultValue();
+        }
       }
     }
   }
@@ -282,6 +285,29 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
       {
         const QgsProcessingParameterEnum *parameterEnum = dynamic_cast<const QgsProcessingParameterEnum *>( mParameters.at( index.row() ) );
         configuration["options"] = parameterEnum->options();
+      }
+      else if ( mParameters.at( index.row() )->type() == QStringLiteral( "source" ) )
+      {
+        const QgsProcessingParameterFeatureSource *parameterFeatureSource = dynamic_cast<const QgsProcessingParameterFeatureSource *>( mParameters.at( index.row() ) );
+        const QMap<QString, QgsMapLayer *> mapLayers = QgsProject::instance()->mapLayers();
+        QVariantList supportedLayers;
+        QVariantMap supportedLayer;
+        supportedLayer["id"] = QString();
+        supportedLayer["name"] = QString();
+        supportedLayers << supportedLayer;
+        for ( auto it = mapLayers.begin(); it != mapLayers.end(); ++it )
+        {
+          if ( QgsVectorLayer *vectorLayer = dynamic_cast<QgsVectorLayer *>( it.value() ) )
+          {
+            if ( parameterFeatureSource->dataTypes().isEmpty() || parameterFeatureSource->dataTypes().contains( static_cast<int>( vectorLayer->geometryType() ) ) )
+            {
+              supportedLayer["id"] = vectorLayer->id();
+              supportedLayer["name"] = vectorLayer->name();
+              supportedLayers << supportedLayer;
+            }
+          }
+        }
+        configuration["layers"] = supportedLayers;
       }
       return configuration;
   }

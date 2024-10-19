@@ -20,6 +20,9 @@
 #include <QObject>
 #include <QQmlEngine>
 
+/**
+ * \ingroup core
+ */
 class PluginInformation
 {
     Q_GADGET
@@ -67,6 +70,9 @@ class PluginInformation
 
 Q_DECLARE_METATYPE( PluginInformation )
 
+/**
+ * \ingroup core
+ */
 class PluginManager : public QObject
 {
     Q_OBJECT
@@ -112,8 +118,10 @@ class PluginManager : public QObject
     void installProgress( double progress );
     void installEnded( const QString &uuid = QString(), const QString &error = QString() );
 
+
   private slots:
     void handleWarnings( const QList<QQmlError> &warnings );
+    void callPluginMethod( const QString &uuid, const QString &methodName );
 
   private:
     QQmlEngine *mEngine = nullptr;

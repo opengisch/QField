@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Připojuji...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Úspěšně připojeno</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odpojeno</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stav soketu %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Připojuji...</translation>
+        <translation type="vanished">Připojuji...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspěšně připojeno</translation>
+        <translation type="vanished">Úspěšně připojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojeno</translation>
+        <translation type="vanished">Odpojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Item Menu</source>
         <translation>Menu Položky</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Vzdálený hostitel nenalezen</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Pokus o čtení nebo zápis z/do socketu vrátil chybu</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Připojení bylo odmítnuto vzdáleným hostitelem</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1924,6 +1993,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>Serial port (NMEA)</source>
         <translation>Sériový port (NMEA)</translation>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -2133,10 +2206,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2151,6 +2220,14 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Speed</source>
         <translation>Rychlost</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2923,6 +3000,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3726,19 +3807,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Připojuji...</translation>
+        <translation type="vanished">Připojuji...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspěšně připojeno</translation>
+        <translation type="vanished">Úspěšně připojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojeno</translation>
+        <translation type="vanished">Odpojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3754,11 +3835,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Chyba UDP přijímače (%1)</translation>
+        <translation type="vanished">Chyba UDP přijímače (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Připojení bylo odmítnuto vzdáleným hostitelem</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4095,19 +4180,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Připojuji...</translation>
+        <translation type="vanished">Připojuji...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Úspěšně připojeno</translation>
+        <translation type="vanished">Úspěšně připojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odpojeno</translation>
+        <translation type="vanished">Odpojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stav soketu %1</translation>
+        <translation type="vanished">Stav soketu %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4190,7 +4275,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>To je skvělé! Budeme rádi, když kliknete na tlačítko níže a zanecháte komentář k obchodu.</translation>
+        <translation type="vanished">To je skvělé! Budeme rádi, když kliknete na tlačítko níže a zanecháte komentář k obchodu.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4279,6 +4364,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Vítejte v QFieldu. Poprvé používáte tuto aplikaci? Vyzkoušejte vzorové projekty uvedené níže.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

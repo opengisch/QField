@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Свръзване...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Успешно свързване</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Разкачен</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Състояние на сокета %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Свръзване...</translation>
+        <translation type="vanished">Свръзване...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Успешно свързване</translation>
+        <translation type="vanished">Успешно свързване</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Разкачен</translation>
+        <translation type="vanished">Разкачен</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Състояние на сокета %1</translation>
+        <translation type="vanished">Състояние на сокета %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Item Menu</source>
         <translation>Меню</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Отдалечения хост не е открит</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Грешка при четене или писане от сокета</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1920,6 +1989,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Serial port (NMEA)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -2129,10 +2202,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2147,6 +2216,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Speed</source>
         <translation>Скорост</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2922,6 +2999,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3725,19 +3806,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Свръзване...</translation>
+        <translation type="vanished">Свръзване...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Успешно свързване</translation>
+        <translation type="vanished">Успешно свързване</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Разкачен</translation>
+        <translation type="vanished">Разкачен</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Състояние на сокета %1</translation>
+        <translation type="vanished">Състояние на сокета %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3757,6 +3838,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4094,19 +4179,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Свръзване...</translation>
+        <translation type="vanished">Свръзване...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Успешно свързване</translation>
+        <translation type="vanished">Успешно свързване</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Разкачен</translation>
+        <translation type="vanished">Разкачен</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Състояние на сокета %1</translation>
+        <translation type="vanished">Състояние на сокета %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4189,7 +4274,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Чудесно! Ще се радваме да натиснеш бутона по-долу и напишеш коментар в магазина.</translation>
+        <translation type="vanished">Чудесно! Ще се радваме да натиснеш бутона по-долу и напишеш коментар в магазина.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4277,6 +4362,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
 </context>

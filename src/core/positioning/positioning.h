@@ -31,6 +31,7 @@
 /**
  * This class connects to GNSS devices (internal or bluetooth NMEA) and provides
  * positioning details.
+ * \ingroup core
  */
 class Positioning : public QObject
 {
@@ -201,7 +202,6 @@ class Positioning : public QObject
     void setLogging( bool logging );
 
   signals:
-
     void activeChanged();
     void deviceIdChanged();
     void deviceChanged();

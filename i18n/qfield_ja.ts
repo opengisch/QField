@@ -23,11 +23,30 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>QFieldアプリディレクトリ</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>QFieldアプリディレクトリ</translation>
+    </message>
+</context>
+<context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>接続しています...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>接続しました</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>接続を解除しました</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>ソケットの状態 %1</translation>
     </message>
 </context>
 <context>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>接続しています...</translation>
+        <translation type="vanished">接続しています...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>接続しました</translation>
+        <translation type="vanished">接続しました</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>接続を解除しました</translation>
+        <translation type="vanished">接続を解除しました</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>ソケットの状態 %1</translation>
+        <translation type="vanished">ソケットの状態 %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Item Menu</source>
         <translation>アイテムメニュー</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>リモートホストが見つかりません</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>ソケットからの読み取りまたは書き込みの試行がエラーを返しました。</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>リモートホストによって接続が拒否されました。</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1046,7 +1115,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>QFieldドキュメンテーション</translation>
     </message>
 </context>
 <context>
@@ -1343,7 +1412,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>該当する QField ドキュメントページに戻ります。</translation>
     </message>
 </context>
 <context>
@@ -1918,6 +1987,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Serial port (NMEA)</source>
         <translation>シリアルポート (NMEA)</translation>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -1959,15 +2032,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>グリッド</translation>
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>ortho.</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ant.</translation>
     </message>
 </context>
 <context>
@@ -2120,23 +2193,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
+        <translation>画像のジオタギングには、位置情報の利用を有効にする必要があります。</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>詳細のスタンプが有効です</translation>
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>緯度</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>経度</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2145,6 +2214,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Speed</source>
         <translation>スピード</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>向き</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation>詳細のスタンプが無効です</translation>
     </message>
 </context>
 <context>
@@ -2769,11 +2846,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>クラウド・プロジェクトがありません。始めるには、%1ドキュメントをお読みください%2。</translation>
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトを検索する</translation>
     </message>
 </context>
 <context>
@@ -2788,22 +2865,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>アカウントのストレージ容量がいっぱいです</translation>
     </message>
 </context>
 <context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>終了</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>次</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>前</translation>
     </message>
 </context>
 <context>
@@ -2906,19 +2983,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudにプッシュ...</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>‘%1’がQFieldCloudにアップロードされてします</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>お気に入りに追加</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>お気に入りから削除</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>ファイル</translation>
     </message>
 </context>
 <context>
@@ -3339,19 +3420,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>低精度としての許容範囲 [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>高精度としての許容範囲 [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>精度の要件を厳守する</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>精度の閾値を有効にすると、ロケーションボタンにバッジが追加され、低精度の場合は &lt;span %1&gt;赤色&lt;/span&gt; に、どちらでもない場合は &lt;span %2&gt;黄色&lt;/span&gt; に、高精度の場合は &lt;span %3&gt;緑色&lt;/span&gt;に変わります。&lt;br&gt;&lt;br&gt;また、低精度の閾値の範囲内で座標カーソルをロックし、頂点の追加制限する精度制限モードを有効にすることもできます。</translation>
     </message>
 </context>
 <context>
@@ -3482,7 +3563,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>検索</translation>
     </message>
 </context>
 <context>
@@ -3721,19 +3802,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>接続しています...</translation>
+        <translation type="vanished">接続しています...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>接続しました</translation>
+        <translation type="vanished">接続しました</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>接続を解除しました</translation>
+        <translation type="vanished">接続を解除しました</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>ソケットの状態 %1</translation>
+        <translation type="vanished">ソケットの状態 %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3749,11 +3830,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP 受信エラー (%1)</translation>
+        <translation type="vanished">UDP 受信エラー (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>リモートホストによって接続が拒否されました。</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4090,19 +4175,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>接続しています...</translation>
+        <translation type="vanished">接続しています...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>接続しました</translation>
+        <translation type="vanished">接続しました</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>接続を解除しました</translation>
+        <translation type="vanished">接続を解除しました</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>ソケットの状態 %1</translation>
+        <translation type="vanished">ソケットの状態 %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4148,11 +4233,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>グローバル変数</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクト変数</translation>
     </message>
 </context>
 <context>
@@ -4185,7 +4270,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>ありがとうございます！下のボタンからストアにコメントを残していただけると嬉しいです。</translation>
+        <translation type="vanished">ありがとうございます！下のボタンからストアにコメントを残していただけると嬉しいです。</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4275,6 +4360,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>QFieldへようこそ。このアプリケーションを使うのは初めてですか？下記のサンプルプロジェクトをお試しください。</translation>
     </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>ありがとうございます！下のボタンからレビューを残していただけると嬉しいです。</translation>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4291,47 +4380,47 @@ Cancel to make a minimal device scan instead.</source>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>度</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>メートル</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>キロメートル</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>フィート</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>ヤード</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>マイル</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>海里</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>センチメートル</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>ミリメートル</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>インチ</translation>
     </message>
 </context>
 <context>
@@ -4909,15 +4998,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>地図の回転を有効にする</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>ダッシュボード</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>このボタンはダッシュボードを開きます。ダッシュボードでは、凡例や地図テーマを操作したり、編集モードを起動してデジタイズを開始することができます。ボタンを長押しすると、メインメニューにすぐにアクセスできます。</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -4925,23 +5014,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>このボタンは測位システムを切り替えます。有効にすると、地図の上部に位置マーカーが表示されます。このボタンを長押しすると、その他の機能がある測位メニューが表示されます。</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>検索</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>検索バーでは、プロジェクト内の地物をすばやく検索したり、入力した緯度経度にジャンプしたりすることができます。</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>ズーム</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>ピンチ・ジェスチャーに加え、これらのボタンは、素早く拡大・縮小するのに役立ちます。</translation>
     </message>
 </context>
 <context>
@@ -4991,35 +5080,35 @@ Cancel to make a minimal device scan instead.</source>
     <name>tst_qFieldGuide</name>
     <message>
         <source>dummyItem1</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem1</translation>
     </message>
     <message>
         <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem1 responsibility.</translation>
     </message>
     <message>
         <source>dummyItem2</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem2</translation>
     </message>
     <message>
         <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem2 responsibility.</translation>
     </message>
     <message>
         <source>dummyItem3</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem3</translation>
     </message>
     <message>
         <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem3 responsibility.</translation>
     </message>
     <message>
         <source>dummyItem4</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem4</translation>
     </message>
     <message>
         <source>dummyItem4 responsibility.</source>
-        <translation type="unfinished"/>
+        <translation>dummyItem4 responsibility.</translation>
     </message>
 </context>
 </TS>

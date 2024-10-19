@@ -2,7 +2,7 @@
 # CMake settings
 cmake_minimum_required(VERSION 3.19)
 
-set(VCPKG_TAG 1318ab14aae14db20085441cd71366891a9c9d0c)
+set(VCPKG_TAG e4fef94e1b861202de1fc0138f6e759e8216c4e9)
 
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
@@ -117,7 +117,7 @@ if (ANDROID)
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
 endif()
 
-find_package(Qt6 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia Bluetooth Nfc REQUIRED)
+find_package(Qt6 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia Bluetooth Nfc WebSockets REQUIRED)
 
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
   find_package(Qt6 COMPONENTS PrintSupport REQUIRED)

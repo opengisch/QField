@@ -5,6 +5,9 @@ import QtCore
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Page {
   signal finished
 
@@ -464,7 +467,8 @@ Page {
                 Layout.alignment: Qt.AlignVCenter
                 clip: true
 
-                iconSource: Theme.getThemeIcon("ic_ellipsis_green_24dp")
+                iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+                iconColor: Theme.mainColor
                 bgcolor: "transparent"
 
                 onClicked: {
@@ -493,7 +497,8 @@ Page {
                 Layout.alignment: Qt.AlignVCenter
                 clip: true
 
-                iconSource: Theme.getThemeIcon("ic_ellipsis_green_24dp")
+                iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+                iconColor: Theme.mainColor
                 bgcolor: "transparent"
 
                 onClicked: {
@@ -871,6 +876,8 @@ Page {
                         return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
                       case PositioningDeviceModel.SerialPortDevice:
                         return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+                      case PositioningDeviceModel.EgenioussDevice:
+                        return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
                       }
                       return '';
                     }
@@ -897,6 +904,8 @@ Page {
                         return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
                       case PositioningDeviceModel.SerialPortDevice:
                         return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+                      case PositioningDeviceModel.EgenioussDevice:
+                        return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
                       }
                       return '';
                     }

@@ -57,5 +57,10 @@
     <string name="storage_information_dismiss">Später lesen</string>
     <string name="import_project_wait">Bitte warten, QField importiert das Projekt</string>
     <string name="import_dataset_wait">Bitte warten, QField importiert die Datensätze</string>
+    <string name="update_project_wait">Bitte warten Sie, während QField das lokale Projekt aktualisiert</string>
     <string name="upload_pending_attachments">Anhänge werden in QFieldCloud hochgeladen</string>
-    </resources>
+    <string name="operation_unsupported">Operation wird nicht unterstützt</string>
+    <string name="import_operation_unsupported">Ihr Gerät unterstützt diesen Importvorgang nicht.</string>
+    <string name="export_operation_unsupported">Ihr Gerät unterstützt diesen Exportvorgang nicht.</string>
+    <string name="processing_message">Verarbeitung...</string>
+</resources>

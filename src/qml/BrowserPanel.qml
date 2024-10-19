@@ -5,6 +5,9 @@ import QtWebView
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: browserPanel
 

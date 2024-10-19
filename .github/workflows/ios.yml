@@ -14,6 +14,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   build:
     name: build (ios)
@@ -26,10 +29,12 @@ jobs:
     steps:
       - name: 🐣 Checkout
         uses: actions/checkout@v4
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           submodules: recursive
 
       - name: Reclaim disk space
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           rm -rf /Applications/Xcode_14*
           rm -rf /Applications/Xcode_16*
@@ -37,21 +42,25 @@ jobs:
 
       - name: 🌾 Prepare variables
         id: vars
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           ./scripts/ci/env_gh.sh
 
       - name: ⛓️ Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
       - name: 💎 Setup ruby
         uses: ruby/setup-ruby@v1
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           ruby-version: '3.2' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🔏 Setup code signing
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
@@ -59,6 +68,7 @@ jobs:
 
 
       - name: 🍹 Prepare ios build env
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           # Workaround GitHub Actions Python issues
           brew unlink python && brew link --overwrite python
@@ -72,26 +82,31 @@ jobs:
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           cmakeVersion: 3.29.0
 
       - name: 🐍 Setup Python
         uses: actions/setup-python@v5
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           python-version: '3.11'
 
       - name: 🍭 Setup XCode
         uses: maxim-lobanov/setup-xcode@v1.6.0
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           xcode-version: latest-stable
 
       - name: 🍮 ccache
         uses: hendrikmuhs/ccache-action@v1.2.11
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           key: ccache-ios
           max-size: 200M
 
       - name: 🌱 Install dependencies and generate project files
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
@@ -137,10 +152,12 @@ jobs:
             /Users/runner/builddir/**/*.log
 
       - name: 📦 Package
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           cmake --build  /Users/runner/builddir --target bundle --config Release
 
       - name: 🍺 Deploy
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
           S3_BUCKET: qfieldapks
           S3_REGION: ch-dk-2
@@ -151,6 +168,7 @@ jobs:
 
       - name: 📤 Upload qfield Ipa
         uses: actions/upload-artifact@v4
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           path: /Users/runner/builddir/qfieldIpa/QField.ipa
@@ -165,6 +183,7 @@ jobs:
           bundle exec fastlane ios upload_testflight ipa:/Users/runner/builddir/qfieldIpa/QField.ipa
 
       - name: 📮 Upload debug symbols
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         # if: release or labeled PR
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}

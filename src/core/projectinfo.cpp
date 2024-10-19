@@ -25,7 +25,9 @@
 #include <qgscolorutils.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
+#include <qgslinesymbol.h>
 #include <qgsmaplayerstyle.h>
+#include <qgsmarkersymbol.h>
 #include <qgssymbollayerutils.h>
 
 ProjectInfo::ProjectInfo( QObject *parent )
@@ -796,6 +798,128 @@ QVariantMap ProjectInfo::getImageDecorationConfiguration()
     configuration["source"] = QString();
     configuration["fillColor"] = QColor( Qt::black );
     configuration["strokeColor"] = QColor( Qt::white );
+  }
+
+  return configuration;
+}
+
+QVariantMap ProjectInfo::getGridDecorationConfiguration()
+{
+  QVariantMap configuration;
+  const QString configurationName = QStringLiteral( "Grid" );
+
+  if ( QgsProject::instance()->readBoolEntry( configurationName, QStringLiteral( "/Enabled" ), false ) )
+  {
+    bool hasLines = false;
+    QColor lineColor = QColor( Qt::black );
+    bool hasMarkers = false;
+    QColor markerColor = QColor( Qt::black );
+    bool hasAnnotations = false;
+    QColor annotationColor = QColor( Qt::black );
+    QColor annotationOutlineColor = QColor( Qt::white );
+    bool hasAnnotationOutline = false;
+
+    double xInterval = QgsProject::instance()->readDoubleEntry( configurationName, QStringLiteral( "/IntervalX" ), 50.0 );
+    double yInterval = QgsProject::instance()->readDoubleEntry( configurationName, QStringLiteral( "/IntervalY" ), 50.0 );
+    double xOffset = QgsProject::instance()->readDoubleEntry( configurationName, QStringLiteral( "/OffsetX" ), 0.0 );
+    double yOffset = QgsProject::instance()->readDoubleEntry( configurationName, QStringLiteral( "/OffsetY" ), 0.0 );
+
+    QgsReadWriteContext rwContext;
+    rwContext.setPathResolver( QgsProject::instance()->pathResolver() );
+    QDomDocument doc;
+    QDomElement elem;
+    QString xml;
+
+    hasAnnotations = QgsProject::instance()->readBoolEntry( configurationName, QStringLiteral( "/ShowAnnotation" ), false );
+    const int annotationPrecision = QgsProject::instance()->readNumEntry( configurationName, QStringLiteral( "/AnnotationPrecision" ), 0 );
+    if ( hasAnnotations )
+    {
+      xml = QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/Font" ) );
+      if ( !xml.isEmpty() )
+      {
+        doc.setContent( xml );
+        elem = doc.documentElement();
+        QgsTextFormat textFormat;
+        textFormat.readXml( elem, rwContext );
+
+        annotationColor = textFormat.color();
+        annotationColor.setAlphaF( textFormat.opacity() );
+        if ( textFormat.buffer().enabled() )
+        {
+          hasAnnotationOutline = true;
+          annotationOutlineColor = textFormat.buffer().color();
+          annotationOutlineColor.setAlphaF( textFormat.buffer().opacity() );
+        }
+      }
+      else
+      {
+        hasAnnotations = false;
+      }
+    }
+
+    // QgsDecorationGrid::GridStyle values: 0 = line, 1 = marker
+    const int gridStyle = QgsProject::instance()->readNumEntry( configurationName, QStringLiteral( "/Style" ), 0 );
+
+    if ( gridStyle == 0 )
+    {
+      xml = QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/LineSymbol" ) );
+      if ( !xml.isEmpty() )
+      {
+        doc.setContent( xml );
+        elem = doc.documentElement();
+        std::unique_ptr<QgsLineSymbol> lineSymbol( QgsSymbolLayerUtils::loadSymbol<QgsLineSymbol>( elem, rwContext ) );
+        if ( lineSymbol )
+        {
+          hasLines = true;
+          lineColor = lineSymbol->color();
+        }
+      }
+    }
+    else
+    {
+      xml = QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/MarkerSymbol" ) );
+      if ( !xml.isEmpty() )
+      {
+        doc.setContent( xml );
+        elem = doc.documentElement();
+        std::unique_ptr<QgsMarkerSymbol> markerSymbol( QgsSymbolLayerUtils::loadSymbol<QgsMarkerSymbol>( elem, rwContext ) );
+        if ( markerSymbol )
+        {
+          hasMarkers = true;
+          markerColor = markerSymbol->color();
+        }
+      }
+    }
+
+    configuration["xInterval"] = xInterval;
+    configuration["yInterval"] = yInterval;
+    configuration["xOffset"] = xOffset;
+    configuration["yOffset"] = yOffset;
+    configuration["hasLines"] = hasLines;
+    configuration["lineColor"] = lineColor;
+    configuration["hasMarkers"] = hasMarkers;
+    configuration["markerColor"] = markerColor;
+    configuration["hasAnnotations"] = hasAnnotations;
+    configuration["annotationPrecision"] = annotationPrecision;
+    configuration["annotationColor"] = annotationColor;
+    configuration["annotationHasOutline"] = hasAnnotationOutline;
+    configuration["annotationOutlineColor"] = annotationOutlineColor;
+  }
+  else
+  {
+    configuration["xInterval"] = 0.0;
+    configuration["yInterval"] = 0.0;
+    configuration["xOffset"] = 0.0;
+    configuration["yOffset"] = 0.0;
+    configuration["hasLines"] = false;
+    configuration["lineColor"] = QColor();
+    configuration["hasMarkers"] = false;
+    configuration["markerColor"] = QColor();
+    configuration["hasAnnotations"] = false;
+    configuration["annotationPrecision"] = 0;
+    configuration["annotationColor"] = QColor();
+    configuration["annotationHasOutline"] = false;
+    configuration["annotationOutlineColor"] = QColor();
   }
 
   return configuration;

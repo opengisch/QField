@@ -119,7 +119,7 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
-      iconSource: Theme.getThemeIcon('ic_check_white_48dp')
+      iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
       iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
 
       onClicked: {
@@ -145,7 +145,7 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignRight
       clip: true
-      iconSource: Theme.getThemeIcon('ic_close_white_24dp')
+      iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
       iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
 
       onClicked: {

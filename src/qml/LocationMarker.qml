@@ -4,6 +4,9 @@ import QtQuick.Window
 import org.qgis
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Item {
   id: locationMarker
 

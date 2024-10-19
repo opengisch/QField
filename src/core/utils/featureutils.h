@@ -25,6 +25,9 @@
 class QgsVectorLayer;
 class QgsQuickMapSettings;
 
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT FeatureUtils : public QObject
 {
     Q_OBJECT

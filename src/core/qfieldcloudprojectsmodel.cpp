@@ -57,15 +57,6 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     refreshProjectModification( mCurrentProjectId );
   } );
 
-  connect( this, &QFieldCloudProjectsModel::modelReset, this, [=]() {
-    if ( mCurrentProjectId.isEmpty() || !findProject( mCurrentProjectId ) )
-      return;
-
-    emit currentProjectDataChanged();
-
-    refreshProjectModification( mCurrentProjectId );
-  } );
-
   connect( this, &QFieldCloudProjectsModel::dataChanged, this, [=]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     Q_UNUSED( bottomRight )
     Q_UNUSED( roles )
@@ -338,9 +329,13 @@ bool QFieldCloudProjectsModel::canSyncProject( const QString &projectId ) const
     return false;
 
   if ( mCurrentProjectId.isEmpty() )
+  {
     return false;
+  }
   else if ( projectStatus( projectId ) == ProjectStatus::Idle )
+  {
     return true;
+  }
 
   return false;
 }
@@ -1297,10 +1292,14 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
   }
 
   if ( !( project->modification & LocalModification ) )
+  {
     return;
+  }
 
   if ( !mLayerObserver->deltaFileWrapper()->toFile() )
+  {
     return;
+  }
 
   if ( deltaFileWrapper->hasError() )
   {
@@ -1713,6 +1712,15 @@ void QFieldCloudProjectsModel::projectListReceived()
   if ( projects.size() > 0 )
   {
     refreshProjectsList( isPublic, projectFetchOffset + mProjectsPerFetch );
+  }
+  else
+  {
+    // All projects fetched, refresh current project details if found
+    if ( !mCurrentProjectId.isEmpty() && findProject( mCurrentProjectId ) )
+    {
+      emit currentProjectDataChanged();
+      refreshProjectModification( mCurrentProjectId );
+    }
   }
 }
 

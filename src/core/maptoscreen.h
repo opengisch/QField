@@ -26,6 +26,7 @@
  * @brief The MapToScreen class transform a map point to screen coordinates.
  * The map point CRS is the one from the map settings.
  * Screen point will be automatically updated on map extent changes.
+ * \ingroup core
  */
 class MapToScreen : public QObject
 {

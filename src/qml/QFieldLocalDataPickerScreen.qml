@@ -5,6 +5,9 @@ import QtQml.Models
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Page {
   id: qfieldLocalDataPickerScreen
 
@@ -113,6 +116,8 @@ Page {
                   return qsTr('Projects');
                 case LocalFilesModel.Dataset:
                   return qsTr('Datasets');
+                case LocalFilesModel.File:
+                  return qsTr('Files');
                 case LocalFilesModel.Favorite:
                   return qsTr('Favorites');
                 }
@@ -131,7 +136,7 @@ Page {
           property string itemPath: ItemPath
           property bool itemIsFavorite: ItemIsFavorite
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
-          property bool itemMenuVisible: (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
+          property bool itemMenuVisible: ((ItemType === LocalFilesModel.SimpleFolder || ItemMetaType == LocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
 
           width: parent ? parent.width : undefined
           height: line.height
@@ -167,6 +172,7 @@ Page {
                     return Theme.getThemeVectorIcon('ic_map_green_48dp');
                   case LocalFilesModel.VectorDataset:
                   case LocalFilesModel.RasterDataset:
+                  case LocalFilesModel.OtherFile:
                     return Theme.getThemeVectorIcon('ic_file_green_48dp');
                   }
                 }
@@ -238,7 +244,7 @@ Page {
               Layout.bottomMargin: 5
 
               bgcolor: "transparent"
-              iconSource: Theme.getThemeIcon("ic_dot_menu_gray_24dp")
+              iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
               iconColor: Theme.mainTextColor
 
               onClicked: {
@@ -323,7 +329,7 @@ Page {
         anchors.rightMargin: 10
 
         bgcolor: Theme.mainColor
-        iconSource: Theme.getThemeIcon("ic_add_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
 
         onClicked: {
           var xy = mapToItem(mainWindow.contentItem, actionButton.width, actionButton.height);
@@ -362,7 +368,7 @@ Page {
 
       MenuItem {
         id: sendDatasetTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Dataset
+        enabled: itemMenu.itemMetaType === LocalFilesModel.File || (platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Dataset)
         visible: enabled
 
         font: Theme.defaultFont
@@ -638,13 +644,10 @@ Page {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: importUrlDialog
     title: "Import URL"
     focus: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
     y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
@@ -677,7 +680,6 @@ Page {
       }
     }
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       iface.importUrl(importUrlInput.text);
     }

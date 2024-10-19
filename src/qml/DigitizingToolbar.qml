@@ -4,6 +4,9 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 QfVisibilityFadingRow {
   id: digitizingToolbar
 
@@ -75,7 +78,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: cancelButton
-    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
     bgcolor: Theme.darkRed
@@ -95,7 +98,7 @@ QfVisibilityFadingRow {
   QfToolButton {
     id: confirmButton
     iconSource: {
-      Theme.getThemeIcon("ic_check_white_48dp");
+      Theme.getThemeVectorIcon("ic_check_white_24dp");
     }
     visible: {
       if (!showConfirmButton) {
@@ -129,7 +132,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: removeVertexButton
-    iconSource: Theme.getThemeIcon("ic_remove_vertex_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_remove_vertex_white_24dp")
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
     bgcolor: Theme.darkGray
@@ -162,7 +165,7 @@ QfVisibilityFadingRow {
         Theme.darkGray;
       }
     }
-    iconSource: Theme.getThemeIcon("ic_add_vertex_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_add_vertex_white_24dp")
     iconColor: enabled ? "white" : Theme.darkGraySemiOpaque
 
     property bool lastAdditionAveraged: false
@@ -244,25 +247,15 @@ QfVisibilityFadingRow {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: cancelDialog
     parent: mainWindow.contentItem
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
-
     title: qsTr("Cancel digitizing")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
       text: qsTr("Should the digitized geometry be discarded?")
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       digitizingLogger.clearCoordinates();
       rubberbandModel.reset();

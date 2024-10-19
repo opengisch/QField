@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>جار الاتصال ...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>تم الاتصال بنجاح</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>غير متصل</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>حالة المأخذ %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>جار الاتصال ...</translation>
+        <translation type="vanished">جار الاتصال ...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>تم الاتصال بنجاح</translation>
+        <translation type="vanished">تم الاتصال بنجاح</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>غير متصل</translation>
+        <translation type="vanished">غير متصل</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>حالة المأخذ %1</translation>
+        <translation type="vanished">حالة المأخذ %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Item Menu</source>
         <translation>عناصر القائمة</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1916,6 +1985,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Serial port (NMEA)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -2125,10 +2198,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2143,6 +2212,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Speed</source>
         <translation>السرعة</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2916,6 +2993,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3719,19 +3800,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>جار الاتصال ...</translation>
+        <translation type="vanished">جار الاتصال ...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>تم الاتصال بنجاح</translation>
+        <translation type="vanished">تم الاتصال بنجاح</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>غير متصل</translation>
+        <translation type="vanished">غير متصل</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>حالة المأخذ %1</translation>
+        <translation type="vanished">حالة المأخذ %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3751,6 +3832,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4088,19 +4173,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>جار الاتصال ...</translation>
+        <translation type="vanished">جار الاتصال ...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>تم الاتصال بنجاح</translation>
+        <translation type="vanished">تم الاتصال بنجاح</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>غير متصل</translation>
+        <translation type="vanished">غير متصل</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>حالة المأخذ %1</translation>
+        <translation type="vanished">حالة المأخذ %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4183,7 +4268,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>ذلك رائع! نود أن تنقر على الزر أدناه وتترك تعليقًا في المتجر.</translation>
+        <translation type="vanished">ذلك رائع! نود أن تنقر على الزر أدناه وتترك تعليقًا في المتجر.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4271,6 +4356,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Łączenie...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Połączono pomyślnie</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Rozłączono</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stan gniazda %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation>(Blob)</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Łączenie...</translation>
+        <translation type="vanished">Łączenie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Połączono pomyślnie</translation>
+        <translation type="vanished">Połączono pomyślnie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Rozłączono</translation>
+        <translation type="vanished">Rozłączono</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stan gniazda %1</translation>
+        <translation type="vanished">Stan gniazda %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Item Menu</source>
         <translation>Menu elementów</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation>Odebrane dane są zbyt krótkie do przetworzenia</translation>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation>Nieprawidłowy bajt początkowy</translation>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation>Odebrane dane są zbyt krótkie, aby pomieścić ładunek</translation>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation>Parsowanie JSON nie powiodło się</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Nie można odnaleźć zdalnego serwera</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Błąd podczas próby odczytu lub zapisu do gniazda</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Połączenie zostało odrzucone przez zdalny serwer</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>Błąd odbiornika TCP (%1)</translation>
     </message>
 </context>
 <context>
@@ -1924,6 +1993,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Serial port (NMEA)</source>
         <translation>Port szeregowy (NMEA)</translation>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation>Egeniouss</translation>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -1965,7 +2038,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>siatka</translation>
     </message>
     <message>
         <source>ortho.</source>
@@ -2133,16 +2206,12 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Szerokość geograficzna</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Długość geograficzna</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2151,6 +2220,14 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Speed</source>
         <translation>Prędkość</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>Orientacja</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2926,6 +3003,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Remove from favorites</source>
         <translation>Usuń z ulubionych</translation>
     </message>
+    <message>
+        <source>Files</source>
+        <translation>Pliki</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSettings</name>
@@ -3345,19 +3426,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Próg złej dokładności [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Próg doskonałej dokładności [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Egzekwuj wymóg dokładności</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Gdy wskaźnik dokładności jest włączony, plakietka jest dołączona do przycisku lokalizacji i ma kolor &lt;span %1&gt;czerwony&lt;/span&gt; jeśli wartość dokładności jest gorsza niż &lt;i&gt;zła&lt;/i&gt;, &lt;span %2&gt;żółty&lt;/span&gt; jeśli jest gorsza niż &lt;i&gt;doskonała&lt;/i&gt;, lub &lt;span %3&gt;zielony&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Ponadto można włączyć tryb ograniczenia dokładności, który ogranicza dodawanie wierzchołków po zablokowaniu kursora współrzędnych do pozycji o wartości dokładności gorszej niż zły próg.</translation>
     </message>
 </context>
 <context>
@@ -3727,19 +3808,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Łączenie...</translation>
+        <translation type="vanished">Łączenie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Połączono pomyślnie</translation>
+        <translation type="vanished">Połączono pomyślnie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Rozłączono</translation>
+        <translation type="vanished">Rozłączono</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stan gniazda %1</translation>
+        <translation type="vanished">Stan gniazda %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3755,11 +3836,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Błąd odbiornika UDP (%1)</translation>
+        <translation type="vanished">Błąd odbiornika UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Połączenie zostało odrzucone przez zdalny serwer</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>Błąd odbiornika TCP (%1)</translation>
     </message>
 </context>
 <context>
@@ -4096,19 +4181,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Łączenie...</translation>
+        <translation type="vanished">Łączenie...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Połączono pomyślnie</translation>
+        <translation type="vanished">Połączono pomyślnie</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Rozłączono</translation>
+        <translation type="vanished">Rozłączono</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stan gniazda %1</translation>
+        <translation type="vanished">Stan gniazda %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4154,11 +4239,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Zmienne globalne</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Zmienne projektu</translation>
     </message>
 </context>
 <context>
@@ -4191,7 +4276,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Super! Będziemy ci wdzięczni, jeśli klikniesz przycisk poniżej i pozostawisz swój komentarz w sklepie.</translation>
+        <translation type="vanished">Super! Będziemy ci wdzięczni, jeśli klikniesz przycisk poniżej i pozostawisz swój komentarz w sklepie.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4280,6 +4365,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Witaj w QField. Jeśli pierwszy raz używasz tej aplikacji, możesz wypróbować przykładowe projekty z poniższej listy.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>To świetnie! Chcielibyśmy, abyś kliknął(ęła) przycisk poniżej i zostawił(a) recenzję.</translation>
     </message>
 </context>
 <context>

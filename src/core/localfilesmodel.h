@@ -20,6 +20,9 @@
 
 #define SUPPORTED_DATASET_THUMBNAIL QStringList( { QStringLiteral( "zip" ), QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ) } )
 
+/**
+ * \ingroup core
+ */
 class LocalFilesModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -33,6 +36,7 @@ class LocalFilesModel : public QAbstractListModel
     enum ItemMetaType
     {
       Folder,
+      File,
       Project,
       Dataset,
       Favorite,
@@ -47,6 +51,7 @@ class LocalFilesModel : public QAbstractListModel
       ProjectFile,
       VectorDataset,
       RasterDataset,
+      OtherFile,
     };
     Q_ENUM( ItemType )
 

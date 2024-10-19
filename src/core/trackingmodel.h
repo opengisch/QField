@@ -23,6 +23,9 @@
 class RubberbandModel;
 class Track;
 
+/**
+ * \ingroup core
+ */
 class TrackingModel : public QAbstractItemModel
 {
     Q_OBJECT

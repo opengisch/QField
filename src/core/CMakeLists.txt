@@ -26,9 +26,11 @@ set(QFIELD_CORE_SRCS
     locator/gotolocatorfilter.cpp
     locator/helplocatorfilter.cpp
     locator/locatormodelsuperbridge.cpp
+    positioning/abstractgnssreceiver.cpp
     positioning/gnsspositioninformation.cpp
     positioning/internalgnssreceiver.cpp
     positioning/nmeagnssreceiver.cpp
+    positioning/egenioussreceiver.cpp
     positioning/tcpreceiver.cpp
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
@@ -64,6 +66,7 @@ set(QFIELD_CORE_SRCS
     focusstack.cpp
     geometry.cpp
     geometryeditorsmodel.cpp
+    gridmodel.cpp
     identifytool.cpp
     layerobserver.cpp
     featurehistory.cpp
@@ -150,6 +153,7 @@ set(QFIELD_CORE_HDRS
     positioning/positioningdevicemodel.h
     positioning/internalgnssreceiver.h
     positioning/nmeagnssreceiver.h
+    positioning/egenioussreceiver.h
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
     positioning/geofencer.h
@@ -184,6 +188,7 @@ set(QFIELD_CORE_HDRS
     focusstack.h
     geometry.h
     geometryeditorsmodel.h
+    gridmodel.h
     identifytool.h
     layerobserver.h
     featurehistory.h
@@ -348,6 +353,7 @@ target_link_libraries(
          Qt::Concurrent
          Qt::WebView
          Qt::Multimedia
+         Qt::WebSockets
          QGIS::Core
          QGIS::Analysis
          ZXing::ZXing

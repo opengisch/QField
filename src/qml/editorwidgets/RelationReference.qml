@@ -91,7 +91,7 @@ EditorWidgetBase {
     width: enabled ? 48 : 0
     height: 48
 
-    iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white-24dp') : Theme.getThemeVectorIcon('ic_baseline-list_alt-24dp')
+    iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 

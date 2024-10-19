@@ -171,6 +171,9 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
 
     case SerialPortDevice:
       return QStringLiteral( "serial:%1" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString() );
+
+    case EgenioussDevice:
+      return QStringLiteral( "egeniouss:" );
   }
 
   return QString();

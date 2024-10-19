@@ -105,7 +105,7 @@ EditorWidgetBase {
           enabled: constraintsHardValid
 
           round: false
-          iconSource: Theme.getThemeIcon('ic_add_white_24dp')
+          iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
           bgcolor: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
         }
       }
@@ -131,7 +131,7 @@ EditorWidgetBase {
         repeat: false
 
         onTriggered: {
-          let saved = save();
+          let saved = form.state === 'Add' ? save() : true;
           if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
             // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
             if (!saved) {
@@ -251,7 +251,7 @@ EditorWidgetBase {
 
           Image {
             id: featureImage
-            source: ImagePath ? UrlUtils.fromString(ImagePath) : Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+            source: ImagePath ? UrlUtils.fromString(ImagePath) : Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
             width: parent.height
             height: parent.height
             fillMode: Image.PreserveAspectFit
@@ -275,7 +275,7 @@ EditorWidgetBase {
             height: 40
 
             round: false
-            iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white-24dp') : Theme.getThemeVectorIcon('ic_baseline-list_alt-24dp')
+            iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
             iconColor: Theme.mainTextColor
             bgcolor: 'transparent'
 
@@ -337,7 +337,7 @@ EditorWidgetBase {
             height: 40
 
             round: false
-            iconSource: Theme.getThemeIcon('ic_delete_forever_white_24dp')
+            iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
             iconColor: Theme.mainTextColor
             bgcolor: 'transparent'
 
@@ -375,7 +375,15 @@ EditorWidgetBase {
     }
   }
 
-  Dialog {
+  BusyIndicator {
+    id: busyIndicator
+    anchors.centerIn: parent
+    width: 36
+    height: 36
+    running: orderedRelationModel.isLoading
+  }
+
+  QfDialog {
     id: deleteDialog
     parent: mainWindow.contentItem
 
@@ -387,22 +395,13 @@ EditorWidgetBase {
     property string nmReferencedLayerName: orderedRelationModel.nmRelation.referencedLayer ? orderedRelationModel.nmRelation.referencedLayer.name : ''
     property string nmReferencingLayerName
 
-    visible: false
-    modal: true
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
-
-    font: Theme.defaultFont
-
     title: nmRelationId ? qsTr('Unlink feature %1 (%2) of %3').arg(nmReferencedFeatureDisplayMessage).arg(nmReferencedFeatureId).arg(nmReferencedLayerName) : qsTr('Delete feature %1 (%2) on %3').arg(referencingFeatureDisplayMessage).arg(referencingFeatureId).arg(referencingLayerName)
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: nmRelationId ? qsTr('Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg(nmReferencedFeatureDisplayMessage).arg(deleteDialog.nmReferencedFeatureId).arg(deleteDialog.nmReferencedLayerName).arg(deleteDialog.referencingLayerName) : qsTr('Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg(deleteDialog.referencingFeatureDisplayMessage).arg(deleteDialog.referencingFeatureId).arg(deleteDialog.referencingLayerName)
+      text: nmRelationId ? qsTr('Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg(deleteDialog.nmReferencedFeatureDisplayMessage).arg(deleteDialog.nmReferencedFeatureId).arg(deleteDialog.nmReferencedLayerName).arg(deleteDialog.referencingLayerName) : qsTr('Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg(deleteDialog.referencingFeatureDisplayMessage).arg(deleteDialog.referencingFeatureId).arg(deleteDialog.referencingLayerName)
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       if (!orderedRelationModel.deleteFeature(referencingFeatureId)) {
         displayToast(qsTr("Failed to delete referencing feature"), 'error');
@@ -412,14 +411,6 @@ EditorWidgetBase {
     onRejected: {
       visible = false;
     }
-  }
-
-  BusyIndicator {
-    id: busyIndicator
-    anchors.centerIn: parent
-    width: 36
-    height: 36
-    running: orderedRelationModel.isLoading
   }
 
   EmbeddedFeatureForm {

@@ -5,6 +5,9 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: popup
 
@@ -213,11 +216,10 @@ Popup {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: authorDetails
     title: authorName
     parent: mainWindow.contentItem
-    x: (mainWindow.width - width) / 2
     y: (mainWindow.height - height - 80) / 2
 
     property string authorName: ""
@@ -261,14 +263,11 @@ Popup {
     standardButtons: Dialog.Close
   }
 
-  Dialog {
+  QfDialog {
     id: installFromUrlDialog
     title: "Install Plugin from URL"
     parent: mainWindow.contentItem
     focus: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
     y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
@@ -301,17 +300,15 @@ Popup {
       }
     }
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       pluginManager.installFromUrl(installFromUrlInput.text);
     }
   }
 
-  Dialog {
+  QfDialog {
     id: uninstallConfirmation
     title: "Uninstall Plugin"
     parent: mainWindow.contentItem
-    x: (mainWindow.width - width) / 2
     y: (mainWindow.height - height - 80) / 2
 
     property string pluginName: ""
@@ -338,7 +335,6 @@ Popup {
       }
     }
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       pluginManager.uninstall(pluginUuid);
     }

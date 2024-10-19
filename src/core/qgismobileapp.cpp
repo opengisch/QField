@@ -65,6 +65,7 @@
 #include "geometryeditorsmodel.h"
 #include "geometryutils.h"
 #include "gnsspositioninformation.h"
+#include "gridmodel.h"
 #include "identifytool.h"
 #include "layerobserver.h"
 #include "layerresolver.h"
@@ -446,6 +447,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ProjectInfo>( "org.qfield", 1, 0, "ProjectInfo" );
   qmlRegisterType<ProjectSource>( "org.qfield", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qfield", 1, 0, "ViewStatus" );
+  qmlRegisterType<GridModel>( "org.qfield", 1, 0, "GridModel" );
+  qmlRegisterUncreatableType<GridAnnotation>( "org.qfield", 1, 0, "GridAnnotation", "" );
 
   qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
@@ -1123,7 +1126,7 @@ void QgisMobileapp::readProjectFile()
 
     if ( suffix.compare( QLatin1String( "pdf" ) ) == 0 )
     {
-      // GeoPDFs should have vector layers hidden by default
+      // Geospatial PDFs should have vector layers hidden by default
       for ( QgsMapLayer *layer : vectorLayers )
       {
         mProject->layerTreeRoot()->findLayer( layer->id() )->setItemVisibilityChecked( false );

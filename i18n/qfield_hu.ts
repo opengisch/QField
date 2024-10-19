@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Kapcsolódás...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Sikeresen kapcsolódtam</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Lecsatlakoztam</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Socket állapot %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Kapcsolódás...</translation>
+        <translation type="vanished">Kapcsolódás...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Sikeresen kapcsolódtam</translation>
+        <translation type="vanished">Sikeresen kapcsolódtam</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Lecsatlakoztam</translation>
+        <translation type="vanished">Lecsatlakoztam</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket állapot %1</translation>
+        <translation type="vanished">Socket állapot %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Item Menu</source>
         <translation>Elem menü</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation>A beérkezett adat túl rövid a feldolgozáshoz</translation>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation>Hibás kezdő bájt</translation>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation>A beérkezett adat túl rövid, hogy tartalmazza a &quot;rakományt&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation>Nem sikerült a JSON értelmezése</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Nem tudok kapcsolódni a távoli géphez</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Az olvasási, vagy írási kísérlet a csatornán hibát jelez</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>A csatlakozást a távoli gép visszautasította</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>TCP vételi hiba (%1)</translation>
     </message>
 </context>
 <context>
@@ -1919,6 +1988,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Serial port (NMEA)</source>
         <translation>Soros port (NMEA)</translation>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -1960,11 +2033,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>rács</translation>
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>deréksz.</translation>
     </message>
     <message>
         <source>ant.</source>
@@ -2128,16 +2201,12 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Szélesség</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Hosszúság</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2146,6 +2215,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Speed</source>
         <translation>Sebesség</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>Orientáció</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2497,7 +2574,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Változások automatikus küldése %n percenként</numerusform><numerusform>Változások automatikus küldése %n percenként</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
@@ -2915,6 +2992,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Remove from favorites</source>
         <translation>Eltávolítás a Kedvencek közül</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>Fájlok</translation>
     </message>
 </context>
 <context>
@@ -3719,19 +3800,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Kapcsolódás...</translation>
+        <translation type="vanished">Kapcsolódás...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Sikeresen kapcsolódtam</translation>
+        <translation type="vanished">Sikeresen kapcsolódtam</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Lecsatlakoztam</translation>
+        <translation type="vanished">Lecsatlakoztam</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket állapot %1</translation>
+        <translation type="vanished">Socket állapot %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3747,11 +3828,15 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP vételi hiba (%1)</translation>
+        <translation type="vanished">UDP vételi hiba (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>A csatlakozást a távoli gép visszautasította</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>TCP vételi hiba (%1)</translation>
     </message>
 </context>
 <context>
@@ -4088,19 +4173,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Kapcsolódás...</translation>
+        <translation type="vanished">Kapcsolódás...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Sikeresen kapcsolódtam</translation>
+        <translation type="vanished">Sikeresen kapcsolódtam</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Lecsatlakoztam</translation>
+        <translation type="vanished">Lecsatlakoztam</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket állapot %1</translation>
+        <translation type="vanished">Socket állapot %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4146,11 +4231,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Globális változók</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Projekt változók</translation>
     </message>
 </context>
 <context>
@@ -4183,7 +4268,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Nagyszerű! Kérünk, az alábbi gombra kattintva oszd meg velünk az észrevételeidet.</translation>
+        <translation type="vanished">Nagyszerű! Kérünk, az alábbi gombra kattintva oszd meg velünk az észrevételeidet.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4272,6 +4357,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Üdvözöljük a QField-ben. Először használja a programot? Próbálja ki a lentebb listázott projekteket.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>Ez nagyszerű! Szeretnénk, ha az alábbi gombra kattintana, és leírná a véleményét.</translation>
     </message>
 </context>
 <context>

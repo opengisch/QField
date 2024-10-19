@@ -13,6 +13,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -190,6 +193,7 @@ jobs:
           name: ${{ env.APP_PACKAGE_NAME }}-android-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk
+            ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk
 
       - name: 🍺 Deploy
         run: |
@@ -209,9 +213,8 @@ jobs:
 
       - name: 📮 Upload debug symbols
         # if: release or labeled PR
-        if: ${{ matrix.all_files_access == 'OFF' }}
+        if: ${{ matrix.all_files_access == 'OFF' && env.SENTRY_AUTH_TOKEN != '' }}
         env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
         run: |
@@ -222,17 +225,20 @@ jobs:
     name: deploy to play store
     runs-on: ubuntu-20.04
     needs: build
-    if: ${{ github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
+    if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
 
       - name: Vars
         id: vars
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           ./scripts/ci/env_gh.sh
 
       - name: Download apks
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk
@@ -240,6 +246,7 @@ jobs:
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk
 
       - name: Upload to Google Play Store
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
 
@@ -267,13 +274,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
+
       - name: Vars
         id: vars
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           ./scripts/ci/env_gh.sh
 
       - name: 💬 Create comment
         uses: marocchino/sticky-pull-request-comment@v2
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
           message: |
@@ -298,12 +309,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
+
       - name: Vars
         id: vars
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           ./scripts/ci/env_gh.sh
+
       - name: Comment commit
         uses: peter-evans/commit-comment@v3
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |

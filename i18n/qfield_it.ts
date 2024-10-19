@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Connessione...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Connesso con successo</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Disconnesso</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stato del socket %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connessione...</translation>
+        <translation type="vanished">Connessione...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Connesso con successo</translation>
+        <translation type="vanished">Connesso con successo</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnesso</translation>
+        <translation type="vanished">Disconnesso</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stato del socket %1</translation>
+        <translation type="vanished">Stato del socket %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Item Menu</source>
         <translation>Menu Oggetto</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Impossibile trovare l&apos;host remoto</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Il tentativo di leggere o scrivere sul socket ha ritornato un errore</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>La connessione è stata rifiutata dall&apos;host remoto</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1922,6 +1991,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>Serial port (NMEA)</source>
         <translation>Porta Seriale (NMEA)</translation>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -2131,10 +2204,6 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2149,6 +2218,14 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Speed</source>
         <translation>Velocità</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2925,6 +3002,10 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3728,19 +3809,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connessione...</translation>
+        <translation type="vanished">Connessione...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Connesso con successo</translation>
+        <translation type="vanished">Connesso con successo</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnesso</translation>
+        <translation type="vanished">Disconnesso</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stato del socket %1</translation>
+        <translation type="vanished">Stato del socket %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3756,11 +3837,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Errore del ricevitore UDP (%1)</translation>
+        <translation type="vanished">Errore del ricevitore UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>La connessione è stata rifiutata dall&apos;host remoto</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4097,19 +4182,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connessione...</translation>
+        <translation type="vanished">Connessione...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Connesso con successo</translation>
+        <translation type="vanished">Connesso con successo</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnesso</translation>
+        <translation type="vanished">Disconnesso</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stato del socket %1</translation>
+        <translation type="vanished">Stato del socket %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4192,7 +4277,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Grandioso! Sarebbe fantastico se cliccassi sul pulsante qui sotto e lasciassi una recensione sullo Store.</translation>
+        <translation type="vanished">Grandioso! Sarebbe fantastico se cliccassi sul pulsante qui sotto e lasciassi una recensione sullo Store.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4281,6 +4366,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Benvenuti in QField! È la prima volta che usi questa applicazione? Prova i progetti di esempio elencati di seguito.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

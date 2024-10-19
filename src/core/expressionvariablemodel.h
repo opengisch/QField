@@ -19,6 +19,9 @@
 #include <QStandardItemModel>
 #include <qgsproject.h>
 
+/**
+ * \ingroup core
+ */
 class ExpressionVariableModel : public QStandardItemModel
 {
     Q_OBJECT

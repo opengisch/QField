@@ -4,6 +4,9 @@ import QtQuick.Layouts
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: popup
   padding: 0
@@ -375,7 +378,7 @@ Popup {
             text: qsTr('Synchronize')
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            icon.source: Theme.getThemeIcon('ic_cloud_synchronize_24dp')
+            icon.source: Theme.getThemeVectorIcon('ic_cloud_synchronize_24dp')
 
             onClicked: projectUpload(true)
           }
@@ -398,7 +401,7 @@ Popup {
             text: qsTr('Push changes')
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            icon.source: Theme.getThemeIcon('ic_cloud_upload_24dp')
+            icon.source: Theme.getThemeVectorIcon('ic_cloud_upload_24dp')
 
             onClicked: projectUpload(false)
           }
@@ -609,19 +612,12 @@ Popup {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: revertDialog
     parent: mainWindow.contentItem
 
     property int selectedCount: 0
     property bool isDeleted: false
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
 
     title: qsTr("Revert local changes")
     Label {
@@ -629,8 +625,6 @@ Popup {
       wrapMode: Text.WordWrap
       text: qsTr("Should local changes be reverted?")
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
 
     onAccepted: {
       revertLocalChangesFromCurrentProject();
@@ -641,19 +635,12 @@ Popup {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: resetDialog
     parent: mainWindow.contentItem
 
     property int selectedCount: 0
     property bool isDeleted: false
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
 
     title: qsTr("Reset cloud project")
     Label {
@@ -661,8 +648,6 @@ Popup {
       wrapMode: Text.WordWrap
       text: qsTr("Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?")
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
 
     onAccepted: {
       resetCurrentProject();

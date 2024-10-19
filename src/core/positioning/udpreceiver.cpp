@@ -35,8 +35,14 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
   mSocket->setSocketDescriptor( sockfd, QUdpSocket::UnconnectedState );
 #endif
 
-  connect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &UdpReceiver::handleError );
+  connect( mSocket, &QUdpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
+    setSocketState( state );
+    if ( state == QAbstractSocket::SocketState::UnconnectedState && mReconnectOnDisconnect )
+    {
+      mReconnectTimer.start( 2000 );
+    }
+  } );
 
   connect( mSocket, &QUdpSocket::readyRead, this, [=]() {
     QByteArray datagram;
@@ -63,8 +69,6 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
 
 UdpReceiver::~UdpReceiver()
 {
-  disconnect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
-
   mSocket->deleteLater();
   mSocket = nullptr;
   mBuffer->deleteLater();
@@ -90,47 +94,15 @@ void UdpReceiver::handleDisconnectDevice()
   mSocket->close();
 }
 
-void UdpReceiver::setSocketState( const QAbstractSocket::SocketState socketState )
+QString UdpReceiver::socketStateString()
 {
-  if ( mSocketState == socketState )
+  const QAbstractSocket::SocketState currentState = socketState();
+  QString socketStateString = AbstractGnssReceiver::socketStateString();
+  if ( currentState == QAbstractSocket::UnconnectedState && mReconnectOnDisconnect )
   {
-    return;
+    socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
   }
-
-  switch ( socketState )
-  {
-    case QAbstractSocket::HostLookupState:
-    case QAbstractSocket::ConnectingState:
-    {
-      mSocketStateString = tr( "Connecting…" );
-      break;
-    }
-    case QAbstractSocket::ConnectedState:
-    case QAbstractSocket::BoundState:
-    {
-      mReconnectOnDisconnect = true;
-      mSocketStateString = tr( "Successfully connected" );
-      break;
-    }
-    case QAbstractSocket::UnconnectedState:
-    {
-      mSocketStateString = tr( "Disconnected" );
-      if ( mReconnectOnDisconnect )
-      {
-        mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
-        mReconnectTimer.start( 2000 );
-      }
-      break;
-    }
-    default:
-    {
-      mSocketStateString = tr( "Socket state %1" ).arg( static_cast<int>( socketState ) );
-    }
-  }
-
-  mSocketState = socketState;
-  emit socketStateChanged( mSocketState );
-  emit socketStateStringChanged( mSocketStateString );
+  return socketStateString;
 }
 
 void UdpReceiver::handleError( QAbstractSocket::SocketError error )

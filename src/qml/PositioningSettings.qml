@@ -1,6 +1,9 @@
 import QtCore
 import org.qfield
 
+/**
+ * \ingroup qml
+ */
 Settings {
   property bool positioningActivated: false
   property bool positioningCoordinateLock: false
@@ -45,4 +48,5 @@ Settings {
   property int digitizingMeasureType: 1
 
   property bool geofencingPreventDigitizingDuringAlert: false
+  property bool egenioussEnabled: false
 }

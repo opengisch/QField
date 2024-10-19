@@ -7,6 +7,9 @@ import QtCore
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: cameraItem
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
@@ -87,7 +90,7 @@ Popup {
     id: stampExpressionEvaluator
 
     mode: ExpressionEvaluator.ExpressionMode
-    expressionText: "format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\n" + qsTr("Latitude") + " %1 | " + qsTr("Longitude") + " %2 | " + qsTr("Altitude") + " %3 | " + qsTr("Speed") + " %4', coalesce(format_number(y(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(x(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(z(@gnss_coordinate), 3) || ' m', 'N/A'), if(@gnss_ground_speed != 'nan', format_number(@gnss_ground_speed, 3) || ' m/s', 'N/A')), '')"
+    expressionText: "format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\n" + qsTr("Latitude") + " %1 | " + qsTr("Longitude") + " %2 | " + qsTr("Altitude") + " %3\n" + qsTr("Speed") + " %4 | " + qsTr("Orientation") + " %5', coalesce(format_number(y(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(x(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(z(@gnss_coordinate), 3) || ' m', 'N/A'), if(@gnss_ground_speed != 'nan', format_number(@gnss_ground_speed, 3) || ' m/s', 'N/A'), if(@gnss_orientation != 'nan', format_number(@gnss_orientation, 1) || ' °', 'N/A')), '')"
 
     project: qgisProject
     positionInformation: currentPosition
@@ -364,7 +367,7 @@ Popup {
 
               round: true
               roundborder: true
-              iconSource: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.getThemeIcon("ic_check_white_48dp") : ''
+              iconSource: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.getThemeVectorIcon("ic_check_white_24dp") : ''
               bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.mainColor : cameraItem.state == "VideoCapture" ? "red" : "white"
 
               onClicked: {
@@ -502,7 +505,7 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 4
 
-      iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
+      iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
       iconColor: "white"
       bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.5)
       round: true
@@ -586,7 +589,7 @@ Popup {
 
         onClicked: {
           cameraSettings.stamping = !cameraSettings.stamping;
-          displayToast(cameraSettings.stamping ? qsTr("Details stamping enabled") : qsTr("Details tamping disabled"));
+          displayToast(cameraSettings.stamping ? qsTr("Details stamping enabled") : qsTr("Details stamping disabled"));
         }
       }
 
@@ -597,7 +600,7 @@ Popup {
         height: 40
         padding: 2
 
-        iconSource: positionSource.active ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+        iconSource: positionSource.active ? Theme.getThemeVectorIcon("ic_geotag_white_24dp") : Theme.getThemeVectorIcon("ic_geotag_missing_white_24dp")
         iconColor: cameraSettings.geoTagging ? Theme.mainColor : "white"
         bgcolor: Theme.darkGraySemiOpaque
         round: true

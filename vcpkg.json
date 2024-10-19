@@ -57,6 +57,14 @@
       "default-features": false
     },
     {
+      "name": "qtbase",
+      "default-features": false,
+      "features": [
+        "gles3"
+      ],
+      "platform": "!windows & !osx & !android"
+    },
+    {
       "name": "qtcharts",
       "features": [
         "qml"
@@ -91,10 +99,16 @@
       "host": true,
       "default-features": false
     },
+    {
+      "name": "qtwebsockets",
+      "features": [
+        "qml"
+      ]
+    },
     "qtwebview",
     {
       "name": "sentry-cocoa",
-      "platform": "ios | osx"
+      "platform": "ios"
     },
     {
       "name": "sentry-native",

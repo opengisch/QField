@@ -10,6 +10,9 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Page {
   id: form
 
@@ -453,7 +456,7 @@ Page {
           property string itemType: Type
 
           active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) || ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
-          height: active ? item.childrenRect.height : 0
+          height: status == Loader.Ready ? item.childrenRect.height : 0
           anchors {
             left: parent.left
             right: parent.right
@@ -634,7 +637,7 @@ Page {
             enabled: visible
             width: visible ? 48 : 0
 
-            iconSource: Theme.getThemeIcon("ic_dot_menu_gray_24dp")
+            iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
 
@@ -779,7 +782,7 @@ Page {
         height: 48
         clip: true
 
-        iconSource: Theme.getThemeIcon("ic_check_white_48dp")
+        iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
         opacity: model.constraintsHardValid ? 1.0 : 0.3
 
         onClicked: {
@@ -834,7 +837,7 @@ Page {
         clip: true
         visible: !setupOnly
 
-        iconSource: form.state === 'Add' ? Theme.getThemeIcon('ic_delete_forever_white_24dp') : Theme.getThemeIcon('ic_close_white_24dp')
+        iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
 
         onClicked: {
           Qt.inputMethod.hide();
@@ -847,27 +850,16 @@ Page {
       }
     }
   }
-
-  Dialog {
+  QfDialog {
     id: cancelDialog
     parent: mainWindow.contentItem
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
-
     title: qsTr("Cancel editing")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
       text: form.state === 'Add' ? qsTr("You are about to dismiss the new feature, proceed?") : qsTr("You are about to leave editing state, any changes will be lost. Proceed?")
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       form.cancel();
     }

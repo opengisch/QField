@@ -31,6 +31,25 @@
     </message>
 </context>
 <context>
+    <name>AbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Spajanje...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Uspješno spojeno</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odspojeno</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stanje priključka %1</translation>
+    </message>
+</context>
+<context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
@@ -157,6 +176,13 @@
     </message>
 </context>
 <context>
+    <name>Binary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -260,19 +286,19 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Spajanje...</translation>
+        <translation type="vanished">Spajanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno spojeno</translation>
+        <translation type="vanished">Uspješno spojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odspojeno</translation>
+        <translation type="vanished">Odspojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje priključka %1</translation>
+        <translation type="vanished">Stanje priključka %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -587,6 +613,49 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <message>
         <source>Item Menu</source>
         <translation>Meni sa stavkama</translation>
+    </message>
+</context>
+<context>
+    <name>EgenioussReceiver</name>
+    <message>
+        <source>Successfully connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Ne mogu pronaći udaljeni poslužitelj</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz priključka</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Konekcija je odbijena od udaljenog poslužitelja</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1922,6 +1991,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Serial port (NMEA)</source>
         <translation>Serijski port (NMEA)</translation>
     </message>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -2131,10 +2204,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Details tamping disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Latitude</source>
         <translation type="unfinished"/>
     </message>
@@ -2149,6 +2218,14 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Speed</source>
         <translation>Brzina</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2918,6 +2995,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3721,19 +3802,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Spajanje...</translation>
+        <translation type="vanished">Spajanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno spojeno</translation>
+        <translation type="vanished">Uspješno spojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odspojeno</translation>
+        <translation type="vanished">Odspojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje priključka %1</translation>
+        <translation type="vanished">Stanje priključka %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3749,11 +3830,15 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP greška prijamnika (%1)</translation>
+        <translation type="vanished">UDP greška prijamnika (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
         <translation>Konekcija je odbijena od udaljenog poslužitelja</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4090,19 +4175,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Spajanje...</translation>
+        <translation type="vanished">Spajanje...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspješno spojeno</translation>
+        <translation type="vanished">Uspješno spojeno</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Odspojeno</translation>
+        <translation type="vanished">Odspojeno</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stanje priključka %1</translation>
+        <translation type="vanished">Stanje priključka %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -4185,7 +4270,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation>Odlično! Voljeli bi da kliknete na donje dugme i u ostavite komentar u trgovini.</translation>
+        <translation type="vanished">Odlično! Voljeli bi da kliknete na donje dugme i u ostavite komentar u trgovini.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -4274,6 +4359,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>Dobrodošli u QField. Prvi puta koristite aplikaciju? Probajte primjere projekata koji su popisani ispod.</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -64,6 +64,14 @@ class QgsPrintLayout;
 #define SUPPORTED_VECTOR_EXTENSIONS QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "gml" ), QStringLiteral( "mif" ), QStringLiteral( "fgb" ), QStringLiteral( "db" ), QStringLiteral( "sqlite" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ) } )
 #define SUPPORTED_RASTER_EXTENSIONS QStringList( { QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ) } )
 
+/**
+ * \defgroup core
+ * \brief QField C++ classes
+ */
+
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT
@@ -187,7 +195,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      * Emitted when a project file is being loaded
      *
      * @param filename The filename of the project that is being loaded
-     * @param projectname The project name that is being loaded
+     * @param name The project name that is being loaded
      */
     void loadProjectTriggered( const QString &filename, const QString &name );
 

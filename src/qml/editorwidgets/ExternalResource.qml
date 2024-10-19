@@ -229,7 +229,7 @@ EditorWidgetBase {
       horizontalAlignment: Image.AlignHCenter
       verticalAlignment: Image.AlignVCenter
 
-      source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+      source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
       cache: false
 
       Image {
@@ -243,7 +243,7 @@ EditorWidgetBase {
         fillMode: Image.PreserveAspectFit
         width: 24
         height: 24
-        source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+        source: hasGeoTag ? Theme.getThemeVectorIcon("ic_geotag_white_24dp") : Theme.getThemeVectorIcon("ic_geotag_missing_white_24dp")
         sourceSize.width: 24 * Screen.devicePixelRatio
         sourceSize.height: 24 * Screen.devicePixelRatio
       }
@@ -501,7 +501,7 @@ EditorWidgetBase {
     anchors.right: parent.right
     anchors.top: parent.top
 
-    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_file_black_24dp")
     iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
@@ -692,89 +692,93 @@ EditorWidgetBase {
     hasMenu = true;
   }
 
-  MenuItem {
-    id: capturePhotoMenuItem
-    text: qsTr('Take a photo')
+  Item {
+    visible: false
 
-    font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+    MenuItem {
+      id: capturePhotoMenuItem
+      text: qsTr('Take a photo')
 
-    onTriggered: capturePhoto()
-  }
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
 
-  MenuItem {
-    id: captureVideoMenuItem
-    text: qsTr('Take a video')
+      onTriggered: capturePhoto()
+    }
 
-    font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+    MenuItem {
+      id: captureVideoMenuItem
+      text: qsTr('Take a video')
 
-    onTriggered: captureVideo()
-  }
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
 
-  MenuItem {
-    id: captureAudioMenuItem
-    text: qsTr('Record an audio clip')
+      onTriggered: captureVideo()
+    }
 
-    font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+    MenuItem {
+      id: captureAudioMenuItem
+      text: qsTr('Record an audio clip')
 
-    onTriggered: captureAudio()
-  }
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
 
-  MenuSeparator {
-    id: separatorGalleryItem
-    width: parent.width
-  }
+      onTriggered: captureAudio()
+    }
 
-  MenuItem {
-    id: attachGalleryMenuItem
-    text: qsTr('Attach a gallery item')
+    MenuSeparator {
+      id: separatorGalleryItem
+      width: parent.width
+    }
 
-    font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+    MenuItem {
+      id: attachGalleryMenuItem
+      text: qsTr('Attach a gallery item')
 
-    onTriggered: attachGallery()
-  }
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
 
-  MenuItem {
-    id: attachFileMenuItem
-    text: qsTr('Attach a file')
+      onTriggered: attachGallery()
+    }
 
-    font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon("ic_file_black_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+    MenuItem {
+      id: attachFileMenuItem
+      text: qsTr('Attach a file')
 
-    onTriggered: attachFile()
-  }
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_file_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
 
-  MenuSeparator {
-    id: separatorDrawingItem
-    width: parent.width
-  }
+      onTriggered: attachFile()
+    }
 
-  MenuItem {
-    id: attachDrawingMenuItem
-    text: qsTr('Draw a sketch')
+    MenuSeparator {
+      id: separatorDrawingItem
+      width: parent.width
+    }
 
-    font: Theme.defaultFont
-    icon.source: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
-    height: 48
-    leftPadding: Theme.menuItemLeftPadding
+    MenuItem {
+      id: attachDrawingMenuItem
+      text: qsTr('Draw a sketch')
 
-    onTriggered: {
-      sketcherConnection.enabled = true;
-      sketcher.clear();
-      sketcher.open();
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        sketcherConnection.enabled = true;
+        sketcher.clear();
+        sketcher.open();
+      }
     }
   }
 }

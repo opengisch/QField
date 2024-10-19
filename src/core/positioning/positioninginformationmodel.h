@@ -1,10 +1,14 @@
-#pragma once
+#ifndef POSITIONINGINFORMATIONMODEL_H
+#define POSITIONINGINFORMATIONMODEL_H
 
 #include "positioning.h"
 
 #include <QObject>
 #include <QStandardItemModel>
 
+/**
+ * \ingroup core
+ */
 class PositioningInformationModel : public QStandardItemModel
 {
     Q_OBJECT
@@ -66,7 +70,7 @@ class PositioningInformationModel : public QStandardItemModel
 
     /**
      * @brief Sets the antenna height
-     * @param newAntennaHeight The new antenna height
+     * @param antennaHeight The new antenna height
      */
     void setAntennaHeight( double antennaHeight );
 
@@ -77,7 +81,7 @@ class PositioningInformationModel : public QStandardItemModel
 
     /**
      * @brief Sets the distance units
-     * @param newDistanceUnits The new distance units
+     * @param distanceUnits The new distance units
      */
     void setDistanceUnits( Qgis::DistanceUnit distanceUnits );
 
@@ -88,7 +92,7 @@ class PositioningInformationModel : public QStandardItemModel
 
     /**
      * @brief Sets the coordinate display CRS
-     * @param newCoordinateDisplayCrs The new CRS
+     * @param coordinateDisplayCrs The new CRS
      */
     void setCoordinateDisplayCrs( const QgsCoordinateReferenceSystem &coordinateDisplayCrs );
 
@@ -118,3 +122,5 @@ class PositioningInformationModel : public QStandardItemModel
     QgsCoordinateReferenceSystem mCoordinateDisplayCrs;
     QMetaObject::Connection positioningSourceConnection;
 };
+
+#endif // POSITIONINGINFORMATIONMODEL_H

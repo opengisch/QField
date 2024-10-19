@@ -4,6 +4,9 @@ import QtQuick.Layouts
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 ColumnLayout {
   function reset() {
     Qt.inputMethod.hide();
@@ -174,7 +177,7 @@ ColumnLayout {
               anchors.verticalCenter: parent.verticalCenter
               visible: canDelete
 
-              iconSource: Theme.getThemeIcon('ic_delete_forever_white_24dp')
+              iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
               iconColor: Theme.mainTextColor
               bgcolor: "transparent"
 

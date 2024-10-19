@@ -20,6 +20,9 @@
 #include <QObject>
 #include <QPermission>
 
+/**
+ * \ingroup core
+ */
 class CameraPermission : public QObject
 {
     Q_OBJECT
@@ -50,6 +53,9 @@ class CameraPermission : public QObject
     bool mStatusChecked = false;
 };
 
+/**
+ * \ingroup core
+ */
 class MicrophonePermission : public QObject
 {
     Q_OBJECT

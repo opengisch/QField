@@ -5,6 +5,9 @@ import QtQuick.Window
 import QtQuick.Controls.Material
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: guide
   required property var baseRoot
@@ -302,7 +305,7 @@ Popup {
       width: 30
       height: width
       icon.color: Theme.mainTextColor
-      icon.source: Theme.getThemeIcon('ic_close_black_24dp')
+      icon.source: Theme.getThemeVectorIcon('ic_close_white_24dp')
       padding: 0
       bgcolor: "transparent"
 
@@ -319,16 +322,11 @@ Popup {
 
     x: {
       if (internalObject.target[0]) {
-        return internalObject.pos.x + internalObject.target[0].width / 4;
+        return internalObject.pos.x + internalObject.target[0].width / 2 + (hintPanel.dir ? -8 : 8);
       }
       return 0;
     }
-    y: {
-      if (internalObject.target[0]) {
-        return internalObject.pos.y + (hintPanel.dir ? -(height + 4) : internalObject.target[0].height + 4);
-      }
-      return 0;
-    }
+    y: hintPanel.dir ? hintPanel.y + hintPanel.height : hintPanel.y
 
     ShapePath {
       fillColor: Theme.mainBackgroundColor

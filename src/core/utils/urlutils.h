@@ -22,7 +22,9 @@
 
 #include <QObject>
 
-
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT UrlUtils : public QObject
 {
     Q_OBJECT
