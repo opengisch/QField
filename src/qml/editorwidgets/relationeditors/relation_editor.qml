@@ -289,7 +289,7 @@ EditorWidgetBase {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: deleteDialog
     parent: mainWindow.contentItem
 
@@ -301,22 +301,13 @@ EditorWidgetBase {
     property string nmReferencedLayerName: relationEditorModel.nmRelation.referencedLayer ? relationEditorModel.nmRelation.referencedLayer.name : ''
     property string nmReferencingLayerName
 
-    visible: false
-    modal: true
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
-
-    font: Theme.defaultFont
-
     title: nmRelationId ? qsTr('Unlink feature %1 (%2) of %3').arg(nmReferencedFeatureDisplayMessage).arg(nmReferencedFeatureId).arg(nmReferencedLayerName) : qsTr('Delete feature %1 (%2) on %3').arg(referencingFeatureDisplayMessage).arg(referencingFeatureId).arg(referencingLayerName)
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
       text: nmRelationId ? qsTr('Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg(deleteDialog.nmReferencedFeatureDisplayMessage).arg(deleteDialog.nmReferencedFeatureId).arg(deleteDialog.nmReferencedLayerName).arg(deleteDialog.referencingLayerName) : qsTr('Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg(deleteDialog.referencingFeatureDisplayMessage).arg(deleteDialog.referencingFeatureId).arg(deleteDialog.referencingLayerName)
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       if (!referencingFeatureListView.model.deleteFeature(referencingFeatureId)) {
         displayToast(qsTr("Failed to delete referencing feature"), 'error');

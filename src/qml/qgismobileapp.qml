@@ -4003,17 +4003,10 @@ ApplicationWindow {
     enabled: false
   }
 
-  Dialog {
+  QfDialog {
     id: pluginPermissionDialog
     parent: mainWindow.contentItem
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
 
     property alias permanent: permanentCheckBox.checked
 
@@ -4042,7 +4035,6 @@ ApplicationWindow {
       pluginManager.denyRequestedPluginPermission(permanent);
       permanent = false;
     }
-
     standardButtons: Dialog.Yes | Dialog.No
   }
 

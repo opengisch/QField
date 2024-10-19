@@ -247,25 +247,15 @@ QfVisibilityFadingRow {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: cancelDialog
     parent: mainWindow.contentItem
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
-
     title: qsTr("Cancel digitizing")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
       text: qsTr("Should the digitized geometry be discarded?")
     }
-
-    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       digitizingLogger.clearCoordinates();
       rubberbandModel.reset();

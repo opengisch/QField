@@ -75,17 +75,9 @@ QfVisibilityFadingRow {
     }
   }
 
-  Dialog {
+  QfDialog {
     id: addPolygonDialog
     parent: mainWindow.contentItem
-
-    visible: false
-    modal: true
-    font: Theme.defaultFont
-
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
-
     title: qsTr("Fill ring")
     Label {
       width: parent.width
