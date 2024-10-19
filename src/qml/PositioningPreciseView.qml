@@ -5,6 +5,9 @@ import QtQuick.Shapes
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Item {
   id: positioningPreciseView
 

@@ -68,6 +68,10 @@ class QgsPrintLayout;
  * \defgroup core
  * \brief QField C++ classes
  */
+
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT

@@ -5,6 +5,9 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: popup
 

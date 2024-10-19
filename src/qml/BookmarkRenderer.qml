@@ -6,7 +6,6 @@ import Theme
 
 /**
  * \ingroup qml
- * \brief Bookmark renderer item
  */
 Item {
   id: bookmarkRenderer

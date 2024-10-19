@@ -5,6 +5,9 @@ import QtCore
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: sketcher
 
