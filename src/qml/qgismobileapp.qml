@@ -4054,11 +4054,11 @@ ApplicationWindow {
     x: (mainWindow.width - width) / 2
     y: (mainWindow.height - height) / 2
 
-    title: qsTr("Cancel algorithm")
+    title: qsTr("Cancel algorithm operation")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr("You are about to dismiss algorithm, proceed?")
+      text: qsTr("You are about to dismiss the ongoing algorithm operation, proceed?")
     }
 
     standardButtons: Dialog.Ok | Dialog.Cancel
