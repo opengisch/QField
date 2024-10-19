@@ -51,9 +51,10 @@ void SerialPortReceiver::handleConnectDevice()
   }
   qInfo() << "SerialPortReceiver: Initiating connection to port name: " << mAddress;
 
-  mSerialPort->setPortName( mAddress );
-  mSerialPort->setBaudRate( QSerialPort::Baud9600 );
-  if ( mSerialPort->open( QIODevice::ReadOnly ) )
+
+  mSocket->setPortName( mAddress );
+  mSocket->setBaudRate( QSerialPort::Baud115200 );
+  if ( mSocket->open( QIODevice::ReadOnly ) )
   {
     setSocketState( QAbstractSocket::ConnectedState );
   }
