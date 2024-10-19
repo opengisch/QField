@@ -444,6 +444,8 @@ Item {
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
     onWheel: event => {
+      if (gnssButton.followActive)
+        gnssButton.followActiveSkipExtentChanged = true;
       if (event.angleDelta.y > 0) {
         zoomIn(point.position);
       } else {
