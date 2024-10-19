@@ -5,6 +5,9 @@ import QtQml.Models
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Page {
   id: qfieldCloudScreen
 

@@ -23,6 +23,9 @@
 #include <QAbstractItemModel>
 #include <qgsfeaturerequest.h>
 
+/**
+ * \ingroup core
+ */
 class MultiFeatureListModelBase : public QAbstractItemModel
 {
     Q_OBJECT

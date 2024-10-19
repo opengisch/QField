@@ -4,6 +4,9 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 QfVisibilityFadingRow {
   id: digitizingToolbar
 

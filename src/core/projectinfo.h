@@ -33,7 +33,8 @@ class FlatLayerTreeModel;
 /**
  * This class stores current projection information such as
  * extent and map theme in order for those to be saved and
- * afterwards restored when the project is re-opened
+ * afterwards restored when the project is re-opened.
+ * \ingroup core
  */
 class ProjectInfo : public QObject
 {

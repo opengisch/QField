@@ -7,6 +7,9 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 ListView {
   id: legend
 

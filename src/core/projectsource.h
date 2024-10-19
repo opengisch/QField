@@ -31,6 +31,7 @@
  *
  * The default implementation does nothing. You probably
  * want to have a look at the AndroidProjectSource subclass.
+ * \ingroup core
  */
 class ProjectSource : public QObject
 {

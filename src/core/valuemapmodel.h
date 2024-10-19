@@ -26,6 +26,7 @@
 
 /**
  * A model that manages the key/value pairs for a ValueMap widget.
+ * \ingroup core
  */
 class ValueMapModel : public QSortFilterProxyModel
 {

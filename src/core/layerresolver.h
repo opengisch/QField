@@ -26,6 +26,7 @@ class QgsProject;
 
 /**
  * Helper class to resolve layers by id, name, source and provider.
+ * \ingroup core
  */
 class LayerResolver : public QObject
 {

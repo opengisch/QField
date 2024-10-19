@@ -20,6 +20,9 @@
 
 #include <QSettings>
 
+/**
+ * \ingroup core
+ */
 class Settings : public QSettings
 {
     Q_OBJECT

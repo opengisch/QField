@@ -7,6 +7,9 @@ import QtCore
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: cameraItem
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms

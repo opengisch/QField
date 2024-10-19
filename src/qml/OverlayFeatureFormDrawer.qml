@@ -4,6 +4,9 @@ import QtQuick.Controls.Material
 import QtQuick.Window
 import org.qfield
 
+/**
+ * \ingroup qml
+ */
 Drawer {
   id: overlayFeatureFormDrawer
 

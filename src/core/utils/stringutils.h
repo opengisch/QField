@@ -25,6 +25,9 @@
 #include <qgscoordinatereferencesystem.h>
 #include <qgspoint.h>
 
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT StringUtils : public QObject
 {
     Q_OBJECT

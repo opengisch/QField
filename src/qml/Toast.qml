@@ -2,6 +2,9 @@ import QtQuick
 import QtQuick.Controls
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: toast
 

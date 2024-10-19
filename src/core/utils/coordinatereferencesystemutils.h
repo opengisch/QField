@@ -22,6 +22,9 @@
 #include <qgscoordinatereferencesystem.h>
 #include <qgscoordinatetransformcontext.h>
 
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT CoordinateReferenceSystemUtils : public QObject
 {
     Q_OBJECT

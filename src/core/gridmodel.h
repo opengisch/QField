@@ -21,6 +21,7 @@
 
 /**
  * Holds details for a given grid annotation.
+ * \ingroup core
  */
 class QFIELD_CORE_EXPORT GridAnnotation
 {
@@ -53,6 +54,7 @@ class QFIELD_CORE_EXPORT GridAnnotation
 
 /**
  * This model manages lists of lines, markers, and annotations representing a grid.
+ * \ingroup core
  */
 class QFIELD_CORE_EXPORT GridModel : public QObject
 {

@@ -19,6 +19,9 @@ import QtQuick.Controls
 import QtQml
 import org.qgis
 
+/**
+ * \ingroup qml
+ */
 Item {
   id: mapArea
   property alias mapSettings: mapCanvasWrapper.mapSettings

@@ -6,6 +6,9 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Drawer {
   id: dashBoard
   objectName: "dashBoard"

@@ -39,6 +39,9 @@
 #define NMEA_DEF_LAT ( 5001.2621 )
 #define NMEA_DEF_LON ( 3613.0595 )
 
+/**
+ * \ingroup core
+ */
 class GnssPositionInformation
 {
     Q_GADGET

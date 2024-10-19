@@ -26,6 +26,9 @@ class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
 
+/**
+ * \ingroup core
+ */
 class FeatureIterator
 {
     Q_GADGET
@@ -70,6 +73,9 @@ class FeatureIterator
     bool mHasNextChecked = false;
 };
 
+/**
+ * \ingroup core
+ */
 class LayerUtils : public QObject
 {
     Q_OBJECT

@@ -30,6 +30,9 @@
 
 #include <memory>
 
+/**
+ * \ingroup core
+ */
 class FeatureModel : public QAbstractListModel
 {
     Q_OBJECT

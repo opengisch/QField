@@ -5,6 +5,9 @@ import QtQuick.Window
 import QtQuick.Controls.Material
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: guide
   required property var baseRoot

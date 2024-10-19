@@ -24,6 +24,9 @@
 #include <qgsbookmarkmodel.h>
 #include <qobjectuniqueptr.h>
 
+/**
+ * \ingroup core
+ */
 class BookmarkModel : public QSortFilterProxyModel
 {
     Q_OBJECT

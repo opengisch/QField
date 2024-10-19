@@ -20,6 +20,9 @@
 #include <QObject>
 #include <qgsrelation.h>
 
+/**
+ * \ingroup core
+ */
 class RelationUtils : public QObject
 {
     Q_OBJECT

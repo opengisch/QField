@@ -23,6 +23,7 @@
 /**
  * This model will connect to the message log and publish any
  * messages received from there.
+ * \ingroup core
  */
 class MessageLogModel : public QAbstractListModel
 {

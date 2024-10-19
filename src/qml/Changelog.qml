@@ -4,6 +4,9 @@ import QtQuick.Layouts
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: changelogPopup
 

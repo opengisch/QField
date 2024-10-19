@@ -27,6 +27,7 @@
  * The NearFieldReader class allows for the scanning of near-field targets.
  * When text strings are present on targets, the strings will be automatically
  * read and a signal emitted with the string values.
+ * \ingroup core
  */
 class NearFieldReader : public QObject
 {

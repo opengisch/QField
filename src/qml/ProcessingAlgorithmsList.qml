@@ -6,6 +6,9 @@ import QtQuick.Controls.Material.impl
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Item {
   id: processingAlgorithmsList
 

@@ -31,6 +31,9 @@ class QgsVectorLayer;
 class FeatureGatherer;
 class OrderedRelationModel;
 
+/**
+ * \ingroup core
+ */
 class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
 {
     Q_OBJECT

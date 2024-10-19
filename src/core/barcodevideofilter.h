@@ -23,6 +23,9 @@
 #include <QObject>
 #include <QThread>
 
+/**
+ * \ingroup core
+ */
 class BarcodeDecoderThread : public QThread
 {
   public:

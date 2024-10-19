@@ -21,6 +21,9 @@
 #include <QMediaRecorder>
 #include <QObject>
 
+/**
+ * \ingroup core
+ */
 class AudioRecorder : public QMediaRecorder
 {
     Q_OBJECT

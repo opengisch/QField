@@ -4,6 +4,9 @@ import QtQuick.Layouts
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Page {
   signal enter(string usr, string pw)
   signal cancel

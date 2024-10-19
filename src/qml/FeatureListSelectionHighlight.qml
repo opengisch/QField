@@ -2,6 +2,9 @@ import QtQuick
 import org.qgis
 import org.qfield
 
+/**
+ * \ingroup qml
+ */
 Repeater {
   id: featureListSelectionHighlight
   property FeatureListModelSelection selectionModel

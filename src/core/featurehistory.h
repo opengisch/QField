@@ -9,7 +9,9 @@
 
 typedef QPair<QgsFeature, QgsFeature> OldNewFeaturePair;
 
-
+/**
+ * \ingroup core
+ */
 class FeatureHistory : public QObject
 {
     Q_OBJECT
@@ -34,7 +36,8 @@ class FeatureHistory : public QObject
     /**
      * Construct a new Feature history object
      *
-     * @param project
+     * @param project the current project instance
+     * @param trackingModel the tracking model
      */
     explicit FeatureHistory( const QgsProject *project, TrackingModel *trackingModel );
 

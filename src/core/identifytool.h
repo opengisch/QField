@@ -27,6 +27,9 @@ class QgsQuickMapSettings;
 class QgsVectorLayer;
 class MultiFeatureListModel;
 
+/**
+ * \ingroup core
+ */
 class IdentifyTool : public QObject
 {
     Q_OBJECT

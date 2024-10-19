@@ -1,6 +1,9 @@
 import QtCore
 import org.qfield
 
+/**
+ * \ingroup qml
+ */
 Settings {
   property bool positioningActivated: false
   property bool positioningCoordinateLock: false

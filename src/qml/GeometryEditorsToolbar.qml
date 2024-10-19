@@ -5,23 +5,24 @@ import org.qfield
 import Theme
 
 /**
-This contains several geometry editing tools
-A tool must subclass QfVisibilityFadingRow
-And contains following functions:
-  * function init(featureModel, mapSettings, editorRubberbandModel)
-  * function cancel()
-The following signal:
-  * signal finished()
-It can optionally implement properties:
-  * blocking (bool) which prevents from switching tools
-  * vertexRubberbandVisible (bool) to show the vertex rubberband (false by default)
-It can optionally implement properties which will be bind:
-  * screenHovering determines if a pen is currently hovering the screen
-It can optionally implement the functions:
-  * canvasClicked(point)
-  * canvasLongPressed(point)
-  These functions must return true if they catch the event
-*/
+ * This contains several geometry editing tools
+ * A tool must subclass QfVisibilityFadingRow and contains following functions:
+ *  - function init(featureModel, mapSettings, editorRubberbandModel)
+ *  - function cancel()
+ * The following signal:
+ *  - signal finished()
+ * It can optionally implement properties:
+ *  - blocking (bool) which prevents from switching tools
+ *  - vertexRubberbandVisible (bool) to show the vertex rubberband (false by default)
+ * It can optionally implement properties which will be bind:
+ *  - screenHovering determines if a pen is currently hovering the screen
+ * It can optionally implement the functions:
+ *  - canvasClicked(point)
+ *  - canvasLongPressed(point)
+ * These functions must return true if they catch the event.
+ *
+ * \ingroup qml
+ */
 QfVisibilityFadingRow {
   id: geometryEditorsToolbar
 

@@ -27,6 +27,14 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \defgroup qml
+ * \brief QField QML items
+ */
+
+/**
+ * \ingroup qml
+ */
 ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'

@@ -3,6 +3,9 @@ import org.qgis
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Repeater {
   id: bookmarkHighlight
   property MapSettings mapSettings

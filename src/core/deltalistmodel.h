@@ -20,7 +20,9 @@
 #include <QJsonDocument>
 #include <QUuid>
 
-
+/**
+ * \ingroup core
+ */
 class DeltaListModel : public QAbstractListModel
 {
     Q_OBJECT

@@ -32,6 +32,7 @@ typedef QMap<QgsFeatureId, QgsFeature> QgsChangedFeatures;
 
 /**
  * Monitors all layers for changes and writes those changes to a delta file
+ * \ingroup core
  */
 class LayerObserver : public QObject
 {
@@ -92,7 +93,7 @@ class LayerObserver : public QObject
     /**
      * Writes the "create" deltas
      *
-     * @param layerId layer ID
+     * @param localLayerId layer ID
      * @param addedFeatures new features
      */
     void onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures );
@@ -101,7 +102,7 @@ class LayerObserver : public QObject
     /**
      * Writes the "delete" deltas
      *
-     * @param layerId layer ID
+     * @param localLayerId layer ID
      * @param deletedFeatureIds old feature IDs
      */
     void onCommittedFeaturesRemoved( const QString &localLayerId, const QgsFeatureIds &deletedFeatureIds );
@@ -110,7 +111,7 @@ class LayerObserver : public QObject
     /**
      * Writes the "patch" deltas
      *
-     * @param layerId
+     * @param localLayerId layer ID
      * @param changedAttributesValues
      */
     void onCommittedAttributeValuesChanges( const QString &localLayerId, const QgsChangedAttributesMap &changedAttributesValues );
@@ -119,7 +120,7 @@ class LayerObserver : public QObject
     /**
      * Writes the "patch" deltas.
      *
-     * @param layerId
+     * @param localLayerId layer ID
      * @param changedGeometries
      */
     void onCommittedGeometriesChanges( const QString &localLayerId, const QgsGeometryMap &changedGeometries );

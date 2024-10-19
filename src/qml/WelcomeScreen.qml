@@ -7,6 +7,9 @@ import QtCore
 import org.qfield
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Page {
   id: welcomeScreen
 

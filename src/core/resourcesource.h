@@ -21,6 +21,7 @@
 /**
  * A resource source object will be created when a new resource is requested from the system.
  * It should be subclassed and filled with platform specific code.
+ * \ingroup core
  */
 class ResourceSource : public QObject
 {

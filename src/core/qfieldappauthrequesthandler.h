@@ -32,7 +32,7 @@
  * successful login, the credentials are stored in QgsCredentials and removed from the list. When the list
  * is empty (or contains only canceled realms), the project is reloaded. This time the logins are contained
  * in QgsCredentials and no dialog needs to pop up.
- *
+ * \ingroup core
  */
 class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, public QgsNetworkAuthenticationHandler
 {
