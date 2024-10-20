@@ -586,6 +586,11 @@ ApplicationWindow {
         }
       }
 
+      onAboutToZoom: {
+        if (gnssButton.followActive)
+          gnssButton.followActiveSkipExtentChanged = true;
+      }
+
       GridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
