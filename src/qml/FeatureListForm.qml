@@ -35,6 +35,7 @@ Rectangle {
   property MapSettings mapSettings
   property DigitizingToolbar digitizingToolbar
   property ConfirmationToolbar moveFeaturesToolbar
+  property ConfirmationToolbar rotateFeaturesToolbar
   property CodeReader codeReader
 
   property color selectionColor
@@ -48,7 +49,7 @@ Rectangle {
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: parent.width < parent.height || parent.width < 300
 
-  property bool canvasOperationRequested: digitizingToolbar.geometryRequested || moveFeaturesToolbar.moveFeaturesRequested
+  property bool canvasOperationRequested: digitizingToolbar.geometryRequested || moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
 
   signal showMessage(string message)
   signal editGeometry
@@ -568,6 +569,15 @@ Rectangle {
       }
     }
 
+    onRotateClicked: {
+      if (featureFormList.selection.focusedItem !== -1) {
+        featureFormList.state = "FeatureList";
+        featureFormList.multiSelection = true;
+        featureFormList.selection.model.toggleSelectedItem(featureFormList.selection.focusedItem);
+        rotateFeaturesToolbar.initializeRotateFeatures();
+      }
+    }
+
     onTransferClicked: {
       transferDialog.show();
     }
@@ -648,6 +658,14 @@ Rectangle {
         translateX -= moveFeaturesTransformer.projectedPosition.x;
         translateY -= moveFeaturesTransformer.projectedPosition.y;
         featureFormList.model.moveSelection(translateX, translateY);
+      }
+    }
+
+    Connections {
+      target: rotateFeaturesToolbar
+
+      function onRotateConfirmed() {
+        featureFormList.model.rotateSelection(rotateFeaturesToolbar.angle);
       }
     }
 
