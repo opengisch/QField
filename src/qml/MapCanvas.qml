@@ -51,6 +51,9 @@ Item {
   //! Emitted when a release happens after a long press
   signal longPressReleased(var type)
 
+  //! Emitted when a zoom action is about to occur, allowing for pre-zoom adjustments
+  signal aboutToZoom
+
   /**
    * Freezes the map canvas refreshes.
    *
@@ -441,8 +444,6 @@ Item {
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
     onWheel: event => {
-      if (gnssButton.followActive)
-        gnssButton.followActiveSkipExtentChanged = true;
       if (event.angleDelta.y > 0) {
         zoomIn(point.position);
       } else {
