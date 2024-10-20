@@ -354,6 +354,7 @@ target_link_libraries(
          Qt::WebView
          Qt::Multimedia
          Qt::WebSockets
+         Qt::Quick3D
          QGIS::Core
          QGIS::Analysis
          ZXing::ZXing
