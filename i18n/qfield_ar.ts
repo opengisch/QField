@@ -5030,6 +5030,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Cancel algorithm operation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

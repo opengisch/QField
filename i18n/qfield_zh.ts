@@ -5032,6 +5032,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
         <translation>除了捏合手势外，这些按钮还可以帮助您快速放大和缩小。</translation>
     </message>
+    <message>
+        <source>Cancel algorithm operation</source>
+        <translation>取消算法运算</translation>
+    </message>
+    <message>
+        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation>您将终止正在进行的算法运算，是否继续？</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

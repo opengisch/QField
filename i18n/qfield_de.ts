@@ -5031,6 +5031,14 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
         <translation>Zusätzlich zum *Finger-Zoom* helfen diese Schaltflächen schnell hinein- oder herauszuzoomen.</translation>
     </message>
+    <message>
+        <source>Cancel algorithm operation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

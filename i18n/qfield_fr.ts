@@ -5035,6 +5035,14 @@ fermer le projet et quitter l&apos;application</translation>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
         <translation>En plus du geste du pincement, ces boutons vous aident à zoomer et dézoomer.</translation>
     </message>
+    <message>
+        <source>Cancel algorithm operation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
