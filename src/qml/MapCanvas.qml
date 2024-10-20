@@ -54,6 +54,9 @@ Item {
   //! Emitted when a release happens after a long press
   signal longPressReleased(var type)
 
+  //! Emitted when a zoom action is about to occur, allowing for pre-zoom adjustments
+  signal aboutToZoom
+
   /**
    * Freezes the map canvas refreshes.
    *
