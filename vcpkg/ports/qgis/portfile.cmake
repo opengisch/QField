@@ -18,6 +18,7 @@ vcpkg_from_github(
         include-qthread.patch
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
         font_download.patch
+        meshoptimizer.patch # Unvendor meshoptimizer
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
@@ -38,6 +39,7 @@ list(APPEND QGIS_OPTIONS "-DWITH_QSPATIALITE:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_PDAL:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_DRACO:BOOL=ON")
 list(APPEND QGIS_OPTIONS "-DWITH_INTERNAL_POLY2TRI:BOOL=OFF")
+list(APPEND QGIS_OPTIONS "-DWITH_INTERNAL_MESHOPTIMIZER:BOOL=OFF")
 
 list(APPEND QGIS_OPTIONS "-DBISON_EXECUTABLE=${BISON}")
 list(APPEND QGIS_OPTIONS "-DFLEX_EXECUTABLE=${FLEX}")
