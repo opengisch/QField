@@ -14,14 +14,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+import QtCore
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Effects
 import QtQuick.Window
+import QtQuick3D.Particles3D // Not used here but added so QML registers its dependencies for plugins to use
 import QtQml
 import QtSensors
-import QtCore
 import QtWebSockets // Not used here but added so QML registers its dependencies for plugins to use
 import org.qgis
 import org.qfield
