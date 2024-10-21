@@ -30,6 +30,7 @@
     },
     "libxml2",
     "libzip",
+    "meshoptimizer",
     "proj",
     "protobuf",
     {
