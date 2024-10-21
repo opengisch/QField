@@ -13,6 +13,7 @@
         <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
         <file>DigitizingToolbar.qml</file>
+        <file>Dummy.qml</file>
         <file>ElevationProfile.qml</file>
         <file>FeatureForm.qml</file>
         <file>FeatureListForm.qml</file>
