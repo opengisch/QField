@@ -134,6 +134,8 @@ if(TRUE) # Should possibly have a "static only" check
   endif()
   find_package(poly2tri CONFIG)
   target_link_libraries(QGIS::Core INTERFACE poly2tri::poly2tri)
+  find_package(meshoptimizer CONFIG REQUIRED)
+  target_link_libraries(QGIS::Core INTERFACE meshoptimizer::meshoptimizer)
 
   pkg_check_modules(freexl REQUIRED IMPORTED_TARGET freexl)
   target_link_libraries(QGIS::Core INTERFACE PkgConfig::freexl)
