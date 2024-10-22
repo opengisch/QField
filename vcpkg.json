@@ -84,6 +84,7 @@
         "qml"
       ]
     },
+    "qtquick3d",
     {
       "name": "qtsensors",
       "features": [
