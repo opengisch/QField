@@ -1037,20 +1037,22 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
       const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
       const QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId, fileName );
-      const QString cloudChecksum = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
-      const QString localChecksum = FileUtils::fileEtag( projectFileName );
+      // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
+      // This actually is an Object Storage (S3) implementation specific ETag.
+      const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
+      const QString localEtag = FileUtils::fileEtag( projectFileName );
 
       if (
         !fileObject.value( QStringLiteral( "size" ) ).isDouble()
         || fileName.isEmpty()
-        || cloudChecksum.isEmpty() )
+        || cloudEtag.isEmpty() )
       {
         QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( projectId ) );
         emit projectDownloadFinished( projectId, tr( "Latest package data structure error." ) );
         return;
       }
 
-      if ( cloudChecksum == localChecksum )
+      if ( cloudEtag == localEtag )
         continue;
 
       project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize ) );
