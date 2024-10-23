@@ -5040,11 +5040,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj działanie algorytmu</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Zamierzasz odrzucić trwające działanie algorytmu, czy na pewno chcesz kontynuować?</translation>
     </message>
 </context>
 <context>

@@ -5036,11 +5036,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar operación de algoritmo</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Está a punto de cancelar la operación del algoritmo en curso, ¿proceder?</translation>
     </message>
 </context>
 <context>
