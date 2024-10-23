@@ -71,7 +71,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static QByteArray fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm );
 
     /**
-     * Returns an S3 ETag of a file. An empty string will be returned if it cannot be calculated.
+     * Returns an Object Storage (S3) ETag of a file. An empty string will be returned if it cannot be calculated.
      * \param fileName file name to get checksum of
      * \param partSize maximum size used to divide the file content into parts
      * \return QString Etag value
