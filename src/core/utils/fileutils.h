@@ -61,14 +61,22 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE void addImageStamp( const QString &imagePath, const QString &text );
 
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback = nullptr, bool wipeDestFolder = true );
+
     /**
-     * Creates checksum of a file. Returns null QByteArray if cannot be calculated.
-     *
-     * @param fileName file name to get checksum of
-     * @param hashAlgorithm hash algorithm (md5, sha1, sha256 etc)
-     * @return QByteArray checksum
+     * Returns the checksum of a file. An empty QByteArray will be returned if it cannot be calculated.
+     * \param fileName file name to get checksum of
+     * \param hashAlgorithm hash algorithm (md5, sha1, sha256 etc)
+     * \return QByteArray checksum value
      */
     Q_INVOKABLE static QByteArray fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm );
+
+    /**
+     * Returns an S3 ETag of a file. An empty string will be returned if it cannot be calculated.
+     * \param fileName file name to get checksum of
+     * \param partSize maximum size used to divide the file content into parts
+     * \return QString Etag value
+     */
+    Q_INVOKABLE static QString fileEtag( const QString &fileName, int partSize = 8 * 1024 * 1024 );
 
   private:
     static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
