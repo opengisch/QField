@@ -1033,24 +1033,24 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     const QJsonArray files = payload.value( QStringLiteral( "files" ) ).toArray();
     for ( const QJsonValue &fileValue : files )
     {
-      QJsonObject fileObject = fileValue.toObject();
-      int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
-      QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
-      QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId, fileName );
-      QString cloudChecksumMd5 = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
-      QString localChecksumMd5 = FileUtils::fileChecksum( projectFileName, QCryptographicHash::Md5 ).toHex();
+      const QJsonObject fileObject = fileValue.toObject();
+      const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+      const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
+      const QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId, fileName );
+      const QString cloudChecksum = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
+      const QString localChecksum = FileUtils::fileEtag( projectFileName );
 
       if (
         !fileObject.value( QStringLiteral( "size" ) ).isDouble()
         || fileName.isEmpty()
-        || cloudChecksumMd5.isEmpty() )
+        || cloudChecksum.isEmpty() )
       {
         QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( projectId ) );
         emit projectDownloadFinished( projectId, tr( "Latest package data structure error." ) );
         return;
       }
 
-      if ( cloudChecksumMd5 == localChecksumMd5 )
+      if ( cloudChecksum == localChecksum )
         continue;
 
       project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize ) );
