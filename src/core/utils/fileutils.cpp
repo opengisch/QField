@@ -174,6 +174,38 @@ QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographi
   return QByteArray();
 }
 
+QString FileUtils::fileEtag( const QString &fileName, int partSize )
+{
+  QFile f( fileName );
+  if ( !f.open( QFile::ReadOnly ) )
+    return QString();
+
+  const qint64 fileSize = f.size();
+  QCryptographicHash hash( QCryptographicHash::Md5 );
+  if ( fileSize <= partSize )
+  {
+    if ( hash.addData( &f ) )
+    {
+      return hash.result().toHex();
+    }
+  }
+  else
+  {
+    QByteArray md5SumsData;
+    qint64 readSize = 0;
+    while ( readSize < fileSize )
+    {
+      hash.addData( f.read( partSize ) );
+      md5SumsData += hash.result();
+      hash.reset();
+      readSize += partSize;
+    }
+    hash.addData( md5SumsData );
+    return QStringLiteral( "%1-%2" ).arg( hash.result().toHex() ).arg( readSize / partSize );
+  }
+  return QString();
+}
+
 void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
 {
   if ( !QFileInfo::exists( imagePath ) )
