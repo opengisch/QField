@@ -12,7 +12,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO KDE/qca
     REF "v${VERSION}"
-    SHA512 de06173aaea32aac19a24510b5dbb4bb79681217eb1e4256de36db9f7158ad485fa450ffba5e13c12a0425866923b54f9b4d6164d0eaf659fdf40e458f5ee017
+    SHA512 956d36058db61498c492fc9b5345b45ca75a5e8214fcbf358273dfacdd5980c1394394652536d9332df05f29fc912d0781338bcca403d98de1285bb8b1216402
     PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
