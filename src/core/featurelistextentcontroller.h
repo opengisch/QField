@@ -52,6 +52,7 @@ class FeatureListExtentController : public QObject
     //! zoom to the selected features.
     //! If \a skipIfIntersects is true, no change will be applied if bounding box intersects with canvas extent
     void zoomToSelected( bool skipIfIntersects = false ) const;
+    QgsPoint getCentroidFromSelected() const;
 
   signals:
     void autoZoomChanged();

@@ -130,6 +130,11 @@ bool MultiFeatureListModel::canMoveSelection() const
   return mSourceModel->canMoveSelection();
 }
 
+bool MultiFeatureListModel::canRotateSelection() const
+{
+  return mSourceModel->canRotateSelection();
+}
+
 bool MultiFeatureListModel::canProcessSelection() const
 {
   return mSourceModel->canProcessSelection();
@@ -163,6 +168,11 @@ bool MultiFeatureListModel::duplicateSelection()
 bool MultiFeatureListModel::moveSelection( const double x, const double y )
 {
   return mSourceModel->moveSelection( x, y );
+}
+
+bool MultiFeatureListModel::rotateSelection( const double angle )
+{
+  return mSourceModel->rotateSelection( angle );
 }
 
 void MultiFeatureListModel::toggleSelectedItem( int item )
