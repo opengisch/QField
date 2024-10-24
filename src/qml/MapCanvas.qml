@@ -55,7 +55,7 @@ Item {
   signal longPressReleased(var type)
 
   //! Emitted when a zoom action is about to occur, allowing for pre-zoom adjustments
-  signal aboutToZoom
+  signal aboutToWheelZoom
 
   /**
    * Freezes the map canvas refreshes.
@@ -447,6 +447,7 @@ Item {
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
     onWheel: event => {
+      aboutToWheelZoom();
       if (event.angleDelta.y > 0) {
         zoomIn(point.position);
       } else {
