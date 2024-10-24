@@ -579,7 +579,7 @@ ApplicationWindow {
         }
       }
 
-      onAboutToZoom: {
+      onAboutToWheelZoom: {
         if (gnssButton.followActive)
           gnssButton.followActiveSkipExtentChanged = true;
       }
