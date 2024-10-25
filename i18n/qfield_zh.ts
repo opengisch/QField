@@ -901,7 +901,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation>在下面选择一个要素，属性将从该要素传传输当前打开的要素中。</translation>
+        <translation>请从下面选择要素，属性将从该要素转移到当前打开的要素中。</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
