@@ -268,12 +268,12 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
 
     case MultiFeatureListModel::DeleteFeatureRole:
       return !feature->first->readOnly()
-             && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures )
+             && ( feature->first->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures )
              && !feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 
     case MultiFeatureListModel::EditGeometryRole:
       return !feature->first->readOnly()
-             && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries )
+             && ( feature->first->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries )
              && !feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
   }
 
@@ -324,7 +324,7 @@ bool MultiFeatureListModelBase::canEditAttributesSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeAttributeValues );
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeAttributeValues );
 }
 
 bool MultiFeatureListModelBase::canMergeSelection() const
@@ -333,7 +333,7 @@ bool MultiFeatureListModelBase::canMergeSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && QgsWkbTypes::isMultiType( vlayer->wkbType() ) && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  return !vlayer->readOnly() && QgsWkbTypes::isMultiType( vlayer->wkbType() ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
 bool MultiFeatureListModelBase::canDeleteSelection() const
@@ -342,7 +342,7 @@ bool MultiFeatureListModelBase::canDeleteSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
 bool MultiFeatureListModelBase::canDuplicateSelection() const
@@ -351,7 +351,7 @@ bool MultiFeatureListModelBase::canDuplicateSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
 bool MultiFeatureListModelBase::canMoveSelection() const
@@ -360,7 +360,7 @@ bool MultiFeatureListModelBase::canMoveSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
+  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
     return false;
 
   const bool geometryLockedExpressionActive = vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
@@ -392,7 +392,7 @@ bool MultiFeatureListModelBase::canProcessSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
+  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
     return false;
 
   const bool geometryLockedExpressionActive = vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
