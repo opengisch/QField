@@ -1,60 +1,54 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e299cb1d617..ae6482b4e90 100644
+index 49b44a30810..2c54551457d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -255,6 +255,7 @@ if(WITH_CORE)
+@@ -31,6 +31,7 @@ set(SDK_PATH "" CACHE STRING "Build with VCPKG SDK")
+ if(NOT SDK_PATH STREQUAL "")
+   message(STATUS "Building with SDK -- ${SDK_PATH}")
+   set(CMAKE_TOOLCHAIN_FILE "${SDK_PATH}/scripts/buildsystems/vcpkg.cmake")
++  set(VCPKG_INSTALL_PREFIX "${SDK_PATH}/installed")
+   if(APPLE AND NOT VCPKG_TARGET_TRIPLET)
+     set(VCPKG_TARGET_TRIPLET "x64-osx-dynamic")
+   endif()
+@@ -43,7 +44,7 @@ else()
+ endif()
+ 
+ if(WITH_VCPKG)
+-  list(APPEND CMAKE_PROGRAM_PATH "${VCPKG_INSTALL_PREFIX}/${VCPKG_TARGET_TRIPLET}/")
++  list(APPEND CMAKE_PROGRAM_PATH "${VCPKG_INSTALL_PREFIX}/${VCPKG_TARGET_TRIPLET}/tools/python3/Scripts/")
+   set(PREFER_INTERNAL_LIBS FALSE)
+ else()
+   set(PREFER_INTERNAL_LIBS TRUE)
+@@ -274,8 +275,8 @@ if(WITH_CORE)
+   endif()
  
    # try to configure and build POLY2TRI support
-   set (WITH_INTERNAL_POLY2TRI TRUE CACHE BOOL "Determines whether POLY2TRI should be built from internal copy")
-+  set (WITH_INTERNAL_MESHOPTIMIZER TRUE CACHE BOOL "Determines whether MESHOPTIMIZER should be built from internal copy")
+-  set (WITH_INTERNAL_POLY2TRI PREFER_INTERNAL_LIBS CACHE BOOL "Determines whether POLY2TRI should be built from internal copy")
+-  set (WITH_INTERNAL_MESHOPTIMIZER PREFER_INTERNAL_LIBS CACHE BOOL "Determines whether MESHOPTIMIZER should be built from internal copy")
++  set (WITH_INTERNAL_POLY2TRI ${PREFER_INTERNAL_LIBS} CACHE BOOL "Determines whether POLY2TRI should be built from internal copy")
++  set (WITH_INTERNAL_MESHOPTIMIZER ${PREFER_INTERNAL_LIBS} CACHE BOOL "Determines whether MESHOPTIMIZER should be built from internal copy")
  
    # try to configure and build POSTGRESQL support
    set (WITH_POSTGRESQL TRUE CACHE BOOL "Determines whether POSTGRESQL support should be built")
+@@ -388,7 +389,7 @@ if(WITH_CORE)
+   find_package(EXPAT REQUIRED)
+   find_package(Spatialindex REQUIRED)
+   find_package(LibZip REQUIRED)
+-  set (WITH_INTERNAL_NLOHMANN_JSON PREFER_INTERNAL_LIBS CACHE BOOL "Determines whether the vendored copy of nlohmann-json should be used")
++  set (WITH_INTERNAL_NLOHMANN_JSON ${PREFER_INTERNAL_LIBS} CACHE BOOL "Determines whether the vendored copy of nlohmann-json should be used")
+   find_package(nlohmann_json REQUIRED)
+ 
+   # The following bypasses the FindSQLite3 module introduced in CMake 3.14
 diff --git a/src/core/CMakeLists.txt b/src/core/CMakeLists.txt
-index 94c0e143001..777bd4bcb21 100644
+index 763de0f4968..808540650d2 100644
 --- a/src/core/CMakeLists.txt
 +++ b/src/core/CMakeLists.txt
-@@ -19,6 +19,18 @@ if (WITH_PDF4QT)
-   SUBDIRS(${CMAKE_SOURCE_DIR}/external/PDF4QT)
+@@ -2350,7 +2350,7 @@ if(WITH_INTERNAL_MESHOPTIMIZER)
+   )
+ else()
+   find_package(meshoptimizer CONFIG REQUIRED)
+-  target_link_libraries(qgis_core PRIVATE meshoptimizer::meshoptimizer)
++  target_link_libraries(qgis_core meshoptimizer::meshoptimizer)
  endif()
  
-+if(WITH_INTERNAL_MESHOPTIMIZER)
-+  add_library(STATIC meshoptimizer::meshoptimizer 
-+    ${CMAKE_SOURCE_DIR}/external/meshOptimizer/simplifier.cpp
-+  )
-+
-+  target_include_directories(meshoptimizer::meshoptimizer
-+    ${CMAKE_SOURCE_DIR}/external/meshOptimizer
-+  )
-+else()
-+  find_package(meshoptimizer CONFIG REQUIRED)
-+endif()
-+
- set(QGIS_CORE_SRCS
-   ${CMAKE_SOURCE_DIR}/external/kdbush/include/kdbush.hpp
- 
-@@ -30,8 +42,6 @@ set(QGIS_CORE_SRCS
-   ${CMAKE_SOURCE_DIR}/external/nmea/time.c
-   ${CMAKE_SOURCE_DIR}/external/nmea/tok.c
- 
--  ${CMAKE_SOURCE_DIR}/external/meshOptimizer/simplifier.cpp
--
-   ${FLEX_QgsExpressionLexer_OUTPUTS}
-   ${BISON_QgsExpressionParser_OUTPUTS}
-   ${FLEX_QgsSqlStatementLexer_OUTPUTS}
-@@ -2375,7 +2385,6 @@ target_include_directories(qgis_core PUBLIC
-   ${CMAKE_SOURCE_DIR}/external/kdbush/include
-   ${CMAKE_SOURCE_DIR}/external/nmea
-   ${CMAKE_SOURCE_DIR}/external/rtree/include
--  ${CMAKE_SOURCE_DIR}/external/meshOptimizer
-   ${CMAKE_SOURCE_DIR}/external/tinygltf
- )
- 
-@@ -2485,6 +2494,7 @@ target_link_libraries(qgis_core
-   ${ZLIB_LIBRARIES}
-   ${EXIV2_LIBRARY}
-   PROJ::proj
-+  meshoptimizer::meshoptimizer
- )
- 
- if(BUILD_WITH_QT6)
+ # require c++17
