@@ -129,7 +129,7 @@ void DigitizingLogger::findLogsLayer()
       if ( item )
       {
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( item->layer() );
-        if ( layer && layer->geometryType() == Qgis::GeometryType::Point && layer->dataProvider() && layer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures )
+        if ( layer && layer->geometryType() == Qgis::GeometryType::Point && layer->dataProvider() && layer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures )
         {
           mLogsLayer = layer;
         }
