@@ -1,5 +1,5 @@
-set(QGIS_REF c12f44e6235e7253963ceb65e36a338e927ae499)
-set(QGIS_SHA512 1fb39ff4f40de9a08e79ae73593afa324c7bfa07be34c255599cc17fe7206c24a42573aa21bfb8ec9d422bbe645b5e62938d4549f940c57275ba98be1e5888aa)
+set(QGIS_REF final-3_40_0)
+set(QGIS_SHA512 2c7348790748b979cdda280e60649ad64de232b0894f1310f4558b19e20ba834f832e92e814cb94b2b089406c2448013def5b3cbd932b8e2892a2b7570721764)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -13,11 +13,9 @@ vcpkg_from_github(
         exiv2.patch
         bigobj.patch
         mesh.patch
-        wrongattributeerrormessage.patch
         crssync-no-install.patch
         include-qthread.patch
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
-        font_download.patch
         meshoptimizer.patch # Unvendor meshoptimizer
 )
 
