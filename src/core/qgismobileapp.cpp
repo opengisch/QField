@@ -841,11 +841,12 @@ void QgisMobileapp::readProjectFile()
   QgsRectangle extent;
 
   QStringList files;
-  if ( suffix == QStringLiteral( "zip" ) )
+  if ( suffix == QStringLiteral( "zip" ) || suffix == QStringLiteral( "7z" ) || suffix == QStringLiteral( "rar" ) )
   {
     // get list of files inside zip file
     QString tmpPath;
-    char **papszSiblingFiles = VSIReadDirRecursive( QString( "/vsizip/" + mProjectFilePath ).toLocal8Bit().constData() );
+    char **papszSiblingFiles = VSIReadDirRecursive( QStringLiteral( "/vsi%1/%2" ).arg( suffix, mProjectFilePath ).toLocal8Bit().constData() );
+    qDebug() << QStringLiteral( "/vsi%1/%2" ).arg( suffix, mProjectFilePath );
     if ( papszSiblingFiles )
     {
       for ( int i = 0; papszSiblingFiles[i]; i++ )
@@ -854,9 +855,10 @@ void QgisMobileapp::readProjectFile()
         // skip directories (files ending with /)
         if ( tmpPath.right( 1 ) != QLatin1String( "/" ) )
         {
+          qDebug() << tmpPath;
           const QFileInfo tmpFi( tmpPath );
           if ( SUPPORTED_VECTOR_EXTENSIONS.contains( tmpFi.suffix().toLower() ) || SUPPORTED_RASTER_EXTENSIONS.contains( tmpFi.suffix().toLower() ) )
-            files << QStringLiteral( "/vsizip/%1/%2" ).arg( mProjectFilePath, tmpPath );
+            files << QStringLiteral( "/vsi%1/%2/%3" ).arg( suffix, mProjectFilePath, tmpPath );
         }
       }
       CSLDestroy( papszSiblingFiles );
