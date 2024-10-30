@@ -15,7 +15,10 @@
     {
       "name": "gdal",
       "features": [
-        "archive",
+        {
+          "name": "archive",
+          "platform": "!ios"
+        },
         "poppler"
       ]
     },
