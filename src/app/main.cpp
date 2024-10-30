@@ -116,11 +116,6 @@ int main( int argc, char **argv )
     qfieldTranslatorLoaded = qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
     qtTranslatorLoaded = qtTranslator.load( QStringLiteral( "qt_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
   }
-  if ( !qfieldTranslatorLoaded || qfieldTranslator.isEmpty() )
-    ( void ) qfieldTranslator.load( QLocale(), "qfield", "_", ":/i18n/" );
-  if ( !qtTranslatorLoaded || qtTranslator.isEmpty() )
-    ( void ) qtTranslator.load( QLocale(), "qt", "_", ":/i18n/" );
-
   dummyApp->installTranslator( &qtTranslator );
   dummyApp->installTranslator( &qfieldTranslator );
 
@@ -135,6 +130,11 @@ int main( int argc, char **argv )
   delete dummyApp;
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
+
+  if ( !qfieldTranslatorLoaded || qfieldTranslator.isEmpty() )
+    ( void ) qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
+  if ( !qtTranslatorLoaded || qtTranslator.isEmpty() )
+    ( void ) qtTranslator.load( QStringLiteral( "qt_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
 
   if ( !customLanguage.isEmpty() )
   {
