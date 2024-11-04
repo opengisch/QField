@@ -32,6 +32,7 @@ VertexModel::VertexModel( QObject *parent )
   connect( this, &VertexModel::vertexCountChanged, this, &VertexModel::updateCanPreviousNextVertex );
   connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateCanPreviousNextVertex );
   connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateCanRemoveVertex );
+  connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateAngleFound );
 }
 
 void VertexModel::setMapSettings( QgsQuickMapSettings *mapSettings )
@@ -685,6 +686,31 @@ QgsPoint VertexModel::currentPoint() const
 {
   return mVertices.value( mCurrentIndex ).point;
 }
+// Function to calculate the angle between two vectors
+double VertexModel::calculateAngle( const QgsPoint &a, const QgsPoint &b, const QgsPoint &c )
+{
+  // Create vectors AB and BC
+  double AB_x = b.x() - a.x();
+  double AB_y = b.y() - a.y();
+  double BC_x = c.x() - b.x();
+  double BC_y = c.y() - b.y();
+
+  // Calculate dot product
+  double dotProduct = AB_x * BC_x + AB_y * BC_y;
+
+  // Calculate magnitudes
+  double magnitudeAB = std::sqrt( AB_x * AB_x + AB_y * AB_y );
+  double magnitudeBC = std::sqrt( BC_x * BC_x + BC_y * BC_y );
+
+  // Calculate cosine of the angle
+  double cosTheta = dotProduct / ( magnitudeAB * magnitudeBC );
+
+  // Calculate the angle in radians
+  double angle = std::acos( cosTheta );
+
+  // Convert to degrees
+  return angle * ( 180.0 / M_PI );
+}
 
 void VertexModel::setCurrentPoint( const QgsPoint &point )
 {
@@ -695,6 +721,24 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     return;
 
   Vertex &vertex = mVertices[mCurrentIndex];
+
+  // Calculate angles between edges
+
+  int startPoint = mCurrentIndex - 2;
+  if ( startPoint < 0 )
+  {
+    startPoint = vertexCount() + startPoint;
+  }
+  int endPoint = mCurrentIndex + 2;
+  if ( endPoint >= vertexCount() )
+  {
+    endPoint = endPoint - vertexCount();
+  }
+
+  double angle = calculateAngle( mVertices[startPoint].point, mVertices[mCurrentIndex].point, mVertices[endPoint].point );
+
+  qDebug() << "angle = " << angle;
+  setAngleFonud( angle > 88 && angle < 92 );
 
   if ( mMapSettings && vertex.point.distance( point ) / mMapSettings->mapSettings().mapUnitsPerPixel() < 1 )
     return;
@@ -799,6 +843,11 @@ bool VertexModel::dirty() const
   return mDirty;
 }
 
+bool VertexModel::angleFonud() const
+{
+  return mAngleFonud;
+}
+
 bool VertexModel::canRemoveVertex()
 {
   return mCanRemoveVertex;
@@ -879,6 +928,15 @@ void VertexModel::setDirty( bool dirty )
 
   mDirty = dirty;
   emit dirtyChanged();
+}
+
+void VertexModel::setAngleFonud( bool angleFonud )
+{
+  if ( mAngleFonud == angleFonud )
+    return;
+
+  mAngleFonud = angleFonud;
+  emit angleFonudChanged();
 }
 
 void VertexModel::updateCanRemoveVertex()
@@ -1031,4 +1089,12 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
   }
 
   emit editingModeChanged();
+}
+
+void VertexModel::updateAngleFound()
+{
+  if ( currentVertexIndex() == -1 )
+  {
+    setAngleFonud( false );
+  }
 }

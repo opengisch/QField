@@ -63,16 +63,23 @@ Item {
     inputCoordinate: {
       // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
       const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
-      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled) {
+      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled && geometryEditingVertexModel.angleFonud) {
+        vertexSnapToCommonAngleLines.endCoordX1 = 0;
+        vertexSnapToCommonAngleLines.endCoordY1 = 0;
+        vertexSnapToCommonAngleLines.endCoordX2 = 200;
+        vertexSnapToCommonAngleLines.endCoordY2 = 0;
+      } else if (snapToCommonAngleButton.isSnapToCommonAngleEnabled) {
         locator.commonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
         const coords = calculateSnapToAngleLineEndCoords(snappedPoint, locator.commonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000);
         snapToCommonAngleLines.endCoordX = coords.x || 0;
         snapToCommonAngleLines.endCoordY = coords.y || 0;
+        vertexSnapToCommonAngleLines.reset();
         return snapPointToCommonAngle(location, locator.rubberbandModel, locator.commonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
       } else {
         locator.commonAngleInDegrees = null;
         snapToCommonAngleLines.endCoordX = 0;
         snapToCommonAngleLines.endCoordY = 0;
+        vertexSnapToCommonAngleLines.reset();
       }
       return location;
     }
@@ -276,6 +283,55 @@ Item {
       PathLine {
         x: snapToCommonAngleLines.endCoordX
         y: snapToCommonAngleLines.endCoordY
+      }
+    }
+  }
+
+  Shape {
+    id: vertexSnapToCommonAngleLines
+
+    property double endCoordX1: 0
+    property double endCoordY1: 0
+    property double endCoordX2: 0
+    property double endCoordY2: 0
+
+    visible: (endCoordX1 + endCoordY1 + endCoordX2 + endCoordY2) > 0
+    width: parent.width
+    height: parent.height
+    anchors.centerIn: parent
+    opacity: 0.5
+
+    function reset() {
+      vertexSnapToCommonAngleLines.endCoordX1 = 0;
+      vertexSnapToCommonAngleLines.endCoordY1 = 0;
+      vertexSnapToCommonAngleLines.endCoordX2 = 0;
+      vertexSnapToCommonAngleLines.endCoordY2 = 0;
+    }
+
+    ShapePath {
+      strokeWidth: 4
+      strokeColor: "green"
+      strokeStyle: ShapePath.DashLine
+      dashPattern: [5, 3]
+      startX: snappedPoint.x
+      startY: snappedPoint.y
+
+      PathLine {
+        x: vertexSnapToCommonAngleLines.endCoordX1
+        y: vertexSnapToCommonAngleLines.endCoordY1
+      }
+    }
+    ShapePath {
+      strokeWidth: 4
+      strokeColor: "green"
+      strokeStyle: ShapePath.DashLine
+      dashPattern: [5, 3]
+      startX: snappedPoint.x
+      startY: snappedPoint.y
+
+      PathLine {
+        x: vertexSnapToCommonAngleLines.endCoordX2
+        y: vertexSnapToCommonAngleLines.endCoordY2
       }
     }
   }

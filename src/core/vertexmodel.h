@@ -49,6 +49,9 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     Q_PROPERTY( int ringCount READ ringCount NOTIFY ringCountChanged )
     //! determines if the model has changes
     Q_PROPERTY( bool dirty READ dirty NOTIFY dirtyChanged )
+
+    Q_PROPERTY( bool angleFonud READ angleFonud NOTIFY angleFonudChanged )
+
     //! determines if the model allows editing the geometry
     Q_PROPERTY( bool editingAllowed READ editingAllowed )
     //! determines if one can remove current vertex
@@ -223,6 +226,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     //! \copydoc dirty
     bool dirty() const;
+    bool angleFonud() const;
 
     //! \copydoc canRemoveVertex
     bool canRemoveVertex();
@@ -265,6 +269,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     bool canUndo();
 
+    double calculateAngle( const QgsPoint &a, const QgsPoint &b, const QgsPoint &c );
   signals:
     //! \copydoc editingMode
     void editingModeChanged();
@@ -278,6 +283,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     void ringCountChanged();
     //! \copydoc dirty
     void dirtyChanged();
+    void angleFonudChanged();
     //! \copydoc canRemoveVertex
     void canRemoveVertexChanged();
     //! \copydoc canAddVertex
@@ -307,9 +313,11 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! This will not emit the reset signals, it's up to the caller to do so
     void createCandidates();
     void setDirty( bool dirty );
+    void setAngleFonud( bool angleFonud );
     void updateCanRemoveVertex();
     void updateCanAddVertex();
     void updateCanPreviousNextVertex();
+    void updateAngleFound();
     void setGeometryType( const Qgis::GeometryType &geometryType );
 
     QList<Vertex> mVertices;
@@ -322,6 +330,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     QgsCoordinateTransform mTransform = QgsCoordinateTransform();
     bool mIsMulti = false;
     bool mDirty = false;
+    bool mAngleFonud = false;
 
     QVector<QgsPoint> mVerticesDeleted;
 
