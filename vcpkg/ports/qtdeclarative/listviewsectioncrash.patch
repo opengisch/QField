@@ -1,0 +1,14 @@
+diff --git a/src/quick/items/qquicklistview.cpp b/src/quick/items/qquicklistview.cpp
+index 54b1157881..9f757ed5ee 100644
+--- a/src/quick/items/qquicklistview.cpp
++++ b/src/quick/items/qquicklistview.cpp
+@@ -1080,7 +1080,8 @@ QQuickItem * QQuickListViewPrivate::getSectionItem(const QString &section)
+         sectionCache[i] = nullptr;
+         sectionItem->setVisible(true);
+         QQmlContext *context = QQmlEngine::contextForObject(sectionItem)->parentContext();
+-        setSectionHelper(context, sectionItem, section);
++        if (context)
++            setSectionHelper(context, sectionItem, section);
+     } else {
+         QQmlComponent* delegate = sectionCriteria->delegate();
+         const bool reuseExistingContext = delegate->isBound();
