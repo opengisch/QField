@@ -4000,6 +4000,7 @@ ApplicationWindow {
     currentPoint: coordinateLocator.currentCoordinate
     mapSettings: mapCanvas.mapSettings
     isHovering: mapCanvasMap.hovered
+    snapToCommonAngleDegrees: snapToCommonAngleButton.snapToCommonAngleDegrees
   }
 
   ScreenLocker {

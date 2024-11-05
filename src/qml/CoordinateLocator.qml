@@ -64,10 +64,24 @@ Item {
       // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
       const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
       if (snapToCommonAngleButton.isSnapToCommonAngleEnabled && geometryEditingVertexModel.angleFonud) {
-        vertexSnapToCommonAngleLines.endCoordX1 = 0;
-        vertexSnapToCommonAngleLines.endCoordY1 = 0;
-        vertexSnapToCommonAngleLines.endCoordX2 = 200;
-        vertexSnapToCommonAngleLines.endCoordY2 = 0;
+        const vertexCount = geometryEditingVertexModel.vertexCount;
+        const currentIndex = geometryEditingVertexModel.currentVertexIndex;
+        let startPoint = currentIndex - 2;
+        if (startPoint < 0) {
+          startPoint = vertexCount + startPoint;
+        }
+        let endPoint = currentIndex + 2;
+        if (endPoint >= vertexCount) {
+          endPoint = endPoint - vertexCount;
+        }
+        const start = mapSettings.coordinateToScreen(geometryEditingVertexModel.currentPoint);
+        const p1 = mapSettings.coordinateToScreen(geometryEditingVertexModel.getPoint(startPoint));
+        const p2 = mapSettings.coordinateToScreen(geometryEditingVertexModel.getPoint(endPoint));
+        const intersections = getIntersectionPoints(start, p1, p2, 1000, 1000);
+        vertexSnapToCommonAngleLines.endCoordX1 = intersections.x1 || 0;
+        vertexSnapToCommonAngleLines.endCoordY1 = intersections.y1 || 0;
+        vertexSnapToCommonAngleLines.endCoordX2 = intersections.x2 || 0;
+        vertexSnapToCommonAngleLines.endCoordY2 = intersections.y2 || 0;
       } else if (snapToCommonAngleButton.isSnapToCommonAngleEnabled) {
         locator.commonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
         const coords = calculateSnapToAngleLineEndCoords(snappedPoint, locator.commonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000);
@@ -295,7 +309,7 @@ Item {
     property double endCoordX2: 0
     property double endCoordY2: 0
 
-    visible: (endCoordX1 + endCoordY1 + endCoordX2 + endCoordY2) > 0
+    visible: (endCoordX1 + endCoordY1 + endCoordX2 + endCoordY2) != 0
     width: parent.width
     height: parent.height
     anchors.centerIn: parent
@@ -493,6 +507,19 @@ Item {
     return {
       "x": x2,
       "y": y2
+    };
+  }
+
+  function getIntersectionPoints(centeralPoint, pointB, pointC) {
+    const xDiffAB = centeralPoint.x - pointB.x;
+    const yDiffAB = centeralPoint.y - pointB.y;
+    const xDiffAC = centeralPoint.x - pointC.x;
+    const yDiffAC = centeralPoint.y - pointC.y;
+    return {
+      "x1": centeralPoint.x - (10 * xDiffAB),
+      "y1": centeralPoint.y - (10 * yDiffAB),
+      "x2": centeralPoint.x - (10 * xDiffAC),
+      "y2": centeralPoint.y - (10 * yDiffAC)
     };
   }
 }

@@ -563,6 +563,11 @@ void VertexModel::next()
   }
 }
 
+QgsPoint VertexModel::getPoint( int index )
+{
+  return mVertices[index].point;
+}
+
 void VertexModel::addVertexNearestToPosition( const QgsPoint &mapPoint )
 {
   double closestDistance = std::numeric_limits<double>::max();
@@ -709,7 +714,7 @@ double VertexModel::calculateAngle( const QgsPoint &a, const QgsPoint &b, const 
   double angle = std::acos( cosTheta );
 
   // Convert to degrees
-  return angle * ( 180.0 / M_PI );
+  return std::abs( angle * ( 180.0 / M_PI ) - 180 );
 }
 
 void VertexModel::setCurrentPoint( const QgsPoint &point )
@@ -737,8 +742,9 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
 
   double angle = calculateAngle( mVertices[startPoint].point, mVertices[mCurrentIndex].point, mVertices[endPoint].point );
 
-  qDebug() << "angle = " << angle;
-  setAngleFonud( angle > 88 && angle < 92 );
+  qDebug() << "--------- angle = " << angle;
+
+  setAngleFonud( angle > snapToCommonAngleDegrees() - 1 && angle < snapToCommonAngleDegrees() + 1 );
 
   if ( mMapSettings && vertex.point.distance( point ) / mMapSettings->mapSettings().mapUnitsPerPixel() < 1 )
     return;
@@ -1097,4 +1103,17 @@ void VertexModel::updateAngleFound()
   {
     setAngleFonud( false );
   }
+}
+
+int VertexModel::snapToCommonAngleDegrees() const
+{
+  return mSnapToCommonAngleDegrees;
+}
+
+void VertexModel::setSnapToCommonAngleDegrees( int snapToCommonAngleDegrees )
+{
+  if ( mSnapToCommonAngleDegrees == snapToCommonAngleDegrees )
+    return;
+  mSnapToCommonAngleDegrees = snapToCommonAngleDegrees;
+  emit snapToCommonAngleDegreesChanged();
 }

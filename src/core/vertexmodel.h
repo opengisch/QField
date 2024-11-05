@@ -73,6 +73,9 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
      */
     Q_PROPERTY( int currentVertexIndex READ currentVertexIndex WRITE setCurrentVertexIndex NOTIFY currentVertexIndexChanged )
 
+    Q_PROPERTY( int snapToCommonAngleDegrees READ snapToCommonAngleDegrees WRITE setSnapToCommonAngleDegrees NOTIFY snapToCommonAngleDegreesChanged )
+
+
     /**
      * The geometry in layer coordinates
      */
@@ -190,6 +193,8 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! next vertex or segment
     Q_INVOKABLE void next();
 
+    Q_INVOKABLE QgsPoint getPoint( int index );
+
     //! Selects the vertex at the given screen \a point within a given \a threshold
     Q_INVOKABLE void selectVertexAtPosition( const QPointF &point, double threshold, bool autoInsert = true );
 
@@ -251,7 +256,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     QVector<QgsPoint> verticesDeleted() const { return mVerticesDeleted; }
 
     //! Returns a list of vertices
-    QList<Vertex> vertices() const;
+    Q_INVOKABLE QList<Vertex> vertices() const;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -270,6 +275,9 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     bool canUndo();
 
     double calculateAngle( const QgsPoint &a, const QgsPoint &b, const QgsPoint &c );
+    int snapToCommonAngleDegrees() const;
+    void setSnapToCommonAngleDegrees( int snapToCommonAngleDegrees );
+
   signals:
     //! \copydoc editingMode
     void editingModeChanged();
@@ -306,6 +314,8 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     //! Emitted when the history has been modified
     void historyChanged();
+
+    void snapToCommonAngleDegreesChanged();
 
   private:
     void refreshGeometry();
@@ -359,6 +369,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     bool mHistoryTraversing = false;
 
     friend class VertexModelTest;
+    int mSnapToCommonAngleDegrees;
 };
 
 Q_DECLARE_METATYPE( VertexModel::Vertex );
