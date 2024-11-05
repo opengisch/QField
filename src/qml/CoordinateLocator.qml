@@ -323,8 +323,9 @@ Item {
     }
 
     ShapePath {
+      id: firstLineOuter
       strokeWidth: 4
-      strokeColor: "green"
+      strokeColor: "#fff"
       strokeStyle: ShapePath.DashLine
       dashPattern: [5, 3]
       startX: snappedPoint.x
@@ -335,11 +336,41 @@ Item {
         y: vertexSnapToCommonAngleLines.endCoordY1
       }
     }
+    // inner line
     ShapePath {
+      strokeWidth: firstLineOuter.strokeWidth / 2
+      strokeColor: "#000"
+      strokeStyle: ShapePath.DashLine
+      dashPattern: firstLineOuter.dashPattern.map(v => v * 2)
+      startX: snappedPoint.x
+      startY: snappedPoint.y
+
+      PathLine {
+        x: vertexSnapToCommonAngleLines.endCoordX1
+        y: vertexSnapToCommonAngleLines.endCoordY1
+      }
+    }
+
+    ShapePath {
+      id: secondLineOuter
       strokeWidth: 4
-      strokeColor: "green"
+      strokeColor: "#fff"
       strokeStyle: ShapePath.DashLine
       dashPattern: [5, 3]
+      startX: snappedPoint.x
+      startY: snappedPoint.y
+
+      PathLine {
+        x: vertexSnapToCommonAngleLines.endCoordX2
+        y: vertexSnapToCommonAngleLines.endCoordY2
+      }
+    }
+    // inner line
+    ShapePath {
+      strokeWidth: secondLineOuter.strokeWidth / 2
+      strokeColor: "#000"
+      strokeStyle: ShapePath.DashLine
+      dashPattern: secondLineOuter.dashPattern.map(v => v * 2)
       startX: snappedPoint.x
       startY: snappedPoint.y
 

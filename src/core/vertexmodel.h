@@ -256,7 +256,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     QVector<QgsPoint> verticesDeleted() const { return mVerticesDeleted; }
 
     //! Returns a list of vertices
-    Q_INVOKABLE QList<Vertex> vertices() const;
+    QList<Vertex> vertices() const;
 
     QHash<int, QByteArray> roleNames() const override;
 
