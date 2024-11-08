@@ -293,6 +293,15 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
         QStringList files = dir.entryList( QStringList() << QStringLiteral( "*.crt" ) << QStringLiteral( "*.key" ), QDir::Files );
         for ( const QString &file : files )
         {
+          const QString filename = QStringLiteral( "%1/%2" ).arg( dataDir, file );
+          QFile f( filename );
+          f.open( QIODeviceBase::ReadOnly );
+          QByteArray content = f.readAll();
+          f.close();
+          f.remove( filename );
+          f.open( QIODeviceBase::WriteOnly );
+          f.write( content );
+          f.close();
           QFileInfo fi( QStringLiteral( "%1/%2" ).arg( dataDir, file ) );
           qInfo() << QStringLiteral( "Owner ID %1 name %2" ).arg( fi.ownerId() ).arg( fi.owner() );
           qInfo() << QStringLiteral( "Group ID %1 name %2" ).arg( fi.groupId() ).arg( fi.group() );
