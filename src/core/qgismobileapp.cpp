@@ -289,6 +289,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       QFileInfo pgServiceFile( QStringLiteral( "%1/pg_service.conf" ).arg( dataDir ) );
       if ( pgServiceFile.exists() && pgServiceFile.isReadable() )
       {
+        QDir dir( dataDir );
+        QStringList files = dir.entryList( QStringList() << QStringLiteral( "*.crt" ) << QStringLiteral( "*.key" ), QDir::Files );
+        for ( const QString &file : files )
+        {
+          qInfo() << QStringLiteral( "Tweaking permission for cert/key file %1" ).arg( file );
+          QFile::setPermissions( QStringLiteral( "%1/%2" ).arg( dataDir, file ), QFileDevice::ReadOwner | QFileDevice::WriteOwner );
+        }
         setenv( "PGSYSCONFDIR", dataDir.toUtf8(), true );
         break;
       }
