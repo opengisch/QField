@@ -293,8 +293,12 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
         QStringList files = dir.entryList( QStringList() << QStringLiteral( "*.crt" ) << QStringLiteral( "*.key" ), QDir::Files );
         for ( const QString &file : files )
         {
+          QFileInfo fi( QStringLiteral( "%1/%2" ).arg( dataDir, file ) );
+          qInfo() << QStringLiteral( "Owner ID %1 name %2" ).arg( fi.ownerId() ).arg( fi.owner() );
+          qInfo() << QStringLiteral( "Group ID %1 name %2" ).arg( fi.groupId() ).arg( fi.group() );
           qInfo() << QStringLiteral( "Tweaking permission for cert/key file %1" ).arg( file );
           QFile::setPermissions( QStringLiteral( "%1/%2" ).arg( dataDir, file ), QFileDevice::ReadOwner | QFileDevice::WriteOwner );
+          qInfo() << QFile::permissions( QStringLiteral( "%1/%2" ).arg( dataDir, file ) );
         }
         setenv( "PGSYSCONFDIR", dataDir.toUtf8(), true );
         break;
