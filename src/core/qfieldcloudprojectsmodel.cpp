@@ -1438,7 +1438,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
         QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
 
       emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ModificationRole << LastLocalPushDeltasRole );
-      emit pushFinished( projectId, false );
+      emit pushFinished( projectId, false, false );
       projectRefreshData( projectId, ProjectRefreshReason::DeltaUploaded );
     }
   } );
@@ -1500,12 +1500,13 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
         // download the updated files, so the files are for sure the same on the client and on the server
         if ( shouldDownloadUpdates )
         {
+          emit pushFinished( projectId, true, false );
           projectPackageAndDownload( projectId );
         }
         else
         {
           emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
-          emit pushFinished( projectId, false );
+          emit pushFinished( projectId, false, false );
           projectRefreshData( projectId, ProjectRefreshReason::DeltaUploaded );
         }
     }
@@ -1649,7 +1650,7 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
   project->errorStatus = UploadErrorStatus;
 
   emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ErrorStatusRole );
-  emit pushFinished( projectId, true, project->deltaFileUploadStatusString );
+  emit pushFinished( projectId, false, true, project->deltaFileUploadStatusString );
 
   return;
 }
