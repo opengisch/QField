@@ -3736,12 +3736,14 @@ ApplicationWindow {
       return hasError ? displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error') : displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
     }
 
-    onPushFinished: function (projectId, hasError, errorString) {
+    onPushFinished: function (projectId, isDownloadingProject, hasError, errorString) {
       if (hasError) {
         displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
         return;
       }
-      displayToast(qsTr("Changes successfully pushed to QFieldCloud"));
+      if (!isDownloadingProject) {
+        displayToast(qsTr("Changes successfully pushed to QFieldCloud"));
+      }
       if (QFieldCloudUtils.hasPendingAttachments()) {
         // Go ahead and upload pending attachments in the background
         platformUtilities.uploadPendingAttachments(cloudConnection);
