@@ -3620,10 +3620,10 @@ ApplicationWindow {
     Popup {
       id: loginDialogPopup
       parent: Overlay.overlay
-      x: 24
-      y: 24
-      width: parent.width - 48
-      height: parent.height - 48
+      x: Theme.popupScreenEdgeMargin
+      y: Theme.popupScreenEdgeMargin
+      width: parent.width - Theme.popupScreenEdgeMargin * 2
+      height: parent.height - Theme.popupScreenEdgeMargin * 2
       padding: 0
       modal: true
       closePolicy: Popup.CloseOnEscape
