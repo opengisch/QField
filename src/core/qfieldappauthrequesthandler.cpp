@@ -223,5 +223,14 @@ QString QFieldAppAuthRequestHandler::getCredentialTitle( const QString &realm )
   if ( uri.database().isEmpty() )
     return realm;
 
-  return "Please enter credentials for database <b>" + uri.database() + "</b> at host <b>" + uri.host() + ".</b>";
+  QString title = tr( "Please enter credentials for database" ) + QStringLiteral( " <b>%1</b> " ).arg( uri.database() );
+  if ( !uri.host().isEmpty() )
+  {
+    title += tr( "at host" ) + QStringLiteral( " <b>%1</b> " ).arg( uri.host() );
+  }
+  else if ( !uri.service().isEmpty() )
+  {
+    title += tr( "at service" ) + QStringLiteral( " <b>%1</b> " ).arg( uri.service() );
+  }
+  return title;
 }
