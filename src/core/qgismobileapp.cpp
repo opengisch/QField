@@ -309,6 +309,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
           QFile::setPermissions( QStringLiteral( "%1/%2" ).arg( dataDir, file ), QFileDevice::ReadOwner | QFileDevice::WriteOwner );
           qInfo() << QFile::permissions( QStringLiteral( "%1/%2" ).arg( dataDir, file ) );
         }
+        setenv( "HOME", dataDir.toUtf8(), true );
         setenv( "PGSYSCONFDIR", dataDir.toUtf8(), true );
         break;
       }
