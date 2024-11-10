@@ -63,7 +63,7 @@ Item {
     inputCoordinate: {
       // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
       const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
-      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled && geometryEditingVertexModel.angleFonud) {
+      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled && geometryEditingVertexModel.snappedAngle > 0) {
         const vertexCount = geometryEditingVertexModel.vertexCount;
         const currentIndex = geometryEditingVertexModel.currentVertexIndex;
         let startPoint = currentIndex - 2;
@@ -77,7 +77,7 @@ Item {
         const start = mapSettings.coordinateToScreen(geometryEditingVertexModel.currentPoint);
         const p1 = mapSettings.coordinateToScreen(geometryEditingVertexModel.getPoint(startPoint));
         const p2 = mapSettings.coordinateToScreen(geometryEditingVertexModel.getPoint(endPoint));
-        const intersections = getIntersectionPoints(start, p1, p2, 1000, 1000);
+        const intersections = getIntersectionPoints(start, p1, p2);
         vertexSnapToCommonAngleLines.endCoordX1 = intersections.x1 || 0;
         vertexSnapToCommonAngleLines.endCoordY1 = intersections.y1 || 0;
         vertexSnapToCommonAngleLines.endCoordX2 = intersections.x2 || 0;

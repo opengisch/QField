@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "geometryutils.h"
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 
@@ -32,7 +33,7 @@ VertexModel::VertexModel( QObject *parent )
   connect( this, &VertexModel::vertexCountChanged, this, &VertexModel::updateCanPreviousNextVertex );
   connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateCanPreviousNextVertex );
   connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateCanRemoveVertex );
-  connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateAngleFound );
+  connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateSnappedAngle );
 }
 
 void VertexModel::setMapSettings( QgsQuickMapSettings *mapSettings )
@@ -691,31 +692,6 @@ QgsPoint VertexModel::currentPoint() const
 {
   return mVertices.value( mCurrentIndex ).point;
 }
-// Function to calculate the angle between two vectors
-double VertexModel::calculateAngle( const QgsPoint &a, const QgsPoint &b, const QgsPoint &c )
-{
-  // Create vectors AB and BC
-  double AB_x = b.x() - a.x();
-  double AB_y = b.y() - a.y();
-  double BC_x = c.x() - b.x();
-  double BC_y = c.y() - b.y();
-
-  // Calculate dot product
-  double dotProduct = AB_x * BC_x + AB_y * BC_y;
-
-  // Calculate magnitudes
-  double magnitudeAB = std::sqrt( AB_x * AB_x + AB_y * AB_y );
-  double magnitudeBC = std::sqrt( BC_x * BC_x + BC_y * BC_y );
-
-  // Calculate cosine of the angle
-  double cosTheta = dotProduct / ( magnitudeAB * magnitudeBC );
-
-  // Calculate the angle in radians
-  double angle = std::acos( cosTheta );
-
-  // Convert to degrees
-  return std::abs( angle * ( 180.0 / M_PI ) - 180 );
-}
 
 void VertexModel::setCurrentPoint( const QgsPoint &point )
 {
@@ -726,8 +702,6 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     return;
 
   Vertex &vertex = mVertices[mCurrentIndex];
-
-  // Calculate angles between edges
 
   int startPoint = mCurrentIndex - 2;
   if ( startPoint < 0 )
@@ -740,11 +714,13 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     endPoint = endPoint - vertexCount();
   }
 
-  double angle = calculateAngle( mVertices[startPoint].point, mVertices[mCurrentIndex].point, mVertices[endPoint].point );
+  int angle = ( int ) GeometryUtils::calculateAngle( mVertices[startPoint].point, mVertices[mCurrentIndex].point, mVertices[endPoint].point );
 
-  qDebug() << "--------- angle = " << angle;
+  const double remainder = std::fmod( angle, snapToCommonAngleDegrees() );
+  const double threshold = .1;
+  const bool angleFound = std::abs( remainder ) <= threshold || std::abs( std::abs( remainder ) - snapToCommonAngleDegrees() ) <= threshold;
 
-  setAngleFonud( angle > snapToCommonAngleDegrees() - 1 && angle < snapToCommonAngleDegrees() + 1 );
+  setSnappedAngle( angleFound ? angle : 0 );
 
   if ( mMapSettings && vertex.point.distance( point ) / mMapSettings->mapSettings().mapUnitsPerPixel() < 1 )
     return;
@@ -849,9 +825,9 @@ bool VertexModel::dirty() const
   return mDirty;
 }
 
-bool VertexModel::angleFonud() const
+int VertexModel::snappedAngle() const
 {
-  return mAngleFonud;
+  return mSnappedAngle;
 }
 
 bool VertexModel::canRemoveVertex()
@@ -936,13 +912,13 @@ void VertexModel::setDirty( bool dirty )
   emit dirtyChanged();
 }
 
-void VertexModel::setAngleFonud( bool angleFonud )
+void VertexModel::setSnappedAngle( int snappedAngle )
 {
-  if ( mAngleFonud == angleFonud )
+  if ( mSnappedAngle == snappedAngle )
     return;
 
-  mAngleFonud = angleFonud;
-  emit angleFonudChanged();
+  mSnappedAngle = snappedAngle;
+  emit snappedAngleChanged();
 }
 
 void VertexModel::updateCanRemoveVertex()
@@ -1097,11 +1073,11 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
   emit editingModeChanged();
 }
 
-void VertexModel::updateAngleFound()
+void VertexModel::updateSnappedAngle()
 {
   if ( currentVertexIndex() == -1 )
   {
-    setAngleFonud( false );
+    setSnappedAngle( 0 );
   }
 }
 

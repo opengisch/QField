@@ -232,3 +232,22 @@ QgsGeometry GeometryUtils::createGeometryFromWkt( const QString &wkt )
 {
   return QgsGeometry::fromWkt( wkt );
 }
+
+double GeometryUtils::calculateAngle( const QgsPoint &a, const QgsPoint &b, const QgsPoint &c )
+{
+  double abX = b.x() - a.x();
+  double abY = b.y() - a.y();
+  double bcX = c.x() - b.x();
+  double bcY = c.y() - b.y();
+
+  double dotProduct = abX * bcX + abY * bcY;
+
+  double magnitudeAB = std::sqrt( abX * abX + abY * abY );
+  double magnitudeBC = std::sqrt( bcX * bcX + bcY * bcY );
+
+  double cosTheta = dotProduct / ( magnitudeAB * magnitudeBC );
+
+  double angle = std::acos( cosTheta );
+
+  return std::abs( angle * ( 180.0 / M_PI ) - 180 );
+}

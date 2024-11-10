@@ -105,6 +105,9 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 
     //! Creates a geometry from a WKT string.
     static Q_INVOKABLE QgsGeometry createGeometryFromWkt( const QString &wkt );
+
+    //! Calculates angle between AB and AC
+    static double calculateAngle( const QgsPoint &a, const QgsPoint &b, const QgsPoint &c );
 };
 
 #endif // GEOMETRYUTILS_H

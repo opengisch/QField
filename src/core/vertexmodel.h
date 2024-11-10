@@ -49,9 +49,6 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     Q_PROPERTY( int ringCount READ ringCount NOTIFY ringCountChanged )
     //! determines if the model has changes
     Q_PROPERTY( bool dirty READ dirty NOTIFY dirtyChanged )
-
-    Q_PROPERTY( bool angleFonud READ angleFonud NOTIFY angleFonudChanged )
-
     //! determines if the model allows editing the geometry
     Q_PROPERTY( bool editingAllowed READ editingAllowed )
     //! determines if one can remove current vertex
@@ -72,9 +69,12 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
      * The index of the currently active vertex. If no vertex is selected, this is -1.
      */
     Q_PROPERTY( int currentVertexIndex READ currentVertexIndex WRITE setCurrentVertexIndex NOTIFY currentVertexIndexChanged )
-
+    //! The `snappedAngle` property holds the angle that has been adjusted to the nearest multiple of `snapToCommonAngleDegrees`.
+    //! This value is automatically updated whenever the angle is changed.
+    Q_PROPERTY( int snappedAngle READ snappedAngle NOTIFY snappedAngleChanged )
+    //! The `snapToCommonAngleDegrees` property specifies the angle increment to which the original angle will be snapped.
+    //! This value defines the common angle step for snapping.
     Q_PROPERTY( int snapToCommonAngleDegrees READ snapToCommonAngleDegrees WRITE setSnapToCommonAngleDegrees NOTIFY snapToCommonAngleDegreesChanged )
-
 
     /**
      * The geometry in layer coordinates
@@ -231,7 +231,6 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     //! \copydoc dirty
     bool dirty() const;
-    bool angleFonud() const;
 
     //! \copydoc canRemoveVertex
     bool canRemoveVertex();
@@ -274,8 +273,16 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     bool canUndo();
 
-    double calculateAngle( const QgsPoint &a, const QgsPoint &b, const QgsPoint &c );
+    //! Returns `snappedAngle`
+    int snappedAngle() const;
+
+    //! sets snapped angle
+    void setSnappedAngle( int snappedAngle );
+
+    //! Returns `snapToCommonAngleDegrees`
     int snapToCommonAngleDegrees() const;
+
+    //! Sets `snapToCommonAngleDegrees`
     void setSnapToCommonAngleDegrees( int snapToCommonAngleDegrees );
 
   signals:
@@ -291,7 +298,6 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     void ringCountChanged();
     //! \copydoc dirty
     void dirtyChanged();
-    void angleFonudChanged();
     //! \copydoc canRemoveVertex
     void canRemoveVertexChanged();
     //! \copydoc canAddVertex
@@ -315,6 +321,10 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! Emitted when the history has been modified
     void historyChanged();
 
+    //! Emitted when `snappedAngle` modified
+    void snappedAngleChanged();
+
+    //! Emitted when new `snapToCommonAngleDegrees` modified
     void snapToCommonAngleDegreesChanged();
 
   private:
@@ -323,12 +333,15 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! This will not emit the reset signals, it's up to the caller to do so
     void createCandidates();
     void setDirty( bool dirty );
-    void setAngleFonud( bool angleFonud );
     void updateCanRemoveVertex();
     void updateCanAddVertex();
     void updateCanPreviousNextVertex();
-    void updateAngleFound();
     void setGeometryType( const Qgis::GeometryType &geometryType );
+
+    //! This function is called whenever the `currentVertexIndex` changes. It checks if there is an active vertex in editing mode.
+    //! If no vertex is active, the `snappedAngle` will be reset to 0. This ensures that the angle snapping logic is only applied
+    //! when there is an active vertex to work with.
+    void updateSnappedAngle();
 
     QList<Vertex> mVertices;
 
@@ -340,7 +353,6 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     QgsCoordinateTransform mTransform = QgsCoordinateTransform();
     bool mIsMulti = false;
     bool mDirty = false;
-    bool mAngleFonud = false;
 
     QVector<QgsPoint> mVerticesDeleted;
 
@@ -368,8 +380,10 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     int mHistoryIndex = -1;
     bool mHistoryTraversing = false;
 
+    int mSnappedAngle = 0;
+    int mSnapToCommonAngleDegrees = 0;
+
     friend class VertexModelTest;
-    int mSnapToCommonAngleDegrees;
 };
 
 Q_DECLARE_METATYPE( VertexModel::Vertex );
