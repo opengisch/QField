@@ -327,10 +327,17 @@ Item {
         topMargin: mainWindow.sceneTopMargin
         bottomMargin: mainWindow.sceneTopMargin
 
+        onAboutToShow: {
+          contentItem.model = comboBox.delegateModel;
+        }
+
+        onAboutToHide: {
+          contentItem.model = null;
+        }
+
         contentItem: ListView {
           clip: true
           implicitHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneTopMargin, contentHeight)
-          model: comboBox.popup.visible ? comboBox.delegateModel : null
           currentIndex: comboBox.highlightedIndex
 
           section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
