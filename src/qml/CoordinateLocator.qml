@@ -55,6 +55,8 @@ Item {
   readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
   readonly property alias topSnappingResult: snappingUtils.snappingResult // The snappingResult itself, only one (compared to QGIS where it's usually a list)
 
+  property VertexModel editingVertexModel
+
   SnappingUtils {
     id: snappingUtils
 
@@ -63,9 +65,9 @@ Item {
     inputCoordinate: {
       // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
       const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
-      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled && geometryEditingVertexModel.snappedAngle > 0) {
-        const vertexCount = geometryEditingVertexModel.vertexCount;
-        const currentIndex = geometryEditingVertexModel.currentVertexIndex;
+      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled && editingVertexModel.snappedAngle > 0) {
+        const vertexCount = editingVertexModel.vertexCount;
+        const currentIndex = editingVertexModel.currentVertexIndex;
         let startPoint = currentIndex - 2;
         if (startPoint < 0) {
           startPoint = vertexCount + startPoint;
@@ -74,9 +76,9 @@ Item {
         if (endPoint >= vertexCount) {
           endPoint = endPoint - vertexCount;
         }
-        const start = mapSettings.coordinateToScreen(geometryEditingVertexModel.currentPoint);
-        const p1 = mapSettings.coordinateToScreen(geometryEditingVertexModel.getPoint(startPoint));
-        const p2 = mapSettings.coordinateToScreen(geometryEditingVertexModel.getPoint(endPoint));
+        const start = mapSettings.coordinateToScreen(editingVertexModel.currentPoint);
+        const p1 = mapSettings.coordinateToScreen(editingVertexModel.getPoint(startPoint));
+        const p2 = mapSettings.coordinateToScreen(editingVertexModel.getPoint(endPoint));
         const intersections = getIntersectionPoints(start, p1, p2);
         vertexSnapToCommonAngleLines.endCoordX1 = intersections.x1 || 0;
         vertexSnapToCommonAngleLines.endCoordY1 = intersections.y1 || 0;
