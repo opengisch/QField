@@ -627,19 +627,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>Полученные данные слишком коротки для обработки</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Неверный начальный байт</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>Полученные данные слишком коротки, чтобы содержать полезную нагрузку</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось разобрать JSON</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -2038,7 +2038,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>сетка &apos;(&apos;grid&apos;)&apos;</translation>
     </message>
     <message>
         <source>ortho.</source>
@@ -2165,6 +2165,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>Введите учетные данные для базы данных</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>&quot;как хост&quot;</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>&quot;как сервис&quot;</translation>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
@@ -2207,11 +2222,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Широта</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Долгота</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2223,7 +2238,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Ориентация</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
@@ -3003,7 +3018,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Файлы</translation>
     </message>
 </context>
 <context>
@@ -3424,19 +3439,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Порог плохой точности [м]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Порог превосходной точности [м]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Обеспечьте соблюдение требований к точности</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Когда индикатор точности включен, к кнопке локации прикрепляется значок, который окрашивается в  &lt;span %1&gt; красный цвет &lt;/span&gt; если значение точности хуже &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;желтый&lt;/span&gt;если менее, чем &lt;i&gt;excellent&lt;/i&gt;, или &lt;span %3&gt;зеленый&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Кроме того, можно включить режим ограничения точности, который ограничивает добавление вершин при фиксации координатного курсора к позициям со значением точности хуже порога &quot;плохости&quot;.</translation>
     </message>
 </context>
 <context>
@@ -4237,11 +4252,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Глобальные переменные</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Переменные проекта</translation>
     </message>
 </context>
 <context>
@@ -4366,7 +4381,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Это замечательно! Мы будем рады, если вы нажмете на кнопку ниже и оставите свой отзыв.</translation>
     </message>
 </context>
 <context>
@@ -5038,11 +5053,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Отмена работы алгоритма</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Вы собираетесь отменить текущую операцию с алгоритмом, продолжить?</translation>
     </message>
 </context>
 <context>

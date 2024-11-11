@@ -2159,6 +2159,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>请输入数据库的凭据</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>在主机端</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>在服务端</translation>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>

@@ -2163,6 +2163,21 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
 </context>
 <context>
+    <name>QFieldAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>

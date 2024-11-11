@@ -2165,6 +2165,21 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
 </context>
 <context>
+    <name>QFieldAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>Wprowadź dane uwierzytelniające do bazy danych</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>u gospodarza</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>w serwisie</translation>
+    </message>
+</context>
+<context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
