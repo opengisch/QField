@@ -611,9 +611,11 @@ Item {
       visible: enabled && allowAddFeature && relation !== undefined && relation.isValid
 
       onClicked: {
-        embeddedPopup.state = 'Add';
-        embeddedPopup.currentLayer = relationCombobox.relation ? relationCombobox.relation.referencedLayer : null;
-        embeddedPopup.open();
+        if (relationCombobox.relation.referencedLayer.geometryType() !== Qgis.GeometryType.Null) {
+          requestGeometry(relationCombobox, relationCombobox.relation.referencedLayer);
+          return;
+        }
+        showAddFeaturePopup();
       }
     }
 
@@ -642,5 +644,18 @@ Item {
         comboBox.currentIndex = index;
       }
     }
+  }
+
+  function requestedGeometryReceived(geometry) {
+    showAddFeaturePopup(geometry);
+  }
+
+  function showAddFeaturePopup(geometry) {
+    embeddedPopup.state = 'Add';
+    embeddedPopup.currentLayer = relationCombobox.relation ? relationCombobox.relation.referencedLayer : null;
+    if (geometry !== undefined) {
+      embeddedPopup.applyGeometry(geometry);
+    }
+    embeddedPopup.open();
   }
 }
