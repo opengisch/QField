@@ -387,7 +387,9 @@ ApplicationWindow {
           } else if (geometryEditorsToolbar.editorRubberbandModel && geometryEditorsToolbar.editorRubberbandModel.vertexCount > 1) {
             coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
           } else {
-            coordinateLocator.sourceLocation = undefined;
+            if (!digitizingToolbar.rubberbandModel.frozen) {
+              coordinateLocator.sourceLocation = undefined;
+            }
           }
         }
       }
