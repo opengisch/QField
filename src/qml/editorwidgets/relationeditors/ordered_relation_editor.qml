@@ -131,7 +131,7 @@ EditorWidgetBase {
         repeat: false
 
         onTriggered: {
-          let saved = form.state === 'Add' ? save() : true;
+          let saved = form.state === 'Add' ? !form.setupOnly && save() : true;
           if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
             // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
             if (!saved) {
