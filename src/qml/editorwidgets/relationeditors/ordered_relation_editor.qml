@@ -77,16 +77,14 @@ EditorWidgetBase {
       Text {
         visible: isEnabled
         color: Theme.secondaryTextColor
-        text: isEnabled && !constraintsHardValid ? qsTr('Ensure contraints') : ''
+        text: isEnabled && !constraintsHardValid ? qsTr('Ensure contraints are met') : ''
         anchors {
           leftMargin: 10
           left: parent.left
           right: addButtonRow.left
           verticalCenter: parent.verticalCenter
         }
-        font.bold: true
-        font.italic: true
-        font.pointSize: Theme.tipFont.pointSize
+        font: Theme.tipFont
       }
 
       Row {
@@ -106,7 +104,7 @@ EditorWidgetBase {
 
           round: false
           iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
-          bgcolor: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
+          bgcolor: parent.enabled ? 'black' : 'grey'
         }
       }
 
