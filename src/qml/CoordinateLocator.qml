@@ -402,10 +402,8 @@ Item {
     const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
     const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20;
     const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40;
-    const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
-    const firstPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.firstCoordinate);
     const rubberbandPointsCount = rubberbandModel.vertexCount;
-    const targetPoint = forwardMode ? firstPoint : previousPoint;
+    const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);
     const minimumDigitizedPoints = forwardMode ? 3 : 2;
 
     // we need at least [minimumDigitizedPoints - 1] alredy digitized point (and the other one is wanna be digitized)
@@ -424,7 +422,7 @@ Item {
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
-      deltaAngle = Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
+      deltaAngle = Math.atan2(targetPoint.y - penultimatePoint.y, targetPoint.x - penultimatePoint.x);
       softAngle -= deltaAngle;
     }
     const quo = Math.round(softAngle / commonAngle);
@@ -461,14 +459,12 @@ Item {
     }
     let angleValue = commonAngleDegrees * Math.PI / 180;
     const returnPoint = currentPoint;
-    const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
-    const firstPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.firstCoordinate);
     const rubberbandPointsCount = rubberbandModel.vertexCount;
-    const targetPoint = forwardMode ? firstPoint : previousPoint;
+    const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
-      angleValue += Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
+      angleValue += Math.atan2(targetPoint.y - penultimatePoint.y, targetPoint.x - penultimatePoint.x);
     }
     const cosa = Math.cos(angleValue);
     const sina = Math.sin(angleValue);
@@ -499,9 +495,9 @@ Item {
     let deltaAngle = 0;
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
-      const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
+      const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
-      deltaAngle = Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
+      deltaAngle = Math.atan2(targetPoint.y - penultimatePoint.y, targetPoint.x - penultimatePoint.x);
     }
     const xOrigin = currentPoint.x;
     const yOrigin = currentPoint.y;
