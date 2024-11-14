@@ -5,11 +5,12 @@ on:
   schedule:
     - cron:  '30 2 * * *'
   workflow_dispatch:
+  push:
 
 jobs:
   sync_certs:
     name: sync certs
-    runs-on: macos-12
+    runs-on: macos-14
     if: ${{ github.repository == 'opengisch/QField' }}
 
     steps:
@@ -23,12 +24,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
-      - name: 🔏 Sync certs
+      - name: Debug
         env:
           issuer_id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
           api_key_id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api_private_key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        run: |
-          bundle install
-          bundle exec fastlane ios generate_new_certificates
+        uses: mxschmitt/action-tmate@v3
