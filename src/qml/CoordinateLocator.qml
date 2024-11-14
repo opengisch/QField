@@ -64,28 +64,48 @@ Item {
       const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
       if (snapToCommonAngleButton.isSnapToCommonAngleEnabled) {
         const backwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
-        const forwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, true);
         const backwardCoords = calculateSnapToAngleLineEndCoords(snappedPoint, backwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000);
-        const forwardCoords = calculateSnapToAngleLineEndCoords(snappedPoint, forwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000, -1);
-        snappingLinesModel.setProperty(0, "endCoordX", backwardCoords.x || 0);
-        snappingLinesModel.setProperty(0, "endCoordY", backwardCoords.y || 0);
+        let forwardCommonAngleInDegrees = undefined;
+        let forwardCoords = {};
+        if (locator.rubberbandModel.vertexCount >= 4) {
+          console.log(locator.rubberbandModel.vertexCount);
+          forwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, true);
+          forwardCoords = calculateSnapToAngleLineEndCoords(snappedPoint, forwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000, -1);
+        }
+        snappingLinesModel.setProperty(0, "beginCoordX", backwardCoords.x1 || 0);
+        snappingLinesModel.setProperty(0, "beginCoordY", backwardCoords.y1 || 0);
+        snappingLinesModel.setProperty(0, "endCoordX", backwardCoords.x2 || 0);
+        snappingLinesModel.setProperty(0, "endCoordY", backwardCoords.y2 || 0);
         snappingLinesModel.setProperty(0, "snappedToAngle", backwardCommonAngleInDegrees !== undefined);
-        snappingLinesModel.setProperty(1, "endCoordX", forwardCoords.x || 0);
-        snappingLinesModel.setProperty(1, "endCoordY", forwardCoords.y || 0);
+        snappingLinesModel.setProperty(1, "beginCoordX", forwardCoords.x1 || 0);
+        snappingLinesModel.setProperty(1, "beginCoordY", forwardCoords.y1 || 0);
+        snappingLinesModel.setProperty(1, "endCoordX", forwardCoords.x2 || 0);
+        snappingLinesModel.setProperty(1, "endCoordY", forwardCoords.y2 || 0);
         snappingLinesModel.setProperty(1, "snappedToAngle", forwardCommonAngleInDegrees !== undefined);
         if (backwardCommonAngleInDegrees !== undefined && forwardCommonAngleInDegrees !== undefined) {
-          var backwardSnappedPoint = snapPointToCommonAngle(location, locator.rubberbandModel, backwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
-          var forwardSnappedPoint = snapPointToCommonAngle(location, locator.rubberbandModel, forwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, true);
-          return {
-            "x": (backwardSnappedPoint.x + forwardSnappedPoint.x) / 2,
-            "y": (backwardSnappedPoint.y + forwardSnappedPoint.y) / 2
-          };
+          // Get the intersection of the two snapped lines
+          let x1 = backwardCoords.x1;
+          let y1 = backwardCoords.y1;
+          let x2 = backwardCoords.x2;
+          let y2 = backwardCoords.y2;
+          let x3 = forwardCoords.x1;
+          let y3 = forwardCoords.y1;
+          let x4 = forwardCoords.x2;
+          let y4 = forwardCoords.y2;
+          let denominator = ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+          let ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denominator;
+          let ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denominator;
+          let intersectX = x1 + ua * (x2 - x1);
+          let intersectY = y1 + ua * (y2 - y1);
+          return Qt.point(intersectX, intersectY);
         } else if (backwardCommonAngleInDegrees !== undefined)
           return snapPointToCommonAngle(location, locator.rubberbandModel, backwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
         else if (forwardCommonAngleInDegrees !== undefined)
           return snapPointToCommonAngle(location, locator.rubberbandModel, forwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, true);
       } else {
         for (let i = 0; i < snappingLinesModel.count; ++i) {
+          snappingLinesModel.setProperty(i, "beginCoordX", 0);
+          snappingLinesModel.setProperty(i, "beginCoordY", 0);
           snappingLinesModel.setProperty(i, "endCoordX", 0);
           snappingLinesModel.setProperty(i, "endCoordY", 0);
           snappingLinesModel.setProperty(i, "snappedToAngle", false);
@@ -261,11 +281,15 @@ Item {
     model: ListModel {
       id: snappingLinesModel
       ListElement {
+        beginCoordX: 0
+        beginCoordY: 0
         endCoordX: 0
         endCoordY: 0
         snappedToAngle: false
       }
       ListElement {
+        beginCoordX: 0
+        beginCoordY: 0
         endCoordX: 0
         endCoordY: 0
         snappedToAngle: false
@@ -286,8 +310,8 @@ Item {
         strokeColor: "#fff"
         strokeStyle: ShapePath.DashLine
         dashPattern: [5, 3]
-        startX: snappedPoint.x
-        startY: snappedPoint.y
+        startX: beginCoordX
+        startY: beginCoordY
 
         PathLine {
           x: endCoordX
@@ -301,8 +325,8 @@ Item {
         strokeColor: "#000"
         strokeStyle: ShapePath.DashLine
         dashPattern: outerLine.dashPattern.map(v => v * 2)
-        startX: snappedPoint.x
-        startY: snappedPoint.y
+        startX: beginCoordX
+        startY: beginCoordY
 
         PathLine {
           x: endCoordX
@@ -389,7 +413,7 @@ Item {
     let deltaAngle = 0;
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
-      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
       deltaAngle = Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
       softAngle -= deltaAngle;
     }
@@ -433,7 +457,7 @@ Item {
     const targetPoint = forwardMode ? firstPoint : previousPoint;
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
-      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
       angleValue += Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
     }
     const cosa = Math.cos(angleValue);
@@ -450,9 +474,9 @@ Item {
    * @param {number} angleDegrees - angle of the line in degrees.
    * @param {boolean} isRelativeAngle - whether the angle should be calculated relative to the last geometry segment
    * @param {number} screenSize - size of the screen. Used to make sure the end of the line is outside the screen.
-   * @param {number} direction - direction of line. 1: from current point to screen edges, -1: from current point to first point.
+   * @param {number} forwardMode - true: aimed towards first point and false: snap to previous point
    */
-  function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, isRelativeAngle, screenSize, direction = 1) {
+  function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, isRelativeAngle, screenSize, forwardMode = false) {
     if (rubberbandModel == null) {
       return {};
     }
@@ -466,17 +490,22 @@ Item {
     if (isRelativeAngle && rubberbandPointsCount >= 3) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const previousPoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.lastCoordinate);
-      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(rubberbandModel.penultimateCoordinate);
+      const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
       deltaAngle = Math.atan2(previousPoint.y - penultimatePoint.y, previousPoint.x - penultimatePoint.x);
     }
-    const x1 = currentPoint.x;
-    const y1 = currentPoint.y;
-    const angleRadians = angleDegrees * Math.PI / 180 + deltaAngle;
-    const x2 = x1 + screenSize * Math.cos(angleRadians) * direction;
-    const y2 = y1 + screenSize * Math.sin(angleRadians) * direction;
+    const xOrigin = currentPoint.x;
+    const yOrigin = currentPoint.y;
+    let angleRadians = angleDegrees * Math.PI / 180 + deltaAngle;
+    const x1 = xOrigin + screenSize * Math.cos(angleRadians) * (!forwardMode ? 1 : -1);
+    const y1 = yOrigin + screenSize * Math.sin(angleRadians) * (!forwardMode ? 1 : -1);
+    angleRadians -= 180 * Math.PI / 180;
+    const x2 = xOrigin + screenSize * Math.cos(angleRadians) * (!forwardMode ? 1 : -1);
+    const y2 = yOrigin + screenSize * Math.sin(angleRadians) * (!forwardMode ? 1 : -1);
     return {
-      "x": x2,
-      "y": y2
+      "x1": x1,
+      "y1": y1,
+      "x2": x2,
+      "y2": y2
     };
   }
 }
