@@ -64,6 +64,18 @@ platform :ios do
       key_content: ENV["api_private_key"],
       duration: 1200
     )
+    match_nuke(
+      type: "development",
+      app_identifier: ['ch.opengis.qfield', 'ch.opengis.qfield-dev'],
+      skip_confirmation: true,
+      readonly: false
+    )
+    match_nuke(
+      type: "appstore",
+      app_identifier: ['ch.opengis.qfield'],
+      skip_confirmation: true,
+      readonly: false
+    )
     sync_code_signing(
       type: "development",
       app_identifier: ['ch.opengis.qfield', 'ch.opengis.qfield-dev'],
