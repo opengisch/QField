@@ -3,13 +3,13 @@ name: 🗝️ Generate certificates and synchronize profiles
 
 on:
   schedule:
-    - cron:  '30 2 * * *'
+    - cron:  '30 2 15 * *'
   workflow_dispatch:
 
 jobs:
   sync_certs:
     name: sync certs
-    runs-on: macos-12
+    runs-on: macos-15
     if: ${{ github.repository == 'opengisch/QField' }}
 
     steps:
