@@ -93,19 +93,19 @@ Item {
         snappingLinesModel.setProperty(1, "snappedToAngle", forwardCommonAngleInDegrees !== undefined);
         if (backwardCommonAngleInDegrees !== undefined && forwardCommonAngleInDegrees !== undefined) {
           // Get the intersection of the two snapped lines
-          let x1 = backwardCoords.x1;
-          let y1 = backwardCoords.y1;
-          let x2 = backwardCoords.x2;
-          let y2 = backwardCoords.y2;
-          let x3 = forwardCoords.x1;
-          let y3 = forwardCoords.y1;
-          let x4 = forwardCoords.x2;
-          let y4 = forwardCoords.y2;
-          let denominator = ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
-          let ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denominator;
-          let ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denominator;
-          let intersectX = x1 + ua * (x2 - x1);
-          let intersectY = y1 + ua * (y2 - y1);
+          const x1 = backwardCoords.x1;
+          const y1 = backwardCoords.y1;
+          const x2 = backwardCoords.x2;
+          const y2 = backwardCoords.y2;
+          const x3 = forwardCoords.x1;
+          const y3 = forwardCoords.y1;
+          const x4 = forwardCoords.x2;
+          const y4 = forwardCoords.y2;
+          const denominator = ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+          const ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denominator;
+          const ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denominator;
+          const intersectX = x1 + ua * (x2 - x1);
+          const intersectY = y1 + ua * (y2 - y1);
           return Qt.point(intersectX, intersectY);
         } else if (backwardCommonAngleInDegrees !== undefined) {
           return backwardPoint;
@@ -452,9 +452,7 @@ Item {
     if (!rubberbandModel) {
       return currentPoint;
     }
-
-    // if null or undefined, no common angle is determined
-    if (commonAngleDegrees === null) {
+    if (commonAngleDegrees === null || commonAngleDegrees === undefined) {
       return currentPoint;
     }
     let angleValue = commonAngleDegrees * Math.PI / 180;
@@ -487,9 +485,7 @@ Item {
       return {};
     }
     const rubberbandPointsCount = rubberbandModel.vertexCount;
-
-    // if the angle is null or undefined, return empty coordinate map
-    if (angleDegrees === null) {
+    if (angleDegrees === null || angleDegrees === undefined) {
       return {};
     }
     let deltaAngle = 0;
