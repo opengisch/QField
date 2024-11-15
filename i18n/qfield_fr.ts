@@ -4443,7 +4443,7 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Assurer les contraintes</translation>
+        <translation type="vanished">Assurer les contraintes</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4480,6 +4480,10 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Impossible d&apos;ajouter une entité-enfant : vérifier que l&apos;entité-parent respecte toutes les contraintes et peut être sauvegardée</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5063,7 +5067,7 @@ fermer le projet et quitter l&apos;application</translation>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Assurer les contraintes</translation>
+        <translation type="vanished">Assurer les contraintes</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5100,6 +5104,10 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Impossible d&apos;ajouter une entité-enfant : vérifier que l&apos;entité-parent respecte toutes les contraintes et peut être sauvegardée</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

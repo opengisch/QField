@@ -4442,7 +4442,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Provjeri ograničenja</translation>
+        <translation type="vanished">Provjeri ograničenja</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4478,6 +4478,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5060,7 +5064,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Provjeri ograničenja</translation>
+        <translation type="vanished">Provjeri ograničenja</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5096,6 +5100,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>

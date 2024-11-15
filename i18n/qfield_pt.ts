@@ -4446,7 +4446,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Garantir restrições</translation>
+        <translation type="vanished">Garantir restrições</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4483,6 +4483,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Não é possível adicionar o elemento filho: certifique-se de que o elemento pai cumpre todas as restrições e pode ser guardado</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5064,7 +5068,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Garantir restrições</translation>
+        <translation type="vanished">Garantir restrições</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5101,6 +5105,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Não é possível adicionar o elemento filho: certifique-se de que o elemento pai cumpre todas as restrições e pode ser guardado</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

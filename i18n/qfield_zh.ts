@@ -4442,7 +4442,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>确认约束</translation>
+        <translation type="vanished">确认约束</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4479,6 +4479,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>无法添加子要素：确保父要素满足所有约束并且可以保存</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation>确认符合约束</translation>
     </message>
 </context>
 <context>
@@ -5060,7 +5064,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>确认约束</translation>
+        <translation type="vanished">确认约束</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5097,6 +5101,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>无法添加子要素：确保父要素满足所有约束并且可以保存</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation>确认符合约束</translation>
     </message>
 </context>
 <context>

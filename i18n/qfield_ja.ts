@@ -4442,7 +4442,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>制約を確認する</translation>
+        <translation type="vanished">制約を確認する</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4479,6 +4479,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>子地物を追加できません：親地物がすべての制約を満たし、保存できることを確認してください</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5060,7 +5064,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>制約を確認する</translation>
+        <translation type="vanished">制約を確認する</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5097,6 +5101,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>子地物を追加できません：親地物がすべての制約を満たし、保存できることを確認してください</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

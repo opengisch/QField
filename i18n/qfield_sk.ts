@@ -4447,7 +4447,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Zabezpečiť obmedzenia</translation>
+        <translation type="vanished">Zabezpečiť obmedzenia</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4484,6 +4484,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Nie je možné pridať podradenú funkciu: uistite sa, že nadradená funkcia spĺňa všetky obmedzenia a je možné ju uložiť</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5065,7 +5069,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Zabezpečiť obmedzenia</translation>
+        <translation type="vanished">Zabezpečiť obmedzenia</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5102,6 +5106,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Nie je možné pridať podradenú funkciu: uistite sa, že nadradená funkcia spĺňa všetky obmedzenia a je možné ju uložiť</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

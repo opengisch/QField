@@ -4446,7 +4446,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Обеспечьте выполнение ограничений</translation>
+        <translation type="vanished">Обеспечьте выполнение ограничений</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4483,6 +4483,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Невозможно добавить дочерний элемент: убедитесь, что родительский элемент соответствует всем ограничениям и может быть сохранена</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5064,7 +5068,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Обеспечьте выполнение ограничений</translation>
+        <translation type="vanished">Обеспечьте выполнение ограничений</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5101,6 +5105,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Невозможно добавить дочерний элемент: убедитесь, что родительский элемент соответствует всем ограничениям и может быть сохранена</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

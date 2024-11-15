@@ -4448,7 +4448,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Zapewnij ograniczenia</translation>
+        <translation type="vanished">Zapewnij ograniczenia</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4485,6 +4485,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Nie można dodać elementu potomnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation>Upewnij się, że ograniczenia są spełnione</translation>
     </message>
 </context>
 <context>
@@ -5066,7 +5070,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Zapewnij ograniczenia</translation>
+        <translation type="vanished">Zapewnij ograniczenia</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5103,6 +5107,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Nie można dodać elementu podrzędnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation>Upewnij się, że ograniczenia są spełnione</translation>
     </message>
 </context>
 <context>

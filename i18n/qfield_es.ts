@@ -4444,7 +4444,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Asegurar restricciones</translation>
+        <translation type="vanished">Asegurar restricciones</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4481,6 +4481,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>No se puede añadir el objeto hijo: no es seguro que el objeto padre cumpla todas las restricciones y se pueda guardar</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5062,7 +5066,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Asegurar restricciones</translation>
+        <translation type="vanished">Asegurar restricciones</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5099,6 +5103,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>No se puede añadir el objeto hijo: no es seguro que el objeto padre cumpla todas las restricciones y se pueda guardar</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

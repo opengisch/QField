@@ -4440,7 +4440,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Korlátozások biztosítása</translation>
+        <translation type="vanished">Korlátozások biztosítása</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4477,6 +4477,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Gyermek elem nem létrehozható: győződjön meg, hogy a szülő elem minden megszorítása teljesül és menthető</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5058,7 +5062,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Korlátozások biztosítása</translation>
+        <translation type="vanished">Korlátozások biztosítása</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5095,6 +5099,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Gyermek elem nem létrehozható: győződjön meg, hogy a szülő elem minden megszorítása teljesül és menthető</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

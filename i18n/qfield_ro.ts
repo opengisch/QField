@@ -4448,7 +4448,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Asigurați constrângerea</translation>
+        <translation type="vanished">Asigurați constrângerea</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4484,6 +4484,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5066,7 +5070,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Asigurați constrângerea</translation>
+        <translation type="vanished">Asigurați constrângerea</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5102,6 +5106,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>

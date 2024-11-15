@@ -4444,7 +4444,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Garantir restricións</translation>
+        <translation type="vanished">Garantir restricións</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4481,6 +4481,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Non se pode engadir unha entidade aniñada: asegúrate de que a entidade principal cumpre con tódalas restricións e que se poida gardar</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5062,7 +5066,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Garantir restricións</translation>
+        <translation type="vanished">Garantir restricións</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5099,6 +5103,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Non se pode engadir unha entidade aniñada: asegúrate de que a entidade principal cumpre con tódalas restricións e que se poida gardar</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

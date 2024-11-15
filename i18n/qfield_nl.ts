@@ -4444,7 +4444,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Zorg voor beperkingen</translation>
+        <translation type="vanished">Zorg voor beperkingen</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4480,6 +4480,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5062,7 +5066,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Zorg voor beperkingen</translation>
+        <translation type="vanished">Zorg voor beperkingen</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5098,6 +5102,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -4441,7 +4441,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Bedingungen beachten</translation>
+        <translation type="vanished">Bedingungen beachten</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4478,6 +4478,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Kann kein Kind-Objekt anlegen: Es muss sichergestellt sein, dass das Eltern-Objekt alle Einschränkungen erfüllt und gespeichert werden kann.</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5059,7 +5063,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Einschränkungen einhalten</translation>
+        <translation type="vanished">Einschränkungen einhalten</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5096,6 +5100,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Kann kein Kind-Objekt anlegen: Es muss sichergestellt sein, dass das Eltern-Objekt alle Einschränkungen erfüllt und gespeichert werden kann.</translation>
+    </message>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
