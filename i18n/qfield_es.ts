@@ -1563,10 +1563,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>Duplicar objeto</translation>
     </message>
     <message>
-        <source>Rotate Feature</source>
-        <translation>Girar objeto</translation>
-    </message>
-    <message>
         <source>Delete Feature</source>
         <translation>Borrar objeto</translation>
     </message>

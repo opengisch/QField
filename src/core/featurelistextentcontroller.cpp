@@ -64,25 +64,22 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 
 QgsPoint FeatureListExtentController::getCentroidFromSelected() const
 {
-  QgsPoint point( 0.0, 0.0, 0.0 );
   if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings )
   {
-    QgsFeature feat = mSelection->focusedFeature();
-    QgsVectorLayer *layer = mSelection->focusedLayer();
+    const QgsFeature feat = mSelection->focusedFeature();
+    const QgsVectorLayer *layer = mSelection->focusedLayer();
 
     if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
     {
       QgsGeometry geom = feat.geometry();
 
-      QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
+      const QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
       geom.transform( transf );
 
-      QgsPointXY centroid = geom.centroid().asPoint();
-      point.setX( centroid.x() );
-      point.setY( centroid.y() );
+      return QgsPoint( geom.centroid().asPoint() );
     }
   }
-  return point;
+  return QgsPoint();
 }
 
 void FeatureListExtentController::onModelChanged()

@@ -392,7 +392,7 @@ bool MultiFeatureListModelBase::canRotateSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || ( vlayer->geometryType() == Qgis::GeometryType::Point ) )
+  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
     return false;
 
   const bool geometryLockedExpressionActive = vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
@@ -687,8 +687,7 @@ bool MultiFeatureListModelBase::rotateSelection( const double angle )
     // commit changes
     isSuccess = vlayer->commitChanges();
   }
-
-  if ( !isSuccess )
+  else
   {
     if ( !vlayer->rollBack() )
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );

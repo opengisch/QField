@@ -324,7 +324,7 @@ ApplicationWindow {
 
     DragHandler {
       id: rotateDragHandler
-      enabled: rotateFeaturesToolbar.rotateFeaturesRequested == true && !freehandButton.visible && !freehandButton.freehandDigitizing
+      enabled: rotateFeaturesToolbar.rotateFeaturesRequested == true
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen | PointerDevice.Mouse : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
@@ -350,9 +350,9 @@ ApplicationWindow {
           screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).y;
           let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
           if (angle != 0) {
-            rotateFeaturesHighlight.originX = screenCenterX;
-            rotateFeaturesHighlight.originY = screenCenterY;
-            rotateFeaturesHighlight.rotationDegrees = angle * 180 / Math.PI;
+            moveAndRotateFeaturesHighlight.originX = screenCenterX;
+            moveAndRotateFeaturesHighlight.originY = screenCenterY;
+            moveAndRotateFeaturesHighlight.rotationDegrees = angle * 180 / Math.PI;
           }
         }
       }
@@ -484,14 +484,13 @@ ApplicationWindow {
     MapCanvas {
       id: mapCanvasMap
 
-      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible
+      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible && !rotateFeaturesToolbar.rotateFeaturesRequested
       interactive: isEnabled && !screenLocker.enabled
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
-      isRotationFeaturesRequested: rotateFeaturesToolbar.rotateFeaturesRequested
 
       rightMargin: featureForm.x > 0 ? featureForm.width : 0
       bottomMargin: informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0
@@ -822,10 +821,10 @@ ApplicationWindow {
       width: 5
     }
 
-    /* Highlight the currently selected item being moved */
+    /* Highlight the currently selected item being moved or rotate */
     FeatureListSelectionHighlight {
-      id: moveFeaturesHighlight
-      visible: moveFeaturesToolbar.moveFeaturesRequested
+      id: moveAndRotateFeaturesHighlight
+      visible: moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
       showSelectedOnly: true
 
       selectionModel: featureForm.selection
@@ -835,26 +834,8 @@ ApplicationWindow {
       property double rotationRadians: -mapSettings.rotation * Math.PI / 180
       translateX: mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians)
       translateY: mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians)
-
-      color: "yellow"
-      focusedColor: "#ff7777"
-      selectedColor: Theme.mainColor
-      width: 5
-    }
-
-    /* Highlight the currently selected item being rotated */
-    FeatureListSelectionHighlight {
-      id: rotateFeaturesHighlight
-      visible: rotateFeaturesToolbar.rotateFeaturesRequested
-      showSelectedOnly: true
-
-      selectionModel: featureForm.selection
-      mapSettings: mapCanvas.mapSettings
-      // take rotation into account
-      // property double rotationRadians: -mapSettings.rotation * Math.PI / 180
-      // translateX: mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians)
-      // translateY: mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians)
       rotationDegrees: 0
+
       color: "yellow"
       focusedColor: "#ff7777"
       selectedColor: Theme.mainColor
@@ -2120,6 +2101,7 @@ ApplicationWindow {
             featureForm.extentController.zoomToSelected();
           }
           startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
+          moveAndRotateFeaturesHighlight.rotationDegrees = 0;
           moveFeaturesRequested = true;
         }
       }
@@ -2137,7 +2119,7 @@ ApplicationWindow {
 
         onConfirm: {
           rotateFeaturesRequested = false;
-          angle = rotateFeaturesHighlight.rotationDegrees;
+          angle = moveAndRotateFeaturesHighlight.rotationDegrees;
           rotateConfirmed();
         }
         onCancel: {
@@ -2149,6 +2131,7 @@ ApplicationWindow {
           if (featureForm && featureForm.selection.model.selectedCount === 1) {
             featureForm.extentController.zoomToSelected();
           }
+          moveAndRotateFeaturesHighlight.rotationDegrees = 0;
           rotateFeaturesRequested = true;
         }
       }

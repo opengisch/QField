@@ -760,8 +760,8 @@ Rectangle {
       id: rotateFeatureBtn
       text: qsTr('Rotate Feature')
       icon.source: Theme.getThemeVectorIcon("ic_rotate_white_24dp")
-      // allow only rotation for line or polygon
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked)) && (selection.focusedLayer.geometryType() == 1 || selection.focusedLayer.geometryType() == 2)
+      // allow only rotation for line or polygon or multipoint
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked)) && (selection.focusedLayer.geometryType() == 0 || selection.focusedLayer.geometryType() == 1 || selection.focusedLayer.geometryType() == 2)
       visible: enabled
 
       font: Theme.defaultFont

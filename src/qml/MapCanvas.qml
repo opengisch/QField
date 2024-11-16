@@ -33,7 +33,6 @@ Item {
   property bool hovered: false
   property bool pinched: pinchHandler.active
   property bool freehandDigitizing: false
-  property bool isRotationFeaturesRequested: false
   property bool isMapRotationEnabled: false
 
   // for signals, type can be "stylus" for any device click or "touch"
@@ -126,7 +125,7 @@ Item {
 
   DragHandler {
     id: stylusDragHandler
-    enabled: interactive && !freehandDigitizing && !isRotationFeaturesRequested
+    enabled: interactive && !freehandDigitizing
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
     acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
@@ -235,7 +234,7 @@ Item {
 
   DragHandler {
     id: mainDragHandler
-    enabled: interactive && !hovered && !freehandDigitizing && !isRotationFeaturesRequested
+    enabled: interactive && !hovered && !freehandDigitizing
     target: null
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
@@ -350,20 +349,14 @@ Item {
     grabPermissions: PointerHandler.TakeOverForbidden
     acceptedButtons: Qt.MiddleButton
 
-    property real pressClickX: 0
-    property real pressClickY: 0
-    property real screenCenterX: 0
-    property real screenCenterY: 0
-    property real lastRotateAngle: 0
+    property real oldTranslationY: 0
+    property bool translationThresholdReached: false
 
     onActiveChanged: {
       if (active) {
         freeze('rotate');
-        pressClickX = centroid.position.x;
-        pressClickY = centroid.position.y;
-        screenCenterX = width / 2;
-        screenCenterY = height / 2;
-        lastRotateAngle = 0;
+        oldTranslationY = 0;
+        translationThresholdReached = false;
       } else {
         unfreeze('rotate');
       }
@@ -371,19 +364,15 @@ Item {
 
     onTranslationChanged: {
       if (active) {
-        if (lastRotateAngle != 0) {
-          var newPositionX = pressClickX + translation.x;
-          var newPositionY = pressClickY + translation.y;
-          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
-          if (angle != 0) {
-            mapCanvasWrapper.rotate(angle * 180 / Math.PI - lastRotateAngle);
+        if (translationThresholdReached) {
+          if (oldTranslationY != 0) {
+            mapCanvasWrapper.rotate(oldTranslationY - translation.y);
           }
-          lastRotateAngle = angle * 180 / Math.PI;
-        } else {
-          let newPositionX = pressClickX + translation.x;
-          let newPositionY = pressClickY + translation.y;
-          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
-          lastRotateAngle = angle * 180 / Math.PI;
+          oldTranslationY = translation.y;
+          translationThresholdReached = true;
+        } else if (Math.abs(oldTranslationY - translation.y) > pinchHandler.rotationTreshold) {
+          oldTranslationY = translation.y;
+          translationThresholdReached = true;
         }
       }
     }
