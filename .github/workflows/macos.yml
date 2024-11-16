@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-15
+          - os: macos-14
             triplet: x64-osx
             deployment-target: "10.15"
             target-arch: x86_64
