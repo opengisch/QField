@@ -20,6 +20,9 @@ jobs:
     name: build (windows)
     runs-on: windows-2022
 
+  outputs:
+    artifact_name: ${{ steps.package.outputs.artifact_name }}
+
     steps:
       - name: 🐣 Checkout
         uses: actions/checkout@v4
@@ -120,6 +123,7 @@ jobs:
           ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
       - name: Package
+        id: package
         shell: bash
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }} -j1
@@ -127,6 +131,8 @@ jobs:
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.exe" >> $GITHUB_ENV
+
+          echo "artifact_name=${ARTIFACT_NAME}" >> "$GITHUB_OUTPUT"
 
       - name: 📑 Upload logs
         uses: actions/upload-artifact@v4
@@ -204,6 +210,8 @@ jobs:
     name: deploy (ms store)
     runs-on: windows-2022
 
+    needs: build
+
     steps:
       - name: Configure Store Credentials
         uses: microsoft/store-submission@v1
@@ -220,7 +228,7 @@ jobs:
         uses: microsoft/store-submission@v1
         with:
           command: update
-          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/qfield-v3.4.5-windows-x64.exe","languages":["en"],"architectures":["X64"],"isSilentInstall":true}]}'
+          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["X64"],"isSilentInstall":true}]}'
 
       - name: Publish Submission
         uses: microsoft/store-submission@v1
