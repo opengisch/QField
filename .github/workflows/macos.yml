@@ -21,12 +21,14 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-13
+          - os: macos-14
             triplet: x64-osx
             deployment-target: "10.15"
+            target-arch: x86_64
           - os: macos-14
             triplet: arm64-osx
             deployment-target: "11.0"
+            target-arch: arm64
     name: build (macos)
     runs-on: ${{ matrix.os }}
 
@@ -118,6 +120,8 @@ jobs:
                 -D MACOS_CODE_SIGN_IDENTITY="Apple Development" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ matrix.deployment-target }} \
+                -D CMAKE_OSX_ARCHITECTURES=${{ matrix.target-arch }} \
+                -D VCPKG_TARGET_TRIPLET=${{ matrix.triplet }} \
                 -D WITH_CCACHE=ON
 
       - name: 🌋 Build
