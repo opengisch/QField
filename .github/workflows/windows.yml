@@ -20,8 +20,8 @@ jobs:
     name: build (windows)
     runs-on: windows-2022
 
-  outputs:
-    artifact_name: ${{ steps.package.outputs.artifact_name }}
+    outputs:
+      artifact_name: ${{ steps.package.outputs.artifact_name }}
 
     steps:
       - name: 🐣 Checkout
