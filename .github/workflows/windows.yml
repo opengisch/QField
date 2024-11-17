@@ -19,6 +19,9 @@ jobs:
     name: build (windows)
     runs-on: windows-2022
 
+    outputs:
+      artifact_name: ${{ steps.package.outputs.artifact_name }}
+
     steps:
       - name: 🐣 Checkout
         uses: actions/checkout@v4
@@ -119,6 +122,7 @@ jobs:
           ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
       - name: Package
+        id: package
         shell: bash
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }} -j1
@@ -126,6 +130,8 @@ jobs:
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.exe" >> $GITHUB_ENV
+
+          echo "artifact_name=${ARTIFACT_NAME}" >> "$GITHUB_OUTPUT"
 
       - name: 📑 Upload logs
         uses: actions/upload-artifact@v4
@@ -181,37 +187,16 @@ jobs:
           ruby-version: '3.2' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-#      - name: 🍺 Deploy
-#        env:
-#          S3_BUCKET: qfieldapks
-#          S3_REGION: ch-dk-2
-#          S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY}}
-#          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY}}
-#        run: |
-#          bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
-#
-#      - name: Configure Store Credentials
-#        uses: microsoft/store-submission@v1
-#        with:
-#          command: configure
-#          type: win32
-#          seller-id: ${{ secrets.MICROSOFT_STORE_SELLER_ID }}
-#          product-id: ${{ secrets.MICROSOFT_STORE_PRODUCT_ID }}
-#          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-#          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-#          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-#
-#      - name: Update Draft Submission
-#        uses: microsoft/store-submission@v1
-#        with:
-#          command: update
-#          product-update: '{"packages":[{"packageUrl":"https://cdn.contoso.us/prod/5.10.1.4420/ContosoIgniteInstallerFull.msi","languages":["en"],"architectures":["X64"],"isSilentInstall":true}]}'
-#
-#      - name: Publish Submission
-#        uses: microsoft/store-submission@v1
-#        with:
-#          command: publish
-#
+      - name: 🍺 Upload to S3
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+        env:
+          S3_BUCKET: qfieldapks
+          S3_REGION: ch-dk-2
+          S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY}}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY}}
+        run: |
+          bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
+
       - name: 📮 Upload debug symbols
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
         env:
@@ -220,3 +205,35 @@ jobs:
           SENTRY_PROJECT_SLUG: qfield
         run: |
           bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
+
+  deploy:
+    name: deploy (ms store)
+    runs-on: windows-2022
+
+    if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+
+    needs: build
+
+    steps:
+      - name: Configure Store Credentials
+        uses: microsoft/store-submission@v1
+        with:
+          command: configure
+          type: win32
+          seller-id: ${{ secrets.MICROSOFT_STORE_SELLER_ID }}
+          product-id: ${{ secrets.MICROSOFT_STORE_PRODUCT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+
+      - name: Update Draft Submission
+        uses: microsoft/store-submission@v1
+        with:
+          command: update
+          # See documentation here https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#update-current-draft-submission-metadata-api
+          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["X64"],"isSilentInstall":true}]}'
+
+      - name: Publish Submission
+        uses: microsoft/store-submission@v1
+        with:
+          command: publish
