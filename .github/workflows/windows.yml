@@ -187,8 +187,8 @@ jobs:
           ruby-version: '3.2' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-      - name: 🍺 Deploy
-        # if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+      - name: 🍺 Upload to S3
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
         env:
           S3_BUCKET: qfieldapks
           S3_REGION: ch-dk-2
@@ -210,7 +210,7 @@ jobs:
     name: deploy (ms store)
     runs-on: windows-2022
 
-    # if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+    if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
 
     needs: build
 
@@ -231,7 +231,7 @@ jobs:
         with:
           command: update
           # See documentation here https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#update-current-draft-submission-metadata-api
-          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["X64"],"isSilentInstall":true}]}'
+          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["X64"],"isSilentInstall":true}]}'
 
       - name: Publish Submission
         uses: microsoft/store-submission@v1
