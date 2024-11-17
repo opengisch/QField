@@ -2,8 +2,6 @@ platform :windows do
   lane :upload_s3 do |options|
     exe = options[:exe]
 
-    setup_ci if is_ci
-
     aws_s3(
       files: [exe],
       endpoint: "https://sos-ch-dk-2.exo.io",

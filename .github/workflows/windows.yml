@@ -5,7 +5,6 @@ on:
     branches:
       - master
       - release-**
-      - ms-store-publish
   pull_request:
   release:
     types: ['published']
@@ -189,6 +188,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🍺 Deploy
+        # if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
         env:
           S3_BUCKET: qfieldapks
           S3_REGION: ch-dk-2
@@ -210,6 +210,8 @@ jobs:
     name: deploy (ms store)
     runs-on: windows-2022
 
+    # if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+
     needs: build
 
     steps:
@@ -228,6 +230,7 @@ jobs:
         uses: microsoft/store-submission@v1
         with:
           command: update
+          # See documentation here https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#update-current-draft-submission-metadata-api
           product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["X64"],"isSilentInstall":true}]}'
 
       - name: Publish Submission
