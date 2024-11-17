@@ -27,6 +27,7 @@
 #include <QFileInfo>
 #include <QImageReader>
 #include <QQuickItem>
+#include <QTemporaryFile>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
@@ -278,6 +279,15 @@ void AppInterface::importUrl( const QString &url )
     sanitizedUrl = QStringLiteral( "https://%1" ).arg( sanitizedUrl );
   }
 
+  const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+  if ( applicationDirectory.isEmpty() )
+    return;
+
+  QTemporaryFile *temporaryFile = new QTemporaryFile();
+  temporaryFile->setFileTemplate( QStringLiteral( "%1/XXXXXXXXXXXX" ).arg( applicationDirectory ) );
+  temporaryFile->setAutoRemove( false );
+  temporaryFile->open();
+
   QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
   QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
@@ -286,6 +296,7 @@ void AppInterface::importUrl( const QString &url )
 
   QNetworkReply *reply = manager->get( request );
   connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
+    temporaryFile->write( reply->readAll() );
     if ( bytesTotal != 0 )
     {
       emit importProgress( static_cast<double>( bytesReceived ) / bytesTotal );
@@ -293,8 +304,10 @@ void AppInterface::importUrl( const QString &url )
   } );
 
   connect( reply, &QNetworkReply::finished, this, [=]() {
-    const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
-    if ( !applicationDirectory.isEmpty() && reply->error() == QNetworkReply::NoError )
+    std::unique_ptr<QTemporaryFile> tmpFile;
+    tmpFile.reset( temporaryFile );
+
+    if ( reply->error() == QNetworkReply::NoError )
     {
       QString fileName = reply->url().fileName();
       QString contentDisposition = reply->header( QNetworkRequest::ContentDispositionHeader ).toString();
@@ -322,13 +335,10 @@ void AppInterface::importUrl( const QString &url )
       }
       QDir( QFileInfo( filePath ).absolutePath() ).mkpath( "." );
 
-      QFile file( filePath );
-      if ( file.open( QIODevice::WriteOnly ) )
+      tmpFile->write( reply->readAll() );
+      tmpFile->close();
+      if ( tmpFile->rename( filePath ) )
       {
-        const QByteArray data = reply->readAll();
-        file.write( data );
-        file.close();
-
         if ( fileSuffix == QLatin1String( "zip" ) )
         {
           // Check if this is a compressed project and handle accordingly
@@ -353,26 +363,31 @@ void AppInterface::importUrl( const QString &url )
 
             if ( QgsZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
-              file.remove();
+              tmpFile->remove();
+              // Project archive successfully imported
               emit importEnded( zipDirectory );
               return;
             }
             else
             {
-              // Broken archive, bail out
+              // Broken project archive, bail out
               QDir dir( zipDirectory );
               dir.removeRecursively();
-              file.remove();
+              tmpFile->remove();
               filePath.clear();
+              emit importEnded();
+              return;
             }
           }
         }
 
+        // Dataset successfully imported
         emit importEnded( QFileInfo( filePath ).absolutePath() );
         return;
       }
     }
 
+    tmpFile->remove();
     emit importEnded();
   } );
 }
