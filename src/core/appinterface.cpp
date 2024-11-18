@@ -387,6 +387,7 @@ void AppInterface::importUrl( const QString &url )
       }
     }
 
+    // cppcheck-suppress nullPointer
     tmpFile->remove();
     emit importEnded();
   } );
