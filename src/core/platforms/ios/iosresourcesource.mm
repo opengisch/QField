@@ -51,13 +51,9 @@
       kCFCompareEqualTo) {
     NSURL *videoUrl =
         (NSURL *)[info objectForKey:UIImagePickerControllerMediaURL];
+    const QString originalFilename =
+        QString::fromNSString([videoUrl lastPathComponent]);
 
-    /*
-    NSString *moviePath = [videoUrl path];*/
-    // For now, hardcode a dummy filename until the above code can be reviewed
-    // by person with iOS background and made to work
-    const QString originalFilename = QStringLiteral("%1.%2").arg(
-        QString::number(QDateTime::currentSecsSinceEpoch()), "MP4");
     QString finalResourceFilePath = mIosCamera->resourceFilePath();
     if (!originalFilename.isEmpty()) {
       QFileInfo fi(originalFilename);
@@ -74,15 +70,11 @@
 
     emit mIosCamera->resourceReceived(finalResourceFilePath);
   } else {
-    /*
-    NSURL *imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
-    PHAsset *phAsset = [[PHAsset fetchAssetsWithALAssetURLs:@[ imageURL ]
-                                                    options:nil] lastObject];
-    const QString originalFilename([phAsset valueForKey:@"filename"]);*/
-    // For now, hardcode a dummy filename until the above code can be reviewed
-    // by person with iOS background and made to work
-    const QString originalFilename = QStringLiteral("%1.%2").arg(
-        QString::number(QDateTime::currentSecsSinceEpoch()), "JPG");
+    NSURL *imageUrl =
+        (NSURL *)[info objectForKey:UIImagePickerControllerImageURL];
+    const QString originalFilename =
+        QString::fromNSString([imageUrl lastPathComponent]);
+
     QString finalResourceFilePath = mIosCamera->resourceFilePath();
     if (!originalFilename.isEmpty()) {
       QFileInfo fi(originalFilename);
