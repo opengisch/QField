@@ -211,9 +211,9 @@ jobs:
     name: deploy (ms store)
     runs-on: windows-2022
 
-    if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+    # if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
 
-    needs: build
+    # needs: build
 
     steps:
       - name: Configure Store Credentials
