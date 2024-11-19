@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - silentparam
   pull_request:
   release:
     types: ['published']
@@ -231,7 +232,7 @@ jobs:
         with:
           command: update
           # See documentation here https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#update-current-draft-submission-metadata-api
-          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["X64"],"isSilentInstall":true}]}'
+          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/qfield-v3.4.5-windows-x64.exe","languages":["en"],"architectures":["X64"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe"}]}'
 
       - name: Publish Submission
         uses: microsoft/store-submission@v1
