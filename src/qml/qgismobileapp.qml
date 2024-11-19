@@ -3959,7 +3959,7 @@ ApplicationWindow {
   onClosing: close => {
     if (screenLocker.enabled) {
       close.accepted = false;
-      displayToast(qsTr("Unlock the screen to to close project and app"));
+      displayToast(qsTr("Unlock the screen to close project and app"));
       return;
     }
     if (!closeAlreadyRequested) {
