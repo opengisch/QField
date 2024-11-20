@@ -403,7 +403,7 @@ ApplicationWindow {
           } else if (geometryEditorsToolbar.editorRubberbandModel && geometryEditorsToolbar.editorRubberbandModel.vertexCount > 1) {
             coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
           } else {
-            if (!digitizingToolbar.rubberbandModel.frozen) {
+            if (digitizingToolbar.rubberbandModel == undefined || !digitizingToolbar.rubberbandModel.frozen) {
               coordinateLocator.sourceLocation = undefined;
             }
           }
