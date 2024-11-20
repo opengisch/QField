@@ -26,6 +26,7 @@
 #include "helplocatorfilter.h"
 #include "locatormodelsuperbridge.h"
 #include "peliasgeocoder.h"
+#include "qfieldlocatorfilter.h"
 #include "qgsquickmapsettings.h"
 
 #include <QStandardItem>
@@ -47,6 +48,11 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   // Finnish's Digitransit geocoder (disabled until API access can be sorted)
   //mFinlandGeocoder = new PeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
   //locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
+}
+
+void LocatorModelSuperBridge::registerQFieldLocatorFilter( QFieldLocatorFilter *filter )
+{
+  locator()->registerFilter( filter );
 }
 
 Navigation *LocatorModelSuperBridge::navigation() const

@@ -83,6 +83,7 @@ ApplicationWindow {
 
   LocatorModelSuperBridge {
     id: locatorBridge
+    objectName: "locatorBridge"
 
     activeLayer: dashBoard.activeLayer
     bookmarks: bookmarkModel

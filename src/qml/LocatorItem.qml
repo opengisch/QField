@@ -221,12 +221,12 @@ Item {
         color: "transparent"
       }
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
-      onDisplayTextChanged: {
+      onTextChanged: {
         locatorItem.state = "on";
         searchTermHandled = false;
         searchTermChanged(searchField.displayText);
         if (!searchTermHandled) {
-          locatorBridge.performSearch(searchField.displayText);
+          locatorBridge.performSearch(searchField.text);
         }
         if (searchField.displayText == 'f ' && dashBoard.activeLayer == undefined) {
           displayToast(qsTr('To search features within the active layer, select a vector layer through the legend.'));

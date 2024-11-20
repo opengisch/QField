@@ -28,6 +28,7 @@ class QgsQuickMapSettings;
 class FeatureListExtentController;
 class PeliasGeocoder;
 class GnssPositionInformation;
+class QFieldLocatorFilter;
 class QgsLocator;
 
 /**
@@ -135,6 +136,8 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
      * string will be returned.
      */
     Q_INVOKABLE QString getPrefixFromSearchString( const QString &string );
+
+    Q_INVOKABLE void registerQFieldLocatorFilter( QFieldLocatorFilter *filter );
 
     void emitMessage( const QString &text );
 
