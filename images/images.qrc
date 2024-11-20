@@ -171,5 +171,6 @@
         <file>themes/qfield/nodpi/ic_shutdown_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_egeniouss_receiver_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_location_tracking_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_line_curve_24dp.svg</file>
     </qresource>
 </RCC>

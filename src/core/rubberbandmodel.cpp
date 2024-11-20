@@ -39,7 +39,8 @@ bool RubberbandModel::isEmpty() const
 
 QVector<QgsPoint> RubberbandModel::vertices() const
 {
-  QgsVertexIterator vertexIterator = mCompoundCurve.curveToLine()->vertices();
+  QgsVertexIterator vertexIterator = mCompoundCurve.curveToLine( QSettings().value( "/QField/Digitizing/CurveTolerance", true ).toDouble(), QgsAbstractGeometry::SegmentationToleranceType::MaximumDifference )->vertices();
+
 
   // Create an empty QVector<QgsPoint>
   QVector<QgsPoint> points;
@@ -258,7 +259,35 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
   if ( mFrozen )
     return;
 
-  mCompoundCurve.moveVertex( id, currentCoordinate );
+  if ( mDuringCurveDrawing == false )
+  {
+    mCompoundCurve.moveVertex( id, currentCoordinate );
+  }
+  else
+  {
+    QgsCircularString *curve = new QgsCircularString( mLastStartCurvePoint, mLastMiddleCurvePoint, currentCoordinate );
+    if ( mCompoundCurve.nCurves() != 0 )
+    {
+      const QgsCurve *lastSegment = mCompoundCurve.curveAt( mCompoundCurve.nCurves() - 1 );
+      if ( lastSegment->hasCurvedSegments() == true )
+      {
+        mCompoundCurve.removeCurve( mCompoundCurve.nCurves() - 1 );
+      }
+      else
+      {
+        if ( lastSegment->vertexCount( 0, 0 ) > 2 )
+        {
+          removeVertices( mCurrentCoordinateIndex - 1, 1 );
+          setCurrentCoordinateIndex( mCurrentCoordinateIndex + 1 );
+        }
+        else
+        {
+          mCompoundCurve.removeCurve( mCompoundCurve.nCurves() - 1 );
+        }
+      }
+    }
+    mCompoundCurve.addCurve( curve, true );
+  }
 
   if ( !mLayer || QgsWkbTypes::hasM( mLayer->wkbType() ) )
   {
@@ -278,7 +307,7 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
       mCompoundCurve.vertexAt( id ).dropMValue();
     }
   }
-
+  mCurrentCoordinate = currentCoordinate;
   emit currentCoordinateChanged();
   emit vertexChanged( mCurrentCoordinateIndex );
 }
@@ -337,6 +366,43 @@ void RubberbandModel::removeVertex()
 {
   setCurrentCoordinateIndex( mCurrentCoordinateIndex - 1 );
   removeVertices( mCurrentCoordinateIndex + 1, 1 );
+  if ( QSettings().value( "/QField/Digitizing/CurveEdition", true ).toBool() )
+  {
+    mDuringCurveDrawing = !mDuringCurveDrawing;
+    if ( mDuringCurveDrawing == false )
+    {
+      mCompoundCurve.addVertex( mCurrentCoordinate );
+      setCurrentCoordinateIndex( vertexCount() - 1 );
+      emit vertexCountChanged();
+    }
+  }
+}
+
+void RubberbandModel::addCurve()
+{
+  mDuringCurveDrawing = false;
+  QgsCircularString *curve = new QgsCircularString( mLastStartCurvePoint, mLastMiddleCurvePoint, mCurrentCoordinate );
+  if ( mCompoundCurve.nCurves() != 0 )
+  {
+    mCompoundCurve.removeCurve( mCompoundCurve.nCurves() - 1 );
+  }
+
+  mCompoundCurve.addCurve( curve, true );
+  mCompoundCurve.addVertex( mCurrentCoordinate );
+  setCurrentCoordinateIndex( vertexCount() - 1 );
+  emit vertexCountChanged();
+}
+
+void RubberbandModel::addMiddlePointCurve()
+{
+  mDuringCurveDrawing = true;
+  mLastMiddleCurvePoint = currentCoordinate();
+  mLastStartCurvePoint = lastCoordinate();
+  setCurrentCoordinateIndex( mCurrentCoordinateIndex + 1 );
+}
+
+void RubberbandModel::removeCurve()
+{
 }
 
 void RubberbandModel::reset()

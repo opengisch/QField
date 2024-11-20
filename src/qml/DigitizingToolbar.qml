@@ -242,7 +242,19 @@ QfVisibilityFadingRow {
       if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
         confirm();
       } else {
-        addVertex();
+        if (settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
+          if (currentRubberband.model.isDuringCurveDrawing() == true || currentRubberband.model.vertexCount == 1) {
+            if (currentRubberband.model.vertexCount != 1) {
+              addCurve();
+            } else {
+              addVertex();
+            }
+          } else {
+            addMiddlePointCurve();
+          }
+        } else {
+          addVertex();
+        }
       }
     }
   }
@@ -279,6 +291,14 @@ QfVisibilityFadingRow {
 
   function triggerAddVertex() {
     addVertexButton.clicked();
+  }
+
+  function addCurve() {
+    rubberbandModel.addCurve();
+  }
+
+  function addMiddlePointCurve() {
+    rubberbandModel.addMiddlePointCurve();
   }
 
   function addVertex() {
