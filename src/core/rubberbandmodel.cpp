@@ -24,28 +24,38 @@ RubberbandModel::RubberbandModel( QObject *parent )
   : QObject( parent )
   , mLayer( nullptr )
 {
-  mPointList.insert( 0, QgsPoint() );
+  mCompoundCurve.addVertex( QgsPoint() );
 }
 
 int RubberbandModel::vertexCount() const
 {
-  return mPointList.size();
+  return mCompoundCurve.vertexCount( 0, 0 );
 }
 
 bool RubberbandModel::isEmpty() const
 {
-  return mPointList.isEmpty();
+  return mCompoundCurve.isEmpty();
 }
 
 QVector<QgsPoint> RubberbandModel::vertices() const
 {
-  return mPointList;
+  QgsVertexIterator vertexIterator = mCompoundCurve.curveToLine()->vertices();
+
+  // Create an empty QVector<QgsPoint>
+  QVector<QgsPoint> points;
+
+  // Iterate over the vertices and add them to the vector
+  while ( vertexIterator.hasNext() )
+  {
+    points.append( vertexIterator.next() );
+  }
+  return points;
 }
 
 QVector<QgsPoint> RubberbandModel::verticesCopy( bool skipCurrentPoint ) const
 {
   QVector<QgsPoint> points;
-  for ( const QgsPoint &pt : mPointList )
+  for ( const QgsPoint &pt : vertices() )
   {
     points << QgsPoint( pt );
   }
@@ -60,7 +70,7 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
   QgsPointSequence sequence;
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
-  for ( const QgsPoint &pt : mPointList )
+  for ( const QgsPoint &pt : vertices() )
   {
     //crs transformation of XY
     QgsPointXY p1 = ct.transform( pt.x(), pt.y() );
@@ -97,7 +107,7 @@ QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateRefer
 
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
-  for ( const QgsPoint &pt : mPointList )
+  for ( const QgsPoint &pt : vertices() )
   {
     sequence.append( ct.transform( pt.x(), pt.y() ) );
   }
@@ -107,9 +117,10 @@ QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateRefer
 
 void RubberbandModel::setVertex( int index, QgsPoint coordinate )
 {
-  if ( mPointList.at( index ) != coordinate )
+  QgsVertexId id = QgsVertexId( 0, 0, index );
+  if ( mCompoundCurve.vertexAt( id ) != coordinate )
   {
-    mPointList.replace( index, coordinate );
+    mCompoundCurve.moveVertex( id, coordinate );
     emit vertexChanged( index );
   }
 }
@@ -118,7 +129,8 @@ void RubberbandModel::insertVertices( int index, int count )
 {
   for ( int i = 0; i < count; ++i )
   {
-    mPointList.insert( index, currentCoordinate() );
+    QgsVertexId id = QgsVertexId( 0, 0, index );
+    mCompoundCurve.insertVertex( id, currentCoordinate() );
   }
 
   emit verticesInserted( index, count );
@@ -127,14 +139,23 @@ void RubberbandModel::insertVertices( int index, int count )
 
 void RubberbandModel::removeVertices( int index, int count )
 {
-  if ( mPointList.size() <= 1 )
+  if ( vertexCount() <= 1 )
     return;
 
-  mPointList.remove( index, count );
-
-  if ( mCurrentCoordinateIndex >= mPointList.size() )
+  for ( int i = 0; i < count; ++i )
   {
-    setCurrentCoordinateIndex( mPointList.size() - 1 );
+    QgsVertexId id = QgsVertexId( 0, 0, index );
+    mCompoundCurve.deleteVertex( id );
+  }
+
+  if ( vertexCount() == 0 )
+  {
+    mCompoundCurve.addVertex( QgsPoint() );
+  }
+
+  if ( mCurrentCoordinateIndex >= vertexCount() )
+  {
+    setCurrentCoordinateIndex( vertexCount() - 1 );
   }
 
   emit verticesRemoved( index, count );
@@ -162,8 +183,8 @@ void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
 QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType ) const
 {
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
-
-  QgsPoint currentPt = mPointList.at( mCurrentCoordinateIndex );
+  QgsVertexId id = QgsVertexId( 0, 0, mCurrentCoordinateIndex );
+  QgsPoint currentPt = mCompoundCurve.vertexAt( id );
   double x = currentPt.x();
   double y = currentPt.y();
   double z = QgsWkbTypes::hasZ( currentPt.wkbType() ) ? currentPt.z() : 0;
@@ -195,64 +216,66 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
 
 QgsPoint RubberbandModel::currentCoordinate() const
 {
-  return mPointList.value( mCurrentCoordinateIndex );
+  QgsVertexId id = QgsVertexId( 0, 0, mCurrentCoordinateIndex );
+  return mCompoundCurve.vertexAt( id );
 }
 
 QgsPoint RubberbandModel::firstCoordinate() const
 {
-  if ( mPointList.isEmpty() )
+  if ( mCompoundCurve.isEmpty() )
     return QgsPoint();
 
-  return mPointList.at( 0 );
+  QgsVertexId id = QgsVertexId( 0, 0, 0 );
+  return mCompoundCurve.vertexAt( id );
 }
 
 QgsPoint RubberbandModel::lastCoordinate() const
 {
-  if ( mPointList.isEmpty() )
+  if ( mCompoundCurve.isEmpty() )
     return QgsPoint();
-
-  return mPointList.at( mCurrentCoordinateIndex > 0 ? mCurrentCoordinateIndex - 1 : 0 );
+  QgsVertexId id = QgsVertexId( 0, 0, mCurrentCoordinateIndex > 0 ? mCurrentCoordinateIndex - 1 : 0 );
+  return mCompoundCurve.vertexAt( id );
 }
 
 QgsPoint RubberbandModel::penultimateCoordinate() const
 {
-  if ( mPointList.size() < 3 )
+  if ( mCompoundCurve.vertexCount( 0, 0 ) < 3 )
     return QgsPoint();
-
-  return mPointList.at( mCurrentCoordinateIndex > 1 ? mCurrentCoordinateIndex - 2 : 0 );
+  QgsVertexId id = QgsVertexId( 0, 0, mCurrentCoordinateIndex > 1 ? mCurrentCoordinateIndex - 2 : 0 );
+  return mCompoundCurve.vertexAt( id );
 }
 
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
   // play safe, but try to find out
-  // Q_ASSERT( mPointList.count() != 0 );
-  if ( mPointList.count() == 0 )
+  if ( mCompoundCurve.isEmpty() )
     return;
 
-  if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
+  QgsVertexId id = QgsVertexId( 0, 0, mCurrentCoordinateIndex );
+  if ( mCompoundCurve.vertexAt( id ) == currentCoordinate )
     return;
 
   if ( mFrozen )
     return;
 
-  mPointList.replace( mCurrentCoordinateIndex, currentCoordinate );
+  mCompoundCurve.moveVertex( id, currentCoordinate );
 
   if ( !mLayer || QgsWkbTypes::hasM( mLayer->wkbType() ) )
   {
     if ( !std::isnan( mMeasureValue ) )
     {
-      if ( QgsWkbTypes::hasM( mPointList[mCurrentCoordinateIndex].wkbType() ) )
+      if ( QgsWkbTypes::hasM( mCompoundCurve.vertexAt( id ).wkbType() ) )
       {
-        mPointList[mCurrentCoordinateIndex].setM( mMeasureValue );
+        mCompoundCurve.vertexAt( id ).setM( mMeasureValue );
       }
       else
       {
-        mPointList[mCurrentCoordinateIndex].addMValue( mMeasureValue );
+        mCompoundCurve.vertexAt( id ).addMValue( mMeasureValue );
       }
     }
     else
     {
-      mPointList[mCurrentCoordinateIndex].dropMValue();
+      mCompoundCurve.vertexAt( id ).dropMValue();
     }
   }
 
@@ -295,7 +318,7 @@ void RubberbandModel::setMeasureValue( const double measureValue )
 void RubberbandModel::addVertex()
 {
   // Avoid double vertices accidentally
-  if ( mPointList.size() > 1 && *( mPointList.end() - 1 ) == *( mPointList.end() - 2 ) )
+  if ( mCompoundCurve.vertexCount( 0, 0 ) > 1 && currentCoordinate() == penultimateCoordinate() )
   {
     return;
   }
@@ -318,7 +341,7 @@ void RubberbandModel::removeVertex()
 
 void RubberbandModel::reset()
 {
-  removeVertices( 0, mPointList.size() - 1 );
+  removeVertices( 0, vertexCount() - 1 );
   mFrozen = false;
   emit frozenChanged();
 }
@@ -331,7 +354,7 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
   QgsCoordinateTransform ct( crs, mCrs, QgsProject::instance()->transformContext() );
   geometry.transform( ct );
 
-  mPointList.clear();
+  mCompoundCurve.clear();
   const QgsAbstractGeometry *abstractGeom = geometry.constGet();
   if ( !abstractGeom )
     return;
@@ -344,22 +367,22 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
     {
       break;
     }
-    mPointList << pt;
+    mCompoundCurve.addVertex( pt );
   }
 
   // for polygons, remove the last vertex which is a duplicate of the first vertex
   if ( geometry.type() == Qgis::GeometryType::Polygon )
   {
-    mPointList.removeLast();
+    mCompoundCurve.removeDuplicateNodes();
   }
 
   // insert the last point twice so the resutling rubberband's current coordinate property being modified (by e.g.
   // the GNSS position) will not replace the last vertex from the passed geometry
-  mPointList << mPointList.last();
+  mCompoundCurve.addVertex( mCompoundCurve.endPoint() );
 
-  mCurrentCoordinateIndex = mPointList.size() - 1;
+  mCurrentCoordinateIndex = mCompoundCurve.vertexCount( 0, 0 ) - 1;
 
-  emit verticesInserted( 0, mPointList.size() );
+  emit verticesInserted( 0, mCompoundCurve.vertexCount( 0, 0 ) );
   emit vertexCountChanged();
 }
 

@@ -25,6 +25,7 @@
 #include <QVector>
 #include <qgis.h>
 #include <qgsabstractgeometry.h>
+#include <qgscompoundcurve.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>
 #include <qgspoint.h>
@@ -197,7 +198,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     void measureValueChanged();
 
   private:
-    QVector<QgsPoint> mPointList;
+    QgsCompoundCurve mCompoundCurve;
     int mCurrentCoordinateIndex = 0;
     QDateTime mCurrentPositionTimestamp;
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Line;
