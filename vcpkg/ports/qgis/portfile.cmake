@@ -17,6 +17,7 @@ vcpkg_from_github(
         include-qthread.patch
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
         meshoptimizer.patch
+        locatorcontext.patch # Remove when upgrading to QGIS 3.42
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)

@@ -1,0 +1,17 @@
+diff --git a/src/core/locator/qgslocatorcontext.h b/src/core/locator/qgslocatorcontext.h
+index 6f19dc35ecc..325e6cc1be2 100644
+--- a/src/core/locator/qgslocatorcontext.h
++++ b/src/core/locator/qgslocatorcontext.h
+@@ -30,6 +30,12 @@
+  */
+ class CORE_EXPORT QgsLocatorContext
+ {
++    Q_GADGET
++
++    Q_PROPERTY( QgsRectangle targetExtent MEMBER targetExtent )
++    Q_PROPERTY( QgsCoordinateReferenceSystem targetExtentCrs MEMBER targetExtentCrs )
++    Q_PROPERTY( bool usingPrefix MEMBER usingPrefix )
++
+   public:
+ 
+     QgsLocatorContext() = default;
