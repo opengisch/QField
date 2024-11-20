@@ -254,7 +254,7 @@ LocatorFiltersModel::LocatorFiltersModel()
 
 int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( !mLocatorModelSuperBridge->locator() || parent.isValid() )
+  if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() || parent.isValid() )
     return 0;
 
   return static_cast<int>( mLocatorModelSuperBridge->locator()->filters().count() );
@@ -311,7 +311,7 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 
 bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
+  if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return false;
 
   switch ( role )
@@ -357,7 +357,7 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
 
 void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position )
 {
-  if ( !mLocatorModelSuperBridge->locator() )
+  if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() )
     return;
 
   QgsPointXY point( position.longitude(), position.latitude() );
@@ -388,7 +388,7 @@ void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssP
 
 QgsLocatorFilter *LocatorFiltersModel::filterForIndex( const QModelIndex &index ) const
 {
-  if ( !mLocatorModelSuperBridge->locator() )
+  if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() )
     return nullptr;
 
   return mLocatorModelSuperBridge->locator()->filters().at( index.row() );
