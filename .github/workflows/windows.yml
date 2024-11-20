@@ -230,9 +230,14 @@ jobs:
       - name: Update Draft Submission
         uses: microsoft/store-submission@v1
         with:
+          command: cancel
+
+      - name: Update Draft Submission
+        uses: microsoft/store-submission@v1
+        with:
           command: update
           # See documentation here https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#update-current-draft-submission-metadata-api
-          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/qfield-v3.4.5-windows-x64.exe","languages":["en"],"architectures":["X64"],"isSilentInstall":false,"installerParameters":"/s","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}]}'
+          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/qfield-v3.4.5-windows-x64.exe","languages":["en"],"architectures":["X64"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}]}'
 
       - name: Publish Submission
         uses: microsoft/store-submission@v1
