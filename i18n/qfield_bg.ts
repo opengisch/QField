@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Обекти от активния слой</translation>
     </message>
 </context>
 <context>
@@ -248,7 +248,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Име на Bluetooth устройството:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -256,19 +256,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Адрес на Bluetooth устройството:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Търси устройства наблизо</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Няма открити Bluetooth устройства, потърси устройства наблизо.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Грешка при търсене: %1</translation>
     </message>
 </context>
 <context>
@@ -279,7 +279,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Отказано разрешение за Bluetooth </translation>
     </message>
 </context>
 <context>
@@ -330,7 +330,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Отказано разрешение за Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -473,7 +473,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Геометрия</translation>
     </message>
 </context>
 <context>
@@ -487,7 +487,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Открит NFC таг</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -495,7 +495,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Центрирай устройството върху кода</translation>
     </message>
 </context>
 <context>
@@ -510,7 +510,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Приключи или откажи цифроването преди активирането на режим преглед</translation>
     </message>
 </context>
 <context>
@@ -631,15 +631,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Невалиден първи байт</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>Получените данни са прекалено малки, за да съдържат смислено съдържание.</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>Грешка при парсването на JSON</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -651,7 +651,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Връзката е отказана от отдалечения хост</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
@@ -688,7 +688,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>Калкулатор</translation>
     </message>
 </context>
 <context>
@@ -710,27 +710,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>Направи снимка</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>Направи видео</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>Запиши звук</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>Прикачи снимка от галерията</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>Прикачи файл</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>Рисувай върху снимката</translation>
     </message>
 </context>
 <context>
@@ -1083,7 +1083,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Изтриване</translation>
     </message>
 </context>
 <context>
@@ -1117,14 +1117,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Документация на QField</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Навигация</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1136,7 +1136,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Сензори</translation>
     </message>
     <message>
         <source>Elevation profile</source>
@@ -1609,7 +1609,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Печатане...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -1819,18 +1819,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Мрежова грешка</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Плъгини</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Нямаш инсталирани плъгини. За да научиш повече за плъгините прочети %1документацията%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
@@ -3853,7 +3853,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Връзката е отказана от отдалечения хост</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
@@ -4226,7 +4226,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Връзката е отказана от отдалечения хост</translation>
     </message>
 </context>
 <context>
@@ -4399,7 +4399,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>градуси</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -4407,39 +4407,39 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>метри</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>километри</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>футове</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>ярдове</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>мили</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>морси мили</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>сантиметри</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>милиметри</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>инчове</translation>
     </message>
 </context>
 <context>
@@ -4873,19 +4873,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Печатане като изображение</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Печатане...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Печат</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Грешка на позициониращото устройство: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -4913,11 +4913,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Относителен ъгъл</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Залепване на всеки %1°</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4929,15 +4929,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Научи повече</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Сензори</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Няма налични сензори</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -4945,7 +4945,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Избор на сензор</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
@@ -4965,27 +4965,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Слой:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Обект:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Отвори формуляра на обекта</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Не е налично копирането на обекта</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Импортиране на %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно импортиране на URL</translation>
     </message>
     <message>
         <source>Unlock the screen to to close project and app</source>
@@ -5021,7 +5021,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Включи завъртането на картата</translation>
     </message>
     <message>
         <source>Dashboard</source>
@@ -5049,7 +5049,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Приближение</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
@@ -5057,11 +5057,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Откажи операция с алгоритъм</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>На път си да откажеш операция с алгоритъм, искаш ли да продължиш?</translation>
     </message>
 </context>
 <context>

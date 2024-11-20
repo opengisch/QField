@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>QField imeniki aplikacij</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>QField imenik aplikacij</translation>
     </message>
 </context>
 <context>
@@ -1810,14 +1810,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Napaka omrežja</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Vtičniki</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
@@ -1932,7 +1932,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kakovost</translation>
     </message>
 </context>
 <context>
@@ -1950,7 +1950,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Ime:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
@@ -1966,15 +1966,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
@@ -2096,7 +2096,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kakovost</translation>
     </message>
 </context>
 <context>
@@ -2121,11 +2121,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Splošni Parametri</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Napredni Parametri</translation>
     </message>
     <message>
         <source>Help</source>
@@ -2209,11 +2209,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Zemljepisna širina</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Zemljepisna dolžina</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2434,7 +2434,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prišlo je do napake omrežaj, poskusi ponovno.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2852,7 +2852,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Iskanje projekta</translation>
     </message>
 </context>
 <context>
@@ -2863,7 +2863,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Prišlo je do napake omrežaj, poskusi ponovno.</translation>
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
@@ -2874,15 +2874,15 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Konec</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Naslednja</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Prejšnja</translation>
     </message>
 </context>
 <context>
@@ -2993,15 +2993,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj v priljubljene</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Odstrani iz priljubljenih</translation>
     </message>
     <message>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Datoteke</translation>
     </message>
 </context>
 <context>
@@ -3221,7 +3221,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation type="unfinished"/>
+        <translation>Uporabite nadmorsko višino, ki jo je sporočila naprava za določanje položaja. Preskočite kakršen koli popravek nadmorske višine, ki bi lahko bil posledica transformacije koordinatnega sistema.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
@@ -3285,11 +3285,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Dodajanje</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Urejanje</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -3321,11 +3321,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Veliko</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Zelo veliko</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
@@ -3389,23 +3389,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Uporabniški vmesnik</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Izgled:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Velikost pisave:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Jezik:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Napredno</translation>
     </message>
     <message>
         <source>Manage plugins</source>
@@ -3413,7 +3413,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Omogoči vrtenje karte</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
@@ -3495,7 +3495,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation type="unfinished"/>
+        <translation>Izvoz v QGIS ni uspel</translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
@@ -3872,11 +3872,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Sledenje: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Sledenje</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
@@ -3896,7 +3896,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Zahtevana razdalja</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3924,7 +3924,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Splošne nastavitve</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -4234,11 +4234,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Globalne spremenljivke</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Projektne spremenljivke</translation>
     </message>
 </context>
 <context>
@@ -4335,7 +4335,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Osnovna karta</translation>
     </message>
     <message>
         <source>Default Project</source>
@@ -4347,11 +4347,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Naloži privzeti projekt ob zagonu</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Naloži zadnji odprt projekt ob zagonu </translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
@@ -4359,11 +4359,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Dobrodošli v QField-u. Prvič uporabljaš to aplikacijo? Preizkusi spodaj navedene vzorčne projekte.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>To je super! Veseli bomo, če klikneš na spodnji gumb in napišeš oceno.</translation>
     </message>
 </context>
 <context>
@@ -4863,7 +4863,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print</source>
-        <translation>Tisk</translation>
+        <translation>Tiskanje</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
@@ -4895,7 +4895,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Relativni kot</translation>
     </message>
     <message>
         <source>Snap every %1°</source>
@@ -4979,7 +4979,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Zapomni si mojo izbiro</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -5003,7 +5003,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Omogoči vrtenje karte</translation>
     </message>
     <message>
         <source>Dashboard</source>
