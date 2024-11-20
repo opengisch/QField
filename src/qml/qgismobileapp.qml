@@ -81,6 +81,22 @@ ApplicationWindow {
     }
   }
 
+  LocatorModelSuperBridge {
+    id: locatorBridge
+
+    activeLayer: dashBoard.activeLayer
+    bookmarks: bookmarkModel
+    featureListController: featureForm.extentController
+    mapSettings: mapCanvas.mapSettings
+    navigation: navigation
+    locatorHighlightGeometry: locatorHighlightItem.geometryWrapper
+    keepScale: qfieldSettings.locatorKeepScale
+
+    onMessageEmitted: {
+      displayToast(text);
+    }
+  }
+
   FocusStack {
     id: focusstack
   }
@@ -1222,9 +1238,7 @@ ApplicationWindow {
     LocatorItem {
       id: locatorItem
 
-      locatorModelSuperBridge.navigation: navigation
-      locatorModelSuperBridge.bookmarks: bookmarkModel
-      locatorModelSuperBridge.activeLayer: dashBoard.activeLayer
+      locatorBridge: locatorBridge
 
       anchors.right: parent.right
       anchors.top: parent.top
