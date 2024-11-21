@@ -96,6 +96,19 @@ void QFieldLocatorFilter::fetchResultsEnded()
   mFetchResultsEnded = true;
 }
 
+void QFieldLocatorFilter::prepareResult( QVariant details )
+{
+  QVariantMap detailsMap = details.toMap();
+  QgsLocatorResult result;
+  result.userData() = detailsMap.value( QStringLiteral( "userData" ) );
+  result.displayString = detailsMap.value( QStringLiteral( "displayString" ), QString() ).toString();
+  result.description = detailsMap.value( QStringLiteral( "description" ), QString() ).toString();
+  result.score = detailsMap.value( QStringLiteral( "score" ), 0.5 ).toDouble();
+  result.group = detailsMap.value( QStringLiteral( "group" ), QString() ).toString();
+  result.groupScore = detailsMap.value( QStringLiteral( "groupScore" ), 0.5 ).toDouble();
+  emit resultFetched( result );
+}
+
 void QFieldLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback )
 {
   if ( mSource.isEmpty() )
@@ -108,6 +121,7 @@ void QFieldLocatorFilter::fetchResults( const QString &string, const QgsLocatorC
   if ( object )
   {
     mFetchResultsEnded = false;
+    connect( object, SIGNAL( prepareResult( QVariant ) ), this, SLOT( prepareResult( QVariant ) ) );
     connect( object, SIGNAL( fetchResultsEnded() ), this, SLOT( fetchResultsEnded() ) );
 
     QEventLoop loop;
@@ -125,6 +139,7 @@ void QFieldLocatorFilter::fetchResults( const QString &string, const QgsLocatorC
 
 void QFieldLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
+  QMetaObject::invokeMethod( this, QStringLiteral( "triggerResult" ).toStdString().c_str(), QVariant::fromValue<QgsLocatorResult>( result ) );
 }
 
 void QFieldLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )

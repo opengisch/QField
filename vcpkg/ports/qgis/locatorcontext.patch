@@ -15,3 +15,23 @@ index 6f19dc35ecc..325e6cc1be2 100644
    public:
  
      QgsLocatorContext() = default;
+diff --git a/src/core/locator/qgslocatorfilter.h b/src/core/locator/qgslocatorfilter.h
+index f560ae36c08..1657d39d2e6 100644
+--- a/src/core/locator/qgslocatorfilter.h
++++ b/src/core/locator/qgslocatorfilter.h
+@@ -36,6 +36,15 @@ class QgsLocatorFilter;
+  */
+ class CORE_EXPORT QgsLocatorResult
+ {
++    Q_GADGET
++
++    Q_PROPERTY( QVariant userData READ userData WRITE setUserData )
++    Q_PROPERTY( QString displayString MEMBER displayString )
++    Q_PROPERTY( QString description MEMBER description )
++    Q_PROPERTY( double score MEMBER score )
++    Q_PROPERTY( QString group MEMBER group )
++    Q_PROPERTY( double groupScore MEMBER groupScore )
++
+   public:
+ 
+     QgsLocatorResult() = default;
