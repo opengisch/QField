@@ -440,8 +440,8 @@ Item {
       Rectangle {
         id: delegateRect
 
-        property bool isGroup: ResultFilterGroupSorting === 0
-        property bool isFilterName: ResultType === 0
+        property bool isGroup: ResultType !== undefined && ResultType === 1
+        property bool isFilterName: ResultType !== undefined && ResultType === 0
         property int resultIndex: index
 
         anchors.margins: 10
@@ -502,8 +502,8 @@ Item {
         Row {
           id: actionsRow
           anchors.right: parent.right
-          anchors.top: parent.top
-          height: parent.height
+          anchors.verticalCenter: parent.verticalCenter
+          height: 32
           anchors.rightMargin: 1
 
           Repeater {
