@@ -33,18 +33,19 @@ QFieldLocatorFilter *QFieldLocatorFilter::clone() const
   filter->setName( mName );
   filter->setDisplayName( mDisplayName );
   filter->setPrefix( mPrefix );
-  filter->setComponentUrl( mComponentUrl );
+  filter->setSource( mSource );
   filter->setLocatorBridge( mLocatorBridge );
   return filter;
 }
 
-void QFieldLocatorFilter::setComponentUrl( const QString &componentUrl )
+void QFieldLocatorFilter::setSource( const QUrl &source )
 {
-  if ( mComponentUrl == componentUrl )
+  if ( mSource.toString( QUrl::RemoveQuery ) == source.toString( QUrl::RemoveQuery ) )
     return;
 
-  mComponentUrl = componentUrl;
-  emit componentUrlChanged();
+  mSource = source;
+  mSource.setQuery( QStringLiteral( "t=%1" ).arg( QDateTime::currentSecsSinceEpoch() ) );
+  emit sourceChanged();
 }
 
 void QFieldLocatorFilter::setLocatorBridge( LocatorModelSuperBridge *locatorBridge )
@@ -90,12 +91,12 @@ void QFieldLocatorFilter::fetchResultsEnded()
 
 void QFieldLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback )
 {
-  if ( mComponentUrl.isEmpty() )
+  if ( mSource.isEmpty() )
     return;
 
   QQmlEngine engine;
   QQmlComponent component( &engine );
-  component.loadUrl( mComponentUrl );
+  component.loadUrl( mSource );
   QObject *object = component.create();
   if ( object )
   {

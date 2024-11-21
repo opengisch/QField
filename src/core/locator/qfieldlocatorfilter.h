@@ -38,7 +38,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     Q_PROPERTY( QString name READ name WRITE setName NOTIFY nameChanged )
     Q_PROPERTY( QString displayName READ displayName WRITE setDisplayName NOTIFY displayNameChanged )
     Q_PROPERTY( QString prefix READ prefix WRITE setPrefix NOTIFY prefixChanged )
-    Q_PROPERTY( QString componentUrl READ componentUrl WRITE setComponentUrl NOTIFY componentUrlChanged )
+    Q_PROPERTY( QUrl source READ source WRITE setSource NOTIFY sourceChanged )
     Q_PROPERTY( LocatorModelSuperBridge *locatorBridge READ locatorBridge WRITE setLocatorBridge NOTIFY locatorBridgeChanged )
 
   public:
@@ -54,8 +54,8 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     QString prefix() const override { return mPrefix; }
     void setPrefix( const QString &prefix );
 
-    QString componentUrl() const { return mComponentUrl; }
-    void setComponentUrl( const QString &componentUrl );
+    QUrl source() const { return mSource; }
+    void setSource( const QUrl &source );
 
     LocatorModelSuperBridge *locatorBridge() const { return mLocatorBridge; }
     void setLocatorBridge( LocatorModelSuperBridge *locatorBridge );
@@ -70,7 +70,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     void nameChanged();
     void displayNameChanged();
     void prefixChanged();
-    void componentUrlChanged();
+    void sourceChanged();
     void locatorBridgeChanged();
 
   private slots:
@@ -83,7 +83,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
 
     bool mFetchResultsEnded = false;
 
-    QString mComponentUrl;
+    QUrl mSource;
 
     LocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
