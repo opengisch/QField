@@ -407,7 +407,12 @@ void RubberbandModel::removeCurve()
 
 void RubberbandModel::reset()
 {
-  removeVertices( 0, vertexCount() - 1 );
+  mCompoundCurve.clear();
+  mDuringCurveDrawing = false;
+  mCompoundCurve.addVertex( mCurrentCoordinate );
+  emit verticesRemoved( 0, vertexCount() - 1 );
+  setCurrentCoordinateIndex( 0 );
+  emit vertexCountChanged();
   mFrozen = false;
   emit frozenChanged();
 }
