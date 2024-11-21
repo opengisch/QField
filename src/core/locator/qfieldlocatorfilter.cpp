@@ -19,6 +19,7 @@
 #include <QEventLoop>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QUrlQuery>
 #include <qgsfeedback.h>
 
 QFieldLocatorFilter::QFieldLocatorFilter( QObject *parent )
@@ -40,11 +41,17 @@ QFieldLocatorFilter *QFieldLocatorFilter::clone() const
 
 void QFieldLocatorFilter::setSource( const QUrl &source )
 {
-  if ( mSource.toString( QUrl::RemoveQuery ) == source.toString( QUrl::RemoveQuery ) )
+  if ( mSource.path() == source.path() )
     return;
 
   mSource = source;
-  mSource.setQuery( QStringLiteral( "t=%1" ).arg( QDateTime::currentSecsSinceEpoch() ) );
+  QUrlQuery query( mSource );
+  if ( !query.hasQueryItem( "t" ) )
+  {
+    // Bypass caching to insure updated QML content is reloaded when the plugin is loaded
+    query.addQueryItem( QStringLiteral( "t" ), QStringLiteral( "t=%1" ).arg( QDateTime::currentSecsSinceEpoch() ) );
+    mSource.setQuery( query );
+  }
   emit sourceChanged();
 }
 
