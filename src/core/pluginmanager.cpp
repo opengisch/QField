@@ -80,7 +80,12 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
     }
     return;
   }
-  QObject *object = component.create( mEngine->rootContext() );
+
+  QFileInfo fi( pluginPath );
+  QVariantMap properties;
+  properties["pluginFolder"] = fi.absolutePath() + QDir::separator();
+  QObject *object = component.createWithInitialProperties( properties, mEngine->rootContext() );
+
   mLoadedPlugins.insert( pluginPath, QPointer<QObject>( object ) );
 
   if ( !pluginUuid.isEmpty() )
