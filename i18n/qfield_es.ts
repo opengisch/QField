@@ -4986,10 +4986,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation>Falló la importación de URL</translation>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>Desbloquear la pantalla para cerrar el proyecto y la aplicación</translation>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation>¿Concede permiso para activar `%1`?</translation>
     </message>
@@ -5061,6 +5057,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation>Está a punto de cancelar la operación del algoritmo en curso, ¿proceder?</translation>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5107,41 +5107,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation>elementoficticio1</translation>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation>responsabilidad del elementoficticio1.</translation>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation>elementoficticio2</translation>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation>responsabilidad del elementoficticio2.</translation>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation>elementoficticio3</translation>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation>responsabilidad del elementoficticio3.</translation>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation>elementoficticio4</translation>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
-        <translation>responsabilidad del elementoficticio4.</translation>
     </message>
 </context>
 </TS>

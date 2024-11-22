@@ -4988,10 +4988,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Не удалось импортировать URL-адрес</translation>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>Разблокируйте экран, чтобы закрыть проект и приложение</translation>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation>Даете ли вы разрешение на активацию `%1`?</translation>
     </message>
@@ -5063,6 +5059,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation>Вы собираетесь отменить текущую операцию с алгоритмом, продолжить?</translation>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5109,41 +5109,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation>dummyItem1</translation>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation>dummyItem1 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation>dummyItem2</translation>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation>dummyItem2 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation>dummyItem3</translation>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation>dummyItem3 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation>dummyItem4</translation>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
-        <translation>dummyItem4 responsibility.</translation>
     </message>
 </context>
 </TS>

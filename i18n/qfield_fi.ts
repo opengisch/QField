@@ -4988,10 +4988,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Tuonti URL:ista epäonnistui</translation>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>Avaa näytön lukitus sulkeaksesi projektin ja sovelluksen</translation>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation>Myönnätkö luvan aktivoida `% 1`?</translation>
     </message>
@@ -5063,6 +5059,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5109,41 +5109,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation>dummyItem1</translation>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation>dummyItem1 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation>dummyItem2</translation>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation>dummyItem2 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation>dummyItem3</translation>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation>dummyItem3 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation>dummyItem4</translation>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
-        <translation>dummyItem4 responsibility.</translation>
     </message>
 </context>
 </TS>

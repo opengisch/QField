@@ -5021,10 +5021,6 @@ Cancel to make a minimal device scan instead.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5094,6 +5090,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2042,11 +2042,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>orto.</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ant.</translation>
     </message>
 </context>
 <context>
@@ -2218,7 +2218,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Zapisywanie szczegółów metadanych włączone</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2242,7 +2242,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Zapisywanie szczegółów metadanych wyłączone</translation>
     </message>
 </context>
 <context>
@@ -4990,10 +4990,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Import URL nie powiódł się.</translation>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>Odblokuj ekran aby zamknąć projekt i aplikację</translation>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation>Czy zezwalasz na aktywację &quot;%1&quot;?</translation>
     </message>
@@ -5065,6 +5061,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation>Zamierzasz odrzucić trwające działanie algorytmu, czy na pewno chcesz kontynuować?</translation>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation>Odblokuj ekran, aby zamknąć projekt i aplikację</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5111,41 +5111,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Ensure contraints are met</source>
         <translation>Upewnij się, że ograniczenia są spełnione</translation>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

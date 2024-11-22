@@ -4984,10 +4984,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>导入URL失败</translation>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>请解锁屏幕以便关闭工程和应用程序</translation>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation>是否授予激活 `%1` 的权限？</translation>
     </message>
@@ -5059,6 +5055,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation>您将终止正在进行的算法运算，是否继续？</translation>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation>请解锁屏幕以便关闭工程和应用程序</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5105,41 +5105,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Ensure contraints are met</source>
         <translation>确认符合约束</translation>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation>虚拟项1</translation>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation>虚拟项1的作用。</translation>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation>虚拟项2</translation>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation>虚拟项2的作用。</translation>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation>虚拟项3</translation>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation>虚拟项3的作用。</translation>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation>虚拟项4</translation>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
-        <translation>虚拟项4的作用。</translation>
     </message>
 </context>
 </TS>

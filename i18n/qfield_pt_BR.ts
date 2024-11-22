@@ -4977,10 +4977,6 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation type="unfinished"/>
     </message>
@@ -5052,6 +5048,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5097,41 +5097,6 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
         <translation type="unfinished"/>
     </message>
 </context>
