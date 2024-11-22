@@ -20,6 +20,7 @@
 #include <QObject>
 #include <QQmlEngine>
 
+
 /**
  * \ingroup core
  */
