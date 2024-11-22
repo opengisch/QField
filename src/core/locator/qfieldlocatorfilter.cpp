@@ -96,11 +96,11 @@ void QFieldLocatorFilter::fetchResultsEnded()
   mFetchResultsEnded = true;
 }
 
-void QFieldLocatorFilter::prepareResult( QVariant details )
+void QFieldLocatorFilter::prepareResult( const QVariant &details )
 {
-  QVariantMap detailsMap = details.toMap();
+  const QVariantMap detailsMap = details.toMap();
   QgsLocatorResult result;
-  result.userData() = detailsMap.value( QStringLiteral( "userData" ) );
+  result.setUserData( detailsMap.value( QStringLiteral( "userData" ) ) );
   result.displayString = detailsMap.value( QStringLiteral( "displayString" ), QString() ).toString();
   result.description = detailsMap.value( QStringLiteral( "description" ), QString() ).toString();
   result.score = detailsMap.value( QStringLiteral( "score" ), 0.5 ).toDouble();

@@ -75,7 +75,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
 
   private slots:
     void fetchResultsEnded();
-    void prepareResult( QVariant details );
+    void prepareResult( const QVariant &details );
 
   private:
     QString mName;
