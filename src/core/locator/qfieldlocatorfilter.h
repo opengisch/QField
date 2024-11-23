@@ -38,7 +38,10 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     Q_PROPERTY( QString name READ name WRITE setName NOTIFY nameChanged )
     Q_PROPERTY( QString displayName READ displayName WRITE setDisplayName NOTIFY displayNameChanged )
     Q_PROPERTY( QString prefix READ prefix WRITE setPrefix NOTIFY prefixChanged )
+
+    Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
     Q_PROPERTY( QUrl source READ source WRITE setSource NOTIFY sourceChanged )
+
     Q_PROPERTY( LocatorModelSuperBridge *locatorBridge READ locatorBridge WRITE setLocatorBridge NOTIFY locatorBridgeChanged )
 
   public:
@@ -57,6 +60,9 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     QUrl source() const { return mSource; }
     void setSource( const QUrl &source );
 
+    QVariantMap parameters() const { return mParameters; }
+    void setParameters( const QVariantMap &parameters );
+
     LocatorModelSuperBridge *locatorBridge() const { return mLocatorBridge; }
     void setLocatorBridge( LocatorModelSuperBridge *locatorBridge );
 
@@ -70,6 +76,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     void nameChanged();
     void displayNameChanged();
     void prefixChanged();
+    void parametersChanged();
     void sourceChanged();
     void locatorBridgeChanged();
 
@@ -84,6 +91,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
 
     bool mFetchResultsEnded = false;
 
+    QVariantMap mParameters;
     QUrl mSource;
 
     LocatorModelSuperBridge *mLocatorBridge = nullptr;

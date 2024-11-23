@@ -34,9 +34,19 @@ QFieldLocatorFilter *QFieldLocatorFilter::clone() const
   filter->setName( mName );
   filter->setDisplayName( mDisplayName );
   filter->setPrefix( mPrefix );
+  filter->setParameters( mParameters );
   filter->setSource( mSource );
   filter->setLocatorBridge( mLocatorBridge );
   return filter;
+}
+
+void QFieldLocatorFilter::setParameters( const QVariantMap &parameters )
+{
+  if ( mParameters == parameters )
+    return;
+
+  mParameters = parameters;
+  emit parametersChanged();
 }
 
 void QFieldLocatorFilter::setSource( const QUrl &source )
@@ -128,7 +138,7 @@ void QFieldLocatorFilter::fetchResults( const QString &string, const QgsLocatorC
     connect( object, SIGNAL( fetchResultsEnded() ), &loop, SLOT( quit() ) );
     connect( feedback, &QgsFeedback::canceled, &loop, &QEventLoop::quit );
 
-    QMetaObject::invokeMethod( object, QStringLiteral( "fetchResults" ).toStdString().c_str(), QVariant( string ), QVariant::fromValue<QgsLocatorContext>( context ) );
+    QMetaObject::invokeMethod( object, QStringLiteral( "fetchResults" ).toStdString().c_str(), QVariant( string ), QVariant::fromValue<QgsLocatorContext>( context ), QVariant::fromValue( mParameters ) );
     if ( !mFetchResultsEnded )
     {
       loop.exec();
