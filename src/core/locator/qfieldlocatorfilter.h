@@ -46,38 +46,91 @@ class QFieldLocatorFilter : public QgsLocatorFilter
 
   public:
     explicit QFieldLocatorFilter( QObject *parent = nullptr );
+
+    //! Clone the locator filter
     QFieldLocatorFilter *clone() const override;
 
+    //! \copydoc QgsLocatorFilter::name
     QString name() const override { return mName; }
+
+    /**
+     * Sets the unique name of the filter. This should be an untranslated string identifying the filter.
+     */
     void setName( const QString &name );
 
+    //! \copydoc QgsLocatorFilter::displayName
     QString displayName() const override { return mDisplayName; }
+
+    /**
+     * Sets a translated, user-friendly name for the filter.
+     */
     void setDisplayName( const QString &displayName );
 
+    //! \copydoc QgsLocatorFilter::prefix
     QString prefix() const override { return mPrefix; }
+
+    /**
+     * Sets the search prefix character(s) for this filter. Prefix a search
+     * with these characters will restrict the locator search to only include
+     * results from this filter.
+     * \note The prefix must be >= 3 characters otherwise it will be ignored.
+     */
     void setPrefix( const QString &prefix );
 
+    /**
+     * Returns the source QML file which will process the locator filter results.
+     */
     QUrl source() const { return mSource; }
+
+    /**
+     * Setsthe source QML file which will process the locator filter results.
+     */
     void setSource( const QUrl &source );
 
+    /**
+     * Returns additional locator filter parameters which will possed onto the source QML
+     * that will process the locator filter results.
+     */
     QVariantMap parameters() const { return mParameters; }
+
+    /**
+     * Sets additional locator filter parameters which will possed onto the source QML
+     * that will process the locator filter results.
+     */
     void setParameters( const QVariantMap &parameters );
 
+    /**
+     * Returns the locator bridge object.
+     */
     LocatorModelSuperBridge *locatorBridge() const { return mLocatorBridge; }
+
+    /**
+     * Sets the locator bridge object.
+     */
     void setLocatorBridge( LocatorModelSuperBridge *locatorBridge );
 
     Priority priority() const override { return Medium; }
-
     void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
     void triggerResult( const QgsLocatorResult &result ) override;
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
   signals:
+    //! Emitted when the name has changed
     void nameChanged();
+
+    //! Emitted when the display name has changed
     void displayNameChanged();
+
+    //! Emitted when the prefix has changed
     void prefixChanged();
+
+    //! Emitted when the parameters object has changed
     void parametersChanged();
+
+    //! Emitted when the source has changed
     void sourceChanged();
+
+    //! Emitted when the locator bridge has changed
     void locatorBridgeChanged();
 
   private slots:
