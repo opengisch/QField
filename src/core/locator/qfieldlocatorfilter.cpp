@@ -131,6 +131,7 @@ void QFieldLocatorFilter::fetchResults( const QString &string, const QgsLocatorC
   if ( object )
   {
     mFetchResultsEnded = false;
+    // These SIGNAL() SLOT() macros are needed, it is the only connect syntax that will work with signals declared within the QML environment itself
     connect( object, SIGNAL( prepareResult( QVariant ) ), this, SLOT( prepareResult( QVariant ) ) );
     connect( object, SIGNAL( fetchResultsEnded() ), this, SLOT( fetchResultsEnded() ) );
 
