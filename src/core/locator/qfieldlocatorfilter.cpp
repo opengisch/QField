@@ -116,6 +116,12 @@ void QFieldLocatorFilter::prepareResult( const QVariant &details )
   result.score = detailsMap.value( QStringLiteral( "score" ), 0.5 ).toDouble();
   result.group = detailsMap.value( QStringLiteral( "group" ), QString() ).toString();
   result.groupScore = detailsMap.value( QStringLiteral( "groupScore" ), 0.5 ).toDouble();
+  const QVariantList actions = detailsMap.value( QStringLiteral( "actions" ) ).toList();
+  for ( const QVariant action : actions )
+  {
+    const QVariantMap actionMap = action.toMap();
+    result.actions << QgsLocatorResult::ResultAction( actionMap.value( "id", 0 ).toInt(), actionMap.value( "name", QString() ).toString(), actionMap.value( "icon", QString() ).toString() );
+  }
   emit resultFetched( result );
 }
 
@@ -155,4 +161,5 @@ void QFieldLocatorFilter::triggerResult( const QgsLocatorResult &result )
 
 void QFieldLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
+  QMetaObject::invokeMethod( this, QStringLiteral( "triggerResultFromAction" ).toStdString().c_str(), QVariant::fromValue<QgsLocatorResult>( result ), QVariant( actionId ) );
 }
