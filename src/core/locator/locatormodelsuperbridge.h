@@ -159,6 +159,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void messageEmitted( const QString &text );
     void keepScaleChanged();
     void searchTextChangeRequested( const QString &text );
+    void locatorFiltersChanged();
 
   public slots:
     Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );
@@ -210,8 +211,10 @@ class LocatorFiltersModel : public QAbstractListModel
     Q_INVOKABLE void setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position );
 
   signals:
-
     void locatorModelSuperBridgeChanged();
+
+  private slots:
+    void locatorFiltersChanged();
 
   private:
     LocatorModelSuperBridge *mLocatorModelSuperBridge = nullptr;

@@ -504,7 +504,7 @@ Item {
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
           height: 32
-          anchors.rightMargin: 1
+          anchors.rightMargin: 5
 
           Repeater {
             model: locatorBridge.contextMenuActionsModel(index)

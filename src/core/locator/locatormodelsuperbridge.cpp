@@ -53,11 +53,13 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
 void LocatorModelSuperBridge::registerQFieldLocatorFilter( QFieldLocatorFilter *filter )
 {
   locator()->registerFilter( filter );
+  emit locatorFiltersChanged();
 }
 
 void LocatorModelSuperBridge::deregisterQFieldLocatorFilter( QFieldLocatorFilter *filter )
 {
   locator()->deregisterFilter( filter );
+  emit locatorFiltersChanged();
 }
 
 Navigation *LocatorModelSuperBridge::navigation() const
@@ -410,13 +412,25 @@ LocatorModelSuperBridge *LocatorFiltersModel::locatorModelSuperBridge() const
   return mLocatorModelSuperBridge;
 }
 
+void LocatorFiltersModel::locatorFiltersChanged()
+{
+  emit beginResetModel();
+  emit endResetModel();
+}
+
 void LocatorFiltersModel::setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge )
 {
   if ( mLocatorModelSuperBridge == locatorModelSuperBridge )
     return;
 
+  if ( mLocatorModelSuperBridge )
+  {
+    disconnect( mLocatorModelSuperBridge, &LocatorModelSuperBridge::locatorFiltersChanged, this, &LocatorFiltersModel::locatorFiltersChanged );
+  }
   emit beginResetModel();
   mLocatorModelSuperBridge = locatorModelSuperBridge;
   emit locatorModelSuperBridgeChanged();
   emit endResetModel();
+
+  connect( mLocatorModelSuperBridge, &LocatorModelSuperBridge::locatorFiltersChanged, this, &LocatorFiltersModel::locatorFiltersChanged );
 }
