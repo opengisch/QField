@@ -55,6 +55,11 @@ void LocatorModelSuperBridge::registerQFieldLocatorFilter( QFieldLocatorFilter *
   locator()->registerFilter( filter );
 }
 
+void LocatorModelSuperBridge::deregisterQFieldLocatorFilter( QFieldLocatorFilter *filter )
+{
+  locator()->deregisterFilter( filter );
+}
+
 Navigation *LocatorModelSuperBridge::navigation() const
 {
   return mNavigation;

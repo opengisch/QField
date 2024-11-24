@@ -137,7 +137,15 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
      */
     Q_INVOKABLE QString getPrefixFromSearchString( const QString &string );
 
+    /**
+     * Registers a given \a filter with the locator.
+     */
     Q_INVOKABLE void registerQFieldLocatorFilter( QFieldLocatorFilter *filter );
+
+    /**
+     * Deregisters a given \a filter with the locator.
+     */
+    Q_INVOKABLE void deregisterQFieldLocatorFilter( QFieldLocatorFilter *filter );
 
     void emitMessage( const QString &text );
 
