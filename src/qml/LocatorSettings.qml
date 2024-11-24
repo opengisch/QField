@@ -96,7 +96,7 @@ Popup {
               indicator.implicitHeight: 24
               indicator.implicitWidth: 24
               checked: Default ? true : false
-              onCheckedChanged: Default = checked
+              onClicked: Default = checked
             }
           }
         }

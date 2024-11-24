@@ -117,10 +117,10 @@ void QFieldLocatorFilter::prepareResult( const QVariant &details )
   result.group = detailsMap.value( QStringLiteral( "group" ), QString() ).toString();
   result.groupScore = detailsMap.value( QStringLiteral( "groupScore" ), 0.5 ).toDouble();
   const QVariantList actions = detailsMap.value( QStringLiteral( "actions" ) ).toList();
-  for ( const QVariant action : actions )
+  for ( const QVariant &action : actions )
   {
     const QVariantMap actionMap = action.toMap();
-    result.actions << QgsLocatorResult::ResultAction( actionMap.value( "id", 0 ).toInt(), actionMap.value( "name", QString() ).toString(), actionMap.value( "icon", QString() ).toString() );
+    result.actions << QgsLocatorResult::ResultAction( actionMap.value( QStringLiteral( "id" ), 0 ).toInt(), actionMap.value( QStringLiteral( "name" ), QString() ).toString(), actionMap.value( QStringLiteral( "icon" ), QString() ).toString() );
   }
   emit resultFetched( result );
 }
