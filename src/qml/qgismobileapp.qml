@@ -729,6 +729,8 @@ ApplicationWindow {
 
     Navigation {
       id: navigation
+      objectName: "navigation"
+
       mapSettings: mapCanvas.mapSettings
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
