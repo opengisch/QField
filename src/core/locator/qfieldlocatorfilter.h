@@ -35,6 +35,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
+    Q_PROPERTY( int delay READ delay WRITE setDelay NOTIFY delayChanged )
     Q_PROPERTY( QString name READ name WRITE setName NOTIFY nameChanged )
     Q_PROPERTY( QString displayName READ displayName WRITE setDisplayName NOTIFY displayNameChanged )
     Q_PROPERTY( QString prefix READ prefix WRITE setPrefix NOTIFY prefixChanged )
@@ -49,6 +50,12 @@ class QFieldLocatorFilter : public QgsLocatorFilter
 
     //! Clone the locator filter
     QFieldLocatorFilter *clone() const override;
+
+    //! Returns the delay before which the fetching of results is triggered
+    int delay() const { return fetchResultsDelay(); }
+
+    //! Sets the delay before which the fetching of results is triggered
+    void setDelay( int delay );
 
     //! \copydoc QgsLocatorFilter::name
     QString name() const override { return mName; }
@@ -115,6 +122,9 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
   signals:
+    //! Emitted when the fetch result delay has changed
+    void delayChanged();
+
     //! Emitted when the name has changed
     void nameChanged();
 

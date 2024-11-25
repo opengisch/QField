@@ -31,6 +31,7 @@ QFieldLocatorFilter::QFieldLocatorFilter( QObject *parent )
 QFieldLocatorFilter *QFieldLocatorFilter::clone() const
 {
   QFieldLocatorFilter *filter = new QFieldLocatorFilter();
+  filter->setFetchResultsDelay( fetchResultsDelay() );
   filter->setName( mName );
   filter->setDisplayName( mDisplayName );
   filter->setPrefix( mPrefix );
@@ -72,6 +73,15 @@ void QFieldLocatorFilter::setLocatorBridge( LocatorModelSuperBridge *locatorBrid
 
   mLocatorBridge = locatorBridge;
   emit locatorBridgeChanged();
+}
+
+void QFieldLocatorFilter::setDelay( int delay )
+{
+  if ( fetchResultsDelay() == delay )
+    return;
+
+  setFetchResultsDelay( delay );
+  emit delayChanged();
 }
 
 void QFieldLocatorFilter::setName( const QString &name )
