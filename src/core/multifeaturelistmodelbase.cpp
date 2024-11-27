@@ -386,6 +386,38 @@ bool MultiFeatureListModelBase::canMoveSelection() const
   return true;
 }
 
+bool MultiFeatureListModelBase::canRotateSelection() const
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
+    return false;
+
+  const bool geometryLockedExpressionActive = vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
+  if ( geometryLockedExpressionActive )
+  {
+    const QString geometryLockedExpression = vlayer->customProperty( QStringLiteral( "QFieldSync/geometry_locked_expression" ), QString() ).toString().trimmed();
+    if ( !geometryLockedExpression.isEmpty() )
+    {
+      QgsExpressionContext expressionContext = vlayer->createExpressionContext();
+      for ( const QPair<QgsVectorLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
+      {
+        expressionContext.setFeature( selectedFeature.second );
+        QgsExpression expression( geometryLockedExpression );
+        expression.prepare( &expressionContext );
+        if ( !expression.evaluate( &expressionContext ).toBool() )
+        {
+          return false;
+        }
+      }
+    }
+  }
+
+  return true;
+}
+
 bool MultiFeatureListModelBase::canProcessSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
@@ -616,6 +648,46 @@ bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
   }
 
   if ( !isSuccess )
+  {
+    if ( !vlayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+  }
+
+  return isSuccess;
+}
+
+bool MultiFeatureListModelBase::rotateSelection( const double angle )
+{
+  if ( !canRotateSelection() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  if ( !vlayer->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
+  }
+
+  bool isSuccess = false;
+  for ( auto &pair : mSelectedFeatures )
+  {
+    QgsGeometry geom = pair.second.geometry();
+    geom.rotate( angle, geom.centroid().asPoint() );
+    pair.second.setGeometry( geom );
+    isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    if ( !isSuccess )
+    {
+      QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );
+      break;
+    }
+  }
+
+  if ( isSuccess )
+  {
+    // commit changes
+    isSuccess = vlayer->commitChanges();
+  }
+  else
   {
     if ( !vlayer->rollBack() )
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );

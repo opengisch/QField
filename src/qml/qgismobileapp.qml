@@ -346,6 +346,42 @@ ApplicationWindow {
       }
     }
 
+    DragHandler {
+      id: rotateDragHandler
+      enabled: rotateFeaturesToolbar.rotateFeaturesRequested == true
+      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen | PointerDevice.Mouse : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.Stylus
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+
+      property real pressClickX: 0
+      property real pressClickY: 0
+      property real screenCenterX: 0
+      property real screenCenterY: 0
+
+      onActiveChanged: {
+        if (active) {
+          pressClickX = centroid.position.x;
+          pressClickY = centroid.position.y;
+          screenCenterX = width / 2;
+          screenCenterY = height / 2;
+        }
+      }
+
+      onTranslationChanged: {
+        if (active) {
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
+          screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).x;
+          screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
+          if (angle != 0) {
+            moveAndRotateFeaturesHighlight.originX = screenCenterX;
+            moveAndRotateFeaturesHighlight.originY = screenCenterY;
+            moveAndRotateFeaturesHighlight.rotationDegrees = angle * 180 / Math.PI;
+          }
+        }
+      }
+    }
+
     HoverHandler {
       id: hoverHandler
       enabled: !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
@@ -474,7 +510,7 @@ ApplicationWindow {
     MapCanvas {
       id: mapCanvasMap
 
-      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible
+      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible && !rotateFeaturesToolbar.rotateFeaturesRequested
       interactive: isEnabled && !screenLocker.enabled
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
@@ -807,7 +843,7 @@ ApplicationWindow {
     /* Highlight the currently selected item on the feature list */
     FeatureListSelectionHighlight {
       id: featureListHighlight
-      visible: !moveFeaturesToolbar.moveFeaturesRequested
+      visible: !moveFeaturesToolbar.moveFeaturesRequested && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       selectionModel: featureForm.selection
       mapSettings: mapCanvas.mapSettings
@@ -818,10 +854,10 @@ ApplicationWindow {
       width: 5
     }
 
-    /* Highlight the currently selected item being moved */
+    /* Highlight the currently selected item being moved or rotate */
     FeatureListSelectionHighlight {
-      id: moveFeaturesHighlight
-      visible: moveFeaturesToolbar.moveFeaturesRequested
+      id: moveAndRotateFeaturesHighlight
+      visible: moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
       showSelectedOnly: true
 
       selectionModel: featureForm.selection
@@ -831,6 +867,7 @@ ApplicationWindow {
       property double rotationRadians: -mapSettings.rotation * Math.PI / 180
       translateX: mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians)
       translateY: mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians)
+      rotationDegrees: 0
 
       color: "yellow"
       focusedColor: "#ff7777"
@@ -1914,7 +1951,7 @@ ApplicationWindow {
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && dashBoard.activeLayer && !dashBoard.activeLayer.readOnly &&
             // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
-            dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && (projectInfo.editRights || projectInfo.insertRights)) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
+            dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible && (projectInfo.editRights || projectInfo.insertRights)) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
         showConfirmButton: stateMachine.state === "digitize"
@@ -2095,7 +2132,38 @@ ApplicationWindow {
             featureForm.extentController.zoomToSelected();
           }
           startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
+          moveAndRotateFeaturesHighlight.rotationDegrees = 0;
           moveFeaturesRequested = true;
+        }
+      }
+
+      ConfirmationToolbar {
+        id: rotateFeaturesToolbar
+
+        property bool rotateFeaturesRequested: false
+        property var angle: 0.0
+
+        signal rotateConfirmed
+        signal rotateCanceled
+
+        stateVisible: rotateFeaturesRequested
+
+        onConfirm: {
+          rotateFeaturesRequested = false;
+          angle = moveAndRotateFeaturesHighlight.rotationDegrees;
+          rotateConfirmed();
+        }
+        onCancel: {
+          rotateFeaturesRequested = false;
+          rotateCanceled();
+        }
+
+        function initializeRotateFeatures() {
+          if (featureForm && featureForm.selection.model.selectedCount === 1) {
+            featureForm.extentController.zoomToSelected();
+          }
+          moveAndRotateFeaturesHighlight.rotationDegrees = 0;
+          rotateFeaturesRequested = true;
         }
       }
     }
@@ -3247,6 +3315,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     digitizingToolbar: digitizingToolbar
     moveFeaturesToolbar: moveFeaturesToolbar
+    rotateFeaturesToolbar: rotateFeaturesToolbar
     codeReader: codeReader
 
     focus: visible

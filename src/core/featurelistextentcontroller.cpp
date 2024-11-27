@@ -62,6 +62,26 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
   }
 }
 
+QgsPoint FeatureListExtentController::getCentroidFromSelected() const
+{
+  if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings )
+  {
+    const QgsFeature feat = mSelection->focusedFeature();
+    const QgsVectorLayer *layer = mSelection->focusedLayer();
+
+    if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
+    {
+      QgsGeometry geom = feat.geometry();
+
+      const QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
+      geom.transform( transf );
+
+      return QgsPoint( geom.centroid().asPoint() );
+    }
+  }
+  return QgsPoint();
+}
+
 void FeatureListExtentController::onModelChanged()
 {
   if ( mModel && mSelection )
