@@ -118,8 +118,10 @@ jobs:
         run: |
           SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
+          docker compose -f "${{ github.workspace }}/test/postgis_docker/docker-compose.yaml" up -d
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
+          docker compose -f "${{ github.workspace }}/test/postgis_docker/docker-compose.yaml" down
 
       - name: Package
         id: package
