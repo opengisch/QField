@@ -233,7 +233,8 @@ def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
 
 
 @pytest.mark.skipif(
-    platform.system() == "Darwin", reason="PostGIS test requires docker"
+    platform.system() != "Linux",
+    reason="PostGIS test requires a docker linux container",
 )
 @pytest.mark.project_file("test_postgis_ssl.qgz")
 def test_postgis_ssl(app, screenshot_path, screenshot_check, extra, process_alive):
