@@ -8,6 +8,8 @@ CREATE TABLE qfield_test.test_points (
     name text
 );
 
+ALTER TABLE qfield_test.test_points ADD PRIMARY KEY (id);
+
 CREATE SEQUENCE qfield_test.test_points_id_seq
     AS integer
     START WITH 1
