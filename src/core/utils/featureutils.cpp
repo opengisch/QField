@@ -18,6 +18,7 @@
 #include "qgsquickmapsettings.h"
 
 #include <qgsexpressioncontextutils.h>
+#include <qgsjsonutils.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
@@ -94,4 +95,10 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
   }
 
   return QgsRectangle();
+}
+
+QList<QgsFeature> FeatureUtils::featuresFromJsonString( const QString &string )
+{
+  const QgsFields fields = QgsJsonUtils::stringToFields( string );
+  return QgsJsonUtils::stringToFeatureList( string, fields );
 }

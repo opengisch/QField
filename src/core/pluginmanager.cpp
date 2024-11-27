@@ -80,6 +80,7 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
     }
     return;
   }
+
   QObject *object = component.create( mEngine->rootContext() );
   mLoadedPlugins.insert( pluginPath, QPointer<QObject>( object ) );
 

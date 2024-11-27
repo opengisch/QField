@@ -83,6 +83,7 @@ ApplicationWindow {
 
   LocatorModelSuperBridge {
     id: locatorBridge
+    objectName: "locatorBridge"
 
     activeLayer: dashBoard.activeLayer
     bookmarks: bookmarkModel
@@ -728,6 +729,8 @@ ApplicationWindow {
 
     Navigation {
       id: navigation
+      objectName: "navigation"
+
       mapSettings: mapCanvas.mapSettings
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 

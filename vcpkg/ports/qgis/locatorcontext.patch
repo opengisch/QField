@@ -1,0 +1,69 @@
+diff --git a/src/core/locator/qgslocatorcontext.h b/src/core/locator/qgslocatorcontext.h
+index 6f19dc35ecc..325e6cc1be2 100644
+--- a/src/core/locator/qgslocatorcontext.h
++++ b/src/core/locator/qgslocatorcontext.h
+@@ -30,6 +30,13 @@
+  */
+ class CORE_EXPORT QgsLocatorContext
+ {
++    Q_GADGET
++
++    Q_PROPERTY( QgsRectangle targetExtent MEMBER targetExtent )
++    Q_PROPERTY( QgsCoordinateReferenceSystem targetExtentCrs MEMBER targetExtentCrs )
++    Q_PROPERTY( QgsCoordinateTransformContext transformContext MEMBER transformContext )
++    Q_PROPERTY( bool usingPrefix MEMBER usingPrefix )
++
+   public:
+ 
+     QgsLocatorContext() = default;
+diff --git a/src/core/locator/qgslocatorfilter.h b/src/core/locator/qgslocatorfilter.h
+index f560ae36c08..1657d39d2e6 100644
+--- a/src/core/locator/qgslocatorfilter.h
++++ b/src/core/locator/qgslocatorfilter.h
+@@ -36,6 +36,15 @@ class QgsLocatorFilter;
+  */
+ class CORE_EXPORT QgsLocatorResult
+ {
++    Q_GADGET
++
++    Q_PROPERTY( QVariant userData READ userData WRITE setUserData )
++    Q_PROPERTY( QString displayString MEMBER displayString )
++    Q_PROPERTY( QString description MEMBER description )
++    Q_PROPERTY( double score MEMBER score )
++    Q_PROPERTY( QString group MEMBER group )
++    Q_PROPERTY( double groupScore MEMBER groupScore )
++
+   public:
+ 
+     QgsLocatorResult() = default;
+diff --git a/src/core/proj/qgscoordinatetransformcontext.cpp b/src/core/proj/qgscoordinatetransformcontext.cpp
+index f61b4079204..4a4dfc8eea6 100644
+--- a/src/core/proj/qgscoordinatetransformcontext.cpp
++++ b/src/core/proj/qgscoordinatetransformcontext.cpp
+@@ -65,6 +65,11 @@ bool QgsCoordinateTransformContext::operator==( const QgsCoordinateTransformCont
+   return equal;
+ }
+ 
++bool QgsCoordinateTransformContext::operator!=( const QgsCoordinateTransformContext &rhs ) const
++{
++  return !( *this == rhs );
++}
++
+ void QgsCoordinateTransformContext::clear()
+ {
+   d.detach();
+diff --git a/src/core/proj/qgscoordinatetransformcontext.h b/src/core/proj/qgscoordinatetransformcontext.h
+index 7f62c7b6e1b..7779a0e0366 100644
+--- a/src/core/proj/qgscoordinatetransformcontext.h
++++ b/src/core/proj/qgscoordinatetransformcontext.h
+@@ -67,7 +67,8 @@ class CORE_EXPORT QgsCoordinateTransformContext
+     QgsCoordinateTransformContext( const QgsCoordinateTransformContext &rhs );
+     QgsCoordinateTransformContext &operator=( const QgsCoordinateTransformContext &rhs ) SIP_SKIP;
+ 
+-    bool operator==( const QgsCoordinateTransformContext &rhs ) const ;
++    bool operator==( const QgsCoordinateTransformContext &rhs ) const;
++    bool operator!=( const QgsCoordinateTransformContext &rhs ) const;
+ 
+     /**
+      * Clears all stored transform information from the context.
+

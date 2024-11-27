@@ -154,7 +154,7 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     QgsRectangle extent() const;
 
     //! \copydoc QgsMapSettings::setExtent()
-    void setExtent( const QgsRectangle &extent, bool handleMargins = false );
+    Q_INVOKABLE void setExtent( const QgsRectangle &extent, bool handleMargins = false );
 
     //! \copydoc QgsQuickMapSettings::project
     void setProject( QgsProject *project );

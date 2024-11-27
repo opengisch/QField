@@ -228,7 +228,7 @@ Item {
         if (!searchTermHandled) {
           locatorBridge.performSearch(searchField.displayText);
         }
-        if (searchField.displayText == 'f ' && dashBoard.activeLayer == undefined) {
+        if (searchField.displayText === 'f ' && dashBoard.activeLayer == undefined) {
           displayToast(qsTr('To search features within the active layer, select a vector layer through the legend.'));
         }
       }
@@ -504,7 +504,7 @@ Item {
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
           height: 32
-          anchors.rightMargin: 1
+          anchors.rightMargin: 5
 
           Repeater {
             model: locatorBridge.contextMenuActionsModel(index)
@@ -516,7 +516,7 @@ Item {
               padding: 0
               bgcolor: "transparent"
 
-              iconSource: Theme.getThemeVectorIcon(IconPath)
+              iconSource: IconPath
 
               onClicked: {
                 locatorItem.state = "off";

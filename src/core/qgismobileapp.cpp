@@ -103,6 +103,7 @@
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudprojectsmodel.h"
 #include "qfieldcloudutils.h"
+#include "qfieldlocatorfilter.h"
 #include "qgismobileapp.h"
 #include "qgsgeometrywrapper.h"
 #include "qgsproviderregistry.h"
@@ -160,6 +161,7 @@
 #include <qgslayoutpagecollection.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgslocator.h>
+#include <qgslocatorcontext.h>
 #include <qgslocatormodel.h>
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstyle.h>
@@ -521,6 +523,9 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ProcessingAlgorithm>( "org.qfield", 1, 0, "ProcessingAlgorithm" );
   qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );
   qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
+
+  qmlRegisterType<QgsLocatorContext>( "org.qgis", 1, 0, "QgsLocatorContext" );
+  qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
 
   REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
