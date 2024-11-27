@@ -103,6 +103,10 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     extra.append(extras.html('<img src="images/startup.png"/>'))
 
 
+@pytest.mark.skipif(
+    platform.system() != "Linux",
+    reason="PostGIS test requires a docker linux container",
+)
 @pytest.mark.project_file("test_wms.qgz")
 def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive):
     """
