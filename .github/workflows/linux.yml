@@ -126,8 +126,16 @@ jobs:
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
-          echo "[test-clientssl]\nhost=localhost\nport=5440\ndbname=gis\nuser=docker\npassword=docker\nsslmode=require\nsslcert=${{ github.workspace }}/test/postgis_docker/cert_keys/client.crt\nsslkey=${{ github.workspace }}/test/postgis_docker/cert_keys/client.key\nsslrootcert=${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt" >> ${{ github.workspace }}/pg_service.conf
-          export PGSYSCONFDIR="${{ github.workspace }}/pg_service.conf"
+          echo "[test-clientssl]" >> ~/.pg_service.conf
+          echo "host=localhost" >> ~/.pg_service.conf
+          echo "port=5440" >> ~/.pg_service.conf
+          echo "dbname=gis" >> ~/.pg_service.conf
+          echo "user=docker" >> ~/.pg_service.conf
+          echo "password=docker" >> ~/.pg_service.conf
+          echo "sslmode=require" >> ~/.pg_service.conf
+          echo "sslcert=/home/runner/work/QField/QField/test/postgis_docker/cert_keys/client.crt" >> ~/.pg_service.conf
+          echo "sslkey=/home/runner/work/QField/QField/test/postgis_docker/cert_keys/client.key" >> ~/.pg_service.conf
+          echo "sslrootcert=/home/runner/work/QField/QField/test/postgis_docker/cert_keys/server.crt" >> ~/.pg_service.conf
 
           cd build
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
