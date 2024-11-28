@@ -10,12 +10,11 @@ services:
       - POSTGRES_USER=docker
       - POSTGRES_PASS=docker
       - ALLOW_IP_RANGE=0.0.0.0/0
-      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
+      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore
       - SSL_CA_FILE=/var/lib/postgresql/root.crt
       - SSL_KEY_FILE=/var/lib/postgresql/privkey.pem
       - SSL_CERT_FILE=/var/lib/postgresql/fullchain.pem
       - IGNORE_INIT_HOOK_LOCKFILE=true
-      - RUN_AS_ROOT=true
     ports:
       - "5440:5432"
     restart: on-failure
