@@ -22,7 +22,7 @@ services:
       test: "PGPASSWORD=docker pg_isready -h 127.0.0.1 -U docker -d gis"
 
   qgis-server:
-    image: qgis/qgis-server:ltr
+    image: qgis/qgis-server:3.40.1-jammy
     volumes:
       - ./qgis_server_docker/data/:/io/data
     ports:
