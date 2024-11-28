@@ -1637,6 +1637,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Process Selected Feature(s)</source>
         <translation>選択された地物を処理</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

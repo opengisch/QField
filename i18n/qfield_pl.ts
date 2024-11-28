@@ -1643,6 +1643,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Process Selected Feature(s)</source>
         <translation>Przetwarzaj wybrane elementy</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

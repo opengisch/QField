@@ -1639,6 +1639,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Process Selected Feature(s)</source>
         <translation>Procesar a(s) Entidade(s) Seleccionada(s)</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

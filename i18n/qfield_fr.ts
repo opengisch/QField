@@ -1640,6 +1640,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Process Selected Feature(s)</source>
         <translation>Traiter la ou les entité(s) sélectionnée(s)</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

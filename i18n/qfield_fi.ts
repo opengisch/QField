@@ -1639,6 +1639,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Process Selected Feature(s)</source>
         <translation>Aja prosessi valitu(i)lle kohteelle/kohteille</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

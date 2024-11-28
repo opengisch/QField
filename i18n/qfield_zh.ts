@@ -1637,6 +1637,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Process Selected Feature(s)</source>
         <translation>处理所选要素</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation>旋转要素</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
