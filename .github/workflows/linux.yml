@@ -125,8 +125,10 @@ jobs:
           PROJ_LIB: ${{ github.workspace }}/build/vcpkg_installed/x64-linux/share/proj
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
+          docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
           cd build
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
+          docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
 
       - name: 📑 Upload package logs
         uses: actions/upload-artifact@v4
