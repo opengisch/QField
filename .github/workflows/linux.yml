@@ -126,8 +126,11 @@ jobs:
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
+          echo "[test-clientssl]\nhost=localhost\nport=5440\ndbname=gis\nuser=docker\npassword=docker\nsslmode=require\nsslcert=${{ github.workspace }}/test/postgis_docker/cert_keys/client.crt\nsslkey=${{ github.workspace }}/test/postgis_docker/cert_keys/client.key\nsslrootcert=${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt" >> ~/.pg_service.conf
+
           cd build
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
+
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
 
       - name: 📑 Upload package logs
