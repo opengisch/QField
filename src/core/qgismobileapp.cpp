@@ -1251,7 +1251,7 @@ bool QgisMobileapp::print( const QString &layoutName )
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return false;
 
-  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
+  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( mProject->homePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
 
   if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
   {
@@ -1322,7 +1322,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   layoutToPrint->atlas()->setFilterFeatures( true );
   layoutToPrint->atlas()->updateFeatures();
 
-  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
+  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( mProject->homePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
   QString finalDestination;
   const bool destinationSingleFile = layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool();
   if ( !destinationSingleFile && ids.size() == 1 )
