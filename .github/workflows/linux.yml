@@ -148,10 +148,6 @@ jobs:
 
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        if: failure()
-
       - name: 📑 Upload package logs
         uses: actions/upload-artifact@v4
         if: failure()
