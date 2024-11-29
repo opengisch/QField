@@ -1645,7 +1645,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Obróć element</translation>
     </message>
 </context>
 <context>
