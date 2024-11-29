@@ -133,9 +133,15 @@ jobs:
           echo "user=docker" >> ~/.pg_service.conf
           echo "password=docker" >> ~/.pg_service.conf
           echo "sslmode=require" >> ~/.pg_service.conf
-          echo "sslcert=/home/runner/work/QField/QField/test/postgis_docker/cert_keys/client.crt" >> ~/.pg_service.conf
-          echo "sslkey=/home/runner/work/QField/QField/test/postgis_docker/cert_keys/client.key" >> ~/.pg_service.conf
-          echo "sslrootcert=/home/runner/work/QField/QField/test/postgis_docker/cert_keys/server.crt" >> ~/.pg_service.conf
+          echo "sslcert=${{ github.workspace }}/test/postgis_docker/cert_keys/client.crt" >> ~/.pg_service.conf
+          echo "sslkey=${{ github.workspace }}/test/postgis_docker/cert_keys/client.key" >> ~/.pg_service.conf
+          echo "sslrootcert=${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt" >> ~/.pg_service.conf
+          chown $USER ${{ github.workspace }}/test/postgis_docker/cert_keys/client.crt
+          chmod 700 ${{ github.workspace }}/test/postgis_docker/cert_keys/client.crt
+          chown $USER ${{ github.workspace }}/test/postgis_docker/cert_keys/client.key
+          chmod 700 ${{ github.workspace }}/test/postgis_docker/cert_keys/client.key
+          chown $USER ${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt
+          chmod 700 ${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt
 
           cd build
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
