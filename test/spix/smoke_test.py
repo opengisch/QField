@@ -98,6 +98,8 @@ def test_start_app(app, screenshot_path, extra, process_alive):
 
     time.sleep(1)
 
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
+
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
     assert process_alive()
     extra.append(extras.html('<img src="images/startup.png"/>'))
@@ -114,8 +116,6 @@ def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive)
     This also tests that QField is able to reach QGIS's crucial srs.db.
     """
     assert app.existsAndVisible("mainWindow")
-
-    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
 
     # Arbitrary wait period to insure project fully loaded and rendered
     time.sleep(4)
@@ -149,10 +149,8 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
     """
     assert app.existsAndVisible("mainWindow")
 
-    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
-
     # Arbitrary wait period to insure project fully loaded and rendered
-    time.sleep(6)
+    time.sleep(4)
 
     app.takeScreenshot(
         "mainWindow", os.path.join(screenshot_path, "test_projection.png")
@@ -182,8 +180,6 @@ def test_image_attachment(app, screenshot_path, screenshot_check, extra, process
     This also tests that QField is able to reach proj's crucial proj.db
     """
     assert app.existsAndVisible("mainWindow")
-
-    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
 
     # Arbitrary wait period to insure project fully loaded and rendered
     time.sleep(4)
@@ -230,8 +226,6 @@ def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
     """
     assert app.existsAndVisible("mainWindow")
 
-    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
-
     # Arbitrary wait period to insure project fully loaded and rendered
     time.sleep(4)
 
@@ -252,8 +246,6 @@ def test_postgis_ssl(app, screenshot_path, screenshot_check, extra, process_aliv
     Starts a test app and check that a SSL-enabled postgis layer loads properly
     """
     assert app.existsAndVisible("mainWindow")
-
-    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
 
     # Arbitrary wait period to insure project fully loaded and rendered
     time.sleep(4)

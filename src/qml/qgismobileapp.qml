@@ -4207,6 +4207,7 @@ ApplicationWindow {
 
     function blockGuides() {
       mapCanvasTour.blockGuide();
+      settings.setValue("/QField/showMapCanvasGuide", false);
     }
   }
 }
