@@ -116,7 +116,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     // TODO: move these functions to fileutils. Make sure to adjust any qml code relying on this.
     Q_INVOKABLE bool createDir( const QString &path, const QString &dirname ) const;
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
-    Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
+    Q_INVOKABLE bool renameFile( const QString &oldFilePath, const QString &newFilePath, bool overwrite = true ) const;
 
 
     /**
