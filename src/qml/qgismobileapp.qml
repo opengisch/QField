@@ -3525,6 +3525,10 @@ ApplicationWindow {
       imageDecoration.strokeColor = imageDecorationConfiguration["strokeColor"];
       const gridDecorationConfiguration = projectInfo.getGridDecorationConfiguration();
       gridDecoration.enabled = false;
+      gridDecoration.xInterval = gridDecorationConfiguration["xInterval"];
+      gridDecoration.yInterval = gridDecorationConfiguration["yInterval"];
+      gridDecoration.xOffset = gridDecorationConfiguration["xOffset"];
+      gridDecoration.yOffset = gridDecorationConfiguration["yOffset"];
       gridDecoration.prepareLines = gridDecorationConfiguration["hasLines"];
       gridDecoration.lineColor = gridDecorationConfiguration["lineColor"];
       gridDecoration.prepareMarkers = gridDecorationConfiguration["hasMarkers"];
