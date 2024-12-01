@@ -183,14 +183,27 @@ bool PlatformUtilities::rmFile( const QString &filename ) const
   return file.remove( filename );
 }
 
-bool PlatformUtilities::renameFile( const QString &filename, const QString &newname ) const
+bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &newFilePath, bool overwrite ) const
 {
-  QFileInfo fi( newname );
-  QDir dir( fi.absolutePath() );
-  dir.mkpath( fi.absolutePath() );
+  QFileInfo oldFi( oldFilePath );
+  QFileInfo newFi( newFilePath );
+  if ( oldFi.absoluteFilePath() == newFi.absoluteFilePath() )
+  {
+    return true;
+  }
 
-  QFile file( filename );
-  return file.rename( newname );
+  // Insure the path exists
+  QDir dir( newFi.absolutePath() );
+  dir.mkpath( newFi.absolutePath() );
+
+  // If the renamed file exists, overwrite
+  if ( newFi.exists() && overwrite )
+  {
+    QFile newfile( newFilePath );
+    newfile.remove();
+  }
+
+  return QFile::rename( oldFilePath, newFilePath );
 }
 
 QString PlatformUtilities::applicationDirectory() const
