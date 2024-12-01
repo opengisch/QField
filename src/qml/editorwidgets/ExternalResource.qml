@@ -347,6 +347,10 @@ EditorWidgetBase {
         filepath = filepath.replace('{filename}', FileUtils.fileName(path));
         filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path));
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
+
+        // In order to insure an edited image gets refreshed in the feature form, reset the source
+        image.source = '';
+        image.source = UrlUtils.fromString(prefixToRelativePath + filepath);
         valueChangeRequested(filepath, false);
         enabled = false;
       }
