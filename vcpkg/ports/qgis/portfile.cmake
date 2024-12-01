@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_40_0)
-set(QGIS_SHA512 2c7348790748b979cdda280e60649ad64de232b0894f1310f4558b19e20ba834f832e92e814cb94b2b089406c2448013def5b3cbd932b8e2892a2b7570721764)
+set(QGIS_REF final-3_40_1)
+set(QGIS_SHA512 58d42dafe9174ec6962d851eea5754f30b88dfbe281f5c17c69edfb379658da310c5426882200210c6a95e08d08b36e84cd7288c5e3893aebf8ec3418d911e3a)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -16,7 +16,6 @@ vcpkg_from_github(
         crssync-no-install.patch
         include-qthread.patch
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
-        meshoptimizer.patch
         locatorcontext.patch # Remove when upgrading to QGIS 3.42  
         rectangle.patch # Remove when upgrading to QGIS 3.42
 )
