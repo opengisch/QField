@@ -287,18 +287,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !dataDirs.isEmpty() )
   {
-#if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
-    for ( const QString &dataDir : dataDirs )
-    {
-      QFileInfo pgServiceFile( QStringLiteral( "%1/pg_service.conf" ).arg( dataDir ) );
-      if ( pgServiceFile.exists() && pgServiceFile.isReadable() )
-      {
-        setenv( "PGSYSCONFDIR", dataDir.toUtf8(), true );
-        break;
-      }
-    }
-#endif
-
     QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
     QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
     // import authentication method configurations

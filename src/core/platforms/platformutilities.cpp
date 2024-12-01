@@ -140,7 +140,7 @@ QString PlatformUtilities::systemSharedDataLocation() const
 
 QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) const
 {
-  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + '/' + subDir;
+  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + ( !subDir.isEmpty() ? '/' + subDir : QString() );
 }
 
 bool PlatformUtilities::hasQgsProject() const
