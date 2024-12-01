@@ -12,8 +12,8 @@ services:
       - ALLOW_IP_RANGE=0.0.0.0/0
       - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore
       - SSL_CA_FILE=/var/lib/postgresql/root.crt
-      - SSL_KEY_FILE=/var/lib/postgresql/privkey.pem
-      - SSL_CERT_FILE=/var/lib/postgresql/fullchain.pem
+      - SSL_CERT_FILE=/var/lib/postgresql/server.crt
+      - SSL_KEY_FILE=/var/lib/postgresql/server.key
       - IGNORE_INIT_HOOK_LOCKFILE=true
     ports:
       - "5440:5432"
