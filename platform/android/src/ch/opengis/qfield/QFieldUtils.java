@@ -537,6 +537,10 @@ public class QFieldUtils {
         }
 
         // Fallback
+        if (uri == null) {
+            return path;
+        }
+
         if (path == null && ("content".equalsIgnoreCase(uri.getScheme()) ||
                              "file".equalsIgnoreCase(uri.getScheme()))) {
             path = uri.getPath();
