@@ -198,12 +198,13 @@ jobs:
           bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📮 Upload debug symbols
-        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
+#        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
         run: |
+          tasklist /FO TABLE /NH
           bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
 
   deploy:
