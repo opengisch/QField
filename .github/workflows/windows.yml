@@ -203,6 +203,7 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
+          SENTRY_LOG_LEVEL: debug
         run: |
           tasklist /FO TABLE /NH
           bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
