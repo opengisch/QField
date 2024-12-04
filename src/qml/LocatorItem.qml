@@ -303,8 +303,9 @@ Item {
     }
 
     iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
-    round: true
+    iconColor: Theme.mainOverlayColor
     bgcolor: Theme.mainColor
+    round: true
 
     onClicked: {
       locatorItem.state = locatorItem.state == "off" ? "on" : "off";
