@@ -3,28 +3,76 @@ import QtQuick
 import QtQuick.Controls.Material
 
 QtObject {
+  id: object
+
+  property var darkThemeColors: {
+    "mainColor": "#80cc28",
+    "mainOverlayColor": "#ffffff",
+    "accentColor": "#4CAF50",
+    "accentLightColor": "#994CAF50",
+    "mainBackgroundColor": "#303030",
+    "mainBackgroundColorSemiOpaque": "#bb303030",
+    "mainTextColor": "#EEEEEE",
+    "mainTextDisabledColor": "#73EEEEEE",
+    "secondaryTextColor": "#AAAAAA",
+    "controlBackgroundColor": "#202020",
+    "controlBackgroundAlternateColor": "#202020",
+    "controlBackgroundDisabledColor": "#33555555",
+    "controlBorderColor": "#404040",
+    "buttonTextColor": "#202020",
+    "toolButtonColor": "#ffffff",
+    "toolButtonBackgroundColor": Theme.darkGray,
+    "toolButtonBackgroundSemiOpaqueColor": Theme.darkGraySemiOpaque,
+    "scrollBarBackgroundColor": "#bb303030"
+  }
+
+  property var lightThemeColors: {
+    "mainColor": "#80cc28",
+    "mainOverlayColor": "#ffffff",
+    "accentColor": "#4CAF50",
+    "accentLightColor": "#994CAF50",
+    "mainBackgroundColor": "#fafafa",
+    "mainBackgroundColorSemiOpaque": "#bbfafafa",
+    "mainTextColor": "#000000",
+    "mainTextDisabledColor": "#73000000",
+    "secondaryTextColor": "#999999",
+    "controlBackgroundColor": "#ffffff",
+    "controlBackgroundAlternateColor": "#e6e6e6",
+    "controlBackgroundDisabledColor": "#33555555",
+    "controlBorderColor": "#e6e6e6",
+    "buttonTextColor": "#ffffff",
+    "toolButtonColor": "#ffffff",
+    "toolButtonBackgroundColor": Theme.darkGray,
+    "toolButtonBackgroundSemiOpaqueColor": Theme.darkGraySemiOpaque,
+    "scrollBarBackgroundColor": "#aaffffff"
+  }
+
   property bool darkTheme: false
 
   property color mainColor: "#80cc28"
   property color mainOverlayColor: "#ffffff"
+  property color accentColor: "#4CAF50"
+  property color accentLightColor: "#994CAF50"
 
-  property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
-  property color mainBackgroundColorSemiOpaque: darkTheme ? "#bb303030" : "#bbfafafa"
+  property color mainBackgroundColor: "#fafafa"
+  property color mainBackgroundColorSemiOpaque: "#bbfafafa"
+  property color mainTextColor: "#000000"
+  property color mainTextDisabledColor: "#73000000"
 
-  property color mainTextColor: darkTheme ? "#EEEEEE" : "#000000"
-  property color mainTextDisabledColor: darkTheme ? "#73EEEEEE" : "#73000000"
-  property color secondaryTextColor: darkTheme ? "#AAAAAA" : "#999999"
+  property color secondaryTextColor: "#999999"
 
-  property color controlBackgroundColor: darkTheme ? "#202020" : "#ffffff"
-  property color controlBackgroundAlternateColor: darkTheme ? "#202020" : "#e6e6e6" // used by feature form editor widgets
+  property color controlBackgroundColor: "#ffffff"
+  property color controlBackgroundAlternateColor: "#e6e6e6"
   property color controlBackgroundDisabledColor: "#33555555"
-  property color controlBorderColor: darkTheme ? "#404040" : "#e6e6e6"
+  property color controlBorderColor: "#e6e6e6"
 
-  property color buttonTextColor: darkTheme ? "#202020" : "#ffffff"
+  property color buttonTextColor: "#ffffff"
 
   property color toolButtonColor: "#ffffff"
-  property color toolButtonBackgroundColor: darkGray
-  property color toolButtonBackgroundSemiOpaqueColor: darkGraySemiOpaque
+  property color toolButtonBackgroundColor: Theme.darkGray
+  property color toolButtonBackgroundSemiOpaqueColor: Theme.darkGraySemiOpaque
+
+  property color scrollBarBackgroundColor: "#aaffffff"
 
   property color darkRed: "#c0392b"
   property color darkGray: "#212121"
@@ -33,7 +81,6 @@ QtObject {
   property color lightGray: "#dddddd"
   property color lightestGray: "#eeeeee"
   property color light: "#ffffff"
-  property color hyperlinkBlue: '#0000EE'
 
   property color errorColor: darkTheme ? "#df3422" : "#c0392b"
   property color warningColor: "orange"
@@ -68,10 +115,6 @@ QtObject {
   property color vertexNewColorSemiOpaque: "#404CAF50"
 
   property color processingPreview: '#99000000'
-  property color scrollBarBackgroundColor: darkTheme ? mainBackgroundColorSemiOpaque : "#aaffffff"
-
-  property color accentColor: '#4CAF50'
-  property color accentLightColor: '#994CAF50'
 
   property real fontScale: 1.0
 
@@ -155,18 +198,29 @@ QtObject {
     return styles;
   }
 
-  function applyAppearance() {
-    var appearance = settings ? settings.value('appearance', 'system') : undefined;
+  function applyColors(colors) {
+    const names = Object.keys(colors);
+    for (const name of names) {
+      if (object.hasOwnProperty(name)) {
+        object[name] = colors[name];
+      }
+    }
+  }
+
+  function applyAppearance(colors, baseAppearance) {
+    const appearance = baseAppearance !== undefined ? baseAppearance : settings ? settings.value('appearance', 'system') : undefined;
     if (appearance === undefined || appearance === 'system') {
       darkTheme = platformUtilities.isSystemDarkTheme();
-    } else if (appearance === 'light') {
-      darkTheme = false;
-    } else if (appearance === 'dark') {
-      darkTheme = true;
+    } else {
+      darkTheme = appearance === 'dark';
     }
     Material.theme = darkTheme ? "Dark" : "Light";
+    applyColors(darkTheme ? Theme.darkThemeColors : Theme.lightThemeColors);
     mainBackgroundColor = Material.backgroundColor;
     mainTextColor = Material.foreground;
+    if (colors !== undefined) {
+      applyColors(colors);
+    }
   }
 
   function applyFontScale() {
