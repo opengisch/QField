@@ -114,11 +114,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -167,11 +167,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -198,6 +198,7 @@ Page {
               Layout.bottomMargin: 10
               QfToolButton {
                 iconSource: Theme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+                iconColor: Theme.mainOverlayColor
                 bgcolor: Theme.mainColor
                 round: true
 
@@ -207,6 +208,7 @@ Page {
               }
               QfToolButton {
                 iconSource: Theme.getThemeVectorIcon('ic_satisfied_white_24dp')
+                iconColor: Theme.mainOverlayColor
                 bgcolor: Theme.mainColor
                 round: true
 
@@ -229,11 +231,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -311,11 +313,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -346,11 +348,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
