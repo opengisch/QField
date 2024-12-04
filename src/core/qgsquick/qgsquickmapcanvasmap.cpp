@@ -312,14 +312,13 @@ void QgsQuickMapCanvasMap::updateTransform()
   QgsRectangle imageExtent = mImageMapSettings.extent();
   QgsRectangle newExtent = mMapSettings->mapSettings().extent();
 
-  const qreal scale = static_cast<double>( imageExtent.width() ) / newExtent.width();
-  setScale( scale );
+  setScale( static_cast<double>( imageExtent.width() ) / newExtent.width() );
   setRotation( mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
 
   QgsPointXY center = imageExtent.center();
   QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
-  setX( std::floor( pixelPt.x() - mMapSettings->outputSize().width() / mMapSettings->devicePixelRatio() / 2 ) );
-  setY( std::floor( pixelPt.y() - mMapSettings->outputSize().height() / mMapSettings->devicePixelRatio() / 2 ) );
+  setX( pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
+  setY( pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
 }
 
 int QgsQuickMapCanvasMap::mapUpdateInterval() const

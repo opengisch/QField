@@ -269,8 +269,8 @@ QSize QgsQuickMapSettings::outputSize() const
 
 void QgsQuickMapSettings::setOutputSize( QSize outputSize )
 {
-  outputSize.setWidth( outputSize.width() * devicePixelRatio() );
-  outputSize.setHeight( outputSize.height() * devicePixelRatio() );
+  outputSize.setWidth( std::ceil( outputSize.width() * devicePixelRatio() ) );
+  outputSize.setHeight( std::ceil( outputSize.height() * devicePixelRatio() ) );
   if ( mMapSettings.outputSize() == outputSize )
     return;
 
