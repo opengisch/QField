@@ -63,10 +63,10 @@ QfVisibilityFadingRow {
   QfToolButton {
     id: undoButton
     iconSource: Theme.getThemeVectorIcon("ic_undo_black_24dp")
-    iconColor: "white"
+    iconColor: Theme.toolButtonColor
     round: true
     visible: featureModel && featureModel.vertexModel.canUndo
-    bgcolor: Theme.darkGray
+    bgcolor: Theme.toolButtonBackgroundColor
     onClicked: {
       featureModel.vertexModel.undoHistory();
       mapSettings.setCenter(featureModel.vertexModel.currentPoint, true);
@@ -78,7 +78,7 @@ QfVisibilityFadingRow {
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
     round: true
     visible: featureModel && featureModel.vertexModel.dirty && !qfieldSettings.autoSave
-    bgcolor: "#900000"
+    bgcolor: Theme.darkRed
     onClicked: {
       digitizingLogger.clearCoordinates();
       cancel();
@@ -89,9 +89,10 @@ QfVisibilityFadingRow {
   QfToolButton {
     id: applyButton
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
+    iconColor: Theme.toolButtonColor
     round: true
     visible: featureModel && featureModel.vertexModel.dirty
-    bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.darkGray
+    bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.toolButtonBackgroundColor
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified)
@@ -105,9 +106,10 @@ QfVisibilityFadingRow {
   QfToolButton {
     id: removeVertexButton
     iconSource: Theme.getThemeVectorIcon("ic_remove_vertex_white_24dp")
+    iconColor: Theme.toolButtonColor
     round: true
     visible: featureModel && featureModel.vertexModel.canRemoveVertex
-    bgcolor: Theme.darkGray
+    bgcolor: Theme.toolButtonBackgroundColor
 
     onClicked: {
       if (featureModel.vertexModel.canRemoveVertex) {
@@ -126,7 +128,7 @@ QfVisibilityFadingRow {
     enabled: !screenHovering && featureModel && featureModel.vertexModel.canAddVertex && featureModel.vertexModel.editingMode !== VertexModel.AddVertex
     bgcolor: enabled ? Theme.darkGray : Theme.darkGraySemiOpaque
     iconSource: Theme.getThemeVectorIcon("ic_add_vertex_white_24dp")
-    iconColor: enabled ? "white" : Theme.darkGraySemiOpaque
+    iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
 
     onClicked: {
       applyChanges(qfieldSettings.autoSave);
@@ -148,9 +150,9 @@ QfVisibilityFadingRow {
     round: true
     enabled: !screenHovering
     visible: featureModel && (featureModel.vertexModel.canAddVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
-    bgcolor: enabled && featureModel && featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+    bgcolor: enabled && featureModel && featureModel.vertexModel.canPreviousVertex ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
     iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
-    iconColor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? "white" : Theme.darkGraySemiOpaque
+    iconColor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified) {
@@ -168,7 +170,7 @@ QfVisibilityFadingRow {
     visible: featureModel && (featureModel.vertexModel.canAddVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
     bgcolor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
     iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
-    iconColor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? "white" : Theme.darkGraySemiOpaque
+    iconColor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified) {

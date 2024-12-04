@@ -19,6 +19,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Effects
+import QtQuick.Shapes
 import QtQuick.Window
 import QtQml
 import QtSensors
@@ -1193,8 +1194,65 @@ ApplicationWindow {
       anchors.leftMargin: 4
       anchors.bottomMargin: 54
       round: true
-      bgcolor: Theme.darkGraySemiOpaque
-      iconSource: Theme.getThemeVectorIcon('ic_compass_arrow_24dp')
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+      Shape {
+        width: compassArrow.width
+        height: compassArrow.height
+
+        ShapePath {
+          strokeWidth: 3
+          strokeColor: "transparent"
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Theme.mainColor
+          joinStyle: ShapePath.MiterJoin
+          startX: compassArrow.width / 2
+          startY: 8
+          PathLine {
+            x: compassArrow.width / 2 + 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height / 2 - 2
+          }
+          PathLine {
+            x: compassArrow.width / 2 - 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: 8
+          }
+        }
+
+        ShapePath {
+          strokeWidth: 3
+          strokeColor: "transparent"
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Theme.toolButtonColor
+          joinStyle: ShapePath.MiterJoin
+          startX: compassArrow.width / 2
+          startY: compassArrow.height - 8
+          PathLine {
+            x: compassArrow.width / 2 + 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height / 2 + 2
+          }
+          PathLine {
+            x: compassArrow.width / 2 - 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height - 8
+          }
+        }
+      }
+
       onClicked: mapCanvas.mapSettings.rotation = 0
     }
 
@@ -1244,8 +1302,9 @@ ApplicationWindow {
         round: true
         anchors.right: parent.right
 
-        bgcolor: Theme.darkGray
+        bgcolor: Theme.toolButtonBackgroundColor
         iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
+        iconColor: Theme.toolButtonColor
 
         width: 36
         height: 36
@@ -1261,8 +1320,9 @@ ApplicationWindow {
         round: true
         anchors.right: parent.right
 
-        bgcolor: Theme.darkGray
+        bgcolor: Theme.toolButtonBackgroundColor
         iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
+        iconColor: Theme.toolButtonColor
 
         width: 36
         height: 36
@@ -1379,9 +1439,9 @@ ApplicationWindow {
         name: "digitizingDrawer"
         size: 48
         round: true
-        bgcolor: Theme.darkGray
+        bgcolor: Theme.toolButtonBackgroundColor
         iconSource: Theme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
-        iconColor: "white"
+        iconColor: Theme.toolButtonColor
         spacing: 4
         visible: stateMachine.state === "digitize" && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point)
 
@@ -1393,8 +1453,8 @@ ApplicationWindow {
           round: true
           state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
           iconSource: Theme.getThemeVectorIcon("ic_snapping_white_24dp")
-          iconColor: "white"
-          bgcolor: Theme.darkGray
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           states: [
             State {
@@ -1402,8 +1462,8 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: snappingButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -1411,7 +1471,7 @@ ApplicationWindow {
               PropertyChanges {
                 target: snappingButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -1433,8 +1493,8 @@ ApplicationWindow {
           round: true
           state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
           iconSource: Theme.getThemeVectorIcon("ic_topology_white_24dp")
-          iconColor: "white"
-          bgcolor: Theme.darkGray
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           states: [
             State {
@@ -1442,8 +1502,8 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: topologyButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -1451,7 +1511,7 @@ ApplicationWindow {
               PropertyChanges {
                 target: topologyButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -1470,8 +1530,8 @@ ApplicationWindow {
           round: true
           visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
           iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
-          iconColor: "white"
-          bgcolor: Theme.darkGray
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           property bool freehandDigitizing: false
           state: freehandDigitizing ? "On" : "Off"
@@ -1481,8 +1541,8 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: freehandButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -1490,7 +1550,7 @@ ApplicationWindow {
               PropertyChanges {
                 target: freehandButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -1517,8 +1577,8 @@ ApplicationWindow {
           round: true
           visible: dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
           iconSource: Theme.getThemeVectorIcon("ic_common_angle_white_24dp")
-          iconColor: "white"
-          bgcolor: Theme.darkGray
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           property bool isSnapToCommonAngleEnabled: false
           property bool isSnapToCommonAngleRelative: true
@@ -1531,8 +1591,8 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: snapToCommonAngleButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -1540,7 +1600,7 @@ ApplicationWindow {
               PropertyChanges {
                 target: snapToCommonAngleButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -1620,8 +1680,8 @@ ApplicationWindow {
         round: true
         visible: stateMachine.state === 'measure'
         iconSource: Theme.getThemeVectorIcon("ic_elevation_white_24dp")
-
-        bgcolor: Theme.darkGray
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
         property bool elevationProfileActive: false
         state: elevationProfileActive ? "On" : "Off"
@@ -1631,16 +1691,16 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: elevationProfileButton
-              iconSource: Theme.getThemeVectorIcon("ic_elevation_white_24dp")
-              bgcolor: Theme.darkGraySemiOpaque
+              iconColor: Theme.toolButtonColor
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: elevationProfileButton
-              iconSource: Theme.getThemeVectorIcon("ic_elevation_green_24dp")
-              bgcolor: Theme.darkGray
+              iconColor: Theme.mainColor
+              bgcolor: Theme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1690,8 +1750,8 @@ ApplicationWindow {
 
         property bool isFollowLocationActive: positionSource.active && gnssButton.followActive && followIncludeDestination
         iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
-        iconColor: isFollowLocationActive ? "white" : Theme.navigationColor
-        bgcolor: isFollowLocationActive ? Theme.navigationColor : Theme.darkGray
+        iconColor: isFollowLocationActive ? Theme.toolButtonColor : Theme.navigationColor
+        bgcolor: isFollowLocationActive ? Theme.navigationColor : Theme.toolButtonBackgroundColor
 
         /*
         / When set to true, when the map follows the device's current position, the extent
@@ -1733,7 +1793,8 @@ ApplicationWindow {
             PropertyChanges {
               target: gnssLockButton
               iconSource: Theme.getThemeVectorIcon("ic_location_locked_white_24dp")
-              bgcolor: Theme.darkGraySemiOpaque
+              iconColor: Theme.toolButtonColor
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
@@ -1742,7 +1803,7 @@ ApplicationWindow {
               target: gnssLockButton
               iconSource: Theme.getThemeVectorIcon("ic_location_locked_active_white_24dp")
               iconColor: Theme.positionColor
-              bgcolor: Theme.darkGray
+              bgcolor: Theme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1816,7 +1877,8 @@ ApplicationWindow {
             PropertyChanges {
               target: gnssButton
               iconSource: Theme.getThemeVectorIcon("ic_location_disabled_white_24dp")
-              bgcolor: Theme.darkGraySemiOpaque
+              iconColor: Theme.toolButtonColor
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
@@ -1824,8 +1886,8 @@ ApplicationWindow {
             PropertyChanges {
               target: gnssButton
               iconSource: trackings.count > 0 ? Theme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeVectorIcon("ic_location_valid_white_24dp") : Theme.getThemeVectorIcon("ic_location_white_24dp")
-              iconColor: followActive ? "white" : Theme.positionColor
-              bgcolor: followActive ? Theme.positionColor : Theme.darkGray
+              iconColor: followActive ? Theme.toolButtonColor : Theme.positionColor
+              bgcolor: followActive ? Theme.positionColor : Theme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1903,7 +1965,7 @@ ApplicationWindow {
           radius: width / 2
 
           border.width: 1.5
-          border.color: 'white'
+          border.color: "white"
 
           visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
           color: !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent

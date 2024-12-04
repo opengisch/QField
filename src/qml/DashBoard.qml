@@ -87,6 +87,7 @@ Drawer {
           id: closeButton
           anchors.verticalCenter: parent.verticalCenter
           iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+          iconColor: Theme.mainOverlayColor
           bgcolor: "transparent"
           onClicked: close()
         }
@@ -95,6 +96,7 @@ Drawer {
           id: settingsButton
           anchors.verticalCenter: parent.verticalCenter
           iconSource: Theme.getThemeVectorIcon('ic_settings_white_24dp')
+          iconColor: Theme.mainOverlayColor
           bgcolor: "transparent"
           onClicked: showMenu()
         }
@@ -126,6 +128,13 @@ Drawer {
               }
             } else {
               return Theme.getThemeVectorIcon('ic_cloud_24dp');
+            }
+            iconColor: {
+              if (iconSource == Theme.getThemeVectorIcon('ic_cloud_24dp')) {
+                return Theme.mainOverlayColor;
+              } else {
+                return "transparent";
+              }
             }
           }
           bgcolor: "transparent"
@@ -207,7 +216,7 @@ Drawer {
             height: 36
             radius: 4
             color: Theme.mainColor
-            border.color: "white"
+            border.color: Theme.mainOverlayColor
             Image {
               width: 28
               height: 28

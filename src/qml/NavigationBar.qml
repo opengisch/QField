@@ -98,7 +98,7 @@ Rectangle {
       // Insure that the text is always visually centered by using the same left and right margi
       property double balancedMargin: Math.max((saveButton.visible ? saveButton.width : 0) + (previousButton.visible ? previousButton.width : 0) + (nextButton.visible ? nextButton.width : 0) + (multiClearButton.visible ? multiClearButton.width : 0), (cancelButton.visible ? cancelButton.width : 0) + (editButton.visible ? editButton.width : 0) + (editGeomButton.visible ? editGeomButton.width : 0) + (multiEditButton.visible ? multiEditButton.width : 0) + (menuButton.visible ? menuButton.width : 0))
       font: Theme.strongFont
-      color: Theme.light
+      color: Theme.mainOverlayColor
       anchors.left: parent.left
       anchors.right: parent.right
       anchors.top: parent.top
@@ -185,6 +185,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
+    iconColor: Theme.mainOverlayColor
 
     enabled: (toolBar.state == "Navigation")
 
@@ -217,6 +218,7 @@ Rectangle {
     clip: true
 
     iconSource: toolBar.state == "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
+    iconColor: Theme.mainOverlayColor
 
     enabled: toolBar.state != "Edit" && !toolBar.multiSelection
 
@@ -249,6 +251,8 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
+    iconColor: Theme.mainOverlayColor
+
     opacity: featureForm.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
       if (toolBar.state == "ProcessingLaunch") {
@@ -281,6 +285,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
+    iconColor: Theme.mainOverlayColor
 
     onClicked: {
       toolBar.cancel();
@@ -305,6 +310,7 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
+    iconColor: Theme.mainOverlayColor
 
     width: visible ? 48 : 0
     height: 48
@@ -346,6 +352,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
+    iconColor: Theme.mainOverlayColor
 
     onClicked: {
       toolBar.editAttributesButtonClicked();
@@ -386,7 +393,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-    iconColor: "white"
+    iconColor: Theme.mainOverlayColor
 
     onClicked: {
       if (toolBar.state == "Indication") {
@@ -416,6 +423,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
+    iconColor: Theme.mainOverlayColor
 
     enabled: (toolBar.multiSelection && toolBar.model)
 
@@ -440,7 +448,7 @@ Rectangle {
     height: 48
     verticalAlignment: Text.AlignVCenter
     font: Theme.strongFont
-    color: Theme.light
+    color: Theme.mainOverlayColor
 
     text: model.selectedFeatures.length < 100 ? model.selectedFeatures.length : '99+'
 
@@ -460,6 +468,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
+    iconColor: Theme.mainOverlayColor
 
     enabled: toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
@@ -764,7 +773,7 @@ Rectangle {
       text: qsTr('Rotate Feature')
       icon.source: Theme.getThemeVectorIcon("ic_rotate_white_24dp")
       // allow only rotation for line or polygon or multipoint
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked)) && (selection.focusedLayer.geometryType() == 0 || selection.focusedLayer.geometryType() == 1 || selection.focusedLayer.geometryType() == 2)
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked)) && (selection.focusedLayer !== null && (selection.focusedLayer.geometryType() === 0 || selection.focusedLayer.geometryType() === 1 || selection.focusedLayer.geometryType() === 2))
       visible: enabled
 
       font: Theme.defaultFont

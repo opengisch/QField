@@ -106,7 +106,7 @@ ToolBar {
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
       iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
+      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
 
       onClicked: {
         back();
@@ -120,7 +120,7 @@ ToolBar {
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
       iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
-      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
+      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
 
       onClicked: {
         apply();
@@ -133,7 +133,7 @@ ToolBar {
       leftPadding: !showApplyButton && showCancelButton ? 48 : 0
       rightPadding: (showApplyButton || showBackButton) && !showCancelButton ? 48 : 0
       font: Theme.strongFont
-      color: backgroundFill ? Theme.light : Theme.mainColor
+      color: backgroundFill ? Theme.mainOverlayColor : Theme.mainColor
       elide: Label.ElideRight
       horizontalAlignment: Qt.AlignHCenter
       verticalAlignment: Qt.AlignVCenter
@@ -146,7 +146,7 @@ ToolBar {
       Layout.alignment: Qt.AlignTop | Qt.AlignRight
       clip: true
       iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
-      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
+      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
 
       onClicked: {
         cancel();

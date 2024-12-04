@@ -291,7 +291,7 @@ Popup {
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
-          iconColor: enabled ? "white" : Theme.mainTextColor
+          iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
           bgcolor: enabled ? Theme.mainColor : "transparent"
           round: true
 

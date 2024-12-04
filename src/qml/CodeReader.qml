@@ -389,8 +389,8 @@ Popup {
           anchors.horizontalCenter: parent.horizontalCenter
           round: true
           iconSource: Theme.getThemeVectorIcon('ic_flashlight_white_48dp')
-          iconColor: "white"
-          bgcolor: Theme.darkGraySemiOpaque
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           visible: settings.cameraActive && cameraLoader.active && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
           state: cameraLoader.active && cameraLoader.item.camera.torchMode === Camera.TorchOn ? "On" : "Off"
@@ -399,8 +399,8 @@ Popup {
               name: "Off"
               PropertyChanges {
                 target: flashlightButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -408,7 +408,7 @@ Popup {
               PropertyChanges {
                 target: flashlightButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -430,8 +430,8 @@ Popup {
           anchors.rightMargin: 10
           round: true
           iconSource: Theme.getThemeVectorIcon('ic_qr_code_black_24dp')
-          iconColor: "white"
-          bgcolor: Theme.darkGraySemiOpaque
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           visible: withNfc
           state: settings.cameraActive ? "On" : "Off"
@@ -440,7 +440,7 @@ Popup {
               name: "Off"
               PropertyChanges {
                 target: cameraButton
-                bgcolor: Theme.darkGraySemiOpaque
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -448,7 +448,7 @@ Popup {
               PropertyChanges {
                 target: cameraButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -466,8 +466,8 @@ Popup {
           anchors.leftMargin: 10
           round: true
           iconSource: Theme.getThemeVectorIcon('ic_nfc_code_black_24dp')
-          iconColor: "white"
-          bgcolor: Theme.darkGraySemiOpaque
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           visible: withNfc
           state: settings.nearfieldActive ? "On" : "Off"
@@ -476,7 +476,7 @@ Popup {
               name: "Off"
               PropertyChanges {
                 target: nearfieldButton
-                bgcolor: Theme.darkGraySemiOpaque
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -484,7 +484,7 @@ Popup {
               PropertyChanges {
                 target: nearfieldButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -516,7 +516,7 @@ Popup {
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
-          iconColor: enabled ? "white" : Theme.mainTextColor
+          iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
           bgcolor: enabled ? Theme.mainColor : "transparent"
           round: true
 

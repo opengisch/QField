@@ -303,8 +303,9 @@ Item {
     }
 
     iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
-    round: true
+    iconColor: Theme.mainOverlayColor
     bgcolor: Theme.mainColor
+    round: true
 
     onClicked: {
       locatorItem.state = locatorItem.state == "off" ? "on" : "off";
@@ -478,7 +479,7 @@ Item {
             text: isFilterName ? ResultFilterName : typeof (model.Text) == 'string' ? model.Text.trim() : ''
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
-            color: isFilterName ? "white" : Theme.mainTextColor
+            color: isFilterName ? Theme.mainOverlayColor : Theme.mainTextColor
             elide: Text.ElideRight
             horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
           }
