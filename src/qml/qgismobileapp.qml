@@ -19,6 +19,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Effects
+import QtQuick.Shapes
 import QtQuick.Window
 import QtQml
 import QtSensors
@@ -1194,7 +1195,64 @@ ApplicationWindow {
       anchors.bottomMargin: 54
       round: true
       bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
-      iconSource: Theme.getThemeVectorIcon('ic_compass_arrow_24dp')
+
+      Shape {
+        width: compassArrow.width
+        height: compassArrow.height
+
+        ShapePath {
+          strokeWidth: 3
+          strokeColor: "transparent"
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Theme.mainColor
+          joinStyle: ShapePath.MiterJoin
+          startX: compassArrow.width / 2
+          startY: 8
+          PathLine {
+            x: compassArrow.width / 2 + 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height / 2 - 2
+          }
+          PathLine {
+            x: compassArrow.width / 2 - 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: 8
+          }
+        }
+
+        ShapePath {
+          strokeWidth: 3
+          strokeColor: "transparent"
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Theme.toolButtonColor
+          joinStyle: ShapePath.MiterJoin
+          startX: compassArrow.width / 2
+          startY: compassArrow.height - 8
+          PathLine {
+            x: compassArrow.width / 2 + 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height / 2 + 2
+          }
+          PathLine {
+            x: compassArrow.width / 2 - 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height - 8
+          }
+        }
+      }
+
       onClicked: mapCanvas.mapSettings.rotation = 0
     }
 
