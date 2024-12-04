@@ -18,7 +18,7 @@ ToolButton {
   background: Rectangle {
     width: parent.width
     height: 48
-    color: '#80000000'
+    color: Theme.toolButtonBackgroundSemiOpaqueColor
     radius: height / 2
 
     QfToolButton {
@@ -29,8 +29,8 @@ ToolButton {
       enabled: false
       round: true
       iconSource: button.toolImage
-      iconColor: "white"
-      bgcolor: Theme.darkGray
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundColor
     }
 
     Ripple {
@@ -57,7 +57,7 @@ ToolButton {
       anchors.verticalCenter: parent.verticalCenter
       verticalAlignment: Text.AlignVCenter
       text: button.toolText
-      color: Theme.light
+      color: Theme.toolButtonColor
       font: Theme.strongFont
     }
 

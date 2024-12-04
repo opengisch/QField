@@ -287,8 +287,8 @@ Popup {
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
       iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
-      iconColor: "white"
-      bgcolor: Theme.darkGraySemiOpaque
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
       round: true
 
       onClicked: {
@@ -307,8 +307,8 @@ Popup {
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
       iconSource: Theme.getThemeVectorIcon("ic_undo_black_24dp")
-      iconColor: "white"
-      bgcolor: Theme.darkGraySemiOpaque
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
       round: true
 
       onClicked: {
@@ -326,8 +326,8 @@ Popup {
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
       iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-      iconColor: "white"
-      bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.darkGraySemiOpaque
+      iconColor: Theme.toolButtonColor
+      bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.toolButtonBackgroundSemiOpaqueColor
       round: true
 
       onClicked: {

@@ -114,10 +114,10 @@ QfVisibilityFadingRow {
     property int sizeLarge: 12
 
     iconSource: eraseToolbar.size == sizeSmall ? Theme.getThemeVectorIcon("ic_size_small_white_24dp") : eraseToolbar.size == sizeMedium ? Theme.getThemeVectorIcon("ic_size_medium_white_24dp") : Theme.getThemeVectorIcon("ic_size_large_white_24dp")
-    iconColor: "white"
+    iconColor: Theme.toolButtonColor
     round: true
     visible: true
-    bgcolor: Theme.darkGray
+    bgcolor: Theme.toolButtonBackgroundColor
 
     onClicked: {
       if (eraseToolbar.size == sizeSmall) {

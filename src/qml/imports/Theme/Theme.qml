@@ -5,66 +5,70 @@ import QtQuick.Controls.Material
 QtObject {
   property bool darkTheme: false
 
+  property color mainColor: "#80cc28"
+
   property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
   property color mainBackgroundColorSemiOpaque: darkTheme ? "#bb303030" : "#bbfafafa"
 
   property color mainTextColor: darkTheme ? "#EEEEEE" : "#000000"
-  readonly property color mainTextDisabledColor: darkTheme ? "#73EEEEEE" : "#73000000"
-  readonly property color mainColor: "#80cc28"
+  property color mainTextDisabledColor: darkTheme ? "#73EEEEEE" : "#73000000"
+  property color secondaryTextColor: darkTheme ? "#AAAAAA" : "#999999"
 
-  readonly property color secondaryTextColor: darkTheme ? "#AAAAAA" : "#999999"
+  property color controlBackgroundColor: darkTheme ? "#202020" : "#ffffff"
+  property color controlBackgroundAlternateColor: darkTheme ? "#202020" : "#e6e6e6" // used by feature form editor widgets
+  property color controlBackgroundDisabledColor: "#33555555"
+  property color controlBorderColor: darkTheme ? "#404040" : "#e6e6e6"
 
-  readonly property color controlBackgroundColor: darkTheme ? "#202020" : "#ffffff"
-  readonly property color controlBackgroundAlternateColor: darkTheme ? "#202020" : "#e6e6e6" // used by feature form editor widgets
-  readonly property color controlBackgroundDisabledColor: "#33555555"
-  readonly property color controlBorderColor: darkTheme ? "#404040" : "#e6e6e6"
+  property color toolButtonColor: "#ffffff"
+  property color toolButtonBackgroundColor: darkGray
+  property color toolButtonBackgroundSemiOpaqueColor: darkGraySemiOpaque
 
-  readonly property color darkRed: "#c0392b"
-  readonly property color darkGray: "#212121"
-  readonly property color darkGraySemiOpaque: "#4D212121"
-  readonly property color gray: "#888888"
-  readonly property color lightGray: "#dddddd"
-  readonly property color lightestGray: "#eeeeee"
-  readonly property color light: "#ffffff"
-  readonly property color hyperlinkBlue: '#0000EE'
+  property color darkRed: "#c0392b"
+  property color darkGray: "#212121"
+  property color darkGraySemiOpaque: "#4D212121"
+  property color gray: "#888888"
+  property color lightGray: "#dddddd"
+  property color lightestGray: "#eeeeee"
+  property color light: "#ffffff"
+  property color hyperlinkBlue: '#0000EE'
 
-  readonly property color errorColor: darkTheme ? "#df3422" : "#c0392b"
-  readonly property color warningColor: "orange"
-  readonly property color cloudColor: "#4c6dac"
+  property color errorColor: darkTheme ? "#df3422" : "#c0392b"
+  property color warningColor: "orange"
+  property color cloudColor: "#4c6dac"
 
-  readonly property color positionColor: "#64b5f6"
-  readonly property color positionColorSemiOpaque: "#3364b5f6"
-  readonly property color positionBackgroundColor: "#3364b5f6"
-  readonly property color darkPositionColor: "#2374b5"
-  readonly property color darkPositionColorSemiOpaque: "#882374b5"
+  property color positionColor: "#64b5f6"
+  property color positionColorSemiOpaque: "#3364b5f6"
+  property color positionBackgroundColor: "#3364b5f6"
+  property color darkPositionColor: "#2374b5"
+  property color darkPositionColorSemiOpaque: "#882374b5"
 
-  readonly property color accuracyBad: "#c0392b"
-  readonly property color accuracyTolerated: "orange"
-  readonly property color accuracyExcellent: "#80cc28"
+  property color accuracyBad: "#c0392b"
+  property color accuracyTolerated: "orange"
+  property color accuracyExcellent: "#80cc28"
 
-  readonly property color navigationColor: "#984ea3"
-  readonly property color navigationColorSemiOpaque: "#99984ea3"
-  readonly property color navigationBackgroundColor: "#33984ea3"
+  property color navigationColor: "#984ea3"
+  property color navigationColorSemiOpaque: "#99984ea3"
+  property color navigationBackgroundColor: "#33984ea3"
 
-  readonly property color sensorBackgroundColor: "#33999999"
+  property color sensorBackgroundColor: "#33999999"
 
-  readonly property color bookmarkDefault: "#80cc28"
-  readonly property color bookmarkOrange: "orange"
-  readonly property color bookmarkRed: "#c0392b"
-  readonly property color bookmarkBlue: "#64b5f6"
+  property color bookmarkDefault: "#80cc28"
+  property color bookmarkOrange: "orange"
+  property color bookmarkRed: "#c0392b"
+  property color bookmarkBlue: "#64b5f6"
 
-  readonly property color vertexColor: "#FF0000"
-  readonly property color vertexColorSemiOpaque: "#40FF0000"
-  readonly property color vertexSelectedColor: "#0000FF"
-  readonly property color vertexSelectedColorSemiOpaque: "#200000FF"
-  readonly property color vertexNewColor: "#4CAF50"
-  readonly property color vertexNewColorSemiOpaque: "#404CAF50"
+  property color vertexColor: "#FF0000"
+  property color vertexColorSemiOpaque: "#40FF0000"
+  property color vertexSelectedColor: "#0000FF"
+  property color vertexSelectedColorSemiOpaque: "#200000FF"
+  property color vertexNewColor: "#4CAF50"
+  property color vertexNewColorSemiOpaque: "#404CAF50"
 
-  readonly property color processingPreview: '#99000000'
-  readonly property color scrollBarBackgroundColor: darkTheme ? mainBackgroundColorSemiOpaque : "#aaffffff"
+  property color processingPreview: '#99000000'
+  property color scrollBarBackgroundColor: darkTheme ? mainBackgroundColorSemiOpaque : "#aaffffff"
 
-  readonly property color accentColor: '#4CAF50'
-  readonly property color accentLightColor: '#994CAF50'
+  property color accentColor: '#4CAF50'
+  property color accentLightColor: '#994CAF50'
 
   property real fontScale: 1.0
 

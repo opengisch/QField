@@ -327,8 +327,8 @@ EditorWidgetBase {
 
       round: true
       iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
-      iconColor: "white"
-      bgcolor: Theme.darkGraySemiOpaque
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
       onClicked: {
         sketcherConnection.enabled = true;
