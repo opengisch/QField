@@ -478,7 +478,7 @@ Item {
             text: isFilterName ? ResultFilterName : typeof (model.Text) == 'string' ? model.Text.trim() : ''
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
-            color: isFilterName ? "white" : Theme.mainTextColor
+            color: isFilterName ? Theme.mainOverlayColor : Theme.mainTextColor
             elide: Text.ElideRight
             horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
           }

@@ -252,7 +252,7 @@ Popup {
               font.pointSize: Theme.tipFont.pointSize
               font.bold: parent.isSelectedDate ? true : false
               font.underline: parent.isNow ? true : false
-              color: parent.isSelectedDate ? "white" : Theme.mainTextColor
+              color: parent.isSelectedDate ? Theme.mainOverlayColor : Theme.mainTextColor
             }
           }
 

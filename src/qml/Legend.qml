@@ -101,7 +101,7 @@ ListView {
             width: height
             anchors.centerIn: parent
             iconSource: Theme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
-            iconColor: isSelectedLayer ? "white" : Theme.mainTextColor
+            iconColor: isSelectedLayer ? Theme.mainOverlayColor : Theme.mainTextColor
             bgcolor: "transparent"
             visible: HasChildren
             enabled: HasChildren
@@ -147,7 +147,7 @@ ListView {
             opacity: Visible ? 1 : 0.25
             anchors.centerIn: parent
             iconSource: !Visible ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-            iconColor: isSelectedLayer ? "white" : Theme.mainTextColor
+            iconColor: isSelectedLayer ? Theme.mainOverlayColor : Theme.mainTextColor
             bgcolor: "transparent"
             visible: HasSpatialExtent
             enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
@@ -225,7 +225,7 @@ ListView {
           opacity: Visible ? 1 : 0.25
           color: {
             if (isSelectedLayer)
-              return Theme.light;
+              return Theme.mainOverlayColor;
             else if (IsValid)
               return Theme.mainTextColor;
             else

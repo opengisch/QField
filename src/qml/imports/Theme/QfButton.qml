@@ -8,7 +8,7 @@ Button {
   id: button
 
   property color bgcolor: Theme.mainColor
-  property color color: button.enabled ? Theme.controlBackgroundColor : Theme.mainTextDisabledColor
+  property color color: button.enabled ? Theme.buttonTextColor : Theme.mainTextDisabledColor
   property alias radius: backgroundRectangle.radius
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false

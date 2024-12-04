@@ -6,6 +6,7 @@ QtObject {
   property bool darkTheme: false
 
   property color mainColor: "#80cc28"
+  property color mainOverlayColor: "#ffffff"
 
   property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
   property color mainBackgroundColorSemiOpaque: darkTheme ? "#bb303030" : "#bbfafafa"
@@ -18,6 +19,8 @@ QtObject {
   property color controlBackgroundAlternateColor: darkTheme ? "#202020" : "#e6e6e6" // used by feature form editor widgets
   property color controlBackgroundDisabledColor: "#33555555"
   property color controlBorderColor: darkTheme ? "#404040" : "#e6e6e6"
+
+  property color buttonTextColor: darkTheme ? "#202020" : "#ffffff"
 
   property color toolButtonColor: "#ffffff"
   property color toolButtonBackgroundColor: darkGray
