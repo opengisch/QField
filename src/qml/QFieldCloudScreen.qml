@@ -167,7 +167,7 @@ Page {
 
       QfTabBar {
         id: filterBar
-        model: ["My Projects", "Community"]
+        model: [qsTr("My Projects"), qsTR("Community")]
         Layout.fillWidth: true
         Layout.preferredHeight: defaultHeight
         delegate: TabButton {
