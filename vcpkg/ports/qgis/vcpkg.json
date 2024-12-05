@@ -57,7 +57,6 @@
         "harfbuzz",
         "jpeg",
         "network",
-        "opengl",
         {
           "name": "openssl",
           "platform": "!ios"
