@@ -27,6 +27,7 @@
 #include "cpl_conv.h"
 #include "cpl_string.h"
 #include "cpl_vsi.h"
+#include "gdal_version.h"
 
 #ifdef WITH_BLUETOOTH
 #include "bluetoothdevicemodel.h"
@@ -557,6 +558,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   // Register some globally available variables
   engine->rootContext()->setContextProperty( "qVersion", qVersion() );
+  engine->rootContext()->setContextProperty( "qgisVersion", Qgis::version() );
+  engine->rootContext()->setContextProperty( "gdalVersion", GDAL_RELEASE_NAME );
   engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
   engine->rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
   engine->rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
