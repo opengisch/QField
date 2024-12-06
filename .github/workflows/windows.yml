@@ -198,15 +198,36 @@ jobs:
           bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📮 Upload debug symbols
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-symbols
+          path: "${{ env.CMAKE_BUILD_DIR }}"
 #        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
+
+  upload_debug_symbols:
+    name: upload debug symbols (windows)
+    runs-on: windows-2022
+    needs: build
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: debug-symbols
+
+      - name: 💎 Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      - name: Sentry upload
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
-          SENTRY_LOG_LEVEL: debug
         run: |
-          tasklist /FO TABLE /NH
-          bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
+          bundle exec fastlane run sentry_debug_files_upload path:.
+
 
   deploy:
     name: deploy (ms store)
