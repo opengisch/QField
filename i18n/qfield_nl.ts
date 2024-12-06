@@ -1132,7 +1132,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Nauwkeurige weergave</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -1140,14 +1140,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Hoogteprofiel</translation>
     </message>
 </context>
 <context>
     <name>InternalGnssReceiver</name>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik van locatiegegevens is niet toegestaan</translation>
     </message>
 </context>
 <context>
@@ -1499,7 +1499,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Uw applicatielog wordt verzonden...</translation>
     </message>
 </context>
 <context>
@@ -1637,11 +1637,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Verwerk geselecteerd(e) object(en)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Roteer object</translation>
     </message>
 </context>
 <context>
@@ -1823,34 +1823,34 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Netwerkfout</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Er zijn nog geen plugins geïnstalleerd. Meer informatie over plugins is te vinden in de %1documentatie%2.</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>Installeer plugin vanaf URL</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Wis opgeslagen permissies</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Voer een URL in om de plugin te downloaden en installeren:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 wordt geinstalleerd</translation>
     </message>
     <message>
         <source>Authored by %1%2%3</source>
@@ -1862,11 +1862,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Versie deinstalleren %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin deinstalleren</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -2134,15 +2134,15 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Algemene parameters</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Geavanceerde parameters</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Help</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
@@ -2161,7 +2161,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Alle algortimes</translation>
     </message>
 </context>
 <context>
@@ -2206,11 +2206,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>voor</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>achter</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
@@ -2222,11 +2222,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Latitude</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Longitude</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2238,7 +2238,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Orientatie</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
@@ -2291,7 +2291,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Het inloggen is mislukt door een onverwachte doorverwijzing. Probeer het later opnieuw.</translation>
     </message>
 </context>
 <context>
@@ -2306,7 +2306,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Er zijn nog geen wijzigingen doorgevoerd!</translation>
     </message>
 </context>
 <context>
@@ -2585,7 +2585,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Downloaden, %1 van %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
@@ -2835,7 +2835,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>Refreshing projects list</translation>
+        <translation>Projectenlijst wordt vernieuwd</translation>
     </message>
     <message>
         <source>No projects found</source>
@@ -2847,7 +2847,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, update beschikbaar in de cloud</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
@@ -2855,7 +2855,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Downloaden, %1 van %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
@@ -2871,7 +2871,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Zoeken in projecten</translation>
     </message>
 </context>
 <context>
@@ -2893,15 +2893,15 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Afronden</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Volgende</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Vorige</translation>
     </message>
 </context>
 <context>
@@ -2924,7 +2924,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Datasets</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -2936,11 +2936,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Vector dataset</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Raster dataset</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -3000,7 +3000,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Project bijwerken met ZIP</translation>
     </message>
     <message>
         <source>Push to QFieldCloud...</source>
@@ -3409,35 +3409,35 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Gebruikersinterface</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Thema:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Lettertype grootte:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Taal:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Geavanceerd</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Beheer Plugins</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Kaartrotatie inschakelen</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld kan de kaart door de gebruiker worden geroteerd.</translation>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
@@ -3449,7 +3449,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Nauwkeurigheidscontrole inschakelen</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
@@ -3460,7 +3460,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer tekentemplate</translation>
     </message>
 </context>
 <context>
@@ -3547,7 +3547,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>gemiddeld</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -3584,7 +3584,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Zoeken</translation>
     </message>
 </context>
 <context>
@@ -3611,7 +3611,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan het lettertype niet laden: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
@@ -3761,7 +3761,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Seriële poort weergavenaam:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
@@ -3885,7 +3885,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Scan code</translation>
     </message>
 </context>
 <context>
@@ -3944,7 +3944,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Algemene instellingen</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -3952,7 +3952,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Maximaal toegestane afstand [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
@@ -3964,7 +3964,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Verstreken tijd (seconden sinds het begin van tracking)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -4067,7 +4067,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Verstreken tijd (seconden sinds het begin van het volgen)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -4254,11 +4254,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Globale variabelen</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Projectvariabelen</translation>
     </message>
 </context>
 <context>
@@ -4379,11 +4379,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Welkom bij QField! Is dit je eerste gebruik van de app? Probeer dan een van de demoprojecten in de lijst hieronder.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Dat is geweldig! We zouden het leuk vinden als je op de onderstaande knop klikt en een review in de store achterlaat.</translation>
     </message>
 </context>
 <context>
@@ -4401,7 +4401,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>graden</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -4409,39 +4409,39 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>meters</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>kilometers</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>voet</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>yard</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>mijl</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>zeemijl</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>centimeters</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>millimeters</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>inch</translation>
     </message>
 </context>
 <context>
@@ -4523,7 +4523,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Omtrek</translation>
     </message>
     <message>
         <source>Length</source>
@@ -4883,7 +4883,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Printen</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
@@ -4899,11 +4899,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Snapping ingeschakeld</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Snapping uitgeschakeld</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
@@ -4919,7 +4919,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Snap elke %1°</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
@@ -4995,11 +4995,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Onthoud mijn keuze</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Kopieer attributen</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
@@ -5019,11 +5019,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Kaartrotatie inschakelen</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Dashboard</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
@@ -5039,7 +5039,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Zoeken</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
