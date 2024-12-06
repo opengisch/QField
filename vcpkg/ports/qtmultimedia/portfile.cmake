@@ -5,7 +5,7 @@ set(${PORT}_PATCHES
     static_find_modules.patch
     fix_avfoundation_target.patch
     remove-static-ssl-stub.patch
-    private_libs.patch
+    #private_libs.patch
     ffmpeg-compile-def.patch
 )
 
