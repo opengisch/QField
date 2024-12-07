@@ -148,6 +148,10 @@ jobs:
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.triplet }}.dmg" >> $GITHUB_ENV
 
+      - name: 🦨 Setup tmate session
+        if: failure()
+        uses: mxschmitt/action-tmate@v3
+
       - name: 📦 Upload package
         uses: actions/upload-artifact@v4
         with:
