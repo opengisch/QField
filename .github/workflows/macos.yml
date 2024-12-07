@@ -23,11 +23,11 @@ jobs:
         include:
           - os: macos-14
             triplet: x64-osx
-            deployment-target: "12.0"
+            deployment-target: "10.15"
             target-arch: x86_64
           - os: macos-14
             triplet: arm64-osx
-            deployment-target: "12.0"
+            deployment-target: "11.0"
             target-arch: arm64
     name: build (macos)
     runs-on: ${{ matrix.os }}
@@ -147,10 +147,6 @@ jobs:
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.triplet }}.dmg" >> $GITHUB_ENV
-
-      - name: 🦨 Setup tmate session
-        if: failure()
-        uses: mxschmitt/action-tmate@v3
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v4
