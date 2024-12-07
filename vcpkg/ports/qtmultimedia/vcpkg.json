@@ -20,10 +20,6 @@
     }
   ],
   "default-features": [
-    {
-      "name": "gstreamer",
-      "platform": "linux"
-    },
     "widgets"
   ],
   "features": {
