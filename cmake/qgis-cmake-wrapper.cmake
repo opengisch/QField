@@ -142,7 +142,22 @@ if(TRUE) # Should possibly have a "static only" check
   _qgis_core_add_dependency(Qt6Keychain::Qt6Keychain Qt6Keychain)
 
   find_package(FFMPEG REQUIRED)
-  target_link_libraries(QGIS::Core INTERFACE ${FFMPEG_LIBRARIES})
+  find_library(AVCODEC_LIBRARY avcodec)
+  find_library(AVDEVICE_LIBRARY avdevice)
+  find_library(AVFORMAT_LIBRARY avformat)
+  find_library(SWRESAMPLE_LIBRARY swresample)
+  find_library(SWSCALE_LIBRARY swscale)
+  message(STATUS "FFMPEG library paths:")
+  message(STATUS ${AVCODEC_LIBRARY})
+  message(STATUS ${AVDEVICE_LIBRARY})
+  message(STATUS ${AVFORMAT_LIBRARY})
+  message(STATUS ${SWRESAMPLE_LIBRARY})
+  message(STATUS ${SWSCALE_LIBRARY})
+  target_link_libraries(QGIS::Core INTERFACE ${AVCODEC_LIBRARY})
+  target_link_libraries(QGIS::Core INTERFACE ${AVDEVICE_LIBRARY})
+  target_link_libraries(QGIS::Core INTERFACE ${AVFORMAT_LIBRARY})
+  target_link_libraries(QGIS::Core INTERFACE ${SWRESAMPLE_LIBRARY})
+  target_link_libraries(QGIS::Core INTERFACE ${SWSCALE_LIBRARY})
 
   find_package(Qt6 COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning Core5Compat Multimedia)
   target_link_libraries(QGIS::Core INTERFACE
