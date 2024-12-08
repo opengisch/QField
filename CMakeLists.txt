@@ -187,10 +187,6 @@ if (ENABLE_TESTS)
   add_subdirectory(test)
 endif()
 
-set(CMAKE_FIND_DEBUG_MODE TRUE)
-find_package(FFMPEG COMPONENTS avcodec avdevice avformat swresample swscale REQUIRED)
-set(CMAKE_FIND_DEBUG_MODE FALSE)
-
 if(WITH_VCPKG)
   # Copy files from the install dir to where it
   # will be bundled
