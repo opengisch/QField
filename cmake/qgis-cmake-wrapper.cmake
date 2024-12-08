@@ -141,7 +141,10 @@ if(TRUE) # Should possibly have a "static only" check
   target_link_libraries(QGIS::Core INTERFACE PkgConfig::freexl)
   _qgis_core_add_dependency(Qt6Keychain::Qt6Keychain Qt6Keychain)
 
-  find_package(Qt6 COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning Core5Compat)
+  find_package(FFMPEG REQUIRED)
+  target_link_libraries(QGIS::Core INTERFACE ${FFMPEG_LIBRARIES})
+
+  find_package(Qt6 COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning Core5Compat Multimedia)
   target_link_libraries(QGIS::Core INTERFACE
       Qt::Gui
       Qt::Core
@@ -152,6 +155,7 @@ if(TRUE) # Should possibly have a "static only" check
       Qt::Sql
       Qt::Positioning
       Qt::Core5Compat
+      Qt::Multimedia
     )
   if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
     find_package(Qt6 COMPONENTS SerialPort)
