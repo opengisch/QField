@@ -219,8 +219,8 @@ void ProjectInfo::saveTemporalState()
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "isTemporal" ), mMapSettings->isTemporal() );
-  mSettings.setValue( QStringLiteral( "StartDateTime" ), mMapSettings->temporalBegin().toTimeSpec( Qt::LocalTime ).toString( Qt::ISODateWithMs ) );
-  mSettings.setValue( QStringLiteral( "EndDateTime" ), mMapSettings->temporalEnd().toTimeSpec( Qt::LocalTime ).toString( Qt::ISODateWithMs ) );
+  mSettings.setValue( QStringLiteral( "StartDateTime" ), mMapSettings->temporalBegin().toTimeZone( QTimeZone( QTimeZone::Initialization::LocalTime ) ).toString( Qt::ISODateWithMs ) );
+  mSettings.setValue( QStringLiteral( "EndDateTime" ), mMapSettings->temporalEnd().toTimeZone( QTimeZone( QTimeZone::Initialization::LocalTime ) ).toString( Qt::ISODateWithMs ) );
   mSettings.endGroup();
 }
 

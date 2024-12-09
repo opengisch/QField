@@ -167,12 +167,10 @@ class Setup : public QObject
 
       QgisMobileapp::initDeclarative( engine );
 
-      QString mPath = mDataDir + "/test_bees.qgz";
+      QgsProject::instance()->read( mDataDir + "/test_bees.qgz", Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews | Qgis::ProjectReadFlag::DontLoadLayouts );
 
-      QgsProject::instance()->read( mPath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews | Qgis::ProjectReadFlag::DontLoadLayouts );
-
-      engine->rootContext()->setContextProperty( "ppi", 96 );
-      engine->rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
+      engine->rootContext()->setContextProperty( QStringLiteral( "ppi" ), 96 );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qgisProject" ), QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
 
       QgsExifTools mExifTools;
