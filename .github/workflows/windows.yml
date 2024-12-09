@@ -202,10 +202,10 @@ jobs:
         with:
           name: debug-symbols
           path: |
-            "${{ env.CMAKE_BUILD_DIR }}/**/*.exe"
-            "${{ env.CMAKE_BUILD_DIR }}/**/*.pdb"
-            "${{ env.CMAKE_BUILD_DIR }}/**/*.dll"
-            "${{ env.CMAKE_BUILD_DIR }}/**/*.lib"
+            ${{ env.CMAKE_BUILD_DIR }}/**/*.exe
+            ${{ env.CMAKE_BUILD_DIR }}/**/*.pdb
+            ${{ env.CMAKE_BUILD_DIR }}/**/*.dll
+            ${{ env.CMAKE_BUILD_DIR }}/**/*.lib
 #        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
 
   upload_debug_symbols:
