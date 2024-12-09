@@ -377,8 +377,8 @@ Item {
     onTranslationChanged: {
       if (active) {
         if (lastRotateAngle != 0) {
-          var newPositionX = pressClickX + translation.x;
-          var newPositionY = pressClickY + translation.y;
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
           let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
           if (angle != 0) {
             mapCanvasWrapper.rotate(angle * 180 / Math.PI - lastRotateAngle);
