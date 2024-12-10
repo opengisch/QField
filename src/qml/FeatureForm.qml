@@ -93,6 +93,7 @@ Page {
       delegate: TabButton {
         id: tabButton
         property bool isCurrentIndex: index == tabRow.currentIndex
+        objectName: "tabRowdDelegate_" + index
         text: Name
         topPadding: 0
         bottomPadding: 0
@@ -100,7 +101,6 @@ Page {
         rightPadding: 8
         width: contentItem.width + leftPadding + rightPadding
         height: 48
-        objectName: "tabRowdDelegate_" + index
 
         onClicked: {
           tabRow.currentIndex = index;

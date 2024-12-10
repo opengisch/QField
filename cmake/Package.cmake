@@ -2,7 +2,7 @@ if(QT_MOC_EXECUTABLE)
   get_filename_component(_qt_bin_dir ${QT_MOC_EXECUTABLE} DIRECTORY)
 endif()
 find_program(LINUXDEPLOY_EXECUTABLE linuxdeploy linuxdeploy-x86_64.AppImage)
-find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${QT_HOST_LIBEXECS}" NO_DEFAULT_PATH)
+find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${VCPKG_INSTALLED_DIR}/arm64-osx/tools/Qt6/bin" NO_DEFAULT_PATH)
 find_program(ANDROIDDEPLOYQT_EXECUTABLE androiddeployqt HINTS "${QT_HOST_PATH}/tools/Qt6/bin")
 
 set(CPACK_GENERATOR)

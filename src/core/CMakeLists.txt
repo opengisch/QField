@@ -398,6 +398,26 @@ if(TARGET Qt::PrintSupport)
   target_link_libraries(qfield_core PUBLIC Qt::PrintSupport)
 endif()
 
+if(MSVC)
+  find_package(FFMPEG REQUIRED)
+  find_library(AVCODEC_LIBRARY avcodec)
+  find_library(AVDEVICE_LIBRARY avdevice)
+  find_library(AVFORMAT_LIBRARY avformat)
+  find_library(AVUTIL_LIBRARY avutil)
+  find_library(SWRESAMPLE_LIBRARY swresample)
+  find_library(SWSCALE_LIBRARY swscale)
+  find_library(OPENH264_LIBRARY openh264)
+  target_link_libraries(
+    qfield_core
+    PUBLIC ${AVCODEC_LIBRARY}
+           ${AVDEVICE_LIBRARY}
+           ${AVFORMAT_LIBRARY}
+           ${AVUTIL_LIBRARY}
+           ${SWRESAMPLE_LIBRARY}
+           ${SWSCALE_LIBRARY}
+           ${OPENH264_LIBRARY})
+endif()
+
 install(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})
 install(
   TARGETS qfield_core
