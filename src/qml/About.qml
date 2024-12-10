@@ -74,10 +74,15 @@ Item {
             color: Theme.light
             textFormat: Text.RichText
             text: {
-              var links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 6) + '</a>';
-              if (appVersion && appVersion !== '1.0.0')
+              let links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 6) + '</a>';
+              if (appVersion && appVersion !== '1.0.0') {
                 links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>';
-              return "QField<br>" + appVersionStr + " (" + links + ")<br>Qt " + qVersion;
+              }
+              // the `qgisVersion` has the format `<int>.<int>.<int>-<any text>`, so we get everything before the first `-`
+              const qgisVersionWithoutName = qgisVersion.split("-", 1)[0];
+              const dependencies = [["QGIS", qgisVersionWithoutName], ["GDAL/OGR", gdalVersion], ["Qt", qVersion]];
+              const dependenciesStr = dependencies.map(pair => pair.join(" ")).join(" | ");
+              return "QField<br>" + appVersionStr + " (" + links + ")<br>" + dependenciesStr;
             }
             onLinkActivated: link => Qt.openUrlExternally(link)
           }
