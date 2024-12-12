@@ -32,8 +32,9 @@ TextField {
 
   QfToolButton {
     id: showPasswordButton
+    property int originalEchoMode: TextInput.Normal
     z: 1
-    visible: !!textField.echoMode && textField.echoMode !== TextInput.Normal
+    visible: (!!textField.echoMode && textField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
     iconSource: textField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
     iconColor: Theme.mainColor
     anchors.right: textField.right
@@ -41,7 +42,12 @@ TextField {
     opacity: textField.text.length > 0 ? 1 : 0.25
 
     onClicked: {
-      textField.echoMode = textField.echoMode === TextInput.Normal ? textField.echoMode : TextInput.Normal;
+      if (textField.echoMode !== TextInput.Normal) {
+        originalEchoMode = textField.echoMode;
+        textField.echoMode = TextInput.Normal;
+      } else {
+        textField.echoMode = originalEchoMode;
+      }
     }
   }
 
