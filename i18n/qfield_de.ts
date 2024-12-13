@@ -2756,11 +2756,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Meine Projekte</translation>
+        <translation>Meine Projekte</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Gemeinschaft</translation>
+        <translation>Gemeinschaft</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -5060,7 +5060,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Entsperre den Bildschirm, um das Projekt und die App und das Projekt zu schließen</translation>
     </message>
 </context>
 <context>

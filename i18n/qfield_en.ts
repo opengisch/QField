@@ -2791,11 +2791,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">My Projects</translation>
+        <translation>My Projects</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Community</translation>
+        <translation>Community</translation>
     </message>
     <message>
         <source>(Available locally)</source>
