@@ -28,6 +28,13 @@ Item {
   property int averagedPositionCount: 0
 
   /**
+   * Snapping-related information
+   */
+  property bool snapToCommonAngles: false
+  property bool snappingIsRelative: false
+  property real snappingAngleDegrees: 45.0
+
+  /**
    * Overrides any possibility for the user to modify the coordinate.
    * There will be no user interaction or snapping if this is set to a QgsPoint.
    * Set this to `undefined` to revert to the user and snapping controlled behavior.
@@ -62,23 +69,23 @@ Item {
     inputCoordinate: {
       // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
       const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
-      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled) {
+      if (!locator.positionLocked && locator.snapToCommonAngles) {
         let backwardCommonAngleInDegrees = undefined;
         let backwardCoords = {};
         let backwardPoint = undefined;
-        backwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
+        backwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative);
         if (backwardCommonAngleInDegrees !== undefined) {
-          backwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, backwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
-          backwardCoords = calculateSnapToAngleLineEndCoords(backwardPoint, backwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000);
+          backwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, backwardCommonAngleInDegrees, locator.snappingIsRelative);
+          backwardCoords = calculateSnapToAngleLineEndCoords(backwardPoint, backwardCommonAngleInDegrees, locator.snappingIsRelative, 1000);
         }
         let forwardCommonAngleInDegrees = undefined;
         let forwardCoords = {};
         let forwardPoint = undefined;
         if (locator.rubberbandModel && locator.rubberbandModel.vertexCount >= 4) {
-          forwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, true);
+          forwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative, true);
           if (forwardCommonAngleInDegrees !== undefined) {
-            forwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, forwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, true);
-            forwardCoords = calculateSnapToAngleLineEndCoords(forwardPoint, forwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000, -1);
+            forwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, forwardCommonAngleInDegrees, locator.snappingIsRelative, true);
+            forwardCoords = calculateSnapToAngleLineEndCoords(forwardPoint, forwardCommonAngleInDegrees, locator.snappingIsRelative, 1000, -1);
           }
         }
         snappingLinesModel.setProperty(0, "beginCoordX", backwardCoords.x1 || 0);
