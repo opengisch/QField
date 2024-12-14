@@ -1580,11 +1580,7 @@ ApplicationWindow {
           iconColor: Theme.toolButtonColor
           bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
-          property bool isSnapToCommonAngleEnabled: false
-          property bool isSnapToCommonAngleRelative: true
-          property int snapToCommonAngleDegrees: 45
-
-          state: isSnapToCommonAngleEnabled ? "On" : "Off"
+          state: coordinateLocator.snapToCommonAngles ? "On" : "Off"
 
           states: [
             State {
@@ -1606,9 +1602,9 @@ ApplicationWindow {
           ]
 
           onClicked: {
-            isSnapToCommonAngleEnabled = !isSnapToCommonAngleEnabled;
-            settings.setValue("/QField/Digitizing/SnapToCommonAngleIsEnabled", isSnapToCommonAngleEnabled);
-            displayToast(isSnapToCommonAngleEnabled ? qsTr("Snap to %1° angle turned on").arg(snapToCommonAngleDegrees) : qsTr("Snap to common angle turned off"));
+            coordinateLocator.snapToCommonAngles = !coordinateLocator.snapToCommonAngles;
+            settings.setValue("/QField/Digitizing/SnapToCommonAngleIsEnabled", coordinateLocator.snapToCommonAngles);
+            displayToast(coordinateLocator.snapToCommonAngles ? qsTr("Snap to %1° angle turned on").arg(coordinateLocator.snappingAngleDegrees) : qsTr("Snap to common angle turned off"));
           }
 
           onPressAndHold: {
@@ -1616,9 +1612,9 @@ ApplicationWindow {
           }
 
           Component.onCompleted: {
-            isSnapToCommonAngleEnabled = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsEnabled", false);
-            isSnapToCommonAngleRelative = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsRelative", true);
-            snapToCommonAngleDegrees = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleDegrees);
+            coordinateLocator.snapToCommonAngles = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsEnabled", false);
+            coordinateLocator.snappingIsRelative = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsRelative", true);
+            coordinateLocator.snappingAngleDegrees = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", 45);
           }
 
           Menu {
@@ -1631,11 +1627,11 @@ ApplicationWindow {
               leftPadding: Theme.menuItemCheckLeftPadding
 
               checkable: true
-              checked: snapToCommonAngleButton.isSnapToCommonAngleRelative
+              checked: coordinateLocator.snappingIsRelative
 
               onTriggered: {
-                snapToCommonAngleButton.isSnapToCommonAngleRelative = checked;
-                settings.setValue("/QField/Digitizing/SnapToCommonAngleIsRelative", snapToCommonAngleButton.isSnapToCommonAngleRelative);
+                coordinateLocator.snappingIsRelative = checked;
+                settings.setValue("/QField/Digitizing/SnapToCommonAngleIsRelative", coordinateLocator.snappingIsRelative);
               }
             }
 
@@ -1656,16 +1652,16 @@ ApplicationWindow {
                 leftPadding: Theme.menuItemCheckLeftPadding
 
                 checkable: true
-                checked: modelData === snapToCommonAngleButton.snapToCommonAngleDegrees
-                enabled: modelData !== snapToCommonAngleButton.snapToCommonAngleDegrees
+                checked: modelData === coordinateLocator.snappingAngleDegrees
+                enabled: modelData !== coordinateLocator.snappingAngleDegrees
 
                 onTriggered: {
                   if (!checked) {
                     return;
                   }
-                  snapToCommonAngleButton.isSnapToCommonAngleEnabled = true;
-                  snapToCommonAngleButton.snapToCommonAngleDegrees = modelData;
-                  settings.setValue("/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleButton.snapToCommonAngleDegrees);
+                  coordinateLocator.snapToCommonAngles = true;
+                  coordinateLocator.snappingAngleDegrees = modelData;
+                  settings.setValue("/QField/Digitizing/SnapToCommonAngleDegrees", coordinateLocator.snappingAngleDegrees);
                   displayToast(qsTr("Snap to %1° angle turned on").arg(modelData));
                   snapToCommonAngleMenu.close();
                 }
