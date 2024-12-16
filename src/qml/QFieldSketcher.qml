@@ -36,6 +36,7 @@ Popup {
   Pane {
     width: parent.width
     height: parent.height
+    padding: 0
 
     DrawingCanvas {
       id: drawingCanvas
@@ -195,9 +196,9 @@ Popup {
 
       visible: drawingCanvas.isEmpty
       width: parent.width
-      height: parent.height / 3
+      height: Math.max(200, parent.height / 3)
       x: 0
-      y: parent.height / 7 * 4
+      y: parent.height / 3 * 2 - height / 2
       color: Theme.controlBackgroundAlternateColor
 
       ColumnLayout {
@@ -247,7 +248,7 @@ Popup {
 
             Rectangle {
               anchors.centerIn: parent
-              width: titleText.contentWidth + 10
+              width: Math.min(templateItem.width, titleText.contentWidth + 10)
               height: titleText.contentHeight + 5
               radius: 4
               color: "#55000000"
@@ -260,6 +261,7 @@ Popup {
                 font: Theme.tipFont
                 color: "#ffffff"
                 horizontalAlignment: Text.AlignHCenter
+                elide: Text.ElideMiddle
               }
             }
 
