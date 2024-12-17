@@ -16,13 +16,8 @@
 
 #include "qfield_service_export.h"
 
-#include <QtGlobal>
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QAndroidService>
-#include <QtAndroid>
-#else
 #include <QtCore/private/qandroidextras_p.h>
-#endif
+#include <QtGlobal>
 
 class QFIELD_SERVICE_EXPORT QFieldService : public QAndroidService
 {

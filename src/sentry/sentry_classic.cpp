@@ -22,31 +22,13 @@
 #include <QtGlobal>
 
 #include <sentry.h>
+
 #ifdef ANDROID
-#include <android/log.h>
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QAndroidJniEnvironment>
-#include <QAndroidJniObject>
-#include <QtAndroid>
-
-inline QAndroidJniObject qtAndroidContext()
-{
-  auto result = QtAndroid::androidActivity();
-  if ( result.isValid() )
-    return result;
-  return QtAndroid::androidService();
-}
-
-inline void runOnAndroidMainThread( const QtAndroid::Runnable &runnable )
-{
-  QtAndroid::runOnAndroidThread( runnable );
-}
-
-#else
 #include <QJniEnvironment>
 #include <QJniObject>
 #include <QtCore/private/qandroidextras_p.h>
+
+#include <android/log.h>
 
 inline QJniObject qtAndroidContext()
 {
@@ -60,7 +42,6 @@ inline void runOnAndroidMainThread( const std::function<void()> &runnable )
     return QVariant();
   } );
 }
-#endif
 #endif
 
 namespace sentry_wrapper
