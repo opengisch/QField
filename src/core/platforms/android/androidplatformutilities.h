@@ -21,11 +21,7 @@
 
 #include "platformutilities.h"
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QAndroidJniObject>
-#else
 #include <QJniObject>
-#endif
 
 class AndroidPlatformUtilities : public PlatformUtilities
 {
@@ -93,17 +89,12 @@ class AndroidPlatformUtilities : public PlatformUtilities
     bool checkAndAcquirePermissions( const QString &permissions ) const;
     ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent = nullptr );
     ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr );
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
-    QAndroidJniObject getNativeIntent() const;
-    QAndroidJniObject getNativeExtras() const;
-    QAndroidJniObject mActivity;
-#else
+
     QString getIntentExtra( const QString &, QJniObject = nullptr ) const;
+
     QJniObject getNativeIntent() const;
     QJniObject getNativeExtras() const;
     QJniObject mActivity;
-#endif
     QString mSystemGenericDataLocation;
 };
 
