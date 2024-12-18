@@ -424,6 +424,52 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
+              Layout.topMargin: 5
+              Layout.bottomMargin: 5
+
+              columns: 1
+              columnSpacing: 0
+              rowSpacing: 0
+
+              visible: true
+
+              Label {
+                Layout.fillWidth: true
+
+                text: qsTr('Curve tolerance')
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+              }
+
+              QfSlider {
+                Layout.fillWidth: true
+                value: settings ? settings.value('/QField/Digitizing/CurveTolerance', 0.02) : 0.02
+                from: 0
+                to: 1
+                stepSize: 0.001
+                suffixText: " m"
+                implicitHeight: 40
+
+                onMoved: function () {
+                  settings.setValue('/QField/Digitizing/CurveTolerance', value);
+                }
+              }
+
+              Label {
+                Layout.fillWidth: true
+                text: qsTr('Maximum difference between approximation and curve')
+
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+              }
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
 
               columns: 2
               columnSpacing: 0
