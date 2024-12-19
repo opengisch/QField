@@ -106,6 +106,7 @@
         "qml"
       ]
     },
+    "qtremoteobjects",
     "qtwebview",
     {
       "name": "sentry-cocoa",
