@@ -25,8 +25,6 @@ jobs:
     steps:
       - name: 🐣 Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: 🌾 Prepare vars
         id: vars
@@ -213,6 +211,9 @@ jobs:
     runs-on: windows-2022
     needs: build
     steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v4
+    
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
