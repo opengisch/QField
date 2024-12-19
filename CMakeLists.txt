@@ -117,7 +117,7 @@ if (ANDROID)
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
 endif()
 
-find_package(Qt6 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia Bluetooth Nfc WebSockets Quick3D REQUIRED)
+find_package(Qt6 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia Bluetooth Nfc RemoteObjects WebSockets Quick3D REQUIRED)
 
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
   find_package(Qt6 COMPONENTS PrintSupport REQUIRED)
