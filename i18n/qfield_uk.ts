@@ -2763,11 +2763,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Мій проєкт</translation>
+        <translation>Мій проєкт</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Спільнота</translation>
+        <translation>Спільнота</translation>
     </message>
     <message>
         <source>(Available locally)</source>

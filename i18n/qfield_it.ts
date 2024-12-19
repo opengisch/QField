@@ -2764,11 +2764,11 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">I miei Progetti</translation>
+        <translation>I miei Progetti</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Comunità</translation>
+        <translation>Comunità</translation>
     </message>
     <message>
         <source>(Available locally)</source>

@@ -179,7 +179,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
@@ -1643,7 +1643,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Rotar Objeto</translation>
     </message>
 </context>
 <context>
@@ -1997,7 +1997,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
 </context>
 <context>
@@ -2170,15 +2170,15 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, introduzca las credenciales para la base de datos</translation>
     </message>
     <message>
         <source>at host</source>
-        <translation type="unfinished"/>
+        <translation>en el servidor</translation>
     </message>
     <message>
         <source>at service</source>
-        <translation type="unfinished"/>
+        <translation>en el servicio</translation>
     </message>
 </context>
 <context>
@@ -2759,11 +2759,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Mis proyectos</translation>
+        <translation>Mis proyectos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Comunidad</translation>
+        <translation>Comunidad</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -4488,7 +4488,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Asegurar que se cumplan las restricciones</translation>
     </message>
 </context>
 <context>
@@ -5063,7 +5063,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquee la pantalla para cerrar el proyecto y la aplicación</translation>
     </message>
 </context>
 <context>
@@ -5110,7 +5110,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Asegurar que se cumplan las restricciones</translation>
     </message>
 </context>
 </TS>

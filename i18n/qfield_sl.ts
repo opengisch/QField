@@ -2744,11 +2744,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Moji projekti</translation>
+        <translation>Moji projekti</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Skupnost</translation>
+        <translation>Skupnost</translation>
     </message>
     <message>
         <source>(Available locally)</source>

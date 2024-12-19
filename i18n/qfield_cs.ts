@@ -2762,11 +2762,11 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Moje projekty</translation>
+        <translation>Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Komunita</translation>
+        <translation>Komunita</translation>
     </message>
     <message>
         <source>(Available locally)</source>

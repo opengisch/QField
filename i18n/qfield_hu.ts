@@ -2753,11 +2753,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Projektjeim</translation>
+        <translation>Projektjeim</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Közösség</translation>
+        <translation>Közösség</translation>
     </message>
     <message>
         <source>(Available locally)</source>

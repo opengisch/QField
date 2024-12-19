@@ -2759,11 +2759,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Os Meus Proxectos</translation>
+        <translation>Os Meus Proxectos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Comunidade</translation>
+        <translation>Comunidade</translation>
     </message>
     <message>
         <source>(Available locally)</source>

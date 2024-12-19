@@ -2760,11 +2760,11 @@ syy: %2</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Omat projektini</translation>
+        <translation>Omat projektini</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Yhteisö</translation>
+        <translation>Yhteisö</translation>
     </message>
     <message>
         <source>(Available locally)</source>

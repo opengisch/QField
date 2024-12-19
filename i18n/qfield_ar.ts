@@ -2755,11 +2755,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">مشاريعي</translation>
+        <translation>مشاريعي</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">المجتمع</translation>
+        <translation>المجتمع</translation>
     </message>
     <message>
         <source>(Available locally)</source>

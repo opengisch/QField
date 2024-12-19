@@ -2761,11 +2761,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Meus Projetos</translation>
+        <translation>Meus Projetos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Comunidade</translation>
+        <translation>Comunidade</translation>
     </message>
     <message>
         <source>(Available locally)</source>

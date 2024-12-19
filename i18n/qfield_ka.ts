@@ -2748,11 +2748,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">ჩემი პროექტები</translation>
+        <translation>ჩემი პროექტები</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">კომუნა</translation>
+        <translation>კომუნა</translation>
     </message>
     <message>
         <source>(Available locally)</source>

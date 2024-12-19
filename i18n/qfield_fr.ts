@@ -2757,11 +2757,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Mes projets</translation>
+        <translation>Mes projets</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Communauté</translation>
+        <translation>Communauté</translation>
     </message>
     <message>
         <source>(Available locally)</source>

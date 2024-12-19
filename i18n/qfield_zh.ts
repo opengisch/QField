@@ -2757,11 +2757,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">我的工程</translation>
+        <translation>我的工程</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">社区</translation>
+        <translation>社区</translation>
     </message>
     <message>
         <source>(Available locally)</source>
