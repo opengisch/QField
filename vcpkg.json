@@ -85,6 +85,7 @@
       ]
     },
     "qtquick3d",
+    "qtremoteobjects",
     {
       "name": "qtsensors",
       "features": [

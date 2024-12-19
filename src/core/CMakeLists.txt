@@ -355,6 +355,7 @@ target_link_libraries(
          Qt::Concurrent
          Qt::WebView
          Qt::Multimedia
+         Qt::RemoteObjects
          Qt::WebSockets
          Qt::Quick3D
          QGIS::Core
