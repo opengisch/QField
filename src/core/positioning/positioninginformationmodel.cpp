@@ -20,7 +20,7 @@ void PositioningInformationModel::refreshData()
 
   const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
-  const QList<QPair<QString, QVariant>> deviceDetails; //TODO = mPositioningSource->deviceDetails();
+  const QList<QPair<QString, QVariant>> deviceDetails = mPositioningSource->deviceDetails();
 
   updateCoordinates();
 

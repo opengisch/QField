@@ -96,6 +96,7 @@ class Positioning : public QObject
      */
     QString deviceId() const;
 
+    QList<QPair<QString, QVariant>> deviceDetails() const;
     QString deviceLastError() const;
     QAbstractSocket::SocketState deviceSocketState() const;
     QString deviceSocketStateString() const;
