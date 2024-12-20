@@ -15,11 +15,10 @@
  ***************************************************************************/
 
 #include "internalgnssreceiver.h"
-#include "positioning.h"
+#include "positioningsource.h"
 
 #include <QGuiApplication>
 #include <QPermissions>
-#include <qgsapplication.h>
 
 
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
@@ -48,36 +47,6 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInViewUpdated, this, &InternalGnssReceiver::handleSatellitesInViewUpdated );
     connect( mGeoSatelliteSource.get(), qOverload<QGeoSatelliteInfoSource::Error>( &QGeoSatelliteInfoSource::errorOccurred ), this, &InternalGnssReceiver::handleSatelliteError );
   }
-
-  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &InternalGnssReceiver::onApplicationStateChanged );
-}
-
-void InternalGnssReceiver::onApplicationStateChanged( Qt::ApplicationState state )
-{
-#ifdef Q_OS_ANDROID
-  // Google Play policy only allows for background access if it's explicitly stated and justified
-  // Not stopping on Activity::onPause is detected as violation
-  switch ( state )
-  {
-    case Qt::ApplicationState::ApplicationActive:
-      if ( mActive )
-      {
-        mGeoPositionSource->startUpdates();
-        if ( mGeoSatelliteSource )
-          mGeoSatelliteSource->startUpdates();
-      }
-      break;
-    default:
-      if ( mActive )
-      {
-        mGeoPositionSource->stopUpdates();
-        if ( mGeoSatelliteSource )
-          mGeoSatelliteSource->stopUpdates();
-      }
-  }
-#else
-  Q_UNUSED( state )
-#endif
 }
 
 void InternalGnssReceiver::handleDisconnectDevice()
@@ -162,8 +131,8 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
   }
 
   double antennaHeight = 0.0;
-  if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
-    antennaHeight = positioning->antennaHeight();
+  if ( PositioningSource *positioningSource = qobject_cast<PositioningSource *>( parent() ) )
+    antennaHeight = positioningSource->antennaHeight();
 
   double elevation = mLastGnssPositionInformation.elevation();
   if ( !qgsDoubleNear( positionInfo.coordinate().altitude(), elevation ) )

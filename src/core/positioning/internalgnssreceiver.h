@@ -36,7 +36,6 @@ class InternalGnssReceiver : public AbstractGnssReceiver
 
   private slots:
 
-    void onApplicationStateChanged( Qt::ApplicationState state );
     void handlePositionUpdated( const QGeoPositionInfo &positionInfo );
     void handleError( QGeoPositionInfoSource::Error positioningError );
 

@@ -17,6 +17,7 @@
 #include "positioning.h"
 #include "positioningutils.h"
 
+#include <qgsapplication.h>
 #include <qgsunittypes.h>
 
 Positioning::Positioning( QObject *parent )
@@ -44,7 +45,35 @@ Positioning::Positioning( QObject *parent )
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SIGNAL( loggingChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( positionInformationChanged() ), this, SLOT( processGnssPositionInformation() ) );
+
   connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
+  connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
+
+  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
+}
+
+void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
+{
+#ifdef Q_OS_ANDROID
+  // Google Play policy only allows for background access if it's explicitly stated and justified
+  // Not stopping on Activity::onPause is detected as violation
+  switch ( state )
+  {
+    case Qt::ApplicationState::ApplicationActive:
+      if ( mActive )
+      {
+        emit triggerConnectDevice();
+      }
+      break;
+    default:
+      if ( mActive )
+      {
+        emit triggerDisconnectDevice();
+      }
+  }
+#else
+  Q_UNUSED( state )
+#endif
 }
 
 bool Positioning::active() const
