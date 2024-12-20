@@ -180,6 +180,7 @@ QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &pos
                 << position.mAveragedCount << position.mImuCorrection << position.mOrientation;
 }
 
+//cppcheck-suppress constParameter
 QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position )
 {
   return stream >> position.mLatitude >> position.mLongitude >> position.mElevation >> position.mSpeed >> position.mDirection
@@ -196,7 +197,8 @@ QDataStream &operator<<( QDataStream &stream, const QgsSatelliteInfo &satelliteI
   return stream << satelliteInfo.azimuth << satelliteInfo.elevation << satelliteInfo.id << satelliteInfo.inUse << satelliteInfo.satType << satelliteInfo.signal;
 }
 
-QDataStream &operator>>( QDataStream &stream, QgsSatelliteInfo &satelliteInfo ) //cppcheck-suppress style
+//cppcheck-suppress constParameter
+QDataStream &operator>>( QDataStream &stream, QgsSatelliteInfo &satelliteInfo )
 {
   return stream >> satelliteInfo.azimuth >> satelliteInfo.elevation >> satelliteInfo.id >> satelliteInfo.inUse >> satelliteInfo.satType >> satelliteInfo.signal;
 }
