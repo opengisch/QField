@@ -435,7 +435,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectCheckout>( "QFieldCloudProjectsModel::ProjectCheckout" );
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
   qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
-  qRegisterMetaType<Positioning::ElevationCorrectionMode>( "Positioning::ElevationCorrectionMode" );
+  qRegisterMetaType<PositioningSource::ElevationCorrectionMode>( "PositioningSource::ElevationCorrectionMode" );
 
   qmlRegisterType<MultiFeatureListModel>( "org.qfield", 1, 0, "MultiFeatureListModel" );
   qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "FeatureIterator" );

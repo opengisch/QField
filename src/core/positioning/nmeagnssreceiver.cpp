@@ -16,8 +16,7 @@
 
 #include "nmeagnssreceiver.h"
 #include "platformutilities.h"
-#include "positioning.h"
-#include "qgsmessagelog.h"
+#include "positioningsource.h"
 
 #include <QSettings>
 
@@ -46,10 +45,10 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 
   bool ellipsoidalElevation = false;
   double antennaHeight = 0.0;
-  if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
+  if ( PositioningSource *positioningSource = qobject_cast<PositioningSource *>( parent() ) )
   {
-    ellipsoidalElevation = positioning->elevationCorrectionMode() != Positioning::ElevationCorrectionMode::OrthometricFromDevice;
-    antennaHeight = positioning->antennaHeight();
+    ellipsoidalElevation = positioningSource->elevationCorrectionMode() != PositioningSource::ElevationCorrectionMode::OrthometricFromDevice;
+    antennaHeight = positioningSource->antennaHeight();
   }
 
   if ( info.utcTime != mLastGnssPositionUtcTime )
@@ -176,9 +175,6 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   if ( !latitudeOk || !longitudeOk || !altitudeOk )
   {
     mImuPosition.valid = false;
-    QgsMessageLog::logMessage( tr( "Could not parse the IMU position: %1,%2,%3" ).arg( parameters[2], parameters[3], parameters[4] ),
-                               "Nmea",
-                               Qgis::Warning );
     return;
   }
 
