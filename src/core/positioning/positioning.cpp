@@ -73,6 +73,18 @@ void Positioning::setDeviceId( const QString &id )
   mPositioningSourceReplica->setProperty( "deviceId", id );
 }
 
+AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
+{
+  const QString deviceId = mPositioningSourceReplica->property( "deviceId" ).toString();
+  if ( !deviceId.isEmpty() || deviceId.startsWith( QStringLiteral( "tcp:" ) ) || deviceId.startsWith( QStringLiteral( "ucp:" ) ) || deviceId.startsWith( QStringLiteral( "serial:" ) ) )
+  {
+    // NMEA-based devices
+    return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
+  }
+
+  return AbstractGnssReceiver::NoCapabilities;
+}
+
 int Positioning::averagedPositionCount() const
 {
   return mPositioningSourceReplica->property( "averagedPositionCount" ).toInt();
