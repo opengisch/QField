@@ -223,7 +223,7 @@ class Positioning : public QObject
     PositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;
     QRemoteObjectNode mNode;
-    QSharedPointer<QRemoteObjectDynamicReplica> mPositioningSourceReplica;
+    QSharedPointer<QRemoteObjectDynamicReplica> mPositioningSourceReplica; //skip-keyword-check
 
     GnssPositionInformation mPositionInformation;
 
