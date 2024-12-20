@@ -218,7 +218,7 @@ double Positioning::adjustOrientation( double orientation ) const
       break;
   }
 
-  return orientation = std::fmod( orientation, 360 );
+  return std::fmod( orientation, 360 );
 }
 
 void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer )

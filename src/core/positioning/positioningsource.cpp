@@ -34,7 +34,8 @@ PositioningSource::PositioningSource( QObject *parent )
   // Setup internal gnss receiver by default
   setupDevice();
 
-  // Setup the compass
+  // Setup the compass, use a timer instead of the compass's readingChanged signal to avoid handling
+  // too many signals
   mCompassTimer.setInterval( 200 );
   connect( &mCompassTimer, &QTimer::timeout, this, &PositioningSource::processCompassReading );
 }
