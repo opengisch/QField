@@ -76,6 +76,17 @@ void Positioning::setDeviceId( const QString &id )
   mPositioningSourceReplica->setProperty( "deviceId", id );
 }
 
+QList<QPair<QString, QVariant>> Positioning::deviceDetails() const
+{
+  const QVariantList list = mPositioningSourceReplica->property( "deviceDetails" ).toList();
+  QList<QPair<QString, QVariant>> details;
+  for ( const QVariant &item : list )
+  {
+    details << item.value<QPair<QString, QVariant>>();
+  }
+  return details;
+}
+
 QString Positioning::deviceLastError() const
 {
   return mPositioningSourceReplica->property( "deviceLastError" ).toString();
