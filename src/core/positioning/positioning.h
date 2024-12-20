@@ -214,6 +214,7 @@ class Positioning : public QObject
     void antennaHeightChanged();
     void orientationChanged();
     void loggingChanged();
+    void triggerConnectDevice();
 
   private slots:
     void projectedPositionTransformed();

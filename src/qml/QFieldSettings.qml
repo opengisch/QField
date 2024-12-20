@@ -1007,8 +1007,7 @@ Page {
                   if (!positioningSettings.positioningActivated) {
                     positioningSettings.positioningActivated = true;
                   } else {
-                    positioningSettings.positioningActivated = false;
-                    positioningSettings.positioningActivated = true;
+                    positionSource.triggerConnectDevice();
                   }
                 }
               }
