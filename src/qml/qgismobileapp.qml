@@ -282,10 +282,10 @@ ApplicationWindow {
   }
 
   Connections {
-    target: positionSource.device
+    target: positionSource
 
-    function onLastErrorChanged() {
-      displayToast(qsTr('Positioning device error: %1').arg(positionSource.device.lastError), 'error');
+    function onDeviceLastErrorChanged() {
+      displayToast(qsTr('Positioning device error: %1').arg(positionSource.deviceLastError), 'error');
     }
   }
 
