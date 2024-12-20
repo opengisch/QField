@@ -27,9 +27,6 @@
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 
-#include <QScreen>
-#include <qgsapplication.h>
-#include <qgsunittypes.h>
 
 PositioningSource::PositioningSource( QObject *parent )
   : QObject( parent )
@@ -288,21 +285,6 @@ void PositioningSource::processCompassReading()
   if ( mCompass.reading() )
   {
     double orientation = 0.0;
-    // Take into account the orientation of the device
-    QScreen *screen = QgsApplication::instance()->primaryScreen();
-    switch ( screen->orientation() )
-    {
-      case Qt::LandscapeOrientation:
-        orientation = 90;
-        break;
-      case Qt::InvertedLandscapeOrientation:
-        orientation = 270;
-        break;
-      case Qt::PortraitOrientation:
-      default:
-        break;
-    }
-
     orientation += mCompass.reading()->azimuth();
     if ( orientation < 0.0 )
     {

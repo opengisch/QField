@@ -223,6 +223,8 @@ class Positioning : public QObject
     void processGnssPositionInformation();
 
   private:
+    double adjustOrientation( double orientation ) const;
+
     PositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;
     QRemoteObjectNode mNode;
