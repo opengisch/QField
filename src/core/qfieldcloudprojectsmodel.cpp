@@ -1809,6 +1809,26 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
   } );
 
   connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+    const QString temporaryFileName = project->downloadFileTransfers[fileName].tmpFile;
+    QNetworkReply *rawReply = reply->reply();
+    QFile file( temporaryFileName );
+
+    if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
+    {
+      file.write( rawReply->readAll() );
+
+      if ( file.error() != QFile::NoError )
+      {
+        QgsLogger::debug( QStringLiteral( "Failed to write on temporary file `%1`." ).arg( temporaryFileName ) );
+        rawReply->abort();
+      }
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( "File system error. Failed to open file for writing on temporary `%1`." ).arg( temporaryFileName ) );
+      rawReply->abort();
+    }
+
     if ( !findProject( projectId ) )
     {
       QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: updating download progress, but the project is deleted." ).arg( projectId, fileName ) );
@@ -1863,26 +1883,6 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       project->downloadBytesReceived += project->downloadFileTransfers[fileName].bytesTotal;
       project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
       emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
-
-      QFile file( project->downloadFileTransfers[fileName].tmpFile );
-
-      if ( file.open( QIODevice::ReadWrite ) )
-      {
-        file.write( rawReply->readAll() );
-
-        if ( file.error() != QFile::NoError )
-        {
-          hasError = true;
-          errorMessageDetail = file.errorString();
-          errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
-        }
-      }
-      else
-      {
-        hasError = true;
-        errorMessageDetail = file.errorString();
-        errorMessage = tr( "File system error. Failed to open file for writing on temporary `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
-      }
     }
 
     // check if the code above failed with error

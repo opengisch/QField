@@ -41,10 +41,7 @@ void NetworkReply::abort()
 
 QNetworkReply *NetworkReply::reply() const
 {
-  if ( mIsFinished )
-    return mReply;
-
-  return nullptr;
+  return mReply;
 }
 
 
