@@ -16,6 +16,11 @@
 
 #include "positioning.h"
 #include "positioningutils.h"
+#include "tcpreceiver.h"
+#include "udpreceiver.h"
+#ifdef WITH_SERIALPORT
+#include "serialportreceiver.h"
+#endif
 
 #include <QScreen>
 #include <qgsapplication.h>
@@ -137,11 +142,18 @@ QString Positioning::deviceSocketStateString() const
 AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 {
   const QString deviceId = mPositioningSourceReplica->property( "deviceId" ).toString();
-  if ( !deviceId.isEmpty() || deviceId.startsWith( QStringLiteral( "tcp:" ) ) || deviceId.startsWith( QStringLiteral( "ucp:" ) ) || deviceId.startsWith( QStringLiteral( "serial:" ) ) )
+  if ( !deviceId.isEmpty() || deviceId.startsWith( TcpReceiver::identifier + ":" ) || deviceId.startsWith( UdpReceiver::identifier + ":" ) )
   {
     // NMEA-based devices
     return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
   }
+#ifdef WITH_SERIALPORT
+  else if ( deviceId.startsWith( SerialPortReceiver::identifier + ":" ) )
+  {
+    // NMEA-based device
+    return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
+  }
+#endif
 
   return AbstractGnssReceiver::NoCapabilities;
 }

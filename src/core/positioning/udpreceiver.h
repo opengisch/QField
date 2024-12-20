@@ -36,6 +36,8 @@ class UdpReceiver : public NmeaGnssReceiver
     explicit UdpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
     ~UdpReceiver() override;
 
+    static QLatin1String identifier;
+
   public slots:
     QString socketStateString() override;
 

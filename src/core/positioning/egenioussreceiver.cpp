@@ -21,6 +21,8 @@
 #include <QJsonValue>
 #include <QTimeZone>
 
+QLatin1String EgenioussReceiver::identifier = QLatin1String( "egeniouss" );
+
 EgenioussReceiver::EgenioussReceiver( QObject *parent )
   : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() )
 {
