@@ -39,8 +39,12 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool active READ active WRITE setActive NOTIFY activeChanged )
     Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
+
     Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
     Q_PROPERTY( AbstractGnssReceiver::Capabilities deviceCapabilities READ deviceCapabilities NOTIFY deviceIdChanged )
+    Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
+    Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
+    Q_PROPERTY( QString deviceSocketStateString READ deviceSocketStateString NOTIFY deviceSocketStateStringChanged )
 
     Q_PROPERTY( QgsQuickCoordinateTransformer *coordinateTransformer READ coordinateTransformer WRITE setCoordinateTransformer NOTIFY coordinateTransformerChanged )
 
@@ -91,6 +95,10 @@ class Positioning : public QObject
      * \see setDevice
      */
     QString deviceId() const;
+
+    QString deviceLastError() const;
+    QAbstractSocket::SocketState deviceSocketState() const;
+    QString deviceSocketStateString() const;
 
     /**
      * Sets the positioning device \a id used to fetch position information.
@@ -191,8 +199,11 @@ class Positioning : public QObject
 
   signals:
     void activeChanged();
-    void deviceIdChanged();
     void validChanged();
+    void deviceIdChanged();
+    void deviceLastErrorChanged();
+    void deviceSocketStateChanged();
+    void deviceSocketStateStringChanged();
     void coordinateTransformerChanged();
     void positionInformationChanged();
     void averagedPositionChanged();

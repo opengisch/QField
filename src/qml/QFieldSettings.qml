@@ -989,7 +989,7 @@ Page {
                 Layout.columnSpan: 2
                 Layout.topMargin: 5
                 text: {
-                  switch (positionSource.device.socketState) {
+                  switch (positionSource.deviceSocketState) {
                   case QAbstractSocket.ConnectedState:
                   case QAbstractSocket.BoundState:
                     return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName);
@@ -999,7 +999,7 @@ Page {
                     return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName);
                   }
                 }
-                enabled: positionSource.device.socketState === QAbstractSocket.UnconnectedState
+                enabled: positionSource.deviceSocketState === QAbstractSocket.UnconnectedState
                 visible: positionSource.deviceId !== ''
 
                 onClicked: {
@@ -1007,7 +1007,8 @@ Page {
                   if (!positioningSettings.positioningActivated) {
                     positioningSettings.positioningActivated = true;
                   } else {
-                    positionSource.device.connectDevice();
+                    positioningSettings.positioningActivated = false;
+                    positioningSettings.positioningActivated = true;
                   }
                 }
               }

@@ -32,8 +32,11 @@ Positioning::Positioning( QObject *parent )
   mPositioningSourceReplica->waitForSource();
 
   connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SIGNAL( activeChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SIGNAL( deviceIdChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SIGNAL( validChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SIGNAL( deviceIdChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceLastErrorChanged() ), this, SIGNAL( deviceLastErrorChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateChanged() ), this, SIGNAL( deviceSocketStateChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateStringChanged() ), this, SIGNAL( deviceSocketStateStringChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( averagedPositionChanged() ), this, SIGNAL( averagedPositionChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( averagedPositionCountChanged() ), this, SIGNAL( averagedPositionCountChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( elevationCorrectionModeChanged() ), this, SIGNAL( elevationCorrectionModeChanged() ) );
@@ -71,6 +74,21 @@ QString Positioning::deviceId() const
 void Positioning::setDeviceId( const QString &id )
 {
   mPositioningSourceReplica->setProperty( "deviceId", id );
+}
+
+QString Positioning::deviceLastError() const
+{
+  return mPositioningSourceReplica->property( "deviceLastError" ).toString();
+}
+
+QAbstractSocket::SocketState Positioning::deviceSocketState() const
+{
+  return mPositioningSourceReplica->property( "deviceSocketState" ).value<QAbstractSocket::SocketState>();
+}
+
+QString Positioning::deviceSocketStateString() const
+{
+  return mPositioningSourceReplica->property( "deviceSocketStateString" ).toString();
 }
 
 AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
