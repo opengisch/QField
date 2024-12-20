@@ -215,8 +215,10 @@ class Positioning : public QObject
     void orientationChanged();
     void loggingChanged();
     void triggerConnectDevice();
+    void triggerDisconnectDevice();
 
   private slots:
+    void onApplicationStateChanged( Qt::ApplicationState state );
     void projectedPositionTransformed();
     void processGnssPositionInformation();
 

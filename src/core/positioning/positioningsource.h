@@ -192,6 +192,7 @@ class PositioningSource : public QObject
   public slots:
 
     void triggerConnectDevice();
+    void triggerDisconnectDevice();
 
   private slots:
 

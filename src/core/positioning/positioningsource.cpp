@@ -324,3 +324,11 @@ void PositioningSource::triggerConnectDevice()
     mReceiver->connectDevice();
   }
 }
+
+void PositioningSource::triggerDisconnectDevice()
+{
+  if ( mReceiver )
+  {
+    mReceiver->disconnectDevice();
+  }
+}
