@@ -1514,7 +1514,7 @@ Page {
                       "text": qsTr("None"),
                       "value": Positioning.ElevationCorrectionMode.None
                     });
-                  if (positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
+                  if (positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude)
                     verticalGridShiftComboBox.model.append({
                         "text": qsTr("Orthometric from device"),
                         "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
@@ -1531,7 +1531,7 @@ Page {
                     verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode);
                     positioningSettings.verticalGrid = "";
                   } else if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
-                    if (positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
+                    if (positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude)
                       verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(positioningSettings.elevationCorrectionMode);
                     else
                       // Orthometric not available -> fallback to None
@@ -1572,7 +1572,7 @@ Page {
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                visible: positionSource.device.capabilities() & AbstractGnssReceiver.Logging
+                visible: positionSource.deviceCapabilities & AbstractGnssReceiver.Logging
 
                 MouseArea {
                   anchors.fill: parent
@@ -1584,7 +1584,7 @@ Page {
                 id: positionLogging
                 Layout.preferredWidth: implicitContentWidth
                 Layout.alignment: Qt.AlignTop
-                visible: positionSource.device.capabilities() & AbstractGnssReceiver.Logging
+                visible: positionSource.deviceCapabilities & AbstractGnssReceiver.Logging
                 checked: positioningSettings.logging
                 onCheckedChanged: {
                   positioningSettings.logging = checked;

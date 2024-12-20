@@ -40,6 +40,7 @@ class Positioning : public QObject
     Q_PROPERTY( bool active READ active WRITE setActive NOTIFY activeChanged )
     Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
     Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
+    Q_PROPERTY( AbstractGnssReceiver::Capabilities deviceCapabilities READ deviceCapabilities NOTIFY deviceIdChanged )
 
     Q_PROPERTY( QgsQuickCoordinateTransformer *coordinateTransformer READ coordinateTransformer WRITE setCoordinateTransformer NOTIFY coordinateTransformerChanged )
 
@@ -97,6 +98,8 @@ class Positioning : public QObject
      * bluetooth addresses will trigger an NMEA connection to external devices.
      */
     void setDeviceId( const QString &id );
+
+    AbstractGnssReceiver::Capabilities deviceCapabilities() const;
 
     /**
      * Returns the coordinate transformer object used to reproject the position location.
