@@ -331,6 +331,9 @@ class GnssPositionInformation
     QString mSourceName;
     bool mImuCorrection;
     double mOrientation = std::numeric_limits<double>::quiet_NaN();
+
+    friend QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position );
+    friend QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position );
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )

@@ -24,6 +24,8 @@
 #include <QObject>
 #include <QTimer>
 
+typedef QList<QPair<QString, QVariant>> DetailPairs;
+
 /**
  * This class connects to GNSS devices (internal or bluetooth NMEA) and provides
  * positioning details.
@@ -37,7 +39,7 @@ class PositioningSource : public QObject
     Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
 
     Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
-    Q_PROPERTY( QList<QPair<QString, QVariant>> deviceDetails READ deviceDetails NOTIFY positionInformationChanged )
+    Q_PROPERTY( DetailPairs deviceDetails READ deviceDetails NOTIFY positionInformationChanged )
     Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
     Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
     Q_PROPERTY( QString deviceSocketStateString READ deviceSocketStateString NOTIFY deviceSocketStateStringChanged )

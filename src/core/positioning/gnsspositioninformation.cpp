@@ -171,89 +171,24 @@ QString GnssPositionInformation::fixStatusDescription() const
 
 QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position )
 {
-  return stream << position.latitude() << position.longitude() << position.elevation() << position.speed() << position.direction()
-                << position.satellitesInView() << position.hdop() << position.vdop() << position.pdop()
-                << position.hacc() << position.vacc() << position.hvacc() << position.utcDateTime()
-                << position.fixMode() << position.fixType() << position.quality()
-                << position.satellitesUsed() << position.status() << position.satPrn() << position.satInfoComplete()
-                << position.verticalSpeed() << position.magneticVariation() << position.sourceName()
-                << position.averagedCount() << position.imuCorrection() << position.orientation();
+  return stream << position.mLatitude << position.mLongitude << position.mElevation << position.mSpeed << position.mDirection
+                << position.mSatellitesInView << position.mHdop << position.mVdop << position.mPdop
+                << position.mHacc << position.mVacc << position.mHvacc << position.mUtcDateTime
+                << position.mFixMode << position.mFixType << position.mQuality
+                << position.mSatellitesUsed << position.mStatus << position.mSatPrn << position.mSatInfoComplete
+                << position.mVerticalSpeed << position.mMagneticVariation << position.mSourceName
+                << position.mAveragedCount << position.mImuCorrection << position.mOrientation;
 }
 
 QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position )
 {
-  bool boolValue = false;
-  int intValue = 0;
-  double doubleValue = 0.0;
-  QString stringValue;
-  QDateTime dateTimeValue;
-  QChar charValue;
-
-  stream >> doubleValue;
-  position.setLatitude( doubleValue );
-  stream >> doubleValue;
-  position.setLongitude( doubleValue );
-  stream >> doubleValue;
-  position.setElevation( doubleValue );
-  stream >> doubleValue;
-  position.setSpeed( doubleValue );
-  stream >> doubleValue;
-  position.setDirection( doubleValue );
-
-  QList<QgsSatelliteInfo> satellitesInView;
-  stream >> satellitesInView;
-  position.setSatellitesInView( satellitesInView );
-
-  stream >> doubleValue;
-  position.setHdop( doubleValue );
-  stream >> doubleValue;
-  position.setVdop( doubleValue );
-  stream >> doubleValue;
-  position.setPdop( doubleValue );
-
-  stream >> doubleValue;
-  position.setHacc( doubleValue );
-  stream >> doubleValue;
-  position.setVacc( doubleValue );
-  stream >> doubleValue;
-  position.setHVacc( doubleValue );
-
-  stream >> dateTimeValue;
-  position.setUtcDateTime( dateTimeValue );
-
-  stream >> charValue;
-  position.setFixMode( charValue );
-
-  stream >> intValue;
-  position.setFixType( intValue );
-  stream >> intValue;
-  position.setQuality( intValue );
-  stream >> intValue;
-  position.setSatellitesUsed( intValue );
-
-  stream >> charValue;
-  position.setStatus( charValue );
-
-  QList<int> satPrn;
-  stream >> satPrn;
-  position.setSatPrn( satPrn );
-
-  stream >> boolValue;
-  position.setSatInfoComplete( boolValue );
-  stream >> doubleValue;
-  position.setVerticalSpeed( doubleValue );
-  stream >> doubleValue;
-  position.setMagneticVaritation( doubleValue );
-  stream >> stringValue;
-  position.setSourceName( stringValue );
-  stream >> intValue;
-  position.setAveragedCount( intValue );
-  stream >> boolValue;
-  position.setImuCorrection( boolValue );
-  stream >> doubleValue;
-  position.setOrientation( doubleValue );
-
-  return stream;
+  return stream >> position.mLatitude >> position.mLongitude >> position.mElevation >> position.mSpeed >> position.mDirection
+         >> position.mSatellitesInView >> position.mHdop >> position.mVdop >> position.mPdop
+         >> position.mHacc >> position.mVacc >> position.mHvacc >> position.mUtcDateTime
+         >> position.mFixMode >> position.mFixType >> position.mQuality
+         >> position.mSatellitesUsed >> position.mStatus >> position.mSatPrn >> position.mSatInfoComplete
+         >> position.mVerticalSpeed >> position.mMagneticVariation >> position.mSourceName
+         >> position.mAveragedCount >> position.mImuCorrection >> position.mOrientation;
 }
 
 QDataStream &operator<<( QDataStream &stream, const QgsSatelliteInfo &satelliteInfo )
@@ -261,8 +196,7 @@ QDataStream &operator<<( QDataStream &stream, const QgsSatelliteInfo &satelliteI
   return stream << satelliteInfo.azimuth << satelliteInfo.elevation << satelliteInfo.id << satelliteInfo.inUse << satelliteInfo.satType << satelliteInfo.signal;
 }
 
-//cppcheck-suppress style
-QDataStream &operator>>( QDataStream &stream, QgsSatelliteInfo &satelliteInfo )
+QDataStream &operator>>( QDataStream &stream, QgsSatelliteInfo &satelliteInfo ) //cppcheck-suppress style
 {
   return stream >> satelliteInfo.azimuth >> satelliteInfo.elevation >> satelliteInfo.id >> satelliteInfo.inUse >> satelliteInfo.satType >> satelliteInfo.signal;
 }
