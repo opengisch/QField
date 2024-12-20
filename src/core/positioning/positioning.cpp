@@ -14,149 +14,118 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifdef WITH_BLUETOOTH
-#include "bluetoothreceiver.h"
-#endif
-#ifdef WITH_SERIALPORT
-#include "serialportreceiver.h"
-#endif
-#include "egenioussreceiver.h"
-#include "internalgnssreceiver.h"
 #include "positioning.h"
 #include "positioningutils.h"
-#include "tcpreceiver.h"
-#include "udpreceiver.h"
 
-#include <QScreen>
-#include <qgsapplication.h>
 #include <qgsunittypes.h>
 
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
 {
-  // Setup internal gnss receiver by default
-  setupDevice();
+  // Non-service path, we are both the host and the node
+  mPositioningSource = new PositioningSource( this );
+  mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
+  mHost.enableRemoting( mPositioningSource, "PositioningSource" );
 
-  // Setup the compass
-  mCompassTimer.setInterval( 200 );
-  connect( &mCompassTimer, &QTimer::timeout, this, &Positioning::processCompassReading );
+  mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
+  mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
+  mPositioningSourceReplica->waitForSource();
+
+  connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SIGNAL( activeChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SIGNAL( deviceIdChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SIGNAL( validChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( averagedPositionChanged() ), this, SIGNAL( averagedPositionChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( averagedPositionCountChanged() ), this, SIGNAL( averagedPositionCountChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( elevationCorrectionModeChanged() ), this, SIGNAL( elevationCorrectionModeChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( antennaHeightChanged() ), this, SIGNAL( antennaHeightChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SIGNAL( loggingChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( positionInformationChanged() ), this, SLOT( processGnssPositionInformation() ) );
+}
+
+bool Positioning::active() const
+{
+  return mPositioningSourceReplica->property( "active" ).toBool();
 }
 
 void Positioning::setActive( bool active )
 {
-  if ( mActive == active )
-    return;
-
-  mActive = active;
-
-  if ( mActive )
-  {
-    if ( !mReceiver )
-    {
-      setupDevice();
-    }
-    mReceiver->connectDevice();
-    if ( !QSensor::sensorsForType( QCompass::sensorType ).isEmpty() )
-    {
-      mCompass.setActive( true );
-      mCompassTimer.start();
-    }
-  }
-  else
-  {
-    if ( mReceiver )
-    {
-      mReceiver->disconnectDevice();
-    }
-    mCompassTimer.stop();
-    mCompass.setActive( false );
-    mOrientation = std::numeric_limits<double>::quiet_NaN();
-    emit orientationChanged();
-  }
-
-  emit activeChanged();
+  mPositioningSourceReplica->setProperty( "active", active );
 }
 
-void Positioning::setDeviceId( const QString &id )
+bool Positioning::valid() const
 {
-  if ( mDeviceId == id )
-    return;
-
-  mDeviceId = id;
-  setupDevice();
-
-  emit deviceIdChanged();
+  return mPositioningSourceReplica->property( "valid" ).toBool();
 }
 
 void Positioning::setValid( bool valid )
 {
-  if ( mValid == valid )
-    return;
+  mPositioningSourceReplica->setProperty( "valid", valid );
+}
 
-  mValid = valid;
+QString Positioning::deviceId() const
+{
+  return mPositioningSourceReplica->property( "deviceId" ).toString();
+}
 
-  emit validChanged();
+void Positioning::setDeviceId( const QString &id )
+{
+  mPositioningSourceReplica->setProperty( "deviceId", id );
+}
+
+int Positioning::averagedPositionCount() const
+{
+  return mPositioningSourceReplica->property( "averagedPositionCount" ).toInt();
+}
+
+bool Positioning::averagedPosition() const
+{
+  return mPositioningSourceReplica->property( "averagedPosition" ).toBool();
 }
 
 void Positioning::setAveragedPosition( bool averaged )
 {
-  if ( mAveragedPosition == averaged )
-    return;
+  mPositioningSourceReplica->setProperty( "averagedPosition", averaged );
+}
 
-  mAveragedPosition = averaged;
-  if ( mAveragedPosition )
-  {
-    mCollectedPositionInformations << mPositionInformation;
-  }
-  else
-  {
-    mCollectedPositionInformations.clear();
-  }
-
-  emit averagedPositionCountChanged();
-  emit averagedPositionChanged();
+bool Positioning::logging() const
+{
+  return mPositioningSourceReplica->property( "logging" ).toBool();
 }
 
 void Positioning::setLogging( bool logging )
 {
-  if ( mLogging == logging )
-    return;
-
-  mLogging = logging;
-
-  if ( mReceiver )
-  {
-    if ( mLogging )
-    {
-      mReceiver->startLogging();
-    }
-    else
-    {
-      mReceiver->stopLogging();
-    }
-  }
-
-  emit loggingChanged();
+  mPositioningSourceReplica->setProperty( "logging", logging );
 }
 
-void Positioning::setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode )
+PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode() const
 {
-  if ( mElevationCorrectionMode == elevationCorrectionMode )
-    return;
+  return static_cast<PositioningSource::ElevationCorrectionMode>( mPositioningSourceReplica->property( "elevationCorrectionMode" ).toInt() );
+}
 
-  mElevationCorrectionMode = elevationCorrectionMode;
+void Positioning::setElevationCorrectionMode( PositioningSource::ElevationCorrectionMode elevationCorrectionMode )
+{
+  mPositioningSourceReplica->setProperty( "elevationCorrectionMode", static_cast<int>( elevationCorrectionMode ) );
+}
 
-  emit elevationCorrectionModeChanged();
+double Positioning::antennaHeight() const
+{
+  return mPositioningSourceReplica->property( "antennaHeight" ).toDouble();
 }
 
 void Positioning::setAntennaHeight( double antennaHeight )
 {
-  if ( mAntennaHeight == antennaHeight )
-    return;
+  mPositioningSourceReplica->setProperty( "antennaHeight", antennaHeight );
+}
 
-  mAntennaHeight = antennaHeight;
+GnssPositionInformation Positioning::positionInformation() const
+{
+  return mPositionInformation;
+}
 
-  emit antennaHeightChanged();
+double Positioning::orientation() const
+{
+  return mPositioningSourceReplica->property( "orientation" ).toDouble();
 }
 
 void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer )
@@ -175,116 +144,24 @@ void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coord
   emit coordinateTransformerChanged();
 }
 
-void Positioning::setupDevice()
+QgsPoint Positioning::sourcePosition() const
 {
-  if ( mReceiver )
-  {
-    mReceiver->disconnectDevice();
-    mReceiver->stopLogging();
-    disconnect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
-    mReceiver->deleteLater();
-    mReceiver = nullptr;
-  }
-
-  if ( mDeviceId.isEmpty() )
-  {
-    mReceiver = new InternalGnssReceiver( this );
-  }
-  else
-  {
-    if ( mDeviceId.startsWith( QStringLiteral( "tcp:" ) ) )
-    {
-      const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
-      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
-      const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = new TcpReceiver( address, port, this );
-    }
-    else if ( mDeviceId.startsWith( QStringLiteral( "udp:" ) ) )
-    {
-      const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
-      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
-      const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = new UdpReceiver( address, port, this );
-    }
-    else if ( mDeviceId.startsWith( QStringLiteral( "egeniouss:" ) ) )
-    {
-      mReceiver = new EgenioussReceiver( this );
-    }
-#ifdef WITH_SERIALPORT
-    else if ( mDeviceId.startsWith( QStringLiteral( "serial:" ) ) )
-    {
-      const QString address = mDeviceId.mid( 7 );
-      mReceiver = new SerialPortReceiver( address, this );
-    }
-#endif
-    else
-    {
-#ifdef WITH_BLUETOOTH
-      mReceiver = new BluetoothReceiver( mDeviceId, this );
-#endif
-    }
-  }
-
-  // Reset the position information to insure no cross contamination between receiver types
-  lastGnssPositionInformationChanged( GnssPositionInformation() );
-  connect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
-  setValid( mReceiver->valid() );
-
-  emit deviceChanged();
-
-  if ( mLogging )
-  {
-    mReceiver->startLogging();
-  }
-
-  if ( mActive )
-  {
-    mReceiver->connectDevice();
-  }
-
-  return;
+  return mSourcePosition;
 }
 
-void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation )
+QgsPoint Positioning::projectedPosition() const
 {
-  if ( mPositionInformation == lastGnssPositionInformation )
-    return;
+  return mProjectedPosition;
+}
 
-  const GnssPositionInformation positionInformation( lastGnssPositionInformation.latitude(),
-                                                     lastGnssPositionInformation.longitude(),
-                                                     lastGnssPositionInformation.elevation(),
-                                                     lastGnssPositionInformation.speed(),
-                                                     lastGnssPositionInformation.direction(),
-                                                     lastGnssPositionInformation.satellitesInView(),
-                                                     lastGnssPositionInformation.pdop(),
-                                                     lastGnssPositionInformation.hdop(),
-                                                     lastGnssPositionInformation.vdop(),
-                                                     lastGnssPositionInformation.hacc(),
-                                                     lastGnssPositionInformation.vacc(),
-                                                     lastGnssPositionInformation.utcDateTime(),
-                                                     lastGnssPositionInformation.fixMode(),
-                                                     lastGnssPositionInformation.fixType(),
-                                                     lastGnssPositionInformation.quality(),
-                                                     lastGnssPositionInformation.satellitesUsed(),
-                                                     lastGnssPositionInformation.status(),
-                                                     lastGnssPositionInformation.satPrn(),
-                                                     lastGnssPositionInformation.satInfoComplete(),
-                                                     lastGnssPositionInformation.verticalSpeed(),
-                                                     lastGnssPositionInformation.magneticVariation(),
-                                                     lastGnssPositionInformation.averagedCount(),
-                                                     lastGnssPositionInformation.sourceName(),
-                                                     lastGnssPositionInformation.imuCorrection(),
-                                                     mOrientation );
+double Positioning::projectedHorizontalAccuracy() const
+{
+  return mProjectedHorizontalAccuracy;
+}
 
-  if ( mAveragedPosition )
-  {
-    mCollectedPositionInformations << positionInformation;
-    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
-  }
-  else
-  {
-    mPositionInformation = positionInformation;
-  }
+void Positioning::processGnssPositionInformation()
+{
+  mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
 
   if ( mPositionInformation.isValid() )
   {
@@ -301,59 +178,6 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   }
 
   emit positionInformationChanged();
-  if ( mAveragedPosition )
-  {
-    emit averagedPositionCountChanged();
-  }
-}
-
-void Positioning::processCompassReading()
-{
-  if ( mCompass.reading() )
-  {
-    double orientation = 0.0;
-    // Take into account the orientation of the device
-    QScreen *screen = QgsApplication::instance()->primaryScreen();
-    switch ( screen->orientation() )
-    {
-      case Qt::LandscapeOrientation:
-        orientation = 90;
-        break;
-      case Qt::InvertedLandscapeOrientation:
-        orientation = 270;
-        break;
-      case Qt::PortraitOrientation:
-      default:
-        break;
-    }
-
-    orientation += mCompass.reading()->azimuth();
-    if ( orientation < 0.0 )
-    {
-      orientation = 360 + orientation;
-    }
-
-    if ( mOrientation != orientation )
-    {
-      mOrientation = orientation;
-      emit orientationChanged();
-    }
-  }
-}
-
-QgsPoint Positioning::sourcePosition() const
-{
-  return mSourcePosition;
-}
-
-QgsPoint Positioning::projectedPosition() const
-{
-  return mProjectedPosition;
-}
-
-double Positioning::projectedHorizontalAccuracy() const
-{
-  return mProjectedHorizontalAccuracy;
 }
 
 void Positioning::projectedPositionTransformed()
