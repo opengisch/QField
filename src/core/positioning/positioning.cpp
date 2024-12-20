@@ -17,6 +17,7 @@
 #include "positioning.h"
 #include "positioningutils.h"
 
+#include <QScreen>
 #include <qgsapplication.h>
 #include <qgsunittypes.h>
 
@@ -57,16 +58,17 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 #ifdef Q_OS_ANDROID
   // Google Play policy only allows for background access if it's explicitly stated and justified
   // Not stopping on Activity::onPause is detected as violation
+  const bool isActive = active();
   switch ( state )
   {
     case Qt::ApplicationState::ApplicationActive:
-      if ( mActive )
+      if ( isActive )
       {
         emit triggerConnectDevice();
       }
       break;
     default:
-      if ( mActive )
+      if ( isActive )
       {
         emit triggerDisconnectDevice();
       }
@@ -196,7 +198,27 @@ GnssPositionInformation Positioning::positionInformation() const
 
 double Positioning::orientation() const
 {
-  return mPositioningSourceReplica->property( "orientation" ).toDouble();
+  return adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() );
+}
+
+double Positioning::adjustOrientation( double orientation ) const
+{
+  // Take into account the orientation of the device
+  QScreen *screen = QgsApplication::instance()->primaryScreen();
+  switch ( screen->orientation() )
+  {
+    case Qt::LandscapeOrientation:
+      orientation += 90;
+      break;
+    case Qt::InvertedLandscapeOrientation:
+      orientation += 270;
+      break;
+    case Qt::PortraitOrientation:
+    default:
+      break;
+  }
+
+  return orientation = std::fmod( orientation, 360 );
 }
 
 void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer )
@@ -246,6 +268,11 @@ void Positioning::processGnssPositionInformation()
   if ( mCoordinateTransformer )
   {
     mCoordinateTransformer->setSourcePosition( mSourcePosition );
+  }
+
+  if ( mPositionInformation.orientationValid() )
+  {
+    mPositionInformation.setOrientation( adjustOrientation( mPositionInformation.orientation() ) );
   }
 
   emit positionInformationChanged();
