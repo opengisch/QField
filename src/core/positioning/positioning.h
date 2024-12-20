@@ -96,9 +96,26 @@ class Positioning : public QObject
      */
     QString deviceId() const;
 
+    /**
+     * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
+     */
     QList<QPair<QString, QVariant>> deviceDetails() const;
+
+    /**
+     * Returns positioning device's last error string.
+     */
     QString deviceLastError() const;
+
+    /**
+     * Returns positioning device's socket state.
+     * \see deviceSocketStateString
+     */
     QAbstractSocket::SocketState deviceSocketState() const;
+
+    /**
+     * Returns a string representation of the positioning device's socket state.
+     * \see deviceSocketState
+     */
     QString deviceSocketStateString() const;
 
     /**

@@ -106,11 +106,32 @@ class PositioningSource : public QObject
      */
     void setDeviceId( const QString &id );
 
+    /**
+     * Returns the current positioning device.
+     * \see deviceId
+     */
     AbstractGnssReceiver *device() const { return mReceiver; }
 
+    /**
+     * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
+     */
     QList<QPair<QString, QVariant>> deviceDetails() const { return mReceiver ? mReceiver->details() : QList<QPair<QString, QVariant>>(); }
+
+    /**
+     * Returns positioning device's last error string.
+     */
     QString deviceLastError() const { return mReceiver ? mReceiver->lastError() : QString(); }
+
+    /**
+     * Returns positioning device's socket state.
+     * \see deviceSocketStateString
+     */
     QAbstractSocket::SocketState deviceSocketState() const { return mReceiver ? mReceiver->socketState() : QAbstractSocket::UnconnectedState; }
+
+    /**
+     * Returns a string representation of the positioning device's socket state.
+     * \see deviceSocketState
+     */
     QString deviceSocketStateString() const { return mReceiver ? mReceiver->socketStateString() : QString(); }
 
     /**
