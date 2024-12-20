@@ -35,6 +35,8 @@ class EgenioussReceiver : public AbstractGnssReceiver
 
     QList<QPair<QString, QVariant>> details() const override;
 
+    static QLatin1String identifier;
+
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;

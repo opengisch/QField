@@ -20,6 +20,8 @@
 #include <sys/socket.h>
 #endif
 
+QLatin1String UdpReceiver::identifier = QLatin1String( "udp" );
+
 UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *parent )
   : NmeaGnssReceiver( parent )
   , mAddress( address )
