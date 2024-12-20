@@ -198,27 +198,7 @@ GnssPositionInformation Positioning::positionInformation() const
 
 double Positioning::orientation() const
 {
-  return adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() );
-}
-
-double Positioning::adjustOrientation( double orientation ) const
-{
-  // Take into account the orientation of the device
-  QScreen *screen = QgsApplication::instance()->primaryScreen();
-  switch ( screen->orientation() )
-  {
-    case Qt::LandscapeOrientation:
-      orientation += 90;
-      break;
-    case Qt::InvertedLandscapeOrientation:
-      orientation += 270;
-      break;
-    case Qt::PortraitOrientation:
-    default:
-      break;
-  }
-
-  return std::fmod( orientation, 360 );
+  return mPositioningSourceReplica->property( "orientation" ).toDouble();
 }
 
 void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer )
@@ -268,11 +248,6 @@ void Positioning::processGnssPositionInformation()
   if ( mCoordinateTransformer )
   {
     mCoordinateTransformer->setSourcePosition( mSourcePosition );
-  }
-
-  if ( mPositionInformation.orientationValid() )
-  {
-    mPositionInformation.setOrientation( adjustOrientation( mPositionInformation.orientation() ) );
   }
 
   emit positionInformationChanged();
