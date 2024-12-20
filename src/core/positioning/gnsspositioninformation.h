@@ -172,7 +172,7 @@ class GnssPositionInformation
     /**
      * Contains a list of information relating to the current satellites in view.
      */
-    void setSatellitesInView( QList<QgsSatelliteInfo> &satellitesInView ) { mSatellitesInView = satellitesInView; }
+    void setSatellitesInView( const QList<QgsSatelliteInfo> &satellitesInView ) { mSatellitesInView = satellitesInView; }
     QList<QgsSatelliteInfo> satellitesInView() const { return mSatellitesInView; }
 
     /**
@@ -221,7 +221,7 @@ class GnssPositionInformation
     /**
      * The date and time at which this position was reported, in UTC time.
      */
-    void setUtcDateTime( QDateTime &utcDateTime ) { mUtcDateTime = utcDateTime; }
+    void setUtcDateTime( const QDateTime &utcDateTime ) { mUtcDateTime = utcDateTime; }
     QDateTime utcDateTime() const { return mUtcDateTime; }
 
     /**
@@ -257,7 +257,7 @@ class GnssPositionInformation
     /**
      * IDs of satellites used in the position fix.
      */
-    void setSatPrn( QList<int> &satPrn ) { mSatPrn = satPrn; }
+    void setSatPrn( const QList<int> &satPrn ) { mSatPrn = satPrn; }
     QList<int> satPrn() const { return mSatPrn; }
 
     /**
@@ -281,7 +281,7 @@ class GnssPositionInformation
     /**
      * source name (used by QtPositioning)
      */
-    void setSourceName( QString &sourceName ) { mSourceName = sourceName; }
+    void setSourceName( const QString &sourceName ) { mSourceName = sourceName; }
     QString sourceName() const { return mSourceName; }
 
     /**

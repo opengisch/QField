@@ -261,6 +261,7 @@ QDataStream &operator<<( QDataStream &stream, const QgsSatelliteInfo &satelliteI
   return stream << satelliteInfo.azimuth << satelliteInfo.elevation << satelliteInfo.id << satelliteInfo.inUse << satelliteInfo.satType << satelliteInfo.signal;
 }
 
+//cppcheck-suppress style
 QDataStream &operator>>( QDataStream &stream, QgsSatelliteInfo &satelliteInfo )
 {
   return stream >> satelliteInfo.azimuth >> satelliteInfo.elevation >> satelliteInfo.id >> satelliteInfo.inUse >> satelliteInfo.satType >> satelliteInfo.signal;
