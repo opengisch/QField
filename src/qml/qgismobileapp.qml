@@ -265,6 +265,10 @@ ApplicationWindow {
         gnssButton.followOrientation();
       }
     }
+
+    onDeviceLastErrorChanged: {
+      displayToast(qsTr('Positioning device error: %1').arg(positionSource.deviceLastError), 'error');
+    }
   }
 
   PositioningSettings {
@@ -278,14 +282,6 @@ ApplicationWindow {
       } else {
         positionSource.active = false;
       }
-    }
-  }
-
-  Connections {
-    target: positionSource
-
-    function onDeviceLastErrorChanged() {
-      displayToast(qsTr('Positioning device error: %1').arg(positionSource.deviceLastError), 'error');
     }
   }
 
