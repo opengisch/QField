@@ -316,3 +316,11 @@ void PositioningSource::processCompassReading()
     }
   }
 }
+
+void PositioningSource::triggerConnectDevice()
+{
+  if ( mReceiver )
+  {
+    mReceiver->connectDevice();
+  }
+}

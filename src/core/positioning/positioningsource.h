@@ -189,6 +189,10 @@ class PositioningSource : public QObject
     void orientationChanged();
     void loggingChanged();
 
+  public slots:
+
+    void triggerConnectDevice();
+
   private slots:
 
     void lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation );
