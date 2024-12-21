@@ -238,8 +238,6 @@ class Positioning : public QObject
     void onApplicationStateChanged( Qt::ApplicationState state );
     void projectedPositionTransformed();
     void processGnssPositionInformation();
-    void processActive();
-    void processValid();
 
   private:
     double adjustOrientation( double orientation ) const;
