@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
 #include "positioning.h"
 #include "positioningutils.h"
 #include "tcpreceiver.h"
@@ -29,10 +30,14 @@
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
 {
+#if defined( Q_OS_ANDROID )
+  PlatformUtilities::instance()->startPositioningService();
+#else
   // Non-service path, we are both the host and the node
   mPositioningSource = new PositioningSource( this );
   mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
   mHost.enableRemoting( mPositioningSource, "PositioningSource" );
+#endif
 
   mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
   mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );

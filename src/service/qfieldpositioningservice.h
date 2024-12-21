@@ -16,10 +16,14 @@
 #ifndef QFIELDPOSITIONINGSERVICE_H
 #define QFIELDPOSITIONINGSERVICE_H
 
+#include "positioningsource.h"
 #include "qfield_service_export.h"
 
+#include <QRemoteObjectHost>
 #include <QtCore/private/qandroidextras_p.h>
 #include <QtGlobal>
+
+class PositioningSource;
 
 class QFIELD_SERVICE_EXPORT QFieldPositioningService : public QAndroidService
 {
@@ -28,6 +32,10 @@ class QFIELD_SERVICE_EXPORT QFieldPositioningService : public QAndroidService
   public:
     QFieldPositioningService( int &argc, char **argv );
     ~QFieldPositioningService() override;
+
+  private:
+    PositioningSource *mPositioningSource = nullptr;
+    QRemoteObjectHost mHost;
 };
 
 #endif // QFIELDPOSITIONINGSERVICE_H

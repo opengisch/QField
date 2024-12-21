@@ -276,7 +276,24 @@
     <meta-data android:name="io.sentry.auto-init" android:value="false" />
 
     <service android:process=":qt" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCloudService">
-      <meta-data android:name="android.app.arguments" android:value="--service"/>
+      <meta-data android:name="android.app.arguments" android:value="--cloudservice"/>
+      <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
+      <meta-data android:name="android.app.repository" android:value="default"/>
+      <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>
+      <meta-data android:name="android.app.bundled_libs_resource_id" android:resource="@array/bundled_libs"/>
+      <meta-data android:name="android.app.bundle_local_qt_libs" android:value="-- %%BUNDLE_LOCAL_QT_LIBS%% --"/>
+      <meta-data android:name="android.app.use_local_qt_libs" android:value="-- %%USE_LOCAL_QT_LIBS%% --"/>
+      <meta-data android:name="android.app.libs_prefix" android:value="/data/local/tmp/qt/"/>
+      <meta-data android:name="android.app.load_local_libs_resource_id" android:resource="@array/load_local_libs"/>
+      <meta-data android:name="android.app.load_local_libs" android:value="-- %%INSERT_LOCAL_LIBS%% --"/>
+      <meta-data android:name="android.app.load_local_jars" android:value="-- %%INSERT_LOCAL_JARS%% --"/>
+      <meta-data android:name="android.app.static_init_classes" android:value="-- %%INSERT_INIT_CLASSES%% --"/>
+
+      <meta-data android:name="android.app.background_running" android:value="true"/>
+    </service>
+
+    <service android:process=":qt" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldPositioningService">
+      <meta-data android:name="android.app.arguments" android:value="--positioningservice"/>
       <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
       <meta-data android:name="android.app.repository" android:value="default"/>
       <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>

@@ -311,6 +311,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void vibrate( int milliseconds ) const { Q_UNUSED( milliseconds ) }
 
+    /**
+     * Starts a positioning service on supported platforms.
+     */
+    virtual void startPositioningService() const {}
+
     static PlatformUtilities *instance();
 
     virtual Qt::PermissionStatus checkCameraPermission() const;

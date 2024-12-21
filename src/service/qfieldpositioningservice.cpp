@@ -14,14 +14,16 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "positioningsource.h"
 #include "qfield_android.h"
 #include "qfieldpositioningservice.h"
-
 
 QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
-  return exec();
+  mPositioningSource = new PositioningSource( this );
+  mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
+  mHost.enableRemoting( mPositioningSource, "PositioningSource" );
 }
 
 QFieldPositioningService::~QFieldPositioningService()
