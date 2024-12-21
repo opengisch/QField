@@ -45,10 +45,6 @@ Positioning::Positioning( QObject *parent )
 #endif
 
   mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
-  connect( mPositioningSourceReplica.data(), &QRemoteObjectDynamicReplica::stateChanged, this, [=]( QRemoteObjectReplica::State state, QRemoteObjectReplica::State oldState ) {
-    qDebug() << "xxx old state: " << oldState;
-    qDebug() << "xxx new state: " << state;
-  } );
   mPositioningSourceReplica->waitForSource();
 
   connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SIGNAL( activeChanged() ) );
@@ -97,20 +93,6 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
   //#endif
 }
 
-void Positioning::processValid()
-{
-  qDebug() << "Processing validChanged signal";
-  qDebug() << ( mPositioningSourceReplica->property( "valid" ).toBool() ? "returning valid" : "returning *not* valid" );
-  emit validChanged();
-}
-
-void Positioning::processActive()
-{
-  qDebug() << "Processing activeChanged signal";
-  qDebug() << ( mPositioningSourceReplica->property( "active" ).toBool() ? "returning active" : "returning *not* active" );
-  emit activeChanged();
-}
-
 bool Positioning::active() const
 {
   return mPositioningSourceReplica->property( "active" ).toBool();
@@ -118,8 +100,6 @@ bool Positioning::active() const
 
 void Positioning::setActive( bool active )
 {
-  qDebug() << "Setting active from replica!";
-
   if ( !mPermissionChecked )
   {
     QLocationPermission locationPermission;
@@ -130,7 +110,6 @@ void Positioning::setActive( bool active )
     Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
     if ( permissionStatus == Qt::PermissionStatus::Undetermined )
     {
-      qDebug() << "undetermined...";
       qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
         if ( permission.status() == Qt::PermissionStatus::Granted )
         {
@@ -146,7 +125,6 @@ void Positioning::setActive( bool active )
     }
     else if ( permissionStatus == Qt::PermissionStatus::Denied )
     {
-      qDebug() << "denied?!?...";
       setValid( false );
       return;
     }
@@ -323,7 +301,6 @@ double Positioning::projectedHorizontalAccuracy() const
 
 void Positioning::processGnssPositionInformation()
 {
-  qDebug() << "Processing processGnssPositionInformation!";
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
 
   if ( mPositionInformation.isValid() )
