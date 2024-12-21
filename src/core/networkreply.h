@@ -58,7 +58,7 @@ class NetworkReply : public QObject
 
 
     /**
-     * Get the QNetworkReply object once the CloudReply is finilized. Do not delete it manually.
+     * Get the QNetworkReply object. Do not delete it manually.
      * @return network reply
      */
     QNetworkReply *reply() const;
