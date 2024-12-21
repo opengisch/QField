@@ -95,7 +95,8 @@ public class QFieldCloudService extends QtService {
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle("QField")
-                .setContentText("Positioning serviced launched!");
+                .setContentText(getString(R.string.upload_pending_attachments))
+                .setProgress(0, 0, true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);

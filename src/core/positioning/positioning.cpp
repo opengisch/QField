@@ -17,12 +17,15 @@
 #include "platformutilities.h"
 #include "positioning.h"
 #include "positioningutils.h"
+#include "qgismobileapp.h"
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 #ifdef WITH_SERIALPORT
 #include "serialportreceiver.h"
 #endif
 
+#include <QGuiApplication>
+#include <QPermissions>
 #include <QScreen>
 #include <qgsapplication.h>
 #include <qgsunittypes.h>
@@ -42,10 +45,14 @@ Positioning::Positioning( QObject *parent )
 #endif
 
   mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
+  connect( mPositioningSourceReplica.data(), &QRemoteObjectDynamicReplica::stateChanged, this, [=]( QRemoteObjectReplica::State state, QRemoteObjectReplica::State oldState ) {
+    qDebug() << "xxx old state: " << oldState;
+    qDebug() << "xxx new state: " << state;
+  } );
   mPositioningSourceReplica->waitForSource();
 
-  connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SIGNAL( activeChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SIGNAL( validChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SLOT( processActive() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SLOT( processValid() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SIGNAL( deviceIdChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceLastErrorChanged() ), this, SIGNAL( deviceLastErrorChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateChanged() ), this, SIGNAL( deviceSocketStateChanged() ) );
@@ -66,27 +73,41 @@ Positioning::Positioning( QObject *parent )
 
 void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 {
-#ifdef Q_OS_ANDROID
-  // Google Play policy only allows for background access if it's explicitly stated and justified
-  // Not stopping on Activity::onPause is detected as violation
-  const bool isActive = active();
-  switch ( state )
-  {
-    case Qt::ApplicationState::ApplicationActive:
-      if ( isActive )
-      {
-        emit triggerConnectDevice();
-      }
-      break;
-    default:
-      if ( isActive )
-      {
-        emit triggerDisconnectDevice();
-      }
-  }
-#else
+  //#ifdef Q_OS_ANDROID
+  //  // Google Play policy only allows for background access if it's explicitly stated and justified
+  //  // Not stopping on Activity::onPause is detected as violation
+  //  const bool isActive = active();
+  //  switch ( state )
+  //  {
+  //    case Qt::ApplicationState::ApplicationActive:
+  //      if ( isActive )
+  //      {
+  //        emit triggerConnectDevice();
+  //      }
+  //      break;
+  //    default:
+  //      if ( isActive )
+  //      {
+  //        emit triggerDisconnectDevice();
+  //      }
+  //  }
+  //#else
   Q_UNUSED( state )
-#endif
+  //#endif
+}
+
+void Positioning::processValid()
+{
+  qDebug() << "Processing validChanged signal";
+  qDebug() << ( mPositioningSourceReplica->property( "valid" ).toBool() ? "returning valid" : "returning *not* valid" );
+  emit validChanged();
+}
+
+void Positioning::processActive()
+{
+  qDebug() << "Processing activeChanged signal";
+  qDebug() << ( mPositioningSourceReplica->property( "active" ).toBool() ? "returning active" : "returning *not* active" );
+  emit activeChanged();
 }
 
 bool Positioning::active() const
@@ -96,6 +117,40 @@ bool Positioning::active() const
 
 void Positioning::setActive( bool active )
 {
+  qDebug() << "Setting active from replica!";
+
+  if ( !mPermissionChecked )
+  {
+    QLocationPermission locationPermission;
+    locationPermission.setAccuracy( QLocationPermission::Precise );
+#ifdef Q_OS_ANDROID
+    locationPermission.setAvailability( QLocationPermission::Always );
+#endif
+    Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
+    if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+    {
+      qDebug() << "undetermined...";
+      qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
+        if ( permission.status() == Qt::PermissionStatus::Granted )
+        {
+          mPermissionChecked = true;
+          setActive( true );
+        }
+        else
+        {
+          setValid( false );
+        }
+      } );
+      return;
+    }
+    else if ( permissionStatus == Qt::PermissionStatus::Denied )
+    {
+      qDebug() << "denied?!?...";
+      setValid( false );
+      return;
+    }
+  }
+
   mPositioningSourceReplica->setProperty( "active", active );
 }
 
@@ -272,6 +327,7 @@ double Positioning::projectedHorizontalAccuracy() const
 
 void Positioning::processGnssPositionInformation()
 {
+  qDebug() << "Processing processGnssPositionInformation!";
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
 
   if ( mPositionInformation.isValid() )

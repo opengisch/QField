@@ -42,6 +42,7 @@ PositioningSource::PositioningSource( QObject *parent )
 
 void PositioningSource::setActive( bool active )
 {
+  qDebug() << "Setting active within source!";
   if ( mActive == active )
     return;
 
@@ -49,11 +50,17 @@ void PositioningSource::setActive( bool active )
 
   if ( mActive )
   {
+    qDebug() << "Activating!";
     if ( !mReceiver )
     {
+      qDebug() << "Setting up device!";
       setupDevice();
     }
-    mReceiver->connectDevice();
+    else
+    {
+      qDebug() << "Connecting to pre-existing device!";
+      mReceiver->connectDevice();
+    }
     if ( !QSensor::sensorsForType( QCompass::sensorType ).isEmpty() )
     {
       mCompass.setActive( true );
@@ -72,6 +79,7 @@ void PositioningSource::setActive( bool active )
     emit orientationChanged();
   }
 
+  qDebug() << "Emitting active!";
   emit activeChanged();
 }
 
@@ -173,6 +181,7 @@ void PositioningSource::setupDevice()
 
   if ( mDeviceId.isEmpty() )
   {
+    qDebug() << "new internal receiver";
     mReceiver = new InternalGnssReceiver( this );
   }
   else
@@ -227,6 +236,7 @@ void PositioningSource::setupDevice()
 
   if ( mActive )
   {
+    qDebug() << "connecting to device";
     mReceiver->connectDevice();
   }
 
