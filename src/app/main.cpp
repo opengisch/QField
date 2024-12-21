@@ -24,7 +24,7 @@
 #endif
 
 #if defined( Q_OS_ANDROID )
-#include "qfieldservice.h"
+#include "qfieldcloudservice.h"
 #endif
 
 #include <qgsapplication.h>
@@ -82,7 +82,7 @@ int main( int argc, char **argv )
 
 #if defined( Q_OS_ANDROID )
     // For now the service only deals with background attachment uploads and will terminate once all uploads are done
-    QFieldService app( argc, argv );
+    QFieldCloudService app( argc, argv );
 #endif
     return 0;
   }

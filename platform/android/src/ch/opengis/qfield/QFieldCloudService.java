@@ -1,5 +1,5 @@
 /**
- * QFieldService.java
+ * QFieldCloudService.java
  * @author  Mathieu Pellerin - <mathieu@opengis.ch>
  * @version 0.5
  */
@@ -41,7 +41,7 @@ import android.os.Build;
 import android.util.Log;
 import org.qtproject.qt.android.bindings.QtService;
 
-public class QFieldService extends QtService {
+public class QFieldCloudService extends QtService {
 
     private NotificationManager notificationManager;
     private NotificationChannel notificationChannel;
@@ -49,15 +49,15 @@ public class QFieldService extends QtService {
     private final String CHANNEL_ID = "qfield_service_01";
     private final int NOTIFICATION_ID = 101;
 
-    public static void startQFieldService(Context context) {
-        Log.v("QField Service", "Starting QFieldService");
-        Intent intent = new Intent(context, QFieldService.class);
+    public static void startQFieldCloudService(Context context) {
+        Log.v("QFieldCloudService", "Starting QFieldCloudService");
+        Intent intent = new Intent(context, QFieldCloudService.class);
         context.startService(intent);
     }
 
     @Override
     public void onCreate() {
-        Log.v("QField Service", "onCreate triggered");
+        Log.v("QFieldCloudService", "onCreate triggered");
         super.onCreate();
 
         notificationManager =
@@ -77,7 +77,7 @@ public class QFieldService extends QtService {
 
     @Override
     public void onDestroy() {
-        Log.v("QField Service", "onDestroy triggered");
+        Log.v("QFieldCloudService", "onDestroy triggered");
         notificationManager.cancel(NOTIFICATION_ID);
         super.onDestroy();
     }

@@ -697,9 +697,9 @@ void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *
   QTimer::singleShot( 500, [connection]() {
     if ( connection )
     {
-      qInfo() << "Launching service from main...";
-      QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldService",
-                                          "startQFieldService",
+      qInfo() << "Launching QFieldCloud service from main...";
+      QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
+                                          "startQFieldCloudService",
                                           "(Landroid/content/Context;)V",
                                           qtAndroidContext().object() );
     }

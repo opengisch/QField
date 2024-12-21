@@ -1,5 +1,5 @@
-set(QFIELD_SERVICE_SRCS qfieldservice.cpp)
-set(QFIELD_SERVICE_HDRS qfieldservice.h)
+set(QFIELD_SERVICE_SRCS qfieldcloudservice.cpp)
+set(QFIELD_SERVICE_HDRS qfieldcloudservice.h)
 
 add_library(qfield_service STATIC ${QFIELD_SERVICE_SRCS} ${QFIELD_SERVICE_HDRS})
 
@@ -13,6 +13,7 @@ target_include_directories(qfield_service
                            PUBLIC ${CMAKE_SOURCE_DIR}/src/service)
 
 target_compile_features(qfield_service PUBLIC cxx_std_17)
+
 set_target_properties(qfield_service PROPERTIES AUTOMOC TRUE)
 
 target_link_libraries(qfield_service PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
