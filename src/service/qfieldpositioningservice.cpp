@@ -18,6 +18,8 @@
 #include "qfield_android.h"
 #include "qfieldpositioningservice.h"
 
+#include <QQmlEngine>
+
 QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {

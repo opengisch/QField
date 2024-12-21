@@ -17,9 +17,6 @@
 #include "internalgnssreceiver.h"
 #include "positioningsource.h"
 
-#include <QGuiApplication>
-#include <QPermissions>
-
 
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
@@ -66,37 +63,6 @@ void InternalGnssReceiver::handleDisconnectDevice()
 
 void InternalGnssReceiver::handleConnectDevice()
 {
-  if ( !mPermissionChecked )
-  {
-    QLocationPermission locationPermission;
-    locationPermission.setAccuracy( QLocationPermission::Precise );
-    Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
-    if ( permissionStatus == Qt::PermissionStatus::Undetermined )
-    {
-      qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
-        if ( permission.status() == Qt::PermissionStatus::Granted )
-        {
-          mPermissionChecked = true;
-          handleConnectDevice();
-        }
-        else
-        {
-          setValid( false );
-          mLastError = tr( "Location permission denied" );
-          emit lastErrorChanged( mLastError );
-        }
-      } );
-      return;
-    }
-    else if ( permissionStatus == Qt::PermissionStatus::Denied )
-    {
-      setValid( false );
-      mLastError = tr( "Location permission denied" );
-      emit lastErrorChanged( mLastError );
-      return;
-    }
-  }
-
   if ( mGeoPositionSource )
   {
     mGeoPositionSource->startUpdates();

@@ -82,19 +82,20 @@ public class QFieldPositioningService extends QtService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.v("QFieldPositioningService", "onStartCommand triggered");
         int ret = super.onStartCommand(intent, flags, startId);
         showNotification();
         return ret;
     }
 
     private void showNotification() {
+        Log.v("QFieldPositioningService", "showNotification triggered");
         Notification.Builder builder =
             new Notification.Builder(this)
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle("QField")
-                .setContentText(getString(R.string.upload_pending_attachments))
-                .setProgress(0, 0, true);
+                .setContentText("Positioning serviced launched!");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);

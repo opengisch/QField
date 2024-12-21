@@ -238,6 +238,8 @@ class Positioning : public QObject
     void onApplicationStateChanged( Qt::ApplicationState state );
     void projectedPositionTransformed();
     void processGnssPositionInformation();
+    void processActive();
+    void processValid();
 
   private:
     double adjustOrientation( double orientation ) const;
@@ -254,6 +256,8 @@ class Positioning : public QObject
     QgsPoint mProjectedPosition;
     double mProjectedHorizontalAccuracy;
     virtual QList<QPair<QString, QVariant>> details() const { return {}; }
+
+    bool mPermissionChecked = false;
 };
 
 #endif // POSITIONING_H
