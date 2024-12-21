@@ -22,7 +22,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
   mPositioningSource = new PositioningSource( this );
-  mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
+  mHost.setHostUrl( QUrl( QStringLiteral( "localabstract:replica" ) ) );
   mHost.enableRemoting( mPositioningSource, "PositioningSource" );
 }
 
