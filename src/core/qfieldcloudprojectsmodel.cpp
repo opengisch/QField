@@ -1736,7 +1736,6 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
   return mCloudConnection->get( request, QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) );
 }
 
-
 void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId, const QString &fileName )
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
@@ -1809,6 +1808,41 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
   } );
 
   connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+    const QString temporaryFileName = project->downloadFileTransfers[fileName].tmpFile;
+    QNetworkReply *rawReply = reply->reply();
+    QFile file( temporaryFileName );
+
+    bool hasError = false;
+    QString errorMessageDetail;
+    QString errorMessage;
+
+
+    if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
+    {
+      file.write( rawReply->readAll() );
+
+      if ( file.error() != QFile::NoError )
+      {
+        hasError = true;
+        errorMessageDetail = file.errorString();
+        errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( temporaryFileName );
+      }
+    }
+    else
+    {
+      hasError = true;
+      errorMessageDetail = file.errorString();
+      errorMessage = tr( "File system error. Failed to open file for writing on temporary `%1`." ).arg( temporaryFileName );
+    }
+
+    // check if the code above failed with error
+    if ( hasError )
+    {
+      logFailedDownload( project, projectId, fileName, errorMessage, errorMessageDetail );
+      rawReply->abort();
+      return;
+    }
+
     if ( !findProject( projectId ) )
     {
       QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: updating download progress, but the project is deleted." ).arg( projectId, fileName ) );
@@ -1863,46 +1897,13 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       project->downloadBytesReceived += project->downloadFileTransfers[fileName].bytesTotal;
       project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
       emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
-
-      QFile file( project->downloadFileTransfers[fileName].tmpFile );
-
-      if ( file.open( QIODevice::ReadWrite ) )
-      {
-        file.write( rawReply->readAll() );
-
-        if ( file.error() != QFile::NoError )
-        {
-          hasError = true;
-          errorMessageDetail = file.errorString();
-          errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
-        }
-      }
-      else
-      {
-        hasError = true;
-        errorMessageDetail = file.errorString();
-        errorMessage = tr( "File system error. Failed to open file for writing on temporary `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
-      }
     }
 
     // check if the code above failed with error
     if ( hasError )
     {
-      project->downloadFilesFailed++;
-
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( errorMessage, fileName, errorMessage, errorMessageDetail ) );
-
-      // translate the user messages
-      const QString baseMessage = tr( "Project `%1`, file `%2`: %3" ).arg( project->name, fileName, errorMessage );
-      const QString trimmedMessage = baseMessage + QStringLiteral( " " ) + tr( "System message: " )
-                                     + ( ( errorMessageDetail.size() > 100 )
-                                           ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
-                                           : errorMessageDetail );
-
-      QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( baseMessage, errorMessageDetail ) );
-
-      emit projectDownloadFinished( projectId, trimmedMessage );
-
+      logFailedDownload( project, projectId, fileName, errorMessage, errorMessageDetail );
+      rawReply->abort();
       return;
     }
 
@@ -2078,6 +2079,24 @@ void QFieldCloudProjectsModel::insertProjects( const QList<CloudProject *> &proj
   }
   beginInsertRows( QModelIndex(), currentCount, currentCount + newProjectsCount - 1 );
   endInsertRows();
+}
+
+void QFieldCloudProjectsModel::logFailedDownload( CloudProject *project, const QString &projectId, const QString &fileName, const QString &errorMessage, const QString &errorMessageDetail )
+{
+  project->downloadFilesFailed++;
+
+  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( errorMessage, fileName, errorMessage, errorMessageDetail ) );
+
+  // translate the user messages
+  const QString baseMessage = tr( "Project `%1`, file `%2`: %3" ).arg( project->name, fileName, errorMessage );
+  const QString trimmedMessage = baseMessage + QStringLiteral( " " ) + tr( "System message: " )
+                                 + ( ( errorMessageDetail.size() > 100 )
+                                       ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
+                                       : errorMessageDetail );
+
+  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( baseMessage, errorMessageDetail ) );
+
+  emit projectDownloadFinished( projectId, trimmedMessage );
 }
 
 void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool skipLocalProjects )
