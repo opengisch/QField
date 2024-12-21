@@ -694,6 +694,9 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
 
 void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
 {
+  // Request notification permission
+  checkAndAcquirePermissions( QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) );
+
   QTimer::singleShot( 500, [connection]() {
     if ( connection )
     {
