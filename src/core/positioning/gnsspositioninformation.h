@@ -338,6 +338,35 @@ class GnssPositionInformation
 
 Q_DECLARE_METATYPE( GnssPositionInformation )
 
+class GnssPositionDetails
+{
+    Q_GADGET
+
+  public:
+    GnssPositionDetails() {};
+
+    void append( const QString &name, const QVariant &value )
+    {
+      mNames << name;
+      mValues << value;
+    }
+
+    QList<QString> names() const { return mNames; }
+    QList<QVariant> values() const { return mValues; }
+
+  private:
+    QList<QString> mNames;
+    QList<QVariant> mValues;
+
+    friend QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &position );
+    friend QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &position );
+};
+
+Q_DECLARE_METATYPE( GnssPositionDetails )
+
+QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &positioningDetail );
+QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &positioningDetail );
+
 QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position );
 QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position );
 

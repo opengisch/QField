@@ -51,8 +51,8 @@ Positioning::Positioning( QObject *parent )
   } );
   mPositioningSourceReplica->waitForSource();
 
-  connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SLOT( processActive() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SLOT( processValid() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SIGNAL( activeChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SIGNAL( validChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SIGNAL( deviceIdChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceLastErrorChanged() ), this, SIGNAL( deviceLastErrorChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateChanged() ), this, SIGNAL( deviceSocketStateChanged() ) );
@@ -63,6 +63,7 @@ Positioning::Positioning( QObject *parent )
   connect( mPositioningSourceReplica.data(), SIGNAL( antennaHeightChanged() ), this, SIGNAL( antennaHeightChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SIGNAL( loggingChanged() ) );
+
   connect( mPositioningSourceReplica.data(), SIGNAL( positionInformationChanged() ), this, SLOT( processGnssPositionInformation() ) );
 
   connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
@@ -174,15 +175,10 @@ void Positioning::setDeviceId( const QString &id )
   mPositioningSourceReplica->setProperty( "deviceId", id );
 }
 
-QList<QPair<QString, QVariant>> Positioning::deviceDetails() const
+GnssPositionDetails Positioning::deviceDetails() const
 {
-  const QVariantList list = mPositioningSourceReplica->property( "deviceDetails" ).toList();
-  QList<QPair<QString, QVariant>> details;
-  for ( const QVariant &item : list )
-  {
-    details << item.value<QPair<QString, QVariant>>();
-  }
-  return details;
+  GnssPositionDetails list = mPositioningSourceReplica->property( "deviceDetails" ).value<GnssPositionDetails>();
+  return list;
 }
 
 QString Positioning::deviceLastError() const

@@ -49,16 +49,16 @@ void EgenioussReceiver::handleDisconnectDevice()
   mTcpSocket->disconnectFromHost();
 }
 
-QList<QPair<QString, QVariant>> EgenioussReceiver::details() const
+GnssPositionDetails EgenioussReceiver::details() const
 {
-  QList<QPair<QString, QVariant>> detailsList;
+  GnssPositionDetails detailsList;
 
   if ( mPayload.isEmpty() )
   {
     return detailsList;
   }
 
-  detailsList.append( qMakePair( "q", mPayload.value( "q" ).toDouble() ) );
+  detailsList.append( "q", mPayload.value( "q" ).toDouble() );
 
   return detailsList;
 }
