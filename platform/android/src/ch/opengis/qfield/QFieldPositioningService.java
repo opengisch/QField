@@ -94,6 +94,7 @@ public class QFieldPositioningService extends QtService {
             new Notification.Builder(this)
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
+                .setOngoing(true)
                 .setContentTitle("QField")
                 .setContentText("Positioning serviced launched!");
 
