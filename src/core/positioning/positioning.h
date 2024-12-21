@@ -99,7 +99,7 @@ class Positioning : public QObject
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
      */
-    QList<QPair<QString, QVariant>> deviceDetails() const;
+    GnssPositionDetails deviceDetails() const;
 
     /**
      * Returns positioning device's last error string.

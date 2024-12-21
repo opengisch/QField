@@ -54,7 +54,7 @@ class AbstractGnssReceiver : public QObject
 
     QString lastError() const { return mLastError; }
 
-    virtual QList<QPair<QString, QVariant>> details() const { return {}; }
+    virtual GnssPositionDetails details() const { return {}; }
     virtual QAbstractSocket::SocketState socketState() const { return mSocketState; }
     virtual QString socketStateString();
 

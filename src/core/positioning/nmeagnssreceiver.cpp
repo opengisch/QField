@@ -115,17 +115,15 @@ void NmeaGnssReceiver::handleStopLogging()
   mLogFile.close();
 }
 
-QList<QPair<QString, QVariant>> NmeaGnssReceiver::details() const
+GnssPositionDetails NmeaGnssReceiver::details() const
 {
-  QList<QPair<QString, QVariant>> dataList;
-
-  dataList.append( qMakePair( "PDOP", QLocale::system().toString( mLastGnssPositionInformation.pdop(), 'f', 1 ) ) );
-  dataList.append( qMakePair( "HDOP", QLocale::system().toString( mLastGnssPositionInformation.hdop(), 'f', 1 ) ) );
-  dataList.append( qMakePair( "VDOP", QLocale::system().toString( mLastGnssPositionInformation.vdop(), 'f', 1 ) ) );
-  dataList.append( qMakePair( "Valid", mLastGnssPositionInformation.isValid() ? "True" : "False" ) );
-  dataList.append( qMakePair( "Fix", mLastGnssPositionInformation.fixStatusDescription() ) );
-  dataList.append( qMakePair( "Quality", mLastGnssPositionInformation.qualityDescription() ) );
-
+  GnssPositionDetails dataList;
+  dataList.append( "PDOP", QLocale::system().toString( mLastGnssPositionInformation.pdop(), 'f', 1 ) );
+  dataList.append( "HDOP", QLocale::system().toString( mLastGnssPositionInformation.hdop(), 'f', 1 ) );
+  dataList.append( "VDOP", QLocale::system().toString( mLastGnssPositionInformation.vdop(), 'f', 1 ) );
+  dataList.append( "Valid", mLastGnssPositionInformation.isValid() ? "True" : "False" );
+  dataList.append( "Fix", mLastGnssPositionInformation.fixStatusDescription() );
+  dataList.append( "Quality", mLastGnssPositionInformation.qualityDescription() );
   return dataList;
 }
 
