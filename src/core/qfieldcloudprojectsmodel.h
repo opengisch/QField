@@ -496,6 +496,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void downloadFileConnections( const QString &projectId, const QString &fileName );
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
     void insertProjects( const QList<CloudProject *> &projects );
+    void logFailedDownload( CloudProject *projectName, const QString &projectId, const QString &fileName, const QString &errorMessage, const QString &errorMessageDetail );
 };
 
 Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectStatus )
