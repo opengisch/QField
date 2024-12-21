@@ -719,7 +719,7 @@ void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *
   QTimer::singleShot( 500, [connection]() {
     if ( connection )
     {
-      qInfo() << "Launching QFieldCloud service from main...";
+      qInfo() << "Launching QFieldCloud service...";
       QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
                                           "startQFieldCloudService",
                                           "(Landroid/content/Context;)V",
@@ -750,6 +750,18 @@ void AndroidPlatformUtilities::vibrate( int milliseconds ) const
       }
     } );
   }
+}
+
+void AndroidPlatformUtilities::startPositioningService() const
+{
+  // Request notification permission
+  checkAndAcquirePermissions( QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) );
+
+  qInfo() << "Launching QField positioning service...";
+  QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
+                                      "startQFieldPositioningService",
+                                      "(Landroid/content/Context;)V",
+                                      qtAndroidContext().object() );
 }
 
 #ifdef __cplusplus

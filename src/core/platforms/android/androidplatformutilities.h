@@ -84,6 +84,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void vibrate( int milliseconds ) const override;
 
+    void startPositioningService() const override;
+
   private:
     // separate multiple permissions using a semi-column (;)
     bool checkAndAcquirePermissions( QStringList permissions, bool forceAsk = false ) const;
