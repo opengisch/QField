@@ -32,14 +32,15 @@ Positioning::Positioning( QObject *parent )
 {
 #if defined( Q_OS_ANDROID )
   PlatformUtilities::instance()->startPositioningService();
+  mNode.connectToNode( QUrl( QStringLiteral( "localabstract:replica" ) ) );
 #else
   // Non-service path, we are both the host and the node
   mPositioningSource = new PositioningSource( this );
   mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
   mHost.enableRemoting( mPositioningSource, "PositioningSource" );
+  mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
 #endif
 
-  mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
   mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
   mPositioningSourceReplica->waitForSource();
 
