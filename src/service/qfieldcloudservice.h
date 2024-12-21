@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfieldservice.cpp - QFieldService
+  qFieldcloudservice.h - QFieldCloudService
 
  ---------------------
  begin                : 04.12.2022
@@ -14,31 +14,16 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qfield_android.h"
-#include "qfieldcloudconnection.h"
-#include "qfieldservice.h"
+#include "qfield_service_export.h"
 
-#include <QSettings>
+#include <QtCore/private/qandroidextras_p.h>
+#include <QtGlobal>
 
-QFieldService::QFieldService( int &argc, char **argv )
-  : QAndroidService( argc, argv )
+class QFIELD_SERVICE_EXPORT QFieldCloudService : public QAndroidService
 {
-  QSettings settings;
-  QEventLoop loop( this );
-  QFieldCloudConnection connection;
-  QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadFinished, &loop, &QEventLoop::quit );
-  int pendingAttachments = connection.uploadPendingAttachments();
-  if ( pendingAttachments > 0 )
-  {
-    loop.exec();
-  }
+    Q_OBJECT
 
-  QJniObject activity = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context();
-  activity.callMethod<void>( "stopSelf" );
-
-  exit( 0 );
-}
-
-QFieldService::~QFieldService()
-{
-}
+  public:
+    QFieldCloudService( int &argc, char **argv );
+    ~QFieldCloudService() override;
+};
