@@ -33,6 +33,11 @@
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
 {
+  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
+}
+
+void Positioning::setupSource()
+{
 #if defined( Q_OS_ANDROID )
   PlatformUtilities::instance()->startPositioningService();
   mNode.connectToNode( QUrl( QStringLiteral( "localabstract:replica" ) ) );
@@ -65,7 +70,11 @@ Positioning::Positioning( QObject *parent )
   connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
   connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
 
-  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
+  const QList<QString> properties = mPropertiesToSync.keys();
+  for ( const QString property : properties )
+  {
+    mPositioningSourceReplica->setProperty( property.toLatin1(), mPropertiesToSync[property] );
+  }
 }
 
 void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
@@ -95,7 +104,7 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 
 bool Positioning::active() const
 {
-  return mPositioningSourceReplica->property( "active" ).toBool();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "active" ).toBool() : false;
 }
 
 void Positioning::setActive( bool active )
@@ -104,9 +113,6 @@ void Positioning::setActive( bool active )
   {
     QLocationPermission locationPermission;
     locationPermission.setAccuracy( QLocationPermission::Precise );
-#ifdef Q_OS_ANDROID
-    locationPermission.setAvailability( QLocationPermission::Always );
-#endif
     Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
     if ( permissionStatus == Qt::PermissionStatus::Undetermined )
     {
@@ -130,53 +136,77 @@ void Positioning::setActive( bool active )
     }
   }
 
+  if ( !mPositioningSourceReplica )
+  {
+    setupSource();
+  }
+
   mPositioningSourceReplica->setProperty( "active", active );
 }
 
 bool Positioning::valid() const
 {
-  return mPositioningSourceReplica->property( "valid" ).toBool();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "valid" ).toBool() : mValid;
 }
 
 void Positioning::setValid( bool valid )
 {
-  mPositioningSourceReplica->setProperty( "valid", valid );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "valid", valid );
+  }
+  else
+  {
+    mValid = valid;
+  }
 }
 
 QString Positioning::deviceId() const
 {
-  return mPositioningSourceReplica->property( "deviceId" ).toString();
+  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceId" ) : mPropertiesToSync.value( "deviceId" ) ).toString();
 }
 
 void Positioning::setDeviceId( const QString &id )
 {
-  mPositioningSourceReplica->setProperty( "deviceId", id );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "deviceId", id );
+  }
+  else
+  {
+    mPropertiesToSync["deviceId"] = id;
+    emit deviceIdChanged();
+  }
 }
 
 GnssPositionDetails Positioning::deviceDetails() const
 {
-  GnssPositionDetails list = mPositioningSourceReplica->property( "deviceDetails" ).value<GnssPositionDetails>();
+  GnssPositionDetails list;
+  if ( mPositioningSourceReplica )
+  {
+    list = mPositioningSourceReplica->property( "deviceDetails" ).value<GnssPositionDetails>();
+  }
   return list;
 }
 
 QString Positioning::deviceLastError() const
 {
-  return mPositioningSourceReplica->property( "deviceLastError" ).toString();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceLastError" ).toString() : QString();
 }
 
 QAbstractSocket::SocketState Positioning::deviceSocketState() const
 {
-  return mPositioningSourceReplica->property( "deviceSocketState" ).value<QAbstractSocket::SocketState>();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceSocketState" ).value<QAbstractSocket::SocketState>() : QAbstractSocket::UnconnectedState;
 }
 
 QString Positioning::deviceSocketStateString() const
 {
-  return mPositioningSourceReplica->property( "deviceSocketStateString" ).toString();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceSocketStateString" ).toString() : QString();
 }
 
 AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 {
-  const QString deviceId = mPositioningSourceReplica->property( "deviceId" ).toString();
+  const QString deviceId = ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceId" ) : mPropertiesToSync.value( "deviceId" ) ).toString();
   if ( !deviceId.isEmpty() || deviceId.startsWith( TcpReceiver::identifier + ":" ) || deviceId.startsWith( UdpReceiver::identifier + ":" ) )
   {
     // NMEA-based devices
@@ -195,47 +225,75 @@ AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 
 int Positioning::averagedPositionCount() const
 {
-  return mPositioningSourceReplica->property( "averagedPositionCount" ).toInt();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "averagedPositionCount" ).toInt() : 0;
 }
 
 bool Positioning::averagedPosition() const
 {
-  return mPositioningSourceReplica->property( "averagedPosition" ).toBool();
+  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "averagedPosition" ) : mPropertiesToSync.value( "averagedPosition", false ) ).toBool();
 }
 
 void Positioning::setAveragedPosition( bool averaged )
 {
-  mPositioningSourceReplica->setProperty( "averagedPosition", averaged );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "averagedPosition", averaged );
+  }
+  else
+  {
+    mPropertiesToSync["averagedPosition"] = averaged;
+  }
 }
 
 bool Positioning::logging() const
 {
-  return mPositioningSourceReplica->property( "logging" ).toBool();
+  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "logging" ) : mPropertiesToSync.value( "logging", false ) ).toBool();
 }
 
 void Positioning::setLogging( bool logging )
 {
-  mPositioningSourceReplica->setProperty( "logging", logging );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "logging", logging );
+  }
+  else
+  {
+    mPropertiesToSync["logging"] = logging;
+  }
 }
 
 PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode() const
 {
-  return static_cast<PositioningSource::ElevationCorrectionMode>( mPositioningSourceReplica->property( "elevationCorrectionMode" ).toInt() );
+  return static_cast<PositioningSource::ElevationCorrectionMode>( ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "elevationCorrectionMode" ) : mPropertiesToSync.value( "elevationCorrectionMode", static_cast<int>( PositioningSource::ElevationCorrectionMode::None ) ) ).toInt() );
 }
 
 void Positioning::setElevationCorrectionMode( PositioningSource::ElevationCorrectionMode elevationCorrectionMode )
 {
-  mPositioningSourceReplica->setProperty( "elevationCorrectionMode", static_cast<int>( elevationCorrectionMode ) );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "elevationCorrectionMode", static_cast<int>( elevationCorrectionMode ) );
+  }
+  else
+  {
+    mPropertiesToSync["elevationCorrectionMode"] = static_cast<int>( elevationCorrectionMode );
+  }
 }
 
 double Positioning::antennaHeight() const
 {
-  return mPositioningSourceReplica->property( "antennaHeight" ).toDouble();
+  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "antennaHeight" ) : mPropertiesToSync.value( "antennaHeight", 0.0 ) ).toDouble();
 }
 
 void Positioning::setAntennaHeight( double antennaHeight )
 {
-  mPositioningSourceReplica->setProperty( "antennaHeight", antennaHeight );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "antennaHeight", antennaHeight );
+  }
+  else
+  {
+    mPropertiesToSync["antennaHeight"] = antennaHeight;
+  }
 }
 
 GnssPositionInformation Positioning::positionInformation() const
@@ -245,7 +303,7 @@ GnssPositionInformation Positioning::positionInformation() const
 
 double Positioning::orientation() const
 {
-  return adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() );
+  return mPositioningSourceReplica ? adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() ) : std::numeric_limits<double>::quiet_NaN();
 }
 
 double Positioning::adjustOrientation( double orientation ) const
