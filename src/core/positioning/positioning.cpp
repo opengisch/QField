@@ -127,34 +127,82 @@ bool Positioning::active() const
 
 void Positioning::setActive( bool active )
 {
-  if ( !mPermissionChecked )
+  const QString devId = deviceId();
+  if ( devId.isEmpty() )
   {
-    QLocationPermission locationPermission;
-    locationPermission.setAccuracy( QLocationPermission::Precise );
-    Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
-
-    if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+    // Handle internal receiver permission
+    if ( !mPermissionChecked )
     {
-      qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
-        if ( permission.status() == Qt::PermissionStatus::Granted )
-        {
+      QLocationPermission locationPermission;
+      locationPermission.setAccuracy( QLocationPermission::Precise );
+      Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
+
+      if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+      {
+        qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
+          if ( permission.status() == Qt::PermissionStatus::Granted )
+          {
 #if defined( Q_OS_ANDROID )
-          PlatformUtilities::instance()->requestBackgroundPositioningPermissions();
+            PlatformUtilities::instance()->requestBackgroundPositioningPermissions();
 #endif
-          mPermissionChecked = true;
-          setActive( true );
+            mPermissionChecked = true;
+            setActive( true );
+          }
+          else
+          {
+            setValid( false );
+          }
+        } );
+        return;
+      }
+      else if ( permissionStatus == Qt::PermissionStatus::Denied )
+      {
+        setValid( false );
+        return;
+      }
+    }
+  }
+  else
+  {
+    // Handle external receiver permission
+    if ( devId.startsWith( TcpReceiver::identifier + ":" ) || devId.startsWith( UdpReceiver::identifier + ":" ) )
+    {
+      // No permission required
+    }
+#ifdef WITH_SERIALPORT
+    else if ( devId.startsWith( SerialPortReceiver::identifier + ":" ) )
+    {
+      // No permission required
+    }
+#endif
+    else
+    {
+      if ( !mPermissionChecked )
+      {
+        QBluetoothPermission bluetoothPermission;
+        bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
+        Qt::PermissionStatus permissionStatus = qApp->checkPermission( bluetoothPermission );
+        if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+        {
+          qApp->requestPermission( bluetoothPermission, this, [=]( const QPermission &permission ) {
+            if ( permission.status() == Qt::PermissionStatus::Granted )
+            {
+              mPermissionChecked = true;
+              setActive( true );
+            }
+            else
+            {
+              setValid( false );
+            }
+          } );
+          return;
         }
-        else
+        else if ( permissionStatus == Qt::PermissionStatus::Denied )
         {
           setValid( false );
+          return;
         }
-      } );
-      return;
-    }
-    else if ( permissionStatus == Qt::PermissionStatus::Denied )
-    {
-      setValid( false );
-      return;
+      }
     }
   }
 
