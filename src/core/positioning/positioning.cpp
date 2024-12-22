@@ -86,7 +86,7 @@ void Positioning::setupSource()
   connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
 
   const QList<QString> properties = mPropertiesToSync.keys();
-  for ( const QString property : properties )
+  for ( const QString &property : properties )
   {
     mPositioningSourceReplica->setProperty( property.toLatin1(), mPropertiesToSync[property] );
   }
