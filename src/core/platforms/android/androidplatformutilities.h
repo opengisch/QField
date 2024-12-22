@@ -87,6 +87,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void startPositioningService() const override;
     void stopPositioningService() const override;
 
+    void requestBackgroundPositioningPermissions() override;
+
   private:
     // separate multiple permissions using a semi-column (;)
     bool checkAndAcquirePermissions( QStringList permissions, bool forceAsk = false ) const;

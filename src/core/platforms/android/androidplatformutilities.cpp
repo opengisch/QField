@@ -752,10 +752,15 @@ void AndroidPlatformUtilities::vibrate( int milliseconds ) const
   }
 }
 
+void AndroidPlatformUtilities::requestBackgroundPositioningPermissions()
+{
+  checkAndAcquirePermissions( QStringLiteral( "android.permission.ACCESS_BACKGROUND_LOCATION" ) );
+}
+
 void AndroidPlatformUtilities::startPositioningService() const
 {
   // Request notification permission
-  checkAndAcquirePermissions( QStringLiteral( "android.permission.POST_NOTIFICATIONS;android.permission.ACCESS_FINE_LOCATION;android.permission.ACCESS_COARSE_LOCATION;android.permission.ACCESS_BACKGROUND_LOCATION" ) );
+  checkAndAcquirePermissions( QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) );
 
   qInfo() << "Launching QField positioning service...";
   QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",

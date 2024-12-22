@@ -319,6 +319,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func );
     virtual Qt::PermissionStatus checkMicrophonePermission() const;
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func );
+    virtual void requestBackgroundPositioningPermissions() {};
 
     static PlatformUtilities *instance();
 
