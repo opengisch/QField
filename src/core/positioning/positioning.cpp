@@ -38,16 +38,30 @@ Positioning::Positioning( QObject *parent )
 
 void Positioning::setupSource()
 {
+  bool positioningService = false;
+
 #if defined( Q_OS_ANDROID )
-  PlatformUtilities::instance()->startPositioningService();
-  mNode.connectToNode( QUrl( QStringLiteral( "localabstract:replica" ) ) );
-#else
-  // Non-service path, we are both the host and the node
-  mPositioningSource = new PositioningSource( this );
-  mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
-  mHost.enableRemoting( mPositioningSource, "PositioningSource" );
-  mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
+  QLocationPermission backgroundLocationPermission;
+  backgroundLocationPermission.setAccuracy( QLocationPermission::Precise );
+  backgroundLocationPermission.setAvailability( QLocationPermission::Always );
+  Qt::PermissionStatus permissionStatus = qApp->checkPermission( backgroundLocationPermission );
+
+  if ( permissionStatus == Qt::PermissionStatus::Granted )
+  {
+    PlatformUtilities::instance()->startPositioningService();
+    mNode.connectToNode( QUrl( QStringLiteral( "localabstract:replica" ) ) );
+    positioningService = true;
+  }
 #endif
+
+  if ( !positioningService )
+  {
+    // Non-service path, we are both the host and the node
+    mPositioningSource = new PositioningSource( this );
+    mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
+    mHost.enableRemoting( mPositioningSource, "PositioningSource" );
+    mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
+  }
 
   mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
   mPositioningSourceReplica->waitForSource();
@@ -79,27 +93,30 @@ void Positioning::setupSource()
 
 void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 {
-  //#ifdef Q_OS_ANDROID
-  //  // Google Play policy only allows for background access if it's explicitly stated and justified
-  //  // Not stopping on Activity::onPause is detected as violation
-  //  const bool isActive = active();
-  //  switch ( state )
-  //  {
-  //    case Qt::ApplicationState::ApplicationActive:
-  //      if ( isActive )
-  //      {
-  //        emit triggerConnectDevice();
-  //      }
-  //      break;
-  //    default:
-  //      if ( isActive )
-  //      {
-  //        emit triggerDisconnectDevice();
-  //      }
-  //  }
-  //#else
+#ifdef Q_OS_ANDROID
+  // Google Play policy only allows for background access if it's explicitly stated and justified
+  // Not stopping on Activity::onPause is detected as violation
+  const bool isActive = active();
+  if ( isActive && mPositioningSource )
+  {
+    switch ( state )
+    {
+      case Qt::ApplicationState::ApplicationActive:
+        if ( isActive )
+        {
+          emit triggerConnectDevice();
+        }
+        break;
+      default:
+        if ( isActive )
+        {
+          emit triggerDisconnectDevice();
+        }
+    }
+  }
+#else
   Q_UNUSED( state )
-  //#endif
+#endif
 }
 
 bool Positioning::active() const
@@ -114,11 +131,15 @@ void Positioning::setActive( bool active )
     QLocationPermission locationPermission;
     locationPermission.setAccuracy( QLocationPermission::Precise );
     Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
+
     if ( permissionStatus == Qt::PermissionStatus::Undetermined )
     {
       qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
         if ( permission.status() == Qt::PermissionStatus::Granted )
         {
+#if defined( Q_OS_ANDROID )
+          PlatformUtilities::instance()->requestBackgroundPositioningPermissions();
+#endif
           mPermissionChecked = true;
           setActive( true );
         }
