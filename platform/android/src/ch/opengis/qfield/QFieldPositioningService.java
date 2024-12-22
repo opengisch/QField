@@ -1,7 +1,6 @@
 /**
  * QFieldPositioningService.java
  * @author  Mathieu Pellerin - <mathieu@opengis.ch>
- * @version 0.5
  */
 /*
  Copyright (c) 2024, Mathieu Pellerin <mathieu@opengis.ch>
