@@ -240,7 +240,10 @@ class Positioning : public QObject
     void processGnssPositionInformation();
 
   private:
+    void setupSource();
     double adjustOrientation( double orientation ) const;
+
+    bool mValid = true;
 
     PositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;
@@ -256,6 +259,8 @@ class Positioning : public QObject
     virtual QList<QPair<QString, QVariant>> details() const { return {}; }
 
     bool mPermissionChecked = false;
+
+    QVariantMap mPropertiesToSync;
 };
 
 #endif // POSITIONING_H
