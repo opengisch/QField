@@ -1,7 +1,6 @@
 /**
  * QFieldCloudService.java
  * @author  Mathieu Pellerin - <mathieu@opengis.ch>
- * @version 0.5
  */
 /*
  Copyright (c) 2021, Mathieu Pellerin <mathieu@opengis.ch>
