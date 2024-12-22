@@ -163,7 +163,14 @@ void Positioning::setActive( bool active )
     setupSource();
   }
 
-  mPositioningSourceReplica->setProperty( "active", active );
+  if ( mPositioningSourceReplica->property( "active" ).toBool() != active )
+  {
+    mPositioningSourceReplica->setProperty( "active", active );
+  }
+  else
+  {
+    emit activeChanged();
+  }
 }
 
 bool Positioning::valid() const
@@ -180,6 +187,7 @@ void Positioning::setValid( bool valid )
   else
   {
     mValid = valid;
+    emit validChanged();
   }
 }
 
@@ -264,6 +272,7 @@ void Positioning::setAveragedPosition( bool averaged )
   else
   {
     mPropertiesToSync["averagedPosition"] = averaged;
+    emit averagedPositionChanged();
   }
 }
 
@@ -281,6 +290,7 @@ void Positioning::setLogging( bool logging )
   else
   {
     mPropertiesToSync["logging"] = logging;
+    emit loggingChanged();
   }
 }
 
@@ -298,6 +308,7 @@ void Positioning::setElevationCorrectionMode( PositioningSource::ElevationCorrec
   else
   {
     mPropertiesToSync["elevationCorrectionMode"] = static_cast<int>( elevationCorrectionMode );
+    emit elevationCorrectionModeChanged();
   }
 }
 
@@ -315,6 +326,7 @@ void Positioning::setAntennaHeight( double antennaHeight )
   else
   {
     mPropertiesToSync["antennaHeight"] = antennaHeight;
+    emit antennaHeightChanged();
   }
 }
 
