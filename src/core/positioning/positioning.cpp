@@ -54,6 +54,7 @@ void Positioning::setupSource()
   }
 #endif
 
+  //cppcheck-suppress knownConditionTrueFalse
   if ( !positioningService )
   {
     // Non-service path, we are both the host and the node

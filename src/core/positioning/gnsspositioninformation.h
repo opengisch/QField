@@ -364,8 +364,8 @@ class GnssPositionDetails
 
 Q_DECLARE_METATYPE( GnssPositionDetails )
 
-QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &positioningDetail );
-QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &positioningDetail );
+QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &positionDetails );
+QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &positionDetails );
 
 QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position );
 QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position );
