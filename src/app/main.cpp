@@ -84,7 +84,7 @@ int main( int argc, char **argv )
       QCoreApplication::setOrganizationDomain( "opengis.ch" );
       QCoreApplication::setApplicationName( qfield::appName );
 
-      // For now the service only deals with background attachment uploads;
+      // This service only deals with background attachment uploads;
       // it will terminate once all uploads are done
       QFieldCloudService app( argc, argv );
       return 0;
