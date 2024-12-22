@@ -20,6 +20,7 @@
 #include "qfield_service_export.h"
 
 #include <QRemoteObjectHost>
+#include <QTimer>
 #include <QtCore/private/qandroidextras_p.h>
 #include <QtGlobal>
 
@@ -36,6 +37,8 @@ class QFIELD_SERVICE_EXPORT QFieldPositioningService : public QAndroidService
   private:
     PositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;
+
+    QTimer mNotificationTimer;
 };
 
 #endif // QFIELDPOSITIONINGSERVICE_H

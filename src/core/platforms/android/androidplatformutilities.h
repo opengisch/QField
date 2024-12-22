@@ -85,6 +85,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void vibrate( int milliseconds ) const override;
 
     void startPositioningService() const override;
+    void stopPositioningService() const override;
 
   private:
     // separate multiple permissions using a semi-column (;)

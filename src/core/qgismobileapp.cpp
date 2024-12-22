@@ -1453,6 +1453,8 @@ void QgisMobileapp::saveProjectPreviewImage()
 
 QgisMobileapp::~QgisMobileapp()
 {
+  PlatformUtilities::instance()->stopPositioningService();
+
   saveProjectPreviewImage();
 
   mPluginManager->unloadPlugins();
