@@ -131,7 +131,7 @@ void Positioning::setActive( bool active )
   if ( devId.isEmpty() )
   {
     // Handle internal receiver permission
-    if ( !mPermissionChecked )
+    if ( !mInternalPermissionChecked )
     {
       QLocationPermission locationPermission;
       locationPermission.setAccuracy( QLocationPermission::Precise );
@@ -145,7 +145,7 @@ void Positioning::setActive( bool active )
 #if defined( Q_OS_ANDROID )
             PlatformUtilities::instance()->requestBackgroundPositioningPermissions();
 #endif
-            mPermissionChecked = true;
+            mInternalPermissionChecked = true;
             setActive( true );
           }
           else
@@ -160,6 +160,7 @@ void Positioning::setActive( bool active )
         setValid( false );
         return;
       }
+      mInternalPermissionChecked = true;
     }
   }
   else
@@ -177,7 +178,7 @@ void Positioning::setActive( bool active )
 #endif
     else
     {
-      if ( !mPermissionChecked )
+      if ( !mBluetoothPermissionChecked )
       {
         QBluetoothPermission bluetoothPermission;
         bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
@@ -187,7 +188,7 @@ void Positioning::setActive( bool active )
           qApp->requestPermission( bluetoothPermission, this, [=]( const QPermission &permission ) {
             if ( permission.status() == Qt::PermissionStatus::Granted )
             {
-              mPermissionChecked = true;
+              mBluetoothPermissionChecked = true;
               setActive( true );
             }
             else
@@ -202,6 +203,7 @@ void Positioning::setActive( bool active )
           setValid( false );
           return;
         }
+        mBluetoothPermissionChecked = true;
       }
     }
   }

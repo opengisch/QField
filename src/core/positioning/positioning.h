@@ -258,7 +258,8 @@ class Positioning : public QObject
     double mProjectedHorizontalAccuracy;
     virtual QList<QPair<QString, QVariant>> details() const { return {}; }
 
-    bool mPermissionChecked = false;
+    bool mInternalPermissionChecked = false;
+    bool mBluetoothPermissionChecked = false;
 
     QVariantMap mPropertiesToSync;
 };
