@@ -764,6 +764,15 @@ void AndroidPlatformUtilities::startPositioningService() const
                                       qtAndroidContext().object() );
 }
 
+void AndroidPlatformUtilities::stopPositioningService() const
+{
+  qInfo() << "Terminating QField positioning service...";
+  QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
+                                      "stopQFieldPositioningService",
+                                      "(Landroid/content/Context;)V",
+                                      qtAndroidContext().object() );
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif

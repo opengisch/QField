@@ -49,16 +49,45 @@ public class QFieldPositioningService extends QtService {
     private final String CHANNEL_ID = "qfield_service_02";
     private final int NOTIFICATION_ID = 102;
 
+    private static QFieldPositioningService instance = null;
+    public static QFieldPositioningService getInstance() {
+        return instance;
+    }
+
     public static void startQFieldPositioningService(Context context) {
         Log.v("QFieldPositioningService", "Starting QFieldPositioningService");
         Intent intent = new Intent(context, QFieldPositioningService.class);
         context.startService(intent);
     }
 
+    public static void stopQFieldPositioningService(Context context) {
+        Log.v("QFieldPositioningService", "Stopping QFieldPositioningService");
+        Intent intent = new Intent(context, QFieldPositioningService.class);
+        context.stopService(intent);
+    }
+
+    public static void sendNotification(String message) {
+        if (getInstance() != null) {
+            Log.v("QFieldPositioningService", "Sending message to instance...");
+            getInstance().showNotification(message);
+        } else {
+            Log.v("QFieldPositioningService",
+                  "Sending message failed, no instance...");
+        }
+    }
+
     @Override
     public void onCreate() {
         Log.v("QFieldPositioningService", "onCreate triggered");
         super.onCreate();
+
+        if (getInstance() != null) {
+            Log.v("QFieldPositioningService",
+                  "service already running, don't create a new one...");
+            stopSelf();
+            return;
+        }
+        instance = this;
 
         notificationManager =
             (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
@@ -67,6 +96,8 @@ public class QFieldPositioningService extends QtService {
             notificationChannel = new NotificationChannel(
                 CHANNEL_ID, "QField", NotificationManager.IMPORTANCE_DEFAULT);
             notificationChannel.setDescription("QField positioning");
+            notificationChannel.setImportance(
+                NotificationManager.IMPORTANCE_LOW);
             notificationChannel.enableLights(false);
             notificationChannel.enableVibration(false);
             notificationManager.createNotificationChannel(notificationChannel);
@@ -84,19 +115,17 @@ public class QFieldPositioningService extends QtService {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.v("QFieldPositioningService", "onStartCommand triggered");
         int ret = super.onStartCommand(intent, flags, startId);
-        showNotification();
         return ret;
     }
 
-    private void showNotification() {
+    public void showNotification(String contentText) {
         Log.v("QFieldPositioningService", "showNotification triggered");
-        Notification.Builder builder =
-            new Notification.Builder(this)
-                .setSmallIcon(R.drawable.qfield_logo)
-                .setWhen(System.currentTimeMillis())
-                .setOngoing(true)
-                .setContentTitle("QField")
-                .setContentText("Positioning serviced launched!");
+        Notification.Builder builder = new Notification.Builder(this)
+                                           .setSmallIcon(R.drawable.qfield_logo)
+                                           .setWhen(System.currentTimeMillis())
+                                           .setOngoing(true)
+                                           .setContentTitle("QField")
+                                           .setContentText(contentText);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);

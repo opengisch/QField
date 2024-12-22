@@ -309,6 +309,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     virtual void startPositioningService() const {}
 
+    /**
+     * Starts a positioning service on supported platforms.
+     */
+    virtual void stopPositioningService() const {}
+
     Q_INVOKABLE virtual void requestStoragePermission() const {};
     virtual Qt::PermissionStatus checkCameraPermission() const;
     virtual void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func );
