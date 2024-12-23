@@ -48,6 +48,7 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
 
 void InternalGnssReceiver::handleDisconnectDevice()
 {
+  qDebug() << "XXX handleDisconnectDevice";
   if ( mGeoPositionSource )
   {
     mGeoPositionSource->stopUpdates();
@@ -63,6 +64,7 @@ void InternalGnssReceiver::handleDisconnectDevice()
 
 void InternalGnssReceiver::handleConnectDevice()
 {
+  qDebug() << "XXX handleConnectDevice";
   if ( mGeoPositionSource )
   {
     mGeoPositionSource->startUpdates();
@@ -76,10 +78,12 @@ void InternalGnssReceiver::handleConnectDevice()
 
 void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positionInfo )
 {
+  qDebug() << "XXX handlePositionUpdated";
   if ( mLastGnssPositionValid && !positionInfo.coordinate().isValid() )
   {
     return;
   }
+  qDebug() << "coordinate is valid";
 
   bool updatePositionInformation = false;
 

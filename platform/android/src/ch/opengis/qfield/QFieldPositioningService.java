@@ -36,6 +36,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.util.Log;
 import org.qtproject.qt.android.bindings.QtService;
@@ -56,7 +57,7 @@ public class QFieldPositioningService extends QtService {
     public static void startQFieldPositioningService(Context context) {
         Log.v("QFieldPositioningService", "Starting QFieldPositioningService");
         Intent intent = new Intent(context, QFieldPositioningService.class);
-        context.startService(intent);
+        context.startForegroundService(intent);
     }
 
     public static void stopQFieldPositioningService(Context context) {
@@ -67,11 +68,10 @@ public class QFieldPositioningService extends QtService {
 
     public static void sendNotification(String message) {
         if (getInstance() != null) {
-            Log.v("QFieldPositioningService", "Sending message to instance...");
             getInstance().showNotification(message);
         } else {
             Log.v("QFieldPositioningService",
-                  "Sending message failed, no instance...");
+                  "Sending message failed, no instance available.");
         }
     }
 
@@ -82,10 +82,29 @@ public class QFieldPositioningService extends QtService {
 
         if (getInstance() != null) {
             Log.v("QFieldPositioningService",
-                  "service already running, don't create a new one...");
+                  "service already running, aborting.");
             stopSelf();
             return;
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.v("QFieldPositioningService", "onDestroy triggered");
+        notificationManager.cancel(NOTIFICATION_ID);
+        super.onDestroy();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.v("QFieldPositioningService", "onStartCommand triggered");
+        int ret = super.onStartCommand(intent, flags, startId);
+
+        if (instance != null) {
+            stopSelf();
+            return START_NOT_STICKY;
+        }
+
         instance = this;
 
         notificationManager =
@@ -101,24 +120,32 @@ public class QFieldPositioningService extends QtService {
             notificationChannel.enableVibration(false);
             notificationManager.createNotificationChannel(notificationChannel);
         }
-    }
 
-    @Override
-    public void onDestroy() {
-        Log.v("QFieldPositioningService", "onDestroy triggered");
-        notificationManager.cancel(NOTIFICATION_ID);
-        super.onDestroy();
-    }
+        Notification.Builder builder =
+            new Notification.Builder(this)
+                .setSmallIcon(R.drawable.qfield_logo)
+                .setWhen(System.currentTimeMillis())
+                .setOngoing(true)
+                .setContentTitle("QField")
+                .setContentText("Positioning service started");
 
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.v("QFieldPositioningService", "onStartCommand triggered");
-        int ret = super.onStartCommand(intent, flags, startId);
-        return ret;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            builder.setChannelId(CHANNEL_ID);
+        }
+
+        Notification notification = builder.build();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startForeground(NOTIFICATION_ID, notification,
+                            ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
+        } else {
+            startForeground(NOTIFICATION_ID, notification);
+        }
+
+        return START_STICKY;
     }
 
     public void showNotification(String contentText) {
-        Log.v("QFieldPositioningService", "showNotification triggered");
         Notification.Builder builder = new Notification.Builder(this)
                                            .setSmallIcon(R.drawable.qfield_logo)
                                            .setWhen(System.currentTimeMillis())
