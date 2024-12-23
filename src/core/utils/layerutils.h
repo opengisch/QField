@@ -139,6 +139,11 @@ class LayerUtils : public QObject
      * Returns a feature request to get features.
      */
     Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
+
+    /**
+     * Sets the string (typically sql) used to define a subset of the layer. Returns TRUE if the subset string was successfully applied.
+     */
+    Q_INVOKABLE static bool setSubsetString( QgsVectorLayer *layer, const QString &expression );
 };
 
 #endif // LAYERUTILS_H

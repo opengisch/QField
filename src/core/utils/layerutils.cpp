@@ -383,3 +383,11 @@ FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer 
   const QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
   return FeatureIterator( layer, request );
 }
+
+bool LayerUtils::setSubsetString( QgsVectorLayer *layer, const QString &expression )
+{
+  if ( !layer )
+    return false;
+
+  return layer->setSubsetString( expression );
+}
