@@ -213,18 +213,31 @@ xcodebuild -downloadPlatform iOS
 export PATH="$(brew --prefix flex)/bin:$(brew --prefix bison)/bin:$PATH"
 
 # Configure using CMake
+#
+# In the command below, the following line depends on the host system, i.e. the system
+# you are building on. In case you are building on a x64 (Intel) based system instead of
+# an Apple Silicon-based system (M1/M2/..), change this line:
+#
+#   -DVCPKG_HOST_TRIPLET=arm64-osx \
+#
+# into
+#
+#   -DVCPKG_HOST_TRIPLET=x64-osx \
+#
 
 cmake -S . -B build-arm64-ios \
+	-DVCPKG_HOST_TRIPLET=arm64-osx \
 	-DVCPKG_TARGET_TRIPLET=arm64-ios \
 	-DWITH_VCPKG=ON \
 	-DVCPKG_BUILD_TYPE=release \
 	-DCMAKE_SYSTEM_NAME=iOS \
 	-DCMAKE_OSX_SYSROOT=iphoneos \
 	-DCMAKE_OSX_ARCHITECTURES=arm64 \
-        -DCMAKE_SYSTEM_PROCESSOR=aarch64 \
+	-DCMAKE_SYSTEM_PROCESSOR=aarch64 \
 	-GXcode
 
 # Then, compile. To install an app on iOS, it must be signed using Xcode tools.
+
 cmake --build build-arm64-ios
 ```
 
