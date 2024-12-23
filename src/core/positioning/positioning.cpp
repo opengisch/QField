@@ -167,17 +167,13 @@ void Positioning::setActive( bool active )
   else
   {
     // Handle external receiver permission
-    if ( devId.startsWith( TcpReceiver::identifier + ":" ) || devId.startsWith( UdpReceiver::identifier + ":" ) )
-    {
-      // No permission required
-    }
+    if (
+      !devId.startsWith( TcpReceiver::identifier + ":" )
+      && !devId.startsWith( UdpReceiver::identifier + ":" )
 #ifdef WITH_SERIALPORT
-    else if ( devId.startsWith( SerialPortReceiver::identifier + ":" ) )
-    {
-      // No permission required
-    }
+      && !devId.startsWith( SerialPortReceiver::identifier + ":" )
 #endif
-    else
+    )
     {
       if ( !mBluetoothPermissionChecked )
       {
