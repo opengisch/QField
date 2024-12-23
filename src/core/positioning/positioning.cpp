@@ -98,7 +98,8 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
   // Google Play policy only allows for background access if it's explicitly stated and justified
   // Not stopping on Activity::onPause is detected as violation
   const bool isActive = active();
-  if ( isActive && mPositioningSource )
+  qDebug() << "???" << state;
+  if ( mPositioningSource && isActive )
   {
     switch ( state )
     {

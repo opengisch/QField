@@ -48,7 +48,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
 
   connect( &mNotificationTimer, &QTimer::timeout, this, [=] {
     const GnssPositionInformation pos = mPositioningSource->positionInformation();
-    QJniObject message = QJniObject::fromString( QStringLiteral( "Latitude %1 | Longitude %2 | Altitude %3" ).arg( QLocale::system().toString( pos.latitude(), 'f', 7 ), QLocale::system().toString( pos.longitude(), 'f', 7 ), QLocale::system().toString( pos.elevation(), 'f', 3 ) ) );
+    QJniObject message = QJniObject::fromString( QStringLiteral( "Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4" ).arg( QLocale::system().toString( pos.latitude(), 'f', 7 ), QLocale::system().toString( pos.longitude(), 'f', 7 ), QLocale::system().toString( pos.elevation(), 'f', 3 ), QLocale::system().toString( mPositioningSource->orientation(), 'f', 1 ) ) );
     QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
                                         "sendNotification",
                                         message.object<jstring>() );
