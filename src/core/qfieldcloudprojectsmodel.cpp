@@ -1808,14 +1808,17 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
   } );
 
   connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
-    const QString temporaryFileName = project->downloadFileTransfers[fileName].tmpFile;
     QNetworkReply *rawReply = reply->reply();
-    QFile file( temporaryFileName );
+    if ( !rawReply )
+    {
+      return;
+    }
 
-    bool hasError = false;
+    const QString temporaryFileName = project->downloadFileTransfers[fileName].tmpFile;
+    QFile file( temporaryFileName );
     QString errorMessageDetail;
     QString errorMessage;
-
+    bool hasError = false;
 
     if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
     {

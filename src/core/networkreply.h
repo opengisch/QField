@@ -58,7 +58,7 @@ class NetworkReply : public QObject
 
 
     /**
-     * Get the QNetworkReply object. Do not delete it manually.
+     * Get the current `QNetworkReply` object. Note that it might get deleted even if the parent `NetworkReply` is not in case of redirect or internal retry. Do not delete it manually.
      * @return network reply
      */
     QNetworkReply *reply() const;
