@@ -66,12 +66,21 @@ public class QFieldPositioningService extends QtService {
         context.stopService(intent);
     }
 
-    public static void sendNotification(String message) {
+    public static void triggerShowNotification(String message) {
         if (getInstance() != null) {
             getInstance().showNotification(message);
         } else {
             Log.v("QFieldPositioningService",
-                  "Sending message failed, no instance available.");
+                  "Showing message failed, no instance available.");
+        }
+    }
+
+    public static void triggerCloseNotification() {
+        if (getInstance() != null) {
+            getInstance().closeNotification();
+        } else {
+            Log.v("QFieldPositioningService",
+                  "Closing message failed, no instance available.");
         }
     }
 
@@ -127,7 +136,7 @@ public class QFieldPositioningService extends QtService {
                 .setWhen(System.currentTimeMillis())
                 .setOngoing(true)
                 .setContentTitle("QField")
-                .setContentText("Positioning service started");
+                .setContentText("Positioning service running");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);
@@ -159,5 +168,9 @@ public class QFieldPositioningService extends QtService {
 
         Notification notification = builder.build();
         notificationManager.notify(NOTIFICATION_ID, notification);
+    }
+
+    public void closeNotification() {
+        notificationManager.cancel(NOTIFICATION_ID);
     }
 }

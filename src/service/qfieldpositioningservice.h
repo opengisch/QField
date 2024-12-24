@@ -34,6 +34,10 @@ class QFIELD_SERVICE_EXPORT QFieldPositioningService : public QAndroidService
     QFieldPositioningService( int &argc, char **argv );
     ~QFieldPositioningService() override;
 
+  private slots:
+    void triggerShowNotification();
+    void triggerCloseNotification();
+
   private:
     PositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;

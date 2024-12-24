@@ -27,6 +27,9 @@
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 
+#include <QStandardPaths>
+
+QString PositioningSource::backgroundFilePath = QStringLiteral( "%1/positioning.background" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) );
 
 PositioningSource::PositioningSource( QObject *parent )
   : QObject( parent )
@@ -138,6 +141,16 @@ void PositioningSource::setLogging( bool logging )
   }
 
   emit loggingChanged();
+}
+
+void PositioningSource::setBackgroundMode( bool backgroundMode )
+{
+  if ( mBackgroundMode == backgroundMode )
+    return;
+
+  mBackgroundMode = backgroundMode;
+
+  emit backgroundModeChanged();
 }
 
 void PositioningSource::setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode )
