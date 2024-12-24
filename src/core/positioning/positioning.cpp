@@ -17,15 +17,16 @@
 #include "platformutilities.h"
 #include "positioning.h"
 #include "positioningutils.h"
-#include "qgismobileapp.h"
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 #ifdef WITH_SERIALPORT
 #include "serialportreceiver.h"
 #endif
 
+#include <QFile>
 #include <QGuiApplication>
 #include <QPermissions>
+#include <QRemoteObjectPendingCall>
 #include <QScreen>
 #include <qgsapplication.h>
 #include <qgsunittypes.h>
@@ -33,6 +34,11 @@
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
 {
+  if ( QFile::exists( PositioningSource::backgroundFilePath ) )
+  {
+    QFile::remove( PositioningSource::backgroundFilePath );
+  }
+
   connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
 }
 
@@ -97,22 +103,35 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 #ifdef Q_OS_ANDROID
   // Google Play policy only allows for background access if it's explicitly stated and justified
   // Not stopping on Activity::onPause is detected as violation
-  const bool isActive = active();
-  if ( mPositioningSource && isActive )
+  if ( !mPositioningSourceReplica )
+    return;
+
+  if ( !mPositioningSource )
   {
-    switch ( state )
+    // Service path
+    setBackgroundMode( state != Qt::ApplicationState::ApplicationActive );
+  }
+  else
+  {
+    // Non-service path
+    const bool isActive = active();
+    if ( isActive )
     {
-      case Qt::ApplicationState::ApplicationActive:
-        if ( isActive )
-        {
-          emit triggerConnectDevice();
-        }
-        break;
-      default:
-        if ( isActive )
-        {
-          emit triggerDisconnectDevice();
-        }
+      switch ( state )
+      {
+        case Qt::ApplicationState::ApplicationActive:
+          if ( isActive )
+          {
+            emit triggerConnectDevice();
+          }
+          break;
+
+        default:
+          if ( isActive )
+          {
+            emit triggerDisconnectDevice();
+          }
+      }
     }
   }
 #else
@@ -338,6 +357,41 @@ void Positioning::setLogging( bool logging )
     mPropertiesToSync["logging"] = logging;
     emit loggingChanged();
   }
+}
+
+bool Positioning::backgroundMode() const
+{
+  return mBackgroundMode;
+}
+
+void Positioning::setBackgroundMode( bool backgroundMode )
+{
+  if ( mBackgroundMode == backgroundMode )
+    return;
+
+  mBackgroundMode = backgroundMode;
+
+  QFile backgroundFile( PositioningSource::backgroundFilePath );
+  if ( mBackgroundMode )
+  {
+    backgroundFile.open( QFile::WriteOnly );
+    backgroundFile.close();
+  }
+  else
+  {
+    if ( backgroundFile.exists() )
+    {
+      backgroundFile.remove();
+    }
+  }
+
+  if ( mPositioningSourceReplica )
+  {
+    // Note that on Android, the property will not be set if the application is suspended _until_ it has become active again
+    mPositioningSourceReplica->setProperty( "backgroundMode", backgroundMode );
+  }
+
+  emit backgroundModeChanged();
 }
 
 PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode() const

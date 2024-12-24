@@ -64,6 +64,8 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
 
+    Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
+
   public:
     explicit Positioning( QObject *parent = nullptr );
     virtual ~Positioning() = default;
@@ -215,6 +217,16 @@ class Positioning : public QObject
      */
     void setLogging( bool logging );
 
+    /**
+     * Returns TRUE if the background mode is active.
+     */
+    bool backgroundMode() const;
+
+    /**
+     * Sets whether the background mode is active.
+     */
+    void setBackgroundMode( bool backgroundMode );
+
   signals:
     void activeChanged();
     void validChanged();
@@ -231,6 +243,8 @@ class Positioning : public QObject
     void antennaHeightChanged();
     void orientationChanged();
     void loggingChanged();
+    void backgroundModeChanged();
+
     void triggerConnectDevice();
     void triggerDisconnectDevice();
 
@@ -260,6 +274,8 @@ class Positioning : public QObject
 
     bool mInternalPermissionChecked = false;
     bool mBluetoothPermissionChecked = false;
+
+    bool mBackgroundMode = false;
 
     QVariantMap mPropertiesToSync;
 };

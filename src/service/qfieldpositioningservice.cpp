@@ -18,6 +18,7 @@
 #include "qfield_android.h"
 #include "qfieldpositioningservice.h"
 
+#include <QFile>
 #include <QJniObject>
 #include <QLocale>
 #include <QQmlEngine>
@@ -27,32 +28,50 @@
 QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
-  qDebug() << "XXX!!!XXX";
   mPositioningSource = new PositioningSource( this );
   mHost.setHostUrl( QUrl( QStringLiteral( "localabstract:replica" ) ) );
   mHost.enableRemoting( mPositioningSource, "PositioningSource" );
 
-  mNotificationTimer.setInterval( 2500 );
+  mNotificationTimer.setInterval( 1000 );
   mNotificationTimer.setSingleShot( false );
+  connect( &mNotificationTimer, &QTimer::timeout, this, &QFieldPositioningService::triggerShowNotification );
 
-  connect( mPositioningSource, &PositioningSource::activeChanged, this, [=] {
-    if ( mPositioningSource->active() )
+  connect( mPositioningSource, &PositioningSource::positionInformationChanged, this, [=] {
+    if ( !mPositioningSource->backgroundMode() && QFile::exists( PositioningSource::backgroundFilePath ) )
     {
+      mPositioningSource->setBackgroundMode( true );
+    }
+  } );
+
+  connect( mPositioningSource, &PositioningSource::backgroundModeChanged, this, [=] {
+    if ( mPositioningSource->backgroundMode() && mPositioningSource->active() )
+    {
+      triggerShowNotification();
       mNotificationTimer.start();
     }
     else
     {
       mNotificationTimer.stop();
+      triggerCloseNotification();
     }
   } );
+}
 
-  connect( &mNotificationTimer, &QTimer::timeout, this, [=] {
-    const GnssPositionInformation pos = mPositioningSource->positionInformation();
-    QJniObject message = QJniObject::fromString( QStringLiteral( "Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4" ).arg( QLocale::system().toString( pos.latitude(), 'f', 7 ), QLocale::system().toString( pos.longitude(), 'f', 7 ), QLocale::system().toString( pos.elevation(), 'f', 3 ), QLocale::system().toString( mPositioningSource->orientation(), 'f', 1 ) ) );
-    QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
-                                        "sendNotification",
-                                        message.object<jstring>() );
-  } );
+void QFieldPositioningService::triggerShowNotification()
+{
+  const GnssPositionInformation pos = mPositioningSource->positionInformation();
+  QJniObject message = QJniObject::fromString( tr( "Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4" ).arg( QLocale::system().toString( pos.latitude(), 'f', 7 ), QLocale::system().toString( pos.longitude(), 'f', 7 ), QLocale::system().toString( pos.elevation(), 'f', 3 ), QLocale::system().toString( mPositioningSource->orientation(), 'f', 1 ) ) );
+  QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
+                                      "triggerShowNotification",
+                                      message.object<jstring>() );
+}
+
+void QFieldPositioningService::triggerCloseNotification()
+{
+  QJniObject message = QJniObject::fromString( tr( "Positioning service running" ) );
+  QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
+                                      "triggerShowNotification",
+                                      message.object<jstring>() );
 }
 
 QFieldPositioningService::~QFieldPositioningService()
