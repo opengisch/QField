@@ -24,8 +24,6 @@
 #include <QObject>
 #include <QTimer>
 
-typedef QList<QPair<QString, QVariant>> DetailPairs;
-
 /**
  * This class connects to GNSS devices (internal or bluetooth NMEA) and provides
  * positioning details.
@@ -39,7 +37,7 @@ class PositioningSource : public QObject
     Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
 
     Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
-    Q_PROPERTY( DetailPairs deviceDetails READ deviceDetails NOTIFY positionInformationChanged )
+    Q_PROPERTY( GnssPositionDetails deviceDetails READ deviceDetails NOTIFY positionInformationChanged )
     Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
     Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
     Q_PROPERTY( QString deviceSocketStateString READ deviceSocketStateString NOTIFY deviceSocketStateStringChanged )
@@ -55,6 +53,8 @@ class PositioningSource : public QObject
     Q_PROPERTY( double orientation READ orientation NOTIFY orientationChanged );
 
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
+
+    Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
 
   public:
     /**
@@ -97,7 +97,7 @@ class PositioningSource : public QObject
      * Returns the current positioning device \a id used to fetch position information.
      * \see setDevice
      */
-    QString deviceId() const { return mDeviceId; }
+    Q_INVOKABLE QString deviceId() const { return mDeviceId; }
 
     /**
      * Sets the positioning device \a id used to fetch position information.
@@ -115,7 +115,7 @@ class PositioningSource : public QObject
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
      */
-    QList<QPair<QString, QVariant>> deviceDetails() const { return mReceiver ? mReceiver->details() : QList<QPair<QString, QVariant>>(); }
+    GnssPositionDetails deviceDetails() const { return mReceiver ? mReceiver->details() : GnssPositionDetails(); }
 
     /**
      * Returns positioning device's last error string.
@@ -196,6 +196,18 @@ class PositioningSource : public QObject
      */
     void setLogging( bool logging );
 
+    /**
+     * Returns TRUE if the background mode is active.
+     */
+    bool backgroundMode() const { return mBackgroundMode; }
+
+    /**
+     * Sets whether the background mode is active.
+     */
+    void setBackgroundMode( bool backgroundMode );
+
+    static QString backgroundFilePath;
+
   signals:
     void activeChanged();
     void validChanged();
@@ -211,6 +223,7 @@ class PositioningSource : public QObject
     void antennaHeightChanged();
     void orientationChanged();
     void loggingChanged();
+    void backgroundModeChanged();
 
   public slots:
 
@@ -239,6 +252,8 @@ class PositioningSource : public QObject
     double mAntennaHeight = 0.0;
 
     bool mLogging = false;
+
+    bool mBackgroundMode = false;
 
     AbstractGnssReceiver *mReceiver = nullptr;
 

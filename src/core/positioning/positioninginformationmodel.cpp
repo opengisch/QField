@@ -20,7 +20,9 @@ void PositioningInformationModel::refreshData()
 
   const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
-  const QList<QPair<QString, QVariant>> deviceDetails = mPositioningSource->deviceDetails();
+  const GnssPositionDetails deviceDetails = mPositioningSource->deviceDetails();
+  const QList<QString> detailNames = deviceDetails.names();
+  const QList<QVariant> detailValues = deviceDetails.values();
 
   updateCoordinates();
 
@@ -34,12 +36,9 @@ void PositioningInformationModel::refreshData()
   updateInfo( tr( "H. Accuracy" ), hAccuracy );
   updateInfo( tr( "V. Accuracy" ), vAccuracy );
 
-  for ( int i = 0; i < deviceDetails.size(); ++i )
+  for ( int i = 0; i < detailNames.size(); ++i )
   {
-    const QString key = deviceDetails[i].first;
-    const QVariant value = deviceDetails[i].second;
-
-    updateInfo( key, value );
+    updateInfo( detailNames[i], detailValues[i] );
   }
 }
 

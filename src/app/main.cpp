@@ -25,6 +25,7 @@
 
 #if defined( Q_OS_ANDROID )
 #include "qfieldcloudservice.h"
+#include "qfieldpositioningservice.h"
 #endif
 
 #include <qgsapplication.h>
@@ -74,18 +75,31 @@ void initGraphics()
 
 int main( int argc, char **argv )
 {
-  if ( argc > 1 && strcmp( argv[1], "--service" ) == 0 )
-  {
-    QCoreApplication::setOrganizationName( "OPENGIS.ch" );
-    QCoreApplication::setOrganizationDomain( "opengis.ch" );
-    QCoreApplication::setApplicationName( qfield::appName );
-
 #if defined( Q_OS_ANDROID )
-    // For now the service only deals with background attachment uploads and will terminate once all uploads are done
-    QFieldCloudService app( argc, argv );
-#endif
-    return 0;
+  if ( argc > 1 )
+  {
+    if ( strcmp( argv[1], "--cloudservice" ) == 0 )
+    {
+      QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+      QCoreApplication::setOrganizationDomain( "opengis.ch" );
+      QCoreApplication::setApplicationName( qfield::appName );
+
+      // This service only deals with background attachment uploads;
+      // it will terminate once all uploads are done
+      QFieldCloudService app( argc, argv );
+      return 0;
+    }
+    else if ( strcmp( argv[1], "--positioningservice" ) == 0 )
+    {
+      QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+      QCoreApplication::setOrganizationDomain( "opengis.ch" );
+      QCoreApplication::setApplicationName( qfield::appName );
+
+      QFieldPositioningService app( argc, argv );
+      return app.exec();
+    }
   }
+#endif
 
   initGraphics();
 

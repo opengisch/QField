@@ -54,7 +54,10 @@ class AbstractGnssReceiver : public QObject
 
     QString lastError() const { return mLastError; }
 
-    virtual QList<QPair<QString, QVariant>> details() const { return {}; }
+    /**
+     * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
+     */
+    virtual GnssPositionDetails details() const { return {}; }
     virtual QAbstractSocket::SocketState socketState() const { return mSocketState; }
     virtual QString socketStateString();
 

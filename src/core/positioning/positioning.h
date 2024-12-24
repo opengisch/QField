@@ -64,6 +64,8 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
 
+    Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
+
   public:
     explicit Positioning( QObject *parent = nullptr );
     virtual ~Positioning() = default;
@@ -99,7 +101,7 @@ class Positioning : public QObject
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
      */
-    QList<QPair<QString, QVariant>> deviceDetails() const;
+    GnssPositionDetails deviceDetails() const;
 
     /**
      * Returns positioning device's last error string.
@@ -215,6 +217,16 @@ class Positioning : public QObject
      */
     void setLogging( bool logging );
 
+    /**
+     * Returns TRUE if the background mode is active.
+     */
+    bool backgroundMode() const;
+
+    /**
+     * Sets whether the background mode is active.
+     */
+    void setBackgroundMode( bool backgroundMode );
+
   signals:
     void activeChanged();
     void validChanged();
@@ -231,6 +243,8 @@ class Positioning : public QObject
     void antennaHeightChanged();
     void orientationChanged();
     void loggingChanged();
+    void backgroundModeChanged();
+
     void triggerConnectDevice();
     void triggerDisconnectDevice();
 
@@ -240,7 +254,10 @@ class Positioning : public QObject
     void processGnssPositionInformation();
 
   private:
+    void setupSource();
     double adjustOrientation( double orientation ) const;
+
+    bool mValid = true;
 
     PositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;
@@ -254,6 +271,13 @@ class Positioning : public QObject
     QgsPoint mProjectedPosition;
     double mProjectedHorizontalAccuracy;
     virtual QList<QPair<QString, QVariant>> details() const { return {}; }
+
+    bool mInternalPermissionChecked = false;
+    bool mBluetoothPermissionChecked = false;
+
+    bool mBackgroundMode = false;
+
+    QVariantMap mPropertiesToSync;
 };
 
 #endif // POSITIONING_H

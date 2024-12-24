@@ -18,7 +18,6 @@
 
 #include <QDebug>
 #include <QGuiApplication>
-#include <QPermissions>
 
 
 BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
@@ -103,37 +102,6 @@ void BluetoothReceiver::handleDisconnectDevice()
 
 void BluetoothReceiver::handleConnectDevice()
 {
-  if ( !mPermissionChecked )
-  {
-    QBluetoothPermission bluetoothPermission;
-    bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
-    Qt::PermissionStatus permissionStatus = qApp->checkPermission( bluetoothPermission );
-    if ( permissionStatus == Qt::PermissionStatus::Undetermined )
-    {
-      qApp->requestPermission( bluetoothPermission, this, [=]( const QPermission &permission ) {
-        if ( permission.status() == Qt::PermissionStatus::Granted )
-        {
-          mPermissionChecked = true;
-          handleConnectDevice();
-        }
-        else
-        {
-          setValid( false );
-          mLastError = tr( "Bluetooth permission denied" );
-          emit lastErrorChanged( mLastError );
-        }
-      } );
-      return;
-    }
-    else if ( permissionStatus == Qt::PermissionStatus::Denied )
-    {
-      setValid( false );
-      mLastError = tr( "Bluetooth permission denied" );
-      emit lastErrorChanged( mLastError );
-      return;
-    }
-  }
-
   if ( mAddress.isEmpty() )
   {
     return;

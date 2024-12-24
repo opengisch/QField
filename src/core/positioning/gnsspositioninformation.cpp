@@ -169,6 +169,17 @@ QString GnssPositionInformation::fixStatusDescription() const
   return QString( QMetaEnum::fromType<FixStatus>().valueToKey( fixStatus() ) );
 }
 
+QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &positionDetails )
+{
+  return stream << positionDetails.mNames << positionDetails.mValues;
+}
+
+//cppcheck-suppress constParameter
+QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &positionDetails )
+{
+  return stream >> positionDetails.mNames >> positionDetails.mValues;
+}
+
 QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position )
 {
   return stream << position.mLatitude << position.mLongitude << position.mElevation << position.mSpeed << position.mDirection

@@ -1,7 +1,6 @@
 /**
  * QFieldCloudService.java
  * @author  Mathieu Pellerin - <mathieu@opengis.ch>
- * @version 0.5
  */
 /*
  Copyright (c) 2021, Mathieu Pellerin <mathieu@opengis.ch>
@@ -94,7 +93,7 @@ public class QFieldCloudService extends QtService {
             new Notification.Builder(this)
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("QFieldCloud")
+                .setContentTitle("QField")
                 .setContentText(getString(R.string.upload_pending_attachments))
                 .setProgress(0, 0, true);
 

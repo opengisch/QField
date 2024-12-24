@@ -311,12 +311,23 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void vibrate( int milliseconds ) const { Q_UNUSED( milliseconds ) }
 
+    /**
+     * Starts a positioning service on supported platforms.
+     */
+    virtual void startPositioningService() const {}
+
+    /**
+     * Starts a positioning service on supported platforms.
+     */
+    virtual void stopPositioningService() const {}
+
     static PlatformUtilities *instance();
 
     virtual Qt::PermissionStatus checkCameraPermission() const;
     virtual void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func );
     virtual Qt::PermissionStatus checkMicrophonePermission() const;
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func );
+    virtual void requestBackgroundPositioningPermissions() {};
 
   signals:
     //! Emitted when a resource has been received.

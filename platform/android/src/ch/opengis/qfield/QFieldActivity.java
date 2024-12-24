@@ -3,7 +3,6 @@
  * getExternalFilesDir() before starting QtActivity this can be used to perform
  * actions before QtActivity takes over.
  * @author  Marco Bernasocchi - <marco@opengis.ch>
- * @version 0.5
  */
 /*
  Copyright (c) 2011, Marco Bernasocchi <marco@opengis.ch>
