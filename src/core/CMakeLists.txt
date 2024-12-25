@@ -288,6 +288,7 @@ endif()
 
 find_package(SQLite3 REQUIRED)
 find_package(ZXing REQUIRED)
+find_package(QtWebDAV REQUIRED)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
@@ -367,18 +368,8 @@ target_link_libraries(
          GDAL::GDAL
          SQLite::SQLite3
          Qca::qca
-         libzip::zip)
-
-find_library(QtWebDAV-LIBRARY QtWebDAV)
-if(QtWebDAV-LIBRARY)
-  message(STATUS "Found QtWebDAV: ${QtWebDAV-LIBRARY}")
-  target_link_libraries(qfield_core PUBLIC ${QtWebDAV-LIBRARY})
-else()
-  message(
-    FATAL_ERROR
-      "Fail to find QtWebDAV library, make sure it is present in CMAKE_PREFIX_PATH"
-  )
-endif()
+         libzip::zip
+         QtWebDAV::QtWebDAV)
 
 if(WITH_BLUETOOTH)
   find_package(
