@@ -47,17 +47,9 @@ void Positioning::setupSource()
   bool positioningService = false;
 
 #if defined( Q_OS_ANDROID )
-  QLocationPermission backgroundLocationPermission;
-  backgroundLocationPermission.setAccuracy( QLocationPermission::Precise );
-  backgroundLocationPermission.setAvailability( QLocationPermission::Always );
-  Qt::PermissionStatus permissionStatus = qApp->checkPermission( backgroundLocationPermission );
-
-  if ( permissionStatus == Qt::PermissionStatus::Granted )
-  {
-    PlatformUtilities::instance()->startPositioningService();
-    mNode.connectToNode( QUrl( QStringLiteral( "localabstract:replica" ) ) );
-    positioningService = true;
-  }
+  PlatformUtilities::instance()->startPositioningService();
+  mNode.connectToNode( QUrl( QStringLiteral( "localabstract:replica" ) ) );
+  positioningService = true;
 #endif
 
   //cppcheck-suppress knownConditionTrueFalse
@@ -161,9 +153,6 @@ void Positioning::setActive( bool active )
         qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
           if ( permission.status() == Qt::PermissionStatus::Granted )
           {
-#if defined( Q_OS_ANDROID )
-            PlatformUtilities::instance()->requestBackgroundPositioningPermissions();
-#endif
             mInternalPermissionChecked = true;
             setActive( true );
           }
