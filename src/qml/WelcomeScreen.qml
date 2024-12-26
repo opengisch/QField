@@ -446,6 +446,7 @@ Page {
             Layout.fillWidth: true
             text: qsTr("Open local file")
             onClicked: {
+              platformUtilities.requestStoragePermission();
               openLocalDataPicker();
             }
           }

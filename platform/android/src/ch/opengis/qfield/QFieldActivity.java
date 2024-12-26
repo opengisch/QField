@@ -503,7 +503,6 @@ public class QFieldActivity extends QtActivity {
             getSharedPreferences("QField", Context.MODE_PRIVATE);
         sharedPreferenceEditor = sharedPreferences.edit();
 
-        checkPermissions();
         checkAllFileAccess(); // Storage access permission handling for Android
                               // 11+
 
@@ -1242,7 +1241,7 @@ public class QFieldActivity extends QtActivity {
         });
     }
 
-    private void checkPermissions() {
+    private void checkStoragePermissions() {
         List<String> permissionsList = new ArrayList<String>();
         if (ContextCompat.checkSelfPermission(
                 QFieldActivity.this,
@@ -1282,8 +1281,8 @@ public class QFieldActivity extends QtActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
             !Environment.isExternalStorageManager() &&
             !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
-            // if MANAGE_EXTERNAL_STORAGE permission isn't in the manifest, bail
-            // out
+            // if MANAGE_EXTERNAL_STORAGE permission isn't in the manifest,
+            // bail out
             String[] requestedPermissions;
             try {
                 PackageInfo pi = getPackageManager().getPackageInfo(
@@ -1298,6 +1297,8 @@ public class QFieldActivity extends QtActivity {
                      .contains(Manifest.permission.MANAGE_EXTERNAL_STORAGE)) {
                 return;
             }
+
+            checkStoragePermissions();
 
             AlertDialog.Builder builder =
                 new AlertDialog.Builder(this, R.style.DialogTheme);

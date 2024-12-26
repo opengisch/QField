@@ -314,6 +314,7 @@ EditorWidgetBase {
 
       onClicked: {
         if (FileUtils.fileExists(prefixToRelativePath + value)) {
+          platformUtilities.requestStoragePermission();
           __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
         }
       }
@@ -631,6 +632,7 @@ EditorWidgetBase {
 
   function attachFile() {
     Qt.inputMethod.hide();
+    platformUtilities.requestStoragePermission();
     var filepath = getResourceFilePath();
     if (documentViewer == document_AUDIO) {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, PlatformUtilities.AudioFiles, this);
@@ -641,6 +643,7 @@ EditorWidgetBase {
 
   function attachGallery() {
     Qt.inputMethod.hide();
+    platformUtilities.requestStoragePermission();
     var filepath = getResourceFilePath();
     if (documentViewer == document_VIDEO) {
       __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);

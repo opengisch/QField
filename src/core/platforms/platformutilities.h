@@ -248,14 +248,6 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_DECL_DEPRECATED Q_INVOKABLE virtual bool checkMicrophonePermissions() const;
 
     /**
-     * Checks for permissions to write exeternal storage.
-     * If the permissions are not given, the user will be asked to grant
-     * permissions.
-     * \deprecated Since QField 3.1
-     */
-    Q_DECL_DEPRECATED Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
-
-    /**
      * Sets whether the device screen is allowed to go in lock mode.
      * @param allowLock if set to FALSE, the screen will not be allowed to lock.
      */
@@ -311,12 +303,13 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void vibrate( int milliseconds ) const { Q_UNUSED( milliseconds ) }
 
-    static PlatformUtilities *instance();
-
+    Q_INVOKABLE virtual void requestStoragePermission() const {};
     virtual Qt::PermissionStatus checkCameraPermission() const;
     virtual void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func );
     virtual Qt::PermissionStatus checkMicrophonePermission() const;
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func );
+
+    static PlatformUtilities *instance();
 
   signals:
     //! Emitted when a resource has been received.

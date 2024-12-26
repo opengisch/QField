@@ -516,8 +516,6 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &filePath, bool isEdit
   if ( QFileInfo( filePath ).isDir() )
     return nullptr;
 
-  checkWriteExternalStoragePermissions();
-
   QMimeDatabase db;
   const QString mimeType = db.mimeTypeForFile( filePath ).name();
 
@@ -547,6 +545,27 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &filePath, bool isEdit
   return viewStatus;
 }
 
+void AndroidPlatformUtilities::requestStoragePermission() const
+{
+  if ( !QSettings().value( QStringLiteral( "QField/storagePermissionChecked" ), false ).toBool() )
+  {
+    const int sdkVersion = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->sdkVersion();
+
+    QStringList permissions;
+    permissions << "android.permission.READ_EXTERNAL_STORAGE"
+                << "android.permission.WRITE_EXTERNAL_STORAGE"
+                << "android.permission.ACCESS_MEDIA_LOCATION";
+    if ( sdkVersion >= 33 )
+    {
+      permissions << "android.permission.READ_MEDIA_IMAGES"
+                  << "android.permission.READ_MEDIA_VIDEO";
+    }
+
+    checkAndAcquirePermissions( permissions, true );
+    QSettings().setValue( QStringLiteral( "QField/storagePermissionChecked" ), true );
+  }
+}
+
 bool AndroidPlatformUtilities::checkPositioningPermissions() const
 {
   // First check for coarse permissions. If the user configured QField to only get coarse permissions
@@ -554,44 +573,44 @@ bool AndroidPlatformUtilities::checkPositioningPermissions() const
   auto r = QtAndroidPrivate::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" ).result();
   if ( r == QtAndroidPrivate::Denied )
   {
-    return checkAndAcquirePermissions( "android.permission.ACCESS_FINE_LOCATION" );
+    return checkAndAcquirePermissions( QStringList() << "android.permission.ACCESS_FINE_LOCATION" );
   }
   return true;
 }
 
 bool AndroidPlatformUtilities::checkCameraPermissions() const
 {
-  return checkAndAcquirePermissions( "android.permission.CAMERA" );
+  return checkAndAcquirePermissions( QStringList() << "android.permission.CAMERA" );
 }
 
 bool AndroidPlatformUtilities::checkMicrophonePermissions() const
 {
-  return checkAndAcquirePermissions( "android.permission.RECORD_AUDIO" );
+  return checkAndAcquirePermissions( QStringList() << "android.permission.RECORD_AUDIO" );
 }
 
-bool AndroidPlatformUtilities::checkWriteExternalStoragePermissions() const
+bool AndroidPlatformUtilities::checkAndAcquirePermissions( QStringList permissions, bool forceAsk ) const
 {
-  return checkAndAcquirePermissions( "android.permission.WRITE_EXTERNAL_STORAGE" );
-}
-
-bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissions ) const
-{
-  QStringList requestedPermissions = permissions.split( ';' );
-  requestedPermissions.erase( std::remove_if( requestedPermissions.begin(), requestedPermissions.end(),
-                                              []( const QString &permission ) {
-                                                auto r = QtAndroidPrivate::checkPermission( permission ).result();
-                                                return r != QtAndroidPrivate::Denied;
-                                              } ),
-                              requestedPermissions.end() );
-
-  if ( !requestedPermissions.isEmpty() )
+  if ( !forceAsk )
   {
-    for ( const QString &permission : requestedPermissions )
+    permissions.erase( std::remove_if( permissions.begin(), permissions.end(),
+                                       []( const QString &permission ) {
+                                         auto r = QtAndroidPrivate::checkPermission( permission ).result();
+                                         return r != QtAndroidPrivate::Denied;
+                                       } ),
+                       permissions.end() );
+  }
+
+  if ( !permissions.isEmpty() )
+  {
+    for ( const QString &permission : permissions )
     {
       auto r = QtAndroidPrivate::requestPermission( permission ).result();
       if ( r == QtAndroidPrivate::Denied )
       {
-        return false;
+        if ( !forceAsk )
+        {
+          return false;
+        }
       }
     }
   }
@@ -695,7 +714,7 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
 void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
 {
   // Request notification permission
-  checkAndAcquirePermissions( QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) );
+  checkAndAcquirePermissions( QStringList() << QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) );
 
   QTimer::singleShot( 500, [connection]() {
     if ( connection )

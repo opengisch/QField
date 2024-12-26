@@ -62,10 +62,10 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     ViewStatus *open( const QString &filePath, bool isEditing, QObject *parent = nullptr ) override;
 
+    void requestStoragePermission() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
     bool checkMicrophonePermissions() const override;
-    bool checkWriteExternalStoragePermissions() const override;
 
     void setScreenLockPermission( const bool allowLock ) override;
 
@@ -86,7 +86,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
   private:
     // separate multiple permissions using a semi-column (;)
-    bool checkAndAcquirePermissions( const QString &permissions ) const;
+    bool checkAndAcquirePermissions( QStringList permissions, bool forceAsk = false ) const;
     ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent = nullptr );
     ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr );
 
