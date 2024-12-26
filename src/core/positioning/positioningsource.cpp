@@ -290,10 +290,13 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
     mPositionInformation = positionInformation;
   }
 
-  emit positionInformationChanged();
-  if ( mAveragedPosition )
+  if ( !mBackgroundMode )
   {
-    emit averagedPositionCountChanged();
+    emit positionInformationChanged();
+    if ( mAveragedPosition )
+    {
+      emit averagedPositionCountChanged();
+    }
   }
 }
 
@@ -311,7 +314,10 @@ void PositioningSource::processCompassReading()
     if ( mOrientation != orientation )
     {
       mOrientation = orientation;
-      emit orientationChanged();
+      if ( !mBackgroundMode )
+      {
+        emit orientationChanged();
+      }
     }
   }
 }
