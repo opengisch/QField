@@ -373,11 +373,6 @@ bool PlatformUtilities::checkMicrophonePermissions() const
   return true;
 }
 
-bool PlatformUtilities::checkWriteExternalStoragePermissions() const
-{
-  return true;
-}
-
 void PlatformUtilities::copyTextToClipboard( const QString &string ) const
 {
   QGuiApplication::clipboard()->setText( string );
