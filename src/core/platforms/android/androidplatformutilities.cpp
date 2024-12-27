@@ -573,19 +573,19 @@ bool AndroidPlatformUtilities::checkPositioningPermissions() const
   auto r = QtAndroidPrivate::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" ).result();
   if ( r == QtAndroidPrivate::Denied )
   {
-    return checkAndAcquirePermissions( QStringList() << "android.permission.ACCESS_FINE_LOCATION" );
+    return checkAndAcquirePermissions( { QStringLiteral( "android.permission.ACCESS_FINE_LOCATION" ) } );
   }
   return true;
 }
 
 bool AndroidPlatformUtilities::checkCameraPermissions() const
 {
-  return checkAndAcquirePermissions( QStringList() << "android.permission.CAMERA" );
+  return checkAndAcquirePermissions( { QStringLiteral( "android.permission.CAMERA" ) } );
 }
 
 bool AndroidPlatformUtilities::checkMicrophonePermissions() const
 {
-  return checkAndAcquirePermissions( QStringList() << "android.permission.RECORD_AUDIO" );
+  return checkAndAcquirePermissions( { QStringLiteral( "android.permission.RECORD_AUDIO" ) } );
 }
 
 bool AndroidPlatformUtilities::checkAndAcquirePermissions( QStringList permissions, bool forceAsk ) const
@@ -714,7 +714,7 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
 void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
 {
   // Request notification permission
-  checkAndAcquirePermissions( QStringList() << QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) );
+  checkAndAcquirePermissions( { QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) } );
 
   QTimer::singleShot( 500, [connection]() {
     if ( connection )
@@ -754,13 +754,13 @@ void AndroidPlatformUtilities::vibrate( int milliseconds ) const
 
 void AndroidPlatformUtilities::requestBackgroundPositioningPermissions()
 {
-  checkAndAcquirePermissions( QStringLiteral( "android.permission.ACCESS_BACKGROUND_LOCATION" ) );
+  checkAndAcquirePermissions( { QStringLiteral( "android.permission.ACCESS_BACKGROUND_LOCATION" ) } );
 }
 
 void AndroidPlatformUtilities::startPositioningService() const
 {
   // Request notification permission
-  checkAndAcquirePermissions( QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) );
+  checkAndAcquirePermissions( { QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) } );
 
   qInfo() << "Launching QField positioning service...";
   QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
