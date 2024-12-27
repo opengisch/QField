@@ -253,52 +253,54 @@ void QgsQuickCoordinateTransformer::setVerticalGrid( const QString &grid )
   mVerticalGrid = grid;
   mVerticalGridPath.clear();
 
-  if ( mVerticalGrid.isEmpty() )
-    return;
-
-  if ( QFile::exists( mVerticalGrid ) )
+  if ( !mVerticalGrid.isEmpty() )
   {
-    mVerticalGridPath = mVerticalGrid;
-  }
-  else
-  {
-    QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
-    if ( !dataDirs.isEmpty() )
+    if ( QFile::exists( mVerticalGrid ) )
     {
-      for ( const QString &dataDir : dataDirs )
-      {
-        const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( dataDir, mVerticalGrid );
-        if ( QFile::exists( verticalGridPath ) )
-        {
-          mVerticalGridPath = verticalGridPath;
-          break;
-        }
-      }
-    }
-  }
-
-  if ( !mVerticalGridPath.isEmpty() )
-  {
-    GDALDatasetH hDataset;
-    GDALAllRegister();
-    hDataset = GDALOpen( mVerticalGridPath.toUtf8().constData(), GA_ReadOnly );
-    if ( hDataset != NULL )
-    {
-      OGRSpatialReferenceH spatialRef = GDALGetSpatialRef( hDataset );
-      char *pszWkt = nullptr;
-      const QByteArray multiLineOption = QStringLiteral( "MULTILINE=NO" ).toLocal8Bit();
-      const QByteArray formatOption = QStringLiteral( "FORMAT=WKT2" ).toLocal8Bit();
-      const char *const options[] = { multiLineOption.constData(), formatOption.constData(), nullptr };
-      OSRExportToWktEx( spatialRef, &pszWkt, options );
-      mCoordinateVerticalGridTransform.setDestinationCrs( QgsCoordinateReferenceSystem::fromWkt( QString( pszWkt ) ) );
-      mCoordinateVerticalGridTransform.setContext( mCoordinateTransform.context() );
-      CPLFree( pszWkt );
+      mVerticalGridPath = mVerticalGrid;
     }
     else
     {
-      // Invalid grid file, skip
-      mVerticalGridPath.clear();
+      QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+      if ( !dataDirs.isEmpty() )
+      {
+        for ( const QString &dataDir : dataDirs )
+        {
+          const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( dataDir, mVerticalGrid );
+          if ( QFile::exists( verticalGridPath ) )
+          {
+            mVerticalGridPath = verticalGridPath;
+            break;
+          }
+        }
+      }
     }
-    GDALClose( hDataset );
+
+    if ( !mVerticalGridPath.isEmpty() )
+    {
+      GDALDatasetH hDataset;
+      GDALAllRegister();
+      hDataset = GDALOpen( mVerticalGridPath.toUtf8().constData(), GA_ReadOnly );
+      if ( hDataset != NULL )
+      {
+        OGRSpatialReferenceH spatialRef = GDALGetSpatialRef( hDataset );
+        char *pszWkt = nullptr;
+        const QByteArray multiLineOption = QStringLiteral( "MULTILINE=NO" ).toLocal8Bit();
+        const QByteArray formatOption = QStringLiteral( "FORMAT=WKT2" ).toLocal8Bit();
+        const char *const options[] = { multiLineOption.constData(), formatOption.constData(), nullptr };
+        OSRExportToWktEx( spatialRef, &pszWkt, options );
+        mCoordinateVerticalGridTransform.setDestinationCrs( QgsCoordinateReferenceSystem::fromWkt( QString( pszWkt ) ) );
+        mCoordinateVerticalGridTransform.setContext( mCoordinateTransform.context() );
+        CPLFree( pszWkt );
+      }
+      else
+      {
+        // Invalid grid file, skip
+        mVerticalGridPath.clear();
+      }
+      GDALClose( hDataset );
+    }
   }
+
+  emit verticalGridChanged();
 }
