@@ -71,10 +71,14 @@ class Tracker : public QObject
 
     explicit Tracker( QgsVectorLayer *vectorLayer );
 
+    //! Returns the rubber band model used to generate the track geometry
     RubberbandModel *rubberbandModel() const;
+    //! Sets the rubber band model used to generate the track geometry
     void setRubberbandModel( RubberbandModel *rubberbandModel );
 
+    //! Returns the feature model used to generate the track attributes
     FeatureModel *featureModel() const;
+    //! Sets the feature model used to generate the track attributes
     void setFeatureModel( FeatureModel *featureModel );
 
     //! Returns the minimum time interval constraint between each tracked point
@@ -133,10 +137,15 @@ class Tracker : public QObject
     //! Returns whether the tracker is replaying positions
     bool isReplaying() const { return mIsReplaying; }
 
+    //! Starts tracking
     void start();
+    //! Stops tracking
     void stop();
 
+    //! Process the given position information and projected position passed onto the tracker
     Q_INVOKABLE void processPositionInformation( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition );
+
+    //! Replays a list of position information taking into account the tracker settings
     void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
 
   signals:
