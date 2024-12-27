@@ -23,6 +23,7 @@ Item {
     enabled: tracker.isActive
 
     function onPositionInformationChanged() {
+      featureModel.positionInformation = positionSource.positionInformation;
       tracker.processPositionInformation(positionSource.positionInformation, positionSource.projectedPosition);
     }
   }
@@ -73,7 +74,6 @@ Item {
       vectorLayer: tracker.vectorLayer
     }
 
-    positionInformation: coordinateLocator.positionInformation
     positionLocked: true
     cloudUserInformation: projectInfo.cloudUserInformation
   }

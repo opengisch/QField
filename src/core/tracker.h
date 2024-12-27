@@ -133,7 +133,7 @@ class Tracker : public QObject
     //! Returns whether the tracker is replaying positions
     bool isReplaying() const { return mIsReplaying; }
 
-    void start( bool resetRubberbandModel = true );
+    void start();
     void stop();
 
     Q_INVOKABLE void processPositionInformation( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition );
