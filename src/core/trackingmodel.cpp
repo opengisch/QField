@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "featuremodel.h"
 #include "rubberbandmodel.h"
 #include "trackingmodel.h"
 
@@ -35,13 +36,15 @@ QHash<int, QByteArray> TrackingModel::roleNames() const
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
   roles[DisplayString] = "displayString";
+  roles[TrackerPointer] = "tracker";
   roles[VectorLayer] = "vectorLayer";
   roles[TimeInterval] = "timeInterval";
   roles[MinimumDistance] = "minimumDistance";
   roles[MaximumDistance] = "maximumDistance";
   roles[Conjunction] = "conjunction";
   roles[Feature] = "feature";
-  roles[RubberModel] = "rubberModel";
+  roles[RubberbandModelPointer] = "rubberbandModel";
+  roles[FeatureModelPointer] = "featureModel";
   roles[Visible] = "visible";
   roles[StartPositionTimestamp] = "startPositionTimestamp";
   roles[MeasureType] = "measureType";
@@ -88,6 +91,8 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
   {
     case DisplayString:
       return QString( "Tracker on layer %1" ).arg( tracker->layer()->name() );
+    case TrackerPointer:
+      return QVariant::fromValue<Tracker *>( tracker );
     case VectorLayer:
       return QVariant::fromValue<QgsVectorLayer *>( tracker->layer() );
     case Feature:
@@ -102,8 +107,10 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
       return tracker->minimumDistance();
     case Conjunction:
       return tracker->conjunction();
-    case RubberModel:
-      return QVariant::fromValue<RubberbandModel *>( tracker->model() );
+    case RubberbandModelPointer:
+      return QVariant::fromValue<RubberbandModel *>( tracker->rubberbandModel() );
+    case FeatureModelPointer:
+      return QVariant::fromValue<FeatureModel *>( tracker->featureModel() );
     case MeasureType:
       return tracker->measureType();
     case SensorCapture:
@@ -140,8 +147,11 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
     case Conjunction:
       tracker->setConjunction( value.toBool() );
       break;
-    case RubberModel:
-      tracker->setModel( value.value<RubberbandModel *>() );
+    case RubberbandModelPointer:
+      tracker->setRubberbandModel( value.value<RubberbandModel *>() );
+      break;
+    case FeatureModelPointer:
+      tracker->setFeatureModel( value.value<FeatureModel *>() );
       break;
     case MeasureType:
       tracker->setMeasureType( static_cast<Tracker::MeasureType>( value.toInt() ) );
@@ -152,6 +162,7 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
     case MaximumDistance:
       tracker->setMaximumDistance( value.toDouble() );
       break;
+    case TrackerPointer:
     default:
       return false;
   }
@@ -233,6 +244,18 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
   endRemoveRows();
 
   emit layerInTrackingChanged( layer, false );
+}
+
+void TrackingModel::replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
+{
+  for ( int i = 0; i < mTrackers.size(); i++ )
+  {
+    Tracker *tracker = mTrackers[i];
+    if ( tracker->isActive() )
+    {
+      tracker->replayPositionInformationList( positionInformationList, coordinateTransformer );
+    }
+  }
 }
 
 void TrackingModel::setTrackerVisibility( QgsVectorLayer *layer, bool visible )

@@ -20,6 +20,7 @@
 
 #include <QAbstractItemModel>
 
+class QgsQuickCoordinateTransformer;
 class RubberbandModel;
 class Track;
 
@@ -37,8 +38,10 @@ class TrackingModel : public QAbstractItemModel
     enum TrackingRoles
     {
       DisplayString = Qt::UserRole,
+      TrackerPointer,         //! tracker object
       VectorLayer,            //! layer in the current tracking session
-      RubberModel,            //! rubberbandmodel used in the current tracking session
+      RubberbandModelPointer, //! rubber band model used in the current tracking session
+      FeatureModelPointer,    //! feature model used in the current tracking session
       TimeInterval,           //! minimum time interval constraint between each tracked point
       MinimumDistance,        //! minimum distance constraint between each tracked point
       Conjunction,            //! if TRUE, all constraints needs to be fulfilled before tracking a point
@@ -67,6 +70,8 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE void startTracker( QgsVectorLayer *layer );
     //! Stops the tracking session of the provided vector \a layer.
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
+    //! Stops the tracking session of the provided vector \a layer.
+    Q_INVOKABLE void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
     //! Sets whether the tracking session rubber band is \a visible.
     Q_INVOKABLE void setTrackerVisibility( QgsVectorLayer *layer, bool visible );
     //! Returns TRUE if the \a featureId is attached to a vector \a layer tracking session.
