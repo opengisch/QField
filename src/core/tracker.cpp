@@ -25,9 +25,27 @@
 
 #define MAXIMUM_DISTANCE_FAILURES 20
 
-Tracker::Tracker( QgsVectorLayer *layer )
-  : mLayer( layer )
+Tracker::Tracker( QgsVectorLayer *vectorLayer )
+  : mVectorLayer( vectorLayer )
 {
+}
+
+void Tracker::setVisible( bool visible )
+{
+  if ( mVisible == visible )
+    return;
+
+  mVisible = visible;
+  emit visibleChanged();
+}
+
+void Tracker::setVectorLayer( QgsVectorLayer *vectorLayer )
+{
+  if ( mVectorLayer == vectorLayer )
+    return;
+
+  mVectorLayer = vectorLayer;
+  emit vectorLayerChanged();
 }
 
 RubberbandModel *Tracker::rubberbandModel() const
@@ -80,6 +98,61 @@ void Tracker::setFeature( const QgsFeature &feature )
     return;
 
   mFeature = feature;
+  emit featureChanged();
+}
+
+void Tracker::setTimeInterval( double interval )
+{
+  if ( mTimeInterval == interval )
+    return;
+
+  mTimeInterval = interval;
+  emit timeIntervalChanged();
+}
+
+void Tracker::setMinimumDistance( double minimumDistance )
+{
+  if ( mMinimumDistance == minimumDistance )
+    return;
+
+  mMinimumDistance = minimumDistance;
+  emit minimumDistanceChanged();
+}
+
+void Tracker::setMaximumDistance( double maximumDistance )
+{
+  if ( mMaximumDistance == maximumDistance )
+    return;
+
+  mMaximumDistance = maximumDistance;
+  emit maximumDistanceChanged();
+}
+
+void Tracker::setSensorCapture( bool capture )
+{
+  if ( mSensorCapture == capture )
+    return;
+
+  mSensorCapture = capture;
+  emit sensorCaptureChanged();
+}
+
+void Tracker::setConjunction( bool conjunction )
+{
+  if ( mConjunction == conjunction )
+    return;
+
+  mConjunction = conjunction;
+  emit conjunctionChanged();
+}
+
+void Tracker::setMeasureType( MeasureType type )
+{
+  if ( mMeasureType == type )
+    return;
+
+  mMeasureType = type;
+  emit measureTypeChanged();
 }
 
 void Tracker::trackPosition()
@@ -173,8 +246,13 @@ void Tracker::sensorDataReceived()
   }
 }
 
-void Tracker::start()
+void Tracker::start( bool resetRubberbandModel )
 {
+  if ( resetRubberbandModel )
+  {
+    mRubberbandModel->reset();
+  }
+
   mIsActive = true;
   emit isActiveChanged();
 
@@ -220,7 +298,7 @@ void Tracker::start()
   trackPosition();
 }
 
-void Tracker::stop( bool resetRubberbandModel )
+void Tracker::stop()
 {
   //track last position
   trackPosition();
@@ -241,16 +319,11 @@ void Tracker::stop( bool resetRubberbandModel )
   {
     disconnect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &Tracker::sensorDataReceived );
   }
-
-  if ( resetRubberbandModel )
-  {
-    mRubberbandModel->reset();
-  }
 }
 
 void Tracker::processPositionInformation( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
 {
-  if ( !mIsActive && !mReplaying )
+  if ( !mIsActive && !mIsReplaying )
     return;
 
   switch ( mMeasureType )
@@ -293,10 +366,12 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   if ( mIsActive )
   {
     wasActive = true;
-    stop( false );
+    stop();
   }
 
-  mReplaying = true;
+  mIsReplaying = true;
+  emit isReplayingChanged();
+
   for ( const GnssPositionInformation &positionInformation : positionInformationList )
   {
     processPositionInformation( positionInformation,
@@ -321,17 +396,18 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
     }
   }
 
-  mReplaying = false;
+  mIsReplaying = false;
+  emit isReplayingChanged();
 
   if ( wasActive )
   {
-    start();
+    start( false );
   }
 }
 
 void Tracker::rubberbandModelVertexCountChanged()
 {
-  if ( ( !mIsActive && !mReplaying ) || mRubberbandModel->vertexCount() == 0 )
+  if ( ( !mIsActive && !mIsReplaying ) || mRubberbandModel->vertexCount() == 0 )
     return;
 
   const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();

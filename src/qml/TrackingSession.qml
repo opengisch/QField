@@ -11,7 +11,6 @@ import Theme
 Item {
   id: trackingSession
 
-  property var trackerModelItem: model
   property var tracker: model.tracker
 
   Component.onCompleted: {
@@ -21,11 +20,10 @@ Item {
 
   Connections {
     target: positionSource
+    enabled: tracker.isActive
 
     function onPositionInformationChanged() {
-      if (tracker.isActive) {
-        tracker.processPositionInformation(positionSource.positionInformation, positionSource.projectedPosition);
-      }
+      tracker.processPositionInformation(positionSource.positionInformation, positionSource.projectedPosition);
     }
   }
 
@@ -42,13 +40,13 @@ Item {
   RubberbandModel {
     id: rubberbandModel
     frozen: false
-    vectorLayer: trackerModelItem.vectorLayer
+    vectorLayer: tracker.vectorLayer
     crs: mapCanvas.mapSettings.destinationCrs
   }
 
   Rubberband {
     id: rubberband
-    visible: trackerModelItem.visible
+    visible: tracker.visible
 
     color: Qt.rgba(Math.min(0.75, Math.random()), Math.min(0.75, Math.random()), Math.min(0.75, Math.random()), 0.6)
     geometryType: Qgis.GeometryType.Line
@@ -60,11 +58,11 @@ Item {
   FeatureModel {
     id: featureModel
     project: qgisProject
-    currentLayer: trackerModelItem.vectorLayer
-    feature: trackerModelItem.feature
+    currentLayer: tracker.vectorLayer
+    feature: tracker.feature
 
     onFeatureChanged: {
-      if (!tracker.isActive) {
+      if (!tracker.isActive && !tracker.isReplaying) {
         updateRubberband();
       }
     }
@@ -72,7 +70,7 @@ Item {
     geometry: Geometry {
       id: featureModelGeometry
       rubberbandModel: rubberbandModel
-      vectorLayer: trackerModelItem.vectorLayer
+      vectorLayer: tracker.vectorLayer
     }
 
     positionInformation: coordinateLocator.positionInformation

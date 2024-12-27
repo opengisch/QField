@@ -35,8 +35,22 @@ class Tracker : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
+    Q_PROPERTY( bool isReplaying READ isReplaying NOTIFY isReplayingChanged )
+
+    Q_PROPERTY( bool visible READ visible WRITE setVisible NOTIFY visibleChanged )
+
+    Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
+    Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
+
     Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
     Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
+
+    Q_PROPERTY( double timeInterval READ timeInterval WRITE setTimeInterval NOTIFY timeIntervalChanged )
+    Q_PROPERTY( double minimumDistance READ minimumDistance WRITE setMinimumDistance NOTIFY minimumDistanceChanged )
+    Q_PROPERTY( double maximumDistance READ maximumDistance WRITE setMaximumDistance NOTIFY maximumDistanceChanged )
+    Q_PROPERTY( bool sensorCapture READ sensorCapture WRITE setSensorCapture NOTIFY sensorCaptureChanged )
+    Q_PROPERTY( bool conjunction READ conjunction WRITE setConjunction NOTIFY conjunctionChanged )
+    Q_PROPERTY( MeasureType measureType READ measureType WRITE setMeasureType NOTIFY measureTypeChanged )
 
     Q_PROPERTY( QDateTime startPositionTimestamp READ startPositionTimestamp WRITE setStartPositionTimestamp NOTIFY startPositionTimestampChanged )
 
@@ -55,7 +69,7 @@ class Tracker : public QObject
     };
     Q_ENUM( MeasureType )
 
-    explicit Tracker( QgsVectorLayer *layer );
+    explicit Tracker( QgsVectorLayer *vectorLayer );
 
     RubberbandModel *rubberbandModel() const;
     void setRubberbandModel( RubberbandModel *rubberbandModel );
@@ -66,27 +80,27 @@ class Tracker : public QObject
     //! Returns the minimum time interval constraint between each tracked point
     double timeInterval() const { return mTimeInterval; }
     //! Sets the minimum time interval constraint between each tracked point
-    void setTimeInterval( const double timeInterval ) { mTimeInterval = timeInterval; }
+    void setTimeInterval( double timeInterval );
 
     //! Returns the minimum distance constraint between each tracked point
     double minimumDistance() const { return mMinimumDistance; }
     //! Sets the minimum distance constraint between each tracked point
-    void setMinimumDistance( const double minimumDistance ) { mMinimumDistance = minimumDistance; };
+    void setMinimumDistance( double minimumDistance );
 
     //! Returns the maximum distance tolerated beyond which a position will be considered errenous
     double maximumDistance() const { return mMaximumDistance; }
     //! Sets the maximum distance tolerated beyond which a position will be considered errenous
-    void setMaximumDistance( const double maximumDistance ) { mMaximumDistance = maximumDistance; };
+    void setMaximumDistance( double maximumDistance );
 
     //! Returns if TRUE, newly captured sensor data is needed between each tracked point
     bool sensorCapture() const { return mSensorCapture; }
     //! Sets whether newly captured sensor data is needed between each tracked point
-    void setSensorCapture( const bool capture ) { mSensorCapture = capture; }
+    void setSensorCapture( bool capture );
 
     //! Returns TRUE if all constraints need to be fulfilled between each tracked point
     bool conjunction() const { return mConjunction; }
     //! Sets where all constraints need to be fulfilled between each tracked point
-    void setConjunction( const bool conjunction ) { mConjunction = conjunction; }
+    void setConjunction( bool conjunction );
 
     //! Returns the timestamp of the first recorded point
     QDateTime startPositionTimestamp() const { return mStartPositionTimestamp; }
@@ -94,9 +108,9 @@ class Tracker : public QObject
     void setStartPositionTimestamp( const QDateTime &startPositionTimestamp ) { mStartPositionTimestamp = startPositionTimestamp; }
 
     //! Returns the current layer
-    QgsVectorLayer *layer() const { return mLayer.data(); }
+    QgsVectorLayer *vectorLayer() const { return mVectorLayer.data(); }
     //! Sets the current layer
-    void setLayer( QgsVectorLayer *layer ) { mLayer = layer; }
+    void setVectorLayer( QgsVectorLayer *vectorLayer );
 
     //! Returns the created feature
     QgsFeature feature() const;
@@ -106,27 +120,42 @@ class Tracker : public QObject
     //! Returns TRUE if the tracker rubberband is visible
     bool visible() const { return mVisible; }
     //! Sets whether the tracker rubberband is visible
-    void setVisible( const bool visible ) { mVisible = visible; }
+    void setVisible( bool visible );
 
     //! Returns the measure type used with the tracker geometry's M dimension when available
     MeasureType measureType() const { return mMeasureType; }
     //! Sets the measure type used with the tracker geometry's M dimension when available
-    void setMeasureType( MeasureType type ) { mMeasureType = type; }
+    void setMeasureType( MeasureType type );
 
     //! Returns whether the tracker has been started
     bool isActive() const { return mIsActive; }
 
-    void start();
-    void stop( bool resetRubberbandModel = true );
+    //! Returns whether the tracker is replaying positions
+    bool isReplaying() const { return mIsReplaying; }
+
+    void start( bool resetRubberbandModel = true );
+    void stop();
 
     Q_INVOKABLE void processPositionInformation( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition );
     void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
 
   signals:
     void isActiveChanged();
+    void isReplayingChanged();
+    void visibleChanged();
+    void vectorLayerChanged();
     void rubberbandModelChanged();
     void featureModelChanged();
+
+    void timeIntervalChanged();
+    void minimumDistanceChanged();
+    void maximumDistanceChanged();
+    void sensorCaptureChanged();
+    void conjunctionChanged();
+    void measureTypeChanged();
+
     void featureCreated();
+    void featureChanged();
 
     void startPositionTimestampChanged();
 
@@ -140,7 +169,7 @@ class Tracker : public QObject
     void trackPosition();
 
     bool mIsActive = false;
-    bool mReplaying = false;
+    bool mIsReplaying = false;
 
     RubberbandModel *mRubberbandModel = nullptr;
     FeatureModel *mFeatureModel = nullptr;
@@ -158,7 +187,7 @@ class Tracker : public QObject
     bool mSensorCaptureFulfilled = false;
     bool mSkipPositionReceived = false;
 
-    QPointer<QgsVectorLayer> mLayer;
+    QPointer<QgsVectorLayer> mVectorLayer;
     QgsFeature mFeature;
 
     bool mVisible = true;
