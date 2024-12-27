@@ -139,12 +139,12 @@ QModelIndex TrackingModel::createTracker( QgsVectorLayer *layer )
   return index( mTrackers.size() - 1, 0 );
 }
 
-void TrackingModel::startTracker( QgsVectorLayer *layer )
+void TrackingModel::startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
 {
   const int idx = trackerIterator( layer ) - mTrackers.constBegin();
   if ( idx >= 0 )
   {
-    mTrackers[idx]->start();
+    mTrackers[idx]->start( positionInformation, projectedPosition );
     emit layerInTrackingChanged( layer, true );
   }
 }

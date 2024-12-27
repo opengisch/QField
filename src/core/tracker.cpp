@@ -18,7 +18,6 @@
 #include "rubberbandmodel.h"
 #include "tracker.h"
 
-#include <QTimer>
 #include <qgsdistancearea.h>
 #include <qgsproject.h>
 #include <qgssensormanager.h>
@@ -174,6 +173,7 @@ void Tracker::trackPosition()
   mSkipPositionReceived = true;
   mRubberbandModel->addVertex();
 
+  mLastVertexPositionTimestamp = mLastDevicePositionTimestamp;
   mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = 0.0;
   mTimeIntervalFulfilled = qgsDoubleNear( mTimeInterval, 0.0 );
@@ -210,27 +210,30 @@ void Tracker::positionReceived()
 
   if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) )
   {
-    if ( mCurrentDistance > mMinimumDistance )
+    mMinimumDistanceFulfilled = mCurrentDistance >= mMinimumDistance;
+
+    if ( !mConjunction && mMinimumDistanceFulfilled )
     {
-      mMinimumDistanceFulfilled = true;
+      trackPosition();
+      return;
     }
   }
-  else
+
+  if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
   {
-    mMinimumDistanceFulfilled = true;
+    mTimeIntervalFulfilled = ( mLastDevicePositionTimestamp.toMSecsSinceEpoch() - mLastVertexPositionTimestamp.toMSecsSinceEpoch() ) >= mTimeInterval * 1000;
+    qDebug() << mLastDevicePositionTimestamp;
+    qDebug() << mTimeInterval;
+    qDebug() << ( mLastDevicePositionTimestamp.toMSecsSinceEpoch() - mLastVertexPositionTimestamp.toMSecsSinceEpoch() );
+
+    if ( !mConjunction && mTimeIntervalFulfilled )
+    {
+      trackPosition();
+      return;
+    }
   }
 
-  if ( ( !mConjunction && mMinimumDistanceFulfilled ) || ( mMinimumDistanceFulfilled && mTimeIntervalFulfilled && mSensorCaptureFulfilled ) )
-  {
-    trackPosition();
-  }
-}
-
-void Tracker::timeReceived()
-{
-  mTimeIntervalFulfilled = true;
-
-  if ( !mConjunction || ( mMinimumDistanceFulfilled && mSensorCaptureFulfilled ) )
+  if ( mMinimumDistanceFulfilled && mTimeIntervalFulfilled && mSensorCaptureFulfilled )
   {
     trackPosition();
   }
@@ -246,39 +249,19 @@ void Tracker::sensorDataReceived()
   }
 }
 
-void Tracker::start()
+void Tracker::start( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
 {
   mIsActive = true;
   emit isActiveChanged();
 
-  if ( mTimeInterval > 0 )
-  {
-    connect( &mTimer, &QTimer::timeout, this, &Tracker::timeReceived );
-    mTimer.start( mTimeInterval * 1000 );
-  }
-  else
-  {
-    mTimeIntervalFulfilled = true;
-  }
-  if ( mMinimumDistance > 0 || ( qgsDoubleNear( mTimeInterval, 0.0 ) && !mSensorCapture ) )
+  if ( mMinimumDistance > 0 || mTimeInterval > 0 || !mSensorCapture )
   {
     connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
-  }
-  else
-  {
-    mMinimumDistanceFulfilled = true;
   }
   if ( mSensorCapture )
   {
     connect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &Tracker::sensorDataReceived );
   }
-  else
-  {
-    mSensorCaptureFulfilled = true;
-  }
-
-  //set the start time
-  setStartPositionTimestamp( QDateTime::currentDateTime() );
 
   if ( mMeasureType == Tracker::SecondsSinceStart )
   {
@@ -288,9 +271,18 @@ void Tracker::start()
   mSkipPositionReceived = false;
   mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = mMaximumDistance;
+  mTimeIntervalFulfilled = qgsDoubleNear( mTimeInterval, 0.0 );
+  mMinimumDistanceFulfilled = qgsDoubleNear( mMinimumDistance, 0.0 );
+  mSensorCaptureFulfilled = !mSensorCapture;
 
-  //track first position
-  trackPosition();
+  if ( !projectedPosition.isEmpty() )
+  {
+    //set the start time of first position
+    setStartPositionTimestamp( positionInformation.utcDateTime().isValid() ? positionInformation.utcDateTime() : QDateTime::currentDateTime() );
+
+    //track first position
+    processPositionInformation( positionInformation, projectedPosition );
+  }
 }
 
 void Tracker::stop()
@@ -301,12 +293,7 @@ void Tracker::stop()
   mIsActive = false;
   emit isActiveChanged();
 
-  if ( mTimeInterval > 0 )
-  {
-    mTimer.stop();
-    disconnect( &mTimer, &QTimer::timeout, this, &Tracker::trackPosition );
-  }
-  if ( mMinimumDistance > 0 || ( qgsDoubleNear( mTimeInterval, 0.0 ) && !mSensorCapture ) )
+  if ( mMinimumDistance > 0 || mTimeInterval > 0 || !mSensorCapture )
   {
     disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
@@ -320,6 +307,8 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
 {
   if ( !mIsActive && !mIsReplaying )
     return;
+
+  mLastDevicePositionTimestamp = positionInformation.utcDateTime();
 
   switch ( mMeasureType )
   {
@@ -367,12 +356,13 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   mIsReplaying = true;
   emit isReplayingChanged();
 
+  connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   for ( const GnssPositionInformation &positionInformation : positionInformationList )
   {
     processPositionInformation( positionInformation,
                                 coordinateTransformer ? coordinateTransformer->transformPosition( QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) ) : QgsPoint() );
-    trackPosition();
   }
+  disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
 
   const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
   const int vertexCount = mRubberbandModel->vertexCount();

@@ -54,7 +54,7 @@ class TrackingModel : public QAbstractItemModel
     //! Creates a tracking session for the provided vector \a layer.
     Q_INVOKABLE QModelIndex createTracker( QgsVectorLayer *layer );
     //! Starts tracking for the provided vector \a layer provided it has a tracking session created.
-    Q_INVOKABLE void startTracker( QgsVectorLayer *layer );
+    Q_INVOKABLE void startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation = GnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
     //! Stops the tracking session of the provided vector \a layer.
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
     //! Sets whether the tracking session rubber band is \a visible.
