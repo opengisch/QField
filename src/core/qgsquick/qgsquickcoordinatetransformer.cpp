@@ -107,7 +107,7 @@ QgsCoordinateTransformContext QgsQuickCoordinateTransformer::transformContext() 
   return mCoordinateTransform.context();
 }
 
-QgsPoint QgsQuickCoordinateTransformer::transformPosition( const QgsPoint &position )
+QgsPoint QgsQuickCoordinateTransformer::transformPosition( const QgsPoint &position ) const
 {
   return processPosition( position );
 }
@@ -118,7 +118,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
   emit projectedPositionChanged();
 }
 
-QgsPoint QgsQuickCoordinateTransformer::processPosition( const QgsPoint &position )
+QgsPoint QgsQuickCoordinateTransformer::processPosition( const QgsPoint &position ) const
 {
   double x = position.x();
   double y = position.y();
