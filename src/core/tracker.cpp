@@ -303,6 +303,24 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
                                 coordinateTransformer ? coordinateTransformer->transformPosition( QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) ) : QgsPoint() );
     trackPosition();
   }
+
+  const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
+  const int vertexCount = mRubberbandModel->vertexCount();
+  if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
+  {
+    mFeatureModel->applyGeometry();
+    if ( mFeature.id() == FID_NULL )
+    {
+      mFeatureModel->create();
+      mFeature = mFeatureModel->feature();
+      emit featureCreated();
+    }
+    else
+    {
+      mFeatureModel->save();
+    }
+  }
+
   mReplaying = false;
 
   if ( wasActive )
@@ -327,18 +345,22 @@ void Tracker::rubberbandModelVertexCountChanged()
   }
   else
   {
-    if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
+    // When replaying, we can optimize things and do this only once
+    if ( mIsActive )
     {
-      mFeatureModel->applyGeometry();
-      if ( ( geometryType == Qgis::GeometryType::Line && vertexCount == 3 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount == 4 ) )
+      if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
       {
-        mFeatureModel->create();
-        mFeature = mFeatureModel->feature();
-        emit featureCreated();
-      }
-      else
-      {
-        mFeatureModel->save();
+        mFeatureModel->applyGeometry();
+        if ( ( geometryType == Qgis::GeometryType::Line && vertexCount == 3 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount == 4 ) )
+        {
+          mFeatureModel->create();
+          mFeature = mFeatureModel->feature();
+          emit featureCreated();
+        }
+        else
+        {
+          mFeatureModel->save();
+        }
       }
     }
   }
