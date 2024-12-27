@@ -38,20 +38,7 @@ class TrackingModel : public QAbstractItemModel
     enum TrackingRoles
     {
       DisplayString = Qt::UserRole,
-      TrackerPointer,         //! tracker object
-      VectorLayer,            //! layer in the current tracking session
-      RubberbandModelPointer, //! rubber band model used in the current tracking session
-      FeatureModelPointer,    //! feature model used in the current tracking session
-      TimeInterval,           //! minimum time interval constraint between each tracked point
-      MinimumDistance,        //! minimum distance constraint between each tracked point
-      Conjunction,            //! if TRUE, all constraints needs to be fulfilled before tracking a point
-      Visible,                //! if TRUE, the tracking session rubberband is visible
-      Feature,                //! feature in the current tracking session
-      StartPositionTimestamp, //! timestamp when the current tracking session started
-      MeasureType,            //! measurement type used to set the measure value
-      SensorCapture,          //! if TRUE, newly captured sensor data constraint will be required between each tracked point
-      MaximumDistance,        //! maximum distance tolerated beyond which a position will be considered errenous
-      IsActive,               //! if TRUE, the tracker has been started
+      TrackerPointer,
     };
 
     QHash<int, QByteArray> roleNames() const override;
@@ -103,7 +90,7 @@ class TrackingModel : public QAbstractItemModel
     QList<Tracker *> mTrackers;
     QList<Tracker *>::const_iterator trackerIterator( QgsVectorLayer *layer )
     {
-      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker *tracker ) { return tracker->layer() == layer; } );
+      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker *tracker ) { return tracker->vectorLayer() == layer; } );
     }
 };
 
