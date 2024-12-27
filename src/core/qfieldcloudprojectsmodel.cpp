@@ -1841,7 +1841,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     // check if the code above failed with error
     if ( hasError )
     {
-      logFailedDownload( project, projectId, fileName, errorMessage, errorMessageDetail );
+      logFailedDownload( project, fileName, errorMessage, errorMessageDetail );
       rawReply->abort();
       return;
     }
@@ -1905,7 +1905,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     // check if the code above failed with error
     if ( hasError )
     {
-      logFailedDownload( project, projectId, fileName, errorMessage, errorMessageDetail );
+      logFailedDownload( project, fileName, errorMessage, errorMessageDetail );
       rawReply->abort();
       return;
     }
@@ -2084,7 +2084,7 @@ void QFieldCloudProjectsModel::insertProjects( const QList<CloudProject *> &proj
   endInsertRows();
 }
 
-void QFieldCloudProjectsModel::logFailedDownload( CloudProject *project, const QString &projectId, const QString &fileName, const QString &errorMessage, const QString &errorMessageDetail )
+void QFieldCloudProjectsModel::logFailedDownload( CloudProject *project, const QString &fileName, const QString &errorMessage, const QString &errorMessageDetail )
 {
   project->downloadFilesFailed++;
 
@@ -2099,7 +2099,7 @@ void QFieldCloudProjectsModel::logFailedDownload( CloudProject *project, const Q
 
   QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( baseMessage, errorMessageDetail ) );
 
-  emit projectDownloadFinished( projectId, trimmedMessage );
+  emit projectDownloadFinished( project->id, trimmedMessage );
 }
 
 void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool skipLocalProjects )
