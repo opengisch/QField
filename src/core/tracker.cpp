@@ -101,12 +101,12 @@ void Tracker::setFeature( const QgsFeature &feature )
   emit featureChanged();
 }
 
-void Tracker::setTimeInterval( double interval )
+void Tracker::setTimeInterval( double timeInterval )
 {
-  if ( mTimeInterval == interval )
+  if ( mTimeInterval == timeInterval )
     return;
 
-  mTimeInterval = interval;
+  mTimeInterval = timeInterval;
   emit timeIntervalChanged();
 }
 
