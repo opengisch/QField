@@ -227,6 +227,11 @@ class Positioning : public QObject
      */
     void setBackgroundMode( bool backgroundMode );
 
+    /**
+     * Returns a list of position information collected while background mode is turned on.
+     */
+    Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
+
   signals:
     void activeChanged();
     void validChanged();

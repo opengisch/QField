@@ -383,6 +383,25 @@ void Positioning::setBackgroundMode( bool backgroundMode )
   emit backgroundModeChanged();
 }
 
+QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() const
+{
+  QList<GnssPositionInformation> positionInformationList;
+
+  if ( mPositioningSourceReplica )
+  {
+    QRemoteObjectPendingCall call;
+    QMetaObject::invokeMethod( mPositioningSourceReplica.data(), "getBackgroundPositionInformation", Qt::DirectConnection, Q_RETURN_ARG( QRemoteObjectPendingCall, call ) );
+    call.waitForFinished();
+    const QVariantList list = call.returnValue().toList();
+    for ( const QVariant &item : list )
+    {
+      positionInformationList << item.value<GnssPositionInformation>();
+    }
+  }
+
+  return std::move( positionInformationList );
+}
+
 PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode() const
 {
   return static_cast<PositioningSource::ElevationCorrectionMode>( ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "elevationCorrectionMode" ) : mPropertiesToSync.value( "elevationCorrectionMode", static_cast<int>( PositioningSource::ElevationCorrectionMode::None ) ) ).toInt() );
