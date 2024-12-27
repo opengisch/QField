@@ -473,13 +473,7 @@ void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coord
   if ( mCoordinateTransformer == coordinateTransformer )
     return;
 
-  if ( mCoordinateTransformer )
-  {
-    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::projectedPositionChanged, this, &Positioning::projectedPositionTransformed );
-  }
-
   mCoordinateTransformer = coordinateTransformer;
-  connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::projectedPositionChanged, this, &Positioning::projectedPositionTransformed );
 
   emit coordinateTransformerChanged();
 }
@@ -514,7 +508,20 @@ void Positioning::processGnssPositionInformation()
 
   if ( mCoordinateTransformer )
   {
-    mCoordinateTransformer->setSourcePosition( mSourcePosition );
+    mProjectedPosition = mCoordinateTransformer->transformPosition( mSourcePosition );
+    mProjectedHorizontalAccuracy = mPositionInformation.hacc();
+    if ( mPositionInformation.haccValid() )
+    {
+      if ( mCoordinateTransformer->destinationCrs().mapUnits() != Qgis::DistanceUnit::Unknown )
+      {
+        mProjectedHorizontalAccuracy *= QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters,
+                                                                            mCoordinateTransformer->destinationCrs().mapUnits() );
+      }
+      else
+      {
+        mProjectedHorizontalAccuracy = 0.0;
+      }
+    }
   }
 
   if ( mPositionInformation.orientationValid() )
@@ -523,24 +530,4 @@ void Positioning::processGnssPositionInformation()
   }
 
   emit positionInformationChanged();
-}
-
-void Positioning::projectedPositionTransformed()
-{
-  mProjectedPosition = mCoordinateTransformer->projectedPosition();
-  mProjectedHorizontalAccuracy = mPositionInformation.hacc();
-  if ( mPositionInformation.haccValid() )
-  {
-    if ( mCoordinateTransformer->destinationCrs().mapUnits() != Qgis::DistanceUnit::Unknown )
-    {
-      mProjectedHorizontalAccuracy *= QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters,
-                                                                          mCoordinateTransformer->destinationCrs().mapUnits() );
-    }
-    else
-    {
-      mProjectedHorizontalAccuracy = 0.0;
-    }
-  }
-
-  emit projectedPositionChanged();
 }
