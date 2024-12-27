@@ -107,11 +107,22 @@ QgsCoordinateTransformContext QgsQuickCoordinateTransformer::transformContext() 
   return mCoordinateTransform.context();
 }
 
+QgsPoint QgsQuickCoordinateTransformer::transformPosition( const QgsPoint &position )
+{
+  return processPosition( position );
+}
+
 void QgsQuickCoordinateTransformer::updatePosition()
 {
-  double x = mSourcePosition.x();
-  double y = mSourcePosition.y();
-  double z = mSourcePosition.z();
+  mProjectedPosition = processPosition( mSourcePosition );
+  emit projectedPositionChanged();
+}
+
+QgsPoint QgsQuickCoordinateTransformer::processPosition( const QgsPoint &position )
+{
+  double x = position.x();
+  double y = position.y();
+  double z = position.z();
 
   // If Z is NaN, proj's coordinate transformation will
   // also set X and Y to NaN. But we also want to get projected
@@ -137,13 +148,13 @@ void QgsQuickCoordinateTransformer::updatePosition()
   }
 
   if ( mSkipAltitudeTransformation )
-    z = mSourcePosition.z();
+    z = position.z();
 
   if ( !mVerticalGridPath.isEmpty() )
   {
-    std::vector<double> xVector = { mSourcePosition.x() };
-    std::vector<double> yVector = { mSourcePosition.y() };
-    std::vector<double> zVector = { !std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
+    std::vector<double> xVector = { position.x() };
+    std::vector<double> yVector = { position.y() };
+    std::vector<double> zVector = { !std::isnan( position.z() ) ? position.z() : 0 };
     try
     {
       double zDummy = 0.0; // we don't want to manipulate the elevation data yet, use a dummy z value to transform coordinates first
@@ -173,10 +184,10 @@ void QgsQuickCoordinateTransformer::updatePosition()
     }
   }
 
-  mProjectedPosition = QgsPoint( x, y );
-  mProjectedPosition.addZValue( z + mDeltaZ );
+  QgsPoint projectedPoint( x, y );
+  projectedPoint.addZValue( z + mDeltaZ );
 
-  emit projectedPositionChanged();
+  return std::move( projectedPoint );
 }
 
 bool QgsQuickCoordinateTransformer::skipAltitudeTransformation() const
