@@ -133,7 +133,7 @@ Rectangle {
         property int distance: 0
         property bool isTracing: false
 
-        onPressed: {
+        onPressed: mouse => {
           startX = mouse.x;
           startY = mouse.y;
           lastX = mouse.x;
@@ -142,7 +142,7 @@ Rectangle {
           distance = 0;
           isTracing = true;
         }
-        onPositionChanged: {
+        onPositionChanged: mouse => {
           if (!isTracing)
             return;
           var currentVelocity = Math.abs(mouse.y - lastY);
