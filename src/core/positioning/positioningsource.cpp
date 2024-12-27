@@ -153,7 +153,7 @@ void PositioningSource::setBackgroundMode( bool backgroundMode )
   if ( mBackgroundMode )
   {
     QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
-    file.open( QFile::WriteOnly );
+    file.open( QFile::Truncate );
     file.close();
   }
 
