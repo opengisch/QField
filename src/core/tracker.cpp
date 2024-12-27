@@ -246,13 +246,8 @@ void Tracker::sensorDataReceived()
   }
 }
 
-void Tracker::start( bool resetRubberbandModel )
+void Tracker::start()
 {
-  if ( resetRubberbandModel )
-  {
-    mRubberbandModel->reset();
-  }
-
   mIsActive = true;
   emit isActiveChanged();
 
@@ -401,7 +396,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
 
   if ( wasActive )
   {
-    start( false );
+    start();
   }
 }
 
